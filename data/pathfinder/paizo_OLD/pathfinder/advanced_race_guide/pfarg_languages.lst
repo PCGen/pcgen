@@ -1,0 +1,52 @@
+# CVS $Revision: $ $Author: $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012-07-28
+
+# Language	Type
+#Catfolk	TYPE:Spoken.Written.Read
+# Language	Type
+#Samsaran	TYPE:Spoken.Written.Read
+#Strix		TYPE:Spoken.Written.Read
+#Vanaran	TYPE:Spoken.Written.Read
+#Vishkanya	TYPE:Spoken.Written.Read
+#Wayang	TYPE:Spoken.Written.Read
+
+
+#D'ziriak	TYPE:Spoken
+#Grippli	TYPE:Spoken.Written.Read
+#Dwarven - PFCR
+#Elven - PFCR
+#Gnome - PFCR
+#Halfling - PFCR
+#Human - Speaks Common, PFCR
+#Aasimar - Celestial, PFCR
+#Catfolk - Included above.
+#Dhampir - Common, PFCR
+#Drow - Elven and Undercommon, PFCR
+#Fetchlings
+#Goblins
+#Hobgoblins
+#Ifrits
+#Kobold
+#Orc
+#Oread
+#Ratfolk
+#Sylphs
+#Tengus
+#Tieflings
+#Undines
+#Changelings
+#Duergar
+#Gillman
+#Gripplis
+#Kitsune
+#Merfolk
+#Nagaji
+#Samsarans
+#Strix
+#Sulis
+#Svirfneblin
+#Vanaras
+#Vishkanyas
+#Wayangs

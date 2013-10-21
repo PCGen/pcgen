@@ -1,0 +1,6 @@
+# CVS $Revision: 21670 $ $Author: amaitland $ -- Fri Oct  4 22:18:51 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+
+## Spells copied from other sources to avoid direct dependancies
+
+# Spell Name	Classes of caster							School		Spell Descriptors	Components	Casting Time			Range			Target Area or Effect	Duration					Description																																																																																					Source Page

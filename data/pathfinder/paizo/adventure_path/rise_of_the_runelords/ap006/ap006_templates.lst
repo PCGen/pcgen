@@ -1,0 +1,4 @@
+SOURCELONG:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast	SOURCESHORT:AP006	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c	SOURCEDATE:2007-10
+
+# Template Name	Visible	Caster level bonus	Add
+HarridanSpells	VISIBLE:NO	BONUS:PCLEVEL|Cleric|11	ADD:SPELLCASTER|Cleric

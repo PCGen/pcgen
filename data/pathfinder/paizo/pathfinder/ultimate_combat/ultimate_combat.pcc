@@ -1,13 +1,12 @@
-# CVS $Revision$ $Author$ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Combat
+CAMPAIGN:Ultimate Combat
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
-RANK:3
+TYPE:Paizo Publishing.Pathfinder
+RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+SETTING:Pathfinder
+PRECAMPAIGN:1,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -33,53 +32,32 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+
+# Data files
+ABILITY:uc_abilities_class.lst
+ABILITY:uc_abilities_race.lst
+ABILITYCATEGORY:uc_abilitycategories.lst
+CLASS:uc_classes.lst
+EQUIPMENT:uc_equip_general.lst
+EQUIPMENT:uc_equip_arms_armor.lst
+EQUIPMENT:uc_equip_magic_items.lst
+EQUIPMOD:uc_equipmods.lst
+FEAT:uc_feats.lst
+KIT:uc_kits.lst
+RACE:uc_races.lst
+SPELL:uc_spells.lst
+SKILL:uc_skills.lst
+TEMPLATE:uc_templates.lst
+
+ARMORPROF:uc_profs_armor.lst
+WEAPONPROF:uc_profs_weapon.lst
+
+#MOVE TO CORE ESSENTIALS
+COMPANIONMOD:uc_companionmods.lst
+
 # FORWARDREFs for companions defined in Bestiary but used by UC archetypes
 FORWARDREF:RACE|Companion (Bat (Dire)),Companion (Dinosaur (Ankylosaurus)),Companion (Herd Animal (Aurochs)),Companion (Herd Animal (Bison)),Companion (Dinosaur (Brachiosaurus)),Companion (Elephant),Companion (Elephant (Mastodon)),Companion (Dinosaur (Triceratops)),Companion (Dinosaur (Tyrannosaurus))
 
-# Data files
-ABILITY:pfuc_abilities.lst
-ABILITY:pfuc_abilities_archetypes.lst
-ABILITY:pfuc_abilities_racial.lst
-
-ABILITYCATEGORY:pfuc_abilitycategories.lst
-
-CLASS:pfuc_classes.lst
-CLASS:pfuc_classes_base_mod.lst
-
-COMPANIONMOD:pfuc_companionmods.lst
-
-EQUIPMENT:pfuc_equip.lst
-EQUIPMENT:pfuc_equip_armor.lst
-EQUIPMENT:pfuc_equip_close_assault_siege.lst
-
-EQUIPMENT:pfuc_equip_weap_bronzeage.lst
-EQUIPMENT:pfuc_equip_weap_eastern.lst
-EQUIPMENT:pfuc_equip_weap_firearms.lst
-EQUIPMENT:pfuc_equip_weap_gladiator.lst
-EQUIPMENT:pfuc_equip_weap_siege.lst
-EQUIPMENT:pfuc_equip_weap_stoneage.lst
-EQUIPMENT:pfuc_equip_wondrous.lst
-
-EQUIPMENT:pfuc_equip_vehicles.lst
-
-EQUIPMOD:pfuc_equipmods.lst
-
-FEAT:pfuc_feats.lst
-KIT:pfuc_kits.lst
-
-WEAPONPROF:pfuc_profs_weapon.lst
-ARMORPROF:pfuc_profs_armor.lst
-
-RACE:pfuc_races_mod.lst
-
-SPELL:pfuc_spells.lst
-SPELL:pfuc_spells_shortdesc.lst
-
-SKILL:pfuc_skills.lst
-
-TEMPLATE:pfuc_templates.lst
 
 FORWARDREF:CLASSSPELLLIST|Magus
-#
-# End
-#
+

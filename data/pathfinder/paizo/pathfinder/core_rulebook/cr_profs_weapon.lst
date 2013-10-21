@@ -1,0 +1,259 @@
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: abernat
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+# SIMPLE WEAPONS
+# -- unarmed
+# Weapon Name			Type																			Nb Hands
+Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
+Spells (Ray)			TYPE:Simple.RangedTouch.Spell
+Spells (Touch)			TYPE:Simple
+Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
+Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
+# Other
+Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded.Close
+
+# -- light melee
+Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
+Dagger (Punching)			TYPE:Simple.Light.Melee.Dagger.Piercing.MeleePiercing
+Gauntlet (Spiked)			TYPE:Simple.Light.Melee.Piercing.MeleePiercing.Unarmed
+Mace (Light)			TYPE:Simple.Light.Melee.Bludgeoning.Mace
+Sickle				TYPE:Simple.Light.Melee.Slashing.Sickle.MeleeSlashing
+# -- 1-handers
+Club					TYPE:Simple.OneHanded.Melee.Bludgeoning.Club
+Mace (Heavy)			TYPE:Simple.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
+Morningstar				TYPE:Simple.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing
+Shortspear				TYPE:Simple.OneHanded.Melee.Piercing.MeleePiercing.Spear
+# -- 2-handers
+Longspear				TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.Spear
+Quarterstaff			TYPE:Simple.TwoHanded.Melee.Quarterstaff.DoubleWeapon.Bludgeoning.MeleeBludgeoning
+Spear					TYPE:Simple.TwoHanded.Melee.Piercing.MeleePiercing.Spear
+# -- Ranged
+Blowgun				TYPE:Simple.Ranged.Piercing.RangedPiercing.Blowgun
+Crossbow (Heavy)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
+Crossbow (Light)			TYPE:Simple.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
+Dart					TYPE:Simple.Thrown.Piercing.RangedPiercing
+Javelin				TYPE:Simple.Thrown.Piercing.RangedPiercing.Spear
+Sling					TYPE:Simple.Ranged.Bludgeoning.RangedBludgeoning
+
+# Martial
+# -- light
+Axe (Throwing)			TYPE:Martial.Light.Thrown.Slashing.Axe
+Hammer (Light)			TYPE:Martial.Light.Thrown.Melee.Bludgeoning.Hammer
+Handaxe				TYPE:Martial.Light.Melee.Slashing.MeleeSlashing.Axe
+Kukri					TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
+Pick (Light)			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Pick.Axe
+Sap					TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning
+#Shieldbash (Light)		TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning
+Spiked Armor			TYPE:Martial.Light.Melee.Piercing.MeleePiercing
+Starknife				TYPE:Martial.Light.Melee.Ranged.Piercing.MeleePiercing.RangedPiercing.Dagger
+Sword (Short)			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Sword
+# 1-handers
+Battleaxe				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Axe
+Flail					TYPE:Martial.OneHanded.Melee.Bludgeoning.Flail.MeleeBludgeoning
+Longsword				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
+Pick (Heavy)			TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Pick.Axe
+Rapier				TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Sword
+Scimitar				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
+#Shieldbash (Heavy)		TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
+Trident				TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.Spear
+Warhammer				TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Hammer
+# 2-handers
+Falchion				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
+Glaive				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm
+Greataxe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Axe
+Greatclub				TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Club
+Flail (Heavy)			TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
+Greatsword				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
+Guisarme				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm
+Halberd				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.Piercing.MeleePiercing
+Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Spear
+
+Ranseur				TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Polearm
+Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing
+Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
+Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
+# --ranged
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
+# EXOTIC
+# -- light
+Kama					TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing
+Nunchaku				TYPE:Exotic.Light.Melee.Bludgeoning.MeleeBludgeoning
+Sai					TYPE:Exotic.Light.Melee.Thrown.Bludgeoning.MeleeBludgeoning
+Siangham				TYPE:Exotic.Light.Melee.Piercing.MeleePiercing
+# -- 1-handers
+Whip					TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing.Reach
+# -- 2-handers
+Axe (Orc Double)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Orc.Axe.DoubleWeapon
+Chain (Spiked)			TYPE:Exotic.TwoHanded.Melee.Piercing.MeleePiercing.Reach
+Curve Blade (Elven)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.Elven
+Flail (Dire)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
+Hammer (Gnome Hooked)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing.Hammer.Pick.Gnome
+Sword (Two-Bladed)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.DoubleWeapon
+Urgrosh (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.DoubleWeapon.Dwarven
+# -- ranged
+Bolas					TYPE:Exotic.Thrown.Bludgeoning
+Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
+Crossbow (Repeating Heavy)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
+Crossbow (Repeating Light)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery										HANDS:2
+Net					TYPE:Exotic.Thrown.Net
+Shuriken				TYPE:Exotic.Thrown.Piercing.RangedPiercing
+Sling Staff (Halfling)		TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Halfling
+
+# SPECIALS
+Flurry of Blows			TYPE:Special.Light.Melee.Unarmed.Bludgeoning.Monk
+
+# Thrown Rocks
+Rock					TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
+
+###Block: Weapon Groups:
+
+#Axes:
+# Weapon Name				Type
+Battleaxe.MOD				TYPE:Axe
+Waraxe (Dwarven).MOD			TYPE:Axe
+Greataxe.MOD				TYPE:Axe
+Handaxe.MOD					TYPE:Axe
+Pick (Heavy).MOD				TYPE:Axe
+Pick (Light).MOD				TYPE:Axe
+Axe (Orc Double).MOD			TYPE:Axe
+Axe (Throwing).MOD			TYPE:Axe
+
+#Blades, Heavy:
+Sword (Bastard).MOD			TYPE:Bladeheavy
+Curve Blade (Elven).MOD			TYPE:Bladeheavy
+Falchion.MOD				TYPE:Bladeheavy
+Greatsword.MOD				TYPE:Bladeheavy
+Longsword.MOD				TYPE:Bladeheavy
+Scimitar.MOD				TYPE:Bladeheavy
+Scythe.MOD					TYPE:Bladeheavy
+Sword (Two-Bladed).MOD			TYPE:Bladeheavy
+
+#Blades, Light:
+Dagger.MOD					TYPE:Bladelight
+Kama.MOD					TYPE:Bladelight
+Kukri.MOD					TYPE:Bladelight
+Rapier.MOD					TYPE:Bladelight
+Sword (Short).MOD				TYPE:Bladelight
+Sickle.MOD					TYPE:Bladelight
+Starknife.MOD				TYPE:Bladelight
+
+#Bows:
+#Composite Longbow.MOD	TYPE:Bow
+#Composite Shortbow.MOD	TYPE:Bow
+Longbow.MOD					TYPE:Bow
+Shortbow.MOD				TYPE:Bow
+
+#Close:
+Gauntlet.MOD				TYPE:Close
+#Shield (Heavy).MOD	TYPE:Close
+#Shield (Light).MOD	TYPE:Close
+Shieldbash.MOD				TYPE:Close
+Dagger (Punching).MOD			TYPE:Close
+Sap.MOD					TYPE:Close
+#Spiked Armor.MOD	TYPE:Close
+Gauntlet (Spiked).MOD			TYPE:Close
+#Spiked Shield.MOD	TYPE:Close
+Unarmed Strike.MOD			TYPE:Close
+
+#Crossbows:
+Crossbow (Hand).MOD			TYPE:Crossbow
+Crossbow (Heavy).MOD			TYPE:Crossbow
+Crossbow (Repeating Heavy).MOD	TYPE:Crossbow
+Crossbow (Light).MOD			TYPE:Crossbow
+Crossbow (Repeating Light).MOD	TYPE:Crossbow
+
+#Double:
+Flail (Dire).MOD				TYPE:Double
+Urgrosh (Dwarven).MOD			TYPE:Double
+Hammer (Gnome Hooked).MOD		TYPE:Double
+Axe (Orc Double).MOD			TYPE:Double
+Quarterstaff.MOD				TYPE:Double
+Sword (Two-Bladed).MOD			TYPE:Double
+
+
+#Flails:
+Flail (Dire).MOD				TYPE:Flail
+Flail.MOD					TYPE:Flail
+Flail (Heavy).MOD				TYPE:Flail
+Morningstar.MOD				TYPE:Flail
+Chain (Spiked).MOD			TYPE:Flail
+Whip.MOD					TYPE:Flail
+
+#Hammers:
+Club.MOD					TYPE:Hammer
+Greatclub.MOD				TYPE:Hammer
+Mace (Heavy).MOD				TYPE:Hammer
+Hammer (Light).MOD			TYPE:Hammer
+Mace (Light).MOD				TYPE:Hammer
+Warhammer.MOD				TYPE:Hammer
+
+#Monk:
+Kama.MOD					TYPE:Monk
+Quarterstaff.MOD				TYPE:Monk
+Sai.MOD					TYPE:Monk
+Shuriken.MOD				TYPE:Monk
+Unarmed Strike.MOD			TYPE:Monk.Natural
+
+#Natural:
+#Unarmed Strike.MOD	TYPE:
+#Bite.MOD	TYPE:Natural
+#Claw.MOD	TYPE:Natural
+#Gore.MOD	TYPE:Natural
+#Tail.MOD	TYPE:Natural
+#Wing.MOD	TYPE:Natural
+
+#Polearms:
+Glaive.MOD					TYPE:Polearm
+Guisarme.MOD				TYPE:Polearm
+Halberd.MOD					TYPE:Polearm
+Ranseur.MOD					TYPE:Polearm
+
+#Spears:
+Javelin.MOD					TYPE:Spear
+#Harpoon.MOD	TYPE:Spear
+Lance.MOD					TYPE:Spear
+Longspear.MOD				TYPE:Spear
+Shortspear.MOD				TYPE:Spear
+Spear.MOD					TYPE:Spear
+Trident.MOD					TYPE:Spear
+
+#Thrown:
+Blowgun.MOD					TYPE:Thrown
+Bolas.MOD					TYPE:Thrown
+Club.MOD					TYPE:Thrown
+Dagger.MOD					TYPE:Thrown
+Dart.MOD					TYPE:Thrown
+Sling Staff (Halfling).MOD		TYPE:Thrown
+Javelin.MOD					TYPE:Thrown
+Hammer (Light).MOD			TYPE:Thrown
+Net.MOD					TYPE:Thrown
+Shortspear.MOD				TYPE:Thrown
+Shuriken.MOD				TYPE:Thrown
+Sling.MOD					TYPE:Thrown
+Spear.MOD					TYPE:Thrown
+Starknife.MOD				TYPE:Thrown
+Axe (Throwing).MOD			TYPE:Thrown
+Trident.MOD					TYPE:Thrown
+
+
+
+# swordlike weapons (including bastard swords, daggers, elven curve blades, falchions, greatswords, kukris, longswords,
+#punching daggers, rapiers, scimitars, short swords, and two-bladed swords).
+Sword (Bastard).MOD			TYPE:SwordLike.Tengu
+Dagger.MOD					TYPE:SwordLike.Tengu
+Curve Blade (Elven).MOD			TYPE:SwordLike.Tengu
+Falchion.MOD				TYPE:SwordLike.Tengu
+Greatsword.MOD				TYPE:SwordLike.Tengu
+Kukri.MOD					TYPE:SwordLike.Tengu
+Longsword.MOD				TYPE:SwordLike.Tengu
+Dagger (Punching).MOD			TYPE:SwordLike.Tengu
+Rapier.MOD					TYPE:SwordLike.Tengu
+Scimitar.MOD				TYPE:SwordLike.Tengu
+Sword (Short).MOD				TYPE:SwordLike.Tengu
+Sword (Two-Bladed).MOD			TYPE:SwordLike.Tengu
+
+Bastard Sword (Exotic)			TYPE:ExoticExtra.SwordLike.Tengu
+Dwarven Waraxe (Exotic)			TYPE:ExoticExtra

@@ -1,0 +1,48 @@
+CAMPAIGN:Curse of the Crimson Throne, Chapter 4 - A History of Ashes (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Curse of the Crimson Throne
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Curse of the Crimson Throne Player's Guide (Conversion)
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes
+SOURCESHORT:AP010
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9
+SOURCEDATE:2008-07
+ISOGL:YES
+
+COVER:a_history_of_ashes.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9|Buy this publication from Paizo Publishing!
+DESC:Forced to flee the city of Korvosa and pursued by sinister agents of Queen Ileosa, the heroes travel to the Cinderlands to seek out advice on how to defeat the ancient evil that has claimed their queen's mind. Few living today know the truth behind this evil--and those who do are among the Shoanti barbarian tribes preparing to invade Korvosa. The PCs must earn the trust of three tribes in order to realize their goals and save Korvosa from a brutal war.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on Material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 10: A History of Ashes. Copyright 2008, Paizo Publishing, LLC; Author: Michael Kortes
+COPYRIGHT:Advanced Bestiary. Copyright 2004 Green Ronin Publishing LLC. Author Matthew Sernett
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 4: A History of Ashes" Copyright 2008-2010, PCGen Data Team (including, but not limited to Paul Grosse and Eric C Smith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap010_abilities.lst
+ABILITYCATEGORY:ap010_abilitycategories.lst
+EQUIPMENT:ap010_equip_arms_armor.lst
+EQUIPMENT:ap010_equip_general.lst
+EQUIPMENT:ap010_equip_magic_items.lst
+EQUIPMOD:ap010_equipmods.lst
+FEAT:ap010_feats.lst
+RACE:ap010_races.lst
+TEMPLATE:ap010_templates.lst
+WEAPONPROF:ap010_profs_weapon.lst
+

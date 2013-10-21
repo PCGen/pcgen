@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
 # Race Name		Unique Key		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages															Bonus to Ability Pool				Stat bonus						Automatically Gained Language	Ability																										Main Race Type	Type			Template		Challenge Rating
@@ -8,5 +7,6 @@ Samsaran					STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,A
 Tengu			KEY:Tengu_DEG	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL															BONUS:ABILITYPOOL|Tengu Racial Trait|4	BONUS:STAT|DEX,WIS|2	BONUS:STAT|CON|-2	AUTO:LANG|Tengu|Tien		ABILITY:Internal|AUTOMATIC|Tengu Racial Trait Default|PREABILITY:1,CATEGORY=Special Ability,Grant Default Racial Abilities	ABILITY:Internal|AUTOMATIC|Default	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Tengu	CR:1/2
 Wayang					STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Nagaji,Samsaran,Senzar,Tengu					BONUS:ABILITYPOOL|Wayang Racial Trait|4	BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	AUTO:LANG|Wayang|Tien		ABILITY:Internal|AUTOMATIC|Wayang Racial Trait Default|PREABILITY:1,CATEGORY=Special Ability,Grant Default Racial Abilities	ABILITY:Internal|AUTOMATIC|Default	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Wayang	CR:1/2
 
-#Forget Tengu loaded by bestiary
-Tengu.FORGET
+Human.MOD		TEMPLATE:Human Ethnicity
+Half-Elf.MOD	TEMPLATE:Human Ethnicity
+Half-Orc.MOD	TEMPLATE:Human Ethnicity

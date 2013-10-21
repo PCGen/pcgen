@@ -1,0 +1,52 @@
+CAMPAIGN:Rise of the Runelords, Chapter 5 - Sins of the Saviors (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Rise of the Runelords
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Rise of the Runelords Player's Guide (Conversion)
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors
+SOURCESHORT:AP005
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o
+SOURCEDATE:2007-10
+ISOGL:YES
+
+COVER:sins_of_the_saviors.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o|Buy this publication from Paizo Publishing!
+DESC:After defeating the giants of Mokmurian, the heroes discover that Karzoug, an ancient wizard from the long-dead empire of Thassilon, has returned to life. From his city fortress of Xin-Shalast high in the mountains, he has been using the giants to harvest souls to reclaim his lost power.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 5: Sins of the Saviors, Copyright 2007, Paizo Publishing, LLC; Author: Stephen S. Greer.
+COPYRIGHT:Plot & Poison. Copyright 2002 Green Ronin Publishing; Author: Matthew Sernett.
+COPYRIGHT:The Book of Fiends. Copyright 2003 Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Tome of Horrors. Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Unearthed Arcana. Copyright 2004 Wizards of the Coast; Authors: Andy Collins, Jesse Decker, David Noonan, Rich Redman.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 5 - Sins of the Saviors" Copyright 2007-2010, PCGen Data Team (including, but not limited to Andrew Maitland).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap005_abilities.lst
+ABILITY:ap005_abilities_class.lst
+ABILITY:ap005_abilities_race.lst
+CLASS:ap005_classes.lst
+EQUIPMENT:ap005_equip_arms_armor.lst
+EQUIPMOD:ap005_equipmods.lst
+FEAT:ap005_feats.lst
+KIT:ap005_kits_race.lst
+RACE:ap005_races.lst
+SPELL:ap005_spells.lst
+TEMPLATE:ap005_templates.lst
+

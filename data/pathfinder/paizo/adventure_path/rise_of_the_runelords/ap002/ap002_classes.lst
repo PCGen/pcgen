@@ -1,0 +1,14 @@
+SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders	SOURCESHORT:AP002	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
+# Original Entry by: Stefan Radermacher
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Spherewalker	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Sph		MAXLEVEL:5	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Deity	Required Feat																			Required Skill																				Req. Weapond Prof.
+CLASS:Spherewalker	PREATT:5	PREDEITY:1,Desna	PREFEAT:1,Great Fortitude,Iron Will,Lightning Reflexes	PREFEAT:1,Acrobatic,Agile,Athletic,Endurance,Run,Self Sufficient	PRESKILL:2,Climb=2,Knowledge (Geography)=2,Knowledge (Nature)=2,Knowledge (Religion)=2,TYPE.Perform=2,Ride=2,Survival=2,Swim=2	PREWEAPONPROF:1,Starknife
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Spherewalker	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|Escape Artist|Handle Animal|Heal|Knowledge (Geography)|Perception|TYPE=Perform|Ride|Survival|Swim
+1						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Landmark|Longstrider
+2						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Efficient Sleep|Star Slinger
+3						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Dream Link
+4	BONUS:VAR|DivineLuckLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Divine Luck
+5	BONUS:VAR|SwarmFormLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Swarm Form

@@ -1,0 +1,6 @@
+SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants	SOURCESHORT:AP004	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+# Feat Name	Type			Required Race		Required Stat	Required Text				Innate Spells
+Stone Magic	TYPE:General	PRERACE:1,Giant (Stone)	PRESTAT:1,CHA=17	PRETEXT:Must be a Stone Giant Elder	SPELLS:Stone Magic|TIMES=1|CASTERLEVEL=10|Passwall,15+CHA|Spike Stones,14+CHA|Statue,17+CHA|Stoneskin,14+CHA|Wall of Stone,15+CHA
+## The spell=like abilities show up but have the wrong DC listed.

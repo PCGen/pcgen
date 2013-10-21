@@ -1,0 +1,18 @@
+SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors	SOURCESHORT:AP005	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o	SOURCEDATE:2007-10
+
+# Equipment Name				Type							Cost		Weight	Modifier								Innate Spells									Stat bonus					Special Property
+Revelation Quill (Minor Artifact)	TYPE:Magic.Artifact.Minor.Quill.Wondrous			WT:3
+
+
+#Block: Staves ------------------------------------------------------------------------------------------
+Staff of Hungry Shadows			TYPE:Staff.Magic					COST:65000			EQMOD:CHARGED_ITEM_50|CHARGES[50]
+Staff of Mithral Might			TYPE:Staff.Magic					COST:46500			EQMOD:PLUS2W	EQMOD:CHARGED_ITEM_50|CHARGES[50]												BONUS:STAT|INT|2|TYPE=Enhancement
+
+#Block: Runes ------------------------------------------------------------------------------------------------
+Rune of Resistance			TYPE:Magic.Rune					COST:45000																													SPROP:Resistance 10 to two energy types chosen at the time that the rune is inscribed.
+Rune of Obedience				TYPE:Magic.Rune					COST:135000																													SPROP:Wearer agrees to terms and has negatives if he breaks the vow.
+Rune of Contingency			TYPE:Magic.Rune					COST:147000												SPELLS:Item|TIMES=1|CASTERLEVEL=7|Feather Fall|Water Breathing							SPROP:If reduced to 0 or less Hp become Gaseous Cloud; see text
+Rune of the Mistress			TYPE:Magic.Rune					COST:108000																													SPROP:3/day cause -4 to Will vs. enchantment school
+Rune of the Inscrutable One		TYPE:Magic.Rune					COST:36000																													SPROP:Has misdirect spell like functions constantly in effect
+Rune of the Lord's Palanquin		TYPE:Magic.Rune					COST:135000																													SPROP:1/day summon palanquin
+Rune of Razing				TYPE:Magic.Rune					COST:91000																													SPROP:Ignore hardness and Damage Reduction a limited time

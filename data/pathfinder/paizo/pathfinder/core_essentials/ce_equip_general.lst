@@ -1,0 +1,5 @@
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Poison
+# Equipment Name		Output Name		Type					Cost		Weight	Special Property
+Poison (Violet Venom)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:800	WT:0		SPROP:Injury; Fort DC 13; Freq. 1 minute (6); Effect 1d2 Str and 1d2 Con damage; Cure 1 save

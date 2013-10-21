@@ -1,13 +1,12 @@
-# CVS $Revision$ $Author$ -- Sat Apr  2 09:13:16 2011 -- reformated by prettylst.pl v1.39 (build 11455)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Magic
+CAMPAIGN:Ultimate Magic
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
-RANK:3
+TYPE:Paizo Publishing.Pathfinder
+RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder
+PRECAMPAIGN:1,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -59,33 +58,27 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:pfum_abilities_archetypes.lst
-ABILITY:pfum_abilities_class.lst
-ABILITY:pfum_abilities_companions.lst
-ABILITY:pfum_abilities_archetypes_sorcerer_crossblooded.lst
-ABILITY:pfum_abilities_afflictions.lst
-ABILITY:pfum_abilities_creatures.lst
-ABILITY:pfum_abilities_other.lst
-ABILITYCATEGORY:pfum_abilitycategories.lst
-ABILITYCATEGORY:pfum_abilitycategories_sorcerer_crossblooded.lst
-CLASS:pfum_classes_base.lst
-CLASS:pfum_classes_base_mods.lst
-CLASS:pfum_classes_companions.lst
-COMPANIONMOD:pfum_companion_mods.lst
-EQUIPMENT:pfum_equip.lst
-DOMAIN:pfum_domains.lst
-FEAT:pfum_feats.lst
-KIT:pfum_kits_companions.lst
-KIT:pfum_kits.lst
-SHIELDPROF:pfum_profs_shield.lst
-SPELL:pfum_spells.lst
-SPELL:pfum_spells_domain.lst
-SPELL:pfum_spells_mod.lst
-RACE:pfum_races_companions.lst
-TEMPLATE:pfum_templates.lst
-WEAPONPROF:pfum_weaponprofs.lst
+ABILITY:um_abilities.lst
+ABILITY:um_abilities_class.lst
+ABILITY:um_abilities_race.lst
+ABILITYCATEGORY:um_abilitycategories.lst
+CLASS:um_classes.lst
+EQUIPMENT:um_equip_arms_armor.lst
+EQUIPMENT:um_equip_general.lst
+DOMAIN:um_domains.lst
+FEAT:um_feats.lst
+KIT:um_kits.lst
+SPELL:um_spells.lst
+TEMPLATE:um_templates.lst
+
+SHIELDPROF:um_profs_shield.lst
+WEAPONPROF:um_profs_weapon.lst
 
 HIDETYPE:FEAT|RevelationTargetOneOnly|FeatSkillFocusCraft|CrossbloodlineFeat|FeatSkillFocusPerform
-#
-# End
-#
+
+#MOVE TO CORE ESSENTIALS
+ABILITY:um_abilities_companion.lst
+CLASS:um_classes_companion.lst
+COMPANIONMOD:um_companionmods.lst
+KIT:um_kits_companion.lst
+RACE:um_races_companion.lst

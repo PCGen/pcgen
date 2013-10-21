@@ -1,0 +1,136 @@
+CAMPAIGN:Pathfinder Society
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:MultiSet
+SETTING:Pathfinder|Golarion
+SHOWINMENU:YES
+!PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society],BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Society
+SOURCESHORT:PS
+SOURCEWEB:http://paizo.com/pathfinderSociety
+SOURCEDATE:2013-10
+ISOGL:YES
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
+
+COVER:pathfinder_society_logo.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255|Buy this publication from Paizo Publishing!
+DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# PFS Core Assumption
+PCC:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary/bestiary.pcc
+PCC:@/pathfinder/paizo/guide_to_pathfinder_society_organised_play/guide_to_pathfinder_society_organised_play.pcc
+#PFS field guide
+
+
+# PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
+PCC:@/pathfinder/paizo/pathfinder/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder/advanced_race_guide/advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary_2/bestiary_2.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary_3/bestiary_3.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_combat/ultimate_combat.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_equipment/ultimate_equipment.pcc
+#Pathfinder Roleplaying Game: NPC Codex
+
+
+# Pathfinder Adventure Paths
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rise_of_the_runelords_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide_ae/rise_of_the_runelords_players_guide_ae.pcc
+PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/legacy_of_fire_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/council_of_thieves/players_guide/council_of_thieves_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kingmaker_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/serpents_skull/players_guide/serpents_skull_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/carrion_crown/players_guide/carrion_crown_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/jade_regent/players_guide/jade_regent_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/second_darkness/players_guide/second_darkness_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/skull_and_shackles/players_guide/skull_and_shackles_players_guide.pcc
+#PCC:@/pathfinder/paizo/adventure_path/shattered_star/players_guide/shattered_star_players_guide.pcc
+#Reign of Winter
+
+
+# Pathfinder Campaign Settings
+PCC:@/pathfinder/paizo/campaign_setting/dark_markets_a_guide_to_katapesh/dark_markets_a_guide_to_katapesh.pcc
+PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
+PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
+PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
+PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
+PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
+PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets_a_guide_to_the_pathfinder_society/seekers_of_secrets_a_guide_to_the_pathfinder_society.pcc
+#Pathfinder Campaign Setting: Cities of Golarion
+#Pathfinder Campaign Setting: City of Strangers
+#Pathfinder Campaign Setting: Classic Horrors Revisited
+#Pathfinder Campaign Setting: Classic Monsters Revisited
+#Pathfinder Campaign Setting: Classic Treasures Revisited
+#Pathfinder Campaign Setting: Distant Worlds
+#Pathfinder Campaign Setting: Dungeon Denizens Revisited
+#Pathfinder Campaign Setting: Dungeons of Golarion
+#Pathfinder Campaign Setting: Faction Guide
+#Pathfinder Campaign Setting: Giants Revisited
+#Pathfinder Campaign Setting: Gods and Magic
+#Pathfinder Campaign Setting: Horsemen of the Apocalypse
+#Pathfinder Campaign Setting: Inner Sea Magic
+#Pathfinder Campaign Setting: Lands of the Linnorm Kings
+#Pathfinder Campaign Setting: Book of the Damned Volume: 2
+#Pathfinder Campaign Setting: Lost Kingdoms
+#Pathfinder Campaign Setting: Magnimar, City of Monuments
+#Pathfinder Campaign Setting: Mystery Monsters Revisited
+#Pathfinder Campaign Setting: Mythical Monsters Revisited
+#Pathfinder Campaign Setting: Pathfinder Society Field Guide
+#Pathfinder Campaign Setting: Paths of Prestige
+#Pathfinder Campaign Setting: Rival Guide
+
+
+# Pathfinder Player Companions
+PCC:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
+PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
+PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
+PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.pcc
+PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
+PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
+PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+#Pathfinder Player Companion: Adventurer's Armory
+#Pathfinder Player Companion: Andoran, Spirit of Liberty
+#Pathfinder Player Companion: Animal Archive
+#Pathfinder Player Companion: Blood of Angels
+#Pathfinder Player Companion: Blood of Fiends
+#Pathfinder Player Companion: Blood of the Night
+#Pathfinder Player Companion: Dungeoneer's Handbook
+#Pathfinder Player Companion: Elves of Golarion
+#Pathfinder Player Companion: Faiths of Balance
+#Pathfinder Player Companion: Faiths of Corruption
+#Pathfinder Player Companion: Goblins of Golarion
+#Pathfinder Player Companion: Humans of Golarion
+#Pathfinder Player Companion: Knights of the Inner Sea
+#Pathfinder Player Companion: Osirion, Land of Pharaohs
+#Pathfinder Player Companion: People of the North
+#Pathfinder Player Companion: Taldor, Echoes of Glory
+#Pathfinder Player Companion: Varisia, Birthplace of Legends
+
+# Other Pathfinder RPG sources in PCGen which aren't allowed for PFS
+#PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
+#PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc

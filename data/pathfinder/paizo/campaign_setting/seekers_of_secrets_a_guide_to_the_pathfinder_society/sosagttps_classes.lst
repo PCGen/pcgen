@@ -1,0 +1,50 @@
+SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOSAGTTPS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# Original Entry by: Terry Milnes & Paul Shipley (elro the onk)
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Save checks bonus												Combat bonus
+CLASS:Pathfinder Delver	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PaD		MAXLEVEL:10	SOURCEPAGE:p.58	DEFINE:PaDLvl|CL	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Skill											Required Text
+CLASS:Pathfinder Delver	PRESKILL:4,Acrobatics=5,Disable Device=4,Knowledge (History)=4,Perception=5	PRETEXT:Must have recovered an object of historical significance from an ancient ruin or similar location
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pathfinder Delver	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Escape Artist|TYPE.Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Survival|Swim|Use Magic Device
+1	BONUS:VAR|BardicKnowledgeLVL|CL	BONUS:VAR|PaDSkillBonus|max(1,CL/2)	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Master Explorer ~ PaD
+2	BONUS:VAR|RogueTrapSenseLVL|CL+1							ABILITY:Special Ability|AUTOMATIC|Surefooted ~ PaD|Trap Sense ~ Rogue
+3	BONUS:VAR|PaDEscapeTimes|1								ABILITY:Special Ability|AUTOMATIC|Guardbreaker ~ PaD|Thrilling Escape ~ PaD
+4	BONUS:VAR|PaDInitiative|CL/2								ABILITY:Special Ability|AUTOMATIC|Resourceful Disabler ~ PaD|Vigilant Combatant ~ PaD
+5													ABILITY:Special Ability|AUTOMATIC|Left for Dead ~ PaD
+6	BONUS:VAR|PaDFortunateTimes|1								ABILITY:Special Ability|AUTOMATIC|Fortunate Soul ~ PaD
+7	BONUS:VAR|PaDEscapeTimes|1
+9	BONUS:VAR|PaDEscapeTimes|1								ABILITY:Special Ability|AUTOMATIC|True Seeing ~ PaD
+10	BONUS:VAR|PaDFortunateTimes|1								ABILITY:Special Ability|AUTOMATIC|Nick of Time ~ PaD
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Save checks bonus													Combat bonus
+CLASS:Pathfinder Savant	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PaS		MAXLEVEL:7	SOURCEPAGE:p.60	DEFINE:PaSLvl|CL	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Required Feat								Required Skill									Req. Spell Type
+CLASS:Pathfinder Savant	PREFEAT:1,Magical Aptitude	PREFEAT:1,TYPE=ItemCreation	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5|Use Magic Device=5	PRESPELLTYPE:1,Arcane=2,Divine=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE.Craft|TYPE.Knowledge|Linguistics|Perception|TYPE.Profession|Spellcraft|Use Magic Device
+1	BONUS:VAR|PaSSkillBonus|max(1,CL/2)					ABILITY:Special Ability|AUTOMATIC|Adept Activation ~ PaS|Master Scholar ~ PaS
+2	BONUS:VAR|PaSEsotericSpells|CL-1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Esoteric Magic ~ PaS|Glyph Finding ~ PaS
+3							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Scroll Master ~ PaS
+4	BONUS:VAR|PaSIdentifyTimes|CL/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Quick Identification ~ PaS
+5	BONUS:VAR|PaSSaveBonus|CL		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sigil Master ~ PaS
+6	BONUS:VAR|PaSAnalyzeDuration|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Analyze Dweomer ~ PaS|Silence Master ~ PaS
+7							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Dispelling Master ~ PaS
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Save checks bonus													Combat bonus
+CLASS:Student of War	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SoW		MAXLEVEL:10	SOURCEPAGE:p.62	DEFINE:SoWLvl|CL	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Feat										Required Skill			Required Text																Req. Weapond Prof.
+CLASS:Student of War	PREFEAT:2,Combat Expertise,Dodge PREFEAT:1,Skill Focus(Knowledge%)	PRESKILL:2,TYPE.Knowledge=4	PRETEXT:Must have made successful Knowledge checks against five distinct creatures prior to defeating them	PREWEAPONPROF:2,TYPE.Martial,TYPE.Martial
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Student of War	STARTSKILLPTS:6	CSKILL:Climb|TYPE.Craft|Disable Device|Handle Animal|TYPE.Knowledge|Linguistics|Perception|TYPE.Profession|Sense Motive|Spellcraft|Survival|Swim
+1								BONUS:VAR|SoWKnowEnemy|1	BONUS:VAR|SoWDuration|CL	ABILITY:Special Ability|AUTOMATIC|Know Your Enemy ~ SoW|Stances ~ SoW
+2	BONUS:ABILITYPOOL|Fighter Bonus Feat|1											ABILITY:Special Ability|AUTOMATIC|Mind Over Metal ~ SoW
+3								BONUS:VAR|SoWAnticipateTimes|CL/3					ABILITY:Special Ability|AUTOMATIC|Anticipate ~ SoW
+4								BONUS:VAR|SoWKnowEnemy|1
+5	BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+6																		ABILITY:Special Ability|AUTOMATIC|Telling Blow ~ SoW
+7								BONUS:VAR|SoWKnowEnemy|1
+8	BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+9																		ABILITY:Special Ability|AUTOMATIC|Nemesis ~ SoW
+10																		ABILITY:Special Ability|AUTOMATIC|Deadly Blow ~ SoW
+

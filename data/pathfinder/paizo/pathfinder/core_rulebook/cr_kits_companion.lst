@@ -1,0 +1,477 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Andrew Maitland
+
+###Block: Companion Kits
+STARTPACK:Companion ~ Ape	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Companion ~ Badger	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Bear	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Bird	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Boar	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Camel	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Big Cat	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Small Cat	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Crocodile	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Dinosaur	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Dog	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Horse	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Pony	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Shark	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Snake	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Wolf	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Dire Rat	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+
+###Block: Familiars --------------------------------------
+STARTPACK:Familiar ~ Bat	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Fly	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Cat	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Hawk	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Lizard	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Monkey	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Owl	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Rat	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Raven	TYPE:Companion	VISIBLE:NO
+STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Raven Familiar Language	TYPE:Companion	VISIBLE:NO
+TEMPLATE:Raven Familiar Language
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Toad	TYPE:Companion	VISIBLE:NO
+STAT:CON=10|STR=10|DEX=10|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Familiar ~ Viper	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Weasel	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
+SKILL:Escape Artist	RANK:1
+FEAT:Weapon Finesse
+
+
+###Block: Improved Familiars -----------------------------
+STARTPACK:Familiar ~ Dire Rat	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Familiar ~ Air Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Fly				RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+FEAT:Flyby Attack
+
+STARTPACK:Familiar ~ Earth Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Appraise				RANK:1
+SKILL:Climb					RANK:1
+SKILL:Knowledge (Dungeoneering)	RANK:1
+SKILL:Knowledge (Planes)		RANK:1
+SKILL:Perception				RANK:1
+SKILL:Stealth				RANK:1
+FEAT:Power Attack
+
+STARTPACK:Familiar ~ Fire Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:1
+SKILL:Climb				RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Intimidate			RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+FEAT:Dodge
+
+STARTPACK:Familiar ~ Water Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics			RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:1
+SKILL:Stealth			RANK:1
+SKILL:Swim				RANK:1
+FEAT:Power Attack
+
+STARTPACK:Familiar ~ Stirge	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Homunculus	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+FEAT:Lightning Reflexes
+
+STARTPACK:Familiar ~ Imp	TYPE:Companion	VISIBLE:NO
+ALIGN:LE
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics			RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Spellcraft			RANK:3
+FEAT:Dodge
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Mephit	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Bluff		RANK:3
+SKILL:Fly		RANK:3
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:3
+FEAT:Dodge
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Pseudodragon	TYPE:Companion	VISIBLE:NO
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Diplomacy		RANK:2
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Stealth		RANK:2
+SKILL:Survival		RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Quasit	TYPE:Companion	VISIBLE:NO
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Intimidate			RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+
+
+###Block: Shadow Companion -------------------------------
+STARTPACK:Companion (Shadow)	TYPE:Companion	VISIBLE:NO
+RACE:Companion (Shadow)	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Fly		RANK:2
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:3
+FEAT:Dodge
+FEAT:Skill Focus (Perception)
+
+
+###Block: Alignment Kits ------------------
+STARTPACK:LG	VISIBLE:NO	APPLY:INSTANT
+ALIGN:LG
+
+STARTPACK:NG	VISIBLE:NO	APPLY:INSTANT
+ALIGN:NG
+
+STARTPACK:CG	VISIBLE:NO	APPLY:INSTANT
+ALIGN:CG
+
+STARTPACK:LN	VISIBLE:NO	APPLY:INSTANT
+ALIGN:LN
+
+STARTPACK:TN	VISIBLE:NO	APPLY:INSTANT
+ALIGN:TN
+
+STARTPACK:CN	VISIBLE:NO	APPLY:INSTANT
+ALIGN:CN
+
+STARTPACK:LE	VISIBLE:NO	APPLY:INSTANT
+ALIGN:LE
+
+STARTPACK:NE	VISIBLE:NO	APPLY:INSTANT
+ALIGN:NE
+
+STARTPACK:CE	VISIBLE:NO	APPLY:INSTANT
+ALIGN:CE
+
+
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Companion ~ Dinosaur (Allosaurus)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Dinosaur (Parasaurolophus)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Dinosaur (Tylosaurus)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Gar	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Herd Animal (Ram)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+STARTPACK:Companion ~ Hippopotamus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Megafauna (Arsinoitherium)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Megafauna (Gylptodon)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Megafauna (Megaloceros)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Megafauna (Megatherium)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Primate (Baboon)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Companion ~ Ray (Manta)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Ray (Stingray)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Turtle (Giant Snapping)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Familiar ~ Paracletus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+SKILL:Intimidate			RANK:3
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Sense Motive		RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Great Fortitude
+FEAT:Iron Will
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+
+STARTPACK:Familiar ~ Silvanshee	TYPE:Companion	VISIBLE:NO
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:2
+SKILL:Climb				RANK:2
+SKILL:Knowledge (Arcana)	RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Cassisian	TYPE:Companion	VISIBLE:NO
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:2
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Knowledge (Religion)	RANK:1
+SKILL:Perception			RANK:2
+SKILL:Sense Motive		RANK:1
+SKILL:Stealth			RANK:1
+FEAT:Iron Will
+
+STARTPACK:Familiar ~ Lyrakien	TYPE:Companion	VISIBLE:NO
+ALIGN:CG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:TYPE.Knowledge	RANK:3
+SKILL:Perception		RANK:3
+SKILL:TYPE.Perform	RANK:3
+SKILL:Spellcraft		RANK:3
+SKILL:Stealth		RANK:3
+FEAT:Agile Maneuvers
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Brownie	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics
+SKILL:Bluff
+SKILL:TYPE.Craft
+SKILL:Escape Artist
+SKILL:Handle Animal
+SKILL:Perception
+SKILL:Sense Motive
+SKILL:Stealth
+FEAT:Dodge
+
+STARTPACK:Familiar ~ Cacodaemon	TYPE:Companion	VISIBLE:NO
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Familiar ~ Compsognathus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Small Ice Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Power Attack
+
+STARTPACK:Familiar ~ Small Lightning Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+SKILL:Acrobatics			RANK:2
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:2
+FEAT:Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Familiar ~ Small Magma Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Dungeoneering)	RANK:2
+SKILL:Perception				RANK:2
+SKILL:Stealth				RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Small Mud Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:1
+FEAT:Power Attack
+
+STARTPACK:Familiar ~ Arbiter	TYPE:Companion	VISIBLE:NO
+ALIGN:LN
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:2
+SKILL:Fly				RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Sense Motive		RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Flyby Attack
+GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+
+STARTPACK:Familiar ~ Voidworm	TYPE:Companion	VISIBLE:NO
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Escape Artist		RANK:1
+SKILL:Fly				RANK:1
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:1
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Cythnigot	TYPE:Companion	VISIBLE:NO
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse

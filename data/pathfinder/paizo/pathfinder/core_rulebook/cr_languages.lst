@@ -1,0 +1,26 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+# Language	Type
+Abyssal	TYPE:Spoken.Written.Read.Planar
+Aklo		TYPE:Spoken.Written.Read
+Aquan		TYPE:Spoken.Written.Read.Elemental
+Auran		TYPE:Spoken.Written.Read.Elemental
+Celestial	TYPE:Spoken.Written.Read.Planar
+Common	TYPE:Spoken.Written.Read
+Draconic	TYPE:Spoken.Written.Read
+Druidic	TYPE:Spoken.Written.Read
+Dwarven	TYPE:Spoken.Written.Read
+Elven		TYPE:Spoken.Written.Read
+Giant		TYPE:Spoken.Written.Read
+Gnoll		TYPE:Spoken.Written.Read
+Gnome		TYPE:Spoken.Written.Read
+Goblin	TYPE:Spoken.Written.Read
+Halfling	TYPE:Spoken.Written.Read
+Ignan		TYPE:Spoken.Written.Read.Elemental
+Infernal	TYPE:Spoken.Written.Read.Planar
+Orc		TYPE:Spoken.Written.Read
+Sylvan	TYPE:Spoken.Written.Read
+Terran	TYPE:Spoken.Written.Read.Elemental
+Undercommon	TYPE:Spoken.Written.Read

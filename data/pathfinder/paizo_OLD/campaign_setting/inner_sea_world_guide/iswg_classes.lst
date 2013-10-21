@@ -1,0 +1,95 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:43:22 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+
+# Class Name	Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
+CLASS:Harrower	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Har		MAXLEVEL:10	SOURCEPAGE:p.276	DEFINE:HarrowerLvl|CL	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Restricted AL	Required Feat		Required Skill													Required Spell School		Req. Spell Type				Required Text
+CLASS:Harrower	!PREALIGN:TN	PREFEAT:1,Harrowed	PRESKILL:1,Knowledge (Arcana)=5,Knowledge (Religion)=5	PRESKILL:1,TYPE.Perform=5	PRESPELLSCHOOL:3,Divination=0	PRESPELLTYPE:1,Arcane=3,Divine=3	PRETEXT:Must own a Harrow deck
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Harrower	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
+###Block: Ability Progression
+1								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blessing of the Harrow
+2								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Harrow Casting|Tower of Intelligence
+3								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Strength
+4								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Charisma
+5	BONUS:VAR|SpiritDeckTimes|max(1,1+CHA)	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Spirit Deck
+6								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Divination ~ Harrower
+7								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Constitution
+8								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Dexterity
+9								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Wisdom
+10								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Reading the Signs
+
+# Class Name	Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
+CLASS:Hellknight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HKn		MAXLEVEL:10	SOURCEPAGE:p.278	DEFINE:HellknightLvl|CL	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required AL		Req. Att.	Required Feat				Required Skill						Required Text
+CLASS:Hellknight	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Armor Proficiency (Heavy)	PRESKILL:2,Intimidate=5,Knowledge (Planes)=2	PRETEXT:Must slay a devil with HD greater than your own. This must be witnessed by a Hellknight
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|Ride|Sense Motive
+###Block: Level Progression
+1									BONUS:VAR|AuraLawLVL|TL-AlignmentAuraLVL				ABILITY:Special Ability|AUTOMATIC|Aura of Law
+1	BONUS:ABILITYPOOL|Hellknight Order|1		BONUS:VAR|HKSmiteTimes|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Detect Chaos ~ HK|Smite Chaos ~ HK
+2																			ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ HK|PREVARGT:3+CHA,0
+2									BONUS:VAR|HKArmor|(CL+1)/3						ABILITY:Special Ability|AUTOMATIC|Hellknight Armor ~ HK
+3	BONUS:ABILITYPOOL|Hellknight Force of Will 1|1	BONUS:VAR|HKDiscipline|CL/3	BONUS:VAR|HKForceOfWill|CL/3	ABILITY:Special Ability|AUTOMATIC|Discipline ~ HK|Force of Will ~ HK
+6	BONUS:ABILITYPOOL|Hellknight Force of Will 2|1
+7																			ABILITY:Special Ability|AUTOMATIC|Lawbringer ~ HK
+9	BONUS:ABILITYPOOL|Hellknight Force of Will 3|1											ABILITY:Special Ability|AUTOMATIC|Infernal Armor ~ HK
+10																			ABILITY:Special Ability|AUTOMATIC|Hell's Knight ~ HK
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
+CLASS:Low Templar	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Low		MAXLEVEL:10	SOURCEPAGE:p.280	DEFINE:LowTemplarLvl|CL	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feat							Required Skill
+CLASS:Low Templar	PREFEAT:2,Mounted Combat,Weapon Focus(TYPE=Martial)	PRESKILL:2,Bluff=5,Ride=5	PRESKILL:1,Knowledge (Nobility)=2,Knowledge (Planes)=2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Handle Animal|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Knowledge (Planes)|Linguistics|Ride|Sense Motive|Stealth|Survival
+###Block: Weapon & Armor Proficiencies
+1	ABILITY:Class Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1												AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1												AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+###Block: Level Progression
+1									BONUS:VAR|LowCrusader|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Crusader ~ Low|Flag of Convenience ~ Low
+2															ABILITY:Special Ability|AUTOMATIC|Dirty Fighting ~ Low
+3									BONUS:VAR|SneakAttackDice|(CL+2)/5	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+5	BONUS:ABILITYPOOL|Low Templar Path|1								ABILITY:Special Ability|AUTOMATIC|Live to Fight Another Day ~ Low
+6															ABILITY:Special Ability|AUTOMATIC|Ruthless ~ Low
+9															ABILITY:Special Ability|AUTOMATIC|Parting Shot ~ Low
+10	BONUS:ABILITYPOOL|Low Templar Final Choice|1							ABILITY:Special Ability|AUTOMATIC|Planar Cohort ~ Low
+
+# Class Name			Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
+CLASS:Red Mantis Assassin	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:RMA		MAXLEVEL:10	SOURCEPAGE:p.282	DEFINE:RedMantisLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Required AL	Required Feat																	Required Skill
+CLASS:Red Mantis Assassin	PREALIGN:LE	PREFEAT:4,Alertness,Exotic Weapon Proficiency (Sawtooth Sabre),Two-Weapon Fighting,Weapon Focus (Sawtooth Sabre)	PRESKILL:3,Intimidate=5,Perception=5,Stealth=5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Red Mantis Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|Disguise|Escape Artist|Heal|Intimidate|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility)|Knowledge (Religion)|Perception|Sense Motive|Stealth
+# Class Name			Spell Stat		Spell Type		Memorize	Spell Scoll Prohibited										Caster level					Use Spell List
+CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|CL	SPELLLIST:2|Sorcerer|Wizard
+###Block: Weapon & Armor Proficiencies
+1	ABILITY:Class Ability|AUTOMATIC|RMA Weapon Proficiencies
+1											AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1											AUTO:FEAT|Armor Proficiency (Light)
+###Block: Level Progression
+1	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL	ABILITY:Special Ability|AUTOMATIC|Sabre Fighting|Sneak Attack|Armored Casting ~ RMA
+2											ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells
+3											ABILITY:Special Ability|AUTOMATIC|Red Shroud
+4	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Summon Mantis
+5	BONUS:VAR|SabreFighting|1						ABILITY:Special Ability|AUTOMATIC|Resurrection Sense
+6											ABILITY:Special Ability|AUTOMATIC|Mantis Form|PREVARLT:RedMantisLvl,8
+7	BONUS:VAR|SneakAttackDice|1
+8											ABILITY:Special Ability|AUTOMATIC|Fading	ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|PREVARLT:RedMantisLvl,10
+9											ABILITY:Special Ability|AUTOMATIC|Mantis Doom
+10	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
+###Block: Spells
+1	CAST:0,1		KNOWN:0,2
+2	CAST:0,2		KNOWN:0,3
+3	CAST:0,3		KNOWN:0,4
+4	CAST:0,3,1		KNOWN:0,4,2
+5	CAST:0,4,2		KNOWN:0,4,3
+6	CAST:0,4,3		KNOWN:0,4,4
+7	CAST:0,4,3,1	KNOWN:0,5,4,2
+8	CAST:0,4,4,2	KNOWN:0,5,4,3
+9	CAST:0,5,4,3	KNOWN:0,5,4,4
+10	CAST:0,5,4,3,1	KNOWN:0,5,5,4,2
+
+# Class Name
+CLASS:Druid.MOD
+1	PROHIBITSPELL:DESCRIPTOR.Fire|PREFEAT:1,Shade of the Uskwood

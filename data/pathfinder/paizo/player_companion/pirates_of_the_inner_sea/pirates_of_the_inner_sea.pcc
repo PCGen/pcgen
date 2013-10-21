@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Pirates of the Inner Sea
+CAMPAIGN:Pirates of the Inner Sea
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Pirates of the Inner Sea
-SOURCESHORT:PotIS
+SOURCESHORT:POTIS
 SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea
 SOURCEDATE:2012-04
 ISOGL:YES
@@ -27,27 +26,22 @@ DESC:Draw your cutlass and set sail for adventure! For thousands of years, pirat
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Player Companion: Pirates of the Inner Sea Copyright 2012, Paizo Publishing, LLC; Author: Amber E. Scott.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Pirates of the Inner Sea" Copyright 2012, PCGen Data Team (including, but not limited to Stefan Radermacher)
+COPYRIGHT:Player Companion: Pirates of the Inner Sea Copyright 2012, Paizo Publishing, LLC; Author: Amber E. Scott.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Pirates of the Inner Sea" Copyright 2012, PCGen Data Team (including, but not limited to Stefan Radermacher)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:potis_abilities_archetypes.lst
+ABILITY:potis_abilities.lst
 ABILITY:potis_abilities_class.lst
-ABILITY:potis_abilities_traits.lst
 ABILITYCATEGORY:potis_abilitycategories.lst
-CLASS:potis_classes_prestige.lst
-EQUIPMENT:potis_equip.lst
-EQUIPMENT:potis_equip_weapons_melee.lst
-EQUIPMENT:potis_equip_weapons_ranged.lst
+CLASS:potis_classes.lst
+EQUIPMENT:potis_equip_general.lst
+EQUIPMENT:potis_equip_arms_armor.lst
 SPELL:potis_spells.lst
 WEAPONPROF:potis_profs_weapon.lst
 
 # Forward References
 FORWARDREF:CLASSSPELLLIST|Witch
 
-#
-# End
-#

@@ -1,0 +1,5 @@
+SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight	SOURCESHORT:AP018	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1	SOURCEDATE:2009-01
+
+
+# Equipment Name	Product Identity?	Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Requires Modification?	Reach		Size		Source Page		Special Property
+Lash of Abraxas	NAMEISPI:YES	PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Subdual.Slashing	COST:97700	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:BANE|Humanoids (elf).LEATHER.PLUS1W.WOUND	WIELD:OneHanded	MODS:NO			REACH:15	SIZE:M	SOURCEPAGE:pg. 42	SPROP:Intelligent, Can cast poison (DC 18) upon any creature struck

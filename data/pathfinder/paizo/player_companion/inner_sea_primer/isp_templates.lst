@@ -1,0 +1,63 @@
+# CVS $Revision: 19388 $ $Author: zaister $ -- Mon Apr 25 17:42:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
+# Original Entry by:Stefan Radermacher
+
+###Block: Human Ethnicities
+# Template Name			Product Identity?	Visible	Source Page		Subrace
+Human Ethnicity (Azlanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Azlanti
+Human Ethnicity (Chelaxian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Chelaxian
+Human Ethnicity (Garundi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Garundi
+Human Ethnicity (Keleshite)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Keleshite
+Human Ethnicity (Kellid)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Kellid
+Human Ethnicity (Mwangi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Mwangi
+Human Ethnicity (Shoanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Shoanti
+Human Ethnicity (Taldan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Taldan
+Human Ethnicity (Tian)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Tian
+Human Ethnicity (Ulfen)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Ulfen
+Human Ethnicity (Varisian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Varisian
+Human Ethnicity (Vudrani)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Vudrani
+
+###Block: Regional Affinities
+# Template Name					Product Identity?	Visible	Source Page		Bonus Languages					Region
+Regional Affinity (Absalom)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.4	LANGBONUS:Kelish,Osiriani			REGION:Absalom
+Regional Affinity (Andoran)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.4								REGION:Andoran
+Regional Affinity (Belkzen)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	LANGBONUS:Orc					REGION:Belkzen
+Regional Affinity (Brevoy)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	LANGBONUS:Draconic,Hallit,Skald,Varisian	REGION:Brevoy
+Regional Affinity (Cheliax)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	LANGBONUS:Infernal				REGION:Cheliax
+Regional Affinity (Druma)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	LANGBONUS:Dwarven					REGION:Druma
+Regional Affinity (Five Kings Mountains)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.7	LANGBONUS:Dwarven					REGION:Five Kings Mountains
+Regional Affinity (Galt)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.7	LANGBONUS:Hallit					REGION:Galt
+Regional Affinity (Geb)				NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	LANGBONUS:Kelish,Osiriani			REGION:Geb
+Regional Affinity (Irrisen)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	LANGBONUS:Hallit,Skald				REGION:Irrisen
+Regional Affinity (Isger)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.9								REGION:Isger
+Regional Affinity (Jalmeray)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.9	LANGBONUS:Vudrani					REGION:Jalmeray
+Regional Affinity (Katapesh)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.10	LANGBONUS:Kelish,Osiriani,Tien,Vudrani	REGION:Katapesh
+Regional Affinity (Kyonin)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.10	LANGBONUS:Elven					REGION:Kyonin
+Regional Affinity (Lastwall)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.11	LANGBONUS:Varisian				REGION:Lastwall
+Regional Affinity (Linnorm Kings)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.11	LANGBONUS:Skald					REGION:Lands of the Linnorm Kings
+Regional Affinity (Mammoth Lords)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.12	LANGBONUS:Giant,Hallit				REGION:Realm of the Mammoth Lords
+Regional Affinity (Mana Wastes)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.12	LANGBONUS:Kelish,Osiriani			REGION:Mana Wastes
+Regional Affinity (Mendev)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.13	LANGBONUS:Hallit					REGION:Mendev
+Regional Affinity (Molthune)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.13	LANGBONUS:Varisian				REGION:Molthune
+Regional Affinity (Mwangi Expanse)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.14	LANGBONUS:Polyglot				REGION:Mwangi Expanse
+Regional Affinity (Nex)				NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.14	LANGBONUS:Kelish,Osiriani,Vudrani		REGION:Nex
+Regional Affinity (Nidal)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.15	LANGBONUS:Shadowtongue,Varisian		REGION:Nidal
+Regional Affinity (Nirmathas)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.15	LANGBONUS:Varisian				REGION:Nirmathas
+Regional Affinity (Numeria)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.16	LANGBONUS:Hallit					REGION:Numeria
+Regional Affinity (Osirion)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.16	LANGBONUS:Osiriani				REGION:Osirion
+Regional Affinity (Qadira)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	LANGBONUS:Kelish					REGION:Qadira
+Regional Affinity (Rahadoum)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	LANGBONUS:Osiriani				REGION:Rahadoum
+Regional Affinity (Razmiran)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.18	LANGBONUS:Hallit					REGION:Razmiran
+Regional Affinity (River Kingdoms)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.18	LANGBONUS:Hallit					REGION:The River Kingdoms
+Regional Affinity (Sargava)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.19	LANGBONUS:Polyglot				REGION:Sargava
+Regional Affinity (Shackles)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.19	LANGBONUS:Polyglot				REGION:The Shackles
+Regional Affinity (Sodden Lands)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.20	LANGBONUS:Polyglot				REGION:Sodden Lands
+Regional Affinity (Steaming Sea)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.20	LANGBONUS:Azlanti,Elven,Hallit,Skald	REGION:Steaming Sea
+Regional Affinity (Taldor)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21	LANGBONUS:Azlanti,Elven,Hallit,Skald	REGION:Taldor
+Regional Affinity (Thuvia)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.21	LANGBONUS:Kelish					REGION:Thuvia
+Regional Affinity (Ustalav)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.22	LANGBONUS:Skald,Varisian			REGION:Ustalav
+Regional Affinity (Varisia)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.22	LANGBONUS:Shoanti,Varisian			REGION:Varisia
+
+#
+# End
+#

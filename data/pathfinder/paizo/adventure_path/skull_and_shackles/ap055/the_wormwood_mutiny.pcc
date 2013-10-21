@@ -1,0 +1,41 @@
+CAMPAIGN:Skull and Shackles, Chapter 1 - The Wormwood Mutiny
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Skull and Shackles
+RANK:4
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Skull and Shackles Player's Guide
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny
+SOURCESHORT:AP055
+SOURCEWEB:http://paizo.com/products/btpy8rcc
+#Blog post about familiars in module adding new familiars to the module - http://paizo.com/paizo/blog/v5748dyo5ldc5?Pirate-Familiars
+SOURCEDATE:2012-04
+ISOGL:YES
+
+COVER:the_wormwood_mutiny.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/paizo/blog/v5748dyo5ldc5|Read the blog entry at Paizo Publishing
+DESC:Pirate Familiars for all your pirate characters.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Paizo Blog — Pirate Familiars. Copyright 2012, Paizo Publishing, LLC; Authors: Rob McCreary
+COPYRIGHT:PCGen dataset conversion for "Paizo - Blog: Pirate Familiars" Copyright 2012, PCGen Data Team (including, but not limited to Vincent Lhote, Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+COMPANIONMOD:ap055_companionmods.lst
+RACE:ap055_races_companions.lst
+KIT:ap055_kits_companions.lst
+ABILITY:ap055_abilities_class.lst
+

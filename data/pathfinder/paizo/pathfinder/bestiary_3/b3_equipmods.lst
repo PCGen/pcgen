@@ -1,0 +1,8 @@
+# CVS $Revision: 21638 $ $Author: amaitland $ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# Original Entry By: W. Robert 'Mynex' Reed III
+# Entry Date: August 2013
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
+
+# Modifier Name	Unique Key	Type		Plus		Visible		Source Page		Required Type			Special Property
+Bleed			KEY:BLEED	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.62	PRETYPE:1,Enhancement.Weapon	SPROP:deals 2d6 points of bleed damage per hit
+Paper Cut		KEY:PPRCT	TYPE:Weapon			VISIBLE:QUALIFY	SOURCEPAGE:p.76	PRETYPE:1,Weapon			SPROP:deals 1d6 points of bleed damage per hit

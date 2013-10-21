@@ -1,0 +1,232 @@
+# CVS $Revision: 17406 $ $Author: amaitland $ -- Fri Oct  4 22:18:51 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UEQP	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+# Original Entry by: Stefan Radermacher
+
+
+###Block: Materials
+# Modifier Name	Unique Key		Naming Option	Type														Cost			Visible		Type granted	Source Page		Required Type		Prohibited Type
+Bone			KEY:BONE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0		VISIBLE:QUALIFY	ITYPE:Bone		SOURCEPAGE:52	PRETYPE:1,Metal,Wooden
+Bronze		KEY:BRONZE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0		VISIBLE:QUALIFY	ITYPE:Bronze	SOURCEPAGE:53	PRETYPE:1,Metal
+Gold			KEY:GOLD		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:(BASECOST)*9	VISIBLE:QUALIFY	ITYPE:Gold		SOURCEPAGE:53	PRETYPE:1,Metal
+Obsidian		KEY:OBSIDIAN	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0		VISIBLE:QUALIFY	ITYPE:Obsidian	SOURCEPAGE:53	PRETYPE:1,Wooden
+Stone			KEY:STONE		NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0		VISIBLE:QUALIFY	ITYPE:Stone		SOURCEPAGE:53					!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+Angelskin			KEY:ANGEL_LT		TYPE:BaseMaterial.MasterworkQuality.Armor					COST:1000				ITYPE:Angelskin			REPLACES:MWORKA		SOURCEPAGE:48	PRETYPE:1,Light	PRETYPE:1,Nonmetal		SPROP:5 hp/inch, hardness 5
+Angelskin			KEY:ANGEL_MED		TYPE:BaseMaterial.MasterworkQuality.Armor					COST:2000				ITYPE:Angelskin			REPLACES:MWORKA		SOURCEPAGE:48	PRETYPE:1,Medium	PRETYPE:1,Nonmetal		SPROP:5 hp/inch, hardness 5
+Blood Crystal		KEY:BLOOD_C_AMMO		TYPE:BaseMaterial.Ammunition							COST:30				ITYPE:BloodCrystal						SOURCEPAGE:48	PRETYPE:1,Metal	PRETYPE:1,Slashing,Piercing	SPROP:10 hp/inch, hardness 10
+Blood Crystal		KEY:BLOOD_C_WEAP		TYPE:BaseMaterial.Weapon							COST:1500				ITYPE:BloodCrystal						SOURCEPAGE:48	PRETYPE:1,Metal	PRETYPE:1,Slashing,Piercing	SPROP:10 hp/inch, hardness 10
+Darkleaf Cloth		KEY:DARK_C_ARMR_LT	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:750				ITYPE:DarkleafCloth		REPLACES:MWORKA		SOURCEPAGE:49	PRETYPE:1,NonMetal,Light				SPROP:20 hp/inch, hardness 10
+Darkleaf Cloth		KEY:DARK_C_ARMR_MED	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:1500				ITYPE:DarkleafCloth		REPLACES:MWORKA		SOURCEPAGE:49	PRETYPE:1,NonMetal,Medium				SPROP:20 hp/inch, hardness 10
+Darkleaf Cloth		KEY:DARK_C_CLOTH		TYPE:BaseMaterial.MasterworkQuality.Clothing				COST:500				ITYPE:DarkleafCloth		REPLACES:MWORKA		SOURCEPAGE:49									SPROP:20 hp/inch, hardness 10
+Eel Hide			KEY:EEL_H_ARMR_LT		TYPE:BaseMaterial.MasterworkQuality.Armor					COST:1200				ITYPE:EelHide			REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,NonMetal,Light
+Eel Hide			KEY:EEL_H_ARMR_MED	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:1800				ITYPE:EelHide			REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,NonMetal,Medium
+Elysian Bronze		KEY:ELYSIAN_B_AMMO	TYPE:BaseMaterial.Ammunition							COST:20				ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:1,Metal
+Elysian Bronze		KEY:ELYSIAN_B_ARMOR_LT	TYPE:BaseMaterial.Armor								COST:1000				ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:1,Metal,Light
+Elysian Bronze		KEY:ELYSIAN_B_ARMOR_MED	TYPE:BaseMaterial.Armor								COST:2000				ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:1,Metal,Medium
+Elysian Bronze		KEY:ELYSIAN_B_ARMOR_HVY	TYPE:BaseMaterial.Armor								COST:3000				ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:1,Metal,Heavy
+Elysian Bronze		KEY:ELYSIAN_B_WEAP	TYPE:BaseMaterial.Weapon							COST:1000				ITYPE:ElysianBronze						SOURCEPAGE:50	PRETYPE:1,Metal
+Fire-Forged Steel		KEY:FIRE_ST_AMMO		TYPE:BaseMaterial.MasterworkQuality.Ammunition				COST:15				ITYPE:FireForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
+Fire-Forged Steel		KEY:FIRE_ST_ARMOR_LT	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:1000				ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,Metal,Light
+Fire-Forged Steel		KEY:FIRE_ST_ARMOR_MED	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:2500				ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,Metal,Medium
+Fire-Forged Steel		KEY:FIRE_ST_ARMOR_HVY	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:3000				ITYPE:FireForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,Metal,Heavy
+Fire-Forged Steel		KEY:FIRE_ST_WEAP		TYPE:BaseMaterial.MasterworkQuality.Weapon				COST:600				ITYPE:FireForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
+Frost-Forged Steel	KEY:FROST_ST_AMMO		TYPE:BaseMaterial.MasterworkQuality.Ammunition				COST:15				ITYPE:FrostForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
+Frost-Forged Steel	KEY:FROST_ST_ARMOR_LT	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:1000				ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,Metal,Light
+Frost-Forged Steel	KEY:FROST_ST_ARMOR_MED	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:2500				ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,Metal,Medium
+Frost-Forged Steel	KEY:FROST_ST_ARMOR_HVY	TYPE:BaseMaterial.MasterworkQuality.Armor					COST:3000				ITYPE:FrostForgedSteel		REPLACES:MWORKA		SOURCEPAGE:50	PRETYPE:1,Metal,Heavy
+Frost-Forged Steel	KEY:FROST_ST_WEAP		TYPE:BaseMaterial.MasterworkQuality.Weapon				COST:600				ITYPE:FrostForgedSteel		REPLACES:MWORKW		SOURCEPAGE:50	PRETYPE:1,Metal
+Greenwood			KEY:GRNWD			TYPE:BaseMaterial.MasterworkQuality.Ammunition.Weapon.Shield	COST:WT*50	VISIBLE:QUALIFY	ITYPE:Greenwood			REPLACES:MWORKA,MWORKW	SOURCEPAGE:50	PRETYPE:1,Wooden
+Griffon Mane		KEY:GRIFFON_M_ARMOR_LT	TYPE:BaseMaterial.Armor								COST:200				ITYPE:GriffonMane							SOURCEPAGE:51	PRETYPE:1,NonMetal,Light
+Griffon Mane		KEY:GRIFFON_M_CLOTH	TYPE:BaseMaterial.Clothing							COST:WT*50				ITYPE:GriffonMane							SOURCEPAGE:51
+Living Steel		KEY:LIVING_ST_AMMO	TYPE:BaseMaterial.Ammunition							COST:10				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal						SPROP:35 hp/inch, hardness 15
+Living Steel		KEY:LIVING_ST_ARMOR_LT	TYPE:BaseMaterial.Armor								COST:500				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal,Light					SPROP:35 hp/inch, hardness 15
+Living Steel		KEY:LIVING_ST_ARMOR_MED	TYPE:BaseMaterial.Armor								COST:1000				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal,Medium					SPROP:35 hp/inch, hardness 15
+Living Steel		KEY:LIVING_ST_ARMOR_HVY	TYPE:BaseMaterial.Armor								COST:1500				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal,Heavy					SPROP:35 hp/inch, hardness 15
+Living Steel		KEY:LIVING_ST_SHLD	TYPE:BaseMaterial.Shield							COST:100				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal,Shield					SPROP:35 hp/inch, hardness 15
+Living Steel		KEY:LIVING_ST_WEAP	TYPE:BaseMaterial.Weapon							COST:500				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal						SPROP:35 hp/inch, hardness 15
+Living Steel		KEY:LIVING_ST_ITEM	TYPE:BaseMaterial.Instruments.Tools.Goods					COST:WT*250				ITYPE:LivingSteel							SOURCEPAGE:51	PRETYPE:1,Metal						SPROP:35 hp/inch, hardness 15
+Viridium			KEY:VIRI_AMMO		TYPE:BaseMaterial.Ammunition							COST:20	VISIBLE:QUALIFY	ITYPE:Viridium							SOURCEPAGE:52	PRETYPE:1,Metal
+Viridium			KEY:VIRI_WEAP		TYPE:BaseMaterial.Weapon							COST:200	VISIBLE:QUALIFY	ITYPE:Viridium							SOURCEPAGE:52	PRETYPE:1,Metal
+Viridium (Strengthened)	KEY:VIRI_STR_AMMO		TYPE:BaseMaterial.Ammunition							COST:20	VISIBLE:QUALIFY	ITYPE:ViridiumStrengthened					SOURCEPAGE:52	PRETYPE:1,Viridium
+Viridium (Strengthened)	KEY:VIRI_STR_WEAP		TYPE:BaseMaterial.Weapon							COST:1000	VISIBLE:QUALIFY	ITYPE:ViridiumStrengthened					SOURCEPAGE:52	PRETYPE:1,Viridium
+Whipwood			KEY:WHIPW			TYPE:BaseMaterial.Weapon							COST:500	VISIBLE:QUALIFY	ITYPE:Whipwood							SOURCEPAGE:52	PRETYPE:1,Wooden
+Wyroot			KEY:WYROOT			TYPE:BaseMaterial.Weapon							COST:1000	VISIBLE:QUALIFY	ITYPE:Wyroot							SOURCEPAGE:52	PRETYPE:2,Wooden,Melee
+Wyroot (2 Life Points)	KEY:WYROOT_2LP		TYPE:BaseMaterial.Weapon							COST:2000	VISIBLE:QUALIFY	ITYPE:Wyroot							SOURCEPAGE:52	PRETYPE:2,Wooden,Melee
+Wyroot (3 Life Points)	KEY:WYROOT_3LP		TYPE:BaseMaterial.Weapon							COST:4000	VISIBLE:QUALIFY	ITYPE:Wyroot							SOURCEPAGE:52	PRETYPE:2,Wooden,Melee
+
+
+Tear-Away		KEY:TAWAY	TYPE:Clothing	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.91	SPROP:The seams on this clothing are designed to break easily, making it a simple matter (a standard action) to remove these items and walk away with none the wiser.
+Waterproof		KEY:WPROOF	TYPE:LightSource	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.75	SPROP:This lantern treats severe winds as strong winds, windstorms as severe winds, and hurricanes as windstorms for the purpose of determining whether they extinguish its flame. It holds enough air to burn underwater for 5 rounds before going dark.
+
+
+
+###Block: Armor & Shield
+# Modifier Name			Unique Key	Output Name					Type			Plus		Cost		Visible		Type granted	Source, Long Desc.		Source, Short Desc.	Source Page		Multiple Requirements										Required Type							Prohibited Type							Special Property																																																																																									Ability											Choose																																																																																	Innate Spells
+Adhesive				KEY:ADHV							TYPE:Armor				COST:7000	VISIBLE:QUALIFY													SOURCEPAGE:p.114														PRETYPE:2,Enhancement,Armor					!PRETYPE:1,EQMOD=SLK,EQMOD=SLK_GRT,EQMOD=SLK_IMP	SPROP:On command for 10 rds/day, climb speed of 20 feet and +2 enhancement bonus on combat maneuver checks made to disarm, grapple, reposition, steal, or trip when the wearer is using a natural weapon or unarmed strike.
+Balanced				KEY:BAL							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.115	PREMULT:2,[PRETYPE:2,Enhancement,Armor],[PRETYPE:1,Light,Medium]																					SPROP:+4 to CMD vs overrun or trip and on Acrobatics check made to maintain balance. Dropping prone is a move action instead of a free action.
+Benevolent				KEY:BENE							TYPE:Armor				COST:2000	VISIBLE:QUALIFY													SOURCEPAGE:p.115														PRETYPE:2,Enhancement,Armor														SPROP:when using aid another action, grant armor's enhancement bonus to ally's AC
+Bitter				KEY:BTTR							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.115														PRETYPE:2,Enhancement,Armor														SPROP:On grapple wearer with mouth, DC14 Fortitude save or immediately end grapple. On swallow wearer, DC14 Fortitude or become nauseated for 1 round.
+Bolstering				KEY:BLSTR							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.116	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]													!PRETYPE:2,Armor,Light	!PRETYPE:2,Shield,Buckler	SPROP:+2 competence bonus on saving throws against abilities of creature hit in melee or ranged attack.
+Brawling				KEY:BRWLG							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.116														PRETYPE:3,Enhancement,Armor,Light													SPROP:+2 bonus on unarmed attack and damage rolls, including combat maneuver checks made to grapple. Unarmed strikes bypass magic wpn DR.
+Clangorous				KEY:CLANG							TYPE:Shield		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.116														PRETYPE:2,Enhancement,Shield														SPROP:When wearer hit, immediate action to create bang equivalent to a thunder stone. If hit was a critical, can instead create a sound burst (Fortitude DC 13 partial).
+Creeping				KEY:CREEP							TYPE:Armor				COST:5000	VISIBLE:QUALIFY													SOURCEPAGE:p.116														PRETYPE:2,Enhancement,Armor														SPROP:check penalty does nto apply to stealth. Once per day add enhancement bonus to stelath for 1 minute.
+Deathless				KEY:DTHLS							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.116														PRETYPE:2,Enhancement,Armor														SPROP:Absorbs the first 10 points of positive or negative energy damage per attack. 25% chance to ignore negative levels
+Defiant				KEY:DFNT							TYPE:Armor.Shield	PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.116	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]																						SPROP:+2 enhancement bonus and DR 2/- against %CHOICE																																																																																															CHOOSE:STRING|Aberrations|Animals|Constructs|Dragons|Fey|Humanoids (Aquatic)|Humanoids (Dwarf)|Humanoids (Elf)|Humanoids (Giant)|Humanoids (Gnoll)|Humanoids (Gnome)|Humanoids (Goblinoid)|Humanoids (Halfling)|Humanoids (Human)|Humanoids (Reptilian)|Humanoids (Orc)|Magical Beasts|Monstrous Humanoids|Oozes|Outsiders (Air)|Outsiders (Chaotic)|Outsiders (Earth)|Outsiders (Evil)|Outsiders (Fire)|Outsiders (Good)|Outsiders (Lawful)|Outsiders (Water)|Plants|Undead|Vermin|TITLE=Designated Foe
+Delving				KEY:DLVG							TYPE:Armor				COST:10000	VISIBLE:QUALIFY													SOURCEPAGE:p.117														PRETYPE:2,Enhancement,Armor														SPROP:burrow speed of 10 feet. +4 bonus on all saving throws against landslides, avalanches, tunnel collapses, and similar effects
+Expeditious				KEY:EXPED							TYPE:Armor				COST:4000	VISIBLE:QUALIFY													SOURCEPAGE:p.118														PRETYPE:2,Enhancement,Armor														SPROP:As swift action 3 /day, +10-foot enhancement bonus on all modes of movement for 1 round
+Grinding				KEY:GRNDG							TYPE:Armor.Shield	PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.119	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]																						SPROP:Any successful grapple check against wearer causes enhancement bonus hp damage on attacker.
+Harmonizing				KEY:HRMZG							TYPE:Armor				COST:15000	VISIBLE:QUALIFY													SOURCEPAGE:p.119														PRETYPE:2,Enhancement,Armor														SPROP:+5 competence bonus on Perform checks, but takes a -5 penalty on Stealth checks. Wearer vulnerable to sonic energy damage. Extra round of audible bardic performance abilities
+Hosteling				KEY:HSTL_A							TYPE:Armor.Shield			COST:7500	VISIBLE:QUALIFY													SOURCEPAGE:p.119														PRETYPE:2,Enhancement,Armor														SPROP:Stores bonded animal for up to 24 hours
+Impervious				KEY:IMPRVS							TYPE:Armor.Shield	PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.119	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]																						SPROP:Double its enhancement bonus to hardness, hit points and break DC. Enhancement bonus to saves vs direct attacks on shield or armor
+Martyring				KEY:MRTYG							TYPE:Armor				COST:18000	VISIBLE:QUALIFY													SOURCEPAGE:p.120														PRETYPE:2,Enhancement,Armor														SPROP:Once per day as an immediate action, when an enemy confirms a critical hit against someone wearing martyring armor, the wearer can heal up to nine allies within 30 feet as if using the mass cure light wounds spell (1d8+9 hit points each).
+Merging				KEY:MTGG							TYPE:Shield		PLUS:2			VISIBLE:QUALIFY													SOURCEPAGE:p.120														PRETYPE:2,Enhancement,Shield	PRETYPE:1,Light,Heavy										SPROP:The wearer chooses each round whether to attack with the previously merged weapon or defend with the shield.
+Mirrored				KEY:MIRROR							TYPE:Armor.Shield	PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.120	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield],[PRETYPE:1,Metal]																			SPROP:When averting eyes, roll the miss chance twice, selecting the better result and can also deal sneak or precision damage. Add enhancement bonus to touch AC vs rays.
+Poison-resistant			KEY:PSN_RST							TYPE:Armor.Shield			COST:2250	VISIBLE:QUALIFY													SOURCEPAGE:p.121	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]																						SPROP:+3 resistance bonus on saving throws against poison.
+Putrid				KEY:PTRD							TYPE:Armor				COST:10000	VISIBLE:QUALIFY													SOURCEPAGE:p.121														PRETYPE:2,Enhancement,Armor														SPROP:Living creatures within 10 feet of the wearer must succeed at a DC 14 Fortitude save or be sickened for 5 rounds.
+Radiant				KEY:RDNT							TYPE:Armor.Shield			COST:7500	VISIBLE:QUALIFY	ITYPE:Lightsource										SOURCEPAGE:p.121	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]																						SPROP:Shines as brightly as a torch when worn. Once per day, can be brightened to the strength of a daylight spell for up to 1 hour.
+Rallying				KEY:RLYG							TYPE:Armor.Shield			COST:5000	VISIBLE:QUALIFY													SOURCEPAGE:p.121	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]																						SPROP:Allies within 30 feet of the wearer gain a +4 morale bonus on saving throws against fear effects.
+Ramming				KEY:RAMG							TYPE:Shield		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.121														PRETYPE:2,Enhancement,Shield														SPROP:Add enhancement bonus to attack and damage for a shield bash as part of a charge. If it hits, can attempt bull rush as a swift action.
+Spell storing			KEY:SPL_STO							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.122														PRETYPE:2,Enhancement,Armor														SPROP:Can store a single touch spell of up to 3rd level which can be cast as a swift action when wearer hit by melee  or melee touch attack.
+Stanching				KEY:STNCHG							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.122														PRETYPE:2,Enhancement,Armor														SPROP:Reduces hit point damage, ability damage, or ability drain by an amount equal to its enhancement bonus if the damage or drain was from a bleed effect. The wearer also adds the armor’s enhancement bonus to Constitution checks to become stable.
+Titanic				KEY:TTNC							TYPE:Armor		PLUS:3			VISIBLE:QUALIFY													SOURCEPAGE:p.122														PRETYPE:2,Enhancement,Armor														SPROP:Wearer is considered one size category larger for the purpose of using or being affected by special attacks that depend on size, such as swallow whole and trample. Once per day on command, the wearer can increase her size as if using enlarge person for 1 minute. Once per minute as a free action add the armor’s enhancement bonus to a single strength check or combat maneuver check, or to her CMD against a single combat maneuver. The armor check penalty of titanic armor is increased by an abilities amount equal to its enhancement bonus.
+Unbound				KEY:UNBND							TYPE:Armor				COST:27000	VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Armor														SPROP:On command once per day can invoke an effect as per the spell righteous might granting DR 5/lawful																																																																										ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LE,LN,LG																																																																																			SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Righteous Might
+Vigilant				KEY:VGLNT							TYPE:Armor				COST:27000	VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Armor														SPROP:On command once per day can invoke an effect as per the spell righteous might granting DR 5/chaotic																																																																										ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:CE,CN,CG																																																																																			SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Righteous Might
+Warding				KEY:WRDG							TYPE:Armor		PLUS:1			VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Armor														SPROP:Once per day as an immediate action, the wearer of warding armor can activate it to end all active challenge, judgment, and smite abilities affecting her. Can be refreshed as a swift action by the wearer expending one of her own challenge, judgment, or smite abilities.
+Wyrmsbreath (Acid)		KEY:WRMSB_A							TYPE:Shield				COST:5000	VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Shield														SPROP:On command, the bearer can expend 1 to 5 charges from the shield to have it create a breath weapon in a 15 foot cone dealing 1d4 points of acid damage per charge expended (Reflex DC 11 half).
+Wyrmsbreath (Cold)		KEY:WRMSB_C							TYPE:Shield				COST:5000	VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Shield														SPROP:On command, the bearer can expend 1 to 5 charges from the shield to have it create a breath weapon in a 15 foot cone dealing 1d4 points of cold damage per charge expended (Reflex DC 11 half).
+Wyrmsbreath (Electricity)	KEY:WRMSB_E							TYPE:Shield				COST:5000	VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Shield														SPROP:On command, the bearer can expend 1 to 5 charges from the shield to have it create a breath weapon in a 15 foot cone dealing 1d4 points of electricity damage per charge expended (Reflex DC 11 half).
+Wyrmsbreath (Fire)		KEY:WRMSB_F							TYPE:Shield				COST:5000	VISIBLE:QUALIFY													SOURCEPAGE:p.123														PRETYPE:2,Enhancement,Shield														SPROP:On command, the bearer can expend 1 to 5 charges from the shield to have it create a breath weapon in a 15 foot cone dealing 1d4 points of fire damage per charge expended (Reflex DC 11 half).
+ANMATD.MOD																									SOURCEPAGE:p.114
+ARW_CAT.MOD																									SOURCEPAGE:p.115
+ARW_DEF.MOD																									SOURCEPAGE:p.115
+BASH_H.MOD																									SOURCEPAGE:p.115
+BASH_L.MOD																									SOURCEPAGE:p.115
+BLIND.MOD																									SOURCEPAGE:p.116
+CHAMP.MOD																									SOURCEPAGE:p.116
+DSTRD.MOD																									SOURCEPAGE:p.116
+DTRMN.MOD																									SOURCEPAGE:p.117
+ETHERE.MOD																									SOURCEPAGE:p.118
+FRT_HVY.MOD						OUTPUTNAME:Heavy Fortification														SOURCEPAGE:p.118
+FRT_LGHT.MOD					OUTPUTNAME:Light Fortification														SOURCEPAGE:p.118
+FRT_MOD.MOD						OUTPUTNAME:Moderate Fortification														SOURCEPAGE:p.118
+GHOST_A.MOD																									SOURCEPAGE:p.119
+GLAM.MOD																									SOURCEPAGE:p.119
+INVULN.MOD																									SOURCEPAGE:p.120
+JSTNG.MOD																									SOURCEPAGE:p.120
+REFLC.MOD																									SOURCEPAGE:p.121
+RGHTS.MOD																									SOURCEPAGE:p.121
+SHDW.MOD																									SOURCEPAGE:p.121
+SHDW_GRT.MOD					OUTPUTNAME:Greater Shadow															SOURCEPAGE:p.122
+SHDW_IMP.MOD					OUTPUTNAME:Improved Shadow															SOURCEPAGE:p.122
+SLK_GRT.MOD						OUTPUTNAME:Greater Slick															SOURCEPAGE:p.122
+SLK.MOD																									SOURCEPAGE:p.122
+SLK_IMP.MOD						OUTPUTNAME:Improved Slick															SOURCEPAGE:p.122
+SPELL_RES_13.MOD					OUTPUTNAME:Spell Resistance (13)														SOURCEPAGE:p.122
+SPELL_RES_15.MOD					OUTPUTNAME:Spell Resistance (15)														SOURCEPAGE:p.122
+SPELL_RES_17.MOD					OUTPUTNAME:Spell resistance (17)														SOURCEPAGE:p.122
+SPELL_RES_19.MOD					OUTPUTNAME:Spell Resistance (19)														SOURCEPAGE:p.122
+UNDEAD.MOD																									SOURCEPAGE:p.123
+UNRGHTS.MOD																									SOURCEPAGE:p.123
+WILD_A.MOD																									SOURCEPAGE:p.123
+WILD_S.MOD																									SOURCEPAGE:p.123
+
+
+
+###BLOCK: Weapons
+Scatter		KEY:FIREARM_SCATTER	NAMEOPT:NOTHING	TYPE:Firearm	SPROP:A weapon with the scatter weapon quality can shoot two different types of ammunition. It can fire normal bullets that target one creature, or it can make a scattering shot, attacking all creatures within a cone. Cannons with the scatter weapon quality only fire grapeshot, unless their descriptions state otherwise. When a scatter weapon attacks all creatures within a cone, it makes a separate attack roll against each creature within the cone. Each attack roll takes a -2 penalty, and its attack damage cannot be modified by precision damage or damage-increasing feats such as Vital Strike. Effects that grant concealment, such as fog or smoke, or the blur, invisibility, or mirror image spells, do not foil a scatter attack. If any of the attack rolls threaten a critical, confirm the critical for that attack roll alone. A firearm that makes a scatter shot misfires only if all of the attack rolls made misfire. If a scatter weapon explodes on a misfire, it deals triple its damage to all creatures within the misfire radius.
+Sawback		KEY:SWORD_SAWBACK	TYPE:Weapon.Blade	VISIBLE:QUALIFY	SOURCEPAGE:p.71	BONUS:ITEMCOST|TYPE=Weapon|5	SPROP:This is a modification to any light or heavy blade rather than a unique weapon type. The saw blade on the back of the sword lets you use it to perform crude carpentry.
+Fragile		KEY:FRAGILE	NAMEOPT:NOTHING	TYPE:SpecialWeaponQualities	COST:0	VISIBLE:NO	ITYPE:Fragile	SOURCEPAGE:146	SPROP:Fragile weapons and armor cannot take the beating that sturdier weapons can. A fragile weapon gains the broken condition if the wielder rolls a natural 1 on an attack roll with the weapon. If a fragile weapon is already broken, the roll of a natural 1 destroys it instead. Armor with the fragile quality falls apart when hit with heavy blows. If an attacker hits a creature wearing fragile armor with an attack roll of a natural 20 and confirms the critical hit (even if the creature is immune to critical hits), the armor gains the broken condition. If already broken, the armor is destroyed instead. Fragile armor is not broken or destroyed by critical threats that are not generated by natural 20s, so if a creature wielding a weapon with a 19-20 or 18-20 critical range scores a critical hit on the wearer of this armor with a roll of less than a natural 20, that critical hit has no chance to break or destroy the armor. Masterwork and magical fragile weapons and armor lack these flaws unless otherwise noted in the item description or the special material description
+Adaptive			KEY:ADAPTIVE									TYPE:Weapon.Bow.Composite				COST:1000	VISIBLE:QUALIFY				SOURCEPAGE:p.134	PRETYPE:3,Enhancement,Bow,Composite								SPROP:The wielder can fire the bow with a lesser Strength bonus (and cause less damage) if desired.
+Advancing			KEY:ADVANCING									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.134	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Once per round, when the wielder damages a creature in melee with an advancing weapon, she can take a 5-foot step as a swift action after the attack but before the end of her turn.
+Anchoring			KEY:ANCHORING									TYPE:Weapon.Melee.Ranged		PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.135	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged					SPROP:An anchoring weapon pins a target in place and prevents it from moving. As a swift action, the weapon can be fixed in place in a point in space, functioning as an immovable rod.
+Benevolent			KEY:BENEVOLENT									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.136	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Increases the aid another bonus by the enhancement bonus of the weapon.
+Called			KEY:CALLED										TYPE:Weapon.Melee.Ranged		PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.137	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged					SPROP:A called weapon can be teleported from up to 100 feet away to the wielder's hand as a swift action.
+Conserving			KEY:CONVERSING									TYPE:Weapon.Ranged			PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.137	PRETYPE:3,Enhancement,Weapon,Ranged				!PRETYPE:1,Firearm	SPROP:When the wielder misses with a ranged attack, the fired ammunition teleports unharmed to its quiver, case, or pouch.
+Countering			KEY:COUNTERING									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A countering weapon gives its wielder a +2 bonus to his combat maneuver defense against combat maneuvers made to disarm or sunder this weapon.
+Courageous			KEY:COURAGEOUS									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:The wielder gains a morale bonus on saving throws against fear equal to the weapon’s enhancement bonus. In addition, any morale bonus the wielder gains from any other source is increased by half the weapon’s enhancement bonus (minimum 1).
+Cruel				KEY:CRUEL										TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.138	PRETYPE:1,Enhancement										SPROP:When the wielder strikes a creature that is frightened, shaken, or panicked with a cruel weapon, that creature becomes sickened for 1 round. When the wielder uses the weapon to knock unconscious or kill a creature, he gains 5 temporary hit points that last for 10 minutes.
+Deadly			KEY:DEADLY										TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY	ITYPE:Deadly	SOURCEPAGE:p.139	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:When this weapon delivers a coup de grace, it gains +4 to damage when calculating the DC of the Fortitude saving throw to see whether the target of the coup de grace dies from the attack. The bonus is not added to the actual damage of the coup de grace attack.
+Defiant			KEY:DEFIANT										TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.140	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A defiant weapon helps its wielder stay alive in desperate conditions.
+Designating (Greater)	KEY:DESIG_GTR			OUTPUTNAME:Designating, Greater	TYPE:Ammunition.Weapon.Ranged		PLUS:4			VISIBLE:QUALIFY				SOURCEPAGE:p.140	PRETYPE:1,Enhancement										SPROP:When a target is hit, allies gain a +4 morale bonus on melee attack and a +6 morale bonus on melee damage rolls against the designated target for 1 round.
+Designating (Lesser)	KEY:DESIG_LSR			OUTPUTNAME:Designating, Lesser	TYPE:Ammunition.Weapon.Ranged		PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.140	PRETYPE:1,Enhancement										SPROP:When a target is hit, allies gain a +2 morale bonus on melee attack and melee damage rolls against the designated target for 1 round.
+Dispelling			KEY:DISPELLING									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.140	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A dispelling weapon functions like a spell storing weapon, but it may only store dispel magic.
+Dispelling Burst		KEY:DISPELLING_BRST								TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.140	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A dispelling weapon functions like a spell storing weapon, but it may only store dispel magic or greater dispel magic, both of which may be cast from it as a free action.
+Dry Load			KEY:DRY_LOAD									TYPE:Ammunition.FirearmBullet				COST:30	VISIBLE:QUALIFY				SOURCEPAGE:p.140	PRETYPE:3,Enhancement,Ammunition,FirearmCartridge					SPROP:Dry load cartridges can be used to load guns underwater or in other airless environments, such as a vacuum.
+Endless Ammunition	KEY:ENDLESS_AMMO									TYPE:Weapon.Ranged			PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.141	PRETYPE:3,Enhancement,Bow,Composite								SPROP:"Each time an endless ammunition weapon is nocked, a single nonmagical arrow or bolt is spontaneously created by the magic, so the weapon’s wielder never needs to load the weapon with ammunition.
+Furyborn			KEY:FURYBORN									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.142	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Each time the wielder damages an opponent with the weapon, its enhancement bonus increases by +1 when making attacks against that opponent.
+Glamered			KEY:GLMRD_W										TYPE:Weapon.Melee						COST:4000	VISIBLE:QUALIFY				SOURCEPAGE:p.142	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A glamered weapon can be commanded to change its shape and appearance to assume the form of another object of similar size.
+Glorious			KEY:GLORIOUS									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.142	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A glorious weapon glows with a dazzling light equal to a daylight spell when drawn. Any creature the wielder attacks in melee is automatically dazzled until the beginning of the wielder’s next turn. On a conformed critical hit, the target is blinded.
+Grounding			KEY:GROUNDING									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.143	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Deals an extra 1d6 points of damage to creatures with the air subtype. +2 competence bonus on saving throws against air- and electricity-based effects, and the weapon itself is immune to electricity damage.
+Guardian			KEY:GUARDIAN									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.143	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A guardian weapon allows the wielder to transfer some or all of the weapon’s enhancement bonus to his saving throws as a bonus that stacks with all others.
+Heartseeker			KEY:HEARTSEEKER									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.143	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A heartseeker weapon ignores the miss chance for concealment against most living targets, though the attack must still target the proper square.
+Igniting			KEY:IGNITING									TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.143	PRETYPE:1,Enhancement										SPROP:An igniting weapon functions as a flaming weapon that also causes the target to catch fire upon striking it with a successful critical hit.
+Impact			KEY:IMPACT										TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.143	PRETYPE:3,Enhancement,Weapon,Melee				!PRETYPE:1,Light		SPROP:An impact weapon deals damage as if the weapon were one size category larger. In addition, any bull rush combat maneuver the wielder attempts while wielding the weapon gains a bonus equal to the weapon’s enhancement bonus.
+Impervious			KEY:IMPERVIOUS									TYPE:Weapon.Melee.Ranged				COST:3000	VISIBLE:QUALIFY				SOURCEPAGE:p.144	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged					SPROP:An impervious weapon is warded from damage and decay.
+Invigorating		KEY:INVIGORATING									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.144	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:After an attack with this weapon drops a living foe (kills it or drops it to negative hit points), the weapon infuses its wielder with vigor.
+Ki Intensifying		KEY:KI_INTENS									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.144	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:After a successful strike with a ki intensifying weapon, the wielder can spend 1 ki point as a swift action to perform a combat maneuver.
+Lifesurge			KEY:LIFESURGE									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.144	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A lifesurge weapon boosts and sustains the wielder’s life energy while he is in the throes of combat.
+Limning			KEY:LIMNING										TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.145	PRETYPE:1,Enhancement										SPROP:On a successful strike against a creature affected by a means of magical concealment, the weapon outlines the creature in faerie fire (as the spell) for 1 round.
+Lucky				KEY:FIREARM_LUCKY									TYPE:Weapon.Firearm			PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.145	PRETYPE:2,Enhancement.Firearm									SPROP:A lucky firearm has its own magical reservoir of 1 grit point.
+Lucky (Greater)		KEY:FIREARM_LUCKY_GRT		OUTPUTNAME:Reliable, Greater		TYPE:Weapon.Firearm			PLUS:3			VISIBLE:QUALIFY				SOURCEPAGE:p.145	PRETYPE:2,Enhancement.Firearm									SPROP:A greater lucky firearm has its own magical reservoir of 3 grit points.
+Mimetic			KEY:MIMETIC										TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.145	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Each time the wielder damages a creature using a mimetic weapon, he gains resistance 10 to one energy type that the creature is resistant or immune to for 1 round.
+Negating			KEY:NEGATING									TYPE:Weapon.Melee				PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.145	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A negating weapon briefly nullifies some forms of damage reduction when it damages a creature.
+Neutralizing		KEY:NEUTRALZG									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Deals an extra 1d6 points of damage to creatures with the earth subtype. +2 competence bonus on saving throws against acid- and earth-based effects, and the weapon itself is immune to acid damage.
+Nimble Shot			KEY:NIMBLE_SHOT									TYPE:Weapon.Ranged			PLUS:4			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:3,Enhancement,Weapon,Ranged								SPROP:A nimble shot weapon doesn’t provoke attacks of opportunity when fired.
+Nullifying			KEY:NULLIFYING									TYPE:Weapon.Melee				PLUS:3			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A creature that takes damage from the weapon, has its spell resistance reduced by 1 for 1 minute. On a confirmed critical hit, its spell resistance is instead reduced by an mount equal to the weapon’s critical multiplier.
+Ominous			KEY:OMINOUS										TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:An ominous weapon trails a shadowy haze behind every stroke, and moans a menacing dirge in battle. An ominous weapon adds its enhancement bonus on Intimidate checks made by the wielder. In addition, when an ominous weapon confirms a critical hit, the target is shaken for 1 minute (DC 13 Will negates).
+Phase locking		KEY:PHASE_LOCK									TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:1,Enhancement										SPROP:A creature damaged by a phase locking weapon is affected as though by the dimensional anchor spell for 1 round.
+Planar			KEY:PLANAR										TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:1,Enhancement										SPROP:When used to attack outsiders, a planar weapon ignores 5 points of their damage reduction.
+Quenching			KEY:QUENCHING									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Deals an extra 1d6 points of damage to creatures with the fire subtype. +2 competence bonus on saving throws against fire-based effects, and the weapon itself is immune to fire damage.
+Reliable			KEY:FIREARM_RELIABLE								TYPE:Weapon.Firearm			PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.146	PRETYPE:2,Enhancement.Firearm									SPROP:Reduces the misfire value of the affected firearm by 1 (minimum 0).
+Reliable (Greater)	KEY:FIREARM_RELIABLE_GRT	OUTPUTNAME:Reliable, Greater		TYPE:Weapon.Firearm			PLUS:3			VISIBLE:QUALIFY				SOURCEPAGE:p.147	PRETYPE:2,Enhancement.Firearm									SPROP:Reduces the misfire value of the affected firearm by 4 (minimum 0).
+Repositioning		KEY:REPOS										TYPE:Weapon.Melee				PLUS:3			VISIBLE:QUALIFY				SOURCEPAGE:p.147	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:+2 enhancement bonus on combat maneuver checks to reposition a foe. On a critical hit with the weapon, wielder can attempt to reposition his opponent as a free action.
+Seaborne			KEY:SEABORNE									TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.147	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:With the weapon in hand, the wielder gains a bonus on Swim checks equal to twice the weapon’s enhancement bonus. In addition, the wielder does not take the normal penalties to attack and damage rolls imposed by being underwater, as if he were subject to the spell freedom of movement.
+Second Chance		KEY:SECOND_CHANCE									TYPE:Weapon.Ranged			PLUS:4			VISIBLE:QUALIFY				SOURCEPAGE:p.147	PRETYPE:3,Enhancement,Weapon,Ranged								SPROP:Once per round, when a shot made with this weapon misses its target, as a free action the weapon’s wielder can cause that shot to swerve and try to hit the target again.
+Spellstealing		KEY:SPELLSTEAL									TYPE:Weapon.Melee				PLUS:3			VISIBLE:QUALIFY				SOURCEPAGE:p.148	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:A spellstealing weapon allows its wielder to siphon protective magic from a target and transfer it to herself.
+Stalking			KEY:STALKING									TYPE:Weapon.Melee.Ranged		PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.148	PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged					SPROP:As a standard action, a character wielding a stalking weapon can command it to study a creature within 60 feet. When the wielder attacks the studied creature, on a successful hit the stalking weapon deals +1d6 points of bonus damage per consecutive round spent studying a target, up to a number of bonus dice equal to the stalking weapon’s enhancement bonus.
+Thawing			KEY:THAWING										TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.148	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:Deals an extra 1d6 points of damage to creatures with the cold subtype. +2 competence bonus on saving throws against ice-based effects, and the weapon itself is immune to cold damage.
+Valiant			KEY:VALIANT										TYPE:Weapon.Melee				PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.149	PRETYPE:3,Enhancement,Weapon,Melee								SPROP:When a cavalier wielding a valiant weapon targets a foe with his challenge ability, the valiant weapon deals an additional 1d6 points of damage against that foe. The wielder receives a +2 bonus on combat maneuver checks made to disarm or sunder a challenged foe’s weapon as well as a +4 bonus to his CMD against disarm and sunder attacks from that foe.
+ALLYING.MOD		SOURCEPAGE:p.135
+ANARCH.MOD		SOURCEPAGE:p.135
+AXIOM.MOD		SOURCEPAGE:p.136
+BANE.MOD		SOURCEPAGE:p.136
+BRILL.MOD		SOURCEPAGE:p.136
+CLEAVE.MOD		SOURCEPAGE:p.145
+CNNING.MOD		SOURCEPAGE:p.138
+CONDUCTVE.MOD	SOURCEPAGE:p.137
+CRRSVE.MOD		SOURCEPAGE:p.138
+CRRSVE_BRST_M.MOD	SOURCEPAGE:p.138
+CRRSVE_BRST_R.MOD	SOURCEPAGE:p.138
+DANCE.MOD		SOURCEPAGE:p.138
+DEFEND.MOD		SOURCEPAGE:p.139
+DISRPT.MOD		SOURCEPAGE:p.140
+DISTNC.MOD		SOURCEPAGE:p.140
+DUELING.MOD		SOURCEPAGE:p.141
+FLAME.MOD		SOURCEPAGE:p.141
+FLM_BRST.MOD	SOURCEPAGE:p.141
+FROST.MOD		SOURCEPAGE:p.142
+FURIOUS.MOD		SOURCEPAGE:p.142
+GHOST.MOD		SOURCEPAGE:p.142
+GRAYFLM.MOD		SOURCEPAGE:p.142
+HOLY.MOD		SOURCEPAGE:p.143
+HUNTSMAN.MOD	SOURCEPAGE:p.143
+ICY_BRST.MOD	SOURCEPAGE:p.143
+JURIST.MOD		SOURCEPAGE:p.144
+KEEN.MOD		SOURCEPAGE:p.144
+KI.MOD		SOURCEPAGE:p.144
+MENACING.MOD	SOURCEPAGE:p.145
+MERCY.MOD		SOURCEPAGE:p.145
+RETURN.MOD		SOURCEPAGE:p.147
+SEEK.MOD		SOURCEPAGE:p.147
+SHK_BRST.MOD	SOURCEPAGE:p.147
+SHOCK.MOD		SOURCEPAGE:p.147
+SPEED.MOD		SOURCEPAGE:p.148
+STORE.MOD		SOURCEPAGE:p.148
+THROW.MOD		SOURCEPAGE:p.148
+THUNDER.MOD		SOURCEPAGE:p.148
+TRANSFORM.MOD	SOURCEPAGE:p.149
+UNHOLY.MOD		SOURCEPAGE:p.149
+VICIOUS.MOD		SOURCEPAGE:p.149
+VORPAL.MOD		SOURCEPAGE:p.149
+WOUND.MOD		SOURCEPAGE:p.149
+Breaking		KEY:BREAKING	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:3,Enhancement,Weapon,Melee	SPROP:Deals an extra 2d6 points of damage against inanimate objects and crystalline creatures on a successful hit and ignores the hardness of objects with a hardness of 5 or lower. Does not stack with Bane.
+Shattering		KEY:SHATTERING	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:3,Enhancement,Weapon,Melee	SPROP:Deals an extra 2d6 points of damage against inanimate objects and crystalline creatures on a successful hit and ignores the hardness of objects with a hardness of 10 or lower.	SPROP:On successful critical hit, deals an extra %d10 sonic damage to objects and crystalline creatures.|CRITMULT-1

@@ -1,0 +1,19 @@
+# CVS $Revision: 20122 $ $Author: zaister $ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Eric Smith (Maredudd)
+
+
+##
+##Block: Test Kits
+##
+
+## Halfling Oracle
+STARTPACK:Halfling Oracle	TYPE:Test	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Halfling],[!PRERACE:1,%]
+ALIGN:NG
+RACE:Halfling	!PRERACE:1,%
+GENDER:Male
+NAME:Halfling Oracle
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=19|CHA=10
+CLASS:Oracle	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Oracle
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point

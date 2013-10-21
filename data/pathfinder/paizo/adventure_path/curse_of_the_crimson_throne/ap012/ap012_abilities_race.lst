@@ -1,0 +1,38 @@
+SOURCELONG:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs	SOURCESHORT:AP012	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el	SOURCEDATE:2008-08
+
+
+###Block: Akaruzug Abilities
+# Ability Name	Category of Ability		Type						Description																									Source Page
+Soul Engine		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:An akaruzug draws the energy it requires to function from a living creature crucified upon its frame.									SOURCEPAGE:p. 82
+Soul Slave		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Using the soul trapped within its frame, an akaruzug can manifest ghostly representations of its victim to attack its enemies as a standard action.	SOURCEPAGE:p. 82
+Soul Steal		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:An akaruzug can attempt to draw additional soul energy into it. DC 26 Fortitude save or gain 1d4 negative levels.							SOURCEPAGE:p. 83
+Unhallow		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura	DESC:An akaruzug emanates a 40-foot aura of unholy energy, as per the spell unhallow.												SOURCEPAGE:p. 83
+
+###Block: Belier Devil Abilities
+# Ability Name			Output Name				Category of Ability		Type								Visible	Description																				Source Page
+Bdellavritra Blood Drain	OUTPUTNAME:Blood Drain		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A bdellavritra drains blood for 1d4 points of Constitution damage each round it maintains a hold with its bite.		SOURCEPAGE:p. 85
+Bdellavritra Possession		OUTPUTNAME:Possession		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DESC:DC 25 Will save to resist being possessed.														SOURCEPAGE:p. 85
+Bdellavritra Summon Devils	OUTPUTNAME:Summon Devils	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike						DESC:Once per day a bdellavritra can attempt to summon 1d6 barbed devils or a horned devil with a 45%% chance of success.	SOURCEPAGE:p. 85
+Bdellavritra Immunity		OUTPUTNAME:Poison Immunity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Poison damage
+
+###Block: Contract Devil Abilities
+# Ability Name			Output Name				Category of Ability		Type								Visible	Description																				Source Page
+Phistophilus Impale		OUTPUTNAME:Impale			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A contract devil deals 2d8+4 points of piercing damage to a grabbed opponent with a successful grapple check.		SOURCEPAGE:p. 87
+Infernal Contract								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:As a full-round action, a contract devil can produce an infernal contract for a single living mortal creature.		SOURCEPAGE:p. 87
+Infernal Investment							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:As a sub-clause of all infernal contracts, a contract devil can scry at will upon any creature it has a contract with.	SOURCEPAGE:p. 87
+Phistophilus Summon Devil	OUTPUTNAME:Summon Devil		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike						DESC:Once per day a contract devil can attempt to summon 1d6 bearded devils or a bone devil with a 50%% chance of success.	SOURCEPAGE:p. 87
+Phistophilus Tongues		OUTPUTNAME:Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:Contract devils can speak with any creature that has a language, as though using a tongues spell.				SOURCEPAGE:p. 87
+Phistophilus Immunity		OUTPUTNAME:Poison Immunity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Poison damage
+Phistophilus See In Darkness	OUTPUTNAME:See In Darkness	CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
+Phistophilus Telepathy		OUTPUTNAME:Telepathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES	DESC:100 ft.
+
+###Block: Mobogo Abilities
+# Ability Name		Unique Key			Output Name				Category of Ability		Type								Visible	Description																						Source Page
+Gogunta's Song											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DESC:As a standard action, a mobogo can unleash a thunderous croak. DC 17 Will save.									SOURCEPAGE:p. 89
+Mobogo Regeneration					OUTPUTNAME:Regeneration 5	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance			DESC:Fire, cold, and acid deal normal damage to a mobogo.														SOURCEPAGE:p. 89
+Swamp Stride											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:A mobogo can move through any sort of natural difficult terrain at its normal speed while within a swamp.					SOURCEPAGE:p. 89
+Mobogo Tongue						OUTPUTNAME:Tongue			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A mobogo can attack any creature within 40 feet with its tongue. DC %1 Escape Artist check or a DC %2 Strength check.|20+STR|16+STR	SOURCEPAGE:p. 89
+Crush				KEY:Crush ~ Mobogo						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:As a standard action, a flying mobogo may land on opponents of Medium size or smaller, using its terrible girth to crush them.
+
+
+

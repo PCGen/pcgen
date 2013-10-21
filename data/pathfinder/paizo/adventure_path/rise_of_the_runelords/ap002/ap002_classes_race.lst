@@ -1,0 +1,19 @@
+SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders	SOURCESHORT:AP002	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
+# Original Entry by: Stefan Radermacher
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Lamia Matriarch	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:12	SOURCEPAGE:p.92	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Race			Reg. Race Type
+CLASS:Lamia Matriarch	PRERACE:1,Lamia Matriarch	PRERACETYPE:Monstrous Humanoid
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lamia Matriarch	STARTSKILLPTS:2	MODTOSKILLS:YES
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Lamia Matriarch	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Lamia Matriarch|CL/2
+1	SPELLLIST:2|Cleric|Sorcerer
+###Block: Level progression
+1	CAST:5,3		KNOWN:4,2
+3	CAST:6,4		KNOWN:5,2
+5	CAST:6,5		KNOWN:5,3
+7	CAST:6,6,3		KNOWN:6,3,1
+9	CAST:6,6,4		KNOWN:6,4,2
+11	CAST:6,6,5,3	KNOWN:7,4,2,1

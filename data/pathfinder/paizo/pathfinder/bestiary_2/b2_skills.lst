@@ -1,0 +1,12 @@
+# CVS $Revision: 21419 $ $Author: evilmynex $ -- Wed Sep 18 12:28:06 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+# Skill Name	Key Stat	Untrained?		Type				Source Page		Bonus to skill														Temporary effect description													Temporary Bonus
+Craft (Rope)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p.91	BONUS:SKILL|Craft (Rope)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Rope)|PRESKILL:1,Craft (Rope)=1	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Rope)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CraftToolsRope
+
+#
+# End
+#

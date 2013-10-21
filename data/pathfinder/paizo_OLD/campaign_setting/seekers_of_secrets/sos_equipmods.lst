@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:43:55 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Seekers of Secrets-A Guide to the Pathfinder Society	SOURCESHORT:SoS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# Original Entry by: Paul Shipley
+
+# Ioun Stone equipmods
+# Modifier Name			Unique Key		Naming Option	Type			Visible		Bonus to skill					Special Property																		Choose									Automatically Gained Weapon Prof.
+|Ioun Knowledge Bonus		KEY:IOUN_KNW	NAMEOPT:NONAME	TYPE:IounKnow	VISIBLE:QUALIFY	BONUS:SKILL|%CHOICE|5|TYPE=Competence	SPROP:Grants +5 competence bonus in %CHOICE													CHOOSE:SKILL|TYPE=Knowledge|TITLE=Enhanced Knowledge Skill
+|Ioun Weapon Proficiency	KEY:IOUN_WPN	NAMEOPT:NONAME	TYPE:IounWeapon	VISIBLE:QUALIFY								SPROP:Grants proficiency in %LIST															CHOOSE:WEAPONPROFICIENCY|ANY						AUTO:WEAPONPROF|%LIST
+#elro - CHANGEPROF:%LIST throws a parse error :-(
+#|Ioun Weapon Familiarity	KEY:IOUN_WFAM	NAMEOPT:NONAME	TYPE:IounWpnFam	VISIBLE:QUALIFY	CHANGEPROF:%LIST=Martial				SPROP:Treat %LIST as a martial weapon	CHOOSE:WEAPONPROFICIENCY|TYPE.Exotic
+|Ioun Weapon Familiarity	KEY:IOUN_WFAM	NAMEOPT:NONAME	TYPE:IounWpnFam	VISIBLE:QUALIFY								SPROP:Treat %LIST as a martial weapon														CHOOSE:WEAPONPROFICIENCY|TYPE.Exotic
+|Ioun Mindborer			KEY:IOUN_MB					TYPE:Ioun		VISIBLE:QUALIFY								SPROP:Deals 1hp of damage to user/round of combat, and bores into the user's head if you sleep or fall unconscious

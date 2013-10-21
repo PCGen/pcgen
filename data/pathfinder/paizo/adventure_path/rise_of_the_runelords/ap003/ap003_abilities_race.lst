@@ -1,0 +1,58 @@
+SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre	SOURCESHORT:AP003	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8	SOURCEDATE:2007-08
+
+###Block: Smoke Haunt Racial Abilities
+# Ability Name	Category of Ability		Type							Visible	Special ABility								Define			Modify VAR
+Flameseer		CATEGORY:Special Ability	TYPE:SpecialQuality.Aura.Supernatural	VISIBLE:NO	SAB:Flameseer (Su)
+Flamewalker		CATEGORY:Special Ability	TYPE:SpecialQuality.Aura.Supernatural	VISIBLE:NO	SAB:Flamewalker (Su)
+Lifedrinker		CATEGORY:Special Ability	TYPE:SpecialQuality.Aura.Supernatural	VISIBLE:NO	SAB:Lifedrinker (Su) ~ Fortitude save DC %|LifedrinkerDC	DEFINE:LifedrinkerDC|0	BONUS:VAR|LifedrinkerDC|10+(HD/2)+CHA
+Smoke Pattern	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura.Supernatural	VISIBLE:NO	SAB:Smoke Pattern (Su) ~ Will save DC %|SmokePatternDC	DEFINE:SmokePatternDC|0	BONUS:VAR|SmokePatternDC|10+(HD/2)+CHA
+
+###Block: Totenmaske Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility								Define				Modify VAR
+Death Mask		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Death Mask (Su)
+Devour Memories	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Devour Memories (Su) ~ Will save DC %|DevourMemoriesDC	DEFINE:DevourMemoriesDC|0	BONUS:VAR|DevourMemoriesDC|10+(HD/2)+CHA
+Fleshdrinking	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Fleshdrinking (Su)
+Shape Flesh		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Shape Flesh (Su) ~ Fortitude save DC %|ShapeFaceDC	DEFINE:ShapeFaceDC|0		BONUS:VAR|ShapeFaceDC|10+(HD/2)+CHA
+
+###Block: Skull Ripper Racial Abilities
+# Ability Name	Category of Ability		Type							Visible	Special ABility							Define			Modify VAR
+Behead		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		VISIBLE:NO	SAB:Behead (Ex)
+Dread Visage	CATEGORY:Special Ability	TYPE:SpecialAbility.Aura.Supernatural	VISIBLE:NO	SAB:Dread Visage (Su) ~ Will save DC %|DreadVisageDC	DEFINE:DreadVisageDC|0	BONUS:VAR|DreadVisageDC|10+(HD/2)+CHA
+
+###Block: Argorth Racial Abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility											Define				Modify VAR
+Argorth Immunities	CATEGORY:Special Ability	TYPE:SpecialAbility.Immunity		VISIBLE:NO	SAB:Immune to gaze attacks, mind-effecting and visual effects
+Fearful Shriek		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Fearful Shriek (Su) ~ Will save DC % or be shaken.|FearfulShriekDC		DEFINE:FearfulShriekDC|0	BONUS:VAR|FearfulShriekDC|10+(HD/2)+CHA
+Ground Slam			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Ground Slam (Ex) ~ Reflex save DC % or be knocked prone.|GroundSlamDC	DEFINE:GroundSlamDC|0		BONUS:VAR|GroundSlamDC|10+(HD/2)+CON
+
+###Block: Mother of Oblivion Racial Abilities
+# Ability Name			Category of Ability		Type						Visible	Special ABility												Define					Modify VAR
+Breath of Madness			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Breath of Madness (Su) ~ Reflex save DC % for half damage.|BreathofMadnessDC	DEFINE:BreathofMadnessDC|0		BONUS:VAR|BreathofMadnessDC|10+(HD/2)+CON
+Transdimensional Tentacles	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Transdimensional Tentacles (Su)
+Warp Dimensions			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Warp Dimensions (Su) ~ Fortitude save DC %|WarpDimensionNauseatedDC			DEFINE:WarpDimensionNauseatedDC|0	BONUS:VAR|WarpDimensionNauseatedDC|10+(HD/2)+CON
+
+###Block: Ogrekin Special Qualities: Advantageous Deformities
+# Ability Name	Category of Ability		Type					Visible		Special ABility									Clone Movement		Save checks bonus					Combat bonus					Bonus to skill					Stat bonus				Wield Category bonus				Natural Attacks
+Webbed Digits	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Webbed Digits									MOVECLONE:Walk,Swim,/2
+Oversized Limb	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Oversized Limb																																	BONUS:STAT|STR|2|TYPE=Racial	BONUS:WIELDCATEGORY|ALL|-1|TYPE=Racial
+Thick Skin		CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Thick Skin																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Enhanced Senses	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Enhanced Senses																										BONUS:SKILL|Search,Spot|2|TYPE=Racial
+Triple-Jointed	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Triple-Jointed																										BONUS:SKILL|Escape Artist|4|TYPE=Racial
+Ovesized Maw	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Oversized Maw																																														NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
+Vestigal Limb	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Vestigal Limb																				BONUS:COMBAT|TOHIT.GRAPPLE|4|TYPE=Racial
+Fierce Visage	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Fierce Visage																											BONUS:SKILL|Intimidate|4|TYPE=Racial
+Quick Metabolism	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Quick Metabolism ~ You heal faster than normal when at rest.					BONUS:CHECKS|Fortitude|2|TYPE=Racial
+Vestigal Twin	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Vestigal Twin													BONUS:CHECKS|Will|2|TYPE=Racial
+
+###Block: Ogrekin Special Qualities: Disadvantageous Deformities
+# Ability Name	Category of Ability		Type					Visible		Special ABility									Save checks bonus		Combat bonus									Add to base move			Bonus to skill		Stat bonus
+Obese			CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Obese																																		BONUS:STAT|DEX|-2
+Extra Ugly		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Extra Ugly																													BONUS:SKILL|STAT.CHA|-4
+Light-Sensitive	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Light-Sensitive ~ You are dazzled by bright sunlight.
+Weak Mind		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Weak Mind									BONUS:CHECKS|Will|-2
+Speech Impediment	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Speech Impediment
+Deformed Hand	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Deformed Hand													BONUS:COMBAT|TOHIT.MELEE|-2|TYPE=Racial|PREEQUIPBOTH:1,TYPE=Melee
+Stunted Leg		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Stunted Leg																								BONUS:MOVEADD|TYPE.Walk|-10
+Pinhead		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Pinhead																																		BONUS:STAT|INT|-2
+Fragile		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Fragile																																		BONUS:STAT|-4|TYPE=Racial
+Freakish Birth	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Freakish Birth ~ You have no disadvantageous deformities.

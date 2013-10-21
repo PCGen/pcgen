@@ -1,0 +1,5 @@
+SOURCELONG:Rise of the Runelords, Chapter 1 - Burnt Offerings	SOURCESHORT:AP001	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy7zkq	SOURCEDATE:2007-08
+
+
+# Equipment Name		Type					Cost		Weight	Source Page		Save checks bonus
+Sihedron Medallion	TYPE:Magic.Wondrous.Amulet	COST:3500	WT:0		SOURCEPAGE:p.55	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance

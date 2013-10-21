@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Qadira, Gateway to the East
+CAMPAIGN:Qadira, Gateway to the East
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Qadira, Gateway to the East
-SOURCESHORT:QGE
+SOURCESHORT:QGTTE
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq
 SOURCEDATE:2009-08
 ISOGL:YES
@@ -33,22 +32,20 @@ DESC:A hot-blooded realm of riches, slavery, and blood feuds, the desert nation 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
-# Data files
-ABILITYCATEGORY:qge_abilitycategories.lst
-ABILITY:qge_abilities_background.lst
-ABILITY:qge_abilities_class.lst
-ABILITY:qge_abilities_racial.lst
-ABILITY:qge_abilities_traits.lst
-CLASS:qge_classes_prestige.lst
-CLASS:qge_classes_monster.lst
-DEITY:qge_deities.lst
-EQUIPMENT:qge_equip.lst
-EQUIPMOD:qge_equipmods.lst
-FEAT:qge_feats.lst
-KIT:qge_kits_races.lst
-LANGUAGE:qge_languages.lst
-RACE:qge_races.lst
-TEMPLATE:qge_templates_background.lst
-TEMPLATE:qge_templates_general.lst
-TEMPLATE:qge_templates_races.lst
+
+ABILITYCATEGORY:qgtte_abilitycategories.lst
+ABILITY:qgtte_abilities.lst
+ABILITY:qgtte_abilities_class.lst
+ABILITY:qgtte_abilities_race.lst
+CLASS:qgtte_classes.lst
+CLASS:qgtte_classes_race.lst
+DEITY:qgtte_deities.lst
+EQUIPMENT:qgtte_equip_magic_items.lst
+EQUIPMOD:qgtte_equipmods.lst
+FEAT:qgtte_feats.lst
+KIT:qgtte_kits_race.lst
+LANGUAGE:qgtte_languages.lst
+RACE:qgtte_races.lst
+TEMPLATE:qgtte_templates.lst

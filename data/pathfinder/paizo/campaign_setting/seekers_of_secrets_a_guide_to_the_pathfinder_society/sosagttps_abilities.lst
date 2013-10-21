@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOSAGTTPS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
+# Original Entry by: Paul Shipley
+
+# Ability Name			Category of Ability		Type			Aspects
+Flawed Gamboge Nodule Ability	CATEGORY:Special Ability	TYPE:Internal	ASPECT:SaveBonus|-4 penalty against curses and diseases

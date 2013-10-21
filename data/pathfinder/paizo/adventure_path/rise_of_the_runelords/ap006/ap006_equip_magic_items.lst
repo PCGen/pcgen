@@ -1,0 +1,11 @@
+SOURCELONG:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast	SOURCESHORT:AP006	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c	SOURCEDATE:2007-10
+#Original Entry: Andrew Maitland
+
+# Equipment Name		Type				Cost		Weight	Spell Res.	Innate Spells								Caster level						Save checks bonus				Combat bonus						Stat bonus				Special Property																Temporary Bonus
+Anima Focus			TYPE:Artifact								SPELLS:Magic Item|TIMES=3|CASTERLEVEL=20|Ethereal Jaunt
+Elixir of the Peaks	TYPE:Potion			COST:2450																																																												TEMPBONUS:ANYPC|SKILL|Climb|10|TYPE=Competence
+Robes of Xin-Shalast	TYPE:Robe.Magic		COST:198000	WT:1		SR:24												BONUS:CASTERLEVEL|TYPE.Arcane,TYPE.Divine|1							BONUS:COMBAT|AC|6|TYPE=Armor
+Runewell Amulet		TYPE:Amulet.Artifact																															BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement						SPROP:Fast Healing 10
+Sihedron Ring		TYPE:Ring.Magic		COST:35000																							BONUS:CHECKS|ALL|3|TYPE=Resistance	BONUS:COMBAT|AC|3|TYPE=Deflection
+Sihedron Tome		TYPE:Book.Artifact			WT:1																																				BONUS:STAT|BASESPELLSTAT|6
+Talons of Leng						COST:67000	WT:1																																				BONUS:STAT|WIS|-2			SPROP:Grants wearer two natural claw attacks, both with a +3 enhancement bonus on attack rolls and damage

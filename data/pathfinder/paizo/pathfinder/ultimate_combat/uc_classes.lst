@@ -1,0 +1,140 @@
+# CVS $Revision: 21469 $ $Author: amaitland $ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+
+# ORIGINAL ENTRY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 08-2012 (August 8th)
+
+###Block: Gunslinger
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:GunslingerLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|Exotic Weapon Proficiency (Firearms)	AUTO:WEAPONPROF|TYPE.Firearm
+1																	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Vars and Pools
+4	BONUS:VAR|GunslingerBonusFeatCount|CL/4
+5	BONUS:VAR|GunTrainingSelection|(CL-1)/4
+###Block: Level progression
+1	ABILITY:Gunslinger Class Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
+1	ABILITY:Gunslinger Class Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
+1	ABILITY:Gunslinger Class Ability|AUTOMATIC|Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
+2	ABILITY:Gunslinger Class Ability|AUTOMATIC|Nimble ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
+4	ABILITY:Gunslinger Class Ability|AUTOMATIC|Bonus Feats ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBonusFeat
+5	ABILITY:Gunslinger Class Ability|AUTOMATIC|Gun Training ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
+20	ABILITY:Gunslinger Class Ability|AUTOMATIC|True Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
+
+
+###Block: Ninja
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR			Serves As
+CLASS:Ninja		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue
+# Class Name	Var. Must Be Lower
+CLASS:Ninja		PREVARLT:RogueLVL,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Weapon Proficiencies ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaWeaponProficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1																																	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Vars
+1	BONUS:VAR|NinjaSneakAttackLVL|CL
+2	BONUS:VAR|KiPoolLVL|CL
+2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL
+3	BONUS:VAR|NinjaNoTraceLVL|CL
+4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+4	BONUS:VAR|UncannyDodgeLevel|CL/4
+8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+###Block: Level progression
+1	ABILITY:Ninja Class Ability|AUTOMATIC|Poison Use ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
+1	ABILITY:Ninja Class Ability|AUTOMATIC|Sneak Attack ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
+2	ABILITY:Ninja Class Ability|AUTOMATIC|Ninja Trick ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
+2	ABILITY:Ninja Class Ability|AUTOMATIC|Ki Pool ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
+3	ABILITY:Ninja Class Ability|AUTOMATIC|No Trace ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+6	ABILITY:Ninja Class Ability|AUTOMATIC|Light Steps ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
+8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+20	ABILITY:Ninja Class Ability|AUTOMATIC|Hidden Master ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
+
+
+###Block: Samurai
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus					Serves As
+CLASS:Samurai	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	SERVESAS:CLASS|Cavalier
+# Class Name	Var. Must Be Lower
+CLASS:Samurai	PREVARLT:CavalierLVL,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+###Block:
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+1	AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyHeavy
+1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyLight
+1	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
+1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
+###Block: Level progression
+1	ABILITY:Samurai Class Ability|AUTOMATIC|Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
+1	ABILITY:Samurai Class Ability|AUTOMATIC|Mount ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
+1	ABILITY:Samurai Class Ability|AUTOMATIC|Order ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+1	ABILITY:Samurai Class Ability|AUTOMATIC|Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
+3	ABILITY:Samurai Class Ability|AUTOMATIC|Weapon Expertise ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
+4	ABILITY:Samurai Class Ability|AUTOMATIC|Mounted Archer ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
+5	ABILITY:Samurai Class Ability|AUTOMATIC|Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
+6	ABILITY:Samurai Class Ability|AUTOMATIC|Bonus Feat ~ Samurai|!PREABILITY:1,CATEGORY=Archetye,TYPE.SamuraiBonusFeats
+9	ABILITY:Samurai Class Ability|AUTOMATIC|Greater Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
+11	ABILITY:Samurai Class Ability|AUTOMATIC|Honorable Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
+12	ABILITY:Samurai Class Ability|AUTOMATIC|Demanding Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
+14	ABILITY:Samurai Class Ability|AUTOMATIC|Greater Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
+17	ABILITY:Samurai Class Ability|AUTOMATIC|True Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
+20	ABILITY:Samurai Class Ability|AUTOMATIC|Last Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
+###Block:
+6	BONUS:VAR|SamuraiBonusFeat|CL/6
+1	BONUS:VAR|OrderAbilityLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
+1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
+
+
+
+###Block: Monk (for adjusting unarmed damage when a feat or something adjusts the effective monk level)
+# level 1
+
+# Class Name	Define
+CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjusted|classlevel("Monk")
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD01|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD01],[PREVAREQ:MonkLevelsAdjusted,1]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD02|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD02],[PREVAREQ:MonkLevelsAdjusted,2]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD03|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD03],[PREVAREQ:MonkLevelsAdjusted,3]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD04|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD04],[PREVAREQ:MonkLevelsAdjusted,4]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD05|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD05],[PREVAREQ:MonkLevelsAdjusted,5]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD06|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD06],[PREVAREQ:MonkLevelsAdjusted,6]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD07|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD07],[PREVAREQ:MonkLevelsAdjusted,7]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD08|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD08],[PREVAREQ:MonkLevelsAdjusted,8]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD09|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD09],[PREVAREQ:MonkLevelsAdjusted,9]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD10|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD10],[PREVAREQ:MonkLevelsAdjusted,10]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD11|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD11],[PREVAREQ:MonkLevelsAdjusted,11]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD12|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD12],[PREVAREQ:MonkLevelsAdjusted,12]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD13|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD13],[PREVAREQ:MonkLevelsAdjusted,13]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD14|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD14],[PREVAREQ:MonkLevelsAdjusted,14]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD15|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD15],[PREVAREQ:MonkLevelsAdjusted,15]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD16|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD16],[PREVAREQ:MonkLevelsAdjusted,16]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD17|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD17],[PREVAREQ:MonkLevelsAdjusted,17]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD18|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD18],[PREVAREQ:MonkLevelsAdjusted,18]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD19|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD19],[PREVAREQ:MonkLevelsAdjusted,19]
+#CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD20|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD20],[PREVAREQ:MonkLevelsAdjusted,20]
+
+
+
+# Class Name	Var. Must Be Lower
+CLASS:Rogue.MOD	PREVARLT:NinjaLVL,1
+
+# Class Name		Var. Must Be Lower
+CLASS:Cavalier.MOD	PREVARLT:SamuraiLVL,1

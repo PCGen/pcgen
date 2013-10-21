@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Tue Sep  4 07:13:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# ORIGINAL ENTRY: Michael Isaacson (merkidemis)
+# ORIGINAL ENTRY DATE: 2012-08-10
+
+# Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool
+Gunslinger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Gunslinger")
+Ninja			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Ninja")
+Samurai		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Samurai")
+

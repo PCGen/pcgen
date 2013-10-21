@@ -1,14 +1,12 @@
-# CVS $Revision: 9628 $ $Author: eddyanthony $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Inner Sea World Guide
+CAMPAIGN:Inner Sea World Guide
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
+TYPE:Paizo Publishing.Campaign Setting
+RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
-SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
-PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,Bestiary,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -58,33 +56,26 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 # Data files
-ABILITY:iswg_abilities_background.lst
 ABILITY:iswg_abilities.lst
+ABILITY:iswg_abilities_class.lst
 ABILITY:iswg_abilities_race.lst
 ABILITYCATEGORY:iswg_abilitycategories.lst
-ARMORPROF:iswg_profs_armor.lst
 CLASS:iswg_classes.lst
 CLASS:iswg_classes_race.lst
-COMPANIONMOD:iswg_companion_mods.lst
+COMPANIONMOD:iswg_companionmods.lst
 DEITY:iswg_deities.lst
 DOMAIN:iswg_domains.lst
-EQUIPMENT:iswg_equipment.lst
-EQUIPMENT:iswg_equipment_magic.lst
+EQUIPMENT:iswg_equip_arms_armor.lst
+EQUIPMENT:iswg_equip_general.lst
+EQUIPMENT:iswg_equip_magic_items.lst
 EQUIPMOD:iswg_equipmods.lst
 FEAT:iswg_feats.lst
 KIT:iswg_kits_race.lst
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
-SKILL:iswg_skills_conditional.lst
+SKILL:iswg_skills.lst
 SPELL:iswg_spells.lst
-SPELL:iswg_spells_domain.lst
 TEMPLATE:iswg_templates.lst
-TEMPLATE:iswg_templates_race.lst
-WEAPONPROF:iswg_profs_weapons.lst
+ARMORPROF:iswg_profs_armor.lst
+WEAPONPROF:iswg_profs_weapon.lst
 
-# Forward References
-FORWARDREF:CLASSSPELLLIST|Alchemist,Inquisitor,Magus,Summoner,Witch
-
-#
-# End
-#

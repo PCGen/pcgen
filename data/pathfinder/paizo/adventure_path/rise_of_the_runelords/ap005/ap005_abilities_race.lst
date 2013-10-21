@@ -1,0 +1,49 @@
+SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors	SOURCESHORT:AP005	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o	SOURCEDATE:2007-10
+#Original Entry: Andrew Maitland
+
+#Ercinee Abilities
+# Ability Name							Unique Key					Output Name			Category of Ability		Type								Visible	Special ABility														Define												Innate Spells																																																Description
+Unstable Screech																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Unstable Screech (Su)
+Lighted Way																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SAB:Lighted Way (Su)
+Radiance																		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike						SAB:Radiance (Sp)
+ErcineeSpelllike Abilities															CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Dancing Lights|Light	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Searing Light
+
+#Marsh Giant
+CATEGORY=Special Ability|Marsh Giant Abilities.MOD																								VISIBLE:NO
+Marsh Giant Abilities																CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=2|CASTERLEVEL=6|Bestow Curse,15|Fog Cloud	SPELLS:Innate|TIMES=1|CASTERLEVEL=6|Augury
+Marsh Giant Rock Throwing															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					SAB:Rock Throwing (Ex) %'|RockThrowRange										DEFINE:RockThrowRange|0
+Marsh Giant Rock Catching															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					SAB:Rock Catching (Ex)
+#Variant
+CATEGORY=Special Ability|Brineborn Abilities.MOD																								VISIBLE:NO
+Brineborn Abilities																CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Speak with Animals	SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Contagion,15|Diminish Plants,14|Quench,14
+
+Withfire Abilities																CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=9|Dancing Lights|Disguise Self|Ghost Sound,17|Invisibility|Pyrotechnics,18|Ray of Enfeeblement
+Summon Will-O-Wisps																CATEGORY:Special Ability	TYPE:Supernatural								SAB:Summon Will-O'-Wisps (Sp)
+Witchflame																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Witchflame (Su)
+Witchflame Aura																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SAB:Witchflame Aura (Su)
+Mimicry								KEY:Mimicry ~ Witchfire							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																																				DESC:A witchfire can imitate the sounds of any animal found near its lair.
+
+
+Shemhazian Spells																	CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=16|Detect Good|Invisibility|Teleport (Greater)|Unholy Blight,17	SPELLS:Innate|TIMES=3|CASTERLEVEL=16|Clairaudience/Clairvoyance|Fly|Prying Eyes
+Shemhazian Rend													OUTPUTNAME:Rend		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					SAB:Rend (Ex) ~ %d%+%|RendDamage|RendDieSize|RendBonusDamage						DEFINE:RendDieSize|0	DEFINE:RendDamage|0	DEFINE:RendBonusDamage|0
+Summon Demons																	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike						SAB:Summon Demons (Sp)
+Shemhazian Telepathy												OUTPUTNAME:Telepathy	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SAB:Telepathy (Su) - can communicate telepathically with creature within (%')|TelepathRange	DEFINE:TelepathRange|0
+Paralyzing Gaze							KEY:Paralyzing Gaze ~ Shemhazian					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																					DEFINE:ParalyzingGazeDC|10+(HD/2)+CHA																																																									DESC:Paralysis for 1 round, 30 feet, Fortitude DC %1 negates. Evil creatures are immune to this effect.|ParalyzingGazeDC
+True Seeing								KEY:True Seeing ~ Shemhazian						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense																																																																																			DESC:Shemhazians continuously use true seeing, as the spell (caster level 14th).
+
+
+#Night Monarch
+Adhesive Spray																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Adhesive Spray
+Dream Dust																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Dream Dust
+No Breath																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					SAB:No Breath
+Poison Flesh																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					SAB:Poison Flesh
+Touch Telepathy																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SAB:Touch Telepathy
+Night Monarch Special Powers															CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Cure Serious Wounds|Dream|Freedom of Movement|Hypnotic Pattern,26	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Break Enchantment|Dispel Magic (Greater)|Plane Shift|Remove Curse|Remove Fear|Remove Paralysis	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Hallow,26|Regenerate
+
+#Yethazmari
+Yethazmari Spells																	CATEGORY:Special Ability																																								SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|Blindness/Deafness,17|Locate Creature|Rage,18|Veil,22	SPELLS:Innate|TIMES=3|CASTERLEVEL=15|Baleful Polymorph,20|Dispel Magic (Greater)|Feeblemind,20|Plane Shift|Summon Monster IV	SPELLS:Innate|TIMES=1|CASTERLEVEL=15|Control Weather|Unhallow,20
+Yethazmari Bay													OUTPUTNAME:Bay		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Bay
+Maddening Vision																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Maddening Vision
+Poison Gout																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					SAB:Poison Gout
+Soul Scream																		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SAB:Soul Scream
+Sleep Immunity																	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity			SAB:Sleep Immunity

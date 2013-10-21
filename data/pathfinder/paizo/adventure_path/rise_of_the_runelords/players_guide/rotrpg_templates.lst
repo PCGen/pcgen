@@ -1,0 +1,16 @@
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:ROTRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+# Template Name				Visible		Bonus to Ability Pool
+Rise of the Runelords Bonus Feat	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Varisian Bonus Feat|1|PREABILITY:1,CATEGORY=Background,Varisia
+
+###Block: Human Ethnicities
+# Template Name			Visible	Subrace
+Human Ethnicity (Chelaxian)	VISIBLE:NO	SUBRACE:Chelaxian
+Human Ethnicity (Varisian)	VISIBLE:NO	SUBRACE:Varisian
+Human Ethnicity (Shoanti)	VISIBLE:NO	SUBRACE:Shoanti
+
+###Block: Regional Affinities
+# Template Name			Visible	Source Page		Region
+Regional Affinity (Varisia)	VISIBLE:YES	SOURCEPAGE:p.144	REGION:Varisia
+

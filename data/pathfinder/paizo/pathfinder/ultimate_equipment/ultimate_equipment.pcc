@@ -1,15 +1,12 @@
-# CVS $Revision$ $Author$
 CAMPAIGN:Ultimate Equipment
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
-RANK:3
+TYPE:Paizo Publishing.Pathfinder
+RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Magic
+SETTING:Pathfinder
+PRECAMPAIGN:1,Ultimate Magic
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -43,50 +40,23 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 
 # Note: In the data files core items are .MODed to add UE source info, cost and weight. Duplicate items from APG and UC are entered in full.
 
-# Data files
 
-# FORWARDREF:SPELL|Age Resistance (Lesser),Memory Lapse,Hydraulic Push
+ABILITY:ue_abilities.lst
+ABILITYCATEGORY:ue_abilitycategories.lst
 
-ABILITY:pfue_abilities_equipment.lst
-ABILITYCATEGORY:pfue_abilitycategories.lst
+EQUIPMENT:ue_equip_arms_armor.lst
+EQUIPMENT:ue_equip_general.lst
+EQUIPMENT:ue_equip_magic_items.lst
+EQUIPMOD:ue_equipmods.lst
+KIT:ue_kits.lst
+SKILL:ue_skills.lst
+SPELL:ue_spells.lst
+TEMPLATE:ue_templates.lst
 
-EQUIPMENT:pfue_equip_armorshields.lst
-EQUIPMENT:pfue_equip_armorshields_specific.lst
-EQUIPMENT:pfue_equip_artifacts.lst
-EQUIPMENT:pfue_equip_cursed.lst
-EQUIPMENT:pfue_equip.lst
-EQUIPMENT:pfue_equip_tools.lst
-EQUIPMENT:pfue_equip_animals.lst
-EQUIPMENT:pfue_equip_goods.lst
-EQUIPMENT:pfue_equip_alchemical.lst
-EQUIPMENT:pfue_equip_rings.lst
-EQUIPMENT:pfue_equip_rods.lst
-EQUIPMENT:pfue_equip_staves.lst
-EQUIPMENT:pfue_equip_weapons_ammo.lst
-EQUIPMENT:pfue_equip_weapons_firearms.lst
-EQUIPMENT:pfue_equip_weapons_melee.lst
-EQUIPMENT:pfue_equip_weapons_ranged.lst
-EQUIPMENT:pfue_equip_weapons_specific.lst
-EQUIPMENT:pfue_equip_wondrousitems.lst
-EQUIPMENT:pfue_equip_wondrousitems_slotless.lst
+ARMORPROF:ue_profs_armor.lst
+WEAPONPROF:ue_profs_weapon.lst
 
-EQUIPMOD:pfue_equipmods_armorshields.lst
-EQUIPMOD:pfue_equipmods_material.lst
-EQUIPMOD:pfue_equipmods_weapons.lst
-
-ARMORPROF:pfue_profs_armor.lst
-# SHIELDPROF:pfue_profs_shield.lst
-WEAPONPROF:pfue_profs_weapon.lst
-
-KIT:pfue_equip_kits.lst
-
-SKILL:pfue_skills_conditional.lst
-
-SPELL:pfue_spells.lst
 
 # We have some data from other sets which we need to include if they aren't loaded
-EQUIPMENT:../ultimate_combat/pfuc_equip_armor.lst|!PRECAMPAIGN:1,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Combat
+EQUIPMENT:../ultimate_combat/pfuc_equip_armor.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
-#
-# End
-#

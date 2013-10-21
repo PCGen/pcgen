@@ -1,0 +1,11 @@
+# CVS $Revision: 14884 $ $Author: amaitland $ -- Fri Apr 22 20:07:44 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Critical Fumble Deck	SOURCESHORT:CFD	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/gameMastery/itemPacks/v5748btpy89mn	SOURCEDATE:2009-09
+# Original Entry by:Stefan Radermacher
+
+###Block:Magic Weapon Special Abilities
+# Modifier Name	Unique Key	Type		Plus		Visible		Required Type			Special Property
+Sure Grip		KEY:SURE	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	PRETYPE:2,Enhancement,Weapon	SPROP:only confirm critical fumbles on a natural 1
+
+#
+# End
+#

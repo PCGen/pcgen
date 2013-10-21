@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep 15 15:07:00 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+# Template Name			Visible	Template											Apply Kit					List of Known Class Spells by Level
+Bard's Instrument			VISIBLE:NO	TEMPLATE:CHOOSE:Bard's Instrument (Choose)|Bard's Instrument (Random)
+Bard's Instrument (Choose)	VISIBLE:NO													KIT:1|Bard's Instrument (Choose)
+Bard's Instrument (Random)	VISIBLE:NO													KIT:1|Bard's Instrument (Random)
+The Shield of the Sun		VISIBLE:NO																			SPELLKNOWN:CLASS|Paladin=1|Bless,Bless Water,Bless Weapon,Create Water,Cure Light Wounds,Detect Poison,Detect Undead,Divine Favor,Endure Elements,Magic Weapon,Protection from Chaos,Protection from Evil,Read Magic,Resistance,Restoration (Lesser),Virtue	SPELLKNOWN:CLASS|Paladin=2|Bull's Strength,Delay Poison,Eagle's Splendor,Owl's Wisdom,Remove Paralysis,Resist Energy,Shield Other,Undetectable Alignment,Zone of Truth	SPELLKNOWN:CLASS|Paladin=3|Cure Moderate Wounds,Daylight,Discern Lies,Dispel Magic,Heal Mount,Magic Circle against Chaos,Magic Circle against Evil,Magic Weapon (Greater),Prayer,Remove Blindness/Deafness,Remove Curse	SPELLKNOWN:CLASS|Paladin=4|Break Enchantment,Cure Serious Wounds,Death Ward,Dispel Chaos,Dispel Evil,Holy Sword,Mark of Justice,Neutralize Poison,Restoration

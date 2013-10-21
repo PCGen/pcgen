@@ -1,0 +1,18 @@
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages								Bonus to Ability Pool			Save checks bonus						Stat bonus					Modify VAR											Automatically Gained Language	Ability									Main Race Type	Race Subtype		Type			Source Page		SORTKEY
+Dwarf		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon																BONUS:STAT|CON|RacialStatCON+2	BONUS:VAR|RacialStatWIS|2	BONUS:VAR|RacialStatCHA|-2								ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default		RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Base.PC	SOURCEPAGE:p.21	SORTKEY:a_base_pc
+Elf		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Celestial,Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan															BONUS:STAT|CON|RacialStatCON-2	BONUS:VAR|RacialStatDEX,RacialStatINT|2						AUTO:LANG|Common|Elven		ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default		RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Base.PC	SOURCEPAGE:p.22	SORTKEY:a_base_pc
+Gnome		STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc																BONUS:STAT|CON|RacialStatCON+2	BONUS:VAR|RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2			AUTO:LANG|Common|Gnome|Sylvan	ABILITY:Internal|AUTOMATIC|Gnome Racial Trait Default		RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Base.PC	SOURCEPAGE:p.23	SORTKEY:a_base_pc
+Half-Elf	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1																											AUTO:LANG|Common|Elven		ABILITY:Internal|AUTOMATIC|Half Elf Racial Trait Default	RACETYPE:Humanoid	RACESUBTYPE:Elf|Human	TYPE:Base.PC	SOURCEPAGE:p.24	SORTKEY:a_base_pc
+Half-Orc	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin			BONUS:ABILITYPOOL|Ability Bonus|1																											AUTO:LANG|Common|Orc		ABILITY:Internal|AUTOMATIC|Half Orc Racial Trait Default	RACETYPE:Humanoid	RACESUBTYPE:Orc|Human	TYPE:Base.PC	SOURCEPAGE:p.25	SORTKEY:a_base_pc
+Halfling	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Dwarven,Elven,Gnome,Goblin										BONUS:CHECKS|ALL|HalflingSaveBonus|TYPE=Racial							BONUS:VAR|RacialStatDEX,RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2	AUTO:LANG|Common|Halfling	ABILITY:Internal|AUTOMATIC|Halfling Racial Trait Default	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Base.PC	SOURCEPAGE:p.26	SORTKEY:a_base_pc
+Human		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1																											AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Human Racial Trait Default		RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Base.PC	SOURCEPAGE:p.27	SORTKEY:a_base_pc
+#COMMENT: Need to change XTRASKILLPTSPERLVL to take a formula or variable
+
+# XTRASKILLPTSPERLVL:1
+
+# DEVELOPER NOTE: ABILITY:Internal|AUTOMATIC|XXX Racial Trait Default assigns the Traits of the Race and allows them to be swapped out
+# The Base Ability is located in pfcr_abilities_racial.lst

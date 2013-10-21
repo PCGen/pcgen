@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Fri Jul 12 16:33:53 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 12 July 2013
+
+###Block: Bardic Masterpiece activation
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Tiefling
+
+#
+# End
+#

@@ -1,0 +1,45 @@
+SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP007	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+
+# Carrion Golem
+# Ability Name			Output Name				Category of Ability		Type								Visible	Description																										Source Page
+Carrion Golem Disease		OUTPUTNAME:Disease		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A carrion golem is befouled with a thousand festering plagues. Anyone struck by a carrion golem's slam attack risks infection from a number of ailments.	SOURCEPAGE:p. 78
+Carrion Golem Immunities	OUTPUTNAME:Immune to Magic	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:A carrion golem is immune to any spell or spell-like ability that allows spell resistance.												SOURCEPAGE:p. 78
+Stench of Death								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura		VISIBLE:YES	DESC:Carrion golems are foulness incarnate.																				SOURCEPAGE:p. 78
+
+###Block: Doll (Soulbound)
+# Ability Name		Category of Ability		Type								Innate Spells																																																																Description																														Source Page
+Alignment Variations	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Suggestion,13+CHA|PREALIGN:LN	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Heroism,13+CHA|PREALIGN:NG	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Deep Slumber,13+CHA|PREALIGN:TN	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Inflict Serious Wounds,13+CHA|PREALIGN:NE	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Rage,13+CHA|PREALIGN:CN	DESC:All soulbound dolls are at least partially neutral in alignment, although they can also be chaotic, evil, good, or lawful depending upon the nature of their soul focus.			SOURCEPAGE:p. 84
+Enchantment Weakness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness																																																																			DESC:The weakened conviction of the soulbound doll's soul makes it susceptible to mind-affecting effects, despite its construct traits.									SOURCEPAGE:p. 84
+Soul Focus			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																					DESC:The soul bound to the doll lives within a focus integrated into the doll or its apparel, typically one of the doll's eyes or a gem embedded into the neck or chest of the doll.	SOURCEPAGE:p. 84
+
+###Block: Devilfish
+# Ability Name	Output Name		Category of Ability		Type							Description																		Source Page
+Dagon's Blood				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	DESC:The unholy blood of the sea god runs through a devilfish									SOURCEPAGE:p. 80
+Devilfish Poison	OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:Injury (savage bite), Fortitude DC %1, initial damage 1d6 Strength, secondary damage 1d6 Strength|12+CON	SOURCEPAGE:p. 80
+Savage Bite					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A devilfish can attack with its savage bite whenever it makes a successful grapple check				SOURCEPAGE:p. 80
+See in Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense	DESC:A devilfish can see perfectly in darkness of any kind										SOURCEPAGE:p. 80
+Jet			KEY:Jet ~ Devilfish			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES	DESC:A devilfish can jet backward once per round as a full-round action, at a speed of 240 feet.
+Water Dependent	KEY:Water Dependent ~ Devilfish	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES	DESC:A devilfish can survive out of the water for 1 hour, after which it becomes fatigued.
+
+###Block: Dream Spider
+# Ability Name		Output Name		Category of Ability		Type						Description																																				Source Page
+Dream Web						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Any animal, humanoid, giant, or monstrous humanoid that comes in contact with these webs experiences strange hallucinations, taking 1 point of Wisdom damage per round of contact (DC %1 Fortitude save negates)|10+CON	SOURCEPAGE:p. 82
+Dream Spider Poison	OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Injury, Fortitude DC %1, initial and secondary damage 1d4 Wis|10+CON																									SOURCEPAGE:p. 82
+
+###Block: Raktavarna
+# Ability Name		Output Name				Category of Ability		Type						Description																													Source Page
+Bound to the Master						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:A raktavarna is forever bound to the rakshasa who created it. What it sees the rakshasa knows, and this includes anything the raktavarna views via clairaudience/clairvoyance.	SOURCEPAGE:p. 86
+Raktavarna Change Shape	OUTPUTNAME:Change Shape		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:A raktavarna can assume another form at will as a move action																			SOURCEPAGE:p. 86
+Memory Poison							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Injury, Fortitude DC %1, initial damage 1d4 Wis, secondary damage none|13+CON																	SOURCEPAGE:p. 86
+Raktavarna Immunities	OUTPUTNAME:Immune to Sleep	CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity																																SOURCEPAGE:p. 86
+
+###Block: Reefclaw
+# Ability Name		Output Name			Category of Ability		Type								Description																										Source Page
+Amphibious (Reefclaw)	OUTPUTNAME:Amphibious	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Although reefclaws are aquatic, they can survive indefinitely on land.															SOURCEPAGE:p. 88
+Death Frenzy						CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.Supernatural	DESC:When a reefclaw is killed, its body spasms horrifically. Immediately upon dying, the reefclaw makes a full attack action against creatures it threatens.	SOURCEPAGE:p. 88
+Numbing Poison						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:injury DC %1; initial numbness, secondary none. numbness confers a -2 penalty on grapple and Strength checks for 1 minute|11+CON					SOURCEPAGE:p. 88
+
+###Block: Cabbagehead's Deformities
+# Ability Name			Output Name					Category of Ability		Type						Description
+Cabbagehead's Deformities	OUTPUTNAME:Ogrekin Deformities	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Cabbagehead's head is monstrously deformed and his skin is thick and blubbery.
+

@@ -1,0 +1,6 @@
+# CVS $Revision: 20126 $ $Author: zaister $ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+
+# Equipment Name	Type		Cost		Weight	Description
+Royal Jelly		TYPE:Goods	COST:100	WT:1		DESC:A pound of royal jelly provides enough nourishment for a full day, and grants a +4 resistance bonus on all saving throws against disease for the next 24 hours.  If a creature sleeps enough to heal damage within 24 hours of eating at least a pound of royal jelly, it heals twice the hit points and ability damage as it otherwise would.

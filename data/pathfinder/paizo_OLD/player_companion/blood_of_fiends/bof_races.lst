@@ -1,0 +1,24 @@
+# CVS $Revision: 19255 $ $Author: amaitland $ -- Fri Jul 12 13:38:44 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 12 July 2013
+
+###Block: Tieflings
+# Race Name				Unique Key				Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages											Stat bonus						Automatically Gained Language	Ability											Nb Legs	Main Race Type	Race Subtype		Challenge Rating	Source Page
+#Tiefling (Asura-Spawn)		KEY:Tiefling (Asura-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,WIS|2	BONUS:STAT|INT|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Asura-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Daemon-Spawn)		KEY:Tiefling (Daemon-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Daemon-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Demodand-Spawn)	KEY:Tiefling (Demodand-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|CON,WIS|2	BONUS:STAT|INT|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Demodand-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Demon-Spawn)		KEY:Tiefling (Demon-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Demon-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Devil-Spawn)		KEY:Tiefling (Devil-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|CON,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Devil-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Div-Spawn)		KEY:Tiefling (Div-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Div-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Kyton-Spawn)		KEY:Tiefling (Kyton-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Kyton-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Oni-Spawn)		KEY:Tiefling (Oni-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|STR,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Oni-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Qlippoth-Spawn)	KEY:Tiefling (Qlippoth-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|STR,WIS|2	BONUS:STAT|INT|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Qlippoth-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+#Tiefling (Rakshasa-Spawn)	KEY:Tiefling (Rakshasa-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Rakshasa-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
+
+
+Tiefling.MOD	BONUS:ABILITYPOOL|Tiefling Subrace|1
+
+#
+# End
+#

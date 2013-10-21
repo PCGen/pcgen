@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
-CAMPAIGN:Paizo - Gnomes of Golarion
+CAMPAIGN:Gnomes of Golarion
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Gnomes of Golarion
-SOURCESHORT:GoG
+SOURCESHORT:GNOG
 SOURCEWEB:http://paizo.com/products/btpy8dmh?Pathfinder-Companion-Gnomes-of-Golarion
 SOURCEDATE:2010-03
 ISOGL:YES
@@ -34,16 +33,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:gog_abilities_afflictions.lst
-ABILITY:gog_abilities_traits.lst
-DEITY:gog_deities.lst
-EQUIPMENT:gog_equip_armorshields.lst
-EQUIPMENT:gog_equip_weapons_melee.lst
-EQUIPMENT:gog_equip_weapons_ranged.lst
-FEAT:gog_feats.lst
-SPELL:gog_spells.lst
-WEAPONPROF:gog_profs_weapon.lst
+ABILITY:gnog_abilities.lst
+DEITY:gnog_deities.lst
+EQUIPMENT:gnog_equip_arms_armor.lst
+FEAT:gnog_feats.lst
+SPELL:gnog_spells.lst
+WEAPONPROF:gnog_profs_weapon.lst
 
-#
-# EOF
-#

@@ -1,0 +1,46 @@
+CAMPAIGN:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Rise of the Runelords
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Rise of the Runelords Player's Guide (Conversion)
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre
+SOURCESHORT:AP003
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8
+SOURCEDATE:2007-08
+ISOGL:YES
+
+COVER:the_hook_mountain_massacre.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8|Buy this publication from Paizo Publishing!
+DESC:The third installment of the Rise of the Runelords Adventure Path begins with a desperate call for aid from Hook Mountain. A tribe of ogres has slaughtered the garrison of a small keep, including the famous retired war hero stationed there. The few surviving rangers need the heroes to help them retake the key fortification back. Once the ogres are driven off, the PCs are awarded stewardship of the keep. Yet as the heroes begin the task of repairing and expanding their new stronghold, a sinister force grows in the surrounding wilderness.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author: F. Wesley Schneider.
+COPYRIGHT:Pathfinder 1: Burnt Offerings. Copyright 2007 Paizo Publishing LLC. Author: James Jacobs.
+COPYRIGHT:Pathfinder 2: The Skinsaw Murders. Copyright 2007 Paizo Publishing LLC. Author: Richard Pett.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre" Copyright 2007-2010, PCGen Data Team (including, but not limited to Eric C. Smith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap003_abilities.lst
+ABILITY:ap003_abilities_race.lst
+ABILITYCATEGORY:ap003_abilitycategories.lst
+EQUIPMENT:ap003_equip_magic_items.lst
+KIT:ap003_kits_race.lst
+RACE:ap003_races.lst
+SKILL:ap003_skills.lst
+TEMPLATE:ap003_templates.lst

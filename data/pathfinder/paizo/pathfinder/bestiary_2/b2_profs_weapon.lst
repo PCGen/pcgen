@@ -1,0 +1,10 @@
+# CVS $Revision: 20126 $ $Author: zaister $ -- Fri Aug 19 23:58:32 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+# COMMENT: These may conflict with other products which contain these weapons
+
+# Weapon Name	Type										Nb Hands
+Gaff			TYPE:Simple.Melee.TwoHanded.Piercing.MeleePiercing		HANDS:2
+Rhoka Sword		TYPE:Exotic.Melee.OneHanded.Piercing.Sword.MeleePiercing	HANDS:1

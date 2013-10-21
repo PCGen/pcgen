@@ -1,6 +1,9 @@
-# CVS $Revision: 12254 $ $Author: eddyanthony $ -- Thu Feb  3 10:53:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by:Stefan Radermacher
+
+# Template Name			Source Page		Required Race			Modify VAR																	Ability																																									Race Subtype		Innate Spells
+Clockwork				SOURCEPAGE:p.256	PRERACE:1,RACETYPE=Construct																			ABILITY:Special Ability|AUTOMATIC|Winding ~ Clockwork|Vulnerability to Electricity|Swift Reactions ~ Clockwork|Difficult to Create ~ Clockwork																			RACESUBTYPE:Clockwork
+Nascent Demon Lord Traits	SOURCEPAGE:p.314	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|Immunity to Death Effects|Immunity to Electricity|Immunity to Charm|Immunity to Compulsion|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy|Aligned Strike ~ NDL|Grant Spells ~ NDL					SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord)
 
 ###Block: Human Ethnicities
 # Template Name			Visible	Source Page		Subrace
@@ -60,7 +63,3 @@ Regional Affinity (Thuvia)			VISIBLE:NO	SOURCEPAGE:p.186	LANGBONUS:Kelish					RE
 Regional Affinity (Ustalav)			VISIBLE:NO	SOURCEPAGE:p.190	LANGBONUS:Skald,Varisian			REGION:Ustalav
 Regional Affinity (Varisia)			VISIBLE:NO	SOURCEPAGE:p.194	LANGBONUS:Shoanti,Varisian			REGION:Varisia
 Regional Affinity (Worldwound)		VISIBLE:NO	SOURCEPAGE:p.198	LANGBONUS:Abyssal,Hallit			REGION:The Worldwound
-
-#
-# End
-#

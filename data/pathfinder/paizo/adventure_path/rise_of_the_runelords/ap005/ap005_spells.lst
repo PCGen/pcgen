@@ -1,0 +1,14 @@
+#Original Entry: Andrew Maitland
+
+# Spell Name		Classes of caster						School			Sub-School			Spell Descriptors						Components		Casting Time				Range			Target Area or Effect								Duration							Save Info					Spell Resistance		Required Deity		Description
+Covetous Aura		CLASSES:Sorcerer,Wizard=5				SCHOOL:Abjuration														COMPS:V, S		CASTTIME:1 standard action		RANGE:Personal	TARGETAREA:25-ft.-radius emanation centered on You			DURATION:1 round/level (D)				SAVEINFO:none				SPELLRES:No							DESC:See text
+Deathwine			CLASSES:Cleric=2|Sorcerer,Wizard=3			SCHOOL:Necromancy														COMPS:V, S		CASTTIME:1 minute				RANGE:Touch		TARGETAREA:1 healing potion touched/level					DURATION:1 hour/level					SAVEINFO:None (object)			SPELLRES:No (object)					DESC:See text
+Blood Money			CLASSES:Sorcerer,Wizard=2				SCHOOL:Transmutation													COMPS:V, S		CASTTIME:1 standard action		RANGE:0 ft.		TARGETAREA:1 material component						DURATION:Instantaneous																			DESC:See text
+Unconscious Agenda	CLASSES:Bard,Sorcerer,Wizard=6			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Language-dependent|Mind Affecting	COMPS:V		CASTTIME:10 minutes			RANGE:Close		TARGETAREA:One humanoid								DURATION:One week/level or until discharged (D)	SAVEINFO:Will negates			SPELLRES:yes						DESC:See text
+Raiment of Command	CLASSES:Bard,Sorcerer,Wizard=2			SCHOOL:Illusion		SUBSCHOOL:Glamer										COMPS:V, S		CASTTIME:1 standard action		RANGE:Personal	TARGETAREA:You									DURATION:1 hour/level					SAVEINFO:Will				SPELLRES:No							DESC:See text
+Swipe				CLASSES:Cleric=2|Assassin,Sorcerer,Wizard=3	SCHOOL:Conjuration	SUBSCHOOL:Teleportation									COMPS:V, S		CASTTIME:1 standard action		RANGE:close		TARGETAREA:one held item							DURATION:instant						SAVEINFO:none				SPELLRES:no							DESC:See text
+Sign of Wrath		CLASSES:Sorcerer,Wizard=6				SCHOOL:Evocation		SUBSCHOOL:Force										COMPS:V, S, F	CASTTIME:1 standard action		RANGE:Personal	TARGETAREA:25-ft.-radius burst centered on You				DURATION:instantaneous					SAVEINFO:Reflex half			SPELLRES:yes						DESC:See text
+
+###Followers of Lamashtu only:
+Waters of Lamashtu	CLASSES:Cleric,Druid=3					SCHOOL:Conjuration	SUBSCHOOL:Creation									COMPS:V, S, M	CASTTIME:1 standard action		RANGE:Close		TARGETAREA:up to 1 draft of the waters of Lamashtu per 2 levels	DURATION:instantaneous					SAVEINFO:see below			SPELLRES:No			PREDEITY:1,Lamashtu
+Vision of Lamashtu	CLASSES:Cleric=7						SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting|Evil			COMPS:V, S		CASTTIME:10 minutes (see text)	RANGE:unlimited	TARGETAREA:one living creature						DURATION:instantaneous					SAVEINFO:Will negates (see text)	SPELLRES:Yes		PREDEITY:1,Lamashtu

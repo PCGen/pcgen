@@ -1,18 +1,17 @@
-# CVS $Revision: 21270 $ $Author: meyerscott $
 CAMPAIGN:Inner Sea Bestiary
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
+TYPE:Paizo Publishing.Campaign Setting
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Magic,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Combat,INCLUDES=Paizo - Inner Sea World Guide,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,Ultimate Magic,Ultimate Combat,Inner Sea World Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Inner Sea Bestiary
-SOURCESHORT:ISB
+SOURCESHORT:ISBST
 SOURCEWEB:http://paizo.com/products/btpy8v2x
 SOURCEDATE:2013-06
 ISOGL:YES
@@ -39,20 +38,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Note: In the data files core items are .MODed to add UE source info, cost and weight. Duplicate items from APG and UC are entered in full.
-
-# Data files
-
-ABILITY:pfisb_abilities_monsters.lst
-ABILITYCATEGORY:pfisb_abilitycategories.lst
-LANGUAGE:pfisb_languages.lst
-
-SKILL:pfisb_skills_conditional.lst
-
-RACE:pfisb_races.lst
-TEMPLATE:pfisb_templates.lst
-
-KIT:pfisb_kits_races.lst
-#
-# End
-#
+ABILITY:isb_abilities_race.lst
+ABILITYCATEGORY:isb_abilitycategories.lst
+KIT:isb_kits_race.lst
+LANGUAGE:isb_languages.lst
+SKILL:isb_skills.lst
+RACE:isb_races.lst
+TEMPLATE:isb_templates.lst

@@ -1,0 +1,10 @@
+SOURCELONG:Rise of the Runelords Player's Guide Anniversary Edition	SOURCESHORT:ROTRAEPG	SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition-Players-Guide	SOURCEDATE:2012-07
+# Original Entry by: Paul Shipley
+
+STARTPACK:Friends and Enemies	TYPE:StartingKit	VISIBLE:NO	TOTALCOST:0
+GEAR:Horse (Heavy/Combat Trained)
+GEAR:Saddle (Military)
+GEAR:Saddlebags
+GEAR:Bit and Bridle
+GEAR:Feed (Per Day)			QTY:30
+

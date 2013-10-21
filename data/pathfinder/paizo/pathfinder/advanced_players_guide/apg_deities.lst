@@ -1,0 +1,25 @@
+# CVS $Revision: 20122 $ $Author: zaister $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Paul Shipley (elro the onk); Update PREALIGN by Andrew Maitland
+
+# Deity Name		Domains																												Source Page
+Abadar.MOD			DOMAINS:Defense Subdomain,Inevitable Subdomain,Leadership Subdomain,Martyr Subdomain,Metal Subdomain,Trade Subdomain|PREALIGN:LG,LN,NG,TN							SOURCEPAGE:p.91
+Asmodeus.MOD		DOMAINS:Arcane Subdomain,Ash Subdomain,Deception Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Divine Subdomain,Smoke Subdomain|PREALIGN:LN,LE,NE				SOURCEPAGE:p.91
+Calistria.MOD		DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Curse Subdomain,Deception Subdomain,Lust Subdomain,Memory Subdomain,Thievery Subdomain|PREALIGN:CG,TN,CN,CE		SOURCEPAGE:p.91
+Cayden Cailean.MOD	DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Exploration Subdomain,Ferocity Subdomain,Love Subdomain,Lust Subdomain,Resolve Subdomain|PREALIGN:NG,CG,CN			SOURCEPAGE:p.91
+Desna.MOD			DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Curse Subdomain,Exploration Subdomain,Fate Subdomain,Freedom Subdomain,Revolution Subdomain|PREALIGN:NG,CG,CN		SOURCEPAGE:p.91
+Erastil.MOD			DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Family Subdomain,Feather Subdomain,Fur Subdomain,Growth Subdomain,Home Subdomain|PREALIGN:LG,LN,NG				SOURCEPAGE:p.91
+Gorum.MOD			DOMAINS:Blood Subdomain,Ferocity Subdomain,Protean Subdomain,Rage Subdomain,Resolve Subdomain,Tactics Subdomain|PREALIGN:CG,TN,CN,CE							SOURCEPAGE:p.91
+Gozreh.MOD			DOMAINS:Cloud Subdomain,Decay Subdomain,Growth Subdomain,Oceans Subdomain,Seasons Subdomain,Wind Subdomain|PREALIGN:LN,NG,TN,NE,CN								SOURCEPAGE:p.91
+Iomedae.MOD			DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Day Subdomain,Heroism Subdomain,Honor Subdomain,Light Subdomain,Tactics Subdomain|PREALIGN:LG,LN,NG				SOURCEPAGE:p.91
+Irori.MOD			DOMAINS:Inevitable Subdomain,Language Subdomain,Memory Subdomain,Resolve Subdomain,Restoration Subdomain,Thought Subdomain|PREALIGN:LG,LN,TN,NG						SOURCEPAGE:p.91
+Lamashtu.MOD		DOMAINS:Deception Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Ferocity Subdomain,Insanity Subdomain,Nightmare Subdomain,Thievery Subdomain|PREALIGN:NE,CN,CE	SOURCEPAGE:p.91
+Nethys.MOD			DOMAINS:Arcane Subdomain,Catastrophe Subdomain,Defense Subdomain,Divine Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN						SOURCEPAGE:p.91
+Norgorber.MOD		DOMAINS:Daemon Subdomain,Deception Subdomain,Memory Subdomain,Murder Subdomain,Thievery Subdomain,Thought Subdomain|PREALIGN:TN,LE,NE,CE							SOURCEPAGE:p.91
+Pharasma.MOD		DOMAINS:Ancestors Subdomain,Ice Subdomain,Memory Subdomain,Resurrection Subdomain,Souls Subdomain,Thought Subdomain|PREALIGN:LN,NG,TN,NE,CN						SOURCEPAGE:p.91
+Rovagug.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Demon Subdomain (Chaos),Demon Subdomain (Evil),Protean Subdomain,Rage Subdomain,Storms Subdomain|PREALIGN:NE,CN,CE			SOURCEPAGE:p.91
+Sarenrae.MOD		DOMAINS:Agathion Subdomain,Day Subdomain,Heroism Subdomain,Light Subdomain,Restoration Subdomain,Resurrection Subdomain|PREALIGN:LG,NG,CG,TN						SOURCEPAGE:p.91
+Shelyn.MOD			DOMAINS:Agathion Subdomain,Cloud Subdomain,Defense Subdomain,Fate Subdomain,Love Subdomain,Purity Subdomain|PREALIGN:LG,NG,CG,TN								SOURCEPAGE:p.91
+Torag.MOD			DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Caves Subdomain,Construct Subdomain,Defense Subdomain,Metal Subdomain,Toil Subdomain|PREALIGN:LG,LN,NG			SOURCEPAGE:p.91
+Urgathoa.MOD		DOMAINS:Blood Subdomain,Daemon Subdomain,Divine Subdomain,Ferocity Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE								SOURCEPAGE:p.91
+Zon-Kuthon.MOD		DOMAINS:Catastrophe Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Loss Subdomain,Murder Subdomain,Night Subdomain,Undead Subdomain|PREALIGN:LN,LE,NE			SOURCEPAGE:p.91

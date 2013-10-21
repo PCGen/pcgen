@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Cheliax, Empire of Devils
+CAMPAIGN:Cheliax, Empire of Devils
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Cheliax, Empire of Devils
-SOURCESHORT:CEoD
+SOURCESHORT:CEOD
 SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca
 SOURCEDATE:2009-08
 ISOGL:YES
@@ -32,19 +31,16 @@ COPYRIGHT:PCGen dataset conversion for "Cheliax, Empire of Devils" Copyright 200
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
-# Data files
-ABILITY:cheliax_empire_of_devils_abilities_background.lst
-ABILITY:cheliax_empire_of_devils_abilities_traits.lst
-ABILITYCATEGORY:cheliax_empire_of_devils_abilitycategories.lst
-EQUIPMENT:cheliax_empire_of_devils_equip.lst
-FEAT:cheliax_empire_of_devils_feats.lst
-LANGUAGE:cheliax_empire_of_devils_languages.lst
-RACE:cheliax_empire_of_devils_races.lst
-SPELL:cheliax_empire_of_devils_spells.lst
-WEAPONPROF:cheliax_empire_of_devils_weaponprofs.lst
-TEMPLATE:cheliax_empire_of_devils_templates_background.lst
 
-#
-# End
-#
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
+ABILITY:ceod_abilities.lst
+EQUIPMENT:ceod_equip_arms_armor.lst
+EQUIPMENT:ceod_equip_magic_items.lst
+FEAT:ceod_feats.lst
+LANGUAGE:ceod_languages.lst
+RACE:ceod_races.lst
+SPELL:ceod_spells.lst
+TEMPLATE:ceod_templates.lst
+
+WEAPONPROF:ceod_profs_weapon.lst

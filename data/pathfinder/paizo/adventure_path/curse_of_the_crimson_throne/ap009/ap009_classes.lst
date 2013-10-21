@@ -1,0 +1,32 @@
+SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOURCESHORT:AP009	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5	SOURCEDATE:2008-05
+
+# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Red Mantis Assassin	HD:8		TYPE:Prestige	CLASSTYPE:PC	ABB:RdMAs		MAXLEVEL:10	SOURCEPAGE:pg.69	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Required AL	Required Feat												Required Skill
+CLASS:Red Mantis Assassin	PREALIGN:LE	PREFEAT:3,3,Alertness,Weapon Finesse,Exotic Weapon Proficiency (Sawtooth Sabre)	PRESKILL:2,Intimidate=2,Stealth=5
+# Class Name			Skill Pts/Lvl
+CLASS:Red Mantis Assassin	STARTSKILLPTS:6
+# Class Name			Spell Type		Caster level
+CLASS:Red Mantis Assassin	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Red Mantis Assassin|CL
+###Block: Level Progression
+1	BONUS:VAR|SneakAttackDice|1	ADD:FEAT|Weapon Focus(Sawtooth Sabre)				ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack
+2																ABILITY:Special Ability|AUTOMATIC|Prayer Attack
+3																ABILITY:Special Ability|AUTOMATIC|Red Shroud
+4	BONUS:VAR|SneakAttackDice|1											ABILITY:Special Ability|AUTOMATIC|Call Mantis
+5						ADD:FEAT|Weapon Specialization(Sawtooth Sabre)			ABILITY:Special Ability|AUTOMATIC|Resurrection Sense
+6																ABILITY:Special Ability|AUTOMATIC|Mantis Form
+7	BONUS:VAR|SneakAttackDice|1	ADD:FEAT|Greater Weapon Focus(Sawtooth Sabre)
+8																ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|Fading
+9						ADD:FEAT|Greater Weapon Specialization(Sawtooth Sabre)	ABILITY:Special Ability|AUTOMATIC|Mantis Doom
+10	BONUS:VAR|SneakAttackDice|1											ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
+###Block: Spells
+1	CAST:0,0		KNOWN:0,2
+2	CAST:0,1		KNOWN:0,3
+3	CAST:0,2,0		KNOWN:0,3,2
+4	CAST:0,2,1		KNOWN:0,4,3
+5	CAST:0,3,2,0	KNOWN:0,4,3,2
+6	CAST:0,3,2,1	KNOWN:0,4,4,3
+7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
+8	CAST:0,4,3,2,1	KNOWN:0,5,4,4,3
+9	CAST:0,4,3,3,2,0	KNOWN:0,5,4,4,3,2
+10	CAST:0,4,4,3,2,1	KNOWN:0,5,5,4,4,3

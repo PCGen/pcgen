@@ -1,0 +1,14 @@
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP055	SOURCEWEB:http://paizo.com/products/btpy8rcc	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Vincent Lhote
+# ORIGINAL ENTRY DATE: 2012-08
+
+#Block: Arcane Bond familiar
+# Ability Name								Allowed Companions
+CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD		COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Sea krait),Familiar (Snail kite),Familiar (Toucan)
+#Block: Witch familiar
+CATEGORY=Special Ability|Witch ~ Familiar.MOD			COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Sea krait),Familiar (Snail kite),Familiar (Toucan)
+#Block: Magus familiar (magus arcana)
+CATEGORY=Special Ability|Familiar ~ Magus Arcana.MOD		COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Sea krait),Familiar (Snail kite),Familiar (Toucan)
+#Block: Tumor (alchemist) familiar
+CATEGORY=Special Ability|Discovery ~ Tumor Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Mongoose),Familiar (Osprey),Familiar (Parrot),Familiar (Sea krait),Familiar (Snail kite),Familiar (Toucan)
+

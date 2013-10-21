@@ -1,0 +1,52 @@
+CAMPAIGN:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Curse of the Crimson Throne
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Curse of the Crimson Throne Player's Guide (Conversion)
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa
+SOURCESHORT:AP009
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5
+SOURCEDATE:2008-05
+ISOGL:YES
+
+COVER:escape_from_old_korvosa.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5|Buy this publication from Paizo Publishing!
+DESC:Old Korvosa is under quarantine, a sprawling slum contained by roadblocks and guardposts manned by remorseless Hellknights and sinister plague doctors. While the rest of Korvosa stifles under an increasingly brutal martial law, the quarantined streets of Old Korvosa descend into true bedlam. Yet the one man who may hold the truth behind the perils that have brought Korvosa to its knees is lost inside the quarantine zone. Can he be rescued from the clutches of a new menace rising in the festering pits of Old Korvosa, and what secrets does he know that could justify the bounties for his death?
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Bestiary. Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
+COPYRIGHT:Necropolis. Copyright 2002. Necromancer Games, Inc.; Authors: Gary Gygax, with Bill Webb, Scott Greene, Lance Hawvermale, Clark Peterson.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Pathfinder 9: Escape from Old Korvosa. Copyright 2008, Paizo Publishing, LLC; Author: Richard Pett.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 3: Escape From Old Korvosa" Copyright 2008-2010, PCGen Data Team (including, but not limited to Andrew Maitland and Eric Smith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap009_abilities_class.lst
+ABILITY:ap009_abilities_race.lst
+CLASS:ap009_classes.lst
+DEITY:ap009_deities.lst
+EQUIPMENT:ap009_equip_arms_armor.lst
+EQUIPMENT:ap009_equip_magic_items.lst
+KIT:ap009_kits.lst
+LANGUAGE:ap009_languages.lst
+RACE:ap009_races.lst
+SPELL:ap009_spells.lst
+
+WEAPONPROF:ap009_profs_weapon.lst
+

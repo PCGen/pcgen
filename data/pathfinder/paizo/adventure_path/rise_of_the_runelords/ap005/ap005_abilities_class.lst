@@ -1,0 +1,9 @@
+SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors	SOURCESHORT:AP005	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o	SOURCEDATE:2007-10
+
+
+###Block: Ashvawg Tamer Druid abilities
+# Ability Name	Unique Key				Category of Ability		Type						Description
+Bestial Bond	KEY:Bestial Bond-RotRL		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:You can call out to savage powers of the wilds, entreating them to aid her and her companion.
+Variant Companion	KEY:Variant Companion-RotRL	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:You add additional non-animals to your alternate list of animal companions.
+Undying Bond	KEY:Undying Bond-RotRL		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:You can use your bestial bond ability to cast resurrection on your animal companion.
+Exotic Companion	KEY:Exotic Companion-RotRL	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:You add additional non-animals to your alternate list of animal companions, all of them with higher intelligence and strange shapes.

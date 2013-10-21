@@ -1,0 +1,40 @@
+# CVS $Revision: 20127 $ $Author: zaister $ -- Sat Mar 30 17:47:42 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Bonus Bestiary	SOURCESHORT:BB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Ability					Save checks bonus								Combat bonus
+CLASS:Faerie Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Faerie Dragon	PRERACE:1,Dragon (Faerie)	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Faerie Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Ability					Save checks bonus											Combat bonus
+CLASS:Lammasu	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race	Reg. Race Type
+CLASS:Lammasu	PRERACE:1,Lammasu	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lammasu	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Ability					Save checks bonus											Combat bonus
+CLASS:Water Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Water Naga	PRERACE:1,Naga (Water)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Water Naga	STARTSKILLPTS:4	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1

@@ -1,0 +1,169 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 11:56:25 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat	SOURCEDATE:2011-01
+
+###Block: Ammunition
+# Equipment Name						Type									Cost		Weight	Base Quantity	Modifier		Size		Source Page		Special Property
+Alchemical Cartridge (Dragon's Breath)		TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:40
+Alchemical Cartridge (Entangling Shot)		TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:40
+Alchemical Cartridge (Flare)				TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:10
+Alchemical Cartridge (Paper/Bullet)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
+Alchemical Cartridge (Paper/Pellet)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
+Alchemical Cartridge (Salt Shot)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
+Arrow (Iron-tipped Distance/20)			TYPE:Ammunition.Arrow												EQMOD:STEEL.WOOD
+Arrow (Whistling)						TYPE:Ammunition.Arrow												EQMOD:STEEL.WOOD
+Atlatl Dart							TYPE:Ammunition.AtlatlDart				COST:1	WT:2
+Bamboo Shaft (10)						TYPE:Ammunition.BambooShaft				COST:10	WT:.5					EQMOD:STEEL.WOOD	SIZE:M
+Bullet (Adamantine)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:61
+Bullet (Firearm)						TYPE:Ammunition.FirearmGear.FirearmBullet		COST:1
+Bullet (Firearm/30)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:30	WT:.5		BASEQTY:30
+Bullet (Firearm/Pitted)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:5
+Bullet (Firearm/Silver)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:25
+Burrowing Bullet						TYPE:Ammunition.FirearmGear.FirearmBullet.Magic	COST:1722											SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3 rounds or until the bullet is removed with a DC 15 Heal check made as a standard action.
+Burrowing Bullet (Greater)				TYPE:Ammunition.FirearmGear.FirearmBullet.Magic	COST:3447											SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3+2 rounds or until the bullet is removed with a DC 20 Heal check made as a standard action.
+Kestros Dart (10)						TYPE:Ammunition.KestrosDart				COST:5	WT:5
+Metal Cartridge						TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:15
+Pellets (Handful)						TYPE:Ammunition.FirearmGear.FirearmPellet		COST:1
+Pellets (Handful/30)					TYPE:Ammunition.FirearmGear.FirearmPellet		COST:30	WT:.5		BASEQTY:30
+Siege Engine Ammunition (Alchemist's Fire)	TYPE:Ammunition.SiegeAmmo				COST:200	WT:10
+Siege Engine Ammunition (Blast Shot)		TYPE:Ammunition.SiegeAmmo				COST:30	WT:25
+Siege Engine Ammunition (Bomb)			TYPE:Ammunition.SiegeAmmo				COST:600	WT:30
+Siege Engine Ammunition (Chain Shot)		TYPE:Ammunition.SiegeAmmo				COST:50	WT:30
+Siege Engine Ammunition (Liquid Ice)		TYPE:Ammunition.SiegeAmmo				COST:400	WT:20
+Siege Engine Ammunition (Plague Bundle)		TYPE:Ammunition.SiegeAmmo				COST:80	WT:20
+Siege Engine Ammunition (Smoke Shot)		TYPE:Ammunition.SiegeAmmo				COST:250	WT:20
+Tracer Bullet						TYPE:Magic.Ammunition.FirearmGear.FirearmBullet	COST:100											SOURCEPAGE:p.142	SPROP:These +1 firearm bullets deal no damage, but instead cause a pale glow to outline the target, granting the effect of a faerie fire spell and causing the target to take a -2 penalty to AC against ranged attacks. These effects last for 1d4 rounds.
+
+
+###Block: Armor
+# Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
+Do-maru			PROFICIENCY:ARMOR|Do-maru			TYPE:Armor.Medium.Suit.Standard	COST:200	WT:30		ACCHECK:-4		EQMOD:LEATHER.STEEL	MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Four-mirror Armor		PROFICIENCY:ARMOR|Four-mirror Armor		TYPE:Armor.Medium.Suit.Standard	COST:45	WT:45		ACCHECK:-5		EQMOD:STEEL			MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.Suit.Standard	COST:3	WT:1					EQMOD:STEEL						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Kasari Gusoku		PROFICIENCY:ARMOR|Kasari Gusoku		TYPE:Armor.Heavy.Suit.Standard	COST:350	WT:45		ACCHECK:-7		EQMOD:STEEL			MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+Kikko Armor			PROFICIENCY:ARMOR|Kikko Armor			TYPE:Armor.Medium.Suit.Standard	COST:30	WT:25		ACCHECK:-3		EQMOD:STEEL			MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
+Lamellar (Horn)		PROFICIENCY:ARMOR|Lamellar (Horn)		TYPE:Armor.Medium.Suit.Standard	COST:100	WT:30		ACCHECK:-4		EQMOD:BONE			MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Lamellar (Iron)		PROFICIENCY:ARMOR|Lamellar (Iron)		TYPE:Armor.Heavy.Suit.Standard	COST:200	WT:50		ACCHECK:-7		EQMOD:STEEL			MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar (Leather)	TYPE:Armor.Light.Suit.Standard	COST:60	WT:25		ACCHECK:-2		EQMOD:LEATHER		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Lamellar (Steel)		PROFICIENCY:ARMOR|Lamellar (Steel)		TYPE:Armor.Medium.Suit.Standard	COST:150	WT:35		ACCHECK:-5		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
+Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Light.Suit.Standard	COST:15	WT:8					EQMOD:LEATHER		MAXDEX:4		SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
+Mountain Pattern Armor	PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.Suit.Standard	COST:250	WT:40		ACCHECK:-4		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+O-yoroi			PROFICIENCY:ARMOR|O-yoroi			TYPE:Armor.Heavy.Suit.Standard	COST:1700	WT:45		ACCHECK:-6		EQMOD:STEEL			MAXDEX:2		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
+Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.Suit.Standard	COST:30	WT:4					EQMOD:CLOTH						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Stone Coat			PROFICIENCY:ARMOR|Stone Coat			TYPE:Armor.Heavy.Suit.Standard	COST:500	WT:45		ACCHECK:-7		EQMOD:STONE			MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor
+Tatami-do			PROFICIENCY:ARMOR|Tatami-do			TYPE:Armor.Heavy.Suit.Standard	COST:1000	WT:45		ACCHECK:-6		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+
+
+###BLOCK: Weapons
+# Equipment Name				Required Weapon Proficiency					Type																		Alternative Type				Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Damage	Alternative Damage	Modifier						Wield Category	Range		Reach Multiplier	Size		Weapon prop. bonus															Special Property
+Aklys (Gladiator)				PROFICIENCY:WEAPON|Aklys (Gladiator)			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Bludgeoning.Ranged.Thrown.Performance.Trip																COST:5	WT:2		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:PERFORMANCE.STEEL.TRIP			WIELD:Light		RANGE:20
+Amentum (Javelin)				PROFICIENCY:WEAPON|Amentum (Javelin)			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.Thrown.Ranged																			WT:1		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:LEATHER.PERFORMANCE.STEEL		WIELD:OneHanded	RANGE:50
+Atlatl					PROFICIENCY:WEAPON|Tepoztopilli				TYPE:Weapon.StoneAge.Piercing.Ranged.Thrown.Container																CONTAINS:1|AtlatlDart=1		COST:2	WT:2		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:WOOD.THROWN								RANGE:50
+Bo Staff					PROFICIENCY:WEAPON|Bo Staff					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk																COST:1	WT:3		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:MONK.WOOD					WIELD:TwoHanded						SIZE:M
+Broadsword (Nine Ring)			PROFICIENCY:WEAPON|Broadsword (Nine Ring)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk.Tengu																				COST:15	WT:4		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:MONK.STEEL					WIELD:OneHanded						SIZE:M
+Butterfly Sword				PROFICIENCY:WEAPON|Butterfly Sword				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk.Tengu																				COST:20	WT:1		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d4					EQMOD:MONK.STEEL					WIELD:Light							SIZE:M
+Dan Bong					PROFICIENCY:WEAPON|Dan Bong					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown															COST:1			CRITMULT:x2			CRITRANGE:2							DAMAGE:1d3					EQMOD:MONK.WOOD					WIELD:Light		RANGE:10				SIZE:M
+Double Chicken Saber			PROFICIENCY:WEAPON|Double Chicken Saber			TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Disarm.Monk.Tengu																			COST:12	WT:3		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d6					EQMOD:MONK.STEEL					WIELD:OneHanded						SIZE:M
+Emei Piercer				PROFICIENCY:WEAPON|Emei Piercer				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Monk																			COST:3			CRITMULT:x2			CRITRANGE:2							DAMAGE:1d3					EQMOD:MONK.STEEL					WIELD:Light							SIZE:M
+Fighting Fan				PROFICIENCY:WEAPON|Fighting Fan				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk																COST:5			CRITMULT:x3			CRITRANGE:1							DAMAGE:1d4					EQMOD:MONK.STEEL					WIELD:Light							SIZE:M
+Flying Blade				PROFICIENCY:WEAPON|Flying Blade				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Reach.Sword.Tengu																COST:40	WT:12		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d12					EQMOD:PERFORMANCE.REACH.STEEL			WIELD:TwoHanded
+Gladius					PROFICIENCY:WEAPON|Sword (Short)				TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.GladiatorMelee.Performance.Light														COST:15	WT:3		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d6												WIELD:Light
+Harpoon					PROFICIENCY:WEAPON|Harpoon					TYPE:Weapon.Piercing.Ranged.Thrown.Fragile.Grapple																						COST:5	WT:16		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:BRONZE.FRAGILE.GRAPPLE						RANGE:10
+Hooked Axe					PROFICIENCY:WEAPON|Hooked Axe					TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Disarm.Trip																	COST:20	WT:7		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:DISARM.PERFORMANCE.STEEL.TRIP		WIELD:OneHanded
+Hooked Lance				PROFICIENCY:WEAPON|Hooked Lance				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Trip																				COST:3	WT:10		CRITMULT:x4			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL.TRIP					WIELD:TwoHanded			REACHMULT:2		SIZE:M
+Iron Brush					PROFICIENCY:WEAPON|Iron Brush					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial																						COST:2			CRITMULT:x2			CRITRANGE:1							DAMAGE:1d3					EQMOD:STEEL						WIELD:Light		RANGE:10				SIZE:M
+Jutte						PROFICIENCY:WEAPON|Jutte					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Disarm.Monk																				COST:8	WT:1		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:MONK.STEEL					WIELD:Light							SIZE:M
+Kama (Double-Chained)			PROFICIENCY:WEAPON|Kama (Double-Chained)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Double.Monk.Reach.Trip																COST:8	WT:4		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:MONK.STEEL.TRIP				WIELD:TwoHanded			REACHMULT:2		SIZE:M
+Katana					PROFICIENCY:WEAPON|Katana					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Deadly.OneHanded.Sword.BladeHeavy.Tengu														COST:50	WT:6		CRITMULT:x2			CRITRANGE:3							DAMAGE:1d8					EQMOD:STEEL						WIELD:TwoHanded						SIZE:M	BONUS:WEAPON|WIELDCATEGORY|-1|PREMULT:1,[PREWEAPONPROF:1,Katana (Exotic)],[PREVARGTEQ:KatanaExoticUse,1]
+Katana (Double Walking Stick)		PROFICIENCY:WEAPON|Katana (Double Walking Stick)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Double.Tengu.Sword																	COST:50	WT:6		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:STEEL						WIELD:TwoHanded						SIZE:M
+Kerambit					PROFICIENCY:WEAPON|Kerambit					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial																						COST:2	WT:1		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d3					EQMOD:STEEL						WIELD:Light							SIZE:M
+Kestros					PROFICIENCY:WEAPON|Kestros					TYPE:Weapon.Piercing.Container.Ranged																			CONTAINS:1|KestrosDart=1	COST:1	WT:1		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:LEATHER								RANGE:50
+Knuckle Axe					PROFICIENCY:WEAPON|Knuckle Axe				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Monk																		COST:9	WT:2		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d6					EQMOD:PERFORMANCE.STEEL.MONK			WIELD:Light
+Kusarigama (Sickle and Chain)		PROFICIENCY:WEAPON|Kusarigama (Sickle and Chain)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple													COST:12	WT:3		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d3	ALTDAMAGE:1d6		EQMOD:MONK.STEEL.TRIP				WIELD:TwoHanded			REACHMULT:2		SIZE:M
+Kyoketsu Shoge				PROFICIENCY:WEAPON|Kyoketsu Shoge				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown												COST:6	WT:1		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:DISARM.MONK.STEEL				WIELD:TwoHanded	RANGE:20	REACHMULT:2		SIZE:M
+Lungchuan Tamo				PROFICIENCY:WEAPON|Lungchuan Tamo				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk																					COST:5	WT:1		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:MONK.STEEL					WIELD:Light		RANGE:10				SIZE:M
+Madu (Leather)				PROFICIENCY:WEAPON|Madu						TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance																			COST:40	WT:5		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:LEATHER.PERFORMANCE			WIELD:Light
+Madu (Steel)				PROFICIENCY:WEAPON|Madu						TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance																			COST:40	WT:6		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:PERFORMANCE.STEEL				WIELD:Light
+Mattock					PROFICIENCY:WEAPON|Mattock					TYPE:Weapon.Piercing.Melee.Fragile																										COST:12	WT:12		CRITMULT:x4			CRITRANGE:1							DAMAGE:2d4					EQMOD:BRONZE.WOOD.FRAGILE
+Mere Club					PROFICIENCY:WEAPON|Mere Club					TYPE:Weapon.Melee.StoneAge.Bludgeoning.Piercing.fragile																				COST:2	WT:2		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:STONE.FRAGILE				WIELD:OneHanded
+Meteor Hammer				PROFICIENCY:WEAPON|Meteor Hammer				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Reach.Trip																		COST:10	WT:10		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL.TRIP					WIELD:TwoHanded			REACHMULT:2		SIZE:M
+Monk's Spade				PROFICIENCY:WEAPON|Monk's Spade				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Double.Monk																				COST:20	WT:12		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:MONK.WOOD					WIELD:TwoHanded						SIZE:M
+Naginata					PROFICIENCY:WEAPON|Naginata					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach																					COST:35	WT:9		CRITMULT:x4			CRITRANGE:1							DAMAGE:1d8					EQMOD:STEEL						WIELD:TwoHanded			REACHMULT:2		SIZE:M
+Nine-Section Whip				PROFICIENCY:WEAPON|Nine-Section Whip			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip															COST:8	WT:3		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP				WIELD:OneHanded						SIZE:M
+Nodachi					PROFICIENCY:WEAPON|Nodachi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Brace.Tengu																				COST:60	WT:8		CRITMULT:x2			CRITRANGE:3							DAMAGE:1d10					EQMOD:BRACE.STEEL					WIELD:TwoHanded						SIZE:M
+Pata						PROFICIENCY:WEAPON|Pata						TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance																			COST:14	WT:3		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d6					EQMOD:PERFORMANCE.STEEL				WIELD:Light
+Poisoned Sand Tube			PROFICIENCY:WEAPON|Poisoned Sand Tube			TYPE:Weapon.EasternWeapon.Eastern.Ranged																							COST:1	WT:1																				EQMOD:WOOD														SIZE:M
+Quadrens					PROFICIENCY:WEAPON|Quadrens					TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance																			COST:8	WT:2		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d6					EQMOD:PERFORMANCE.STEEL.TRIP			WIELD:Light
+Rhomphaia					PROFICIENCY:WEAPON|Rhomphaia					TYPE:Weapon.Melee.Piercing.Slashing.Brace.Fragile.Reach																						COST:15	WT:10		CRITMULT:x3			CRITRANGE:1							DAMAGE:2d4					EQMOD:BRONZE.FRAGILE.BRACE
+Rope Dart					PROFICIENCY:WEAPON|Rope Dart					TYPE:Weapon.EasternWeapon.Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk																COST:1			CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:MONK.STEEL								RANGE:20				SIZE:M
+Sansetsukon					PROFICIENCY:WEAPON|Sansetsukon				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Blocking.Disarm.Monk																		COST:8	WT:3		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d10					EQMOD:MONK.WOOD					WIELD:TwoHanded						SIZE:M
+Scizore					PROFICIENCY:WEAPON|Scizore					TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance																			COST:20	WT:3		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d10					EQMOD:PERFORMANCE.STEEL				WIELD:OneHanded																										SPROP:The Scizore offers a bonus to AC when not attacking with it, or a -1 to hit if using it to attack.
+Scorpion Whip				PROFICIENCY:WEAPON|Scorpion Whip				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance																			COST:5	WT:3		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:LEATHER.PERFORMANCE.STEEL		WIELD:Light
+Shang Gou					PROFICIENCY:WEAPON|Shang Gou					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Disarm.Trip.Monk																			COST:6	WT:1		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:MONK.STEEL					WIELD:Light							SIZE:M
+Shotel					PROFICIENCY:WEAPON|Shotel					TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance																			COST:30	WT:3		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d8					EQMOD:PERFORMANCE.STEEL				WIELD:OneHanded
+Sibat						PROFICIENCY:WEAPON|Sibat					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial																						COST:2	WT:2		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d6					EQMOD:WOOD						WIELD:OneHanded						SIZE:M
+Sica						PROFICIENCY:WEAPON|Sica						TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance																			COST:10	WT:2		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:PERFORMANCE.STEEL				WIELD:Light
+Sword (Seven-Branched)			PROFICIENCY:WEAPON|Sword (Seven-Branched)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Disarm.Monk.Sword.Tengu																COST:50	WT:7		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d10					EQMOD:DISARM.MONK.STEEL				WIELD:TwoHanded						SIZE:M
+Sword (Tri-Point Double-Edged)	PROFICIENCY:WEAPON|Sword (Tri-Point Double-Edged)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Tengu																				COST:12	WT:14		CRITMULT:x3			CRITRANGE:1							DAMAGE:1d10					EQMOD:STEEL						WIELD:TwoHanded			REACHMULT:2		SIZE:M
+Taiaha					PROFICIENCY:WEAPON|Taiaha					TYPE:Weapon.Melee.StoneAge.Bludgeoning.Piercing.Double									ALTTYPE:Weapon.Bludgeoning.Piercing						COST:10	WT:8		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x3		DAMAGE:1d10	ALTDAMAGE:1d6		EQMOD:WOOD.BONE					WIELD:TwoHanded
+Tekko-Kagi (Iron Claw)			PROFICIENCY:WEAPON|Tekko-Kagi (Iron Claw)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Disarm																			COST:3			CRITMULT:x2			CRITRANGE:1							DAMAGE:1d3					EQMOD:DISARM.STEEL				WIELD:Light							SIZE:M
+Tepoztopilli				PROFICIENCY:WEAPON|Tepoztopilli				TYPE:Weapon.Melee.StoneAge.Piercing.Slashing.fragile.reach																				COST:8	WT:8		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d10					EQMOD:WOOD.OBSIDIAN.BONE.REACH.FRAGILE	WIELD:TwoHanded
+Terbutje					PROFICIENCY:WEAPON|Terbutje					TYPE:Weapon.Melee.StoneAge.Slashing.fragile																						COST:5	WT:2		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d8					EQMOD:WOOD.OBSIDIAN.BONE.FRAGILE		WIELD:OneHanded
+Terbutje (Great)				PROFICIENCY:WEAPON|Terbutje (Great)				TYPE:Weapon.Melee.StoneAge.Slashing.Fragile																						COST:12	WT:4		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d10					EQMOD:WOOD.OBSIDIAN.BONE.FRAGILE		WIELD:OneHanded
+Tetsubo					PROFICIENCY:WEAPON|Tetsubo					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning																				COST:20	WT:10		CRITMULT:x4			CRITRANGE:1							DAMAGE:1d10					EQMOD:WOOD.STEEL					WIELD:TwoHanded						SIZE:M
+Throwing Shield				PROFICIENCY:WEAPON|Throwing Shield				TYPE:Weapon.GladiatorWeapon.Melee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip																COST:50			CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:PERFORMANCE.TRIP				WIELD:TwoHanded	RANGE:20
+Tiger Fork					PROFICIENCY:WEAPON|Tiger Fork					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Brace.Monk																				COST:5	WT:8		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d8					EQMOD:BRACE.MONK.STEEL				WIELD:TwoHanded						SIZE:M
+Tonfa						PROFICIENCY:WEAPON|Tonfa					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Blocking.Monk																			COST:1	WT:1		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:MONK.WOOD					WIELD:Light							SIZE:M
+Tube Arrow Shooter			PROFICIENCY:WEAPON|Tube Arrow Shooter			TYPE:Weapon.EasternWeapon.Eastern.Ranged																							COST:3	WT:.5		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d4					EQMOD:STEEL														SIZE:M
+Urumi						PROFICIENCY:WEAPON|Urumi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Distracting																		COST:30	WT:6		CRITMULT:x2			CRITRANGE:3							DAMAGE:1d8					EQMOD:STEEL						WIELD:OneHanded						SIZE:M
+Wahaika					PROFICIENCY:WEAPON|Wahaika					TYPE:Weapon.Melee.StoneAge.Bludgeoning.Disarm																						COST:3	WT:3		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					EQMOD:WOOD.OBSIDIAN.BONE.DISARM		WIELD:OneHanded	RANGE:10
+Wakizashi					PROFICIENCY:WEAPON|Wakizashi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Slashing.Deadly.Tengu																	COST:35	WT:2		CRITMULT:x2			CRITRANGE:3							DAMAGE:1d6					EQMOD:STEEL						WIELD:Light							SIZE:M
+Wushu Dart (5)				PROFICIENCY:WEAPON|Wushu Dart					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Monk																					COST:1			CRITMULT:x2			CRITRANGE:1							DAMAGE:1d3					EQMOD:MONK.WOOD					WIELD:Light		RANGE:10				SIZE:M
+
+
+
+###BLOCK: Firearms
+# Equipment Name			Required Weapon Proficiency				Type																	Contains							Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Range		Size		Source Page		Special Property
+Blunderbuss				PROFICIENCY:WEAPON|Blunderbuss			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Blunderbuss	CONTAINS:1|FirearmBullet=1|FirearmPellet=1	COST:2000	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:FIREARM_SCATTER.STEEL	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.x	SPROP:Misfire on 1-2 (10 ft); Scatter 15' cone
+Buckler Gun				PROFICIENCY:WEAPON|Buckler Gun			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:750	WT:6		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL							RANGE:10						SPROP:Misfire 1 (5 ft.)
+Culverin				PROFICIENCY:WEAPON|Culverin				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:4000	WT:40		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d8	EQMOD:FIREARM_SCATTER.STEEL				RANGE:30						SPROP:Misfire 1 (10 ft.)	SPROP:Firing a culverin without support (such as a wall, a window, or a stand) imparts a -4 penalty on the attack rolls, and the wielder is knocked prone. A culverin uses 4 doses of black powder and grapeshot.
+Double Hackbut			PROFICIENCY:WEAPON|Double Hackbut			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:4000	WT:18		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d12	EQMOD:STEEL							RANGE:50						SPROP:Misfire 1-2 (5 ft.)
+Fire Lance				PROFICIENCY:WEAPON|Fire Lance				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:25	WT:4		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL							RANGE:10						SPROP:Misfire 1-4 (5 ft.)
+Musket				PROFICIENCY:WEAPON|Musket				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Musket		CONTAINS:1|FirearmBullet=1				COST:1500	WT:9		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d12	EQMOD:STEEL				WIELD:TwoHanded	RANGE:40	SIZE:M	SOURCEPAGE:p.x	SPROP:Misfire on 1-2 (5 ft)
+Musket (Axe)			PROFICIENCY:WEAPON|Musket (Axe)			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:1600	WT:6		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL							RANGE:30						SPROP:Misfire 1-2 (5 ft.)
+Musket (Double-Barreled)	PROFICIENCY:WEAPON|Musket (Double-Barreled)	TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:2500	WT:11		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d12	EQMOD:STEEL							RANGE:40						SPROP:Misfire 1-3 (5 ft.)
+Musket (Warhammer)		PROFICIENCY:WEAPON|Musket (Warhammer)		TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:1600	WT:6		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL							RANGE:30						SPROP:Misfire 1-2 (5 ft.)
+Pepperbox				PROFICIENCY:WEAPON|Pepperbox				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:3000	WT:5		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL							RANGE:20						SPROP:Misfire 1-2 (5 ft.)
+Pistol				PROFICIENCY:WEAPON|Pistol				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:1000	WT:4		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL				WIELD:OneHanded	RANGE:20	SIZE:M	SOURCEPAGE:p.x	SPROP:Misfire on 1 (5 ft)
+Pistol (Coat)			PROFICIENCY:WEAPON|Pistol (Coat)			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:750	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL							RANGE:10						SPROP:Misfire 1 (5 ft.)
+Pistol (Dagger)			PROFICIENCY:WEAPON|Pistol (Dagger)			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:740	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL							RANGE:10						SPROP:Misfire 1 (5 ft.)
+Pistol (Double-Barreled)	PROFICIENCY:WEAPON|Pistol (Double-Barreled)	TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:1750	WT:5		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL							RANGE:20						SPROP:Misfire 1-2 (5 ft.)
+Pistol (Dragon)			PROFICIENCY:WEAPON|Pistol (Dragon)			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmPellet=1				COST:1000	WT:3		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL							RANGE:20						SPROP:Misfire 1-2 (5 ft.)
+Pistol (Sword Cane)		PROFICIENCY:WEAPON|Pistol (Sword Cane)		TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1				COST:775	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL							RANGE:10						SPROP:Misfire 1 (5 ft.)
+Revolver				PROFICIENCY:WEAPON|Revolver				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Revolver		CONTAINS:1|FirearmCartridge=6				COST:4000			CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL							RANGE:20						SPROP:Misfire 1
+Rifle					PROFICIENCY:WEAPON|Rifle				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Rifle		CONTAINS:1|FirearmCartridge=1				COST:5000	WT:12		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d10	EQMOD:STEEL							RANGE:80						SPROP:Misfire 1
+Rifle (Pepperbox)			PROFICIENCY:WEAPON|Rifle				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Rifle		CONTAINS:1|FirearmCartridge=4				COST:7000	WT:15		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d10	EQMOD:STEEL							RANGE:80						SPROP:Misfire 1-2
+Shotgun				PROFICIENCY:WEAPON|Shotgun				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Shotgun.Scatter	CONTAINS:1|FirearmCartridge=1				COST:5000	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:FIREARM_SCATTER.STEEL				RANGE:20						SPROP:Misfire 1-2
+Shotgun (Double-Barreled)	PROFICIENCY:WEAPON|Shotgun				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Shotgun.Scatter	CONTAINS:1|FirearmCartridge=2				COST:7000	WT:15		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:FIREARM_SCATTER.STEEL				RANGE:20						SPROP:Misfire 1-2
+
+
+
+###BLOCK: Siege Machines
+# Equipment Name			Required Weapon Proficiency				Type										Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Special Property
+Ballista (Gate Breaker)		PROFICIENCY:WEAPON|Ballista (Gate Breaker)	TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1200	CRITMULT:x2			CRITRANGE:2			DAMAGE:6d8	RANGE:100	SPROP:Crew 5, Aim 3, Load 5, Speed 0 ft.
+Ballista (Heavy)			PROFICIENCY:WEAPON|Ballista (Heavy)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:800	CRITMULT:x2			CRITRANGE:2			DAMAGE:4d8	RANGE:180	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Ballista (Light)			PROFICIENCY:WEAPON|Ballista (Light)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:500	CRITMULT:x2			CRITRANGE:2			DAMAGE:3d8	RANGE:120	SPROP:Crew 1, Aim 0, Load 2, Speed 10 ft.
+Bombard (Heavy)			PROFICIENCY:WEAPON|Bombard (Heavy)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:8000	CRITMULT:x4							DAMAGE:9d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 4, Aim 3, Load 5, Speed 0 ft.
+Bombard (Light)			PROFICIENCY:WEAPON|Bombard (Light)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:6000	CRITMULT:x4							DAMAGE:5d6	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 2, Aim 1, Load 3, Speed 10 ft.
+Bombard (Standard)		PROFICIENCY:WEAPON|Bombard (Standard)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:8000	CRITMULT:x4							DAMAGE:7d6	RANGE:150	SPROP: Range (100 ft. min.)	SPROP:Crew 2, Aim 1, Load 3, Speed 0 ft.
+Cannon				PROFICIENCY:WEAPON|Cannon				TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:6000	CRITMULT:x4							DAMAGE:6d6	RANGE:100	SPROP:Crew 2, Aim 1, Load 3, Speed 10 ft.
+Cannon (Fiend's Mouth)		PROFICIENCY:WEAPON|Cannon (Fiend's Mouth)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:9000	CRITMULT:x4							DAMAGE:8d6	RANGE:150	SPROP:Crew 3, Aim 1, Load 3, Speed 0 ft.
+Catapult (Heavy)			PROFICIENCY:WEAPON|Catapult (Heavy)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1000	CRITMULT:x2							DAMAGE:8d6	RANGE:300	SPROP: Range (100 ft. min.)	SPROP:Crew 4, Aim 3, Load 3, Speed 0 ft.
+Catapult (Light)			PROFICIENCY:WEAPON|Catapult (Light)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:550	CRITMULT:x2							DAMAGE:4d6	RANGE:150	SPROP: Range (50 ft. min.)	SPROP:Crew 2, Aim 2, Load 3, Speed 10 ft.
+Catapult (Standard)		PROFICIENCY:WEAPON|Catapult (Standard)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:800	CRITMULT:x2							DAMAGE:6d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Firedrake				PROFICIENCY:WEAPON|Firedrake				TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Fire			COST:4000									DAMAGE:6d6			SPROP:Crew 3, Aim 2, Load 5, Speed 10 ft.
+Firewyrm				PROFICIENCY:WEAPON|Firewyrm				TYPE:Weapon.Ranged.Siege.Fire						COST:6000									DAMAGE:6d6			SPROP:Crew 5, Aim 2, Load 6, Speed 0 ft.
+Springal (Arrow)			PROFICIENCY:WEAPON|Springal (Arrow)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:1000	CRITMULT:x3							DAMAGE:3d8	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Springal (Rocket)			PROFICIENCY:WEAPON|Springal (Rocket)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Fire			COST:6000	CRITMULT:x4							DAMAGE:3d10	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Trebuchet (Heavy)			PROFICIENCY:WEAPON|Trebuchet (Heavy)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1500	CRITMULT:x2							DAMAGE:8d6	RANGE:400	SPROP: Range (200 ft. min.)	SPROP:Crew 4, Aim 3, Load 3, Speed 0 ft.
+Trebuchet (Light)			PROFICIENCY:WEAPON|Trebuchet (Light)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:800	CRITMULT:x2							DAMAGE:4d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Trebuchet (Standard)		PROFICIENCY:WEAPON|Trebuchet (Standard)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1000	CRITMULT:x2							DAMAGE:6d6	RANGE:300	SPROP: Range (150 ft. min.)	SPROP:Crew 4, Aim 2, Load 3, Speed 0 ft.

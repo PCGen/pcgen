@@ -1,0 +1,4 @@
+SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors	SOURCESHORT:AP005	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o	SOURCEDATE:2007-10
+
+# Template Name	Unique Key					Visible	Ability
+Mark of Wrath	KEY:RotR ~ Mark of Wrath Template	VISIBLE:YES	ABILITY:Special Ability|AUTOMATIC|RotR ~ Mark of Wrath

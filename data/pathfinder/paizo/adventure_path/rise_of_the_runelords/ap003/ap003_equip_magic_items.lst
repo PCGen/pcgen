@@ -1,0 +1,5 @@
+SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre	SOURCESHORT:AP003	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8	SOURCEDATE:2007-08
+
+# Equipment Name			Type					Cost		Weight	Source Page		Stat bonus
+Boots of the Mire			TYPE:Magic.Wondrous.Boot	COST:3500	WT:0		SOURCEPAGE:pg.33
+Belt of Giant Strength +2	TYPE:Magic.Wondrous.Belt	COST:4000	WT:1		SOURCEPAGE:pg.12	BONUS:STAT|STR|2|TYPE=Enhancement

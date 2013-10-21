@@ -1,0 +1,17 @@
+# CVS $Revision: 18754 $ $Author: amaitland $ -- Tue Apr 26 19:31:13 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+#Author: Gerard van Konijnenburg
+SOURCELONG:Dwarves of Golarion	SOURCESHORT:DoG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
+
+###Block: Regional Affinities
+# Template Name						Visible	Region
+Regional Affinity (Darklands)				VISIBLE:NO	REGION:Darklands
+Regional Affinity (Five Kings Mountains)		VISIBLE:NO	REGION:Five Kings Mountains
+Regional Affinity (Kodar Mountains)			VISIBLE:NO	REGION:Kodar Mountains
+Regional Affinity (Mindspin Mountains)		VISIBLE:NO	REGION:Mindspin Mountains
+Regional Affinity (Lands of the Linnorm Kings)	VISIBLE:NO	REGION:Lands of the Linnorm Kings
+Regional Affinity (Osirion)				VISIBLE:NO	REGION:Osirion
+Regional Affinity (Shattered Range)			VISIBLE:NO	REGION:Shattered Range
+
+#
+# End
+#

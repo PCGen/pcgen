@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bonus Bestiary
+CAMPAIGN:Bonus Bestiary
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
-RANK:3
+TYPE:Paizo Publishing.Pathfinder
+RANK:1
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
+SETTING:Pathfinder
+PRECAMPAIGN:1,Core Rulebook
+!PRECAMPAIGN:1,INCLUDES=Bestiary 3
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -34,12 +34,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bonus Bestiary" Copyright
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Data Files
-ABILITY:pfbb_abilities_monsters.lst
-CLASS:pfbb_classes_monster_specific.lst
-KIT:pfbb_kits_races.lst
-RACE:pfbb_races.lst
+ABILITY:bb_abilities_race.lst
+CLASS:bb_classes_race.lst
+KIT:bb_kits_race.lst
+RACE:bb_races.lst
 
-#
-# End
-#

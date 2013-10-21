@@ -1,0 +1,129 @@
+# CVS $Revision: 21393 $ $Author: evilmynex $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UMGC	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher and Eric Smith (Maredudd)
+# ORIGINAL ENTRY DATE: Unknown
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Magus		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:MagusLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Combat
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|CL
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVARGTEQ:MagusArmorProficiencyLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|PREVARGTEQ:MagusArmorProficiencyLVL,7|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusMediumArmorProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|PREVARGTEQ:MagusArmorProficiencyLVL,13|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusHeavyArmorProficiency
+###Block:
+1	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+###Block: Magus Spellbook
+1	ABILITY:Internal|AUTOMATIC|Magus Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Magus=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Magus=1]]
+###Block: Class features
+1	BONUS:VAR|MagusArmorProficiencyLVL|CL
+1	BONUS:VAR|MagusArcanePoolLVL|CL
+3	BONUS:VAR|MagusArcanaLVL|CL
+10	BONUS:VAR|MagusFighterTrainingLVL|CL
+###Block:
+5	BONUS:ABILITYPOOL|Magus Bonus Feat|(CL+1)/6
+###Block:
+1	ABILITY:Magus Class Ability|AUTOMATIC|Armor Proficiency ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
+1	ABILITY:Magus Class Ability|AUTOMATIC|Arcane Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
+1	ABILITY:Magus Class Ability|AUTOMATIC|Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
+1	ABILITY:Magus Class Ability|AUTOMATIC|Cantrips ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
+2	ABILITY:Magus Class Ability|AUTOMATIC|Spellstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
+3	ABILITY:Magus Class Ability|AUTOMATIC|Magus Arcana ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
+4	ABILITY:Magus Class Ability|AUTOMATIC|Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
+7	ABILITY:Magus Class Ability|AUTOMATIC|Knowledge Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
+8	ABILITY:Magus Class Ability|AUTOMATIC|Improved Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
+10	ABILITY:Magus Class Ability|AUTOMATIC|Fighter Training ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
+11	ABILITY:Magus Class Ability|AUTOMATIC|Improved Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
+14	ABILITY:Magus Class Ability|AUTOMATIC|Greater Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
+16	ABILITY:Magus Class Ability|AUTOMATIC|Counterstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
+19	ABILITY:Magus Class Ability|AUTOMATIC|Greater Spell Access ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
+20	ABILITY:Magus Class Ability|AUTOMATIC|True Magus ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
+###Block: Spell progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,3
+4	CAST:4,3,1
+5	CAST:4,4,2
+6	CAST:5,4,3
+7	CAST:5,4,3,1
+8	CAST:5,4,4,2
+9	CAST:5,5,4,3
+10	CAST:5,5,4,3,1
+11	CAST:5,5,4,4,2
+12	CAST:5,5,5,4,3
+13	CAST:5,5,5,4,3,1
+14	CAST:5,5,5,4,4,2
+15	CAST:5,5,5,5,4,3
+16	CAST:5,5,5,5,4,3,1
+17	CAST:5,5,5,5,4,4,2
+18	CAST:5,5,5,5,5,4,3
+19	CAST:5,5,5,5,5,5,4
+20	CAST:5,5,5,5,5,5,5
+
+# COMMENT: Modify Monk to allow monk vows.  Move this to Core?
+
+# Class Name	Ability
+CLASS:Monk.MOD	ABILITY:Internal|AUTOMATIC|Allow Vows
+
+
+###Block: Bardic Masterpiece activation
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation
+
+###Block: Variant Channeling activation
+
+# Class Name
+CLASS:Cleric.MOD
+1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+
+#COMMENT: Variant Channeling should be available to some (but not all) other
+#COMMENT:   classes with a channel energy ability.  This is tricky to
+#COMMENT:   implement, since (1) paladins and clerics treat the channel
+#COMMENT:   energy ability differently, and (2) one could have a character
+#COMMENT:   with both cleric and paladin classes, and two different variant
+#COMMENT:   channelings.
+#CLASS:Paladin.MOD
+#1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+#CLASS:Oracle.MOD
+#1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+
+###Block: Animal and Terrain Domains
+
+# Class Name
+CLASS:Druid.MOD
+0	DOMAIN:Aquatic[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Aquatic]
+0	DOMAIN:Arctic[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Arctic]
+0	DOMAIN:Cave[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cave]
+0	DOMAIN:Desert[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Desert]
+0	DOMAIN:Eagle[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Eagle]
+0	DOMAIN:Frog[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Frog]
+0	DOMAIN:Jungle[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Jungle]
+0	DOMAIN:Monkey[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Monkey]
+0	DOMAIN:Mountain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Mountain]
+0	DOMAIN:Plains[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plains]
+0	DOMAIN:Serpent[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Serpent]
+0	DOMAIN:Swamp[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Swamp]
+0	DOMAIN:Wolf[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wolf]
+
+###Block: Additional Domains for Druid archetypes
+0	DOMAIN:Cloud Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cloud Subdomain]
+0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Destruction]
+0	DOMAIN:Storms Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Storms Subdomain]
+0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ War]
+0	DOMAIN:Wind Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wind Subdomain]
+
+###Block: Wizard Elemental Schools
+
+# Class Name
+CLASS:Wizard.MOD
+SUBCLASS:Metal	CHOICE:DESCRIPTOR|MetalSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:VAR|MetalSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Metal School
+SUBCLASS:Wood	CHOICE:DESCRIPTOR|WoodSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:VAR|WoodSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wood School

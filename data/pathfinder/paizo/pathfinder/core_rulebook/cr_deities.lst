@@ -1,0 +1,28 @@
+# CVS $Revision: 20121 $ $Author: zaister $ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
+Erastil		NAMEISPI:YES	DOMAINS:Animal,Community,Good,Law,Plant|PREALIGN:LG,LN,NG				DESC:God of farming, hunting, trade, family				DEITYWEAP:Longbow				ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Iomedae		NAMEISPI:YES	DOMAINS:Glory,Good,Law,Sun,War|PREALIGN:LG,LN,NG					DESC:Goddess of valor, rulership, justice, honor			DEITYWEAP:Longsword			ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Torag			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Protection|PREALIGN:LG,LN,NG			DESC:God of the forge, protection, strategy				DEITYWEAP:Warhammer			ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Sarenrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:LG,NG,CG,TN				DESC:Goddess of the sun, redemption, honesty, healing			DEITYWEAP:Scimitar			ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Shelyn		NAMEISPI:YES	DOMAINS:Air,Charm,Good,Luck,Protection|PREALIGN:LG,NG,CG,TN				DESC:Goddess of beauty, art, love, music					DEITYWEAP:Glaive				ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Desna			NAMEISPI:YES	DOMAINS:Chaos,Good,Liberation,Luck,Travel|PREALIGN:NG,CG,CN				DESC:Goddess of dreams, stars, travelers, luck				DEITYWEAP:Starknife			ALIGN:CG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Cayden Cailean	NAMEISPI:YES	DOMAINS:Chaos,Charm,Good,Strength,Travel|PREALIGN:NG,CG,CN				DESC:God of freedom, wine, bravery						DEITYWEAP:Rapier				ALIGN:CG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Abadar		NAMEISPI:YES	DOMAINS:Earth,Law,Nobility,Protection,Travel|PREALIGN:LG,LN,NG,TN			DESC:God of cities, wealth, merchants, law				DEITYWEAP:Crossbow (Light)		ALIGN:LN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Irori			NAMEISPI:YES	DOMAINS:Healing,Knowledge,Law,Rune,Strength|PREALIGN:LG,LN,TN,NG			DESC:God of history, knowledge, self-perfection				DEITYWEAP:Unarmed Strike		ALIGN:LN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Gozreh		NAMEISPI:YES	DOMAINS:Air,Animal,Plant,Water,Weather|PREALIGN:LN,NG,TN,NE,CN			DESC:God of nature, weather, the sea					DEITYWEAP:Trident				ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Pharasma		NAMEISPI:YES	DOMAINS:Death,Healing,Knowledge,Repose,Water|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of fate, death, prophecy, birth				DEITYWEAP:Dagger				ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Nethys		NAMEISPI:YES	DOMAINS:Destruction,Knowledge,Magic,Protection,Rune|PREALIGN:LN,NG,TN,NE,CN	DESC:God of magic									DEITYWEAP:Quarterstaff			ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Gorum			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Glory,Strength,War|PREALIGN:CG,TN,CN,CE			DESC:God of strength, battle, weapons					DEITYWEAP:Greatsword			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Calistria		NAMEISPI:YES	DOMAINS:Chaos,Charm,Knowledge,Luck,Trickery|PREALIGN:CG,TN,CN,CE			DESC:Goddess of trickery, lust, revenge					DEITYWEAP:Whip				ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Asmodeus		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,Magic,Trickery|PREALIGN:LN,LE,NE				DESC:God of tyranny, slavery, pride, contracts				DEITYWEAP:Mace (Heavy)|Mace (Light)	ALIGN:LE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Zon-Kuthon		NAMEISPI:YES	DOMAINS:Darkness,Death,Destruction,Evil,Law|PREALIGN:LN,LE,NE			DESC:God of envy, pain, darkness, loss					DEITYWEAP:Chain (Spiked)		ALIGN:LE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Urgathoa		NAMEISPI:YES	DOMAINS:Death,Evil,Magic,Strength,War|PREALIGN:TN,LE,NE,CE				DESC:Goddess of gluttony, disease, undeath				DEITYWEAP:Scythe				ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Norgorber		NAMEISPI:YES	DOMAINS:Charm,Death,Evil,Knowledge,Trickery|PREALIGN:TN,LE,NE,CE			DESC:God of greed, secrets, poison, murder				DEITYWEAP:Sword (Short)			ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE			DESC:Goddess of madness, monsters, nightmares				DEITYWEAP:Falchion			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE			DESC:God of wrath, disaster, destruction					DEITYWEAP:Greataxe			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.45
+
+# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Holy Item	Deity Weapon				Alignment	Pantheon					Source Page
+None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE						DESC:None								SYMBOL:None	DEITYWEAP:ANY

@@ -297,7 +297,7 @@ CLASS:Point Buy	STARTSKILLPTS:0
 
 
 # Class Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Classless Point Buy	HD:4	TYPE:Base.PC.Eclipse	ABB:Point	MAXLEVEL:20	DEFINE:EclipseClass|1	.REPLACE
+CLASS:Classless Point Buy	HD:4	TYPE:Base.PC.Eclipse	ABB:Point	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block:

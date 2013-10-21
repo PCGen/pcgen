@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Heart of the Jungle
+CAMPAIGN:Heart of the Jungle
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
+TYPE:Paizo Publishing.Campaign Setting
+RANK:2
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
-SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Heart of the Jungle
-SOURCESHORT:HotJ
+SOURCESHORT:HOTJ
 SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh
 SOURCEDATE:2010-07
 ISOGL:YES
@@ -43,19 +42,15 @@ COPYRIGHT:PCGen dataset conversion for "Heart of the Jungle" Copyright 2010, PCG
 #EXTRAFILE:OGL.txt
 
 # Data Files
-ABILITY:hotj_abilities_racial.lst
-ABILITY:hotj_abilities_companions.lst
-ABILITY:hotj_abilities_afflictions.lst
+ABILITY:hotj_abilities.lst
+ABILITY:hotj_abilities_companion.lst
+ABILITY:hotj_abilities_race.lst
 ABILITYCATEGORY:hotj_abilitycategories.lst
-EQUIPMENT:hotj_equipment_monsters.lst
-EQUIPMENT:hotj_equipment_poisons.lst
+EQUIPMENT:hotj_equip_general.lst
 FEAT:hotj_feats.lst
-KIT:hotj_kits_races.lst
-KIT:hotj_kits_races_companions.lst
+KIT:hotj_kits_companion.lst
+KIT:hotj_kits_race.lst
 LANGUAGE:hotj_languages.lst
 RACE:hotj_races.lst
-RACE:hotj_races_companions.lst
+RACE:hotj_races_companion.lst
 
-#
-# End
-#

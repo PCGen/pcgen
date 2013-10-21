@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Paul Shipley
+
+# NB: var(" * ") syntax is necessary for the SKILL.*.MISC uses here as * contains spaces
+

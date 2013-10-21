@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
+
+# Template Name			Visible	Template											Required Vision			Prohibited Vision			Add to vision			Vision
+Liberator Darkvision		VISIBLE:NO	TEMPLATE:CHOOSE:Liberator New Darkvision|Liberator Bonus Darkvision
+Liberator New Darkvision	VISIBLE:NO																		!PREVISION:1,Darkvision=ANY						VISION:Darkvision (60')
+Liberator Bonus Darkvision	VISIBLE:NO													PREVISION:1,Darkvision=ANY						BONUS:VISION|Darkvision|60

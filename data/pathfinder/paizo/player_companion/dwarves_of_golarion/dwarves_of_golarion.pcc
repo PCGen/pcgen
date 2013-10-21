@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sun Mar 12 2011
-CAMPAIGN:Paizo - Dwarves of Golarion
+CAMPAIGN:Dwarves of Golarion
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Dwarves of Golarion
-SOURCESHORT:DoG
+SOURCESHORT:DOG
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j
 SOURCEDATE:2009-12
 ISOGL:YES
@@ -36,14 +35,11 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 # Data files
-ABILITY:dog_abilities_background.lst
-ABILITY:dog_abilities_traits.lst
-ABILITYCATEGORY:dog_abilitycategories.lst
+ABILITY:dog_abilities.lst
 DEITY:dog_deities.lst
-EQUIPMENT:dog_equip.lst
+EQUIPMENT:dog_equip_arms_armor.lst
 FEAT:dog_feats.lst
 SPELL:dog_spells.lst
-TEMPLATE:dog_templates_background.lst
-WEAPONPROF:dog_weaponprofs.lst
-# End
-#
+TEMPLATE:dog_templates.lst
+
+WEAPONPROF:dog_profs_weapon.lst

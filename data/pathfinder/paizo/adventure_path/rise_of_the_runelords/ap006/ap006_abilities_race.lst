@@ -1,0 +1,55 @@
+SOURCELONG:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast	SOURCESHORT:AP006	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c	SOURCEDATE:2007-10
+#Original Entry: Andrew Maitland
+
+# Craig Spider
+# Ability Name			Unique Key				Output Name				Category of Ability		Type						Visible	Special ABility				Define				Innate Spells																																													Description																													Template			Weapon prof. bonus
+Tether														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tether
+
+
+# Leng
+Disrupt Flesh													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Disrupt Flesh
+Planar Fast Healing												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Planar Fast Healing
+Gift Of Tongues													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Gift of Tongues
+Internal Derangement												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Internal Derangement
+Leng No Breath								OUTPUTNAME:No Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:No Breath
+Leng Spell Abilities												CATEGORY:Special Ability							VISIBLE:NO												SPELLS:Innate|TIMES=3|CASTERLEVEL=10|Detect Thoughts,17|Hypnotic Pattern,17|Levitate|Minor Image,17	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Locate Object|Plane Shift,22
+
+
+# Kuchrima
+Disease Immunity													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Immune to Disease
+Magic Missile Immunity												CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Immune to Magic Missile
+Catastrophic Shot													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Catastrophic Shot
+Kuchrima Oversized Weapon						OUTPUTNAME:Oversized Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Oversized Weapon
+Kuchrima Disease								OUTPUTNAME:Disease		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Disease
+
+
+# Harridan
+Harridan Spells													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Spells																																																																																							TEMPLATE:HarridanSpells
+Harridan Wisdom Drain												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Wisdom Drain
+
+
+# Hungerer
+Hungerer Spells													CATEGORY:Special Ability																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=21|Grease|Stinking Cloud,14|Ventriloquism	SPELLS:Innate|TIMES=3|CASTERLEVEL=21|Charm Monster,15|Fly|Gust of Wind,13|Major Image,14|Mirror Image|Suggestion,14	SPELLS:Innate|TIMES=1|CASTERLEVEL=21|Charm Monster (Mass),19|Deep Slumber,14
+Appalling Stench													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Appalling Stench
+Vile Spew														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Vile Spew
+Vorpal Bite														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Vorpal Bite
+Hungerer Wisdom Drain												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Wisdom Drain
+
+
+# Rune Giant
+Command Giant													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Command Giant
+Improved Rock Throwing												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Improved Rock Throwing																																																																																								BONUS:WEAPONPROF=Rock|TOHIT|4
+Spark Shower													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Spark Shower
+Runes															CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Runes
+Rune Giant Rock Catching											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Rock Catching
+Rune Giant Spells													CATEGORY:Special Ability							VISIBLE:NO												SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=20|Air Walk|Endure Elements|Suggestion,24	SPELLS:Innate|TIMES=3|CASTERLEVEL=20|Charm Monster (Mass),28|Dominate Monster,29
+
+
+#Windigo
+Windigo Regeneration							OUTPUTNAME:Regeneration		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Regeneration %|RegenerationRate	DEFINE:RegenerationRate|0
+Savaging														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Savaging
+Windwalk														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Windwalk
+Windigo No Breath								OUTPUTNAME:No Breath		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:No Breath
+Wendigo Spells													CATEGORY:Special Ability							VISIBLE:NO												SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=20|Wind Walk	SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Control Weather
+Dream Haunting			KEY:Dream Haunting ~ Wendigo						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																																													DESC:A wendigo can visit the dreams of a single victim within 1 mile while that individual sleeps.
+Howl					KEY:Howl ~ Wendigo							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																													DESC:a wendigo can let loose a forlorn howl that echoes throughout the countryside and can be heard up to a mile away neven during the fiercest storm unless magically silenced.

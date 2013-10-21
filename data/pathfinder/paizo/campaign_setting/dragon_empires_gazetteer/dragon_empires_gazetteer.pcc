@@ -1,20 +1,12 @@
-# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Dragon Empires Gazetteer
+CAMPAIGN:Dragon Empires Gazetteer
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
+TYPE:Paizo Publishing.Campaign Setting
+RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
-SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
-# ENABLE THESE AND REMOVE FORWARDREFS ONCE INCLUDED
-#PRECAMPAIGN:1,Paizo - Inner Sea World Guide
-#PRECAMPAIGN:1,Paizo - Pathfinder RPG Ultimate Combat
-INFOTEXT:This set requires data from Inner Sea World Guide and UC for deity weapons and a domain. Neither of those sets are completed.
-FORWARDREF:WEAPONPROF|Naginata,Nine-Ring broadsword,Bo staff,Urumi,Katana,Tetsubo
-FORWARDREF:DOMAIN|Scalykind
-###
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,Inner Sea World Guide,Ultimate Combat
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -42,36 +34,21 @@ URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search|Buy this publication from Paizo Publishing!
 DESC:It is a land where honorable samurai wage war against devious ninja. Where the guardian spirits known as kami stand against the ravages of evil oni. Where the martial artists of a shattered empire strive to maintain their traditions against rising chaos. A land of jade and tea, of pride and treachery, of reincarnation and vengeful ghosts. These are the lands of the Dragon Empires. Dragon Empires Gazetteer presents the first exploration of the continent of Tian Xia, a vast realm found on the opposite side of the world of Golarion from the Inner Sea region. Inspired by the fascinating myths and rich histories of numerous Asian cultures and traditions, the Dragon Empires can be either an exotic destination for world-traveling heroes from the far side of the world, or they can be the foundation of an entirely new campaign.
 
-FORWARDREF:RACE|Tengu
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
-
-#ADDITIONAL FILES:
-LANGUAGE:*/35e/paizo/campaign_setting/campaign_setting/pathfinder_campaign_setting_languages.lst
-ABILITY:*/pathfinder/paizo/pathfinder/bestiary/pfb_abilities_monsters_stu.lst|(INCLUDE:CATEGORY=Special Ability,Gifted Linguist ~ Tengu,Sneaky ~ Tengu,Sword Trained ~ Tengu,Natural Weapon ~ Tengu)
 
 
-# Main Files
-ABILITY:deg_abilities_archetypes.lst
-ABILITY:deg_abilities_background.lst
-ABILITY:deg_abilities_racial.lst
+ABILITY:deg_abilities.lst
+ABILITY:deg_abilities_race.lst
 ABILITYCATEGORY:deg_abilitycategories.lst
-
 BIOSET:deg_biosettings.lst
 DEITY:deg_deities.lst
 DOMAIN:deg_domains.lst
-
-KIT:deg_kits_racial_traits.lst
+KIT:deg_kits_race.lst
 LANGUAGE:deg_languages.lst
 RACE:deg_races.lst
-RACE:deg_races_mod.lst
-SPELL:deg_spells_mod.lst
-TEMPLATE:deg_templates_background.lst
-TEMPLATE:deg_templates_types.lst
+SPELL:deg_spells.lst
+TEMPLATE:deg_templates.lst
 
 
-#
-# End
-#

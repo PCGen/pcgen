@@ -1,0 +1,46 @@
+SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP008	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
+
+###Block: Daemon (Leukodaemon) Abilities
+# Ability Name		Output Name									Category of Ability		Type								Description																	Source Page
+Breath of Flies												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:20-foot cone of biting black flies, 8d6 slashing, Reflex DC %1 half, 1/minute|10+(TL/2)+CON		SOURCEPAGE:p. 80
+Contagion Shot												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	DESC:Any arrow a leukodaemon fires--either from its own bow or any other--is tainted with disease.		SOURCEPAGE:p. 80
+Infectious Aura												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		DESC:Diseases are more virulent in the presence of a leukodaemon.								SOURCEPAGE:p. 80
+Summon Daemon												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:Once per day, a leukodaemon can attempt to summon another leukodaemon with a 35%% chance of success.	SOURCEPAGE:p. 80
+Leukodaemon Immunities	OUTPUTNAME:Immune to death effects, disease, and poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																			SOURCEPAGE:p. 80
+
+###Block: Daughter Of Urgathoa Abilities
+# Ability Name	Category of Ability		Type								Description																												Save checks bonus			Bonus to HP				Source Page
+Great Claw		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.AttackOption	DESC:When a follower of the goddess of disease is transformed into a daughter of Urgathoa, she grows a massive and terrible weapon.																		SOURCEPAGE:p. 82
+Desecrate Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		DESC:A daughter of Urgathoa is surrounded by a 20-foot aura that functions as the desecrate spell.																							SOURCEPAGE:p. 82
+Diseased Touch	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:Any time a daughter of Urgathoa strikes with her great claw or claw attack, she can choose to afflict the damaged opponent with a disease, as per the spell contagion.											SOURCEPAGE:p. 82
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Daughters of Urgathoa gain bonus hit points																					BONUS:CHECKS|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL	SOURCEPAGE:p. 82
+
+###Block: Giant Fly and Giant Maggot Abilities
+# Ability Name		Output Name									Category of Ability		Type						Description																				Source Page
+Giant Fly Immunities	OUTPUTNAME:Immune to disease						CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity																							SOURCEPAGE:p. 84
+Disease Carrier												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Although giant flies are immune to disease, they become carriers of any contact or injury disease they are exposed to.	SOURCEPAGE:p. 84
+Orientation			OUTPUTNAME:+4 racial bonus on Survival checks to orient	CATEGORY:Special Ability	TYPE:SpecialQuality																								SOURCEPAGE:p. 84
+Regurgitate													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:DC 12 Fortitude save or be sickened for 1 minute													SOURCEPAGE:p. 85
+
+###Block: Lawgiver Abilities
+# Ability Name			Unique Key			Output Name				Category of Ability		Type								Visible	Description																		Ability																			Source Page
+Golden Body													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:The Lawgiver is a creature of living gold and blessed steel									ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Critical Hits|Immunity To Electricity|Rust Immunity	SOURCEPAGE:p. 86
+Rust Immunity												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You are not subject to rusting effects (such as the rusting grasp spell or a rust monster's rust attack).
+Herald of Abadar												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:The Lawgiver can be summoned by clerics of Abadar																														SOURCEPAGE:p. 86
+Lawgiver See in Darkness					OUTPUTNAME:See in Darkness	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense				DESC:The Lawgiver can see in darkness of any kind, even that created by spells like deeper darkness.																							SOURCEPAGE:p. 86
+Wings of Abadar												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					DESC:the Lawgiver can manifest a pair of gigantic golden wings or take the form a two-headed golden eagle																						SOURCEPAGE:p. 86
+Freeze				KEY:Freeze ~ Lawgiver						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+
+###Block: Nosferatu Abilities
+# Ability Name			Output Name					Category of Ability		Type								Description																		Ability						Vision					Source Page
+Nosferatu Blood Drain		OUTPUTNAME:Blood Drain			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:A nosferatu can suck blood from a living victim with its fangs by making a successful grapple check															SOURCEPAGE:p. 88
+Nosferatu Dominate		OUTPUTNAME:Dominate			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	DESC:A nosferatu can crush an opponent's will just by looking into his eyes																				SOURCEPAGE:p. 88
+Nosferatu Telekinesis		OUTPUTNAME:Telekinesis			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:As a standard action, a nosferatu can use telekinesis, as the spell.																				SOURCEPAGE:p. 88
+Nosferatu Beast Senses		OUTPUTNAME:Beast Senses			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						ABILITY:Special Ability|AUTOMATIC|Scent	VISION:Darkvision (60')|Low-light	SOURCEPAGE:p. 89
+Nosferatu Fast Healing		OUTPUTNAME:Fast Healing			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:A nosferatu heals 5 points of damage each round so long as it has at least 1 hit point																	SOURCEPAGE:p. 89
+Nosferatu Spider Climb		OUTPUTNAME:Spider Climb			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:A nosferatu can climb sheer surfaces as though with a spider climb spell.																			SOURCEPAGE:p. 89
+Nosferatu Swarm Form		OUTPUTNAME:Swarm Form			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:As a standard action, a nosferatu can change into a bat swarm, centipede swarm, rat swarm, or spider swarm.														SOURCEPAGE:p. 89
+Nosferatu Telepathy		OUTPUTNAME:Telepathy			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:A nosferatu can communicate telepathically with any creature within 60 feet that speaks the same languages.														SOURCEPAGE:p. 89
+Nosferatu Turn Resistance	OUTPUTNAME:Turn Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:A nosferatu has +4 turn resistance.																										SOURCEPAGE:p. 89
+Nosferatu Weaknesses		OUTPUTNAME:Vampiric Weaknesses	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	DESC:Nosferatus have all the weaknesses of normal vampires.																							SOURCEPAGE:p. 89
+

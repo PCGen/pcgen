@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:43:22 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Paul Shipley
 
@@ -60,7 +59,9 @@ Desecrate								KEY:Desecrate ~ Constant			CATEGORY:Special Ability	TYPE:Specia
 Magic Weapon							KEY:Magic Weapon ~ Constant			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				DEFINE:SLA_CL|0																			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SLA_CL|Magic Weapon,11+CHA					DESC:You can use magic weapon, as per the spell, as a constant ability. Constant spell-like abilities function at all times but can be dispelled. Constant spell-like abilities can be reactivated a as a swift action.																																																																																																																																																																																																																			SOURCELONG:Core Rulebook	SOURCESHORT:PFCR		SOURCEPAGE:p.310
 Water Breathing							KEY:Water Breathing ~ Constant		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				DEFINE:SLA_CL|0																			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SLA_CL|Water Breathing,13+CHA				DESC:You can use water breathing, as per the spell, as a constant ability. Constant spell-like abilities function at all times but can be dispelled. Constant spell-like abilities can be reactivated a as a swift action.																																																																																																																																																																																																																		SOURCELONG:Core Rulebook	SOURCESHORT:PFCR		SOURCEPAGE:p.368
 
-#
-# End
-#
+###Block: Clockwork template abilities
+# Ability Name		Unique Key					Category of Ability		Type						Description																																Virtual Feat						Combat bonus
+Winding			KEY:Winding ~ Clockwork			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:The construct must be wound with a special key in order to function. As a general rule, a fully wound clockwork can remain active for 1 day/HD, but shorter or longer durations are possible.
+Swift Reactions		KEY:Swift Reactions ~ Clockwork	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Clockwork constructs generally react much more swiftly than other constructs. They gain Improved Initiative and Lightning Reflexes as bonus feats, and gain a +2 dodge bonus to AC.			VFEAT:Improved Initiative|Lightning Reflexes	BONUS:COMBAT|AC|2|TYPE=Dodge
+Difficult to Create	KEY:Difficult to Create ~ Clockwork	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Increase the time and gp cost required to create a clockwork by 50%% over normal.
 

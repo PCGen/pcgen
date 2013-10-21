@@ -1,0 +1,4 @@
+SOURCELONG:Bestiary	SOURCESHORT:BST1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+Heartstone (Night Hag)	OUTPUTNAME:Heartstone	TYPE:Magic.Monster.Periapt	COST:0	WT:0		SOURCEPAGE:p.215	ABILITY:Special Ability|AUTOMATIC|Immunity to Disease	BONUS:CHECKS|ALL|2	SPROP:Gemstone worth 1800gp

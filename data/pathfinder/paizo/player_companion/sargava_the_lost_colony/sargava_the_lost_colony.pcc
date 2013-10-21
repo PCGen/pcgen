@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Sargava, the Lost Colony
+CAMPAIGN:Sargava, the Lost Colony
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Sargava, the Lost Colony
-SOURCESHORT:StLC
+SOURCESHORT:STLC
 SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2
 SOURCEDATE:2010-07
 ISOGL:YES
@@ -32,20 +31,17 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
-# Data files
+
 ABILITY:stlc_abilities.lst
-ABILITY:stlc_abilities_background.lst
-ABILITY:stlc_abilities_traits.lst
 ABILITYCATEGORY:stlc_abilitycategories.lst
 DEITY:stlc_deities.lst
-EQUIPMENT:stlc_equip.lst
+EQUIPMENT:stlc_equip_arms_armor.lst
+EQUIPMENT:stlc_equip_general.lst
+EQUIPMENT:stlc_equip_magic_items.lst
 FEAT:stlc_feats.lst
 LANGUAGE:stlc_languages.lst
 RACE:stlc_races.lst
 SPELL:stlc_spells.lst
-TEMPLATE:stlc_templates_background.lst
-
-#
-# End
-#
+TEMPLATE:stlc_templates.lst

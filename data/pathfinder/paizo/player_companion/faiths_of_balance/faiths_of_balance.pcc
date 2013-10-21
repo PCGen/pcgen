@@ -1,18 +1,17 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Faiths of Balance
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Faiths of Purity
-SOURCESHORT:FoB
+SOURCESHORT:FOB
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb
 SOURCEDATE:2011-07
 ISOGL:YES
@@ -33,20 +32,17 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of B
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Data files
-ABILITY:fob_abilities_traits.lst
+ABILITY:fob_abilities.lst
 DEITY:fob_deities.lst
-EQUIPMENT:fob_equip.lst
-EQUIPMENT:fob_equip_weapons_specific.lst
-EQUIPMENT:fob_equip_wondrousitems.lst
+EQUIPMENT:fob_equip_general.lst
+EQUIPMENT:fob_equip_arms_armor.lst
+EQUIPMENT:fob_equip_magic_items.lst
 FEAT:fob_feats.lst
 SPELL:fob_spells.lst
 
 # Out of set data files
-WEAPONPROF:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_profs_weapons.lst
+WEAPONPROF:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_profs_weapon.lst
 
-# Forward References
-FORWARDREF:CLASSSPELLLIST|Alchemist,Inquisitor,Magus,Summoner,Witch
 FORWARDREF:DOMAIN|Void
 
 # Data Beta Review by Andrew Maitland

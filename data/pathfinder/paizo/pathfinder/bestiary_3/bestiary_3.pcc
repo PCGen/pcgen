@@ -1,18 +1,16 @@
-# CVS $Revision$ $Author$ -- Sat Jun 29 23:38:24 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 CAMPAIGN:Bestiary 3
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
+TYPE:Paizo Publishing.Pathfinder
 RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
-PRECAMPAIGN:3,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Combat,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Magic
+SETTING:Pathfinder
+PRECAMPAIGN:3,Bestiary,Ultimate Combat,Ultimate Magic
+!PRECAMPAIGN:1,Bonus Bestiary
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SETTING:Pathfinder Campaign Setting
 SOURCELONG:Bestiary 3
 SOURCESHORT:B3
 SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
@@ -71,41 +69,15 @@ COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data t
 # Data files
 ABILITY:b3_abilities_race.lst
 ABILITYCATEGORY:b3_abilitycategories.lst
-
 DEITY:b3_deities.lst
-
-FEAT:b3_feats_mod.lst
-
-EQUIPMENT:b3_equipment.lst
-EQUIPMENT:b3_equip_weapons_melee.lst
-EQUIPMOD:b3_equipmods_weapons.lst
-
-KIT:b3_kits_dragon.lst
-KIT:b3_kits_companions.lst
-KIT:b3_kits_races_abc.lst
-KIT:b3_kits_races_def.lst
-KIT:b3_kits_races_ghi.lst
-KIT:b3_kits_races_jkl.lst
-KIT:b3_kits_races_mno.lst
-KIT:b3_kits_races_pqr.lst
-KIT:b3_kits_races_stu.lst
-KIT:b3_kits_races_vw.lst
-KIT:b3_kits_races_xyz.lst
-
-
+EQUIPMENT:b3_equip_arms_armor.lst
+EQUIPMOD:b3_equipmods.lst
+KIT:b3_kits_race.lst
 LANGUAGE:b3_languages.lst
-
-
 RACE:b3_races.lst
-RACE:b3_races_base.lst
-
 TEMPLATE:b3_templates.lst
-WEAPONPROF:b3_weaponprofs.lst
+WEAPONPROF:b3_profs_weapon.lst
 
-# OGL Review by Paul Grosse
-# Data Beta Reviews by Andrew Maitland and Rob Reed
-
-#
-# End
-#
-
+#MOVE TO CORE ESSENTIALS
+KIT:b3_kits_companion.lst
+FEAT:b3_feats.lst

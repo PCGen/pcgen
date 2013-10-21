@@ -1,0 +1,55 @@
+CAMPAIGN:Rise of the Runelords Player's Guide (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Rise of the Runelords
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide,INCLUDES=Bestiary
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords Player's Guide
+SOURCESHORT:ROTRPG
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9
+SOURCEDATE:2007-08
+ISOGL:YES
+
+COVER:rise_of_the_runelords_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9|Buy this publication from Paizo Publishing!
+DESC:The 16-page Rise of the Runelords Player's Guide is an invaluable resource for players seeking to start this exciting new campaign. The guide presents details on how best to customize your character so that he'll fit into the campaign. What's the best choice of favored enemy for a ranger? Which of the region's deities will your cleric worship? What about new weapons for your fighter? And everyone loves new feats; there are several to choose from in this product, all of which are specifically designed to aid you in your fight against the Runelords.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rise of the Runelords Player's Guide. Copyright 2007 Paizo Publishing LLC. Author F. Wesley Schneider.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords Player's Guide" Copyright 2007-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eric C. Smith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:rotrpg_abilitycategories.lst
+ABILITY:rotrpg_abilities.lst
+ABILITY:rotrpg_abilities_class.lst
+COMPANIONMOD:rotrpg_companionmods.lst
+EQUIPMENT:rotrpg_equip_arms_armor.lst
+EQUIPMENT:rotrpg_equip_general.lst
+FEAT:rotrpg_feats.lst
+KIT:rotrpg_kits_race.lst
+LANGUAGE:rotrpg_languages.lst
+RACE:rotrpg_races.lst
+SHIELDPROF:rotrpg_profs_shield.lst
+TEMPLATE:rotrpg_templates.lst
+ARMORPROF:rotrpg_profs_armor.lst
+WEAPONPROF:rotrpg_profs_weapon.lst
+
+
+# Hide internally used feat types
+HIDETYPE:FEAT|CityBorn|Varisia|VarisianTattoo
+

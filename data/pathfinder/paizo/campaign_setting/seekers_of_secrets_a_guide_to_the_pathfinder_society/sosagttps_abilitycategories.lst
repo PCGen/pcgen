@@ -1,0 +1,8 @@
+# CVS $Revision: 21252 $ $Author: evilmynex $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# Original Entry by: Paul Shipley
+
+###Block: Ioun Stone Categories
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Ioun Weapon Familiarity	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IounWpnFam		PLURAL:Ioun Weapon Familiarities	DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Esoteric Magic Spell	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EsotericSpell	PLURAL:Esoteric Magic Spells		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Dispelling Master Class	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DispellingMaster							DISPLAYLOCATION:Class Abilities

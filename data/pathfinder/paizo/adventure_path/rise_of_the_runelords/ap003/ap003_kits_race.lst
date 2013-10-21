@@ -1,0 +1,399 @@
+SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre	SOURCESHORT:AP003	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8	SOURCEDATE:2007-08
+
+STARTPACK:Kreeg Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:pg.28
+RACE:Ogre	!PRERACE:1,%
+NAME:Kreeg Ogre
+ALIGN:CE
+STAT:STR=14|DEX=13|CON=16|INT=10|WIS=12|CHA=8
+CLASS:Fighter	LEVEL:5
+SKILL:Climb		RANK:10
+SKILL:Perception	RANK:1
+FEAT:Great Fortitude
+FEAT:Improved Critical(Ogre Hook)
+FEAT:Power Attack
+FEAT:Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Bull Rush
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Ogre Hook)
+GEAR:Potion of Cure Moderate Wounds					LOCATION:Carried
+GEAR:Hide							SIZE:L	LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Ogre Hook						SIZE:L	LOCATION:Both	EQMOD:PLUS1W
+GEAR:Longbow (Composite)				SIZE:L	LOCATION:Carried	EQMOD:BOWSTR|+7.MWORKW
+GEAR:Arrow					QTY:20	SIZE:L	LOCATION:Carried
+
+STARTPACK:NPC (Shalelu Andosana)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf]	SOURCEPAGE:pg.9
+RACE:Elf	!PRERACE:1,%
+NAME:Shalelu Andosana
+GENDER:Female
+CLASS:Fighter	LEVEL:2
+ALIGN:CG
+STAT:STR=12|DEX=14|CON=16|INT=10|WIS=13|CHA=8
+CLASS:Ranger	LEVEL:3
+SKILL:Climb		RANK:6
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+SKILL:Survival	RANK:6
+SKILL:Swim		RANK:6
+SKILL:Linguistics	RANK:2
+ABILITY:CATEGORY=Combat Style|Archery
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Goblinoid))
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Longbow)
+ABILITY:CATEGORY=Fighter Bonus Feat|Dodge
+GEAR:Wand of Cure Light Wounds					LOCATION:Carried	EQMOD:SPL_CHRG|SPELLNAME[Cure Light Wounds]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
+GEAR:Longbow (Composite)				SIZE:M	LOCATION:Both	EQMOD:BOWSTR|+1
+GEAR:Studded Leather					SIZE:M	LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Sword (Short)					SIZE:M	LOCATION:Carried	EQMOD:MWORKW
+GEAR:Arrow					QTY:20	SIZE:M	LOCATION:Carried
+GEAR:Coin (Gold Piece)			QTY:125			LOCATION:Carried
+
+
+STARTPACK:NPC (Rukus Graul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.12
+RACE:Human	!PRERACE:1,%
+NAME:Rukus Graul
+GENDER:Male
+ALIGN:CE
+STAT:STR=16|DEX=13|CON=14|INT=12|WIS=10|CHA=8
+TEMPLATE:Ogrekin
+ABILITY:CATEGORY=Ogrekin Advantageous Deformity|Fierce Visage
+ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Deformed Hand
+CLASS:Fighter	LEVEL:6
+SKILL:Handle Animal	RANK:9
+SKILL:Intimidate		RANK:9
+SKILL:Survival		RANK:4
+FEAT:Improved Initiative
+FEAT:Great Fortitude
+FEAT:Skill Focus(Survival)
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Longspear)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Longspear)
+GEAR:Belt of Giant Strength +2	LOCATION:Equipped
+GEAR:Longspear				LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Blanket (Winter)			LOCATION:Carried
+
+STARTPACK:NPC (Crowfood)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.13
+RACE:Human	!PRERACE:1,%
+NAME:Crowfood
+GENDER:Male
+ALIGN:CE
+STAT:STR=16|DEX=13|CON=14|INT=8|WIS=12|CHA=10
+TEMPLATE:Ogrekin
+ABILITY:CATEGORY=Ogrekin Advantageous Deformity|Quick Metabolism
+ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Extra Ugly
+CLASS:Rogue		LEVEL:4
+CLASS:Fighter	LEVEL:3
+SKILL:Escape Artist	RANK:7
+SKILL:Perception		RANK:7
+SKILL:Stealth		RANK:9
+SKILL:Acrobatics		RANK:7
+SKILL:Climb			RANK:10
+FEAT:Cleave
+FEAT:Dodge
+FEAT:Iron Will
+FEAT:Mobility
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Ogre Hook)
+GEAR:Ogre Hook				LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Ring of Protection +1		LOCATION:Equipped
+GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
+
+
+## Mammy Graul
+STARTPACK:NPC (Mammy Graul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.17
+RACE:Human	!PRERACE:1,%
+NAME:Mammy Graul
+GENDER:Female
+ALIGN:CE
+STAT:STR=14|DEX=6|CON=13|INT=17|WIS=10|CHA=12
+TEMPLATE:Ogrekin
+ABILITY:CATEGORY=Ogrekin Advantageous Deformity|Thick Skin
+ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Obese
+CLASS:Wizard	LEVEL:8	SUBCLASS:Necromancer
+SKILL:Knowledge (Arcana)	RANK:11
+SKILL:Spellcraft			RANK:11
+FEAT:Craft Wand
+FEAT:Craft Wondrous Item
+FEAT:Greater Spell Focus(Necromancy)
+FEAT:Spell Focus(Necromancy)
+FEAT:Brew Potion
+GEAR:Quarterstaff					LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Belt of Mighty Constitution +2		LOCATION:Equipped
+GEAR:Varisian Idol			QTY:2	LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds		LOCATION:Carried
+GEAR:Scroll (Animate Dead/Arcane)		LOCATION:Carried
+GEAR:Wand of Magic Missile			LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[50]
+GEAR:Wand						LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Vampiric Touch]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[33]
+GEAR:Wand						LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Ray of Enfeeblement]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[28]
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Bestow Curse|Contagion|Dimension Door|Displacement|Fly|Summon Monster III|Vampiric Touch|Blindness/Deafness|False Life|Ghoul Touch|Mirror Image|Summon Monster II|Chill Touch|Grease|Mage Armor|Ray of Enfeeblement|Reduce Person|True Strike|Mage Hand|Message|Touch of Fatigue
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Bestow Curse|Contagion|Dimension Door|Displacement|Fly|Summon Monster III|Vampiric Touch|Blindness/Deafness|False Life|Ghoul Touch|Mirror Image|Summon Monster II|Chill Touch|Grease|Mage Armor|Ray of Enfeeblement|Reduce Person|True Strike|Mage Hand=3|Message|Touch of Fatigue
+
+
+STARTPACK:NPC (Hucker Graul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.19
+RACE:Human	!PRERACE:1,%
+NAME:Hucker Graul
+ALIGN:CE
+STAT:STR=14|DEX=16|CON=12|INT=8|WIS=13|CHA=10
+TEMPLATE:Ogrekin
+ABILITY:CATEGORY=Ogrekin Advantageous Deformity|Vestigal Twin
+ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Speech Impediment
+CLASS:Barbarian	LEVEL:1
+CLASS:Rogue		LEVEL:5
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Skill Focus(Craft (Traps))
+FEAT:Weapon Focus(Ogre Hook)
+SKILL:Handle Animal	RANK:4
+SKILL:Climb			RANK:3
+SKILL:Craft (Traps)	RANK:9
+SKILL:Perception		RANK:9
+SKILL:Stealth		RANK:7
+SKILL:Acrobatics		RANK:9
+GEAR:Ogre Hook				LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
+GEAR:Hide Shirt				LOCATION:Equipped		EQMOD:PLUS1A
+TEMPLATE:NPC Raging
+
+
+STARTPACK:NPC (Jakardros Sovark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.22
+RACE:Human	!PRERACE:1,%
+NAME:Jakardros Sovark
+GENDER:Male
+ALIGN:CG
+STAT:STR=11|DEX=15|CON=14|INT=11|WIS=14|CHA=9
+CLASS:Ranger	LEVEL:8
+SKILL:Handle Animal	RANK:11
+SKILL:Stealth		RANK:11
+SKILL:Perception		RANK:11
+SKILL:Ride			RANK:11
+SKILL:Survival		RANK:11
+ABILITY:CATEGORY=Combat Style|Archery
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Dragon)
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
+ABILITY:CATEGORY=Favored Enemy Bonus|Favored Enemy Bonus (Humanoid (Giant))
+ABILITY:CATEGORY=FEAT|Mounted Combat
+ABILITY:CATEGORY=FEAT|Mounted Archery
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+GEAR:Unarmed Strike	LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Animal Messenger|Cure Light Wounds|Speak with Animals
+
+
+STARTPACK:NPC (Vale Temros)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.22
+RACE:Human	!PRERACE:1,%
+NAME:Vale Temros
+GENDER:Male
+ALIGN:NG
+STAT:STR=16|DEX=13|CON=14|INT=10|WIS=12|CHA=8
+CLASS:Ranger	LEVEL:2
+CLASS:Fighter	LEVEL:4
+SKILL:Climb				RANK:6
+SKILL:Profession (Engineer)	RANK:4
+SKILL:Knowledge (Engineering)	RANK:4
+SKILL:Perception			RANK:5
+SKILL:Survival			RANK:5
+SKILL:Craft (Stonemasonry)	RANK:9
+ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Focus(Handaxe)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Battleaxe)
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Handaxe)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Battleaxe)
+GEAR:Unarmed Strike	LOCATION:Equipped
+
+
+STARTPACK:NPC (Kaven Windstrike)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.24
+RACE:Human	!PRERACE:1,%
+NAME:Kaven Windstrike
+GENDER:Male
+ALIGN:CN
+STAT:STR=10|DEX=16|CON=12|INT=13|WIS=8|CHA=14
+CLASS:Ranger	LEVEL:2
+CLASS:Rogue		LEVEL:5
+SKILL:Survival		RANK:5
+SKILL:Swim			RANK:5
+SKILL:Climb			RANK:10
+SKILL:Stealth		RANK:10
+SKILL:Perception		RANK:10
+SKILL:Bluff			RANK:10
+SKILL:Intimidate		RANK:2
+SKILL:Sleight of Hand	RANK:8
+ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
+FEAT:Persuasive
+FEAT:Two-Weapon Defense
+FEAT:Two-Weapon Fighting
+FEAT:Weapon Finesse
+GEAR:Unarmed Strike	LOCATION:Equipped
+
+
+STARTPACK:NPC (Minktuck Kreeg)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:pg.28
+RACE:Ogre	!PRERACE:1,%
+NAME:Minktuck Kreeg
+GENDER:Male
+ALIGN:CE
+STAT:STR=14|DEX=13|CON=16|INT=10|WIS=12|CHA=8
+CLASS:Fighter	LEVEL:5
+SKILL:Perception	RANK:2
+SKILL:Climb		RANK:8
+SKILL:Climb		RANK:2	FREE:YES
+FEAT:Great Fortitude
+FEAT:Improved Critical(Ogre Hook)
+FEAT:Power Attack
+FEAT:Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Bull Rush
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Ogre Hook)
+GEAR:Potion of Cure Moderate Wounds					LOCATION:Carried
+GEAR:Hide Shirt						SIZE:L	LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Ogre Hook						SIZE:L	LOCATION:Both	EQMOD:PLUS1W
+GEAR:Longbow (Composite)				SIZE:L	LOCATION:Carried	EQMOD:BOWSTR|+7.MWORKW
+GEAR:Arrow					QTY:20	SIZE:L	LOCATION:Carried
+
+
+STARTPACK:NPC (Jaagrath Kreeg)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:pg.32
+RACE:Ogre	!PRERACE:1,%
+NAME:Jaagrath Kreeg
+GENDER:Male
+ALIGN:CE
+STAT:STR=12|DEX=14|CON=12|INT=10|WIS=8|CHA=13
+CLASS:Barbarian	LEVEL:7
+SKILL:Perception	RANK:2
+SKILL:Climb		RANK:3
+SKILL:Intimidate	RANK:7
+FEAT:Improved Bull Rush
+FEAT:Improved Critical(Ogre Hook)
+FEAT:Power Attack
+FEAT:Weapon Focus(Ogre Hook)
+GEAR:Ogre Hook					SIZE:L	LOCATION:Both Hands	EQMOD:PLUS1W.BANE|Humanoids (human)
+GEAR:Potion of Cure Serious Wounds	QTY:2			LOCATION:Carried
+GEAR:Bracers of Armor +2					LOCATION:Equipped
+GEAR:Belt of Giant Strength +4				LOCATION:Equipped
+TEMPLATE:NPC Raging
+
+
+STARTPACK:NPC (Dorella Kreeg)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:pg.33
+RACE:Ogre	!PRERACE:1,%
+NAME:Dorella Kreeg
+ALIGN:CE
+STAT:STR=8|DEX=10|CON=14|INT=12|WIS=13|CHA=17
+CLASS:Sorcerer	LEVEL:9
+SKILL:Perception	RANK:4
+FEAT:Eschew Materials
+FEAT:Extend Spell
+FEAT:Greater Spell Focus(Enchantment)
+FEAT:Iron Will
+FEAT:Spell Focus(Enchantment)
+GEAR:Dagger						SIZE:L	LOCATION:Primary Hand
+GEAR:Headband of Alluring Charisma +2			LOCATION:Equipped
+GEAR:Amulet of Natural Armor +2				LOCATION:Equipped
+GEAR:Wand of Acid Arrow						LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Acid Arrow]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Deep Slumber|Lightning Bolt|Suggestion|Blindness/Deafness|Hideous Laughter|Mirror Image|Touch of Idiocy|Charm Person|Mage Armor|Magic Missile|Shield|True Strike|Acid Splash|Dancing Lights|Daze|Ghost Sound|Mage Hand|Mending|Message|Prestidigitation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Confusion|Shout
+TEMPLATE:Dorella Kreeg's Magic Buffs
+
+
+STARTPACK:NPC (Lucrecia)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia Matriarch]	SOURCEPAGE:pg.35
+RACE:Lamia Matriarch	!PRERACE:1,%
+GENDER:Female
+NAME:Lucrecia
+ALIGN:CE
+STAT:STR=8|DEX=15|CON=12|INT=14|WIS=10|CHA=13
+CLASS:Rogue	LEVEL:2
+FEAT:Combat Expertise
+FEAT:Improved Feint
+FEAT:Improved Two-Weapon Fighting
+FEAT:Two-Weapon Fighting
+FEAT:Weapon Finesse
+SKILL:Knowledge (Arcana)	RANK:15
+SKILL:Spellcraft			RANK:15
+SKILL:Bluff				RANK:17
+SKILL:Knowledge (Local)		RANK:17
+SKILL:Acrobatics			RANK:17
+SKILL:Use Magic Device		RANK:15
+SKILL:Sense Motive		RANK:12
+SKILL:Craft (Tattooing)		RANK:8
+GEAR:Sihedron Medallion			LOCATION:Equipped
+GEAR:Rapier			SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W.KEEN
+GEAR:Dagger			SIZE:L	LOCATION:Secondary Hand	EQMOD:MWORKW
+SPELLS:SPELLBOOK=Known Spells|CLASS=Lamia Matriarch|Lightning Bolt|Hideous Laughter|Undetectable Alignment|Cure Light Wounds|Divine Favor|Mage Armor|Shield|Dancing Lights|Daze|Detect Magic|Ghost Sound|Mage Hand|Mending|Prestidigitation
+TEMPLATE:Lucrecia's Magic Buffs
+
+
+STARTPACK:NPC (Grazuul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Scrag)]	SOURCEPAGE:pg.44
+RACE:Troll (Scrag)	!PRERACE:1,%
+NAME:Grazuul
+ALIGN:CE
+STAT:STR=16|DEX=14|CON=12|INT=8|WIS=13|CHA=12
+CLASS:Fighter	LEVEL:5
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Multiattack
+FEAT:Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Critical(Claw)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Claw)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Claw)
+SKILL:Perception	RANK:4
+SKILL:Swim		RANK:5
+GEAR:Trident	LOCATION:Primary Hand	EQMOD:ADAMANT_WEAP.PLUS1W.VICIOUS
+
+
+STARTPACK:NPC (Myriana)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nymph]	SOURCEPAGE:pg.48
+RACE:Nymph	!PRERACE:1,%
+GENDER:Female
+NAME:Myriana
+ALIGN:CN
+STAT:STR=10|DEX=10|CON=10|INT=12|WIS=14|CHA=10
+TEMPLATE:Ghost (Myriana)
+#CLASS:Nymph	LEVEL:6
+FEAT:Combat Casting
+FEAT:Eschew Materials
+FEAT:Spell Focus(Evocation)
+FEAT:Greater Spell Focus(Evocation)
+SKILL:Diplomacy		RANK:15
+SKILL:Heal			RANK:15
+SKILL:Stealth		RANK:15
+SKILL:Perception		RANK:15
+SKILL:Sense Motive	RANK:15
+SKILL:Escape Artist	RANK:15
+SKILL:Handle Animal	RANK:15
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Call Lightning|Charm Animal|Chill Metal|Detect Magic|Dominate Animal|Entangle|Flame Blade|Flame Strike|Flaming Sphere|Flare=3|Guidance|Gust of Wind|Light|Mending|Obscuring Mist|Produce Flame|Reincarnate|Speak with Animals|Summon Nature's Ally I|Summon Nature's Ally III
+
+
+STARTPACK:NPC (Barl Breakbones)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]	SOURCEPAGE:pg.52
+RACE:Giant (Stone)	!PRERACE:1,%
+NAME:Barl Breakbones
+ALIGN:NE
+STAT:STR=13|DEX=8|CON=10|INT=17|WIS=12|CHA=14
+TEMPLATE:Barl Breakbones Skills
+TEMPLATE:Barl Breakbones Magic Buffs
+CLASS:Wizard	LEVEL:7	SUBCLASS:Necromancer
+FEAT:Combat Casting
+FEAT:Greater Spell Focus(Necromancy)
+FEAT:Improved Bull Rush
+FEAT:Improved Critical(Earth Breaker)
+FEAT:Eschew Materials
+FEAT:Power Attack
+FEAT:Spell Focus(Necromancy)
+FEAT:Weapon Focus(Earth Breaker)
+FEAT:Spell Mastery (Fly)
+FEAT:Spell Mastery (Mage Armor)
+FEAT:Spell Mastery (Magic Missile)
+SKILL:Climb				RANK:20
+SKILL:Stealth			RANK:17
+SKILL:Perception			RANK:19
+SKILL:Knowledge (Religion)	RANK:7
+SKILL:Knowledge (Arcana)	RANK:7
+SKILL:Spellcraft			RANK:7
+GEAR:Wand											LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Enervation]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[12]
+GEAR:Earth Breaker							SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Ring of Energy Resistance (Minor/Cold)					LOCATION:Equipped
+GEAR:Sihedron Medallion									LOCATION:Equipped
+GEAR:Onyx							QTY:13			LOCATION:Carried
+GEAR:Spellbook (Wizard's/Blank)							LOCATION:Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Animate Dead|Fear|Fly|Ray of Exhaustion|Vampiric Touch|Blindness/Deafness|Command Undead|False Life|Ghoul Touch|Spectral Hand|Chill Touch|Mage Armor|Magic Missile|Ray of Enfeeblement|Touch of Fatigue=5
+SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Animate Dead|Fear|Fly|Ray of Exhaustion|Vampiric Touch|Blindness/Deafness|Command Undead|False Life|Ghoul Touch|Spectral Hand|Chill Touch|Mage Armor|Magic Missile|Ray of Enfeeblement

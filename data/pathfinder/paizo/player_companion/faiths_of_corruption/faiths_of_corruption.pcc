@@ -1,18 +1,17 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Faiths of Corruption
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Faiths of Corruption
-SOURCESHORT:FoC
+SOURCESHORT:FOC
 SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption
 SOURCEDATE:2011-10
 ISOGL:YES
@@ -34,17 +33,16 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of C
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:foc_abilities_traits.lst
+ABILITY:foc_abilities.lst
 DEITY:foc_deities.lst
 FEAT:foc_feats.lst
-SKILL:foc_skills_conditional.lst
+SKILL:foc_skills.lst
 SPELL:foc_spells.lst
 
 # Out of set data files
-WEAPONPROF:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_profs_weapons.lst
+WEAPONPROF:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_profs_weapon.lst
 
 # Forward References
-FORWARDREF:CLASSSPELLLIST|Antipaladin,Inquisitor,Summoner,Witch
 FORWARDREF:DOMAIN|Scalykind,Void
 
 # Data Beta Review by Andrew Maitland

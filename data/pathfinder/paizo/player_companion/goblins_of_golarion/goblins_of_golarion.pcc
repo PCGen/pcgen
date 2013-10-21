@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Mon Jul 15 23:34:13 2013 -- reformated by prettylst.pl v1.50 (build 20400)
-CAMPAIGN:Paizo - Goblins of Golarion
+CAMPAIGN:Goblins of Golarion
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Player Companion
+TYPE:Paizo Publishing.Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder Campaign Setting
-PREMULT:3,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Roleplaying Game Bestiary]
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,Bestiary,Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Goblins of Golarion
-SOURCESHORT:GblnoG
+SOURCESHORT:GOOG
 SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion
 SOURCEDATE:2011-07
 ISOGL:YES
@@ -26,32 +25,25 @@ DESC:We Be Goblins! The goblins are on the loose! Unleash the homicidal hijinks 
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:System Reference Document. ) 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Player Companion: Goblins of Golarion. ) 2011, Paizo Publishing, LLC; Author: James Jacobs, Hal Maclean, and Richard Pett.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Goblins of Golarion" Copyright 2013, PCGen Data Team (including, but not limited to Eric C Smith (Maredudd))
+COPYRIGHT:Player Companion: Goblins of Golarion. ) 2011, Paizo Publishing, LLC; Author: James Jacobs, Hal Maclean, and Richard Pett.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" Copyright 2013, PCGen Data Team (including, but not limited to Eric C Smith (Maredudd))
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:gblnog_abilities.lst
-ABILITY:gblnog_abilities_domain.lst
-ABILITY:gblnog_abilities_traits.lst
-ABILITYCATEGORY:gblnog_abilitycategories.lst
-COMPANIONMOD:gblnog_companion_mods.lst
-DEITY:gblnog_deities.lst
-DOMAIN:gblnog_domains.lst
-EQUIPMENT:gblnog_equipment.lst
-FEAT:gblnog_feats.lst
-SPELL:gblnog_spells.lst
+ABILITY:goog_abilities.lst
+ABILITY:goog_abilities_race.lst
+ABILITYCATEGORY:goog_abilitycategories.lst
+COMPANIONMOD:goog_companionmods.lst
+DEITY:goog_deities.lst
+DOMAIN:goog_domains.lst
+EQUIPMENT:goog_equip_general.lst
+EQUIPMENT:goog_equip_magic_items.lst
+FEAT:goog_feats.lst
+SPELL:goog_spells.lst
 
-# Include from Advanced Race Guide
-EQUIPMENT:@/pathfinder/paizo/pathfinder/advanced_race_guide/pfarg_equip.lst|(INCLUDE:Dogslicer)
-WEAPONPROF:@/pathfinder/paizo/pathfinder/advanced_race_guide/pfarg_weaponprofs.lst|(INCLUDE:Dogslicer)
 
 # Include from Ultimate Combat
-EQUIPMOD:@/pathfinder/paizo/pathfinder/ultimate_combat/pfuc_equipmods.lst|(INCLUDE:FRAGILE)
+EQUIPMOD:@/pathfinder/paizo/pathfinder/ultimate_combat/uc_equipmods.lst|(INCLUDE:FRAGILE)
 
-
-#
-# EOF
-#

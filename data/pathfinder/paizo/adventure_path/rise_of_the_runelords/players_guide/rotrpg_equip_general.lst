@@ -1,0 +1,18 @@
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:ROTRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+###Block:Alchemical Stuff and Liquids
+# Equipment Name	Type						Cost		Weight	Source Page		Temporary effect description							Temporary Bonus
+Barbarian Chew	TYPE:Goods.Alchemical.Consumable	COST:15	WT:0		SOURCEPAGE:p.10	TEMPDESC:For 1 hour, increase Barbarian Rage duration by 1 round.	TEMPBONUS:ANYPC|VAR|RageDuration|1
+Harpy Musk		TYPE:Goods.Alchemical.Consumable	COST:2	WT:0		SOURCEPAGE:p.10
+
+###Block:Goods
+# Equipment Name		Output Name			Type					Contains		Cost		Weight	Source Page		Special Property
+False Jewelry						TYPE:Goods.General					COST:20	WT:0		SOURCEPAGE:p.10	SPROP:+8 bonus on Sleight of Hand checks to hide a tiny object on your person
+Scarf (Pocketed)		OUTPUTNAME:[NAME] Scarf	TYPE:Goods.General.Container	CONTAINS:UNLIM	COST:8	WT:0		SOURCEPAGE:p.11	SPROP:+4 bonus on Sleight of Hand checks made to hide objects on your body
+Scarf (Reinforced)	OUTPUTNAME:[NAME] Scarf	TYPE:Goods.General					COST:10	WT:0		SOURCEPAGE:p.11	SPROP:Hardness 10 - 4 Hp. It can be burst with a DC 24 Strength check.
+
+###Block:Tools
+# Equipment Name	Type					Cost		Weight	Source Page
+Varisian Idol	TYPE:Goods.Tools.Consumable	COST:50	WT:0		SOURCEPAGE:p.11
+

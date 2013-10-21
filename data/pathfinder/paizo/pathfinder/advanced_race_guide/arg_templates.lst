@@ -1,0 +1,7 @@
+# CVS $Revision: 21574 $ $Author: amaitland $ -- Wed Sep 18 22:02:59 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+
+# Template name
+Truespeaker		VISIBLE:NO	LANGBONUS:ALL	SOURCEPAGE:p.85
+
+# Template Name					Define
+Bypass Advanced Race Spell Restrictions	DEFINE:BypassAdvancedRaceSpellRestriction|1

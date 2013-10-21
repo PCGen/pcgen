@@ -1,0 +1,161 @@
+# CVS $Revision: 21677 $ $Author: jdempsey $ -- Fri Oct  4 22:18:51 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 15 June 2013
+
+
+####Block: Simple Weapons
+# -- light melee
+# Weapon Name				Type											Nb Hands
+Battle Aspergillum			TYPE:Simple.Melee.Light.Bludgeoning
+Brass Knuckles				TYPE:Simple.Melee.Light.Bludgeoning
+
+#-----one handed -------
+Mere Club					TYPE:Simple.Melee.OneHanded.Bludgeoning.Piercing
+
+#-----two handed -------
+Boar Spear					TYPE:Simple.Melee.TwoHanded.Piercing
+
+# -- Ranged
+Underwater Heavy Crossbow		TYPE:Simple.Ranged.Piercing
+Underwater Light Crossbow		TYPE:Simple.Ranged.Piercing
+
+
+
+####Block: Martial Weapons
+#------light---------
+# Weapon Name				Type											Nb Hands
+Butterfly Sword				TYPE:Martial.Melee.Light.Slashing.Eastern
+Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin
+Gladius					TYPE:Martial.Melee.Light.Piercing.Slashing
+Jutte						TYPE:Martial.Melee.Light.Bludgeoning.Eastern
+Kerambit					TYPE:Martial.Melee.Light.Slashing.Eastern
+Shang Gou					TYPE:Martial.Melee.Light.Slashing.Eastern
+Tonfa						TYPE:Martial.Melee.Light.Bludgeoning.Eastern
+
+#-----one handed -------
+Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing.Eastern
+Klar						TYPE:Martial.Melee.OneHanded.Slashing
+Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern
+Scizore					TYPE:Martial.Melee.OneHanded.Piercing
+Terbutje					TYPE:Martial.Melee.OneHanded.Slashing
+
+#-----two handed -------
+Earth Breaker				TYPE:Martial.Melee.TwoHanded.Bludgeoning
+Hooked Lance				TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
+Horsechopper				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Goblin
+Lucerne Hammer				TYPE:Martial.Melee.TwoHanded.Bludgeoning.Piercing
+Mattock					TYPE:Martial.Melee.TwoHanded.Piercing
+Monk's Spade				TYPE:Martial.Melee.Piercing.Slashing.Eastern
+Naginata					TYPE:Martial.Melee.TwoHanded.Slashing.Eastern
+Nodachi					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Eastern
+Ogre Hook					TYPE:Martial.Melee.TwoHanded.Piercing
+Rhomphaia					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
+Sansetsukon					TYPE:Martial.Melee.TwoHanded.Bludgeoning.Eastern
+Tepoztopilli				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
+Tiger Fork					TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
+Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
+
+# -- Ranged
+Amentum					TYPE:Martial.Ranged.Piercing
+Atlatl					TYPE:Martial.Ranged.Piercing
+Hunga Munga					TYPE:Martial.Ranged.Thrown.Piercing
+Iron Brush					TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing
+Lungchuan Tamo				TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing.Slashing
+Poisoned Sand Tube			TYPE:Martial.Ranged.Eastern
+Sibat						TYPE:Martial.Melee.OneHanded.Ranged.Thrown.Piercing.Slashing
+Tube Arrow Shooter			TYPE:Martial.Ranged.Piercing.Eastern
+Wushu Dart					TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing
+
+
+####Block: Exotic Weapons
+# Weapon Name			Type
+#------light---------
+Emei Piercer				TYPE:Exotic.Melee.Light.Piercing
+Fighting Fan				TYPE:Exotic.Melee.Light.Piercing
+Knuckle Axe					TYPE:Exotic.Melee.Light.Slashing
+Pata						TYPE:Exotic.Melee.Light.Piercing
+Quadrens					TYPE:Exotic.Melee.Light.Piercing
+Scorpion Whip				TYPE:Exotic.Melee.Light.Slashing
+Sica						TYPE:Exotic.Melee.Light.Slashing
+Swordbreaker Dagger			TYPE:Exotic.Melee.Light.Slashing
+Tekko-Kagi (Iron Claw)			TYPE:Exotic.Melee.Light.Piercing
+Wakizashi					TYPE:Exotic.Melee.Light.Piercing.Slashing
+
+#-----one handed -------
+Great Terbutje				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing
+Hooked Axe					TYPE:Exotic.Melee.OneHanded.Slashing
+Katana					TYPE:Exotic.Melee.OneHanded.Slashing
+Nine-Section Whip				TYPE:Exotic.Melee.OneHanded.Bludgeoning
+Rhoka Sword					TYPE:Exotic.Melee.OneHanded.Slashing
+Sawtooth Sabre				TYPE:Exotic.Melee.OneHanded.Slashing
+Shotel					TYPE:Exotic.Melee.OneHanded.Piercing
+Taiaha					TYPE:Exotic.Melee.Piercing
+Temple Sword				TYPE:Exotic.Melee.OneHanded.Slashing
+Urumi						TYPE:Exotic.Melee.OneHanded.Slashing
+
+#-----two handed -------
+Bo Staff					TYPE:Exotic.Melee.TwoHanded.Bludgeoning
+Chain Spear					TYPE:Exotic.Melee.Slashing
+Katana (Double Walking Stick)		TYPE:Exotic.Melee.Bludgeoning
+Kama (Double-Chained)			TYPE:Exotic.Melee.Slashing
+Flying Blade				TYPE:Exotic.Melee.TwoHanded.Slashing
+Kusarigama (Sickle and Chain)		TYPE:Exotic.Melee.Bludgeoning
+Meteor Hammer				TYPE:Exotic.Melee.TwoHanded.Bludgeoning
+Sword (Seven-Branched)			TYPE:Exotic.Melee.TwoHanded.Slashing
+Tetsubo					TYPE:Exotic.Melee.TwoHanded.Bludgeoning
+
+# -- Ranged
+Aklys						TYPE:Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
+Crossbow (Repeating Hand)		TYPE:Exotic.Ranged.Piercing
+Dan Bong					TYPE:Exotic.Melee.Light.Ranged.Thrown.Bludgeoning
+Harpoon					TYPE:Exotic.Melee.TwoHanded.Ranged.Thrown.Piercing
+Kestros					TYPE:Exotic.Ranged.Piercing
+Kyoketsu Shoge				TYPE:Exotic.Melee.TwoHanded.Ranged.Thrown.Piercing.Slashing
+Rope Dart					TYPE:Exotic.Ranged.Thrown.Piercing
+Snag Net					TYPE:Exotic.Ranged.Thrown.Piercing
+Wahaika					TYPE:Exotic.Melee.OneHanded.Ranged.Thrown.Bludgeoning
+
+
+####Block: Firearms
+# Dummy Proficiency to Trigger granting all Firearms Profs
+# Weapon Name				Type											Nb Hands
+Firearms					TYPE:Exotic
+
+#-(Early) One-Handed Firearms
+Buckler Gun					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Pepperbox					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Pistol					TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Dagger)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Dragon)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+
+# Early Two-Handed Firearms
+Blunderbuss					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Culverin					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Double Hackbut				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Fire Lance					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
+Musket					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+
+###Block: Advanced Firearms
+# One-Handed
+# Weapon Name	Type													Nb Hands
+Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
+
+# Two-Handed
+Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm			HANDS:2
+Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
+
+###Block: new weapon proficiency to properly implement the splash weapons
+# Weapon Name	Type
+Splash Weapon	TYPE:Simple.Ranged.Splash
+
+###Block: placeholder proficiency to make sure weapon always has nonproficiency penalty
+# Weapon Name		Type
+Star Candle Firework	TYPE:Ranged

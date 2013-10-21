@@ -1,0 +1,56 @@
+SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall	SOURCESHORT:AP011	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page		Save checks bonus								Combat bonus
+CLASS:Umbral Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p. 86	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Umbral Dragon	PRERACE:1,Dragon (Umbral%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+1	BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
+
+###Block: Normal Progression
+1																									DEFINE:DragonAge|1
+9			BONUS:VAR|ColdResistanceBonus|20																					ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+10																									DEFINE:DragonAge|2
+13																									DEFINE:DragonAge|3
+15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10																	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity|Resistance To Fire
+16																									DEFINE:DragonAge|4
+18	DR:5/Magic	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL/2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Channel Energy|Channel Negative Energy
+19																									DEFINE:DragonAge|5
+21
+22																									DEFINE:DragonAge|6
+24	DR:10/Magic
+25																									DEFINE:DragonAge|7
+27
+28																									DEFINE:DragonAge|8
+30	DR:15/Magic
+31																									DEFINE:DragonAge|9
+33
+34																									DEFINE:DragonAge|10
+36	DR:20/Magic
+37																									DEFINE:DragonAge|11
+39
+40																									DEFINE:DragonAge|12
+
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Umbral Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Umbral Dragon|CL	SPELLLIST:2|Cleric|Sorcerer
+
+13	CAST:5,3				KNOWN:4,2				BONUS:CASTERLEVEL|Umbral Dragon|1
+15	CAST:6,4				KNOWN:5,2				BONUS:CASTERLEVEL|Umbral Dragon|1
+16	CAST:6,5				KNOWN:5,3				BONUS:CASTERLEVEL|Umbral Dragon|1
+18	CAST:6,6,3				KNOWN:6,3,1				BONUS:CASTERLEVEL|Umbral Dragon|1
+19	CAST:6,6,4				KNOWN:6,4,2				BONUS:CASTERLEVEL|Umbral Dragon|1
+21	CAST:6,6,5,3			KNOWN:7,4,2,1			BONUS:CASTERLEVEL|Umbral Dragon|1
+22	CAST:6,6,6,4			KNOWN:7,5,3,2			BONUS:CASTERLEVEL|Umbral Dragon|1
+24	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1			BONUS:CASTERLEVEL|Umbral Dragon|1
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2			BONUS:CASTERLEVEL|Umbral Dragon|1
+27	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1			BONUS:CASTERLEVEL|Umbral Dragon|1
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2			BONUS:CASTERLEVEL|Umbral Dragon|1
+30	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1		BONUS:CASTERLEVEL|Umbral Dragon|1
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2		BONUS:CASTERLEVEL|Umbral Dragon|1
+33	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1		BONUS:CASTERLEVEL|Umbral Dragon|1
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2		BONUS:CASTERLEVEL|Umbral Dragon|1
+36	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1		BONUS:CASTERLEVEL|Umbral Dragon|1
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2		BONUS:CASTERLEVEL|Umbral Dragon|1
+39	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1	BONUS:CASTERLEVEL|Umbral Dragon|1
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2	BONUS:CASTERLEVEL|Umbral Dragon|1

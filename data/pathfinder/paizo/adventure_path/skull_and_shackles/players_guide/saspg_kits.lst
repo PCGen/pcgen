@@ -1,0 +1,11 @@
+SOURCELONG:Skull & Shackles Player's Guide	SOURCESHORT:SaSPG	SOURCEWEB:http://paizo.com/products/btpy8rwc?Pathfinder-Adventure-Path-Skull-Shackles-Players-Guide	SOURCEDATE:2012-07
+# Original Entry by: Richard Woodard
+
+STARTPACK:DocksideBrawler	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
+GEAR:Brass Knuckles	LOCATION:Equipped
+
+STARTPACK:EyeForPlunder	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:ShipsSurgeon	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
+GEAR:Healer's Kit	LOCATION:Equipped

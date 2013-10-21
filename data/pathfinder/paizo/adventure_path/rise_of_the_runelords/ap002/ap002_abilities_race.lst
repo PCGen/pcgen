@@ -1,0 +1,42 @@
+SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders	SOURCESHORT:AP002	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
+# Original Entry by: Stefan Radermacher
+
+###Block: General Abilities
+# Ability Name			Category of Ability		Type						Visible	Special ABility
+Immune to Electricity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Immunity to Electricity (Ex)
+Immune to Mind-Affecting	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Immunity to Mind-Affecting Effects (Ex)
+Immune to Petrification		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Immunity to Petrification (Ex)
+
+###Block: Carrionstorm Abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility
+Pallid Bond			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pallid Bond (Ex)
+Vulnerable to Turning	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Vulnerable to Turning (Ex)
+
+###Block: Boggard Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility							Define				Modify VAR
+Sticky Tongue	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Sticky Tongue (Ex)
+Swamp Stride	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Swamp Stride (Ex)
+Terrifying Croak	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Terrifying Croak (Ex) DC %|TerrifyingCroakDC	DEFINE:TerrifyingCroakDC|0	BONUS:VAR|TerrifyingCroakDC|10+(HD/2)+CHA
+
+###Block: Faceless Stalker Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility	Bonus to skill			Damage Reduction
+Elastic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Elastic (Ex)	BONUS:SKILL|Escape Artist|12	DR:5/Piercing or Slashing
+Faceless		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Faceless (Ex)
+
+###Block: Lamia Matriarch Abilities
+# Ability Name			Category of Ability		Type						Visible	Special ABility
+Lamia Matriarch Wisdom Drain	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Wisdom Drain (Su) 2d4 points, or 1 with weapon
+
+###Block: Lyrakien Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility
+Desna's Blessing	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Desna's Blessing (Su)
+Desna's Glare	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Desna's Glare (Su)
+Traveler's Friend	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Traveler's Friend (Su)
+
+###Block: Revenant Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility						Define				Save checks bonus			Bonus to HP				Modify VAR						Vision
+Baleful Shriek	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Baleful Shriek (Su) DC %|BalefulShriekDC	DEFINE:BalefulShriekDC|0											BONUS:VAR|BalefulShriekDC|10+(HD/2)+CHA
+Reason to Hate	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Reason to Hate (Su)
+Self-Loathing	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Self-Loathing (Ex)
+Sense Murderer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO																															VISION:Sense Murderer
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unholy Fortitude										BONUS:CHECKS|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL

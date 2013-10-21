@@ -1,16 +1,15 @@
-# CVS $Revision$ $Author$ -- Thu Aug  2 19:19:21 2012 -- reformated by prettylst.pl v1.39 (build )
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Advanced Race Guide
+CAMPAIGN:Advanced Race Guide
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
-RANK:3
+TYPE:Paizo Publishing.Pathfinder
+RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-PRECAMPAIGN:7,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Magic,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Combat,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary 2,Paizo - Pathfinder Roleplaying Game Bestiary 3
+SETTING:Pathfinder
+PRECAMPAIGN:3,Bestiary,Bestiary 2,Bestiary 3
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SETTING:Pathfinder Campaign Setting
 SOURCELONG:Advanced Race Guide
 SOURCESHORT:ARG
 SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide
@@ -41,59 +40,34 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Data files
 
 FORWARDREF:SPELL|Age Resistance (Lesser),Memory Lapse,Hydraulic Push
 
 
-ABILITY:pfarg_abilities_archetypes.lst
-ABILITY:pfarg_abilities_class_misc.lst
-ABILITY:pfarg_abilities_companions.lst
-ABILITY:pfarg_abilities_favored_class_options.lst
-ABILITY:pfarg_abilities_racial_core.lst
-ABILITY:pfarg_abilities_racial_featured.lst
-ABILITY:pfarg_abilities_racial_uncommon.lst
+ABILITY:arg_abilities_class.lst
+ABILITY:arg_abilities_race.lst
+ABILITYCATEGORY:arg_abilitycategories.lst
+BIOSET:arg_biosettings.lst
+EQUIPMENT:arg_equip_arms_armor.lst
+EQUIPMENT:arg_equip_general.lst
+EQUIPMENT:arg_equip_magic_items.lst
+EQUIPMOD:arg_equipmods.lst
+FEAT:arg_feats.lst
+LANGUAGE:arg_languages.lst
+RACE:arg_races.lst
+SKILL:arg_skills.lst
+SPELL:arg_spells.lst
+TEMPLATE:arg_templates.lst
 
-ABILITYCATEGORY:pfarg_abilitycategories.lst
-BIOSET:biosettings.lst
-CLASS:pfarg_classes_companions.lst
+WEAPONPROF:arg_profs_weapon.lst
 
-COMPANIONMOD:pfarg_companion_mods.lst
 
-EQUIPMENT:pfarg_equip.lst
-EQUIPMOD:pfarg_equipmods.lst
 
-FEAT:pfarg_feats_mods.lst
-FEAT:pfarg_feats_races_core.lst
-FEAT:pfarg_feats_races_featured.lst
-FEAT:pfarg_feats_races_uncommon.lst
+# MOVE TO CORE_ESSENTIALS
+ABILITY:arg_abilities_companion.lst
+CLASS:arg_classes_companion.lst
+COMPANIONMOD:arg_companionmods.lst
+KIT:arg_kits_companion.lst
+RACE:arg_races_companion.lst
 
-KIT:pfarg_kits_companions.lst
-LANGUAGE:pfarg_languages.lst
 
-RACE:pfarg_races_companions.lst
-RACE:pfarg_races_core.lst
-RACE:pfarg_races_featured.lst
-RACE:pfarg_races_uncommon.lst
-
-SKILL:pfarg_skills_conditional.lst
-
-SPELL:pfarg_spells.lst
-
-WEAPONPROF:pfarg_weaponprofs.lst
-
-TEMPLATE:pfarg_templates.lst
-
-## Race Builder - Leave off till ready to work on this:
-#ABILITY:pfarg_abilities_rb_racial_qualities.lst
-#ABILITY:pfarg_abilities_rb_racial_traits.lst
-#RACE:pfarg_races_race_builder_base.lst
-
-###Block: Doesn't Exist
-#ARMORPROF:pfarg_profs_armor.lst
-#KIT:pfarg_kits_companions.lst
-#SHIELDPROF:pfarg_profs_shield.lst
-
-#
-# End
-#

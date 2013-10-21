@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Critical Fumble Deck
+# CVS $Revision: 21249 $ $Author: evilmynex $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Critical Fumble Deck
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.GameMastery Cards
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
-SETTING:Pathfinder RPG
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -34,9 +34,6 @@ COPYRIGHT:PCGen dataset conversion for "Critical Fumble Deck" Copyright 2011, PC
 #EXTRAFILE:OGL.txt
 
 # Data files
-EQUIPMOD:critical_fumble_deck_equipmods_weapons.lst
-SPELL:critical_fumble_deck_spells.lst
+EQUIPMOD:cfd_equipmods_weapons.lst
+SPELL:cfd_spells.lst
 
-#
-# End
-#

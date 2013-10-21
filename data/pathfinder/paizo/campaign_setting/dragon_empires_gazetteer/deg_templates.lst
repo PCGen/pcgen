@@ -1,0 +1,18 @@
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###BLOCK: Templates
+Human Ethnicity (Tian-Dan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	AUTO:LANG|Draconic|Tien		SUBRACE:Tian-Dan
+Human Ethnicity (Tian-Dtang)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	AUTO:LANG|Dtang|Tien		SUBRACE:Tian-Dtang
+Human Ethnicity (Tian-Hwan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	AUTO:LANG|Hwan|Tien		SUBRACE:Tian-Hwan
+Human Ethnicity (Tian-La)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Hon-La|Tien		SUBRACE:Tian-La
+Human Ethnicity (Tian-Min)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Minkaian|Tien		SUBRACE:Tian-Min
+Human Ethnicity (Tian-Shu)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Tien			SUBRACE:Tian-Shu
+Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Minatan|Tien		SUBRACE:Tian-Sing
+
+
+###BLOCK: Race Templates
+Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-light
+Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-light
+Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-light
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-light
+Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')

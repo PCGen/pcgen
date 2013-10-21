@@ -1,0 +1,131 @@
+
+############################################
+##		Universal Variables		##
+############################################
+
+
+# DEFINE VARIABLE					FUNCTION
+UncannyDodgeLevel					Value =1 Grants Uncanny Dodge
+ " "							Value =2 Grants Improved Uncanny Dodge
+#NOTE: This should never be a FORMULA Format, it should be presented in a Class
+#	 with a clearly defined BONUS:VAR|UncannyDodgeLevel|1 no class ever has more the two iterations of this.
+
+UncannyDodgeFlankingLevel			Sets the Level for being Flanked by a higher level rogue for purposes of sneak attack.
+
+
+
+#############################################
+###		ARCHETYPE TYPES LIST		###
+#############################################
+
+###COMMENT: Search by Class using '@ClassName'
+
+
+#Barbarian Class		@Barbarian
+
+# NAME OF TYPE					FUNCTION
+BarbarianWeaponProficiencies			Disables ALL Class Weapon Proficiencies
+BarbarianArmorProficiencies			Disables ALL Class Armor & Shield Proficiencies
+BarbarianShieldProficiency			Disables Class Shield Proficiency
+BarbarianRage					Disables Barbarian Rage
+BarbarianRagePowers				Disables ALL Barbarian Rage Powers
+BarbarianFastMovement				Disables Barbarian Fast Movement Ability
+BarbarianTrapSense				Disables Barbarian Trap Sense Ability
+BarbarianDamageReduction			Disables Barbarian Damage Reduction Ability
+BarbarianGreaterRage				Disables Barbarian Greater Rage Ability
+BarbarianIndomitableWill			Disables Barbarian Indomitable Will Ability
+BarbarianTirelessRage				Disables Barbarian Tireless Rage Ability
+BarbarianMightyRage				Disables Barbarian Mighty Rage Ability
+
+BarbarianUncannyDodge				Disables Barbarian Uncanny Dodge and Improved Uncanny Dodge
+BarbarianImprovedUncannyDodge			Disables Barbarian Uncanny Dodge and Improved Uncanny Dodge
+
+# Trap Sense Ability Variables
+# NAME OF TYPE			FUNCTION
+BarbarianTrapSense#		Disables the +# gained
+#All listed -
+BarbarianTrapSense1		Disables the +1 gained
+BarbarianTrapSense2		Disabled the +2 gained
+BarbarianTrapSense3		Disabled the +3 gained
+BarbarianTrapSense4		Disabled the +4 gained
+BarbarianTrapSense5		Disabled the +5 gained
+BarbarianTrapSense6		Disabled the +6 gained
+
+###
+BarbarianRagePower#		Disables the gained Rage Power at level #
+#All listed -
+BarbarianRagePower2		Disables the gained Rage Power at level 2
+BarbarianRagePower4		Disables the gained Rage Power at level 4
+BarbarianRagePower6		Disables the gained Rage Power at level 6
+BarbarianRagePower8		Disables the gained Rage Power at level 8
+BarbarianRagePower10		Disables the gained Rage Power at level 10
+BarbarianRagePower12		Disables the gained Rage Power at level 12
+BarbarianRagePower14		Disables the gained Rage Power at level 14
+BarbarianRagePower16		Disables the gained Rage Power at level 16
+BarbarianRagePower18		Disables the gained Rage Power at level 18
+BarbarianRagePower20		Disables the gained Rage Power at level 20
+
+BarbarianDamageReduction#	Disables the +# granted to Barbarian DR
+#
+BarbarianDamageReduction1	Disables the +1 granted to Barbarian DR (1/-)
+BarbarianDamageReduction2	Disables the +2 granted to Barbarian DR (2/- remains 1/-)
+BarbarianDamageReduction3	Disables the +3 granted to Barbarian DR (etc.)
+BarbarianDamageReduction4	Disables the +4 granted to Barbarian DR
+BarbarianDamageReduction5	Disables the +5 granted to Barbarian DR
+
+# Fighter	@Fighter
+###Block:
+TYPE.FighterWeaponProficiencies	Disables all the Fighter Weapon Proficiencies
+TYPE.FighterArmorProficiencies	Disables all the Fighter Armor Proficiencies
+TYPE.FighterLightArmorProficiency	Disables only the Light Armor Proficiencies
+TYPE.FighterMediumArmorProficiency	Disables only the Medium Armor Proficiencies
+TYPE.FighterHeavyArmorProficiency	Disables only the Heavy Armor Proficiencies
+TYPE.FighterShieldProficiency		Disables only the Shield Proficiencies (Excludes Tower Shield)
+TYPE.FighterTowerShieldProficiency	Disables only the Tower Shield Proficiencies
+
+TYPE.FighterBonusFeats			Disables all the Fighter Gained Bonus Feats
+TYPE.FighterBravery			Disables the Fighter Class Ability 'Bravery'
+TYPE.FighterArmorTraining_ALL		Disables all the Fighter Gained Armor Training (1 through 4)
+TYPE.FighterWeaponTraining_ALL	Disables all the Fighter Gained Weapon Training (1 through 4)
+TYPE.FighterArmorMastery		Disables the Fighter Class Ability 'Armor Mastery'
+TYPE.FighterWeaponMastery		Disables the Fighter Class Ability 'Weapon Mastery'
+
+
+# Ranger	@Ranger
+RangerTrack					Disables the Ranger Class Ability 'Track' (And free Feat)
+RangerWild Empathy			Disables the Ranger Class Ability 'Wild Empathy'
+RangerFavoredTerrain			Disables the Ranger Class Ability 'Favored Terrain'
+RangerHuntersBond				Disables the Ranger Class Ability 'Hunter's Bond' and subsequent choice
+RangerWoodlandStride			Disables the Ranger Class Ability 'Woodland Stride'
+RangerQuarry				Disables the Ranger Class Ability 'Quarry'
+RangerCamouflage				Disables the Ranger Class Ability 'Camouflage'
+RangerImprovedQuarry			Disables the Ranger Class Ability 'Improved Quarry'
+
+
+
+###############################################################
+###		ADVANCED PLAYER GUIDE ARCHETYPE TYPES		###
+###############################################################
+
+# NAME OF TYPE			FUNCTION
+SummonerSummonMonster		Disables the Summon Monster Ability
+
+
+
+
+
+
+
+###############################################################
+###		ULTIMATE COMBAT ARCHETYPE TYPES			###
+###############################################################
+
+GunslingerQuickClearDeed.
+GunslingerPistolWhipDeed.
+GunslingerDeadShotDeed
+GunslingerLightningReloadDeed.
+GunslingerGrit
+GunslingerNimble
+GunslingerGunTraining1.
+GunslingerGunTraining2.
+GunslingerGunTraining4.

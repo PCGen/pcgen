@@ -1,0 +1,4 @@
+SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre	SOURCESHORT:AP003	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8	SOURCEDATE:2007-08
+
+# Skill Name	Key Stat	Untrained?		Type				Source Page		Temporary effect description													Temporary Bonus
+Craft (Tattooing)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:pg.35	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Tattooing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TattooingTools

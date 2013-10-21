@@ -1,0 +1,34 @@
+# CVS $Revision: 20122 $ $Author: zaister $ -- Wed Dec  8 14:31:21 2010 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+# NO LONGER NEEDED - Placed new version in core to make this more seemless.
+
+STARTPACK:Eidolon (Quadruped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Quadruped)]
+RACE:Eidolon (Quadruped)	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Bite
+
+STARTPACK:Eidolon (Biped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Biped)]
+RACE:Eidolon (Biped)	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Arms
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Legs
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Clawed_Hands
+
+STARTPACK:Eidolon (Serpentine)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Serpentine)]
+RACE:Eidolon (Serpentine)	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Climb
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Reach (Bite)
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail_Slap
+
+
+
+#
+# End
+#

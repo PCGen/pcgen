@@ -1,0 +1,5 @@
+SOURCELONG:Rise of the Runelords, Chapter 1 - Burnt Offerings	SOURCESHORT:AP001	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy7zkq	SOURCEDATE:2007-08
+
+
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page
+Horsechopper	PROFICIENCY:WEAPON|Horsechopper	TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:TwoHanded	SIZE:S	SOURCEPAGE:p.13

@@ -1,13 +1,12 @@
-# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook
+CAMPAIGN:Core Rulebook
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
+TYPE:Paizo Publishing.Pathfinder
+RANK:0
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
-SETTING:Pathfinder RPG
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Paizo - Pathfinder Roleplaying Game Core Rulebook]
+SETTING:Pathfinder
+!PRECAMPAIGN:1,INCLUDESBOOKTYPE=MultiSet,BOOKTYPE=Core Rules[Core Rulebook]
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -39,80 +38,40 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 
 # Data Files
 PCC:@/homebrew/conversion_support/conversion_support.pcc
-PCC:shared/shared.pcc
+PCC:@/pathfinder/paizo/pathfinder/core_essentials/core_essentials.pcc
 
-ABILITYCATEGORY:pfcr_abilitycategories.lst
-ABILITY:pfcr_abilities_afflictions.lst
-ABILITY:pfcr_abilities_class_common.lst
-ABILITY:pfcr_abilities_class.lst
-ABILITY:pfcr_abilities_class_prestige.lst
-ABILITY:pfcr_abilities_common.lst
-ABILITY:pfcr_abilities_companions.lst
-ABILITY:pfcr_abilities_equipment.lst
-ABILITY:pfcr_abilities_general.lst
-ABILITY:pfcr_abilities_racial_common.lst
-ABILITY:pfcr_abilities_racial.lst
-ABILITY:pfcr_abilities_racial_monster.lst
-ABILITY:pfcr_abilities_homebrew.lst
+ABILITYCATEGORY:cr_abilitycategories.lst
+ABILITY:cr_abilities.lst
+ABILITY:cr_abilities_class.lst
+ABILITY:cr_abilities_race.lst
+CLASS:cr_classes.lst
+DEITY:cr_deities.lst
+DOMAIN:cr_domains.lst
+EQUIPMENT:cr_equip_arms_armor.lst
+EQUIPMENT:cr_equip_general.lst
+EQUIPMENT:cr_equip_magic_items.lst
+EQUIPMOD:cr_equipmods.lst
+FEAT:cr_feats.lst
+KIT:cr_kits.lst
+LANGUAGE:cr_languages.lst
+RACE:cr_races.lst
+SKILL:cr_skills.lst
+SPELL:cr_spells.lst
+TEMPLATE:cr_templates.lst
 
-CLASS:pfcr_classes_base.lst
-CLASS:pfcr_classes_companions.lst
-CLASS:pfcr_classes_npc.lst
-CLASS:pfcr_classes_prc.lst
-COMPANIONMOD:pfcr_companion_mods.lst
-DEITY:pfcr_deities.lst
-DOMAIN:pfcr_domains.lst
-EQUIPMENT:pfcr_equip_armorshields.lst
-EQUIPMENT:pfcr_equip_armorshields_specific.lst
-EQUIPMENT:pfcr_equip_artifacts.lst
-EQUIPMENT:pfcr_equip_baseitems.lst
-EQUIPMENT:pfcr_equip_coins.lst
-EQUIPMENT:pfcr_equip_components.lst
-EQUIPMENT:pfcr_equip_gems.lst
-EQUIPMENT:pfcr_equip.lst
-EQUIPMENT:pfcr_equip_poisons.lst
-EQUIPMENT:pfcr_equip_potions.lst
-EQUIPMENT:pfcr_equip_rings.lst
-EQUIPMENT:pfcr_equip_rods.lst
-EQUIPMENT:pfcr_equip_scrolls.lst
-EQUIPMENT:pfcr_equip_staves.lst
-EQUIPMENT:pfcr_equip_wands.lst
-EQUIPMENT:pfcr_equip_weapons_ammo.lst
-EQUIPMENT:pfcr_equip_weapons_melee.lst
-EQUIPMENT:pfcr_equip_weapons_natural.lst
-EQUIPMENT:pfcr_equip_weapons_ranged.lst
-EQUIPMENT:pfcr_equip_weapons_specific.lst
-EQUIPMENT:pfcr_equip_wondrousitems.lst
-EQUIPMOD:pfcr_equipmods_armorshields.lst
-EQUIPMOD:pfcr_equipmods_base.lst
-EQUIPMOD:pfcr_equipmods_enhancing.lst
-EQUIPMOD:pfcr_equipmods_intelligent.lst
-EQUIPMOD:pfcr_equipmods_material.lst
-EQUIPMOD:pfcr_equipmods_weapons.lst
-FEAT:pfcr_feats.lst
-KIT:pfcr_kits.lst
-KIT:pfcr_kits_companions.lst
-LANGUAGE:pfcr_languages.lst
-RACE:pfcr_races_base.lst
-RACE:pfcr_races_companions.lst
-
-ARMORPROF:pfcr_profs_armor.lst
-SHIELDPROF:pfcr_profs_shield.lst
-WEAPONPROF:pfcr_weaponprofs.lst
-
-SKILL:pfcr_skills_conditional.lst
-SKILL:pfcr_skills.lst
-SPELL:pfcr_spells_domain.lst
-SPELL:pfcr_spells.lst
-SPELL:pfcr_spells_mods.lst
-
-TEMPLATE:pfcr_templates.lst
-TEMPLATE:pfcr_templates_conditional.lst
-TEMPLATE:pfcr_templates_wildshape.lst
+ARMORPROF:cr_profs_armor.lst
+SHIELDPROF:cr_profs_shield.lst
+WEAPONPROF:cr_profs_weapon.lst
 
 
-# Load Essential Bestiary Data with Core
-PCC:bestiary_core/bestiary_core.pcc
+#MOVE TO CORE_ESSENTIALS
+ABILITY:cr_abilities_companion.lst
+CLASS:cr_classes_companion.lst
+COMPANIONMOD:cr_companionmods.lst
+KIT:cr_kits_companion.lst
+RACE:cr_races_companion.lst
+
+
 
 #Hide internal feat types
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
@@ -128,6 +87,3 @@ BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
-#
-# End
-#

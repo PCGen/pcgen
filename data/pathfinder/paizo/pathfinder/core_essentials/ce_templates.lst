@@ -1,0 +1,347 @@
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Builder templates
+# Template Name			Visible	Template																															Required Size	Weapon prof. bonus											Natural Attacks
+Bite ~ Claw (Fine)		VISIBLE:NO																																	PRESIZEEQ:F																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Bite ~ Claw (Diminutive)	VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2
+Bite ~ Claw (Tiny)		VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Bite ~ Claw (Small)		VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Bite ~ Claw (Medium)		VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Bite ~ Claw (Large)		VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Bite ~ Claw (Huge)		VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+Bite ~ Claw (Gargantuan)	VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6
+Bite ~ Claw (Colossal)		VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
+
+# Rules for standard creatures based upon Size
+Bite					VISIBLE:NO	TEMPLATE:CHOOSE:Bite (Fine)|Bite (Diminutive)|Bite (Tiny)|Bite (Small)|Bite (Medium)|Bite (Large)|Bite (Huge)|Bite (Gargantuan)|Bite (Colossal)
+# Bite -  1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P Primary
+Bite (Fine)				VISIBLE:NO																																	PRESIZEEQ:F																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Bite (Diminutive)			VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2
+Bite (Tiny)				VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Bite (Small)			VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Bite (Medium)			VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Bite (Large)			VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Bite (Huge)				VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+Bite (Gargantuan)			VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6
+Bite (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
+# Gore - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P Primary
+Gore					VISIBLE:NO	TEMPLATE:CHOOSE:Gore (Fine)|Gore (Diminutive)|Gore (Tiny)|Gore (Small)|Gore (Medium)|Gore (Large)|Gore (Huge)|Gore (Gargantuan)|Gore (Colossal)
+#
+Gore (Fine)				VISIBLE:NO																																	PRESIZEEQ:F																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1
+Gore (Diminutive)			VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d2
+Gore (Tiny)				VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d3
+Gore (Small)			VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Gore (Medium)			VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Gore (Large)			VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+Gore (Huge)				VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d6
+Gore (Gargantuan)			VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+Gore (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,4d6
+# Pincers - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
+Pincers				VISIBLE:NO	TEMPLATE:CHOOSE:Pincers (Fine)|Pincers (Diminutive)|Pincers (Tiny)|Pincers (Small)|Pincers (Medium)|Pincers (Large)|Pincers (Huge)|Pincers (Gargantuan)|Pincers (Colossal)
+#
+Pincers (Fine)			VISIBLE:NO																																	PRESIZEEQ:F		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1
+Pincers (Diminutive)		VISIBLE:NO																																	PRESIZEEQ:D		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Pincers (Tiny)			VISIBLE:NO																																	PRESIZEEQ:T		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Pincers (Small)			VISIBLE:NO																																	PRESIZEEQ:S		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Pincers (Medium)			VISIBLE:NO																																	PRESIZEEQ:M		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Pincers (Large)			VISIBLE:NO																																	PRESIZEEQ:L		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Pincers (Huge)			VISIBLE:NO																																	PRESIZEEQ:H		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Pincers (Gargantuan)		VISIBLE:NO																																	PRESIZEEQ:G		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+Pincers (Colossal)		VISIBLE:NO																																	PRESIZEEQ:C		BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		NATURALATTACKS:Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,4d6
+# Tail Slap - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
+Tail Slap				VISIBLE:NO	TEMPLATE:CHOOSE:Tail Slap (Fine)|Tail Slap (Diminutive)|Tail Slap (Tiny)|Tail Slap (Small)|Tail Slap (Medium)|Tail Slap (Large)|Tail Slap (Huge)|Tail Slap (Gargantuan)|Tail Slap (Colossal)
+#
+Tail Slap (Fine)			VISIBLE:NO																																	PRESIZEEQ:F		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1
+Tail Slap (Diminutive)		VISIBLE:NO																																	PRESIZEEQ:D		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Tail Slap (Tiny)			VISIBLE:NO																																	PRESIZEEQ:T		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Tail Slap (Small)			VISIBLE:NO																																	PRESIZEEQ:S		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Tail Slap (Medium)		VISIBLE:NO																																	PRESIZEEQ:M		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Tail Slap (Large)			VISIBLE:NO																																	PRESIZEEQ:L		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Tail Slap (Huge)			VISIBLE:NO																																	PRESIZEEQ:H		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Tail Slap (Gargantuan)		VISIBLE:NO																																	PRESIZEEQ:G		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Tail Slap (Colossal)		VISIBLE:NO																																	PRESIZEEQ:C		BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+# Claw - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S Primary
+Claw					VISIBLE:NO	TEMPLATE:CHOOSE:Claw (Diminutive)|Claw (Tiny)|Claw (Small)|Claw (Medium)|Claw (Large)|Claw (Huge)|Claw (Gargantuan)|Claw (Colossal)
+#
+Claw (Diminutive)			VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1
+Claw (Tiny)				VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2
+Claw (Small)			VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3
+Claw (Medium)			VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Claw (Large)			VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6
+Claw (Huge)				VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8
+Claw (Gargantuan)			VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6
+Claw (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
+# Slam - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Primary
+Slam					VISIBLE:NO	TEMPLATE:CHOOSE:Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)
+#
+Slam (Diminutive)			VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1
+Slam (Tiny)				VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d2
+Slam (Small)			VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d3
+Slam (Medium)			VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d4
+Slam (Large)			VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d6
+Slam (Huge)				VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d8
+Slam (Gargantuan)			VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d6
+Slam (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d8
+# Sting - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P Primary
+Sting					VISIBLE:NO	TEMPLATE:CHOOSE:Sting (Diminutive)|Sting (Tiny)|Sting (Small)|Sting (Medium)|Sting (Large)|Sting (Huge)|Sting (Gargantuan)|Sting (Colossal)
+#
+Sting (Diminutive)		VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1
+Sting (Tiny)			VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d2
+Sting (Small)			VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d3
+Sting (Medium)			VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+Sting (Large)			VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+Sting (Huge)			VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d8
+Sting (Gargantuan)		VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d6
+Sting (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+# Talons - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 S Primary
+Talons				VISIBLE:NO	TEMPLATE:CHOOSE:Talons (Diminutive)|Talons (Tiny)|Talons (Small)|Talons (Medium)|Talons (Large)|Talons (Huge)|Talons (Gargantuan)|Talons (Colossal)
+#
+Talons (Diminutive)		VISIBLE:NO																																	PRESIZEEQ:D																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,1
+Talons (Tiny)			VISIBLE:NO																																	PRESIZEEQ:T																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d2
+Talons (Small)			VISIBLE:NO																																	PRESIZEEQ:S																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d3
+Talons (Medium)			VISIBLE:NO																																	PRESIZEEQ:M																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d4
+Talons (Large)			VISIBLE:NO																																	PRESIZEEQ:L																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d6
+Talons (Huge)			VISIBLE:NO																																	PRESIZEEQ:H																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d8
+Talons (Gargantuan)		VISIBLE:NO																																	PRESIZEEQ:G																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,2d6
+Talons (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Slashing,*2,2d8
+# Hoof - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
+Hoof					VISIBLE:NO	TEMPLATE:CHOOSE:Hoof (Diminutive)|Hoof (Tiny)|Hoof (Small)|Hoof (Medium)|Hoof (Large)|Hoof (Huge)|Hoof (Gargantuan)|Hoof (Colossal)
+#
+Hoof (Diminutive)			VISIBLE:NO																																	PRESIZEEQ:D		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1
+Hoof (Tiny)				VISIBLE:NO																																	PRESIZEEQ:T		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Hoof (Small)			VISIBLE:NO																																	PRESIZEEQ:S		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Hoof (Medium)			VISIBLE:NO																																	PRESIZEEQ:M		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Hoof (Large)			VISIBLE:NO																																	PRESIZEEQ:L		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Hoof (Huge)				VISIBLE:NO																																	PRESIZEEQ:H		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Hoof (Gargantuan)			VISIBLE:NO																																	PRESIZEEQ:G		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Hoof (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		NATURALATTACKS:Hoof,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+# Tentacle - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
+Tentacle				VISIBLE:NO	TEMPLATE:CHOOSE:Tentacle (Diminutive)|Tentacle (Tiny)|Tentacle (Small)|Tentacle (Medium)|Tentacle (Large)|Tentacle (Huge)|Tentacle (Gargantuan)|Tentacle (Colossal)
+#
+Tentacle (Diminutive)		VISIBLE:NO																																	PRESIZEEQ:D		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1
+Tentacle (Tiny)			VISIBLE:NO																																	PRESIZEEQ:T		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Tentacle (Small)			VISIBLE:NO																																	PRESIZEEQ:S		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Tentacle (Medium)			VISIBLE:NO																																	PRESIZEEQ:M		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Tentacle (Large)			VISIBLE:NO																																	PRESIZEEQ:L		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Tentacle (Huge)			VISIBLE:NO																																	PRESIZEEQ:H		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Tentacle (Gargantuan)		VISIBLE:NO																																	PRESIZEEQ:G		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Tentacle (Colossal)		VISIBLE:NO																																	PRESIZEEQ:C		BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+# Wing - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
+Wing					VISIBLE:NO	TEMPLATE:CHOOSE:Wing (Diminutive)|Wing (Tiny)|Wing (Small)|Wing (Medium)|Wing (Large)|Wing (Huge)|Wing (Gargantuan)|Wing (Colossal)
+#
+Wing (Diminutive)			VISIBLE:NO																																	PRESIZEEQ:D		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1
+Wing (Tiny)				VISIBLE:NO																																	PRESIZEEQ:T		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Wing (Small)			VISIBLE:NO																																	PRESIZEEQ:S		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Wing (Medium)			VISIBLE:NO																																	PRESIZEEQ:M		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Wing (Large)			VISIBLE:NO																																	PRESIZEEQ:L		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Wing (Huge)				VISIBLE:NO																																	PRESIZEEQ:H		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Wing (Gargantuan)			VISIBLE:NO																																	PRESIZEEQ:G		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Wing (Colossal)			VISIBLE:NO																																	PRESIZEEQ:C		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		NATURALATTACKS:Wing,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+#Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary
+
+###Block: Sorcerer Cleric Spells, for creatures who can cast Cleric spells as Arcane Sorcerer spells
+# Template Name			Visible	List of Class Spells by Level
+Sorcerer Cleric Spells		VISIBLE:NO
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=9|Astral Projection,Energy Drain,Etherealness,Gate,Heal (Mass),Implosion,Miracle,Soul Bind,Storm of Vengeance,Summon Monster IX,True Resurrection
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=8|Antimagic Field,Cloak of Chaos,Create Greater Undead,Cure Critical Wounds (Mass),Dimensional Lock,Discern Location,Earthquake,Fire Storm,Holy Aura,Inflict Critical Wounds (Mass),Planar Ally (Greater),Shield of Law,Spell Immunity (Greater),Summon Monster VIII,Symbol of Death,Symbol of Insanity,Unholy Aura
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=7|Blasphemy,Control Weather,Cure Serious Wounds (Mass),Destruction,Dictum,Ethereal Jaunt,Holy Word,Inflict Serious Wounds (Mass),Refuge,Regenerate,Repulsion,Restoration (Greater),Resurrection,Scrying (Greater),Summon Monster VII,Symbol of Stunning,Symbol of Weakness,Word of Chaos
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=6|Animate Objects,Antilife Shell,Banishment,Bear's Endurance (Mass),Blade Barrier,Bull's Strength (Mass),Create Undead,Cure Moderate Wounds (Mass),Dispel Magic (Greater),Eagle's Splendor (Mass),Find the Path,Forbiddance,Geas/Quest,Glyph of Warding (Greater),Harm,Heal,Heroes' Feast,Inflict Moderate Wounds (Mass),Owl's Wisdom (Mass),Planar Ally,Summon Monster VI,Symbol of Fear,Symbol of Persuasion,Undeath to Death,Wind Walk,Word of Recall
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=5|Atonement,Break Enchantment,Breath of Life,Command (Greater),Commune,Cure Light Wounds (Mass),Dispel Chaos,Dispel Evil,Dispel Good,Dispel Law,Disrupting Weapon,Flame Strike,Hallow,Inflict Light Wounds (Mass),Insect Plague,Mark of Justice,Plane Shift,Raise Dead,Righteous Might,Scrying,Slay Living,Spell Resistance,Summon Monster V,Symbol of Pain,Symbol of Sleep,True Seeing,Unhallow,Wall of Stone
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=4|Air Walk,Chaos Hammer,Control Water,Cure Critical Wounds,Death Ward,Dimensional Anchor,Discern Lies,Dismissal,Divination,Divine Power,Freedom of Movement,Giant Vermin,Holy Smite,Imbue with Spell Ability,Inflict Critical Wounds,Magic Weapon (Greater),Neutralize Poison,Order's Wrath,Planar Ally (Lesser),Poison,Repel Vermin,Restoration,Sending,Spell Immunity,Summon Monster IV,Tongues,Unholy Blight
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=3|Animate Dead,Bestow Curse,Blindness/Deafness,Contagion,Continual Flame,Create Food and Water,Cure Serious Wounds,Daylight,Deeper Darkness,Dispel Magic,Gentle Repose,Glyph of Warding,Helping Hand,Inflict Serious Wounds,Invisibility Purge,Locate Object,Magic Circle against Chaos,Magic Circle against Evil,Magic Circle against Good,Magic Circle against Law,Magic Vestment,Meld into Stone,Obscure Object,Prayer,Protection from Energy,Remove Blindness/Deafness,Remove Curse,Remove Disease,Searing Light,Speak with Dead,Stone Shape,Summon Monster III,Water Breathing,Water Walk,Wind Wall
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=2|Aid,Align Weapon,Augury,Bear's Endurance,Bull's Strength,Calm Emotions,Consecrate,Cure Moderate Wounds,Darkness,Death Knell,Delay Poison,Desecrate,Eagle's Splendor,Enthrall,Find Traps,Hold Person,Inflict Moderate Wounds,Make Whole,Owl's Wisdom,Remove Paralysis,Resist Energy,Restoration (Lesser),Shatter,Shield Other,Silence,Sound Burst,Spiritual Weapon,Status,Summon Monster II,Undetectable Alignment,Zone of Truth
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=1|Bane,Bless,Bless Water,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Curse Water,Deathwatch,Detect Chaos,Detect Evil,Detect Good,Detect Law,Detect Undead,Divine Favor,Doom,Endure Elements,Entropic Shield,Hide from Undead,Inflict Light Wounds,Magic Stone,Magic Weapon,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Remove Fear,Sanctuary,Shield of Faith,Summon Monster I
+Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=0|Bleed,Create Water,Detect Magic,Detect Poison,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Resistance,Stabilize,Virtue
+
+# This is an incomplete solution to the problem of creatures who can cast Cleric spells as Arccane Sorcerer spells.
+# The SPELLLEVEL tag does not override spells which are both Cleric and Sorcerer but at different levels,
+# the spell will not be available at the new Cleric level but at the standard Sorcerer level.
+###Block: Size Mods for Automatic Changes
+# Template Name	Size		Face/Space	Reach		Visible
+REACH_0						REACH:0	VISIBLE:NO
+REACH_5						REACH:5	VISIBLE:NO
+REACH_10						REACH:10	VISIBLE:NO
+REACH_15						REACH:15	VISIBLE:NO
+REACH_20						REACH:20	VISIBLE:NO
+REACH_30						REACH:30	VISIBLE:NO
+# - Face not working???
+FACE_0				FACE:0			VISIBLE:NO
+FACE_1				FACE:1			VISIBLE:NO
+FACE_2				FACE:2.5			VISIBLE:NO
+FACE_5				FACE:5			VISIBLE:NO
+FACE_10				FACE:10			VISIBLE:NO
+FACE_15				FACE:15			VISIBLE:NO
+FACE_20				FACE:20			VISIBLE:NO
+FACE_30				FACE:30			VISIBLE:NO
+# This is having Issues in PF.
+#DRAGON_SIZE_TRACKER	VISIBLE:NO	SIZE:DragonSizeTracker
+#
+SIZE_F		SIZE:F					VISIBLE:NO
+SIZE_D		SIZE:D					VISIBLE:NO
+SIZE_T		SIZE:T					VISIBLE:NO
+SIZE_S		SIZE:S					VISIBLE:NO
+SIZE_M		SIZE:M					VISIBLE:NO
+SIZE_L		SIZE:L					VISIBLE:NO
+SIZE_H		SIZE:H					VISIBLE:NO
+SIZE_G		SIZE:G					VISIBLE:NO
+SIZE_C		SIZE:C					VISIBLE:NO
+SIZE_C+		SIZE:P					VISIBLE:NO
+
+###Block: Dragon Age
+# Template Name	Visible	Subrace
+Wyrmling		VISIBLE:NO	SUBRACE:YES
+Very Young		VISIBLE:NO	SUBRACE:YES
+Young			VISIBLE:NO	SUBRACE:YES
+Juvenile		VISIBLE:NO	SUBRACE:YES
+Young Adult		VISIBLE:NO	SUBRACE:YES
+Adult			VISIBLE:NO	SUBRACE:YES
+Mature Adult	VISIBLE:NO	SUBRACE:YES
+Old			VISIBLE:NO	SUBRACE:YES
+Very Old		VISIBLE:NO	SUBRACE:YES
+Ancient		VISIBLE:NO	SUBRACE:YES
+Wyrm			VISIBLE:NO	SUBRACE:YES
+Great Wyrm		VISIBLE:NO	SUBRACE:YES
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+# Added 3rd printing errata - SR
+
+###Block: Simple Templates
+# Template Name		Challenge Rating	Visible	Damage Reduction		Source Page		Define																																	Combat bonus						Damage reduction			Misc bonus				Adjust PC Size		Stat bonus											Modify VAR																	Ability																					Spell Res.	Vision						Applied Name
+Advanced Creature		CR:1			VISIBLE:YES					SOURCEPAGE:p.294																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:STAT|INT|4|PRESTAT:1,INT=3																																																		APPLIEDNAME:Advanced
+Celestial Creature				VISIBLE:YES	DR:5/Evil|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:CelestialResistanceBonus|5	DEFINE:AcidResistanceBonus|CelestialResistanceBonus	DEFINE:ColdResistanceBonus|CelestialResistanceBonus	DEFINE:ElectricityResistanceBonus|CelestialResistanceBonus									BONUS:DR|Evil|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5																	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil ~ Celestial Creature	SR:CR+5	BONUS:VAR|DarkvisionRange|60|TYPE=Base	APPLIEDNAME:Celestial
+Fiendish Creature					VISIBLE:YES	DR:5/Good|PREHD:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|5	DEFINE:ColdResistanceBonus|FiendishResistanceBonus	DEFINE:FireResistanceBonus|FiendishResistanceBonus																			BONUS:DR|Good|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5																	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PREHD:MIN=11		ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Good ~ Fiendish Creature					SR:CR+5	BONUS:VAR|DarkvisionRange|60|TYPE=Base	APPLIEDNAME:Fiendish
+Giant Creature		CR:1			VISIBLE:YES					SOURCEPAGE:p.295																																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK												BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|-4|TYPE=Size																																																									APPLIEDNAME:Giant
+Young Creature		CR:-1			VISIBLE:YES					SOURCEPAGE:p.295																																			BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.STACK											BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|4|TYPE=Size	BONUS:STAT|STR,CON|-4																																																					APPLIEDNAME:Young
+
+###Block: Builder Templates
+# Template Name			Visible		Adjust PC Size
+Size Change (Increase by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|1
+Size Change (Increase by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|2
+Size Change (Decrease by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-1
+Size Change (Decrease by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-2
+
+###Block: Template for ability bonuses for creatures with class levels, applied automatically.
+# Template Name				Challenge Rating	Visible	Required Race				Bonus to Ability Pool																																																									Combat bonus					Stat bonus					Weapon prof. bonus																Natural Attacks											Applied Name
+Creature with Class Levels					VISIBLE:NO							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]
+
+# Companion Shared Templates:
+Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4	APPLIEDNAME:Advanced
+
+
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: ?
+# ORIGINAL ENTRY DATE: Unknown
+
+###Block: Simple Templates
+# Template Name	Visible	Damage Reduction			Source Page		Define																																Damage reduction				Misc bonus				Modify VAR																Ability																					Spell Res.	Vision						Applied Name
+Entropic Creature	VISIBLE:YES	DR:5/Lawful|PREHD:MIN=5		SOURCEPAGE:p.292	DEFINE:EntropicResistanceBonus|5	DEFINE:AcidResistanceBonus|EntropicResistanceBonus	DEFINE:FireResistanceBonus|EntropicResistanceBonus										BONUS:DR|Lawful|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|EntropicResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|EntropicResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Law ~ Entropic Creature	SR:CR+5	BONUS:VAR|DarkvisionRange|60|TYPE=Base	APPLIEDNAME:Entropic
+Resolute Creature	VISIBLE:YES	DR:5/Chaotic|PREHD:MIN=5	SOURCEPAGE:p.292	DEFINE:ResoluteResistanceBonus|5	DEFINE:AcidResistanceBonus|EntropicResistanceBonus	DEFINE:ColdResistanceBonus|ResoluteResistanceBonus	DEFINE:FireResistanceBonus|ResoluteResistanceBonus	BONUS:DR|Chaos|5|PREHD:MIN=11		BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|ResoluteResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|ResoluteResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Chaos ~ Resolute Creature					SR:CR+5	BONUS:VAR|DarkvisionRange|60|TYPE=Base	APPLIEDNAME:Resolute
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Creature Subtypes
+# Template Name	Visible
+Air			VISIBLE:NO
+Angel			VISIBLE:NO
+Aquatic		VISIBLE:NO
+Archon		VISIBLE:NO
+Azata			VISIBLE:NO
+Chaotic		VISIBLE:NO
+Cold			VISIBLE:NO
+Demon			VISIBLE:NO
+Devil			VISIBLE:NO
+Dwarf			VISIBLE:NO
+Earth			VISIBLE:NO
+Elemental		VISIBLE:NO
+Elf			VISIBLE:NO
+Evil			VISIBLE:NO
+Extraplanar		VISIBLE:NO
+Fire			VISIBLE:NO	RACESUBTYPE:Fire
+Giant			VISIBLE:NO
+Gnome			VISIBLE:NO
+Gnoll			VISIBLE:NO
+Goblinoid		VISIBLE:NO
+Good			VISIBLE:NO
+Halfling		VISIBLE:NO
+Human			VISIBLE:NO
+Lawful		VISIBLE:NO
+Native		VISIBLE:NO
+Oni			VISIBLE:NO
+Orc			VISIBLE:NO
+Reptilian		VISIBLE:NO
+Shapechanger	VISIBLE:NO
+Swarm			VISIBLE:NO
+Water			VISIBLE:NO
+
+###Block: Variable Type Traits
+# Template Name		Visible	DEFINESTAT
+Construct			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
+Undead			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
+Mindless			VISIBLE:NO	DEFINESTAT:NONSTAT|INT
+Incorporeal			VISIBLE:NO	DEFINESTAT:NONSTAT|STR
+
+No Strength Score		VISIBLE:NO	DEFINESTAT:NONSTAT|STR
+No Constitution Score	VISIBLE:NO	DEFINESTAT:NONSTAT|CON
+No Intelligence Score	VISIBLE:NO	DEFINESTAT:NONSTAT|INT
+
+
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: ? and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+###Block: Creature Subtypes
+# Template Name		Visible	Source Page		Define																Modify VAR												Class Skill							Ability																																					Automatically Gained Language	Race Subtype		Vision
+Aeon				VISIBLE:NO	SOURCEPAGE:p.305																		BONUS:VAR|ElectricityResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10									ABILITY:Special Ability|AUTOMATIC|Envisaging ~ Aeon|Extension of All ~ Aeon|Immunity to Cold|Immunity to Critical Hits|Immunity to Poison|Resistance to Electricity|Resistance to Fire|Void Form ~ Aeon										RACESUBTYPE:Aeon
+Agathion			VISIBLE:NO	SOURCEPAGE:p.306	DEFINE:ColdResistanceBonus|10	DEFINE:SonicResistanceBonus|10							BONUS:VAR|LayOnHandsLVL|min(20,TL)																ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Petrification|Lay on Hands ~ Agathion|Poison Save Bonus ~ Agathion|Resistance to Cold|Resistance to Sonic|Speak with Animals ~ Agathion|Truespeech ~ Agathion						RACESUBTYPE:Agathion	VISION:Low-light
+Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																											ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Resistance to Electricity|Resistance to Fire|Save vs Poison|Truespeech ~ Angel															RACESUBTYPE:Angel		VISION:Darkvision (60')|Low-light
+Daemon			VISIBLE:NO	SOURCEPAGE:p.306	DEFINE:ColdResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Aligned (Evil)|Immunity to Acid|Immunity to Death Effects|Immunity to Disease|Immunity to Poison|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Telepathy				AUTO:LANG|Abyssal|Infernal	RACESUBTYPE:Daemon
+Dark Folk			VISIBLE:NO	SOURCEPAGE:p.307																																																																																		RACESUBTYPE:Dark Folk
+Dhampir			VISIBLE:NO	SOURCEPAGE:p.89																																																																																		RACESUBTYPE:Dhampir
+Grippli			VISIBLE:NO	SOURCEPAGE:p.149																																																																																		RACESUBTYPE:Grippli
+Inevitable			VISIBLE:NO	SOURCEPAGE:p.307																															CSKILL:Acrobatics|Diplomacy|Intimidate|Survival	ABILITY:Special Ability|AUTOMATIC|Constructed ~ Inevitable|Regeneration ~ Chaotic|Truespeech ~ Inevitable																										RACESUBTYPE:Inevitable	VISION:Low-light
+Nightshade			VISIBLE:NO	SOURCEPAGE:p.308																																							ABILITY:Special Ability|AUTOMATIC|Channel Energy ~ Nightshade|Darksense ~ Nightshade|Desecrating Aura ~ Nightshade|Light Aversion ~ Nightshade																				RACESUBTYPE:Nightshade	VISION:Low-light
+Protean			VISIBLE:NO	SOURCEPAGE:p.308	DEFINE:ElectricityResistanceBonus|10	DEFINE:SonicResistanceBonus|10																										ABILITY:Special Ability|AUTOMATIC|Aligned (Chaos)|Amorphous Anatomy ~ Protean|Change Shape ~ Protean|Constrict|Freedom of Movement ~ Protean|Grab|Immunity to Acid|Resistance to Electricity|Resistance to Sonic									RACESUBTYPE:Protean
+Protean ~ Voidworm	VISIBLE:NO	SOURCEPAGE:p.308	DEFINE:ElectricityResistanceBonus|10	DEFINE:SonicResistanceBonus|10																										ABILITY:Special Ability|AUTOMATIC|Aligned (Chaos)|Amorphous Anatomy ~ Protean|Change Shape ~ Protean|Freedom of Movement ~ Protean|Immunity to Acid|Resistance to Electricity|Resistance to Sonic											RACESUBTYPE:Protean
+Qlippoth			VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy									AUTO:LANG|Abyssal			RACESUBTYPE:Qlippoth
+Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	DEFINE:ElectricityResistanceBonus|10	DEFINE:FireResistanceBonus|10																						ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Immunity to Mind-Affecting Effects|Immunity to Poison|Resistance to Acid|Resistance to Electricity|Resistance to Fire|Telepathy ~ Touch							AUTO:LANG|Abyssal			RACESUBTYPE:Qlippoth
+
+###Block: Animal Companion templates
+# COMMENT: Some animal companions don't follow the standard die-increase
+# COMMENT:   pattern for their natural weapons when they increase in power.
+# COMMENT:   These templates are intended to handle that.
+# Template Name					Size		Visible	Source Page		Combat bonus					Stat bonus								Modify VAR					Ability						Natural Attacks
+Arsinoitherium Companion Advancement	SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4							ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+Gylptodon Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4														NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d10
+Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:VAR|TrampleDamageDieSize|8	ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Piercing,*1,2d8
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Dragon Age Category templates
+# Template Name				Challenge Rating	Visible	Template																					Define				Combat bonus						Stat bonus												Modify VAR								Add Levels			Vision
+Dragon Age Category (Wyrmling)				VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|1																																			VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Very Young)	CR:2			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|2	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:STAT|WIS,CHA|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|2		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Young)		CR:4			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|3	BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|WIS,CHA|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|4		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Juvenile)	CR:5			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|4	BONUS:COMBAT|AC|9|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|6		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Young Adult)	CR:7			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|5	BONUS:COMBAT|AC|12|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|12	BONUS:STAT|DEX|-4	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|8		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Adult)		CR:8			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|6	BONUS:COMBAT|AC|15|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|14	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|10	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Mature Adult)	CR:9			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|7	BONUS:COMBAT|AC|18|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|16	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|12	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Old)		CR:11			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|8	BONUS:COMBAT|AC|21|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|18	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|14	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Very Old)	CR:12			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|9	BONUS:COMBAT|AC|24|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|20	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|16	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Ancient)		CR:13			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|10	BONUS:COMBAT|AC|27|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|22	BONUS:STAT|DEX|-6	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|18	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Wyrm)		CR:14			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|11	BONUS:COMBAT|AC|30|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|24	BONUS:STAT|DEX|-8	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|20	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Great Wyrm)	CR:16			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|12	BONUS:COMBAT|AC|33|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|26	BONUS:STAT|DEX|-8	BONUS:STAT|CON|14	BONUS:STAT|WIS,CHA|12	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|22	VISION:Blindsense (60')|Darkvision (120')
+
+###Block: Dragon Size templates
+# Template Name		Face/Space	Reach		Visible	Define				Required Size	Modify VAR																							Weapon prof. bonus											Ability															Move			Natural Attacks
+Dragon (Tiny)		FACE:2.5	REACH:0	VISIBLE:NO	DEFINE:Maneuverability|3	PRESIZEEQ:T		BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Dragon (Small)		FACE:5	REACH:5	VISIBLE:NO	DEFINE:Maneuverability|3	PRESIZEEQ:S		BONUS:VAR|BreathWeaponCone|20	BONUS:VAR|BreathWeaponLine|40															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,150	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Dragon (Medium)		FACE:5	REACH:5	VISIBLE:NO	DEFINE:Maneuverability|3	PRESIZEEQ:M		BONUS:VAR|BreathWeaponCone|30	BONUS:VAR|BreathWeaponLine|60															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,150	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d4
+Dragon (Large)		FACE:10	REACH:5	VISIBLE:NO	DEFINE:Maneuverability|2	PRESIZEEQ:L		BONUS:VAR|BreathWeaponCone|40	BONUS:VAR|BreathWeaponLine|80															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,200	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Dragon (Huge)		FACE:15	REACH:10	VISIBLE:NO	DEFINE:Maneuverability|2	PRESIZEEQ:H		BONUS:VAR|BreathWeaponCone|50	BONUS:VAR|BreathWeaponLine|100	BONUS:VAR|CrushDice|2	BONUS:VAR|CrushDie|8						BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|Flight Maneuverability					MOVE:Fly,200	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+Dragon (Gargantuan)	FACE:20	REACH:15	VISIBLE:NO	DEFINE:Maneuverability|1	PRESIZEEQ:G		BONUS:VAR|BreathWeaponCone|60	BONUS:VAR|BreathWeaponLine|120	BONUS:VAR|CrushDice|4	BONUS:VAR|CrushDie|6	BONUS:VAR|TailSweepDie|6	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|Flight Maneuverability|Tail Sweep ~ Dragon	MOVE:Fly,250	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8
+Dragon (Colossal)		FACE:30	REACH:25	VISIBLE:NO	DEFINE:Maneuverability|1	PRESIZEEQ:C		BONUS:VAR|BreathWeaponCone|70	BONUS:VAR|BreathWeaponLine|140	BONUS:VAR|CrushDice|4	BONUS:VAR|CrushDie|8	BONUS:VAR|TailSweepDie|8	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|Flight Maneuverability|Tail Sweep ~ Dragon	MOVE:Fly,250	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
+

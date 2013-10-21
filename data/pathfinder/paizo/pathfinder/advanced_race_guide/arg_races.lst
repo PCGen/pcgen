@@ -1,0 +1,64 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  2 19:19:21 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: none
+# ORIGINAL ENTRY DATE: none
+
+# Race Name	Starting Feats	Size		Move				Face/Space	Reach		Required Gender	Bonus Languages												Stat bonus						Automatically Gained Language	Ability									Define				Main Race Type	Race Subtype				Type				Challenge Rating	Source Page		More language			SORTKEY
+#Changeling	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc				BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2	AUTO:LANG|Common																		RACETYPE:Humanoid	RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1	SORTKEY:a_base_pc
+#Gillman	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Aquan,Draconic,Elven									BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Aboleth																RACETYPE:Humanoid							TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.188						SORTKEY:a_base_pc
+# COMMENT: Bonus languages include "any human language".
+#Kitsune	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Celestial,Elven,Gnome,Tengu							BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|Common|Sylvan																	RACETYPE:Humanoid	RACESUBTYPE:Kitsune|Shapechanger	TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.192						SORTKEY:a_base_pc
+#Nagaji	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan				BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common|Draconic																RACETYPE:Humanoid	RACESUBTYPE:Reptilian			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.196						SORTKEY:a_base_pc
+# COMMENT: Bonus languages include "any human language".
+# COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
+#Samsaran	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran	BONUS:STAT|WIS,INT|2	BONUS:STAT|CON|-2	AUTO:LANG|Common|Samsaran																RACETYPE:Humanoid	RACESUBTYPE:Samsaran			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.198						SORTKEY:a_base_pc
+#Strix		STARTFEATS:1	SIZE:M	MOVE:Walk,30,Fly,60	FACE:5	REACH:5				LANGBONUS:Auran,Common,Draconic,Giant,Gnome,Goblin,Infernal					BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2		AUTO:LANG|Strix			ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	DEFINE:Maneuverability|3	RACETYPE:Humanoid	RACESUBTYPE:Strix				TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.200						SORTKEY:a_base_pc
+#Suli		STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aquan,Auran,Draconic,Ignan,Terran							BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common																		RACETYPE:Outsider	RACESUBTYPE:Native			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.202						SORTKEY:a_base_pc
+#Vanara	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Celestial,Elven,Gnome,Goblin,Sylvan						BONUS:STAT|DEX,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Vanaran																RACETYPE:Humanoid	RACESUBTYPE:Vanara			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.206						SORTKEY:a_base_pc
+#Vishkanya	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Draconic,Elven,Goblin,Sylvan,Undercommon					BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Vishkanya																RACETYPE:Humanoid	RACESUBTYPE:Vishkanya			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.208						SORTKEY:a_base_pc
+# COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
+#Wayang	STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5				LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Samsaran,Tengu				BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Wayang																	RACETYPE:Humanoid	RACESUBTYPE:Wayang			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.210						SORTKEY:a_base_pc
+
+# Bestiary I Creatures
+#Duergar	STARTFEATS:1	SIZE:M	MOVE:Walk,20		FACE:5	REACH:5	AUTO:LANG|Common,Dwarven,Undercommon		LANGBONUS:Aklo,Draconic,Giant,Goblin,Orc,Terran							BONUS:STAT|CON,WIS|2	BONUS:STAT|CHA|-4					RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	RACESUBTYPE:Dwarf				CR:1/2		SOURCEPAGE:p.186
+#Merfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,5,Swim,50	FACE:5	REACH:5	AUTO:LANG|Common,Aquan				LANGBONUS:Aboleth,Aklo,Draconic,Elven,Sylvan								BONUS:STAT|DEX,CON,CHA|2	LEGS:0					RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	RACESUBTYPE:Aquatic			CR:1/2		SOURCEPAGE:p.194
+#Svirfneblin	STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5	AUTO:LANG|Gnome,Undercommon			LANGBONUS:Aklo,Common,Draconic,Dwarven,Elven,Giant,Goblin,Orc,Terran			BONUS:STAT|DEX,WIS|2	BONUS:STAT|STR|-2	BONUS:STAT|CHA|-4		RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	RACESUBTYPE:Gnome				CR:1/2		SOURCEPAGE:p.204
+# COMMENT: No movement rate given for svirfneblin.  Bestiary 1 gives 20 feet.
+#Grippli	STARTFEATS:1	SIZE:S	MOVE:Walk,30,Climb,20	FACE:5	REACH:5	AUTO:LANG|Common,Grippli				LANGBONUS:Boggard,Draconic,Elven,Gnome,Goblin,Sylvan						BONUS:STAT|DEX,WIS|2	BONUS:STAT|STR|-2					RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	RACESUBTYPE:Grippli			CR:1/2		SOURCEPAGE:p.190
+#
+
+###Block: Mods to change the sort order
+# Race Name		SORTKEY
+Duergar.MOD		SORTKEY:a_base_pc
+Grippli.MOD		SORTKEY:a_base_pc
+Merfolk.MOD		SORTKEY:a_base_pc
+Svirfneblin.MOD	SORTKEY:a_base_pc
+
+# Bestiary III - Remove once B3 is completed.
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages											Stat bonus						Automatically Gained Language	Main Race Type	Race Subtype		Type				Challenge Rating	Source Page		SORTKEY
+#Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc		
+
+#Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Aklo,Draconic,Dwarven,Gnoll,Gnome,Goblin,Halfling,Orc,Undercommon	BONUS:STAT|DEX,INT|2	BONUS:STAT|STR|-2	AUTO:LANG|Common			RACETYPE:Humanoid	RACESUBTYPE:Ratfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Ratfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.151	SORTKEY:a_base_pc
+
+
+# Bestiary II
+#Dhampir	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common			LANGBONUS:ALL											BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2			RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Dhampir		CR:1/2		SOURCEPAGE:p.97
+#Fetchling	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common			LANGBONUS:Aklo,Aquan,Auran,Draconic,D'ziriak,Ignan,Terran				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2			RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.109
+#Ifrit		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common,Ignan		LANGBONUS:Aquan,Auran,Dwarven,Elven,Gnome,Halfling,Terran				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2			RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.127
+#Oread		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	AUTO:LANG|Common,Terran		LANGBONUS:Aquan,Auran,Dwarven,Elven,Gnome,Halfling,Ignan,Undercommon		BONUS:STAT|STR,WIS|2	BONUS:STAT|CHA|-2			RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.145
+#Sylph		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common,Auran		LANGBONUS:Aquan,Dwarven,Elven,Gnome,Halfling,Ignan,Terran				BONUS:STAT|DEX,INT|2	BONUS:STAT|CON|-2			RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.157
+#Undine	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common,Aquan		LANGBONUS:Auran,Dwarven,Elven,Gnome,Halfling,Ignan,Terran				BONUS:STAT|DEX,WIS|2	BONUS:STAT|STR|-2			RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.175
+
+# Bestiary I
+#Aasimar	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common			LANGBONUS:Draconic,Dwarven,Elven,Gnome,Halfling,Sylvan				BONUS:STAT|WIS,CHA|2						RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.85
+#Drow		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Elven,Undercommon	LANGBONUS:Abyssal,Aklo,Aquan,Common,Draconic,Drow Sign Language,Gnome,Goblin	BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2			RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Elf		CR:1/2		SOURCEPAGE:p.103
+#Goblin	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	AUTO:LANG|Goblin			LANGBONUS:Common,Draconic,Dwarven,Gnoll,Gnome,Halfling,Orc				BONUS:STAT|DEX|4	BONUS:STAT|STR,CHA|-2			RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Goblinoid	CR:1/2		SOURCEPAGE:p.115
+#Hobgoblin	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common,Goblin		LANGBONUS:Draconic,Dwarven,Infernal,Giant,Orc						BONUS:STAT|DEX,CHA|2						RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Goblinoid	CR:1/2		SOURCEPAGE:p.121
+#Kobold	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	AUTO:LANG|Draconic			LANGBONUS:Common,Dwarven,Gnome,Undercommon						BONUS:STAT|DEX|2	BONUS:STAT|STR|-4	BONUS:STAT|CON|-2	RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Reptilian	CR:1/2		SOURCEPAGE:p.133
+#Orc		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5						LANGBONUS:Dwarven,Giant,Gnoll,Goblin,Undercommon					BONUS:STAT|STR|4	BONUS:STAT|INT,WIS,CHA|-2		RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Orc		CR:1/2		SOURCEPAGE:p.139
+#Tengu		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common,Tengu		LANGBONUS:ALL											BONUS:STAT|DEX,WIS|2	BONUS:STAT|CON|-2			RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Tengu		CR:1/2		SOURCEPAGE:p.163
+#Tiefling	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common			LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,INT|2	BONUS:STAT|CHA|-2			RACETYPE:Outsider	TYPE:Base.PC.Featured	RACESUBTYPE:Native		CR:1/2		SOURCEPAGE:p.169
+#
+###Block: Mods to change the sort order
+# Race Name		SORTKEY
+

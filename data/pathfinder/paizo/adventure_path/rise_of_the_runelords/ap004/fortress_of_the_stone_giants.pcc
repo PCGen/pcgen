@@ -1,0 +1,45 @@
+CAMPAIGN:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Rise of the Runelords
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Rise of the Runelords Player's Guide (Conversion)
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants
+SOURCESHORT:AP004
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm
+SOURCEDATE:2007-09
+ISOGL:YES
+
+COVER:fortress_of_the_stone_giants.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm|Buy this publication from Paizo Publishing!
+DESC:A sudden assault on the town of Sandpoint by stone giants and a dragon brings the looming threat home. After the giants are defeated, the heroes learn that they were but a scouting party, that the stone giants are massing for war. The only way to disrupt their advance is to strike at the Jorgenfist, the fortress of Warlord Mokmurian, the sinister giant responsible for gathering his people for war. What secrets wait to be discovered in the dungeons below the Jorgenfist, and what is the true reason the giants have rallied for war?
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 4: Fortress of the Stone Giants, Copyright 2007, Paizo Publishing, LLC; Author Wolfgang Baur.
+COPYRIGHT:Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
+COPYRIGHT:Tome of Horrors II, Copyright 2004, Necromancer Games, Inc.; Author Scott Greene; Additional Authors: Erica Balsley, Kevin Baase, Casey Christofferson, Jim Collura, Meghan Greene, Lance Hawvermale, Travis Hawvermale, Bill Kenower, Patrick Lawinger, Nathan Paul, Clark Peterson, Bill Webb, and Monte Cook.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants" Copyright 2007-2010, PCGen Data Team (including, but not limited to Eric C. Smith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap004_abilities_race.lst
+EQUIPMENT:ap004_equip_arms_armor.lst
+EQUIPMENT:ap004_equip_magic_items.lst
+FEAT:ap004_feats.lst
+KIT:ap004_kits_race.lst
+RACE:ap004_races.lst
+TEMPLATE:ap004_templates.lst

@@ -1,0 +1,45 @@
+CAMPAIGN:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast (Conversion)
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Adventure Path.Rise of the Runelords
+RANK:4
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Rise of the Runelords Player's Guide (Conversion)
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast
+SOURCESHORT:AP006
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c
+SOURCEDATE:2007-10
+ISOGL:YES
+
+COVER:spires_of_xin-shalast.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c|Buy this publication from Paizo Publishing!
+DESC:Having steeped their weapons in the ancient magic of Thassilon, the PCs are finally ready to confront the newly risen Runelord Karzoug at the seat of his power. To do so, they must travel high into the mountains, to the fabled city of Xin-Shalast, where they'll be confronted by enormous giants, dragons, and other monsters before they can finally confront the mad wizard of greed in his mountaintop palace. Yet can defeating Runelord Karzoug stop the rise of the Runelords? Or are there more terrors yet to come?
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on Material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder 6: Spires of Xin-Shalast, Copyright 2008, Paizo Publishing, LLC; Author: Greg A. Vaughan.
+COPYRIGHT:Advanced Bestiary, Copyright 2004, Green Ronin Publishing, LLC; Author Matthew Sernett.
+COPYRIGHT:Tome of Horrors, Copyright 2002 Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 6: Spires of Xin-Shalast" Copyright 2007-2010, PCGen Data Team (including, but not limited to Andrew Maitland).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:ap006_abilities_race.lst
+EQUIPMENT:ap006_equip_arms_armor.lst
+EQUIPMENT:ap006_equip_magic_items.lst
+FEAT:ap006_feats.lst
+KIT:ap006_kits_race.lst
+RACE:ap006_races.lst
+TEMPLATE:ap006_templates.lst

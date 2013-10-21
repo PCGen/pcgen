@@ -1,0 +1,17 @@
+SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP008	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
+
+# Class Name			Hit Dice	Type			Class Type		Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Daughter of Urgathoa	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:11	SOURCEPAGE:p. 82	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Race				Reg. Race Type
+CLASS:Daughter of Urgathoa	PRERACE:1,Daughter of Urgathoa	PRERACETYPE:Undead
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Daughter of Urgathoa	STARTSKILLPTS:4	MODTOSKILLS:YES
+1	DOMAIN:Death|War	BONUS:DOMAIN|NUMBER|2					ADD:SPELLCASTER|Cleric
+2								BONUS:PCLEVEL|Cleric|1
+3								BONUS:PCLEVEL|Cleric|1
+4								BONUS:PCLEVEL|Cleric|1
+5								BONUS:PCLEVEL|Cleric|1
+6								BONUS:PCLEVEL|Cleric|1
+7								BONUS:PCLEVEL|Cleric|1
+
+

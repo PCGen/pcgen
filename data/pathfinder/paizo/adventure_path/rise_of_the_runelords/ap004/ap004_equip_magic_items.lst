@@ -1,0 +1,7 @@
+SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants	SOURCESHORT:AP004	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+# Equipment Name			Output Name				Type					Cost		Weight	Base Item for EQMOD	Modifier					Source Page		Stat bonus
+Robe (Runes)			OUTPUTNAME:Robe of [NAME]	TYPE:Magic.Wondrous.Robe	COST:44000	WT:1												SOURCEPAGE:Pg.50	BONUS:STAT|INT|4|TYPE=Enhancement
+Lenses (Fogcutting)		OUTPUTNAME:[NAME] Lenses	TYPE:Magic.Wondrous		COST:8000	WT:1												SOURCEPAGE:Pg.50
+Staff (Heaven and Earth)	OUTPUTNAME:Staff of [NAME]	TYPE:Magic.Staff			COST:53000	WT:5		BASEITEM:Staff		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:Pg.23

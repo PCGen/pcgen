@@ -1,18 +1,17 @@
-# CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Guide to the River Kingdoms
+CAMPAIGN:Guide to the River Kingdoms
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
+TYPE:Paizo Publishing.Campaign Setting
+RANK:2
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
-SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Guide to the River Kingdoms
-SOURCESHORT:GttRK
+SOURCESHORT:GTTRK
 SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8
 SOURCEDATE:2010-03
 ISOGL:YES
@@ -37,14 +36,11 @@ COPYRIGHT:PCGen dataset conversion for "Guide to the River Kingdoms" Copyright 2
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 # Data Files
-ABILITY:guide_to_the_river_kingdoms_abilities.lst
-ABILITYCATEGORY:guide_to_the_river_kingdoms_abilitycategories.lst
-DEITY:guide_to_the_river_kingdoms_deities.lst
-EQUIPMENT:guide_to_the_river_kingdoms_equip.lst
-FEAT:guide_to_the_river_kingdoms_feats.lst
-SPELL:guide_to_the_river_kingdoms_spells.lst
-TEMPLATE:guide_to_the_river_kingdoms_templates.lst
+ABILITY:GTTRK_abilities.lst
+DEITY:GTTRK_deities.lst
+EQUIPMENT:GTTRK_equip_general.lst
+EQUIPMENT:GTTRK_equip_magic_items.lst
+FEAT:GTTRK_feats.lst
+SPELL:GTTRK_spells.lst
+TEMPLATE:GTTRK_templates.lst
 
-#
-# End
-#
