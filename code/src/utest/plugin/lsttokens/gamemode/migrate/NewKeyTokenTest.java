@@ -40,6 +40,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
 public class NewKeyTokenTest
 {
 	private MigrationRule migrationRule;
+	private MigrationRule migrationRuleEquip;
 	private NewKeyToken token;
 	private String gameModeName;
 
@@ -50,6 +51,7 @@ public class NewKeyTokenTest
 	public void setUp() throws Exception
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
+		migrationRuleEquip = new MigrationRule(ObjectType.EQUIPMENT, "OldKey");
 		token = new NewKeyToken();
 		gameModeName = "Pathfinder";
 	}
@@ -71,9 +73,43 @@ public class NewKeyTokenTest
 	 * Test that invalid characters get rejected and the new key field is not set. 
 	 */
 	@Test
-	public void testParseInvalidKey()
+	public void testParseInvalidKeyEquip()
 	{
 		String invalidChars = ",|\\:;.%*=[]";
+		for (char invalid : invalidChars.toCharArray())
+		{
+			assertFalse("Key containing " + invalid
+				+ " should have been rejected.", token.parse(migrationRuleEquip,
+				"InvalidKey" + invalid, gameModeName));
+			assertNull("Newkey", migrationRule.getNewKey());
+		}
+
+		for (char invalid : invalidChars.toCharArray())
+		{
+			assertFalse("Key containing " + invalid
+				+ " should have been rejected.", token.parse(migrationRuleEquip,
+				invalid+"InvalidKey", gameModeName));
+			assertNull("Newkey", migrationRule.getNewKey());
+		}
+
+
+		for (char invalid : invalidChars.toCharArray())
+		{
+			assertFalse("Key containing " + invalid
+				+ " should have been rejected.", token.parse(migrationRuleEquip,
+				"Invalid"+invalid+"Key", gameModeName));
+			assertNull("Newkey", migrationRule.getNewKey());
+		}
+		
+	}
+	
+	/**
+	 * Test that invalid characters get rejected and the new key field is not set. 
+	 */
+	@Test
+	public void testParseInvalidKeySource()
+	{
+		String invalidChars = "|\\;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
 			assertFalse("Key containing " + invalid
@@ -97,6 +133,41 @@ public class NewKeyTokenTest
 				+ " should have been rejected.", token.parse(migrationRule,
 				"Invalid"+invalid+"Key", gameModeName));
 			assertNull("Newkey", migrationRule.getNewKey());
+		}
+		
+	}
+	
+	
+	@Test
+	public void testParseValidKeySource()
+	{
+		String validChars = ",:.";
+		for (char valid : validChars.toCharArray())
+		{
+			String keyValue = "ValidKey" + valid;
+			assertTrue("Key containing " + valid
+				+ " should have been accepted.", token.parse(migrationRule,
+				keyValue, gameModeName));
+			assertEquals("Newkey", keyValue, migrationRule.getNewKey());
+		}
+
+		for (char valid : validChars.toCharArray())
+		{
+			String keyValue = valid+"ValidKey";
+			assertTrue("Key containing " + valid
+				+ " should have been accepted.", token.parse(migrationRule,
+				keyValue, gameModeName));
+			assertEquals("Newkey", keyValue, migrationRule.getNewKey());
+		}
+
+
+		for (char valid : validChars.toCharArray())
+		{
+			String keyValue = "Valid"+valid+"Key";
+			assertTrue("Key containing " + valid
+				+ " should have been accepted.", token.parse(migrationRule,
+					keyValue, gameModeName));
+			assertEquals("Newkey", keyValue, migrationRule.getNewKey());
 		}
 		
 	}

@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.system.MigrationRule;
+import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.persistence.lst.MigrationLstToken;
 import pcgen.util.Logging;
 
@@ -45,6 +46,7 @@ import pcgen.util.Logging;
 public class NewKeyToken implements MigrationLstToken
 {
 	private Pattern invalidKeyPattern = Pattern.compile(".*[,|\\||\\\\|:|;|\\.|%|\\*|=|\\[|\\]].*");
+	private Pattern invalidSourceKeyPattern = Pattern.compile(".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*");
 	
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
@@ -67,7 +69,10 @@ public class NewKeyToken implements MigrationLstToken
 			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value."); 
 			return false;
 		}
-		if (invalidKeyPattern.matcher(value).matches())
+		Pattern validationPattern =
+				migrationRule.getObjectType() == ObjectType.SOURCE
+					? invalidSourceKeyPattern : invalidKeyPattern;
+		if (validationPattern.matcher(value).matches())
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid characters in value '"
 				+ value + "' of " + getTokenName() + ":" + value);

@@ -46,7 +46,8 @@ import pcgen.util.Logging;
  */
 public class MigrationLoader extends LstLineFileLoader
 {
-	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|%|\\*|=|\\[|\\]].*";
+	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|\\.|%|\\*|=|\\[|\\]].*";
+	private String invalidSourceKeyPattern = ".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*";
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(pcgen.rules.context.LoadContext, java.lang.String, java.net.URI)
@@ -251,7 +252,10 @@ public class MigrationLoader extends LstLineFileLoader
 		}
 		else
 		{
-			if (StringUtils.isBlank(key) || key.matches(invalidKeyPattern))
+			String invalidKeyPat =
+					objType == ObjectType.SOURCE ? invalidSourceKeyPattern
+						: invalidKeyPattern;
+			if (StringUtils.isBlank(key) || key.matches(invalidKeyPat))
 			{
 				Logging.errorPrint("Invalid key of '" + key
 					+ "' of migration rule '" + lstLine + "' in "
