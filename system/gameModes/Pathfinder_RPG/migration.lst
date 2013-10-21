@@ -49,7 +49,6 @@ SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pa
 
 
 ###Block: Migration to be sources
-Old Campaign Tag	New Campaign tag
 SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide	NEWKEY:Advanced Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Race Guide	NEWKEY:Advanced Race Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Pathfinder Roleplaying Game Bestiary	NEWKEY:Bestiary	MAXVER:6.2.0 MAXDEVVER:6.1.8
@@ -82,7 +81,7 @@ SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pa
 SOURCE:Paizo - Guide to the River Kingdoms	NEWKEY:Guide to the River Kingdoms	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Halflings of Golarion	NEWKEY:Halflings of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Heart of the Jungle	NEWKEY:Heart of the Jungle	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Inner Sea Bestiary	NEWKEY:Inner Sea Bestiary	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#SOURCE:Inner Sea Bestiary	NEWKEY:Inner Sea Bestiary	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Inner Sea Primer	NEWKEY:Inner Sea Primer	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Inner Sea World Guide	NEWKEY:Inner Sea World Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Jade Regent Player's Guide	NEWKEY:Jade Regent Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
@@ -112,7 +111,7 @@ SOURCE:Paizo - Seekers of Secrets	NEWKEY:Seekers of Secrets - A Guide to the Pat
 SOURCE:Paizo - Serpent's Skull Player's Guide	NEWKEY:Serpent's Skull Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Skull & Shackles Player's Guide	NEWKEY:Skull and Shackles Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Pathfinder Roleplaying Game Ultimate Combat	NEWKEY:Ultimate Combat	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Ultimate Equipment	NEWKEY:Ultimate Equipment	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#SOURCE:Ultimate Equipment	NEWKEY:Ultimate Equipment	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Pathfinder Roleplaying Game Ultimate Magic	NEWKEY:Ultimate Magic	MAXVER:6.2.0 MAXDEVVER:6.1.8
 
 SOURCE:Pathfinder RPG (Includes all currently released Supplements)	NEWKEY:Pathfinder RPG Core Supplements	MAXVER:6.2.0 MAXDEVVER:6.1.8
