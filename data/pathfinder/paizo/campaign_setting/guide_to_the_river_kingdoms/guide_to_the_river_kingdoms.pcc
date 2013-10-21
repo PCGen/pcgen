@@ -36,11 +36,11 @@ COPYRIGHT:PCGen dataset conversion for "Guide to the River Kingdoms" Copyright 2
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 # Data Files
-ABILITY:GTTRK_abilities.lst
-DEITY:GTTRK_deities.lst
-EQUIPMENT:GTTRK_equip_general.lst
-EQUIPMENT:GTTRK_equip_magic_items.lst
-FEAT:GTTRK_feats.lst
-SPELL:GTTRK_spells.lst
-TEMPLATE:GTTRK_templates.lst
+ABILITY:gttrk_abilities.lst
+DEITY:gttrk_deities.lst
+EQUIPMENT:gttrk_equip_general.lst
+EQUIPMENT:gttrk_equip_magic_items.lst
+FEAT:gttrk_feats.lst
+SPELL:gttrk_spells.lst
+TEMPLATE:gttrk_templates.lst
 
