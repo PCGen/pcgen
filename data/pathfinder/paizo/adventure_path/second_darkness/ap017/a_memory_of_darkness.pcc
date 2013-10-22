@@ -43,3 +43,5 @@ RACE:ap017_races.lst
 SPELL:ap017_spells.lst
 
 
+# Imported 35e game mode files
+FEAT:@/35e/wizards_of_the_coast/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Spell Stowaway)
