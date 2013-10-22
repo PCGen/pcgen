@@ -1,0 +1,47 @@
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+CAMPAIGN:Guide To Pathfinder Society Organized Play 4.0
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Society Organized Play
+RANK:9
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,Advanced Player's Guide
+PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Guide to Pathfinder Society Organised Play
+SOURCESHORT:GTPSOP
+SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play
+SOURCEDATE:2013-08
+ISOGL:YES
+
+COVER:guide_to_pathfinder_society_organized_play.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play|Download this publication from Paizo Publishing!
+DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 5.0 of the Pathfinder Society Guide to Organised Play released 5th August 2013.
+DESC:http://paizo.com/pathfinderSociety/about/additionalResources contains a book-by-book analysis of campaign-legal feat, races, languages, items, etc. choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a © 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document © 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Guide to Pathfinder Society Organized Play, Version 5.0 © 2013, Paizo Publishing, LLC; Authors: Mike Brock, Erik Mona, and Mark Moreland.
+
+COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Play" Copyright 2011, 2013, PCGen Data team (Including, but not limited to Jeff Baril, Andrew Wilson, Vincent Lhote).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITYCATEGORY:gtpsop_abilitycategories.lst
+ABILITY:gtpsop_abilities.lst
+CLASS:gtpsop_classes.lst
+KIT:gtpsop_kits.lst
+FEAT:gtpsop_feats.lst
+SKILL:gtpsop_skills.lst
+SPELL:gtpsop_spells.lst
+EQUIPMENT:gtpsop_equip_magic_items.lst
+
