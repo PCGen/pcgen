@@ -54,16 +54,24 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 *            The object to be added to the list of objects stored in this
 	 *            AbstractListFacet for the Player Character represented by the
 	 *            given CharID
+	 * @return
+	 * 			  true if the object was added; false otherwise
 	 */
-	public void add(CharID id, T obj)
+	public boolean add(CharID id, T obj)
 	{
 		if (obj == null)
 		{
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
+		
 		if (getConstructingCachedSet(id).add(obj))
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 
@@ -110,8 +118,10 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 *            The object to be removed from the list of objects stored in
 	 *            this AbstractListFacet for the Player Character represented by
 	 *            the given CharID
+	 * @return
+	 * 			  true if an element was removed as a result of this call; false otherwise
 	 */
-	public void remove(CharID id, T obj)
+	public boolean remove(CharID id, T obj)
 	{
 		if (obj == null)
 		{
@@ -122,14 +132,17 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		{
 			if (componentSet.remove(obj))
 			{
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 				if (componentSet.isEmpty())
 				{
 					removeCache(id);
 				}
+				
+				return true;
 			}
 		}
+		
+		return false;
 	}
 
 	/**

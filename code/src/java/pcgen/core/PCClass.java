@@ -1060,8 +1060,6 @@ public class PCClass extends PObject implements ClassFacade
 		int newSkillPool = spMod + (currentPool == null ? 0 : currentPool);
 		aPC.setSkillPool(this, newSkillPool);
 
-		aPC.setDirty(true);
-
 		if (!aPC.isImporting())
 		{
 			//
@@ -1266,7 +1264,6 @@ public class PCClass extends PObject implements ClassFacade
 			if (!isMonster() && (total == 0))
 			{
 				aPC.removeAllSkills();
-				aPC.setDirty(true);
 			}
 			else
 			{

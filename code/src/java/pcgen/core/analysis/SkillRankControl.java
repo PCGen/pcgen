@@ -186,8 +186,6 @@ public class SkillRankControl
 				aPC.setSkillPool(aClass, aClass.getSkillPool(aPC)
 					- (int) (i * rankMod));
 			}
-
-			aPC.setDirty(true);
 		}
 
 		return "";

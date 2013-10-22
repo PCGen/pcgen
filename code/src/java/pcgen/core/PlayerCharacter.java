@@ -527,6 +527,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		checkFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
+		setGold(new BigDecimal(0));
 		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
 		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
 		setPreviewSheet(SettingsHandler.getGame().getDefaultPreviewSheet());
@@ -564,9 +565,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setAge(final int i)
 	{
-		ageFacet.set(id, i);
-		setDirty(true);
-		calcActiveBonuses();
+		if (ageFacet.set(id, i))
+		{
+			setDirty(true);
+			calcActiveBonuses();
+		}
 	}
 
 	/**
@@ -638,8 +641,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setCalcEquipSetId(final String eqSetId)
 	{
-		calcEquipSetId = eqSetId;
-		setDirty(true);
+		if (calcEquipSetId != eqSetId)
+		{
+			calcEquipSetId = eqSetId;
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -1054,8 +1060,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setEquipSetNumber(final int anInt)
 	{
-		currentEquipSetNumber = anInt;
-		setDirty(true);
+		if (currentEquipSetNumber != anInt)
+		{
+			currentEquipSetNumber = anInt;
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -1379,8 +1388,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setGender(final Gender g)
 	{
-		genderFacet.setGender(id, g);
-		setDirty(true);
+		if (genderFacet.getGender(id) != g)
+		{
+			genderFacet.setGender(id, g);
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -1395,8 +1407,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setGold(final String aString)
 	{
-		goldFacet.set(id, new BigDecimal(aString));
-		setDirty(true);
+		BigDecimal gold = new BigDecimal(aString);
+		setGold(gold);
 	}
 
 	/**
@@ -1411,8 +1423,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setGold(final BigDecimal amt)
 	{
-		goldFacet.set(id, amt);
-		setDirty(true);
+		if (amt == null) return;
+		
+		// The equality comparison in AbstractItemFacet doesn't work on BigDecimal, need to use compareTo
+		BigDecimal oldAmt = goldFacet.get(id);
+		if (oldAmt == null || amt.compareTo(oldAmt) != 0)
+		{
+			goldFacet.set(id, amt);
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -1459,8 +1478,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setHanded(final Handed h)
 	{
-		handedFacet.setHanded(id, h);
-		setDirty(true);
+		if (handedFacet.setHanded(id, h))
+		{
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -1473,8 +1494,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setHeight(final int i)
 	{
-		heightFacet.setHeight(id, i);
-		setDirty(true);
+		if (heightFacet.setHeight(id, i))
+		{
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -2381,8 +2404,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setSuppressBioField(BiographyField field, boolean suppress)
 	{
-		suppressBioFieldFacet.setSuppressField(id, field, suppress);
-		setDirty(true);
+		if (suppressBioFieldFacet.setSuppressField(id, field, suppress))
+		{
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -2393,7 +2418,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setTabName(final String name)
 	{
 		setStringFor(StringKey.TAB_NAME, name);
-		setDirty(true);
 	}
 
 	/**
@@ -2546,8 +2570,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setWeight(final int i)
 	{
-		weightFacet.setWeight(id, i);
-		setDirty(true);
+		if (weightFacet.setWeight(id, i))
+		{
+			setDirty(true);
+		}
 	}
 
 	public void setPointBuyPoints(final int argPointBuyPoints)
@@ -2567,8 +2593,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setXP(final int xp)
 	{
-		xpFacet.setXP(id, xp);
-		setDirty(true);
+		if (xpFacet.setXP(id, xp))
+		{
+			setDirty(true);
+		}
 	}
 
 	public int getXP()
@@ -2578,8 +2606,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setXPTable(final String xpTableName)
 	{
-		xpTableFacet.set(id, SettingsHandler.getGame().getLevelInfo(xpTableName));
-		setDirty(true);
+		if (xpTableFacet.set(id, SettingsHandler.getGame().getLevelInfo(xpTableName)))
+		{
+			setDirty(true);
+		}
 	}
 
 	public LevelInfo getXPTableLevelInfo(int level)
@@ -2589,14 +2619,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setCharacterType(final String characterType)
 	{
-		characterTypeFacet.set(id, characterType);
-		setDirty(true);
+		if (characterTypeFacet.set(id, characterType))
+		{
+			setDirty(true);
+		}
 	}
 
 	public void setPreviewSheet(final String previewSheet)
 	{
-		previewSheetFacet.set(id, previewSheet);
-		setDirty(true);
+		if (previewSheetFacet.set(id, previewSheet))
+		{
+			setDirty(true);
+		}
 	}
 
 	public void addEquipSet(final EquipSet set)
@@ -2694,8 +2728,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addFollower(final Follower aFollower)
 	{
-		followerFacet.add(id, aFollower);
-		setDirty(true);
+		if (followerFacet.add(id, aFollower))
+		{
+			setDirty(true);
+		}
 	}
 
 	private void addLocalEquipment(final Equipment eq)
@@ -2705,8 +2741,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addNotesItem(final NoteItem item)
 	{
-		noteItemFacet.add(id, item);
-		setDirty(true);
+		if (noteItemFacet.add(id, item))
+		{
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -2850,8 +2888,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setAlignment(PCAlignment align)
 	{
-		alignmentFacet.set(id, align);
-		setDirty(true);
+		if (alignmentFacet.set(id, align))
+		{
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -3082,8 +3122,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setAutoSortGear(final boolean autoSortGear)
 	{
-		this.autoSortGear = autoSortGear;
-		setDirty(true);
+		if (this.autoSortGear != autoSortGear)
+		{
+			this.autoSortGear = autoSortGear;
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -3103,8 +3146,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setAutoSpells(final boolean aBool)
 	{
-		autoKnownSpells = aBool;
-		setDirty(true);
+		if (autoKnownSpells != aBool)
+		{
+			autoKnownSpells = aBool;
+			setDirty(true);
+		}
 	}
 
 	public boolean getAutoSpells()
@@ -3299,11 +3345,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			return false;
 		}
 
-		deityFacet.set(id, aDeity);
-
-		setDirty(true);
-
-		return true;
+		if (deityFacet.set(id, aDeity))
+		{
+			setDirty(true);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -3707,8 +3757,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setLoadCompanion(final boolean aBool)
 	{
-		autoLoadCompanion = aBool;
-		setDirty(true);
+		if (autoLoadCompanion != aBool)
+		{
+			autoLoadCompanion = aBool;
+			setDirty(true);
+		}
 	}
 
 	public boolean getLoadCompanion()
@@ -3855,8 +3908,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			success = raceInputFacet.set(id, newRace);
 		}
 
-		calcActiveBonuses();
-		setDirty(true);
+		if (success)
+		{
+			calcActiveBonuses();
+		}
 		return success;
 	}
 
@@ -3905,8 +3960,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setSkillsOutputOrder(final SkillsOutputOrder i)
 	{
-		skillsOutputOrder = i;
-		setDirty(true);
+		if (skillsOutputOrder != i)
+		{
+			skillsOutputOrder = i;
+			setDirty(true);
+		}
 	}
 
 	/**
@@ -7956,7 +8014,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
 
-		aClone.serial = serial;
 		// Not sure what this is for
 		aClone.displayUpdate = displayUpdate;
 		aClone.setImporting(false);
@@ -7971,13 +8028,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		aClone.spellLevelTemp = spellLevelTemp;
 		aClone.pointBuyPoints = pointBuyPoints;
 
-		aClone.setDirty(true);
 		aClone.adjustMoveRates();
 		//This mod set is necessary to trigger certain calculations to ensure correct output
 		//modSkillPointsBuffer = Integer.MIN_VALUE;
 		aClone.calcActiveBonuses();
 		//Just to be safe
 		aClone.equippedFacet.reset(aClone.id);
+		
+		aClone.serial = serial;
 
 		return aClone;
 	}
@@ -7990,8 +8048,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setStringFor(StringKey key, String s)
 	{
-		factFacet.set(id, key, s);
-		setDirty(true);
+		String currValue = factFacet.get(id, key);
+		if (currValue != null && !currValue.equals(s))
+		{
+			factFacet.set(id, key, s);
+			setDirty(true);
+		}
 	}
 
 	private Float getEquippedQty(EquipSet eSet, Equipment eqI)
@@ -8643,11 +8705,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	// TODO - This method is ridiculously dangerous.
 	public void setFeats(final double arg)
 	{
-		if (allowFeatPoolAdjustment)
+		if (allowFeatPoolAdjustment && numberOfRemainingFeats != arg)
 		{
 			numberOfRemainingFeats = arg;
+			setDirty(true);
 		}
-		setDirty(true);
 	}
 
 	public void setUserPoolBonus(final AbilityCategory aCategory, final BigDecimal anAmount)
@@ -10252,12 +10314,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void removeSkill(Skill sk)
 	{
-		skillFacet.remove(id, sk);
+		if (skillFacet.remove(id, sk))
+		{
+			setDirty(true);
+		}
 	}
 
 	public void removeAllSkills()
 	{
-		skillFacet.removeAll(id);
+		if (skillFacet.removeAll(id).size() > 0)
+		{
+			setDirty(true);
+		}
 	}
 
 	public void refreshSkillList()
@@ -10757,7 +10825,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 					+ newSkillPointsGained - formerGained);
 				setSkillPool(pcClass, pcClass.getSkillPool(this)
 					+ newSkillPointsGained - formerGained);
-				setDirty(true);
 			}
 		}
 	}
@@ -11057,6 +11124,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setSkillPool(PCClass pcc, int skillPool)
 	{
 		skillPoolFacet.set(id, pcc, skillPool);
+		setDirty(true);
 	}
 
 	public void setSkillOrder(Skill skill, int outputindex)

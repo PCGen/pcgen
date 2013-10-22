@@ -39,10 +39,12 @@ public class HandedFacet extends AbstractItemFacet<Handed>
 	 * @param obj
 	 *            The Handed to set on the Player Character represented by the
 	 *            given CharID
+	 * @return
+	 * 			  true if the Handedness was set; false otherwise
 	 */
-	public void setHanded(CharID id, Handed obj)
+	public boolean setHanded(CharID id, Handed obj)
 	{
-		set(id, obj);
+		return set(id, obj);
 	}
 
 	/**

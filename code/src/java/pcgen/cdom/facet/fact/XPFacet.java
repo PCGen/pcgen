@@ -52,10 +52,12 @@ public class XPFacet extends AbstractItemFacet<Integer>
 	 * @param earnedXP
 	 *            The earned Experience Points for the Player Character
 	 *            represented by the given CharID
+	 * @return
+	 * 			  true if the number of earned Experience Points was set; false otherwise
 	 */
-	public void setEarnedXP(CharID id, int earnedXP)
+	public boolean setEarnedXP(CharID id, int earnedXP)
 	{
-		set(id, earnedXP);
+		return set(id, earnedXP);
 	}
 
 	/**
@@ -128,8 +130,10 @@ public class XPFacet extends AbstractItemFacet<Integer>
 	 * @param xp
 	 *            The total Experience Points for the Player Character
 	 *            represented by the given CharID
+	 * @return
+	 * 			  true if the total Experience Points was set; false otherwise
 	 */
-	public void setXP(CharID id, int xp)
+	public boolean setXP(CharID id, int xp)
 	{
 		// Remove the effect of LEVELADJ when storing our
 		// internal notion of experience
@@ -141,7 +145,7 @@ public class XPFacet extends AbstractItemFacet<Integer>
 			realXP = 0;
 		}
 
-		setEarnedXP(id, realXP);
+		return setEarnedXP(id, realXP);
 	}
 
 	/**

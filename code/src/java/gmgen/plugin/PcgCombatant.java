@@ -187,7 +187,6 @@ public class PcgCombatant extends Combatant
 	public void setName(String name)
 	{
 		pc.setName(name);
-		pc.setDirty(true);
 	}
 
 	/**
@@ -219,7 +218,6 @@ public class PcgCombatant extends Combatant
 	public void setPlayer(String player)
 	{
 		pc.setPlayersName(player);
-		pc.setDirty(true);
 	}
 
 	/**
@@ -277,7 +275,6 @@ public class PcgCombatant extends Combatant
 	public void setXP(int experience)
 	{
 		pc.setXP(experience);
-		pc.setDirty(true);
 	}
 
 	/**

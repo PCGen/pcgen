@@ -100,7 +100,6 @@ public class KitStat extends BaseKit
 		aPC.calcActiveBonuses();
 		if (classes != null && classes.size() != 0)
 		{
-			aPC.setDirty(true);
 			for (PCClass pcClass : classes)
 			{
 				aPC.setSkillPool(pcClass, 0);
@@ -121,7 +120,6 @@ public class KitStat extends BaseKit
 						Integer currentPool = aPC.getSkillPool(pcClass);
 						int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
 						aPC.setSkillPool(pcClass, newSkillPool);
-							aPC.setDirty(true);
 					}
 				}
 			}

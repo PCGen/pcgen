@@ -48,13 +48,15 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 * @param obj
 	 *            The Item for this AbstractItemFacet and the Player Character
 	 *            represented by the given CharID.
+	 * @return
+	 * 			  true if the item was set; false otherwise
 	 */
-	public void set(CharID id, T obj)
+	public boolean set(CharID id, T obj)
 	{
 		if (obj == null)
 		{
 			Logging.errorPrint(thisClass + " received null item: ignoring");
-			return;
+			return false;
 		}
 		T old = get(id);
 		if (old != obj)
@@ -65,6 +67,12 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 			}
 			setCache(id, obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+			
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 

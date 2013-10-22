@@ -57,8 +57,10 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 	 *            The BiographyField to set export suppression rules for.
 	 * @param suppress
 	 *            Should the field be hidden from output.
+	 * @return
+	 * 			  true if the field was set; false otherwise
 	 */
-	public void setSuppressField(CharID id, BiographyField field, boolean suppress)
+	public boolean setSuppressField(CharID id, BiographyField field, boolean suppress)
 	{
 		@SuppressWarnings("unchecked")
 		Set<BiographyField> suppressedFields =
@@ -72,11 +74,11 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 
 		if (suppress)
 		{
-			suppressedFields.add(field);
+			return suppressedFields.add(field);
 		}
 		else
 		{
-			suppressedFields.remove(field);
+			return suppressedFields.remove(field);
 		}
 	}
 

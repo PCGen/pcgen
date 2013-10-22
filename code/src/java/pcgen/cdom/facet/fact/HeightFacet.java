@@ -38,10 +38,12 @@ public class HeightFacet extends AbstractItemFacet<Integer>
 	 * @param height
 	 *            The height to set for the Player Character represented by the
 	 *            given CharID
+	 * @return
+	 * 			  true if the height was set; false otherwise
 	 */
-	public void setHeight(CharID id, int height)
+	public boolean setHeight(CharID id, int height)
 	{
-		set(id, height);
+		return set(id, height);
 	}
 
 	/**

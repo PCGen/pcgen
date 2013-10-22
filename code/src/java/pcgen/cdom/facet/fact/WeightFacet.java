@@ -46,10 +46,12 @@ public class WeightFacet extends AbstractItemFacet<Integer>
 	 * @param weight
 	 *            The weight to set for the Player Character represented by the
 	 *            given CharID
+	 * @return
+	 * 			  true if the weight was set; false otherwise
 	 */
-	public void setWeight(CharID id, int weight)
+	public boolean setWeight(CharID id, int weight)
 	{
-		set(id, weight);
+		return set(id, weight);
 	}
 
 	/**

@@ -725,7 +725,6 @@ public class NotesPanel extends FlippingSplitPane
 			add(node);
 
 			pc.addNotesItem(note);
-			pc.setDirty(true);
 		}
 	}
 

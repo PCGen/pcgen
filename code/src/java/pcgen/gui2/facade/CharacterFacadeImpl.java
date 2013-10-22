@@ -2648,9 +2648,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private synchronized PlayerCharacter getExportCharacter()
 	{
 		PlayerCharacter exportPc = lastExportChar;
-		if (exportPc == null
-			|| theCharacter.getSerial() != lastExportCharSerial)
+		if (exportPc == null || theCharacter.getSerial() != lastExportCharSerial)
 		{
+			// Calling preparePCForOutput will mark export character as modified, so compare original character serial when checking for real changes
+			// Get serial at beginning so we can detect if a change occurs during clone and preparePCForOutput
 			lastExportCharSerial = theCharacter.getSerial();
 			exportPc = (PlayerCharacter) theCharacter.clone();
 
@@ -2658,6 +2659,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			exportPc.preparePCForOutput();
 			
 			lastExportChar = exportPc;
+			
+			// It is possible another thread changed PC during export; log for now, the next export will rebuild
+			int countSerialChanges = theCharacter.getSerial() - lastExportCharSerial;
+			if (countSerialChanges > 0)
+				Logging.log(Logging.WARNING, "Player character " + exportPc.getName() + " changed " + countSerialChanges + " times during export.");
 		}
 		return exportPc;
 	}

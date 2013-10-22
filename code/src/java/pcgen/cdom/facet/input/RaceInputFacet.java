@@ -53,9 +53,8 @@ public class RaceInputFacet
 		}
 		else
 		{
-			directSet(id, race, null);
+			return directSet(id, race, null);
 		}
-		return true;
 	}
 
 	private <T> boolean processChoice(CharID id, PlayerCharacter pc, Race race,
@@ -109,9 +108,9 @@ public class RaceInputFacet
 		directSet(id, race, aMan.decodeChoice(choice));
 	}
 
-	private <T> void directSet(CharID id, Race race, T sel)
+	private <T> boolean directSet(CharID id, Race race, T sel)
 	{
-		raceSelectionFacet.set(id, new Selection<Race, T>(race, sel));
+		return raceSelectionFacet.set(id, new Selection<Race, T>(race, sel));
 	}
 
 	public void remove(CharID id)
