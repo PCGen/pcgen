@@ -8049,7 +8049,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setStringFor(StringKey key, String s)
 	{
 		String currValue = factFacet.get(id, key);
-		if (currValue != null && !currValue.equals(s))
+		if ((currValue == null && s != null)
+			|| (currValue != null && !currValue.equals(s)))
 		{
 			factFacet.set(id, key, s);
 			setDirty(true);
