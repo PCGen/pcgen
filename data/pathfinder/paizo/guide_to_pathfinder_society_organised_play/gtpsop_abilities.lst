@@ -6,10 +6,10 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPOP	SOURCEWE
 
 ###Block: Boon from season 4 to freely change faction
 #TODO: maybe auto provide “Ex-Shadow Lodge” ability (used for traits) (should also be pre-req for Pretige Awards??)
-Pawn of the Grandmaster	KEY:Boon ~ Pawn of the Grandmaster (Before 14th August 2013)		CATEGORY:Special Ability		TYPE:Boon.Scenario Boon	VISIBLE:YES		COST:0			DESC:Ex Shadow Lodge member.		SOURCELONG:Rivalry's End	SOURCESHORT:S4-RE	SELECT:1	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1	!PREABILITY:1,CATEGORY=Special Ability,Boon ~ Triumph of the Lantern Lodge
+Pawn of the Grandmaster	KEY:Boon ~ Pawn of the Grandmaster (Before 14th August 2013)		CATEGORY:Special Ability		TYPE:Boon.Scenario Boon	VISIBLE:YES		COST:0			DESC:Ex Shadow Lodge member.		SOURCELONG:Rivalry's End	SOURCESHORT:S4-RE	MULT:YES	SELECT:1	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1	!PREABILITY:1,CATEGORY=Special Ability,Boon ~ Triumph of the Lantern Lodge
 #Pawn of the Grandmaster (After 14th August 2013)	KEY:Boon ~ Pawn of the Grandmaster (After 14th August 2013)		CATEGORY:Special Ability		TYPE:Boon.Scenario Boon	VISIBLE:YES		COST:0			DESC:Stuff		SOURCELONG:Rivalry's End	SOURCESHORT:S4-RE
 # add the fact you cannot befenit from this + pawn of the grandmaster.
-Triumph of the Lantern Lodge	KEY:Boon ~ Triumph of the Lantern Lodge		CATEGORY:Special Ability		TYPE:Boon.Scenario Boon	VISIBLE:YES		COST:0			DESC:Ex Lantern Lodge member. Allow to keep Lantern Lodge specific prestige awards. 		SOURCELONG:Way of the Kirin	SOURCESHORT:PFS-4-21	SELECT:1	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1	!PREABILITY:1,CATEGORY=Special Ability,Boon ~ Pawn of the Grandmaster
+Triumph of the Lantern Lodge	KEY:Boon ~ Triumph of the Lantern Lodge		CATEGORY:Special Ability		TYPE:Boon.Scenario Boon	VISIBLE:YES		COST:0			DESC:Ex Lantern Lodge member. Allow to keep Lantern Lodge specific prestige awards. 		SOURCELONG:Way of the Kirin	SOURCESHORT:PFS-4-21	MULT:YES	SELECT:1	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1	!PREABILITY:1,CATEGORY=Special Ability,Boon ~ Pawn of the Grandmaster
 
 ###Block: Society Factions
 # Ability Name								Unique Key						Product Identity?	Category of Ability		Type						Visible		Required Class			Multiple Requirements																																Description																																																																																			Stackable?	Multiple?	Choose											Automatically Gained Weapon Prof.	Save checks bonus				Bonus to skill																Class Skill				Source Page
