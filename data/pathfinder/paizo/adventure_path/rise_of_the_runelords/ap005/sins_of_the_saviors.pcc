@@ -43,6 +43,7 @@ ABILITY:ap005_abilities_class.lst
 ABILITY:ap005_abilities_race.lst
 CLASS:ap005_classes.lst
 EQUIPMENT:ap005_equip_arms_armor.lst
+EQUIPMENT:ap005_equip_magic_items.lst
 EQUIPMOD:ap005_equipmods.lst
 FEAT:ap005_feats.lst
 KIT:ap005_kits_race.lst
