@@ -262,7 +262,9 @@ import pcgen.util.enumeration.Visibility;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class PlayerCharacter  implements Cloneable, VariableContainer, AssociationStore {
+public class PlayerCharacter  implements Cloneable, VariableContainer, AssociationStore 
+{
+
 	// Constants for use in getBonus
 	private static String lastVariable = null;
 
@@ -545,6 +547,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			insertBonusLanguageAbility();
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString()
+	{
+		return "PlayerCharacter [name=" + getName() + " @ "
+			+ getFileName() + " serial=" + getSerial() + "]";
 	}
 
 	/**

@@ -740,6 +740,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private JLabel trailinglabel = null; 
 		private BiographyField bioField;
 		private CharacterFacade character;
+		private TextFieldHandler textFieldHandler;
+		private FormattedFieldHandler formattedFieldHandler;
 
 		protected BioItem(String text, BiographyField bioField, CharacterFacade character)
 		{
@@ -818,7 +820,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
 			}
 			this.textField = handler.getTextField();
-			handler.install();
+			textFieldHandler = handler;
 		}
 
 		protected void setFormattedFieldHandler(FormattedFieldHandler handler)
@@ -828,7 +830,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
 			}
 			this.textField = handler.getFormattedTextField();
-			handler.install();
+			formattedFieldHandler = handler;
 		}
 
 		protected void setComboBoxModel(CharacterComboBoxModel<?> model)
@@ -881,6 +883,14 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			parent.allButton.addActionListener(this);
 			parent.noneButton.addActionListener(this);
 			checkbox.addItemListener(this);
+			if (textFieldHandler != null)
+			{
+				textFieldHandler.install();
+			}
+			if (formattedFieldHandler != null)
+			{
+				formattedFieldHandler.install();
+			}
 		}
 
 		/**
@@ -892,6 +902,14 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			parent.allButton.removeActionListener(this);
 			parent.noneButton.removeActionListener(this);
 			checkbox.removeItemListener(this);
+			if (textFieldHandler != null)
+			{
+				textFieldHandler.uninstall();
+			}
+			if (formattedFieldHandler != null)
+			{
+				formattedFieldHandler.uninstall();
+			}
 		}
 
 		@Override
