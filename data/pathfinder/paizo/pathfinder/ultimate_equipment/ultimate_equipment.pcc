@@ -58,5 +58,5 @@ WEAPONPROF:ue_profs_weapon.lst
 
 
 # We have some data from other sets which we need to include if they aren't loaded
-EQUIPMENT:../ultimate_combat/pfuc_equip_armor.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+EQUIPMENT:../ultimate_combat/uc_equip_arms_armor.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
