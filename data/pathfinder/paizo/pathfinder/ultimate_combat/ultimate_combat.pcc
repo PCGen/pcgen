@@ -6,7 +6,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -39,7 +39,8 @@ ABILITY:uc_abilities_race.lst
 ABILITYCATEGORY:uc_abilitycategories.lst
 CLASS:uc_classes.lst
 EQUIPMENT:uc_equip_general.lst
-EQUIPMENT:uc_equip_arms_armor.lst
+EQUIPMENT:uc_equip_arms_armor.lst|(EXCLUDE:Do-Maru|Tatami-Do|O-Yoroi|Mountain Pattern Armor)|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:uc_equip_arms_armor.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 EQUIPMENT:uc_equip_magic_items.lst
 EQUIPMOD:uc_equipmods.lst
 FEAT:uc_feats.lst
