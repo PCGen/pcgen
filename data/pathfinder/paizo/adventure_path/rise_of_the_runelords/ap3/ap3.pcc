@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre
-SOURCESHORT:AP003
+SOURCESHORT:AP3
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80e8
 SOURCEDATE:2007-08
 ISOGL:YES
@@ -36,11 +36,11 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 3 - The H
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap003_abilities.lst
-ABILITY:ap003_abilities_race.lst
-ABILITYCATEGORY:ap003_abilitycategories.lst
-EQUIPMENT:ap003_equip_magic_items.lst
-KIT:ap003_kits_race.lst
-RACE:ap003_races.lst
-SKILL:ap003_skills.lst
-TEMPLATE:ap003_templates.lst
+ABILITY:ap3_abilities.lst
+ABILITY:ap3_abilities_race.lst
+ABILITYCATEGORY:ap3_abilitycategories.lst
+EQUIPMENT:ap3_equip_magic_items.lst
+KIT:ap3_kits_race.lst
+RACE:ap3_races.lst
+SKILL:ap3_skills.lst
+TEMPLATE:ap3_templates.lst
