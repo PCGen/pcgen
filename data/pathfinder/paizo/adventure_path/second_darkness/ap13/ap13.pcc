@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky
-SOURCESHORT:AP013
+SOURCESHORT:AP13
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em
 SOURCEDATE:2008-08
 ISOGL:YES
 
-COVER:shadow_in_the_sky.jpg
+COVER:ap13.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,10 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 1: Shadow in th
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap013_abilities_race.lst
-EQUIPMENT:ap013_equip_arms_armor.lst
-KIT:ap013_kits.lst
-KIT:ap013_kits_race.lst
-RACE:ap013_races.lst
-TEMPLATE:ap013_templates.lst
+ABILITY:ap13_abilities_race.lst
+EQUIPMENT:ap13_equip_arms_armor.lst
+KIT:ap13_kits.lst
+KIT:ap13_kits_race.lst
+RACE:ap13_races.lst
+TEMPLATE:ap13_templates.lst
 
