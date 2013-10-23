@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Rise of the Runelords, Chapter 1 - Burnt Offerings
-SOURCESHORT:AP001
+SOURCESHORT:AP1
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy7zkq
 SOURCEDATE:2007-08
 ISOGL:YES
@@ -36,13 +36,13 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 1 - Burnt
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap001_abilities_race.lst
-EQUIPMENT:ap001_equip_arms_armor.lst
-EQUIPMENT:ap001_equip_magic_items.lst
-FEAT:ap001_feats.lst
-KIT:ap001_kits.lst
-KIT:ap001_kits_race.lst
-RACE:ap001_races.lst
-TEMPLATE:ap001_templates.lst
-WEAPONPROF:ap001_profs_weapon.lst
+ABILITY:ap1_abilities_race.lst
+EQUIPMENT:ap1_equip_arms_armor.lst
+EQUIPMENT:ap1_equip_magic_items.lst
+FEAT:ap1_feats.lst
+KIT:ap1_kits.lst
+KIT:ap1_kits_race.lst
+RACE:ap1_races.lst
+TEMPLATE:ap1_templates.lst
+WEAPONPROF:ap1_profs_weapon.lst
 
