@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors
-SOURCESHORT:AP005
+SOURCESHORT:AP5
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o
 SOURCEDATE:2007-10
 ISOGL:YES
 
-COVER:sins_of_the_saviors.jpg
+COVER:ap5.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -38,16 +38,16 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 5 - Sins 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap005_abilities.lst
-ABILITY:ap005_abilities_class.lst
-ABILITY:ap005_abilities_race.lst
-CLASS:ap005_classes.lst
-EQUIPMENT:ap005_equip_arms_armor.lst
-EQUIPMENT:ap005_equip_magic_items.lst
-EQUIPMOD:ap005_equipmods.lst
-FEAT:ap005_feats.lst
-KIT:ap005_kits_race.lst
-RACE:ap005_races.lst
-SPELL:ap005_spells.lst
-TEMPLATE:ap005_templates.lst
+ABILITY:ap5_abilities.lst
+ABILITY:ap5_abilities_class.lst
+ABILITY:ap5_abilities_race.lst
+CLASS:ap5_classes.lst
+EQUIPMENT:ap5_equip_arms_armor.lst
+EQUIPMENT:ap5_equip_magic_items.lst
+EQUIPMOD:ap5_equipmods.lst
+FEAT:ap5_feats.lst
+KIT:ap5_kits_race.lst
+RACE:ap5_races.lst
+SPELL:ap5_spells.lst
+TEMPLATE:ap5_templates.lst
 
