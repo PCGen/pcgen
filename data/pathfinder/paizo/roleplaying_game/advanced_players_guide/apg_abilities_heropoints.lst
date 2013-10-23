@@ -1,0 +1,17 @@
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Internal
+CATEGORY=Internal|Default.MOD		DEFINE:Heroic|0	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|0	BONUS:VAR|Heroic|1|PRECHARACTERTYPE:1,PC	BONUS:VAR|HeroPointsMax|3|PREVAREQ:Heroic,1	ABILITY:Internal|AUTOMATIC|Hero Points|PREVAREQ:Heroic,1
+
+###Block: Ability
+Hero Points	CATEGORY:Internal	TYPE:Internal	VISIBLE:DISPLAY	BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Current Hero Points
+
+Antihero	CATEGORY:Special Ability	TYPE:SpecialQuality.HeroPoints	DESC:You have elected to rely only on your skills and abilities. You do not receive hero points, regardless of the source, and can never benefit from their use. In exchange, you receive a bonus feat at 1st level.	BONUS:ABILITYPOOL|Antihero Feat|1	PRECHARACTERTYPE:1,PC	BONUS:VAR|Heroic|-1	SOURCEPAGE:p.324	COST:0
+
+#
+# End
+#
+
+

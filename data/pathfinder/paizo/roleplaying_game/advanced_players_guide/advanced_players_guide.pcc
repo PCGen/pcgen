@@ -72,3 +72,8 @@ HIDETYPE:FEAT|DruidShamanBear|DruidShamanEagle|DruidShamanLion|DruidShamanSerpen
 HIDETYPE:FEAT|MartialWeaponProficiency|MountedMastery|OracleWeaponmastery
 HIDETYPE:FEAT|Trait|BasicTrait|RevelationTargetOneOnly
 
+# Hero Points System
+ABILITY:apg_abilities_heropoints.lst|PRERULE:1,HEROPOINTS
+ABILITYCATEGORY:apg_abilitycategories_heropoints.lst|PRERULE:1,HEROPOINTS
+FEAT:apg_feats_heropoints.lst|PRERULE:1,HEROPOINTS
+SPELL:apg_spells_heropoints.lst|PRERULE:1,HEROPOINTS
