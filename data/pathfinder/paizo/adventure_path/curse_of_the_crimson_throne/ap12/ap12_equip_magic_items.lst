@@ -1,4 +1,4 @@
-SOURCELONG:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs	SOURCESHORT:AP012	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el	SOURCEDATE:2008-08
+SOURCELONG:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs	SOURCESHORT:AP12	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el	SOURCEDATE:2008-08
 
 # Equipment Name			Type				Cost		Weight	Requires Modification?	Source Page		Spell Res.	Innate Spells																																		Save checks bonus				Combat bonus				Stat bonus						Special Property
 Ring of Splendid Security	TYPE:Magic.Ring		COST:180000	WT:0						SOURCEPAGE:p. 60	SR:22																																						BONUS:CHECKS|ALL|5|TYPE=Resistance	BONUS:COMBAT|AC|5|TYPE=Deflection

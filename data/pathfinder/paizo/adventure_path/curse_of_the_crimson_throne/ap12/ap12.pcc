@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs
-SOURCESHORT:AP012
+SOURCESHORT:AP12
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy84el
 SOURCEDATE:2008-08
 ISOGL:YES
@@ -36,10 +36,10 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 6: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap012_abilities_race.lst
-EQUIPMENT:ap012_equip_arms_armor.lst
-EQUIPMENT:ap012_equip_magic_items.lst
-FEAT:ap012_feats.lst
-KIT:ap012_kits_race.lst
-RACE:ap012_races.lst
+ABILITY:ap12_abilities_race.lst
+EQUIPMENT:ap12_equip_arms_armor.lst
+EQUIPMENT:ap12_equip_magic_items.lst
+FEAT:ap12_feats.lst
+KIT:ap12_kits_race.lst
+RACE:ap12_races.lst
 
