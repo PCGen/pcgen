@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes
-SOURCESHORT:AP010
+SOURCESHORT:AP10
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9
 SOURCEDATE:2008-07
 ISOGL:YES
@@ -35,14 +35,14 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 4: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap010_abilities.lst
-ABILITYCATEGORY:ap010_abilitycategories.lst
-EQUIPMENT:ap010_equip_arms_armor.lst
-EQUIPMENT:ap010_equip_general.lst
-EQUIPMENT:ap010_equip_magic_items.lst
-EQUIPMOD:ap010_equipmods.lst
-FEAT:ap010_feats.lst
-RACE:ap010_races.lst
-TEMPLATE:ap010_templates.lst
-WEAPONPROF:ap010_profs_weapon.lst
+ABILITY:ap10_abilities.lst
+ABILITYCATEGORY:ap10_abilitycategories.lst
+EQUIPMENT:ap10_equip_arms_armor.lst
+EQUIPMENT:ap10_equip_general.lst
+EQUIPMENT:ap10_equip_magic_items.lst
+EQUIPMOD:ap10_equipmods.lst
+FEAT:ap10_feats.lst
+RACE:ap10_races.lst
+TEMPLATE:ap10_templates.lst
+WEAPONPROF:ap10_profs_weapon.lst
 
