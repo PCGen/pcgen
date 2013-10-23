@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall
-SOURCESHORT:AP011
+SOURCESHORT:AP11
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw
 SOURCEDATE:2008-08
 ISOGL:YES
@@ -38,12 +38,12 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 5: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap011_abilities.lst
-CLASS:ap011_classes_race.lst
-EQUIPMENT:ap011_equip_arms_armor.lst
-EQUIPMENT:ap011_equip_magic_items.lst
-KIT:ap011_kits.lst
-RACE:ap011_races.lst
+ABILITY:ap11_abilities.lst
+CLASS:ap11_classes_race.lst
+EQUIPMENT:ap11_equip_arms_armor.lst
+EQUIPMENT:ap11_equip_magic_items.lst
+KIT:ap11_kits.lst
+RACE:ap11_races.lst
 
 # Prevent unconstructed reference errors
 FORWARDREF:EQMOD|BANE_M
