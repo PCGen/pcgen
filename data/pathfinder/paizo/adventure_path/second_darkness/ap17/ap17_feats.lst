@@ -1,4 +1,4 @@
-SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness		SOURCESHORT:AP017		SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6
+SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness		SOURCESHORT:AP17		SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6
 
 #Imported from rSRD 3.5 Epic Feats File
 Spell Stowaway			TYPE:Epic		PRECLASS:1,Spellcaster=12		PRELEVEL:MIN=21	PRESKILL:1,Spellcraft=24			DESC:If another spellcaster within 300 feet of you uses the ability you selected, you also immediately gains the magic's effect.				STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate|SPELLTYPE=Arcane[KNOWN=YES]|SPELLTYPE=Divine[KNOWN=YES]			SOURCEPAGE:EpicFeats.rtf

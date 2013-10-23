@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness
-SOURCESHORT:AP017
+SOURCESHORT:AP17
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6
 SOURCEDATE:2008-12
 ISOGL:YES
 
-COVER:a_memory_of_darkness.jpg
+COVER:ap17.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -35,10 +35,10 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 5: A Memory of 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap017_abilities_race.lst
-EQUIPMENT:ap017_equip_arms_armor.lst
-EQUIPMENT:ap017_equip_magic_items.lst
-FEAT:ap017_feats.lst
-KIT:ap017_kits_race.lst
-RACE:ap017_races.lst
-SPELL:ap017_spells.lst
+ABILITY:ap17_abilities_race.lst
+EQUIPMENT:ap17_equip_arms_armor.lst
+EQUIPMENT:ap17_equip_magic_items.lst
+FEAT:ap17_feats.lst
+KIT:ap17_kits_race.lst
+RACE:ap17_races.lst
+SPELL:ap17_spells.lst
