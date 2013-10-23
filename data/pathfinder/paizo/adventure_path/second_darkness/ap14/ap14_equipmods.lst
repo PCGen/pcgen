@@ -1,4 +1,4 @@
-SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:COTV	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
 # Modifier Name	Unique Key			Type												Cost		Visible		Type granted				Keys to replace		Source Page		Required Type		Bonus Equipment Modifiers				Bonus Armor Modifiers														Modify the item cost													Weapon prop. bonus				Special Property													Change Armor Type		Apply to both heads
 Noqual		KEY:NOQUAL_ARMR_LT	TYPE:BaseMaterial.MasterworkQuality.Armor						COST:4000	VISIBLE:QUALIFY	ITYPE:Metal.Mithral.Masterwork	REPLACES:MWORKA		SOURCEPAGE:p. 19	PRETYPE:2,Light,Metal	BONUS:EQM|WEIGHTDIV|2|TYPE=Enhancement.REPLACE	BONUS:EQMARMOR|ACCHECK|3|TYPE=Enhancement	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|20	BONUS:ITEMCOST|TYPE.Armor|5000|PRETYPE:1,Magic																SPROP:+2 resistance bonus on all saving throws against spells and spell-like abilities					ASSIGNTOALL:NO

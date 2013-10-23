@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Second Darkness, Chapter 2 - Children of the Void
-SOURCESHORT:AP014
+SOURCESHORT:AP14
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed
 SOURCEDATE:2008-10
 ISOGL:YES
 
-COVER:children_of_the_void.jpg
+COVER:ap14.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -35,15 +35,15 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 2: Children of 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap014_abilities_class.lst
-ABILITY:ap014_abilities_race.lst
-CLASS:ap014_classes.lst
-EQUIPMENT:ap014_equip_arms_armor.lst
-EQUIPMENT:ap014_equip_general.lst
-EQUIPMOD:ap014_equipmods.lst
-KIT:ap014_kits_race.lst
-LANGUAGE:ap014_languages.lst
-RACE:ap014_races.lst
-SPELL:ap014_spells.lst
+ABILITY:ap14_abilities_class.lst
+ABILITY:ap14_abilities_race.lst
+CLASS:ap14_classes.lst
+EQUIPMENT:ap14_equip_arms_armor.lst
+EQUIPMENT:ap14_equip_general.lst
+EQUIPMOD:ap14_equipmods.lst
+KIT:ap14_kits_race.lst
+LANGUAGE:ap14_languages.lst
+RACE:ap14_races.lst
+SPELL:ap14_spells.lst
 
 

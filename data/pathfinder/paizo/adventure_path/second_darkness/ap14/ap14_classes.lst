@@ -1,4 +1,4 @@
-SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:COTV	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
+SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Chevalier	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Chev		MAXLEVEL:3	SOURCEPAGE:p. 62	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
