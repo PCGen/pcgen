@@ -50,9 +50,9 @@ TEMPLATE:dep_templates.lst
 WEAPONPROF:dep_profs_weapon.lst
 
 # Out Of Set Equipment
-EQUIPMENT:*/pathfinder/paizo/pathfinder/ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Butterfly Sword,Fighting Fan,Iron Brush)
-WEAPONPROF:*/pathfinder/paizo/pathfinder/ultimate_combat/uc_profs_weapon.lst
-SPELL:*/pathfinder/paizo/pathfinder/ultimate_magic/um_spells.lst|(INCLUDE:Haunting Mists,Masterwork Transformation,Share Memory,Tapestry's Embrace,Orb of the Void)
+EQUIPMENT:*/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Butterfly Sword,Fighting Fan,Iron Brush)
+WEAPONPROF:*/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_profs_weapon.lst
+SPELL:*/pathfinder/paizo/roleplaying_game/ultimate_magic/um_spells.lst|(INCLUDE:Haunting Mists,Masterwork Transformation,Share Memory,Tapestry's Embrace,Orb of the Void)
 
 # Forward References
 FORWARDREF:CLASSSPELLLIST|Magus

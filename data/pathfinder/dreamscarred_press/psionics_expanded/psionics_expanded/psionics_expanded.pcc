@@ -69,12 +69,12 @@ COPYRIGHT:PCGen dataset conversion for "Psionics Expanded", Copyright 2013, PCGe
 #FORWARDREF:ABILITY=Soulknife Advanced Talent|Confounding Blades ~ Advanced Rogue Talent
 
 # COMMENT: Load just parts of APG that I want.
-#FEAT:@/pathfinder/paizo/pathfinder/advanced_players_guide/pfapg_feats.lst|(INCLUDE:Crossbow Mastery|Disrupting Shot|Parting Shot|Fight On)
-#ABILITY:@/pathfinder/paizo/pathfinder/advanced_players_guide/pfapg_abilities_archetypes.lst|(INCLUDE:CATEGORY=Special Ability,Sniper's Eye ~ Rogue Talent,Befuddling Strike ~ Rogue Talent,Stealthy Sniper ~ Rogue Talent)
+#FEAT:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/pfapg_feats.lst|(INCLUDE:Crossbow Mastery|Disrupting Shot|Parting Shot|Fight On)
+#ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/pfapg_abilities_archetypes.lst|(INCLUDE:CATEGORY=Special Ability,Sniper's Eye ~ Rogue Talent,Befuddling Strike ~ Rogue Talent,Stealthy Sniper ~ Rogue Talent)
 
 # COMMENT: The following two lines introduce far more error messages than they eliminate.
-#ABILITY:@/pathfinder/paizo/pathfinder/advanced_players_guide/pfapg_abilities_traits.lst|(INCLUDE:CATEGORY=Special Ability,Adopted ~ Trait)
-#ABILITY:@/pathfinder/paizo/pathfinder/ultimate_combat/pfuc_abilities_archetypes.lst|(INCLUDE:CATEGORY=Special Ability,Confounding Blades ~ Advanced Rogue Talent)
+#ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/pfapg_abilities_traits.lst|(INCLUDE:CATEGORY=Special Ability,Adopted ~ Trait)
+#ABILITY:@/pathfinder/paizo/roleplaying_game/ultimate_combat/pfuc_abilities_archetypes.lst|(INCLUDE:CATEGORY=Special Ability,Confounding Blades ~ Advanced Rogue Talent)
 
 ABILITYCATEGORY:psionics_expanded_ability_categories.lst
 ABILITY:psionics_expanded_abilities_class_base.lst

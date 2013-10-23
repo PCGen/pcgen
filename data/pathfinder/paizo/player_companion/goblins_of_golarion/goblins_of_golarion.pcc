@@ -45,5 +45,5 @@ SPELL:goog_spells.lst
 
 
 # Include from Ultimate Combat
-EQUIPMOD:@/pathfinder/paizo/pathfinder/ultimate_combat/uc_equipmods.lst|(INCLUDE:FRAGILE)
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:FRAGILE)
 

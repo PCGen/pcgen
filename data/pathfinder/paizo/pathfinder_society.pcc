@@ -36,20 +36,20 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 #EXTRAFILE:OGL.txt
 
 # PFS Core Assumption
-PCC:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.pcc
-PCC:@/pathfinder/paizo/pathfinder/bestiary/bestiary.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
 PCC:@/pathfinder/paizo/organized_play/guide_to_pathfinder_society_organized_play/guide_to_pathfinder_society_organized_play.pcc
 #PFS field guide
 
 
 # PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
-PCC:@/pathfinder/paizo/pathfinder/advanced_players_guide/advanced_players_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder/advanced_race_guide/advanced_race_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder/bestiary_2/bestiary_2.pcc
-PCC:@/pathfinder/paizo/pathfinder/bestiary_3/bestiary_3.pcc
-PCC:@/pathfinder/paizo/pathfinder/ultimate_combat/ultimate_combat.pcc
-PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc
-PCC:@/pathfinder/paizo/pathfinder/ultimate_equipment/ultimate_equipment.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
 #Pathfinder Roleplaying Game: NPC Codex
 
 
@@ -132,5 +132,5 @@ PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost
 #Pathfinder Player Companion: Varisia, Birthplace of Legends
 
 # Other Pathfinder RPG sources in PCGen which aren't allowed for PFS
-#PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
+#PCC:@/pathfinder/paizo/roleplaying_game/bonus_bestiary/bonus_bestiary.pcc
 #PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
