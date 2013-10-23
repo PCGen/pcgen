@@ -38,10 +38,7 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 5: A Memory of 
 ABILITY:ap017_abilities_race.lst
 EQUIPMENT:ap017_equip_arms_armor.lst
 EQUIPMENT:ap017_equip_magic_items.lst
+FEAT:ap017_feats.lst
 KIT:ap017_kits_race.lst
 RACE:ap017_races.lst
 SPELL:ap017_spells.lst
-
-
-# Imported 35e game mode files
-FEAT:@/35e/wizards_of_the_coast/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Spell Stowaway)
