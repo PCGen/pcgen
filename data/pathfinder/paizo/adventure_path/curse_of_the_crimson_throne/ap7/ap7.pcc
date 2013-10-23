@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy
-SOURCESHORT:AP007
+SOURCESHORT:AP7
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw
 SOURCEDATE:2008-03
 ISOGL:YES
@@ -35,9 +35,9 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 1: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap007_abilities.lst
-KIT:ap007_kits.lst
-KIT:ap007_kits_race.lst
-RACE:ap007_races.lst
-TEMPLATE:ap007_templates.lst
+ABILITY:ap7_abilities.lst
+KIT:ap7_kits.lst
+KIT:ap7_kits_race.lst
+RACE:ap7_races.lst
+TEMPLATE:ap7_templates.lst
 
