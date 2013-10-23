@@ -11,13 +11,13 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny
-SOURCESHORT:AP055
+SOURCESHORT:AP55
 SOURCEWEB:http://paizo.com/products/btpy8rcc
 #Blog post about familiars in module adding new familiars to the module - http://paizo.com/paizo/blog/v5748dyo5ldc5?Pirate-Familiars
 SOURCEDATE:2012-04
 ISOGL:YES
 
-COVER:the_wormwood_mutiny.jpeg
+COVER:ap55.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,8 +34,8 @@ COPYRIGHT:PCGen dataset conversion for "Paizo - Blog: Pirate Familiars" Copyrigh
 #EXTRAFILE:OGL.txt
 
 
-COMPANIONMOD:ap055_companionmods.lst
-RACE:ap055_races_companions.lst
-KIT:ap055_kits_companions.lst
-ABILITY:ap055_abilities_class.lst
+COMPANIONMOD:ap55_companionmods.lst
+RACE:ap55_races_companions.lst
+KIT:ap55_kits_companions.lst
+ABILITY:ap55_abilities_class.lst
 
