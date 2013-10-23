@@ -1,4 +1,4 @@
-SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants	SOURCESHORT:AP004	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm	SOURCEDATE:2007-09
+SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants	SOURCESHORT:AP4	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm	SOURCEDATE:2007-09
 
 
 STARTPACK:Deathweb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathweb]	SOURCEPAGE:p.79

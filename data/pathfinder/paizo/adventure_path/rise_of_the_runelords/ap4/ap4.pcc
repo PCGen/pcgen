@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants
-SOURCESHORT:AP004
+SOURCESHORT:AP4
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm
 SOURCEDATE:2007-09
 ISOGL:YES
@@ -36,10 +36,10 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 4 - Fortr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap004_abilities_race.lst
-EQUIPMENT:ap004_equip_arms_armor.lst
-EQUIPMENT:ap004_equip_magic_items.lst
-FEAT:ap004_feats.lst
-KIT:ap004_kits_race.lst
-RACE:ap004_races.lst
-TEMPLATE:ap004_templates.lst
+ABILITY:ap4_abilities_race.lst
+EQUIPMENT:ap4_equip_arms_armor.lst
+EQUIPMENT:ap4_equip_magic_items.lst
+FEAT:ap4_feats.lst
+KIT:ap4_kits_race.lst
+RACE:ap4_races.lst
+TEMPLATE:ap4_templates.lst
