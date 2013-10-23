@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa
-SOURCESHORT:AP009
+SOURCESHORT:AP9
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5
 SOURCEDATE:2008-05
 ISOGL:YES
@@ -37,16 +37,16 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 3: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap009_abilities_class.lst
-ABILITY:ap009_abilities_race.lst
-CLASS:ap009_classes.lst
-DEITY:ap009_deities.lst
-EQUIPMENT:ap009_equip_arms_armor.lst
-EQUIPMENT:ap009_equip_magic_items.lst
-KIT:ap009_kits.lst
-LANGUAGE:ap009_languages.lst
-RACE:ap009_races.lst
-SPELL:ap009_spells.lst
+ABILITY:ap9_abilities_class.lst
+ABILITY:ap9_abilities_race.lst
+CLASS:ap9_classes.lst
+DEITY:ap9_deities.lst
+EQUIPMENT:ap9_equip_arms_armor.lst
+EQUIPMENT:ap9_equip_magic_items.lst
+KIT:ap9_kits.lst
+LANGUAGE:ap9_languages.lst
+RACE:ap9_races.lst
+SPELL:ap9_spells.lst
 
-WEAPONPROF:ap009_profs_weapon.lst
+WEAPONPROF:ap9_profs_weapon.lst
 
