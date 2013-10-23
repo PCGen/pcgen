@@ -1,4 +1,4 @@
-SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders	SOURCESHORT:AP002	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
+SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders	SOURCESHORT:AP2	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
 STARTPACK:Carrionstorm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Carrionstorm]	SOURCEPAGE:p.83

@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders
-SOURCESHORT:AP002
+SOURCESHORT:AP2
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029
 SOURCEDATE:2007-10
 ISOGL:YES
@@ -37,16 +37,16 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 2 - The S
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap002_abilities_class.lst
-ABILITY:ap002_abilities_race.lst
-CLASS:ap002_classes.lst
-CLASS:ap002_classes_race.lst
-COMPANIONMOD:ap002_companionmods.lst
-DEITY:ap002_deities.lst
-EQUIPMENT:ap002_equip_magic_items.lst
-FEAT:ap002_feats.lst
-KIT:ap002_kits_race.lst
-RACE:ap002_races.lst
-SPELL:ap002_spells.lst
-TEMPLATE:ap002_templates.lst
+ABILITY:ap2_abilities_class.lst
+ABILITY:ap2_abilities_race.lst
+CLASS:ap2_classes.lst
+CLASS:ap2_classes_race.lst
+COMPANIONMOD:ap2_companionmods.lst
+DEITY:ap2_deities.lst
+EQUIPMENT:ap2_equip_magic_items.lst
+FEAT:ap2_feats.lst
+KIT:ap2_kits_race.lst
+RACE:ap2_races.lst
+SPELL:ap2_spells.lst
+TEMPLATE:ap2_templates.lst
 
