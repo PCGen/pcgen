@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast
-SOURCESHORT:AP006
+SOURCESHORT:AP6
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c
 SOURCEDATE:2007-10
 ISOGL:YES
 
-COVER:spires_of_xin-shalast.jpg
+COVER:ap6.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,10 +36,10 @@ COPYRIGHT:PCGen dataset conversion for "Rise of the Runelords, Chapter 6: Spires
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap006_abilities_race.lst
-EQUIPMENT:ap006_equip_arms_armor.lst
-EQUIPMENT:ap006_equip_magic_items.lst
-FEAT:ap006_feats.lst
-KIT:ap006_kits_race.lst
-RACE:ap006_races.lst
-TEMPLATE:ap006_templates.lst
+ABILITY:ap6_abilities_race.lst
+EQUIPMENT:ap6_equip_arms_armor.lst
+EQUIPMENT:ap6_equip_magic_items.lst
+FEAT:ap6_feats.lst
+KIT:ap6_kits_race.lst
+RACE:ap6_races.lst
+TEMPLATE:ap6_templates.lst
