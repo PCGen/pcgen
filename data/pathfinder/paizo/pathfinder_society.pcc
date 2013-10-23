@@ -48,35 +48,34 @@ PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
 #Pathfinder Roleplaying Game: NPC Codex
 
 
 # Pathfinder Adventure Paths
+PCC:@/pathfinder/paizo/adventure_path/carrion_crown/players_guide/carrion_crown_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/council_of_thieves/players_guide/council_of_thieves_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/jade_regent/players_guide/jade_regent_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kingmaker_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/legacy_of_fire_players_guide.pcc
 PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rise_of_the_runelords_players_guide.pcc
 PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide_ae/rise_of_the_runelords_players_guide_ae.pcc
-PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/legacy_of_fire_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/council_of_thieves/players_guide/council_of_thieves_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kingmaker_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/serpents_skull/players_guide/serpents_skull_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/carrion_crown/players_guide/carrion_crown_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/jade_regent/players_guide/jade_regent_players_guide.pcc
 PCC:@/pathfinder/paizo/adventure_path/second_darkness/players_guide/second_darkness_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/serpents_skull/players_guide/serpents_skull_players_guide.pcc
 PCC:@/pathfinder/paizo/adventure_path/skull_and_shackles/players_guide/skull_and_shackles_players_guide.pcc
 #PCC:@/pathfinder/paizo/adventure_path/shattered_star/players_guide/shattered_star_players_guide.pcc
-#Reign of Winter
+#PCC:@/pathfinder/paizo/adventure_path/reign_of_winter/reign_of_winter.pcc
 
 
 # Pathfinder Campaign Settings
+PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
 PCC:@/pathfinder/paizo/campaign_setting/dark_markets_a_guide_to_katapesh/dark_markets_a_guide_to_katapesh.pcc
 PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
 PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
 PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
 PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
-PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
-PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets_a_guide_to_the_pathfinder_society/seekers_of_secrets_a_guide_to_the_pathfinder_society.pcc
 #Pathfinder Campaign Setting: Cities of Golarion
 #Pathfinder Campaign Setting: City of Strangers
 #Pathfinder Campaign Setting: Classic Horrors Revisited
@@ -102,11 +101,15 @@ PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets_a_guide_to_the_pathfi
 
 
 # Pathfinder Player Companions
+PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.pcc
 PCC:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
 PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
 PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_corruption/faiths_of_corruption.pcc
 PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
 PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.pcc
 PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
 PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.pcc
 PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
@@ -117,13 +120,9 @@ PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost
 #Pathfinder Player Companion: Andoran, Spirit of Liberty
 #Pathfinder Player Companion: Animal Archive
 #Pathfinder Player Companion: Blood of Angels
-#Pathfinder Player Companion: Blood of Fiends
 #Pathfinder Player Companion: Blood of the Night
 #Pathfinder Player Companion: Dungeoneer's Handbook
 #Pathfinder Player Companion: Elves of Golarion
-#Pathfinder Player Companion: Faiths of Balance
-#Pathfinder Player Companion: Faiths of Corruption
-#Pathfinder Player Companion: Goblins of Golarion
 #Pathfinder Player Companion: Humans of Golarion
 #Pathfinder Player Companion: Knights of the Inner Sea
 #Pathfinder Player Companion: Osirion, Land of Pharaohs
@@ -134,3 +133,4 @@ PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost
 # Other Pathfinder RPG sources in PCGen which aren't allowed for PFS
 #PCC:@/pathfinder/paizo/roleplaying_game/bonus_bestiary/bonus_bestiary.pcc
 #PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
+#PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets_a_guide_to_the_pathfinder_society/seekers_of_secrets_a_guide_to_the_pathfinder_society.pcc
