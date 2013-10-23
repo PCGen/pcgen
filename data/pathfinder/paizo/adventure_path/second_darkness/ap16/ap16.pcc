@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Second Darkness, Chapter 4 - Endless Night
-SOURCESHORT:AP016
+SOURCESHORT:AP16
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er
 SOURCEDATE:2008-11
 ISOGL:YES
 
-COVER:endless_night.jpg
+COVER:ap16.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -37,11 +37,11 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 4: Endless Nigh
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap016_abilities_race.lst
-EQUIPMENT:ap016_equip_general.lst
-EQUIPMENT:ap016_equip_magic_items.lst
-FEAT:ap016_feats.lst
-KIT:ap016_kits_race.lst
-RACE:ap016_races.lst
-SPELL:ap016_spells.lst
+ABILITY:ap16_abilities_race.lst
+EQUIPMENT:ap16_equip_general.lst
+EQUIPMENT:ap16_equip_magic_items.lst
+FEAT:ap16_feats.lst
+KIT:ap16_kits_race.lst
+RACE:ap16_races.lst
+SPELL:ap16_spells.lst
 
