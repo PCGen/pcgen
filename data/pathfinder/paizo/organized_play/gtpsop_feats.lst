@@ -19,10 +19,5 @@ Scribe Scroll.MOD								PRECLASS:1,NPC=1,Monster=1
 # TODO: move to additional resources file if not from core
 Cooperative Crafting.MOD						PRECLASS:1,NPC=1,Monster=1
 
-# The optional hero points rule is not used either
-# TODO: move to additional resources file
-Blood of Heroes.MOD							PRECLASS:1,NPC=1,Monster=1
-Hero's Fortune.MOD							PRECLASS:1,NPC=1,Monster=1
-Luck of Heroes.MOD							PRECLASS:1,NPC=1,Monster=1
 
 #

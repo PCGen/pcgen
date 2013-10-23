@@ -45,3 +45,6 @@ SKILL:gtpsop_skills.lst
 SPELL:gtpsop_spells.lst
 EQUIPMENT:gtpsop_equip_magic_items.lst
 
+# Optional Rules
+FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
+SPELL:gtpsop_spells_heropoints.lst|PRERULE:1,HEROPOINTS
