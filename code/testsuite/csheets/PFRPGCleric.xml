@@ -39,12 +39,12 @@ BIO
 			<name>Sarenrae</name>
 			<alignment>NG</alignment>
 			<description>Goddess of the sun, redemption, honesty, healing</description>
-			<domainlist>Fire, Glory, Good, Healing, Sun</domainlist>
+			<domainlist>Agathion Subdomain, Day Subdomain, Fire, Glory, Good, Healing, Heroism Subdomain, Light Subdomain, Restoration Subdomain, Resurrection Subdomain, Sun</domainlist>
 			<favoredweapon>Scimitar</favoredweapon>
 <!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Publishing, LLC - Core Rulebook, p.45</source>
+			<source>Paizo Publishing, LLC - Core Rulebook, p.91</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -2063,7 +2063,7 @@ BIO
 		<feat>
 			<name>Persuasive</name>
 			<description>You get a +2 bonus on Diplomacy and Intimidate skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.</description>
-			<type>GENERAL</type>
+			<type>GENERAL.DREAMSPUNBLOODLINE.SERPENTINEBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2083,7 +2083,7 @@ BIO
 		<feat>
 			<name>Spell Focus (Enchantment)</name>
 			<description>Add +1 to the Difficulty Class for all saving throws against spells from the school of magic you select.</description>
-			<type>GENERAL.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
+			<type>GENERAL.ARCANEBLOODLINE.UNDEADBLOODLINE.PROTEANBLOODLINE</type>
 			<associated>Enchantment</associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -2286,7 +2286,7 @@ BIO
 		<ability_object>
 			<name>No Traits</name>
 			<description>You do not have any character traits.</description>
-			<type>TRAIT.BASICTRAIT.COMBATTRAIT.FAITHTRAIT.MAGICTRAIT.SOCIALTRAIT</type>
+			<type>TRAIT.BASICTRAIT.COMBATTRAIT.FAITHTRAIT.MAGICTRAIT.SOCIALTRAIT.CAMPAIGNTRAIT.RACETRAIT.REGIONALTRAIT.RELIGIONTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2309,7 +2309,7 @@ BIO
 		<ability_object>
 			<name>Domains</name>
 			<description></description>
-			<type>CLERICCLASSABILITY.INTERNAL.CLASSABILITY</type>
+			<type>CLERICCLASSABILITY.INTERNAL.CLASSABILITY.INQUISITORCLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2481,7 +2481,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Stake, Unarmed Strike</weapon_proficiencies>
 	<languages>Celestial, Common</languages>
 
 	<templates>
@@ -2541,7 +2541,7 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Clr0, Inq0, Sor0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2570,7 +2570,7 @@ BIO
 							<fullschool>Conjuration (Creation) [Water]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp1, Clr0, Drd0, Pld1</sourcelevel>
+							<sourcelevel>Adp1, Clr0, Drd0, Inq0, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.262</source>
 							<sourcepage>p.262</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2599,7 +2599,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Brd0, Clr0, Drd0, Inq0, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2628,7 +2628,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Apl1, Clr0, Drd0, Inq0, Pld1, Rgr1, Sor0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.268</source>
 							<sourcepage>p.268</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2657,7 +2657,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr0, Drd0</sourcelevel>
+							<sourcelevel>Clr0, Drd0, Inq0, Sum0, Wit0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.292</source>
 							<sourcepage>p.292</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2686,7 +2686,7 @@ BIO
 							<fullschool>Evocation [Light]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Brd0, Clr0, Drd0, Inq0, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.304</source>
 							<sourcepage>p.304</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2715,7 +2715,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.312</source>
 							<sourcepage>p.312</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2773,7 +2773,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Apl1, Brd0, Clr0, Drd0, Inq0, Pld1, Rgr1, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.330</source>
 							<sourcepage>p.330</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2802,13 +2802,42 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Brd0, Clr0, Drd0, Inq0, Pld1, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Spark</name>
+						<outputname>Spark</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V or S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>14</dc>
+						<duration>Instantaneous</duration>
+						<effect>Ignites flammable objects.</effect>
+						<target>one Fine object</target>
+						<saveinfo>Fortitude negates (object)</saveinfo>
+						<school>
+							<school>Evocation, FireSchool</school>
+							<subschool></subschool>
+							<descriptor>Fire</descriptor>
+							<fullschool>Evocation, FireSchool [Fire]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wit0, Wiz0</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.246</source>
+							<sourcepage>p.246</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>Yes (object)</spell_resistance>
+						<description>Ignites flammable objects.</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
@@ -2831,7 +2860,7 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr0, Drd0</sourcelevel>
+							<sourcelevel>Clr0, Drd0, Inq0, Wit0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.348</source>
 							<sourcepage>p.348</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2860,7 +2889,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr0, Drd0, Pld1</sourcelevel>
+							<sourcelevel>Clr0, Drd0, Inq0, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.365</source>
 							<sourcepage>p.365</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2871,6 +2900,35 @@ BIO
 					</spell>
 			</level>
 			<level number="1" known="0" cast="3+1">
+				<spell>
+						<name>Ant Haul</name>
+						<outputname>Ant Haul</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF (a small pulley)</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>15</dc>
+						<duration>6 hours</duration>
+						<effect>Triples carrying capacity of a creature.</effect>
+						<target>creature touched</target>
+						<saveinfo>Fortitude negates (harmless)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Alc1, Clr1, Drd1, Rgr1, Sor1, Sum1, Wiz1</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.202</source>
+							<sourcepage>p.202</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Triples carrying capacity of a creature.</description>
+						<bonusspell></bonusspell>
+					</spell>
 				<spell>
 						<name>Bane</name>
 						<outputname>Bane</outputname>
@@ -2891,7 +2949,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Fear, Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Apl1, Clr1, Curse Subdomain1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.246</source>
 							<sourcepage>p.246</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2920,7 +2978,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Community1, Pld1</sourcelevel>
+							<sourcelevel>Clr1, Community1, Family Subdomain1, Inq1, Leadership Subdomain1, Pld1, Resolve Subdomain1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2949,7 +3007,7 @@ BIO
 							<fullschool>Transmutation [Good]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Pld1</sourcelevel>
+							<sourcelevel>Clr1, Divine Subdomain2, Inq1, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -2978,7 +3036,7 @@ BIO
 							<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Apl1, Brd1, Clr1, Daemon Subdomain1, Death1, Inq1, Murder Subdomain1, Sor1, Undead Subdomain1, Wit1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3007,7 +3065,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Apl1, Clr1, Devil Subdomain (Evil)1, Devil Subdomain (Law)1, Inq1, Inq5, Toil Subdomain1, Wit1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.256</source>
 							<sourcepage>p.256</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3036,7 +3094,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Knowledge1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Alc1, Brd1, Clr1, Inq1, Knowledge1, Language Subdomain1, Memory Subdomain1, Sor1, Thought Subdomain1, Wit1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3065,13 +3123,42 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Drd1, Healing1, Pld1, Rgr2</sourcelevel>
+							<sourcelevel>Alc1, Brd1, Clr1, Drd1, Healing1, Inq1, Pld1, Restoration Subdomain1, Resurrection Subdomain1, Rgr2, Wit1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless); see text</spell_resistance>
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Dancing Lantern</name>
+						<outputname>Dancing Lantern</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, F (a lantern)</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 hours [D]</duration>
+						<effect>Animates a lantern that follows you.</effect>
+						<target>Animates one lantern</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Transmutation, FireSchool</school>
+							<subschool></subschool>
+							<descriptor>Fire, Light</descriptor>
+							<fullschool>Transmutation, FireSchool [Fire, Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Rgr1, Sor1, Wit1, Wiz1</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.214</source>
+							<sourcepage>p.214</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Animates a lantern that follows you.</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
@@ -3094,7 +3181,7 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Repose1</sourcelevel>
+							<sourcelevel>Ancestors Subdomain1, Clr1, Repose1, Souls Subdomain1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.265</source>
 							<sourcepage>p.265</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3123,7 +3210,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3152,7 +3239,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3181,7 +3268,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3210,7 +3297,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3239,7 +3326,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Pld1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Alc1, Clr1, Inq1, Pld1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.269</source>
 							<sourcepage>p.269</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3268,7 +3355,7 @@ BIO
 							<fullschool>Evocation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Nobility1, Pld1</sourcelevel>
+							<sourcelevel>Archon Subdomain (Good)1, Archon Subdomain (Law)1, Clr1, Inq1, Martyr Subdomain1, Nobility1, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.273</source>
 							<sourcepage>p.273</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3297,7 +3384,7 @@ BIO
 							<fullschool>Necromancy [Fear, Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Apl1, Clr1, Demon Subdomain (Chaos)1, Demon Subdomain (Evil)1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.274</source>
 							<sourcepage>p.274</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3326,7 +3413,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
+							<sourcelevel>Alc1, Clr1, Day Subdomain1, Drd1, Pld1, Rgr1, Sor1, Sum1, Sun1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3355,7 +3442,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
+							<sourcelevel>Alc1, Clr1, Day Subdomain1, Drd1, Pld1, Rgr1, Sor1, Sum1, Sun1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3413,7 +3500,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.296</source>
 							<sourcepage>p.296</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3442,7 +3529,7 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1</sourcelevel>
+							<sourcelevel>Apl1, Clr1, Inq1, Wit1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.300</source>
 							<sourcepage>p.300</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3471,7 +3558,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Drd1, Earth1</sourcelevel>
+							<sourcelevel>Caves Subdomain1, Clr1, Drd1, Earth1, Metal Subdomain1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3500,7 +3587,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Pld1, Sor1, War1, Wiz1</sourcelevel>
+							<sourcelevel>Apl1, Blood Subdomain1, Clr1, Inq1, Pld1, Sor1, Tactics Subdomain1, War1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3523,13 +3610,13 @@ BIO
 						<target>Cloud spreads in 20-ft. radius from you, 20 ft. high</target>
 						<saveinfo>None</saveinfo>
 						<school>
-							<school>Conjuration</school>
+							<school>Conjuration, WaterSchool</school>
 							<subschool>Creation</subschool>
 							<descriptor></descriptor>
-							<fullschool>Conjuration (Creation)</fullschool>
+							<fullschool>Conjuration, WaterSchool (Creation)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Air1, Clr1, Darkness1, Drd1, Sor1, Water1, Weather1, Wiz1</sourcelevel>
+							<sourcelevel>Air1, Cloud Subdomain1, Clr1, Darkness1, Drd1, Ice Subdomain1, Loss Subdomain1, Oceans Subdomain1, Sor1, Storms Subdomain1, Water1, Weather1, Wit1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.317</source>
 							<sourcepage>p.317</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3558,7 +3645,7 @@ BIO
 							<fullschool>Abjuration [Lawful]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Law1, Pld1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Clr1, Inevitable Subdomain1, Inq1, Law1, Pld1, Purity Subdomain1, Sor1, Sum1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3587,7 +3674,7 @@ BIO
 							<fullschool>Abjuration [Good]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Good1, Pld1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Azata Subdomain (Good)1, Clr1, Good1, Inq1, Pld1, Purity Subdomain1, Sor1, Sum1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3616,7 +3703,7 @@ BIO
 							<fullschool>Abjuration [Chaotic]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Chaos1, Clr1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Apl1, Chaos1, Clr1, Inq1, Purity Subdomain1, Sor1, Sum1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.328</source>
 							<sourcepage>p.328</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3645,7 +3732,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Liberation1</sourcelevel>
+							<sourcelevel>Brd1, Clr1, Inq1, Liberation1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.332</source>
 							<sourcepage>p.332</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3674,7 +3761,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Protection1</sourcelevel>
+							<sourcelevel>Clr1, Freedom Subdomain1, Inq1, Protection1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.336</source>
 							<sourcepage>p.336</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3703,7 +3790,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Glory1</sourcelevel>
+							<sourcelevel>Agathion Subdomain1, Clr1, Glory1, Heroism Subdomain1, Honor Subdomain1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3732,7 +3819,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr1, Glory1</sourcelevel>
+							<sourcelevel>Agathion Subdomain1, Clr1, Glory1, Heroism Subdomain1, Honor Subdomain1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3761,7 +3848,7 @@ BIO
 							<fullschool>Conjuration (Summoning)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Apl1, Brd1, Clr1, Sor1, Sum1, Wit1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.350</source>
 							<sourcepage>p.350</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3792,7 +3879,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Luck2</sourcelevel>
+							<sourcelevel>Alc2, Clr2, Curse Subdomain2, Inq2, Luck2, Tactics Subdomain2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.239</source>
 							<sourcepage>p.239</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3821,7 +3908,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2</sourcelevel>
+							<sourcelevel>Clr2, Inq2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.240</source>
 							<sourcepage>p.240</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3850,7 +3937,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2</sourcelevel>
+							<sourcelevel>Clr2, Fate Subdomain2, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.245</source>
 							<sourcepage>p.245</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3879,7 +3966,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Drd2, Rgr2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Alc2, Clr2, Drd2, Rgr2, Sor2, Sum2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.246</source>
 							<sourcepage>p.246</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3908,7 +3995,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Glory2, Pld1</sourcelevel>
+							<sourcelevel>Glory2, Heroism Subdomain2, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.250</source>
 							<sourcepage>p.250</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3916,6 +4003,35 @@ BIO
 						<spell_resistance>No</spell_resistance>
 						<description>This transmutation makes a weapon strike true against evil foes.</description>
 						<bonusspell>*</bonusspell>
+					</spell>
+				<spell>
+						<name>Blessing of Courage and Life</name>
+						<outputname>Blessing of Courage and Life</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes [see below]</duration>
+						<effect>Grants a +2 bonus on saves vs. fear and death.</effect>
+						<target>one living creature</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Pld2</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.205</source>
+							<sourcepage>p.205</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Grants a +2 bonus on saves vs. fear and death.</description>
+						<bonusspell></bonusspell>
 					</spell>
 				<spell>
 						<name>Bull&#39;s Strength</name>
@@ -3937,7 +4053,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Drd2, Pld2, Sor2, Strength2, Wiz2</sourcelevel>
+							<sourcelevel>Alc2, Apl2, Clr2, Drd2, Ferocity Subdomain2, Pld2, Rage Subdomain2, Resolve Subdomain2, Sor2, Strength2, Sum2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.251</source>
 							<sourcepage>p.251</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3966,7 +4082,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Charm2, Clr2</sourcelevel>
+							<sourcelevel>Brd2, Charm2, Clr2, Family Subdomain2, Inq2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -3995,7 +4111,7 @@ BIO
 							<fullschool>Evocation [Good]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2</sourcelevel>
+							<sourcelevel>Clr2, Inq2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4024,7 +4140,7 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Drd3, Healing2, Pld3, Rgr3</sourcelevel>
+							<sourcelevel>Alc2, Brd2, Clr2, Drd3, Healing2, Inq2, Pld3, Resurrection Subdomain2, Rgr3, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4053,7 +4169,7 @@ BIO
 							<fullschool>Evocation [Darkness]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Apl2, Brd2, Clr2, Inq2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4082,7 +4198,7 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Drd2, Pld2, Rgr1</sourcelevel>
+							<sourcelevel>Alc2, Brd2, Clr2, Drd2, Inq2, Pld2, Rgr1, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.265</source>
 							<sourcepage>p.265</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4111,7 +4227,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Pld2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Alc2, Apl2, Brd2, Clr2, Pld2, Sor2, Sum2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.275</source>
 							<sourcepage>p.275</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4140,7 +4256,7 @@ BIO
 							<fullschool>Enchantment (Charm) [Language-Dependent, Mind-Affecting, Sonic]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Nobility2</sourcelevel>
+							<sourcelevel>Brd2, Clr2, Inq2, Leadership Subdomain2, Love Subdomain2, Nobility2, Revolution Subdomain1, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.278</source>
 							<sourcepage>p.278</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4169,7 +4285,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2</sourcelevel>
+							<sourcelevel>Clr2, Inq2, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.281</source>
 							<sourcepage>p.281</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4198,13 +4314,71 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Repose2, Sor3, Wiz3</sourcelevel>
+							<sourcelevel>Ancestors Subdomain2, Clr2, Repose2, Sor3, Souls Subdomain2, Wit2, Wiz3</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.289</source>
 							<sourcepage>p.289</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>You preserve the remains of a dead creature so that they do not decay.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Ghostbane Dirge</name>
+						<outputname>Ghostbane Dirge</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (30 ft.)</range>
+						<components>V, S, M/DF (an old reed from a wind instrument)</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 rounds</duration>
+						<effect>Incorporeal creature takes half damage from nonmagical weapons.</effect>
+						<target>one incorporeal creature</target>
+						<saveinfo>Will negates</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd2, Clr2, Inq2, Pld1</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.225</source>
+							<sourcepage>p.225</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>Incorporeal creature takes half damage from nonmagical weapons.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Grace</name>
+						<outputname>Grace</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V</components>
+						<castingtime>1 swift action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>see text</duration>
+						<effect>Movement doesn&#39;t provoke attacks of opportunity.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Abjuration</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Abjuration</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Pld1</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.226</source>
+							<sourcepage>p.226</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>Movement doesn&#39;t provoke attacks of opportunity.</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
@@ -4227,7 +4401,7 @@ BIO
 							<fullschool>Transmutation [Fire]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Drd2, Sun2</sourcelevel>
+							<sourcelevel>Drd2, Light Subdomain2, Metal Subdomain2, Sun2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.294</source>
 							<sourcepage>p.294</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4256,7 +4430,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Sor3, Wiz3</sourcelevel>
+							<sourcelevel>Apl2, Brd2, Clr2, Inq2, Sor3, Wit2, Wiz3</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.296</source>
 							<sourcepage>p.296</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4285,13 +4459,42 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2</sourcelevel>
+							<sourcelevel>Apl3, Clr2, Inq2, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.300</source>
 							<sourcepage>p.300</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>When laying your hand upon a creature, you channel negative energy that deals 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Instant Armor</name>
+						<outputname>Instant Armor</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc></dc>
+						<duration>3 minutes [D]</duration>
+						<effect>Summon armor temporarily replacing your current attire.</effect>
+						<target>You</target>
+						<saveinfo></saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Creation</subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Conjuration (Creation) [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Pld2</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.229</source>
+							<sourcepage>p.229</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>Summon armor temporarily replacing your current attire.</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
@@ -4343,7 +4546,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Drd2, Pld2, Rgr2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Alc2, Clr2, Drd2, Pld2, Rgr2, Sor2, Sum2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.318</source>
 							<sourcepage>p.318</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4372,7 +4575,7 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Liberation2, Pld2</sourcelevel>
+							<sourcelevel>Clr2, Freedom Subdomain2, Inq2, Liberation2, Pld2, Revolution Subdomain2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.332</source>
 							<sourcepage>p.332</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4395,13 +4598,13 @@ BIO
 						<target>Creature touched</target>
 						<saveinfo>Fortitude negates (harmless)</saveinfo>
 						<school>
-							<school>Abjuration</school>
+							<school>Abjuration, AirSchool, EarthSchool, FireSchool, WaterSchool</school>
 							<subschool></subschool>
 							<descriptor></descriptor>
-							<fullschool>Abjuration</fullschool>
+							<fullschool>Abjuration, AirSchool, EarthSchool, FireSchool, WaterSchool</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Drd2, Pld2, Rgr1, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Alc2, Clr2, Drd2, Inq2, Pld2, Rgr1, Sor2, Sum2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4430,13 +4633,42 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Drd2, Pld1</sourcelevel>
+							<sourcelevel>Alc2, Clr2, Drd2, Inq2, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Share Language</name>
+						<outputname>Share Language</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M (a page from a dictionary)</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>24 hours</duration>
+						<effect>Subject understands chosen language.</effect>
+						<target>creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr2, Drd2, Language Subdomain2, Sor2, Wiz2</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.243</source>
+							<sourcepage>p.243</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Subject understands chosen language.</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
@@ -4453,10 +4685,10 @@ BIO
 						<target>Or Target 5-ft.-radius spread; or one solid object or one crystalline creature</target>
 						<saveinfo>Will negates (object); Will negates (object) or Fortitude half; see text</saveinfo>
 						<school>
-							<school>Evocation</school>
+							<school>Evocation, EarthSchool</school>
 							<subschool></subschool>
 							<descriptor>Sonic</descriptor>
-							<fullschool>Evocation [Sonic]</fullschool>
+							<fullschool>Evocation, EarthSchool [Sonic]</fullschool>
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
@@ -4488,7 +4720,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Community2, Pld2, Protection2</sourcelevel>
+							<sourcelevel>Clr2, Community2, Home Subdomain2, Inq2, Martyr Subdomain2, Pld2, Protection2, Purity Subdomain2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4517,7 +4749,7 @@ BIO
 							<fullschool>Illusion (Glamer)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2</sourcelevel>
+							<sourcelevel>Apl2, Brd2, Clr2, Inq2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.343</source>
 							<sourcepage>p.343</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4575,7 +4807,7 @@ BIO
 							<fullschool>Evocation [Force]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, War2</sourcelevel>
+							<sourcelevel>Blood Subdomain2, Clr2, Inq2, War2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.348</source>
 							<sourcepage>p.348</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4604,7 +4836,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2</sourcelevel>
+							<sourcelevel>Clr2, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.349</source>
 							<sourcepage>p.349</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4627,13 +4859,13 @@ BIO
 						<target>One summoned creature</target>
 						<saveinfo>None</saveinfo>
 						<school>
-							<school>Conjuration</school>
+							<school>Conjuration, AirSchool, EarthSchool, FireSchool, WaterSchool</school>
 							<subschool>Summoning</subschool>
 							<descriptor></descriptor>
-							<fullschool>Conjuration (Summoning)</fullschool>
+							<fullschool>Conjuration, AirSchool, EarthSchool, FireSchool, WaterSchool (Summoning)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Apl2, Brd2, Clr2, Sor2, Sum2, Wit2, Wiz2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.352</source>
 							<sourcepage>p.352</sourcepage>
 							<sourceshort>CRB</sourceshort>
@@ -4662,13 +4894,42 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr2, Pld2</sourcelevel>
+							<sourcelevel>Alc2, Apl2, Brd1, Clr2, Inq2, Pld2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.363</source>
 							<sourcepage>p.363</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>An undetectable alignment spell conceals the alignment of an object or a creature from all forms of divination.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Weapon of Awe</name>
+						<outputname>Weapon of Awe</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 minutes</duration>
+						<effect>Weapon gets +2 on damage rolls.</effect>
+						<target>weapon touched</target>
+						<saveinfo>Will negates (harmless, object)</saveinfo>
+						<school>
+							<school>Transmutation</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Transmutation</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Inq2, Pld2</sourcelevel>
+							<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.256</source>
+							<sourcepage>p.256</sourcepage>
+							<sourceshort>APG</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless, object)</spell_resistance>
+						<description>Weapon gets +2 on damage rolls.</description>
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
@@ -4691,7 +4952,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr2, Pld2</sourcelevel>
+							<sourcelevel>Clr2, Honor Subdomain2, Inq2, Pld2, Wit2</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.371</source>
 							<sourcepage>p.371</sourcepage>
 							<sourceshort>CRB</sourceshort>
