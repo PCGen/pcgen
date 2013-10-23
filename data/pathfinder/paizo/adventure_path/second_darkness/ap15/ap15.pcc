@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo
-SOURCESHORT:AP015
+SOURCESHORT:AP15
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep
 SOURCEDATE:2008-10
 ISOGL:YES
 
-COVER:the_armageddon_echo.jpg
+COVER:ap15.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -35,14 +35,14 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 3: The Armagedd
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap015_abilities_class.lst
-ABILITY:ap015_abilities_race.lst
-ABILITYCATEGORY:ap015_abilitycategories.lst
-CLASS:ap015_classes.lst
-DEITY:ap015_deities.lst
-EQUIPMENT:ap015_equip_arms_armor.lst
-FEAT:ap015_feats.lst
-KIT:ap015_kits_race.lst
-RACE:ap015_races.lst
+ABILITY:ap15_abilities_class.lst
+ABILITY:ap15_abilities_race.lst
+ABILITYCATEGORY:ap15_abilitycategories.lst
+CLASS:ap15_classes.lst
+DEITY:ap15_deities.lst
+EQUIPMENT:ap15_equip_arms_armor.lst
+FEAT:ap15_feats.lst
+KIT:ap15_kits_race.lst
+RACE:ap15_races.lst
 
 
