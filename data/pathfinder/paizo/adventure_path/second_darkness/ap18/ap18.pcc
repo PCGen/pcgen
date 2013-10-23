@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight
-SOURCESHORT:AP018
+SOURCESHORT:AP18
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1
 SOURCEDATE:2009-01
 ISOGL:YES
 
-COVER:descent_into_midnight.jpg
+COVER:ap18.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,11 +39,11 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 6: Descent into
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:ap018_abilities_race.lst
-DEITY:ap018_deities.lst
-EQUIPMENT:ap018_equip_arms_armor.lst
-KIT:ap018_kits_race.lst
-RACE:ap018_races.lst
-TEMPLATE:ap018_templates.lst
+ABILITY:ap18_abilities_race.lst
+DEITY:ap18_deities.lst
+EQUIPMENT:ap18_equip_arms_armor.lst
+KIT:ap18_kits_race.lst
+RACE:ap18_races.lst
+TEMPLATE:ap18_templates.lst
 
 
