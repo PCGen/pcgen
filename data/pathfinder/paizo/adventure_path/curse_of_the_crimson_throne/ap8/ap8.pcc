@@ -11,7 +11,7 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave
-SOURCESHORT:AP008
+SOURCESHORT:AP8
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy
 SOURCEDATE:2008-04
 ISOGL:YES
@@ -34,17 +34,17 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 2: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITYCATEGORY:ap008_abilitycategories.lst
-ABILITY:ap008_abilities.lst
-CLASS:ap008_classes.lst
-EQUIPMENT:ap008_equip_arms_armor.lst
-EQUIPMENT:ap008_equip_general.lst
-EQUIPMENT:ap008_equip_magic_items.lst
-FEAT:ap008_feats.lst
-KIT:ap008_kits.lst
-KIT:ap008_kits_race.lst
-RACE:ap008_races.lst
-SKILL:ap008_skills.lst
-SPELL:ap008_spells.lst
-TEMPLATE:ap008_templates.lst
+ABILITYCATEGORY:ap8_abilitycategories.lst
+ABILITY:ap8_abilities.lst
+CLASS:ap8_classes.lst
+EQUIPMENT:ap8_equip_arms_armor.lst
+EQUIPMENT:ap8_equip_general.lst
+EQUIPMENT:ap8_equip_magic_items.lst
+FEAT:ap8_feats.lst
+KIT:ap8_kits.lst
+KIT:ap8_kits_race.lst
+RACE:ap8_races.lst
+SKILL:ap8_skills.lst
+SPELL:ap8_spells.lst
+TEMPLATE:ap8_templates.lst
 
