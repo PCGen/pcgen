@@ -11,12 +11,12 @@ PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Dark Markets - A Guide to Katapesh
-SOURCESHORT:DMGK
+SOURCESHORT:DM
 SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut
 SOURCEDATE:2009-04
 ISOGL:YES
 
-COVER:dark_markets_a_guide_to_katapesh.jpg
+COVER:dark_markets.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -35,16 +35,16 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-ABILITY:dmgk_abilities_class.lst
-ABILITY:dmgk_abilities_race.lst
-ABILITYCATEGORY:dmgk_abilitycategories.lst
-CLASS:dmgk_classes.lst
-EQUIPMENT:dmgk_equip_general.lst
-EQUIPMENT:dmgk_equip_arms_armor.lst
-EQUIPMENT:dmgk_equip_magic_items.lst
-FEAT:dmgk_feats.lst
-RACE:dmgk_races.lst
-SPELL:dmgk_spells.lst
-TEMPLATE:dmgk_templates.lst
+ABILITY:dm_abilities_class.lst
+ABILITY:dm_abilities_race.lst
+ABILITYCATEGORY:dm_abilitycategories.lst
+CLASS:dm_classes.lst
+EQUIPMENT:dm_equip_general.lst
+EQUIPMENT:dm_equip_arms_armor.lst
+EQUIPMENT:dm_equip_magic_items.lst
+FEAT:dm_feats.lst
+RACE:dm_races.lst
+SPELL:dm_spells.lst
+TEMPLATE:dm_templates.lst
 
 
