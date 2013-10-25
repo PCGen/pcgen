@@ -50,7 +50,6 @@ EQUIPMOD:apg_equipmods.lst
 FEAT:apg_feats.lst
 KIT:apg_kits.lst
 KIT:apg_kits_race.lst
-SKILL:apg_skills.lst
 SPELL:apg_spells.lst
 TEMPLATE:apg_templates.lst
 

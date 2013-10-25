@@ -1,7 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
-SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
-# Original Entry by: Scott Meyer
-# Original Entry Date: 5-20-2013
-
-# NB: var(" * ") syntax is necessary for the SKILL.*.MISC uses here as * contains spaces
-

@@ -55,7 +55,6 @@ EQUIPMOD:arg_equipmods.lst
 FEAT:arg_feats.lst
 LANGUAGE:arg_languages.lst
 RACE:arg_races.lst
-SKILL:arg_skills.lst
 SPELL:arg_spells.lst
 TEMPLATE:arg_templates.lst
 

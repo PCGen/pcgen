@@ -49,7 +49,6 @@ EQUIPMENT:ue_equip_general.lst
 EQUIPMENT:ue_equip_magic_items.lst
 EQUIPMOD:ue_equipmods.lst
 KIT:ue_kits.lst
-SKILL:ue_skills.lst
 SPELL:ue_spells.lst
 TEMPLATE:ue_templates.lst
 
