@@ -6,16 +6,6 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 # Language				Type					Required Ability
 Speak with Sharks			TYPE:Spoken				PREABILITY:1,CATEGORY=Internal,Speak with Sharks
 
-
-#Catfolk				TYPE:Spoken.Written.Read
-#D'ziriak	TYPE:Spoken
-#Grippli	TYPE:Spoken.Written.Read
-#Samsaran				TYPE:Spoken.Written.Read
-#Strix					TYPE:Spoken.Written.Read
-#Vanaran				TYPE:Spoken.Written.Read
-#Vishkanya				TYPE:Spoken.Written.Read
-#Wayang				TYPE:Spoken.Written.Read
-
 Adlet					TYPE:Spoken.Written.Read
 Garuda				TYPE:Spoken.Written.Read
 Kech					TYPE:Spoken.Written.Read
@@ -32,7 +22,7 @@ Aquan (cannot speak)		TYPE:Understand
 Auran (cannot speak)		TYPE:Understand
 Common (can't speak)		TYPE:Understand
 Common (cannot speak)		TYPE:Understand
-Flail Snail (Cannot Speak)	TYPE:Spoken.Written.Read
+Flail Snail (Cannot Speak)	TYPE:Understand
 Infernal (cannot speak)		TYPE:Understand
 Plantspeech (fungi)		TYPE:Spoken.Written.Read
 Plantspeech (gourds)		TYPE:Spoken.Written.Read
