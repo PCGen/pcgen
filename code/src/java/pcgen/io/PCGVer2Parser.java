@@ -4180,8 +4180,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			int orderNum = Integer.parseInt(line
 				.substring(TAG_SKILLSOUTPUTORDER.length() + 1));
+			SkillsOutputOrder order = SkillsOutputOrder.values()[orderNum];
+			// setting is correct in some  6.1.8-dev characters
+			if (compareVersionTo(new int[]{6, 1, 9}) < 0)
+			{
+				order = SkillsOutputOrder.NAME_ASC;
+			}
 			
-			thePC.setSkillsOutputOrder(SkillsOutputOrder.values()[orderNum]);
+			thePC.setSkillsOutputOrder(order);
 		}
 		catch (NumberFormatException nfe)
 		{

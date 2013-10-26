@@ -1696,7 +1696,7 @@ public final class PCGVer2Creator implements IOConstants
 		buffer.append(thePC.isAutoSortGear() ? 'Y' : 'N');
 		buffer.append(LINE_SEP);
 		buffer.append(TAG_SKILLSOUTPUTORDER).append(':');
-		buffer.append(thePC.getSkillsOutputOrder().ordinal()+1);
+		buffer.append(thePC.getSkillsOutputOrder().ordinal());
 		buffer.append(LINE_SEP);
 	}
 
