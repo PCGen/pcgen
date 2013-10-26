@@ -12,7 +12,7 @@ CLASS:Eclipse Point Buy (Template)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9	BONUS:HP|CURRENTMAX|-1	DONOTADD:HITDIE|SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	BONUS:HP|CURRENTMAX|-1	DONOTADD:HITDIE|SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -26,7 +26,7 @@ CLASS:Eclipse Point Buy (d0)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	BONUS:HP|CURRENTMAX|-1	ABILITY:Internal|AUTOMATIC|HD Taken d0
+1:REPEATLEVEL:1|SKIP=0|MAX=20	BONUS:HP|CURRENTMAX|-1	ABILITY:Internal|AUTOMATIC|HD Taken d0
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -39,7 +39,7 @@ CLASS:Eclipse Point Buy (d02)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d2	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d2	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -55,7 +55,7 @@ CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 #
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d4	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d4	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -68,7 +68,7 @@ CLASS:Eclipse Point Buy (d06)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d6	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d6	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -82,7 +82,7 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d8	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d8	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -97,7 +97,7 @@ CLASS:Eclipse Point Buy (d10)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d10	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d10	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -111,7 +111,7 @@ CLASS:Eclipse Point Buy (d12)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d12	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d12	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -125,7 +125,7 @@ CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 ###Block:
 1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d20	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	ABILITY:Internal|AUTOMATIC|HD Taken d20	DONOTADD:SKILLPOINTS
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 ###Block:
@@ -141,7 +141,7 @@ CLASS:Eclipse	HD:1	TYPE:Base.PC.Eclipse	ABB:EPB	MAXLEVEL:20	VISIBLE:NO	DEFINE:Ec
 CLASS:Eclipse	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name	Multiple Requirements
 ##Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	DONOTADD:SKILLPOINTS
 #
 
 
@@ -258,7 +258,7 @@ SUBSTITUTIONLEVEL:19	DONOTADD:SKILLPOINTS
 SUBSTITUTIONLEVEL:20	DONOTADD:SKILLPOINTS
 SUBSTITUTIONCLASS:d20	BONUS:VAR|CharacterPointsLevelOffSet|-16*CL	HD:20
 ##Block:
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	DONOTADD:SKILLPOINTS
 
 
 ###Block: Original Demo Class
@@ -270,7 +270,7 @@ CLASS:Point Buy	STARTSKILLPTS:0
 ###Block:
 1	BONUS:HD|MAX|var("HDBonus")
 1	BONUS:ABILITYPOOL|Character Points|var("CharacterPoints")	BONUS:VAR|CharacterPointsLevelOffSet|24+(24*CL)	DEFINE:CharacterPoints|0
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	DONOTADD:SKILLPOINTS
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 #
 ###Block: Hit Die Purchasing Scheme - Need HITDIE to accept variable.
@@ -303,7 +303,7 @@ CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block:
 1	BONUS:HD|MAX|var("HDBonus")
 1	BONUS:ABILITYPOOL|Character Points|48
-1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	DONOTADD:SKILLPOINTS
+1:REPEATLEVEL:1|SKIP=0|MAX=20	DONOTADD:SKILLPOINTS
 2	BONUS:ABILITYPOOL|Character Points|24*(CL-1)
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
 #
