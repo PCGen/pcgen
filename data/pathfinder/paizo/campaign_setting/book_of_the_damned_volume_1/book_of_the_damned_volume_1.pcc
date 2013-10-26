@@ -1,6 +1,6 @@
-CAMPAIGN:Princes of Darkness, Book of the Damned Volume 1
+CAMPAIGN:Princes of Darkness - Book of the Damned, Volume 1
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Campaign Setting
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:2
 STATUS:BETA
 GENRE:Fantasy
@@ -10,7 +10,7 @@ PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Princes of Darkness, Book of the Damned Volume 1, Book of the Damned Volume 1
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1
 SOURCESHORT:BOTD1
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f
 SOURCEDATE:2009-10
