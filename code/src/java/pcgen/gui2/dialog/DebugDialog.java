@@ -426,7 +426,7 @@ public class DebugDialog extends JDialog
 		@Override
 		public int getColumnCount()
 		{
-			return 5;
+			return 6;
 		}
 
 		@Override
@@ -450,13 +450,15 @@ public class DebugDialog extends JDialog
 				case 0:
 					return "";
 				case 1:
-					return "Init";
+					return "Initial";
 				case 2:
 					return "Used";
 				case 3:
 					return "Committed";
 				case 4:
 					return "Max";
+				case 5:
+					return "% Used";
 				default:
 					return super.getColumnName(column);
 			}
@@ -486,6 +488,8 @@ public class DebugDialog extends JDialog
 					return usage.getCommitted();// / megaByte;
 				case 4:
 					return usage.getMax();// / megaByte;
+				case 5:
+					return (100*usage.getUsed())/usage.getMax();// / percent
 				default:
 					return 0;
 			}
