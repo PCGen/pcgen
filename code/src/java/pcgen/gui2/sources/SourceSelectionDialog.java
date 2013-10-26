@@ -73,6 +73,7 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.tools.InfoPaneLinkAction;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;
 import pcgen.gui2.util.JTableEx;
@@ -506,11 +507,14 @@ public class SourceSelectionDialog extends JDialog
 		private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
 		private JList sourceList;
 		private InfoPane infoPane;
+		private InfoPaneLinkAction linkAction;
 
 		public QuickSourceSelectionPanel()
 		{
 			sourceList = new JList();
 			infoPane = new InfoPane(LanguageBundle.getString("in_src_info")); //$NON-NLS-1$
+			linkAction = new InfoPaneLinkAction(infoPane);
+
 			initComponents();
 			initDefaults();
 		}
@@ -549,6 +553,8 @@ public class SourceSelectionDialog extends JDialog
 			});
 			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "quickSrcMain");
 			mainPane.setTopComponent(new JScrollPane(sourceList));
+			
+			linkAction.install();
 			infoPane.setPreferredSize(new Dimension(800, 150));
 			mainPane.setBottomComponent(infoPane);
 			add(mainPane, BorderLayout.CENTER);
