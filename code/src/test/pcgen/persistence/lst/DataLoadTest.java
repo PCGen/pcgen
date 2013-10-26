@@ -58,6 +58,7 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.FacadeFactory;
 import pcgen.system.Main;
+import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
@@ -112,7 +113,8 @@ public class DataLoadTest implements PCGenTaskListener
 		loadGameModes();
 		SettingsHandler.setOutputDeprecationMessages(false);
 		SettingsHandler.setInputUnconstructedMessages(false);
-		SettingsHandler.setAllowOverride(true);
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true);
 		List<String> exclusions = Arrays.asList(excludedSources);
 
 		List<SourceSelectionFacade> basicSources = getBasicSources();

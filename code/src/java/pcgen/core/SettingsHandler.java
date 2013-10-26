@@ -185,7 +185,6 @@ public final class SettingsHandler
 	private static boolean showWarningAtFirstLevelUp = true;
 	private static String skinLFThemePack = null;
 	private static boolean alwaysOverwrite = false;
-	private static boolean allowOverride = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
 
 	/**
@@ -219,16 +218,6 @@ public final class SettingsHandler
 	public static void setSelectedGenerators(String prop, String generators)
 	{
 		throw new UnsupportedOperationException("Not yet implemented");
-	}
-
-	public static void setAllowOverride(final boolean aBool)
-	{
-		allowOverride = aBool;
-	}
-
-	public static boolean isAllowOverride()
-	{
-		return allowOverride;
 	}
 
 	public static void setAlwaysOverwrite(final boolean argAlwaysOverwrite)
@@ -971,7 +960,6 @@ public final class SettingsHandler
 		Globals.initCustColumnWidth(CoreUtility.split(getOptions().getProperty("pcgen.options.custColumnWidth", ""), ',')); //$NON-NLS-1$ //$NON-NLS-2$
 
 		loadURLs = getPCGenOption("loadURLs", false); //$NON-NLS-1$
-		allowOverride = getPCGenOption("allowOverride", false); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 
@@ -1272,7 +1260,6 @@ public final class SettingsHandler
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
 
 		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
-		setPCGenOption("allowOverride", allowOverride); //$NON-NLS-1$
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
 		setPCGenOption("autoFeatsRefundable", isAutoFeatsRefundable()); //$NON-NLS-1$
 		setPCGenOption("useFeatBenefits", useFeatBenefits()); //$NON-NLS-1$

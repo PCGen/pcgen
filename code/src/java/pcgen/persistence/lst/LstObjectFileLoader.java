@@ -212,7 +212,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			//Yes, this is instance equality, NOT .equals!!!!!
 			if (currentObj != pObj)
 			{
-				if (SettingsHandler.isAllowOverride())
+				boolean allowoverride =
+						PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+							PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES,
+							true);
+				if (allowoverride)
 				{
 					// If the new object is more recent than the current
 					// one, use the new object

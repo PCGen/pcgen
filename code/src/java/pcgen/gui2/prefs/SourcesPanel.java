@@ -221,7 +221,10 @@ public class SourcesPanel extends PCGenPrefsPanel
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
-		SettingsHandler.setAllowOverride(allowOverride.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES,
+			allowOverride.isSelected());
+		
 		UIPropertyContext.getInstance().setBoolean(
 			UIPropertyContext.SKIP_SOURCE_SELECTION,
 			skipSourceSelect.isSelected());
@@ -285,7 +288,8 @@ public class SourcesPanel extends PCGenPrefsPanel
 		showSponsors.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
-		allowOverride.setSelected(SettingsHandler.isAllowOverride());
+		allowOverride.setSelected(PCGenSettings.OPTIONS_CONTEXT.initBoolean(
+			PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true));
 		skipSourceSelect.setSelected(UIPropertyContext.getInstance()
 				.getBoolean(UIPropertyContext.SKIP_SOURCE_SELECTION));
 		useAdvancedSourceSelect.setSelected(!UIPropertyContext.getInstance()
