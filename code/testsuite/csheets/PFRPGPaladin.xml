@@ -3472,7 +3472,7 @@ BIO
 							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can sense the presence of evil.</description>
@@ -3513,7 +3513,7 @@ BIO
 							<sourcelevel>Clr1, Community1, Family Subdomain1, Inq1, Leadership Subdomain1, Pld1, Resolve Subdomain1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Bless fills your allies with courage.</description>
@@ -3542,7 +3542,7 @@ BIO
 							<sourcelevel>Clr1, Divine Subdomain2, Inq1, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>This transmutation imbues a flask of water with positive energy, turning it into holy water.</description>
@@ -3571,7 +3571,7 @@ BIO
 							<sourcelevel>Glory2, Heroism Subdomain2, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.250</source>
 							<sourcepage>p.250</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This transmutation makes a weapon strike true against evil foes.</description>
@@ -3687,7 +3687,7 @@ BIO
 							<sourcelevel>Adp1, Clr0, Drd0, Inq0, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.262</source>
 							<sourcepage>p.262</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell generates wholesome, drinkable water, just like clean rain water.</description>
@@ -3716,7 +3716,7 @@ BIO
 							<sourcelevel>Alc1, Brd1, Clr1, Drd1, Healing1, Inq1, Pld1, Restoration Subdomain1, Resurrection Subdomain1, Rgr2, Wit1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless); see text</spell_resistance>
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
@@ -3745,7 +3745,7 @@ BIO
 							<sourcelevel>Apl1, Clr0, Drd0, Inq0, Pld1, Rgr1, Sor0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.268</source>
 							<sourcepage>p.268</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You determine whether a creature, object, or area has been poisoned or is poisonous.</description>
@@ -3774,7 +3774,7 @@ BIO
 							<sourcelevel>Alc1, Clr1, Inq1, Pld1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.269</source>
 							<sourcepage>p.269</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can detect the aura that surrounds undead creatures.</description>
@@ -3832,7 +3832,7 @@ BIO
 							<sourcelevel>Archon Subdomain (Good)1, Archon Subdomain (Law)1, Clr1, Inq1, Martyr Subdomain1, Nobility1, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.273</source>
 							<sourcepage>p.273</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>Calling upon the strength and wisdom of a deity, you gain a +(max(1,min(3,floor(CASTERLEVEL/3)))) luck bonus on attack and weapon damage rolls.</description>
@@ -3861,7 +3861,7 @@ BIO
 							<sourcelevel>Alc1, Clr1, Day Subdomain1, Drd1, Pld1, Rgr1, Sor1, Sum1, Sun1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
@@ -4180,7 +4180,7 @@ BIO
 							<sourcelevel>Apl1, Blood Subdomain1, Clr1, Inq1, Mag1, Pld1, Sor1, Tactics Subdomain1, War1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
 						<description>Magic weapon gives a weapon a +1 enhancement bonus on attack and damage rolls.</description>
@@ -4209,7 +4209,7 @@ BIO
 							<sourcelevel>Clr1, Inevitable Subdomain1, Inq1, Law1, Pld1, Purity Subdomain1, Sor1, Sum1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No; see text</spell_resistance>
 						<description>This spell wards a creature from attacks by chaotic creatures, from mental control, and from summoned creatures.</description>
@@ -4238,7 +4238,7 @@ BIO
 							<sourcelevel>Azata Subdomain (Good)1, Clr1, Good1, Inq1, Pld1, Purity Subdomain1, Sor1, Sum1, Wiz1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No; see text</spell_resistance>
 						<description>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures.</description>
@@ -4296,7 +4296,7 @@ BIO
 							<sourcelevel>Apl1, Brd0, Clr0, Drd0, Inq0, Mag0, Pld1, Rgr1, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.330</source>
 							<sourcepage>p.330</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>You can decipher magical inscriptions on objects--books, scrolls, weapons, and the like--that would otherwise be unintelligible.</description>
@@ -4325,7 +4325,7 @@ BIO
 							<sourcelevel>Brd0, Clr0, Drd0, Inq0, Pld1, Sor0, Sum0, Wit0, Wiz0</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</description>
@@ -4354,7 +4354,7 @@ BIO
 							<sourcelevel>Alc2, Clr2, Drd2, Inq2, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
@@ -4499,7 +4499,7 @@ BIO
 							<sourcelevel>Clr0, Drd0, Inq0, Pld1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.365</source>
 							<sourcepage>p.365</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>With a touch, you infuse a creature with a tiny surge of life, granting the subject 1 temporary hit point.</description>
@@ -4609,7 +4609,7 @@ BIO
 							<sourcelevel>Clr1, Inq1</sourcelevel>
 							<source>Paizo Publishing, LLC - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
-							<sourceshort>CRB</sourceshort>
+							<sourceshort>CR</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can sense the presence of evil.</description>
@@ -4703,7 +4703,7 @@ BIO
 								<sourcelevel>Alc2, Clr2, Drd2, Inq2, Pld1</sourcelevel>
 								<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 								<sourcepage>p.334</sourcepage>
-								<sourceshort>CRB</sourceshort>
+								<sourceshort>CR</sourceshort>
 							</source>
 							<spell_resistance>Yes (harmless)</spell_resistance>
 							<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
