@@ -25,6 +25,7 @@
 		<ul>
 			<li><a href="#WhatsNew">What's new for v6.1.8</a></li>
 			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#Homebrew">Changes Affecting Homebrew Pathfinder Data in 6.1.8</a></li>
 			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
 			<li><a href="#Thanks">Thanks</a></li>
 			<li><a href="#WantToHelp">Want to Help?</a></li>
@@ -42,7 +43,10 @@ Please give it a shot and let us know how it works for you.
 		 Some notable changes in this release are listed below.
 <h3>Notable Changes</h3>
 <ul>
-<li>Pathfinder Overhaul to new standardized layout and specifications</li>
+<li>Pathfinder Overhaul to standardize naming and layout</li>
+<li>Improved Company/Format/Setting/Name display for Pathfinder in source selection</li>
+<li>Ultimate Equipment and Bestiary 3 included in the 'Pathfinder RPG Core Supplements' source</li>
+<li>Bestiary 3 included in the 'Pathfinder RPG for Game Masters' source</li>
 <li>Waiting animation on character sheet generation in the tab</li>
 <li>Conditional source loading using PRECAMPAIGN and PRERULE</li>
 </ul>
@@ -101,6 +105,28 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 		</ul>
 		<p></p>
 
+
+		<h2><a name="Homebrew">Changes Affecting Homebrew Pathfinder Data in 6.1.8</a></h2>
+		
+		<p>With the huge number of sources we are supporting for Pathfinder, we had to 
+		do some further reorganizing for better maintainability and closer alignment to 
+		the publishers abbreviations and terms. The changes WILL impact our homebrew 
+		community, but they are limited to the Pathfinder sets only.</p>
+		
+		<p>The main changes were</p>
+		<ul>
+		<li>Renamed campaigns to match the publisher's names and remove redundant info. e.g. "Paizo - Pathfinder Roleplaying Game Ultimate Combat" became "Ultimate Combat". See system/gameModes/Pathfinder_RPG/migration.lst for a comprehensive list of renames.</li> 
+		<li>Removed the Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement source (APG can be used for character traits).</li>
+		<li>Merged multiple files in a source of the same type into a single or limited number of files (e.g. all core rulebook equipmod files into cr_equipmods.lst</li>
+		<li>Renamed source folders to match publisher names</li>
+		<li>Renamed the pathfinder/paizo/pathfinder folder to pathfinder/paizo/roleplaying_game . This is the folder containing the main rule books.</li>
+		<li>Moved the main source definitions (e.g. pathfinder_for_gms.pcc) to be in the pathfinder/paizo folder.</li>
+		</ul>
+		<p>The use of the migration tools means that this change should not impact 
+		characters using the sources included in PCGen. Instead the characters should be 
+		updated to the new source names on load.</p>
+		
+		<p>Any questions or support items, please contact our Support Desk Monkey Andrew Maitland at help@pcgen.org.</p>
 
 		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
 
@@ -229,6 +255,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2303'>CODE-2303</a>] -         Duplicate detection does not work for various object types
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2307'>CODE-2307</a>] -         ABILITYCATEGORY - EDITPOOL is not working
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2317'>CODE-2317</a>] -         PCC subtag INCLUDE confused by MOD lines
 </li>
 </ul>
 
