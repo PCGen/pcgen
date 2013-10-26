@@ -198,7 +198,6 @@ public class GameModeFileLoader extends PCGenTask
 
 				// Load paperInfo.lst
 				loadGameModeLstFile(context, paperLoader, gmName, gameFile, "paperInfo.lst");
-				Globals.selectPaper(SettingsHandler.getPCGenOption("paperName", "A4"));
 
 				// Load bio files
 				loadGameModeLstFile(context, traitLoader, gmName, gameFile, "bio" + File.separator +

@@ -68,6 +68,7 @@ public class PCGenSettings extends PropertyContext
 	public static final String RECENT_PARTIES = "recentParties";
 	public static final String LAST_LOADED_SOURCES = "lastLoadedSources";
 	public static final String LAST_LOADED_GAME = "lastLoadedGame";
+	public static final String PAPERSIZE = "papersize";
 
 	/* Data converter saved choices. */
 	public static final String CONVERT_OUTPUT_SAVE_PATH = "pcgen.convert.outputPath";

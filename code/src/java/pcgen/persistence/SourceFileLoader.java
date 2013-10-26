@@ -207,6 +207,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	{
 		Globals.emptyLists();
 		SettingsHandler.setGame(selectedGame.getName());
+		Globals.initPreferences();
 		Globals.emptyLists();
 
 		LoadHandler handler = new LoadHandler();

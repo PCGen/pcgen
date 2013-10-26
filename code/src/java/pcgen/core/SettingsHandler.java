@@ -1226,13 +1226,6 @@ public final class SettingsHandler
 			setPCGenOption("kitSelector.windowHeight", getKitSelectorDimension().getHeight()); //$NON-NLS-1$
 		}
 
-		final String paperName = Globals.getPaperInfo(PaperInfo.NAME);
-
-		if (paperName != null)
-		{
-			setPCGenOption("paperName", paperName); //$NON-NLS-1$
-		}
-
 		//
 		// Remove old-style option values
 		//

@@ -72,6 +72,7 @@ import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
 import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
@@ -124,7 +125,6 @@ public final class Globals
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
-	private static JFrame currentFrame;
 	private static final StringBuilder section15 = new StringBuilder(30000);
 	private static final String spellPoints = "0";
 
@@ -639,28 +639,6 @@ public final class Globals
 	public static JFrame getRootFrame()
 	{
 		return rootFrame;
-	}
-
-	/**
-	 * Set the current frame
-	 * @param frame
-	 */
-	public static void setCurrentFrame(final JFrame frame)
-	{
-		currentFrame = frame;
-	}
-
-	/**
-	 * Get the current frame
-	 * @return current frame
-	 */
-	public static JFrame getCurrentFrame()
-	{
-		if (currentFrame == null)
-		{
-			return rootFrame;
-		}
-		return currentFrame;
 	}
 
 	/**
@@ -1217,6 +1195,8 @@ public final class Globals
 			if (pi.getName().equals(paperName))
 			{
 				setSelectedPaper(i);
+				PCGenSettings.getInstance().setProperty(PCGenSettings.PAPERSIZE,
+					paperName);
 
 				return true;
 			}
@@ -1227,6 +1207,21 @@ public final class Globals
 		return false;
 	}
 
+	/**
+	 * Apply the user's preferences to the initial state of the Globals.  
+	 */
+	public static void initPreferences()
+	{
+		if (selectedPaper != -1)
+		{
+			// Already initialized
+			return;
+		}
+		String papersize = PCGenSettings.getInstance().initProperty(PCGenSettings.PAPERSIZE,
+			"A4");
+		selectPaper(papersize);
+	}
+	
 	/**
 	 * Sorts chooser lists using the appropriate method, based on the type of the first item in either list.
 	 * Not pretty, but it works.
