@@ -1,4 +1,4 @@
-SOURCELONG:Inner Sea Bestiary		SOURCESHORT:ISBST		SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
+SOURCELONG:Inner Sea Bestiary		SOURCESHORT:ISB		SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
 # Original Entry by: Scott Meyer
 
 STARTPACK:Android Rogue	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Android],[!PRERACE:1,%]	SOURCEPAGE:p.3
