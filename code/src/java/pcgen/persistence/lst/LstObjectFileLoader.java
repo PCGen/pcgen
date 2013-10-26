@@ -581,6 +581,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		// get the name of the object to modify, trimming off the .MOD
 		int nameEnd = entry.getLstLine().indexOf(MOD_SUFFIX);
 		String key = entry.getLstLine().substring(0, nameEnd);
+		List<String> includeItems = entry.source.getIncludeItems();
 
 		// remove the leading tag, if any (i.e. CLASS:Druid.MOD
 		int nameStart = key.indexOf(':');
@@ -595,6 +596,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		
 		if (object == null)
 		{
+			if (!includeItems.isEmpty() && !includeItems.contains(key))
+			{
+				return;
+			}
+
 			if (excludedObjects.contains(key))
 			{
 				return;
@@ -611,28 +617,31 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		// modify the object
 		try
 		{
-			for (ModEntry element : entryList)
+			if (includeItems.isEmpty() || includeItems.contains(key))
 			{
-				context.setSourceURI(element.source.getURI());
-				try
+				for (ModEntry element : entryList)
 				{
-					Campaign origCampaign = object.get(ObjectKey.SOURCE_CAMPAIGN);
-					
-					parseLine(context, object, element.getLstLine(), element.getSource());
-
-					if (origCampaign != null)
+					context.setSourceURI(element.source.getURI());
+					try
 					{
-						object.put(ObjectKey.SOURCE_CAMPAIGN, origCampaign);
+						Campaign origCampaign = object.get(ObjectKey.SOURCE_CAMPAIGN);
+						
+						parseLine(context, object, element.getLstLine(), element.getSource());
+	
+						if (origCampaign != null)
+						{
+							object.put(ObjectKey.SOURCE_CAMPAIGN, origCampaign);
+						}
 					}
-				}
-				catch (PersistenceLayerException ple)
-				{
-					String message = LanguageBundle.getFormattedString(
-						"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-						element.getSource().getURI(), element.getLineNumber(),
-						ple.getMessage());
-					Logging.errorPrint(message);
-					setChanged();
+					catch (PersistenceLayerException ple)
+					{
+						String message = LanguageBundle.getFormattedString(
+							"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+							element.getSource().getURI(), element.getLineNumber(),
+							ple.getMessage());
+						Logging.errorPrint(message);
+						setChanged();
+					}
 				}
 			}
 			completeObject(context, entry.getSource(), object);
