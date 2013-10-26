@@ -168,7 +168,7 @@ Hold Breath		KEY:Hold Breath ~ Crocodile	CATEGORY:Special Ability	TYPE:SpecialQu
 Sprint		KEY:Sprint ~ Crocodile		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement																	DESC:Once per minute a crocodile may sprint, increasing its land speed to 40 feet for 1 round.																SOURCEPAGE:p.51
 
 # Cat (Cheetah, Leopard)
-Sprint		KEY:Sprint ~ Cat			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement																	DESC:Once per hour, a Small Cat companion can move at 10 times its normal speed (500 feet) when it makes a charge.								SOURCESHORT:PFB		SOURCEPAGE:p.40
+Sprint		KEY:Sprint ~ Cat			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement																	DESC:Once per hour, a Small Cat companion can move at 10 times its normal speed (500 feet) when it makes a charge.								SOURCESHORT:B1		SOURCEPAGE:p.40
 
 ###Block: Improved Familiar support
 
@@ -236,7 +236,7 @@ Blood Drain								KEY:Blood Drain ~ Stirge		CATEGORY:Special Ability	TYPE:Speci
 Diseased								KEY:Diseased ~ Stirge			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																														DESC:Any creature subjected to a stirge's blood drain attack has a 10%% chance of being exposed to filth fever, blinding sickness, or a similar disease. Once this check is made, the victim can no longer be infected by this particular stirge, though attacks by different stirges are resolved normally and may result in multiple illnesses.																																																																																																																								SOURCEPAGE:p.260
 
 
-SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown

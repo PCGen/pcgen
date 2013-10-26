@@ -31,7 +31,7 @@ Companion (Dinosaur (Deinonychus))	OUTPUTNAME:Companion [NAME]			STARTFEATS:1	SI
 Companion (Dinosaur (Velociraptor))	OUTPUTNAME:Companion [NAME]			STARTFEATS:1	SIZE:S	MOVE:Walk,60				FACE:5,5	REACH:5	PREVARGTEQ:NotAllowed,1	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:STAT|DEX|6	BONUS:STAT|CON|6	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|4										BONUS:WEAPONPROF=Bite|TOHIT|5				ABILITY:Special Ability|AUTOMATIC|Scent				LEGS:4			NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4							MONSTERCLASS:Companion:2			RACETYPE:Companion	RACESUBTYPE:AnimalCompanionDinosaur	TYPE:Companion.AnimalCompanion		SOURCEPAGE:p.56	KIT:1|Companion ~ Dinosaur	SORTKEY:z_Companion
 Companion (Wolf)				OUTPUTNAME:Companion [NAME]			STARTFEATS:1	SIZE:M	MOVE:Walk,50				FACE:5,5	REACH:5	PREVARGTEQ:NotAllowed,1	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4															ABILITY:Special Ability|AUTOMATIC|Scent|Trip			LEGS:4			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6																	MONSTERCLASS:Companion:2			RACETYPE:Companion							TYPE:Companion.AnimalCompanion		SOURCEPAGE:p.56	KIT:1|Companion ~ Wolf		SORTKEY:z_Companion
 
-SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 # Not listed in the Book but referenced in the Core for Ranger
 Companion (Dire Rat)			OUTPUTNAME:Companion [NAME]			STARTFEATS:1	SIZE:S	MOVE:Walk,40,Climb,20,Swim,20		FACE:5	REACH:5	PREVARGTEQ:NotAllowed,1	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,4							BONUS:STAT|DEX|6	BONUS:STAT|CON,WIS|2	BONUS:STAT|INT|-8	BONUS:STAT|CHA|-6												BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Scent				LEGS:4			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing.Disease,*1,1d4															MONSTERCLASS:Companion:2			RACETYPE:Companion							TYPE:Companion.AnimalCompanion		SOURCEPAGE:p.232	KIT:1|Companion ~ Dire Rat	SORTKEY:z_Companion
 
@@ -107,7 +107,7 @@ Companion (Shadow)				OUTPUTNAME:Companion [NAME]				STARTFEATS:1	SIZE:M	MOVE:Fl
 #
 # End
 #
-SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
