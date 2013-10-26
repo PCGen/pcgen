@@ -1,4 +1,4 @@
-SOURCELONG:Ultimate Equipment	SOURCESHORT:UEQPQP	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 STARTPACK:Alchemist's Kit	APPLY:INSTANT	TOTALCOST:40
 GEAR:Alchemy Crafting Kit	QTY:1		SIZE:PC

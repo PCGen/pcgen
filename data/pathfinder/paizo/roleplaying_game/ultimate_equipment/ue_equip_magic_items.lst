@@ -1,5 +1,5 @@
 # CVS $Revision: $ $Author: $ -- Fri Oct  4 22:18:51 2013 -- reformated by prettylst.pl v1.50 (build 20400)
-SOURCELONG:Ultimate Equipment	SOURCESHORT:UEQP	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 ###Block: Cursed Items
 # Equipment Name				Required Weapon Proficiency		Required Armor Proficiency	Type																		Contains				Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Maximum DEX Bonus	Range		Reach Multiplier	Size		Source, Long Desc.		Source, Short Desc.	Source Page		% of Spell Failure	Virtual Feat		Caster level				Save checks bonus		Combat bonus										Misc bonus				Add to base move			Multiply base move		Bonus to skill									Stat bonus																																									Modify VAR		Weapon prof. bonus									Weapon prop. bonus			Special Property																																					Automatically Added to Inventory
