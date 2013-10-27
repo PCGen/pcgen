@@ -47,6 +47,8 @@ import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilterUtilities;
 import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
@@ -84,6 +86,7 @@ public class KitPanel extends FlippingSplitPane
 	private final CharacterFacade character;
 	private TreeCellRenderer renderer;
 	private AddAction addAction;
+	private final FilterButton<Object, KitFacade> qFilterButton;
 
 	/**
 	 * Create a new instance of KitPanel for a character.
@@ -99,6 +102,7 @@ public class KitPanel extends FlippingSplitPane
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_kitInfo")); //$NON-NLS-1$
 		this.renderer = new QualifiedTreeCellRenderer(character);
 		this.addAction = new AddAction(character);
+		this.qFilterButton = new FilterButton<Object, KitFacade>("KitQualified");
 
 		initComponents();
 		initDefaults();
@@ -110,16 +114,15 @@ public class KitPanel extends FlippingSplitPane
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 
-		JPanel availPanel = new JPanel(new BorderLayout());
 		FilterBar<Object, KitFacade> bar = new FilterBar<Object, KitFacade>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
-		availPanel.add(bar, BorderLayout.NORTH);
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		bar.addDisplayableFilter(qFilterButton);
 
-		availableTable.setDisplayableFilter(bar);
 		availableTable.setTreeViewModel(new KitTreeViewModel(character, true));
 		availableTable.setTreeCellRenderer(renderer);
 
-		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
+		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, bar);
 
 		Box box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());
@@ -155,7 +158,36 @@ public class KitPanel extends FlippingSplitPane
 		availableTable.getSelectionModel().addListSelectionListener(infoHandler);
 		selectedTable.getSelectionModel().addListSelectionListener(infoHandler);
 
+		KitFilterHandler kitFilterHandler = new KitFilterHandler(character);
+		kitFilterHandler.install();
+		
 		availableTable.addActionListener(addAction);
+	}
+
+	private class KitFilterHandler
+	{
+
+		private final Filter<Object, KitFacade> qFilter = new Filter<Object, KitFacade>()
+		{
+			@Override
+			public boolean accept(Object context, KitFacade element)
+			{
+				return character.isQualifiedFor(element);
+			}
+
+		};
+		private final CharacterFacade character;
+
+		public KitFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(qFilter);
+		}
+
 	}
 
 	private class InfoHandler implements ListSelectionListener

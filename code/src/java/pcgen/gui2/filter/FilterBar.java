@@ -328,7 +328,9 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				int nmembers = target.getComponentCount();
 
 				Insets insets = target.getInsets();
-				int maxwidth = target.getWidth() - (insets.left + insets.right +
+				// Provide a default if the panel has not been displayed yet (i.e. in a dialog)
+				int targetWidth = target.getWidth() == 0? 400 : target.getWidth(); 
+				int maxwidth = targetWidth - (insets.left + insets.right +
 						getHgap() * 2);
 				int width = 0;
 				int height = 0;
