@@ -56,6 +56,7 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
+import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -410,6 +411,22 @@ public class TestHelper
 
 		Globals.getContext().ref.importObject(aSpell);
 		return aSpell;
+	}
+
+	/**
+	 * Set the important info about a Kit. Note the key of the kit created will 
+	 * be the provided name with KEY_ added at the front. e.g. KEY_name
+	 * @param name The kit name
+	 * @return The kit (which has also been added to global storage)
+	 */
+	public static Kit makeKit(final String name)
+	{
+		final Kit aKit = new Kit();
+		aKit.setName(name);
+		aKit.put(StringKey.KEY_NAME, ("KEY_" + name));
+
+		Globals.getContext().ref.importObject(aKit);
+		return aKit;
 	}
 
 	/**

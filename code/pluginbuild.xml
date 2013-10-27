@@ -1771,6 +1771,15 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREKIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreKitParser.class" />
+					<include name="plugin/pretokens/test/PreKitTester.class" />
+					<include name="plugin/pretokens/writer/PreKitWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${preplugins.dir}/PreToken-PRELANGUAGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

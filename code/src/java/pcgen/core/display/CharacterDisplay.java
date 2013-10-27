@@ -1344,6 +1344,11 @@ public class CharacterDisplay
 		return handsFacet.getHands(id);
 	}
 
+	public boolean hasKit(Kit kit)
+	{
+		return kitFacet.contains(id, kit);
+	}
+
 	/**
 	 * Determine the character's reach. This is based on their race, any applied
 	 * templates and any other bonuses to reach.
