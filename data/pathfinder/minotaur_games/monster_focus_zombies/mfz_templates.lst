@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Fri Oct 25 22:52:19 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Monster Focus: Zombies	SOURCESHORT:MFZ	SOURCEWEB:http://minotaurrpg.com/monster-focus/zombies/	SOURCEDATE:2013-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 2013/10/25
+
+###Block: Zombie Templates
+# Template Name		Damage Reduction	Template																								Source Page		Define			Stat bonus								Ability																						Automatically Gained Feat	Apply Kit	Subrace
+Zombie (Relentless)	DR:5/-		TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|1	BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	DEFINESTAT:LOCK|CHA|14	ABILITY:Special Ability|AUTOMATIC|Brain Vulnerability ~ Relentless Zombie|Relentless ~ Relentless Zombie|Undead Traits				AUTO:FEAT|Toughness		KIT:1|NE	SUBRACE:YES
+Zombie (Virulent)		DR:5/Slashing	TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|1	BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	DEFINESTAT:LOCK|CHA|14	ABILITY:Special Ability|AUTOMATIC|Aura of Infection ~ Virulent Zombie|Plague Cloud ~ Virulent Zombie|Staggered ~ Zombie|Undead Traits	AUTO:FEAT|Toughness		KIT:1|NE	SUBRACE:YES
+
+#
+# End
+#
