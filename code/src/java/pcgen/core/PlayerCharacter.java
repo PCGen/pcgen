@@ -427,7 +427,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 
-	private ClassSource defaultDomainSource = null;
+	private ClassSource defaultDomainSource;
 
 	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
 
@@ -8023,6 +8023,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		aClone.outputSheetHTML = outputSheetHTML;
 		aClone.outputSheetPDF = outputSheetPDF;
 		aClone.ageSetKitSelections = new boolean[10];
+		aClone.defaultDomainSource = defaultDomainSource;
 
 		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
 

@@ -76,7 +76,7 @@ public class KitKit extends BaseKit
 		{
 			Kit addedKit = ref.resolvesTo();
 			ArrayList<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
-			addedKit.testApplyKit(aPC, thingsToAdd, warnings);
+			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
 			appliedKits.put(addedKit, thingsToAdd);
 		}
 		return true;

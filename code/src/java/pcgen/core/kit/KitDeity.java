@@ -201,7 +201,15 @@ public class KitDeity extends BaseKit
 
 				return false;
 			}
-
+			if (!aPC.hasDefaultDomainSource())
+			{
+				warnings
+					.add("DEITY: Cannot add domain \""
+						+ domain.getDisplayName()
+						+ "\" as the character does not have a domain " +
+						"source yet.");
+				return false;
+			}
 			if (domainsToAdd == null)
 			{
 				domainsToAdd = new ArrayList<Domain>();
@@ -224,14 +232,13 @@ public class KitDeity extends BaseKit
 		}
 		aPC.setDeity(theDeity);
 
-		if (domainsToAdd == null)
+		if (domainsToAdd != null)
 		{
-			return;
-		}
-		for (Domain domain : domainsToAdd)
-		{
-			aPC.addDomain(domain);
-			DomainApplication.applyDomain(aPC, domain);
+			for (Domain domain : domainsToAdd)
+			{
+				aPC.addDomain(domain);
+				DomainApplication.applyDomain(aPC, domain);
+			}
 		}
 		aPC.calcActiveBonuses();
 

@@ -265,13 +265,31 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	}
 
 	/**
-	 *
+	 * Test applying the top level kit and record the choices made and any 
+	 * warnings encountered. Note these changes are made on a copy of the 
+	 * character.
+	 * 
 	 * @param aPC PlayerCharacter
-	 * @param thingsToAdd List
-	 * @param warnings List
+	 * @param thingsToAdd List of kit actions to be taken.
+	 * @param warnings List of issues to be reported to the user.
 	 */
 	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd,
 		List<String> warnings)
+	{
+		testApplyKit(aPC, thingsToAdd, warnings, false);
+	}
+	
+	/**
+	 * Test applying the kit and record the choices made and any warnings 
+	 * encountered. Note these changes are made on a copy of the character.
+	 * 
+	 * @param aPC PlayerCharacter
+	 * @param thingsToAdd List of kit actions to be taken.
+	 * @param warnings List of issues to be reported to the user.
+	 * @param subkit Is this kit being added by a parent kit?
+	 */
+	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd,
+		List<String> warnings, boolean subkit)
 	{
 		// Ensure a reset of random values from a prior run
 		selectValue = -1;
@@ -279,7 +297,8 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
-		PlayerCharacter tempPC = (PlayerCharacter) aPC.clone();
+		PlayerCharacter tempPC = subkit ? aPC : (PlayerCharacter) aPC.clone();
+		
 		for (KitStat kStat : getStats())
 		{
 			kStat.testApply(this, tempPC, warnings);
