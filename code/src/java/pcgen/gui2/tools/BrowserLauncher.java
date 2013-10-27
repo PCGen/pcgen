@@ -222,6 +222,7 @@ public final class BrowserLauncher
 		if (osName.startsWith("Mac OS"))
 		{
 			String mrjVersion = System.getProperty("mrj.version");
+			Logging.log(Logging.WARNING, "Checking for mac version in " + mrjVersion);
 			String majorMRJVersion = mrjVersion.substring(0, 3);
 
 			try
