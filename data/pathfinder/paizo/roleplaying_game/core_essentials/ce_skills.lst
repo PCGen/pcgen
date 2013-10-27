@@ -193,7 +193,9 @@ Diplomacy.MOD																																								BONUS:SKILL|Diplomacy (Gath
 ###Block: Advanced Player's Guide
 ###Block: Conditional skills (for output only)
 # Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+Bluff (Potentially Sexually Attracted)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT			PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Potentially Sexually Attracted).MISC"),var("SKILL.Bluff.MISC")
 Craft (Alchemy/Create item)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Craft (Alchemy/Create item).MISC"),var("SKILL.Craft (Alchemy).MISC")
+Diplomacy (Potentially Sexually Attracted)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT			PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Potentially Sexually Attracted).MISC"),var("SKILL.Diplomacy.MISC")
 Knowledge (Arcana/ID monster)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Arcana/ID monster).MISC"),var("SKILL.Knowledge (Arcana).MISC")
 Knowledge (Dungeoneering/ID monster)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Dungeoneering/ID monster).MISC"),var("SKILL.Knowledge (Dungeoneering).MISC")
 Knowledge (Local/Art & music)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Local/Art & Music).MISC"),var("SKILL.Knowledge (Local).MISC")
@@ -208,7 +210,9 @@ Survival (Avoid becoming lost)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:Sk
 
 ###Block: Skill .MODs
 # Skill Name			Bonus to skill														Bonus to skill rank
+Bluff.MOD		BONUS:SKILL|Bluff (Potentially Sexually Attracted)|SKILL.Bluff.MISC		BONUS:SKILLRANK|Bluff (Potentially Sexually Attracted)|skillinfo("TOTALRANK","Bluff")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Bluff (Potentially Sexually Attracted).MISC"),SKILL.Bluff.MISC
 Craft (Alchemy).MOD		BONUS:SKILL|Craft (Alchemy/Create item)|var("SKILL.Craft (Alchemy).MISC")				BONUS:SKILLRANK|Craft (Alchemy/Create item)|skillinfo("TOTALRANK", "Craft (Alchemy)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Craft (Alchemy/Create item).MISC"),var("SKILL.Craft (Alchemy).MISC")
+Diplomacy.MOD		BONUS:SKILL|Diplomacy (Potentially Sexually Attracted)|SKILL.Diplomacy.MISC		BONUS:SKILLRANK|Diplomacy (Potentially Sexually Attracted)|skillinfo("TOTALRANK","Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Potentially Sexually Attracted).MISC"),SKILL.Diplomacy.MISC
 Knowledge (Arcana).MOD		BONUS:SKILL|Knowledge (Arcana/ID monster)|var("SKILL.Knowledge (Arcana).MISC")			BONUS:SKILLRANK|Knowledge (Arcana/ID monster)|skillinfo("TOTALRANK", "Knowledge (Arcana)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Arcana/ID monster).MISC"),var("SKILL.Knowledge (Arcana).MISC")
 Knowledge (Dungeoneering).MOD	BONUS:SKILL|Knowledge (Dungeoneering/ID monster)|var("SKILL.Knowledge (Dungeoneering).MISC")	BONUS:SKILLRANK|Knowledge (Dungeoneering/ID monster)|skillinfo("TOTALRANK", "Knowledge (Dungeoneering)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Dungeoneering/ID monster).MISC"),var("SKILL.Knowledge (Dungeoneering).MISC")
 Knowledge (Local).MOD		BONUS:SKILL|Knowledge (Local/Art & music)|var("SKILL.Knowledge (Local).MISC")				BONUS:SKILLRANK|Knowledge (Local/Art & music)|skillinfo("TOTALRANK", "Knowledge (Local)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Local/Art & music).MISC"),var("SKILL.Knowledge (Local).MISC")
