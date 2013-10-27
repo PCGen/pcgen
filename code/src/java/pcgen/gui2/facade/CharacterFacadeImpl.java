@@ -4334,6 +4334,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		name.setReference(charDisplay.getName());
 		characterType.setReference(charDisplay.getCharacterType());
 		alignment.setReference(charDisplay.getPCAlignment());
+
+		// Deity and domains
+		deity.setReference(charDisplay.getDeity());
+		buildAvailableDomainsList();
+		
 		refreshStatScores();
 	}
 
