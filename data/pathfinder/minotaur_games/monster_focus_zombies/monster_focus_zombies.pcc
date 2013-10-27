@@ -2,7 +2,7 @@ CAMPAIGN:Minotaur - Monster Focus: Zombies
 GAMEMODE:Pathfinder
 TYPE:Minotaur Games.Monster Focus
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder RPG
@@ -31,7 +31,7 @@ COPYRIGHT:Pathfinder RPG Advanced Player's Guide. Copyright 2010, Paizo Publishi
 COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:Monster Focus: Zombies. Copyright 2013, Jason Bulmahn; Author: Jason Bulmahn.
-COPYRIGHT:PCGen dataset conversion for "Monster Focus: Zombies", Copyright 2013, PCGen Data Team (including, but not limited to Stefan Radermacher)
+COPYRIGHT:PCGen dataset conversion for "Monster Focus: Zombies", Copyright 2013, PCGen Data Team (including, but not limited to Stefan Radermacher, Paul Grosse, Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
