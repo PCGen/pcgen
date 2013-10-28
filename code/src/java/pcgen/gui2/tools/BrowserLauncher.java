@@ -222,48 +222,57 @@ public final class BrowserLauncher
 		if (osName.startsWith("Mac OS"))
 		{
 			String mrjVersion = System.getProperty("mrj.version");
-			Logging.log(Logging.WARNING, "Checking for mac version in " + mrjVersion);
-			String majorMRJVersion = mrjVersion.substring(0, 3);
-
-			try
+			//Logging.log(Logging.WARNING, "Checking for mac version in " + mrjVersion);
+			if (mrjVersion == null)
 			{
-				double version = Double.valueOf(majorMRJVersion).doubleValue();
-
-				if (version < 2.1)
+				jvm = MRJ_3_1;
+			}
+			else
+			{
+				String majorMRJVersion =
+						mrjVersion.length() < 3 ? mrjVersion : mrjVersion
+							.substring(0, 3);
+	
+				try
 				{
-					jvm = MRJ_2_0;
+					double version = Double.valueOf(majorMRJVersion).doubleValue();
+	
+					if (version < 2.1)
+					{
+						jvm = MRJ_2_0;
+					}
+					else if ((version >= 2.1) && (version < 3))
+					{
+						// Assume that all 2.x versions of MRJ work the
+						// same.  MRJ 2.1 actually works via Runtime.exec()
+						// and 2.2 supports that but has an openURL() method as
+						// well that we currently ignore.
+						jvm = MRJ_2_1;
+					}
+					else if (version == 3.0)
+					{
+						jvm = MRJ_3_0;
+					}
+					else if (version >= 3.1)
+					{
+						// Assume that all 3.1 and later versions of MRJ work the same.
+						jvm = MRJ_3_1;
+					}
+					else
+					{
+						loadedWithoutErrors = false;
+						errorMessage =
+								LanguageBundle.getFormattedString("in_BLEr1",
+									String.valueOf(version));
+					}
 				}
-				else if ((version >= 2.1) && (version < 3))
-				{
-					// Assume that all 2.x versions of MRJ work the
-					// same.  MRJ 2.1 actually works via Runtime.exec()
-					// and 2.2 supports that but has an openURL() method as
-					// well that we currently ignore.
-					jvm = MRJ_2_1;
-				}
-				else if (version == 3.0)
-				{
-					jvm = MRJ_3_0;
-				}
-				else if (version >= 3.1)
-				{
-					// Assume that all 3.1 and later versions of MRJ work the same.
-					jvm = MRJ_3_1;
-				}
-				else
+				catch (NumberFormatException nfe)
 				{
 					loadedWithoutErrors = false;
 					errorMessage =
-							LanguageBundle.getFormattedString("in_BLEr1",
-								String.valueOf(version));
+							LanguageBundle.getFormattedString("in_BLEr2",
+								String.valueOf(mrjVersion));
 				}
-			}
-			catch (NumberFormatException nfe)
-			{
-				loadedWithoutErrors = false;
-				errorMessage =
-						LanguageBundle.getFormattedString("in_BLEr2",
-							String.valueOf(mrjVersion));
 			}
 		}
 		else if (osName.startsWith("Windows"))
