@@ -82,6 +82,16 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	}
 
 	/**
+	 * Is this an optional kit task which should only be actioned if it matches 
+	 * a select value? 
+	 * @return true if this is an optional task, false if it should always be actioned.
+	 */
+	public boolean isOptional()
+	{
+		return bounds != null;
+	}
+	
+	/**
 	 * Evaluate the the EVAL expression
 	 * 
 	 * @param aPC

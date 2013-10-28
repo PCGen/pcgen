@@ -311,7 +311,8 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			{
 				continue;
 			}
-			if (selectValue != -1 && !bk.isOption(tempPC, selectValue))
+			if (selectValue != -1 && bk.isOptional()
+				&& !bk.isOption(tempPC, selectValue))
 			{
 				continue;
 			}
