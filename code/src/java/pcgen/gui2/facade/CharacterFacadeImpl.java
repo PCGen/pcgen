@@ -103,6 +103,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -2515,7 +2516,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			Skill skill = (Skill) speakLangSkill;
 			List<String> langList = theCharacter.getAssociationList(skill);
 			numSkillLangSelected = langList.size();
-			skillLangMax = theCharacter.getRank(skill).intValue();
+			skillLangMax = SkillRankControl.getTotalRank(theCharacter, skill).intValue();
 		}
 
 		int skillLangRemain = skillLangMax - numSkillLangSelected;
