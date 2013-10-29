@@ -5,7 +5,7 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 ##BLOCK: A
 ##
 
-STARTPACK:Achaierai Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Achaierai],[!PRERACE:1,%]	SOURCEPAGE:p.7
+STARTPACK:Achaierai Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Achaierai],[!PRERACE:1,%]	SOURCEPAGE:p.7
 ALIGN:LE
 RACE:Achaierai	!PRERACE:1,%
 NAME:Achaierai
@@ -21,7 +21,7 @@ FEAT:Mobility
 FEAT:Spring Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Aeon (Akhana) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Akhana)],[!PRERACE:1,%]	SOURCEPAGE:p.9
+STARTPACK:Aeon (Akhana) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Akhana)],[!PRERACE:1,%]	SOURCEPAGE:p.9
 ALIGN:TN
 RACE:Aeon (Akhana)	!PRERACE:1,%
 NAME:Akhana
@@ -42,7 +42,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Aeon (Bythos) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Bythos)],[!PRERACE:1,%]	SOURCEPAGE:p.10
+STARTPACK:Aeon (Bythos) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Bythos)],[!PRERACE:1,%]	SOURCEPAGE:p.10
 ALIGN:TN
 RACE:Aeon (Bythos)	!PRERACE:1,%
 NAME:Bythos
@@ -71,7 +71,7 @@ FEAT:Mobility
 FEAT:Toughness
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
-STARTPACK:Aeon (Paracletus) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Paracletus)],[!PRERACE:1,%]	SOURCEPAGE:p.11
+STARTPACK:Aeon (Paracletus) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Paracletus)],[!PRERACE:1,%]	SOURCEPAGE:p.11
 ALIGN:TN
 RACE:Aeon (Paracletus)	!PRERACE:1,%
 NAME:Paracletus
@@ -85,7 +85,7 @@ FEAT:Great Fortitude
 FEAT:Iron Will
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 
-STARTPACK:Aeon (Pleroma) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Pleroma)],[!PRERACE:1,%]	SOURCEPAGE:p.12
+STARTPACK:Aeon (Pleroma) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Pleroma)],[!PRERACE:1,%]	SOURCEPAGE:p.12
 ALIGN:TN
 RACE:Aeon (Pleroma)	!PRERACE:1,%
 NAME:Pleroma
@@ -133,7 +133,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon|Detect Thoughts|Enthr
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Chaos|Detect Evil|Detect Good|Detect Law|Identify|Magic Aura|True Strike
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Detect Magic|Guidance|Read Magic
 
-STARTPACK:Aeon (Theletos) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Theletos)],[!PRERACE:1,%]	SOURCEPAGE:p.14
+STARTPACK:Aeon (Theletos) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aeon (Theletos)],[!PRERACE:1,%]	SOURCEPAGE:p.14
 ALIGN:TN
 RACE:Aeon (Theletos)	!PRERACE:1,%
 NAME:Theletos
@@ -150,7 +150,7 @@ FEAT:Iron Will
 FEAT:Improved Iron Will
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 
-STARTPACK:Agathion (Avoral) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Avoral)],[!PRERACE:1,%]	SOURCEPAGE:p.16
+STARTPACK:Agathion (Avoral) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Avoral)],[!PRERACE:1,%]	SOURCEPAGE:p.16
 ALIGN:NG
 RACE:Agathion (Avoral)	!PRERACE:1,%
 NAME:Avoral
@@ -172,7 +172,7 @@ FEAT:Flyby Attack
 FEAT:Weapon Finesse
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Agathion (Cetaceal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Cetaceal)],[!PRERACE:1,%]	SOURCEPAGE:p.17
+STARTPACK:Agathion (Cetaceal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Cetaceal)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:NG
 RACE:Agathion (Cetaceal)	!PRERACE:1,%
 NAME:Cetaceal
@@ -197,7 +197,7 @@ FEAT:Weapon Focus (Tail Slap)
 FEAT:Wind Stance
 GEAR:Shortspear	LOCATION:Equipped	EQMOD:PLUS1W.SHK_BRST
 
-STARTPACK:Agathion (Draconal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Draconal)],[!PRERACE:1,%]	SOURCEPAGE:p.18
+STARTPACK:Agathion (Draconal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Draconal)],[!PRERACE:1,%]	SOURCEPAGE:p.18
 ALIGN:NG
 RACE:Agathion (Draconal)	!PRERACE:1,%
 NAME:Draconal
@@ -283,7 +283,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Guidance
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
 
-STARTPACK:Agathion (Leonal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Leonal)],[!PRERACE:1,%]	SOURCEPAGE:p.20
+STARTPACK:Agathion (Leonal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Leonal)],[!PRERACE:1,%]	SOURCEPAGE:p.20
 ALIGN:NG
 RACE:Agathion (Leonal)	!PRERACE:1,%
 NAME:Leonal
@@ -304,7 +304,7 @@ FEAT:Spring Attack
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Agathion (Silvanshee) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Silvanshee)],[!PRERACE:1,%]	SOURCEPAGE:p.21
+STARTPACK:Agathion (Silvanshee) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Silvanshee)],[!PRERACE:1,%]	SOURCEPAGE:p.21
 ALIGN:NG
 RACE:Agathion (Silvanshee)	!PRERACE:1,%
 NAME:Silvanshee
@@ -317,7 +317,7 @@ SKILL:Perception			RANK:2
 SKILL:Stealth			RANK:2
 FEAT:Improved Initiative
 
-STARTPACK:Agathion (Vulpinal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Vulpinal)],[!PRERACE:1,%]	SOURCEPAGE:p.22
+STARTPACK:Agathion (Vulpinal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Vulpinal)],[!PRERACE:1,%]	SOURCEPAGE:p.22
 ALIGN:NG
 RACE:Agathion (Vulpinal)	!PRERACE:1,%
 NAME:Vulpinal
@@ -339,7 +339,7 @@ FEAT:Lightning Reflexes
 FEAT:Weapon Finesse
 GEAR:TYPE.Instrument.Goods	LOCATION:Carried	EQMOD:MWORKT
 
-STARTPACK:Akata Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Akata],[!PRERACE:1,%]	SOURCEPAGE:p.23
+STARTPACK:Akata Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Akata],[!PRERACE:1,%]	SOURCEPAGE:p.23
 ALIGN:TN
 RACE:Akata	!PRERACE:1,%
 NAME:Akata
@@ -348,21 +348,21 @@ SKILL:Acrobatics	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Improved Initiative
 
-STARTPACK:Amoeba (Giant) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Amoeba (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.24
+STARTPACK:Amoeba (Giant) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Amoeba (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.24
 ALIGN:TN
 RACE:Amoeba (Giant)	!PRERACE:1,%
 GENDER:Neuter
 NAME:Giant Amoeba
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Amoeba Swarm Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Amoeba Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.24
+STARTPACK:Amoeba Swarm Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Amoeba Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.24
 ALIGN:TN
 RACE:Amoeba Swarm	!PRERACE:1,%
 GENDER:Neuter
 NAME:Amoeba Swarm
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Amphisbaena Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Amphisbaena],[!PRERACE:1,%]	SOURCEPAGE:p.24
+STARTPACK:Amphisbaena Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Amphisbaena],[!PRERACE:1,%]	SOURCEPAGE:p.24
 ALIGN:TN
 RACE:Amphisbaena	!PRERACE:1,%
 NAME:Amphisbaena
@@ -373,7 +373,7 @@ FEAT:Skill Focus (Stealth)
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Angel (Cassisian) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Cassisian)],[!PRERACE:1,%]	SOURCEPAGE:p.26
+STARTPACK:Angel (Cassisian) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Cassisian)],[!PRERACE:1,%]	SOURCEPAGE:p.26
 ALIGN:NG
 RACE:Angel (Cassisian)	!PRERACE:1,%
 NAME:Cassisian
@@ -386,7 +386,7 @@ SKILL:Sense Motive		RANK:1
 SKILL:Stealth			RANK:1
 FEAT:Iron Will
 
-STARTPACK:Angel (Monadic Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Monadic Deva)],[!PRERACE:1,%]	SOURCEPAGE:p.27
+STARTPACK:Angel (Monadic Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Monadic Deva)],[!PRERACE:1,%]	SOURCEPAGE:p.27
 ALIGN:NG
 RACE:Angel (Monadic Deva)	!PRERACE:1,%
 NAME:Monadic Deva
@@ -410,7 +410,7 @@ FEAT:Power Attack
 FEAT:Toughness
 GEAR:Morningstar	LOCATION:Both Hands	EQMOD:PLUS3W
 
-STARTPACK:Angel (Movanic Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Movanic Deva)],[!PRERACE:1,%]	SOURCEPAGE:p.28
+STARTPACK:Angel (Movanic Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Movanic Deva)],[!PRERACE:1,%]	SOURCEPAGE:p.28
 ALIGN:NG
 RACE:Angel (Movanic Deva)	!PRERACE:1,%
 NAME:Movanic Deva
@@ -432,7 +432,7 @@ FEAT:Toughness
 FEAT:Vital Strike
 GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS1W.FLAME
 
-STARTPACK:Animate Dream Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Animate Dream],[!PRERACE:1,%]	SOURCEPAGE:p.29
+STARTPACK:Animate Dream Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Animate Dream],[!PRERACE:1,%]	SOURCEPAGE:p.29
 ALIGN:NE
 RACE:Animate Dream	!PRERACE:1,%
 NAME:Animate Dream
@@ -450,7 +450,7 @@ FEAT:Flyby Attack
 FEAT:Iron Will
 FEAT:Mobility
 
-STARTPACK:Aranea Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aranea],[!PRERACE:1,%]	SOURCEPAGE:p.30
+STARTPACK:Aranea Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aranea],[!PRERACE:1,%]	SOURCEPAGE:p.30
 ALIGN:TN
 RACE:Aranea	!PRERACE:1,%
 NAME:Aranea
@@ -477,7 +477,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 
-STARTPACK:Archon (Shield) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Shield)],[!PRERACE:1,%]	SOURCEPAGE:p.31
+STARTPACK:Archon (Shield) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Shield)],[!PRERACE:1,%]	SOURCEPAGE:p.31
 ALIGN:LG
 RACE:Archon (Shield)	!PRERACE:1,%
 NAME:Shield Archon
@@ -499,7 +499,7 @@ GEAR:Full Plate		SIZE:L	LOCATION:Equipped
 GEAR:Shortspear		SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS3W
 GEAR:Shield (Tower)	SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1A
 
-STARTPACK:Archon (Star) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Star)],[!PRERACE:1,%]	SOURCEPAGE:p.32
+STARTPACK:Archon (Star) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Star)],[!PRERACE:1,%]	SOURCEPAGE:p.32
 ALIGN:LG
 RACE:Archon (Star)	!PRERACE:1,%
 NAME:Star Archon
@@ -579,7 +579,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Resistance
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
 
-STARTPACK:Athach Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Athach],[!PRERACE:1,%]	SOURCEPAGE:p.33
+STARTPACK:Athach Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Athach],[!PRERACE:1,%]	SOURCEPAGE:p.33
 ALIGN:CE
 RACE:Athach	!PRERACE:1,%
 NAME:Athach
@@ -598,7 +598,7 @@ GEAR:Shield (Heavy/Wooden)	SIZE:H	LOCATION:Carried
 GEAR:Mace (Heavy)			SIZE:H	LOCATION:Equipped
 GEAR:Rock (Medium)				LOCATION:Carried
 
-STARTPACK:Attic Whisperer Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Attic Whisperer],[!PRERACE:1,%]	SOURCEPAGE:p.34
+STARTPACK:Attic Whisperer Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Attic Whisperer],[!PRERACE:1,%]	SOURCEPAGE:p.34
 ALIGN:NE
 RACE:Attic Whisperer	!PRERACE:1,%
 NAME:Attic Whisperer
@@ -613,7 +613,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Aurumvorax Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aurumvorax],[!PRERACE:1,%]	SOURCEPAGE:p.35
+STARTPACK:Aurumvorax Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aurumvorax],[!PRERACE:1,%]	SOURCEPAGE:p.35
 ALIGN:NE
 RACE:Aurumvorax	!PRERACE:1,%
 NAME:Aurumvorax
@@ -627,7 +627,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Axiomite Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Axiomite],[!PRERACE:1,%]	SOURCEPAGE:p.36
+STARTPACK:Axiomite Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Axiomite],[!PRERACE:1,%]	SOURCEPAGE:p.36
 ALIGN:LN
 RACE:Axiomite	!PRERACE:1,%
 NAME:Axiomite
@@ -648,7 +648,7 @@ FEAT:Iron Will
 FEAT:Mobility
 GEAR:Longsword	LOCATION:Both Hands	EQMOD:PLUS1W
 
-STARTPACK:Azata (Brijidine) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Brijidine)],[!PRERACE:1,%]	SOURCEPAGE:p.37
+STARTPACK:Azata (Brijidine) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Brijidine)],[!PRERACE:1,%]	SOURCEPAGE:p.37
 ALIGN:CG
 RACE:Azata (Brijidine)	!PRERACE:1,%
 NAME:Brijidine
@@ -674,7 +674,7 @@ FEAT:Staggering Critical
 FEAT:Toughness
 GEAR:Longsword	SIZE:M	LOCATION:Both Hands	EQMOD:PLUS1W.FLM_BRST.KEEN
 
-STARTPACK:Azata (Lyrakien) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Lyrakien)],[!PRERACE:1,%]	SOURCEPAGE:p.38
+STARTPACK:Azata (Lyrakien) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Lyrakien)],[!PRERACE:1,%]	SOURCEPAGE:p.38
 ALIGN:CG
 RACE:Azata (Lyrakien)	!PRERACE:1,%
 NAME:Lyrakien
@@ -691,7 +691,7 @@ SKILL:Stealth		RANK:3
 FEAT:Agile Maneuvers
 FEAT:Improved Initiative
 
-STARTPACK:Azer Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azer],[!PRERACE:1,%]	SOURCEPAGE:p.39
+STARTPACK:Azer Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azer],[!PRERACE:1,%]	SOURCEPAGE:p.39
 ALIGN:LN
 RACE:Azer	!PRERACE:1,%
 NAME:Azer
@@ -707,7 +707,7 @@ GEAR:Scale Mail		LOCATION:Equipped		EQMOD:MWORKA
 GEAR:Warhammer		LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Hammer (Light)	LOCATION:Carried
 
-STARTPACK:Badger Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Badger],[!PRERACE:1,%]	SOURCEPAGE:p.40
+STARTPACK:Badger Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Badger],[!PRERACE:1,%]	SOURCEPAGE:p.40
 ALIGN:LN
 RACE:Badger	!PRERACE:1,%
 NAME:Badger
@@ -715,7 +715,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:1
 FEAT:Toughness
 
-STARTPACK:Badger (Dire) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Badger (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.40
+STARTPACK:Badger (Dire) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Badger (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.40
 ALIGN:LN
 RACE:Badger (Dire)	!PRERACE:1,%
 NAME:Dire Badger
@@ -724,7 +724,7 @@ SKILL:Perception	RANK:3
 FEAT:Improved Initiative
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Banshee Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Banshee],[!PRERACE:1,%]	SOURCEPAGE:p.41
+STARTPACK:Banshee Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Banshee],[!PRERACE:1,%]	SOURCEPAGE:p.41
 ALIGN:CE
 RACE:Banshee	!PRERACE:1,%
 NAME:Banshee
@@ -742,7 +742,7 @@ FEAT:Step Up
 FEAT:Weapon Focus (Incorporeal Touch)
 FEAT:Wind Stance
 
-STARTPACK:Bat (Mobat) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bat (Mobat)],[!PRERACE:1,%]	SOURCEPAGE:p.42
+STARTPACK:Bat (Mobat) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bat (Mobat)],[!PRERACE:1,%]	SOURCEPAGE:p.42
 ALIGN:LN
 RACE:Bat (Mobat)	!PRERACE:1,%
 NAME:Mobat
@@ -753,7 +753,7 @@ SKILL:Stealth	RANK:1
 FEAT:Flyby Attack
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Bat (Skaveling) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bat (Skaveling)],[!PRERACE:1,%]	SOURCEPAGE:p.42
+STARTPACK:Bat (Skaveling) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bat (Skaveling)],[!PRERACE:1,%]	SOURCEPAGE:p.42
 ALIGN:CE
 RACE:Bat (Skaveling)	!PRERACE:1,%
 NAME:Skaveling
@@ -767,32 +767,32 @@ FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Bee (Giant) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bee (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.43
+STARTPACK:Bee (Giant) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bee (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.43
 ALIGN:TN
 RACE:Bee (Giant)	!PRERACE:1,%
 NAME:Giant Bee
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 
-STARTPACK:Bee (Giant Queen) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bee (Giant Queen)],[!PRERACE:1,%]	SOURCEPAGE:p.42
+STARTPACK:Bee (Giant Queen) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bee (Giant Queen)],[!PRERACE:1,%]	SOURCEPAGE:p.42
 ALIGN:TN
 RACE:Bee (Giant Queen)	!PRERACE:1,%
 NAME:Giant Queen Bee
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 GEAR:Royal Jelly	QTY:roll("2d6")	LOCATION:Not Carried
 
-STARTPACK:Beetle (Goliath Stag) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Goliath Stag)],[!PRERACE:1,%]	SOURCEPAGE:p.44
+STARTPACK:Beetle (Goliath Stag) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Goliath Stag)],[!PRERACE:1,%]	SOURCEPAGE:p.44
 ALIGN:TN
 RACE:Beetle (Goliath Stag)	!PRERACE:1,%
 NAME:Goliath Stag Beetle
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Beetle (Slicer) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Slicer)],[!PRERACE:1,%]	SOURCEPAGE:p.44
+STARTPACK:Beetle (Slicer) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Slicer)],[!PRERACE:1,%]	SOURCEPAGE:p.44
 ALIGN:TN
 RACE:Beetle (Slicer)	!PRERACE:1,%
 NAME:Slicer Beetle
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Belker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Belker],[!PRERACE:1,%]	SOURCEPAGE:p.45
+STARTPACK:Belker Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Belker],[!PRERACE:1,%]	SOURCEPAGE:p.45
 ALIGN:TN
 RACE:Belker	!PRERACE:1,%
 NAME:Belker
@@ -806,7 +806,7 @@ FEAT:Flyby Attack
 FEAT:Multiattack
 FEAT:Weapon Finesse
 
-STARTPACK:Blindheim Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blindheim],[!PRERACE:1,%]	SOURCEPAGE:p.46
+STARTPACK:Blindheim Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blindheim],[!PRERACE:1,%]	SOURCEPAGE:p.46
 ALIGN:TN
 RACE:Blindheim	!PRERACE:1,%
 NAME:Blindheim
@@ -816,7 +816,7 @@ SKILL:Perception	RANK:2
 FEAT:Dodge
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Blink Dog Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blink Dog],[!PRERACE:1,%]	SOURCEPAGE:p.47
+STARTPACK:Blink Dog Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blink Dog],[!PRERACE:1,%]	SOURCEPAGE:p.47
 ALIGN:LG
 RACE:Blink Dog	!PRERACE:1,%
 NAME:Blink Dog
@@ -827,7 +827,7 @@ SKILL:Survival	RANK:1
 FEAT:Combat Reflexes
 FEAT:Iron Will
 
-STARTPACK:Bodak Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bodak],[!PRERACE:1,%]	SOURCEPAGE:p.48
+STARTPACK:Bodak Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bodak],[!PRERACE:1,%]	SOURCEPAGE:p.48
 ALIGN:CE
 RACE:Bodak	!PRERACE:1,%
 NAME:Bodak
@@ -841,7 +841,7 @@ FEAT:Mobility
 FEAT:Toughness
 FEAT:Weapon Focus (Slam)
 
-STARTPACK:Brownie Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Brownie],[!PRERACE:1,%]	SOURCEPAGE:p.49
+STARTPACK:Brownie Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Brownie],[!PRERACE:1,%]	SOURCEPAGE:p.49
 ALIGN:TN
 RACE:Brownie	!PRERACE:1,%
 NAME:Brownie
@@ -857,7 +857,7 @@ SKILL:Stealth
 FEAT:Dodge
 GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
 
-STARTPACK:Bunyip Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bunyip],[!PRERACE:1,%]	SOURCEPAGE:p.50
+STARTPACK:Bunyip Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bunyip],[!PRERACE:1,%]	SOURCEPAGE:p.50
 ALIGN:TN
 RACE:Bunyip	!PRERACE:1,%
 NAME:Bunyip
@@ -869,14 +869,14 @@ FEAT:Skill Focus (Perception)
 FEAT:Skill Focus (Stealth)
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Carnivorous Blob Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Carnivorous Blob],[!PRERACE:1,%]	SOURCEPAGE:p.51
+STARTPACK:Carnivorous Blob Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Carnivorous Blob],[!PRERACE:1,%]	SOURCEPAGE:p.51
 ALIGN:TN
 RACE:Carnivorous Blob	!PRERACE:1,%
 NAME:Carnivorous Blob
 GENDER:Neuter
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Catoblepas Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Catoblepas],[!PRERACE:1,%]	SOURCEPAGE:p.52
+STARTPACK:Catoblepas Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Catoblepas],[!PRERACE:1,%]	SOURCEPAGE:p.52
 ALIGN:TN
 RACE:Catoblepas	!PRERACE:1,%
 NAME:Catoblepas
@@ -892,7 +892,7 @@ FEAT:Skill Focus (Perception)
 
 
 # COMMENT: Duplicate Entry from Bestiary
-#	STARTPACK:Centipede (Giant Whiptail) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Giant Whiptail)],[!PRERACE:1,%]	SOURCEPAGE:p.53
+#	STARTPACK:Centipede (Giant Whiptail) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Giant Whiptail)],[!PRERACE:1,%]	SOURCEPAGE:p.53
 #	ALIGN:TN
 #	RACE:Centipede (Giant Whiptail)	!PRERACE:1,%
 #	NAME:Giant Whiptail Centipede
@@ -900,13 +900,13 @@ FEAT:Skill Focus (Perception)
 
 
 # COMMENT: Duplicate Entry from Bestiary
-#	STARTPACK:Centipede (Titan) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Titan)],[!PRERACE:1,%]	SOURCEPAGE:p.53
+#	STARTPACK:Centipede (Titan) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centipede (Titan)],[!PRERACE:1,%]	SOURCEPAGE:p.53
 #	ALIGN:TN
 #	RACE:Centipede (Titan)	!PRERACE:1,%
 #	NAME:Titan Centipede
 #	STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Chaos Beast Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chaos Beast],[!PRERACE:1,%]	SOURCEPAGE:p.54
+STARTPACK:Chaos Beast Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chaos Beast],[!PRERACE:1,%]	SOURCEPAGE:p.54
 ALIGN:CN
 RACE:Chaos Beast	!PRERACE:1,%
 NAME:Chaos Beast
@@ -923,7 +923,7 @@ FEAT:Mobility
 FEAT:Toughness
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Charda Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charda],[!PRERACE:1,%]	SOURCEPAGE:p.55
+STARTPACK:Charda Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charda],[!PRERACE:1,%]	SOURCEPAGE:p.55
 ALIGN:CN
 RACE:Charda	!PRERACE:1,%
 NAME:Charda
@@ -940,7 +940,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Charybdis Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charybdis],[!PRERACE:1,%]	SOURCEPAGE:p.56
+STARTPACK:Charybdis Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charybdis],[!PRERACE:1,%]	SOURCEPAGE:p.56
 ALIGN:CN
 RACE:Charybdis	!PRERACE:1,%
 NAME:Charybdis
@@ -955,7 +955,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Chupacabra Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chupacabra],[!PRERACE:1,%]	SOURCEPAGE:p.57
+STARTPACK:Chupacabra Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chupacabra],[!PRERACE:1,%]	SOURCEPAGE:p.57
 ALIGN:TN
 RACE:Chupacabra	!PRERACE:1,%
 NAME:Chupacabra
@@ -966,49 +966,49 @@ SKILL:Stealth	RANK:2
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
-STARTPACK:Cockroach (Giant) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach (Giant) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach (Giant)	!PRERACE:1,%
 NAME:Giant Cockroach
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Cockroach (Giant Hissing) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Giant Hissing)],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach (Giant Hissing) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Giant Hissing)],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach (Giant Hissing)	!PRERACE:1,%
 NAME:Giant Hissing Cockroach
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Cockroach (Venomroach) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Venomroach)],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach (Venomroach) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Venomroach)],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach (Venomroach)	!PRERACE:1,%
 NAME:Venomroach
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Cockroach (Spitting) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Spitting)],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach (Spitting) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Spitting)],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach (Spitting)	!PRERACE:1,%
 NAME:Spitting Cockroach
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Cockroach (Sawback) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Sawback)],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach (Sawback) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Sawback)],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach (Sawback)	!PRERACE:1,%
 NAME:Sawback Cockroach
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Cockroach (Dragonroach) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Dragonroach)],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach (Dragonroach) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach (Dragonroach)],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach (Dragonroach)	!PRERACE:1,%
 NAME:Dragonroach
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Cockroach Swarm Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Cockroach Swarm Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockroach Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:TN
 RACE:Cockroach Swarm	!PRERACE:1,%
 NAME:Cockroach Swarm
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Crawling Hand Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crawling Hand],[!PRERACE:1,%]	SOURCEPAGE:p.59
+STARTPACK:Crawling Hand Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crawling Hand],[!PRERACE:1,%]	SOURCEPAGE:p.59
 ALIGN:NE
 RACE:Crawling Hand	!PRERACE:1,%
 NAME:Crawling Hand
@@ -1016,7 +1016,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:1
 FEAT:Toughness
 
-STARTPACK:Crawling Hand (Giant) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crawling Hand (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.59
+STARTPACK:Crawling Hand (Giant) Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crawling Hand (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.59
 ALIGN:NE
 RACE:Crawling Hand (Giant)	!PRERACE:1,%
 NAME:Giant Crawling Hand
@@ -1029,7 +1029,7 @@ FEAT:Lightning Reflexes
 FEAT:Toughness
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Crypt Thing Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crypt Thing],[!PRERACE:1,%]	SOURCEPAGE:p.60
+STARTPACK:Crypt Thing Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crypt Thing],[!PRERACE:1,%]	SOURCEPAGE:p.60
 ALIGN:NE
 RACE:Crypt Thing	!PRERACE:1,%
 NAME:Crypt Thing
@@ -1047,7 +1047,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Crysmal Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crysmal],[!PRERACE:1,%]	SOURCEPAGE:p.61
+STARTPACK:Crysmal Default	TYPE:DefaultMonster	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crysmal],[!PRERACE:1,%]	SOURCEPAGE:p.61
 ALIGN:TN
 RACE:Crysmal	!PRERACE:1,%
 NAME:Crysmal
@@ -1061,7 +1061,7 @@ FEAT:Lightning Reflexes
 
 
 ###BLOCK: D
-STARTPACK:Daemon (Astradaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Astradaemon)]
+STARTPACK:Daemon (Astradaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Astradaemon)]
 RACE:Daemon (Astradaemon)	!PRERACE:1,%
 NAME:Astradaemon
 ALIGN:NE
@@ -1084,7 +1084,7 @@ FEAT:Power Attack
 FEAT:Spring Attack
 FEAT:Weapon Finesse
 
-STARTPACK:Daemon (Cacodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Cacodaemon)]
+STARTPACK:Daemon (Cacodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Cacodaemon)]
 RACE:Daemon (Cacodaemon)	!PRERACE:1,%
 NAME:Cacodaemon
 ALIGN:NE
@@ -1097,7 +1097,7 @@ SKILL:Stealth			RANK:3
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Daemon (Ceustodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon)]
+STARTPACK:Daemon (Ceustodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon)]
 RACE:Daemon (Ceustodaemon)	!PRERACE:1,%
 NAME:Ceustodaemon
 ALIGN:NE
@@ -1114,7 +1114,7 @@ FEAT:Blind-Fight
 FEAT:Power Attack
 FEAT:Step Up
 
-STARTPACK:Daemon (Ceustodaemon/Lesser) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon/Lesser)]
+STARTPACK:Daemon (Ceustodaemon/Lesser) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon/Lesser)]
 RACE:Daemon (Ceustodaemon/Lesser)	!PRERACE:1,%
 NAME:Lesser Ceustodaemon
 ALIGN:NE
@@ -1131,7 +1131,7 @@ FEAT:Blind-Fight
 FEAT:Power Attack
 FEAT:Step Up
 
-STARTPACK:Daemon (Ceustodaemon/Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon/Greater)]
+STARTPACK:Daemon (Ceustodaemon/Greater) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Ceustodaemon/Greater)]
 RACE:Daemon (Ceustodaemon/Greater)	!PRERACE:1,%
 NAME:Greater Ceustodaemon
 ALIGN:NE
@@ -1148,7 +1148,7 @@ FEAT:Blind-Fight
 FEAT:Power Attack
 FEAT:Step Up
 
-STARTPACK:Daemon (Derghodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Derghodaemon)]
+STARTPACK:Daemon (Derghodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Derghodaemon)]
 RACE:Daemon (Derghodaemon)	!PRERACE:1,%
 NAME:Derghodaemon
 ALIGN:NE
@@ -1165,7 +1165,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Summon Swarm)
 FEAT:Sickening Critical
 FEAT:Vital Strike
 
-STARTPACK:Daemon (Hydrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Hydrodaemon)]
+STARTPACK:Daemon (Hydrodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Hydrodaemon)]
 RACE:Daemon (Hydrodaemon)	!PRERACE:1,%
 NAME:Hydrodaemon
 ALIGN:NE
@@ -1182,7 +1182,7 @@ FEAT:Power Attack
 FEAT:Precise Shot
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Daemon (Leukodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Leukodaemon)]
+STARTPACK:Daemon (Leukodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Leukodaemon)]
 RACE:Daemon (Leukodaemon)	!PRERACE:1,%
 NAME:Leukodaemon
 ALIGN:NE
@@ -1203,7 +1203,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Focus (Longbow)
 GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:PLUS1W.BOWSTR|7
 
-STARTPACK:Daemon (Meladaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Meladaemon)]
+STARTPACK:Daemon (Meladaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Meladaemon)]
 RACE:Daemon (Meladaemon)	!PRERACE:1,%
 NAME:Meladaemon
 ALIGN:NE
@@ -1228,7 +1228,7 @@ FEAT:Iron Will
 FEAT:Quicken Spell-Like Ability ~ Spell (Magic Missile)
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Daemon (Olethrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Olethrodaemon)]
+STARTPACK:Daemon (Olethrodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Olethrodaemon)]
 RACE:Daemon (Olethrodaemon)	!PRERACE:1,%
 NAME:Olethrodaemon
 ALIGN:NE
@@ -1251,7 +1251,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Disintegrate)
 
-STARTPACK:Daemon (Piscodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Piscodaemon)]
+STARTPACK:Daemon (Piscodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Piscodaemon)]
 RACE:Daemon (Piscodaemon)	!PRERACE:1,%
 NAME:Piscodaemon
 ALIGN:NE
@@ -1271,7 +1271,7 @@ FEAT:Power Attack
 FEAT:Sickening Critical
 FEAT:Vital Strike
 
-STARTPACK:Daemon (Purrodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Purrodaemon)]
+STARTPACK:Daemon (Purrodaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Purrodaemon)]
 RACE:Daemon (Purrodaemon)	!PRERACE:1,%
 NAME:Purrodaemon
 ALIGN:NE
@@ -1299,7 +1299,7 @@ FEAT:Quick Draw
 FEAT:Vital Strike
 GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS2W.WOUND
 
-STARTPACK:Daemon (Thanadaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Thanadaemon)]
+STARTPACK:Daemon (Thanadaemon) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Thanadaemon)]
 RACE:Daemon (Thanadaemon)	!PRERACE:1,%
 NAME:Thanadaemon
 ALIGN:NE
@@ -1324,7 +1324,7 @@ FEAT:Mobility
 FEAT:Power Attack
 GEAR:Quarterstaff	SIZE:M	LOCATION:Both Hands	EQMOD:PLUS2W
 
-STARTPACK:Dark Slayer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Slayer]
+STARTPACK:Dark Slayer Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Slayer]
 RACE:Dark Slayer	!PRERACE:1,%
 NAME:Dark Slayer
 ALIGN:CE
@@ -1336,7 +1336,7 @@ FEAT:Weapon Finesse
 GEAR:Kukri					SIZE:S	LOCATION:Equipped
 GEAR:Poison (Black Smear)	QTY:2			LOCATION:Carried
 
-STARTPACK:Death Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Worm]
+STARTPACK:Death Worm Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Worm]
 RACE:Death Worm	!PRERACE:1,%
 NAME:Death Worm
 ALIGN:TN
@@ -1347,7 +1347,7 @@ FEAT:Improved Overrun
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Decapus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Decapus]
+STARTPACK:Decapus Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Decapus]
 RACE:Decapus	!PRERACE:1,%
 NAME:Decapus
 ALIGN:CE
@@ -1364,7 +1364,7 @@ FEAT:Skill Focus (Bluff)
 FEAT:Toughness
 FEAT:Weapon Focus (Tentacles)
 
-STARTPACK:Demon (Kalavakus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Kalavakus)]
+STARTPACK:Demon (Kalavakus) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Kalavakus)]
 RACE:Demon (Kalavakus)	!PRERACE:1,%
 NAME:Kalavakus
 ALIGN:CE
@@ -1383,7 +1383,7 @@ FEAT:Improved Disarm
 FEAT:Improved Trip
 FEAT:Power Attack
 
-STARTPACK:Demon (Omox) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Omox)]
+STARTPACK:Demon (Omox) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Omox)]
 RACE:Demon (Omox)	!PRERACE:1,%
 NAME:Omox
 ALIGN:CE
@@ -1404,7 +1404,7 @@ FEAT:Mobility
 FEAT:Spring Attack
 FEAT:Vital Strike
 
-STARTPACK:Demon (Shemhazian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
+STARTPACK:Demon (Shemhazian) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
 RACE:Demon (Shemhazian)	!PRERACE:1,%
 NAME:Shemhazian
 ALIGN:CE
@@ -1425,7 +1425,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Demon (Vrolikai) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Vrolikai)]
+STARTPACK:Demon (Vrolikai) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Vrolikai)]
 RACE:Demon (Vrolikai)	!PRERACE:1,%
 NAME:Vrolikai
 ALIGN:CE
@@ -1454,7 +1454,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Enervation)
 FEAT:Vital Strike
 GEAR:Dagger	QTY:4	SIZE:L	LOCATION:Equipped	EQMOD:PLUS1W
 
-STARTPACK:Denizen of Leng Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
+STARTPACK:Denizen of Leng Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
 RACE:Denizen of Leng	!PRERACE:1,%
 NAME:Denizen of Leng
 ALIGN:CE
@@ -1477,7 +1477,7 @@ FEAT:Mobility
 FEAT:Persuasive
 FEAT:Weapon Finesse
 
-STARTPACK:Destrachan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Destrachan]
+STARTPACK:Destrachan Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Destrachan]
 RACE:Destrachan	!PRERACE:1,%
 NAME:Destrachan
 ALIGN:NE
@@ -1494,7 +1494,7 @@ FEAT:Lightning Reflexes
 FEAT:Mobility
 FEAT:Vital Strike
 
-STARTPACK:Devil (Accuser) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Accuser)]
+STARTPACK:Devil (Accuser) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Accuser)]
 RACE:Devil (Accuser)	!PRERACE:1,%
 NAME:Accuser Devil (Zebub)
 ALIGN:LE
@@ -1507,7 +1507,7 @@ SKILL:Stealth			RANK:4
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 
-STARTPACK:Devil (Belier) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Belier)]
+STARTPACK:Devil (Belier) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Belier)]
 RACE:Devil (Belier)	!PRERACE:1,%
 NAME:Belier Devil (Bdellavritra)
 ALIGN:LE
@@ -1535,7 +1535,7 @@ FEAT:Improved Initiative
 FEAT:Improved Trip
 FEAT:Iron Will
 
-STARTPACK:Devil (Handmaiden) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Handmaiden)]
+STARTPACK:Devil (Handmaiden) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Handmaiden)]
 RACE:Devil (Handmaiden)	!PRERACE:1,%
 NAME:Handmaiden Devil (Gylou)
 GENDER:Female
@@ -1562,7 +1562,7 @@ FEAT:Multiattack
 FEAT:Nimble Moves
 FEAT:Strike Back
 
-STARTPACK:Devil (Immolation) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Immolation)]
+STARTPACK:Devil (Immolation) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Immolation)]
 RACE:Devil (Immolation)	!PRERACE:1,%
 NAME:Immolation Devil (Puragaus)
 ALIGN:LE
@@ -1590,7 +1590,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Stand Still
 
-STARTPACK:Devilfish Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devilfish]
+STARTPACK:Devilfish Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devilfish]
 RACE:Devilfish	!PRERACE:1,%
 NAME:Devilfish
 ALIGN:NE
@@ -1603,7 +1603,7 @@ FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Power Attack
 
-STARTPACK:Dhampir Fighter 1	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dhampir]
+STARTPACK:Dhampir Fighter 1	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dhampir]
 RACE:Dhampir	!PRERACE:1,%
 NAME:Dhampir Fighter 1
 ALIGN:CE
@@ -1618,7 +1618,7 @@ FEAT:Toughness
 GEAR:Chain Shirt	LOCATION:Equipped
 GEAR:Rapier		LOCATION:Equipped
 
-STARTPACK:Dinosaur (Allosaurus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Allosaurus)]
+STARTPACK:Dinosaur (Allosaurus) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Allosaurus)]
 RACE:Dinosaur (Allosaurus)	!PRERACE:1,%
 NAME:Allosaurus
 ALIGN:TN
@@ -1631,7 +1631,7 @@ FEAT:Iron Will
 FEAT:Nimble Moves
 FEAT:Run
 
-STARTPACK:Dinosaur (Compsognathus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Compsognathus)]
+STARTPACK:Dinosaur (Compsognathus) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Compsognathus)]
 RACE:Dinosaur (Compsognathus)	!PRERACE:1,%
 NAME:Compsognathus
 ALIGN:TN
@@ -1639,7 +1639,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:1
 FEAT:Improved Initiative
 
-STARTPACK:Dinosaur (Parasaurolophus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Parasaurolophus)]
+STARTPACK:Dinosaur (Parasaurolophus) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Parasaurolophus)]
 RACE:Dinosaur (Parasaurolophus)	!PRERACE:1,%
 NAME:Parasaurolophus
 ALIGN:TN
@@ -1649,7 +1649,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Dinosaur (Tylosaurus) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tylosaurus)]
+STARTPACK:Dinosaur (Tylosaurus) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Tylosaurus)]
 RACE:Dinosaur (Tylosaurus)	!PRERACE:1,%
 NAME:Tylosaurus
 ALIGN:TN
@@ -1661,7 +1661,7 @@ FEAT:Great Fortitude
 FEAT:Mobility
 FEAT:Power Attack
 
-STARTPACK:Dragon Horse Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Horse]
+STARTPACK:Dragon Horse Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Horse]
 RACE:Dragon Horse	!PRERACE:1,%
 NAME:Dragon Horse
 ALIGN:NG
@@ -1677,19 +1677,19 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Mobility
 
-STARTPACK:Dragonfly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly (Giant)]
+STARTPACK:Dragonfly (Giant) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly (Giant)]
 RACE:Dragonfly (Giant)	!PRERACE:1,%
 NAME:Giant Dragonfly
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Dragonfly Nymph (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly Nymph (Giant)]
+STARTPACK:Dragonfly Nymph (Giant) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly Nymph (Giant)]
 RACE:Dragonfly Nymph (Giant)	!PRERACE:1,%
 NAME:Giant Dragonfly Nymph
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Drake (Flame) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Flame)]
+STARTPACK:Drake (Flame) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Flame)]
 RACE:Drake (Flame)	!PRERACE:1,%
 NAME:Flame Drake
 ALIGN:CE
@@ -1703,7 +1703,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Drake (Forest) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Forest)]
+STARTPACK:Drake (Forest) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Forest)]
 RACE:Drake (Forest)	!PRERACE:1,%
 NAME:Forest Drake
 ALIGN:LE
@@ -1717,7 +1717,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Drake (Frost) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Frost)]
+STARTPACK:Drake (Frost) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Frost)]
 RACE:Drake (Frost)	!PRERACE:1,%
 NAME:Frost Drake
 ALIGN:CE
@@ -1732,7 +1732,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Drake (Sea) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Sea)]
+STARTPACK:Drake (Sea) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Sea)]
 RACE:Drake (Sea)	!PRERACE:1,%
 NAME:Sea Drake
 ALIGN:NE
@@ -1747,7 +1747,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Draugr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr]
+STARTPACK:Draugr Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr]
 RACE:Draugr	!PRERACE:1,%
 NAME:Draugr
 ALIGN:CE
@@ -1760,7 +1760,7 @@ FEAT:Toughness
 GEAR:Leather	LOCATION:Equipped
 GEAR:Greataxe	LOCATION:Equipped
 
-STARTPACK:Draugr Captain Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr Captain]
+STARTPACK:Draugr Captain Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draugr Captain]
 RACE:Draugr Captain	!PRERACE:1,%
 NAME:Draugr Captain
 ALIGN:CE
@@ -1773,7 +1773,7 @@ FEAT:Toughness
 GEAR:Leather	LOCATION:Equipped
 GEAR:Greataxe	LOCATION:Equipped
 
-STARTPACK:Dullahan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan]
+STARTPACK:Dullahan Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan]
 RACE:Dullahan	!PRERACE:1,%
 NAME:Dullahan
 ALIGN:LE
@@ -1792,7 +1792,7 @@ FEAT:Weapon Focus (Longsword)
 GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W.KEEN
 
-STARTPACK:Coach of the Silent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan (Coach of the Silent)]
+STARTPACK:Coach of the Silent Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan (Coach of the Silent)]
 RACE:Dullahan (Coach of the Silent)	!PRERACE:1,%
 NAME:Coach of the Silent
 ALIGN:LE
@@ -1812,7 +1812,7 @@ GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W.KEEN
 
 ###BLOCK: Dragons
-STARTPACK:Dragon (Brine/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
+STARTPACK:Dragon (Brine/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
 ALIGN:LN
 RACE:Dragon (Brine)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -1840,7 +1840,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 
 
-STARTPACK:Dragon (Brine/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
+STARTPACK:Dragon (Brine/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
 ALIGN:LN
 RACE:Dragon (Brine)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -1884,7 +1884,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 
 
-STARTPACK:Dragon (Brine/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.95
+STARTPACK:Dragon (Brine/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.95
 ALIGN:LN
 RACE:Dragon (Brine)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -1953,7 +1953,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 
 
-STARTPACK:Dragon (Cloud/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+STARTPACK:Dragon (Cloud/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
 ALIGN:TN
 RACE:Dragon (Cloud)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -1975,7 +1975,7 @@ FEAT:Skill Focus (Diplomacy)
 FEAT:Weapon Focus (Claw)
 
 
-STARTPACK:Dragon (Cloud/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+STARTPACK:Dragon (Cloud/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
 ALIGN:TN
 RACE:Dragon (Cloud)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2014,7 +2014,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Cloud/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+STARTPACK:Dragon (Cloud/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
 ALIGN:TN
 RACE:Dragon (Cloud)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2079,7 +2079,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Crystal/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+STARTPACK:Dragon (Crystal/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
 ALIGN:CG
 RACE:Dragon (Crystal)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2100,7 +2100,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 
 
-STARTPACK:Dragon (Crystal/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+STARTPACK:Dragon (Crystal/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
 ALIGN:CG
 RACE:Dragon (Crystal)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2132,7 +2132,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Crystal/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+STARTPACK:Dragon (Crystal/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
 ALIGN:CG
 RACE:Dragon (Crystal)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2186,7 +2186,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Magma/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+STARTPACK:Dragon (Magma/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
 ALIGN:CN
 RACE:Dragon (Magma)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2215,7 +2215,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
 
 
-STARTPACK:Dragon (Magma/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+STARTPACK:Dragon (Magma/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
 ALIGN:CN
 RACE:Dragon (Magma)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2261,7 +2261,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Magma/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+STARTPACK:Dragon (Magma/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
 ALIGN:CN
 RACE:Dragon (Magma)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2331,7 +2331,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Umbral/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+STARTPACK:Dragon (Umbral/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CE
 RACE:Dragon (Umbral)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2362,7 +2362,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Umbral/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+STARTPACK:Dragon (Umbral/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CE
 RACE:Dragon (Umbral)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2408,7 +2408,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CE
 RACE:Dragon (Umbral)	!PRERACE:1,%
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -2480,7 +2480,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dust Digger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
+STARTPACK:Dust Digger Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
 RACE:Dust Digger	!PRERACE:1,%
 NAME:Dust Digger
 ALIGN:TN
@@ -2491,7 +2491,7 @@ FEAT:Improved Initiative
 FEAT:Multiattack
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:D'ziriak Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,D'ziriak]
+STARTPACK:D'ziriak Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,D'ziriak]
 RACE:D'ziriak	!PRERACE:1,%
 NAME:D'ziriak
 ALIGN:TN
@@ -2508,7 +2508,7 @@ FEAT:Combat Reflexes
 FEAT:Weapon Focus (Claw)
 
 
-STARTPACK:Elemental (Ice/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Small)]	SOURCEPAGE:p.114
+STARTPACK:Elemental (Ice/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Small)]	SOURCEPAGE:p.114
 RACE:Elemental (Ice/Small)	!PRERACE:1,%
 NAME:Small Ice Elemental
 ALIGN:TN
@@ -2518,7 +2518,7 @@ SKILL:Perception			RANK:2
 SKILL:Stealth			RANK:2
 FEAT:Power Attack
 
-STARTPACK:Elemental (Ice/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Medium)]	SOURCEPAGE:p.114
+STARTPACK:Elemental (Ice/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Medium)]	SOURCEPAGE:p.114
 RACE:Elemental (Ice/Medium)	!PRERACE:1,%
 NAME:Medium Ice Elemental
 ALIGN:TN
@@ -2529,7 +2529,7 @@ SKILL:Stealth			RANK:4
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Elemental (Ice/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Large)]	SOURCEPAGE:p.114
+STARTPACK:Elemental (Ice/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Large)]	SOURCEPAGE:p.114
 RACE:Elemental (Ice/Large)	!PRERACE:1,%
 NAME:Large Ice Elemental
 ALIGN:TN
@@ -2543,7 +2543,7 @@ FEAT:Great Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Elemental (Ice/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Huge)]	SOURCEPAGE:p.114
+STARTPACK:Elemental (Ice/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Huge)]	SOURCEPAGE:p.114
 RACE:Elemental (Ice/Huge)	!PRERACE:1,%
 NAME:Huge Ice Elemental
 ALIGN:TN
@@ -2558,7 +2558,7 @@ FEAT:Great Cleave
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Elemental (Ice/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Greater)]	SOURCEPAGE:p.115
+STARTPACK:Elemental (Ice/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Greater)]	SOURCEPAGE:p.115
 RACE:Elemental (Ice/Greater)	!PRERACE:1,%
 NAME:Greater Ice Elemental
 ALIGN:TN
@@ -2576,7 +2576,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Elemental (Ice/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Elder)]	SOURCEPAGE:p.115
+STARTPACK:Elemental (Ice/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Ice/Elder)]	SOURCEPAGE:p.115
 RACE:Elemental (Ice/Elder)	!PRERACE:1,%
 NAME:Elder Ice Elemental
 ALIGN:TN
@@ -2596,7 +2596,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Elemental (Lightning/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Small)]	SOURCEPAGE:p.116
+STARTPACK:Elemental (Lightning/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Small)]	SOURCEPAGE:p.116
 RACE:Elemental (Lightning/Small)	!PRERACE:1,%
 NAME:Small Lightning Elemental
 ALIGN:TN
@@ -2607,7 +2607,7 @@ SKILL:Perception			RANK:2
 FEAT:Improved Initiative
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Elemental (Lightning/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Medium)]	SOURCEPAGE:p.116
+STARTPACK:Elemental (Lightning/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Medium)]	SOURCEPAGE:p.116
 RACE:Elemental (Lightning/Medium)	!PRERACE:1,%
 NAME:Medium Lightning Elemental
 ALIGN:TN
@@ -2619,7 +2619,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Elemental (Lightning/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Large)]	SOURCEPAGE:p.116
+STARTPACK:Elemental (Lightning/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Large)]	SOURCEPAGE:p.116
 RACE:Elemental (Lightning/Large)	!PRERACE:1,%
 NAME:Large Lightning Elemental
 ALIGN:TN
@@ -2633,7 +2633,7 @@ FEAT:Improved Initiative
 FEAT:Mobility
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Elemental (Lightning/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Huge)]	SOURCEPAGE:p.116
+STARTPACK:Elemental (Lightning/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Huge)]	SOURCEPAGE:p.116
 RACE:Elemental (Lightning/Huge)	!PRERACE:1,%
 NAME:Huge Lightning Elemental
 ALIGN:TN
@@ -2648,7 +2648,7 @@ FEAT:Iron Will
 FEAT:Mobility
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Elemental (Lightning/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Greater)]	SOURCEPAGE:p.117
+STARTPACK:Elemental (Lightning/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Greater)]	SOURCEPAGE:p.117
 RACE:Elemental (Lightning/Greater)	!PRERACE:1,%
 NAME:Greater Lightning Elemental
 ALIGN:TN
@@ -2666,7 +2666,7 @@ FEAT:Mobility
 FEAT:Power Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Elemental (Lightning/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Elder)]	SOURCEPAGE:p.117
+STARTPACK:Elemental (Lightning/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Lightning/Elder)]	SOURCEPAGE:p.117
 RACE:Elemental (Lightning/Elder)	!PRERACE:1,%
 NAME:Elder Lightning Elemental
 ALIGN:TN
@@ -2686,7 +2686,7 @@ FEAT:Mobility
 FEAT:Power Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Elemental (Magma/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Small)]	SOURCEPAGE:p.118
+STARTPACK:Elemental (Magma/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Small)]	SOURCEPAGE:p.118
 RACE:Elemental (Magma/Small)	!PRERACE:1,%
 NAME:Small Magma Elemental
 ALIGN:TN
@@ -2696,7 +2696,7 @@ SKILL:Perception				RANK:2
 SKILL:Stealth				RANK:2
 FEAT:Improved Initiative
 
-STARTPACK:Elemental (Magma/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Medium)]	SOURCEPAGE:p.118
+STARTPACK:Elemental (Magma/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Medium)]	SOURCEPAGE:p.118
 RACE:Elemental (Magma/Medium)	!PRERACE:1,%
 NAME:Medium Magma Elemental
 ALIGN:TN
@@ -2707,7 +2707,7 @@ SKILL:Stealth				RANK:4
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Elemental (Magma/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Large)]	SOURCEPAGE:p.118
+STARTPACK:Elemental (Magma/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Large)]	SOURCEPAGE:p.118
 RACE:Elemental (Magma/Large)	!PRERACE:1,%
 NAME:Large Magma Elemental
 ALIGN:TN
@@ -2721,7 +2721,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Elemental (Magma/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Huge)]	SOURCEPAGE:p.118
+STARTPACK:Elemental (Magma/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Huge)]	SOURCEPAGE:p.118
 RACE:Elemental (Magma/Huge)	!PRERACE:1,%
 NAME:Huge Magma Elemental
 ALIGN:TN
@@ -2736,7 +2736,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Initiative
 FEAT:Power Attack
 
-STARTPACK:Elemental (Magma/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Greater)]	SOURCEPAGE:p.119
+STARTPACK:Elemental (Magma/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Greater)]	SOURCEPAGE:p.119
 RACE:Elemental (Magma/Greater)	!PRERACE:1,%
 NAME:Greater Magma Elemental
 ALIGN:TN
@@ -2754,7 +2754,7 @@ FEAT:Improved Initiative
 FEAT:Improved Overrun
 FEAT:Power Attack
 
-STARTPACK:Elemental (Magma/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Elder)]	SOURCEPAGE:p.119
+STARTPACK:Elemental (Magma/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Magma/Elder)]	SOURCEPAGE:p.119
 RACE:Elemental (Magma/Elder)	!PRERACE:1,%
 NAME:Elder Magma Elemental
 ALIGN:TN
@@ -2774,7 +2774,7 @@ FEAT:Improved Overrun
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Elemental (Mud/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Small)]	SOURCEPAGE:p.120
+STARTPACK:Elemental (Mud/Small) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Small)]	SOURCEPAGE:p.120
 RACE:Elemental (Mud/Small)	!PRERACE:1,%
 NAME:Small Mud Elemental
 ALIGN:TN
@@ -2786,7 +2786,7 @@ SKILL:Perception			RANK:2
 SKILL:Stealth			RANK:1
 FEAT:Power Attack
 
-STARTPACK:Elemental (Mud/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Medium)]	SOURCEPAGE:p.120
+STARTPACK:Elemental (Mud/Medium) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Medium)]	SOURCEPAGE:p.120
 RACE:Elemental (Mud/Medium)	!PRERACE:1,%
 NAME:Medium Mud Elemental
 ALIGN:TN
@@ -2799,7 +2799,7 @@ SKILL:Stealth			RANK:2
 FEAT:Cleave
 FEAT:Power Attack
 
-STARTPACK:Elemental (Mud/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Large)]	SOURCEPAGE:p.120
+STARTPACK:Elemental (Mud/Large) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Large)]	SOURCEPAGE:p.120
 RACE:Elemental (Mud/Large)	!PRERACE:1,%
 NAME:Large Mud Elemental
 ALIGN:TN
@@ -2814,7 +2814,7 @@ FEAT:Great Cleave
 FEAT:Greater Bull Rush
 FEAT:Power Attack
 
-STARTPACK:Elemental (Mud/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Huge)]	SOURCEPAGE:p.120
+STARTPACK:Elemental (Mud/Huge) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Huge)]	SOURCEPAGE:p.120
 RACE:Elemental (Mud/Huge)	!PRERACE:1,%
 NAME:Huge Mud Elemental
 ALIGN:TN
@@ -2830,7 +2830,7 @@ FEAT:Great Cleave
 FEAT:Greater Bull Rush
 FEAT:Power Attack
 
-STARTPACK:Elemental (Mud/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Greater)]	SOURCEPAGE:p.121
+STARTPACK:Elemental (Mud/Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Greater)]	SOURCEPAGE:p.121
 RACE:Elemental (Mud/Greater)	!PRERACE:1,%
 NAME:Greater Mud Elemental
 ALIGN:TN
@@ -2848,7 +2848,7 @@ FEAT:Greater Bull Rush
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 
-STARTPACK:Elemental (Mud/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Elder)]	SOURCEPAGE:p.121
+STARTPACK:Elemental (Mud/Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Mud/Elder)]	SOURCEPAGE:p.121
 RACE:Elemental (Mud/Elder)	!PRERACE:1,%
 NAME:Elder Mud Elemental
 ALIGN:TN
@@ -2868,7 +2868,7 @@ FEAT:Improved Critical (Slam)
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 
-STARTPACK:Faceless Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faceless Stalker]
+STARTPACK:Faceless Stalker Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faceless Stalker]
 RACE:Faceless Stalker	!PRERACE:1,%
 NAME:Faceless Stalker (Ugothol)
 ALIGN:CE
@@ -2883,7 +2883,7 @@ FEAT:Deceitful
 FEAT:Improved Initiative
 GEAR:Longsword	LOCATION:Equipped	EQMOD:MWORKW
 
-STARTPACK:Fetchling Rogue 1	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fetchling]
+STARTPACK:Fetchling Rogue 1	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fetchling]
 RACE:Fetchling	!PRERACE:1,%
 NAME:Fetchling Rogue 1
 ALIGN:TN
@@ -2902,19 +2902,19 @@ FEAT:Weapon Finesse
 GEAR:Chain Shirt	LOCATION:Equipped
 GEAR:Dagger		LOCATION:Equipped
 
-STARTPACK:Fly (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
+STARTPACK:Fly (Giant) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
 RACE:Fly (Giant)	!PRERACE:1,%
 NAME:Giant Fly
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Fly (Giant Maggot) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant Maggot)]
+STARTPACK:Fly (Giant Maggot) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant Maggot)]
 RACE:Fly (Giant Maggot)	!PRERACE:1,%
 NAME:Giant Maggot
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Forlarren Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forlarren]
+STARTPACK:Forlarren Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forlarren]
 RACE:Forlarren	!PRERACE:1,%
 NAME:Forlarren
 GENDER:Female
@@ -2927,7 +2927,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Weapon Finesse
 ABILITY:CATEGORY=Forlarren Spell-Like Ability|Forlarren Heat Metal
 
-STARTPACK:Frost Worm Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
+STARTPACK:Frost Worm Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
 RACE:Frost Worm	!PRERACE:1,%
 NAME:Frost Worm
 ALIGN:TN
@@ -2943,7 +2943,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Stand Still
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Fungal Crawler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungal Crawler]
+STARTPACK:Fungal Crawler Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fungal Crawler]
 RACE:Fungal Crawler	!PRERACE:1,%
 NAME:Fungal Crawler
 ALIGN:TN
@@ -2954,7 +2954,7 @@ FEAT:Improved Initiative
 FEAT:Step Up
 
 ###BLOCK: G
-STARTPACK:Gar Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gar]
+STARTPACK:Gar Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gar]
 RACE:Gar	!PRERACE:1,%
 NAME:Gar
 ALIGN:TN
@@ -2962,7 +2962,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
 FEAT:Improved Initiative
 
-STARTPACK:Gar (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gar (Giant)]
+STARTPACK:Gar (Giant) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gar (Giant)]
 RACE:Gar (Giant)	!PRERACE:1,%
 NAME:Giant Gar
 ALIGN:TN
@@ -2973,7 +2973,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 
-STARTPACK:Giant (Marsh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Marsh)]
+STARTPACK:Giant (Marsh) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Marsh)]
 RACE:Giant (Marsh)	!PRERACE:1,%
 NAME:Marsh Giant
 ALIGN:CE
@@ -2989,7 +2989,7 @@ FEAT:Vital Strike
 GEAR:Gaff			SIZE:L	LOCATION:Both Hands
 GEAR:Rock (Medium)			LOCATION:Carried
 
-STARTPACK:Giant (Brineborn Marsh) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Brineborn Marsh)]
+STARTPACK:Giant (Brineborn Marsh) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Brineborn Marsh)]
 RACE:Giant (Brineborn Marsh)	!PRERACE:1,%
 NAME:Brineborn Marsh Giant
 ALIGN:CE
@@ -3005,7 +3005,7 @@ FEAT:Vital Strike
 GEAR:Gaff			SIZE:L	LOCATION:Both Hands
 GEAR:Rock (Medium)			LOCATION:Carried
 
-STARTPACK:Giant (Rune) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Rune)]
+STARTPACK:Giant (Rune) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Rune)]
 RACE:Giant (Rune)	!PRERACE:1,%
 NAME:Rune Giant
 ALIGN:LE
@@ -3029,7 +3029,7 @@ GEAR:Full Plate		SIZE:G	LOCATION:Armor		EQMOD:MWORKA
 GEAR:Longsword		SIZE:G	LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Spear		QTY:3	SIZE:G	LOCATION:Carried		EQMOD:MWORKW
 
-STARTPACK:Giant (Taiga) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Taiga)]
+STARTPACK:Giant (Taiga) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Taiga)]
 RACE:Giant (Taiga)	!PRERACE:1,%
 NAME:Taiga Giant
 ALIGN:CN
@@ -3051,7 +3051,7 @@ GEAR:Hide			SIZE:H	LOCATION:Armor
 GEAR:Spear			SIZE:H	LOCATION:Both Hands
 GEAR:Rock (Medium)			LOCATION:Carried
 
-STARTPACK:Giant (Wood) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Wood)]
+STARTPACK:Giant (Wood) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Wood)]
 RACE:Giant (Wood)	!PRERACE:1,%
 NAME:Wood Giant
 ALIGN:CG
@@ -3073,7 +3073,7 @@ GEAR:Longsword					SIZE:L	LOCATION:Primary Hand
 GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+5
 GEAR:Arrow				QTY:20			LOCATION:Carried
 
-STARTPACK:Gloomwing Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
+STARTPACK:Gloomwing Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
 RACE:Gloomwing	!PRERACE:1,%
 NAME:Gloomwing
 ALIGN:TN
@@ -3084,49 +3084,49 @@ FEAT:Ability Focus (Confusion ~ Gloomwing)
 FEAT:Flyby Attack
 FEAT:Hover
 
-STARTPACK:Golem (Adamantine) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Adamantine)]
+STARTPACK:Golem (Adamantine) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Adamantine)]
 RACE:Golem (Adamantine)	!PRERACE:1,%
 NAME:Adamantine Golem
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Golem (Alchemical) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Alchemical)]
+STARTPACK:Golem (Alchemical) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Alchemical)]
 RACE:Golem (Alchemical)	!PRERACE:1,%
 NAME:Alchemical Golem
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Golem (Carrion) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Carrion)]
+STARTPACK:Golem (Carrion) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Carrion)]
 RACE:Golem (Carrion)	!PRERACE:1,%
 NAME:Carrion Golem
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Golem (Clockwork) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Clockwork)]
+STARTPACK:Golem (Clockwork) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Clockwork)]
 RACE:Golem (Clockwork)	!PRERACE:1,%
 NAME:Clockwork Golem
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Golem (Glass) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Glass)]
+STARTPACK:Golem (Glass) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Glass)]
 RACE:Golem (Glass)	!PRERACE:1,%
 NAME:Glass Golem
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Golem (Stained Glass) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stained Glass)]
+STARTPACK:Golem (Stained Glass) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stained Glass)]
 RACE:Golem (Stained Glass)	!PRERACE:1,%
 NAME:Stained Glass Golem
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Golem (Mithral) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Mithral)]
+STARTPACK:Golem (Mithral) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Mithral)]
 RACE:Golem (Mithral)	!PRERACE:1,%
 NAME:Mithral Golem
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Gray Render Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Render]
+STARTPACK:Gray Render Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Render]
 RACE:Gray Render	!PRERACE:1,%
 NAME:Gray Render
 ALIGN:TN
@@ -3138,7 +3138,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Gremlin (Jinkin) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Jinkin)]
+STARTPACK:Gremlin (Jinkin) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Jinkin)]
 RACE:Gremlin (Jinkin)	!PRERACE:1,%
 NAME:Jinkin
 ALIGN:CE
@@ -3154,7 +3154,7 @@ SKILL:Use Magic Device
 FEAT:Dodge
 GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
 
-STARTPACK:Gremlin (Nuglub) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Nuglub)]
+STARTPACK:Gremlin (Nuglub) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Nuglub)]
 RACE:Gremlin (Nuglub)	!PRERACE:1,%
 NAME:Nuglub
 ALIGN:CE
@@ -3167,7 +3167,7 @@ SKILL:Stealth		RANK:3
 FEAT:Step Up
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Gremlin (Pugwampi) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Pugwampi)]
+STARTPACK:Gremlin (Pugwampi) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Pugwampi)]
 RACE:Gremlin (Pugwampi)	!PRERACE:1,%
 NAME:Pugwampi
 ALIGN:NE
@@ -3183,7 +3183,7 @@ GEAR:Dagger				SIZE:T	LOCATION:Equipped
 GEAR:Shortbow			SIZE:T	LOCATION:Carried
 GEAR:Arrow		QTY:20	SIZE:T	LOCATION:Carried
 
-STARTPACK:Gremlin (Vexgit) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Vexgit)]
+STARTPACK:Gremlin (Vexgit) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gremlin (Vexgit)]
 RACE:Gremlin (Vexgit)	!PRERACE:1,%
 NAME:Vexgit
 ALIGN:LE
@@ -3198,7 +3198,7 @@ SKILL:Stealth
 FEAT:Skill Focus (Disable Device)
 GEAR:Warhammer	SIZE:T	LOCATION:Equipped
 
-STARTPACK:Grick Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick]
+STARTPACK:Grick Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick]
 RACE:Grick	!PRERACE:1,%
 NAME:Grick
 ALIGN:TN
@@ -3209,7 +3209,7 @@ FEAT:Combat Reflexes
 FEAT:Skill Focus (Perception)
 FEAT:Stand Still
 
-STARTPACK:Grick (Jungle) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick (Jungle)]
+STARTPACK:Grick (Jungle) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grick (Jungle)]
 RACE:Grick (Jungle)	!PRERACE:1,%
 NAME:Jungle Grick
 ALIGN:TN
@@ -3220,7 +3220,7 @@ FEAT:Combat Reflexes
 FEAT:Skill Focus (Perception)
 FEAT:Stand Still
 
-STARTPACK:Grig Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grig]
+STARTPACK:Grig Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grig]
 RACE:Grig	!PRERACE:1,%
 NAME:Grig
 ALIGN:NG
@@ -3236,7 +3236,7 @@ GEAR:Sword (Short)			SIZE:T	LOCATION:Equipped
 GEAR:Longbow				SIZE:T	LOCATION:Carried
 GEAR:Arrow			QTY:20	SIZE:T	LOCATION:Carried
 
-STARTPACK:Grindylow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grindylow]
+STARTPACK:Grindylow Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grindylow]
 RACE:Grindylow	!PRERACE:1,%
 NAME:Grindylow
 ALIGN:CE
@@ -3248,7 +3248,7 @@ FEAT:Weapon Finesse
 GEAR:Spear	SIZE:S	LOCATION:Equipped
 
 # COMMENT: Grippli's favored class bonus not used
-STARTPACK:Grippli Ranger 1	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grippli]
+STARTPACK:Grippli Ranger 1	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grippli]
 RACE:Grippli	!PRERACE:1,%
 NAME:Grippli Ranger 1
 ALIGN:TN
@@ -3270,7 +3270,7 @@ GEAR:Sword (Short)		SIZE:S	LOCATION:Equipped
 GEAR:Dart			QTY:4	SIZE:S	LOCATION:Carried
 GEAR:Net				SIZE:S	LOCATION:Carried
 
-STARTPACK:Gryph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
+STARTPACK:Gryph Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
 RACE:Gryph	!PRERACE:1,%
 NAME:Gryph
 ALIGN:NE
@@ -3279,7 +3279,7 @@ SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Gug Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gug]
+STARTPACK:Gug Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gug]
 RACE:Gug	!PRERACE:1,%
 NAME:Gug
 ALIGN:CE
@@ -3298,7 +3298,7 @@ FEAT:Lunge
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Gug Savant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gug Savant]
+STARTPACK:Gug Savant Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gug Savant]
 RACE:Gug Savant	!PRERACE:1,%
 NAME:Gug Savant
 ALIGN:CE
@@ -3317,7 +3317,7 @@ FEAT:Lunge
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Hangman Tree Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hangman Tree]
+STARTPACK:Hangman Tree Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hangman Tree]
 RACE:Hangman Tree	!PRERACE:1,%
 NAME:Hangman Tree
 ALIGN:NE
@@ -3329,7 +3329,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Hellcat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellcat]
+STARTPACK:Hellcat Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellcat]
 RACE:Hellcat	!PRERACE:1,%
 NAME:Hellcat
 ALIGN:LE
@@ -3346,7 +3346,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Mobility
 
-STARTPACK:Herd Animal (Camel) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Camel)]
+STARTPACK:Herd Animal (Camel) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Camel)]
 RACE:Herd Animal (Camel)	!PRERACE:1,%
 NAME:Camel
 ALIGN:TN
@@ -3354,7 +3354,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
 FEAT:Endurance
 
-STARTPACK:Herd Animal (Ram) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Ram)]
+STARTPACK:Herd Animal (Ram) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Ram)]
 RACE:Herd Animal (Ram)	!PRERACE:1,%
 NAME:Ram
 ALIGN:TN
@@ -3363,7 +3363,7 @@ SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 FEAT:Skill Focus (Acrobatics)
 
-STARTPACK:Hippocampus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus]
+STARTPACK:Hippocampus Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus]
 RACE:Hippocampus	!PRERACE:1,%
 NAME:Hippocampus
 ALIGN:TN
@@ -3371,7 +3371,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:2
 FEAT:Endurance
 
-STARTPACK:Hippocampus (Polar) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus (Polar)]
+STARTPACK:Hippocampus (Polar) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus (Polar)]
 RACE:Hippocampus (Polar)	!PRERACE:1,%
 NAME:Polar Hippocampus
 ALIGN:TN
@@ -3379,7 +3379,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:2
 FEAT:Endurance
 
-STARTPACK:Hippocampus (Giant) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus (Giant)]
+STARTPACK:Hippocampus (Giant) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippocampus (Giant)]
 RACE:Hippocampus (Giant)	!PRERACE:1,%
 NAME:Giant Hippocampus
 ALIGN:TN
@@ -3387,7 +3387,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:2
 FEAT:Endurance
 
-STARTPACK:Hippogriff Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippogriff]
+STARTPACK:Hippogriff Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippogriff]
 RACE:Hippogriff	!PRERACE:1,%
 NAME:Hippogriff
 ALIGN:TN
@@ -3397,7 +3397,7 @@ SKILL:Fly		RANK:2
 FEAT:Dodge
 FEAT:Wingover
 
-STARTPACK:Hippopotamus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]
+STARTPACK:Hippopotamus Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]
 RACE:Hippopotamus	!PRERACE:1,%
 NAME:Hippopotamus
 ALIGN:TN
@@ -3410,7 +3410,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Hippopotamus (Behemoth) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus (Behemoth)]
+STARTPACK:Hippopotamus (Behemoth) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus (Behemoth)]
 RACE:Hippopotamus (Behemoth)	!PRERACE:1,%
 NAME:Behemoth Hippopotamus
 ALIGN:TN
@@ -3426,7 +3426,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Hound of Tindalos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]
+STARTPACK:Hound of Tindalos Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]
 RACE:Hound of Tindalos	!PRERACE:1,%
 NAME:Hound of Tindalos
 ALIGN:NE
@@ -3446,7 +3446,7 @@ FEAT:Improved Initiative
 FEAT:Vital Strike
 FEAT:Weapon Finesse
 
-STARTPACK:Howler Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Howler]
+STARTPACK:Howler Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Howler]
 RACE:Howler	!PRERACE:1,%
 NAME:Howler
 ALIGN:CE
@@ -3467,7 +3467,7 @@ FEAT:Skill Focus (Perception)
 # NEEDS DATA WORK:   PCGen gives +4. I think the elemental affinity ability
 # NEEDS DATA WORK:   needs to be tweaked to fix this.
 # COMMENT: The Bestiary's flare DC is 15; I'm getting 14.
-STARTPACK:Ifrit Sorcerer 1	TYPE:Ifrit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ifrit]	SOURCEPAGE:p.160
+STARTPACK:Ifrit Sorcerer 1	TYPE:Ifrit	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ifrit]	SOURCEPAGE:p.160
 RACE:Ifrit	!PRERACE:1,%
 NAME:Ifrit Sorcerer 1
 ALIGN:TN
@@ -3490,7 +3490,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
 GEAR:Scimitar	LOCATION:Equipped
 
-STARTPACK:Inevitable (Arbiter) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Arbiter)]
+STARTPACK:Inevitable (Arbiter) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Arbiter)]
 RACE:Inevitable (Arbiter)	!PRERACE:1,%
 NAME:Arbiter
 ALIGN:LN
@@ -3504,7 +3504,7 @@ SKILL:Stealth			RANK:2
 FEAT:Flyby Attack
 GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
 
-STARTPACK:Inevitable (Kolyarut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Kolyarut)]
+STARTPACK:Inevitable (Kolyarut) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Kolyarut)]
 RACE:Inevitable (Kolyarut)	!PRERACE:1,%
 NAME:Kolyarut
 ALIGN:LN
@@ -3523,7 +3523,7 @@ FEAT:Lightning Reflexes
 FEAT:Quicken Spell-Like Ability ~ Spell (Suggestion)
 GEAR:Sword (Bastard)	SIZE:M	LOCATION:Primary Hand	EQMOD:PLUS2W
 
-STARTPACK:Inevitable (Lhaksharut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Lhaksharut)]
+STARTPACK:Inevitable (Lhaksharut) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Lhaksharut)]
 RACE:Inevitable (Lhaksharut)	!PRERACE:1,%
 NAME:Lhaksharut
 ALIGN:LN
@@ -3551,7 +3551,7 @@ GEAR:Spear		SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
 GEAR:Longsword	SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
 GEAR:Morningstar	SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
 
-STARTPACK:Inevitable (Marut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Marut)]
+STARTPACK:Inevitable (Marut) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Marut)]
 RACE:Inevitable (Marut)	!PRERACE:1,%
 NAME:Marut
 ALIGN:LN
@@ -3572,7 +3572,7 @@ FEAT:Improved Vital Strike
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Inevitable (Zelekhut) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Zelekhut)]
+STARTPACK:Inevitable (Zelekhut) Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Zelekhut)]
 RACE:Inevitable (Zelekhut)	!PRERACE:1,%
 NAME:Zelekhut
 ALIGN:LN
@@ -3589,7 +3589,7 @@ FEAT:Mobility
 FEAT:Weapon Focus (Chain)
 FEAT:Vital Strike
 
-STARTPACK:Jabberwock Default	TYPE:DefaultMonster.Jabberwock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jabberwock]	SOURCEPAGE:p.168
+STARTPACK:Jabberwock Default	TYPE:DefaultMonster.Jabberwock	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jabberwock]	SOURCEPAGE:p.168
 RACE:Jabberwock	!PRERACE:1,%
 NAME:Jabberwock
 ALIGN:CE
@@ -3615,49 +3615,49 @@ FEAT:Power Attack
 FEAT:Spring Attack
 FEAT:Vital Strike
 
-STARTPACK:Jellyfish (Death's Head) Default	TYPE:DefaultMonster.DeathsHeadJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Death's Head)]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish (Death's Head) Default	TYPE:DefaultMonster.DeathsHeadJellyfish	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Death's Head)]	SOURCEPAGE:p.170
 RACE:Jellyfish (Death's Head)	!PRERACE:1,%
 NAME:Death's Head Jellyfish
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Jellyfish (Crimson) Default	TYPE:DefaultMonster.CrimsonJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Crimson)]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish (Crimson) Default	TYPE:DefaultMonster.CrimsonJellyfish	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Crimson)]	SOURCEPAGE:p.170
 RACE:Jellyfish (Crimson)	!PRERACE:1,%
 NAME:Crimson Jellyfish
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Jellyfish (Giant) Default	TYPE:DefaultMonster.GiantJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Giant)]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish (Giant) Default	TYPE:DefaultMonster.GiantJellyfish	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Giant)]	SOURCEPAGE:p.170
 RACE:Jellyfish (Giant)	!PRERACE:1,%
 NAME:Giant Jellyfish
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Jellyfish (Sapphire) Default	TYPE:DefaultMonster.SapphireJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Sapphire)]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish (Sapphire) Default	TYPE:DefaultMonster.SapphireJellyfish	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Sapphire)]	SOURCEPAGE:p.170
 RACE:Jellyfish (Sapphire)	!PRERACE:1,%
 NAME:Sapphire Jellyfish
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Jellyfish (Vampire) Default	TYPE:DefaultMonster.VampireJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Vampire)]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish (Vampire) Default	TYPE:DefaultMonster.VampireJellyfish	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Vampire)]	SOURCEPAGE:p.170
 RACE:Jellyfish (Vampire)	!PRERACE:1,%
 NAME:Vampire Jellyfish
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Jellyfish (Whaler) Default	TYPE:DefaultMonster.WhalerJellyfish	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Whaler)]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish (Whaler) Default	TYPE:DefaultMonster.WhalerJellyfish	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Whaler)]	SOURCEPAGE:p.170
 RACE:Jellyfish (Whaler)	!PRERACE:1,%
 NAME:Whaler Jellyfish
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Jellyfish Swarm Default	TYPE:DefaultMonster.JellyfishSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish Swarm]	SOURCEPAGE:p.170
+STARTPACK:Jellyfish Swarm Default	TYPE:DefaultMonster.JellyfishSwarm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish Swarm]	SOURCEPAGE:p.170
 RACE:Jellyfish Swarm	!PRERACE:1,%
 NAME:Jellyfish Swarm
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Jyoti Default	TYPE:DefaultMonster.Jyoti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jyoti]	SOURCEPAGE:p.171
+STARTPACK:Jyoti Default	TYPE:DefaultMonster.Jyoti	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jyoti]	SOURCEPAGE:p.171
 RACE:Jyoti	!PRERACE:1,%
 NAME:Jyoti
 ALIGN:TN
@@ -3677,7 +3677,7 @@ FEAT:Mobility
 FEAT:Wind Stance
 GEAR:Spear	LOCATION:Both Hands	EQMOD:PLUS1W
 
-STARTPACK:Kelpie Default	TYPE:DefaultMonster.Kelpie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]	SOURCEPAGE:p.172
+STARTPACK:Kelpie Default	TYPE:DefaultMonster.Kelpie	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]	SOURCEPAGE:p.172
 RACE:Kelpie	!PRERACE:1,%
 NAME:Kelpie
 ALIGN:NE
@@ -3692,7 +3692,7 @@ FEAT:Deceitful
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Korred Default	TYPE:DefaultMonster.Korred	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]	SOURCEPAGE:p.173
+STARTPACK:Korred Default	TYPE:DefaultMonster.Korred	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]	SOURCEPAGE:p.173
 RACE:Korred	!PRERACE:1,%
 NAME:Korred
 ALIGN:CN
@@ -3710,7 +3710,7 @@ FEAT:Skill Focus (Perception)
 GEAR:Club			SIZE:S	LOCATION:Both Hands
 GEAR:Rock (Korred)			LOCATION:Carried
 
-STARTPACK:Krenshar Default	TYPE:DefaultMonster.Krenshar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Krenshar]	SOURCEPAGE:p.174
+STARTPACK:Krenshar Default	TYPE:DefaultMonster.Krenshar	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Krenshar]	SOURCEPAGE:p.174
 RACE:Krenshar	!PRERACE:1,%
 NAME:Krenshar
 ALIGN:TN
@@ -3719,7 +3719,7 @@ SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Improved Initiative
 
-STARTPACK:Lamia Matriarch Default	TYPE:DefaultMonster.LamiaMatriarch	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia Matriarch]	SOURCEPAGE:p.175
+STARTPACK:Lamia Matriarch Default	TYPE:DefaultMonster.LamiaMatriarch	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lamia Matriarch]	SOURCEPAGE:p.175
 RACE:Lamia Matriarch	!PRERACE:1,%
 NAME:Lamia Matriarch
 ALIGN:CE
@@ -3757,7 +3757,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 
-STARTPACK:Leng Spider Default	TYPE:DefaultMonster.LengSpider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leng Spider]	SOURCEPAGE:p.176
+STARTPACK:Leng Spider Default	TYPE:DefaultMonster.LengSpider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leng Spider]	SOURCEPAGE:p.176
 RACE:Leng Spider	!PRERACE:1,%
 NAME:Leng Spider
 ALIGN:CE
@@ -3780,7 +3780,7 @@ FEAT:Vital Strike
 GEAR:Flail	SIZE:H	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Bolas	SIZE:H	LOCATION:Carried		EQMOD:MWORKW
 
-STARTPACK:Leprechaun Default	TYPE:DefaultMonster.Leprechaun	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]	SOURCEPAGE:p.177
+STARTPACK:Leprechaun Default	TYPE:DefaultMonster.Leprechaun	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]	SOURCEPAGE:p.177
 RACE:Leprechaun	!PRERACE:1,%
 NAME:Leprechaun
 ALIGN:CN
@@ -3798,7 +3798,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 GEAR:Leprechaun Shillelagh	LOCATION:Equipped
 
-STARTPACK:Leucrotta Default	TYPE:DefaultMonster.Leucrotta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leucrotta]	SOURCEPAGE:p.178
+STARTPACK:Leucrotta Default	TYPE:DefaultMonster.Leucrotta	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leucrotta]	SOURCEPAGE:p.178
 RACE:Leucrotta	!PRERACE:1,%
 NAME:Leucrotta
 ALIGN:CE
@@ -3809,7 +3809,7 @@ FEAT:Improved Initiative
 FEAT:Skill Focus (Bluff)
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Leucrotta (Crocotta) Default	TYPE:DefaultMonster.Crocotta	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leucrotta (Crocotta)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+STARTPACK:Leucrotta (Crocotta) Default	TYPE:DefaultMonster.Crocotta	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leucrotta (Crocotta)],[!PRERACE:1,%]	SOURCEPAGE:p.178
 ALIGN:TN
 RACE:Leucrotta (Crocotta)	!PRERACE:1,%
 NAME:Crocotta
@@ -3819,7 +3819,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Skill Focus (Stealth)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Locathah Default	TYPE:DefaultMonster.Locathah	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Locathah]	SOURCEPAGE:p.179
+STARTPACK:Locathah Default	TYPE:DefaultMonster.Locathah	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Locathah]	SOURCEPAGE:p.179
 RACE:Locathah	!PRERACE:1,%
 NAME:Locathah
 ALIGN:TN
@@ -3832,7 +3832,7 @@ GEAR:Longspear				LOCATION:Both Hands
 GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
 
-STARTPACK:Lurker in Light Default	TYPE:DefaultMonster.LurkerInLight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker in Light]	SOURCEPAGE:p.180
+STARTPACK:Lurker in Light Default	TYPE:DefaultMonster.LurkerInLight	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker in Light]	SOURCEPAGE:p.180
 RACE:Lurker in Light	!PRERACE:1,%
 NAME:Lurker in Light
 ALIGN:NE
@@ -3853,12 +3853,12 @@ GEAR:Dagger	SIZE:S	LOCATION:Equipped
 
 # NEEDS DATA WORK: Point-Blank Shot seems to be adding its bonus damage to
 # NEEDS DATA WORK:   all-range attacks.
-STARTPACK:Lycanthrope (Werebear/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
+STARTPACK:Lycanthrope (Werebear/Human Form)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
 ALIGN:CG
 KIT:Lycanthrope (Werebear Common)
 GEAR:Battleaxe	LOCATION:Both Hands	EQMOD:MWORKW
 
-STARTPACK:Lycanthrope (Werebear/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
+STARTPACK:Lycanthrope (Werebear/Hybrid Form)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
 ALIGN:LG
 KIT:Lycanthrope (Werebear Common)
 GEAR:Battleaxe	LOCATION:Primary Hand	EQMOD:MWORKW
@@ -3909,7 +3909,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Detect Poison
 # COMMENT:    rather than maximum hp on the first class die.
 # NEEDS DATA WORK:  PCGen doesn't give the bite attack from the rage power
 # NEEDS DATA WORK:    Animal Fury.
-STARTPACK:Lycanthrope (Wereboar/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Lycanthrope (Wereboar/Human Form)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:CN
 STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
 RACE:Human	!PRERACE:1,%
@@ -3934,7 +3934,7 @@ ABILITY:CATEGORY=Lycanthrope Kind|Wereboar
 GEAR:Studded Leather		LOCATION:Equipped
 GEAR:Dagger			QTY:2	LOCATION:Equipped
 
-STARTPACK:Lycanthrope (Wereboar/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Lycanthrope (Wereboar/Hybrid Form)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.182
 KIT:Lycanthrope (Wereboar/Human Form)
 TEMPLATE:Lycanthrope (Hybrid Form)
 
@@ -3942,11 +3942,11 @@ TEMPLATE:Lycanthrope (Hybrid Form)
 # COMMENT:  The Bestiary forgot the +1 attack bonus from the masterwork dagger.
 # COMMENT:  The Bestiary gives the hybrid form average hit points instead of
 # COMMENT:    full hit points for the first hit die.
-STARTPACK:Lycanthrope (Weretiger/Human Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
+STARTPACK:Lycanthrope (Weretiger/Human Form)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
 KIT:Lycanthrope (Weretiger Common)
 GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:MWORKW
 
-STARTPACK:Lycanthrope (Weretiger/Hybrid Form)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
+STARTPACK:Lycanthrope (Weretiger/Hybrid Form)	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
 KIT:Lycanthrope (Weretiger Common)
 GEAR:Sword (Short)	LOCATION:Carried	EQMOD:MWORKW
 TEMPLATE:Lycanthrope (Hybrid Form)
@@ -3984,31 +3984,31 @@ ABILITY:CATEGORY=Lycanthrope Kind|Weretiger
 GEAR:Studded Leather		LOCATION:Equipped
 GEAR:Dagger			QTY:2	LOCATION:Carried	EQMOD:MWORKW
 
-STARTPACK:Magma Ooze Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze]	SOURCEPAGE:p.184
+STARTPACK:Magma Ooze Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze]	SOURCEPAGE:p.184
 RACE:Magma Ooze	!PRERACE:1,%
 NAME:Magma Ooze
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Magma Ooze (Brimstone) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Brimstone)]	SOURCEPAGE:p.184
+STARTPACK:Magma Ooze (Brimstone) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Brimstone)]	SOURCEPAGE:p.184
 RACE:Magma Ooze (Brimstone)	!PRERACE:1,%
 NAME:Brimstone Magma Ooze
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Magma Ooze (Crystalline) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Crystalline)]	SOURCEPAGE:p.184
+STARTPACK:Magma Ooze (Crystalline) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Crystalline)]	SOURCEPAGE:p.184
 RACE:Magma Ooze (Crystalline)	!PRERACE:1,%
 NAME:Crystalline Magma Ooze
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Magma Ooze (Poisonous) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Poisonous)]	SOURCEPAGE:p.184
+STARTPACK:Magma Ooze (Poisonous) Default	TYPE:DefaultMonster.MagmaOoze	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Magma Ooze (Poisonous)]	SOURCEPAGE:p.184
 RACE:Magma Ooze (Poisonous)	!PRERACE:1,%
 NAME:Poisonous Magma Ooze
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Mandragora Default	TYPE:DefaultMonster.Mandragora	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mandragora]	SOURCEPAGE:p.185
+STARTPACK:Mandragora Default	TYPE:DefaultMonster.Mandragora	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mandragora]	SOURCEPAGE:p.185
 RACE:Mandragora	!PRERACE:1,%
 NAME:Mandragora
 ALIGN:CE
@@ -4019,7 +4019,7 @@ FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Finesse
 
-STARTPACK:Megafauna (Arsinoitherium) Default	TYPE:DefaultMonster.Arsinoitherium	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Arsinoitherium)]	SOURCEPAGE:p.186
+STARTPACK:Megafauna (Arsinoitherium) Default	TYPE:DefaultMonster.Arsinoitherium	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Arsinoitherium)]	SOURCEPAGE:p.186
 RACE:Megafauna (Arsinoitherium)	!PRERACE:1,%
 NAME:Arsinoitherium
 ALIGN:TN
@@ -4031,7 +4031,7 @@ FEAT:Great Fortitude
 FEAT:Improved Overrun
 FEAT:Power Attack
 
-STARTPACK:Megafauna (Gylptodon) Default	TYPE:DefaultMonster.Gylptodon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Gylptodon)]	SOURCEPAGE:p.186
+STARTPACK:Megafauna (Gylptodon) Default	TYPE:DefaultMonster.Gylptodon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Gylptodon)]	SOURCEPAGE:p.186
 RACE:Megafauna (Gylptodon)	!PRERACE:1,%
 NAME:Gylptodon
 ALIGN:TN
@@ -4043,7 +4043,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Megafauna (Megaloceros) Default	TYPE:DefaultMonster.Megaloceros	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Megaloceros)]	SOURCEPAGE:p.187
+STARTPACK:Megafauna (Megaloceros) Default	TYPE:DefaultMonster.Megaloceros	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Megaloceros)]	SOURCEPAGE:p.187
 RACE:Megafauna (Megaloceros)	!PRERACE:1,%
 NAME:Megaloceros
 ALIGN:TN
@@ -4052,7 +4052,7 @@ SKILL:Perception	RANK:4
 FEAT:Endurance
 FEAT:Lightning Reflexes
 
-STARTPACK:Megafauna (Megatherium) Default	TYPE:DefaultMonster.Megatherium	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Megatherium)]	SOURCEPAGE:p.187
+STARTPACK:Megafauna (Megatherium) Default	TYPE:DefaultMonster.Megatherium	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megafauna (Megatherium)]	SOURCEPAGE:p.187
 RACE:Megafauna (Megatherium)	!PRERACE:1,%
 NAME:Megatherium
 ALIGN:TN
@@ -4063,7 +4063,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Mercane Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mercane]
+STARTPACK:Mercane Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mercane]
 RACE:Mercane	!PRERACE:1,%
 NAME:Mercane
 ALIGN:TN
@@ -4084,7 +4084,7 @@ FEAT:Combat Expertise
 FEAT:Dodge
 GEAR:Falchion	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
 
-STARTPACK:Merrow (Freshwater) Default	TYPE:DefaultMonster.FreshwaterMerrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Freshwater)]	SOURCEPAGE:p.189
+STARTPACK:Merrow (Freshwater) Default	TYPE:DefaultMonster.FreshwaterMerrow	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Freshwater)]	SOURCEPAGE:p.189
 RACE:Merrow (Freshwater)	!PRERACE:1,%
 NAME:Freshwater Merrow
 ALIGN:NE
@@ -4095,7 +4095,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 GEAR:Javelin	QTY:2	SIZE:L	LOCATION:Equipped
 
-STARTPACK:Merrow (Saltwater) Default	TYPE:DefaultMonster.SaltwaterMerrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Saltwater)]	SOURCEPAGE:p.189
+STARTPACK:Merrow (Saltwater) Default	TYPE:DefaultMonster.SaltwaterMerrow	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Saltwater)]	SOURCEPAGE:p.189
 RACE:Merrow (Saltwater)	!PRERACE:1,%
 NAME:Saltwater Merrow
 ALIGN:NE
@@ -4108,7 +4108,7 @@ FEAT:Vital Strike
 FEAT:Weapon Focus (Claw)
 GEAR:Javelin	QTY:2	SIZE:H	LOCATION:Equipped
 
-STARTPACK:Mihstu Default	TYPE:DefaultMonster.Mihstu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mihstu]	SOURCEPAGE:p.190
+STARTPACK:Mihstu Default	TYPE:DefaultMonster.Mihstu	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mihstu]	SOURCEPAGE:p.190
 RACE:Mihstu	!PRERACE:1,%
 NAME:Mihstu
 ALIGN:NE
@@ -4126,7 +4126,7 @@ FEAT:Improved Initiative
 FEAT:Mobility
 FEAT:Weapon Finesse
 
-STARTPACK:Mongrelman Default	TYPE:DefaultMonster.Mongrelman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongrelman]	SOURCEPAGE:p.191
+STARTPACK:Mongrelman Default	TYPE:DefaultMonster.Mongrelman	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mongrelman]	SOURCEPAGE:p.191
 RACE:Mongrelman	!PRERACE:1,%
 NAME:Mongrelman
 ALIGN:LN
@@ -4139,7 +4139,7 @@ SKILL:Survival		RANK:1
 FEAT:Skill Focus (Stealth)
 GEAR:Club	LOCATION:Both Hands
 
-STARTPACK:Moonflower Default	TYPE:DefaultMonster.Moonflower	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonflower]	SOURCEPAGE:p.192
+STARTPACK:Moonflower Default	TYPE:DefaultMonster.Moonflower	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonflower]	SOURCEPAGE:p.192
 RACE:Moonflower	!PRERACE:1,%
 NAME:Moonflower
 ALIGN:TN
@@ -4153,19 +4153,19 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Mosquito (Giant) Default	TYPE:DefaultMonster.GiantMosquito	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mosquito (Giant)]	SOURCEPAGE:p.193
+STARTPACK:Mosquito (Giant) Default	TYPE:DefaultMonster.GiantMosquito	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mosquito (Giant)]	SOURCEPAGE:p.193
 RACE:Mosquito (Giant)	!PRERACE:1,%
 NAME:Giant Mosquito
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Mosquito Swarm Default	TYPE:DefaultMonster.MosquitoSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mosquito Swarm]	SOURCEPAGE:p.193
+STARTPACK:Mosquito Swarm Default	TYPE:DefaultMonster.MosquitoSwarm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mosquito Swarm]	SOURCEPAGE:p.193
 RACE:Mosquito Swarm	!PRERACE:1,%
 NAME:Mosquito Swarm
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Mothman Default	TYPE:DefaultMonster.Mothman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mothman]	SOURCEPAGE:p.194
+STARTPACK:Mothman Default	TYPE:DefaultMonster.Mothman	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mothman]	SOURCEPAGE:p.194
 RACE:Mothman	!PRERACE:1,%
 NAME:Mothman
 ALIGN:CN
@@ -4182,7 +4182,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Mu Spore Default	TYPE:DefaultMonster.MuSpore	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mu Spore]	SOURCEPAGE:p.195
+STARTPACK:Mu Spore Default	TYPE:DefaultMonster.MuSpore	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mu Spore]	SOURCEPAGE:p.195
 RACE:Mu Spore	!PRERACE:1,%
 NAME:Mu Spore
 ALIGN:CN
@@ -4210,13 +4210,13 @@ FEAT:Vital Strike
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Necrophidius Default	TYPE:DefaultMonster.Necrophidius	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Necrophidius]	SOURCEPAGE:p.196
+STARTPACK:Necrophidius Default	TYPE:DefaultMonster.Necrophidius	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Necrophidius]	SOURCEPAGE:p.196
 RACE:Necrophidius	!PRERACE:1,%
 NAME:Necrophidius
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Neh-Thalggu Default	TYPE:DefaultMonster.Neh-Thalggu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neh-Thalggu]	SOURCEPAGE:p.197
+STARTPACK:Neh-Thalggu Default	TYPE:DefaultMonster.Neh-Thalggu	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neh-Thalggu]	SOURCEPAGE:p.197
 RACE:Neh-Thalggu	!PRERACE:1,%
 NAME:Neh-Thalggu
 ALIGN:CE
@@ -4253,7 +4253,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
-STARTPACK:Nereid Default	TYPE:DefaultMonster.Nereid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nereid]	SOURCEPAGE:p.198
+STARTPACK:Nereid Default	TYPE:DefaultMonster.Nereid	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nereid]	SOURCEPAGE:p.198
 RACE:Nereid	!PRERACE:1,%
 NAME:Nereid
 GENDER:Female
@@ -4274,7 +4274,7 @@ FEAT:Dodge
 FEAT:Mobility
 FEAT:Weapon Finesse
 
-STARTPACK:Nightshade (Nightcrawler) Default	TYPE:DefaultMonster.Nightcrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightcrawler)]	SOURCEPAGE:p.200
+STARTPACK:Nightshade (Nightcrawler) Default	TYPE:DefaultMonster.Nightcrawler	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightcrawler)]	SOURCEPAGE:p.200
 RACE:Nightshade (Nightcrawler)	!PRERACE:1,%
 NAME:Nightcrawler
 ALIGN:CE
@@ -4302,7 +4302,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Cone of Cold)
 FEAT:Staggering Critical
 FEAT:Vital Strike
 
-STARTPACK:Nightshade (Nightwalker) Default	TYPE:DefaultMonster.Nightwalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwalker)]	SOURCEPAGE:p.201
+STARTPACK:Nightshade (Nightwalker) Default	TYPE:DefaultMonster.Nightwalker	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwalker)]	SOURCEPAGE:p.201
 RACE:Nightshade (Nightwalker)	!PRERACE:1,%
 NAME:Nightwalker
 ALIGN:CE
@@ -4328,7 +4328,7 @@ FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Unholy Blight)
 FEAT:Vital Strike
 
-STARTPACK:Nightshade (Nightwave) Default	TYPE:DefaultMonster.Nightwave	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwave)]	SOURCEPAGE:p.202
+STARTPACK:Nightshade (Nightwave) Default	TYPE:DefaultMonster.Nightwave	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwave)]	SOURCEPAGE:p.202
 RACE:Nightshade (Nightwave)	!PRERACE:1,%
 NAME:Nightwave
 ALIGN:CE
@@ -4359,7 +4359,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Cone of Cold)
 FEAT:Staggering Critical
 FEAT:Vital Strike
 
-STARTPACK:Nightshade (Nightwing) Default	TYPE:DefaultMonster.Nightwing	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwing)]	SOURCEPAGE:p.203
+STARTPACK:Nightshade (Nightwing) Default	TYPE:DefaultMonster.Nightwing	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightshade (Nightwing)]	SOURCEPAGE:p.203
 RACE:Nightshade (Nightwing)	!PRERACE:1,%
 NAME:Nightwing
 ALIGN:CE
@@ -4385,7 +4385,7 @@ FEAT:Snatch
 # COMMENT: Human ability bonus not used
 # COMMENT: The bestiary's Climb and Swim bonuses haven't added the
 # COMMENT:   class skill bonus.
-STARTPACK:Ogrekin Human Fighter 2	TYPE:DefaultMonster.Ogrekin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.203
+STARTPACK:Ogrekin Human Fighter 2	TYPE:DefaultMonster.Ogrekin	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.203
 ALIGN:CE
 RACE:Human	!PRERACE:1,%
 #ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
@@ -4409,7 +4409,7 @@ GEAR:Shortspear	LOCATION:Primary Hand
 
 # COMMENT: The Bestiary seems to have forgotten the Iron Will feat.
 # COMMENT: The favored class bonus seems to have not been used.
-STARTPACK:Oread Fighter 1	TYPE:Oread	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Oread]	SOURCEPAGE:p.205
+STARTPACK:Oread Fighter 1	TYPE:Oread	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Oread]	SOURCEPAGE:p.205
 RACE:Oread	!PRERACE:1,%
 NAME:Oread Fighter 1
 ALIGN:TN
@@ -4426,7 +4426,7 @@ GEAR:Longsword					LOCATION:Both Hands
 GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+2
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
-STARTPACK:Pech Default	TYPE:DefaultMonster.Pech	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]	SOURCEPAGE:p.206
+STARTPACK:Pech Default	TYPE:DefaultMonster.Pech	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]	SOURCEPAGE:p.206
 RACE:Pech	!PRERACE:1,%
 NAME:Pech
 ALIGN:TN
@@ -4443,7 +4443,7 @@ FEAT:Great Fortitude
 FEAT:Power Attack
 GEAR:Pick (Heavy)	SIZE:S	LOCATION:Both Hands	EQMOD:MWORKW
 
-STARTPACK:Peryton Default	TYPE:DefaultMonster.Peryton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Peryton]	SOURCEPAGE:p.207
+STARTPACK:Peryton Default	TYPE:DefaultMonster.Peryton	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Peryton]	SOURCEPAGE:p.207
 RACE:Peryton	!PRERACE:1,%
 NAME:Peryton
 ALIGN:CE
@@ -4455,7 +4455,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Gore)
 
-STARTPACK:Petitioner (Human) Default	TYPE:DefaultMonster.HumanPetitioner	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Petitioner (Human)]	SOURCEPAGE:p.208
+STARTPACK:Petitioner (Human) Default	TYPE:DefaultMonster.HumanPetitioner	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Petitioner (Human)]	SOURCEPAGE:p.208
 RACE:Petitioner (Human)	!PRERACE:1,%
 NAME:Human Petitioner
 STAT:STR=11|DEX=10|CON=13|INT=10|WIS=11|CHA=10
@@ -4466,13 +4466,13 @@ SKILL:Sense Motive		RANK:2
 SKILL:Stealth			RANK:2
 FEAT:Toughness
 
-STARTPACK:Phycomid Default	TYPE:DefaultMonster.Phycomid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phycomid]	SOURCEPAGE:p.210
+STARTPACK:Phycomid Default	TYPE:DefaultMonster.Phycomid	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phycomid]	SOURCEPAGE:p.210
 RACE:Phycomid	!PRERACE:1,%
 NAME:Phycomid
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Poltergeist Default	TYPE:DefaultMonster.Poltergeist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poltergeist]	SOURCEPAGE:p.211
+STARTPACK:Poltergeist Default	TYPE:DefaultMonster.Poltergeist	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poltergeist]	SOURCEPAGE:p.211
 RACE:Poltergeist	!PRERACE:1,%
 NAME:Poltergeist
 ALIGN:LE
@@ -4481,7 +4481,7 @@ SKILL:Perception	RANK:3
 FEAT:Ability Focus (Frightener ~ Poltergeist)
 FEAT:Alertness
 
-STARTPACK:Primate (Baboon) Default	TYPE:DefaultMonster.Baboon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Baboon)]	SOURCEPAGE:p.212
+STARTPACK:Primate (Baboon) Default	TYPE:DefaultMonster.Baboon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Baboon)]	SOURCEPAGE:p.212
 RACE:Primate (Baboon)	!PRERACE:1,%
 NAME:Baboon
 ALIGN:TN
@@ -4489,7 +4489,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Acrobatics	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Primate (Monkey Swarm) Default	TYPE:DefaultMonster.MonkeySwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Monkey Swarm)]	SOURCEPAGE:p.212
+STARTPACK:Primate (Monkey Swarm) Default	TYPE:DefaultMonster.MonkeySwarm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Monkey Swarm)]	SOURCEPAGE:p.212
 RACE:Primate (Monkey Swarm)	!PRERACE:1,%
 NAME:Monkey Swarm
 ALIGN:TN
@@ -4500,7 +4500,7 @@ SKILL:Perception	RANK:1
 FEAT:Lightning Reflexes
 FEAT:Weapon Finesse
 
-STARTPACK:Protean (Imentesh) Default	TYPE:DefaultMonster.Imentesh	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Imentesh)]	SOURCEPAGE:p.214
+STARTPACK:Protean (Imentesh) Default	TYPE:DefaultMonster.Imentesh	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Imentesh)]	SOURCEPAGE:p.214
 RACE:Protean (Imentesh)	!PRERACE:1,%
 NAME:Imentesh
 ALIGN:CN
@@ -4524,7 +4524,7 @@ FEAT:Iron Will
 FEAT:Multiattack
 FEAT:Persuasive
 
-STARTPACK:Protean (Keketar) Default	TYPE:DefaultMonster.Keketar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Keketar)]	SOURCEPAGE:p.215
+STARTPACK:Protean (Keketar) Default	TYPE:DefaultMonster.Keketar	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Keketar)]	SOURCEPAGE:p.215
 RACE:Protean (Keketar)	!PRERACE:1,%
 NAME:Keketar
 ALIGN:CN
@@ -4552,7 +4552,7 @@ FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Confusion)
 FEAT:Vital Strike
 
-STARTPACK:Protean (Naunet) Default	TYPE:DefaultMonster.Naunet	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Naunet)]	SOURCEPAGE:p.216
+STARTPACK:Protean (Naunet) Default	TYPE:DefaultMonster.Naunet	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Naunet)]	SOURCEPAGE:p.216
 RACE:Protean (Naunet)	!PRERACE:1,%
 NAME:Naunet
 ALIGN:CN
@@ -4569,7 +4569,7 @@ FEAT:Lightning Reflexes
 FEAT:Multiattack
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Protean (Voidworm) Default	TYPE:DefaultMonster.Voidworm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Voidworm)]	SOURCEPAGE:p.217
+STARTPACK:Protean (Voidworm) Default	TYPE:DefaultMonster.Voidworm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protean (Voidworm)]	SOURCEPAGE:p.217
 RACE:Protean (Voidworm)	!PRERACE:1,%
 NAME:Voidworm
 ALIGN:CN
@@ -4584,7 +4584,7 @@ SKILL:Stealth			RANK:1
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Finesse
 
-STARTPACK:Qlippoth (Augnagar) Default	TYPE:DefaultMonster.Augnagar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Augnagar)]	SOURCEPAGE:p.219
+STARTPACK:Qlippoth (Augnagar) Default	TYPE:DefaultMonster.Augnagar	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Augnagar)]	SOURCEPAGE:p.219
 RACE:Qlippoth (Augnagar)	!PRERACE:1,%
 NAME:Augnagar
 ALIGN:CE
@@ -4600,7 +4600,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Vital Strike
 
-STARTPACK:Qlippoth (Chernobue) Default	TYPE:DefaultMonster.Chernobue	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Chernobue)]	SOURCEPAGE:p.220
+STARTPACK:Qlippoth (Chernobue) Default	TYPE:DefaultMonster.Chernobue	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Chernobue)]	SOURCEPAGE:p.220
 RACE:Qlippoth (Chernobue)	!PRERACE:1,%
 NAME:Chernobue
 ALIGN:CE
@@ -4619,7 +4619,7 @@ FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Darkness)
 FEAT:Vital Strike
 
-STARTPACK:Qlippoth (Cythnigot) Default	TYPE:DefaultMonster.Cythnigot	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Cythnigot)]	SOURCEPAGE:p.221
+STARTPACK:Qlippoth (Cythnigot) Default	TYPE:DefaultMonster.Cythnigot	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Cythnigot)]	SOURCEPAGE:p.221
 RACE:Qlippoth (Cythnigot)	!PRERACE:1,%
 NAME:Cythnigot
 ALIGN:CE
@@ -4633,7 +4633,7 @@ SKILL:Stealth			RANK:3
 FEAT:Lightning Reflexes
 FEAT:Weapon Finesse
 
-STARTPACK:Qlippoth (Iathavos) Default	TYPE:DefaultMonster.Iathavos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Iathavos)]	SOURCEPAGE:p.222
+STARTPACK:Qlippoth (Iathavos) Default	TYPE:DefaultMonster.Iathavos	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Iathavos)]	SOURCEPAGE:p.222
 RACE:Qlippoth (Iathavos)	!PRERACE:1,%
 NAME:Iathavos
 ALIGN:CE
@@ -4666,7 +4666,7 @@ FEAT:Spell Penetration
 FEAT:Staggering Critical
 FEAT:Vital Strike
 
-STARTPACK:Qlippoth (Nyogoth) Default	TYPE:DefaultMonster.Nyogoth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Nyogoth)]	SOURCEPAGE:p.224
+STARTPACK:Qlippoth (Nyogoth) Default	TYPE:DefaultMonster.Nyogoth	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Nyogoth)]	SOURCEPAGE:p.224
 RACE:Qlippoth (Nyogoth)	!PRERACE:1,%
 NAME:Nyogoth
 ALIGN:CE
@@ -4682,7 +4682,7 @@ FEAT:Power Attack
 FEAT:Vital Strike
 FEAT:Weapon Finesse
 
-STARTPACK:Qlippoth (Shoggti) Default	TYPE:DefaultMonster.Shoggti	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Shoggti)]	SOURCEPAGE:p.225
+STARTPACK:Qlippoth (Shoggti) Default	TYPE:DefaultMonster.Shoggti	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Shoggti)]	SOURCEPAGE:p.225
 RACE:Qlippoth (Shoggti)	!PRERACE:1,%
 NAME:Shoggti
 ALIGN:CE
@@ -4699,7 +4699,7 @@ FEAT:Improved Initiative
 FEAT:Skill Focus (Use Magic Device)
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Qlippoth (Thulgant) Default	TYPE:DefaultMonster.Thulgant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Thulgant)]	SOURCEPAGE:p.226
+STARTPACK:Qlippoth (Thulgant) Default	TYPE:DefaultMonster.Thulgant	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Qlippoth (Thulgant)]	SOURCEPAGE:p.226
 RACE:Qlippoth (Thulgant)	!PRERACE:1,%
 NAME:Thulgant
 ALIGN:CE
@@ -4728,7 +4728,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Dimension Door)
 FEAT:Staggering Critical
 FEAT:Vital Strike
 
-STARTPACK:Quickling Default	TYPE:DefaultMonster.Quickling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickling]	SOURCEPAGE:p.227
+STARTPACK:Quickling Default	TYPE:DefaultMonster.Quickling	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickling]	SOURCEPAGE:p.227
 RACE:Quickling	!PRERACE:1,%
 NAME:Quickling
 ALIGN:CE
@@ -4747,7 +4747,7 @@ FEAT:Weapon Finesse
 GEAR:Sword (Short)			SIZE:S	LOCATION:Equipped
 GEAR:Poison (Blue Whinnis)	QTY:4			LOCATION:Carried
 
-STARTPACK:Quickwood Default	TYPE:DefaultMonster.Quickwood	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickwood]	SOURCEPAGE:p.228
+STARTPACK:Quickwood Default	TYPE:DefaultMonster.Quickwood	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickwood]	SOURCEPAGE:p.228
 RACE:Quickwood	!PRERACE:1,%
 NAME:Quickwood
 ALIGN:TN
@@ -4761,7 +4761,7 @@ FEAT:Multiattack
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Rast Default	TYPE:DefaultMonster.Rast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rast]	SOURCEPAGE:p.229
+STARTPACK:Rast Default	TYPE:DefaultMonster.Rast	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rast]	SOURCEPAGE:p.229
 RACE:Rast	!PRERACE:1,%
 NAME:Rast
 ALIGN:TN
@@ -4772,7 +4772,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Ravener (Red Wyrm)	TYPE:Ravener	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red)]	SOURCEPAGE:p.230
+STARTPACK:Ravener (Red Wyrm)	TYPE:Ravener	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red)]	SOURCEPAGE:p.230
 RACE:Dragon (Red)	!PRERACE:1,%
 NAME:Red Wyrm Ravener
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
@@ -4851,7 +4851,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Energy Drain
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Time Stop
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wish
 
-STARTPACK:Ray (Manta) Default	TYPE:DefaultMonster.MantaRay	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ray (Manta)]	SOURCEPAGE:p.232
+STARTPACK:Ray (Manta) Default	TYPE:DefaultMonster.MantaRay	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ray (Manta)]	SOURCEPAGE:p.232
 RACE:Ray (Manta)	!PRERACE:1,%
 NAME:Manta Ray
 ALIGN:TN
@@ -4861,7 +4861,7 @@ SKILL:Swim		RANK:1
 FEAT:Improved Bull Rush
 FEAT:Power Attack
 
-STARTPACK:Ray (Stingray) Default	TYPE:DefaultMonster.Stingray	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ray (Stingray)]	SOURCEPAGE:p.232
+STARTPACK:Ray (Stingray) Default	TYPE:DefaultMonster.Stingray	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ray (Stingray)]	SOURCEPAGE:p.232
 RACE:Ray (Stingray)	!PRERACE:1,%
 NAME:Stingray
 ALIGN:TN
@@ -4870,7 +4870,7 @@ SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Redcap Default	TYPE:DefaultMonster.Redcap	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.233
+STARTPACK:Redcap Default	TYPE:DefaultMonster.Redcap	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.233
 RACE:Redcap	!PRERACE:1,%
 NAME:Redcap
 ALIGN:NE
@@ -4891,7 +4891,7 @@ FEAT:Weapon Focus (Scythe)
 GEAR:Scythe		SIZE:M	LOCATION:Both Hands
 GEAR:Leather	SIZE:S	LOCATION:Equipped
 
-STARTPACK:Reefclaw Default	TYPE:DefaultMonster.Reefclaw	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reefclaw]	SOURCEPAGE:p.234
+STARTPACK:Reefclaw Default	TYPE:DefaultMonster.Reefclaw	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reefclaw]	SOURCEPAGE:p.234
 RACE:Reefclaw	!PRERACE:1,%
 NAME:Reefclaw
 ALIGN:CN
@@ -4899,7 +4899,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Perception	RANK:2
 FEAT:Improved Initiative
 
-STARTPACK:Revenant Default	TYPE:DefaultMonster.Revenant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Revenant]	SOURCEPAGE:p.235
+STARTPACK:Revenant Default	TYPE:DefaultMonster.Revenant	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Revenant]	SOURCEPAGE:p.235
 RACE:Revenant	!PRERACE:1,%
 NAME:Revenant
 ALIGN:LE
@@ -4912,7 +4912,7 @@ FEAT:Power Attack
 FEAT:Step Up
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Sandman Default	TYPE:DefaultMonster.Sandman	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandman]	SOURCEPAGE:p.236
+STARTPACK:Sandman Default	TYPE:DefaultMonster.Sandman	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandman]	SOURCEPAGE:p.236
 RACE:Sandman	!PRERACE:1,%
 NAME:Sandman
 ALIGN:NE
@@ -4926,7 +4926,7 @@ SKILL:Stealth			RANK:4
 FEAT:Improved Initiative
 FEAT:Iron Will
 
-STARTPACK:Sard Default	TYPE:DefaultMonster.Sard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sard]	SOURCEPAGE:p.237
+STARTPACK:Sard Default	TYPE:DefaultMonster.Sard	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sard]	SOURCEPAGE:p.237
 RACE:Sard	!PRERACE:1,%
 NAME:Sard
 ALIGN:CE
@@ -4945,14 +4945,14 @@ FEAT:Precise Shot
 FEAT:Quicken Spell-Like Ability ~ Spell (Lightning Bolt)
 FEAT:Vital Strike
 
-STARTPACK:Scarecrow Default	TYPE:DefaultMonster.Scarecrow	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scarecrow]	SOURCEPAGE:p.238
+STARTPACK:Scarecrow Default	TYPE:DefaultMonster.Scarecrow	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scarecrow]	SOURCEPAGE:p.238
 RACE:Scarecrow	!PRERACE:1,%
 NAME:Scarecrow
 GENDER:Neuter
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 
-STARTPACK:Sceaduinar Default	TYPE:DefaultMonster.Sceaduinar	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sceaduinar]	SOURCEPAGE:p.239
+STARTPACK:Sceaduinar Default	TYPE:DefaultMonster.Sceaduinar	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sceaduinar]	SOURCEPAGE:p.239
 RACE:Sceaduinar	!PRERACE:1,%
 NAME:Sceaduinar
 ALIGN:NE
@@ -4972,7 +4972,7 @@ FEAT:Weapon Finesse
 
 
 # COMMENT: Duplicate Entry from Bestiary
-#	STARTPACK:Scorpion (Black) Default	TYPE:DefaultMonster.BlackScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Black)]	SOURCEPAGE:p.240
+#	STARTPACK:Scorpion (Black) Default	TYPE:DefaultMonster.BlackScorpion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Black)]	SOURCEPAGE:p.240
 #	RACE:Scorpion (Black)	!PRERACE:1,%
 #	NAME:Black Scorpion
 #	ALIGN:TN
@@ -4980,13 +4980,13 @@ FEAT:Weapon Finesse
 
 
 # COMMENT: Duplicate Entry from Bestiary
-#	STARTPACK:Scorpion (Cave) Default	TYPE:DefaultMonster.CaveScorpion	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Cave)]	SOURCEPAGE:p.240
+#	STARTPACK:Scorpion (Cave) Default	TYPE:DefaultMonster.CaveScorpion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scorpion (Cave)]	SOURCEPAGE:p.240
 #	RACE:Scorpion (Cave)	!PRERACE:1,%
 #	NAME:Cave Scorpion
 #	ALIGN:TN
 #	STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
-STARTPACK:Scylla Default	TYPE:DefaultMonster.Scylla	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scylla]	SOURCEPAGE:p.241
+STARTPACK:Scylla Default	TYPE:DefaultMonster.Scylla	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scylla]	SOURCEPAGE:p.241
 RACE:Scylla	!PRERACE:1,%
 NAME:Scylla
 GENDER:Female
@@ -5012,7 +5012,7 @@ FEAT:Weapon Finesse
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Serpentfolk Default	TYPE:DefaultMonster.Serpentfolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Serpentfolk]	SOURCEPAGE:p.242
+STARTPACK:Serpentfolk Default	TYPE:DefaultMonster.Serpentfolk	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Serpentfolk]	SOURCEPAGE:p.242
 RACE:Serpentfolk	!PRERACE:1,%
 NAME:Serpentfolk
 ALIGN:NE
@@ -5030,7 +5030,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
 
-STARTPACK:Seugathi Default	TYPE:DefaultMonster.Seugathi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Seugathi]	SOURCEPAGE:p.243
+STARTPACK:Seugathi Default	TYPE:DefaultMonster.Seugathi	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Seugathi]	SOURCEPAGE:p.243
 RACE:Seugathi	!PRERACE:1,%
 NAME:Seugathi
 ALIGN:CE
@@ -5069,7 +5069,7 @@ GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CA
 GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[49]	OPTION:19,19
 GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[50]	OPTION:20,20
 
-STARTPACK:Shantak Default	TYPE:DefaultMonster.Shantak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shantak]	SOURCEPAGE:p.244
+STARTPACK:Shantak Default	TYPE:DefaultMonster.Shantak	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shantak]	SOURCEPAGE:p.244
 RACE:Shantak	!PRERACE:1,%
 NAME:Shantak
 ALIGN:CE
@@ -5082,7 +5082,7 @@ FEAT:Improved Bull Rush
 FEAT:Power Attack
 FEAT:Wingover
 
-STARTPACK:Shining Child Default	TYPE:DefaultMonster.ShiningChild	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining Child]	SOURCEPAGE:p.245
+STARTPACK:Shining Child Default	TYPE:DefaultMonster.ShiningChild	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining Child]	SOURCEPAGE:p.245
 RACE:Shining Child	!PRERACE:1,%
 NAME:Shining Child
 ALIGN:CE
@@ -5104,7 +5104,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Spring Attack
 FEAT:Weapon Finesse
 
-STARTPACK:Sinspawn (Wrathspawn) Default	TYPE:DefaultMonster.Wrathspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Wrathspawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Wrathspawn) Default	TYPE:DefaultMonster.Wrathspawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Wrathspawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Wrathspawn)	!PRERACE:1,%
 NAME:Wrathspawn
 ALIGN:NE
@@ -5117,7 +5117,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Sinspawn (Pridespawn) Default	TYPE:DefaultMonster.Pridespawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Pridespawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Pridespawn) Default	TYPE:DefaultMonster.Pridespawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Pridespawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Pridespawn)	!PRERACE:1,%
 NAME:Pridespawn
 ALIGN:NE
@@ -5130,7 +5130,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Sinspawn (Slothspawn) Default	TYPE:DefaultMonster.Slothspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Slothspawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Slothspawn) Default	TYPE:DefaultMonster.Slothspawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Slothspawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Slothspawn)	!PRERACE:1,%
 NAME:Slothspawn
 ALIGN:NE
@@ -5143,7 +5143,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Sinspawn (Envyspawn) Default	TYPE:DefaultMonster.Envyspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Envyspawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Envyspawn) Default	TYPE:DefaultMonster.Envyspawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Envyspawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Envyspawn)	!PRERACE:1,%
 NAME:Envyspawn
 ALIGN:NE
@@ -5156,7 +5156,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Sinspawn (Gluttonspawn) Default	TYPE:DefaultMonster.Gluttonspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Gluttonspawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Gluttonspawn) Default	TYPE:DefaultMonster.Gluttonspawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Gluttonspawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Gluttonspawn)	!PRERACE:1,%
 NAME:Gluttonspawn
 ALIGN:NE
@@ -5169,7 +5169,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Sinspawn (Greedspawn) Default	TYPE:DefaultMonster.Greedspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Greedspawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Greedspawn) Default	TYPE:DefaultMonster.Greedspawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Greedspawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Greedspawn)	!PRERACE:1,%
 NAME:Greedspawn
 ALIGN:NE
@@ -5182,7 +5182,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Sinspawn (Lustspawn) Default	TYPE:DefaultMonster.Lustspawn	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Lustspawn)]	SOURCEPAGE:p.246
+STARTPACK:Sinspawn (Lustspawn) Default	TYPE:DefaultMonster.Lustspawn	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sinspawn (Lustspawn)]	SOURCEPAGE:p.246
 RACE:Sinspawn (Lustspawn)	!PRERACE:1,%
 NAME:Lustspawn
 ALIGN:NE
@@ -5195,7 +5195,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Siren Default	TYPE:DefaultMonster.Siren	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Siren]	SOURCEPAGE:p.247
+STARTPACK:Siren Default	TYPE:DefaultMonster.Siren	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Siren]	SOURCEPAGE:p.247
 RACE:Siren	!PRERACE:1,%
 NAME:Siren
 GENDER:Female
@@ -5210,7 +5210,7 @@ FEAT:Flyby Attack
 FEAT:Lightning Reflexes
 FEAT:Weapon Finesse
 
-STARTPACK:Skulk Default	TYPE:DefaultMonster.Skulk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skulk]	SOURCEPAGE:p.248
+STARTPACK:Skulk Default	TYPE:DefaultMonster.Skulk	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skulk]	SOURCEPAGE:p.248
 RACE:Skulk	!PRERACE:1,%
 NAME:Skulk
 ALIGN:CE
@@ -5222,14 +5222,14 @@ FEAT:Skill Focus (Stealth)
 GEAR:Sword (Short)		LOCATION:Equipped
 GEAR:Dagger			QTY:2	LOCATION:Carried
 
-STARTPACK:Slime Mold Default	TYPE:DefaultMonster.SlimeMold	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slime Mold]	SOURCEPAGE:p.249
+STARTPACK:Slime Mold Default	TYPE:DefaultMonster.SlimeMold	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slime Mold]	SOURCEPAGE:p.249
 RACE:Slime Mold	!PRERACE:1,%
 NAME:Slime Mold
 GENDER:Neuter
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Slithering Tracker Default	TYPE:DefaultMonster.SlitheringTracker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slithering Tracker]	SOURCEPAGE:p.250
+STARTPACK:Slithering Tracker Default	TYPE:DefaultMonster.SlitheringTracker	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slithering Tracker]	SOURCEPAGE:p.250
 RACE:Slithering Tracker	!PRERACE:1,%
 NAME:Slithering Tracker
 GENDER:Neuter
@@ -5240,7 +5240,7 @@ SKILL:Stealth	RANK:4
 FEAT:Skill Focus (Perception)
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Slurk Default	TYPE:DefaultMonster.Slurk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slurk]	SOURCEPAGE:p.251
+STARTPACK:Slurk Default	TYPE:DefaultMonster.Slurk	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slurk]	SOURCEPAGE:p.251
 RACE:Slurk	!PRERACE:1,%
 NAME:Slurk
 ALIGN:TN
@@ -5249,7 +5249,7 @@ SKILL:Acrobatics	RANK:1
 SKILL:Climb		RANK:1
 FEAT:Improved Initiative
 
-STARTPACK:Snake (Emperor Cobra) Default	TYPE:DefaultMonster.EmperorCobra	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Emperor Cobra)]	SOURCEPAGE:p.252
+STARTPACK:Snake (Emperor Cobra) Default	TYPE:DefaultMonster.EmperorCobra	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Emperor Cobra)]	SOURCEPAGE:p.252
 RACE:Snake (Emperor Cobra)	!PRERACE:1,%
 NAME:Emperor Cobra
 ALIGN:TN
@@ -5260,7 +5260,7 @@ FEAT:Improved Initiative
 FEAT:Skill Focus (Stealth)
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Snake (Giant Anaconda) Default	TYPE:DefaultMonster.GiantAnaconda	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Giant Anaconda)]	SOURCEPAGE:p.252
+STARTPACK:Snake (Giant Anaconda) Default	TYPE:DefaultMonster.GiantAnaconda	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Giant Anaconda)]	SOURCEPAGE:p.252
 RACE:Snake (Giant Anaconda)	!PRERACE:1,%
 NAME:Giant Anaconda
 ALIGN:TN
@@ -5273,19 +5273,19 @@ FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Solifugid (Giant) Default	TYPE:DefaultMonster.GiantSolifugid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Solifugid (Giant)]	SOURCEPAGE:p.253
+STARTPACK:Solifugid (Giant) Default	TYPE:DefaultMonster.GiantSolifugid	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Solifugid (Giant)]	SOURCEPAGE:p.253
 RACE:Solifugid (Giant)	!PRERACE:1,%
 NAME:Giant Solifugid
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Solifugid (Albino Cave) Default	TYPE:DefaultMonster.AlbinoCaveSolifugid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Solifugid (Albino Cave)]	SOURCEPAGE:p.253
+STARTPACK:Solifugid (Albino Cave) Default	TYPE:DefaultMonster.AlbinoCaveSolifugid	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Solifugid (Albino Cave)]	SOURCEPAGE:p.253
 RACE:Solifugid (Albino Cave)	!PRERACE:1,%
 NAME:Albino Cave Solifugid
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Soul Eater Default	TYPE:DefaultMonster.SoulEater	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Eater]	SOURCEPAGE:p.254
+STARTPACK:Soul Eater Default	TYPE:DefaultMonster.SoulEater	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Eater]	SOURCEPAGE:p.254
 RACE:Soul Eater	!PRERACE:1,%
 NAME:Soul Eater
 ALIGN:NE
@@ -5304,7 +5304,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Soulbound Doll Default	TYPE:DefaultMonster.SoulboundDoll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soulbound Doll]	SOURCEPAGE:p.255
+STARTPACK:Soulbound Doll Default	TYPE:DefaultMonster.SoulboundDoll	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soulbound Doll]	SOURCEPAGE:p.255
 RACE:Soulbound Doll	!PRERACE:1,%
 NAME:Soulbound Doll
 ALIGN:TN
@@ -5315,7 +5315,7 @@ FEAT:Improved Initiative
 FEAT:Toughness
 GEAR:Dagger	SIZE:T	LOCATION:Equipped
 
-STARTPACK:Spider (Giant Black Widow) Default	TYPE:DefaultMonster.GiantBlackWidowSpider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Black Widow)]	SOURCEPAGE:p.256
+STARTPACK:Spider (Giant Black Widow) Default	TYPE:DefaultMonster.GiantBlackWidowSpider	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Black Widow)]	SOURCEPAGE:p.256
 RACE:Spider (Giant Black Widow)	!PRERACE:1,%
 NAME:Giant Black Widow Spider
 ALIGN:TN
@@ -5324,13 +5324,13 @@ STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
 # COMMENT: Duplicate Entry from Bestiary
-#	STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.GiantTarantula	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.256
+#	STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.GiantTarantula	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.256
 #	RACE:Spider (Giant Tarantula)	!PRERACE:1,%
 #	NAME:Giant Tarantula
 #	ALIGN:TN
 #	STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Spriggan Default	TYPE:DefaultMonster.Spriggan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spriggan]	SOURCEPAGE:p.257
+STARTPACK:Spriggan Default	TYPE:DefaultMonster.Spriggan	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spriggan]	SOURCEPAGE:p.257
 RACE:Spriggan	!PRERACE:1,%
 NAME:Spriggan
 ALIGN:CE
@@ -5346,7 +5346,7 @@ GEAR:Morningstar				SIZE:S	LOCATION:Equipped	EQMOD:MWORKW
 GEAR:Crossbow (Light)			SIZE:S	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	SIZE:S	LOCATION:Carried
 
-STARTPACK:Sylph Rogue 1	TYPE:Sylph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sylph]	SOURCEPAGE:p.257
+STARTPACK:Sylph Rogue 1	TYPE:Sylph	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sylph]	SOURCEPAGE:p.257
 RACE:Sylph	!PRERACE:1,%
 NAME:Sylph Rogue 1
 ALIGN:TN
@@ -5370,7 +5370,7 @@ FEAT:Dodge
 GEAR:Leather		LOCATION:Equipped
 GEAR:Dagger		QTY:2	LOCATION:Equipped
 
-STARTPACK:Tendriculos Default	TYPE:DefaultMonster.Tendriculos	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]	SOURCEPAGE:p.259
+STARTPACK:Tendriculos Default	TYPE:DefaultMonster.Tendriculos	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tendriculos]	SOURCEPAGE:p.259
 RACE:Tendriculos	!PRERACE:1,%
 NAME:Tendriculos
 ALIGN:TN
@@ -5383,7 +5383,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Tenebrous Worm Default	TYPE:DefaultMonster.TenebrousWorm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tenebrous Worm]	SOURCEPAGE:p.260
+STARTPACK:Tenebrous Worm Default	TYPE:DefaultMonster.TenebrousWorm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tenebrous Worm]	SOURCEPAGE:p.260
 RACE:Tenebrous Worm	!PRERACE:1,%
 NAME:Tenebrous Worm
 ALIGN:TN
@@ -5396,7 +5396,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Tentamort Default	TYPE:DefaultMonster.Tentamort	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tentamort]	SOURCEPAGE:p.261
+STARTPACK:Tentamort Default	TYPE:DefaultMonster.Tentamort	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tentamort]	SOURCEPAGE:p.261
 RACE:Tentamort	!PRERACE:1,%
 NAME:Tentamort
 ALIGN:TN
@@ -5406,7 +5406,7 @@ FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Thoqqua Default	TYPE:DefaultMonster.Thoqqua	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]	SOURCEPAGE:p.262
+STARTPACK:Thoqqua Default	TYPE:DefaultMonster.Thoqqua	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thoqqua]	SOURCEPAGE:p.262
 RACE:Thoqqua	!PRERACE:1,%
 NAME:Thoqqua
 ALIGN:TN
@@ -5418,7 +5418,7 @@ SKILL:Survival	RANK:3
 FEAT:Nimble Moves
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Thrasfyr Default	TYPE:DefaultMonster.Thrasfyr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thrasfyr]	SOURCEPAGE:p.263
+STARTPACK:Thrasfyr Default	TYPE:DefaultMonster.Thrasfyr	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thrasfyr]	SOURCEPAGE:p.263
 RACE:Thrasfyr	!PRERACE:1,%
 NAME:Thrasfyr
 ALIGN:CE
@@ -5434,7 +5434,7 @@ FEAT:Power Attack
 FEAT:Staggering Critical
 FEAT:Vital Strike
 
-STARTPACK:Thunderbird Default	TYPE:DefaultMonster.Thunderbird	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird]	SOURCEPAGE:p.264
+STARTPACK:Thunderbird Default	TYPE:DefaultMonster.Thunderbird	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunderbird]	SOURCEPAGE:p.264
 RACE:Thunderbird	!PRERACE:1,%
 NAME:Thunderbird
 ALIGN:TN
@@ -5452,19 +5452,19 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Power Attack
 
-STARTPACK:Tick (Giant) Default	TYPE:DefaultMonster.GiantTick	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick (Giant)]	SOURCEPAGE:p.265
+STARTPACK:Tick (Giant) Default	TYPE:DefaultMonster.GiantTick	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick (Giant)]	SOURCEPAGE:p.265
 RACE:Tick (Giant)	!PRERACE:1,%
 NAME:Giant Tick
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Tick Swarm Default	TYPE:DefaultMonster.TickSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick Swarm]	SOURCEPAGE:p.265
+STARTPACK:Tick Swarm Default	TYPE:DefaultMonster.TickSwarm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick Swarm]	SOURCEPAGE:p.265
 RACE:Tick Swarm	!PRERACE:1,%
 NAME:Tick Swarm
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Titan (Elysian) Default	TYPE:DefaultMonster.ElysianTitan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Elysian)]	SOURCEPAGE:p.266
+STARTPACK:Titan (Elysian) Default	TYPE:DefaultMonster.ElysianTitan	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Elysian)]	SOURCEPAGE:p.266
 RACE:Titan (Elysian)	!PRERACE:1,%
 NAME:Elysian Titan
 ALIGN:CG
@@ -5494,7 +5494,7 @@ FEAT:Vital Strike
 GEAR:Elysian Maul of the Titans	SIZE:C	LOCATION:Equipped
 GEAR:Breastplate				SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
 
-STARTPACK:Titan (Thanatotic) Default	TYPE:DefaultMonster.ThanatoticTitan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Thanatotic)]	SOURCEPAGE:p.267
+STARTPACK:Titan (Thanatotic) Default	TYPE:DefaultMonster.ThanatoticTitan	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Thanatotic)]	SOURCEPAGE:p.267
 RACE:Titan (Thanatotic)	!PRERACE:1,%
 NAME:Thanatotic Titan
 ALIGN:CE
@@ -5529,7 +5529,7 @@ GEAR:Battleaxe	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3W.UNHOLY
 GEAR:Full Plate	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
 GEAR:Rock (Huge)			LOCATION:Carried
 
-STARTPACK:Toad (Giant) Default	TYPE:DefaultMonster.GiantToad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Giant)]	SOURCEPAGE:p.268
+STARTPACK:Toad (Giant) Default	TYPE:DefaultMonster.GiantToad	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Giant)]	SOURCEPAGE:p.268
 RACE:Toad (Giant)	!PRERACE:1,%
 NAME:Giant Toad
 ALIGN:TN
@@ -5539,7 +5539,7 @@ SKILL:Stealth	RANK:1
 FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Toad (Glacier) Default	TYPE:DefaultMonster.GlacierToad	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Glacier)]	SOURCEPAGE:p.268
+STARTPACK:Toad (Glacier) Default	TYPE:DefaultMonster.GlacierToad	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Glacier)]	SOURCEPAGE:p.268
 RACE:Toad (Glacier)	!PRERACE:1,%
 NAME:Glacier Toad
 ALIGN:TN
@@ -5552,7 +5552,7 @@ FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Totenmaske Default	TYPE:DefaultMonster.Totenmaske	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Totenmaske]	SOURCEPAGE:p.269
+STARTPACK:Totenmaske Default	TYPE:DefaultMonster.Totenmaske	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Totenmaske]	SOURCEPAGE:p.269
 RACE:Totenmaske	!PRERACE:1,%
 NAME:Totenmaske
 ALIGN:NE
@@ -5570,7 +5570,7 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Triton Default	TYPE:DefaultMonster.Triton	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]	SOURCEPAGE:p.270
+STARTPACK:Triton Default	TYPE:DefaultMonster.Triton	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]	SOURCEPAGE:p.270
 RACE:Triton	!PRERACE:1,%
 NAME:Triton
 ALIGN:NG
@@ -5588,7 +5588,7 @@ GEAR:Trident				LOCATION:Equipped	EQMOD:MWORKW
 GEAR:Crossbow (Heavy)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
 
-STARTPACK:Troll (Ice) Default	TYPE:DefaultMonster.IceTroll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Ice)]	SOURCEPAGE:p.271
+STARTPACK:Troll (Ice) Default	TYPE:DefaultMonster.IceTroll	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Ice)]	SOURCEPAGE:p.271
 RACE:Troll (Ice)	!PRERACE:1,%
 NAME:Ice Troll
 ALIGN:CE
@@ -5601,7 +5601,7 @@ FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
 GEAR:Battleaxe	SIZE:L	LOCATION:Equipped
 
-STARTPACK:Troll (Rock) Default	TYPE:DefaultMonster.RockTroll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Rock)]	SOURCEPAGE:p.272
+STARTPACK:Troll (Rock) Default	TYPE:DefaultMonster.RockTroll	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Rock)]	SOURCEPAGE:p.272
 RACE:Troll (Rock)	!PRERACE:1,%
 NAME:Rock Troll
 ALIGN:CE
@@ -5614,7 +5614,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Turtle (Snapping) Default	TYPE:DefaultMonster.SnappingTurtle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Turtle (Snapping)]	SOURCEPAGE:p.273
+STARTPACK:Turtle (Snapping) Default	TYPE:DefaultMonster.SnappingTurtle	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Turtle (Snapping)]	SOURCEPAGE:p.273
 RACE:Turtle (Snapping)	!PRERACE:1,%
 NAME:Snapping Turtle
 ALIGN:TN
@@ -5622,7 +5622,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Turtle (Giant Snapping) Default	TYPE:DefaultMonster.GiantSnappingTurtle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Turtle (Giant Snapping)]	SOURCEPAGE:p.273
+STARTPACK:Turtle (Giant Snapping) Default	TYPE:DefaultMonster.GiantSnappingTurtle	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Turtle (Giant Snapping)]	SOURCEPAGE:p.273
 RACE:Turtle (Giant Snapping)	!PRERACE:1,%
 NAME:Giant Snapping Turtle
 ALIGN:TN
@@ -5635,7 +5635,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Twigjack Default	TYPE:DefaultMonster.Twigjack	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Twigjack]	SOURCEPAGE:p.274
+STARTPACK:Twigjack Default	TYPE:DefaultMonster.Twigjack	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Twigjack]	SOURCEPAGE:p.274
 RACE:Twigjack	!PRERACE:1,%
 NAME:Twigjack
 ALIGN:CE
@@ -5655,7 +5655,7 @@ GEAR:Spear	SIZE:T	LOCATION:Equipped
 # COMMENT: The Bestiary has a +1 Init bonus for the Undine cleric;
 # COMMENT:   his 14 Dex should give him a +2.
 # NEEDS DATA WORK: Don't know how to add domain spells in a kit.
-STARTPACK:Undine Cleric 1	TYPE:Undine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Undine]	SOURCEPAGE:p.275
+STARTPACK:Undine Cleric 1	TYPE:Undine	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Undine]	SOURCEPAGE:p.275
 RACE:Undine	!PRERACE:1,%
 NAME:Undine Cleric 1
 ALIGN:TN
@@ -5679,7 +5679,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Guidance
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
 
-STARTPACK:Urdefhan Default	TYPE:DefaultMonster.Urdefhan	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Urdefhan]	SOURCEPAGE:p.276
+STARTPACK:Urdefhan Default	TYPE:DefaultMonster.Urdefhan	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Urdefhan]	SOURCEPAGE:p.276
 RACE:Urdefhan	!PRERACE:1,%
 NAME:Urdefhan
 ALIGN:NE
@@ -5699,7 +5699,7 @@ GEAR:Rhoka Sword					LOCATION:Both Hands
 GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+4
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
-STARTPACK:Vampiric Mist Default	TYPE:DefaultMonster.VampiricMist	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampiric Mist]	SOURCEPAGE:p.277
+STARTPACK:Vampiric Mist Default	TYPE:DefaultMonster.VampiricMist	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampiric Mist]	SOURCEPAGE:p.277
 RACE:Vampiric Mist	!PRERACE:1,%
 NAME:Vampiric Mist
 ALIGN:NE
@@ -5709,7 +5709,7 @@ SKILL:Stealth	RANK:4
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
 
-STARTPACK:Vemerak Default	TYPE:DefaultMonster.Vemerak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vemerak]	SOURCEPAGE:p.278
+STARTPACK:Vemerak Default	TYPE:DefaultMonster.Vemerak	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vemerak]	SOURCEPAGE:p.278
 RACE:Vemerak	!PRERACE:1,%
 NAME:Vemerak
 ALIGN:CE
@@ -5725,7 +5725,7 @@ FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Viper Vine Default	TYPE:DefaultMonster.ViperVine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Viper Vine]	SOURCEPAGE:p.279
+STARTPACK:Viper Vine Default	TYPE:DefaultMonster.ViperVine	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Viper Vine]	SOURCEPAGE:p.279
 RACE:Viper Vine	!PRERACE:1,%
 NAME:Viper Vine
 ALIGN:TN
@@ -5743,7 +5743,7 @@ FEAT:Toughness
 FEAT:Weapon Focus (Bite)
 FEAT:Weapon Focus (Tentacle)
 
-STARTPACK:Water Orm Default	TYPE:DefaultMonster.WaterOrm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Water Orm]	SOURCEPAGE:p.280
+STARTPACK:Water Orm Default	TYPE:DefaultMonster.WaterOrm	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Water Orm]	SOURCEPAGE:p.280
 RACE:Water Orm	!PRERACE:1,%
 NAME:Water Orm
 ALIGN:TN
@@ -5758,7 +5758,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 
-STARTPACK:Wendigo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
+STARTPACK:Wendigo Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
 RACE:Wendigo	!PRERACE:1,%
 NAME:Wendigo
 ALIGN:CE
@@ -5787,7 +5787,7 @@ FEAT:Multiattack
 FEAT:Persuasive
 FEAT:Tiring Critical
 
-STARTPACK:Whale Default	TYPE:DefaultMonster.Whale	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale]	SOURCEPAGE:p.282
+STARTPACK:Whale Default	TYPE:DefaultMonster.Whale	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale]	SOURCEPAGE:p.282
 RACE:Whale	!PRERACE:1,%
 NAME:Whale
 ALIGN:TN
@@ -5803,7 +5803,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Skill Focus (Perception)
 
-STARTPACK:Whale (Great White) Default	TYPE:DefaultMonster.GreatWhiteWhale	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale (Great White)]	SOURCEPAGE:p.282
+STARTPACK:Whale (Great White) Default	TYPE:DefaultMonster.GreatWhiteWhale	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Whale (Great White)]	SOURCEPAGE:p.282
 RACE:Whale (Great White)	!PRERACE:1,%
 NAME:Great White Whale
 ALIGN:TN
@@ -5820,7 +5820,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 FEAT:Staggering Critical
 
-STARTPACK:Winterwight Default	TYPE:DefaultMonster.Winterwight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]	SOURCEPAGE:p.283
+STARTPACK:Winterwight Default	TYPE:DefaultMonster.Winterwight	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]	SOURCEPAGE:p.283
 RACE:Winterwight	!PRERACE:1,%
 NAME:Winterwight
 ALIGN:CE
@@ -5840,7 +5840,7 @@ FEAT:Power Attack
 FEAT:Staggering Critical
 FEAT:Vital Strike
 
-STARTPACK:Witchfire Default	TYPE:DefaultMonster.Witchfire	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]	SOURCEPAGE:p.286
+STARTPACK:Witchfire Default	TYPE:DefaultMonster.Witchfire	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]	SOURCEPAGE:p.286
 RACE:Witchfire	!PRERACE:1,%
 NAME:Witchfire
 ALIGN:CE
@@ -5865,7 +5865,7 @@ FEAT:Mobility
 # COMMENT: The Bestiary lists CMD of 24 instead of 26.  No insight bonus?
 # NEEDS CODE WORK: The SUBCLASS tag doesn't seem to work.
 # NEEDS CODE WORK:   And, it asks for the subclass twice.
-STARTPACK:Witchwyrd Default	TYPE:DefaultMonster.Witchwyrd	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchwyrd]	SOURCEPAGE:p.285
+STARTPACK:Witchwyrd Default	TYPE:DefaultMonster.Witchwyrd	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchwyrd]	SOURCEPAGE:p.285
 RACE:Witchwyrd	!PRERACE:1,%
 NAME:Witchwyrd
 ALIGN:LN
@@ -5886,7 +5886,7 @@ FEAT:Iron Will
 FEAT:Persuasive
 GEAR:Ranseur	LOCATION:Equipped
 
-STARTPACK:Worm that Walks Human Conjurer 13	TYPE:DefaultMonster.WormThatWalks	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.286
+STARTPACK:Worm that Walks Human Conjurer 13	TYPE:DefaultMonster.WormThatWalks	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.286
 ALIGN:NE
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
@@ -6014,7 +6014,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Summon Monster VI
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Project Image
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Plane Shift
 
-STARTPACK:Xacarba Default	TYPE:DefaultMonster.Xacarba	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xacarba]	SOURCEPAGE:p.288
+STARTPACK:Xacarba Default	TYPE:DefaultMonster.Xacarba	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xacarba]	SOURCEPAGE:p.288
 RACE:Xacarba	!PRERACE:1,%
 NAME:Xacarba
 ALIGN:CE
@@ -6043,13 +6043,13 @@ FEAT:Mobility
 FEAT:Spring Attack
 FEAT:Vital Strike
 
-STARTPACK:Xtabay Default	TYPE:DefaultMonster.Xtabay	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xtabay]	SOURCEPAGE:p.289
+STARTPACK:Xtabay Default	TYPE:DefaultMonster.Xtabay	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xtabay]	SOURCEPAGE:p.289
 RACE:Xtabay	!PRERACE:1,%
 NAME:Xtabay
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
-STARTPACK:Yrthak Default	TYPE:DefaultMonster.Yrthak	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yrthak]	SOURCEPAGE:p.290
+STARTPACK:Yrthak Default	TYPE:DefaultMonster.Yrthak	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yrthak]	SOURCEPAGE:p.290
 RACE:Yrthak	!PRERACE:1,%
 NAME:Yrthak
 ALIGN:TN
@@ -6066,7 +6066,7 @@ FEAT:Skill Focus (Perception)
 # COMMENT: PCGen has a +10 Disable Device instead of a +8, and has
 # COMMENT:   not used the favored class bonuses or chosen a feat from the
 # COMMENT:   Combat Trick rogue talent.
-STARTPACK:Zombie (Juju) Human Rogue 2	TYPE:DefaultMonster.JujuZombie	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.291
+STARTPACK:Zombie (Juju) Human Rogue 2	TYPE:DefaultMonster.JujuZombie	VISIBLE:YES	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.291
 ALIGN:NE
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
