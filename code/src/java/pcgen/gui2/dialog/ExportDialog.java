@@ -654,6 +654,17 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			else
 			{
 				dir = new File(ConfigurationSettings.getOutputSheetsDir(), outputSheetDirectory);
+				if (!dir.isDirectory())
+				{
+					Logging.errorPrint("Unable to find game mode outputsheets at " + dir.getCanonicalPath() + ". Trying base.");
+					dir = new File(ConfigurationSettings.getOutputSheetsDir());
+					outputSheetDirectory = "";
+				}
+			}
+			if (!dir.isDirectory())
+			{
+				Logging.errorPrint("Unable to find outputsheets folder at " + dir.getCanonicalPath() + ".");
+				return Collections.emptyList();
 			}
 			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
 			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
