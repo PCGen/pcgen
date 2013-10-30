@@ -122,8 +122,8 @@ ABILITY:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_abi
 
 # Pathfinder Adventure Path #31: "Stolen Land"
 # Animal Companions: elk, megaloceros, thylacine
-ABILITY:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_abilities_companion.lst
-RACE:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_races_companion.lst
+#ABILITY:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_abilities_companion.lst
+#RACE:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_races_companion.lst
 # Note: "Animal Companion: Megaloceros" is in CR
 
 # Pathfinder Adventure Path #32: "Rivers Run Red"
