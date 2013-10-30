@@ -63,11 +63,13 @@ import pcgen.util.Logging;
  * Bedzek, Frank Miedrich, and Ron Rabakukk <br>Jonas Karlsson added
  * pcgen-specific support for setting browser path (updated to be
  * based on BrowserLauncher 1.4b1)
+ * 
+ * @deprecated DesktopBrowserLauncher should be used instead of this class now.
  *
  * @author Eric Albert (<a href="mailto:ejalbert@cs.stanford.edu">ejalbert@cs.stanford.edu</a>)
  * @version 1.4b1 (Released June 20, 2001)
  */
-public final class BrowserLauncher
+final class BrowserLauncher
 {
 	/**
 	 * The Java virtual machine that we are running on.     Actually,
