@@ -78,7 +78,7 @@ public class InfoPaneLinkAction
 		{
 			try
 			{
-				BrowserLauncher.openURL(e.getURL());
+				Utility.viewInBrowser(e.getURL());
 			}
 			catch (IOException e1)
 			{
