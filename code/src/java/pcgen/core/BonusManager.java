@@ -1104,7 +1104,7 @@ public class BonusManager
 			{
 				if (!bEmpty)
 				{
-					sb.append('|');
+					sb.append(',');
 				}
 				sb.append(p.getDescription(shortForm));
 				bEmpty = false;
@@ -1134,10 +1134,11 @@ public class BonusManager
 		// If there is nothing shown in between the [], then show the Bonus's
 		// type
 		//
-		if (bEmpty)
+		if (!bEmpty)
 		{
-			sb.append(getSourceString(bo));
+			sb.append('|');
 		}
+		sb.append(getSourceString(bo));
 		sb.append(']');
 
 		return sb.toString();

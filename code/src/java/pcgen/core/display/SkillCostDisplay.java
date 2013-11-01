@@ -20,8 +20,8 @@
 package pcgen.core.display;
 
 import java.text.NumberFormat;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.base.lang.StringUtil;
@@ -57,7 +57,7 @@ public class SkillCostDisplay
 			boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
-		Set<String> explanation = new TreeSet<String>();
+		List<String> explanation = new ArrayList<String>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SKILL." + keyName).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
@@ -73,7 +73,7 @@ public class SkillCostDisplay
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
 						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
-						if (bpKey.startsWith(bonusKey))
+						if (bpKey.equals(bonusKey))
 						{
 							include = true;
 							break;
