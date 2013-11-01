@@ -1264,22 +1264,40 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 * @param the character's pcgFile
 	 * @param data set reference
 	 */
-	private void openCharacter(File pcgFile, DataSetFacade reference)
+	private void openCharacter(final File pcgFile, final DataSetFacade reference)
 	{
-		// KAW TODO externalize and NLS the msg
-		final String msg = "Opening character...";
-		statusBar.startShowingProgress(msg, true);
-		try
+		final String msg =
+				LanguageBundle.getFormattedString("in_loadPcLoadingFile",
+					pcgFile.getName());
+		statusBar.startShowingProgress(msg, false);
+		statusBar.getProgressBar().getModel()
+			.setRangeProperties(0, 1, 0, 2, false);
+		statusBar.getProgressBar().setString(
+			LanguageBundle.getString("in_loadPcOpening"));
+		SwingUtilities.invokeLater(new Runnable()
 		{
-			CharacterManager.openCharacter(pcgFile, PCGenFrame.this, reference);
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
-		}
-		finally {
-			statusBar.endShowingProgress();
-		}
+			@Override
+			public void run()
+			{
+
+				try
+				{
+					CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
+						reference);
+					statusBar.getProgressBar().getModel()
+						.setRangeProperties(1, 1, 0, 2, false);
+				}
+				catch (Exception e)
+				{
+					Logging.errorPrint(
+						"Error loading character: " + pcgFile.getName(), e);
+				}
+				finally
+				{
+					statusBar.endShowingProgress();
+				}
+			}
+		});
 	}
 
 	private String getFormattedCampaigns(SourceSelectionFacade sources)
@@ -1322,13 +1340,45 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				try
 				{
 					sourceLoader.join();
+					SwingUtilities.invokeAndWait(new Runnable()
+					{
+						@Override
+						public void run()
+						{
+							final String msg =
+									LanguageBundle.getFormattedString(
+										"in_loadPcLoadingFile",
+										pcgFile.getName());
+							statusBar.startShowingProgress(msg, false);
+							statusBar.getProgressBar().getModel()
+								.setRangeProperties(0, 1, 0, 2, false);
+							statusBar.getProgressBar().setString(
+								LanguageBundle.getString("in_loadPcOpening"));
+						}
+					});
 					SwingUtilities.invokeLater(new Runnable()
 					{
 
 						@Override
 						public void run()
 						{
-							CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.getReference());
+							try
+							{
+								CharacterManager.openCharacter(pcgFile,
+									PCGenFrame.this,
+									currentDataSetRef.getReference());
+								statusBar.getProgressBar().getModel()
+									.setRangeProperties(1, 1, 0, 2, false);
+							}
+							catch (Exception e)
+							{
+								Logging.errorPrint("Error loading character: "
+									+ pcgFile.getName(), e);
+							}
+							finally
+							{
+								statusBar.endShowingProgress();
+							}
 						}
 
 					});
@@ -1336,6 +1386,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				catch (InterruptedException ex)
 				{
 					//Do nothing
+				}
+				catch (InvocationTargetException e1)
+				{
+					Logging.errorPrint("Error showing progress bar.", e1);
 				}
 			}
 
