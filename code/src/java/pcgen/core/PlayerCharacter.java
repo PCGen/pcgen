@@ -1747,7 +1747,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 					if (mSkill.equals(fSkill))
 					{
 						// need higher rank of the two
-						if (mPC.getRank(mSkill).intValue() > this.getRank(fSkill)
+						Float totalMasterRank = SkillRankControl.getTotalRank(mPC, mSkill);
+						if (totalMasterRank.intValue() > this.getRank(fSkill)
 								.intValue())
 						{
 							// first zero current
@@ -1755,7 +1756,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 							// We don't pass in a class here so that the real
 							// skills can be distinguished from the ones from
 							// the master.
-							SkillRankControl.modRanks(mPC.getRank(mSkill).doubleValue(), null, true,
+							SkillRankControl.modRanks(totalMasterRank.doubleValue(), null, true,
 									this, fSkill);
 						}
 					}
@@ -1774,7 +1775,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				// familiar doesn't have skill,
 				// but master does, so add it
-				final double sr = mPC.getRank(newSkill).doubleValue();
+				final double sr = SkillRankControl.getTotalRank(mPC, newSkill).doubleValue();
 
 				if (ChooseActivation.hasChooseToken(newSkill))
 				{
