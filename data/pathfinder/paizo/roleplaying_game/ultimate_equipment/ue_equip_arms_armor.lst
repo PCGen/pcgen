@@ -367,6 +367,7 @@ Mace (Light).MOD				OUTPUTNAME:Light Mace																																							
 Morningstar.MOD																																																	COST:8	WT:6																																						SOURCEPAGE:p.33
 Net.MOD																																																		COST:20	WT:6																																						SOURCEPAGE:p.33
 Nunchaku.MOD																																																	COST:2	WT:2																																						SOURCEPAGE:p.33
+Nunchaku (Metal).MOD																																																	COST:2	WT:2																																						SOURCEPAGE:p.33
 Pick (Heavy).MOD				OUTPUTNAME:Heavy Pick																																										COST:8	WT:6																																						SOURCEPAGE:p.29
 Pick (Light).MOD				OUTPUTNAME:Light Pick																																										COST:4	WT:3																																						SOURCEPAGE:p.32
 Quarterstaff.MOD																																																	COST:0	WT:4																																						SOURCEPAGE:p.34
