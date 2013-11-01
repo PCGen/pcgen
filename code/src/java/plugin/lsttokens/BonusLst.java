@@ -32,7 +32,9 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -202,12 +204,16 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 						if (context.ref.silentlyGetConstructedCDOMObject(
 								ABILITY_CATEGORY_CLASS, o.toString()) == null)
 						{
+							LoadContext dummyCtx =
+									new RuntimeLoadContext(context.ref,
+										new ConsolidatedListCommitStrategy());
+							dummyCtx.setSourceURI(obj.getSourceURI());
 							Logging.errorPrint(
 								"BONUS: " + bonus + " in "
 									+ obj.getClass().getSimpleName() + " "
 									+ obj.getKeyName()
 									+ " contained an invalid AbilityCategory "
-									+ o.toString(), context);
+									+ o.toString(), dummyCtx);
 							returnValue = false;
 						}
 					}
