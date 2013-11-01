@@ -215,7 +215,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 			"SKILL.0.EXCLUSIVE_TOTAL", character, null));
 		assertEquals("SkillToken", "9", token.getToken("SKILL.0.TRAINED_TOTAL",
 			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE] +3[STAT]", token.getToken(
+		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
 			"SKILL.0.EXPLAIN", character, null));
 
 		// Test the indexed retrieval
