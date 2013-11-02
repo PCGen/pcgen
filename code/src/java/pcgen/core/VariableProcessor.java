@@ -740,6 +740,10 @@ public abstract class VariableProcessor
 		final CachedVariable<Float> cached = new CachedVariable<Float>();
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
+//		if (lookup.equals("floor(SCORE/2)-5#STAT:CHA"))
+//		{
+//			Logging.errorPrint("At " + cached.getSerial() + " caching " + lookup + " of " + value);
+//		}
 
 		fVariableCache.put(lookup, cached);
 	}

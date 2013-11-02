@@ -7960,7 +7960,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
 		aClone = new PlayerCharacter(true, campaignFacet.getSet(id));
-		aClone.variableProcessor = new VariableProcessorPC(aClone);
+		//aClone.variableProcessor = new VariableProcessorPC(aClone);
 		try
 		{
 			aClone.assocSupt = assocSupt.clone();

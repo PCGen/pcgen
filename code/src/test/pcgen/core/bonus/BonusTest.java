@@ -197,7 +197,22 @@ public class BonusTest extends AbstractCharacterTestCase
 		monkMove.setValue("VAR|MonkMove|floor(var(\"monkLvl\")/3)*10");
 		assertTrue("Should have flagged a dependancy on monkLvl", monkMove
 			.getDependsOn("MONKLVL"));
+
+		BonusObj condSkill = new plugin.bonustokens.Skill();
+		condSkill.setValue("SKILL.CONCENTRATION.MISC");
+		assertTrue("Should have flagged a dependancy on stat", condSkill
+			.getDependsOn("STAT"));
+		assertTrue("Should have flagged a dependancy on concentration", condSkill
+			.getDependsOn("CONCENTRATION"));
+
+		condSkill = new plugin.bonustokens.Skill();
+		condSkill.setValue("skillinfo(\"TOTALRANK\", \"SEARCH\")");
+		assertTrue("Should have flagged a dependancy on stat", condSkill
+			.getDependsOn("STAT"));
+		assertTrue("Should have flagged a dependancy on concentration", condSkill
+			.getDependsOn("SEARCH"));
 	}
+
 	public void testSpellPointCost()
 	{
 		LoadContext context = Globals.getContext();

@@ -21,8 +21,10 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -308,6 +310,7 @@ public class BonusManager
 			}
 
 			// Keep track of which bonuses have been calculated
+			//Logging.log(Logging.INFO, "Processing bonus " + bonus + " - static.");
 			processedBonuses.add(bonus);
 			for (BonusPair bp : getStringListFromBonus(bonus))
 			{
@@ -545,7 +548,8 @@ public class BonusManager
 				continue;
 			}
 
-			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList()))
+			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList())
+				|| aBonus.getDependsOn(newBonus.getBonusName()))
 			{
 				aList.add(newBonus);
 			}
@@ -567,6 +571,7 @@ public class BonusManager
 		}
 
 		// Add to processed list
+		//Logging.log(Logging.INFO, "Processing bonus " + aBonus + " depends on " + aBonus.listDependsMap());
 		processedBonuses.add(aBonus);
 
 		final CDOMObject anObj = (CDOMObject) getSourceObject(aBonus);

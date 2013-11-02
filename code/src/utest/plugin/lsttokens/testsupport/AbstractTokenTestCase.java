@@ -188,7 +188,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
-	private void parseSecondary(String[] unparsed)
+	protected void parseSecondary(String[] unparsed)
 			throws PersistenceLayerException
 	{
 		// Do round Robin
