@@ -45,7 +45,7 @@ public class TemplateInputFacet
 
 	public boolean add(CharID id, PCTemplate obj)
 	{
-		if (ChooseActivation.hasChooseToken(obj))
+		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			ChoiceManagerList<?> aMan =

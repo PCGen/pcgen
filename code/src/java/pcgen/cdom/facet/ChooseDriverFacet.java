@@ -68,7 +68,7 @@ public class ChooseDriverFacet
 		{
 			Selection<?, ?> sel = dfce.getCDOMObject();
 			CDOMObject obj = sel.getObject();
-			if (ChooseActivation.hasChooseToken(obj))
+			if (ChooseActivation.hasNewChooseToken(obj))
 			{
 				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 				add(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
@@ -134,7 +134,7 @@ public class ChooseDriverFacet
 		{
 			Selection<?, ?> sel = dfce.getCDOMObject();
 			CDOMObject obj = sel.getObject();
-			if (ChooseActivation.hasChooseToken(obj))
+			if (ChooseActivation.hasNewChooseToken(obj))
 			{
 				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 				remove(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);

@@ -32,7 +32,7 @@ public class Selection<BT extends CDOMObject, SEL>
 		{
 			throw new IllegalArgumentException("Object cannot be null");
 		}
-		if (ChooseActivation.hasChooseToken(obj))
+		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			if (sel == null)
 			{

@@ -31,4 +31,17 @@ public class ChooseActivation
 				|| po.get(ObjectKey.CHOOSE_INFO) != null;
 	}
 
+	/**
+	 * Check if an object has a new style choose. As at Oct 2013 this meant any
+	 * CHOOSE other than for an equipment modifier or a number (i.e. temporary 
+	 * bonus).
+	 * 
+	 * @param po The object to be checked.
+	 * @return true if the object has a new style choice.
+	 */
+	public static final boolean hasNewChooseToken(CDOMObject po)
+	{
+		return po.get(ObjectKey.CHOOSE_INFO) != null;
+	}
+
 }
