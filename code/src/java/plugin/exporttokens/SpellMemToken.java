@@ -338,6 +338,14 @@ public class SpellMemToken extends Token
 						{
 							retValue.append(aSpell.get(StringKey.SOURCE_PAGE));
 						}
+						else if ("SOURCEWEB".equals(aLabel))
+						{
+							String aTemp = aSpell.get(StringKey.SOURCE_WEB);
+
+							if (aTemp != null && !aTemp.isEmpty()) {
+								retValue.append(aSpell.get(StringKey.SOURCE_WEB));
+							}
+						}
 						else if ("SUBSCHOOL".equals(aLabel))
 						{
 							retValue.append(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL));
