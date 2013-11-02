@@ -70,24 +70,23 @@ public class WeightToken extends AbstractExportToken
 	{
 		String retString = "";
 
-		if (!display.getSuppressBioField(BiographyField.WEIGHT))
+		boolean suppressPcWeight =
+				display.getSuppressBioField(BiographyField.WEIGHT);
+		if ("WEIGHT".equals(tokenSource))
 		{
-			if ("WEIGHT".equals(tokenSource))
-			{
-				retString = display.getWeightToken();
-			}
-			else if ("WEIGHT.NOUNIT".equals(tokenSource))
-			{
-				retString = display.getNoUnitToken();
-			}
-			else
-			{
-				String type =
-						tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
-				retString =
-						Globals.getGameModeUnitSet().displayWeightInUnitSet(
-							display.getLoadToken(type));
-			}
+			retString = suppressPcWeight ? "" : display.getWeightToken();
+		}
+		else if ("WEIGHT.NOUNIT".equals(tokenSource))
+		{
+			retString = suppressPcWeight ? "" : display.getNoUnitToken();
+		}
+		else
+		{
+			String type =
+					tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
+			retString =
+					Globals.getGameModeUnitSet().displayWeightInUnitSet(
+						display.getLoadToken(type));
 		}
 		
 		return retString;
