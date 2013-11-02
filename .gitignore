@@ -18,5 +18,6 @@ pcgen.exe
 pcgen.jar
 pcgen.sh
 pcgen.log
+pcgen.log.*
 pcgen_low_mem.bat
 
