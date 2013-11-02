@@ -142,9 +142,12 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 			SkillCostDisplay.getModifierExplanation(bluff, pc, false));
 
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, persuasive);
-		assertEquals("Bonus after persuasive",
-			"+2[Persuasive] +3[Skill Focus]", SkillCostDisplay
-				.getModifierExplanation(bluff, pc, false));
+		String modifierExplanation = SkillCostDisplay
+			.getModifierExplanation(bluff, pc, false);
+		// Have to account for random order of the bonuses. 
+		assertTrue("Bonus after persuasive",
+			modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]") ||
+			modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"));
 	}
 
 }
