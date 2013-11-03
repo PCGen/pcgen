@@ -12,6 +12,10 @@ code/manifest
 
 hs_err_*.log
 
+code/build.eclipse/
+code/manifest-tests
+pcgendev.iml
+
 outputsheets/d20/*/htmlxml/*.htm
 
 pcgen.exe
