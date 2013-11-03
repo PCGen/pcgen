@@ -761,6 +761,30 @@
 
 <hr>
 
+	<p class="lstnew"><a name="PREKIT">*** New 6.1.9</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREKIT:x,y,y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Kits Required)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Kit Name)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>Checks to see if the character has the specified kit(s).</li>
+		<li>The Kit name is taken from the <code>STARTPACK</code> tag for the target kit.</li>
+		<li>This will only work with permenant kits.</li>
+		<li>The percent sign (%) can be used as a trailing wildcard.</li>
+	</ul>
+	<p class="indent1"><strong>Examples:</strong></p>
+	<p class="indent2"><code>PREKIT:1,Starting Gold</code></p>
+	<p class="indent3">Makes sure the character has the 'Starting Gold' kit.</p>
+	<p class="indent2"><code>PREKIT:2,Flumph Abilities,Flumph Skills</code></p>
+	<p class="indent3">Makes sure the character has both kits</p>
+	<p class="indent2"><code>PREKIT:1,Alchemist's Kit</code></p>
+	<p class="indent3">Makes sure the character does not have the Alchemist's Kit</p>
+	<p class="indent2"><code>PREKIT:1,Dragon Age%</code></p>
+	<p class="indent3">Will match both 'Dragon Age 01 ~ Wyrmling' and 'Dragon Age 12 ~ Great Wyrm''</p>
+	<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="PRELANG">Tag Name:</a></strong> PRELANG:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (The number of languages a character must know).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (The name of a language the character must know).</p>
