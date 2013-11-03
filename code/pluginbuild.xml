@@ -2313,7 +2313,14 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/LstToken-SOURCELONG.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+        <jar jarfile="${lstplugins.dir}/LstToken-SOURCELINK.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+            <fileset dir="${build.classes.dir}">
+                <patternset>
+                    <include name="plugin/lsttokens/SourcelinkLst.class" />
+                </patternset>
+            </fileset>
+        </jar>
+        <jar jarfile="${lstplugins.dir}/LstToken-SOURCELONG.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/SourcelongLst.class" />
