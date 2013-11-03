@@ -2103,7 +2103,15 @@ Immune
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-  <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
+  <td class="spname">
+      <b>
+|IIF(TEXT.LENGTH.SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK:0)|
+      |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|ELSE|
+      <a href="|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|">|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a>
+|ENDIF|
+      </b><br />
+  </td>
   <td class="sptab">
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
 |ELSE|
@@ -2160,7 +2168,14 @@ at will
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-  <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
+  <td class="spname">
+      <b>
+|IIF(TEXT.LENGTH.SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK:0)|
+      |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|ELSE|
+      <a href="|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|">|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a>
+|ENDIF|
+    </b><br />
   <td class="sptab">
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
 |ELSE|
@@ -2262,7 +2277,15 @@ at will
 |ENDIF|
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-  <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
+  <td class="spname">
+      <b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|
+|IIF(TEXT.LENGTH.SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK:0)|
+      |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
+|ELSE|
+      <a href="|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|">|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</a>
+|ENDIF|
+      </b><br />
+  </td>
   <td class="sptab">
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
 |ELSE|
