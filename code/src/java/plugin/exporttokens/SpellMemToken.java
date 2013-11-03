@@ -343,7 +343,15 @@ public class SpellMemToken extends Token
 							String aTemp = aSpell.get(StringKey.SOURCE_WEB);
 
 							if (aTemp != null && !aTemp.isEmpty()) {
-								retValue.append(aSpell.get(StringKey.SOURCE_WEB));
+								retValue.append(aTemp);
+							}
+						}
+						else if ("SOURCELINK".equals(aLabel))
+						{
+							String aTemp = aSpell.get(StringKey.SOURCE_LINK);
+
+							if (aTemp != null && !aTemp.isEmpty()) {
+								retValue.append(aTemp);
 							}
 						}
 						else if ("SUBSCHOOL".equals(aLabel))
@@ -438,8 +446,8 @@ public class SpellMemToken extends Token
 							}
 
 							retValue.append(getBonusSpellValue(aPC, spellLevel,
-								sString, altLabel, aObject, bookName,
-								selectedCSpell, aSpell));
+                                    sString, altLabel, aObject, bookName,
+                                    selectedCSpell, aSpell));
 						}
 						else if ("XPCOST".equals(aLabel))
 						{
