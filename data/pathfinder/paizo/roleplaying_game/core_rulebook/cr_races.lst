@@ -15,4 +15,4 @@ Human		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONU
 # XTRASKILLPTSPERLVL:1
 
 # DEVELOPER NOTE: ABILITY:Internal|AUTOMATIC|XXX Racial Trait Default assigns the Traits of the Race and allows them to be swapped out
-# The Base Ability is located in pfcr_abilities_racial.lst
+# The Base Ability is located in pfcr_abilities_race.lst
