@@ -12,7 +12,10 @@ Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.13	SUBRACE:Chelaxian
 Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.14	SUBRACE:Garundi	AUTO:LANG|Osiriani
 Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.15	SUBRACE:Keleshite	AUTO:LANG|Kelish
 Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.16	SUBRACE:Kellid	AUTO:LANG|Hallit
-Human Ethnicity (Mwangi)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Mwangi	AUTO:LANG|Polyglot
+Human Ethnicity (Bekyar)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Bekyar	AUTO:LANG|Polyglot
+Human Ethnicity (Bonuwat)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Bonuwat	AUTO:LANG|Polyglot
+Human Ethnicity (Mauxi)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Mauxi	AUTO:LANG|Polyglot
+Human Ethnicity (Zenj)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Zenj	AUTO:LANG|Polyglot
 Human Ethnicity (Shoanti)	VISIBLE:NO	SOURCEPAGE:p.18	SUBRACE:Shoanti	AUTO:LANG|Shoanti
 Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Taldan
 Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Tian	AUTO:LANG|Tien
