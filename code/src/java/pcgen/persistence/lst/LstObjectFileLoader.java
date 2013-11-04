@@ -34,8 +34,8 @@ import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -628,13 +628,19 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					context.setSourceURI(element.source.getURI());
 					try
 					{
-						Campaign origCampaign = object.get(ObjectKey.SOURCE_CAMPAIGN);
+						String origPage = object.get(StringKey.SOURCE_PAGE);
 						
 						parseLine(context, object, element.getLstLine(), element.getSource());
 	
-						if (origCampaign != null)
+						if (origPage != object.get(StringKey.SOURCE_PAGE))
 						{
-							object.put(ObjectKey.SOURCE_CAMPAIGN, origCampaign);
+							Campaign campaign = element.source.getCampaign();
+							object.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
+							object.put(StringKey.SOURCE_SHORT, campaign.get(StringKey.SOURCE_SHORT));
+							object.put(StringKey.SOURCE_LONG, campaign.get(StringKey.SOURCE_LONG));
+							object.put(ObjectKey.SOURCE_DATE, campaign.get(ObjectKey.SOURCE_DATE));
+							object.put(StringKey.SOURCE_WEB, campaign.get(StringKey.SOURCE_WEB));
+							object.setSourceURI(element.source.getURI());
 						}
 					}
 					catch (PersistenceLayerException ple)
