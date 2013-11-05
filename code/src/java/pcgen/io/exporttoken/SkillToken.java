@@ -23,8 +23,11 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -78,6 +81,8 @@ public class SkillToken extends Token
 	private static final int SKILL_EXPLANATION = 13;
 	private static final int SKILL_TYPE = 14;
 	private static final int SKILL_COST = 15;
+	private static final int SKILL_SIZE= 16;
+	private static final int SKILL_CLASSES= 17;
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -282,6 +287,14 @@ public class SkillToken extends Token
 		{
 			propId= SKILL_TYPE;
 		}
+		else if ("SIZE".equalsIgnoreCase(property))
+		{
+			propId= SKILL_SIZE;
+		}
+		else if ("CLASSES".equalsIgnoreCase(property))
+		{
+			propId= SKILL_CLASSES;
+		}
 		return propId;
 	}
 
@@ -429,6 +442,23 @@ public class SkillToken extends Token
 					String type = aSkill.getType();
 					retValue.append(type);
 					break;
+				
+				case SKILL_SIZE:
+					retValue.append(Integer.toString((int)(pc.getSizeAdjustmentBonusTo("SKILL", aSkill.getKeyName()))));
+					break;
+
+				case SKILL_CLASSES:
+					List<String> classes = new ArrayList<String>();
+					for (PCClass aClass : pc.getClassList())
+					{
+						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)
+						{
+							classes.add(aClass.getDisplayName());
+						}
+					}
+					retValue.append(StringUtils.join(classes, "."));
+					break;
+					
 
 				default:
 					Logging
