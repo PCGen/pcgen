@@ -93,12 +93,12 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			try
 			{
-				int mult = Integer.parseInt(formulaString.substring(1));
-				if (mult < 0)
+				float mult = Float.parseFloat(formulaString.substring(1));
+				if (mult < 0.0)
 				{
 					return new ParseResult.Fail(getTokenName()
-							+ " was expecting an "
-							+ "Integer >= 0 for multiplying Movement, was : "
+							+ " was expecting a "
+							+ "Float >= 0 for multiplying Movement, was : "
 							+ formulaString.substring(1), context);
 				}
 			}
