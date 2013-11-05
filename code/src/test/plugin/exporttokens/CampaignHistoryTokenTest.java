@@ -1,0 +1,159 @@
+/*
+ * CampaignHistoryTokenTest.java
+ * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 04/11/2013
+ *
+ * $Id$
+ */
+package plugin.exporttokens;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringWriter;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import pcgen.AbstractCharacterTestCase;
+import pcgen.core.ChronicleEntry;
+import pcgen.core.PlayerCharacter;
+import pcgen.io.ExportHandler;
+import pcgen.io.FileAccess;
+
+/**
+ * CampaignHistoryTokenTest validates the functions of the 
+ * CampaignHistoryToken class.
+ * 
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
+ */
+public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
+{
+
+	private ChronicleEntry visibleEntry;
+	private ChronicleEntry hiddenEntry;
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		PlayerCharacter character = getCharacter();
+
+		visibleEntry = extracted(true, "Kingmaker", "17Dec2012", "Vic",
+			"Ruling council", "Finns folly", 150,
+			"A ruin is conquered in the forest and a new town is founded.");
+
+		hiddenEntry = extracted(false, "Campaign", "Date", "GM", "Party",
+			"Adventure", 1390, "Chronicle");
+		
+		character.addChronicleEntry(visibleEntry);
+		character.addChronicleEntry(hiddenEntry);
+	}
+
+	private ChronicleEntry extracted(boolean visible, String campaign, String date,
+		String gm, String party, String adventure, int xp, String chronicle)
+	{
+		ChronicleEntry chronEntry = new ChronicleEntry();
+		chronEntry.setOutputEntry(visible);
+		chronEntry.setCampaign(campaign);
+		chronEntry.setDate(date);
+		chronEntry.setGmField(gm);
+		chronEntry.setParty(party);
+		chronEntry.setAdventure(adventure);
+		chronEntry.setXpField(xp);
+		chronEntry.setChronicle(chronicle);
+		return chronEntry;
+	}
+
+	@Test
+	public void testFieldChoice() throws IOException
+	{
+		FileAccess.setCurrentOutputFilter("xml");
+		PlayerCharacter character = getCharacter();
+		assertEquals("Field Campaign", visibleEntry.getCampaign(),
+			evaluateToken("CAMPAIGNHISTORY.0.CAMPAIGN", character));
+		assertEquals("Field ADVENTURE", visibleEntry.getAdventure(),
+			evaluateToken("CAMPAIGNHISTORY.0.ADVENture", character));
+		assertEquals("Field PARTY", visibleEntry.getParty(),
+			evaluateToken("CAMPAIGNHISTORY.0.PARTY", character));
+		assertEquals("Field DATE", visibleEntry.getDate(),
+			evaluateToken("CAMPAIGNHISTORY.0.DATE", character));
+		assertEquals("Field XP", visibleEntry.getXpField(),
+			Integer.parseInt(evaluateToken("CAMPAIGNHISTORY.0.XP", character)));
+		assertEquals("Field GM", visibleEntry.getGmField(),
+			evaluateToken("CAMPAIGNHISTORY.0.GM", character));
+		assertEquals("Field Text", visibleEntry.getChronicle(),
+			evaluateToken("CAMPAIGNHISTORY.0.TEXT", character));
+		assertEquals("Default field", visibleEntry.getChronicle(),
+			evaluateToken("CAMPAIGNHISTORY.0", character));
+
+		assertEquals("Invalid field", "",
+			evaluateToken("CAMPAIGNHISTORY.0.LALALA", character));
+	}
+
+
+	@Test
+	public void testVisibility() throws IOException
+	{
+		FileAccess.setCurrentOutputFilter("xml");
+		PlayerCharacter character = getCharacter();
+		assertEquals("Default visibility", visibleEntry.getAdventure(),
+			evaluateToken("CAMPAIGNHISTORY.0.ADVENTURE", character));
+		assertEquals("Default visibility", "",
+			evaluateToken("CAMPAIGNHISTORY.1.ADVENTURE", character));
+
+		assertEquals("Hidden visibility", hiddenEntry.getAdventure(),
+			evaluateToken("CAMPAIGNHISTORY.HIDDEN.0.ADVENTURE", character));
+		assertEquals("Hidden visibility", "",
+			evaluateToken("CAMPAIGNHISTORY.HIDDEN.1.ADVENTURE", character));
+
+		assertEquals("All visibility", visibleEntry.getAdventure(),
+			evaluateToken("CAMPAIGNHISTORY.ALL.0.ADVENTURE", character));
+		assertEquals("All visibility", hiddenEntry.getAdventure(),
+			evaluateToken("CAMPAIGNHISTORY.ALL.1.ADVENTURE", character));
+
+		assertEquals("Visible visibility", visibleEntry.getAdventure(),
+			evaluateToken("CAMPAIGNHISTORY.VISIBLE.0.ADVENTURE", character));
+		assertEquals("Visible visibility", "",
+			evaluateToken("CAMPAIGNHISTORY.VISIBLE.1.ADVENTURE", character));
+
+		assertEquals("Invalid visibility", "",
+			evaluateToken("CAMPAIGNHISTORY.LALALA.0.ADVENTURE", character));
+	}
+
+	
+	private String evaluateToken(String token, PlayerCharacter pc)
+		throws IOException
+	{
+		StringWriter retWriter = new StringWriter();
+		BufferedWriter bufWriter = new BufferedWriter(retWriter);
+		ExportHandler export = new ExportHandler(new File(""));
+		export.replaceTokenSkipMath(pc, token, bufWriter);
+		retWriter.flush();
+
+		bufWriter.flush();
+
+		return retWriter.toString();
+	}
+
+}
