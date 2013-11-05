@@ -2128,7 +2128,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Channel Positive Energy</name>
-			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 14 Will save to halve the damage. You can use this abilty 6 times per day.</description>
+			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 16 Will save to halve the damage. You can use this abilty 6 times per day.</description>
 			<type>CLERICCLASSABILITY.SUPERNATURAL.SPECIALATTACK.CHANNELENERGY</type>
 			<associated></associated>
 			<count>0</count>
