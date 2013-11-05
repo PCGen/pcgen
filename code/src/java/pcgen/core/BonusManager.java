@@ -531,9 +531,12 @@ public class BonusManager
 		// coding or best guess dependancy mapping
 		if (prevProcessed.contains(aBonus))
 		{
-			Logging
-					.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed); //$NON-NLS-1$//$NON-NLS-2$
-			Logging.debugPrint(" Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$//$NON-NLS-2$
+			Logging.log(Logging.DEBUG, "Ignoring bonus loop for " //$NON-NLS-1$
+				+ aBonus
+				+ " as it was already processed. Bonuses already processed: " //$NON-NLS-1$
+				+ prevProcessed);
+			Logging.log(Logging.DEBUG,
+				" Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$
 			return;
 		}
 		prevProcessed.add(aBonus);
@@ -550,7 +553,7 @@ public class BonusManager
 			}
 
 			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList())
-				/*|| aBonus.getDependsOn(newBonus.getBonusName())*/)
+				|| aBonus.getDependsOnBonusName(newBonus.getBonusName()))
 			{
 				aList.add(newBonus);
 			}

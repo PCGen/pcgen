@@ -164,6 +164,17 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	}
 
 	/**
+	 * Check if this bonus requires bonuses of a particular name to be 
+	 * resolved first. e.g. Supply STAT to check for all BONUS:STAT entries. 
+	 * @param bonusName Bonus name to be checked for.
+	 * @return true if there is a dependancy
+	 */
+	public boolean getDependsOnBonusName(final String bonusName)
+	{
+		return dependMap.containsKey("NAME|"+bonusName);
+	}
+
+	/**
 	 * Report on the dependencies of the bonus.
 	 * @return String the dependancies
 	 */
@@ -425,7 +436,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 		if (aString.indexOf("SKILL.") >= 0 || aString.indexOf("SKILLINFO") >= 0)
 		{
-			dependMap.put("STAT", "1");
+			dependMap.put("NAME|STAT", "1");
 		}
 
 		// First whack out all the () pairs to find variable names

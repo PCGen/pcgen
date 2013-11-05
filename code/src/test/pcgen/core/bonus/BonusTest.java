@@ -200,17 +200,21 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		BonusObj condSkill = new plugin.bonustokens.Skill();
 		condSkill.setValue("SKILL.CONCENTRATION.MISC");
-		assertTrue("Should have flagged a dependancy on stat", condSkill
+		assertFalse("Should not have flagged a dependancy on stat", condSkill
 			.getDependsOn("STAT"));
 		assertTrue("Should have flagged a dependancy on concentration", condSkill
 			.getDependsOn("CONCENTRATION"));
+		assertTrue("Should have flagged a name dependancy on stat", condSkill
+			.getDependsOnBonusName("STAT"));
 
 		condSkill = new plugin.bonustokens.Skill();
 		condSkill.setValue("skillinfo(\"TOTALRANK\", \"SEARCH\")");
-		assertTrue("Should have flagged a dependancy on stat", condSkill
+		assertFalse("Should not have flagged a dependancy on stat", condSkill
 			.getDependsOn("STAT"));
-		assertTrue("Should have flagged a dependancy on concentration", condSkill
+		assertTrue("Should have flagged a dependancy on search", condSkill
 			.getDependsOn("SEARCH"));
+		assertTrue("Should have flagged a name dependancy on stat", condSkill
+			.getDependsOnBonusName("STAT"));
 	}
 
 	public void testSpellPointCost()
