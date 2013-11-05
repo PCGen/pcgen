@@ -255,7 +255,6 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 
 # Ability Name			Category of Ability	Define
-Default				CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD					DEFINE:DomainNotAllowed|0
 #CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREWEAPONPROF:1,Shieldbash|PREEQUIP:1,TYPE=Shield

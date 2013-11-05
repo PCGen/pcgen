@@ -1,7 +1,13 @@
 # CVS $Revision: 21637 $ $Author: amaitland $ -- Tue Sep 17 10:16:20 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
+# COMMENT: Everything in the Pathfinder GameMode is run off the Default Internal Ability, placing it in Core Essentials
+# COMMENT: Flight Maneuverability is crucial to all creatures with a fly speed, making it a default application if Fly is present.
+# COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
+
 # Ability Name	Category of Ability	Visible	Ability
+Default		CATEGORY:Internal				ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1
+
 Size_Master		CATEGORY:Internal		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|FACE_2|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|FACE_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|REACH_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|FACE_10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_5|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_15|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_20|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:C	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
 
 ###Block: Size Mods for Automatic Changes , REACH AND FACE Broken in Templates
@@ -32,7 +38,8 @@ SIZE_H		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_H
 SIZE_G		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_G
 SIZE_C		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_C
 
-# Rules for standard creatures based upon Size
+# COMMENT: Rules for standard creatures based upon Size - Just Grant the Base Internal Attack Mode and the correct Damage will be assigned
+###Block:
 Bite						CATEGORY:Internal	TYPE:NaturalAttack			ABILITY:Internal|AUTOMATIC|Bite (Fine)|PRESIZEEQ:F		ABILITY:Internal|AUTOMATIC|Bite (Diminutive)|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Bite (Tiny)|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Bite (Small)|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Bite (Medium)|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Bite (Large)|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Bite (Huge)|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Bite (Gargantuan)|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Bite (Colossal)|PRESIZEEQ:C
 # Bite -  1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P Primary
 Bite (Fine)					CATEGORY:Internal	TYPE:NaturalAttack																																	PRESIZEEQ:F																NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
