@@ -533,6 +533,7 @@ public class BonusManager
 		{
 			Logging
 					.debugPrint("Ignoring bonus loop for " + aBonus + " as it was already processed. Bonuses already processed: " + prevProcessed); //$NON-NLS-1$//$NON-NLS-2$
+			Logging.debugPrint(" Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$//$NON-NLS-2$
 			return;
 		}
 		prevProcessed.add(aBonus);
@@ -549,7 +550,7 @@ public class BonusManager
 			}
 
 			if (aBonus.getDependsOn(newBonus.getUnparsedBonusInfoList())
-				|| aBonus.getDependsOn(newBonus.getBonusName()))
+				/*|| aBonus.getDependsOn(newBonus.getBonusName())*/)
 			{
 				aList.add(newBonus);
 			}
@@ -589,8 +590,8 @@ public class BonusManager
 			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
 			totalBonusesForType(nonStackMap, stackMap,
 				bp.fullyQualifiedBonusType, activeBonusMap);
-			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
-					+ iBonus + " : " + bp.fullyQualifiedBonusType);
+//			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
+//					+ iBonus + " : " + bp.fullyQualifiedBonusType);
 		}
 		prevProcessed.remove(aBonus);
 	}
