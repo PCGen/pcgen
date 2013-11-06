@@ -389,7 +389,7 @@ CLASS:Ex-Paladin	STARTSKILLPTS:2
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define			Save checks bonus											Combat bonus					Monster Role
-CLASS:Ranger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills	DEFINE:RangerLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
+CLASS:Ranger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerClassSkills	DEFINE:RangerLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
