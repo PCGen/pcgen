@@ -26,10 +26,12 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
 
@@ -45,6 +47,7 @@ import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.ChronicleEntry;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
@@ -352,6 +355,80 @@ public abstract class AbstractCountCommand extends PCGenCommand
 					{
 						throw new ParseException(
 							"Ability is a PObject, should be calling filterSetP");
+					}
+				},
+				
+				CAMPAIGNHISTORY
+				{
+					// ChronicleEntries are not PObjects so we have to use strings
+					public Map<ChronicleEntry, String> objdata;
+
+					@Override
+					protected void getData(final PlayerCharacter pc)
+					{
+						objdata = new HashMap<ChronicleEntry, String>();
+						for (final ChronicleEntry ce : pc.getDisplay().getChronicleEntries())
+						{
+	
+							// map each entry to an empty string. Each of these
+							// Strings is unique and is mapped to exactly one ChronicleEntry.
+	
+							objdata.put(ce, ce.toString());
+						}
+					}
+	
+					@Override
+					public Object count(final PlayerCharacter pc,
+					                    final Object[] params) throws ParseException
+					{
+						final Object[] par =
+								params.length > 0 ? params : new String[]{"EXPORT=YES"};
+						final ParameterTree pt = convertParams(par);
+	
+						getData(pc);
+						final Set<String> filtered = doFilterS(pt);
+	
+						return countDataS(filtered);
+					}
+	
+					@Override
+					protected Set<? extends CDOMObject> filterSetP(final String c) throws
+						ParseException
+					{
+						throw new ParseException(
+							"CAMPAIGNHISTORY is not a PObject, should be calling filterSetS");
+					}
+	
+					// If we need to be able to filter out any of these followers,
+					// this is where it should be done.
+					@Override
+					protected Set<String> filterSetS(final String c)
+						throws ParseException
+					{
+						final String[] keyValue = c.split("=");
+						
+						if (!"EXPORT".equalsIgnoreCase(keyValue[0]))
+						{
+							throw new ParseException(
+								"Bad parameter to count(\"CAMPAIGNHISTORY\" ... )" + c);
+						}
+						if (!"NO".equalsIgnoreCase(keyValue[1])
+							&& !"YES".equalsIgnoreCase(keyValue[1]))
+						{
+							throw new ParseException(
+								"Bad EXPORT value to count(\"CAMPAIGNHISTORY\" ... )" + c);
+						}
+	
+						boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
+						final Set<String> cs = new HashSet<String>();
+						for (Entry<ChronicleEntry, String> entry : objdata.entrySet())
+						{
+							if (entry.getKey().isOutputEntry() == wantExport)
+							{
+								cs.add(entry.getValue());
+							}
+						}
+						return cs;
 					}
 				},
 	

@@ -52,6 +52,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
+import pcgen.core.ChronicleEntry;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -568,5 +569,20 @@ public class TestHelper
 		bw.close();
 
 		return configFile;
+	}
+
+	public static ChronicleEntry buildChronicleEntry(boolean visible, String campaign, String date,
+		String gm, String party, String adventure, int xp, String chronicle)
+	{
+		ChronicleEntry chronEntry = new ChronicleEntry();
+		chronEntry.setOutputEntry(visible);
+		chronEntry.setCampaign(campaign);
+		chronEntry.setDate(date);
+		chronEntry.setGmField(gm);
+		chronEntry.setParty(party);
+		chronEntry.setAdventure(adventure);
+		chronEntry.setXpField(xp);
+		chronEntry.setChronicle(chronicle);
+		return chronEntry;
 	}
 }

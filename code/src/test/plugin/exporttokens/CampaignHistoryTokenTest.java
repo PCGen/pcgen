@@ -35,6 +35,7 @@ import pcgen.core.ChronicleEntry;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
+import pcgen.util.TestHelper;
 
 /**
  * CampaignHistoryTokenTest validates the functions of the 
@@ -59,30 +60,15 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
-		visibleEntry = extracted(true, "Kingmaker", "17Dec2012", "Vic",
+		visibleEntry = TestHelper.buildChronicleEntry(true, "Kingmaker", "17Dec2012", "Vic",
 			"Ruling council", "Finns folly", 150,
 			"A ruin is conquered in the forest and a new town is founded.");
 
-		hiddenEntry = extracted(false, "Campaign", "Date", "GM", "Party",
+		hiddenEntry = TestHelper.buildChronicleEntry(false, "Campaign", "Date", "GM", "Party",
 			"Adventure", 1390, "Chronicle");
 		
 		character.addChronicleEntry(visibleEntry);
 		character.addChronicleEntry(hiddenEntry);
-	}
-
-	private ChronicleEntry extracted(boolean visible, String campaign, String date,
-		String gm, String party, String adventure, int xp, String chronicle)
-	{
-		ChronicleEntry chronEntry = new ChronicleEntry();
-		chronEntry.setOutputEntry(visible);
-		chronEntry.setCampaign(campaign);
-		chronEntry.setDate(date);
-		chronEntry.setGmField(gm);
-		chronEntry.setParty(party);
-		chronEntry.setAdventure(adventure);
-		chronEntry.setXpField(xp);
-		chronEntry.setChronicle(chronicle);
-		return chronEntry;
 	}
 
 	@Test

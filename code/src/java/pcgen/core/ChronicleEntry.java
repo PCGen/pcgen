@@ -183,32 +183,123 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	{
 		return (ChronicleEntry) super.clone();
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public int hashCode()
 	{
-		return chronicle.hashCode() ^ campaign.hashCode();
+		final int prime = 31;
+		int result = 1;
+		result =
+				prime * result
+					+ ((adventure == null) ? 0 : adventure.hashCode());
+		result =
+				prime * result + ((campaign == null) ? 0 : campaign.hashCode());
+		result =
+				prime * result
+					+ ((chronicle == null) ? 0 : chronicle.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + ((gmField == null) ? 0 : gmField.hashCode());
+		result = prime * result + (outputEntry ? 1231 : 1237);
+		result = prime * result + ((party == null) ? 0 : party.hashCode());
+		result = prime * result + xpField;
+		return result;
 	}
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		/*
-		 * TODO This method assumes no bad behavior by a caller of a set* method
-		 * to set a value to null. This is NOT a good assumption, but suitable
-		 * for the moment. - thpr Dec 28, 2012
-		 */
-		if (o instanceof ChronicleEntry)
+		if (this == obj)
 		{
-			ChronicleEntry other = (ChronicleEntry) o;
-			return (outputEntry == other.outputEntry)
-				&& (xpField == other.xpField)
-				&& campaign.equals(other.campaign)
-				&& adventure.equals(other.adventure)
-				&& party.equals(other.party) && date.equals(other.date)
-				&& gmField.equals(other.gmField)
-				&& chronicle.equals(other.chronicle);
+			return true;
 		}
-		return false;
+		if (obj == null)
+		{
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			return false;
+		}
+		ChronicleEntry other = (ChronicleEntry) obj;
+		if (adventure == null)
+		{
+			if (other.adventure != null)
+			{
+				return false;
+			}
+		}
+		else if (!adventure.equals(other.adventure))
+		{
+			return false;
+		}
+		if (campaign == null)
+		{
+			if (other.campaign != null)
+			{
+				return false;
+			}
+		}
+		else if (!campaign.equals(other.campaign))
+		{
+			return false;
+		}
+		if (chronicle == null)
+		{
+			if (other.chronicle != null)
+			{
+				return false;
+			}
+		}
+		else if (!chronicle.equals(other.chronicle))
+		{
+			return false;
+		}
+		if (date == null)
+		{
+			if (other.date != null)
+			{
+				return false;
+			}
+		}
+		else if (!date.equals(other.date))
+		{
+			return false;
+		}
+		if (gmField == null)
+		{
+			if (other.gmField != null)
+			{
+				return false;
+			}
+		}
+		else if (!gmField.equals(other.gmField))
+		{
+			return false;
+		}
+		if (outputEntry != other.outputEntry)
+		{
+			return false;
+		}
+		if (party == null)
+		{
+			if (other.party != null)
+			{
+				return false;
+			}
+		}
+		else if (!party.equals(other.party))
+		{
+			return false;
+		}
+		if (xpField != other.xpField)
+		{
+			return false;
+		}
+		return true;
 	}
 }

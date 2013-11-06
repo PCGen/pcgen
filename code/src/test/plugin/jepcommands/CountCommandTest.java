@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.ChronicleEntry;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
@@ -516,4 +517,54 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(countStr,""), eq(1.0, 0.1), countStr + " single application");
 		
 	}
+
+	/**
+	 * Verify counting CAMPAIGNHISTORY entries.
+	 */
+	public void testCountCampaignHistory()
+	{
+		final PlayerCharacter character = getCharacter();
+		String countDefault = "count(\"CAMPAIGNHISTORY\")";
+		String countVisible = "count(\"CAMPAIGNHISTORY\",\"EXPORT=YES\")";
+		String countHidden = "count(\"CAMPAIGNHISTORY\",\"EXPORT=NO\")";
+		String countAll = "count(\"CAMPAIGNHISTORY\",\"EXPORT=NO[or]EXPORT=YES\")";
+		
+		// No entries yet
+		is(character.getVariableValue(countDefault,""), eq(0.0, 0.1), countDefault + " no choices");
+		is(character.getVariableValue(countVisible,""), eq(0.0, 0.1), countVisible + " no choices");
+		is(character.getVariableValue(countHidden,""), eq(0.0, 0.1), countHidden + " no choices");
+		is(character.getVariableValue(countAll,""), eq(0.0, 0.1), countAll + " no choices");
+
+		ChronicleEntry hiddenEntry =
+				TestHelper.buildChronicleEntry(false, "Campaign", "Date", "GM",
+					"Party", "Adventure", 1390, "Chronicle");
+		character.addChronicleEntry(hiddenEntry);
+		character.setDirty(true);
+		is(character.getVariableValue(countDefault,""), eq(0.0, 0.1), countDefault + " one hidden");
+		is(character.getVariableValue(countVisible,""), eq(0.0, 0.1), countVisible + " one hidden");
+		is(character.getVariableValue(countHidden,""), eq(1.0, 0.1), countHidden + " one hidden");
+		is(character.getVariableValue(countAll,""), eq(1.0, 0.1), countAll + " one hidden");
+
+		ChronicleEntry visibleEntry =
+				TestHelper.buildChronicleEntry(true, "Campaign", "Date2", "GM",
+					"Party", "Adventure2", 1390, "Chronicle2");
+		character.addChronicleEntry(visibleEntry);
+		character.setDirty(true);
+		is(character.getVariableValue(countDefault,""), eq(1.0, 0.1), countDefault + " one hidden, one visible");
+		is(character.getVariableValue(countVisible,""), eq(1.0, 0.1), countVisible + " one hidden, one visible");
+		is(character.getVariableValue(countHidden,""), eq(1.0, 0.1), countHidden + " one hidden, one visible");
+		is(character.getVariableValue(countAll,""), eq(2.0, 0.1), countAll + " one hidden, one visible");
+
+		ChronicleEntry thirdEntry =
+				TestHelper.buildChronicleEntry(true, "Campaign", "Date3", "GM",
+					"Party", "Adventure3", 1390, "Chronicle2");
+		character.addChronicleEntry(thirdEntry);
+		character.setDirty(true);
+		is(character.getVariableValue(countDefault,""), eq(2.0, 0.1), countDefault + " one hidden, two visible");
+		is(character.getVariableValue(countVisible,""), eq(2.0, 0.1), countVisible + " one hidden, two visible");
+		is(character.getVariableValue(countHidden,""), eq(1.0, 0.1), countHidden + " one hidden, two visible");
+		is(character.getVariableValue(countAll,""), eq(3.0, 0.1), countAll + " one hidden, two visible");
+		
+	}
+
 }
