@@ -1679,7 +1679,20 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("InfoSpells.level.title", Integer.toString(si.getOriginalLevel())); //$NON-NLS-1$
 		}
 		b.appendLineBreak();
-
+		
+		String classlevels = aSpell.getListAsString(ListKey.SPELL_CLASSLEVEL);
+		if (StringUtils.isNotEmpty(classlevels))
+		{
+			b.appendI18nElement("in_clClass", classlevels);
+			b.appendLineBreak();
+		}
+		String domainlevels = aSpell.getListAsString(ListKey.SPELL_DOMAINLEVEL);
+		if (StringUtils.isNotEmpty(domainlevels))
+		{
+			b.appendI18nElement("in_domains", domainlevels);
+			b.appendLineBreak();
+		}
+		
 		b.appendI18nElement("in_spellSchool",
 			aSpell.getListAsString(ListKey.SPELL_SCHOOL));
 

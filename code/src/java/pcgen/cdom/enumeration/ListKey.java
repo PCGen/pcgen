@@ -178,6 +178,8 @@ public final class ListKey<T> {
 	public static final ListKey<SpellSchool> SPELL_SCHOOL = new ListKey<SpellSchool>();
 	public static final ListKey<String> SPELL_SUBSCHOOL = new ListKey<String>();
 	public static final ListKey<String> SPELL_DESCRIPTOR = new ListKey<String>();
+	public static final ListKey<String> SPELL_CLASSLEVEL = new ListKey<String>();
+	public static final ListKey<String> SPELL_DOMAINLEVEL = new ListKey<String>();
 	public static final ListKey<Type> PROHIBITED_ITEM = new ListKey<Type>();
 	public static final ListKey<Type> ITEM = new ListKey<Type>();
 	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<Integer>();

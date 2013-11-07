@@ -31,6 +31,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.prereq.Prerequisite;
@@ -206,6 +207,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 					{
 						edge.addPrerequisite(prereq);
 					}
+					context.getObjectContext().addToList(
+						spell, ListKey.SPELL_CLASSLEVEL, token + " " + level);
 				}
 			}
 		}
