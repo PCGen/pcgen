@@ -7259,7 +7259,20 @@
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="7pt">
 					<xsl:value-of select="bonusspell"/>
-					<xsl:value-of select="name"/>
+					<xsl:choose>
+						<xsl:when test="string-length(source/sourcelink)!=0">
+							<fo:basic-link color="blue" text-decoration="underline">
+								<xsl:attribute name="external-destination">
+									<xsl:value-of select="source/sourcelink"/>
+								</xsl:attribute>
+								<xsl:value-of select="name"/>
+							</fo:basic-link>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="name"/>
+						</xsl:otherwise>
+					</xsl:choose>
+
 				</fo:block>
 			</fo:table-cell>
 			<fo:table-cell padding-top="1pt">

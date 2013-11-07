@@ -3638,8 +3638,9 @@ Immune
 						<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
 					</school>
 					<source>
-						<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
 						<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+						<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+						<sourcelink>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|</sourcelink>
 						<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
 						<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
 					</source>
@@ -3683,8 +3684,9 @@ Immune
 							<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
 						</school>
 						<source>
-							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
 							<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+							<sourcelink>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|</sourcelink>
 							<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
 							<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
 						</source>
@@ -3735,8 +3737,9 @@ Immune
 							<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
 						</school>
 						<source>
-							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
 							<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+							<sourcelink>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|</sourcelink>
 							<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
 							<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
 						</source>
@@ -3795,8 +3798,9 @@ Immune
 						<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
 					</school>
 					<source>
-						<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
 						<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+						<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+						<sourcelink>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|</sourcelink>
 						<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
 						<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
 					</source>
@@ -3841,8 +3845,9 @@ Immune
 							<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
 						</school>
 						<source>
-							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
 							<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+							<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+							<sourcelink>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|</sourcelink>
 							<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
 							<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
 						</source>
@@ -3902,8 +3907,9 @@ Immune
 								<fullschool>|SPELLMEM.%class.%spellbook.%level.%spell.FULLSCHOOL|</fullschool>
 							</school>
 							<source>
-								<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
 								<source>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCE|</source>
+								<sourcelevel>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELEVEL|</sourcelevel>
+								<sourcelink>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCELINK|</sourcelink>
 								<sourcepage>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCEPAGE|</sourcepage>
 								<sourceshort>|SPELLMEM.%class.%spellbook.%level.%spell.SOURCESHORT|</sourceshort>
 							</source>
