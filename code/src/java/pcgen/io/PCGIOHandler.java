@@ -505,6 +505,11 @@ public final class PCGIOHandler extends IOHandler
 				// try using the global pcg path
 				characterFile = new File(PCGenSettings.getPcgDir(), fileName);
 			}
+			if (!characterFile.exists())
+			{
+				// try it as an absolute path
+				characterFile = new File(fileName);
+			}
 			if (characterFile.exists())
 			{
 				fileList.add(characterFile);
