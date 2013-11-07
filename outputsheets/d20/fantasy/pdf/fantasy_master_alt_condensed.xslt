@@ -7322,7 +7322,19 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="start" font-size="7pt" font-weight="bold">
 				<fo:inline font-style="italic">	<xsl:value-of select="bonusspell"/>	</fo:inline>
-					<xsl:value-of select="name"/>
+						<xsl:choose>
+						<xsl:when test="string-length(source/sourcelink)!=0">
+							<fo:basic-link color="blue" text-decoration="underline">
+								<xsl:attribute name="external-destination">
+									<xsl:value-of select="source/sourcelink"/>
+								</xsl:attribute>
+								<xsl:value-of select="name"/>
+							</fo:basic-link>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="name"/>
+						</xsl:otherwise>
+					</xsl:choose>
 						<xsl:if test="casterlevel != $basecasterlevel">				
 							(CL:<xsl:value-of select="casterlevel"/>)
 						</xsl:if>
