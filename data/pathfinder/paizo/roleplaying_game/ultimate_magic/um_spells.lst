@@ -286,13 +286,6 @@ Bottled Ooze (5)	OUTPUTNAME:Bottled Ooze	CLASSES:Alchemist=5	COMPS:S	CASTTIME:1 
 Bottled Ooze (6)	OUTPUTNAME:Bottled Ooze	CLASSES:Alchemist=6	COMPS:S	CASTTIME:1 standard action	RANGE:30 ft.	TARGETAREA:Closest Creature	DURATION:(CASTERLEVEL) rounds	PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Bottled Ooze	DESC:You have learned how to preserve a sample of oozes in a sealed bottle, which you can prepare for use as an extract.  When you activate the extract, you actually throw the bottle at a square within 30 feet, releasing the CR 6 ooze, which reconstitutes and attacks the closest creature.  The ooze is not under your control, but is otherwise treated as a summoned creature.  The ooze remains for %1 rounds, and decays into powder when the duration expires.  If you have the infusion discovery, another character can use the infused specimen.|BottledOozeDuration	SOURCEPAGE:p.15		SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/spellcastingClassOptions/alchemist.html#_bottled-ooze
 
 
-###Block: Words of Power Example Spells
-# Spell Name							Classes of caster					School							Spell Descriptors		Type		Components	Casting Time			Range				Target Area or Effect			Duration							Save Info							Spell Resistance		Required Ability													Description																																			Source Page
-Burst Fire Blast							CLASSES:Magus,Sorcerer,Wizard=3		SCHOOL:Evocation						DESCRIPTOR:Fire		TYPE:Arcane	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close			TARGETAREA:10-foot radius burst	DURATION:Instantaneous					SAVEINFO:Reflex half					SPELLRES:Yes		PREABILITY:2,CATEGORY=Words of Power,Burst,Fire Blast							DESC:Deals (min(10,CASTERLEVEL))d6 fire damage in 10 foot burst.																										SOURCEPAGE:p.165		SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/ultimateMagicWordsOfPower.html#examples
-Selected Ice Blast Life Leech					CLASSES:Magus,Sorcerer,Witch,Wizard=6	SCHOOL:Evocation|Necromancy				DESCRIPTOR:Cold|Evil	TYPE:Arcane	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close or Touch	TARGETAREA:Ray or touch attack	DURATION:Instantaneous and (CASTERLEVEL) hours	SAVEINFO:Reflex or Fortitude partial (see text)	SPELLRES:Yes		PREABILITY:3,CATEGORY=Words of Power,Selected,Ice Blast,Life Leech				DESC:Deals (min(10,CASTERLEVEL))d6 cold damage, entangles target for 1d4 rounds, and gives 1d4 temporary negative levels.																SOURCEPAGE:p.165		SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/ultimateMagicWordsOfPower.html#examples
-Selected Alignment Shield Enhance Form Grave Bane	CLASSES:Cleric=6					SCHOOL:Abjuration|Necromancy|Transmutation					TYPE:Divine	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close or Touch	TARGETAREA:Ray or touch attack	DURATION:(CASTERLEVEL) rounds				SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)	PREABILITY:4,CATEGORY=Words of Power,Selected,Alignment Shield,Enhance Form,Grave Bane	DESC:Grants +2 to AC and saves when attacked by chosen alignment type, +4 Strength, Dexterity, or Constitution, and +4 on saves vs. death magic; subject cannot gain negative levels and is automatically stabilized.	SOURCEPAGE:p.165		SOURCELINK:http://paizo.com/pathfinderRPG/prd/ultimateMagic/ultimateMagicWordsOfPower.html#examples
-
-
 ###BLOCK: Domain Spells
 ###Block: Spells modified from others
 # Spell Name							Domains granting the spell	School			Sub-School					Spell Descriptors	Type				Components		Casting Time			Range			Target Area or Effect											Duration					Save Info					Spell Resistance		Description																																Source Page
@@ -575,7 +568,7 @@ Wrath.MOD					DESCRIPTOR:Emotion
 Mending.MOD				DESCRIPTOR:MetalSchool
 Gravity Bow.MOD			DESCRIPTOR:MetalSchool
 Magic Weapon.MOD			DESCRIPTOR:MetalSchool
-Shocking Grasp.MOD		DESCRIPTOR:MetalSchool
+Shocking Grasp.MOD		DESCRIPTOR:MetalSchool
 Defensive Shock.MOD		DESCRIPTOR:MetalSchool
 Glitterdust.MOD			DESCRIPTOR:MetalSchool
 Make Whole.MOD			DESCRIPTOR:MetalSchool
@@ -651,4 +644,6 @@ Control Plants.MOD		DESCRIPTOR:WoodSchool
 Refuge.MOD				DESCRIPTOR:WoodSchool
 Winds of Vengeance.MOD		DESCRIPTOR:WoodSchool
 
-
+#
+# End
+#
