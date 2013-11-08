@@ -1,16 +1,16 @@
-# CVS $Revision: $ $Author: $ -- Sat Jan  5 17:52:59 2013 -- reformated by prettylst.pl v1.39 (build 18270)
+# CVS $Revision: $ $Author: $ -- Fri Nov  8 13:07:25 2013 -- reformated by prettylst.pl v1.50 (build 21703)
 SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
 # Original Entry by:Jonas Karlsson, Stefan Radermacher
 
 ###Block: Human Ethnicities
-# Template Name			Product Identity?	Visible	Source Page		Subrace
-Human Ethnicity (Tian-Dan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-Dan
-Human Ethnicity (Tian-Dtang)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-Dtang
-Human Ethnicity (Tian-Hwan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-Hwan
-Human Ethnicity (Tian-La)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-La
-Human Ethnicity (Tian-Min)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-Min
-Human Ethnicity (Tian-Shu)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-Shu
-Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	SUBRACE:Tian-Sing
+# Template Name			Product Identity?	Visible	Source Page		Automatically Gained Language	Subrace
+Human Ethnicity (Tian-Dan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Draconic|Tien		SUBRACE:Tian-Dan
+Human Ethnicity (Tian-Dtang)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Dtang|Tien		SUBRACE:Tian-Dtang
+Human Ethnicity (Tian-Hwan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Hwan|Tien		SUBRACE:Tian-Hwan
+Human Ethnicity (Tian-La)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Hon-La|Tien		SUBRACE:Tian-La
+Human Ethnicity (Tian-Min)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Minkaian|Tien		SUBRACE:Tian-Min
+Human Ethnicity (Tian-Shu)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Tien			SUBRACE:Tian-Shu
+Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.8	AUTO:LANG|Minatan|Tien		SUBRACE:Tian-Sing
 
 ###Block: Regional Affinities
 # Template Name					Product Identity?	Visible	Source Page		Bonus Languages															Region
