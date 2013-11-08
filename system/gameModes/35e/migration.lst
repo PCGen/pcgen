@@ -15,76 +15,76 @@
 
 
 
-EQUIPMENT:Ring (Elemental Command/Air)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Air)		
-EQUIPMENT:Ring (Elemental Command/Earth)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Earth)		
-EQUIPMENT:Ring (Elemental Command/Fire)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Fire)		
-EQUIPMENT:Ring (Elemental Command/Water)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Water)		
-EQUIPMENT:Ring (Energy Resistance/Acid/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Acid)	
-EQUIPMENT:Ring (Energy Resistance/Cold/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Cold)	
+EQUIPMENT:Ring (Elemental Command/Air)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Air)
+EQUIPMENT:Ring (Elemental Command/Earth)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Earth)
+EQUIPMENT:Ring (Elemental Command/Fire)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Fire)
+EQUIPMENT:Ring (Elemental Command/Water)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Water)
+EQUIPMENT:Ring (Energy Resistance/Acid/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Acid)
+EQUIPMENT:Ring (Energy Resistance/Cold/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Cold)
 EQUIPMENT:Ring (Energy Resistance/Electricity/Major)		MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Electricity)
-EQUIPMENT:Ring (Energy Resistance/Fire/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Fire)	
-EQUIPMENT:Ring (Energy Resistance/Sonic/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Sonic)	
-EQUIPMENT:Ring (Energy Resistance/Acid/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Acid)	
-EQUIPMENT:Ring (Energy Resistance/Cold/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Cold)	
+EQUIPMENT:Ring (Energy Resistance/Fire/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Fire)
+EQUIPMENT:Ring (Energy Resistance/Sonic/Major)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Major/Sonic)
+EQUIPMENT:Ring (Energy Resistance/Acid/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Acid)
+EQUIPMENT:Ring (Energy Resistance/Cold/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Cold)
 EQUIPMENT:Ring (Energy Resistance/Electricity/Minor)		MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Electricity)
-EQUIPMENT:Ring (Energy Resistance/Fire/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Fire)	
-EQUIPMENT:Ring (Energy Resistance/Sonic/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Sonic)	
-EQUIPMENT:Ring (Energy Resistance/Acid/Greater)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Acid)	
-EQUIPMENT:Ring (Energy Resistance/Cold/Greater)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Cold)	
+EQUIPMENT:Ring (Energy Resistance/Fire/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Fire)
+EQUIPMENT:Ring (Energy Resistance/Sonic/Minor)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Minor/Sonic)
+EQUIPMENT:Ring (Energy Resistance/Acid/Greater)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Acid)
+EQUIPMENT:Ring (Energy Resistance/Cold/Greater)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Cold)
 EQUIPMENT:Ring (Energy Resistance/Electricity/Greater)	MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Electricity)
-EQUIPMENT:Ring (Energy Resistance/Fire/Greater)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Fire)	
-EQUIPMENT:Ring (Energy Resistance/Sonic/Greater)		MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Sonic)	
-EQUIPMENT:Ring (Evasion)						MAXVER:6.00.01	NEWKEY:Ring of Evasion					
-EQUIPMENT:Ring (Feather Falling)					MAXVER:6.00.01	NEWKEY:Ring of Feather Falling					
-EQUIPMENT:Ring (Force Shield)						MAXVER:6.00.01	NEWKEY:Ring of Force Shield					
-EQUIPMENT:Ring (Freedom of Movement)				MAXVER:6.00.01	NEWKEY:Ring of Freedom of Movement					
-EQUIPMENT:Ring (Friend Shield)					MAXVER:6.00.01	NEWKEY:Ring of Friend Shield					
-EQUIPMENT:Ring (Friend Shield/1 of 2)				MAXVER:6.00.01	NEWKEY:Ring of Friend Shield (1 of 2)					
-EQUIPMENT:Ring (Invisibility)						MAXVER:6.00.01	NEWKEY:Ring of Invisibility					
-EQUIPMENT:Ring (Jumping)						MAXVER:6.00.01	NEWKEY:Ring of Jumping					
-EQUIPMENT:Ring of Jumping (Improved)				MAXVER:6.00.01	NEWKEY:Ring of Jumping (Improved)				
-EQUIPMENT:Ring (Meld into Stone)					MAXVER:6.00.01	NEWKEY:Ring of Meld into Stone					
-EQUIPMENT:Ring (Mind Shielding)					MAXVER:6.00.01	NEWKEY:Ring of Mind Shielding					
-EQUIPMENT:Ring (Protection +1)					MAXVER:6.00.01	NEWKEY:Ring of Protection +1					
-EQUIPMENT:Ring (Protection +2)					MAXVER:6.00.01	NEWKEY:Ring of Protection +2					
-EQUIPMENT:Ring (Protection +3)					MAXVER:6.00.01	NEWKEY:Ring of Protection +3					
-EQUIPMENT:Ring (Protection +4)					MAXVER:6.00.01	NEWKEY:Ring of Protection +4					
-EQUIPMENT:Ring (Protection +5)					MAXVER:6.00.01	NEWKEY:Ring of Protection +5					
-EQUIPMENT:Ring (Ram)							MAXVER:6.00.01	NEWKEY:Ring of the Ram					
-EQUIPMENT:Ring (Regeneration)						MAXVER:6.00.01	NEWKEY:Ring of Regeneration					
-EQUIPMENT:Ring (Shooting Stars)					MAXVER:6.00.01	NEWKEY:Ring of Shooting Stars					
-EQUIPMENT:Ring (Spell Storing/Minor)				MAXVER:6.00.01	NEWKEY:Ring of Spell Storing (Minor)					
-EQUIPMENT:Ring (Spell Storing)					MAXVER:6.00.01	NEWKEY:Ring of Spell Storing					
-EQUIPMENT:Ring (Spell Storing/Major)				MAXVER:6.00.01	NEWKEY:Ring of Spell Storing (Major)					
-EQUIPMENT:Ring (Spell Turning)					MAXVER:6.00.01	NEWKEY:Ring of Spell Turning					
-EQUIPMENT:Ring (Sustenance)						MAXVER:6.00.01	NEWKEY:Ring of Sustenance					
-EQUIPMENT:Ring (Swimming)						MAXVER:6.00.01	NEWKEY:Ring of Swimming					
-EQUIPMENT:Ring (Swimming/Improved)					MAXVER:6.00.01	NEWKEY:Ring of Swimming (Improved)					
-EQUIPMENT:Ring (Telekinesis)						MAXVER:6.00.01	NEWKEY:Ring of Telekinesis					
-EQUIPMENT:Ring (Three Wishes)						MAXVER:6.00.01	NEWKEY:Ring of Three Wishes					
-EQUIPMENT:Ring (Water Walking)					MAXVER:6.00.01	NEWKEY:Ring of Water Walking					
-EQUIPMENT:Ring (Wizardry I)						MAXVER:6.00.01	NEWKEY:Ring of [Wizardry I]					
-EQUIPMENT:Ring (Wizardry II)						MAXVER:6.00.01	NEWKEY:Ring of [Wizardry II]					
-EQUIPMENT:Ring (Wizardry III)						MAXVER:6.00.01	NEWKEY:Ring of [Wizardry III]					
-EQUIPMENT:Ring (Wizardry IV)						MAXVER:6.00.01	NEWKEY:Ring of [Wizardry IV]					
-EQUIPMENT:Ring (X-Ray Vision)						MAXVER:6.00.01	NEWKEY:Ring of X-Ray Vision					
+EQUIPMENT:Ring (Energy Resistance/Fire/Greater)			MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Fire)
+EQUIPMENT:Ring (Energy Resistance/Sonic/Greater)		MAXVER:6.00.01	NEWKEY:Ring of Energy Resistance (Greater/Sonic)
+EQUIPMENT:Ring (Evasion)						MAXVER:6.00.01	NEWKEY:Ring of Evasion
+EQUIPMENT:Ring (Feather Falling)					MAXVER:6.00.01	NEWKEY:Ring of Feather Falling
+EQUIPMENT:Ring (Force Shield)						MAXVER:6.00.01	NEWKEY:Ring of Force Shield
+EQUIPMENT:Ring (Freedom of Movement)				MAXVER:6.00.01	NEWKEY:Ring of Freedom of Movement
+EQUIPMENT:Ring (Friend Shield)					MAXVER:6.00.01	NEWKEY:Ring of Friend Shield
+EQUIPMENT:Ring (Friend Shield/1 of 2)				MAXVER:6.00.01	NEWKEY:Ring of Friend Shield (1 of 2)
+EQUIPMENT:Ring (Invisibility)						MAXVER:6.00.01	NEWKEY:Ring of Invisibility
+EQUIPMENT:Ring (Jumping)						MAXVER:6.00.01	NEWKEY:Ring of Jumping
+EQUIPMENT:Ring of Jumping (Improved)				MAXVER:6.00.01	NEWKEY:Ring of Jumping (Improved)
+EQUIPMENT:Ring (Meld into Stone)					MAXVER:6.00.01	NEWKEY:Ring of Meld into Stone
+EQUIPMENT:Ring (Mind Shielding)					MAXVER:6.00.01	NEWKEY:Ring of Mind Shielding
+EQUIPMENT:Ring (Protection +1)					MAXVER:6.00.01	NEWKEY:Ring of Protection +1
+EQUIPMENT:Ring (Protection +2)					MAXVER:6.00.01	NEWKEY:Ring of Protection +2
+EQUIPMENT:Ring (Protection +3)					MAXVER:6.00.01	NEWKEY:Ring of Protection +3
+EQUIPMENT:Ring (Protection +4)					MAXVER:6.00.01	NEWKEY:Ring of Protection +4
+EQUIPMENT:Ring (Protection +5)					MAXVER:6.00.01	NEWKEY:Ring of Protection +5
+EQUIPMENT:Ring (Ram)							MAXVER:6.00.01	NEWKEY:Ring of the Ram
+EQUIPMENT:Ring (Regeneration)						MAXVER:6.00.01	NEWKEY:Ring of Regeneration
+EQUIPMENT:Ring (Shooting Stars)					MAXVER:6.00.01	NEWKEY:Ring of Shooting Stars
+EQUIPMENT:Ring (Spell Storing/Minor)				MAXVER:6.00.01	NEWKEY:Ring of Spell Storing (Minor)
+EQUIPMENT:Ring (Spell Storing)					MAXVER:6.00.01	NEWKEY:Ring of Spell Storing
+EQUIPMENT:Ring (Spell Storing/Major)				MAXVER:6.00.01	NEWKEY:Ring of Spell Storing (Major)
+EQUIPMENT:Ring (Spell Turning)					MAXVER:6.00.01	NEWKEY:Ring of Spell Turning
+EQUIPMENT:Ring (Sustenance)						MAXVER:6.00.01	NEWKEY:Ring of Sustenance
+EQUIPMENT:Ring (Swimming)						MAXVER:6.00.01	NEWKEY:Ring of Swimming
+EQUIPMENT:Ring (Swimming/Improved)					MAXVER:6.00.01	NEWKEY:Ring of Swimming (Improved)
+EQUIPMENT:Ring (Telekinesis)						MAXVER:6.00.01	NEWKEY:Ring of Telekinesis
+EQUIPMENT:Ring (Three Wishes)						MAXVER:6.00.01	NEWKEY:Ring of Three Wishes
+EQUIPMENT:Ring (Water Walking)					MAXVER:6.00.01	NEWKEY:Ring of Water Walking
+EQUIPMENT:Ring (Wizardry I)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry I
+EQUIPMENT:Ring (Wizardry II)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry II
+EQUIPMENT:Ring (Wizardry III)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry III
+EQUIPMENT:Ring (Wizardry IV)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry IV
+EQUIPMENT:Ring (X-Ray Vision)						MAXVER:6.00.01	NEWKEY:Ring of X-Ray Vision
 EQUIPMENT:Ring (Self-Sufficiency)					MAXVER:6.00.01	NEWKEY:Ring of Self-Sufficiency
-EQUIPMENT:Ring (Energy Immunity/Acid)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Acid)		
-EQUIPMENT:Ring (Energy Immunity/Cold)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Cold)			
-EQUIPMENT:Ring (Energy Immunity/Electricity)			MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Electricity)		
-EQUIPMENT:Ring (Energy Immunity/Fire)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Fire)			
-EQUIPMENT:Ring (Energy Immunity/Sonic)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Sonic)			
-EQUIPMENT:Ring (Protection +6)					MAXVER:6.00.01	NEWKEY:Ring of Protection +6					
-EQUIPMENT:Ring (Protection +7)					MAXVER:6.00.01	NEWKEY:Ring of Protection +7					
-EQUIPMENT:Ring (Protection +8)					MAXVER:6.00.01	NEWKEY:Ring of Protection +8					
-EQUIPMENT:Ring (Protection +9)					MAXVER:6.00.01	NEWKEY:Ring of Protection +9					
-EQUIPMENT:Ring (Protection +10)					MAXVER:6.00.01	NEWKEY:Ring of Protection +10					
-EQUIPMENT:Ring (Wizardry V)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry V					
-EQUIPMENT:Ring (Wizardry VI)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry VI					
-EQUIPMENT:Ring (Wizardry VII)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry VII					
-EQUIPMENT:Ring (Wizardry VIII)					MAXVER:6.00.01	NEWKEY:Ring of Wizardry VIII					
-EQUIPMENT:Ring (Wizardry IX)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry IX					
-EQUIPMENT:Ring (Universal Energy Resistance/Greater)		MAXVER:6.00.01	NEWKEY:Ring of Universal Energy Resistance (Greater)	
+EQUIPMENT:Ring (Energy Immunity/Acid)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Acid)
+EQUIPMENT:Ring (Energy Immunity/Cold)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Cold)
+EQUIPMENT:Ring (Energy Immunity/Electricity)			MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Electricity)
+EQUIPMENT:Ring (Energy Immunity/Fire)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Fire)
+EQUIPMENT:Ring (Energy Immunity/Sonic)				MAXVER:6.00.01	NEWKEY:Ring of Energy Immunity (Sonic)
+EQUIPMENT:Ring (Protection +6)					MAXVER:6.00.01	NEWKEY:Ring of Protection +6
+EQUIPMENT:Ring (Protection +7)					MAXVER:6.00.01	NEWKEY:Ring of Protection +7
+EQUIPMENT:Ring (Protection +8)					MAXVER:6.00.01	NEWKEY:Ring of Protection +8
+EQUIPMENT:Ring (Protection +9)					MAXVER:6.00.01	NEWKEY:Ring of Protection +9
+EQUIPMENT:Ring (Protection +10)					MAXVER:6.00.01	NEWKEY:Ring of Protection +10
+EQUIPMENT:Ring (Wizardry V)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry V
+EQUIPMENT:Ring (Wizardry VI)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry VI
+EQUIPMENT:Ring (Wizardry VII)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry VII
+EQUIPMENT:Ring (Wizardry VIII)					MAXVER:6.00.01	NEWKEY:Ring of Wizardry VIII
+EQUIPMENT:Ring (Wizardry IX)						MAXVER:6.00.01	NEWKEY:Ring of Wizardry IX
+EQUIPMENT:Ring (Universal Energy Resistance/Greater)		MAXVER:6.00.01	NEWKEY:Ring of Universal Energy Resistance (Greater)
 EQUIPMENT:Ring (Epic Psionics V)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionics V
 EQUIPMENT:Ring (Epic Psionics VI)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionics VI
 EQUIPMENT:Ring (Epic Psionics VII)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionics VII
