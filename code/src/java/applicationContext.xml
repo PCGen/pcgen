@@ -471,6 +471,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet" />
 	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
+	<bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
 	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
 		<property name="classSkillListFacet" ref="classSkillListFacet"/>
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
