@@ -115,7 +115,10 @@ Add Feat Skill													USEUNTRAINED:NO				CLASSES:ALL																							
 # Test Sub Skills Section
 
 
-# Alice Test Skills
+# Alice Test Skills -
+
+# Exclusing = Exclusive Skills - #2 is being converted to a Cross Class Skill, making it usable untrained and visible to the end user. This is accomplished by CCSKILL tag.
+# None of these should ever show up under any circumstances as they are EXCLUSIVE unless made a Cross or Class skill.
 Exclusing Skill_1											KEYSTAT:INT				EXCLUSIVE:YES					TYPE:ExclusiveSkill
 Exclusing Skill_2											KEYSTAT:INT				EXCLUSIVE:YES					TYPE:ExclusiveSkill
 Exclusing Skill_3											KEYSTAT:INT				EXCLUSIVE:YES					TYPE:ExclusiveSkill
