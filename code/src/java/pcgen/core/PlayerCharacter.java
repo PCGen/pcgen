@@ -479,9 +479,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	// order in which the skills will be output.
 	private SkillsOutputOrder skillsOutputOrder = SkillsOutputOrder.NAME_ASC;
 	
-	// skill filter used to determine which skills will be output.
-	//private SkillFilter skillFilter = SkillFilter.Usable;
-
 	private int spellLevelTemp = 0;
 	private VariableProcessor variableProcessor;
 

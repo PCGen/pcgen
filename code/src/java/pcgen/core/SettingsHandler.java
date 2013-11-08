@@ -118,8 +118,6 @@ public final class SettingsHandler
 	private static int hpPercent    = Constants.DEFAULT_HP_PERCENT;
 	private static boolean ignoreMonsterHDCap = false;
 
-//	private static int skillsTab_IncludeSkills = SkillFilter.Usable.getValue();
-//	private static int intCrossClassSkillCost = 2;
 	private static String invalidDmgText;
 	private static String invalidToHitText;
 	private static boolean gearTab_IgnoreCost = false;
@@ -415,16 +413,6 @@ public final class SettingsHandler
 		return enforceSpendingBeforeLevelUp;
 	}
 
-//	public static void setExcSkillCost(final int argExcSkillCost)
-//	{
-//		excSkillCost = argExcSkillCost;
-//	}
-//
-//	public static int getExcSkillCost()
-//	{
-//		return excSkillCost;
-//	}
-
 	public static void setFilePaths(final String aString)
 	{
 		getFilepathProp().setProperty("pcgen.filepaths", aString); //$NON-NLS-1$
@@ -561,12 +549,6 @@ public final class SettingsHandler
 				game.selectUnitSet(Constants.STANDARD_UNITSET_NAME);
 			}
 		}
-		// These have been migrated to the new preferences 
-//		game.setRollMethodExpressionByName(getPCGenOption("gameMode." + key + ".rollMethodExpression", ""));
-//		game.setPurchaseMethodName(getPCGenOption("gameMode." + key + ".purchaseMethodName", "")); //$NON-NLS-1$ //$NON-NLS-2$
-//		game.setAllStatsValue(getPCGenOption("gameMode." + key + ".allStatsValue", 10));
-//		game.setRollMethod(getPCGenOption("gameMode." + key + ".rollMethod", 0)); //$NON-NLS-1$
-
 		game.setDefaultXPTableName(getPCGenOption("gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		game.setDefaultCharacterType(getPCGenOption("gameMode." + key + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		
@@ -717,16 +699,6 @@ public final class SettingsHandler
 	{
 		return ignoreMonsterHDCap;
 	}
-
-//	public static void setIntCrossClassSkillCost(final int anInt)
-//	{
-//		intCrossClassSkillCost = anInt;
-//	}
-//
-//	public static int getIntCrossClassSkillCost()
-//	{
-//		return intCrossClassSkillCost;
-//	}
 
 	/**
 	 * @param string The invalidDmgText to set.
@@ -961,7 +933,6 @@ public final class SettingsHandler
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
-//		setExcSkillCost(getPCGenOption("excSkillCost", 0)); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
 		setGearTab_AutoResize(getPCGenOption("GearTab.autoResize", false)); //$NON-NLS-1$
 		setGearTab_BuyRate(buyRate);
@@ -978,8 +949,6 @@ public final class SettingsHandler
 		setHPPercent(getPCGenOption("hpPercent", 100)); //$NON-NLS-1$
 		setHPRollMethod(getPCGenOption("hpRollMethod", Constants.HP_STANDARD)); //$NON-NLS-1$
 		setIgnoreMonsterHDCap(getPCGenOption("ignoreMonsterHDCap", false)); //$NON-NLS-1$
-//		setSkillsTab_IncludeSkills(getPCGenOption("skillsTab_IncludeSkills", SkillFilter.Usable.getValue())); //$NON-NLS-1$
-//		setIntCrossClassSkillCost(getPCGenOption("intCrossClassSkillCost", 2)); //$NON-NLS-1$
 		setInvalidDmgText(getPCGenOption("invalidDmgText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setInvalidToHitText(getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
@@ -1249,7 +1218,6 @@ public final class SettingsHandler
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
 		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
-//		setPCGenOption("excSkillCost", getExcSkillCost()); //$NON-NLS-1$
 		setPCGenOption("GearTab.allowDebt", getGearTab_AllowDebt()); //$NON-NLS-1$
 		setPCGenOption("GearTab.autoResize", getGearTab_AutoResize()); //$NON-NLS-1$
 		setPCGenOption("GearTab.buyRate", getGearTab_BuyRate()); //$NON-NLS-1$
@@ -1266,8 +1234,6 @@ public final class SettingsHandler
 		setPCGenOption("hpPercent", getHPPercent()); //$NON-NLS-1$
 		setPCGenOption("hpRollMethod", getHPRollMethod()); //$NON-NLS-1$
 		setPCGenOption("ignoreMonsterHDCap", isIgnoreMonsterHDCap()); //$NON-NLS-1$
-//		setPCGenOption("skillsTab_IncludeSkills", getSkillsTab_IncludeSkills()); //$NON-NLS-1$
-//		setPCGenOption("intCrossClassSkillCost", getIntCrossClassSkillCost()); //$NON-NLS-1$
 		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
@@ -1875,16 +1841,6 @@ public final class SettingsHandler
 	{
 		return showWarningAtFirstLevelUp;
 	}
-
-//	public static void setSkillsTab_IncludeSkills(final int anInt)
-//	{
-//		skillsTab_IncludeSkills = anInt;
-//	}
-//
-//	public static int getSkillsTab_IncludeSkills()
-//	{
-//		return skillsTab_IncludeSkills;
-//	}
 
 	public static void setSkinLFThemePack(final String argSkinLFThemePack)
 	{
