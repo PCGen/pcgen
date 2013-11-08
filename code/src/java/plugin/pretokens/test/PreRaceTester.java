@@ -38,6 +38,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Globals;
 import pcgen.core.Race;
 import pcgen.core.display.CharacterDisplay;
@@ -135,7 +136,8 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 					{
 						for (Race mock: servesAsRace.get(imitators))
 						{
-							if (mock.get(ObjectKey.RACETYPE).toString()
+							RaceType mockRaceType = mock.get(ObjectKey.RACETYPE);
+							if (mockRaceType != null && mockRaceType.toString()
 								.equalsIgnoreCase(raceToMatch))
 							{
 								++runningTotal;
