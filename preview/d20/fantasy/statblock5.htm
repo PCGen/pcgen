@@ -467,7 +467,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <b>Melee&nbsp;</b>
 |ENDIF|
 <i>|TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR|&nbsp;</i>
-|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|IIF(WEAPON.%weap.BASEHIT:INVALIDTEXT.TOHIT)|
 (two&nbsp;handed)&nbsp;|WEAPON.%weap.THHIT|&nbsp;((two&nbsp;handed)&nbsp;|WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|

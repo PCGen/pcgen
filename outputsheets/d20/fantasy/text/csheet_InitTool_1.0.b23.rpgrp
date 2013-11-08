@@ -91,7 +91,7 @@
           <attack>
 |FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
 |WEAPON.%weap.NAME.NOSTAR|: 
-|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+|IIF(WEAPON.%weap.TOTALHIT:INVALIDTEXT.TOHIT)|
 (two handed) |WEAPON.%weap.THHIT| melee ((two handed) |WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|

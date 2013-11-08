@@ -141,7 +141,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|<br>
 |ENDIF|
 <i>|TEXT.LOWER.WEAPON.%weap.NAME.NOSTAR| </i>
 
-|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|IIF(WEAPON.%weap.BASEHIT:INVALIDTEXT.TOHIT)|
 (two handed) |WEAPON.%weap.THHIT| ((two handed) |WEAPON.%weap.THDAMAGE|
 |FOR,%CritTest,STRLEN[WEAPON.%weap.CRIT],STRLEN[WEAPON.%weap.CRIT],1,0|
 |IIF(%CritTest:2)|

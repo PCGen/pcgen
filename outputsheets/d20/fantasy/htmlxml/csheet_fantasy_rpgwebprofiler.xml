@@ -123,7 +123,7 @@
     <node name="Weapon|%weap+1.INTVAL|">|WEAPON.%weap.NAME|</node>
     <node name="Weapon|%weap+1.INTVAL|Wielded">on</node>
     <node name="Weapon|%weap+1.INTVAL|Carried">on</node>
-|IIF(WEAPON.%weap.BASEHIT:N/A)|
+|IIF(WEAPON.%weap.BASEHIT:INVALIDTEXT.TOHIT)|
     <node name="Weapon|%weap+1.INTVAL|AB">|WEAPON.%weap.THHIT|</node>
     <node name="Weapon|%weap+1.INTVAL|Damage">|WEAPON.%weap.THDAMAGE|</node>
 |ELSE|

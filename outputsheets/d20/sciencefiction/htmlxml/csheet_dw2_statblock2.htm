@@ -55,7 +55,7 @@ $Date$
     <td width="75%">
 |FOR,%weap,0,COUNT[EQTYPE.Weapon],1,0|
 |WEAPON.%weap.NAME|
-|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+|IIF(WEAPON.%weap.TOTALHIT:INVALIDTEXT.TOHIT)|
 (two handed) |WEAPON.%weap.THHIT|;
 |ELSE|
 |WEAPON.%weap.TOTALHIT|;
@@ -68,7 +68,7 @@ $Date$
     <td width="75%">
 |FOR,%weap,0,COUNT[EQTYPE.Weapon],1,0|
 |WEAPON.%weap.NAME|
-|IIF(WEAPON.%weap.TOTALHIT:N/A)|
+|IIF(WEAPON.%weap.TOTALHIT:INVALIDTEXT.TOHIT)|
 (two handed) |WEAPON.%weap.THDAMAGE|;
 |ELSE|
 |WEAPON.%weap.DAMAGE|;
