@@ -7454,7 +7454,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public boolean includeSkill(final Skill skill, final SkillFilter filter)
 	{
-		if (skill.getSafe(ObjectKey.EXCLUSIVE) && !this.isClassSkill(skill)) 
+		if (skill.getSafe(ObjectKey.EXCLUSIVE) && 
+				!this.isClassSkill(skill) &&
+				!this.isCrossClassSkill(skill)) 
 		{
 			return false;
 		}
