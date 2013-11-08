@@ -62,6 +62,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
@@ -229,6 +230,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<String> xpTableName;
 	private DefaultReferenceFacade<String> characterType;
 	private DefaultReferenceFacade<String> previewSheet;
+	private DefaultReferenceFacade<SkillFilter> skillFilter;
 	private DefaultReferenceFacade<Integer> age;
 	private DefaultReferenceFacade<SimpleFacade> ageCategory;
 	private DefaultListFacade<SimpleFacade> ageCategoryList;
@@ -349,6 +351,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		cropRect = new RectangleReference(charDisplay.getPortraitThumbnailRect());
 		characterType = new DefaultReferenceFacade<String>(charDisplay.getCharacterType());
 		previewSheet = new DefaultReferenceFacade<String>(charDisplay.getPreviewSheet());
+		skillFilter = new DefaultReferenceFacade<SkillFilter>(charDisplay.getSkillFilter());
 
 		tabName = new DefaultReferenceFacade<String>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<String>(charDisplay.getPlayersName());
@@ -2980,6 +2983,19 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		previewSheet.setReference(newSheet);
 		theCharacter.setPreviewSheet(newSheet);
+	}
+
+	@Override
+	public ReferenceFacade<SkillFilter> getSkillFilterRef()
+	{
+		return skillFilter;
+	}
+
+	@Override
+	public void setSkillFilter(SkillFilter newFilter)
+	{
+		skillFilter.setReference(newFilter);
+		theCharacter.setSkillFilter(newFilter);
 	}
 
 	/* (non-Javadoc)

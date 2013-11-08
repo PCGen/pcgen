@@ -46,6 +46,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
 import pcgen.cdom.facet.AutoLanguageFacet;
@@ -111,6 +112,7 @@ import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
+import pcgen.cdom.facet.fact.SkillFilterFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
@@ -257,6 +259,7 @@ public class CharacterDisplay
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
 	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
+	private SkillFilterFacet skillFilterFacet = FacetLibrary.getFacet(SkillFilterFacet.class);
 
 	public CharacterDisplay(CharID id)
 	{
@@ -658,6 +661,11 @@ public class CharacterDisplay
 	public String getPreviewSheet()
 	{
 		return previewSheetFacet.get(id);
+	}
+
+	public SkillFilter getSkillFilter()
+	{
+		return skillFilterFacet.get(id);
 	}
 
 	/**

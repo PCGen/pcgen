@@ -489,8 +489,13 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	},
 
 	COMPLETE_PC_COUNT_SKILLS
-			("COUNT\\[SKILLS\\]",
-			 new String[] { "COUNT[SKILLS]" },
+			("COUNT\\[SKILLS(?:\\.SELECTED|\\.RANKS|\\.NONDEFAULT|\\.USABLE|\\.ALL)?\\]",
+			 new String[] { "COUNT[SKILLS]",
+							"COUNT[SKILLS.SELECTED]",
+							"COUNT[SKILLS.RANKS]",
+							"COUNT[SKILLS.NONDEFAULT]",
+							"COUNT[SKILLS.USABLE]",
+			 				"COUNT[SKILLS.ALL]"},
 			 true) {
 
 		@Override
@@ -499,7 +504,16 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				final String src, 
 				final String matchedSection) {
 
-			return new PCCountSkillsTermEvaluator(expressionString);
+			String filterToken = null;
+			int start = expressionString.indexOf('.');
+			if (start > 0)
+			{
+				int end = expressionString.indexOf(']', start);
+				filterToken = expressionString.substring(start + 1, end);
+			}
+
+			return new PCCountSkillsTermEvaluator(expressionString,
+					filterToken);
 		}
 	},
 

@@ -55,6 +55,7 @@ public class PCGenSettings extends PropertyContext
 	public static final String OPTION_AUTOLOAD_SOURCES_WITH_PC = "autoloadSourcesWithPC";
 	public static final String OPTION_AUTOCREATE_MW_MAGIC_EQUIP = "autoCreateMagicMwEquip";
 	public static final String OPTION_ALLOW_OVERRIDE_DUPLICATES = "allowOverrideDuplicates";
+	public static final String OPTION_SKILL_FILTER = "skillFilter";
 	public static final String BROWSER_PATH = "browserPath";
 	/**
 	 * The key for the path to the character files.

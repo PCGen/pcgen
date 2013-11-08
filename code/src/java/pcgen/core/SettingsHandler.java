@@ -48,6 +48,7 @@ import javax.swing.SwingConstants;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -117,13 +118,7 @@ public final class SettingsHandler
 	private static int hpPercent    = Constants.DEFAULT_HP_PERCENT;
 	private static boolean ignoreMonsterHDCap = false;
 
-	public static final int INCLUDE_SKILLS_NONE = 0;
-	public static final int INCLUDE_SKILLS_UNTRAINED = 1;
-	public static final int INCLUDE_SKILLS_ALL = 2;
-	public static final int INCLUDE_SKILLS_SKILLS_TAB = 3;
-
-	private static int includeSkills = INCLUDE_SKILLS_SKILLS_TAB;
-	private static int skillsTab_IncludeSkills = 1;
+//	private static int skillsTab_IncludeSkills = SkillFilter.Usable.getValue();
 //	private static int intCrossClassSkillCost = 2;
 	private static String invalidDmgText;
 	private static String invalidToHitText;
@@ -723,16 +718,6 @@ public final class SettingsHandler
 		return ignoreMonsterHDCap;
 	}
 
-	public static void setIncludeSkills(final int anInt)
-	{
-		includeSkills = anInt;
-	}
-
-	public static int getIncludeSkills()
-	{
-		return includeSkills;
-	}
-
 //	public static void setIntCrossClassSkillCost(final int anInt)
 //	{
 //		intCrossClassSkillCost = anInt;
@@ -993,8 +978,7 @@ public final class SettingsHandler
 		setHPPercent(getPCGenOption("hpPercent", 100)); //$NON-NLS-1$
 		setHPRollMethod(getPCGenOption("hpRollMethod", Constants.HP_STANDARD)); //$NON-NLS-1$
 		setIgnoreMonsterHDCap(getPCGenOption("ignoreMonsterHDCap", false)); //$NON-NLS-1$
-		setIncludeSkills(getPCGenOption("includeSkills", 3)); //$NON-NLS-1$
-		setSkillsTab_IncludeSkills(getPCGenOption("skillsTab_IncludeSkills", 1)); //$NON-NLS-1$
+//		setSkillsTab_IncludeSkills(getPCGenOption("skillsTab_IncludeSkills", SkillFilter.Usable.getValue())); //$NON-NLS-1$
 //		setIntCrossClassSkillCost(getPCGenOption("intCrossClassSkillCost", 2)); //$NON-NLS-1$
 		setInvalidDmgText(getPCGenOption("invalidDmgText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setInvalidToHitText(getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
@@ -1282,8 +1266,7 @@ public final class SettingsHandler
 		setPCGenOption("hpPercent", getHPPercent()); //$NON-NLS-1$
 		setPCGenOption("hpRollMethod", getHPRollMethod()); //$NON-NLS-1$
 		setPCGenOption("ignoreMonsterHDCap", isIgnoreMonsterHDCap()); //$NON-NLS-1$
-		setPCGenOption("includeSkills", getIncludeSkills()); //$NON-NLS-1$
-		setPCGenOption("skillsTab_IncludeSkills", getSkillsTab_IncludeSkills()); //$NON-NLS-1$
+//		setPCGenOption("skillsTab_IncludeSkills", getSkillsTab_IncludeSkills()); //$NON-NLS-1$
 //		setPCGenOption("intCrossClassSkillCost", getIntCrossClassSkillCost()); //$NON-NLS-1$
 		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
@@ -1893,15 +1876,15 @@ public final class SettingsHandler
 		return showWarningAtFirstLevelUp;
 	}
 
-	public static void setSkillsTab_IncludeSkills(final int anInt)
-	{
-		skillsTab_IncludeSkills = anInt;
-	}
-
-	public static int getSkillsTab_IncludeSkills()
-	{
-		return skillsTab_IncludeSkills;
-	}
+//	public static void setSkillsTab_IncludeSkills(final int anInt)
+//	{
+//		skillsTab_IncludeSkills = anInt;
+//	}
+//
+//	public static int getSkillsTab_IncludeSkills()
+//	{
+//		return skillsTab_IncludeSkills;
+//	}
 
 	public static void setSkinLFThemePack(final String argSkinLFThemePack)
 	{

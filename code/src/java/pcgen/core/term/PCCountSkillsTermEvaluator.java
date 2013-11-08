@@ -26,31 +26,46 @@
 
 package pcgen.core.term;
 
-import java.util.Collection;
+import java.util.List;
 
-import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Visibility;
 
 public class PCCountSkillsTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
-	public PCCountSkillsTermEvaluator(String originalText)
+	final String filterToken;
+	
+	public PCCountSkillsTermEvaluator(String originalText, String filterToken)
 	{
 		this.originalText = originalText;
+		this.filterToken = filterToken;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		int count = 0;
-		Collection<Skill> skills = pc.getDisplay().getSkillSet();
+		final List<Skill> skills =
+				pc.getDisplay().getPartialSkillList(Visibility.OUTPUT_ONLY);
+		SkillFilter filter = SkillFilter.getByToken(filterToken);
+		if (filter == null || filter == SkillFilter.Selected)
+		{
+			filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
+			if (filter == SkillFilter.SkillsTab)
+			{
+				filter = pc.getSkillFilter();
+			}
+		}
+		
 		for(Skill sk : skills)
 		{
-			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);
-			if (!skVis.equals(Visibility.HIDDEN)
-				&& !skVis.equals(Visibility.DISPLAY_ONLY)
+			if (pc.includeSkill(sk, filter)
 				&& sk.qualifies(pc, null))
 			{
 				count++;

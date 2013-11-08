@@ -1,13 +1,20 @@
 package plugin.exporttokens;
 
+import java.util.Iterator;
+import java.util.List;
+
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.system.PCGenSettings;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * @author karianna
@@ -38,7 +45,23 @@ public class SkillListModsToken extends Token
 		StringBuilder returnString = new StringBuilder();
 		boolean needcomma = false;
 
-		for (Skill aSkill : pc.getSkillListInOutputOrder())
+		final List<Skill> pcSkills = pc.getSkillListInOutputOrder();
+		Iterator<Skill> iter = pcSkills.iterator();
+		while (iter.hasNext())
+		{
+			Skill sk = iter.next();
+			if (sk.getDisplayName().equals("Test59b"))
+			{
+				String x = null;
+			}
+			if (!pc.includeSkill(sk, SkillFilter.Usable)
+					|| !sk.qualifies(pc, null))
+			{
+				iter.remove();
+			}
+		}
+
+		for (Skill aSkill : pcSkills)
 		{
 			int modSkill = -1;
 

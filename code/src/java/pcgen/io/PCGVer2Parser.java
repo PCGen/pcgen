@@ -61,6 +61,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -994,6 +995,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (cache.containsKey(TAG_SKILLSOUTPUTORDER))
 		{
 			parseSkillsOutputOrderLine(cache.get(TAG_SKILLSOUTPUTORDER).get(0));
+		}
+
+		if (cache.containsKey(TAG_SKILLFILTER))
+		{
+			parseSkillFilterLine(cache.get(TAG_SKILLFILTER).get(0));
 		}
 
 		/*
@@ -4193,6 +4199,26 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final String message =
 					"Illegal Skills Output Order line ignored: " + line;
+			warnings.add(message);
+		}
+	}
+
+	/**
+	 * # Skills Filter
+	 * @param line
+	 **/
+	private void parseSkillFilterLine(final String line)
+	{
+		try
+		{
+			int value = Integer.parseInt(line
+				.substring(TAG_SKILLFILTER.length() + 1));
+			thePC.setSkillFilter(SkillFilter.getByValue(value));
+		}
+		catch (NumberFormatException nfe)
+		{
+			final String message =
+					"Illegal Skill Filter line ignored: " + line;
 			warnings.add(message);
 		}
 	}

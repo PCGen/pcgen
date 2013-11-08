@@ -24,6 +24,7 @@
 package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -31,6 +32,7 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -42,6 +44,7 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.SkillCostDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
@@ -104,7 +107,7 @@ public class SkillToken extends Token
 
 		Skill aSkill = getSkill(pc, details, eh);
 
-		return getSkillProperty(aSkill, details.properties[0], pc);
+		return getSkillProperty(aSkill, details.getProperty(0), pc);
 	}
 
 	/**
@@ -123,10 +126,32 @@ public class SkillToken extends Token
 		Skill skill = null;
 		try
 		{
-			final int i = Integer.parseInt(details.skillId);
+			final int i = Integer.parseInt(details.getSkillId());
 			final List<Skill> pcSkills =
 					pc.getSkillListInOutputOrder(pc.getDisplay()
 						.getPartialSkillList(Visibility.OUTPUT_ONLY));
+
+			SkillFilter filter = details.getSkillFilter();
+			if (filter == null || filter == SkillFilter.Selected)
+			{
+				filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+						PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
+				if (filter == SkillFilter.SkillsTab)
+				{
+					filter = pc.getSkillFilter();
+				}
+			}
+			
+			Iterator<Skill> iter = pcSkills.iterator();
+			while (iter.hasNext())
+			{
+				Skill sk = iter.next();
+				if (!pc.includeSkill(sk, filter)
+						|| !sk.qualifies(pc, null))
+				{
+					iter.remove();
+				}
+			}
 
 			if ((i >= (pcSkills.size() - 1)) && eh != null
 				&& eh.getExistsOnly())
@@ -143,7 +168,7 @@ public class SkillToken extends Token
 		{
 			//Allowing SKILL.Spot.<subtoken>
 			skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Skill.class, details.skillId);
+					Skill.class, details.getSkillId());
 		}
 		return skill;
 	}
@@ -160,36 +185,42 @@ public class SkillToken extends Token
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 
-		// Work out how many properties there are
-		int numProps = 1;
-		if (aTok.countTokens() > 2)
-		{
-			numProps = aTok.countTokens() - 2;
-		}
-		final String[] props = new String[numProps];
-		props[0] = "";
+		SkillFilter filter = null;
+		List<String> properties = new ArrayList<String>();
 
 		// Split out the parts of the source
 		String skillId = "";
 		for (int i = 0; aTok.hasMoreTokens(); ++i)
 		{
+			String token = aTok.nextToken();
 			if (i == 0)
 			{
 				// Ignore
-				aTok.nextToken();
 			}
 			else if (i == 1)
 			{
-				skillId = aTok.nextToken();
+				skillId = token;
 			}
 			else
 			{
-				props[i - 2] = aTok.nextToken();
+				filter = SkillFilter.getByToken(token);
+				if (filter != null)
+				{
+					if (aTok.hasMoreTokens())
+					{
+						token = aTok.nextToken();
+					}
+					else
+					{
+						token = "NAME";
+					}
+				}
+				properties.add(token);
 			}
 		}
 
 		// Create and return the SkillDetails object.
-		return new SkillDetails(skillId, props);
+		return new SkillDetails(skillId, properties, filter);
 	}
 
 	/**
@@ -557,7 +588,9 @@ public class SkillToken extends Token
 		/** The id of the skill - normally an index or a skill name. */
 		final protected String skillId;
 		/** The list of properties for the token. */
-		final protected String[] properties;
+		final protected List<String> properties;
+		/** The skilll list filter */
+		final protected SkillFilter filter;
 
 		/**
 		 * Constructor for skill details. Creates an immutable instance
@@ -567,20 +600,28 @@ public class SkillToken extends Token
 		 * @param inProperties The loist of properties, can be types, prefixes
 		 *         and properties to be displayed.
 		 */
-		SkillDetails(String inSkillId, String[] inProperties)
+		SkillDetails(String inSkillId, List<String> inProperties, SkillFilter inFilter)
 		{
 			this.skillId = inSkillId;
 			this.properties = inProperties;
+			this.filter = inFilter;
 		}
 
 		public int getPropertyCount()
 		{
-			return properties.length;
+			return properties.size();
 		}
 
-		public String getProperty(int i)
+		public String getProperty(int index)
 		{
-			return properties[i];
+			if (index < properties.size())
+			{
+				return properties.get(index);
+			}
+			else
+			{
+				return "";
+			}
 		}
 
 		/**
@@ -590,6 +631,15 @@ public class SkillToken extends Token
 		public String getSkillId()
 		{
 			return skillId;
+		}
+		
+		/**
+		 * Get the skill filter
+		 * @return the skill filter
+		 */
+		public SkillFilter getSkillFilter()
+		{
+			return filter;
 		}
 	}
 }

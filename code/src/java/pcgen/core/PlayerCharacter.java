@@ -80,6 +80,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -165,6 +166,7 @@ import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
+import pcgen.cdom.facet.fact.SkillFilterFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
@@ -226,6 +228,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
+import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
@@ -305,6 +308,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			.getFacet(GlobalAddedSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
+	private SkillFilterFacet skillFilterFacet = FacetLibrary.getFacet(SkillFilterFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -474,6 +478,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	// order in which the skills will be output.
 	private SkillsOutputOrder skillsOutputOrder = SkillsOutputOrder.NAME_ASC;
+	
+	// skill filter used to determine which skills will be output.
+	//private SkillFilter skillFilter = SkillFilter.Usable;
+
 	private int spellLevelTemp = 0;
 	private VariableProcessor variableProcessor;
 
@@ -539,7 +547,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
-		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
+		populateSkills(getSkillFilter());
 		// XXX do not set it, as for gender. Remark: not working, value is not set.
 //		setStringFor(StringKey.HANDED, Handed.getDefaultValue().toString());
 		FacetLibrary.getFacet(MasterAvailableSpellInitializationFacet.class).initialize(id);
@@ -3966,6 +3974,39 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
+	 * Set the skill display filter
+	 * 
+	 * @param filter
+	 *            The new filter
+	 */
+	public void setSkillFilter(final SkillFilter filter)
+	{
+		if (skillFilterFacet.set(id, filter))
+		{
+			setDirty(true);
+		}
+	}
+
+	/**
+	 * @return The selected skill display filter.
+	 */
+	public SkillFilter getSkillFilter()
+	{
+		SkillFilter filter = skillFilterFacet.get(id);
+		if (filter == null)
+		{
+			filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
+			if (filter == SkillFilter.SkillsTab)
+			{
+				filter = SkillFilter.Usable;
+			}
+			setSkillFilter(filter);
+		}
+		return filter; 
+	}
+
+	/**
 	 * Set the order in which skills should be sorted for output.
 	 * 
 	 * @param i
@@ -6345,17 +6386,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Populate the characters skills list with skill that the character does
-	 * not have ranks in according to the required level. The levels are defined
-	 * in constants in the Skill class, but are None, Untrained or All.
+	 * Populate the characters skills list according to the requested 
+	 * SkillFilter. 
 	 * 
-	 * @param level
-	 *            The level of extra skills to be added.
+	 * @param filter
 	 */
-	public void populateSkills(final int level)
+	public void populateSkills(final SkillFilter filter)
 	{
-		removeExcessSkills(level);
-		addNewSkills(level);
+		removeExcessSkills();
+		addNewSkills(filter);
 
 		// Now regenerate the output order
 		final int sort;
@@ -7015,16 +7054,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * @param level
+	 * @param filter
 	 */
-	private void addNewSkills(final int level)
+	private void addNewSkills(final SkillFilter filter)
 	{
 		final List<Skill> addItems = new ArrayList<Skill>();
 		final List<Skill> skillList = new ArrayList<Skill>(getSkillSet());
 
 		for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
-			if (includeSkill(aSkill, level) && !skillList.contains(aSkill))
+			if (includeSkill(aSkill, filter) && !skillList.contains(aSkill))
 			{
 				addItems.add(aSkill);
 			}
@@ -7413,23 +7452,38 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return aList;
 	}
 
-	private boolean includeSkill(final Skill skill, final int level)
+	public boolean includeSkill(final Skill skill, final SkillFilter filter)
 	{
-		if (level == 2 || SkillRankControl.getTotalRank(this, skill).floatValue() > 0)
-		{
-			return true;
-		}
-		if (level != 1 || !skill.getSafe(ObjectKey.USE_UNTRAINED))
+		if (skill.getSafe(ObjectKey.EXCLUSIVE) && !this.isClassSkill(skill)) 
 		{
 			return false;
 		}
-		if (skill.getSafe(ObjectKey.EXCLUSIVE))
+
+		if (filter == SkillFilter.Ranks)
 		{
-			return this.isClassSkill(skill) || this.isCrossClassSkill(skill);
-		} else
-		{
-			return skill.qualifies(this, skill);
+			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0);
 		}
+		else if (filter == SkillFilter.NonDefault)
+		{
+			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 || 
+					SkillModifier.modifier(skill, this) != 
+					SkillModifier.getStatMod(skill, this) + 
+					getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
+		}
+		else if (filter == SkillFilter.Usable)
+		{
+			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 || 
+					skill.getSafe(ObjectKey.USE_UNTRAINED));
+		}
+		else
+		{
+			return qualifySkill(skill);
+		}
+	}
+
+	private boolean qualifySkill(final Skill skill)
+	{
+		return skill.qualifies(this, skill);
 	}
 
 	/**
@@ -7593,13 +7647,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		calcActiveBonuses();
 	}
 
-	private void removeExcessSkills(final int level)
+	private void removeExcessSkills()
 	{
 		boolean modified = false;
 		// Wrap to avoid a ConcurrentModificationException
 		for (Skill skill : new ArrayList<Skill>(skillFacet.getSet(id)))
 		{
-			if (!includeSkill(skill, level))
+			if (!qualifySkill(skill))
 			{
 				skillFacet.remove(id, skill);
 				modified = true;
@@ -7781,18 +7835,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// Force refresh of skills
 		refreshSkillList();
 
-		int includeSkills = SettingsHandler.getIncludeSkills();
+		SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
 
 		// Include the skills from the skills tab if that preference is set
-		if (includeSkills == SettingsHandler.INCLUDE_SKILLS_SKILLS_TAB)
+		if (filter == SkillFilter.SkillsTab)
 		{
-			includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
+			filter = getSkillFilter();
 		}
 
 		// Calculate any active bonuses
 		calcActiveBonuses();
 
-		populateSkills(includeSkills);
+		populateSkills(filter);
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();

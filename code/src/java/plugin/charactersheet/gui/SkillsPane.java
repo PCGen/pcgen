@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -23,6 +24,7 @@ import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Visibility;
 import plugin.charactersheet.CharacterSheetUtils;
 
@@ -333,12 +335,14 @@ public class SkillsPane extends javax.swing.JPanel
 		jLabel15.setText(maxClassRanks + '/' + maxCrossClassRanks);
 
 		// Use the output selection of skills
-		int includeSkills = SettingsHandler.getIncludeSkills();
-		if (includeSkills == 3)
+		SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
+		
+		if (filter == SkillFilter.SkillsTab)
 		{
-			includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
+			filter = pc.getSkillFilter();
 		}
-		pc.populateSkills(includeSkills);
+		pc.populateSkills(filter);
 
 		List<Skill> skillList =
 				pc.getSkillListInOutputOrder(pc.getDisplay()
@@ -403,7 +407,7 @@ public class SkillsPane extends javax.swing.JPanel
 		}
 
 		// Reset the skills back to the display prefs.
-		pc.populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
+		pc.populateSkills(pc.getSkillFilter());
 		revalidate();
 		repaint();
 	}

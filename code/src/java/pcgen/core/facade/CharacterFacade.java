@@ -31,6 +31,7 @@ import javax.swing.undo.UndoManager;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.core.facade.event.ChangeListener;
@@ -521,6 +522,13 @@ public interface CharacterFacade extends CompanionFacade
 	public void setPreviewSheet(String previewSheet);
 
 	/**
+	 * Set the character's display filter for skills
+	 * *
+	 * @param previewSheet The skill filter to be set
+	 */
+	public void setSkillFilter(SkillFilter filter);
+
+	/**
 	 * @return A reference to the name of the character's XP table
 	 */
 	public ReferenceFacade<String> getXPTableNameRef();
@@ -535,6 +543,12 @@ public interface CharacterFacade extends CompanionFacade
 	 * associated preview sheet
 	 */
 	public ReferenceFacade<String> getPreviewSheetRef();
+
+	/**
+	 * @return A reference to the character's display filter 
+	 * for skills
+	 */
+	public ReferenceFacade<SkillFilter> getSkillFilterRef();
 
 	/**
 	 * Set the character's age in years.

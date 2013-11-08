@@ -54,6 +54,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -97,6 +98,7 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenPropBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
@@ -194,6 +196,7 @@ public final class PCGVer2Creator implements IOConstants
 		appendUseTempModsLine(buffer);
 		appendOutputSheetsLines(buffer);
 		appendAutoSortLines(buffer);
+		appendSkillFilterLine(buffer);
 		appendGearCostSizeLines(buffer);
 
 		/*
@@ -1235,7 +1238,7 @@ public final class PCGVer2Creator implements IOConstants
 				for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : eSet
 						.getTempBonusMap().entrySet())
 				{
-					BonusObj bObj = me.getKey();
+					//BonusObj bObj = me.getKey();
 					TempBonusInfo tbi = me.getValue();
 					Object cObj = tbi.source;
 					Object tObj = tbi.target;
@@ -1700,6 +1703,13 @@ public final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
+	private void appendSkillFilterLine(StringBuilder buffer)
+	{
+		buffer.append(TAG_SKILLFILTER).append(':');
+		buffer.append(thePC.getSkillFilter().getValue());
+		buffer.append(LINE_SEP);
+	}
+
 	private void appendGearCostSizeLines(StringBuilder buffer)
 	{
 		buffer.append(TAG_IGNORECOST).append(':');
@@ -2001,16 +2011,18 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSkillLines(StringBuilder buffer)
 	{
-		int includeSkills = SettingsHandler.getIncludeSkills();
+		SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
 
-		if (includeSkills == 3)
+		if (filter == SkillFilter.SkillsTab)
 		{
-			includeSkills = SettingsHandler.getSkillsTab_IncludeSkills();
+			filter = thePC.getSkillFilter();
 		}
 
-		thePC.populateSkills(includeSkills);
+		thePC.populateSkills(filter);
 
-		for (Skill skill : charDisplay.getSkillSet())
+		Collection<Skill> skillSet = charDisplay.getSkillSet();
+		for (Skill skill : skillSet)
 		{
 			Integer outputIndex = thePC.getSkillOrder(skill);
 			if ((thePC.getRank(skill).doubleValue() > 0)

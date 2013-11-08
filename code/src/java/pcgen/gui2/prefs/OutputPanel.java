@@ -45,6 +45,7 @@ import javax.swing.border.TitledBorder;
 import org.apache.commons.lang.BooleanUtils;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.Globals;
 import pcgen.core.PaperInfo;
 import pcgen.core.SettingsHandler;
@@ -96,16 +97,8 @@ public class OutputPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
 	private static String in_weaponProfPrintout =
 			LanguageBundle.getString("in_Prefs_weaponProfPrintout");
-	private static String in_skillChoice =
-			LanguageBundle.getString("in_Prefs_skillChoiceLabel");
-	private static String in_skillChoiceNone =
-			LanguageBundle.getString("in_Prefs_skillChoiceNone");
-	private static String in_skillChoiceUntrained =
-			LanguageBundle.getString("in_Prefs_skillChoiceUntrained");
-	private static String in_skillChoiceAll =
-			LanguageBundle.getString("in_Prefs_skillChoiceAll");
-	private static String in_skillChoiceAsUI =
-			LanguageBundle.getString("in_Prefs_skillChoiceAsUI");
+	private static String in_skillFilter =
+			LanguageBundle.getString("in_Prefs_skillFilterLabel");
 	private static String in_choose =
 			LanguageBundle.getString("...");
 
@@ -125,7 +118,7 @@ public class OutputPanel extends PCGenPrefsPanel
 	private JTextField outputSheetSpellsDefault;
 
 	private JComboBoxEx paperType = new JComboBoxEx();
-	private JComboBoxEx skillChoice = new JComboBoxEx();
+	private JComboBoxEx skillFilter = new JComboBoxEx();
 	private JComboBox exportChoice = new JComboBox(ExportChoices.values());
 
 	private JTextField postExportCommandStandard;
@@ -303,16 +296,17 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(postExportCommandPDF);
 
 		Utility.buildConstraints(c, 0, 11, 1, 1, 0, 0);
-		label = new JLabel(in_skillChoice);
+		label = new JLabel(in_skillFilter);
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
-		skillChoice.setModel(new DefaultComboBoxModel(new String[]{
-			in_skillChoiceNone, in_skillChoiceUntrained, in_skillChoiceAll,
-			in_skillChoiceAsUI}));
-		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
-		gridbag.setConstraints(skillChoice, c);
-		this.add(skillChoice);
+		skillFilter.setModel(new DefaultComboBoxModel(new SkillFilter[]{
+			SkillFilter.Ranks, SkillFilter.NonDefault, SkillFilter.Usable, 
+			SkillFilter.All, SkillFilter.SkillsTab}));
+		skillFilter.setSelectedItem(SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
+		gridbag.setConstraints(skillFilter, c);
+		this.add(skillFilter);
 
 		Utility.buildConstraints(c, 0, 12, 1, 1, 0, 0);
 		label = new JLabel(in_invalidToHitText);
@@ -429,7 +423,8 @@ public class OutputPanel extends PCGenPrefsPanel
 		SettingsHandler.setPostExportCommandPDF(postExportCommandPDF.getText());
 		SettingsHandler.setInvalidToHitText(invalidToHitText.getText());
 		SettingsHandler.setInvalidDmgText(invalidDmgText.getText());
-		SettingsHandler.setIncludeSkills(skillChoice.getSelectedIndex());
+		PCGenSettings.OPTIONS_CONTEXT.setInt(PCGenSettings.OPTION_SKILL_FILTER, 
+				((SkillFilter) skillFilter.getSelectedItem()).getValue());
 		
 		ExportChoices choice = (ExportChoices) exportChoice.getSelectedItem();
 		context.setProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE, choice.getValue());
@@ -456,7 +451,8 @@ public class OutputPanel extends PCGenPrefsPanel
 			UIPropertyContext.CLEANUP_TEMP_FILES, true));
 		
 		printSpellsWithPC.setSelected(SettingsHandler.getPrintSpellsWithPC());
-		skillChoice.setSelectedIndex(SettingsHandler.getIncludeSkills());
+		skillFilter.setSelectedItem(SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
 
 		String value =
 				context.getProperty(UIPropertyContext.ALWAYS_OPEN_EXPORT_FILE);
