@@ -32,7 +32,7 @@ Test59c														USEUNTRAINED:NO								TYPE:Test
 TestMasterSkill													USEUNTRAINED:NO								TYPE:ClassSkill																																																			BONUS:SKILLRANK|TestSubSkill|skillinfo("TOTAL","TestMasterSkill")
 TestSubSkill													USEUNTRAINED:NO				CLASSES:ALL			TYPE:Test
 
-
+# Mod Tests for Synergies
 Athletics.MOD																																																										BONUS:SKILL|Athletics (Jump)|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK
 Athletics.MOD																																																										BONUS:SKILL|Athletics (Jump)|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
 Athletics.MOD																																																										BONUS:SKILL|Acrobatics|SynergyBonus|PRESKILL:1,Althetics=5|TYPE=Synergy.STACK
@@ -54,7 +54,7 @@ Climb.MOD																																																											BONUS:SKILL|
 
 
 
-###Skill
+###Skill - testing various stats and Parenthesis () skills.
 Test Crafting											KEYSTAT:DEX
 Craft (One)												KEYSTAT:DEX											TYPE:Craft
 Craft (Two)												KEYSTAT:DEX											TYPE:Craft
@@ -66,17 +66,19 @@ Poetry												KEYSTAT:CHA											TYPE:Charisma.Performance.Poetry
 Uber Scripting from five ranks in Test Coding Script					KEYSTAT:INT																																														BONUS:SKILL|Uber Scripting from five ranks in Test Coding Script|CHA							BONUS:SKILLRANK|Uber Scripting from five ranks in Test Coding Script|SKILLRANK=Poetry
 Poetry Recitation Specialty									KEYSTAT:CHA
 
+# A named only - should have no bonuses from stats - by default this is usable, untrained.
 Monkey Building
 
 Linguistics																								TYPE:TestSkills
 
+# THese are tests against the SUBSTITUTION and SUBCLASS methods.
 Test Skill (Class Level)																					TYPE:ClassLevelTest																												CHOOSE:SKILL|ALL
 Test Skill (Sub)							KEY:Test Skill_Sub			USEUNTRAINED:NO								TYPE:Test
 
 
 
 
-# Test Skills
+# Test Skills - A mix of generic skills for the classes to play with.
 Athletics												KEYSTAT:STR											TYPE:Strength.TestSkills
 Acrobatics												KEYSTAT:DEX											TYPE:Dexterity.TestSkills
 Combat Focus											KEYSTAT:CON											TYPE:Constitution.TestSkills
@@ -94,22 +96,26 @@ Search												KEYSTAT:INT	USEUNTRAINED:NO
 Spot													KEYSTAT:WIS	USEUNTRAINED:NO
 
 
-
+# These are granted by Abilities - further clarification will be needed
 Ability Skill 1													USEUNTRAINED:NO
 Ability Skill 2													USEUNTRAINED:NO
 Ability Skill 3													USEUNTRAINED:NO
 Ability Skill 4													USEUNTRAINED:NO
 
+# These should only be Class skills if granted by a DOMAIN.
 Domain Skill 1													USEUNTRAINED:NO
 Domain Skill 2													USEUNTRAINED:NO
 Domain Skill 3													USEUNTRAINED:NO
 
+# We are testing the 'CLASSES' tag on skills - these two skills should be CLASS skills for the 'Alice Class' automatically
 Other Skill 1													USEUNTRAINED:NO				CLASSES:Alice Class
 Other Skill 2													USEUNTRAINED:NO				CLASSES:Alice Class
 
+# These are here to test the CSKILL tag in a Class
 Class Skill 1													USEUNTRAINED:NO
 Class Skill 2													USEUNTRAINED:NO
 
+# Design Theory - If you take a Rank in this skill you should have a FEAT added - ADD:FEAT|Add Feat Skill
 Add Feat Skill													USEUNTRAINED:NO				CLASSES:ALL																																																																																																																								ADD:FEAT|Add Feat Skill
 
 # Test Sub Skills Section
