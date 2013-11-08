@@ -548,6 +548,13 @@ Insanity													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		
 Death Touch													CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack.SpellLike		VISIBLE:YES	DEFINE:DeathTouch|0	DESC:1/day, melee touch attack, %1d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch
 Mind Will Save	OUTPUTNAME:+2 on Will saves vs. Enchantment spells and effects	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.RacialTrait	VISIBLE:YES
 
+###Block:
+Bonus Spell Level 0	KEY:Mnemonic Enhancer LVL 0		TYPE:Mnemonic Enhancer Selections	CATEGORY:Special Ability	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|2
+Bonus Spell Level 1	KEY:Mnemonic Enhancer LVL 1		TYPE:Mnemonic Enhancer Selections	CATEGORY:Special Ability	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=1|1
+Bonus Spell Level 2	KEY:Mnemonic Enhancer LVL 2		TYPE:Mnemonic Enhancer Selections	CATEGORY:Special Ability	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=2|1
+Bonus Spell Level 3	KEY:Mnemonic Enhancer LVL 3		TYPE:Mnemonic Enhancer Selections	CATEGORY:Special Ability	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=3|1
+
+
 ###Block: ACF - Alternate Class Features
 # Ability Name				Category of Ability	Type						Cost
 Remove Scribe Scroll			CATEGORY:ACF		TYPE:WizardScribeScroll.ACF		COST:0
