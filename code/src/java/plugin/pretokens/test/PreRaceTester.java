@@ -63,9 +63,8 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		final String requiredRace = prereq.getKey();
 		int runningTotal = 0;
-		HashMap<Race, HashSet<Race>> servesAsRace = new HashMap<Race, HashSet<Race>>();
-		getImitators(servesAsRace);
 		final Race pcRace = display.getRace();
+		Set<Race> racesImitated = getRacesImitatedBy(pcRace);
 		
 		if (requiredRace.startsWith("TYPE=") || requiredRace.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
@@ -91,23 +90,13 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 				}
 				if (!match)
 				{					
-BREAKOUT:			for(Race imitators : servesAsRace.keySet())
+					for(Race mock : racesImitated)
 					{
-						if (servesAsRace.get(imitators).contains(pcRace))
+						if(mock.isType(type))
 						{
-							for (Race mock: servesAsRace.get(imitators))
-							{
-								if(mock.isType(type))
-								{
-									matchCount++;
-									match = true;
-									break;
-								}
-							}
-							if(match)
-							{
-								break BREAKOUT;
-							}
+							matchCount++;
+							match = true;
+							break;
 						}
 					}
 				}
@@ -130,19 +119,13 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 			}
 			else
 			{
-				for(Race imitators : servesAsRace.keySet())
+				for(Race mock : racesImitated)
 				{
-					if (servesAsRace.get(imitators).contains(pcRace))
+					RaceType mockRaceType = mock.get(ObjectKey.RACETYPE);
+					if (mockRaceType != null && mockRaceType.toString()
+						.equalsIgnoreCase(raceToMatch))
 					{
-						for (Race mock: servesAsRace.get(imitators))
-						{
-							RaceType mockRaceType = mock.get(ObjectKey.RACETYPE);
-							if (mockRaceType != null && mockRaceType.toString()
-								.equalsIgnoreCase(raceToMatch))
-							{
-								++runningTotal;
-							}
-						}
+						++runningTotal;
 					}
 				}
 			}
@@ -158,17 +141,14 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 			}
 			if(runningTotal == 0)
 			{
-BREAKOUT:		for (Race imitator: servesAsRace.keySet())
+				for (Race mock: racesImitated)
+				{
+					if (mock.containsInList(ListKey.RACESUBTYPE, st))
 					{
-						for (Race mock: servesAsRace.get(imitator))
-						{
-							if (mock.containsInList(ListKey.RACESUBTYPE, st))
-							{
-								++runningTotal;
-								break BREAKOUT;
-							}
-						}
+						++runningTotal;
+						break;
 					}
+				}
 			}
 		}
 		else
@@ -193,7 +173,7 @@ BREAKOUT:		for (Race imitator: servesAsRace.keySet())
 				}
 				else
 				{
-					runningTotal += checkForServesAsRaceWildcard(requiredRace, wild, pcRace, servesAsRace);
+					runningTotal += checkForServesAsRaceWildcard(requiredRace, wild, racesImitated);
 				}
 			}
 			else
@@ -204,13 +184,13 @@ BREAKOUT:		for (Race imitator: servesAsRace.keySet())
 				}
 				else 
 				{
-BREAKOUT:			for(Race imitators : servesAsRace.keySet())
+					for (Race mock : racesImitated)
 					{
-						if (servesAsRace.get(imitators).contains(pcRace) 
-								&& imitators.getDisplayName().equalsIgnoreCase(requiredRace))
+						if (mock.getDisplayName()
+							.equalsIgnoreCase(requiredRace))
 						{
 							++runningTotal;
-							break BREAKOUT;
+							break;
 						}
 					}
 				}
@@ -226,12 +206,13 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		return countedTotal(prereq, runningTotal);
 	}
 	
-	private int checkForServesAsRaceWildcard(String requiredRace, int wild, Race pcRace, HashMap<Race, HashSet<Race>> servesAsRace)
+	private int checkForServesAsRaceWildcard(String requiredRace, int wild,
+		Set<Race> imitatedRaces)
 	{
-		for(Race imitators : servesAsRace.keySet())
+		for (Race mock : imitatedRaces)
 		{
-			if (servesAsRace.get(imitators).contains(pcRace) 
-					&& imitators.getDisplayName().regionMatches(true, 0, requiredRace, 0, wild))
+			if (mock.getDisplayName().regionMatches(true, 0, requiredRace, 0,
+				wild))
 			{
 				return 1;
 			}
@@ -239,20 +220,17 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		return 0;
 	}
 	
-	private void getImitators(HashMap<Race, HashSet<Race>> serveAsRaces)
+	private Set<Race> getRacesImitatedBy(Race pcRace)
 	{
-		for (Race theRace : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
+		Set<Race> servesAs = new HashSet<Race>();
+		if (pcRace != null)
 		{
-			Set<Race> servesAs = new HashSet<Race>();
-			for(CDOMReference<Race> ref: theRace.getSafeListFor(ListKey.SERVES_AS_RACE))
+			for(CDOMReference<Race> ref: pcRace.getSafeListFor(ListKey.SERVES_AS_RACE))
 			{
 				servesAs.addAll(ref.getContainedObjects());
 			}
-			if(servesAs.size() > 0)
-			{
-				serveAsRaces.put(theRace, (HashSet<Race>) servesAs);
-			}
-		}		
+		}
+		return servesAs;
 	}
 
 	/**

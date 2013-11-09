@@ -180,17 +180,18 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		fake.setName("NotHuman");
 		Globals.getContext().ref.importObject(fake);
 
-		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
+		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		character.setRace(fake);
 
 		
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("race");
-		prereq.setKey("human");
+		prereq.setKey(race.getKeyName());
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		assertTrue("Expected prereq " + prereq + " to pass for race " + fake
+			+ " with SERVESAS", passes);
 	}
 	
 	public void testRaceTypeEq()
@@ -254,11 +255,22 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
-		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("desert"));
-		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
+		fake.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("desert"));
+		fake.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
 		Globals.getContext().ref.importObject(fake);
-
 		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
+		
+		final Race gnome = new Race();
+		gnome.setName("Gnome");
+		gnome.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("SpikyHair"));
+		Globals.getContext().ref.importObject(gnome);
+		
+		final Race bugbear = new Race();
+		bugbear.setName("Bugbear");
+		bugbear.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("SpikyClub"));
+		Globals.getContext().ref.importObject(bugbear);
+		bugbear.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(gnome));
+
 		character.setRace(fake);
 		
 		final Prerequisite prereq = new Prerequisite();
@@ -266,7 +278,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setKey("RACESUBTYPE=aquatic");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 		
 		final Prerequisite prereq2 = new Prerequisite();
@@ -274,11 +286,17 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq2.setKey("RACESUBTYPE=foo");
 		prereq2.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes2 = PrereqHandler.passes(prereq2, character, null);
-		assertTrue(passes2);
-		
+		passes = PrereqHandler.passes(prereq2, character, null);
+		assertTrue(passes);
+
+		prereq.setKey("RACESUBTYPE=SpikyHair");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse("Prereq " + prereq
+			+ " should not be passed by character without a "
+			+ "race or servesas link.", passes);
 		
 	}
+	
 	/**
 	 * Test to make sure that we return true when races RACETYPE are equal using ServesAs.
 	 * 
@@ -299,18 +317,29 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		fake.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
 		Globals.getContext().ref.importObject(fake);
-
-		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
+		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
+		
+		final Race gnome = new Race();
+		gnome.setName("Gnome");
+		gnome.put(ObjectKey.RACETYPE, RaceType.getConstant("Smaller"));
+		Globals.getContext().ref.importObject(gnome);
+		
 		character.setRace(fake);
 
 		
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("race");
-		prereq.setKey("RACETYPE=Humanoid");
+		prereq.setKey("RACETYPE=Outsider");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue("Prereq " + prereq + " should pass due to SERVESAS",passes);
+
+		prereq.setKey("RACETYPE=Smaller");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse("Prereq " + prereq
+			+ " should not be passed by character without a "
+			+ "race or servesas link.", passes);
 	}
 	
 	/**
@@ -331,18 +360,29 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		fake.setName("NotHuman");
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
 		Globals.getContext().ref.importObject(fake);
+		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		
-		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(fake));
+		final Race gnome = new Race();
+		gnome.setName("Gnome");
+		gnome.addToListFor(ListKey.TYPE, Type.getConstant("Smaller"));
+		Globals.getContext().ref.importObject(gnome);
+
 		character.setRace(fake);
 
 		
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("race");
-		prereq.setKey("TYPE=Humanoid");
+		prereq.setKey("TYPE=Outsider");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue("Prereq " + prereq + " should pass due to SERVESAS",passes);
+
+		prereq.setKey("TYPE=Smaller");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse("Prereq " + prereq
+			+ " should not be passed by character without a "
+			+ "race or servesas link.", passes);
 	}
 
 	/**
@@ -360,9 +400,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		Globals.getContext().ref.importObject(fake);
-
-		race.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef
-			.getRef(fake));
+		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef
+			.getRef(race));
+		
+		final Race gnome = new Race();
+		gnome.setName("Gnome");
+		Globals.getContext().ref.importObject(gnome);
+		
 		character.setRace(fake);
 
 		// Check the servesas condition
@@ -380,5 +424,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setKey("Elf%");
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("PRERACE:1,Elf% should not have been passed", passes);
+
+		prereq.setKey("Gno%");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse("PRERACE:1,Gno% should not have been passed", passes);
 	}
 }
