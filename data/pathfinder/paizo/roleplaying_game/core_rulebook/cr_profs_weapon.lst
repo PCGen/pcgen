@@ -175,12 +175,12 @@ Sword (Two-Bladed).MOD			TYPE:Double.Weapon Group Double
 
 
 #Flails:
-Flail (Dire).MOD				TYPE:Flail.Weapon Group Flail
-Flail.MOD					TYPE:Flail.Weapon Group Flail
-Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flail
-Morningstar.MOD				TYPE:Flail.Weapon Group Flail
-Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flail
-Whip.MOD					TYPE:Flail.Weapon Group Flail
+Flail (Dire).MOD				TYPE:Flail.Weapon Group Flails
+Flail.MOD					TYPE:Flail.Weapon Group Flails
+Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flails
+Morningstar.MOD				TYPE:Flail.Weapon Group Flails
+Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails
+Whip.MOD					TYPE:Flail.Weapon Group Flails
 
 #Hammers:
 Club.MOD					TYPE:Hammer.Weapon Group Hammers
