@@ -1832,7 +1832,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Combat Martial Arts</name>
-			<description>With an unarmed strike, the character deals lethal or nonlethal damage (the character&#39;s choice) equal to 1d4 + the character&#39;s Strength modifier. The character&#39;s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks</description>
+			<description>With an unarmed strike, the character deals lethal or nonlethal damage (the character&#39;s choice) equal to 1d4 + the character&#39;s Strength modifier. The character&#39;s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks. [1d4+0]</description>
 			<type>BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR</type>
 			<associated></associated>
 			<count>0</count>
