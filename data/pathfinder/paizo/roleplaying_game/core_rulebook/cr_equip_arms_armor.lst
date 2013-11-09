@@ -304,7 +304,7 @@ Shortbow.MOD				TYPE:Weapon Group Bows
 Gauntlet.MOD				TYPE:Weapon Group Close
 #Shield (Heavy).MOD	TYPE:Close
 #Shield (Light).MOD	TYPE:Close
-Shieldbash.MOD				TYPE:Weapon Group Close
+#Shieldbash.MOD				TYPE:Weapon Group Close
 Dagger (Punching).MOD			TYPE:Weapon Group Close
 Sap.MOD					TYPE:Weapon Group Close
 #Spiked Armor.MOD	TYPE:Close

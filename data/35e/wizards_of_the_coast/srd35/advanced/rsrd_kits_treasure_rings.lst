@@ -14,7 +14,7 @@ GEAR:Ring of Counterspells		OPTION:61,70
 GEAR:Ring of Mind Shielding		OPTION:71,75
 GEAR:Ring of Protection +2		OPTION:76,80
 GEAR:Ring of Force Shield		OPTION:81,85
-GEAR:Ring of Ram				OPTION:86,90
+GEAR:Ring of the Ram				OPTION:86,90
 GEAR:Ring of Animal Friendship	OPTION:91,93
 KIT:Ring of Energy Resistance (Minor)	OPTION:94,96
 GEAR:Ring of Chameleon Power		OPTION:97,98
@@ -26,7 +26,7 @@ GEAR:Ring of Counterspells		OPTION:1,5
 GEAR:Ring of Mind Shielding		OPTION:6,8
 GEAR:Ring of Protection +2		OPTION:9,18
 GEAR:Ring of Force Shield		OPTION:19,23
-GEAR:Ring of Ram				OPTION:24,28
+GEAR:Ring of the Ram				OPTION:24,28
 GEAR:Ring of Climbing (Improved)	OPTION:29,34
 GEAR:Ring of Jumping (Improved)	OPTION:35,40
 GEAR:Ring of Swimming (Improved)		OPTION:41,46
@@ -86,9 +86,9 @@ GEAR:Ring of Energy Resistance (Minor/Sonic)		OPTION:81,100
 STARTPACK:Ring of Energy Resistance (Major)	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring of Energy Resistance (Major/Acid)		OPTION:1,20
-GEAR:Ring of Energy Resistance (MajorCold)		OPTION:21,40
-GEAR:Ring of Energy Resistance (MajorElectricity)	OPTION:41,60
-GEAR:Ring of Energy Resistance (MajorFire)		OPTION:61,80
+GEAR:Ring of Energy Resistance (Major/Cold)		OPTION:21,40
+GEAR:Ring of Energy Resistance (Major/Electricity)	OPTION:41,60
+GEAR:Ring of Energy Resistance (Major/Fire)		OPTION:61,80
 GEAR:Ring of Energy Resistance (Major/Sonic)		OPTION:81,100
 
 STARTPACK:Ring of Energy Resistance (Greater)	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
