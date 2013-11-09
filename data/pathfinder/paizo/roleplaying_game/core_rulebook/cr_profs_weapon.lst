@@ -6,13 +6,13 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # SIMPLE WEAPONS
 # -- unarmed
 # Weapon Name			Type																			Nb Hands
-Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
+Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning.Weapon Group Natural
 Spells (Ray)			TYPE:Simple.RangedTouch.Spell
 Spells (Touch)			TYPE:Simple
-Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
+Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning.Weapon Group Natural.Weapon Group Close
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 # Other
-Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded.Close
+Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded.Close.Weapon Group Close
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
@@ -112,131 +112,131 @@ Rock					TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
 
 #Axes:
 # Weapon Name				Type
-Battleaxe.MOD				TYPE:Axe
-Waraxe (Dwarven).MOD			TYPE:Axe
-Greataxe.MOD				TYPE:Axe
-Handaxe.MOD					TYPE:Axe
-Pick (Heavy).MOD				TYPE:Axe
-Pick (Light).MOD				TYPE:Axe
-Axe (Orc Double).MOD			TYPE:Axe
-Axe (Throwing).MOD			TYPE:Axe
+Battleaxe.MOD				TYPE:Axe.Weapon Group Axes
+Waraxe (Dwarven).MOD			TYPE:Axe.Weapon Group Axes
+Greataxe.MOD				TYPE:Axe.Weapon Group Axes
+Handaxe.MOD					TYPE:Axe.Weapon Group Axes
+Pick (Heavy).MOD				TYPE:Axe.Weapon Group Axes
+Pick (Light).MOD				TYPE:Axe.Weapon Group Axes
+Axe (Orc Double).MOD			TYPE:Axe.Weapon Group Axes
+Axe (Throwing).MOD			TYPE:Axe.Weapon Group Axes
 
 #Blades, Heavy:
-Sword (Bastard).MOD			TYPE:Bladeheavy
-Curve Blade (Elven).MOD			TYPE:Bladeheavy
-Falchion.MOD				TYPE:Bladeheavy
-Greatsword.MOD				TYPE:Bladeheavy
-Longsword.MOD				TYPE:Bladeheavy
-Scimitar.MOD				TYPE:Bladeheavy
-Scythe.MOD					TYPE:Bladeheavy
-Sword (Two-Bladed).MOD			TYPE:Bladeheavy
+Sword (Bastard).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Curve Blade (Elven).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Falchion.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Greatsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Longsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Scimitar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Scythe.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sword (Two-Bladed).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
 
 #Blades, Light:
-Dagger.MOD					TYPE:Bladelight
-Kama.MOD					TYPE:Bladelight
-Kukri.MOD					TYPE:Bladelight
-Rapier.MOD					TYPE:Bladelight
-Sword (Short).MOD				TYPE:Bladelight
-Sickle.MOD					TYPE:Bladelight
-Starknife.MOD				TYPE:Bladelight
+Dagger.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Kama.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Kukri.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Rapier.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Sword (Short).MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sickle.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Starknife.MOD				TYPE:Bladelight.Weapon Group Blades Light
 
 #Bows:
 #Composite Longbow.MOD	TYPE:Bow
 #Composite Shortbow.MOD	TYPE:Bow
-Longbow.MOD					TYPE:Bow
-Shortbow.MOD				TYPE:Bow
+Longbow.MOD					TYPE:Bow.Weapon Group Bows
+Shortbow.MOD				TYPE:Bow.Weapon Group Bows
 
 #Close:
-Gauntlet.MOD				TYPE:Close
+Gauntlet.MOD				TYPE:Close.Weapon Group Close
 #Shield (Heavy).MOD	TYPE:Close
 #Shield (Light).MOD	TYPE:Close
-Shieldbash.MOD				TYPE:Close
-Dagger (Punching).MOD			TYPE:Close
-Sap.MOD					TYPE:Close
+Shieldbash.MOD				TYPE:Close.Weapon Group Close
+Dagger (Punching).MOD			TYPE:Close.Weapon Group Close
+Sap.MOD					TYPE:Close.Weapon Group Close
 #Spiked Armor.MOD	TYPE:Close
-Gauntlet (Spiked).MOD			TYPE:Close
+Gauntlet (Spiked).MOD			TYPE:Close.Weapon Group Close
 #Spiked Shield.MOD	TYPE:Close
-Unarmed Strike.MOD			TYPE:Close
+Unarmed Strike.MOD			TYPE:Close.Weapon Group Close
 
 #Crossbows:
-Crossbow (Hand).MOD			TYPE:Crossbow
-Crossbow (Heavy).MOD			TYPE:Crossbow
-Crossbow (Repeating Heavy).MOD	TYPE:Crossbow
-Crossbow (Light).MOD			TYPE:Crossbow
-Crossbow (Repeating Light).MOD	TYPE:Crossbow
+Crossbow (Hand).MOD			TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Heavy).MOD			TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Repeating Heavy).MOD	TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Light).MOD			TYPE:Crossbow.Weapon Group Crossbows
+Crossbow (Repeating Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
 
 #Double:
-Flail (Dire).MOD				TYPE:Double
-Urgrosh (Dwarven).MOD			TYPE:Double
-Hammer (Gnome Hooked).MOD		TYPE:Double
-Axe (Orc Double).MOD			TYPE:Double
-Quarterstaff.MOD				TYPE:Double
-Sword (Two-Bladed).MOD			TYPE:Double
+Flail (Dire).MOD				TYPE:Double.Weapon Group Double
+Urgrosh (Dwarven).MOD			TYPE:Double.Weapon Group Double
+Hammer (Gnome Hooked).MOD		TYPE:Double.Weapon Group Double
+Axe (Orc Double).MOD			TYPE:Double.Weapon Group Double
+Quarterstaff.MOD				TYPE:Double.Weapon Group Double
+Sword (Two-Bladed).MOD			TYPE:Double.Weapon Group Double
 
 
 #Flails:
-Flail (Dire).MOD				TYPE:Flail
-Flail.MOD					TYPE:Flail
-Flail (Heavy).MOD				TYPE:Flail
-Morningstar.MOD				TYPE:Flail
-Chain (Spiked).MOD			TYPE:Flail
-Whip.MOD					TYPE:Flail
+Flail (Dire).MOD				TYPE:Flail.Weapon Group Flail
+Flail.MOD					TYPE:Flail.Weapon Group Flail
+Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flail
+Morningstar.MOD				TYPE:Flail.Weapon Group Flail
+Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flail
+Whip.MOD					TYPE:Flail.Weapon Group Flail
 
 #Hammers:
-Club.MOD					TYPE:Hammer
-Greatclub.MOD				TYPE:Hammer
-Mace (Heavy).MOD				TYPE:Hammer
-Hammer (Light).MOD			TYPE:Hammer
-Mace (Light).MOD				TYPE:Hammer
-Warhammer.MOD				TYPE:Hammer
+Club.MOD					TYPE:Hammer.Weapon Group Hammers
+Greatclub.MOD				TYPE:Hammer.Weapon Group Hammers
+Mace (Heavy).MOD				TYPE:Hammer.Weapon Group Hammers
+Hammer (Light).MOD			TYPE:Hammer.Weapon Group Hammers
+Mace (Light).MOD				TYPE:Hammer.Weapon Group Hammers
+Warhammer.MOD				TYPE:Hammer.Weapon Group Hammers
 
 #Monk:
-Kama.MOD					TYPE:Monk
-Quarterstaff.MOD				TYPE:Monk
-Sai.MOD					TYPE:Monk
-Shuriken.MOD				TYPE:Monk
-Unarmed Strike.MOD			TYPE:Monk.Natural
+Kama.MOD					TYPE:Monk.Weapon Group Monk
+Quarterstaff.MOD				TYPE:Monk.Weapon Group Monk
+Sai.MOD					TYPE:Monk.Weapon Group Monk
+Shuriken.MOD				TYPE:Monk.Weapon Group Monk
+Unarmed Strike.MOD			TYPE:Monk.Natural.Weapon Group Monk
 
 #Natural:
-#Unarmed Strike.MOD	TYPE:
+Unarmed Strike.MOD	TYPE:Weapon Group Natural
 #Bite.MOD	TYPE:Natural
 #Claw.MOD	TYPE:Natural
 #Gore.MOD	TYPE:Natural
 #Tail.MOD	TYPE:Natural
 #Wing.MOD	TYPE:Natural
 
-#Polearms:
-Glaive.MOD					TYPE:Polearm
-Guisarme.MOD				TYPE:Polearm
-Halberd.MOD					TYPE:Polearm
-Ranseur.MOD					TYPE:Polearm
+#Pole Arms:
+Glaive.MOD					TYPE:Polearm.Weapon Group Pole Arms
+Guisarme.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Halberd.MOD					TYPE:Polearm.Weapon Group Pole Arms
+Ranseur.MOD					TYPE:Polearm.Weapon Group Pole Arms
 
 #Spears:
-Javelin.MOD					TYPE:Spear
+Javelin.MOD					TYPE:Spear.Weapon Group Spears
 #Harpoon.MOD	TYPE:Spear
-Lance.MOD					TYPE:Spear
-Longspear.MOD				TYPE:Spear
-Shortspear.MOD				TYPE:Spear
-Spear.MOD					TYPE:Spear
-Trident.MOD					TYPE:Spear
+Lance.MOD					TYPE:Spear.Weapon Group Spears
+Longspear.MOD				TYPE:Spear.Weapon Group Spears
+Shortspear.MOD				TYPE:Spear.Weapon Group Spears
+Spear.MOD					TYPE:Spear.Weapon Group Spears
+Trident.MOD					TYPE:Spear.Weapon Group Spears
 
 #Thrown:
-Blowgun.MOD					TYPE:Thrown
-Bolas.MOD					TYPE:Thrown
-Club.MOD					TYPE:Thrown
-Dagger.MOD					TYPE:Thrown
-Dart.MOD					TYPE:Thrown
-Sling Staff (Halfling).MOD		TYPE:Thrown
-Javelin.MOD					TYPE:Thrown
-Hammer (Light).MOD			TYPE:Thrown
-Net.MOD					TYPE:Thrown
-Shortspear.MOD				TYPE:Thrown
-Shuriken.MOD				TYPE:Thrown
-Sling.MOD					TYPE:Thrown
-Spear.MOD					TYPE:Thrown
-Starknife.MOD				TYPE:Thrown
-Axe (Throwing).MOD			TYPE:Thrown
-Trident.MOD					TYPE:Thrown
+Blowgun.MOD					TYPE:Thrown.Weapon Group Thrown
+Bolas.MOD					TYPE:Thrown.Weapon Group Thrown
+Club.MOD					TYPE:Thrown.Weapon Group Thrown
+Dagger.MOD					TYPE:Thrown.Weapon Group Thrown
+Dart.MOD					TYPE:Thrown.Weapon Group Thrown
+Sling Staff (Halfling).MOD		TYPE:Thrown.Weapon Group Thrown
+Javelin.MOD					TYPE:Thrown.Weapon Group Thrown
+Hammer (Light).MOD			TYPE:Thrown.Weapon Group Thrown
+Net.MOD					TYPE:Thrown.Weapon Group Thrown
+Shortspear.MOD				TYPE:Thrown.Weapon Group Thrown
+Shuriken.MOD				TYPE:Thrown.Weapon Group Thrown
+Sling.MOD					TYPE:Thrown.Weapon Group Thrown
+Spear.MOD					TYPE:Thrown.Weapon Group Thrown
+Starknife.MOD				TYPE:Thrown.Weapon Group Thrown
+Axe (Throwing).MOD			TYPE:Thrown.Weapon Group Thrown
+Trident.MOD					TYPE:Thrown.Weapon Group Thrown
 
 
 
