@@ -76,30 +76,30 @@ GEAR:Everwhirling Chain		OPTION:99,100
 # http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
 STARTPACK:Epic Rings	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Ring (Universal Energy Resistance/Greater)	OPTION:01,08
-GEAR:Ring (Energy Immunity/Acid)			OPTION:09,13
-GEAR:Ring (Energy Immunity/Cold)			OPTION:14,15
-GEAR:Ring (Energy Immunity/Electricity)		OPTION:19,23
-GEAR:Ring (Energy Immunity/Fire)			OPTION:24,28
-GEAR:Ring (Energy Immunity/Sonic)			OPTION:29,33
+GEAR:Ring of Universal Energy Resistance (Greater)	OPTION:01,08
+GEAR:Ring of Energy Immunity (Acid)			OPTION:09,13
+GEAR:Ring of Energy Immunity (Cold)			OPTION:14,15
+GEAR:Ring of Energy Immunity (Electricity)		OPTION:19,23
+GEAR:Ring of Energy Immunity (Fire)			OPTION:24,28
+GEAR:Ring of Energy Immunity (Sonic)			OPTION:29,33
 GEAR:Ring of Adamant Law				OPTION:34,38
 GEAR:Ring of Chaotic Fury				OPTION:39,43
-GEAR:Ring (Wizardry V)					OPTION:44,48
+GEAR:Ring of Wizardry V					OPTION:44,48
 GEAR:Ring of Ineffable Evil				OPTION:49,53
 GEAR:Ring of Virtuous Good				OPTION:54,58
 GEAR:Ring of Rapid Healing				OPTION:59,63
 GEAR:Ring of Sequestering				OPTION:64,68
-GEAR:Ring (Wizardry VI)					OPTION:69,72
+GEAR:Ring of Wizardry VI					OPTION:69,72
 GEAR:Ring of Ironskin					OPTION:73,76
-GEAR:Ring (Wizardry VII)				OPTION:77,80
+GEAR:Ring of Wizardry VII				OPTION:77,80
 GEAR:Ring of Weaponbreaking				OPTION:81,83
-GEAR:Ring (Wizardry VIII)				OPTION:84,86
-GEAR:Ring (Protection +6)				OPTION:87,89
-GEAR:Ring (Wizardry IX)					OPTION:90,92
-GEAR:Ring (Protection +7)				OPTION:93,95
-GEAR:Ring (Protection +8)				OPTION:96,97
-GEAR:Ring (Protection +9)				OPTION:98
-GEAR:Ring (Protection +10)				OPTION:99
+GEAR:Ring of Wizardry VIII				OPTION:84,86
+GEAR:Ring of Protection +6				OPTION:87,89
+GEAR:Ring of Wizardry IX					OPTION:90,92
+GEAR:Ring of Protection +7				OPTION:93,95
+GEAR:Ring of Protection +8				OPTION:96,97
+GEAR:Ring of Protection +9				OPTION:98
+GEAR:Ring of Protection +10				OPTION:99
 GEAR:Ring of Universal Energy Immunity		OPTION:100
 
 
