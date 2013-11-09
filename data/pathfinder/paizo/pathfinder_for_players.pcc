@@ -32,3 +32,4 @@ URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathf
 
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary/b1_races.lst|(INCLUDE:Orc)
