@@ -744,6 +744,8 @@ Polymorph.MOD																																																																			
 Polymorph Any Object.MOD																																																																																																																																																																																																																																																																																	BONUS:SKILL|Disguise|10|TYPE=Temporary|PREAPPLY:ANYPC
 # Singling Righteous Might out because that long line of temp bonuses would add too much empty whitespace to the other spells -- Frank
 
+#Imbue with Spell Ability.MOD		
+
 ###############################
 #	Full Spell Description	#
 ###############################
