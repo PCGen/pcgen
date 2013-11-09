@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v6.1.9</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v6.1.9</h1>
+
+		<p>
+		PCGen is a FREE Open Source character generator and maintenance program for role-playing games.
+		</p><p>
+    	PCGen currently supports the d20 RPG system and includes data sets based upon gaming material from Wizards of the Coast, Paizo Publishing and dozens of other publishers.
+    	The project's current focus is on gaming material released under Wizards of the Coast's Open Gaming License (OGL) and sources supporting the Pathfinder RPG by Paizo, but the PCGen team also works with publishers to get permission to include limited Closed Content as well.
+    	PCGen runs on Windows, Mac OS X and Unix/Linux using Java
+		</p>
+
+		<h2>Table of Contents</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v6.1.9</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#Thanks">Thanks</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 6.1.9</a></li>
+		</ul>
+		
+		<h2><a name="WhatsNew">What's new for v6.1.9</a></h2>
+
+
+<p>PCGen v6.1.9 is our first beta release for the 6.2 cycle! This version has 
+all the features we want to put out in our next production release. 
+</p><p>
+From here the focus changes to fixing any 
+issues you report and generally getting PCGen polished up ready for 
+production. So please grab a copy, load up your favourite characters and let us 
+know how it works for you. Some notable changes in this 
+release are listed below. 
+</p> 
+		 
+<h3>Notable Changes</h3>
+<ul>
+<li>Output sheets now have links to Paizo PRD site for each Pathfinder spell</li>
+<li>Types of skills to be output can be selected for each character</li>
+<li>Feedback provided when loading a character</li>
+<li>PF Bestiary 3 improvements</li>
+</ul>
+<!-- 
+<p>
+The new user interface does most of what you are used to, but does not currently provide  
+random NPC generation or LST editor functionality. 
+</p>
+ -->
+
+<h3>New Sources</h3>
+
+<p>The following new sources were added in 6.1.9</p>
+
+<ul>
+<li>[Minotaur Games] Monster Focus: Skeletons</li>
+<li>[Minotaur Games] Monster Focus: Zombies</li>
+</ul>
+
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 10 November, 2013.</p>
+		
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 6 or Java 7. PCGEN 6.1.9 is not compatible with Java 1.5.x and it is NOT SUPPORTED. 
+		To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.
+			PCGen has been tested with both Java 6 (including OpenJDK) and Java 7.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://www.pcgen.org/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen.
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://www.pcgen.org/autobuilds/pcgen-docs/">docs</a> to 
+		familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60109_full.zip?download">pcgen60109_full.zip</a>: <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60109_win_install.exe?download">pcgen60109_win_install.exe</a>: <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60109_mac_install.dmg?download">pcgen60109_mac_install.dmg</a>: <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<p>If you have custom data created using either the old LST Editor, or the my_dataset example files, it is
+			very important that you read the
+            <a href="http://pcgen.org/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> and
+            <a href="http://wiki.pcgen.org/Updating_Homebrew_Sets">Upgrading home brews</a> 
+            before installing your new version of PCGen.</p>
+
+		<h2><a name="Thanks">Thanks</a></h2>
+
+		<p>Thanks to the following people who contributed to this release: 
+		Andrew Maitland, Anestis Kozakis, Eric C Smith, Gabriel Sorrel, Henk Slaaf
+		James Dempsey, Kim Winz, Moni, Paul Grosse, Rob Reed,  
+		Stefan Radermacher, Tom Parker and Vincent Lhote.
+		</p>
+		<p></p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a>
+			or <a href="mailto:Content@pcgen.org">Content@pcgen.org</a>, or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.org">http://pcgen.org</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://wiki.pcgen.org/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The Yahoo <strong>pcgen_developers mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://tech.groups.yahoo.com/group/pcgen_developers/">http://tech.groups.yahoo.com/group/pcgen_developers/</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 6.1.9</a></h2>
+
+<h3>        New Data Sources
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-181'>NEWSOURCE-181</a>] -         [Minotaur Games] Monster Focus: Skeletons
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-198'>NEWSOURCE-198</a>] -         [Minotaur Games] Monster Focus: Zombies
+</li>
+</ul>
+
+<h3>        New Code Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1793'>CODE-1793</a>] -         Edit-&gt;Add Kit, Dialogue could use a &#39;qualified&#39; filter as per other dialogs
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2022'>CODE-2022</a>] -         Provide support for BONUS:SLOTS on Equipment tab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2077'>CODE-2077</a>] -         Add per character skill display selection to Skills tab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2190'>CODE-2190</a>] -         Display Class(es) and spelllevel(s) in spell description
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2309'>CODE-2309</a>] -         PlayerCharacter setDirty being called even when no modifications
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2332'>CODE-2332</a>] -         Show progress bar when loading character
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2339'>CODE-2339</a>] -         Add new output option for selection of displayed skills
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2342'>CODE-2342</a>] -         CHOOSE coupled in ABILITY with COST:0 won&#39;t allow any CHOICE with a POOL of 0.
+</li>
+</ul>
+
+<h3>        New Data Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-633'>DATA-633</a>] -         [Pathfinder] Add ALTTYPES to all Double Weapons
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-894'>DATA-894</a>] -         Implement Mnemonic Enhancer
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-931'>DATA-931</a>] -         D20M Combat Martial Arts/Living Weapon
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-932'>DATA-932</a>] -         Make the Wondrous "gauntlets" (the Gauntlets of Ogre Power and the Gauntlet of Rust) act as gauntlets.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1017'>DATA-1017</a>] -         Have the rings, etc., use a uniform naming scheme: Ring of Blah or Ring (Blah)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1314'>DATA-1314</a>] -         Data File &amp; Directory Restructure for Pazio Pathfinder
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1316'>DATA-1316</a>] -         Turn/Command Undead feat benefit output should include DC
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1343'>DATA-1343</a>] -         Nunchaku are base type Wood. Source states Metal or Wood - add a metal version.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1365'>DATA-1365</a>] -         Bestiary 3- Implement Creature Spellcasting Abilities
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1366'>DATA-1366</a>] -         Bestiary III- Implement Fey Creature Special Ability selections
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1367'>DATA-1367</a>] -         PF Bestiary III- Implement Fey Creature Template Spell-like abilities
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1369'>DATA-1369</a>] -         PF Bestiary 3- Implement Graveknight defensive abilities into Defense portion of statblock
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1371'>DATA-1371</a>] -         PF Bestiary 3- Implement selection of Ruinous Revification ability energy type
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1376'>DATA-1376</a>] -         Implement &#39;Imbue with Spell Ability&#39;
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1377'>DATA-1377</a>] -         Half-XXX count as Base Race per Errata
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1378'>DATA-1378</a>] -         Need method to associate an archetype with its base class
+</li>
+</ul>
+
+<h3>        Modify Tags
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-210'>NEWTAG-210</a>] -         Update USEMASTERSKILL:YES to grab ranks granted through BONUS:SKILLRANK
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-373'>NEWTAG-373</a>] -         COUNT Chronicle Entries
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-390'>NEWTAG-390</a>] -         Add new subtokens of SKILL output sheet token
+</li>
+</ul>
+
+<h3>        New Tags
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-374'>NEWTAG-374</a>] -         CAMPAIGNHISTORY tag to output campaign history entry
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-385'>NEWTAG-385</a>] -         create PREKIT as a global PRExxx tag
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-388'>NEWTAG-388</a>] -         Add SOURCEWEB to the SPELLMEM tag
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-391'>NEWTAG-391</a>] -         Please add a SOURCELINK tag to lst objects
+</li>
+</ul>
+
+<h3>        New Output Sheet Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-241'>OS-241</a>] -         ASPECT &#39;Name&#39; as an alternative to the actual name, to allow Special Name Changes
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-249'>OS-249</a>] -         Traits do not appear on standard HTML export output sheet
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-270'>OS-270</a>] -         Html sheets - link spells to web descriptions where available
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-272'>OS-272</a>] -         Present feats the same way special qualities are
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-277'>OS-277</a>] -         Add links to spells in fantasy PDF when SOURCELINK is available
+</li>
+</ul>
+
+
+
+<h3>       Code Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2054'>CODE-2054</a>] -         Kits that have EQUIPBUY:100 still cost in &quot;Cashless&quot; purchase mode
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2240'>CODE-2240</a>] -         Preview Sheet - I&#39;m seeing &quot;Square&quot; instead of x in the Weapon Crit Block 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2314'>CODE-2314</a>] -         Languages todo doesn&#39;t account for bonus ranks in linguistics
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2315'>CODE-2315</a>] -         Paper type preferences not saved between sessions
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2318'>CODE-2318</a>] -         MOD does not apply global SOURCExxx tags
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2322'>CODE-2322</a>] -         Summary screen - Deity Drop Down - Does not refresh after a Deity is assigned via a kit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2323'>CODE-2323</a>] -         Kits - Domain cannot be applied if it is in a subkit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2325'>CODE-2325</a>] -         Kits - Items without an OPTION tag are ignored once a SELECT is processed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2327'>CODE-2327</a>] -         Failed to find output sheet template directory
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2330'>CODE-2330</a>] -         BonusLst reports incorrect source when reporting an invalid abilitycategory
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2331'>CODE-2331</a>] -         Skill modifier breakdown shows large negative OTHER bonus
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2333'>CODE-2333</a>] -         Skills pane&#39;s ability modifier out of sync with actual modifiers.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2334'>CODE-2334</a>] -         Combat Expertise causes character load failure.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2335'>CODE-2335</a>] -         Unchecking weight on description tab hides every weight allowance value from output
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2337'>CODE-2337</a>] -         &quot;Save Party&quot; stores absolute path to characters which prevents loading
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2338'>CODE-2338</a>] -         Alignment dropdown not updating after selecting race that applies default kit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2343'>CODE-2343</a>] -         Default Load granting illegal abilities/traits.
+</li>
+</ul>
+
+<h3>       Data  Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-865'>DATA-865</a>] -         BONUS:SLOTS|ARMOR doesn&#39;t work
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1085'>DATA-1085</a>] -         Errors loading Pathfinder RPG for PFS set
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1103'>DATA-1103</a>] -         Ant Haul Calculation Errors on non-medium character
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1295'>DATA-1295</a>] -         Ethnicity language
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1312'>DATA-1312</a>] -         BONUS:SPELLCAST and BONUS:SPELLKNOWN have Dual listed %LIST entries which are causing errors
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1315'>DATA-1315</a>] -         Glory Domain bonus to Channel Energy DC not added or displayed
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1330'>DATA-1330</a>] -         Catfolk Claw Blades Issues
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1337'>DATA-1337</a>] -         Kobold race does not get racial bonus to Craft (Traps)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1338'>DATA-1338</a>] -         Duplicate favored class bonus - Bonus Oracle Spell Known
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1339'>DATA-1339</a>] -         Kobold natural armor is not considered as such
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1340'>DATA-1340</a>] -         Charming trait skill bonuses not shown
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1341'>DATA-1341</a>] -         Gunslinger Mismatch from the boards
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1342'>DATA-1342</a>] -         Survival (Follow or identify tracks/Underground) sub-skill should not appear and has wrong value
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1346'>DATA-1346</a>] -         Aldori Dueling Sword typo - Finessable should be Finesseable 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1351'>DATA-1351</a>] -         Bomb gets attack penalty for non-medium sized characters
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1352'>DATA-1352</a>] -         Aldori Swordlord is Aldori Sworldlord in the data
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1353'>DATA-1353</a>] -         Canter trait bonus not applied
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1358'>DATA-1358</a>] -         Druid Shaman Archetypes unable to benefit from their powers - TYPO in calls.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1359'>DATA-1359</a>] -         PF Bestiary 3- Incorrect Flumph Fly speed manuverability
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1360'>DATA-1360</a>] -         PF Bestiary III monsters getting one less feat than they should
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1362'>DATA-1362</a>] -         Mwangi is not an ethnicity
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1363'>DATA-1363</a>] -         PF Bestiary III- Imperial Dragon Not Getting Right Age Stats
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1364'>DATA-1364</a>] -         Bestiary III- Brain Ooze lacks Intelligence (and subsequently skills and feats)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1368'>DATA-1368</a>] -         PF Bestiary III- Fey Creature Template Granted Fly Speed and Manueverability
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1372'>DATA-1372</a>] -         [Pathfinder] Urban Ranger archetype not removing two skills.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1373'>DATA-1373</a>] -         Treesinger Druid Archetype Still Allowing Animal Companion
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1374'>DATA-1374</a>] -         Plant Companions not using same table progression as Animal Companions
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1381'>DATA-1381</a>] -         Typo in Survival Kit generates subtype category &quot;General)&quot;
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1383'>DATA-1383</a>] -         Catfolk Exemplar Sharp Claws &amp; Improved Natural Attack
+</li>
+</ul>
+
+<h3>      Output Sheet Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-276'>OS-276</a>] -         Two-handed weapons show no to hit bonus
+</li>
+</ul>
+
+
+	</body>
+</html>
