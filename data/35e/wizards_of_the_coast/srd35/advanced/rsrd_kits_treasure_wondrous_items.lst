@@ -330,7 +330,7 @@ GEAR:Horn of Valhalla (Iron)		OPTION:91,100
 STARTPACK:Specific Cursed Items	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Incense of Obsession			OPTION:01,05
-GEAR:Ring (Clumsiness)				OPTION:06,15
+GEAR:Ring of Clumsiness				OPTION:06,15
 GEAR:Amulet of Inescapable Location		OPTION:16,20
 GEAR:Stone of Weight (Loadstone)		OPTION:21,25
 GEAR:Bracers of Defenselessness		OPTION:26,30

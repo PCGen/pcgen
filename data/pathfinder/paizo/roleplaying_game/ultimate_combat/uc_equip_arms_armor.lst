@@ -195,7 +195,7 @@ Dan Bong.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Emei Piercer.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Fighting Fan.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
 Iron Brush.MOD				TYPE:Close.Weapon Group Close
-Madu.MOD					TYPE:Close.Weapon Group Close
+#Madu.MOD					TYPE:Close.Weapon Group Close
 Mere Club.MOD				TYPE:Close.Weapon Group Close
 Scizore.MOD					TYPE:Close.Weapon Group Close
 Tekko-Kagi (Iron Claw).MOD		TYPE:Close.Weapon Group Close
