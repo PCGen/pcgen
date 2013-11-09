@@ -90,3 +90,9 @@ EQUIPMENT:Ring (Epic Psionics VI)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionic
 EQUIPMENT:Ring (Epic Psionics VII)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionics VII
 EQUIPMENT:Ring (Epic Psionics VIII)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionics VIII
 EQUIPMENT:Ring (Epic Psionics IX)					MAXVER:6.00.01	NEWKEY:Ring of Epic Psionics IX
+EQUIPMENT:Ring (Universal Energy Resistance/Minor)		MAXVER:6.00.01	NEWKEY:Ring of Universal Energy Resistance (Minor)
+EQUIPMENT:Ring (Clumsiness)						MAXVER:6.00.01	NEWKEY:Ring of Clumsiness
+
+# AEG - Evil
+EQUIPMENT:Ring (Elements)						MAXVER:6.00.01	NEWKEY:Ring of Elements
+

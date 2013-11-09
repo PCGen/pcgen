@@ -27,15 +27,15 @@ Holding Stone	TYPE:Magic.Ammunition.Specific.SlingStone	COST:24000	WT:1		EQMOD:S
 ###Block: Potions
 # Equipment Name			Type					Cost		Weight	Source Page
 Blood of the Forefathers	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:pg.53
-Zohl’Kahn’s Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.106
-Zohl’Nahks Blood			TYPE:MAgic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
+ZohlUKahnUs Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.106
+ZohlUNahks Blood			TYPE:Magic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
 
 ###Block: Rings
 # Equipment Name		Output Name				Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
-Ring (Shadow Walking)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:117600	WT:0		EQMOD:RING			SOURCEPAGE:pg.28
-Ring (Sundering)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:pg.96	VFEAT:Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
-Ring (the Land)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:pg.131				SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
-Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:pg.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
+Ring of Shadow Walking		TYPE:Magic.Ring	COST:117600	WT:0		EQMOD:RING			SOURCEPAGE:pg.28
+Ring of Sundering			TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:pg.96	VFEAT:Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
+Ring of the Land			TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:pg.131				SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
+Ring of Weathercraft		TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:pg.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 
 ###Block:Rods, Staves and Wands
 # Equipment Name		Output Name				Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property

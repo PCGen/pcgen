@@ -25,7 +25,7 @@ FEAT:Lightning Reflexes
 FEAT:Quick Draw
 GEAR:Greataxe						SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
 GEAR:Full Plate						SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS2A
-GEAR:Ring (Energy Resistance/Fire/Minor)				LOCATION:Equipped
+GEAR:Ring of Energy Resistance (Minor/Fire)				LOCATION:Equipped
 GEAR:Cloak of Charisma +2				SIZE:PC	LOCATION:Equipped
 GEAR:Poison (Bloodroot)				QTY:2			LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Blackguard|Bull's Strength|Cause Fear|Doom|Magic Weapon
@@ -60,7 +60,7 @@ GEAR:Bracers of Archery (Lesser)			SIZE:PC	LOCATION:Equipped
 GEAR:Potion (Cat's Grace)				SIZE:PC	LOCATION:Carried
 GEAR:Potion (Cure Moderate Wounds)			SIZE:PC	LOCATION:Carried
 GEAR:Cloak of Resistance +2				SIZE:PC	LOCATION:Equipped
-GEAR:Ring (Protection +1)				SIZE:PC	LOCATION:Equipped
+GEAR:Ring of Protection +1				SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Nessian Warhound	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hell Hound]
 RACE:Hell Hound	!PRERACE:1,%

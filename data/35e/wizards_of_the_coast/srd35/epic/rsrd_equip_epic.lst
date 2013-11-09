@@ -64,8 +64,8 @@ Armor of the Abyssal Horde Claw Attack	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Ma
 
 
 ###Block: Non-Epic Rings In Epic RSRD
-# Equipment Name					Output Name								Type			Cost		Weight	Source Page					Special Property															Ability																										Modify VAR
-Ring (Universal Energy Resistance/Minor)	OUTPUTNAME:Ring of Universal Energy Resistance, Minor	TYPE:Magic.Ring	COST:84000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	SPROP:Absorbs 10 points of damage from all types of energy (fire, cold, electricity, acid, sonic)	ABILITY:Special Ability|VIRTUAL|Resistance To Acid (Sp)|Resistance To Cold (Sp)|Resistance To Electricity (Sp)|Resistance To Fire (Sp)|Resistance To Sonic (Sp)	BONUS:VAR|AcidResistanceBonusSp|10|TYPE=Base	BONUS:VAR|ColdResistanceBonusSp|10|TYPE=Base	BONUS:VAR|ElectricityResistanceBonusSp|10|TYPE=Base	BONUS:VAR|FireResistanceBonusSp|10|TYPE=Base	BONUS:VAR|SonicResistanceBonusSp|10|TYPE=Base
+# Equipment Name						KEY								Type			Cost		Weight	Source Page					Special Property															Ability																										Modify VAR
+Ring of Universal Energy Resistance, Minor	KEY:Ring of Universal Energy Resistance (Minor)	TYPE:Magic.Ring	COST:84000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	SPROP:Absorbs 10 points of damage from all types of energy (fire, cold, electricity, acid, sonic)	ABILITY:Special Ability|VIRTUAL|Resistance To Acid (Sp)|Resistance To Cold (Sp)|Resistance To Electricity (Sp)|Resistance To Fire (Sp)|Resistance To Sonic (Sp)	BONUS:VAR|AcidResistanceBonusSp|10|TYPE=Base	BONUS:VAR|ColdResistanceBonusSp|10|TYPE=Base	BONUS:VAR|ElectricityResistanceBonusSp|10|TYPE=Base	BONUS:VAR|FireResistanceBonusSp|10|TYPE=Base	BONUS:VAR|SonicResistanceBonusSp|10|TYPE=Base
 
 
 ###Block: Epic Rings

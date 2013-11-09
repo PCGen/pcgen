@@ -513,10 +513,10 @@ FEAT:Spell Penetration
 FEAT:Toughness
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 GEAR:Bracers of Armor +8	LOCATION:Equipped
-GEAR:Ring (Protection +2)	LOCATION:Equipped
+GEAR:Ring of Protection +2	LOCATION:Equipped
 GEAR:Headband of Intellect +6	LOCATION:Equipped
 GEAR:Ioun Stone (Pink)		LOCATION:Equipped
-GEAR:Ring (Wizardry I)		LOCATION:Equipped
+GEAR:Ring of Wizardry I		LOCATION:Equipped
 GEAR:Gloves of Dexterity +2	LOCATION:Equipped
 
 STARTPACK:Devastation Vermin (Devastation Beetle) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devastation Vermin (Devastation Beetle)]
@@ -1465,7 +1465,7 @@ FEAT:Spell Penetration
 FEAT:Toughness
 GEAR:Amulet of Natural Armor +2	LOCATION:EQUIPPED
 GEAR:Bracers of Armor +8		LOCATION:EQUIPPED
-GEAR:Ring (Protection +3)		LOCATION:EQUIPPED
+GEAR:Ring of Protection +3		LOCATION:EQUIPPED
 GEAR:Gloves of Dexterity +4		LOCATION:EQUIPPED
 GEAR:Headband of Intellect +6		LOCATION:EQUIPPED
 GEAR:Wings of Flying			LOCATION:EQUIPPED
