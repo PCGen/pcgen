@@ -34,7 +34,12 @@ public class AbilityChooseController extends ChooseController<Ability>
 	@Override
 	public int getPool()
 	{
-		return isMultYes() ? pc.getAvailableAbilityPool(ac).intValue() : 1;
+		if (isMultYes())
+		{
+			int availPool = pc.getAvailableAbilityPool(ac).intValue();
+			return availPool == 0 && getCost() == 0 ? 1 : availPool;
+		}
+		return 1;
 	}
 
 	@Override
