@@ -60,7 +60,7 @@ Bonus Spell Level 7	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell						
 Bonus Spell Level 8	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell							VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=8					STACK:YES	MULT:YES	CHOOSE:CLASS|PC[SPELLTYPE=Arcane]					BONUS:SPELLCAST|CLASS=%LIST;LEVEL=8|1
 Bonus Spell Level 9	CATEGORY:Special Ability	TYPE:DragonDiscipleBonusSpell							VISIBLE:DISPLAY	PRESPELLTYPE:1,Arcane=9					STACK:YES	MULT:YES	CHOOSE:CLASS|PC[SPELLTYPE=Arcane]					BONUS:SPELLCAST|CLASS=%LIST;LEVEL=9|1
 #
-Dragon Wings		CATEGORY:Special Ability	TYPE:ClassAbility.DragonDisciple.SpecialQuality.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9											MOVECLONE:Walk,Fly,*2
+Dragon Wings		CATEGORY:Special Ability	TYPE:ClassAbility.DragonDisciple.SpecialQuality.Extraordinary	VISIBLE:YES												PRECLASS:1,Dragon Disciple=9											MOVECLONE:Walk,Fly,*1
 
 ###Block: Dragon Disciple - Subclass -----------------------------
 # Ability Name		Output Name							Category of Ability		Type								Visible	Description
