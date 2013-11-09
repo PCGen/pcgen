@@ -167,3 +167,81 @@ Springal (Rocket)			PROFICIENCY:WEAPON|Springal (Rocket)		TYPE:Weapon.Ranged.Sie
 Trebuchet (Heavy)			PROFICIENCY:WEAPON|Trebuchet (Heavy)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1500	CRITMULT:x2							DAMAGE:8d6	RANGE:400	SPROP: Range (200 ft. min.)	SPROP:Crew 4, Aim 3, Load 3, Speed 0 ft.
 Trebuchet (Light)			PROFICIENCY:WEAPON|Trebuchet (Light)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:800	CRITMULT:x2							DAMAGE:4d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
 Trebuchet (Standard)		PROFICIENCY:WEAPON|Trebuchet (Standard)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1000	CRITMULT:x2							DAMAGE:6d6	RANGE:300	SPROP: Range (150 ft. min.)	SPROP:Crew 4, Aim 2, Load 3, Speed 0 ft.
+
+###Block: Weapon Groups
+Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes.Polearm.Weapon Group Pole Arms
+Knuckle Axe.MOD				TYPE:Axe.Weapon Group Axes
+Mattock.MOD					TYPE:Axe.Weapon Group Axes
+Pata.MOD					TYPE:Axe.Weapon Group Axes.Bladelight.Weapon Group Blades Light
+#
+Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Katana (Double Walking Stick).MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Katana.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Broadsword (Nine Ring).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Nodachi.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Polearm.Weapon Group Pole Arms
+Sword (Seven-Branched).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Shotel.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+#
+Butterfly Sword.MOD			TYPE:Bladelight.Weapon Group Blades Light.Monk.Weapon Group Monk
+#Gladius.MOD	TYPE:Bladelight
+Kerambit.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Quadrens.MOD				TYPE:Bladelight.Weapon Group Blades Light
+Sica.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Wakizashi.MOD				TYPE:Bladelight.Weapon Group Blades Light
+#
+Dan Bong.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Emei Piercer.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Fighting Fan.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Iron Brush.MOD				TYPE:Close.Weapon Group Close
+Madu.MOD					TYPE:Close.Weapon Group Close
+Mere Club.MOD				TYPE:Close.Weapon Group Close
+Scizore.MOD					TYPE:Close.Weapon Group Close
+Tekko-Kagi (Iron Claw).MOD		TYPE:Close.Weapon Group Close
+Tonfa.MOD					TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk
+Wushu Dart.MOD				TYPE:Close.Weapon Group Close.Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
+#
+Tube Arrow Shooter.MOD			TYPE:Crossbow.Weapon Group Crossbows
+#
+#Firearms: All One-Handed, Two-Handed, And Siege Firearms
+#
+#Chain Spear.MOD	TYPE:Flail
+Kama (Double-Chained).MOD		TYPE:Flail.Weapon Group Flails.Monk
+Flying Blade.MOD				TYPE:Flail.Weapon Group Flails
+Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Kyoketsu Shoge.MOD			TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Meteor Hammer.MOD				TYPE:Flail.Weapon Group Flails
+Nine-Section Whip.MOD			TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Sansetsukon.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+Scorpion Whip.MOD				TYPE:Flail.Weapon Group Flails
+Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
+#
+Aklys (Gladiator).MOD			TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
+Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
+Tetsubo.MOD					TYPE:Hammer.Weapon Group Hammers
+Wahaika.MOD					TYPE:Hammer.Weapon Group Hammers
+#
+Bo Staff.MOD				TYPE:Monk.Weapon Group Monk
+Jutte.MOD					TYPE:Monk.Weapon Group Monk
+Monk's Spade.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
+Broadsword (Nine Ring).MOD		TYPE:Monk.Weapon Group Monk
+Rope Dart.MOD				TYPE:Monk.Weapon Group Monk.Thrown.Weapon Group Thrown
+Shang Gou.MOD				TYPE:Monk.Weapon Group Monk
+Tiger Fork.MOD				TYPE:Monk.Weapon Group Monk.Polearm.Weapon Group Pole Arms
+Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
+
+Naginata.MOD				TYPE:Polearm.Weapon Group Spears
+
+Amentum (Javelin).MOD			TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
+#Boar Spear.MOD	TYPE:Spear
+Pilum.MOD					TYPE:Spear.Weapon Group Spears
+Sibat.MOD					TYPE:Spear.Weapon Group Spears
+Tiger Fork.MOD				TYPE:Spear.Weapon Group Spears
+
+Atlatl.MOD					TYPE:Thrown.Weapon Group Thrown
+Harpoon.MOD					TYPE:Thrown.Weapon Group Thrown
+Kestros.MOD					TYPE:Thrown.Weapon Group Thrown
+Poisoned Sand Tube.MOD			TYPE:Thrown.Weapon Group Thrown
+Throwing Shield.MOD			TYPE:Thrown.Weapon Group Thrown
