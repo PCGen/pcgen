@@ -8,8 +8,8 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 ###Block: Alchemist Tentacle discovery templates
 # Template Name			Visible	Template											Required Size	Natural Attacks
 Alchemist Tentacle		VISIBLE:NO	TEMPLATE:CHOOSE:Medium Alchemist Tentacle|Small Alchemist Tentacle
-Medium Alchemist Tentacle	VISIBLE:NO													PRESIZEEQ:M		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
-Small Alchemist Tentacle	VISIBLE:NO													PRESIZEEQ:S		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Medium Alchemist Tentacle	VISIBLE:NO													PRESIZEEQ:M		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Small Alchemist Tentacle	VISIBLE:NO													PRESIZEEQ:S		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
 
 ###Block: Template to activate bardic masterpieces
 # Template Name		Visible	Ability

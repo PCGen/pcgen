@@ -38,7 +38,7 @@ Oversized Limb	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPL
 Thick Skin		CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Thick Skin																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor
 Enhanced Senses	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Enhanced Senses																										BONUS:SKILL|Search,Spot|2|TYPE=Racial
 Triple-Jointed	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Triple-Jointed																										BONUS:SKILL|Escape Artist|4|TYPE=Racial
-Ovesized Maw	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Oversized Maw																																														NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
+Ovesized Maw	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Oversized Maw																																														NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
 Vestigal Limb	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Vestigal Limb																				BONUS:COMBAT|TOHIT.GRAPPLE|4|TYPE=Racial
 Fierce Visage	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Fierce Visage																											BONUS:SKILL|Intimidate|4|TYPE=Racial
 Quick Metabolism	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Quick Metabolism ~ You heal faster than normal when at rest.					BONUS:CHECKS|Fortitude|2|TYPE=Racial

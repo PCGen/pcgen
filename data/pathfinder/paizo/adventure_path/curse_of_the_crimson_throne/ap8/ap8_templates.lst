@@ -5,15 +5,15 @@ Nosferatu		HITDIE:12		CR:2			DR:5/Piercing and Wood	LEVELADJUSTMENT:8	TEMPLATE:U
 
 ###Block: Nosferatu Claw
 # Template Name			Visible	Required Size	Natural Attacks
-Nosferatu Claw (Fine)		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1
-Nosferatu Claw (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
-Nosferatu Claw (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
-Nosferatu Claw (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
-Nosferatu Claw (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
-Nosferatu Claw (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
-Nosferatu Claw (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
-Nosferatu Claw (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8
-Nosferatu Claw (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6
+Nosferatu Claw (Fine)		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Nosferatu Claw (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
+Nosferatu Claw (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Nosferatu Claw (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Nosferatu Claw (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Nosferatu Claw (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Nosferatu Claw (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
+Nosferatu Claw (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8
+Nosferatu Claw (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6
 
 ###Block: Custom Templates
 # Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus						Bonus to HP																							Stat bonus		Virtual Feat	Race Subtype			Vision

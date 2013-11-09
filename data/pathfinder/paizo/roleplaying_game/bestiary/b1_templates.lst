@@ -52,23 +52,23 @@ Half-Dragon.MOD	TEMPLATE:CHOOSE:Half-Dragon Claw ~ Tiny|Half-Dragon Claw ~ Small
 
 ###Block: Half-Dragon Melee attacks
 # Template Name			Visible	!PREEQUIP		Required Size	Natural Attacks
-Half-Dragon Bite ~ Fine		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1
-Half-Dragon Bite ~ Diminutive	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d2
-Half-Dragon Bite ~ Tiny		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d3
-Half-Dragon Bite ~ Small	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d4
-Half-Dragon Bite ~ Medium	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d6
-Half-Dragon Bite ~ Large	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d8
-Half-Dragon Bite ~ Huge		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,2d6
-Half-Dragon Bite ~ Gargantuan	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,2d8
-Half-Dragon Bite ~ Colossal	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,4d6
+Half-Dragon Bite ~ Fine		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1
+Half-Dragon Bite ~ Diminutive	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d2
+Half-Dragon Bite ~ Tiny		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d3
+Half-Dragon Bite ~ Small	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d4
+Half-Dragon Bite ~ Medium	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d6
+Half-Dragon Bite ~ Large	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,1d8
+Half-Dragon Bite ~ Huge		VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,2d6
+Half-Dragon Bite ~ Gargantuan	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,2d8
+Half-Dragon Bite ~ Colossal	VISIBLE:NO	!PREEQUIP:1,Bite	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing,*1,4d6
 
-Half-Dragon Claw ~ Tiny		VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
-Half-Dragon Claw ~ Small	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
-Half-Dragon Claw ~ Medium	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
-Half-Dragon Claw ~ Large	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
-Half-Dragon Claw ~ Huge		VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
-Half-Dragon Claw ~ Gargantuan	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
-Half-Dragon Claw ~ Colossal	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8
+Half-Dragon Claw ~ Tiny		VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
+Half-Dragon Claw ~ Small	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Half-Dragon Claw ~ Medium	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Half-Dragon Claw ~ Large	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Half-Dragon Claw ~ Huge		VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Half-Dragon Claw ~ Gargantuan	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6
+Half-Dragon Claw ~ Colossal	VISIBLE:NO	!PREEQUIP:1,Claw	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8
 
 ###Block: Half-Dragon Types
 # Template Name		Visible	Subrace
@@ -85,7 +85,7 @@ White Half-Dragon		VISIBLE:NO	SUBRACE:Half-White Dragon
 
 ###Block: Lich template
 # Template Name	Hit Dice Size			Challenge Rating	Damage Reduction			Source Page		Define			Prohibited Race			Combat bonus						Bonus to skill								Stat bonus				Modify VAR				Weapon prof. bonus					Class Skill																			Ability																														Apply Kit		Subrace	Main Race Type	Natural Attacks
-Lich			HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:15/Bludgeoning	DR:15/Magic	SOURCEPAGE:p.189	DEFINE:NoTypeTraits|1	!PRERACE:1,RACETYPE=Undead	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|2	BONUS:VAR|ChannelResistance|4	BONUS:WEAPONPROF=Touch|DAMAGE|floor(TL/2)-STR	CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Fear Aura ~ Lich|Immunity to Cold|Immunity to Electricity|Paralyzing Touch ~ Lich|Rejuvenation ~ Lich|Undead Traits|Undead Traits	KIT:1|CE|LE|NE	SUBRACE:YES	RACETYPE:Undead	NATURALATTACKS:Touch,Weapon.Natural.Melee.Finesseable,*1,1d8
+Lich			HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:15/Bludgeoning	DR:15/Magic	SOURCEPAGE:p.189	DEFINE:NoTypeTraits|1	!PRERACE:1,RACETYPE=Undead	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.REPLACE	BONUS:SKILL|Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|2	BONUS:VAR|ChannelResistance|4	BONUS:WEAPONPROF=Touch|DAMAGE|floor(TL/2)-STR	CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Fear Aura ~ Lich|Immunity to Cold|Immunity to Electricity|Paralyzing Touch ~ Lich|Rejuvenation ~ Lich|Undead Traits|Undead Traits	KIT:1|CE|LE|NE	SUBRACE:YES	RACETYPE:Undead	NATURALATTACKS:Touch,Weapon.Natural.Weapon Group Natural.Melee.Finesseable,*1,1d8
 
 ###Block: Lycanthrope
 # Template Name			Challenge Rating	Size							Damage Reduction																						Template					Define			Required Ability								Required Race			Required Template			Prohibited Template				Bonus to Ability Pool											Stat bonus					Modify VAR				Ability											Race Subtype
@@ -103,8 +103,8 @@ Afflicted Werewolf	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted Ly
 ###Block: Lycanthrope Abilities (in Hybrid and animal forms)
 # Template Name		Visible	Template														Required Ability						Weapon prof. bonus																																										Ability									Move					Natural Attacks
 Lycanthrope Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Wererat Abilities|Werewolf Abilities
-Wererat Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wererat_STR	TEMPLATE:CHOOSE:Wererat_DEX	TEMPLATE:CHOOSE:Wererat_CON	PREABILITY:1,CATEGORY=Special Ability,Wererat	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|PCSIZE|1|PRETEMPLATE:1,Lycanthrope (Animal Form)	ABILITY:Special Ability|AUTOMATIC|Disease ~ Filth Fever	MOVE:Walk,40,Climb,20,Swim,20	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing.Disease,*1,1d4
-Werewolf Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Werewolf_STR	TEMPLATE:CHOOSE:Werewolf_DEX	TEMPLATE:CHOOSE:Werewolf_CON	PREABILITY:1,CATEGORY=Special Ability,Werewolf	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)													ABILITY:Special Ability|AUTOMATIC|Trip				MOVE:Walk,50			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Wererat Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wererat_STR	TEMPLATE:CHOOSE:Wererat_DEX	TEMPLATE:CHOOSE:Wererat_CON	PREABILITY:1,CATEGORY=Special Ability,Wererat	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|PCSIZE|1|PRETEMPLATE:1,Lycanthrope (Animal Form)	ABILITY:Special Ability|AUTOMATIC|Disease ~ Filth Fever	MOVE:Walk,40,Climb,20,Swim,20	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing.Disease,*1,1d4
+Werewolf Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Werewolf_STR	TEMPLATE:CHOOSE:Werewolf_DEX	TEMPLATE:CHOOSE:Werewolf_CON	PREABILITY:1,CATEGORY=Special Ability,Werewolf	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)													ABILITY:Special Ability|AUTOMATIC|Trip				MOVE:Walk,50			NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 
 ###Block: Lycanthrope Ability Scores (in Hybrid and animal forms)
 # Template Name	Visible	Prohibited Stat	DEFINESTAT
@@ -140,13 +140,13 @@ Vampire		HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:10/Silver	DR:10/Magic	TEMPLATE:CH
 
 ###Block: Vampire Attacks
 # Template Name		Visible	Required Size	Natural Attacks
-Vampire ~ Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d2
-Vampire ~ Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d3
-Vampire ~ Medium		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d4
-Vampire ~ Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d6
-Vampire ~ Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d8
-Vampire ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,2d6
-Vampire ~ Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,2d8
+Vampire ~ Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d2
+Vampire ~ Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d3
+Vampire ~ Medium		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d4
+Vampire ~ Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d6
+Vampire ~ Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,1d8
+Vampire ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,2d6
+Vampire ~ Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.EnergyDrain,*1,2d8
 
 ###Block: Vampire subtype removal
 # Template Name	Race Subtype
@@ -174,13 +174,13 @@ Zombie (Plague)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|
 
 ###Block: Zombie
 # Template Name		Visible	Required Size	Combat bonus						Weapon prof. bonus				Add Levels				Natural Attacks
-Zombie ~ Tiny		VISIBLE:NO	PRESIZEEQ:T										BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)						NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
-Zombie ~ Small		VISIBLE:NO	PRESIZEEQ:S		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK		BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
-Zombie ~ Medium		VISIBLE:NO	PRESIZEEQ:M		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
-Zombie ~ Large		VISIBLE:NO	PRESIZEEQ:L		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK		BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|2	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-Zombie ~ Huge		VISIBLE:NO	PRESIZEEQ:H		BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK									ADDLEVEL:Undead (Mindless)|4	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-Zombie ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		BONUS:COMBAT|AC|7|TYPE=NaturalArmor.STACK									ADDLEVEL:Undead (Mindless)|6	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:COMBAT|AC|11|TYPE=NaturalArmor.STACK								ADDLEVEL:Undead (Mindless)|10	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+Zombie ~ Tiny		VISIBLE:NO	PRESIZEEQ:T										BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)						NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Zombie ~ Small		VISIBLE:NO	PRESIZEEQ:S		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK		BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Zombie ~ Medium		VISIBLE:NO	PRESIZEEQ:M		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|1	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Zombie ~ Large		VISIBLE:NO	PRESIZEEQ:L		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK		BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)	ADDLEVEL:Undead (Mindless)|2	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Zombie ~ Huge		VISIBLE:NO	PRESIZEEQ:H		BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK									ADDLEVEL:Undead (Mindless)|4	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Zombie ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		BONUS:COMBAT|AC|7|TYPE=NaturalArmor.STACK									ADDLEVEL:Undead (Mindless)|6	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:COMBAT|AC|11|TYPE=NaturalArmor.STACK								ADDLEVEL:Undead (Mindless)|10	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
 
 # Zombie issues:
 #TODO Can't do now: Remove Feats and Skills

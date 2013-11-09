@@ -6,7 +6,7 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 
 ###Block: Void Zombie template
 # Template Name	Challenge Rating	Visible	Source Page		Required Template			Weapon prof. bonus												Ability									Natural Attacks
-Zombie (Void)	CR:1			VISIBLE:YES	SOURCEPAGE:p.23	PRETEMPLATE:1,Zombie (Fast)	BONUS:WEAPONPROF=Tongue|TOHIT|-5	BONUS:WEAPONPROF=Tongue|TOHIT|3|PREFEAT:1,Multiattack	ABILITY:Special Ability|AUTOMATIC|Blood Drain ~ Void Zombie	NATURALATTACKS:Tongue,Weapon.Natural.Melee.Finesseable.Bludgeoning.BloodDrain,*1,1d6
+Zombie (Void)	CR:1			VISIBLE:YES	SOURCEPAGE:p.23	PRETEMPLATE:1,Zombie (Fast)	BONUS:WEAPONPROF=Tongue|TOHIT|-5	BONUS:WEAPONPROF=Tongue|TOHIT|3|PREFEAT:1,Multiattack	ABILITY:Special Ability|AUTOMATIC|Blood Drain ~ Void Zombie	NATURALATTACKS:Tongue,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.BloodDrain,*1,1d6
 
 ###Block: Lycanthrope Subrace
 # Template Name		Visible	Required Ability								Subrace
@@ -20,9 +20,9 @@ Afflicted Weretiger	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted L
 ###Block: Lycanthrope Abilities (in Hybrid and animal forms)
 # Template Name			Visible	Template														Required Ability						Combat bonus				Weapon prof. bonus																																										Ability								Move			Natural Attacks
 Lycanthrope Abilities.MOD	VISIBLE:NO	TEMPLATE:ADDCHOICE:Werebear Abilities|Wereboar Abilities|Weretiger Abilities
-Werebear Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Werebear_STR	TEMPLATE:CHOOSE:Werebear_DEX	TEMPLATE:CHOOSE:Werebear_CON	PREABILITY:1,CATEGORY=Special Ability,Werebear	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Claw|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	ABILITY:Special Ability|AUTOMATIC|Grab ~ Werebear	MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Slashing.Grab,*1,1d6
-Wereboar Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wereboar_STR	TEMPLATE:CHOOSE:Wereboar_DEX	TEMPLATE:CHOOSE:Wereboar_CON	PREABILITY:1,CATEGORY=Special Ability,Wereboar	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Gore|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	ABILITY:Special Ability|AUTOMATIC|Ferocity		MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing.Grab,*1,1d8
-Weretiger Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Weretiger_STR	TEMPLATE:CHOOSE:Weretiger_DEX	TEMPLATE:CHOOSE:Weretiger_CON	PREABILITY:1,CATEGORY=Special Ability,Weretiger	BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																																							MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Slashing,*1,1d8
+Werebear Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Werebear_STR	TEMPLATE:CHOOSE:Werebear_DEX	TEMPLATE:CHOOSE:Werebear_CON	PREABILITY:1,CATEGORY=Special Ability,Werebear	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Claw|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	ABILITY:Special Ability|AUTOMATIC|Grab ~ Werebear	MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing.Grab,*1,1d6
+Wereboar Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wereboar_STR	TEMPLATE:CHOOSE:Wereboar_DEX	TEMPLATE:CHOOSE:Wereboar_CON	PREABILITY:1,CATEGORY=Special Ability,Wereboar	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))	BONUS:WEAPONPROF=Bite|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Gore|TOHIT|-5|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:WEAPONPROF=Bite|DAMAGE|-STR|PRETEMPLATE:1,Lycanthrope (Hybrid Form)	ABILITY:Special Ability|AUTOMATIC|Ferocity		MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Grab,*1,1d8
+Weretiger Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Weretiger_STR	TEMPLATE:CHOOSE:Weretiger_DEX	TEMPLATE:CHOOSE:Weretiger_CON	PREABILITY:1,CATEGORY=Special Ability,Weretiger	BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																																							MOVE:Walk,30	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*1,1d8
 
 ###Block: Lycanthrope Ability Scores (in Hybrid and animal forms)
 # Template Name	Visible	Prohibited Stat	DEFINESTAT
@@ -47,25 +47,25 @@ Ogrekin		CR:1			SOURCEPAGE:p.204	PRERACE:1,RACETYPE=Humanoid	PRESIZEGTEQ:M	BONUS
 # Template Name		Visible	Template																																Required Size	Natural Attacks
 Petitioner Slam		VISIBLE:NO	TEMPLATE:CHOOSE:Petitioner Slam ~ F|Petitioner Slam ~ D|Petitioner Slam ~ T|Petitioner Slam ~ S|Petitioner Slam ~ M|Petitioner Slam ~ L|Petitioner Slam ~ H|Petitioner Slam ~ G|Petitioner Slam ~ C
 Petitioner Slam ~ F	VISIBLE:NO																																		PRESIZEEQ:F
-Petitioner Slam ~ D	VISIBLE:NO																																		PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d1
-Petitioner Slam ~ T	VISIBLE:NO																																		PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d2
-Petitioner Slam ~ S	VISIBLE:NO																																		PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d3
-Petitioner Slam ~ M	VISIBLE:NO																																		PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d4
-Petitioner Slam ~ L	VISIBLE:NO																																		PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d6
-Petitioner Slam ~ H	VISIBLE:NO																																		PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d8
-Petitioner Slam ~ G	VISIBLE:NO																																		PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d6
-Petitioner Slam ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+Petitioner Slam ~ D	VISIBLE:NO																																		PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Petitioner Slam ~ T	VISIBLE:NO																																		PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Petitioner Slam ~ S	VISIBLE:NO																																		PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Petitioner Slam ~ M	VISIBLE:NO																																		PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Petitioner Slam ~ L	VISIBLE:NO																																		PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Petitioner Slam ~ H	VISIBLE:NO																																		PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Petitioner Slam ~ G	VISIBLE:NO																																		PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Petitioner Slam ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
 
 Petitioner Bite		VISIBLE:NO	TEMPLATE:CHOOSE:Petitioner Bite ~ F|Petitioner Bite ~ D|Petitioner Bite ~ T|Petitioner Bite ~ S|Petitioner Bite ~ M|Petitioner Bite ~ L|Petitioner Bite ~ H|Petitioner Bite ~ G|Petitioner Bite ~ C
-Petitioner Bite ~ F	VISIBLE:NO																																		PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d1
-Petitioner Bite ~ D	VISIBLE:NO																																		PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d2
-Petitioner Bite ~ T	VISIBLE:NO																																		PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d3
-Petitioner Bite ~ S	VISIBLE:NO																																		PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d4
-Petitioner Bite ~ M	VISIBLE:NO																																		PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d6
-Petitioner Bite ~ L	VISIBLE:NO																																		PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d8
-Petitioner Bite ~ H	VISIBLE:NO																																		PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d6
-Petitioner Bite ~ G	VISIBLE:NO																																		PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d8
-Petitioner Bite ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,4d6
+Petitioner Bite ~ F	VISIBLE:NO																																		PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Petitioner Bite ~ D	VISIBLE:NO																																		PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Petitioner Bite ~ T	VISIBLE:NO																																		PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Petitioner Bite ~ S	VISIBLE:NO																																		PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Petitioner Bite ~ M	VISIBLE:NO																																		PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Petitioner Bite ~ L	VISIBLE:NO																																		PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Petitioner Bite ~ H	VISIBLE:NO																																		PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Petitioner Bite ~ G	VISIBLE:NO																																		PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+Petitioner Bite ~ C	VISIBLE:NO																																		PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,4d6
 
 ###Block: Ravener template
 # NEEDS CODE WORK: Change DR from /magic to /good - not possible?
@@ -103,20 +103,20 @@ Worm that Walks			HITDIE:8|CLASS.TYPE=Monster	CR:2					DR:15/-		TEMPLATE:Worm th
 #Block: Templates to choose the correct version of the Slam natural attack for Worms that Walk.
 Worm that Walks Slam										VISIBLE:NO				TEMPLATE:CHOOSE:Worm that Walks Slam ~ F|Worm that Walks Slam ~ D|Worm that Walks Slam ~ T|Worm that Walks Slam ~ S|Worm that Walks Slam ~ M|Worm that Walks Slam ~ L|Worm that Walks Slam ~ H|Worm that Walks Slam ~ G|Worm that Walks Slam ~ C
 Worm that Walks Slam ~ F									VISIBLE:NO																																																								PRESIZEEQ:F
-Worm that Walks Slam ~ D									VISIBLE:NO																																																								PRESIZEEQ:D																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d1
-Worm that Walks Slam ~ T									VISIBLE:NO																																																								PRESIZEEQ:T																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d2
-Worm that Walks Slam ~ S									VISIBLE:NO																																																								PRESIZEEQ:S																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d3
-Worm that Walks Slam ~ M									VISIBLE:NO																																																								PRESIZEEQ:M																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d4
-Worm that Walks Slam ~ L									VISIBLE:NO																																																								PRESIZEEQ:L																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d6
-Worm that Walks Slam ~ H									VISIBLE:NO																																																								PRESIZEEQ:H																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d8
-Worm that Walks Slam ~ G									VISIBLE:NO																																																								PRESIZEEQ:G																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d6
-Worm that Walks Slam ~ C									VISIBLE:NO																																																								PRESIZEEQ:C																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+Worm that Walks Slam ~ D									VISIBLE:NO																																																								PRESIZEEQ:D																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Worm that Walks Slam ~ T									VISIBLE:NO																																																								PRESIZEEQ:T																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Worm that Walks Slam ~ S									VISIBLE:NO																																																								PRESIZEEQ:S																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Worm that Walks Slam ~ M									VISIBLE:NO																																																								PRESIZEEQ:M																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Worm that Walks Slam ~ L									VISIBLE:NO																																																								PRESIZEEQ:L																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Worm that Walks Slam ~ H									VISIBLE:NO																																																								PRESIZEEQ:H																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Worm that Walks Slam ~ G									VISIBLE:NO																																																								PRESIZEEQ:G																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Worm that Walks Slam ~ C									VISIBLE:NO																																																								PRESIZEEQ:C																																																																																			NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
 
 
 ###Block: Whale templates - for natural attack choice
 # Template Name	Visible	Weapon prof. bonus				Natural Attacks
-Whale Tail Slap	VISIBLE:NO	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR/2	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6
-Whale Bite		VISIBLE:NO	BONUS:WEAPONPROF=Bite|DAMAGE|STR/2		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
+Whale Tail Slap	VISIBLE:NO	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR/2	NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+Whale Bite		VISIBLE:NO	BONUS:WEAPONPROF=Bite|DAMAGE|STR/2		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 
 ###Block: Zombie (Juju) template
 # NEEDS CODE WORK: This template seems to try to use the Juju Zombie Flight
@@ -126,15 +126,15 @@ Zombie (Juju)			HITDIE:8|CLASS.TYPE=Monster	CR:1					DR:5/Magic and Slashing	TEM
 
 #Block: Templates to choose the correct Slam natural attack for the Juju Zombie
 Juju Zombie Slam											VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie Slam ~ F|Juju Zombie Slam ~ D|Juju Zombie Slam ~ T|Juju Zombie Slam ~ S|Juju Zombie Slam ~ M|Juju Zombie Slam ~ L|Juju Zombie Slam ~ H|Juju Zombie Slam ~ G|Juju Zombie Slam ~ C
-Juju Zombie Slam ~ F										VISIBLE:NO																																																													PRESIZEEQ:F																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d1
-Juju Zombie Slam ~ D										VISIBLE:NO																																																													PRESIZEEQ:D																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d2
-Juju Zombie Slam ~ T										VISIBLE:NO																																																													PRESIZEEQ:T																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d3
-Juju Zombie Slam ~ S										VISIBLE:NO																																																													PRESIZEEQ:S																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d4
-Juju Zombie Slam ~ M										VISIBLE:NO																																																													PRESIZEEQ:M																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d6
-Juju Zombie Slam ~ L										VISIBLE:NO																																																													PRESIZEEQ:L																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,1d8
-Juju Zombie Slam ~ H										VISIBLE:NO																																																													PRESIZEEQ:H																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d6
-Juju Zombie Slam ~ G										VISIBLE:NO																																																													PRESIZEEQ:G																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,2d8
-Juju Zombie Slam ~ C										VISIBLE:NO																																																													PRESIZEEQ:C																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning.Finesseable,*1,4d6
+Juju Zombie Slam ~ F										VISIBLE:NO																																																													PRESIZEEQ:F																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d1
+Juju Zombie Slam ~ D										VISIBLE:NO																																																													PRESIZEEQ:D																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d2
+Juju Zombie Slam ~ T										VISIBLE:NO																																																													PRESIZEEQ:T																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d3
+Juju Zombie Slam ~ S										VISIBLE:NO																																																													PRESIZEEQ:S																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d4
+Juju Zombie Slam ~ M										VISIBLE:NO																																																													PRESIZEEQ:M																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d6
+Juju Zombie Slam ~ L										VISIBLE:NO																																																													PRESIZEEQ:L																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,1d8
+Juju Zombie Slam ~ H										VISIBLE:NO																																																													PRESIZEEQ:H																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d6
+Juju Zombie Slam ~ G										VISIBLE:NO																																																													PRESIZEEQ:G																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,2d8
+Juju Zombie Slam ~ C										VISIBLE:NO																																																													PRESIZEEQ:C																																																																																																		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Bludgeoning.Finesseable,*1,4d6
 
 #Block: Templates to choose the correct maneuverability for flying Juju Zombies.
 Juju Zombie Flight										VISIBLE:NO					TEMPLATE:CHOOSE:Juju Zombie No Flight|Juju Zombie Winged Flight|Juju Zombie Magical Flight
