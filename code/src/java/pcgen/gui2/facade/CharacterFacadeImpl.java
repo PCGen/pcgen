@@ -2669,7 +2669,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			// It is possible another thread changed PC during export; log for now, the next export will rebuild
 			int countSerialChanges = theCharacter.getSerial() - lastExportCharSerial;
 			if (countSerialChanges > 0)
-				Logging.log(Logging.WARNING, "Player character " + exportPc.getName() + " changed " + countSerialChanges + " times during export.");
+			{
+				Logging.log(Logging.DEBUG,
+					"Player character " + exportPc.getName() + " changed "
+						+ countSerialChanges + " times during export.");
+			}
 		}
 		return exportPc;
 	}
