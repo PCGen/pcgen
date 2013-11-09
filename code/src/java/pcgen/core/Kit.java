@@ -193,6 +193,10 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		else
 		{
 			buyRate = f.resolve(aPC, "").intValue();
+			if (buyRate == 100)
+			{
+				buyRate = SettingsHandler.getGearTab_BuyRate();
+			}
 		}
 		return buyRate;
 	}
