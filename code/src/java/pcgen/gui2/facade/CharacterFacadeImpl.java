@@ -1970,6 +1970,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpForNextlevel.setReference(charDisplay.minXPForNextECL());
 		xpTableName.setReference(charDisplay.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
+		alignment.setReference(charDisplay.getPCAlignment());
 		refreshAvailableTempBonuses();
 		companionSupportFacade.refreshCompanionData();
 
@@ -4351,7 +4352,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshRaceRelatedFields();
 		name.setReference(charDisplay.getName());
 		characterType.setReference(charDisplay.getCharacterType());
-		alignment.setReference(charDisplay.getPCAlignment());
 
 		// Deity and domains
 		deity.setReference(charDisplay.getDeity());
