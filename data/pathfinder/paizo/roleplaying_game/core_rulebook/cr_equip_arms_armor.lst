@@ -17,10 +17,10 @@ Bolt (Crossbow)			OUTPUTNAME:Bolt, [NAME]				TYPE:Ammunition.Standard.Bolt.Indiv
 Bolt (Crossbow/Repeating)	OUTPUTNAME:Bolt, [NAME]				TYPE:Ammunition.Standard.Bolt.Individual		COST:0.2	WT:0.2	BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES			SOURCEPAGE:p.145
 Bullet (Sling)			OUTPUTNAME:Bullet, [NAME]			TYPE:Ammunition.Standard.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:STEEL		MODS:YES			SOURCEPAGE:p.145
 Dart (Blowgun)			OUTPUTNAME:Darts, [NAME]			TYPE:Ammunition.Standard.Dart				COST:0.05	WT:0		BASEQTY:1		EQMOD:STEEL		MODS:YES			SOURCEPAGE:p.142
-Bolt (Screaming)		OUTPUTNAME:Screaming Bolt		TYPE:Ammunition.Specific.Bolt.Individual	COST:101	WT:0.1	BASEQTY:1		EQMOD:PLUS2M.STEEL			MODS:NO			SOURCEPAGE:p.475						SPROP:screams when fired, forcing all enemies within 20 feet of the path of the bolt to make a Will save (DC 14) or become shaken.
-Arrow (Slaying)		OUTPUTNAME:Slaying Arrow		TYPE:Ammunition.SpecificArrow.Individual	COST:2282	WT:0					EQMOD:MAGIC_COST|2116.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 20 Fortitude save or take 50 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
-Arrow (Slaying/Greater)	OUTPUTNAME:Greater Slaying Arrow	TYPE:Ammunition.SpecificArrow.Individual	COST:4057	WT:0					EQMOD:MAGIC_COST|3891.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 23 Fortitude save or take 100 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
-Arrow (Sleep)		OUTPUTNAME:Sleep Arrow			TYPE:Ammunition.SpecificArrow.Individual	COST:86	WT:0					EQMOD:PLUS1M.STEEL			MODS:NO			SOURCEPAGE:p.476						SPROP:Opponent must made a fortitude save (DC 11) or fall asleep
+Bolt (Screaming)			OUTPUTNAME:Screaming Bolt		TYPE:Ammunition.Specific.Bolt.Individual	COST:101	WT:0.1	BASEQTY:1		EQMOD:PLUS2M.STEEL			MODS:NO			SOURCEPAGE:p.475						SPROP:screams when fired, forcing all enemies within 20 feet of the path of the bolt to make a Will save (DC 14) or become shaken.
+Arrow (Slaying)			OUTPUTNAME:Slaying Arrow		TYPE:Ammunition.SpecificArrow.Individual	COST:2282	WT:0					EQMOD:MAGIC_COST|2116.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 20 Fortitude save or take 50 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
+Arrow (Slaying/Greater)		OUTPUTNAME:Greater Slaying Arrow	TYPE:Ammunition.SpecificArrow.Individual	COST:4057	WT:0					EQMOD:MAGIC_COST|3891.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 23 Fortitude save or take 100 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
+Arrow (Sleep)			OUTPUTNAME:Sleep Arrow			TYPE:Ammunition.SpecificArrow.Individual	COST:86	WT:0					EQMOD:PLUS1M.STEEL			MODS:NO			SOURCEPAGE:p.476						SPROP:Opponent must made a fortitude save (DC 11) or fall asleep
 
 
 ###Block: Armor
@@ -134,14 +134,14 @@ Barding (Full Plate).MOD	BONUS:COMBAT|AC|-4|TYPE=Armor|PRETYPE:1,EQMOD=BROKEA	BO
 
 ####Block: Melee Weapons
 Demon Armor Claw Attack	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Simple.Unarmed.Piercing.Slashing	COST:-2300	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:PLUS1W.STEEL	WIELD:Light		SIZE:M
-Armor Spikes														PROFICIENCY:WEAPON|Spiked Armor		TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal.Unarmed.Accessories													COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL										WIELD:Light																																																						SPROP:deals extra piercing damage on a successful grapple attack
-Dagger															PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight								COST:2	WT:1				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL										WIELD:Light		RANGE:10						SIZE:M	SOURCEPAGE:p.146
-Dagger (Punching)								OUTPUTNAME:Dagger, Punching		PROFICIENCY:WEAPON|Dagger (Punching)	TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Piercing.Dagger.Close												COST:2	WT:1				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.146
-Gauntlet (Spiked)								OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:WEAPON|Gauntlet (Spiked)	TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Piercing.Unarmed.Gauntlet.Close											COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.142	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
-Gauntlet															PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet.Close										COST:2	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.142	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
-Gauntlet			KEY:Gauntlet (Part of Armor Suit)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet.Close										COST:0	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.142	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
-Mace (Light)								OUTPUTNAME:Mace, Light			PROFICIENCY:WEAPON|Mace (Light)		TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer												COST:5	WT:4				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.147
-Sickle															PROFICIENCY:WEAPON|Sickle			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Slashing.Sickle.BladeLight											COST:6	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL.TRIP									WIELD:Light									SIZE:M	SOURCEPAGE:p.142
+Armor Spikes														PROFICIENCY:WEAPON|Spiked Armor		TYPE:Weapon.Martial.Melee.Standard.Piercing.Metal.Unarmed.Accessories.Weapon Group Natural.Weapon Group Close													COST:0	WT:0		SLOTS:0	CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL										WIELD:Light																																																						SPROP:deals extra piercing damage on a successful grapple attack
+Dagger															PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight.Weapon Group Blades Light								COST:2	WT:1				CRITMULT:x2			CRITRANGE:2												DAMAGE:1d4					EQMOD:STEEL										WIELD:Light		RANGE:10						SIZE:M	SOURCEPAGE:p.146
+Dagger (Punching)								OUTPUTNAME:Dagger, Punching		PROFICIENCY:WEAPON|Dagger (Punching)	TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Piercing.Dagger.Close.Weapon Group Close												COST:2	WT:1				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.146
+Gauntlet (Spiked)								OUTPUTNAME:Gauntlet, [NAME]		PROFICIENCY:WEAPON|Gauntlet (Spiked)	TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Piercing.Unarmed.Gauntlet.Close.Weapon Group Natural.Weapon Group Close											COST:5	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.142	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
+Gauntlet															PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet.Close.Weapon Group Natural.Weapon Group Close										COST:2	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.142	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
+Gauntlet			KEY:Gauntlet (Part of Armor Suit)							PROFICIENCY:WEAPON|Gauntlet			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Unarmed.Gauntlet.Close.Weapon Group Natural.Weapon Group Close										COST:0	WT:1				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.142	BONUS:EQM|WEIGHTADD|-1|PREMULT:3,[PREEQUIP:1,TYPE.Armor],[PREEQUIP:1,TYPE.Medium,TYPE.Heavy],[!PREEQUIP:1,Breastplate]
+Mace (Light)								OUTPUTNAME:Mace, Light			PROFICIENCY:WEAPON|Mace (Light)		TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer.Weapon Group Hammers												COST:5	WT:4				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL										WIELD:Light									SIZE:M	SOURCEPAGE:p.147
+Sickle															PROFICIENCY:WEAPON|Sickle			TYPE:Weapon.Melee.Light.Finesseable.Simple.Standard.Slashing.Sickle.BladeLight.Weapon Group Blades Light											COST:6	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL.TRIP									WIELD:Light									SIZE:M	SOURCEPAGE:p.142
 Club																PROFICIENCY:WEAPON|Club				TYPE:Weapon.Melee.OneHanded.Ranged.Thrown.Simple.Standard.Bludgeoning.Club.Hammer											COST:0	WT:3				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD										WIELD:OneHanded	RANGE:10						SIZE:M	SOURCEPAGE:p.142
 Mace (Heavy)								OUTPUTNAME:Mace, Heavy			PROFICIENCY:WEAPON|Mace (Heavy)		TYPE:Weapon.Melee.OneHanded.Simple.Standard.Bludgeoning.Mace.Hammer													COST:12	WT:8				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL										WIELD:OneHanded								SIZE:M	SOURCEPAGE:p.147
 Morningstar															PROFICIENCY:WEAPON|Morningstar		TYPE:Weapon.Melee.OneHanded.Simple.Standard.Bludgeoning.Piercing.Mace.Flail												COST:8	WT:6				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL										WIELD:OneHanded								SIZE:M	SOURCEPAGE:p.147
@@ -256,4 +256,143 @@ Shuriken										PROFICIENCY:WEAPON|Shuriken				TYPE:Weapon.Exotic.Ranged.Stand
 Sling Staff (Halfling)		OUTPUTNAME:Sling Staff, Halfling	PROFICIENCY:WEAPON|Sling Staff (Halfling)		TYPE:Weapon.Exotic.Ranged.Standard.Halfling.Bludgeoning.Container.Projectile.Sling		CONTAINS:UNLIM|SlingStone	COST:20	WT:3				CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:LEATHER.WOOD									RANGE:80	SIZE:M	SOURCEPAGE:p.148	BONUS:WEAPON|DAMAGE|STR
 Javelin of Lightning	PROFICIENCY:WEAPON|Javelin	TYPE:Weapon.Ranged.Thrown.Simple.Specific.Piercing.Javelin	COST:1500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD	RANGE:30	SIZE:M	SOURCEPAGE:p.473	SPROP:Becomes a 5d6 Lightning Bolt when thrown
 Oathbow		PROFICIENCY:WEAPON|Longbow	TYPE:Weapon.Martial.Ranged.Specific.Piercing.Container.Projectile.Bow.Longbow	CONTAINS:UNLIM|Arrow=1	COST:100	WT:3		SLOTS:2	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:BOWSTR|2.MAGIC_COST|25000.PLUS2W.WOOD	RANGE:110	SIZE:M	SOURCEPAGE:p.474	SPROP:+5 against a sworn enemy and deals 2d6 add damage, critical X4
+
+###Block: Weapon Groups:
+
+#Axes:
+#Axes: battleaxe, dwarven waraxe, greataxe, handaxe, heavy pick, light pick, orc double axe, and throwing axe.
+# Weapon Name				Type
+Battleaxe.MOD				TYPE:Weapon Group Axes
+Waraxe (Dwarven).MOD			TYPE:Weapon Group Axes
+Greataxe.MOD				TYPE:Weapon Group Axes
+Handaxe.MOD					TYPE:Weapon Group Axes
+Pick (Heavy).MOD				TYPE:Weapon Group Axes
+Pick (Light).MOD				TYPE:Weapon Group Axes
+Axe (Orc Double).MOD			TYPE:Weapon Group Axes
+Axe (Throwing).MOD			TYPE:Weapon Group Axes
+
+#Blades, Heavy:
+#Blades, Heavy: bastard sword, elven curve blade, falchion, greatsword, longsword, scimitar, scythe, and two-bladed sword.
+Sword (Bastard).MOD			TYPE:Weapon Group Blades Heavy
+Curve Blade (Elven).MOD			TYPE:Weapon Group Blades Heavy
+Falchion.MOD				TYPE:Weapon Group Blades Heavy
+Greatsword.MOD				TYPE:Weapon Group Blades Heavy
+Longsword.MOD				TYPE:Weapon Group Blades Heavy
+Scimitar.MOD				TYPE:Weapon Group Blades Heavy
+Scythe.MOD					TYPE:Weapon Group Blades Heavy
+Sword (Two-Bladed).MOD			TYPE:Weapon Group Blades Heavy
+
+#Blades, Light:
+#Blades, Light: dagger, kama, kukri, rapier, sickle, starknife, and short sword.
+Dagger.MOD					TYPE:Weapon Group Blades Light
+Kama.MOD					TYPE:Weapon Group Blades Light
+Kukri.MOD					TYPE:Weapon Group Blades Light
+Rapier.MOD					TYPE:Weapon Group Blades Light
+Sword (Short).MOD				TYPE:Weapon Group Blades Light
+Sickle.MOD					TYPE:Weapon Group Blades Light
+Starknife.MOD				TYPE:Weapon Group Blades Light
+
+#Bows:
+#Bows: composite longbow, composite shortbow, longbow, and shortbow.
+#Composite Longbow.MOD	TYPE:Bow
+#Composite Shortbow.MOD	TYPE:Bow
+Longbow.MOD					TYPE:Weapon Group Bows
+Shortbow.MOD				TYPE:Weapon Group Bows
+
+#Close:
+#Close: gauntlet, heavy shield, light shield, punching dagger, sap, spiked armor, spiked gauntlet, spiked shield, and unarmed strike.
+Gauntlet.MOD				TYPE:Weapon Group Close
+#Shield (Heavy).MOD	TYPE:Close
+#Shield (Light).MOD	TYPE:Close
+Shieldbash.MOD				TYPE:Weapon Group Close
+Dagger (Punching).MOD			TYPE:Weapon Group Close
+Sap.MOD					TYPE:Weapon Group Close
+#Spiked Armor.MOD	TYPE:Close
+Gauntlet (Spiked).MOD			TYPE:Weapon Group Close
+#Spiked Shield.MOD	TYPE:Close
+Unarmed Strike.MOD			TYPE:Weapon Group Close
+
+#Crossbows:
+#Crossbows: hand crossbow, heavy crossbow, light crossbow, heavy repeating crossbow, and light repeating crossbow.
+Crossbow (Hand).MOD			TYPE:Weapon Group Crossbows
+Crossbow (Heavy).MOD			TYPE:Weapon Group Crossbows
+Crossbow (Repeating Heavy).MOD	TYPE:Weapon Group Crossbows
+Crossbow (Light).MOD			TYPE:Weapon Group Crossbows
+Crossbow (Repeating Light).MOD	TYPE:Weapon Group Crossbows
+
+#Double:
+#Double: dire flail, dwarven urgrosh, gnome hooked hammer, orc double axe, quarterstaff, and two-bladed sword.
+Flail (Dire).MOD				TYPE:Weapon Group Double
+Urgrosh (Dwarven).MOD			TYPE:Weapon Group Double
+Hammer (Gnome Hooked).MOD		TYPE:Weapon Group Double
+Axe (Orc Double).MOD			TYPE:Weapon Group Double
+Quarterstaff.MOD				TYPE:Weapon Group Double
+Sword (Two-Bladed).MOD			TYPE:Weapon Group Double
+
+#Flails:
+#Flails: dire flail, flail, heavy flail, morningstar, ''nunchaku'', spiked chain, and whip.
+Flail (Dire).MOD				TYPE:Weapon Group Flails
+Flail.MOD					TYPE:Weapon Group Flails
+Flail (Heavy).MOD				TYPE:Weapon Group Flails
+Morningstar.MOD				TYPE:Weapon Group Flails
+Chain (Spiked).MOD			TYPE:Weapon Group Flails
+Whip.MOD					TYPE:Weapon Group Flails
+
+#Hammers:
+#Hammers: club, greatclub, heavy mace, light hammer, light mace, and warhammer.
+Club.MOD					TYPE:Weapon Group Hammers
+Greatclub.MOD				TYPE:Weapon Group Hammers
+Mace (Heavy).MOD				TYPE:Weapon Group Hammers
+Hammer (Light).MOD			TYPE:Weapon Group Hammers
+Mace (Light).MOD				TYPE:Weapon Group Hammers
+Warhammer.MOD				TYPE:Weapon Group Hammers
+
+#Monk:
+#Monk: kama, nunchaku, quarterstaff, sai, shuriken, ''siangham'', and unarmed strike.
+Kama.MOD					TYPE:Weapon Group Monk
+Quarterstaff.MOD				TYPE:Weapon Group Monk
+Sai.MOD					TYPE:Weapon Group Monk
+Shuriken.MOD				TYPE:Weapon Group Monk
+Unarmed Strike.MOD			TYPE:Weapon Group Monk
+
+#Natural:
+#Natural: unarmed strike and all natural weapons, such as bite, claw, gore, tail, and wing.
+Unarmed Strike.MOD			TYPE:Weapon Group Natural
+# Rest of the Natural Attacks are handled by TYPE:Weapon Group Natural
+
+#Pole Arms:
+#Pole Arms: glaive, guisarme, halberd, and ranseur.
+Glaive.MOD					TYPE:Weapon Group Pole Arms
+Guisarme.MOD				TYPE:Weapon Group Pole Arms
+Halberd.MOD					TYPE:Weapon Group Pole Arms
+Ranseur.MOD					TYPE:Weapon Group Pole Arms
+
+#Spears:
+#Spears: javelin, lance, longspear, shortspear, spear, and trident.
+Javelin.MOD					TYPE:Weapon Group Spears
+Lance.MOD					TYPE:Weapon Group Spears
+Longspear.MOD				TYPE:Weapon Group Spears
+Shortspear.MOD				TYPE:Weapon Group Spears
+Spear.MOD					TYPE:Weapon Group Spears
+Trident.MOD					TYPE:Weapon Group Spears
+
+#Thrown:
+#Thrown: blowgun, bolas, club, dagger, dart, halfling sling staff, javelin, light hammer, net, shortspear, shuriken,
+#sling, spear, starknife, throwing axe, and trident.
+Blowgun.MOD					TYPE:Weapon Group Thrown
+Bolas.MOD					TYPE:Weapon Group Thrown
+Club.MOD					TYPE:Weapon Group Thrown
+Dagger.MOD					TYPE:Weapon Group Thrown
+Dart.MOD					TYPE:Weapon Group Thrown
+Sling Staff (Halfling).MOD		TYPE:Weapon Group Thrown
+Javelin.MOD					TYPE:Weapon Group Thrown
+Hammer (Light).MOD			TYPE:Weapon Group Thrown
+Net.MOD					TYPE:Weapon Group Thrown
+Shortspear.MOD				TYPE:Weapon Group Thrown
+Shuriken.MOD				TYPE:Weapon Group Thrown
+Sling.MOD					TYPE:Weapon Group Thrown
+Spear.MOD					TYPE:Weapon Group Thrown
+Starknife.MOD				TYPE:Weapon Group Thrown
+Axe (Throwing).MOD			TYPE:Weapon Group Thrown
+Trident.MOD					TYPE:Weapon Group Thrown
 
