@@ -167,8 +167,10 @@ Figurine of Wondrous Power (Obsidian Steed)							OUTPUTNAME:Figurine of Wondrou
 Figurine of Wondrous Power (Onyx Dog)								OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous													COST:15500	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Figurine of Wondrous Power (Serpentine Owl)							OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous													COST:9100	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Figurine of Wondrous Power (Silver Raven)								OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous													COST:3800	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Gauntlets of Ogre Power																			TYPE:Magic.Wondrous.Glove												COST:4000	WT:4		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf												BONUS:STAT|STR|2|TYPE=Enhancement
-Gauntlet of Rust																				TYPE:Magic.Wondrous.Glove												COST:11500	WT:2		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
+Gauntlets of Ogre Power		PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Wondrous.Glove.Weapon.Melee.Simple.Unarmed.Standard.Metal.Bludgeoning.Finesseable.Gauntlet		COST:4000	WT:4		SLOTS:2	CRITMULT:x2		CRITRANGE:1		DAMAGE:1d3	WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsV.rtf		BONUS:STAT|STR|2|TYPE=Enhancement	BONUS:SLOTS|Hands|-2
+Gauntlet of Rust			PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Wondrous.Glove.Weapon.Melee.Simple.Unarmed.Standard.Metal.Bludgeoning.Finesseable.Gauntlet		COST:11500	WT:2		SLOTS:1	CRITMULT:x2		CRITRANGE:1		DAMAGE:1d3	WIELD:Light		SIZE:M	SOURCEPAGE:MagicItemsV.rtf									BONUS:SLOTS|Hands|-1
+#Gauntlets of Ogre Power																			TYPE:Magic.Wondrous.Glove												COST:4000	WT:4		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf												BONUS:STAT|STR|2|TYPE=Enhancement
+#Gauntlet of Rust																				TYPE:Magic.Wondrous.Glove												COST:11500	WT:2		SLOTS:1							SOURCEPAGE:MagicItemsV.rtf
 Gem of Brightness																				TYPE:Magic.Wondrous.LightSource											COST:13000	WT:0				EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsV.rtf																									QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|On command
 Gem of Seeing																				TYPE:Magic.Wondrous													COST:75000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Gloves of Arrow Snaring																			TYPE:Magic.Wondrous.Glove												COST:4000	WT:0		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf	VFEAT:Snatch Arrows
