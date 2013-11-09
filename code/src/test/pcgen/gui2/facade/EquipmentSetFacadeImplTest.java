@@ -10,6 +10,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
@@ -19,6 +20,7 @@ import pcgen.core.facade.EquipmentSetFacade.EquipNode;
 import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.facade.EquipmentSetFacadeImpl.EquipNodeImpl;
+import pcgen.util.TestHelper;
 
 /**
  * The Class <code>EquipmentSetFacadeImplTest</code> is a test class for
@@ -49,6 +51,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 
 	private MockDataSetFacade dataset;
 	private MockUIDelegate uiDelegate;
+	private TodoManager todoManager;
 	private EquipmentListFacadeImpl equipmentList; 
 	
 	
@@ -60,7 +63,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList);
+					dataset, equipmentList, todoManager);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty node set", nodeList.isEmpty());
 		assertEquals("Incorrect name of base node", Constants.EQUIP_LOCATION_EQUIPPED,
@@ -88,7 +91,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		addEquipToEquipSet (pc, es, item3, 1.0f, LOC_BOTH_HANDS);
 		int adjustedBaseNodes = NUM_BASE_NODES -4;
 		EquipmentSetFacadeImpl esfi =
-				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset, equipmentList);
+				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
+					equipmentList, todoManager);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty path set", nodeList.isEmpty());
 		EquipNodeImpl node = (EquipNodeImpl) nodeList.getElementAt(0);
@@ -132,7 +136,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		addEquipToEquipSet (pc, es, weapon, 1.0f, LOC_PRIMARY);
 
 		EquipmentSetFacadeImpl esfi =
-				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset, equipmentList);
+				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
+					equipmentList, todoManager);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
 		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
 		for (EquipNode equipNode : nodes)
@@ -171,7 +176,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList);
+					dataset, equipmentList, todoManager);
 		EquipNode root = esfi.getNodes().getElementAt(0);
 		Equipment item = new Equipment();
 		item.setName("Dart");
@@ -220,7 +225,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList);
+					dataset, equipmentList, todoManager);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
 		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
 		for (EquipNode equipNode : nodes)
@@ -264,6 +269,32 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Ring type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
 		assertEquals("Ring count", 2, esfi.getQuantity(testNode));
 	}
+
+	public void testBonusSlot()
+	{
+		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
+		PlayerCharacter pc = getCharacter();
+		EquipmentSetFacadeImpl esfi =
+				new EquipmentSetFacadeImpl(uiDelegate, pc, es,
+					dataset, equipmentList, todoManager);
+		ListFacade<EquipNode> nodes = esfi.getNodes();
+		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		for (EquipNode equipNode : nodes)
+		{
+			nodeMap.put(equipNode.toString(), equipNode);
+		}
+
+		EquipNode testNode = nodeMap.get("Ring");
+		assertNotNull("Ring should be present", testNode);
+		assertEquals("Ring type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
+		assertEquals("Ring count", 2, esfi.getQuantity(testNode));
+		
+		PCTemplate template = TestHelper.makeTemplate("RingBonus");
+		Globals.getContext().unconditionallyProcess(template, "BONUS",
+				"SLOTS|Ring|1");
+		pc.addTemplate(template);
+		assertEquals("Ring count", 3, esfi.getQuantity(testNode));
+	}
 	
 	/**
 	 * Verify the getRequiredLoc method. 
@@ -273,7 +304,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList);
+					dataset, equipmentList, todoManager);
 
 		assertNull("Null equipment should give null location", esfi.getNaturalWeaponLoc(null));
 		
@@ -389,7 +420,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		addEquipToEquipSet(pc, es, item4, 1.0f);
 
 		return new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-			dataset, equipmentList);
+			dataset, equipmentList, todoManager);
 	}
 	
 	private EquipNodeImpl getEquipNodeByName(ListFacade<EquipNode> nodeList,
@@ -470,6 +501,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			Globals.setEquipSlotTypeCount("BODY", "1");
 		}
 		uiDelegate = new MockUIDelegate();
+		todoManager = new TodoManager();
 		equipmentList = new EquipmentListFacadeImpl();
 	}
 }

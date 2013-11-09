@@ -39,7 +39,7 @@ import pcgen.util.enumeration.Tab;
  * @version $Revision: 14613 $
  */
 @SuppressWarnings("serial")
-public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab
+public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.INVENTORY);
@@ -79,6 +79,15 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+		// We don't provide further advice at this time. 
 	}
 
 }

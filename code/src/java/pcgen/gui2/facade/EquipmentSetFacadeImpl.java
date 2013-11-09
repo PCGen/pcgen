@@ -65,6 +65,7 @@ import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>EquipmentSetFacadeImpl</code> is an implementation of 
@@ -87,17 +88,23 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
 	private EquipSet eqSet;
+	private final UIDelegate delegate;
+	private final TodoManager todoManager;
+	private final DataSetFacade dataSet;
+	private final EquipmentListFacadeImpl purchasedList;
+
 	private List<EquipmentTreeListener> listeners = new ArrayList<EquipmentTreeListener>();
 	private DefaultReferenceFacade<String> name;
 	private EquipmentListFacadeImpl equippedItemsList;
-	private DataSetFacade dataSet;
 	private Map<String, BodyStructure> bodyStructMap;
-	private UIDelegate delegate;
 	private double totalWeight = 0;
+	/** This list of equipment nodes to be displayed on the equipped tree. */
 	private DefaultListFacade<EquipNode> nodeList;
 	private Map<EquipSlot, EquipNode> equipSlotNodeMap;
 	private Map<String, EquipNodeImpl> naturalWeaponNodes;
-	private final EquipmentListFacadeImpl purchasedList;
+	/** List of phantom nodes which are currently both empty and not able to contain equipment */
+	private Set<EquipNodeImpl> hiddenPhantomNodes;
+	
 	
 	/**
 	 * Create a new Equipment Set Facade implementation for an existing 
@@ -108,13 +115,15 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 * @param eqSet The set.
 	 * @param dataSet The datasets that the character is using.
 	 * @param purchasedList The list of the charcter's purchased equipment.
+	 * @param todoManager The user tasks tracker.
 	 */
 	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc,
 		EquipSet eqSet, DataSetFacade dataSet,
-		EquipmentListFacadeImpl purchasedList)
+		EquipmentListFacadeImpl purchasedList, TodoManager todoManager)
 	{
 		this.delegate = delegate;
 		this.theCharacter = pc;
+		this.todoManager = todoManager;
 		this.charDisplay = pc.getDisplay();
 		this.dataSet = dataSet;
 		this.purchasedList = purchasedList;
@@ -132,6 +141,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		bodyStructMap = new HashMap<String, BodyStructure>();
 		equippedItemsList = new EquipmentListFacadeImpl();
 		naturalWeaponNodes = new HashMap<String, EquipmentSetFacadeImpl.EquipNodeImpl>();
+		hiddenPhantomNodes = new HashSet<EquipmentSetFacadeImpl.EquipNodeImpl>();
 
 		for (BodyStructureFacade bodyStruct : dataSet.getEquipmentLocations())
 		{
@@ -145,6 +155,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		Collections.sort(equipList);
 		createNaturalWeaponSlots();
 		updateNaturalWeaponSlots();
+		updatePhantomSlots();
 		addChildrenToPath(equipSet.getIdPath(), equipList, (EquipNodeImpl) null);
 	}
 
@@ -627,6 +638,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 						fireQuantityChanged(existing);
 						updateTotalQuantity(existingItem, quantity);
 						updateNaturalWeaponSlots();
+						updatePhantomSlots();
 						return existingItem;
 					}
 				}
@@ -675,6 +687,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		updateNaturalWeaponSlots();
 		updateOutputOrder();
 		theCharacter.calcActiveBonuses();
+		updatePhantomSlots();
 		
 		return newItem;
 	}
@@ -1030,6 +1043,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		updateTotalQuantity(eqI, quantity*-1);
 		updateNaturalWeaponSlots();
 		theCharacter.calcActiveBonuses();
+		updatePhantomSlots();
 		
 		return eqI;
 	}
@@ -1222,6 +1236,95 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 		}
 	}
+	
+	/**
+	 * Examine each phantom slot and ensure its display status matches the 
+	 * current free capacity. This may remove phantom slots from the node list 
+	 * (where they are full), add them to the node list (where they have spare 
+	 * capacity), or flag a todo (where they are over capacity. This is done to 
+	 * react to bonus slots changing in the character.
+	 */
+	private void updatePhantomSlots()
+	{
+		// Check for phantom slots which are no longer usable and slots over capacity
+		Set<EquipNode> nodesToBeRemoved = new HashSet<EquipmentSetFacade.EquipNode>();
+		Set<EquipNodeImpl> presentPNs = new HashSet<EquipNodeImpl>();
+		Set<EquipNodeImpl> neededPNs = new HashSet<EquipNodeImpl>();
+		for (EquipNode node : nodeList)
+		{
+			EquipNodeImpl nodeImpl = (EquipNodeImpl) node; 
+			switch (node.getNodeType())
+			{
+				case PHANTOM_SLOT:
+					if (getNumFreeSlots(node) <= 0)
+					{
+						nodesToBeRemoved.add(node);
+					}
+					else
+					{
+						presentPNs.add(nodeImpl);
+					}
+					break;
+
+				case EQUIPMENT:
+					if (nodeImpl.getSlot() != null)
+					{
+						final EquipNodeImpl parentNode = (EquipNodeImpl) equipSlotNodeMap.get(nodeImpl.getSlot());
+						if (parentNode.getNodeType() == NodeType.PHANTOM_SLOT)
+						{
+							int numFreeSlots = getNumFreeSlots(parentNode);
+							if (numFreeSlots < 0)
+							{
+								todoManager.addTodo(new TodoFacadeImpl(
+									Tab.INVENTORY, parentNode.toString(),
+									"in_equipNodeOverfull", Tab.EQUIPPING.name(), 9)); //$NON-NLS-1$
+							}
+							else
+							{
+								todoManager.removeTodo("in_equipNodeOverfull", parentNode.toString()); //$NON-NLS-1$
+								if (numFreeSlots > 0)
+								{
+									neededPNs.add(parentNode);
+								}
+							}
+						}
+					}
+					break;
+
+				default:
+					break;
+			}
+		}
+		
+		// Add hiddenPNs to neededPNs if they now have spare capacity
+		for (EquipNode node : hiddenPhantomNodes)
+		{
+			if (getNumFreeSlots(node) > 0)
+			{
+				neededPNs.add((EquipNodeImpl) node);
+			}
+		}
+		
+		// Remove the phantom nodes flagged, add to hiddenPNs as needed
+		for (EquipNode node : nodesToBeRemoved)
+		{
+			nodeList.removeElement(node);
+			if (getQuantity(node) <= 0)
+			{
+				hiddenPhantomNodes.add((EquipNodeImpl) node);
+			}
+		}
+		
+		// Add any now needed phantom nodes to the visible list
+		neededPNs.removeAll(presentPNs);
+		for (EquipNodeImpl restoredNode : neededPNs)
+		{
+			nodeList.addElement(0, restoredNode);
+			addCompatWeaponSlots(restoredNode);
+			hiddenPhantomNodes.remove(restoredNode);
+		}
+	}
+
 
 	/**
 	 * @return The name of the equipment set. 
@@ -1610,7 +1713,9 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				return 1;
 
 			case PHANTOM_SLOT:
-				return node.singleOnly ? 1 : node.getSlot().getSlotCount();
+				return node.singleOnly ? 1 : node.getSlot().getSlotCount()
+					+ (int) theCharacter.getTotalBonusTo("SLOTS", node
+						.getSlot().getSlotName());
 
 			default:
 				EquipSet parentEs = charDisplay.getEquipSetByIdPath(node.getIdPath());

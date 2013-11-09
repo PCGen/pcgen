@@ -198,7 +198,8 @@ import pcgen.util.enumeration.Tab;
  * @version $Revision$
  */
 public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListener, ListListener<EquipmentFacade>,
-		HitPointListener {
+		HitPointListener 
+{
 
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
@@ -526,7 +527,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			{
 				final EquipmentSetFacadeImpl facade =
 						new EquipmentSetFacadeImpl(delegate, theCharacter, es,
-							dataSet, purchasedEquip);
+							dataSet, purchasedEquip, todoManager);
 				eqSetList.add(facade);
 				if (es.getIdPath().equals(currIdPath))
 				{
@@ -3785,7 +3786,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.addEquipSet(eSet);
 		final EquipmentSetFacadeImpl facade =
 				new EquipmentSetFacadeImpl(delegate, theCharacter, eSet,
-					dataSet, purchasedEquip);
+					dataSet, purchasedEquip, todoManager);
 		equipmentSets.addElement(facade);
 
 		return facade;

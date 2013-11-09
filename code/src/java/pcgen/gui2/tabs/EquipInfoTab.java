@@ -112,7 +112,7 @@ import pcgen.util.enumeration.Tab;
  * @version $Revision:  $
  */
 @SuppressWarnings("serial")
-public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(
@@ -388,6 +388,48 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return targets;
 	}
 
+	/**
+	 * @param load (i.e. Encumbrance) value
+	 */
+	public void setLoadLabel(String text) {
+		// bold / highlight text based on encumbrance value
+		Font font = loadLabel.getFont();
+		Color color = UIPropertyContext.getQualifiedColor();
+		Load encumbrance = Load.getLoadType(text);
+		
+		switch (encumbrance)
+		{
+		case MEDIUM:
+			font = FontManipulation.bold(font);
+			color = UIPropertyContext.getAutomaticColor();
+			break;
+		case HEAVY:
+			font = FontManipulation.bold_italic(font);
+			color = UIPropertyContext.getVirtualColor();
+			break;
+		case OVERLOAD:
+			font = FontManipulation.bold_italic(font);
+			color = UIPropertyContext.getNotQualifiedColor();
+			break;
+			
+			default:
+				font = font.deriveFont(Font.PLAIN);
+		}
+		
+		loadLabel.setText(text);
+		loadLabel.setFont(font);
+		loadLabel.setForeground(color);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void adviseTodo(String fieldName)
+	{
+		// We don't provide further advice at this time. 
+	}
+	
 	private class AddSetAction extends AbstractAction
 	{
 
@@ -1239,37 +1281,5 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
-	}
-	/**
-	 * @param load (i.e. Encumbrance) value
-	 */
-	public void setLoadLabel(String text) {
-		// bold / highlight text based on encumbrance value
-		Font font = loadLabel.getFont();
-		Color color = UIPropertyContext.getQualifiedColor();
-		Load encumbrance = Load.getLoadType(text);
-		
-		switch (encumbrance)
-		{
-		case MEDIUM:
-			font = FontManipulation.bold(font);
-			color = UIPropertyContext.getAutomaticColor();
-			break;
-		case HEAVY:
-			font = FontManipulation.bold_italic(font);
-			color = UIPropertyContext.getVirtualColor();
-			break;
-		case OVERLOAD:
-			font = FontManipulation.bold_italic(font);
-			color = UIPropertyContext.getNotQualifiedColor();
-			break;
-			
-			default:
-				font = font.deriveFont(Font.PLAIN);
-		}
-		
-		loadLabel.setText(text);
-		loadLabel.setFont(font);
-		loadLabel.setForeground(color);
 	}
 }

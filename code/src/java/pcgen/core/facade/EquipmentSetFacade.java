@@ -73,6 +73,16 @@ public interface EquipmentSetFacade
 
 	public void removeAllEquipment();
 
+	/**
+	 * Retrieve the list of nodes to be displayed in the tree. Nodes could be
+	 * <ul>
+	 * <li>empty slots (phantom slots)</li>
+	 * <li>a part of the body (body slot)</li>
+	 * <li>an item of equipment (equipment slot)</li>
+	 * </ul>
+	 * 
+	 * @return The list of equipment nodes to be displayed on the equipped tree. 
+	 */
 	public ListFacade<EquipNode> getNodes();
 
 	public int getQuantity(EquipNode node);
@@ -80,13 +90,13 @@ public interface EquipmentSetFacade
 	public String getLocation(EquipNode node);
 
 	/**
-	 * This method test whether a piece of equipment can be equipped
+	 * This method tests whether a piece of equipment can be equipped
 	 * at a particular equipment path. This is not meant to check whether
 	 * the character fulfills the prerequisites of this item, but just
 	 * simply if equipping of this item would violate equipment slot limitations
 	 * or if the item is suited to be put in this path. The method must also take
 	 * into account that some containers accept only certain equipment
-	 * (ie. crossbows only accept bolts) 
+	 * (i.e. crossbows only accept bolts) 
 	 * @param node the node to the container
 	 * @param equipment the equipment that we want to check
 	 * @return true if the equipment can be placed in the location.
@@ -125,6 +135,7 @@ public interface EquipmentSetFacade
 
 	}
 
+	@SuppressWarnings("serial")
 	public static class EquipmentTreeEvent extends EventObject
 	{
 
@@ -148,8 +159,18 @@ public interface EquipmentSetFacade
 
 		public enum NodeType
 		{
+			/** This is a body location which can contain other slots rather 
+			 * than equipment. */
+			BODY_SLOT, 
+			
+			/** This is a node which shows an empty slot that takes a specific 
+			 * equipment type (e.g. Ring). It is removed from the tree when the 
+			 * slot it represents is full and added back in when there is space 
+			 * in the slot. */
+			PHANTOM_SLOT, 
 
-			BODY_SLOT, PHANTOM_SLOT, EQUIPMENT;
+			/** This is a node representing an equipped item of equipment. */
+			EQUIPMENT;
 		}
 
 		public NodeType getNodeType();
