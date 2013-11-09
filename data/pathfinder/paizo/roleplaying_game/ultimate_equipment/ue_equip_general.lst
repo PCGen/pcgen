@@ -570,7 +570,7 @@ Stilts (Common)																TYPE:Goods.General.Resizable														COST:0.
 Stilts (Masterwork)															TYPE:Goods.General.Resizable														COST:5	WT:10														SOURCEPAGE:p.73
 Stove Can																	TYPE:Goods.General															COST:10	WT:1														SOURCEPAGE:p.73
 String (50 ft.).MOD															TYPE:Goods.General															COST:0.01	WT:0.5													SOURCEPAGE:p.73
-Survival Kit (Common															TYPE:Goods.General)															COST:5	WT:4														SOURCEPAGE:p.73
+Survival Kit (Common)															TYPE:Goods.General															COST:5	WT:4														SOURCEPAGE:p.73
 Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	WT:5														SOURCEPAGE:p.73	BONUS:SKILL|Survival|2|TYPE=Circumstance
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10														SOURCEPAGE:p.73
 #Tattoo 1 cp-20 gp —
