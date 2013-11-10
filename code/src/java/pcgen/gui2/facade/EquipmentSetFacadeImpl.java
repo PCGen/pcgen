@@ -1270,7 +1270,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					if (nodeImpl.getSlot() != null)
 					{
 						final EquipNodeImpl parentNode = (EquipNodeImpl) equipSlotNodeMap.get(nodeImpl.getSlot());
-						if (parentNode.getNodeType() == NodeType.PHANTOM_SLOT)
+						if (parentNode != null && parentNode.getNodeType() == NodeType.PHANTOM_SLOT)
 						{
 							int numFreeSlots = getNumFreeSlots(parentNode);
 							if (numFreeSlots < 0)
