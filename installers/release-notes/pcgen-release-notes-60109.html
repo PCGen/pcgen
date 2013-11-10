@@ -118,7 +118,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 
 		<p>Thanks to the following people who contributed to this release: 
 		Andrew Maitland, Anestis Kozakis, Eric C Smith, Gabriel Sorrel, Henk Slaaf
-		James Dempsey, Kim Winz, Moni, Paul Grosse, Rob Reed,  
+		James Dempsey, Jasper Spaans, Kim Winz, Moni, Paul Grosse, Rob Reed,
 		Stefan Radermacher, Tom Parker and Vincent Lhote.
 		</p>
 		<p></p>
@@ -200,6 +200,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1316'>DATA-1316</a>] -         Turn/Command Undead feat benefit output should include DC
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1320'>DATA-1320</a>] -         Bulk add of SOURCELINK entries to Pathfinder spells to allow linking on output sheets
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1343'>DATA-1343</a>] -         Nunchaku are base type Wood. Source states Metal or Wood - add a metal version.
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1365'>DATA-1365</a>] -         Bestiary 3- Implement Creature Spellcasting Abilities
@@ -226,6 +228,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/NEWTAG-210'>NEWTAG-210</a>] -         Update USEMASTERSKILL:YES to grab ranks granted through BONUS:SKILLRANK
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/NEWTAG-373'>NEWTAG-373</a>] -         COUNT Chronicle Entries
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWTAG-383'>NEWTAG-383</a>] -         Please implement tag to describe additional damage for natural attacks
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/NEWTAG-390'>NEWTAG-390</a>] -         Add new subtokens of SKILL output sheet token
 </li>
@@ -257,6 +261,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/OS-277'>OS-277</a>] -         Add links to spells in fantasy PDF when SOURCELINK is available
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-281'>OS-281</a>] -         Sheets display source page for spells, but not actual source
+</li>
 </ul>
 
 
@@ -264,11 +270,17 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>       Code Bug Fixes
 </h3>
 <ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2019'>CODE-2019</a>] -         Spell showing up when it shouldn't
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2054'>CODE-2054</a>] -         Kits that have EQUIPBUY:100 still cost in &quot;Cashless&quot; purchase mode
 </li>
-<li>[<a href='http://jira.pcgen.org/browse/CODE-2240'>CODE-2240</a>] -         Preview Sheet - I&#39;m seeing &quot;Square&quot; instead of x in the Weapon Crit Block 
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2191'>CODE-2191</a>] -         SPELLLEVEL in character file ignored
 </li>
-<li>[<a href='http://jira.pcgen.org/browse/CODE-2314'>CODE-2314</a>] -         Languages todo doesn&#39;t account for bonus ranks in linguistics
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2240'>CODE-2240</a>] -         Preview Sheet - I'm seeing &quot;Square&quot; instead of x in the Weapon Crit Block 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2288'>CODE-2288</a>] -         Converter writes out PROHIBITSPELL token twice on class level lines
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2314'>CODE-2314</a>] -         Languages todo doesn't account for bonus ranks in linguistics
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2315'>CODE-2315</a>] -         Paper type preferences not saved between sessions
 </li>
@@ -277,6 +289,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2322'>CODE-2322</a>] -         Summary screen - Deity Drop Down - Does not refresh after a Deity is assigned via a kit
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2323'>CODE-2323</a>] -         Kits - Domain cannot be applied if it is in a subkit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2324'>CODE-2324</a>] -         Clicking links in source selection screen gives SEVERE warning on Mac
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2325'>CODE-2325</a>] -         Kits - Items without an OPTION tag are ignored once a SELECT is processed
 </li>
@@ -295,6 +309,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2337'>CODE-2337</a>] -         &quot;Save Party&quot; stores absolute path to characters which prevents loading
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2338'>CODE-2338</a>] -         Alignment dropdown not updating after selecting race that applies default kit
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2341'>CODE-2341</a>] -         (PF) Innate spellcasting creatures w/ sorc lvls spontaneously gaining caster levels
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2343'>CODE-2343</a>] -         Default Load granting illegal abilities/traits.
 </li>
@@ -359,6 +375,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1381'>DATA-1381</a>] -         Typo in Survival Kit generates subtype category &quot;General)&quot;
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1382'>DATA-1382</a>] -         Missing Catfolk Rogue Talents
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1383'>DATA-1383</a>] -         Catfolk Exemplar Sharp Claws &amp; Improved Natural Attack
 </li>
 </ul>
@@ -366,6 +384,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>      Output Sheet Bug Fixes
 </h3>
 <ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-36'>OS-36</a>] -         New features for Pathfinder not reflected in Output Sheets
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/OS-276'>OS-276</a>] -         Two-handed weapons show no to hit bonus
 </li>
 </ul>
