@@ -4569,6 +4569,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			final int level = spellLevels[sindex];
 
+			if (spellLevel > 0 && spellLevel != level)
+			{
+				// Skip spell in class lists that does not match level the character knows it.
+				continue;
+			}
+			
 			if (level < 0)
 			{
 				Collection<CDOMReference<Spell>> mods =
