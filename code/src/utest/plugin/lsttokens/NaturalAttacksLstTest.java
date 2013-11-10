@@ -197,6 +197,12 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testRoundRobinOneWithSProp() throws PersistenceLayerException
+	{
+		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,1,1d4,SPROP=plus poison");
+	}
+
+	@Test
 	public void testRoundRobinDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4|"

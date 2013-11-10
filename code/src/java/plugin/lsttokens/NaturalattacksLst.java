@@ -36,6 +36,7 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -154,8 +155,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);
 
 		int numTokens = commaTok.countTokens();
-		// TODO This is wrong :P
-		if (numTokens != 4 && numTokens != 5)
+		if (numTokens < 4)
 		{
 			Logging.errorPrint("Invalid Build of " + "Natural Weapon in "
 					+ getTokenName() + ": " + wpn);
@@ -240,19 +240,27 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		// sage_sam 02 Dec 2002 for Bug #586332
 		// allow hands to be required to equip natural weapons
 		int handsrequired = 0;
-		if (commaTok.hasMoreTokens())
+		while (commaTok.hasMoreTokens())
 		{
 			final String hString = commaTok.nextToken();
-			try
+			if  (hString.startsWith("SPROP="))
 			{
-				handsrequired = Integer.valueOf(Integer
-						.parseInt(hString));
+				anEquip.addToListFor(ListKey.SPECIAL_PROPERTIES,
+					SpecialProperty.createFromLst(hString.substring(6)));
 			}
-			catch (NumberFormatException exc)
+			else
 			{
-				Logging.errorPrint("Non-numeric value for hands required: '"
-						+ hString + "'");
-				return null;
+				try
+				{
+					handsrequired = Integer.valueOf(Integer
+							.parseInt(hString));
+				}
+				catch (NumberFormatException exc)
+				{
+					Logging.errorPrint("Non-numeric value for hands required: '"
+							+ hString + "'");
+					return null;
+				}
 			}
 		}
 		anEquip.put(IntegerKey.SLOTS, handsrequired);
@@ -365,6 +373,12 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (hands != null && hands != 0)
 			{
 				sb.append(',').append(hands);
+			}
+			
+			List<SpecialProperty> spropList = eq.getSafeListFor(ListKey.SPECIAL_PROPERTIES);
+			for (SpecialProperty sprop : spropList)
+			{
+				sb.append(",SPROP=").append(sprop.toString());
 			}
 
 			first = false;
