@@ -1052,7 +1052,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.CUSTOM.METAL.MASTERWORK</type>
+			<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
 			<weight>6</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1390,7 +1390,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WOODEN</type>
+			<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1602,7 +1602,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.CUSTOM.METAL.MASTERWORK</type>
+					<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
 					<weight>6</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1875,7 +1875,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WOODEN</type>
+					<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
 					<weight>4</weight>
 					<bonuslist></bonuslist>
 				</item>
