@@ -25,6 +25,30 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * ClassWrappedToken provides compatibility for previously allowed bad behavior 
+ * in data files. 
+ * 
+ * Many Class tokens in PCGen versions up to 5.14 ignored the class level, so 
+ * they are technically Class tags and not CLASSLEVEL tags. Yet, PCGen 5.14 
+ * allows those tags to appear on class level lines. This is a bit deceptive to 
+ * users in that the effect will always be on the class, and not appear on the 
+ * specified level.
+ * 
+ * Unfortunately, one cannot simply remove support for using CLASS tokens on 
+ * CLASSLEVEL lines, because if they are used at level 1, then they are 
+ * equivalent to appearing on a CLASS line. Certainly, the data monkeys use it 
+ * that way. For example, Blackguard in RSRD advanced uses EXCHANGELEVEL on the 
+ * first level line.
+ * 
+ * Therefore the entire ClassWrappedToken system is a workaround for data 
+ * monkeys using CLASS tokens on CLASSLEVEL lines, and therefore it should only 
+ * work on level one, otherwise expectations for when the token will take 
+ * effect are not set. 
+ * 
+ * @author Tom Parker <thpr@users.sourceforge.net>
+ * @version $Revision: $
+ */
 public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 {
 

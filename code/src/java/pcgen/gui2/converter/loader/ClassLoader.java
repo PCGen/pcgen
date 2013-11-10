@@ -40,6 +40,12 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;
 
+/**
+ * ClassLoader is a loader dedicated to converting class and class level data.
+ * 
+ * @author Tom Parker <thpr@users.sourceforge.net>
+ * @version $Revision: $
+ */
 public class ClassLoader implements Loader
 {
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
@@ -112,7 +118,15 @@ public class ClassLoader implements Loader
 				obj.put(IntegerKey.LEVEL, 1);
 				parent = context.ref.constructCDOMObject(buildParent, line
 						+ "Test" + tok);
-				obj.put(ObjectKey.TOKEN_PARENT, parent);
+				try
+				{
+					// Ensure processing against the PCClassLevel cannot cause side effects on the parent class
+					obj.put(ObjectKey.TOKEN_PARENT, parent.clone());
+				}
+				catch (CloneNotSupportedException e)
+				{
+					Logging.errorPrint("Unable to preare a copy of " + parent);
+				}
 			}
 			List<CDOMObject> injected = processToken(sb, firstToken, obj, parent, token,
 					decider, line);
