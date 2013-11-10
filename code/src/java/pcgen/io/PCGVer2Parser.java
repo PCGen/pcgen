@@ -2099,7 +2099,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					thePC.addAssoc(tc, AssociationListKey.ADD, obj);
 					tc.restoreChoice(thePC, cdo, tc.castChoice(obj));
 				}
 			}
