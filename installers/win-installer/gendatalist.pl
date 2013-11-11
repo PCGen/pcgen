@@ -66,6 +66,7 @@ $pub{'goodman_games'} = 'Goodman Games';
 $pub{'green_ronin'} = 'Green Ronin';
 $pub{'lions_den_press'} = 'Lions Den Press';
 $pub{'malhavoc_press'} = 'Malhavoc Press';
+$pub{'minotaur_games'} = 'Minotaur Games';
 $pub{'mongoose'} = 'Mongoose';
 $pub{'mongoose_publishing'} = 'Mongoose Publishing';
 $pub{'msrd'} = 'MSRD';
