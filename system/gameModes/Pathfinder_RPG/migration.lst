@@ -11,6 +11,10 @@
 # EQUIPMENT:JDTEST	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXDEVVER:6.1.2
 EQUIPMENT:Kasari Gusoku		NEWKEY:Kusari Gusoku	MAXVER:6.1.8
 
+ABILITY:Special Ability|Low light Vision		NEWKEY:Low-Light Vision	MAXVER:6.00.01
+ABILITY:Special Ability|Darkvision	NEWKEY:Low-Light Vision	MAXVER:6.00.01
+ABILITY:Special Ability|Vision ~ Darkvision	NEWKEY:Darkvision		MAXVER:6.00.01
+
 
 ABILITY:Archetype|Fighter Archetype ~ Aldori Sworldlord	NEWKEY:Fighter Archetype ~ Aldori Swordlord	MAXVER:6.00.01	MAXDEVVER:6.01.08
 

@@ -4,7 +4,7 @@
 # Template Name				Visible	Template															Required Vision					Prohibited Vision					Modify VAR						Ability								Apply Kit
 WILD STALKER Strong Senses		VISIBLE:NO	TEMPLATE:CHOOSE:WILD STALKER No Low Light Vision|WILD STALKER Has Low Light Vision
 
-WILD STALKER No Low Light Vision	VISIBLE:NO																								!PREVISION:1,Low-Light Vision=ANY,Low Light=ANY								ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light
+WILD STALKER No Low Light Vision	VISIBLE:NO																								!PREVISION:1,Low-Light Vision=ANY,Low Light=ANY								ABILITY:Special Ability|AUTOMATIC|Low-Light Vision
 WILD STALKER Has Low Light Vision	VISIBLE:NO																	PREVISION:1,Low-Light Vision=ANY,Low Light=ANY								BONUS:VAR|WildStalkerPerceptionBonus|1
 
 
