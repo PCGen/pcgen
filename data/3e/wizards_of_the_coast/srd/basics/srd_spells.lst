@@ -628,7 +628,7 @@ Speak with Burrowing Mammals			SCHOOL:Divination																TYPE:Arcane.Divi
 ###Block: Temporary Bonuses and Effects:
 
 # Spell Name	Save checks bonus						Combat bonus							Bonus to skill							Stat bonus							Source Page				Temporary effect description
-Symbol (Pain)									BONUS:COMBAT|TOHIT|-4|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:SKILL|ALL|-4|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:STAT|DEX|-2|TYPE=Temporary|PREAPPLY:ANYPC	SOURCEPAGE:srdspellss.rtf	TEMPDESC:Symbol of Pain imposes penalties of -2 Dexterity and -4 to attacks and skill checks.
+Symbol (Pain)									BONUS:COMBAT|TOHIT|-4|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:SKILL|TYPE.Base|-4|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:STAT|DEX|-2|TYPE=Temporary|PREAPPLY:ANYPC	SOURCEPAGE:srdspellss.rtf	TEMPDESC:Symbol of Pain imposes penalties of -2 Dexterity and -4 to attacks and skill checks.
 Symbol (Fear)	BONUS:CHECKS|ALL|-2|TYPE=Morale|PREAPPLY:ANYPC																																TEMPDESC:Symbol of Fear - They suffer a -2 morale penalty on saving throws, and they flee from the area. A panicked creature has a 50%% chance to drop what it's holding, chooses its path randomly (as long as it is getting away from immediate danger), and flees any other dangers that confront it. If cornered, a panicked creature cowers.
 
 
