@@ -230,36 +230,10 @@ Crush (Colossal)		CATEGORY:Internal	TYPE:NaturalAttack		BONUS:WEAPONPROF=Crush|D
 ###BLOCK: Dragons
 # Natural Armor For Wyrmling is a variable based upon type, but always increases by 3 thereafter
 # Ability Name		Category of Ability	Define																													Ability																																																																																																																																																																																																																																																																																																																																																																																																																																	Combat bonus							Misc bonus																																																																												Stat bonus																																																																																																																																																																																																																																																																																															Modify VAR																																																																																																																																																															Weapon prof. bonus
-True Dragon Defaults
-	CATEGORY:Internal
-	DEFINE:DragonSizeTracker|0	BONUS:VAR|DragonSizeTracker|2
-	DEFINE:DragonAge|0
-	DEFINE:DragonNaturalArmor|0
-	BONUS:VAR|DragonNaturalArmor|3*(DragonAge-1)
-	DEFINE:DragonLevelAdjustment|0
-	DEFINE:BreathWeaponLine|30
-	DEFINE:BreathWeaponCone|15	BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:VAR|LowLightDistance|4|TYPE=Base
-	ABILITY:Internal|AUTOMATIC|DRAGON_SIZE_TRACKER|Size_Master|Dragon Age
-	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED|PREVAREQ:DragonFlight,0
-	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS|PREVAREQ:DragonAttacks,0
-	ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Dragon|PRESIZEGTEQ:L
-	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|PRESIZEGTEQ:H
-	ABILITY:Special Ability|AUTOMATIC|Tail Sweep ~ Dragon|PRESIZEGTEQ:G
-	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Bite ~ Dragon|Claw ~ Dragon|Wing ~ Dragon|Breath Weapon ~ Dragon|Spells ~ Dragon|Spell-Like Abilities ~ Dragon|Immunities ~ Dragon|Dragon Senses ~ Dragon
-	BONUS:COMBAT|AC|DragonNaturalArmor|TYPE=NaturalArmor
-	BONUS:VAR|BreathWeaponDice|DragonAge*2
-	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)
-	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR
+True Dragon Defaults	CATEGORY:Internal	DEFINE:DragonSizeTracker|0	BONUS:VAR|DragonSizeTracker|2	DEFINE:DragonAge|0	DEFINE:DragonNaturalArmor|0	BONUS:VAR|DragonNaturalArmor|3*(DragonAge-1)	DEFINE:DragonLevelAdjustment|0	DEFINE:BreathWeaponLine|30	DEFINE:BreathWeaponCone|15	BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:VAR|LowLightDistance|4|TYPE=Base	ABILITY:Internal|AUTOMATIC|DRAGON_SIZE_TRACKER|Size_Master|Dragon Age	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED|PREVAREQ:DragonFlight,0	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS|PREVAREQ:DragonAttacks,0	ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Dragon|PRESIZEGTEQ:L	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|PRESIZEGTEQ:H	ABILITY:Special Ability|AUTOMATIC|Tail Sweep ~ Dragon|PRESIZEGTEQ:G	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Bite ~ Dragon|Claw ~ Dragon|Wing ~ Dragon|Breath Weapon ~ Dragon|Spells ~ Dragon|Spell-Like Abilities ~ Dragon|Immunities ~ Dragon|Dragon Senses ~ Dragon	BONUS:COMBAT|AC|DragonNaturalArmor|TYPE=NaturalArmor	BONUS:VAR|BreathWeaponDice|DragonAge*2	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR
 # COMMENT: Dragon Size Tracker Template doesn't seem to be working, so moved to a more direct granting effect.
 #	TEMPLATE:DRAGON_SIZE_TRACKER	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_T|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_S|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_M|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_L|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_H|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_G|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_C|PRESIZEEQ:C
-DRAGON_SIZE_TRACKER	CATEGORY:Internal		TEMPLATE:DRAGON_SIZE_TRACKER	
-	ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T
-	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S
-	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M
-	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L
-	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H
-	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G
-	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C
+DRAGON_SIZE_TRACKER	CATEGORY:Internal		TEMPLATE:DRAGON_SIZE_TRACKER		ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C
 #ABILITY:Internal|AUTOMATIC|SIZE_T|PREVAREQ:DragonSizeTracker,2	ABILITY:Internal|AUTOMATIC|SIZE_S|PREVAREQ:DragonSizeTracker,3	ABILITY:Internal|AUTOMATIC|SIZE_M|PREVAREQ:DragonSizeTracker,4	ABILITY:Internal|AUTOMATIC|SIZE_L|PREVAREQ:DragonSizeTracker,5	ABILITY:Internal|AUTOMATIC|SIZE_H|PREVAREQ:DragonSizeTracker,6	ABILITY:Internal|AUTOMATIC|SIZE_G|PREVAREQ:DragonSizeTracker,7	ABILITY:Internal|AUTOMATIC|SIZE_C|PREVARGTEQ:DragonSizeTracker,8
 # These are designed to be stack as the dragon increases
 Dragon Age (2)	CATEGORY:Internal	BONUS:MISC|CR|2	BONUS:STAT|STR|4|TYPE=Racial.STACK	BONUS:STAT|CON,INT,WIS,CHA|2|TYPE=Racial.STACK	BONUS:STAT|DEX|-2|TYPE=Racial.STACK	BONUS:VAR|DragonSizeTracker|1
@@ -324,18 +298,7 @@ DRAGON_ATTACKS_H	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NAT
 DRAGON_ATTACKS_G	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
 DRAGON_ATTACKS_C	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|10	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 ###Block
-Dragon Age										CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Wyrmling|PREVAREQ:DragonAge,1	ABILITY:Internal|AUTOMATIC|Very Young|PREVAREQ:DragonAge,2	ABILITY:Internal|AUTOMATIC|Young|PREVAREQ:DragonAge,3	ABILITY:Internal|AUTOMATIC|Juvenile|PREVAREQ:DragonAge,4	ABILITY:Internal|AUTOMATIC|Young Adult|PREVAREQ:DragonAge,5	ABILITY:Internal|AUTOMATIC|Adult|PREVAREQ:DragonAge,6	ABILITY:Internal|AUTOMATIC|Mature Adult|PREVAREQ:DragonAge,7	ABILITY:Internal|AUTOMATIC|Old|PREVAREQ:DragonAge,8	ABILITY:Internal|AUTOMATIC|Very Old|PREVAREQ:DragonAge,9	ABILITY:Internal|AUTOMATIC|Ancient|PREVAREQ:DragonAge,10	ABILITY:Internal|AUTOMATIC|Wyrm|PREVAREQ:DragonAge,11	ABILITY:Internal|AUTOMATIC|Great Wyrm|PREVARGTEQ:DragonAge,12
-	ABILITY:Internal|AUTOMATIC|Dragon Age (2)|PREVARGTEQ:DragonAge,2
-	ABILITY:Internal|AUTOMATIC|Dragon Age (3)|PREVARGTEQ:DragonAge,3
-	ABILITY:Internal|AUTOMATIC|Dragon Age (4)|PREVARGTEQ:DragonAge,4
-	ABILITY:Internal|AUTOMATIC|Dragon Age (5)|PREVARGTEQ:DragonAge,5
-	ABILITY:Internal|AUTOMATIC|Dragon Age (6)|PREVARGTEQ:DragonAge,6
-	ABILITY:Internal|AUTOMATIC|Dragon Age (7)|PREVARGTEQ:DragonAge,7
-	ABILITY:Internal|AUTOMATIC|Dragon Age (8)|PREVARGTEQ:DragonAge,8
-	ABILITY:Internal|AUTOMATIC|Dragon Age (9)|PREVARGTEQ:DragonAge,9
-	ABILITY:Internal|AUTOMATIC|Dragon Age (10)|PREVARGTEQ:DragonAge,10
-	ABILITY:Internal|AUTOMATIC|Dragon Age (11)|PREVARGTEQ:DragonAge,11
-	ABILITY:Internal|AUTOMATIC|Dragon Age (12)|PREVARGTEQ:DragonAge,12
+Dragon Age										CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Wyrmling|PREVAREQ:DragonAge,1	ABILITY:Internal|AUTOMATIC|Very Young|PREVAREQ:DragonAge,2	ABILITY:Internal|AUTOMATIC|Young|PREVAREQ:DragonAge,3	ABILITY:Internal|AUTOMATIC|Juvenile|PREVAREQ:DragonAge,4	ABILITY:Internal|AUTOMATIC|Young Adult|PREVAREQ:DragonAge,5	ABILITY:Internal|AUTOMATIC|Adult|PREVAREQ:DragonAge,6	ABILITY:Internal|AUTOMATIC|Mature Adult|PREVAREQ:DragonAge,7	ABILITY:Internal|AUTOMATIC|Old|PREVAREQ:DragonAge,8	ABILITY:Internal|AUTOMATIC|Very Old|PREVAREQ:DragonAge,9	ABILITY:Internal|AUTOMATIC|Ancient|PREVAREQ:DragonAge,10	ABILITY:Internal|AUTOMATIC|Wyrm|PREVAREQ:DragonAge,11	ABILITY:Internal|AUTOMATIC|Great Wyrm|PREVARGTEQ:DragonAge,12	ABILITY:Internal|AUTOMATIC|Dragon Age (2)|PREVARGTEQ:DragonAge,2	ABILITY:Internal|AUTOMATIC|Dragon Age (3)|PREVARGTEQ:DragonAge,3	ABILITY:Internal|AUTOMATIC|Dragon Age (4)|PREVARGTEQ:DragonAge,4	ABILITY:Internal|AUTOMATIC|Dragon Age (5)|PREVARGTEQ:DragonAge,5	ABILITY:Internal|AUTOMATIC|Dragon Age (6)|PREVARGTEQ:DragonAge,6	ABILITY:Internal|AUTOMATIC|Dragon Age (7)|PREVARGTEQ:DragonAge,7	ABILITY:Internal|AUTOMATIC|Dragon Age (8)|PREVARGTEQ:DragonAge,8	ABILITY:Internal|AUTOMATIC|Dragon Age (9)|PREVARGTEQ:DragonAge,9	ABILITY:Internal|AUTOMATIC|Dragon Age (10)|PREVARGTEQ:DragonAge,10	ABILITY:Internal|AUTOMATIC|Dragon Age (11)|PREVARGTEQ:DragonAge,11	ABILITY:Internal|AUTOMATIC|Dragon Age (12)|PREVARGTEQ:DragonAge,12
 # This sets subrace
 Wyrmling			CATEGORY:Internal		VISIBLE:NO	TEMPLATE:Wyrmling		ABILITY:Special Ability|AUTOMATIC|Wyrmling
 Very Young										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Very Young	ABILITY:Special Ability|AUTOMATIC|Very Young
