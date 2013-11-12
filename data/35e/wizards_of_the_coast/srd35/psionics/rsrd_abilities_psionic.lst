@@ -69,15 +69,15 @@ Accelerated Action	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Sup
 ###Block: Slayer abilities
 # Ability Name		Output Name				Category of Ability		Type							Visible	Special ABility														Define				Description																													ASPECT
 #TODO we can add a CHOOSE to set the Favored Enemy selection
-# Ability Name		Output Name				Category of Ability		Type										Visible	Define				Description																													Aspects
-Slayer Favored Enemy	OUTPUTNAME:Favored Enemy	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:SlayerFavoredEnemy|0	DESC:+%1 bonus on weapon damage rolls and +%1 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against her favored enemy.|SlayerFavoredEnemy	ASPECT:Ability Benefit|+%1|SlayerFavoredEnemy
-Sense Favored Enemy	OUTPUTNAME:Enemy Sense		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.Sense		VISIBLE:YES						DESC:You can sense the presence of her favored enemy within 60 feet of yourself.
-Brain Nausea							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES	DEFINE:BrainNausea|0		DESC:Will Save DC %1|BrainNausea
-Lucid Buffer							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary			VISIBLE:YES						DESC:+4 Save vs. Compulsions, Mind-affecting effects
-Cerebral Blind							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES						DESC:Protection from location detection as long as psionically focused
-Breech Power Resistance						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES
-Cerebral Immunity							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.Immunity	VISIBLE:YES						DESC:Immune to mind influencing effects as long as psionically focused
-Blast Feedback							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES
+# Ability Name		Output Name				Category of Ability		Type											Visible	Define				Description																													Aspects
+Slayer Favored Enemy	OUTPUTNAME:Favored Enemy	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary.SlayerFavoredEnemy	VISIBLE:YES	DEFINE:SlayerFavoredEnemy|0	DESC:+%1 bonus on weapon damage rolls and +%1 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against her favored enemy, %2.|SlayerFavoredEnemy|%CHOICE	ASPECT:Ability Benefit|+%1 vs. %2|SlayerFavoredEnemy|%CHOICE	MULT:YES	CHOOSE:RACE|RACESUBTYPE=Psionic
+Sense Favored Enemy	OUTPUTNAME:Enemy Sense		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.Sense			VISIBLE:YES						DESC:You can sense the presence of her favored enemy within 60 feet of yourself.
+Brain Nausea							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural				VISIBLE:YES	DEFINE:BrainNausea|0		DESC:Will Save DC %1|BrainNausea
+Lucid Buffer							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary				VISIBLE:YES						DESC:+4 Save vs. Compulsions, Mind-affecting effects
+Cerebral Blind							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural				VISIBLE:YES						DESC:Protection from location detection as long as psionically focused
+Breech Power Resistance						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural				VISIBLE:YES
+Cerebral Immunity							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.Immunity		VISIBLE:YES						DESC:Immune to mind influencing effects as long as psionically focused
+Blast Feedback							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural				VISIBLE:YES
 
 ###Block: Metamind abilities
 # Ability Name		Category of Ability		Type							Visible	Define					Description
