@@ -5,8 +5,11 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 # COMMENT: Flight Maneuverability is crucial to all creatures with a fly speed, making it a default application if Fly is present.
 # COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
 
-# Ability Name	Category of Ability	Visible	Ability
-Default		CATEGORY:Internal				
+# Ability Name		Category of Ability	Visible	Ability
+Default			CATEGORY:Internal				
+
+# TODO: Move ALL races from 'Select Racial Traits' to individual calls from the race.
+Select Racial Traits	CATEGORY:Internal
 
 ###Block: Vision Modes
 # Ability Name	Unique Key			Category of Ability		Type							Define				Description																																																																																																																																																																																																																																																								Vision						Aspects

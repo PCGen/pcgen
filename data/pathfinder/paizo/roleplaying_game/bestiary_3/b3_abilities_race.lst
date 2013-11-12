@@ -213,7 +213,6 @@ Shadow Resistance	KEY:Shadow Resistance ~ Wayang	CATEGORY:Special Ability	TYPE:W
 
 ###Block: Set up Wayang default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Default Traits ~ Wayang|PRERACE:1,Wayang
 
 #Default Traits ~ Wayang
 Default Traits ~ Wayang					CATEGORY:Internal

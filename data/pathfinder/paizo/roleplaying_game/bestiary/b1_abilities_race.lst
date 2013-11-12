@@ -2,19 +2,18 @@
 
 ###Block: Set up Aasimar default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Aasimar Racial Trait Default|PRERACE:1,Aasimar
 
-#Aasimar Racial Trait Default
-Aasimar Racial Trait Default					CATEGORY:Internal
+#Default Traits ~ Aasimar
+Default Traits ~ Aasimar					CATEGORY:Internal
 # These are altered in later sources
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Stats ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Skilled ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Spell-Like Ability ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
+CATEGORY=Internal|Default Traits ~ Aasimar.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Stats ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
+CATEGORY=Internal|Default Traits ~ Aasimar.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Skilled ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
+CATEGORY=Internal|Default Traits ~ Aasimar.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Spell-Like Ability ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
 
 # These are constant
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Darkvision ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Resistance ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Language ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage
+CATEGORY=Internal|Default Traits ~ Aasimar.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Darkvision ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision
+CATEGORY=Internal|Default Traits ~ Aasimar.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Resistance ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance
+CATEGORY=Internal|Default Traits ~ Aasimar.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Language ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage
 
 ###Block: Default Aasimar Abilities (POOL=5)
 # Ability Name		Unique Key					Category of Ability		Type																				Multiple Requirements																							Define															Innate Spells									Description														Automatically Gained Language	Ability																Bonus to skill						Vision			Source Page
@@ -31,18 +30,17 @@ Celestial Language	KEY:Celestial Language ~ Aasimar	CATEGORY:Special Ability	TYP
 
 ###Block: Set up Drow default abilities
 # Ability Name						Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Drow Racial Trait Default|PRERACE:1,Drow
 
-#Drow Racial Trait Default
-Drow Racial Trait Default				CATEGORY:Internal
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Darkvision ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowDarkvision
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Drow Immunities ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowImmunities
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Keen Senses ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowKeenSenses
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Poison Use ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowPoisonUse
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Spell Resistance ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowSpellResistance
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Spell-Like Abilities ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowSLAs
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Light Blindness ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowLightBlindness
-CATEGORY=Internal|Drow Racial Trait Default.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Weapon Familiarity ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowWeaponFamiliarity
+#Default Traits ~ Drow
+Default Traits ~ Drow				CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Darkvision ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowDarkvision
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Drow Immunities ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowImmunities
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Keen Senses ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowKeenSenses
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Poison Use ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowPoisonUse
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Spell Resistance ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowSpellResistance
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Spell-Like Abilities ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowSLAs
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Light Blindness ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowLightBlindness
+CATEGORY=Internal|Default Traits ~ Drow.MOD					ABILITY:Drow Racial Trait|AUTOMATIC|Weapon Familiarity ~ Drow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowWeaponFamiliarity
 
 ###Block: Default Drow Abilities (POOL=8)
 # Ability Name		Unique Key					Category of Ability		Type													Multiple Requirements																					Define			Innate Spells																		Description																								Automatically Gained Weapon Prof.				Bonus to skill					Source Page		Aspects
@@ -59,13 +57,12 @@ Light Blindness		KEY:Light Blindness ~ Drow		CATEGORY:Special Ability	TYPE:DrowR
 
 ###Block: Set up Goblin default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Goblin Racial Trait Default|PRERACE:1,Goblin
 
-#Goblin Racial Trait Default
-Goblin Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Goblin Racial Trait Default.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Darkvision ~ Goblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinDarkvision
-CATEGORY=Internal|Goblin Racial Trait Default.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Fast ~ Goblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinFast
-CATEGORY=Internal|Goblin Racial Trait Default.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Skilled ~ Goblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinSkilled
+#Default Traits ~ Goblin
+Default Traits ~ Goblin					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Darkvision ~ Goblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinDarkvision
+CATEGORY=Internal|Default Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Fast ~ Goblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinFast
+CATEGORY=Internal|Default Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Skilled ~ Goblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinSkilled
 
 ###Block: Goblin abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description										Bonus to skill					Source Page
@@ -82,12 +79,11 @@ Skilled		KEY:Skilled ~ Goblin	CATEGORY:Special Ability	TYPE:RacialTraits.Special
 
 ###Block: Set up Hobgoblin default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Hobgoblin Racial Trait Default|PRERACE:1,Hobgoblin
 
-#Hobgoblin Racial Trait Default
-Hobgoblin Racial Trait Default				CATEGORY:Internal
-CATEGORY=Internal|Hobgoblin Racial Trait Default.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Darkvision ~ Hobgoblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision
-CATEGORY=Internal|Hobgoblin Racial Trait Default.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Sneaky ~ Hobgoblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky
+#Default Traits ~ Hobgoblin
+Default Traits ~ Hobgoblin				CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Hobgoblin.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Darkvision ~ Hobgoblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision
+CATEGORY=Internal|Default Traits ~ Hobgoblin.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Sneaky ~ Hobgoblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky
 
 ###Block: Default Hobgoblin Abilities (POOL=2)
 # Ability Name	Unique Key				Category of Ability		Type																Multiple Requirements																					Description									Bonus to skill				Modify VAR											Vision			Source Page
@@ -98,15 +94,14 @@ Sneaky		KEY:Sneaky ~ Hobgoblin		CATEGORY:Special Ability	TYPE:RacialTraits.Speci
 
 ###Block: Set up Kobold default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Kobold Racial Trait Default|PRERACE:1,Kobold
 
-#Kobold Racial Trait Default
-Kobold Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Kobold Racial Trait Default.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Normal Speed ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldNormalSpeed
-CATEGORY=Internal|Kobold Racial Trait Default.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Darkvision ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldDarkvision
-CATEGORY=Internal|Kobold Racial Trait Default.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Armor ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldArmor
-CATEGORY=Internal|Kobold Racial Trait Default.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Crafty ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldCrafty
-CATEGORY=Internal|Kobold Racial Trait Default.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Weakness ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldWeakness
+#Default Traits ~ Kobold
+Default Traits ~ Kobold					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Normal Speed ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldNormalSpeed
+CATEGORY=Internal|Default Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Darkvision ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldDarkvision
+CATEGORY=Internal|Default Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Armor ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldArmor
+CATEGORY=Internal|Default Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Crafty ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldCrafty
+CATEGORY=Internal|Default Traits ~ Kobold.MOD					ABILITY:Kobold Racial Trait|AUTOMATIC|Weakness ~ Kobold|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KoboldWeakness
 
 ###Block: Kobold Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description											Class Skill				Source Page
@@ -121,15 +116,13 @@ Weakness		KEY:Weakness ~ Kobold		CATEGORY:Special Ability	TYPE:KoboldRacialTrait
 
 ###Block: Set up Orc default abilities
 # Ability Name						Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Orc Racial Trait Default|PRERACE:1,Orc
-
-#Orc Racial Trait Default
-Orc Racial Trait Default				CATEGORY:Internal
-CATEGORY=Internal|Orc Racial Trait Default.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Darkvision ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision
-CATEGORY=Internal|Orc Racial Trait Default.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Light Sensitivity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcLightSensitivity
-CATEGORY=Internal|Orc Racial Trait Default.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Ferocity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity
-CATEGORY=Internal|Orc Racial Trait Default.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Weapon Familiarity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcWeaponFamiliarity
-CATEGORY=Internal|Orc Racial Trait Default.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Automatic Languages ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcAutomaticLanguages
+#Default Traits ~ Orc
+Default Traits ~ Orc				CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Darkvision ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision
+CATEGORY=Internal|Default Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Light Sensitivity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcLightSensitivity
+CATEGORY=Internal|Default Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Ferocity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity
+CATEGORY=Internal|Default Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Weapon Familiarity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcWeaponFamiliarity
+CATEGORY=Internal|Default Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Automatic Languages ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcAutomaticLanguages
 
 ###Block: Default Orc Abilities (POOL=5)
 # Ability Name		Unique Key				Category of Ability		Type																					Multiple Requirements																																													Description																		Automatically Gained Language	Automatically Gained Weapon Prof.	Change Weapon Prof. Category	Vision			Source Page
@@ -140,19 +133,16 @@ Darkvision			KEY:Darkvision ~ Orc		CATEGORY:Special Ability	TYPE:SpecialQuality.
 #Darkvision 60 ft.		KEY:Darkvision ~ Orc		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.SensesTrait.Standard	TYPE:OrcRacialTrait.OrcRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision]																											DESC:See in the dark up to 60 ft.																														VISION:Darkvision (60')	SOURCEPAGE:p.139
 Ferocity			KEY:Ferocity ~ Orc		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.OffenseTrait.Standard	TYPE:OrcRacialTrait.OrcRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Ferocity ~ Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity]																												DESC:When below 0 hp can still fight; staggered, loses 1 hp/round.																												SOURCEPAGE:p.139
 
-
-
 ###Block: Set up Tengu default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Tengu Racial Trait Default|PRERACE:1,Tengu
 
-#Tengu Racial Trait Default
-Tengu Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Tengu Racial Trait Default.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Low-Light Vision ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
-CATEGORY=Internal|Tengu Racial Trait Default.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Sneaky ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
-CATEGORY=Internal|Tengu Racial Trait Default.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Gifted Linguist ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
-CATEGORY=Internal|Tengu Racial Trait Default.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Swordtrained ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordtrained
-CATEGORY=Internal|Tengu Racial Trait Default.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Natural Attack ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
+#Default Traits ~ Tengu
+Default Traits ~ Tengu					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Tengu.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Low-Light Vision ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
+CATEGORY=Internal|Default Traits ~ Tengu.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Sneaky ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
+CATEGORY=Internal|Default Traits ~ Tengu.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Gifted Linguist ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
+CATEGORY=Internal|Default Traits ~ Tengu.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Swordtrained ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordtrained
+CATEGORY=Internal|Default Traits ~ Tengu.MOD					ABILITY:Tengu Racial Trait|AUTOMATIC|Natural Attack ~ Tengu|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
 
 ###Block: Default Tengu Abilities (POOL=5)
 # Ability Name												Unique Key				Category of Ability		Type														Multiple Requirements																					Description							Bonus to skill						Source Page		Natural Attacks
@@ -181,17 +171,17 @@ Tengu Language Selections	CATEGORY:Special Ability	MULT:YES	CHOOSE:LANG|!PC,TYPE
 
 
 # Ability Name							Category of Ability	Ability
-Tiefling Racial Trait Default					CATEGORY:Internal
+Default Traits ~ Tiefling					CATEGORY:Internal
 # This is altered in later sources
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Stats ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSubrace
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Skilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled,TYPE.TieflingSubrace
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Spell-Like Ability ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA,TYPE.TieflingSubrace
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Stats ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSubrace
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Skilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled,TYPE.TieflingSubrace
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Spell-Like Ability ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA,TYPE.TieflingSubrace
 
 # These are constant
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Darkvision ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Resistance ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Sorcery ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
-CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Language ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Darkvision ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Resistance ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Sorcery ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Language ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
 
 ###Block: Default Tiefling Abilities (POOL=6)
 # Ability Name		Unique Key					Category of Ability		Type															Visible	Multiple Requirements																							Define															Description																							Automatically Gained Language	Ability																Bonus to Ability Pool				Stat bonus																			Modify VAR																	Source Page
@@ -211,9 +201,6 @@ Infernal			KEY:Infernal ~ Tiefling Language	CATEGORY:Special Ability	TYPE:Tiefli
 Skilled			KEY:Skilled ~ Tiefling			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Skilled ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled]																			DESC:Tieflings have a +2 racial bonus on Bluff and Stealth checks.				BONUS:SKILL|Bluff,Stealth|2|TYPE=Racial	SOURCEPAGE:p.169
 Spell-Like Ability	KEY:Spell-Like Ability ~ Tiefling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Spell-Like Ability ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA]	DEFINE:TieflingDarknessTimes|1	SPELLS:Innate|TIMES=TieflingDarknessTimes|CASTERLEVEL=TL|Darkness	DESC:Tieflings can use darkness %1/day as a spell-like ability.|TieflingDarknessTimes								SOURCEPAGE:p.169
 
-
-
-
 ###Block: Tiefling abilities
 # Ability Name		Unique Key					Category of Ability		Type						Visible	Define															Description																									Ability																Bonus to skill					Source Page
 # Skilled			KEY:Skilled ~ Tiefling			CATEGORY:Special Ability	TYPE:TieflingRacialTrait.SpecialQuality.Extraordinary																			DESC:Tieflings have a +2 racial bonus on Bluff and Stealth checks.																																BONUS:SKILL|Bluff,Stealth|2|TYPE=Racial	SOURCEPAGE:p.25
@@ -223,17 +210,16 @@ Spell-Like Ability	KEY:Spell-Like Ability ~ Tiefling	CATEGORY:Special Ability	TY
 
 ###Block: Set up Duergar default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Duergar Racial Trait Default|PRERACE:1,Duergar
 
-#Duergar Racial Trait Default
-Duergar Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Superior Darkvision ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSuperiorDarkvision
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Steady ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSteady
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar Immunities ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarDuergarImmunities
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Stability ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarStability
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|SLA Invisibility ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAInvisibility
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|SLA Enlarge Person ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAEnlargePerson
-CATEGORY=Internal|Duergar Racial Trait Default.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Light Sensitivity ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity
+#Default Traits ~ Duergar
+Default Traits ~ Duergar					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Superior Darkvision ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSuperiorDarkvision
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Steady ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSteady
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar Immunities ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarDuergarImmunities
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Stability ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarStability
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|SLA Invisibility ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAInvisibility
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|SLA Enlarge Person ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAEnlargePerson
+CATEGORY=Internal|Default Traits ~ Duergar.MOD					ABILITY:Duergar Racial Trait|AUTOMATIC|Light Sensitivity ~ Duergar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity
 
 ###Block: Default Duergar Abilities (POOL=7)
 # Ability Name				Unique Key					Category of Ability		Type															Multiple Requirements																									Define					Innate Spells													Description																									Modify VAR											Source Page		Ignore Encumberance
@@ -250,18 +236,15 @@ Light Sensitivity				KEY:Light Sensitivity ~ Duergar	CATEGORY:Special Ability	TY
 # Ability Name		Unique Key			Category of Ability		Type				Source Page		Aspects
 +2 Save vs. Spells	KEY:Duergar vs Spells	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.117	ASPECT:SaveBonus|+2 vs. Spells
 
-
-
 ###Block: Set up Merfolk default abilities
 # Ability Name							Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Merfolk Racial Trait Default|PRERACE:1,Merfolk
 
-#Merfolk Racial Trait Default
-Merfolk Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Low-Light Vision ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLowLightVision
-CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Amphibious ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkAmphibious
-CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Armor ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkArmor
-CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Legless ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLegless
+#Default Traits ~ Merfolk
+Default Traits ~ Merfolk					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Merfolk.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Low-Light Vision ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLowLightVision
+CATEGORY=Internal|Default Traits ~ Merfolk.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Amphibious ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkAmphibious
+CATEGORY=Internal|Default Traits ~ Merfolk.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Armor ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkArmor
+CATEGORY=Internal|Default Traits ~ Merfolk.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Legless ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLegless
 
 ###Block: Default Merfolk Abilities (POOL=4)
 # Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Description													Ability								Combat bonus				Modify VAR				Source Page
@@ -273,18 +256,17 @@ Legless		KEY:Legless ~ Merfolk			CATEGORY:Special Ability	TYPE:RacialTraits.Spec
 
 ###Block: Set up Svirfneblin default abilities
 # Ability Name								Category of Ability	Ability
-CATEGORY=Internal|Select Racial Traits.MOD							ABILITY:Internal|AUTOMATIC|Svirfneblin Racial Trait Default|PRERACE:1,Svirfneblin
 
-#Svirfneblin Racial Trait Default
-Svirfneblin Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Defensive Training ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinDefensiveTraining
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Senses ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSenses
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Fortunate ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinFortunate
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Skilled ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSkilled
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Hatred ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinHatred
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Spell Resistance ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSpellResistance
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Stonecunning ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinStonecunning
-CATEGORY=Internal|Svirfneblin Racial Trait Default.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin Magic ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinMagic
+#Default Traits ~ Svirfneblin
+Default Traits ~ Svirfneblin					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Defensive Training ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinDefensiveTraining
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Senses ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSenses
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Fortunate ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinFortunate
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Skilled ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSkilled
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Hatred ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinHatred
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Spell Resistance ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSpellResistance
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Stonecunning ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinStonecunning
+CATEGORY=Internal|Default Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin Magic ~ Svirfneblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinMagic
 
 ###Block: Default Svirfneblin Abilities (POOL=8)
 # Ability Name		Unique Key						Category of Ability		Type																					Multiple Requirements																								Define				Innate Spells																					Description																																																Save checks bonus							Bonus to DC				Bonus to skill									Modify VAR						Vision					Spell Res.		Source Page
