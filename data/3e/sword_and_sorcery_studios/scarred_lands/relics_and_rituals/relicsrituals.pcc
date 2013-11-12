@@ -30,6 +30,9 @@ LICENSE:FILE=data\3e\sword_and_sorcery_studios\scarred_lands\relics_rituals\reli
 # We need the #EXTRAFILE:relicsritualspermission.htm because LICENSE:FILE doesn't follow the
 # usual PCGEN way to specify paths.
 
+ABILITY:rar_abilities.lst
+ABILITYCATEGORY:rar_abilitycategories.lst
+
 CLASS:relicsrituals_classes.lst
 DOMAIN:relicsrituals_domains.lst
 FEAT:relicsrituals_feats.lst

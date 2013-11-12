@@ -1,0 +1,6 @@
+
+
+
+Vigilant Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.VigilantFavoredEnemy	VISIBLE:YES																			DEFINE:FavoredEnemy1|FavoredEnemies	DEFINE:FavoredEnemies|0	DESC:+%1 vs. %2|VigilantFavored|%CHOICE		DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|ALL
+
+

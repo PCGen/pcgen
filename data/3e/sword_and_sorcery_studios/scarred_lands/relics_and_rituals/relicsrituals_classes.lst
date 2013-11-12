@@ -174,7 +174,7 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:0,0															AUTO:FEAT|Sprint
-2	CAST:0,0									ADD:FEAT|Vigilant Favored Enemy	AUTO:FEAT|Tireless
+2	CAST:0,0															AUTO:FEAT|Tireless			BONUS:ABILITYPOOL|Vigilant Favored Enemy|1
 3	CAST:0,1															AUTO:FEAT|Ferocity|Toughness
 4	CAST:0,1,0															AUTO:FEAT|Great Fortitude
 5	CAST:0,1,1															AUTO:FEAT|Iron Will
