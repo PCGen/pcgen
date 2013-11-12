@@ -408,7 +408,9 @@
 	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="oldChooseCleanupFacet" class="pcgen.cdom.facet.OldChooseCleanupFacet"/>
 	<!-- P -->
+	<bean id="playerCharacterTrackingFacet" class="pcgen.cdom.facet.PlayerCharacterTrackingFacet"/>
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
 	<bean id="previewSheetFacet" class="pcgen.cdom.facet.fact.PreviewSheetFacet"/>
 	<bean id="primaryWeaponFacet" class="pcgen.cdom.facet.PrimaryWeaponFacet"/>
@@ -509,6 +511,7 @@
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
+	<bean id="statCalcFacet" class="pcgen.cdom.facet.StatCalcFacet"/>
 	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet" />
 	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
@@ -565,6 +568,7 @@
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<bean id="userSpecialAbilityFacet" class="pcgen.cdom.facet.input.UserSpecialAbilityFacet"/>
 	<!-- V -->
+	<bean id="variableCheckingFacet" class="pcgen.cdom.facet.VariableCheckingFacet"/>
 	<bean id="variableFacet" class="pcgen.cdom.facet.analysis.VariableFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
