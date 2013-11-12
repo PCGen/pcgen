@@ -227,6 +227,146 @@ Crush (Gargantuan)	CATEGORY:Internal	TYPE:NaturalAttack		BONUS:WEAPONPROF=Crush|
 Crush (Colossal)		CATEGORY:Internal	TYPE:NaturalAttack		BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d8
 #
 
+###BLOCK: Dragons
+# Natural Armor For Wyrmling is a variable based upon type, but always increases by 3 thereafter
+# Ability Name		Category of Ability	Define																													Ability																																																																																																																																																																																																																																																																																																																																																																																																																																	Combat bonus							Misc bonus																																																																												Stat bonus																																																																																																																																																																																																																																																																																															Modify VAR																																																																																																																																																															Weapon prof. bonus
+True Dragon Defaults
+	CATEGORY:Internal
+	DEFINE:DragonSizeTracker|0	BONUS:VAR|DragonSizeTracker|2
+	DEFINE:DragonAge|0
+	DEFINE:DragonNaturalArmor|0
+	BONUS:VAR|DragonNaturalArmor|3*(DragonAge-1)
+	DEFINE:DragonLevelAdjustment|0
+	DEFINE:BreathWeaponLine|30
+	DEFINE:BreathWeaponCone|15	BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:VAR|LowLightDistance|4|TYPE=Base
+	ABILITY:Internal|AUTOMATIC|DRAGON_SIZE_TRACKER|Size_Master|Dragon Age
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED|PREVAREQ:DragonFlight,0
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS|PREVAREQ:DragonAttacks,0
+	ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Dragon|PRESIZEGTEQ:L
+	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|PRESIZEGTEQ:H
+	ABILITY:Special Ability|AUTOMATIC|Tail Sweep ~ Dragon|PRESIZEGTEQ:G
+	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Bite ~ Dragon|Claw ~ Dragon|Wing ~ Dragon|Breath Weapon ~ Dragon|Spells ~ Dragon|Spell-Like Abilities ~ Dragon|Immunities ~ Dragon|Dragon Senses ~ Dragon
+	BONUS:COMBAT|AC|DragonNaturalArmor|TYPE=NaturalArmor
+	BONUS:VAR|BreathWeaponDice|DragonAge*2
+	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)
+	BONUS:WEAPONPROF=Tail Slap|DAMAGE|STR
+# COMMENT: Dragon Size Tracker Template doesn't seem to be working, so moved to a more direct granting effect.
+#	TEMPLATE:DRAGON_SIZE_TRACKER	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_T|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_S|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_M|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_L|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_H|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_G|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_C|PRESIZEEQ:C
+DRAGON_SIZE_TRACKER	CATEGORY:Internal		TEMPLATE:DRAGON_SIZE_TRACKER	
+	ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T
+	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S
+	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M
+	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L
+	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H
+	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G
+	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C
+#ABILITY:Internal|AUTOMATIC|SIZE_T|PREVAREQ:DragonSizeTracker,2	ABILITY:Internal|AUTOMATIC|SIZE_S|PREVAREQ:DragonSizeTracker,3	ABILITY:Internal|AUTOMATIC|SIZE_M|PREVAREQ:DragonSizeTracker,4	ABILITY:Internal|AUTOMATIC|SIZE_L|PREVAREQ:DragonSizeTracker,5	ABILITY:Internal|AUTOMATIC|SIZE_H|PREVAREQ:DragonSizeTracker,6	ABILITY:Internal|AUTOMATIC|SIZE_G|PREVAREQ:DragonSizeTracker,7	ABILITY:Internal|AUTOMATIC|SIZE_C|PREVARGTEQ:DragonSizeTracker,8
+# These are designed to be stack as the dragon increases
+Dragon Age (2)	CATEGORY:Internal	BONUS:MISC|CR|2	BONUS:STAT|STR|4|TYPE=Racial.STACK	BONUS:STAT|CON,INT,WIS,CHA|2|TYPE=Racial.STACK	BONUS:STAT|DEX|-2|TYPE=Racial.STACK	BONUS:VAR|DragonSizeTracker|1
+Dragon Age (3)	CATEGORY:Internal	BONUS:MISC|CR|2	BONUS:STAT|STR|4|TYPE=Racial.STACK	BONUS:STAT|CON|2|TYPE=Racial.STACK	BONUS:VAR|DragonSizeTracker|1
+Dragon Age (4)	CATEGORY:Internal	BONUS:MISC|CR|1	BONUS:STAT|STR,CON,INT,WIS,CHA|2|TYPE=Racial.STACK
+Dragon Age (5)	CATEGORY:Internal	BONUS:MISC|CR|2	BONUS:STAT|STR|2|TYPE=Racial.STACK	BONUS:STAT|DEX|-2|TYPE=Racial.STACK	BONUS:VAR|DragonSizeTracker|1	ABILITY:Special Ability|AUTOMATIC|Frightful Presence ~ Dragon|Damage Reduction ~ Dragon|Spell Resistance ~ Dragon
+Dragon Age (6)	CATEGORY:Internal	BONUS:MISC|CR|1	BONUS:STAT|STR,CON,INT,WIS,CHA|2|TYPE=Racial.STACK
+Dragon Age (7)	CATEGORY:Internal	BONUS:MISC|CR|1	BONUS:STAT|STR|2|TYPE=Racial.STACK
+Dragon Age (8)	CATEGORY:Internal	BONUS:MISC|CR|2	BONUS:STAT|STR,CON,INT,WIS,CHA|2|TYPE=Racial.STACK	BONUS:STAT|DEX|-2|TYPE=Racial.STACK	BONUS:VAR|DragonSizeTracker|1
+Dragon Age (9)	CATEGORY:Internal	BONUS:MISC|CR|1	BONUS:STAT|STR|2|TYPE=Racial.STACK
+Dragon Age (10)	CATEGORY:Internal	BONUS:MISC|CR|1	BONUS:STAT|STR,CON,INT,WIS,CHA|2|TYPE=Racial.STACK
+Dragon Age (11)	CATEGORY:Internal	BONUS:MISC|CR|1	BONUS:STAT|STR|2|TYPE=Racial.STACK	BONUS:STAT|DEX|-2|TYPE=Racial.STACK
+Dragon Age (12)	CATEGORY:Internal	BONUS:MISC|CR|2	BONUS:STAT|STR,CON,INT,WIS,CHA|2|TYPE=Racial.STACK	BONUS:VAR|DragonSizeTracker|1
+# These don't stack for ease since the Crush Dice changes.
+Dragon (Tiny)		CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30
+Dragon (Small)		CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|20	BONUS:VAR|BreathWeaponLine|40
+Dragon (Medium)		CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|30	BONUS:VAR|BreathWeaponLine|60	
+Dragon (Large)		CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|40	BONUS:VAR|BreathWeaponLine|80	
+Dragon (Huge)		CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|50	BONUS:VAR|BreathWeaponLine|100	BONUS:VAR|CrushDice|2	BONUS:VAR|CrushDie|8
+Dragon (Gargantuan)	CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|60	BONUS:VAR|BreathWeaponLine|120	BONUS:VAR|CrushDice|4	BONUS:VAR|CrushDie|6	BONUS:VAR|TailSweepDie|6
+Dragon (Colossal)		CATEGORY:Internal	BONUS:VAR|BreathWeaponCone|70	BONUS:VAR|BreathWeaponLine|140	BONUS:VAR|CrushDice|4	BONUS:VAR|CrushDie|8	BONUS:VAR|TailSweepDie|8
+
+
+###Block: Default True Dragon Abilities
+# Ability Name			Unique Key					Category of Ability		Type						Visible	Define					Innate Spells																																													Description																																																																																																																													Template			Move			Ability																																																																																																																			Caster level bonus														Modify VAR											Weapon prof. bonus			Spell Res.	Damage Reduction	Natural Attacks
+Bite					KEY:Bite ~ Dragon				CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:This is a primary attack that deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (even though it has more than one attack). A dragon's bite attack has reach as if the creature were one size category larger (+10 feet for Colossal dragons).
+Claw					KEY:Claw ~ Dragon				CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:These primary attacks deal the indicated damage plus the dragon's Strength bonus.
+Wing					KEY:Wing ~ Dragon				CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:The dragon can slam foes with its wings, even when flying. Wing attacks are secondary attacks that deal the indicated damage plus 1/2 the dragon's Strength bonus.
+Tail Slap				KEY:Tail Slap ~ Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:The dragon can slap one foe each round with its tail. A tail slap is a secondary attack that deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (this is an exception to the normal secondary attack rules).
+Crush					KEY:Crush ~ Dragon			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:CrushDC|10+(HD/2)+CON		DEFINE:CrushDice|0	DEFINE:CrushDie|0		DEFINE:CrushBonusDamage|STR*1.5			DESC:A flying or jumping Huge or larger dragon can land on foes as a standard action, using its whole body to crush them.	BONUS:VAR|CrushDC|2|PREFEAT:1,Ability Focus (Crush)			SOURCEPAGE:p.90	ASPECT:Ability Benefit|(%1d%2+%3, DC %4)|CrushDice|CrushDie|CrushBonusDamage|CrushDC			BENEFIT:A flying or jumping Huge or larger dragon can land on foes as a standard action, using its whole body to crush them. Crush attacks are effective only against opponents three or more size categories smaller than the dragon. A crush attack affects as many creatures as fit in the dragon's space. Creatures in the affected area must succeed on a Reflex save (DC %4) or be pinned, automatically taking bludgeoning damage during the next round unless the dragon moves off them. If the dragon chooses to maintain the pin, it must succeed at a combat maneuver check as normal. Pinned foes take damage from the crush each round if they don't escape. A crush attack deals %1d%2+%3.|CrushDice|CrushDie|CrushBonusDamage|CrushDC
+Tail Sweep				KEY:Tail Sweep ~ Dragon			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:TailSweepDC|10+(HD/2)+CON	DEFINE:TailSweepDice|2	DEFINE:TailSweepDie|0	DEFINE:TailSweepBonusDamage|STR*1.5			DESC:This allows a Gargantuan or larger dragon to sweep with its tail as a standard action.						BONUS:VAR|TailSweepDC|2|PREFEAT:1,Ability Focus (Tail Sweep)	SOURCEPAGE:p.92	ASPECT:Ability Benefit|(%1d%2+%3, DC %4)|TailSweepDice|TailSweepDie|TailSweepBonusDamage|TailSweepDC	BENEFIT:This allows a Gargantuan or larger dragon to sweep with its tail as a standard action. The sweep affects a half-circle with a radius of 30 feet (or 40 feet for a Colossal dragon), extending from an intersection on the edge of the dragon's space in any direction. Creatures within the swept area are affected if they are four or more size categories smaller than the dragon. A tail sweep automatically deals %1d%2+%3. Affected creatures can attempt Reflex saves to take half damage (DC %4).|TailSweepDice|TailSweepDie|TailSweepBonusDamage|TailSweepDC
+# Found in the Universal Rules.
+#Crush (Ex)			KEY:Crush ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A flying or jumping Huge or larger dragon can land on foes as a standard action, using its whole body to crush them. Crush attacks are effective only against opponents three or more size categories smaller than the dragon. A crush attack affects as many creatures as fit in the dragon's space. Creatures in the affected area must succeed on a Reflex save (DC equal to that of the dragon's breath weapon) or be pinned, automatically taking bludgeoning damage during the next round unless the dragon moves off them. If the dragon chooses to maintain the pin, it must succeed at a combat maneuver check as normal. Pinned foes take damage from the crush each round if they don't escape. A crush attack deals the indicated damage plus 1-1/2 times the dragon's Strength bonus.
+#Tail Sweep (Ex)		KEY:Tail Sweep ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This allows a Gargantuan or larger dragon to sweep with its tail as a standard action. The sweep affects a half-circle with a radius of 30 feet (or 40 feet for a Colossal dragon), extending from an intersection on the edge of the dragon's space in any direction. Creatures within the swept area are affected if they are four or more size categories smaller than the dragon. A tail sweep automatically deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down). Affected creatures can attempt Ref lex saves to take half damage (DC equal to that of the dragon's breath weapon).
+Breath Weapon			KEY:Breath Weapon ~ Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural																																																								DESC:Using a breath weapon is a standard action. A dragon can use its breath weapon once every 1d4 rounds, even if it possesses more than one breath weapon. A breath weapon always starts at an intersection adjacent to the dragon and extends in a direction of the dragon's choice. Breath weapons come in two shapes, lines and cones, whose areas vary with the dragon's size. If a breath weapon deals damage, those caught in the area can attempt Reflex saves to take half damage. The save DC against a breath weapon is 10 + 1/2 dragon's HD + dragon's Con modifier. Saves against various breath weapons use the same DC; the type of saving throw is noted in the variety descriptions. A dragon can use its breath weapon when it is grappling or being grappled.
+Dragon Senses			KEY:Dragon Senses ~ Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary																																																								DESC:Dragons have have darkvision 120 ft. and blindsense 60 ft. They see four times as well as a human in dim light and twice as well in normal light.
+Frightful Presence		KEY:Frightful Presence ~ Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary																																																								DESC:A dragon's frightful presence has a range equal to 30 feet x the dragon's age category, but otherwise functions as detailed on page 300.
+Spells				KEY:Spells ~ Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:A dragon knows and casts arcane spells as a sorcerer of the level indicated in its specific description. Its caster level depends on its age, as shown for each type.
+Spell-Like Abilities		KEY:Spell-Like Abilities ~ Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:A dragon's caster level for its spelllike abilities is equal to its total Hit Dice.
+Damage Reduction			KEY:Damage Reduction ~ Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality																																																								DESC:Dragons gain damage reduction as they age, as indicated on each dragon's specific entry. Their natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.																																																																																																					ABILITY:Internal|AUTOMATIC|Damage Reduction / Magic|PREVAREQ:DisableDragonBaseDR,0
+Immunities				KEY:Immunities ~ Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary																																																								DESC:Every dragon is immune to sleep and paralysis. In addition, a dragon is immune to one or two additional forms of attack no matter what its age, as given in its description.
+Spell Resistance			KEY:Spell Resistance ~ Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary																																																								DESC:As dragons grow older, they become more resistant to spells and spell-like abilities, as indicated in the dragon descriptions. A dragon's SR is equal to 11 + its CR.																																																																																																																																																																																																																																																																SR:CR+11
+# Dragons can have different Types instead of just Magic, breaking this out to handle that.
+Damage Reduction / Magic							CATEGORY:Internal											DEFINE:DragonDR|0																																																																																																																																																																																																																																																																																																																													BONUS:VAR|DragonDR|5*(floor((DragonAge-3)/2))|PREVARGTEQ:DragonAge,5									DR:DragonDR/Magic
+
+
+# This sets speed and maneuverability based upon size
+DRAGON_FLY_SPEED									CATEGORY:Internal									VISIBLE:NO	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3																																																																																																																																																																																		MOVE:Fly,100	BONUS:MOVEADD|TYPE.Fly|50|PRESIZEGTEQ:S	BONUS:MOVEADD|TYPE.Fly|50|PRESIZEGTEQ:L	BONUS:MOVEADD|TYPE.Fly|50|PRESIZEGTEQ:G		BONUS:VAR|Maneuverability|-1|PRESIZEGTEQ:L	BONUS:VAR|Maneuverability|-1|PRESIZEGTEQ:G
+# Commented out, MOVE wasn't updating properly
+#DRAGON_FLY_SPEED_100								CATEGORY:Internal									VISIBLE:NO	DEFINE:Maneuverability|3																																																																																																																																																																																			MOVE:Fly,100
+#DRAGON_FLY_SPEED_150								CATEGORY:Internal									VISIBLE:NO	DEFINE:Maneuverability|3																																																																																																																																																																																			MOVE:Fly,150
+#DRAGON_FLY_SPEED_200								CATEGORY:Internal									VISIBLE:NO	DEFINE:Maneuverability|2																																																																																																																																																																																			MOVE:Fly,200
+#DRAGON_FLY_SPEED_250								CATEGORY:Internal									VISIBLE:NO	DEFINE:Maneuverability|1																																																																																																																																																																																			MOVE:Fly,250
+# This sets the Default Dragon Attacks which are soley based upon Size. Template Natural Attacks used to be auto equipped, but this is no longer the case.
+DRAGON_ATTACKS	CATEGORY:Internal	VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Internal|AUTOMATIC|Wing|PRESIZEGTEQ:M		ABILITY:Internal|AUTOMATIC|Tail Slap|PRESIZEGTEQ:L	ABILITY:Internal|AUTOMATIC|Crush|PRESIZEGTEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep|PRESIZEGTEQ:G	BONUS:WEAPONPROF=Bite|REACH|DragonBiteReach	DEFINE:DragonBiteReach|0	BONUS:VAR|DragonBiteReach|5|PREMULT:1,[PRESIZEEQ:T],[PRESIZEGTEQ:L]	BONUS:VAR|DragonBiteReach|5|PRESIZEEQ:C
+###Block:
+DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO							NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+DRAGON_ATTACKS_M	CATEGORY:Internal	VISIBLE:NO							NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+DRAGON_ATTACKS_L	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+DRAGON_ATTACKS_H	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_G	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+DRAGON_ATTACKS_C	CATEGORY:Internal	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|10	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+###Block
+Dragon Age										CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Wyrmling|PREVAREQ:DragonAge,1	ABILITY:Internal|AUTOMATIC|Very Young|PREVAREQ:DragonAge,2	ABILITY:Internal|AUTOMATIC|Young|PREVAREQ:DragonAge,3	ABILITY:Internal|AUTOMATIC|Juvenile|PREVAREQ:DragonAge,4	ABILITY:Internal|AUTOMATIC|Young Adult|PREVAREQ:DragonAge,5	ABILITY:Internal|AUTOMATIC|Adult|PREVAREQ:DragonAge,6	ABILITY:Internal|AUTOMATIC|Mature Adult|PREVAREQ:DragonAge,7	ABILITY:Internal|AUTOMATIC|Old|PREVAREQ:DragonAge,8	ABILITY:Internal|AUTOMATIC|Very Old|PREVAREQ:DragonAge,9	ABILITY:Internal|AUTOMATIC|Ancient|PREVAREQ:DragonAge,10	ABILITY:Internal|AUTOMATIC|Wyrm|PREVAREQ:DragonAge,11	ABILITY:Internal|AUTOMATIC|Great Wyrm|PREVARGTEQ:DragonAge,12
+	ABILITY:Internal|AUTOMATIC|Dragon Age (2)|PREVARGTEQ:DragonAge,2
+	ABILITY:Internal|AUTOMATIC|Dragon Age (3)|PREVARGTEQ:DragonAge,3
+	ABILITY:Internal|AUTOMATIC|Dragon Age (4)|PREVARGTEQ:DragonAge,4
+	ABILITY:Internal|AUTOMATIC|Dragon Age (5)|PREVARGTEQ:DragonAge,5
+	ABILITY:Internal|AUTOMATIC|Dragon Age (6)|PREVARGTEQ:DragonAge,6
+	ABILITY:Internal|AUTOMATIC|Dragon Age (7)|PREVARGTEQ:DragonAge,7
+	ABILITY:Internal|AUTOMATIC|Dragon Age (8)|PREVARGTEQ:DragonAge,8
+	ABILITY:Internal|AUTOMATIC|Dragon Age (9)|PREVARGTEQ:DragonAge,9
+	ABILITY:Internal|AUTOMATIC|Dragon Age (10)|PREVARGTEQ:DragonAge,10
+	ABILITY:Internal|AUTOMATIC|Dragon Age (11)|PREVARGTEQ:DragonAge,11
+	ABILITY:Internal|AUTOMATIC|Dragon Age (12)|PREVARGTEQ:DragonAge,12
+# This sets subrace
+Wyrmling			CATEGORY:Internal		VISIBLE:NO	TEMPLATE:Wyrmling		ABILITY:Special Ability|AUTOMATIC|Wyrmling
+Very Young										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Very Young	ABILITY:Special Ability|AUTOMATIC|Very Young
+Young											CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Young		ABILITY:Special Ability|AUTOMATIC|Young
+Juvenile										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Juvenile		ABILITY:Special Ability|AUTOMATIC|Juvenile
+Young Adult										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Young Adult	ABILITY:Special Ability|AUTOMATIC|Young Adult
+Adult											CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Adult		ABILITY:Special Ability|AUTOMATIC|Adult
+Mature Adult									CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Mature Adult	ABILITY:Special Ability|AUTOMATIC|Mature Adult
+Old											CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Old		ABILITY:Special Ability|AUTOMATIC|Old
+Very Old										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Very Old		ABILITY:Special Ability|AUTOMATIC|Very Old
+Ancient										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Ancient		ABILITY:Special Ability|AUTOMATIC|Ancient
+Wyrm											CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Wyrm		ABILITY:Special Ability|AUTOMATIC|Wyrm
+Great Wyrm										CATEGORY:Internal									VISIBLE:NO																																																																																																																																																																																			TEMPLATE:Great Wyrm	ABILITY:Special Ability|AUTOMATIC|Great Wyrm
+# Display of SUBRACE is acting up - this is a temp fix till James can investigate this issue.
+Wyrmling										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Very Young										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Young											CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Juvenile										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Young Adult										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Adult											CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Mature Adult									CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Old											CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Very Old										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Ancient										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Wyrm											CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+Great Wyrm										CATEGORY:Special Ability	TYPE:SpecialQuality	SORTKEY:a
+
+
+###Block
+# This is to prevent an incorrect KIT from being applied
+Dragon Age Selected								CATEGORY:Internal									VISIBLE:NO
 
 #-------------------------------------------------------
 ###Block: *** Universal Monster Rules, pages 297-306 ***
