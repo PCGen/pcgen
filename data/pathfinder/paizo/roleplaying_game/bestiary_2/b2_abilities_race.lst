@@ -1,9 +1,6 @@
 # CVS $Revision: 21419 $ $Author: evilmynex $ -- Wed Sep 18 12:28:06 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
 ###Block: Set up Dhampir default abilities
-# Ability Name							Category of Ability	Ability
-
-#Default Traits ~ Dhampir
 Default Traits ~ Dhampir	CATEGORY:Internal
 CATEGORY=Internal|Default Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Low-Light Vision ~ Dhampir|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirLowLightVision
 CATEGORY=Internal|Default Traits ~ Dhampir.MOD					ABILITY:Dhampir Racial Trait|AUTOMATIC|Darkvision ~ Dhampir|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DhampirDarkvision
@@ -33,8 +30,6 @@ Resist Level Drain		KEY:Resist Level Drain ~ Dhampir		CATEGORY:Special Ability	T
 
 ###Block: Set up Fetchling default abilities -----------------------------------------
 # Ability Name							Category of Ability	Ability
-
-#Default Traits ~ Fetchling	CATEGORY:Internal
 Default Traits ~ Fetchling				CATEGORY:Internal
 CATEGORY=Internal|Default Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Darkvision ~ Fetchling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingDarkvision
 CATEGORY=Internal|Default Traits ~ Fetchling.MOD					ABILITY:Fetchling Racial Trait|AUTOMATIC|Low-Light Vision ~ Fetchling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.FetchlingLowLightVision
@@ -177,14 +172,12 @@ Air Affinity		KEY:Air Affinity ~ Sylph		CATEGORY:Special Ability	TYPE:RacialTrai
 
 ###Block: Set up Undine default abilities
 # Ability Name							Category of Ability	Ability
-
-#Default Traits ~ Undine	CATEGORY:Internal
-Default Traits ~ Undine	CATEGORY:Internal					
-CATEGORY=Internal|Default Traits ~ Undine					ABILITY:Undine Racial Trait|AUTOMATIC|Swim ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineSwim
-CATEGORY=Internal|Default Traits ~ Undine					ABILITY:Undine Racial Trait|AUTOMATIC|Darkvision ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineDarkvision
-CATEGORY=Internal|Default Traits ~ Undine					ABILITY:Undine Racial Trait|AUTOMATIC|Spell-Like Ability ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineSLA
-CATEGORY=Internal|Default Traits ~ Undine					ABILITY:Undine Racial Trait|AUTOMATIC|Energy Resistance ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineEnergyResistance
-CATEGORY=Internal|Default Traits ~ Undine					ABILITY:Undine Racial Trait|AUTOMATIC|Water Affinity ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineWaterAffinity
+Default Traits ~ Undine		CATEGORY:Internal					
+CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Swim ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineSwim
+CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Darkvision ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineDarkvision
+CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Spell-Like Ability ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineSLA
+CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Energy Resistance ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineEnergyResistance
+CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Water Affinity ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineWaterAffinity
 
 ###Block: Default Undine Abilities (POOL=5)
 # Ability Name		Unique Key					Category of Ability		Type															Multiple Requirements																						Define				Innate Spells									Description																																								Ability								Source Page
