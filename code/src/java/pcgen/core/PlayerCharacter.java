@@ -5162,7 +5162,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void adjustMoveRates()
 	{
 		moveResultFacet.reset(id);
-		setDirty(true);
+		//setDirty(true);
 	}
 
 	public List<Spell> aggregateSpellList(final String school, final String subschool, final String descriptor,
@@ -5295,10 +5295,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// that depends on variable B that will not be the correct
 		// value until after the map has been completely created.
 
+		int count = 0;
 		do
 		{
 			bonusManager.checkpointBonusMap();
 			setDirty(true);
+			count++;
 			calcActiveBonusLoop();
 			if (Globals.checkRule(RuleConstants.RETROSKILL))
 			{
@@ -5307,6 +5309,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		} while (!bonusManager.compareToCheckpoint());
 		// If the newly calculated bonus map is different to the old one
 		// loop again until they are the same.
+		Logging.log(Logging.DEBUG, "Ran " + count+" loops to calc bonuses");
 	}
 
 	/*
@@ -10530,7 +10533,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		conditionalFacet.removeAllFromSource(id, cdo);
 		directAbilityFacet.removeAllFromSource(id, cdo);
-		setDirty(true);
+		//setDirty(true);
 	}
 
 	public void addWeaponBonus(CDOMObject owner, WeaponProf choice)

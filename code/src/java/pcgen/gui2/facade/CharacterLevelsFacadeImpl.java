@@ -1005,8 +1005,11 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			return;
 		}
-		//Skill skill = dfce.getCDOMObject();
-		fireSkillBonusEvent(this, 0, true);
+		Skill skill = dfce.getCDOMObject();
+		if (theCharacter.getRank(skill) > 0)
+		{
+			fireSkillBonusEvent(this, 0, true);
+		}
 	}
 
 	/**

@@ -125,7 +125,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 			@Override
 			public Thread newThread(Runnable r)
 			{
-				Thread thread = new Thread(r, "Charater-Sheet-Refresher-Thread");
+				Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
 				thread.setDaemon(true);
 				thread.setPriority(Thread.NORM_PRIORITY);
 				return thread;

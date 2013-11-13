@@ -87,6 +87,11 @@ public class SkillToken extends Token
 	private static final int SKILL_SIZE= 16;
 	private static final int SKILL_CLASSES= 17;
 
+	// Cache the skill list as it is expensive to build
+	private List<Skill> cachedSkillList = null;
+	private PlayerCharacter lastPC = null;
+	private int lastPCSerial;
+	
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
@@ -127,9 +132,7 @@ public class SkillToken extends Token
 		try
 		{
 			final int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills =
-					pc.getSkillListInOutputOrder(pc.getDisplay()
-						.getPartialSkillList(Visibility.OUTPUT_ONLY));
+			final List<Skill> pcSkills = getSkillList(pc);
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
@@ -171,6 +174,22 @@ public class SkillToken extends Token
 					Skill.class, details.getSkillId());
 		}
 		return skill;
+	}
+
+	private synchronized List<Skill> getSkillList(PlayerCharacter pc)
+	{
+		if (pc == lastPC && pc.getSerial() == lastPCSerial)
+		{
+			return cachedSkillList;
+		}
+		
+		final List<Skill> pcSkills =
+				pc.getSkillListInOutputOrder(pc.getDisplay()
+					.getPartialSkillList(Visibility.OUTPUT_ONLY));
+		cachedSkillList = pcSkills;
+		lastPC = pc;
+		lastPCSerial = pc.getSerial();
+		return pcSkills;
 	}
 
 	/**
