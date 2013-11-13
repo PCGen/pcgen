@@ -92,7 +92,7 @@ public class TemplateInputFacet
 	public void importSelection(CharID id, PCTemplate obj, String choice)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		if (ChooseActivation.hasChooseToken(obj))
+		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(obj, pc);

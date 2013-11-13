@@ -441,7 +441,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void addKeyedTemplate(PCTemplate template, String choice)
 	{
-		if (ChooseActivation.hasChooseToken(template) && choice == null)
+		if (ChooseActivation.hasNewChooseToken(template) && choice == null)
 		{
 			final String message =
 					"Template ignored: "
