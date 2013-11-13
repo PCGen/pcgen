@@ -369,3 +369,12 @@ Unknown		KEY:Unknown ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
 #
 None			KEY:None ~ Region			CATEGORY:Background	TYPE:Region
 Unknown		KEY:Unknown ~ Region		CATEGORY:Background	TYPE:Region
+
+###Block: Wildshape
+Wildshape 2 ~ Eagle	CATEGORY:Internal	MOVE:Fly,60
+Wildshape 3 ~ Eagle	CATEGORY:Internal	MOVE:Fly,80
+Wildshape 2 ~ Gar		CATEGORY:Internal	MOVE:Swim,60
+Wildshape 3 ~ Squid	CATEGORY:Internal	MOVE:Jet,240
+
+
+
