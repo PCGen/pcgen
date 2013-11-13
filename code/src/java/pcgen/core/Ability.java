@@ -301,8 +301,11 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		StringBuilder buff = new StringBuilder();
 		List<Aspect> aspects = this.get(MapKey.ASPECT, key);
 		Aspect aspect = lastPassingAspect(aspects, pc);
-		buff.append(aspect.getName()).append(": ");
-		buff.append(aspect.getAspectText(pc, this));
+		if (aspect != null)
+		{
+			buff.append(aspect.getName()).append(": ");
+			buff.append(aspect.getAspectText(pc, this));
+		}
 		return buff.toString();
 	}
 	
