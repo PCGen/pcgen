@@ -119,7 +119,7 @@ ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	F
 
 
 ABILITYCATEGORY:Magus Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassAbility		PLURAL:Magus Class Abilities			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:YES			EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Abilities
 #
 # End
 #
