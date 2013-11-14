@@ -4,4 +4,3 @@
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
 ABILITYCATEGORY:Racial Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RaceAbility	PLURAL:Racial Abilities		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ghost Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility	PLURAL:Ghost Abilities		DISPLAYLOCATION:Racial Abilities
-

@@ -14,10 +14,10 @@ CATEGORY=Internal|Grants All Hidden Abilities.MOD																															
 #COMMENT: Holds Global DEFINES
 
 # All Hidden Abilities ~ Granted Abilities:
-Defines Required															CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:ActivateSizeMaster|0		DEFINE:RaceSizeIsLong|0		BONUS:VAR|RaceSizeIsLong|1|PRELEGSGTEQ:4|PREVAREQ:OverrideReach,0	
+Defines Required															CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:ActivateSizeMaster|0		DEFINE:RaceSizeIsLong|0		BONUS:VAR|RaceSizeIsLong|1|PRELEGSGTEQ:4|PREVAREQ:OverrideReach,0
 
 
-Bardic Inspire Courage						KEY:Bardic Inspire Courage (For Others)		CATEGORY:Internal		DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level																																																														BONUS:CHECKS|ALL|OtherInspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:ANYPC										BONUS:VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|max(floor((OtherInspireCourageLVL+4)/6),1)|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC
+Bardic Inspire Courage						KEY:Bardic Inspire Courage (For Others)		CATEGORY:Internal		DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level																																																														TEMPBONUS:ANYPC|CHECKS|ALL|OtherInspireCourageSaves|TYPE=BardicInspireCourage	TEMPBONUS:ANYPC|COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=BardicInspireCourage	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=BardicInspireCourage										TEMPBONUS:ANYPC|VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|max(floor((OtherInspireCourageLVL+4)/6),1)	TEMPBONUS:ANYPC|VAR|OtherInspireCourageLVL|%CHOICE
 Bardic Inspire Competence					KEY:Bardic Inspire Competence (For Others)	CATEGORY:Internal		DEFINE:OtherInspireCompetenceBonus|0																																																																																																																																																														BONUS:SKILL|TYPE.Standard|OtherInspireCompetenceBonus	BONUS:VAR|OtherInspireCompetenceBonus|2
 ###Block: Creature Type Traits
 # COMMENT: 'Default' is the defacto master ability that is automatically applied to ALL creatures. From it you can cascade other abilities. USE PRExxx to control when these are applied.
@@ -241,7 +241,7 @@ Water Traits			KEY:Traits Output ~ Water			CATEGORY:Special Ability	TYPE:Special
 Air Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
 Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																								BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Aquatic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
-Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon|Immunity to Electricity|Immunity to Petrification	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light														BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Immunity to Electricity|Immunity To Petrification|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light														BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Augmented Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Chaotic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Cold Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
@@ -266,9 +266,9 @@ Mindless			CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.Extraordinar
 
 
 #
-Demon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Poison|Resistance To Acid|Resistance To Cold|Resistance To Fire|Summon Demon|Telepathy																										BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance
-Devil Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Immunity To Poison|See in Darkness ~ Devil|Summon ~ Devil|Telepathy|Resistance To Acid|Resistance To Cold																										BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
-Mephit Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Natural Weapons ~ Mephit|Breath Weapon ~ Mephit|Spell-Like Abilities ~ Mephit|Summon Mephit ~ Mephit|Fast Healing ~ Mephit
+Demon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity To Poison|Resistance To Acid|Resistance To Cold|Resistance To Fire|Summon Demon|Telepathy																										BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance
+Devil Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Immunity To Poison|Resistance To Acid|Resistance To Cold|See in Darkness ~ Devil|Summon ~ Devil|Telepathy																										BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
+Mephit Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Mephit|Fast Healing ~ Mephit|Natural Weapons ~ Mephit|Spell-Like Abilities ~ Mephit|Summon Mephit ~ Mephit
 
 
 

@@ -46,7 +46,7 @@ CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
+CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
@@ -150,7 +150,7 @@ CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Appraise|Bluff|Jump
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Evil|DOMAIN.Chaos|DOMAIN.Fire
+CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Chaos|DOMAIN.Evil|DOMAIN.Fire
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
@@ -255,7 +255,7 @@ CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Gather Information|Survival
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Knowledge
+CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Cleric|Sorcerer|DOMAIN.Chaos|DOMAIN.Knowledge
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
@@ -324,7 +324,7 @@ CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Disguise|Swim|Survival
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
+CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
@@ -392,7 +392,7 @@ CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
+CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
@@ -460,7 +460,7 @@ CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Disguise|Heal|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Law|DOMAIN.Luck|DOMAIN.Good
+CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Good|DOMAIN.Law|DOMAIN.Luck
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
@@ -530,7 +530,7 @@ CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Disguise|Jump
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:6|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Good|DOMAIN.Law|DOMAIN.Sun
+CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:6|Cleric|Sorcerer|DOMAIN.Air|DOMAIN.Good|DOMAIN.Law|DOMAIN.Sun
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
