@@ -94,14 +94,14 @@ Knowledge (History/Shapechanger)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intellig
 Knowledge (History/Magical Beast)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 Knowledge (History/Monstrous Humanoid)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 Knowledge (History/Ooze)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Air)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Celestial/Good)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Chaotic)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Earth)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Fire)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Infernal/Evil)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Lawful)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
-Knowledge (History/Outsider(Water)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Air)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Celestial/Good)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Chaotic)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Earth)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Fire)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Infernal/Evil)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Lawful)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
+Knowledge (History/Outsider/Water)							KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 Knowledge (History/Plant)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 Knowledge (History/Undead)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
 Knowledge (History/Vermin)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.History													SOURCEPAGE:p.124
@@ -179,7 +179,7 @@ Knowledge (Local/Humans)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Kn
 Knowledge (Local/Ss'ressen)					NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local													SOURCEPAGE:p.124
 
 Knowledge (Nature/Diseases)								KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nature													SOURCEPAGE:p.125
-Knowledge (Nature/Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nature
+Knowledge (Nature/Ssethregore)				NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO
 
 #Knowledge (Nobility:<Country>) Specialties		Product Identity	Key Stat	Untrained?		Type																		Source Page			Choose			Define			Modify VAR
 Knowledge (Nobility and Royalty/Altheria)			NAMEISPI:YES	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Nobility												SOURCEPAGE:p.125
@@ -233,7 +233,7 @@ Profession (Barber)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		
 Profession (Barrister)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Beggar)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.158
 Profession (Boater)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Sea														SOURCEPAGE:p.127
-#Profession (Bookkeeper)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
+Profession (Bookkeeper)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Brewer)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Bureaucrat)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Butcher)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
@@ -253,7 +253,7 @@ Profession (Fisherman)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Professio
 Profession (Gambler)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Gardener)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Guide)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
-Profession (Gunner)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession				PREFEAT:1,Exotic Weapon Proficiency(Blastpowder Siege Weapons)	SOURCEPAGE:p.127
+Profession (Gunner)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession				PREFEAT:1,Exotic Weapon Proficiency (Blastpowder Siege Weapons)	SOURCEPAGE:p.127
 Profession (Hairdresser)								KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Herbalist)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Herdsman)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
@@ -290,4 +290,3 @@ Profession (Warehouser)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Professi
 Profession (Woodcutter)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 
 Research											KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence																SOURCEPAGE:p.128
-
