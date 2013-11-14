@@ -439,9 +439,9 @@ BIO
 			<ability>INT</ability>
 			<synergy>Craft (Untrained)</synergy>
 			<untrained>Y</untrained>
-			<exclusive>Y</exclusive>
+			<exclusive>N</exclusive>
 			<trained_total>1</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Diplomacy</name>
