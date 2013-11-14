@@ -312,7 +312,7 @@ CLASS:Master of the Swamp	PREALIGN:LN,TN	PREATT:6	PREFEAT:2,Iron Will,Track	PREM
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Use Magic Device|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
-1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+1	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON
 ###Block: Normal Progression
 1	BONUS:VAR|LizardfolkAllyBonus|1							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA						AUTO:FEAT|Water Breathing|Lizardfolk Ally
 2	BONUS:VAR|IncreasedAgilityBonus|1																					AUTO:FEAT|Increased Agility
