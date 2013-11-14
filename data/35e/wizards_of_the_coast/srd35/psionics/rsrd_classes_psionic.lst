@@ -193,7 +193,10 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 
 CLASS:Egoist (Psion)		SPELLLIST:1|Egoist|Psion	BONUS:CASTERLEVEL|Egoist (Psion)|CL
 CLASS:Kineticist (Psion)	SPELLLIST:2|Kineticist|Psion	BONUS:CASTERLEVEL|Kineticist (Psion)|CL
-CLASS:Nomad (Psion)		SPELLLIST:2|Nomad|Psion	BONUS:CASTERLEVEL|Nomad (Psion)|CL
-CLASS:Seer (Psion)		SPELLLIST:2|Psion|Seer	BONUS:CASTERLEVEL|Seer (Psion)|CL
+CLASS:Nomad (Psion)		SPELLLIST:2|Nomad|Psion		BONUS:CASTERLEVEL|Nomad (Psion)|CL
+CLASS:Seer (Psion)		SPELLLIST:2|Psion|Seer		BONUS:CASTERLEVEL|Seer (Psion)|CL
 CLASS:Shaper (Psion)		SPELLLIST:2|Psion|Shaper	BONUS:CASTERLEVEL|Shaper (Psion)|CL
-CLASS:Telepath (Psion)	SPELLLIST:2|Psion|Telepath	BONUS:CASTERLEVEL|Telepath (Psion)|CL
+CLASS:Telepath (Psion)		SPELLLIST:2|Psion|Telepath	BONUS:CASTERLEVEL|Telepath (Psion)|CL
+
+CLASS:Companion (Psicrystal)	MAXLEVEL:1
+1	DONOTADD:SKILLPOINTS|HITDIE
