@@ -5,7 +5,7 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 # Ability Name	Category of Ability		Type				Visible	Special ABility																						Define																																						Stackable?	Multiple?	Choose
 Rebuke Giants	CATEGORY:Special Ability	TYPE:Turning.TurnGiant	VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|TurnCheckBase
 #Issue: Rebuke Giants table isn't showing up on the OS.
-HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures	VISIBLE:NO	SAB:Favored Humanoid Enemy (%CHOICE)																																																									STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
+Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality	VISIBLE:YES	DESC:Favored Humanoid Enemy (%1)|%CHOICE																																																									STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
 
 
 ###Block: Favored Enemies

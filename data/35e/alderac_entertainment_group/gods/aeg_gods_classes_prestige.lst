@@ -21,18 +21,18 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 1	BONUS:VAR|BarbRagePowerLVL|CL				DEFINE:BarbRagePowerLVL|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1	DEFINE:RageTimes|0
 ###Block: Class Features
-1	ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE.TotemAnimal
+1	ADD:FEAT|TYPE.TotemAnimal
 ###Block: Normal Progression
 1	BONUS:CASTERLEVEL|TYPE.Divine|CL
-2																				ABILITY:FEAT|AUTOMATIC|Read Spirit
-3																				ABILITY:FEAT|AUTOMATIC|Shared Life
-4																				ABILITY:FEAT|AUTOMATIC|Improved Augury
-5												ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE=Metamagic
-6																				ABILITY:FEAT|AUTOMATIC|Rain Dance
-7							BONUS:VAR|BecomeTotemTimes|1									ABILITY:FEAT|AUTOMATIC|Become Totem
-8												ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE=Metamagic
+2																				AUTO:FEAT|Read Spirit
+3																				AUTO:FEAT|Shared Life
+4																				AUTO:FEAT|Improved Augury
+5												ADD:FEAT|TYPE=Metamagic
+6																				AUTO:FEAT|Rain Dance
+7							BONUS:VAR|BecomeTotemTimes|1									AUTO:FEAT|Become Totem
+8												ADD:FEAT|TYPE=Metamagic
 9							BONUS:VAR|BecomeTotemTimes|1
-10																				ABILITY:FEAT|AUTOMATIC|Shape of the Beast
+10																				AUTO:FEAT|Shape of the Beast
 
 #
 # Bugbear Prestige Classes
@@ -101,7 +101,7 @@ CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge 
 1														AUTO:FEAT|Poison Use|Brew Poison
 2														AUTO:FEAT|Delay Poison
 3														AUTO:FEAT|Immunity to Poison
-4	ABILITY:FEAT|AUTOMATIC|Poisoned Flesh|PRECLASSLEVELMAX:1,Poison Master=6
+4	AUTO:FEAT|Poisoned Flesh|PRECLASSLEVELMAX:1,Poison Master=6
 5														AUTO:FEAT|Identify Potion
 6														AUTO:FEAT|Acid Flesh
 7														AUTO:FEAT|Improved Poisoned Flesh
@@ -257,16 +257,16 @@ CLASS:Humanoid Hunter	PREATT:3	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Be
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Humanoids)|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
-1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies|PRERACE:1,RACETYPE=Humanoid
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|PRERACE:1,RACETYPE=Humanoid
+1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies|PRERACE:1,RACETYPE=Humanoid
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|PRERACE:1,RACETYPE=Humanoid
 ###Block: Humanoid Hunter Class Features
 1:REPEATLEVEL:2	ADD:FEAT|TYPE=Fighter
 ###Block: Favored Enemy
-1:REPEATLEVEL:1	ADD:ABILITY|1|Special Ability|AUTOMATIC|HHFavored Enemy
+1:REPEATLEVEL:1	BONUS:ABILITYPOOL|Hunter Humanoid Favored Enemy|1
 ###Block: Normal Progression
-2	ABILITY:FEAT|AUTOMATIC|Smite Humanoid
-6	ABILITY:FEAT|AUTOMATIC|Hide the Beast
-10	ABILITY:FEAT|AUTOMATIC|Death Blow
+2	AUTO:FEAT|Smite Humanoid
+6	AUTO:FEAT|Hide the Beast
+10	AUTO:FEAT|Death Blow
 
 #
 # Kobold Prestige Classes
@@ -343,7 +343,7 @@ CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Directio
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Thick Hide|
+1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Thick Hide
 2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Battle Cry|Formation Fighting
 4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	ADD:FEAT|TYPE=Fighter

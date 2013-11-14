@@ -4,3 +4,4 @@
 ###Block: Bonus Ability Category
 # Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Type of Object		Plural description for UI		Display Location
 ABILITYCATEGORY:KSKnownSpellBonus	VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	PLURAL:KofS Bonus Known Spells	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hunter Humanoid Favored Enemy	ABILITYLIST:HHFavored Enemy	VISIBLE:QUALIFY	EDITPOOL:NO	EDITABLE:YES	DISPLAYLOCATION:Class Abilities	CATEGORY:Special Ability
