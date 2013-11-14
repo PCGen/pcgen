@@ -58,7 +58,7 @@ Elven Vision				KEY:Elven Vision ~ Half-Elf Paragon				CATEGORY:Special Ability	
 Persuasion					KEY:Persuasion ~ Half-Elf Paragon				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A 2nd level half-elf paragon's racial bonus on Diplomacy and Gather Information checks increases to +3. She gains a +2 racial bonus on all other Charisma-based skills.																																																																																																																														SOURCEPAGE:p.40
 Ability Boost				KEY:Ability Boost ~ Half-Elf Paragon			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:At 3rd level, a half-elf paragon increases one ability score of her choice by 2 points.																																																																																																																														BONUS:ABILITYPOOL|Half-Elf Paragon Stat|1							SOURCEPAGE:p.40
 #
-Half-Elf Paragon Stat Increase	KEY:Stat Increase ~ Half-Elf Paragon			CATEGORY:Special Ability	TYPE:HalfElfParagonStat																																																																																																																																										STACK:NO	MULT:YES	CHOOSE:STAT								BONUS:STAT|LIST|2|TYPE=Racial.STACK	SOURCEPAGE:p.40
+Half-Elf Paragon Stat Increase	KEY:Stat Increase ~ Half-Elf Paragon			CATEGORY:Special Ability	TYPE:HalfElfParagonStat																																																																																																																																										STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL								BONUS:STAT|LIST|2|TYPE=Racial.STACK	SOURCEPAGE:p.40
 
 ###Block: Half-Orc Paragon
 # Ability Name			Unique Key								Category of Ability		Type						Description																																																																																																								Bonus to skill					Stat bonus					Modify VAR			Source Page
@@ -85,7 +85,7 @@ Bonus Feat				KEY:Bonus Feat ~ Human Paragon				CATEGORY:Special Ability	TYPE:Sp
 Ability Boost			KEY:Ability Boost ~ Human Paragon				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:At 3rd level, a human paragon increases one ability score of his choice by 2 points.																																																																																																																															BONUS:ABILITYPOOL|Human Paragon Stat|1														SOURCEPAGE:p.44
 #
 Adaptive Learning Choice										CATEGORY:Special Ability	TYPE:HumanParagonAdaptiveLearningChoice																																																																																																																																								MULT:YES	CHOOSE:SKILL|CLASS																			CSKILL:LIST	SOURCEPAGE:p.44	SOURCEPAGE:p.44
-Human Paragon Stat Increase	KEY:Stat Increase ~ Human Paragon				CATEGORY:Special Ability	TYPE:HumanParagonStat																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:STAT															BONUS:STAT|LIST|2|TYPE=Racial.STACK			SOURCEPAGE:p.44
+Human Paragon Stat Increase	KEY:Stat Increase ~ Human Paragon				CATEGORY:Special Ability	TYPE:HumanParagonStat																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL															BONUS:STAT|LIST|2|TYPE=Racial.STACK			SOURCEPAGE:p.44
 
 ###Block: Orc Paragon
 # Ability Name			Unique Key							Category of Ability		Type						Description																						Stat bonus					Modify VAR				Source Page
