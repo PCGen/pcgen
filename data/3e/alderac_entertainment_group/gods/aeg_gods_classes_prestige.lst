@@ -21,16 +21,16 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 1	BONUS:VAR|BarbRagePowerLVL|CL				DEFINE:BarbRagePowerLVL|0
 1	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1	DEFINE:RageTimes|0
 ###Block: Class Features
-1	ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE.TotemAnimal
+1	ADD:FEAT|TYPE.TotemAnimal
 ###Block: Normal Progression
 1	BONUS:CASTERLEVEL|TYPE.Divine|CL
 2																				ABILITY:FEAT|AUTOMATIC|Read Spirit
 3																				ABILITY:FEAT|AUTOMATIC|Shared Life
 4																				ABILITY:FEAT|AUTOMATIC|Improved Augury
-5												ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE=Metamagic
+5												ADD:FEAT|TYPE=Metamagic
 6																				ABILITY:FEAT|AUTOMATIC|Rain Dance
 7							BONUS:VAR|BecomeTotemTimes|1									ABILITY:FEAT|AUTOMATIC|Become Totem
-8												ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE=Metamagic
+8												ADD:FEAT|TYPE=Metamagic
 9							BONUS:VAR|BecomeTotemTimes|1
 10																				ABILITY:FEAT|AUTOMATIC|Shape of the Beast
 
@@ -50,7 +50,7 @@ CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move
 1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1:REPEATLEVEL:3									ADD:ABILITY|1|FEAT|AUTOMATIC|Point Blank Shot,Far Shot,Precise Shot,Shot on the Run
+1:REPEATLEVEL:3									ADD:FEAT|Point Blank Shot,Far Shot,Precise Shot,Shot on the Run
 2			BONUS:VAR|CrackShotMult|1																		AUTO:FEAT|Crack Shot
 3			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1															AUTO:FEAT|Vital Shot
 5			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
@@ -164,7 +164,7 @@ CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomac
 #Class:The Returned (Complete except for Demon in Form class feature)
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus					Combat bonus
-CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:pg.50	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:COMBAT|BAB|
+CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:pg.50	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
 # Class Name		Required AL					Req. Att.	Prohibited Check		Required Text
 CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREATT:4	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -7,7 +7,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 Altherian Craftsman									CATEGORY:Special Ability																																			AUTO:FEAT|Altherian Craftsman
 Sharp Intellect										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality
 Dedication											CATEGORY:Special Ability							DEFINE:DedicationBonus|0	DESC:%1|DedicationBonus																									ADD:ABILITY|Special Ability|NORMAL|Dedication Output Choice
-Dedication Output Choice	OUTPUTNAME:Dedication				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality						DESC:%1|DedicationBonus	STACK:NO	MULT:YES	CHOOSE:SKILLSNAMED|Craft (Alchemy)|Craft (Armorsmithing)|Craft (Flintlocks)|Craft (Trapmaking)|Craft (Weaponsmithing)	SELECT:1																BONUS:SKILL|%LIST|DedicationBonus	BONUS:SKILL|Knowledge (Architecture and Engineering)|DedicationBonus
+Dedication Output Choice	OUTPUTNAME:Dedication				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality						DESC:%1|DedicationBonus	STACK:NO	MULT:YES	CHOOSE:SKILL|Craft (Alchemy)|Craft (Armorsmithing)|Craft (Flintlocks)|Craft (Trapmaking)|Craft (Weaponsmithing)	SELECT:1																BONUS:SKILL|%LIST|DedicationBonus	BONUS:SKILL|Knowledge (Architecture and Engineering)|DedicationBonus
 Craft Clockwork Companion								CATEGORY:Special Ability	TYPE:SpecialQuality																																																																					FOLLOWERS:Clockwork Companion|1	COMPANIONLIST:Clockwork Companion|RACETYPE=Clockwork Construct
 #Trapfinding								CATEGORY:Special Ability
 #Exploit Flaw										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality	DEFINE:ExploitFlawBonus|0																																																									BONUS:VAR|ExploitFlawBonus|2

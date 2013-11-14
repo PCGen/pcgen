@@ -22,7 +22,7 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Neiyar Land of Heaven and the Abyss, 2004 Julie Ann Dawson/Bards and Sages
 COPYRIGHT:PCGen dataset conversion for Neiyar, Land of Heaven and Abyss, 2007 PCGen Data Team (including, but not limited to: Andrew Maitland, Frank Kliewe)
-LICENSE:FILE=data/alpha/bardsandsages/neiyar/neiyar/neiyar_permission.htm
+#LICENSE:FILE=data/35e/bardsandsages/neiyar/neiyar_permission.htm
 
 COVER:neiyar.png
 COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Bards and Sages.

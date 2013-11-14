@@ -7,7 +7,7 @@ SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.parad
 #Greater Masterwork - no entries in PGtA for use on tools or items or ammunition
 #  Name			Key			Outputname					Name Opt		Type							Cost		Visible		Itype					Bonuses																										Sourcepage			Special Properties
 # Modifier Name		Unique Key		Naming Option							Type							Cost				Visible		Type granted		Source Page		Required Type									Prohibited Type								Combat bonus					Bonus Equipment Modifiers			Bonus Armor Modifiers					Weapon prop. bonus																								Special Property				Automatically Added to Inventory
-Greater Masterwork	KEY:GMWORKW		NAMEOPT:NORMAL							TYPE:Weapon.Masterwork.GreaterMastercraft	COST:600						ITYPE:Masterwork		SOURCEPAGE:p.184																																												BONUS:WEAPON|TOHIT|1|TYPE=Enhancement|TYPE.Melee	BONUS:WEAPON|DAMAGE|1|TYPE=Enhancement|TYPE.Melee	BONUS:WEAPON|TOHIT|2|TYPE=Enhancement|TYPE.Ranged	SPROP:+10 Hardness
+Greater Masterwork	KEY:GMWORKW		NAMEOPT:NORMAL							TYPE:Weapon.Masterwork.GreaterMastercraft	COST:600						ITYPE:Masterwork		SOURCEPAGE:p.184																																												BONUS:WEAPON|TOHIT.Melee|1|TYPE=Enhancement	BONUS:WEAPON|DAMAGE.Melee|1|TYPE=Enhancement	BONUS:WEAPON|TOHIT.Ranged|2|TYPE=Enhancement				SPROP:+10 Hardness
 Greater Masterwork	KEY:GMWORKA		NAMEOPT:NORMAL							TYPE:Armor.Masterwork.GreaterMastercraft	COST:300						ITYPE:Masterwork		SOURCEPAGE:p.244																																				BONUS:EQMARMOR|ACCHECK|2																															SPROP:+1 Hardness
 
 #Lengendary and Custom
