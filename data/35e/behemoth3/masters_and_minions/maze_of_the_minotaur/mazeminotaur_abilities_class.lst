@@ -12,8 +12,7 @@ SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.
 Onslaught							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Onslaught (Ex)
 Freedom							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Freedom (Su)
 CATEGORY=Special Ability|Natural Cunning.MOD																		TEMPLATE:Natural Cunning
-### TODO: The VFEAT tag should be included but PREAPPLY doesn't work except on bonuses ?FREQ?.
-Pack Tactics						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pack Tactics (Ex)						VFEAT:Improved Trip|PREAPPLY:PC	BONUS:COMBAT|TOHIT|1|PREAPPLY:PC	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.
+Pack Tactics						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pack Tactics (Ex)				DEFINE:PackTacticsActive|0	BONUS:VAR|PackTacticsActive|1|PREAPPLY:PC	VFEAT:Improved Trip|PREVARGTEQ:PackTacticsActive,1	BONUS:COMBAT|TOHIT|1|PREAPPLY:PC	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.
 
 Tunneling							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tunneling (Ex)
 
