@@ -67,4 +67,4 @@ Knife to the Soul		KEY:Knife to the Soul ~ Soulknife ITCK		CATEGORY:Special Abil
 ###Block: hidden feats
 # Feat Name			Type			Visible	Required Class			Stackable?	Multiple?	Choose													Modify VAR						Source Page
 # Ability Name		Category of Ability		Type			Visible	Required Class			Stackable?	Multiple?	Choose							Bonus to spell known/L		Modify VAR						Source Page
-Power Sequestration	CATEGORY:Special Ability	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Psionic|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|-1	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40
+Power Sequestration	CATEGORY:Special Ability	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Psionic|0|MAXLEVEL	BONUS:SPELLKNOWN|TYPE=Psionic;LEVEL=%LIST|-1	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40

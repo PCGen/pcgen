@@ -28,14 +28,14 @@ Animal Evaluation	SOURCEPAGE:p.162	TYPE:Regional	DESC:Your experience around the
 # Gandoria
 Trader	SOURCEPAGE:p.162	TYPE:Regional	DESC:Though Gandoria is sparsely populated, those who do live there are truly remarkable merchants.	PRETEXT:Gandoria native.	BONUS:SKILL|Appraise,Bluff|2|TYPE=Competence	CSKILL:Appraise|Bluff
 # Gimland
-Relentless Hunter	SOURCEPAGE:p.162	TYPE:Regional	DESC:The hunters of Gimland keep the roadways safe by eliminating the monsters and bandits that infest the dark forests and rugged mountains.	PRETEXT:Gimland native.	AUTO:FEAT|Track|Martial Weapon Proficiency(Longbow)|Martial Weapon Proficiency(Shortbow)	MULT:YES	CHOOSE:STRING|Longbow|Shortbow	AUTO:WEAPONPROF=LIST|TOHIT|1|TYPE=Competence	STACK:NO
+Relentless Hunter	SOURCEPAGE:p.162	TYPE:Regional	DESC:The hunters of Gimland keep the roadways safe by eliminating the monsters and bandits that infest the dark forests and rugged mountains.	PRETEXT:Gimland native.	AUTO:FEAT|Track|Martial Weapon Proficiency(Longbow)|Martial Weapon Proficiency(Shortbow)	MULT:YES	CHOOSE:STRING|Longbow|Shortbow	BONUS:WEAPONPROF=LIST|TOHIT|1|TYPE=Competence	STACK:NO
 Woodmason	SOURCEPAGE:p.162	TYPE:Regional	DESC:The dwarven clans of Gimland know the secrets of working stonewood.	PRERACE:1,Dwarf%	PRETEXT:Gimland native
 # Harvest Dale
 Green Thumb	SOURCEPAGE:p.163	TYPE:Regional	DESC:The lush gardens of Harvest Dale are legendary throughout the world. Cultivation simply comes easy for many people from this region, and they are often sought out to eliminate famines.	PRETEXT:Harvest Dale native.	CSKILL:Knowledge (Nature)	BONUS:SKILL|Profession (Farmer)|2|TYPE=Competence
 # Nezria
 Swamprat	SOURCEPAGE:p.163	TYPE:Regional	DESC:Living with swamps all around, you have grown accustomed to surviving in that particular environment.	PRETEXT:Nezria native.
 # Outcastia
-Cultural Chameleon	SOURCEPAGE:p.163	TYPE:Regional	DESC:Rubbing shoulders with other outcasts has taught you much about the different cultures of the world; particularly how different social classes interact with each other.	PRETEXT:Outcastia native.	BONUS:SKILL|Diplomacy|2|TYPE=Competence	CSKILL|Knowledge (Local)|Knowledge (Nobility and Royalty)|Diplomacy
+Cultural Chameleon	SOURCEPAGE:p.163	TYPE:Regional	DESC:Rubbing shoulders with other outcasts has taught you much about the different cultures of the world; particularly how different social classes interact with each other.	PRETEXT:Outcastia native.	BONUS:SKILL|Diplomacy|2|TYPE=Competence	CSKILL:Knowledge (Local)|Knowledge (Nobility and Royalty)|Diplomacy
 # Qal'mont
 Rock Climber	SOURCEPAGE:p.163	TYPE:Regional	DESC:Growing up in the mountains, you have developed the ability to scramble up rock faces almost as easily as walking down a smooth path.	PRETEXT:Qal'mont native.
 # Saddleridge
