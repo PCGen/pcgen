@@ -195,7 +195,7 @@ CLASS:Exemplar	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
 ###Block: Class Features
-1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+1	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON
 ###Block: Normal Progression
 1						ADD:SPELLCASTER|Divine	VFEAT:Leadership	AUTO:FEAT|Strength of Purpose
 2						ADD:SPELLCASTER|Divine				AUTO:FEAT|Divine Wrath
