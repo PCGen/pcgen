@@ -14,4 +14,3 @@ Earth Breaker						PROFICIENCY:WEAPON|Earth Breaker												TYPE:Weapon.Melee
 Sawtooth Sabre						PROFICIENCY:WEAPON|Sawtooth Sabre												TYPE:Weapon.Melee.Exotic.Standard.Slashing				COST:35	WT:2					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:STEEL	WIELD:Light									SOURCEPAGE:p. 13
 Scarf (Bladed)	OUTPUTNAME:Scarf, bladed	PROFICIENCY:WEAPON|Scarf (Bladed)												TYPE:Weapon.Melee.Exotic.Standard.Reach.Finesseable.Slashing	COST:12	WT:2					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6			WIELD:TwoHanded						REACH:10	SOURCEPAGE:p. 13
 Shoanti Bola						PROFICIENCY:WEAPON|Shoanti Bola												TYPE:Weapon.Ranged.Exotic.Standard.Bludgeoning.Piercing.Thrown	COST:15	WT:2					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL							RANGE:10			SOURCEPAGE:p. 13
-

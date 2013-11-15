@@ -9,4 +9,3 @@ Companion Advancement (Elk)		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DI
 ###Block: Companion abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description														Weapon prof. bonus
 Powerful Jaws	KEY:Powerful Jaws ~ Thylacine	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A thylacine’s muscular jaws threaten a critical hit on a natural roll of 19 or 20.	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1
-

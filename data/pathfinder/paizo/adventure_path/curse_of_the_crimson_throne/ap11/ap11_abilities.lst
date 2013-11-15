@@ -48,4 +48,3 @@ Umbral Hide				OUTPUTNAME:Hide in Plain Sight					CATEGORY:Special Ability	TYPE:
 Umbral Crush			OUTPUTNAME:Crush								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		VISIBLE:EXPORT	SAB:Crush %d% (DC %) (Ex)|UmbralCrushDamage|UmbralCrushDie|UmbralCrushDC											DEFINE:UmbralCrushDamage|0	DEFINE:UmbralCrushDie|0	DEFINE:UmbralCrushDC|0		DESC:Area 15 ft. by 15 ft.																					SOURCEPAGE:p. 89
 Umbral Frightful Presence	OUTPUTNAME:Frightful Presence						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura	VISIBLE:EXPORT	SAB:Frightful Presence: Area of Effect %feet (DC %) (Su)|30*TL|UmbralFrightfulPresenceDC									DEFINE:UmbralFrightfulPresenceDC|0																																		SOURCEPAGE:p. 86
 Umbral Tail Sweep			OUTPUTNAME:Tail Sweep							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		VISIBLE:EXPORT	SAB:Tail Sweep 2d6 (DC 35) (Ex)|UmbralTailSweepDC															DEFINE:UmbralTailSweepDC|0
-

@@ -523,4 +523,3 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Morningstar)
 GEAR:Studded Leather			LOCATION:Equipped
 GEAR:Morningstar				LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Coin (Silver Piece)	QTY:8	LOCATION:Carried
-

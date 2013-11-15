@@ -8,4 +8,3 @@ Appraise (Natural stones or metals)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYP
 ###Block: Skill .MODs
 # Skill Name	Bonus to skill										Bonus to skill rank
 Appraise.MOD	BONUS:SKILL|Appraise (Natural stones or metals)|SKILL.Appraise.MISC	BONUS:SKILLRANK|Appraise (Natural stones or metals)|skillinfo("TOTALRANK","Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Natural stones or metals).MISC"),SKILL.Appraise.MISC
-

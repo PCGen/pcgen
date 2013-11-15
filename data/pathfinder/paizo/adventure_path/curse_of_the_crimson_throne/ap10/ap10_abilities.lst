@@ -46,4 +46,3 @@ Red Reaver Roar		OUTPUTNAME:Roar		CATEGORY:Special Ability	TYPE:SpecialAttack.Su
 ###Block: Horned Spirestalker Abilities
 # Ability Name	Category of Ability		Type						Visible	Special ABility		Bonus to skill
 Expert Climber	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Expert Climber (Ex)	BONUS:SKILL|Climb|8
-

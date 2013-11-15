@@ -11,4 +11,3 @@ MASTERBONUSRACE:Familiar (Bustard)			TYPE:Familiar	BONUS:SKILL|Listen|3	VFEAT:Al
 MASTERBONUSRACE:Familiar (Jerboa)			TYPE:Familiar	BONUS:SKILL|Jump|3	VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Scorpion (Lashtail))	TYPE:Familiar	BONUS:SKILL|Survival|3	VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Solifugid)		TYPE:Familiar	BONUS:SKILL|Bluff|3	VFEAT:Alertness
-

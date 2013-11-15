@@ -9,4 +9,3 @@ Outfit (Doctor's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable	COST:
 Mortician's Tools								TYPE:Goods.Tools			COST:20	WT:5						SOURCEPAGE:p. 49
 Surgeons' Tools								TYPE:Goods.Tools			COST:20	WT:5						SOURCEPAGE:p. 61
 Thurible									TYPE:Goods				COST:50	WT:3						SOURCEPAGE:p. 61
-

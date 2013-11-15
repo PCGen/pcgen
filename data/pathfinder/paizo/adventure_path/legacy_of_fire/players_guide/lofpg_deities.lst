@@ -13,4 +13,3 @@ Nethys		NAMEISPI:YES	DOMAINS:Destruction,Knowledge,Magic,Protection,Rune|PREALIG
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE			DESC:God of Wrath, Disaster, Destruction			DEITYWEAP:Greataxe					ALIGN:CE	PANTHEON:Katapesh	SOURCEPAGE:p. 25
 Sarenrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:LG,NG,CG					DESC:Goddess of The Sun, Redemption, Honesty, Healing	DEITYWEAP:Scimitar					ALIGN:NG	PANTHEON:Katapesh	SOURCEPAGE:p. 25
 Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of Illusions, Reflections, Mystery		DEITYWEAP:Scarf (Bladed)				ALIGN:TN	PANTHEON:Katapesh	SOURCEPAGE:p. 25
-

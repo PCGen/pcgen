@@ -27,4 +27,3 @@ Immunity to Spider Vine Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extr
 Fortitude save bonus	CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:CHECKS|Fortitude|1|TYPE=Trait	SOURCEPAGE:p.10
 Reflex save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:CHECKS|Reflex|1|TYPE=Trait	SOURCEPAGE:p.10
 Will save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:CHECKS|Will|1|TYPE=Trait	SOURCEPAGE:p.10
-

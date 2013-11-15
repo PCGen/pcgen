@@ -22,4 +22,3 @@ MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar						BONUS:SKILL|Linguistics|3	
 MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar						BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	BONUS:CHECKS|Fortitude|2						VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar						BONUS:SKILL|Fly|3			VFEAT:Alertness
-

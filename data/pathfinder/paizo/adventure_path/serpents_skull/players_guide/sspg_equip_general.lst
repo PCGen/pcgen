@@ -4,4 +4,3 @@ SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paiz
 ###Block: Adventuring Gear
 # Equipment Name		Type				Cost		Weight	Source Page		Special Property															Desc is PI?
 Map (Mwangi Expanse)	TYPE:Goods.General	COST:0	WT:0		SOURCEPAGE:p.9	SPROP:Grants +2 competence bonus on all Knowledge (Geography) checks regarding the Mwangi Expanse.	DESCISPI:YES
-

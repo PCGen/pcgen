@@ -332,4 +332,3 @@ GEAR:Wand							LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Ghoul Touch]SPELLLEVE
 GEAR:Poison (Blue whinnis)	QTY:5			LOCATION:Carried
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic|Mage Hand|Mending|Ray of Frost|Touch of Fatigue|Vampiric Touch|Fly|False Life|Blindness/Deafness|Shield|Scorching Ray|Spectral Hand|Cause Fear|Chill Touch|Magic Missile|Ray of Enfeeblement|Sleep
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Vampiric Touch|Fly|False Life[Extend Spell]|Detect Magic|Mage Hand|Mending|Ray of Frost|Touch of Fatigue|Blindness/Deafness|Shield[Extend Spell]|Scorching Ray|Spectral Hand|Cause Fear|Chill Touch|Magic Missile|Ray of Enfeeblement|Sleep
-

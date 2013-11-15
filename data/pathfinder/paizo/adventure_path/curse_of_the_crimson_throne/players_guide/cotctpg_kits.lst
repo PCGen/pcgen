@@ -2,4 +2,3 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCE
 
 STARTPACK:Companion ~ Hippogriff	TYPE:Companion	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-

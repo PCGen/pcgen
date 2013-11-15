@@ -4,4 +4,3 @@
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Mediogalti Poison Immunity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MediogaltiPoisonImmunity	PLURAL:Mediogalti Poison Immunity	DISPLAYLOCATION:Traits
 ABILITYCATEGORY:Shackles Save Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShacklesSaveBonus		PLURAL:Shackles Save Bonus		DISPLAYLOCATION:Traits
-

@@ -5,4 +5,3 @@ SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:ROTRPG	SOURCEWEB:htt
 # Ability Name									Allowed Companions
 CATEGORY=Special Ability|Nature's Bond ~ Animal Companion.MOD	COMPANIONLIST:Animal Companion|Cindersnake,Donkey Rat,Storm Roc	COMPANIONLIST:Animal Companion|Auroch,Fire Pelt|FOLLOWERADJUSTMENT:-3
 CATEGORY=Special Ability|Companion ~ Hunter's Bond.MOD		COMPANIONLIST:Animal Companion|Cindersnake,Donkey Rat,Storm Roc	COMPANIONLIST:Animal Companion|Auroch,Fire Pelt|FOLLOWERADJUSTMENT:-3
-

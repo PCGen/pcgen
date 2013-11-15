@@ -52,4 +52,3 @@ WEAPONPROF:rotrpg_profs_weapon.lst
 
 # Hide internally used feat types
 HIDETYPE:FEAT|CityBorn|Varisia|VarisianTattoo
-

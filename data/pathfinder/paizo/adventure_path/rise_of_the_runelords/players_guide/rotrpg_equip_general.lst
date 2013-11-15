@@ -15,4 +15,3 @@ Scarf (Reinforced)	OUTPUTNAME:[NAME] Scarf	TYPE:Goods.General					COST:10	WT:0		
 ###Block:Tools
 # Equipment Name	Type					Cost		Weight	Source Page
 Varisian Idol	TYPE:Goods.Tools.Consumable	COST:50	WT:0		SOURCEPAGE:p.11
-

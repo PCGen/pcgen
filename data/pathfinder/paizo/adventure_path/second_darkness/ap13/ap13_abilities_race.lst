@@ -31,4 +31,3 @@ Venomroach Poison	OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.
 # Ability Name			Output Name			Category of Ability		Type							Description												Source Page
 Swamp Barracuda Amphibious	OUTPUTNAME:Amphibious	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:swamp barracuda can survive indefinitely on land					SOURCEPAGE:p. 86
 Swamp Barracuda Keen Scent	OUTPUTNAME:Keen Scent	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A swamp barracuda can notice creatures by scent in a 180-foot radius	SOURCEPAGE:p. 86
-

@@ -419,4 +419,3 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Air Walk|Bear's Endurance|Blin
 # Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Magic Vestment|Magic Weapon|Slay Living|Spiritual Weapon
 TEMPLATE:Lady Andaisin's Magic Buffs
-

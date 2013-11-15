@@ -33,6 +33,3 @@ Mobogo Regeneration					OUTPUTNAME:Regeneration 5	CATEGORY:Special Ability	TYPE:
 Swamp Stride											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:A mobogo can move through any sort of natural difficult terrain at its normal speed while within a swamp.					SOURCEPAGE:p. 89
 Mobogo Tongue						OUTPUTNAME:Tongue			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A mobogo can attack any creature within 40 feet with its tongue. DC %1 Escape Artist check or a DC %2 Strength check.|20+STR|16+STR	SOURCEPAGE:p. 89
 Crush				KEY:Crush ~ Mobogo						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:As a standard action, a flying mobogo may land on opponents of Medium size or smaller, using its terrible girth to crush them.
-
-
-

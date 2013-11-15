@@ -11,4 +11,3 @@ Graverisen			TYPE:Achievement					PRETEXT:Die and be brought back at least twice
 Healer's Touch		TYPE:Achievement					PRETEXT:Cure a cumulative total of 1,000 points of damage for other creatures using healing spells				DESC:The magic of life flows through your body like a river.																																																										SOURCEPAGE:p.29
 History of Scars		TYPE:Achievement					PRETEXT:Take a cumulative total of 1,000 points of damage.											DESC:Your scars bear witness to countless battles.																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SKILL|TYPE=Charisma|-2							SOURCEPAGE:p.29
 Relentless Butcher	TYPE:Achievement					PRETEXT:Confirm at least 50 critical hits.													DESC:You revel in the glory of dismemberment and maiming.																																																											SOURCEPAGE:p.29
-
