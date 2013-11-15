@@ -75,7 +75,8 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 		{
 			if (tokenName.equals(bonus.getTokenSource()))
 			{
-				bonusSet.add(bonus.toString());
+				String bonusString = bonus.getLSTformat();
+				bonusSet.add(bonusString);
 			}
 		}
 		if (bonusSet.isEmpty())
