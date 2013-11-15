@@ -97,6 +97,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
+###Block:
+1:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|ClericSkillPts	DEFINE:ClericSkillPts|0
 ###Block: Aura strength
 1	BONUS:VAR|AlignmentAuraLVL|CL	ABILITY:Cleric Class Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
 1						ABILITY:Cleric Class Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
