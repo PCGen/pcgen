@@ -62,9 +62,9 @@ CLASS:Divine Bard.MOD	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CA
 1	SPELLLEVEL:CLASS|Divine Bard=1|Detect Evil,Detect Good,Detect Law,Protection from Evil,Protection from Good,Protection from Law
 1	SPELLLEVEL:CLASS|Divine Bard=2|Consecrate,Desecrate,Gentle Repose
 1	SPELLLEVEL:CLASS|Divine Bard=3|Magic Circle Against Evil,Magic Circle Against Good,Magic Circle Against Law,Prayer
-1	SPELLLEVEL:CLASS|Divine Bard=4|Remove Disease,Speak with Dead,Sending
+1	SPELLLEVEL:CLASS|Divine Bard=4|Remove Disease,Sending,Speak with Dead
 1	SPELLLEVEL:CLASS|Divine Bard=5|Divination,Restoration
-1	SPELLLEVEL:CLASS|Divine Bard=6|Commune,Hallow,Unhallow,Raise Dead
+1	SPELLLEVEL:CLASS|Divine Bard=6|Commune,Hallow,Raise Dead,Unhallow
 ###Block: alignment spell restrictions
 1	PROHIBITSPELL:DESCRIPTOR.Lawful
 1	PROHIBITSPELL:DESCRIPTOR.Chaotic|PREALIGN:TN
@@ -87,7 +87,7 @@ CLASS:Savage Bard.MOD	BONUS:CASTERLEVEL|Savage Bard|CL	SPELLLIST:1|Savage Bard
 ###Block: Spell List
 # This doesn't take into accound Bard spells from other sources.  No way to 'Remove spells from a spell list'
 1	SPELLLEVEL:CLASS|Savage Bard=0|Dancing Lights,Daze,Detect Magic,Flare,Ghost Sound,Know Direction,Light,Lullaby,Mage Hand,Mending,Message,Open/Close,Resistance,Summon Instrument
-1	SPELLLEVEL:CLASS|Savage Bard=1|Alarm,Animate Rope,Calm Emotions,Cause Fear,Charm Person,Cure Light Wounds,Detect Snares and Pits,Disguise Self,Endure Elements,Expeditious Retreat,Feather Fall,Grease,Hideous Laughter,Hypnotism,Identify,Confusion (Lesser),Magic Mouth,Magic Aura,Obscure Object,Remove Fear,Silent Image,Sleep,Summon Nature's Ally I,Undetectable Alignment,Unseen Servant,Ventriloquism
+1	SPELLLEVEL:CLASS|Savage Bard=1|Alarm,Animate Rope,Calm Emotions,Cause Fear,Charm Person,Confusion (Lesser),Cure Light Wounds,Detect Snares and Pits,Disguise Self,Endure Elements,Expeditious Retreat,Feather Fall,Grease,Hideous Laughter,Hypnotism,Identify,Magic Aura,Magic Mouth,Obscure Object,Remove Fear,Silent Image,Sleep,Summon Nature's Ally I,Undetectable Alignment,Unseen Servant,Ventriloquism
 1	SPELLLEVEL:CLASS|Savage Bard=2|Alter Self,Animal Messenger,Animal Trance,Blindness/Deafness,Blur,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Daze Monster,Delay Poison,Detect Thoughts,Eagle's Splendor,Enthrall,Fox's Cunning,Glitterdust,Heroism,Hold Person,Hypnotic Pattern,Invisibility,Locate Object,Minor Image,Mirror Image,Misdirection,Pass without Trace,Pyrotechnics,Rage,Scare,Shatter,Silence,Sound Burst,Suggestion,Summon Nature's Ally II,Summon Swarm,Tongues,Whispering Wind
 1	SPELLLEVEL:CLASS|Savage Bard=3|Blink,Charm Monster,Clairaudience/Clairvoyance,Confusion,Crushing Despair,Cure Serious Wounds,Daylight,Deep Slumber,Dispel Magic,Displacement,Fear,Gaseous Form,Geas (Lesser),Glibness,Good Hope,Haste,Illusory Script,Invisibility Sphere,Major Image,Phantom Steed,Remove Curse,Scrying,Sculpt Sound,Secret Page,See Invisibility,Slow,Snare,Speak with Animals,Summon Nature's Ally III,Tiny Hut
 1	SPELLLEVEL:CLASS|Savage Bard=4|Break Enchantment,Cure Critical Wounds,Detect Scrying,Dimension Door,Dominate Person,Freedom of Movement,Hallucinatory Terrain,Hold Monster,Insect Plague,Invisibility (Greater),Legend Lore,Locate Creature,Modify Memory,Neutralize Poison,Rainbow Pattern,Repel Vermin,Secure Shelter,Shadow Conjuration,Shout,Speak with Plants,Summon Nature's Ally IV,Zone of Silence
@@ -114,10 +114,10 @@ CLASS:Bard.MOD
 1	BONUS:VAR|BardicKnowledgeLvl|CL|PREABILITY:1,CATEGORY=Special Ability,Regular Bard			ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
 1	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
 ###Block: Grant Inspire abilities again, using "Regular Bard" Checks
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Courage|PREABILITY:1,CATEGORY=Special Ability,Regular Bard|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREABILITY:1,CATEGORY=Special Ability,Regular Bard|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREABILITY:1,CATEGORY=Special Ability,Regular Bard|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PREABILITY:1,CATEGORY=Special Ability,Regular Bard|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15
 ###Block: Animal Companion
 1	BONUS:VAR|WildEmpathy|CL|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard	ABILITY:Special Ability|AUTOMATIC|Nature Sense|Wild Empathy|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard
 1	BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard	ABILITY:Special Ability|AUTOMATIC|Animal Companion|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard

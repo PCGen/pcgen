@@ -10,14 +10,14 @@ SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.ni
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Arcane Juggler	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (history)|Listen|TYPE=Perform|TYPE=Profession|Tumble
+CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (History)|Listen|TYPE=Perform|TYPE=Profession|Tumble
 ###Block:
 #all simple weapons|as well as with the shuriken. The juggler is proficient with light armor|is not proficient with shields
-1							AUTO:WEAPONPROF|TYPE=Simple|Shuriken
+1							AUTO:WEAPONPROF|Shuriken|TYPE=Simple
 1	AUTO:ARMORPROF|ARMORTYPE=Light
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Arcane Juggle ~ Arcane Juggler|Deflect Arrows ~ Arcane Juggler|Performer ~ Arcane Juggler
-2	ABILITY:Special Ability|AUTOMATIC|Juggling Throw ~ Arcane Juggler|Improved Arcane Juggle ~ Arcane Juggler|Juggling Tumble ~ Arcane Juggler
+2	ABILITY:Special Ability|AUTOMATIC|Improved Arcane Juggle ~ Arcane Juggler|Juggling Throw ~ Arcane Juggler|Juggling Tumble ~ Arcane Juggler
 3	ABILITY:Special Ability|AUTOMATIC|Juggling Step ~ Arcane Juggler|Rapid Load ~ Arcane Juggler
 4	ABILITY:Special Ability|AUTOMATIC|Arcane Door ~ Arcane Juggler
 ###Block:
@@ -65,7 +65,7 @@ CLASS:Bone Mage	HD:12		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS
 # Class Name	Required AL	Required Feat			Required Race		Required Text
 CLASS:Bone Mage	PREALIGN:NE	PREFEAT:1,Improved Initiative	PRERACE:1,Skeleton	PRETEXT:Special: Must have been the target of the create bone mage spell (see the spells chapter).
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Spellcraft
+CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Spellcraft
 ###Block:
 # Weapon and Armor Proficiency: The bone mage gains proficiency in all simple weapons. The bone mage gains no proficiencies in any type of armor or shield.
 # TODO: In fact|it loses any proficiencies it might have had in any type of armor or shield
@@ -132,7 +132,7 @@ CLASS:Cord		HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE
 # Class Name	Required Feat			Req. Spell Type		Required Text
 CLASS:Cord		PREFEAT:2,Craft Wand,Dodge	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Must have worked onboard a ship for an extended period (at least one month at sea)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artist|Hide|Knowledge (arcana)|Move Silently|TYPE=Profession|Sailing|Spellcraft|Use Rope
+CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artist|Hide|Knowledge (Arcana)|Move Silently|TYPE=Profession|Sailing|Spellcraft|Use Rope
 ###Block:
 # No Weapon / Armor Profs
 ###Block:
@@ -221,11 +221,11 @@ CLASS:Dragon Rider	PREFEAT:4,Mounted Archery,Mounted Combat,Ride-By Attack,Far S
 CLASS:Dragon Rider	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Craft|Dragon Lore|Handle Animal|Intimidate|Knowledge (dragons)|Ride|Spot
 ###Block:
 #Weapon and Armor Proficiency: The dragon rider is proficient with all simple weapons|shortbow (including composite)|net. They are proficient with medium and light armor|but not with shields  Even though they can wear other armor|they usually wear scale mail armor and flowing capes the same color as their mount
-1									AUTO:WEAPONPROF|TYPE=Simple|Shortbow|Net
+1									AUTO:WEAPONPROF|Shortbow|Net|TYPE=Simple
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Dragon Rider
-2	ABILITY:Special Ability|AUTOMATIC|Draconic Friendship ~ Dragon Rider|Bonus Feat ~ Dragon Rider
+2	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Dragon Rider|Draconic Friendship ~ Dragon Rider
 3	ABILITY:Special Ability|AUTOMATIC|Empathic Link ~ Dragon Rider
 5	ABILITY:Special Ability|AUTOMATIC|Telepathic Link ~ Dragon Rider
 ###Block:
@@ -238,11 +238,11 @@ CLASS:Dragon Slayer	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:C
 # Class Name		Required AL		Req. Att.	Required Feat						Required Skill
 CLASS:Dragon Slayer	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:2,Improved Initiative,Power Attack	PRESKILL:2,Dragon Lore=6,Intimidate=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragon Slayer	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Dragon Lore|Hide|Intimidate|Knowledge (Dragons)|Move Silently|Profession (Hunter)|Ride|Search|Spot|Use Rope
+CLASS:Dragon Slayer	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Dragon Lore|Hide|Intimidate|Knowledge (dragons)|Move Silently|Profession (Hunter)|Ride|Search|Spot|Use Rope
 ###Block:
 #	Weapon and Armor Proficiency: Dragon Slayers are proficient with all simple and martial weapons|as well as all armor|but not shields. Note that some of the dragon slayer's special abilities cannot be used if he is wearing medium or heavy armor
 1												AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Dragon Strike ~ Dragon Slayer
 2	ABILITY:Special Ability|AUTOMATIC|Death Trance ~ Dragon Slayer|Resist Dragon Breath ~ Dragon Slayer
@@ -283,14 +283,14 @@ CLASS:Goblin Protector	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.106	BONUS
 # Class Name		Required Feat				Required Race	Required Skill
 CLASS:Goblin Protector	PREFEAT:2,Alertness,Power Attack	PRERACE:1,Goblin	PRESKILL:2,Craft (apothecary)=2,Spot=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Goblin Protector	STARTSKILLPTS:4	CSKILL:Balance|Craft (apothecary)|Escape Artist|Hide|Listen|Spot|Survival
+CLASS:Goblin Protector	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Escape Artist|Hide|Listen|Spot|Survival
 ###Block:
 #Weapon and Armor Proficiency: A goblin protector is proficient with all simple and martial weapons|Shield (Light) and medium armor|all shields
 1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
-1									AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1									AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Swarm ~ Goblin Protector|Poison Use
+1	ABILITY:Special Ability|AUTOMATIC|Poison Use|Swarm ~ Goblin Protector
 3	ABILITY:Special Ability|AUTOMATIC|Toughness ~ Goblin Protector
 5	ABILITY:Special Ability|AUTOMATIC|Evasion
 
@@ -305,9 +305,9 @@ CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lo
 ###Block:
 #Weapon and Armor Proficiency: Holy terrors are proficient with simple and martial weapons They are proficient with all types of armor, but not with shields
 1												AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Divine Spells ~ Holy Terror|Tithing ~ Holy Terror|Turn Undead ~ Holy Terror|Turn Undead
+1	ABILITY:Special Ability|AUTOMATIC|Divine Spells ~ Holy Terror|Tithing ~ Holy Terror|Turn Undead|Turn Undead ~ Holy Terror
 2	ABILITY:Special Ability|AUTOMATIC|Divine Armor ~ Holy Terror|Smite Evil ~ Holy Terror
 3	ABILITY:Special Ability|AUTOMATIC|Divine Health|Extra Turning ~ Holy Terror
 4	ABILITY:Special Ability|AUTOMATIC|Wyrmrage
@@ -332,8 +332,8 @@ CLASS:Horok Guardian	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Intim
 ###Block:
 #Weapon and Armor Proficiency: Horok guardians are proficient with simple and martial weapons. They are proficient with all types of armor and shields
 1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
+1												AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Overreaction ~ Horok Guardian|Spot Danger ~ Horok Guardian|Thrown Weapon ~ Horok Guardian
 2	ABILITY:Special Ability|AUTOMATIC|Defensiveness Awareness ~ Horok Guardian
@@ -361,8 +361,8 @@ CLASS:Hundite Dragon	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Dragon Lore
 ###Block:
 #Weapon and Armor Proficiency: A hundite dragon is proficient with all simple and martial weapons, all types of armor, shields
 1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
+1												AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Bonus Language ~ Hundite Dragon|Draconic Lore ~ Hundite Dragon
 2	ABILITY:Special Ability|AUTOMATIC|Immunities ~ Hundite Dragon
@@ -386,8 +386,8 @@ CLASS:Keeper	STARTSKILLPTS:8	CSKILL:TYPE=Craft|Decipher Script|Diplomacy|Handle 
 ###Block:
 #Weapon and Armor Proficiency: Keepers are proficient with all simple weapons|but may only wear padded or leather armor and are proficient with shields
 1															AUTO:WEAPONPROF|TYPE=Simple
-1	AUTO:ARMORPROF|Padded|Leather
-1						AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+1	AUTO:ARMORPROF|Leather|Padded
+1						AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Dragon Handling ~ Keeper
 2	ABILITY:Special Ability|AUTOMATIC|Lore ~ Keeper
@@ -413,9 +413,9 @@ CLASS:Knight of Manunzul	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (un
 # are proficient with light and heavy shields
 1																	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
-1									AUTO:SHIELDPROF|Shield (Light)|Shield (Heavy)
+1									AUTO:SHIELDPROF|Shield (Heavy)|Shield (Light)
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Aura of Courage ~ Knight of Manunzul|Turn Undead ~ Knight of Manunzul|Mounted Archery ~ Knight of Manunzul
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Courage ~ Knight of Manunzul|Mounted Archery ~ Knight of Manunzul|Turn Undead ~ Knight of Manunzul
 2	ABILITY:Special Ability|AUTOMATIC|Divine Grace ~ Knight of Manunzul
 3	ABILITY:Special Ability|AUTOMATIC|Critical Strike ~ Knight of Manunzul
 5	ABILITY:Special Ability|AUTOMATIC|Weapon of Disruption ~ Knight of Manunzul
@@ -495,8 +495,8 @@ CLASS:Monolith Sentinel	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 ###Block:
 #Weapon and Armor Proficiency: A monolith guard is proficient with all simple and martial weapons|all types of armor|shields
 1																								AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
+1												AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
 1	DEFINE:MonolithSentinelDefensiveStanceTimes|0	DEFINE:MonolithSentinelArmoredGesturesLvl|0	ABILITY:Special Ability|AUTOMATIC|Armored Gestures ~ Monolith Sentinel|Defensive Stance ~ Monolith Sentinel
 2	DEFINE:MonolithSentinelIncredibleReaction|0									ABILITY:Special Ability|AUTOMATIC|Incredible Reaction ~ Monolith Sentinel|Uncanny Dodge|Uncanny Dodge ~ Base
@@ -517,14 +517,14 @@ CLASS:Monolith Sentinel	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Save checks bonus															Combat bonus
 CLASS:Mystic Teacher	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.125	DEFINE:MysticTeacherLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Multiple Requirements																																																																																											Required Text
-CLASS:Mystic Teacher	PREALIGN:LG,NG,CG	PREATT:8	PREMULT:2,[PRESKILL:1,Knowledge (Dragons)=4,Knowledge (Weaponology)=4,Knowledge (Arcana)=4,Knowledge (Architecture and Engineering)=4,Knowledge (Dungeoneering)=4,Knowledge (Geography)=4,Knowledge (History)=4,Knowledge (Local)=4,Knowledge (Nobility and Royalty)=4,Knowledge (The Planes)=4],[PRESKILL:2,Knowledge (nature)=4,Knowledge (religion)=4]	PREMULT:3,[PREABILITY:1,CATEGORY=Special Ability,TYPE.NavitusFlemenMending],[PREABILITY:1,CATEGORY=Special Ability,TYPE.NavitusFlemenSensing],[PREABILITY:1,CATEGORY=Special Ability,TYPE.NavitusFlemenControlling]	PRETEXT:Knowledge (Any)=4 plus Knowledge (Nature) and Knowledge (Religion)
+CLASS:Mystic Teacher	PREALIGN:LG,NG,CG	PREATT:8	PREMULT:2,[PRESKILL:1,Knowledge (Dragons)=4,Knowledge (Weaponology)=4,Knowledge (Arcana)=4,Knowledge (Architecture and Engineering)=4,Knowledge (Dungeoneering)=4,Knowledge (Geography)=4,Knowledge (History)=4,Knowledge (Local)=4,Knowledge (Nobility and Royalty)=4,Knowledge (The Planes)=4],[PRESKILL:2,Knowledge (nature)=4,Knowledge (religion)=4]	PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenMending,TYPE.NavitusFlemenSensing,TYPE.NavitusFlemenControlling	PRETEXT:Knowledge (Any)=4 plus Knowledge (Nature) and Knowledge (Religion)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Teacher	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Heal|TYPE=Knowledge|Spellcraft|Tactics
 ###Block:
 #Weapon and Armor Proficiency: Mystical teachers are proficient with all simple and martial weapons|but not with armor or shields
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Guide Other ~ Mystic Teacher|Insight ~ Mystic Teacher|Navitus Flemen|Gained Knowledge ~ Mystic Teacher
+1	ABILITY:Special Ability|AUTOMATIC|Gained Knowledge ~ Mystic Teacher|Guide Other ~ Mystic Teacher|Insight ~ Mystic Teacher|Navitus Flemen
 2	ABILITY:Special Ability|AUTOMATIC|Tactical Insight ~ Mystic Teacher|Zenith Fighting Style
 ###Block:
 1	BONUS:ABILITYPOOL|Mystic Teacher Gained Knowledge|CL
@@ -542,8 +542,8 @@ CLASS:Observer	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Intimida
 ###Block:
 #Weapon and Armor Proficiency: Observers are proficient with all simple and martial weapons, and with all armor and shields
 1																								AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
+1												AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Criminal Awareness ~ Observer|Detect Evil ~ Observer
 3	ABILITY:Special Ability|AUTOMATIC|Champion's Calling ~ Observer
@@ -558,7 +558,7 @@ CLASS:Observer	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Intimida
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Permissionist	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat								Multiple Requirements																			Req. Known Spell
-CLASS:Permissionist	PREFEAT:2,Improved Counterspell,Skill Focus (Concentration)	PREMULT:2,[PRESKILL:2,Concentration=8,Spellcraft=8],[PRESKILL:1,Knowledge (arcana)=5|Knowledge (nature)=5,Knowledge (religion)=5]	PRESPELL:1,dispel magic,dispel magic (Greater),stop,power word dispel,power word unbind,reflection,word of averting,word of dispelling,word of reflection,word of undoing
+CLASS:Permissionist	PREFEAT:2,Improved Counterspell,Skill Focus (Concentration)	PREMULT:2,[PRESKILL:2,Concentration=8,Spellcraft=8],[PRESKILL:1,Knowledge (arcana)=5,Knowledge (nature)=5,Knowledge (religion)=5]	PRESPELL:1,dispel magic,dispel magic (Greater),stop,power word dispel,power word unbind,reflection,word of averting,word of dispelling,word of reflection,word of undoing
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Permissionist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (nature)|Knowledge (religion)|Sense Motive|Spellcraft
 ###Block:
@@ -635,7 +635,7 @@ CLASS:Troubadour	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|TYP
 1							AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Troubadour's Flamboyance ~ Soldier's March|Troubadour's Erudition
+1	ABILITY:Special Ability|AUTOMATIC|Troubadour's Erudition|Troubadour's Flamboyance ~ Soldier's March
 2	ABILITY:Special Ability|AUTOMATIC|Troubadour's Flamboyance ~ Healing Lullaby
 3	ABILITY:Special Ability|AUTOMATIC|Improvised Instrument ~ Troubadour|Troubadour's Flamboyance ~ Induce Sleep
 4	ABILITY:Special Ability|AUTOMATIC|Troubadour's Flamboyance ~ Comrade's Story
@@ -659,7 +659,7 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (undead)|List
 ###Block:
 1																			AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light
-1							AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1							AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Combat Reflexes ~ Watchman|Street Lore|Undead Insight ~ Watchman
 2	ABILITY:Special Ability|AUTOMATIC|Close-Quarter Combat ~ Watchman|Undead Strike ~ Watchman
@@ -682,8 +682,8 @@ CLASS:Wereranger	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|H
 ###Block:
 #Weapon and Armor Proficiency: Wererangers are skilled with all martial and simple weapons. They are proficient with light and medium armor|but may not use any leather. They are proficient with light shields
 1																								AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1												AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium
+1												AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Calm Animals ~ Wereranger|Illness ~ Wereranger|Speak With Animals ~ Wereranger
 2	ABILITY:Special Ability|AUTOMATIC|Armor of the Beast ~ Wereranger
@@ -717,14 +717,14 @@ CLASS:Wyrm Master	PREATT:8	PREFEAT:1,Bond with Nature	PRERACE:1,Elf%,Half-Elf,Hu
 CLASS:Wyrm Master	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplomacy|Handle Animal|Intimidate|Jump|TYPE=Knowledge|Ride|Sense Motive|Speak Language|Spellcraft|Spot|Survival
 ###Block: with all martial and simple weapons, and all shields.
 1													AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1	AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Draconic Friendship ~ Wyrm Master|Dragon Riding ~ Wyrm Master|Forbidden ~ Wyrm Master
 2	ABILITY:Special Ability|AUTOMATIC|Summon Dragon ~ Wyrm Master
 3	ABILITY:Special Ability|AUTOMATIC|Lore ~ Wyrm Master
 5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 7	ABILITY:Special Ability|AUTOMATIC|Spell Resistance
-9	ABILITY:Special Ability|AUTOMATIC|Emulate Breath Weapon ~ Wyrm Master|Draconic Defender ~ Wyrm Master
+9	ABILITY:Special Ability|AUTOMATIC|Draconic Defender ~ Wyrm Master|Emulate Breath Weapon ~ Wyrm Master
 ###Block:
 2	BONUS:VAR|WyrmMasterSummonDragonLvl|CL/2
 ###EOF

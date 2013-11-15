@@ -10,7 +10,7 @@ CLASS:Ghost Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:CHE
 # Class Name		Req. Att.	Required Feat		Required Skill						Required Text
 CLASS:Ghost Hunter	PREATT:4	PREFEAT:1,Alertness	PRESKILL:2,Knowledge (Undead)=4,Sense Motive=4	PRETEXT:To become a ghost hunter the player character must have encountered and defied the approaches of at least one ghost, without the aid of others or magical assistance.
 # Class Name		Class Skill
-CLASS:Ghost Hunter	CSKILL:Concentration|TYPE.Craft|Diplomacy|Knowledge (Undead)|Listen|Search|Sense Motive|Spot
+CLASS:Ghost Hunter	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Undead)|Listen|Search|Sense Motive|Spot
 ###Block:Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -28,10 +28,10 @@ CLASS:Master Chef	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.132	BONUS:CHEC
 # Class Name	Req. Att.	Required Skill															Required Text
 CLASS:Master Chef	PREATT:1	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture)=2,Knowledge (Spices and Herbs)=2	PRETEXT:To become a master chef, the character must have trained under a chef or cook for 10 years.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowledge (Agriculture)|Knowledge (Food Preparation)|Knowledge (Seas and Oceans)|Knowledge (Spices and Herbs)|Knowledge (any specific foods)|TYPE.Perform|Profession (Chef)
+CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowledge (Agriculture)|Knowledge (Food Preparation)|Knowledge (Seas and Oceans)|Knowledge (Spices and Herbs)|Knowledge (any specific foods)|TYPE=Perform|Profession (Chef)
 ###Block:Proficiencies
 1						AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:ARMORPROF|Padded|Leather
+1	AUTO:ARMORPROF|Leather|Padded
 ###Block:Level Progression
 1	BONUS:SKILL|Craft (Cooking)|min((CL+1)/2,5)	BONUS:VAR|SauceMaker|(floor(CL/4)+1)*22	ABILITY:Special Ability|AUTOMATIC|Identify Food|Sauce Maker
 2									BONUS:VAR|PoliticalMeal|CL/2			ABILITY:Special Ability|AUTOMATIC|Political Meal
@@ -45,7 +45,7 @@ CLASS:Seasoned Veteran	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.134	BONUS
 # Class Name		Req. Att.	Required Feat			Required Text
 CLASS:Seasoned Veteran	PREATT:6	PREFEAT:1,Combat Reflexes	PRETEXT:To become a Seasoned Veteran, the character must have actively participated in a minimum of three major campaign battles.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Handle Animal|Intimidate|Listen|TYPE.Profession|Ride|Search|Spot
+CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Handle Animal|Intimidate|Listen|TYPE=Profession|Ride|Search|Spot
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
@@ -69,12 +69,9 @@ CLASS:Shark Charmer	STARTSKILLPTS:2	CSKILL:Handle Animal|Knowledge (Seas and Oce
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:Level Progression
-1	BONUS:VAR|SummonSharkLVL|CL				ABILITY:Special Ability|AUTOMATIC|Summon Shark|Improved Swimmer
-2	BONUS:VAR|CalmSharkLVL|CL				ABILITY:Special Ability|AUTOMATIC|Identify Shark|Calm Shark|Shark Empathy
+1	BONUS:VAR|SummonSharkLVL|CL				ABILITY:Special Ability|AUTOMATIC|Improved Swimmer|Summon Shark
+2	BONUS:VAR|CalmSharkLVL|CL				ABILITY:Special Ability|AUTOMATIC|Calm Shark|Identify Shark|Shark Empathy
 3									ABILITY:Special Ability|AUTOMATIC|Confusing Touch
 5	BONUS:VAR|CharmSharkDC,CharmSharkDuration|CL	ABILITY:Special Ability|AUTOMATIC|Charm Shark ~ Base
 7	BONUS:VAR|WaterBreathingDuration|CL*2		ABILITY:Special Ability|AUTOMATIC|Water Breathing ~ Shark Charmer
 10	BONUS:VAR|CharmShark|1					ABILITY:Special Ability|AUTOMATIC|Shark Spirit
-
-
-

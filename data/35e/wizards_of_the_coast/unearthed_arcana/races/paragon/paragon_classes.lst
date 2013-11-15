@@ -9,7 +9,7 @@ CLASS:Drow Paragon	PRERACE:1,Elf (Drow)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Class Features
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Drow Paragon|Spells ~ Drow Paragon|Improved Spell-Like Abilities ~ Drow Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Improved Spell-Like Abilities ~ Drow Paragon|Spells ~ Drow Paragon|Weapon and Armor Proficiency ~ Drow Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Drow Paragon|Light Sensitivity ~ Drow Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Drow Paragon
 ###Block:
@@ -23,7 +23,7 @@ CLASS:Dwarf Paragon	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarf Paragon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Intimidate|Jump|Knowledge (Dungeoneering)|TYPE=Profession|Sense Motive|Survival
 ###Block: Class Features
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Dwarf Paragon|Craft Expertise ~ Dwarf Paragon|Improved Stonecunning ~ Dwarf Paragon	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	ABILITY:Special Ability|AUTOMATIC|Craft Expertise ~ Dwarf Paragon|Improved Stonecunning ~ Dwarf Paragon|Weapon and Armor Proficiency ~ Dwarf Paragon	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 2	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Dwarf Paragon|Save Bonus ~ Dwarf Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Dwarf Paragon
 
@@ -35,8 +35,8 @@ CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PRERACE:1,Elf (Drow)]]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elf Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Elf Paragon|Elfsight ~ Elf Paragon|Resist Enchantments ~ Elf Paragon
-2	ABILITY:Special Ability|AUTOMATIC|Weapon Focus ~ Elf Paragon|Spells ~ Elf Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Elfsight ~ Elf Paragon|Resist Enchantments ~ Elf Paragon|Weapon and Armor Proficiency ~ Elf Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Spells ~ Elf Paragon|Weapon Focus ~ Elf Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Elf Paragon
 ###Block: Class Features
 2	BONUS:PCLEVEL|Wizard|1
@@ -50,7 +50,7 @@ CLASS:Gnome Paragon	PRERACE:1,Gnome%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Gnome Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Spellcraft|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Gnome Paragon|Illusion Aptitude ~ Gnome Paragon|Keen Senses ~ Gnome Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Illusion Aptitude ~ Gnome Paragon|Keen Senses ~ Gnome Paragon|Weapon and Armor Proficiency ~ Gnome Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Mirror Image ~ Gnome Paragon|Spells ~ Gnome Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Gnome Paragon
 ###Block: Class Features
@@ -75,7 +75,7 @@ SUBCLASS:Red Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Red)		CSKILL:
 SUBCLASS:Silver Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Silver)	CSKILL:Bluff|Jump|TYPE=Perform
 SUBCLASS:White Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (White)	CSKILL:Hide|Move Silently|Swim
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Half-Dragon Paragon|Sorcerous Blood ~ Half-Dragon Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Sorcerous Blood ~ Half-Dragon Paragon|Weapon and Armor Proficiency ~ Half-Dragon Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Natural Armor Increase ~ Half-Dragon Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Half-Dragon Paragon
 
@@ -87,8 +87,8 @@ CLASS:Half-Elf Paragon	PRERACE:1,Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Half-Elf Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Half-Elf Paragon|Bonus Feat ~ Half-Elf Paragon|Divided Ancestry ~ Half-Elf Paragon|Elven Vision ~ Half-Elf Paragon
-2	ABILITY:Special Ability|AUTOMATIC|Spells ~ Half-Elf Paragon|Persuasion ~ Half-Elf Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Half-Elf Paragon|Divided Ancestry ~ Half-Elf Paragon|Elven Vision ~ Half-Elf Paragon|Weapon and Armor Proficiency ~ Half-Elf Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Persuasion ~ Half-Elf Paragon|Spells ~ Half-Elf Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Half-Elf Paragon
 
 
@@ -99,7 +99,7 @@ CLASS:Half-Orc Paragon	PRERACE:1,Halfling
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Half-Orc Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Survival|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Half-Orc Paragon|Divided Ancestry ~ Half-Orc Paragon|Monstrous Mien ~ Half-Orc Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Divided Ancestry ~ Half-Orc Paragon|Monstrous Mien ~ Half-Orc Paragon|Weapon and Armor Proficiency ~ Half-Orc Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Rage ~ Half-Orc Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Half-Orc Paragon
 
@@ -111,7 +111,7 @@ CLASS:Halfling Paragon	PRERACE:1,Halfling%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Halfling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Survival|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Halfling Paragon|Athletic Prowess ~ Halfling Paragon|Save Bonus ~ Halfling Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Athletic Prowess ~ Halfling Paragon|Save Bonus ~ Halfling Paragon|Weapon and Armor Proficiency ~ Halfling Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Thrown Weapon Mastery ~ Halfling Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Halfling Paragon
 
@@ -123,10 +123,10 @@ CLASS:Human Paragon	PREMULT:1,[PRERACE:1,Human],[PREMULT:3,[PRERACE:1,Half-Orc],
 # Class Name		Skill Pts/Lvl
 CLASS:Human Paragon	STARTSKILLPTS:4
 ###Block:
-2	ADD:SPELLCASTER|1|ANY
-3	ADD:SPELLCASTER|1|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
 ###Block: Class Features
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Human Paragon|Adaptive Learning ~ Human Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Adaptive Learning ~ Human Paragon|Weapon and Armor Proficiency ~ Human Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Human Paragon|Spells ~ Human Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Human Paragon
 
@@ -138,7 +138,7 @@ CLASS:Orc Paragon	PREMULT:1,[PRERACE:1,Orc%],[PREMULT:3,[PRERACE:1,Half-Orc],[PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Orc Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Listen|Spot|Survival|Swim
 ###Block: Class Features
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Orc Paragon|Improved Darkvision ~ Orc Paragon|No Light Sensitivity ~ Orc Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Orc Paragon|No Light Sensitivity ~ Orc Paragon|Weapon and Armor Proficiency ~ Orc Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Elf Slayer ~ Orc Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Orc Paragon
 
@@ -150,6 +150,6 @@ CLASS:Tiefling Paragon	PRERACE:1,Planetouched (Tiefling%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tiefling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Disguise|Hide|Knowledge (the planes)|Listen|Move Silently|TYPE=Profession|Sleight of Hand|Spot
 ###Block: Class Features
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Tiefling Paragon|Improved Resistance ~ Tiefling Paragon
+1	ABILITY:Special Ability|AUTOMATIC|Improved Resistance ~ Tiefling Paragon|Weapon and Armor Proficiency ~ Tiefling Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Darkness ~ Tiefling Paragon|Skill Bonus ~ Tiefling Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Tiefling Paragon

@@ -55,8 +55,4 @@ Improved Swimmer								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 Water Breathing		KEY:Water Breathing ~ Shark Charmer	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					DEFINE:WaterBreathingTimes|1	DEFINE:WaterBreathingDuration|CON								DESC:%1 day for up to %2 rounds|WaterBreathingTimes|WaterBreathingDuration																																																																															SOURCEPAGE:p.137
 Summon Shark								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				DEFINE:SummonSharkHD|0	DEFINE:SummonSharkLVL|0											DESC:%1 HD of shark(s) with use of a tribal musical charm|SummonSharkHD																																																														BONUS:VAR|SummonSharkHD|floor((SummonSharkLVL+1)/2)*4										SOURCEPAGE:p.137
 Shark Empathy								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:+2 to Diplomacy, Intimidate, and Sense Motive in all dealings with Sharks																																																																														SOURCEPAGE:p.137
-Shark Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:See text																																													BONUS:COMBAT|AC|6|PREAPPLY:PC	BONUS:POSTMOVEADD|TYPE.Swim|30|PREAPPLY:PC	BONUS:SKILL|Swim,Spot,Listen|8|PREAPPLY:PC	BONUS:STAT|STR|6|PREAPPLY:PC																			SOURCEPAGE:p.137	TEMPDESC:Shark Spirit Applied
-
-
-
-
+Shark Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:See text																																													TEMPBONUS:PC|COMBAT|AC|6	TEMPBONUS:PC|POSTMOVEADD|TYPE.Swim|30	TEMPBONUS:PC|SKILL|Swim,Spot,Listen|8	TEMPBONUS:PC|STAT|STR|6																			SOURCEPAGE:p.137	TEMPDESC:Shark Spirit Applied

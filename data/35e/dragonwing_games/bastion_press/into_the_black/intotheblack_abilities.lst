@@ -31,7 +31,7 @@ Spell-like Abilities	KEY:Spell Like Abilities ~ Pallemon		CATEGORY:Special Abili
 Telepathy			KEY:Telepathy ~ Pallemon			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																															ABILITY:Special Ability|AUTOMATIC|Telepathy														SOURCEPAGE:p.28
 
 # Snailfolk ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Pliable Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																		DESC:DC 30 strength check																				BONUS:COMBAT|AC|8|TYPE=PliableBody|PREAPPLY:PC	SOURCEPAGE:p.28
+Pliable Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																		DESC:DC 30 strength check																				TEMPBONUS:PC|COMBAT|AC|8|TYPE=PliableBody	SOURCEPAGE:p.28
 
 # Xastrial ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Gravitational Pull								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																				SOURCEPAGE:p.30

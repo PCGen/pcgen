@@ -37,9 +37,3 @@ Select Knight of Manuzul Bonus										TEMPLATE:CHOOSE:Has Mounted Archery Feat
 
 Has Mounted Archery Feat																								PREFEAT:1,Mounted Archery
 No Mounted Archery Feat																														!PREFEAT:1,Mounted Archery																																																																				AUTO:FEAT|Mounted Archery
-
-
-
-
-
-

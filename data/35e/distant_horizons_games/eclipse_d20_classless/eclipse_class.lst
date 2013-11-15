@@ -6,7 +6,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 ###BLOCK: Eclipse Point Buy HD variation for individual HD acquisition. Should delevop BONUS:HD using a Class Level Line specific Var - See "Point Buy" class for usage
 
 # Class Name	Output Name	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (Template)	OUTPUTNAME:Eclipse Template	TYPE:Base.PC.Eclipse	ABB:EdT	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (Template)	OUTPUTNAME:Eclipse Template	TYPE:Base.PC.Eclipse	ABB:EdT	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (Template)	STARTSKILLPTS:0
 ###Block:
@@ -20,7 +20,7 @@ CLASS:Eclipse Point Buy (Template)	STARTSKILLPTS:0
 
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d0)	OUTPUTNAME:d0E	HD:1	TYPE:Base.PC.Eclipse	ABB:d0E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d0)	OUTPUTNAME:d0E	HD:1	TYPE:Base.PC.Eclipse	ABB:d0E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d0)	STARTSKILLPTS:0
 ###Block:
@@ -33,7 +33,7 @@ CLASS:Eclipse Point Buy (d0)	STARTSKILLPTS:0
 1	BONUS:VAR|CharacterPointsLevelOffSet|4*CL	BONUS:VAR|EclipseClassLvl|CL
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d02)	OUTPUTNAME:d2E	HD:2	TYPE:Base.PC.Eclipse	ABB:d2E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d02)	OUTPUTNAME:d2E	HD:2	TYPE:Base.PC.Eclipse	ABB:d2E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d02)	STARTSKILLPTS:0
 ###Block:
@@ -47,7 +47,7 @@ CLASS:Eclipse Point Buy (d02)	STARTSKILLPTS:0
 
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d04)	OUTPUTNAME:d4E	HD:4	TYPE:Base.PC.Eclipse	ABB:d4E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d04)	OUTPUTNAME:d4E	HD:4	TYPE:Base.PC.Eclipse	ABB:d4E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 ###Block:
@@ -62,7 +62,7 @@ CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 1	BONUS:VAR|EclipseClassLvl|CL
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d06)	OUTPUTNAME:d6E	HD:6	TYPE:Base.PC.Eclipse	ABB:d6E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d06)	OUTPUTNAME:d6E	HD:6	TYPE:Base.PC.Eclipse	ABB:d6E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d06)	STARTSKILLPTS:0
 ###Block:
@@ -76,7 +76,7 @@ CLASS:Eclipse Point Buy (d06)	STARTSKILLPTS:0
 #
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8	TYPE:Base.PC.Eclipse	ABB:d8E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8	TYPE:Base.PC.Eclipse	ABB:d8E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
@@ -91,7 +91,7 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d10)	OUTPUTNAME:d10E	HD:10	TYPE:Base.PC.Eclipse	ABB:d10E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d10)	OUTPUTNAME:d10E	HD:10	TYPE:Base.PC.Eclipse	ABB:d10E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d10)	STARTSKILLPTS:0
 ###Block:
@@ -105,7 +105,7 @@ CLASS:Eclipse Point Buy (d10)	STARTSKILLPTS:0
 #
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d12)	OUTPUTNAME:d12E	HD:12	TYPE:Base.PC.Eclipse	ABB:d12E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d12)	OUTPUTNAME:d12E	HD:12	TYPE:Base.PC.Eclipse	ABB:d12E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d12)	STARTSKILLPTS:0
 ###Block:
@@ -119,7 +119,7 @@ CLASS:Eclipse Point Buy (d12)	STARTSKILLPTS:0
 #
 
 # Class Name	Output Name	Hit Dice	Type	Abbreviation	Max Level	Define	Combat bonus
-CLASS:Eclipse Point Buy (d20)	OUTPUTNAME:d20E	HD:20	TYPE:Base.PC.Eclipse	ABB:d20E	MAXLEVEL:20	DEFINE:EclipseClass|1	
+CLASS:Eclipse Point Buy (d20)	OUTPUTNAME:d20E	HD:20	TYPE:Base.PC.Eclipse	ABB:d20E	MAXLEVEL:20	DEFINE:EclipseClass|1
 # Class Name	Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 ###Block:
@@ -136,7 +136,7 @@ CLASS:Eclipse Point Buy (d20)	STARTSKILLPTS:0
 ###Block: Workaround - Allows Eclipse only Classes to have a Spell Casting Class
 
 # Class Name	Hit Dice	Type	Abbreviation	Max Level	Visible	Define	Combat bonus
-CLASS:Eclipse	HD:1	TYPE:Base.PC.Eclipse	ABB:EPB	MAXLEVEL:20	VISIBLE:NO	DEFINE:EclipseClass|1	
+CLASS:Eclipse	HD:1	TYPE:Base.PC.Eclipse	ABB:EPB	MAXLEVEL:20	VISIBLE:NO	DEFINE:EclipseClass|1
 # Class Name	Spell Type	Caster level
 CLASS:Eclipse	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eclipse|CL
 # Class Name	Multiple Requirements

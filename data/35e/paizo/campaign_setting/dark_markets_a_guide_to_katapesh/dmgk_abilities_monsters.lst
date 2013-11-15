@@ -33,7 +33,7 @@ Bleed			KEY:Bleed ~ Ghul		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordin
 # Ability Name		Unique Key						Category of Ability		Type								Innate Spells							Automatically Gained Feat			Damage Reduction			Description of the Benefits
 Damage Reduction		KEY:DR ~ Greater Ghul				CATEGORY:Special Ability	TYPE:SpecialQuality																					DR:10/cold iron and good
 Bonus Feats			KEY:Bonus Feats ~ Greater Ghul		CATEGORY:Special Ability	TYPE:SpecialQuality														AUTO:FEAT|Improved Initiative|Toughness
-Greater Invisibility	KEY:Greater Invisibility ~ Greater Ghul	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SPELLS:Innate|CASTERLEVEL=11|Invisibility (Greater)
+Greater Invisibility	KEY:Greater Invisibility ~ Greater Ghul	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				SPELLS:Innate|TIMES=1|CASTERLEVEL=11|Invisibility (Greater)
 Create Spawn		KEY:Create Spawn ~ Greater Ghul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																								BENEFIT:Any humanoid slain by a great ghul becomes a ghoul on the next moonrise. Likewise, a slain janni becomes a ghul and a slain genie becomes a great ghul. Blessing or destroying the body (such as with acid or fire) prevents this reanimation.
 Change Shape		KEY:Change Shape ~ Greater Ghul		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																								BENEFIT:Allowing any humanoid forms in addition to a ghul's natural form is that of a donkeyhoofed undead janni. It always has the same appearance and traits in this form. It can also assume the form of a hyena. A ghul remains in one form until it chooses to assume the other one. A change in form cannot be dispelled, nor does a ghul revert to its natural form when killed. A ghul does not detect as undead while in its hyena form. A true seeing spell, however, reveals its undead form if it is in hyena form.
 
@@ -46,5 +46,3 @@ Whirlwind			KEY:Whirlwind ~ Greater Ghul			CATEGORY:Special Ability	TYPE:Special
 #
 # End
 #
-
-

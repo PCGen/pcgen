@@ -4,14 +4,14 @@ SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.ni
 # ORIGINAL ENTRY DATE: 2011-11-26
 
 # Equipment Name			Type					Cost		Weight	Source Page
-Burning Healer			TYPE:Misc.SpecialEquipment	COST:10	WT:.5		SOURCEPAGE:p.173
+Burning Healer			TYPE:Misc.SpecialEquipment	COST:10	WT:0.5		SOURCEPAGE:p.173
 # COMMENT: Cost 1 lm - need equation for correct cost, it's not an FR.
-Cord 10 ft.				TYPE:Misc.SpecialEquipment	COST:1	WT:.5		SOURCEPAGE:p.173
-Cord 10 ft. (Masterwork)	TYPE:Misc.SpecialEquipment	COST:10	WT:.5		SOURCEPAGE:p.173
+Cord 10 ft.				TYPE:Misc.SpecialEquipment	COST:1	WT:0.5		SOURCEPAGE:p.173
+Cord 10 ft. (Masterwork)	TYPE:Misc.SpecialEquipment	COST:10	WT:0.5		SOURCEPAGE:p.173
 Decongestant			TYPE:Misc.SpecialEquipment	COST:5			SOURCEPAGE:p.173
 Meditative Incense		TYPE:Misc.SpecialEquipment	COST:5			SOURCEPAGE:p.173
 Opiate Dust				TYPE:Misc.SpecialEquipment	COST:30			SOURCEPAGE:p.173
-Pungent Salve			TYPE:Misc.SpecialEquipment	COST:15	WT:.5		SOURCEPAGE:p.173
+Pungent Salve			TYPE:Misc.SpecialEquipment	COST:15	WT:0.5		SOURCEPAGE:p.173
 Rope (Hempen/Masterwork)	TYPE:Misc.SpecialEquipment	COST:10	WT:10		SOURCEPAGE:p.173
 Rope (Silk/Masterwork)		TYPE:Misc.SpecialEquipment	COST:100	WT:5		SOURCEPAGE:p.173
 Rose (Red)				TYPE:Misc.SpecialEquipment	COST:5			SOURCEPAGE:p.173

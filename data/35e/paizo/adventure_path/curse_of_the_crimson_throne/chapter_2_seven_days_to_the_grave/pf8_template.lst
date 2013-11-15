@@ -20,7 +20,7 @@ Nosferatu Claw (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Nat
 # Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus						Bonus to HP																							Stat bonus		Virtual Feat	Race Subtype			Vision
 # Note: remove the BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD) when moving to the trunk
 # Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus					Bonus to HP																										Stat bonus		Virtual Feat	Race Subtype			Vision
-Lycanthrope (Girrigz)		VISIBLE:NO	SAB:Alternate Form (Su)	SAB:Scent (Ex)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD)	BONUS:HP|CURRENTMAX|(AnimalCon/2)*AnimalHD|!PRETEMPLATE:1,Lycanthrope (Animal Form),Lycanthrope (Hybrid Form)	BONUS:STAT|WIS|2	VFEAT:Iron Will	RACESUBTYPE:Shapechanger	VISION:Low-light
+Lycanthrope (Girrigz)		VISIBLE:NO	SAB:Alternate Form (Su)	SAB:Scent (Ex)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD)	BONUS:HP|CURRENTMAX|(AnimalCon/2)*AnimalHD|!PRETEMPLATE:1,Lycanthrope (Animal Form),Lycanthrope (Hybrid Form)	BONUS:STAT|WIS|2	VFEAT:Iron Will	RACESUBTYPE:Shapechanger	VISION:Low-Light Vision
 Lycanthrope (Animal Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lycanthrope (Girrigz)	!PRETEMPLATE:1,Lycanthrope (Hybrid Form)
 Lycanthrope (Hybrid Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lycanthrope (Girrigz)	!PRETEMPLATE:1,Lycanthrope (Animal Form)
 

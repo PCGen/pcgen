@@ -5,4 +5,4 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 ###Block: Alternate Class Abilities, Page 58.
 # Ability Name	Category of Ability		Type					Visible		Description																																							Source Page
 Regular Bard	CATEGORY:Special Ability	TYPE:Internal.BardVariant	VISIBLE:DISPLAY	DESC:Regular Bard - Bardic Knowledge, Inspire Abilities																															SOURCEPAGE:p.58
-Druidlike Bard	CATEGORY:Special Ability	TYPE:Internal.BardVariant	VISIBLE:DISPLAY	DESC:Druidlike Bard - GAIN Animal companion (as druid), nature sense (as druid), resist nature’s lure (as druid), wild empathy (as druid), LOSE Bardic knowledge, inspire courage, inspire competence, inspire greatness, inspire heroics.	SOURCEPAGE:p.58
+Druidlike Bard	CATEGORY:Special Ability	TYPE:Internal.BardVariant	VISIBLE:DISPLAY	DESC:Druidlike Bard - GAIN Animal companion (as druid), nature sense (as druid), resist nature's lure (as druid), wild empathy (as druid), LOSE Bardic knowledge, inspire courage, inspire competence, inspire greatness, inspire heroics.	SOURCEPAGE:p.58

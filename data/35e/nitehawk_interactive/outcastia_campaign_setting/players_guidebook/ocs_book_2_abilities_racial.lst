@@ -142,7 +142,7 @@ Darkvision						KEY:Darkvision ~ 120	CATEGORY:Special Ability	TYPE:SpecialQualit
 Darkvision						KEY:Darkvision ~ 60	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait												ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Darkvision						KEY:Darkvision ~ 30	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait												ABILITY:Internal|AUTOMATIC|Darkvision						BONUS:VAR|DarkvisionRange|30|TYPE=Base
 
-Spell Resistance and Power Resistance					CATEGORY:Special Ability																		ABILITY:Special Ability|AUTOMATIC|Spell Resistance|Power Resistance
+Spell Resistance and Power Resistance					CATEGORY:Special Ability																		ABILITY:Special Ability|AUTOMATIC|Power Resistance|Spell Resistance
 
 Spell Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:SpellResistance|0	DESC:%1|SpellResistance																											SR:SpellResistance
 #Power Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:PowerResistance|0	DESC:%1|PowerResistance
@@ -382,10 +382,3 @@ Darkvision										KEY:Darkvision ~ Horok				CATEGORY:Special Ability	TYPE:Spec
 Immune to Psionics								KEY:Immunity to Psionics ~ Horok		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
 +2 racial bonus to Spot skill checks					KEY:Racial Skill Spot ~ Horok			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
 +2 racial bonus to Intimidation skill checks				KEY:Racial Skill Intimidation ~ Horok	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.RacialTraitHorok
-
-
-
-
-
-
-

@@ -10,7 +10,7 @@ Honorborn	FAVCLASS:Paladin	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGB
 ### Proposal Tag: FAVSUBSCLASS:Knight
 ### TODO: At will - Detect Corruption (Unknown if spell exists in the sourcebooks I have, if Not put a place holder.)
 
-Tarnishborn	FAVCLASS:Rogue	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL	BONUS:STAT|STR|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|-2	BONUS:VAR|SneakAttackDice|1						AUTO:LANG|Common|Infernal	ABILITY:Special Ability|AUTOMATIC|BlackguardSpellList|PRECLASS:1,Cleric=1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Preordained|Dishonorable														RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:PC	CR:1/2		SOURCEPAGE:p.19	KIT:1|LE|LG|LN
+Tarnishborn	FAVCLASS:Rogue	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL	BONUS:STAT|STR|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|-2	BONUS:VAR|SneakAttackDice|1						AUTO:LANG|Common|Infernal	ABILITY:Special Ability|AUTOMATIC|BlackguardSpellList|PRECLASS:1,Cleric=1	ABILITY:Special Ability|AUTOMATIC|Dishonorable|Preordained|Sneak Attack														RACETYPE:Humanoid	RACESUBTYPE:Human	TYPE:PC	CR:1/2		SOURCEPAGE:p.19	KIT:1|LE|LG|LN
 ### Proposal Tag: FAVSUBCLASS:Scoundrel - ONLY 10% PENALTY FOR THE CLASS INSTEAD OF 20%
 ### SAB:Preordained - Allows character to become a PRC Blackguard without the contact requirement... It also grants Clerics the Blackguard Spell list.
 ### SAB:Dishonorable - no mechanism exists, purely a RP tool.

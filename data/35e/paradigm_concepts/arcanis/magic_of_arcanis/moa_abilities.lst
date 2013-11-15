@@ -169,7 +169,7 @@ HomelandDefense			CATEGORY:Special Ability																																						
 #!PREABILITY:1,CATEGORY=Special Ability,Homeland Defense Choice I(Aquatic),Homeland Defense Choice II(Aquatic),Homeland Defense Choice III(Aquatic)
 #ADD:ABILITY|Special Ability|NORMAL|TYPE.HomelandDefenseTerrain
 
-Aquatic				CATEGORY:Special Ability	TYPE:HomelandDefenseTerrain														!PREABILITY:1,CATEGORY=Special Ability,Homeland Defense Choice I(Aquatic),Homeland Defense Choice II(Aquatic),Homeland Defense Choice III(Aquatic)	PREVARLTEQ:Aquatic,0																																																																				BONUS:VAR|Aquatic|1
+Aquatic				CATEGORY:Special Ability	TYPE:HomelandDefenseTerrain														!PREABILITY:1,CATEGORY=Special Ability,Homeland Defense Choice I (Aquatic),Homeland Defense Choice II (Aquatic),Homeland Defense Choice III (Aquatic)	PREVARLTEQ:Aquatic,0																																																																				BONUS:VAR|Aquatic|1
 Desert				CATEGORY:Special Ability	TYPE:HomelandDefenseTerrain																																							PREVARLTEQ:Desert,0																																																																				BONUS:VAR|Desert|1
 Forest				CATEGORY:Special Ability	TYPE:HomelandDefenseTerrain																																							PREVARLTEQ:Forest,0																																																																				BONUS:VAR|Forest|1
 Hill					CATEGORY:Special Ability	TYPE:HomelandDefenseTerrain																																							PREVARLTEQ:Hill,0																																																																					BONUS:VAR|Hill|1
@@ -375,7 +375,7 @@ Elemental Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 ###Block: The Ehtzara -------------------------------------------------------------------------------------------------------------
 #Summon Familiar			CATEGORY:Special Ability	TYPE:SpecialQuality
 # Ability Name		Output Name					Category of Ability		Type						Innate Spells												Automatically Gained Weapon Prof.										Virtual Feat
-Fetish Crafting								CATEGORY:Special Ability	TYPE:SpecialQuality																																VFEAT:Craft Lesser Fetish|Craft Fetish
+Fetish Crafting								CATEGORY:Special Ability	TYPE:SpecialQuality																																VFEAT:Craft Fetish|Craft Lesser Fetish
 Spirit Robes								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Binding Fetish								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #
@@ -436,7 +436,7 @@ Apprenticeship									CATEGORY:Special Ability	TYPE:SpecialQuality
 Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																							BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science: Metallurgy),Profession (Blacksmith)|SkillMasteryBonus|TYPE=Competence
 Silvered Weapon									CATEGORY:Special Ability	TYPE:SpecialQuality
 Master Craftsman (Armorsmith)							CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Armorsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
-Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
+Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Bonus,Master Craftsman (Weaponsmithing) Feat
 Weapon Focus									CATEGORY:Special Ability	TYPE:SpecialQuality						VFEAT:Weapon Focus(Warhammer)
 Cold-Forging									CATEGORY:Special Ability	TYPE:SpecialQuality
 Master-Smith									CATEGORY:Special Ability	TYPE:SpecialQuality						VFEAT:Craft Magic Arms and Armor
@@ -470,7 +470,7 @@ Metamagical Grand Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordi
 # Ability Name			Category of Ability		Type						Stat bonus
 #Bardic Music			CATEGORY:Special Ability	TYPE:SpecialQuality
 Songs					CATEGORY:Special Ability	TYPE:SpecialQuality
-Song of Heart's Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	BONUS:STAT|STR,DEX|4|TYPE=Morale|PREAPPLY:ANYPC
+Song of Heart's Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	TEMPBONUS:ANYPC|STAT|STR,DEX|4|TYPE=Morale
 Song of Darkness' Vengeance	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Song of Love's War		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Song of Anguish			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -576,7 +576,7 @@ Touch of Undeath				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 ###Block: Eagle Hunter -----------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type						Define				Description				Automatically Gained Weapon Prof.														Allow Follower			Allowed Companions																	Vision			Spell Res.	Damage Reduction
 Eagle Hunter Proficiencies	CATEGORY:Special Ability																	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Longspear|Net|Scimitar|Shortbow|Shortspear|Sling|Spear
-We Are One				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:EagleCompanionLvl|0																									FOLLOWERS:Eagle Companion|1	COMPANIONLIST:Eagle Companion|Eagle (Altai White-Shoulders),Eagle (Hovd Yellow),Eagle (Valley Black),Eagle (Cross)
+We Are One				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:EagleCompanionLvl|0																									FOLLOWERS:Eagle Companion|1	COMPANIONLIST:Eagle Companion|Eagle (Altai White-Shoulders),Eagle (Cross),Eagle (Hovd Yellow),Eagle (Valley Black)
 Soul Link				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 #Share Spells			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #Share Saving Throws		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -709,7 +709,7 @@ Wine Drinker Martial Weapon Proficiency Choice	CATEGORY:Special Ability	TYPE:Win
 
 ###Block: Bio-Construct -----------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Output Name			Category of Ability		Type						Ability								Save checks bonus				Bonus to HP			Vision
-BioConstruct							CATEGORY:Special Ability																										VISION:Darkvision(60')
+BioConstruct							CATEGORY:Special Ability																										VISION:Darkvision (60')
 #
 Flesh Weapons							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Magic Disruption							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
@@ -745,5 +745,3 @@ Cast Additional Level 6 Spell					CATEGORY:Special Ability	TYPE:AdditionalSpell	
 Cast Additional Level 7 Spell					CATEGORY:Special Ability	TYPE:AdditionalSpell			BONUS:SPELLCAST|CLASS=%LIST;LEVEL=7|1	CHOOSE:CLASS|PC,SPELLCASTER	SELECT:1	MULT:YES	STACK:YES
 Cast Additional Level 8 Spell					CATEGORY:Special Ability	TYPE:AdditionalSpell			BONUS:SPELLCAST|CLASS=%LIST;LEVEL=8|1	CHOOSE:CLASS|PC,SPELLCASTER	SELECT:1	MULT:YES	STACK:YES
 Cast Additional Level 9 Spell					CATEGORY:Special Ability	TYPE:AdditionalSpell			BONUS:SPELLCAST|CLASS=%LIST;LEVEL=9|1	CHOOSE:CLASS|PC,SPELLCASTER	SELECT:1	MULT:YES	STACK:YES
-
-

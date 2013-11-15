@@ -14,7 +14,7 @@ CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Jump|Listen|Mov
 2	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0	ABILITY:Special Ability|AUTOMATIC|Master Enthrall ~ Chain Dancer
 4	BONUS:VAR|EnthrallDuration|CL
 ###Block: Normal Level Progression
-1	BONUS:COMBAT|AC|ChainParryAC|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer						AUTO:FEAT|Weapon Specialization(Chain (Spiked))
+1	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer						AUTO:FEAT|Weapon Specialization(Chain (Spiked))
 3																																																															ABILITY:Special Ability|AUTOMATIC|Weapon Use (Elongated Spiked Chain) ~ Chain Dancer
 5																																																															ABILITY:Special Ability|AUTOMATIC|Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer
 
@@ -43,12 +43,12 @@ CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal
 1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1																							BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC	BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire
-2											BONUS:COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense|PREAPPLY:PC													BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0												ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire
+1																							TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary	BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire
+2											TEMPBONUS:PC|COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense													BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0												ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire
 3																																																												ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
 4																																																												ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
 6	BONUS:CHECKS|BASE.Will|2																																																							ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire
-9	BONUS:CHECKS|BASE.Reflex|2|TYPE=TrueAwareness|PREAPPLY:PC																																																		ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire
+9	TEMPBONUS:PC|CHECKS|BASE.Reflex|2|TYPE=TrueAwareness																																																		ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire
 10																																																												ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
 
 

@@ -94,4 +94,3 @@ TEMPLATE:moa_templates.lst
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|TheAugmentalistFeat|VispiliodeMagus|SummonerPathFeat|PathOfFaithFeat|ViaProeliatoris|WarderFeat|AdaptableMagic|AltherianArtificerBonus
-

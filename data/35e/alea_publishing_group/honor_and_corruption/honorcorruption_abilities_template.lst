@@ -10,7 +10,7 @@ Dishonorable												CATEGORY:Special Ability	TYPE:SpecialQuality
 #SubClassBonusHPd10		TYPE:Subclass.Hidden.KnightHP		MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
 # Feat Name				Type						Visible	Special ABility			Stackable?	Multiple?	Choose											Bonus to HP
 # Ability Name			Unique Key								Category of Ability		Type						Define												Description														Stackable?	Multiple?	Choose					Bonus to HP
-KnightSubClassBonusHP											CATEGORY:Special Ability	TYPE:Subclass.Hidden.KnightHP																														STACK:YES	MULT:YES	CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10	BONUS:HP|CURRENTMAX|%CHOICE
+KnightSubClassBonusHP											CATEGORY:Special Ability	TYPE:Subclass.Hidden.KnightHP																														STACK:YES	MULT:YES	CHOOSE:STRING|1|10|2|3|4|5|6|7|8|9	BONUS:HP|CURRENTMAX|%CHOICE
 
 #KnightSubClassBonusHPlv4	TYPE:Subclass.Hidden.KnightHP			STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 #KnightSubClassBonusHPlv8	TYPE:Subclass.Hidden.KnightHP			STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
@@ -21,7 +21,7 @@ KnightSubClassBonusHP											CATEGORY:Special Ability	TYPE:Subclass.Hidden.Kn
 
 
 #SubClassBonusHPd6		TYPE:Subclass.Hidden.ScoundrelHP		MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
-ScoundrelSubClassBonusHP										CATEGORY:Special Ability	TYPE:Subclass.Hidden.ScoundrelHP																													STACK:YES	MULT:YES	CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10	BONUS:HP|CURRENTMAX|%CHOICE
+ScoundrelSubClassBonusHP										CATEGORY:Special Ability	TYPE:Subclass.Hidden.ScoundrelHP																													STACK:YES	MULT:YES	CHOOSE:STRING|1|10|2|3|4|5|6|7|8|9	BONUS:HP|CURRENTMAX|%CHOICE
 
 #ScoundrelSubClassBonusHPlv4	TYPE:Subclass.Hidden.ScoundrelHP		STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
 #ScoundrelSubClassBonusHPlv8	TYPE:Subclass.Hidden.ScoundrelHP		STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC

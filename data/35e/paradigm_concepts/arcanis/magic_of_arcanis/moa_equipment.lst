@@ -5,40 +5,40 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 # Equipment Name				Output Name							Type									Cost		Weight
 Acid														TYPE:Goods.Alchemical.Flask.Consumable			COST:10	WT:1
 Acid (Refined)				OUTPUTNAME:Acid, [NAME]					TYPE:Goods.Alchemical.CopperJar.Consumable		COST:40
-Acid Sphere (Small)			OUTPUTNAME:Acid Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:45	WT:.5
+Acid Sphere (Small)			OUTPUTNAME:Acid Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:45	WT:0.5
 Acid Sphere (Large)			OUTPUTNAME:Acid Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:75	WT:1
-Alchemical Wolvesbane											TYPE:Goods.Alchemical.Flask.Consumable			COST:200	WT:.5
+Alchemical Wolvesbane											TYPE:Goods.Alchemical.Flask.Consumable			COST:200	WT:0.5
 #Alchemist's Fire												TYPE:Goods.Alchemical.Flask.Consumable			COST:20	WT:.5
 #Altherian Signal Rocket (Flare)	OUTPUTNAME:Altherian Signal Rocket, [NAME]	TYPE:Goods.Alchemical.SignalRocket.Consumable		COST:100	WT:1
 #Altherian Signal Rocket (Flash)	OUTPUTNAME:Altherian Signal Rocket, [NAME]	TYPE:Goods.Alchemical.SignalRocket.Consumable		COST:50	WT:1
 #Altherian Signal Rocket (Whistle)	OUTPUTNAME:Altherian Signal Rocket, [NAME]	TYPE:Goods.Alchemical.SignalRocket.Consumable		COST:40	WT:1
-Antitoxin													TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
-Antitoxin (Refined)			OUTPUTNAME:Antitoxin, [NAME]				TYPE:Goods.Alchemical.Vial.Consumable			COST:100	WT:.2
-Cloud Mind													TYPE:Goods.Alchemical.Vial.Consumable			COST:500	WT:.2
-Cloud Mind (Refined)			OUTPUTNAME:Cloud Mind, [NAME]				TYPE:Goods.Alchemical.Vial.Consumable			COST:7500	WT:.2
-Combustible Sphere (Small)		OUTPUTNAME:Combustible Sphere, [NAME]		TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:90	WT:.5
+Antitoxin													TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:0.2
+Antitoxin (Refined)			OUTPUTNAME:Antitoxin, [NAME]				TYPE:Goods.Alchemical.Vial.Consumable			COST:100	WT:0.2
+Cloud Mind													TYPE:Goods.Alchemical.Vial.Consumable			COST:500	WT:0.2
+Cloud Mind (Refined)			OUTPUTNAME:Cloud Mind, [NAME]				TYPE:Goods.Alchemical.Vial.Consumable			COST:7500	WT:0.2
+Combustible Sphere (Small)		OUTPUTNAME:Combustible Sphere, [NAME]		TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:90	WT:0.5
 Combustible Sphere (Large)		OUTPUTNAME:Combustible Sphere, [NAME]		TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:450	WT:1
-Coating Flame												TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
-Flash Sphere (Small)			OUTPUTNAME:Flash Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:45	WT:.5
+Coating Flame												TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:0.2
+Flash Sphere (Small)			OUTPUTNAME:Flash Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:45	WT:0.5
 Flash Sphere (Large)			OUTPUTNAME:Flash Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:135	WT:1
-Mind Cloud													TYPE:Goods.Alchemical.GlassSphere.Vial.Consumable	COST:500	WT:.5
-Mind Cloud (Refined)			OUTPUTNAME:Mind Cloud, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Vial.Consumable	COST:800	WT:.5
-Mold Spores													TYPE:Goods.Alchemical.Vial.Consumable			COST:200	WT:.2
-Mold Spores (Diseased)			OUTPUTNAME:Mold Spores, [NAME]			TYPE:Goods.Alchemical.Vial.Consumable			COST:200	WT:.2
-Poison Gas													TYPE:Goods.Alchemical.GlassSphere.Consumable				WT:.5
-Poison Gas (Refined)			OUTPUTNAME:Poison Gas, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Consumable				WT:.5
-Quick-Setting Glue											TYPE:Goods.Alchemical.Jar.Consumable			COST:50	WT:.5
-Rustbane													TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
-Silver Shine												TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
+Mind Cloud													TYPE:Goods.Alchemical.GlassSphere.Vial.Consumable	COST:500	WT:0.5
+Mind Cloud (Refined)			OUTPUTNAME:Mind Cloud, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Vial.Consumable	COST:800	WT:0.5
+Mold Spores													TYPE:Goods.Alchemical.Vial.Consumable			COST:200	WT:0.2
+Mold Spores (Diseased)			OUTPUTNAME:Mold Spores, [NAME]			TYPE:Goods.Alchemical.Vial.Consumable			COST:200	WT:0.2
+Poison Gas													TYPE:Goods.Alchemical.GlassSphere.Consumable				WT:0.5
+Poison Gas (Refined)			OUTPUTNAME:Poison Gas, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Consumable				WT:0.5
+Quick-Setting Glue											TYPE:Goods.Alchemical.Jar.Consumable			COST:50	WT:0.5
+Rustbane													TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:0.2
+Silver Shine												TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:0.2
 Sleep Gas													TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:100	WT:1
 Sleep Gas (Refined)			OUTPUTNAME:Sleep Gas, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:200	WT:1
-Smelling Salts												TYPE:Goods.Alchemical.Jar.Consumable			COST:50	WT:.5
+Smelling Salts												TYPE:Goods.Alchemical.Jar.Consumable			COST:50	WT:0.5
 #Smokestick													TYPE:Goods.Alchemical.Torch.Consumable			COST:20	WT:.5
 #Sunrod													TYPE:Goods.Alchemical.Torch.Consumable			COST:2	WT:1
 #Tanglefoot Bag												TYPE:Goods.Alchemical.Bag.Consumable			COST:50	WT:4
 #Thunderstone												TYPE:Goods.Alchemical.Consumable				COST:30	WT:1
 #Tindertwig													TYPE:Goods.Alchemical.Consumable				COST:1
-Traveling Salts												TYPE:Goods.Alchemical.Jar.Consumable			COST:100	WT:.5
+Traveling Salts												TYPE:Goods.Alchemical.Jar.Consumable			COST:100	WT:0.5
 
 ###BLOCK
 # Equipment Name							Output Name									Type				Cost		Weight
@@ -69,5 +69,3 @@ Spell Component Pouch (Hidden)				OUTPUTNAME:Spell Component Pouch, [NAME]				TY
 Traveling Altar Case (Pine)					OUTPUTNAME:Traveling Altar Case, [NAME]				TYPE:Goods			COST:50	WT:10
 Traveling Altar Case (Oak)					OUTPUTNAME:Traveling Altar Case, [NAME]				TYPE:Goods			COST:100	WT:15
 Warrior's Divine Focus																TYPE:Goods			COST:200	WT:2
-
-

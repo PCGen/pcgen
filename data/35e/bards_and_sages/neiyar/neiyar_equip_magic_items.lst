@@ -37,7 +37,7 @@ Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapo
 
 ###
 Ring (Blessing)							OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:25000	WT:0																																			SOURCEPAGE:pg.80
-Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection											BONUS:STAT|STR,DEX,CON|2|PREAPPLY:PC																								SPROP:DR %/+1 when enraged|CHA*2
+Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection											TEMPBONUS:PC|STAT|STR,DEX,CON|2																								SPROP:DR %/+1 when enraged|CHA*2
 
 ####
 Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					ABILITY:Special Ability|AUTOMATIC|Negative Levels																														BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE

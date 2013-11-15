@@ -5,4 +5,3 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 # Template Name		Visible	Clone Movement
 Ape Totem Climb Half	VISIBLE:NO	MOVECLONE:Walk,Climb,/2
 Ape Totem Climb Full	VISIBLE:NO	MOVECLONE:Walk,Climb,*4
-

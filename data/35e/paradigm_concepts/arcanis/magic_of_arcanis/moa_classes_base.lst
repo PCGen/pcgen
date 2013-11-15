@@ -16,7 +16,7 @@ CLASS:Altherian Artificer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Deciph
 # Class Name			Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Altherian Artificer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Altherian Artificer|CL
 ###Block Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency	AUTO:WEAPONPROF|Scimitar|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
+1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|Scimitar|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
 ###Block: Abilities
 1													ABILITY:Special Ability|AUTOMATIC|Altherian Craftsman|Sharp Intellect
 2								BONUS:VAR|DedicationBonus|2	ABILITY:Special Ability|AUTOMATIC|Dedication
@@ -68,10 +68,10 @@ CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
 #
-1	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+1	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Level Progression
 1									ABILITY:Special Ability|AUTOMATIC|Aura of Faith|Hedge Mage's Education
-2									ABILITY:Special Ability|AUTOMATIC|Summon Familiar|Intution
+2									ABILITY:Special Ability|AUTOMATIC|Intution|Summon Familiar
 3									ABILITY:Special Ability|AUTOMATIC|Poison Use
 4									ABILITY:Special Ability|AUTOMATIC|Brew Potion
 5	BONUS:ABILITYPOOL|Adaptable Magic Choice|CL/5	ABILITY:Special Ability|AUTOMATIC|Adaptable Magic
@@ -109,12 +109,12 @@ CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Shaman	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Diplomacy|Dreaming|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|Knowledge (The Planes ~ Spirit Creatures)|Knowledge (The Planes ~ Spirit World)|Listen|TYPE=Profession|Sense Motive|Spellcraft|Spot|Survival
+CLASS:Shaman	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Dreaming|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|Knowledge (The Planes ~ Spirit Creatures)|Knowledge (The Planes ~ Spirit World)|Listen|TYPE=Profession|Sense Motive|Spellcraft|Spot|Survival
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Shaman	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman|CL
 ###COMMENT: Known Spells Remained Fixed
 ###Block: Level Progression
-1	BONUS:ABILITYPOOL|Shaman Spirit Guide|1		BONUS:VAR|BetweenWorlds|-1								ABILITY:Special Ability|AUTOMATIC|Spirit Calling|Channeling|Between Worlds|Spirit Guide
+1	BONUS:ABILITYPOOL|Shaman Spirit Guide|1		BONUS:VAR|BetweenWorlds|-1								ABILITY:Special Ability|AUTOMATIC|Between Worlds|Channeling|Spirit Calling|Spirit Guide
 2									BONUS:VAR|EdgeOfPerception|-1								ABILITY:Special Ability|AUTOMATIC|Edge of Perception
 3																				ABILITY:Special Ability|AUTOMATIC|Query
 5																				ABILITY:Special Ability|AUTOMATIC|Spirit Journey
@@ -154,7 +154,7 @@ CLASS:Spellblade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|E
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Spellblade	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Spellblade|CL
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 ###Block: Level Progression
 2	BONUS:ABILITYPOOL|Spellblade Feat|CL+1/3
 5								ABILITY:Special Ability|AUTOMATIC|Summon Familiar
@@ -191,7 +191,7 @@ CLASS:Suromar	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Climb|Concentration|TY
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Suromar|CL
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 ###Block: Level Progression
 1	ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 2	ABILITY:Special Ability|AUTOMATIC|Iron Will
@@ -230,13 +230,13 @@ CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CA
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Warder	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Warder	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=Dungeoneering|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Survival|Swim|Use Rope
+CLASS:Warder	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=Dungeoneering|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Warder	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Warder|CL
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 ###Block: Level Progression
-1	BONUS:ABILITYPOOL|Homeland Defense Choice|CL/5+1	ABILITY:Special Ability|AUTOMATIC|Track|Homeland Defense
+1	BONUS:ABILITYPOOL|Homeland Defense Choice|CL/5+1	ABILITY:Special Ability|AUTOMATIC|Homeland Defense|Track
 ###Block: Homeland Defense Bonuses
 1	BONUS:VAR|HomelandDefenseBonus1|2
 5	BONUS:VAR|HomelandDefenseBonus1,HomelandDefenseBonus2|2
@@ -264,4 +264,3 @@ CLASS:Warder	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CAS
 18	CAST:6,4,4,4,3,2		KNOWN:4,3,3,3,3,2
 19	CAST:6,4,4,4,3,2,1	KNOWN:4,3,3,3,3,2,1
 20	CAST:6,4,4,4,3,2,2	KNOWN:4,3,3,3,3,2,2
-

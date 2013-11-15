@@ -107,4 +107,3 @@ ABILITYCATEGORY:Hundite Resist Energy Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITP
 ABILITYCATEGORY:Horok Thrown Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability								ABILITYLIST:Horok Thrown Weapon Choice																				DISPLAYLOCATION:Class Abilities
 
 ABILITYCATEGORY:Mystic Teacher Gained Knowledge	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability								ABILITYLIST:Mystic Teacher Gained Knowledge																			DISPLAYLOCATION:Class Abilities
-

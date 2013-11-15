@@ -21,7 +21,7 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Gather Informat
 3																							AUTO:FEAT|Improved Unarmed Strike
 5	BONUS:ABILITYPOOL|Favored Prey Choice|CL/5
 8													ABILITY:Special Ability|AUTOMATIC|Base of Operations
-10									BONUS:VAR|Reputation|1	ABILITY:Special Ability|AUTOMATIC|Swift Tracker|Reputation
+10									BONUS:VAR|Reputation|1	ABILITY:Special Ability|AUTOMATIC|Reputation|Swift Tracker
 15													ABILITY:Special Ability|AUTOMATIC|Camouflage
 20									BONUS:VAR|Reputation|1
 
@@ -72,7 +72,7 @@ CLASS:Shaman (Alternate)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 #Shamans are proficient with all simple weapons, but may not use any edged weapons unless allowed or required by their deity. They are proficient with light and medium armors but are restricted to only padded, leather, studded leather, bone, or hide. They are skilled with shields but must use only wooden ones.
 ###Block: Level Progression
-1						BONUS:VAR|DanceOfTheShamanBonus|2		DEFINE:ShamanBAB|0	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Dance of the Shaman|Interpret Dream|Wild Empathy|Turn Undead|All Automatic Proficiencies
+1						BONUS:VAR|DanceOfTheShamanBonus|2		DEFINE:ShamanBAB|0	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Animal Companion|Dance of the Shaman|Interpret Dream|Turn Undead|Wild Empathy
 2						BONUS:VAR|ShamanBAB|1								ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 3						BONUS:VAR|ShamanBAB|1
 4						BONUS:VAR|ShamanBAB|1
@@ -137,7 +137,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 ###Block:Proficiencies
 1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 #Block: Level Progression
-1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|Empowered Charm	AUTO:FEAT|Scribe Scroll
+1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Empowered Charm|Summon Familiar	AUTO:FEAT|Scribe Scroll
 3																																			AUTO:FEAT|Brew Potion
 5						BONUS:ABILITYPOOL|Witch Favored Race|CL/5	BONUS:VAR|EmpoweredCharmBonus|CL/5
 13																								ABILITY:Special Ability|AUTOMATIC|Improved Brewing
@@ -174,7 +174,7 @@ CLASS:Mentalist	!PREALIGN:CG,CN,CE
 CLASS:Mentalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Jump|Spot|Swim|Tumble|Use Psionic Device
 #Stabilize Self|
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
@@ -192,9 +192,9 @@ CLASS:Psionist (Alternate)	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Con
 # Remote View - Not found in any 3.5 sources - not listed, left over from 3e.
 #Stabilize Self|
 #Block: Base
-1																												ABILITY:Special Ability|AUTOMATIC|Psionist Alt ~ Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)
+1																												ABILITY:Special Ability|AUTOMATIC|Psionist Alt ~ Proficiencies									AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 #Block: Starting
-1										BONUS:VAR|PsionistAltLvl|CL	BONUS:VAR|PsionicPowerPointsAlt|CL*var("PSPPowerPointsVariable")|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Psionist Power Points|Psionist Alt ~ Powers Known|Psionist Alt ~ Bonus Language
+1										BONUS:VAR|PsionistAltLvl|CL	BONUS:VAR|PsionicPowerPointsAlt|CL*var("PSPPowerPointsVariable")|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Psionist Alt ~ Bonus Language|Psionist Alt ~ Powers Known|Psionist Power Points
 #Block: Level Progression
 1	BONUS:ABILITYPOOL|Psionist Feat Choice|PsiBonusFeat	BONUS:VAR|PsiBonusLang|1														ABILITY:Special Ability|AUTOMATIC|Psionist Alt ~ Bonus Language									AUTO:FEAT|Psicrystal Affinity
 5										BONUS:VAR|PsiBonusLang|CL/5

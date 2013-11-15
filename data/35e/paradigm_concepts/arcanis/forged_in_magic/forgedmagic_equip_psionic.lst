@@ -39,7 +39,7 @@ Talisman of Unassailable Intellect			TYPE:Psionic.Universal.Amulet		COST:64800	S
 Third Eye Aware Lesser					TYPE:Psionic.Universal.Eyegear	COST:2500	SOURCEPAGE:p.62																												BONUS:SKILL|Spot|5|TYPE=Compentence
 Third Eye Concentrate Lesser				TYPE:Psionic.Universal.Eyegear	COST:2500	SOURCEPAGE:p.62																												BONUS:SKILL|Concentration|5|TYPE=Compentence
 Third Eye Gather Lesser					TYPE:Psionic.Universal.Eyegear	COST:2500	SOURCEPAGE:p.62																												BONUS:SKILL|Gather Information|5|TYPE=Compentence
-Third Eye of Low-Light Vision				TYPE:Psionic.Universal.Eyegear	COST:12000	SOURCEPAGE:p.62				VISION:Low-light
+Third Eye of Low-Light Vision				TYPE:Psionic.Universal.Eyegear	COST:12000	SOURCEPAGE:p.62				VISION:Low-Light Vision
 Torc of the Berserker					TYPE:Psionic.Universal.Amulet		COST:45400	SOURCEPAGE:p.62								BONUS:CHECKS|Will|1|TYPE=Resistance	BONUS:COMBAT|AC|-1																				BONUS:STAT|STR,CON|2|TYPE=Enhancement
 Torc of the Berserker Greater				TYPE:Psionic.Universal.Amulet		COST:120750	SOURCEPAGE:p.62								BONUS:CHECKS|Will|2|TYPE=Resistance	BONUS:COMBAT|AC|-2																				BONUS:STAT|STR,CON|4|TYPE=Enhancement
 Torc of the Berserker Lesser				TYPE:Psionic.Universal.Amulet		COST:12400	SOURCEPAGE:p.63	VFEAT:Diehard					BONUS:CHECKS|Will|4|TYPE=Resistance	BONUS:COMBAT|AC|-4																				BONUS:STAT|STR,CON|6|TYPE=Enhancement	SAB:Immune to fear

@@ -44,7 +44,7 @@ CLASS:Mageknight	STARTSKILLPTS:2	CSKILL:Spellcraft|Concentration|TYPE=Craft|Know
 CLASS:Mageknight	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mageknight|EOMCasterLevel
 
 ###Block: Special Ability
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Elements of Magic|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies|Elements of Magic
 ###Block: Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 ###Block: Variables

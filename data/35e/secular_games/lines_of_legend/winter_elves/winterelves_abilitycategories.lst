@@ -3,4 +3,3 @@
 
 # Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object	Display Location
 ABILITYCATEGORY:Heir of Balyk Domain	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BalykDomain	DISPLAYLOCATION:Class Abilities
-

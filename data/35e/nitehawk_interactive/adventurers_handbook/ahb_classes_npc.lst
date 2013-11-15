@@ -9,7 +9,7 @@ CLASS:Exile		HD:8		TYPE:Base.NPC	ABB:Exile		MAXLEVEL:20	SOURCEPAGE:p.138	BONUS:C
 CLASS:Exile		STARTSKILLPTS:2	CSKILL:Bluff|Hide|Intimidate|TYPE=Knowledge|Jump|Listen|Move Silently|TYPE=Perform|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
 1	AUTO:FEAT|Run
@@ -36,4 +36,3 @@ CLASS:Slave		HD:4		TYPE:Base.NPC	MAXLEVEL:20	SOURCEPAGE:p.141	BONUS:CHECKS|BASE.
 CLASS:Slave		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|Listen|Spot|Use Rope
 ###Block
 1	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[WIELD=Light],TYPE=Simple	AUTO:WEAPONPROF|%LIST
-

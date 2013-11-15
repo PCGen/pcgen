@@ -247,7 +247,7 @@ Elf Hand (Left)						VISIBLE:NO																					SAB:Elf Hand														PR
 Elf Hand (Right)						VISIBLE:NO																					SAB:Elf Hand														PRERACE:1,Mongrelman
 Elf Jaw/Mouth						VISIBLE:NO	TEMPLATE:Elf Head																		SAB:Elf Jaw/Mouth														PRERACE:1,Mongrelman
 
-Elf Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Search,Spot|2|TYPE=Racial																																																																									VISION:Low-light
+Elf Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Search,Spot|2|TYPE=Racial																																																																									VISION:Low-Light Vision
 Elf Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|2|TYPE=Racial
 Elf Head							VISIBLE:NO																					SAB:+2 saves vs. enchantments|PRETEMPLATE:1,Elf Head (Left),Elf Head (Right),Elf Jaw/Mouth	PRERACE:1,Mongrelman
 
@@ -269,7 +269,7 @@ Gnome Hand (Left)						VISIBLE:NO																					SAB:Gnome Hand												
 Gnome Hand (Right)					VISIBLE:NO																					SAB:Gnome Hand														PRERACE:1,Mongrelman
 Gnome Jaw/Mouth						VISIBLE:NO	TEMPLATE:Gnome Head																	SAB:Gnome Jaw/Mouth													PRERACE:1,Mongrelman
 
-Gnome Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																										VISION:Low-light
+Gnome Eye							VISIBLE:NO																																					PRERACE:1,Mongrelman																																																																																																																										VISION:Low-Light Vision
 Gnome Ear							VISIBLE:NO																																					PRERACE:1,Mongrelman																																											BONUS:SKILL|Listen|2|TYPE=Racial
 Gnome Head							VISIBLE:NO																					SAB:+2 saves vs. illusions|PRETEMPLATE:1,Gnome Head (Left),Gnome Head (Right),Gnome Jaw/Mouth	PRERACE:1,Mongrelman
 

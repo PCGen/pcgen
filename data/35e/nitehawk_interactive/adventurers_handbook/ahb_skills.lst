@@ -23,7 +23,7 @@ Knowledge (Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 ###Block: New skills
 # Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Classes			Type			Source Page		Bonus to skill
 Dragon Lore			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.61	BONUS:SKILL|Knowledge (Dragons)|SKILL.Dragon Lore.RANK|TYPE=SkillGranted
-Improvised Trap Setting	KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	CLASSES:Rogue|Ranger	TYPE:Intelligence	SOURCEPAGE:p.62
+Improvised Trap Setting	KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	CLASSES:Ranger|Rogue	TYPE:Intelligence	SOURCEPAGE:p.62
 Sailing			KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES										TYPE:Dexterity	SOURCEPAGE:p.62
 Seduction			KEYSTAT:CHA	USEUNTRAINED:YES												TYPE:Charisma	SOURCEPAGE:p.63
 # Not tackling the racial modifier table for now.  Not even sure if we can (not reading in detail yet. - Tir-Gwaith)
@@ -47,7 +47,7 @@ Knowledge (Dragons)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SO
 Knowledge (Food Preparation)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.73	BONUS:SKILL|Craft (Cooking),Profession (Chef)|SynergyBonus|PRESKILL:1,Knowledge (Food Preparation)=5
 Knowledge (Gemstones)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74
 Knowledge (Seas and Oceans)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74	BONUS:SKILL|Sailing|SynergyBonus|PRESKILL:1,Knowledge (Seas and Oceans)=5
-Knowledge (Spirits)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74	BONUS:SKILL|Knowledge (Incorporeal Undead)|SynergyBonus|PRESKILL:1,Knowledge (Spirits)
+Knowledge (Spirits)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74	BONUS:SKILL|Knowledge (Incorporeal Undead)|SynergyBonus|PRESKILL:1,Knowledge (Spirits)=1
 Knowledge (Undead)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.74
 Knowledge (Spices and Herbs)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.132
 Knowledge (any specific foods)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.132

@@ -94,11 +94,11 @@ Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQ
 Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																							SOURCEPAGE:p.61
 Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																							SOURCEPAGE:p.61
 #
-Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Sword,TYPE=Martial]			AUTO:FEAT|Mystic Knight Martial Weapon Choice (%LIST)
+Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]			AUTO:FEAT|Mystic Knight Martial Weapon Choice (%LIST)
 Mystic Knight Weapon Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Mystic Knight Martial Weapon Choice
 Mystic Knight Skill Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:SKILL|CLASS
 ###
-Mystic Knight Martial Weapon Choice			CATEGORY:FEAT										VISIBLE:NO												MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Sword,TYPE=Martial]
+Mystic Knight Martial Weapon Choice			CATEGORY:FEAT										VISIBLE:NO												MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]
 
 
 ###Block: ~ Oracle
@@ -126,4 +126,3 @@ Spells				KEY:Spells ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality		
 Tactical Attack			KEY:Tactical Attack ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurTacticalAttackBonus|0		DESC: +%1d6|MurmurTacticalAttackBonus						SOURCEPAGE:p.71
 Advantageous Step			KEY:Advantageous Step ~ Murmur			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurAdvantageousStepTimes|0	DESC: %1/day|MurmurAdvantageousStepTimes						SOURCEPAGE:p.71
 Push					KEY:Push ~ Murmur						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurPushTimes|0			DESC: %1/day|MurmurPushTimes								SOURCEPAGE:p.71
-

@@ -11,5 +11,3 @@ Knowledge (Local/Ymandragore)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Know
 Knowledge (The Planes/Earth)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.ThePlanes
 Knowledge (Geology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 Craft (Gemsmith)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:na
-
-

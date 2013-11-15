@@ -23,9 +23,9 @@ Ape's Muteness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's 
 
 ###Block:Animal Champion ~ (Badger/Dire Badger)
 # Ability Name	Category of Ability		Type			Visible	Special ABility			Save checks bonus						Combat bonus						Stat bonus
-Badger's Fury	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Fury (Ex)										BONUS:COMBAT|AC|-2|PREAPPLY:PC			BONUS:STAT|STR,CON|4|PREAPPLY:PC
+Badger's Fury	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Fury (Ex)										TEMPBONUS:PC|COMBAT|AC|-2			TEMPBONUS:PC|STAT|STR,CON|4
 Badger's Luck	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Luck (Sp)
-Badger's Tenacity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Tenacity (Ex)	BONUS:CHECKS|ALL|2|TYPE=Morale|PREAPPLY:PC	BONUS:COMBAT|TOHIT|2|TYPE=Morale|PREAPPLY:PC
+Badger's Tenacity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Tenacity (Ex)	TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Morale	TEMPBONUS:PC|COMBAT|TOHIT|2|TYPE=Morale
 
 ###Block:Animal Champion ~ (Dire Bat)
 # Ability Name		Category of Ability		Type			Visible	Special ABility			Define				Innate Spells							Bonus to skill					Add to vision					Vision
@@ -111,7 +111,7 @@ Sunhawk (Fire Shield)	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO				S
 ###Block:Animal Champion ~ (Horse/Pony)		PREFEAT:1,Skill Focus(Ride)
 # Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells				Combat bonus								Bonus to skill
 Horse's Surefootedness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Horse's Surefootedness
-Born to the Saddle	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Born to the Saddle								BONUS:COMBAT|TOHIT,DAMAGE|2|TYPE=Competence|PREAPPLY:PC	BONUS:SKILL|Ride|2|TYPE=Circumstance|PREAPPLY:PC
+Born to the Saddle	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Born to the Saddle								TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Ride|2|TYPE=Circumstance
 Horse and Hattock		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Horse and Hattock (Sp)	SPELLS:Class|TIMES=1|Dimension Door
 
 ###Block:Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	PREFEAT:1,Stealthy
@@ -134,7 +134,7 @@ Lizard's Regeneration	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:
 # Ability Name		Category of Ability		Type			Visible	Special ABility				Combat bonus
 Mongoose's Quickness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Quickness (Ex)		BONUS:COMBAT|INITIATIVE|4|TYPE=Competence
 Mongoose's Stubbornness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Stubbornness (Ex)
-Mongoose's Retaliation	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Retaliation (Ex)	BONUS:COMBAT|TOHIT,DAMAGE|INT|PREAPPLY:PC
+Mongoose's Retaliation	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Retaliation (Ex)	TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE|INT
 
 ###Block:Animal Champion ~ (Owl)	PREFEAT:1,Skill Focus(Knowledge%)
 # Ability Name	Category of Ability		Type			Visible	Special ABility			Innate Spells						Combat bonus
@@ -278,7 +278,7 @@ Many-Headed Monster	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.At
 
 Puncture			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Puncture (Ex)
 Tooth Breaking		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Tooth Breaking (Ex)
-Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																				VISION:Low-light
+Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																				VISION:Low-Light Vision
 
 Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|10+HD+CON	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC				SOURCEPAGE:TypesSubtypesAbilities.rtf
 

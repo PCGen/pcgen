@@ -9,5 +9,5 @@ Kiriton				VISIBLE:NO	SOURCEPAGE:p.16																		GENDERLOCK:Female
 
 
 # Academic Background Feat choice
-Academic Background Initial	VISIBLE:NO	SOURCEPAGE:p.91									LANGBONUS:Elven,Draconic,Dwarven,Gnome,Halfling
+Academic Background Initial	VISIBLE:NO	SOURCEPAGE:p.91									LANGBONUS:Draconic,Dwarven,Elven,Gnome,Halfling
 Academic Background Advanced	VISIBLE:NO	SOURCEPAGE:p.91	PRELANG:5,Elven,Draconic,Dwarven,Gnome,Halfling	LANGBONUS:Giant,Gnoll,Goblin,Orc,Sylvan,Undercommon

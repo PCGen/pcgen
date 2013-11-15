@@ -57,7 +57,7 @@ Subclass (Scoundrel Lvl 19)	SOURCEPAGE:p.25													PRELEVEL:MIN=19	PRETEMPL
 Subclass (Scoundrel Lvl 20)	SOURCEPAGE:p.25													PRELEVEL:MIN=20	PRETEMPLATE:1,Subclass (Scoundrel Lvl 19)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1
 
 ###Honor Tracker template
-Knight Honor Modification	SOURCEPAGE:p.22																PRETEMPLATE:1,Subclass (Knight Lvl 01)								BONUS:VAR|HonorScore|%CHOICE|PRETEMPLATE:1,Subclass (Knight Lvl 01)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Honor Modification																								TEMPDESC:This can be used to modify the Honor value of a Knight. This can be applied multiple times.
+Knight Honor Modification	SOURCEPAGE:p.22																PRETEMPLATE:1,Subclass (Knight Lvl 01)								TEMPBONUS:ANYPC|VAR|HonorScore|%CHOICE|PRETEMPLATE:1,Subclass (Knight Lvl 01)	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Honor Modification																								TEMPDESC:This can be used to modify the Honor value of a Knight. This can be applied multiple times.
 
 #
 ## EOF
