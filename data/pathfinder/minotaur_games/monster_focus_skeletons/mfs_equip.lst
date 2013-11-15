@@ -9,13 +9,13 @@ Bone Bane		TYPE:Goods.Alchemical.Vial.Consumable	COST:15	WT:1		SOURCEPAGE:p.1
 Grave Scent		TYPE:Goods.Alchemical.Vial.Consumable	COST:20	WT:0.5	SOURCEPAGE:p.2
 Impact Oil		TYPE:Goods.Alchemical.Consumable		COST:20	WT:1		SOURCEPAGE:p.2
 Necromancer's Eye	TYPE:Goods.Alchemical.Consumable		COST:50			SOURCEPAGE:p.2
-Obsidian Knuckle	TYPE:Goods.Alchemical.Consumable		COST:100	WT:.5		SOURCEPAGE:p.2
+Obsidian Knuckle	TYPE:Goods.Alchemical.Consumable		COST:100	WT:0.5		SOURCEPAGE:p.2
 Sun Crystal		TYPE:Goods.Alchemical.Consumable		COST:60			SOURCEPAGE:p.2
 
 ###Block: Magic Weapons
 # Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property
-Bone Sword		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:MAGIC_COST|8000.PLUS2W.BONE	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:1/day when delivering a killing blow, animate the killed creature as a swift action as if using Lesser Animate Dead
-Spine Mace		PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Weapon.Melee.Simple.Specific.Bludgeoning.Mace	COST:12	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|8000.PLUS1W.BONE	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:Deals 1d6 extra to skeletons. 1/day can emit a silent scream, all undead within 30 ft. flee as if panicked (DC 13 Will negates).
+Bone Sword		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:BONE.MAGIC_COST|8000.PLUS2W	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:1/day when delivering a killing blow, animate the killed creature as a swift action as if using Lesser Animate Dead
+Spine Mace		PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Weapon.Melee.Simple.Specific.Bludgeoning.Mace	COST:12	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:BONE.MAGIC_COST|8000.PLUS1W	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:Deals 1d6 extra to skeletons. 1/day can emit a silent scream, all undead within 30 ft. flee as if panicked (DC 13 Will negates).
 
 ###Block: Rings
 # Equipment Name	Type			Cost		Source Page		Special Property
