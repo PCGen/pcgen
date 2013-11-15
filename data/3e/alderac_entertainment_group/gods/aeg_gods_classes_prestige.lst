@@ -43,7 +43,7 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Hunter	HD:8		TYPE:PC.Prestige	ABB:Hntr		MAXLEVEL:10	SOURCEPAGE:pg.16	BONUS:CHECKS|Fortitude,Will|(CL/3)	BONUS:CHECKS|Reflex|(CL/2+1)	BONUS:COMBAT|BAB|(CL-1)/4+(CL-1)
 # Class Name	Required Feat					Required Skill								Required Text
-CLASS:Hunter	PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently,Spot=6,Wilderness Lore=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
+CLASS:Hunter	PREFEAT:2,Track,Weapon Focus(TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently=6,Spot=6,Wilderness Lore=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Use Rope|Wilderness Lore
 ###Block: Class Features
@@ -195,7 +195,7 @@ CLASS:Exemplar	PREALIGN:CN,LN,NG,NE	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
 ###Block: Class Features
-1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+1	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON	AUTO:WEAPONPROF|%LIST
 ###Block: Normal Progression
 1						ADD:SPELLCASTER|Divine	VFEAT:Leadership	AUTO:FEAT|Strength of Purpose
 2						ADD:SPELLCASTER|Divine				AUTO:FEAT|Divine Wrath
@@ -262,7 +262,7 @@ CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Hum
 ###Block: Humanoid Hunter Class Features
 1:REPEATLEVEL:2	ADD:FEAT|TYPE=Fighter
 ###Block: Favored Enemy
-1:REPEATLEVEL:1	ADD:ABILITY|1|Special Ability|AUTOMATIC|HHFavored Enemy
+1:REPEATLEVEL:1	ADD:FEAT|HHFavored Enemy
 ###Block: Normal Progression
 2	ABILITY:FEAT|AUTOMATIC|Smite Humanoid
 6	ABILITY:FEAT|AUTOMATIC|Hide the Beast
@@ -312,7 +312,7 @@ CLASS:Master of the Swamp	PREALIGN:LN,TN	PREATT:6	PREFEAT:2,Iron Will,Track	PREM
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE.Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Use Magic Device|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
-1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
+1	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON	AUTO:WEAPONPROF|%LIST
 ###Block: Normal Progression
 1	BONUS:VAR|LizardfolkAllyBonus|1							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA						AUTO:FEAT|Water Breathing|Lizardfolk Ally
 2	BONUS:VAR|IncreasedAgilityBonus|1																					AUTO:FEAT|Increased Agility
@@ -343,7 +343,7 @@ CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Directio
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Thick Hide|
+1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Thick Hide
 2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					AUTO:FEAT|Battle Cry|Formation Fighting
 4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	ADD:FEAT|TYPE=Fighter
