@@ -4,7 +4,7 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Archon	HD:10		TYPE:Base.PC	ABB:Arc		MAXLEVEL:20	SOURCEPAGE:p.6	DEFINE:ArchonLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Archon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE.Craft|Fly|Handle Animal|Intimidate|Knowledge (Arcana)|Knowledge (Nobility)|TYPE.Profession|Ride|Spellcraft|Swim
+CLASS:Archon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Fly|Handle Animal|Intimidate|Knowledge (Arcana)|Knowledge (Nobility)|TYPE=Profession|Ride|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Archon	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Archon|CL
 ###Block:Proficiencies
@@ -51,7 +51,7 @@ CLASS:Archon	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arch
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Death Mage	HD:8		TYPE:Base.PC	ABB:DMa		MAXLEVEL:20	SOURCEPAGE:p.14	DEFINE:DeathMageLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Death Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Linguistics|TYPE.Profession|Ride|Spellcraft|Stealth|Use Magic Device
+CLASS:Death Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Linguistics|TYPE=Profession|Ride|Spellcraft|Stealth|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Auto know all spells													Caster level
 CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Death Mage|CL
 ###Block:Proficiencies
@@ -96,7 +96,7 @@ CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 # Class Name	Hit Dice	Type			Abbrev	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Magister	HD:6		TYPE:Base.PC	ABB:Mgr	MAXLEVEL:20	SOURCEPAGE:p.24	DEFINE:MagisterLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Magister	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE.Craft|Fly|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|Perform (Oratory)|Perform (Sing)|TYPE.Profession|Spellcraft|Use Magic Device
+CLASS:Magister	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|Perform (Oratory)|Perform (Sing)|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Memorize	Caster level
 CLASS:Magister	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Magister|CL
 ###Primary Spell List
@@ -105,7 +105,7 @@ CLASS:Magister	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Mag
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Magister Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block:Basic Class Abilities
-1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Magister|Cantrips/Orisons ~ Magister|Spells ~ Magister|Bonus Feats ~ Magister|Feat Access Tracker ~ Magister	BONUS:ABILITYPOOL|Magister Power Source|1
+1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Magister|Bonus Feats ~ Magister|Cantrips/Orisons ~ Magister|Feat Access Tracker ~ Magister|Spells ~ Magister	BONUS:ABILITYPOOL|Magister Power Source|1
 ###Block:Level progression
 1	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus I ~ Magister	BONUS:ABILITYPOOL|Magister Mystic Bond|1
 3												BONUS:ABILITYPOOL|Magister Mystic Talent|(CL+1)/4
@@ -155,7 +155,7 @@ CLASS:Magister	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Mag
 # Class Name		HD	Type			Abbrev	Max Level	Source Page		Define				Save checks bonus											Combat bonus
 CLASS:Shadow Assassin	HD:8	TYPE:Base.PC	ABB:ShA	MAXLEVEL:20	SOURCEPAGE:p.32	DEFINE:ShadowAssassinLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE.Craft|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Sleight of Hand|Stealth|Swim
+CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Stealth|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Shadow Assassin
 ###Block:Level progression
@@ -166,7 +166,7 @@ CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE.Craft|D
 5	ABILITY:Special Ability|AUTOMATIC|Daggermaster ~ Shadow Assassin					BONUS:VAR|DaggermasterBonus|(CL-1)/4
 6	ABILITY:Special Ability|AUTOMATIC|Greater Deadly Focus ~ Shadow Assassin			BONUS:VAR|GDeadlyFocusTimes|1			BONUS:ABILITYPOOL|Shadow Style|1
 8	ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Camouflage) ~ Shadow Assassin
-10	ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Bypass DR ~ Shadow Assassin
+10	ABILITY:Special Ability|AUTOMATIC|Bypass DR ~ Shadow Assassin|Improved Evasion
 11																							BONUS:ABILITYPOOL|Shadow Style|1
 12	ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Produce Shadow) ~ Shadow Assassin
 14																BONUS:VAR|GDeadlyFocusTimes|1
@@ -178,11 +178,11 @@ CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE.Craft|D
 # Class Name	HD	Type			Abbrev	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:War Master	HD:10	TYPE:Base.PC	ABB:WMa	MAXLEVEL:20	SOURCEPAGE:p.40	DEFINE:WarMasterLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:War Master	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE.Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Engineering)|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE.Profession|Ride|Sense Motive|Survival
+CLASS:War Master	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Engineering)|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Profession|Ride|Sense Motive|Survival
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ War Master
 ###Block:Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Battle Tactics ~ War Master|Battle Tactic ~ Assail|Battle Tactic ~ Countering Tactics|Battle Tactic ~ Covering Maneuvers|Battle Tactic ~ Deployment
+1	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Assail|Battle Tactic ~ Countering Tactics|Battle Tactic ~ Covering Maneuvers|Battle Tactic ~ Deployment|Battle Tactics ~ War Master
 2	ABILITY:Special Ability|AUTOMATIC|Consul ~ War Master							BONUS:ABILITYPOOL|War Master Talent|1
 3	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Individual Tactics
 4																BONUS:ABILITYPOOL|War Master Talent|1

@@ -17,4 +17,4 @@ Ironskinned			SOURCEPAGE:p.96										ABILITY:Special Ability|AUTOMATIC|Resista
 
 ###Block: Templates for unbreathing subtype
 # Template Name		Visible	
-Unbreathing Subtype	VISIBLE:YES	PRERACE:1,RACETYPE=Magical Beast,RACETYPE=Humanoid	!PRERACE:1,RACESUBTYPE=Fire	DEFINE:ColdResistanceBonus|0	BONUS:VAR|ColdResistanceBonus|TL	ABILITY:Special Ability|AUTOMATIC|Still Breath ~ Unbreathing|Undead-like ~ Unbreathing|Healing Resistance ~ Unbreathing
+Unbreathing Subtype	VISIBLE:YES	PRERACE:1,RACETYPE=Magical Beast,RACETYPE=Humanoid	!PRERACE:1,RACESUBTYPE=Fire	DEFINE:ColdResistanceBonus|0	BONUS:VAR|ColdResistanceBonus|TL	ABILITY:Special Ability|AUTOMATIC|Healing Resistance ~ Unbreathing|Still Breath ~ Unbreathing|Undead-like ~ Unbreathing
