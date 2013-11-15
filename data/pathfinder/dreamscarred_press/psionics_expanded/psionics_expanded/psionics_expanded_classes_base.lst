@@ -51,7 +51,7 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly
 # Class Name	Hit Dice	Type				Max Level	Source Page		Ability																		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Cryptic	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Internal|AUTOMATIC|Disable Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticDisableDevice	BONUS:CHECKS|Base.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE.Craft|Disguise|Escape Artist|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
+CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE=Craft|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryptic|CL
 
@@ -122,7 +122,7 @@ CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryp
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Dread		HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Sense Motive|Spellcraft|Stealth|Swim
+CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Stealth|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|CL
 
@@ -249,7 +249,7 @@ CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	B
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE.Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
+CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
 

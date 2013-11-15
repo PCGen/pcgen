@@ -8,12 +8,12 @@ SOURCELONG:Psionics Expanded - Pawns and Powers	SOURCESHORT:PEPP	SOURCEWEB:http:
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE.Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
+CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
 
 #Block: Proficiencies
-1																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies								AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
+1																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies								AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
 
 #Block: Psionic Ability
 1						BONUS:VAR|IsPsionic|1																											DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -73,11 +73,11 @@ CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Ta
 
 # Class Name
 CLASS:Psion.MOD
-SUBCLASS:Insight	COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Diplomacy|Perception
+SUBCLASS:Insight	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Diplomacy|Perception
 SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Insight Advanced Discipline
 
 #Block:Jaunting Advanced Discipline
-SUBCLASS:Jaunting	COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Climb|Fly|Survival|Swim
+SUBCLASS:Jaunting	COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Climb|Fly|Survival|Swim
 SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Jaunting Advanced Discipline
 
 
@@ -86,7 +86,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL	ABILITY:Special Abilit
 # Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Save checks bonus													Combat bonus						Modify VAR
 CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Req. Att.	Multiple Requirements												Required Skill						Var. Must Be Grater
-CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus(Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
+CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level

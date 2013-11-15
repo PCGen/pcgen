@@ -5,7 +5,7 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 
 ###Block: Weapon equipment modifiers
 # Modifier Name			Unique Key		Type				Plus		Cost		Visible		Source Page		Required Type						Prohibited Type	Weapon prop. bonus				Special Property
-Agile					KEY:AGILE		TYPE:Melee.Weapon		PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.207	PRETYPE:4,Enhancement,Weapon,Melee,Finesseable				BONUS:WEAPON|DAMAGE|max(STR,DEX)-STR	SPROP:Add Dexterity bonus, instead of Strength bonus, to weapon damage
+Agile					KEY:AGILE		TYPE:Melee.Weapon		PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.207	PRETYPE:4,Enhancement,Weapon,Melee,Finesseable				BONUS:WEAPON|DAMAGE|MAX(STR,DEX)-STR	SPROP:Add Dexterity bonus, instead of Strength bonus, to weapon damage
 Dueling				KEY:DUEL		TYPE:Melee.Weapon		PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.207	PRETYPE:3,Enhancement,Weapon,Melee													SPROP:Gain luck bonus to CMB and CMD double the enchantment bonus with maneuvers when using weapon
 Energy (Cold)			KEY:ENRGY_C		TYPE:Ranged.Weapon			COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.208	PRETYPE:3,Enhancement,Weapon,Ranged			!PRETYPE:1,Thrown								SPROP:Creates cold energy ammunition
 Energy (Electricity)		KEY:ENRGY_E		TYPE:Ranged.Weapon			COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.208	PRETYPE:3,Enhancement,Weapon,Ranged			!PRETYPE:1,Thrown								SPROP:Creates electricity energy ammunition

@@ -52,10 +52,10 @@ Fear Incarnate	VISIBLE:NO	TEMPLATE:Native	RACETYPE:Outsider
 
 ###Block: Battlesense templates
 # Template Name				Visible		Combat bonus												Add to base move										Choose
-Battlesense attack bonus		VISIBLE:DISPLAY	BONUS:COMBAT|TOHIT|%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices
-Battlesense AC bonus			VISIBLE:DISPLAY	BONUS:COMBAT|AC|%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices
-Battlesense weapon damage bonus	VISIBLE:DISPLAY	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC													CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices
-Battlesense speed bonus			VISIBLE:DISPLAY															BONUS:MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices
+Battlesense attack bonus		VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices
+Battlesense AC bonus			VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance													CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices
+Battlesense speed bonus			VISIBLE:DISPLAY															TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices
 
 ###Block: Activate Advanced Construct abilities
 # Template Name		Required Race

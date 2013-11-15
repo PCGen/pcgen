@@ -8,7 +8,7 @@ SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http
 CLASS:Dread	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|CL
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Sense Motive|Spellcraft|Stealth|Swim
+CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Stealth|Swim
 
 #Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies

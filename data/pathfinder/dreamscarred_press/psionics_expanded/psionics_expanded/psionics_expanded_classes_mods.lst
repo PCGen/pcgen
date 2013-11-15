@@ -40,13 +40,13 @@ SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL		ABILITY:Special Abilit
 SUBCLASS:Erudite		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Erudite Advanced Discipline
 
-SUBCLASS:Insight		COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion		CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Diplomacy|Perception
+SUBCLASS:Insight		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Diplomacy|Perception
 SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Insight Advanced Discipline
 
-SUBCLASS:Jaunting		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Climb|Fly|Survival|Swim
+SUBCLASS:Jaunting		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Climb|Fly|Survival|Swim
 SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Jaunting Advanced Discipline
 
-SUBCLASS:Mindbender	COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
+SUBCLASS:Mindbender	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
 SUBCLASSLEVEL:1	BONUS:VAR|TelepathyDisciplineLVL|CL			ABILITY:Special Ability|AUTOMATIC|Mindbender Advanced Discipline
 
 SUBCLASS:Transmogrifist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Acrobatics|Heal

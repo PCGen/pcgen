@@ -44,7 +44,7 @@ CLASS:Body Snatcher	HD:6		TYPE:PC.Prestige.Psionic	MAXLEVEL:6	SOURCEPAGE:p.43	BO
 # Class Name		Required Class			Required Feat							Required Skill							Req. Known Spell
 CLASS:Body Snatcher	PRECLASS:1,SPELLCASTER=10	PREFEAT:1,Extend Power	PREFEAT:2,TYPE=Metapsionic	PRESKILL:3,Bluff=10,Perform (Act)=3,Sense Motive=3	PRESPELL:2,Brain Lock,Conceal Thoughts
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Body Snatcher	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|TYPE.Perform|Sense Motive|Spellcraft
+CLASS:Body Snatcher	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|TYPE=Perform|Sense Motive|Spellcraft
 
 ###Block: Body Snatcher class abilities
 1	ABILITY:Special Ability|AUTOMATIC|Body Thief ~ Body Snatcher
@@ -174,7 +174,7 @@ CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraf
 # Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Save checks bonus													Combat bonus						Modify VAR
 CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Req. Att.	Multiple Requirements												Required Skill						Var. Must Be Grater
-CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus(Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
+CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level

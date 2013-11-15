@@ -5,7 +5,7 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 # SRD update by: TaluronIscandar
 
 # Template Name		Visible		Var. Min. Value			Modify VAR							Ability																Temporary effect description
-Psionically Focused	VISIBLE:DISPLAY	PREVARGTEQ:TotalPowerPoints,1	BONUS:VAR|PsionicFocusActive|1|PREAPPLY:PC																		TEMPDESC:Character is psionically focused.
+Psionically Focused	VISIBLE:DISPLAY	PREVARGTEQ:TotalPowerPoints,1	TEMPBONUS:PC|VAR|PsionicFocusActive|1																		TEMPDESC:Character is psionically focused.
 Activate Size Changing	VISIBLE:DISPLAY														ABILITY:Special Ability|AUTOMATIC|Size Changing	ABILITY:Special Ability|AUTOMATIC|CM Size Changing
 
 ###BLOCK: Racial Subtype Templates
