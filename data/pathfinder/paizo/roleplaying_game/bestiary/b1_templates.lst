@@ -187,4 +187,3 @@ Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:COMBAT|AC|11|TYPE=NaturalArmor.
 #TODO Can't do now: Remove Defensive abilities, Special Attacks and 'most' Special Qualities
 #TODO Can't do now: Swap Monsters Class for Undead monster class so that Saves and BAB is recalculated
 # The only work around is to create a Zombie version of any race you want a Zombie of.
-

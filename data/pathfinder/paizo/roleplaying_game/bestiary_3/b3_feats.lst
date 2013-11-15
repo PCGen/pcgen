@@ -4,4 +4,4 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 
 
 # Feat Name			Allowed Companions
-Improved Familiar.MOD	COMPANIONLIST:Familiar|Kyton (Augur)|PRECLASS:1,Wizard=7|PREALIGN:LE
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Kyton (Augur)|PREALIGN:LE|PRECLASS:1,Wizard=7

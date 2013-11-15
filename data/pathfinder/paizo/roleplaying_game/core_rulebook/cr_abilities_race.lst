@@ -375,6 +375,3 @@ Wildshape 2 ~ Eagle	CATEGORY:Internal	MOVE:Fly,60
 Wildshape 3 ~ Eagle	CATEGORY:Internal	MOVE:Fly,80
 Wildshape 2 ~ Gar		CATEGORY:Internal	MOVE:Swim,60
 Wildshape 3 ~ Squid	CATEGORY:Internal	MOVE:Jet,240
-
-
-

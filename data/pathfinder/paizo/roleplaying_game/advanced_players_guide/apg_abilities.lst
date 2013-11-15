@@ -159,7 +159,7 @@ No Traits		KEY:No Traits ~ Trait	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.
 
 ###Block: Fix for Half-Casters - DATA-1062
 # Ability Name							Ability
-CATEGORY=Special Ability|Magical Knack ~ Trait.MOD	ABILITY:Internal|AUTOMATIC|Caster Level ~ Ranger|PREABILITY:1,CATEGORY=Special Ability,Magical Knack ~ Trait(Ranger)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Paladin|PREABILITY:1,CATEGORY=Special Ability,Magical Knack ~ Trait(Paladin)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Antipaladin|PREABILITY:1,CATEGORY=Special Ability,Magical Knack ~ Trait(Antipaladin)
+CATEGORY=Special Ability|Magical Knack ~ Trait.MOD	ABILITY:Internal|AUTOMATIC|Caster Level ~ Ranger|PREABILITY:1,CATEGORY=Special Ability,Magical Knack ~ Trait (Ranger)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Paladin|PREABILITY:1,CATEGORY=Special Ability,Magical Knack ~ Trait (Paladin)	ABILITY:Internal|AUTOMATIC|Caster Level ~ Antipaladin|PREABILITY:1,CATEGORY=Special Ability,Magical Knack ~ Trait (Antipaladin)
 
 ###Block: Half Casters
 # Ability Name			Category of Ability	Caster level

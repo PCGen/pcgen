@@ -97,5 +97,3 @@ Bomb													PROFICIENCY:WEAPON|Bomb												TYPE:Weapon.Exotic.Ranged.St
 
 ####Block: Natural Weapons
 Brass Knuckles											PROFICIENCY:WEAPON|Unarmed Strike										TYPE:Weapon.Natural.Weapon Group Natural.Melee.Unarmed.Monk.Bludgeoning.Finesseable.Close										COST:1	WT:1					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3					EQMOD:STEEL					WIELD:Light							SIZE:M	SOURCEPAGE:177
-
-

@@ -165,7 +165,7 @@ CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 # Class Name				Visible
 CLASS:Sorcerer/Cleric (Arcane)	VISIBLE:NO
 # Class Name				Spell Stat		Spell Type		Memorize	Caster level						Use Spell List
-CLASS:Sorcerer/Cleric (Arcane)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Arcane)|CL	SPELLLIST:2|Sorcerer|Cleric
+CLASS:Sorcerer/Cleric (Arcane)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Arcane)|CL	SPELLLIST:2|Cleric|Sorcerer
 ###Block:
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2

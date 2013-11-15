@@ -33,11 +33,11 @@ Dagon			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC
 Deskari		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War|PREALIGN:NE,CN,CE		DESC:Demon lord of chasms, infestation, locusts		DEITYWEAP:Scythe			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
 Gogunta		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Water|PREALIGN:NE,CN,CE		DESC:Demon lord of amphibians, boggards, swamps		DEITYWEAP:Whip			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
 Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DESC:Demon lord of cold, giants, revenge			DEITYWEAP:Warhammer		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
-Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Darkness|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		DEITYWEAP:Crossbow (Hand)	ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
+Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		DEITYWEAP:Crossbow (Hand)	ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
 Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of necromancy, undead, wrath		DEITYWEAP:Mace (Heavy)		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
 Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Demon lord of sky, temptation, winged creatures	DEITYWEAP:Longsword		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
 Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			DEITYWEAP:Dagger			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
-Socothbenoth	NAMEISPI:YES	DOMAINS:Charm,Chaos,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		DEITYWEAP:Quarterstaff		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
+Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		DEITYWEAP:Quarterstaff		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.18
 Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		DEITYWEAP:Rapier			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.19
 
 ###Block: Elemental Lords

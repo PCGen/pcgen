@@ -6,4 +6,3 @@
 Gunslinger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Gunslinger")
 Ninja			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Ninja")
 Samurai		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Samurai")
-

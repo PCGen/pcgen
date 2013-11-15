@@ -172,7 +172,7 @@ Air Affinity		KEY:Air Affinity ~ Sylph		CATEGORY:Special Ability	TYPE:RacialTrai
 
 ###Block: Set up Undine default abilities
 # Ability Name							Category of Ability	Ability
-Default Traits ~ Undine		CATEGORY:Internal					
+Default Traits ~ Undine		CATEGORY:Internal
 CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Swim ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineSwim
 CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Darkvision ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineDarkvision
 CATEGORY=Internal|Default Traits ~ Undine.MOD					ABILITY:Undine Racial Trait|AUTOMATIC|Spell-Like Ability ~ Undine|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UndineSLA

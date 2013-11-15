@@ -11,8 +11,8 @@ Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Min
 
 
 ###BLOCK: Race Templates
-Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-light
-Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-light
-Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-light
-Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-light
+Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-Light Vision
+Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-Light Vision
+Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-Light Vision
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-Light Vision
 Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')

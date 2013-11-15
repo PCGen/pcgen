@@ -13,5 +13,3 @@ Vision of Hell	CLASSES:Bard,Cleric,Sorcerer,Wizard=3	SCHOOL:Illusion		SUBSCHOOL:
 
 # Spell Name
 Teleport (Greater).COPY=Greater Teleport (Self Plus 50 Lbs. Of Objects Only)
-
-

@@ -3,4 +3,4 @@ SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/produ
 # Pathfinder RPG Entry by: Scott Meyer
 
 ###Block: Torchbearer
-FOLLOWER:TorchbearerLvl=1	TYPE:Torchbearer		ABILITY:Feat|NORMAL|Torch Handling
+FOLLOWER:TorchbearerLvl=1	TYPE:Torchbearer		ABILITY:FEAT|NORMAL|Torch Handling

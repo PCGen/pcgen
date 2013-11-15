@@ -17,4 +17,3 @@ CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (Arc
 8	BONUS:VAR|DiabolistHellfireRayLVL|CL					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Hellfire Ray ~ Diabolist
 9												ADD:SPELLCASTER|ANY
 10												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Master Conjurer ~ Diabolist
-

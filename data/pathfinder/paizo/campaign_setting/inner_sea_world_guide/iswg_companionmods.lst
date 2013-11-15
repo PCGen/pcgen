@@ -4,4 +4,3 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 # Animal Companion support for ISWG feats
 # Class of the Master					Type				Ability
 FOLLOWER:AnimalCompanionLVL,AndorenFalconry=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion Andoren Falconry
-

@@ -9,9 +9,9 @@ CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
 CLASS:Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
-1	ABILITY:Barbarian Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Prof ~ Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies	
-1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
+1	ABILITY:Barbarian Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 ###Block: Variable Progression
 1	BONUS:VAR|RageLVL|CL
 2	BONUS:VAR|RagePowersLVL|CL
@@ -37,9 +37,9 @@ CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	ABILITY
 # Class Name		Skill Pts/Lvl
 CLASS:Ex-Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
-1	ABILITY:Barbarian Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Prof ~ Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies	
-1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
+1	ABILITY:Barbarian Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 ###Block: Level Progression
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 2	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge
@@ -61,7 +61,7 @@ CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
-1	ABILITY:Bard Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
+1	ABILITY:Bard Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
 ###Block: Level progression
@@ -94,9 +94,9 @@ CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
-1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
 ###Block: Aura strength
 1	BONUS:VAR|AlignmentAuraLVL|CL	ABILITY:Cleric Class Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
 1						ABILITY:Cleric Class Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
@@ -141,8 +141,8 @@ CLASS:Druid		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block:Proficiencies
-1	ABILITY:Druid Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies
+1	ABILITY:Druid Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
@@ -208,12 +208,12 @@ CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
 1	ABILITY:Fighter Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency,TYPE.FighterMediumArmorProficiency,TYPE.FighterLightArmorProficiency,TYPE.FighterShieldProficiency,TYPE.FighterTowerShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Prof ~ Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency	
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterMediumArmorProficiency	
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterLightArmorProficiency	
-1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterShieldProficiency	
-1	ABILITY:Internal|AUTOMATIC|Shield Prof ~ Tower|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterTowerShieldProficiency	
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterMediumArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterLightArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterShieldProficiency
+1	ABILITY:Internal|AUTOMATIC|Shield Prof ~ Tower|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterTowerShieldProficiency
 ###Block: Advanced Weapon Feat qualifications - Why are these not CATEGORY:Internal???
 1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
@@ -329,9 +329,9 @@ CLASS:Paladin	STARTSKILLPTS:2
 CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|CL-3|PRECLASS:1,Paladin=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Prof ~ Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight	
+1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyMedium
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 ###Block: Vars
@@ -382,9 +382,9 @@ CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal		MAXLEVEL:20	ABILITY:
 CLASS:Ex-Paladin	STARTSKILLPTS:2
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Prof ~ Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight	
+1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyMedium
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 
@@ -396,7 +396,7 @@ CLASS:Ranger	STARTSKILLPTS:6
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|CL-3|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerWeaponProficiency,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency,TYPE.RangerLightArmorProficiency,TYPE.RangerShieldProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Prof ~ Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWeaponProficiency,TYPE.RangerWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWeaponProficiency,TYPE.RangerWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerLightArmorProficiency
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerShieldProficiency
@@ -452,7 +452,7 @@ CLASS:Rogue		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.6
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Rogue|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
 ###Block: Level progression
 1	BONUS:VAR|RogueSneakAttackLVL|CL	BONUS:VAR|TrapfindingLVL|CL
@@ -518,7 +518,7 @@ CLASS:Wizard	STARTSKILLPTS:2
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 #							Need some way to remove cantrips known
 #
-SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration	
+SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration
 SUBCLASSLEVEL:1		BONUS:VAR|AbjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Conjurer		CHOICE:SCHOOL|Conjuration
 SUBCLASSLEVEL:1		BONUS:VAR|ConjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
@@ -526,13 +526,13 @@ SUBCLASS:Diviner		CHOICE:SCHOOL|Divination
 SUBCLASSLEVEL:1		BONUS:VAR|DivinationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Enchanter	CHOICE:SCHOOL|Enchantment
 SUBCLASSLEVEL:1		BONUS:VAR|EnchantmentSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Evoker		CHOICE:SCHOOL|Evocation	
+SUBCLASS:Evoker		CHOICE:SCHOOL|Evocation
 SUBCLASSLEVEL:1		BONUS:VAR|EvocationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Illusionist	CHOICE:SCHOOL|Illusion	
+SUBCLASS:Illusionist	CHOICE:SCHOOL|Illusion
 SUBCLASSLEVEL:1		BONUS:VAR|IllusionSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Necromancer	CHOICE:SCHOOL|Necromancy
 SUBCLASSLEVEL:1		BONUS:VAR|NecromancySchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Transmuter	CHOICE:SCHOOL|Transmutation	
+SUBCLASS:Transmuter	CHOICE:SCHOOL|Transmutation
 SUBCLASSLEVEL:1		BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
@@ -543,7 +543,7 @@ SUBCLASSLEVEL:1		BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArc
 ###Block:
 1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardScribeScroll
 ###Block:
-1	ABILITY:Wizard Class Ability|AUTOMATIC|Universal School|PREVARGT:UniversalSchoolLVL,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+1	ABILITY:Wizard Class Ability|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVARGT:UniversalSchoolLVL,0
 1	ABILITY:Wizard Class Ability|AUTOMATIC|Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
 1	ABILITY:Wizard Class Ability|AUTOMATIC|Cantrips ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 5	ABILITY:Wizard Class Ability|AUTOMATIC|Bonus Feats ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
@@ -766,7 +766,7 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Es
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight ~ SD
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3				ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base|Darkvision ~ SD
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3				ABILITY:Special Ability|AUTOMATIC|Darkvision ~ SD|Evasion|Uncanny Dodge ~ Base
 3	BONUS:VAR|ShadowIllusionLVL,ShadowCompanionLVL|CL	BONUS:VAR|ShadowDancerTalentLVL|CL	BONUS:VAR|ShadowCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Rogue Talents ~ SD|Shadow Illusion|Summon Shadow
 4	BONUS:VAR|ShadowJump|20																		ABILITY:Special Ability|AUTOMATIC|Shadow Call ~ SD|Shadow Jump
 5																						ABILITY:Special Ability|AUTOMATIC|Defensive Roll|Defensive Roll ~ SD

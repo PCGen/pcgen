@@ -4,7 +4,7 @@
 
 ###Block: Mindless Companion ability
 # Ability Name		Category of Ability	Define						Ability											Bonus Number of Feats			Modify VAR
-Mindless Companion	CATEGORY:Internal		DEFINE:LOCK.INT|10	DEFINE:Mindless|1	ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects	BONUS:FEAT|POOL|-floor((TL+1)/2)	BONUS:VAR|BonusTricks|-5
+Mindless Companion	CATEGORY:Internal		DEFINESTAT:NONSTAT|INT	DEFINE:Mindless|1	ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects	BONUS:FEAT|POOL|-floor((TL+1)/2)	BONUS:VAR|BonusTricks|-5
 
 ###Block: New and Modified Companion Stat Increases
 # Ability Name							Unique Key						Output Name				Category of Ability		Type				Restricted Ability						Multiple Requirements																				Bonus to skill point/L

@@ -108,7 +108,7 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-1																										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow|DEITYWEAPONS
+1																										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 ###Block: Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
@@ -530,11 +530,11 @@ CLASS:Wizard.MOD
 SUBCLASS:Air	CHOICE:SCHOOL|AirSchool		KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AirSchoolLVL|CL	ABILITY:Wizard Class Ability|AUTOMATIC|Air School|Earth Opposition School
 SUBCLASS:Earth	CHOICE:SCHOOL|EarthSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EarthSchoolLVL|CL	ABILITY:Wizard Class Ability|AUTOMATIC|Earth School|Air Opposition School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EarthSchoolLVL|CL	ABILITY:Wizard Class Ability|AUTOMATIC|Air Opposition School|Earth School
 SUBCLASS:Fire	CHOICE:SCHOOL|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|FireSchoolLVL|CL	ABILITY:Wizard Class Ability|AUTOMATIC|Fire School|Water Opposition School
 SUBCLASS:Water	CHOICE:SCHOOL|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|CL	ABILITY:Wizard Class Ability|AUTOMATIC|Water School|Fire Opposition School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|CL	ABILITY:Wizard Class Ability|AUTOMATIC|Fire Opposition School|Water School
 
 
 
@@ -697,4 +697,3 @@ CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perce
 8	BONUS:VAR|DefensivePowerLVL|1
 9												ABILITY:Special Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
 10	BONUS:VAR|DefensivePowerLVL|1	BONUS:VAR|DamageReductionLVL|2	ABILITY:Special Ability|AUTOMATIC|Last Word ~ Stalwart Defender
-

@@ -4,7 +4,7 @@ SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/prod
 
 ###Block: New Spells
 # Spell Name	Classes of caster				School		Type		Components	Casting Time			Range			Target Area or Effect	Duration					Description																						Source Page
-Call the Void	CLASSES:Sorcerer,Wizard,Witch=3	SCHOOL:Evocation	TYPE:Arcane	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You		DURATION:(CASTERLEVEL) rounds [D]	DESC:Surrounds you with an aura of nothingness that channels the mysterious energies of the Dark Tapestry.|!PRERULE:1,DisplayFullSpell	SOURCEPAGE:p.29
+Call the Void	CLASSES:Sorcerer,Witch,Wizard=3	SCHOOL:Evocation	TYPE:Arcane	COMPS:V, S	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You		DURATION:(CASTERLEVEL) rounds [D]	DESC:Surrounds you with an aura of nothingness that channels the mysterious energies of the Dark Tapestry.|!PRERULE:1,DisplayFullSpell	SOURCEPAGE:p.29
 
 ###Block: Full Spell Descriptions
 # Spell Name	Description

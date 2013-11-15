@@ -48,5 +48,3 @@ Dhabba Spittle		TYPE:Goods.Poison.Consumable	COST:50	WT:0		SOURCEPAGE:p.40	SPROP
 Insanity Pill		TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.40	SPROP:Ingested; Fort DC 14; Effect confusion spell for 1 minute; Cure 1 save
 Flayleaf Spider Venom	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.40	SPROP:Injury; Fort DC 11; Initial Effect 1d3 Con damage; Secondary Effect 1d3 Con damage; Cure 1 save
 Mage Bane			TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:p.40	SPROP:Contact; Fort DC 20; Initial Effect +10 to all Concentration DCs for 1 hour; Secondary Effect +10 to all Concentration DCs for 1 hour; Cure 1 save
-
-

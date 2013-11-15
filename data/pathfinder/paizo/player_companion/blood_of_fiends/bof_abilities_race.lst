@@ -68,26 +68,26 @@ Tiefling (Oni-Spawn)		CATEGORY:Special Ability	TYPE:TieflingSubrace	TEMPLATE:Tie
 Tiefling (Qlippoth-Spawn)	CATEGORY:Special Ability	TYPE:TieflingSubrace	TEMPLATE:Tiefling (Qlippoth-Spawn)		BONUS:STAT|STR,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial		SOURCEPAGE:p.264	BONUS:VAR|RemoveTieflingDefaultStats|1
 Tiefling (Rakshasa-Spawn)	CATEGORY:Special Ability	TYPE:TieflingSubrace	TEMPLATE:Tiefling (Rakshasa-Spawn)		BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial		SOURCEPAGE:p.264	BONUS:VAR|RemoveTieflingDefaultStats|1
 
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Asura-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Asura-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Asura-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Asura-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Daemon-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Daemon-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Daemon-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Daemon-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demodand-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demodand-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demodand-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demodand-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demon-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demon-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demon-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demon-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Devil-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Devil-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Devil-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Devil-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Div-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Div-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Div-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Div-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Kyton-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Kyton-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Kyton-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Kyton-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Oni-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Oni-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Oni-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Oni-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSkilled ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)|PREABILITY:1,CATEGORY=Special Ability,|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSLA ~ Tiefling|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Asura-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Asura-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Asura-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Asura-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Daemon-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Daemon-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Daemon-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Daemon-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demodand-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demodand-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demodand-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demodand-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demon-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demon-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demon-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Demon-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Devil-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Devil-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Devil-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Devil-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Div-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Div-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Div-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Div-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Kyton-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Kyton-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Kyton-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Kyton-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Oni-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Oni-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Oni-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Oni-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,ANY|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
+CATEGORY=Internal|Default Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
 
 
 
@@ -123,5 +123,3 @@ Rakshasa-Spawn Skilled	KEY:Rakshasa-SpawnSkilled ~ Tiefling	CATEGORY:Special Abi
 ###Block: Adopted Trait Race Selection
 # Ability Name			Unique Key							Category of Ability		Type			Bonus to Ability Pool
 Tiefling				KEY:Adoptive Race ~ Tiefling				CATEGORY:Special Ability	TYPE:AdoptiveRace	BONUS:ABILITYPOOL|Tiefling Race Trait|1
-
-

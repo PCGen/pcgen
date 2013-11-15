@@ -4,7 +4,3 @@ SOURCELONG:Bestiary	SOURCESHORT:BST1	SOURCEWEB:http://paizo.com/store/downloads/
 
 
 Poison (Black Smear)		OUTPUTNAME:[NAME]							TYPE:Goods.Poison.Consumable					WT:0																	SOURCEPAGE:p.54														SPROP:Injury; save Fort DC 15; frequency 1/round for 6 rounds; effect 1d2 Str; cure 1 save
-
-
-
-

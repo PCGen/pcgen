@@ -28,4 +28,3 @@ Phosphorescent Gel										TYPE:Goods.Alchemical.Consumable		COST:45	WT:0.5	SOU
 Shrieking Paste											TYPE:Goods.Alchemical.Consumable		COST:35	WT:2		SOURCEPAGE:p.29	SPROP:Any light source or movement within 10 feet of the paste causes it to shriek for ld3 rounds.
 Specialty Smoke Pellet (Pepper)	OUTPUTNAME:Specialty Smoke Pellet, Pepper	TYPE:Goods.Alchemical				COST:60	WT:0		SOURCEPAGE:p.29	SPROP:Creatures that are hit by a pepper pellet or pass through the smoke must succeed at a DC 12 Fortitude save or be sickened for 1 round.
 Specialty Smoke Pellet (Smog)		OUTPUTNAME:Specialty Smoke Pellet, Smog	TYPE:Goods.Alchemical				COST:40	WT:0		SOURCEPAGE:p.29	SPROP:Residue makes invisible creatures visible for ld4 rounds.
-

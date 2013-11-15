@@ -37,7 +37,7 @@ CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
 CLASS:Low Templar	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Low		MAXLEVEL:10	SOURCEPAGE:p.280	DEFINE:LowTemplarLvl|CL	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required Feat							Required Skill
-CLASS:Low Templar	PREFEAT:2,Mounted Combat,Weapon Focus(TYPE=Martial)	PRESKILL:2,Bluff=5,Ride=5	PRESKILL:1,Knowledge (Nobility)=2,Knowledge (Planes)=2
+CLASS:Low Templar	PREFEAT:2,Mounted Combat,Weapon Focus (TYPE=Martial)	PRESKILL:2,Bluff=5,Ride=5	PRESKILL:1,Knowledge (Nobility)=2,Knowledge (Planes)=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Handle Animal|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Knowledge (Planes)|Linguistics|Ride|Sense Motive|Stealth|Survival
 ###Block: Weapon & Armor Proficiencies
@@ -67,7 +67,7 @@ CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	PROHIBITED:
 1											AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1											AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
-1	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL	ABILITY:Special Ability|AUTOMATIC|Sabre Fighting|Sneak Attack|Armored Casting ~ RMA
+1	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ RMA|Sabre Fighting|Sneak Attack
 2											ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells
 3											ABILITY:Special Ability|AUTOMATIC|Red Shroud
 4	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Summon Mantis

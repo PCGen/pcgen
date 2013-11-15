@@ -10,7 +10,7 @@ CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAG
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|Exotic Weapon Proficiency (Firearms)	AUTO:WEAPONPROF|TYPE.Firearm
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearm
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Vars and Pools
 4	BONUS:VAR|GunslingerBonusFeatCount|CL/4

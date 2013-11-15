@@ -27,7 +27,7 @@ Bag of Tricks (Rust)										TYPE:Magic.Wondrous														COST:8500								
 Bag of Tricks (Tan)										TYPE:Magic.Wondrous														COST:16000											SOURCEPAGE:p.501																																																																																																																																											SPROP:Animals produced are always random, and only one may exist at a time. Up to ten animals can be drawn from the bag each week, but no more than two per day.
 # Weight not listed for Bag of Tricks
 Bead of Force											TYPE:Magic.Wondrous.Consumable												COST:3000	WT:0.02									SOURCEPAGE:p.501																																																																																																																																											SPROP:Upon sharp impact, the bead explodes, sending forth a burst that deals 5d6 points of force damage to all creatures within a 10-foot radius.
-Belt of Dwarvenkind										TYPE:Magic.Wondrous.Belt													COST:14900	WT:1										SOURCEPAGE:p.501	ABILITY:Special Ability|VIRTUAL|Stonecunning ~ Dwarf|Belt of Dwarvenkind ~ Languages	VISION:Darkvision (60')																																	BONUS:STAT|CON|2|TYPE=Enhancement|!PRERACE:1,Dwarf%																																																																															SPROP:+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halfings, a -2 competence penalty on similar checks when dealing with anyone else, and a +2 resistance bonus on saves against poison, spells, and spell-like effects.
+Belt of Dwarvenkind										TYPE:Magic.Wondrous.Belt													COST:14900	WT:1										SOURCEPAGE:p.501	ABILITY:Special Ability|VIRTUAL|Belt of Dwarvenkind ~ Languages|Stonecunning ~ Dwarf	VISION:Darkvision (60')																																	BONUS:STAT|CON|2|TYPE=Enhancement|!PRERACE:1,Dwarf%																																																																															SPROP:+4 competence bonus on Charisma checks and Charisma-based skill checks as they relate to dealing with dwarves, a +2 competence bonus on similar checks when dealing with gnomes and halfings, a -2 competence penalty on similar checks when dealing with anyone else, and a +2 resistance bonus on saves against poison, spells, and spell-like effects.
 Belt of Giant Strength +2									TYPE:Magic.Wondrous.Belt													COST:4000	WT:1										SOURCEPAGE:p.502																																																				BONUS:STAT|STR|2|TYPE=Enhancement
 Belt of Giant Strength +4									TYPE:Magic.Wondrous.Belt													COST:16000	WT:1										SOURCEPAGE:p.502																																																				BONUS:STAT|STR|4|TYPE=Enhancement
 Belt of Giant Strength +6									TYPE:Magic.Wondrous.Belt													COST:36000	WT:1										SOURCEPAGE:p.502																																																				BONUS:STAT|STR|6|TYPE=Enhancement
@@ -99,7 +99,7 @@ Cloak of Displacement (Major)			OUTPUTNAME:Cloak of Displacement, [NAME]		TYPE:M
 Cloak of Displacement (Minor)			OUTPUTNAME:Cloak of Displacement, [NAME]		TYPE:Magic.Wondrous.Cloak		COST:24000	WT:1								SOURCEPAGE:p.507																																			SPROP:20%% miss chance on attacks against wearer
 Cloak of Elvenkind												TYPE:Magic.Wondrous.Cloak		COST:2500	WT:1								SOURCEPAGE:p.507																											BONUS:SKILL|Stealth|5|TYPE=Competence
 Cloak of Etherealness												TYPE:Magic.Wondrous.Cloak		COST:55000	WT:1								SOURCEPAGE:p.507																																			SPROP:On command, Ethereal Jaunt for up to 10 minutes per day.
-Cloak of the Manta Ray												TYPE:Magic.Wondrous.Cloak		COST:7200	WT:1								SOURCEPAGE:p.507																			BONUS:COMBAT|AC|3|TYPE=NaturalArmor|PREAPPLY:PC									SPROP:Gain abilities like Manta Ray when in saltwater.
+Cloak of the Manta Ray												TYPE:Magic.Wondrous.Cloak		COST:7200	WT:1								SOURCEPAGE:p.507																			TEMPBONUS:PC|COMBAT|AC|3|TYPE=NaturalArmor									SPROP:Gain abilities like Manta Ray when in saltwater.
 #Swim speed of 60 with PREAPPLY???
 Cloak of Resistance +1												TYPE:Magic.Wondrous.Cloak		COST:1000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|1|TYPE=Resistance
 Cloak of Resistance +2												TYPE:Magic.Wondrous.Cloak		COST:4000	WT:1								SOURCEPAGE:p.507													BONUS:CHECKS|ALL|2|TYPE=Resistance
@@ -122,7 +122,7 @@ Decanter of Endless Water	TYPE:Magic.Wondrous			COST:9000	WT:2										SOURCEPA
 Deck of Illusions			TYPE:Magic.Wondrous			COST:8100	WT:0.5			EQMOD:CHARGED_ITEM_34|CHARGES[34]	SOURCEPAGE:p.509
 Dimensional Shackles		TYPE:Magic.Wondrous.Bracer		COST:28000	WT:5		SLOTS:2							SOURCEPAGE:p.510								SPROP:Fits Small to Large creatures
 Drums of Panic			TYPE:Magic.Wondrous			COST:30000	WT:10										SOURCEPAGE:p.510
-Dust of Appearance		TYPE:Magic.Wondrous.Consumable	COST:1800	WT:0.02									SOURCEPAGE:p.510	BONUS:SKILL|Stealth|-30|PREAPPLY:ANYPC	SPROP:Lasts for 5 minutes
+Dust of Appearance		TYPE:Magic.Wondrous.Consumable	COST:1800	WT:0.02									SOURCEPAGE:p.510	TEMPBONUS:ANYPC|SKILL|Stealth|-30	SPROP:Lasts for 5 minutes
 Dust of Disappearance		TYPE:Magic.Wondrous.Consumable	COST:3500	WT:0.02									SOURCEPAGE:p.510								SPROP:Lasts for 2d6 rounds
 Dust of Dryness			TYPE:Magic.Wondrous.Consumable	COST:850	WT:0.02									SOURCEPAGE:p.510
 Dust of Illusion			TYPE:Magic.Wondrous.Consumable	COST:1200	WT:0.02									SOURCEPAGE:p.510								SPROP:Lasts 2 hours
@@ -134,12 +134,12 @@ Elemental Gem (Earth)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consu
 Elemental Gem (Fire)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:0.02	SOURCEPAGE:p.511											SPROP:Summons Large Fire Elemental
 Elemental Gem (Water)	OUTPUTNAME:Elemental Gem, [NAME]	TYPE:Magic.Wondrous.Consumable													COST:2250	WT:0.02	SOURCEPAGE:p.511											SPROP:Summons Large Water Elemental
 Elixir of Fire Breath							TYPE:Magic.Wondrous.Elixir.Consumable												COST:1100	WT:0.02	SOURCEPAGE:p.511											SPROP:3 blasts, 4d6 fire damage up to 25 ft. away.
-Elixir of Hiding								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.511	BONUS:SKILL|Stealth|10|TYPE=Competence|PREAPPLY:ANYPC
+Elixir of Hiding								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.511	TEMPBONUS:ANYPC|SKILL|Stealth|10|TYPE=Competence
 Elixir of Love								TYPE:Magic.Wondrous.Elixir.Consumable												COST:150	WT:0.02	SOURCEPAGE:p.511											SPROP:Lasts 1d3 hours
-Elixir of Swimming							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.511	BONUS:SKILL|Swim|10|TYPE=Competence|PREAPPLY:ANYPC		SPROP:Lasts 1 hour
+Elixir of Swimming							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.511	TEMPBONUS:ANYPC|SKILL|Swim|10|TYPE=Competence		SPROP:Lasts 1 hour
 Elixir of Truth								TYPE:Magic.Wondrous.Elixir.Consumable												COST:500	WT:0.02	SOURCEPAGE:p.512											SPROP:Lasts 10 minutes
-Elixir of Tumbling							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.512	BONUS:SKILL|Acrobatics|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
-Elixir of Vision								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.512	BONUS:SKILL|Perception|10|TYPE=Competence|PREAPPLY:ANYPC	SPROP:Lasts 1 hour
+Elixir of Tumbling							TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.512	TEMPBONUS:ANYPC|SKILL|Acrobatics|10|TYPE=Competence	SPROP:Lasts 1 hour
+Elixir of Vision								TYPE:Magic.Wondrous.Elixir.Consumable												COST:250	WT:0.02	SOURCEPAGE:p.512	TEMPBONUS:ANYPC|SKILL|Perception|10|TYPE=Competence	SPROP:Lasts 1 hour
 Eversmoking Bottle							TYPE:Magic.Wondrous															COST:5400	WT:1		SOURCEPAGE:p.512
 Eyes of Charming								TYPE:Magic.Wondrous.Eyes														COST:56000	WT:0.02	SOURCEPAGE:p.512
 Eyes of Doom								TYPE:Magic.Wondrous.Eyes														COST:25000	WT:0.02	SOURCEPAGE:p.512
@@ -311,7 +311,7 @@ Robe of Stars										TYPE:Magic.Wondrous.Robe			COST:58000	WT:1								SOURCEP
 Robe of Useful Items									TYPE:Magic.Wondrous.Robe			COST:7000	WT:1								SOURCEPAGE:p.528
 Rope of Climbing										TYPE:Magic.Wondrous				COST:3000	WT:3								SOURCEPAGE:p.529
 Rope of Entanglement									TYPE:Magic.Wondrous				COST:21000	WT:5								SOURCEPAGE:p.529
-Salve of Slipperiness										TYPE:Magic.Wondrous.Consumable						COST:1000	WT:0.02									SOURCEPAGE:p.529																	BONUS:SKILL|Escape Artist|20|PREAPPLY:ANYPC													BONUS:VAR|CMB_Grapple_DEF|10|TYPE=Competence|PREAPPLY:ANYPC
+Salve of Slipperiness										TYPE:Magic.Wondrous.Consumable						COST:1000	WT:0.02									SOURCEPAGE:p.529																	TEMPBONUS:ANYPC|SKILL|Escape Artist|20													TEMPBONUS:ANYPC|VAR|CMB_Grapple_DEF|10|TYPE=Competence
 Scabbard of Keen Edges										TYPE:Magic.Wondrous.Container		CONTAINS:UNLIM|Slashing=1	COST:16000	WT:1				EQMOD:USES_PER_DAY_3|CHARGES[3]	SOURCEPAGE:p.529
 Scarab of Protection										TYPE:Magic.Wondrous.Amulet							COST:38000	WT:0.02			EQMOD:CHARGED_ITEM_12|CHARGES[12]	SOURCEPAGE:p.529	SR:20
 Scarab (Golembane)			OUTPUTNAME:Scarab, [NAME]			TYPE:Magic.Wondrous.Amulet							COST:2500	WT:0.02									SOURCEPAGE:p.529																																															SPROP:Bypass DR of Golems
@@ -347,7 +347,7 @@ Vest of Escape							TYPE:Magic.Wondrous.Shirt	COST:5200	WT:0.02	SOURCEPAGE:p.53
 Vestment (Druid's)	OUTPUTNAME:Vestment, [NAME]	TYPE:Magic.Wondrous.Robe	COST:3750	WT:0.02	SOURCEPAGE:p.532																	BONUS:VAR|WildShapeTimes|1
 Well of Many Worlds	TYPE:Magic.Wondrous		COST:82000	WT:0.02	SOURCEPAGE:p.532
 Wind Fan			TYPE:Magic.Wondrous		COST:5500	WT:0.02	SOURCEPAGE:p.532									SPROP:20%% cumulative chance of desctruction after first use each day.
-Wings of Flying		TYPE:Magic.Wondrous.Cloak	COST:54000	WT:2		SOURCEPAGE:p.532	BONUS:SKILL|Fly|5|TYPE=Competance|PREAPPLY:PC	SPROP:Fly speed of 60 ft with average maneuverability.
+Wings of Flying		TYPE:Magic.Wondrous.Cloak	COST:54000	WT:2		SOURCEPAGE:p.532	TEMPBONUS:PC|SKILL|Fly|5|TYPE=Competance	SPROP:Fly speed of 60 ft with average maneuverability.
 
 
 ###Block: Rings
@@ -485,21 +485,21 @@ Potion of Barkskin +2					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE
 Potion of Barkskin +3					TYPE:Magic.Potion.Consumable	COST:600	WT:0		SOURCEPAGE:p.477										SPROP:+3 enhancement bonus to natural armor for 60 minutes
 Potion of Barkskin +4					TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.477										SPROP:+4 enhancement bonus to natural armor for 90 minutes
 Potion of Barkskin +5					TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:p.477										SPROP:+5 enhancement bonus to natural armor for 120 minutes
-Potion of Bear's Endurance				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|CON|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Constitution for 3 minutes
+Potion of Bear's Endurance				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	TEMPBONUS:ANYPC|STAT|CON|4|TYPE=Enhancement	SPROP:+4 enhancement bonus to Constitution for 3 minutes
 Potion of Blur						TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Grants concealment (20% miss chance) for 3 minutes
-Potion of Bull's Strength				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|STR|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Strength for 3 minutes
-Potion of Cat's Grace					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|DEX|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Dexterity for 3 minutes
+Potion of Bull's Strength				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	TEMPBONUS:ANYPC|STAT|STR|4|TYPE=Enhancement	SPROP:+4 enhancement bonus to Strength for 3 minutes
+Potion of Cat's Grace					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	TEMPBONUS:ANYPC|STAT|DEX|4|TYPE=Enhancement	SPROP:+4 enhancement bonus to Dexterity for 3 minutes
 Potion of Cure Light Wounds				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Cures 1d8+1 points of damage
 Potion of Cure Moderate Wounds			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Cures 2d8+3 points of damage
 Potion of Cure Serious Wounds				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Cures 3d8+5 points of damage
 Potion of Darkvision					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Grants darkvision (60 ft.) for 3 hours
 Potion of Delay Poison					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Become immune to poison for 3 hours
 Potion of Displacement					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Grants 50%% miss chance for 3 rounds
-Potion of Eagle's Splendor				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|CHA|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Charisma for 3 minutes
+Potion of Eagle's Splendor				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	TEMPBONUS:ANYPC|STAT|CHA|4|TYPE=Enhancement	SPROP:+4 enhancement bonus to Charisma for 3 minutes
 Potion of Endure Elements				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Grants protection from harm from being in a hot or cold environment for 24 hours
 Potion of Enlarge Person				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Target's size category increases to next larger category for 1 minute
 Potion of Fly						TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Gain fly speed 60 ft. with good maneuverability and +2 bonus to Fly checks for 3 minutes
-Potion of Fox's Cunning					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|INT|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Intelligence for 3 minutes
+Potion of Fox's Cunning					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	TEMPBONUS:ANYPC|STAT|INT|4|TYPE=Enhancement	SPROP:+4 enhancement bonus to Intelligence for 3 minutes
 Potion of Gaseous Form					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Become insubstantial for 10 minutes
 Potion of Good Hope					TYPE:Magic.Potion.Consumable	COST:1050	WT:0		SOURCEPAGE:p.477										SPROP:+2 morale bonus on saving throws, attack rolls, ability checks, skill checks, and weapon damage rolls for 7 minutes
 Potion of Greater Magic Fang +1			TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:+1 enhancement bonus on attack and damage rolls with all natural weapons
@@ -523,7 +523,7 @@ Potion of Magic Fang					TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p
 Potion of Misdirection					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Misdirect divination spells for 3 hours
 Potion of Neutralize Poison				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Detoxify any sort of venom with a caster level check at +5
 Potion of Nondetection					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Become difficult to detect by divination spells for 5 hours
-Potion of Owl's Wisdom					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|WIS|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Wisdom for 3 minutes
+Potion of Owl's Wisdom					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	TEMPBONUS:ANYPC|STAT|WIS|4|TYPE=Enhancement	SPROP:+4 enhancement bonus to Wisdom for 3 minutes
 Potion of Pass without Trace				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Leave no footprints or scent trail while moving for 1 hour
 Potion of Protection from Arrows			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Gain damage reduction 10/Magic against ranged weapons for 3 hours, or until 30 points of damage have been prevented
 Potion of Protection from Chaos			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:+2 deflection bonus to AC, +2 resistance bonus to saves, gain protection from mental control and summoned creatures for 1 minute. Protects from attacks by chaotic creatures only.
@@ -1490,4 +1490,3 @@ Orb of Dragonkind (Red)		OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.Ma
 Orb of Dragonkind (Silver)	OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.Major												COST:0	WT:5																								SOURCEPAGE:p.548										SPELLS:Orb of Dragonkind|TIMES=1|TIMEUNIT=Round|CASTERLEVEL=10|Cure Critical Wounds,18
 Orb of Dragonkind (White)	OUTPUTNAME:The [NAME] Dragon Orb							TYPE:Artifact.Major												COST:0	WT:5																								SOURCEPAGE:p.548										SPELLS:Orb of Dragonkind|TIMES=1|TIMEUNIT=Round|CASTERLEVEL=10|Protection from Energy,17
 Shadowstaff				OUTPUTNAME:The Shadowstaff								TYPE:Artifact.Major												COST:0	WT:1																								SOURCEPAGE:p.548																																																																																			SPROP:Shadow Bolt ~ ray attack-range 100 ft. 10d6 cold damage 3/day
-

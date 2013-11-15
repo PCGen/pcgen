@@ -12,9 +12,9 @@ CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			S
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVARGTEQ:MagusArmorProficiencyLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|PREVARGTEQ:MagusArmorProficiencyLVL,7|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusMediumArmorProficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|PREVARGTEQ:MagusArmorProficiencyLVL,13|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusHeavyArmorProficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,1
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusMediumArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,7
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusHeavyArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,13
 ###Block:
 1	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency

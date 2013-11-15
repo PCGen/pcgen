@@ -416,12 +416,12 @@ Coffin (Common)																TYPE:Goods.General.Resizable														COST:10
 Coffin (Ornate)																TYPE:Goods.General.Resizable														COST:100	WT:50														SOURCEPAGE:p.62
 Collapsible Bathtub															TYPE:Goods.General.Resizable														COST:15	WT:20														SOURCEPAGE:p.62
 Collapsible Plank																TYPE:Goods.General															COST:0.4	WT:10														SOURCEPAGE:p.62
-Compass.MOD																	TYPE:Goods.General															COST:10	WT:.5														SOURCEPAGE:p.62	BONUS:SKILL|Survival (Navigate),Knowledge (Dungeoneering (Navigate))|1|TYPE=Circumstance
+Compass.MOD																	TYPE:Goods.General															COST:10	WT:0.5														SOURCEPAGE:p.62	BONUS:SKILL|Survival (Navigate),Knowledge (Dungeoneering (Navigate))|1|TYPE=Circumstance
 Copy of a Key																TYPE:Goods.Tools																COST:1															SOURCEPAGE:p.63																																									SPROP:An artisan can make a working copy of a key in an hour.
 Cot																		TYPE:Goods.General.Resizable														COST:1	WT:30														SOURCEPAGE:p.63
 Crowbar.MOD																																																			SOURCEPAGE:p.63
 Cypher Books																TYPE:Goods.General															COST:150	WT:2														SOURCEPAGE:p.63																																									SPROP:A creature without access to the appropriate cypher book takes a -10 penalty on Linguistic checks made to decipher each page of a coded message.
-Drill.MOD																	TYPE:Goods.General															COST:.5	WT:1														SOURCEPAGE:p.63
+Drill.MOD																	TYPE:Goods.General															COST:0.5	WT:1														SOURCEPAGE:p.63
 Ear Trumpet																	TYPE:Goods.General															COST:5	WT:2														SOURCEPAGE:p.63																																									SPROP:By holding this specially crafted ear trumpet to your ear and placing the other end against a door or wall, you reduce the DC penalty for listening through a door or wall by 5.
 Earplugs.MOD																TYPE:Goods.General															COST:0.03															SOURCEPAGE:p.63																																									SPROP:Give you a +2 circumstance bonus on saves against effects that require hearing, but also cause a -5 penalty on hearing-based Perception checks.
 Everburning Torch.MOD																																																	SOURCEPAGE:p.63

@@ -6,7 +6,7 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 # Deity Name	Product Identity?	Domains											Desciption of Deity/Title																																	Deity Weapon			Alignment	Pantheon					Source Page
 Achaekek		NAMEISPI:YES	DOMAINS:Death,Evil,Law,Trickery,War|PREALIGN:LN,LE,NE				DESC:God of The Red Mantis, assassination																															DEITYWEAP:Sawtooth Sabre	ALIGN:LE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.228
 Apsu			NAMEISPI:YES	DOMAINS:Artifice,Good,Law,Scalykind,Travel|PREALIGN:LG,LN,NG		DESC:God of glory, good dragons, leadership, peace																													DEITYWEAP:Bite|Quarterstaff	ALIGN:LG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.228
-Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,Water,War,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters																														DEITYWEAP:Rapier			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.228
+Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters																														DEITYWEAP:Rapier			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.228
 Dahak			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Scalykind,Trickery|PREALIGN:NE,CN,CE	DESC:God of destruction, evil dragons, greed, treachery																												DEITYWEAP:Bite|Whip		ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.228
 Ghlaunder		NAMEISPI:YES	DOMAINS:Air,Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE			DESC:God of parasites, infection, stagnation																														DEITYWEAP:Spear			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.228
 Groetus		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Destruction,Madness,Void|PREALIGN:CG,TN,CN,CE	DESC:God of empty places, ruins, oblivion																															DEITYWEAP:Flail (Heavy)		ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.229
@@ -38,19 +38,19 @@ Dagon			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Water|PREALIGN:NE,CN,CE	DESC
 Deskari		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War|PREALIGN:NE,CN,CE		DESC:Demon lord of chasms, infestation, locusts		DEITYWEAP:Scythe			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 Gogunta		NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Water|PREALIGN:NE,CN,CE		DESC:Demon lord of amphibians, boggards, swamps		DEITYWEAP:Whip			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 Kostchtchie		NAMEISPI:YES	DOMAINS:Chaos,Evil,Strength,War|PREALIGN:NE,CN,CE		DESC:Demon lord of cold, giants, revenge			DEITYWEAP:Warhammer		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
-Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Darkness|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		DEITYWEAP:Crossbow (Hand)	ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
+Nocticula		NAMEISPI:YES	DOMAINS:Chaos,Charm,Darkness,Evil|PREALIGN:NE,CN,CE		DESC:Demon lord of assassins, darkness, lust		DEITYWEAP:Crossbow (Hand)	ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 Orcus			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Magic|PREALIGN:NE,CN,CE		DESC:Demon lord of necromancy, undead, wrath		DEITYWEAP:Mace (Heavy)		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 Pazuzu		NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE		DESC:Demon lord of sky, temptation, winged creatures	DEITYWEAP:Longsword		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 Shax			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Trickery|PREALIGN:NE,CN,CE	DESC:Demon lord of envy, lies, murder			DEITYWEAP:Dagger			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
-Socothbenoth	NAMEISPI:YES	DOMAINS:Charm,Chaos,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		DEITYWEAP:Quarterstaff		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
+Socothbenoth	NAMEISPI:YES	DOMAINS:Chaos,Charm,Evil,Travel|PREALIGN:NE,CN,CE		DESC:Demon lord of perversion, pride, taboos		DEITYWEAP:Quarterstaff		ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 Zura			NAMEISPI:YES	DOMAINS:Chaos,Death,Evil,Madness|PREALIGN:NE,CN,CE		DESC:Demon lord of blood, cannibalism, vampires		DEITYWEAP:Rapier			ALIGN:CE	PANTHEON:Demon Lords	SOURCEPAGE:p.232
 
 ###Block: Eldest
 # Deity Name	Product Identity?	Domains										Desciption of Deity/Title						Deity Weapon		Alignment	Pantheon		Source Page
 Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			DEITYWEAP:Rapier		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.233
-The Green Mother	NAMEISPI:YES	DOMAINS:Charm,Evil,Earth,Plant|PREALIGN:TN,LE,NE,CE			DESC:Eldest lord of carnivorous plants, intrigue, seduction	DEITYWEAP:Sickle		ALIGN:NE	PANTHEON:Eldest	SOURCEPAGE:p.233
+The Green Mother	NAMEISPI:YES	DOMAINS:Charm,Earth,Evil,Plant|PREALIGN:TN,LE,NE,CE			DESC:Eldest lord of carnivorous plants, intrigue, seduction	DEITYWEAP:Sickle		ALIGN:NE	PANTHEON:Eldest	SOURCEPAGE:p.233
 Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			DEITYWEAP:Flail (Dire)	ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.233
-The Lantern King	NAMEISPI:YES	DOMAINS:Charm,Chaos,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.233
+The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.233
 The Lost Prince	NAMEISPI:YES	DOMAINS:Knowledge,Madness,Nobility,Repose|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of forgotten things, sadness, solitude	DEITYWEAP:Quarterstaff	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.233
 Maghd			NAMEISPI:YES	DOMAINS:Knowledge,Law,Luck,Rune|PREALIGN:LG,LN,NG,TN			DESC:Eldest lord of complexity, fate, triplets			DEITYWEAP:Scythe		ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.233
 Ng			NAMEISPI:YES	DOMAINS:Knowledge,Magic,Travel,Weather|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of the season, secrets, wanderers		DEITYWEAP:Gauntlet	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.233
@@ -68,7 +68,7 @@ Ymeri			NAMEISPI:YES	DOMAINS:Destruction,Fire,War|PREALIGN:TN,LE,NE,CE		DESC:Ele
 # Deity Name	Product Identity?	Domains									Desciption of Deity/Title						Deity Weapon			Alignment	Pantheon			Source Page
 Andoletta		NAMEISPI:YES	DOMAINS:Good,Knowledge,Law,Protection|PREALIGN:LG,LN,NG	DESC:Empyreal lord of consolation, respect, security		DEITYWEAP:Quarterstaff		ALIGN:LG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.233
 Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of freedom, physical beauty, sexuality	DEITYWEAP:Flail			ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.234
-Korada		NAMEISPI:YES	DOMAINS:Good,Magic,Healing,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		DEITYWEAP:Unarmed Strike	ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.234
+Korada		NAMEISPI:YES	DOMAINS:Good,Healing,Magic,Protection|PREALIGN:LG,NG,CG,TN	DESC:Empyreal lord of foresight, forgiveness, peace		DEITYWEAP:Unarmed Strike	ALIGN:NG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.234
 Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG	DESC:Empyreal lord of chivalry, duty, vengeance			DEITYWEAP:Sword (Bastard)	ALIGN:LG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.234
 Sinashakti		NAMEISPI:YES	DOMAINS:Chaos,Good,Luck,Travel|PREALIGN:NG,CG,CN		DESC:Empyreal lord of journeys, joy, messengers			DEITYWEAP:Shortbow		ALIGN:CG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.234
 Valani		NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Weather|PREALIGN:NG,CG,CN		DESC:Empyreal lord of change, growth, primality			DEITYWEAP:Club			ALIGN:CG	PANTHEON:Empyreal Lords	SOURCEPAGE:p.234

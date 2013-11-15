@@ -16,7 +16,7 @@ Sivhana		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,
 # Deity Name	Product Identity?	Domains										Desciption of Deity/Title						Deity Weapon		Alignment	Pantheon		Source Page
 Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			DEITYWEAP:Rapier		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21
 Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			DEITYWEAP:Flail (Dire)	ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.21
-The Lantern King	NAMEISPI:YES	DOMAINS:Charm,Chaos,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21
+The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21
 The Lost Prince	NAMEISPI:YES	DOMAINS:Knowledge,Madness,Nobility,Repose|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of forgotten things, sadness, solitude	DEITYWEAP:Quarterstaff	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.21
 Maghd			NAMEISPI:YES	DOMAINS:Knowledge,Law,Luck,Rune|PREALIGN:LG,LN,NG,TN			DESC:Eldest lord of complexity, fate, triplets			DEITYWEAP:Scythe		ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.21
 Ng			NAMEISPI:YES	DOMAINS:Knowledge,Magic,Travel,Weather|PREALIGN:LN,NG,TN,NE,CN	DESC:Eldest lord of the season, secrets, wanderers		DEITYWEAP:Gauntlet	ALIGN:TN	PANTHEON:Eldest	SOURCEPAGE:p.21

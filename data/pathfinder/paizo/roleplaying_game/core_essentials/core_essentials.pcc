@@ -54,5 +54,3 @@ TEMPLATE:ce_templates.lst
 
 ARMORPROF:ce_profs_armor.lst
 WEAPONPROF:ce_profs_weapon.lst
-
-

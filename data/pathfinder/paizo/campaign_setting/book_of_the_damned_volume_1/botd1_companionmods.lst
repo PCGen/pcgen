@@ -2,7 +2,7 @@ SOURCELONG:Princes of Darkness, Book of the Damned Volume 1	SOURCESHORT:BOTD1	SO
 
 ###Block:Companion for Diabolist
 # Class of the Master		Type				Hit Dice	Ability																									Automatically Gained Feat	Define								Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR									Main Race Type
-FOLLOWER:ImpCompLevel=1		TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Link ~ Imp Companion|Share Spells ~ Imp Companion|Starting Shape Change ~ Imp Companion|Bonus Tricks ~ Imp Companion						DEFINE:MasterLevel|0	DEFINE:ImpCompBonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1	RACETYPE:Outsider
+FOLLOWER:ImpCompLevel=1		TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Bonus Tricks ~ Imp Companion|Link ~ Imp Companion|Share Spells ~ Imp Companion|Starting Shape Change ~ Imp Companion						DEFINE:MasterLevel|0	DEFINE:ImpCompBonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1	RACETYPE:Outsider
 FOLLOWER:ImpCompLevel=2		TYPE:Imp Companion	HD:1																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=3		TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
 FOLLOWER:ImpCompLevel=4		TYPE:Imp Companion	HD:1																																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -22,4 +22,3 @@ FOLLOWER:ImpCompLevel=17	TYPE:Imp Companion	HD:1																																
 FOLLOWER:ImpCompLevel=18	TYPE:Imp Companion	HD:1																																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
 FOLLOWER:ImpCompLevel=19	TYPE:Imp Companion																																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=20	TYPE:Imp Companion	HD:1																																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-

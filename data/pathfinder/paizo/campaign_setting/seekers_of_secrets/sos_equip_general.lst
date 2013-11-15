@@ -4,7 +4,7 @@ SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SO
 
 ###Block: Adventuring Gear
 # Equipment Name		Output Name				Type							Contains				Cost		Weight	Source Page
-Adventurer's Sash		OUTPUTNAME:Sash, Adventurer's	TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|ANY=UNLIM	COST:20	WT:3		SOURCEPAGE:p.42
+Adventurer's Sash		OUTPUTNAME:Sash, Adventurer's	TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|ANY	COST:20	WT:3		SOURCEPAGE:p.42
 Charcoal (1 stick)						TYPE:Goods.General									COST:0.5			SOURCEPAGE:p.42
 Pantograph								TYPE:Goods.General									COST:50	WT:2		SOURCEPAGE:p.42
 

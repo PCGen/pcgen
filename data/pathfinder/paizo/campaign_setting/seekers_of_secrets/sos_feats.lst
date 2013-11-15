@@ -20,4 +20,3 @@ Dilettante ~ Nature		VISIBLE:NO	BONUS:SKILL|Knowledge (Nature)|2|PRESKILL:1,Know
 Dilettante ~ Nobility		VISIBLE:NO	BONUS:SKILL|Knowledge (Nobility)|2|PRESKILL:1,Knowledge (Nobility)=1|PREVARLT:skillinfo("TOTALRANK","Knowledge (Nobility)"),6|!PREFEAT:1,Skill Focus (Knowledge (Nobility))
 Dilettante ~ Planes		VISIBLE:NO	BONUS:SKILL|Knowledge (Planes)|2|PRESKILL:1,Knowledge (Planes)=1|PREVARLT:skillinfo("TOTALRANK","Knowledge (Planes)"),6|!PREFEAT:1,Skill Focus (Knowledge (Planes))
 Dilettante ~ Religion		VISIBLE:NO	BONUS:SKILL|Knowledge (Religion)|2|PRESKILL:1,Knowledge (Religion)=1|PREVARLT:skillinfo("TOTALRANK","Knowledge (Religion)"),6|!PREFEAT:1,Skill Focus (Knowledge (Religion))
-
