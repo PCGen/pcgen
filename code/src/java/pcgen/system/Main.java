@@ -28,6 +28,7 @@ import static pcgen.system.ConfigurationSettings.setSystemProperty;
 import gmgen.pluginmgr.PluginManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread.UncaughtExceptionHandler;
@@ -420,7 +421,8 @@ public final class Main
 				String message =
 						"Java version "
 							+ javaVerString
-							+ " is newer than PCGen supports. The program may not\nwork correctly. Java versions up to 1.7 are supported.";
+							+ " is newer than PCGen supports. The program may not\n"
+							+ "work correctly. Java versions up to 1.7 are supported.";
 				Logging.errorPrint(message);
 				if (useGui)
 				{
@@ -435,6 +437,48 @@ public final class Main
 					}
 				}
 			}
+		}
+		
+		// Check our main folders are present
+		String neededDirs[] =
+				new String[]{ConfigurationSettings.getSystemsDir(),
+					ConfigurationSettings.getPccFilesDir(),
+					ConfigurationSettings.getPluginsDir(),
+					ConfigurationSettings.getPreviewDir(),
+					ConfigurationSettings.getOutputSheetsDir()};
+		StringBuilder missingDirs = new StringBuilder();
+		for (String dirPath : neededDirs)
+		{
+			File dir = new File(dirPath);
+			if (!dir.exists())
+			{
+				String path = dirPath;
+				try
+				{
+					path = dir.getCanonicalPath();
+				}
+				catch (IOException e)
+				{
+					Logging.errorPrint("Unable to find canonical path for "
+						+ dir);
+				}
+				missingDirs.append("  ").append(path).append("\n");
+			}
+		}
+		if (missingDirs.length() > 0)
+		{
+			String message;
+			message =
+					"This installation of PCGen is missing the following required folders:\n"
+						+ missingDirs.toString();
+			Logging.errorPrint(message);
+			if (useGui)
+			{
+				JOptionPane.showMessageDialog(null, message
+					+ "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
+					JOptionPane.ERROR_MESSAGE);
+			}
+			System.exit(1);
 		}
 	}
 

@@ -77,6 +77,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  *
@@ -281,6 +282,12 @@ class AdvancedSourceSelectionPanel extends JPanel
 	
 	public void setSourceSelection(SourceSelectionFacade sources)
 	{
+		if (sources == null || sources.getGameMode() == null)
+		{
+			Logging.errorPrint("Invalid source selection " + sources
+				+ "- ignoring.");
+			return;
+		}
 		GameModeFacade selectedGame = sources.getGameMode().getReference();
 		for (int i=0; i< gameModeList.getModel().getSize(); i++)
 		{
