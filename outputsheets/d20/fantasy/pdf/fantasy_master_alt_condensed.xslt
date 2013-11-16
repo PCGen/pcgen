@@ -307,6 +307,7 @@
 									<fo:table-cell number-columns-spanned="2">
 										<xsl:apply-templates select="saving_throws"/>
 										<xsl:apply-templates select="attack" mode="ranged_melee"/>
+										<xsl:apply-templates select="attack" mode="conditional"/>
 										<xsl:apply-templates select="weapons/martialarts"/>
 										<xsl:apply-templates select="weapons/unarmed"/>
 										<xsl:apply-templates select="weapons/naturalattack"/>
@@ -659,6 +660,9 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="race"/>
+							<xsl:if test="string-length(race/raceextra) &gt; 0">
+								(<xsl:value-of select="race/raceextra"/>)
+							</xsl:if>
 							<xsl:if test="string-length(race/racetype) &gt; 0"> / 
 								<xsl:value-of select="race/racetype"/>
 							</xsl:if>
@@ -2485,9 +2489,9 @@
 							<xsl:with-param name="attribute" select="'border'"/>
 						</xsl:call-template>
 						<fo:block font-size="4pt">Conditional Modifiers</fo:block>
-						<fo:block font-size="4pt">
-							<xsl:value-of select="conditional_modifiers"/>
-						</fo:block>
+						<xsl:for-each select="conditional_modifiers/savebonus">
+							<fo:block font-size="4pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
+						</xsl:for-each>
 					</fo:table-cell>
 				</fo:table-row>
 			</fo:table-body>
@@ -2610,6 +2614,31 @@
 	TEMPLATE - ATTACK TABLE
 ====================================
 ====================================-->
+	<!-- Begin Conditional Combat Modifiers -->
+	<xsl:template match="attack" mode="conditional">
+		<fo:table table-layout="fixed" space-before="2mm">
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth -1" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<xsl:call-template name="attrib">
+					<xsl:with-param name="attribute" select="'border'"/>
+				</xsl:call-template>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block font-size="8pt">Conditional Modifiers:</fo:block>
+								
+								<xsl:for-each select="conditional_modifiers/combatbonus">
+									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
+								</xsl:for-each>
+								
+							</fo:table-cell>
+						</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
+<!-- End Conditional Combat Modifiers -->
+
 	<xsl:template match="attack" mode="ranged_melee">
 <!-- BEGIN Attack table -->
 		<fo:table table-layout="fixed" space-before="2mm">
@@ -2651,6 +2680,7 @@
 		<xsl:apply-templates select="cmb" mode="moves"/>
 <!-- END Attack table -->
 	</xsl:template>
+
 	<xsl:template name="to_hit.header">
 		<xsl:param name="dalign" select="'after'"/>
 		<fo:table-row>
@@ -2695,7 +2725,7 @@
 						<xsl:with-param name="value" select="total"/>
 						<xsl:with-param name="bab" select="bab"/>
 						<xsl:with-param name="separator" select="'='"/>
-                        <xsl:with-param name="fontsize" select="8"/>
+						<xsl:with-param name="fontsize" select="8"/>
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2822,6 +2852,7 @@
 			</fo:block>
 		</fo:table-cell>
 	</xsl:template>
+
 	<xsl:template name="iterative.attack.entry">
 		<xsl:param name="value" />
 		<xsl:param name="bab" />
@@ -2848,6 +2879,7 @@
 				<xsl:value-of select="$separator"/>
 			</fo:block>
 		</fo:table-cell>
+
 	</xsl:template>
 
 

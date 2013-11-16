@@ -170,6 +170,9 @@
 		<phobias>|PHOBIAS|</phobias>
 		<race>|RACE|</race>
 		<race>
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","ASPECT=RaceExtra")-1,1,0|
+			<raceextra>|ABILITYALL.Internal.HIDDEN.%ability.ASPECT.RaceExtra|</raceextra>
+|ENDFOR|
 			<racetype>|RACETYPE|</racetype>
 |FOR,%racesubtype,0,COUNT[RACESUBTYPE]-1,1,0|
 			<racesubtype>|RACESUBTYPE.%racesubtype|</racesubtype>
@@ -461,6 +464,14 @@
 	  ====================================
 	  ====================================-->
 	<attack>
+			<conditional_modifiers>
+|FOR,%ability,0,countdistinct("ABILITIES","ASPECT=CombatBonus")-1,1,0|
+				<combatbonus>
+					<description>|ABILITYALL.ANY.%ability.ASPECT=CombatBonus.ASPECT.CombatBonus|</description>
+				</combatbonus>
+|ENDFOR|
+		</conditional_modifiers>
+
 		<melee>
 			<total>|ATTACK.MELEE.TOTAL|</total>
 			<total_short>|ATTACK.MELEE.TOTAL.SHORT|</total_short>
