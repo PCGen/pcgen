@@ -26,8 +26,12 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
+ * TempdescLst - records a sentence that is used to describe what the TEMPBONUS
+ * entries are going to do or when they should be used. The text will only be 
+ * displayed in the Temporary Bonus Tab.
+ * 
  * @author djones4
- *
+ * @version $Revision$
  */
 public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
