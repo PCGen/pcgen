@@ -41,8 +41,8 @@ Pistol						TYPE:Pistol
 Rifle							TYPE:Rifle
 Shotgun						TYPE:Shotgun
 
-#-Exotic
-Gatling Gun						TYPE:Exotic
-Gatling Pistol					TYPE:Exotic
+#-Exotic / Automatic Weapons
+Gatling Gun						TYPE:Exotic.Automatic
+Gatling Pistol					TYPE:Exotic.Automatic
 
 
