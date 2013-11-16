@@ -30,10 +30,12 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
+import plugin.pretokens.parser.PreSubClassParser;
 import plugin.pretokens.writer.PreRaceWriter;
+import plugin.pretokens.writer.PreSubClassWriter;
 
 public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 {
@@ -45,6 +47,9 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
+	PreSubClassParser presubclass = new PreSubClassParser();
+	PreSubClassWriter presubclasswriter = new PreSubClassWriter();
+
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -52,6 +57,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 		super.setUp();
 		TokenRegistration.register(prerace);
 		TokenRegistration.register(preracewriter);
+		TokenRegistration.register(presubclass);
+		TokenRegistration.register(presubclasswriter);
 	}
 
 	@Override
@@ -351,6 +358,22 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 		secondaryContext.ref
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		runRoundRobin("ALL=3");
+	}
+
+	@Test
+	public void testInvalidRoundRobinMixedPrereqs()
+		throws PersistenceLayerException
+	{
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Cleric");
+		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Priest");
+		secondaryContext.ref
+			.constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.ref
+			.constructCDOMObject(ClassSpellList.class, "Cleric");
+		secondaryContext.ref
+			.constructCDOMObject(ClassSpellList.class, "Priest");
+		assertFalse(parse("Sorcerer=5|Wizard=5|Cleric=4[PRESUBCLASS:1,Sarish]|Priest=4[PRESUBCLASS:1,Priest of Sarish]"));
 	}
 
 	@Test

@@ -98,6 +98,11 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				return new ParseResult.Fail("Invalid " + getTokenName()
 						+ " must end with ']' if it contains a PREREQ tag", context);
 			}
+			if (value.lastIndexOf('|') > openBracketLoc)
+			{
+				return new ParseResult.Fail("Invalid " + getTokenName()
+						+ ": PRExxx must be at the END of the Token.", context);
+			}
 			classKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
 					.length() - 1);

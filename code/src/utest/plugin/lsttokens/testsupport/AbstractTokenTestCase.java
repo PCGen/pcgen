@@ -222,8 +222,8 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
+			assertEquals("Expected " + i + "th uparsed item to be equal",
+				str[i], unparsed[i]);
 		}
 		return unparsed;
 	}

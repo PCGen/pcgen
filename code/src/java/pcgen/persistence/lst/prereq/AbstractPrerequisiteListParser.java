@@ -150,7 +150,7 @@ public abstract class AbstractPrerequisiteListParser
 		String formula) throws PersistenceLayerException
 	{
 
-		String[] elements = formula.split(",|\\|");
+		String[] elements = formula.split(",");
 		int numRequired;
 		try
 		{
