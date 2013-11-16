@@ -169,9 +169,15 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 	
 	@Test
-	public void testNewLine() throws PersistenceLayerException
+	public void testRoundRobinNewLine() throws PersistenceLayerException
 	{
 		runRoundRobin("First Line&nl;Second Line.");
+	}
+	
+	@Test
+	public void testRoundRobinEncoded() throws PersistenceLayerException
+	{
+		runMigrationRoundRobin("Hippo&colon; Awesomeness", "Hippo: Awesomeness");
 	}
 
 	@Test

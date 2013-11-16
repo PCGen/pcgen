@@ -126,8 +126,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
+			assertEquals("Expected " + i + "th unparsed item to be equal",
+				str[i], unparsed[i]);
 		}
 
 		// Do round Robin
@@ -152,6 +152,38 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
+	
+	/**
+	 * Run a test for conversion of a deprecated format to a supported format.
+	 * @param deprecated The old token format.
+	 * @param target The expected new token format.
+	 * @throws PersistenceLayerException If the parsing 
+	 */
+	public void runMigrationRoundRobin(String deprecated, String target) 
+			throws PersistenceLayerException
+	{
+		// Default is not to write out anything
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+
+		parse(deprecated);
+		primaryProf.setSourceURI(testCampaign.getURI());
+		String[] unparsed = validateUnparsed(primaryContext, primaryProf, target);
+
+
+		// Do round Robin
+		StringBuilder unparsedBuilt = new StringBuilder();
+		for (String s : unparsed)
+		{
+			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
+					s).append('\t');
+		}
+		getLoader().parseLine(secondaryContext, secondaryProf,
+				unparsedBuilt.toString(), testCampaign.getURI());
+		// Ensure the objects are the same
+		isCDOMEqual(primaryProf, secondaryProf);
+		validateUnparsed(secondaryContext, secondaryProf, unparsed);
+	}
+	
 	private String[] validateUnparsed(LoadContext sc, CDOMObject sp,
 			String... unparsed)
 	{
@@ -165,8 +197,8 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			assertEquals(unparsed.length, sUnparsed.length);
 			for (int i = 0; i < unparsed.length; i++)
 			{
-				assertEquals("Expected " + i + " item to be equal", unparsed[i],
-						sUnparsed[i]);
+				assertEquals("Expected " + i + "th unparsed item to be equal",
+					unparsed[i], sUnparsed[i]);
 			}
 		}
 
