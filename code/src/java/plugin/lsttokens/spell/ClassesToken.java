@@ -101,7 +101,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			if (value.lastIndexOf('|') > openBracketLoc)
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ ": PRExxx must be at the END of the Token.", context);
+					+ ": PRExxx must be at the END of the Token. Token was "
+					+ value, context);
 			}
 			classKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
