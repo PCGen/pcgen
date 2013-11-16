@@ -2385,6 +2385,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Glory</name>
+			<description></description>
+			<type>INTERNAL.DOMAINABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Human Racial Trait Default</name>
 			<description></description>
 			<type></type>
@@ -2399,6 +2410,17 @@ BIO
 			<name>Shield Prof</name>
 			<description></description>
 			<type>SHIELDPROFTOWER.SHIELDPROF</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Sun</name>
+			<description></description>
+			<type>INTERNAL.DOMAINABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
