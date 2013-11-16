@@ -285,7 +285,10 @@ public class Movement
 			txt.append(',');
 			if (movementMultOp[1].length() > 0)
 			{
-				txt.append(movementMultOp[1]).append((int) movementMult[1]);
+				String multValue =
+						NumberFormat.getNumberInstance()
+							.format(movementMult[1]);
+				txt.append(movementMultOp[1]).append(multValue);
 			}
 			else
 			{
