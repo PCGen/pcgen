@@ -85,7 +85,7 @@ public class DataLoadTest implements PCGenTaskListener
 	/** A list of sources that are currently broken, but are lower priority. 
 	 * These should be activated when the data team is ready. */
 	private static String[] excludedSources = new String[]{
-		"Darwin's World 2 Mode", "Deadlands Mode",
+		"Darwin's World 2 Mode", 
 		"Legends of Excalibur Mode"};
 	
 	private List<LogRecord> errors = new ArrayList<LogRecord>();
