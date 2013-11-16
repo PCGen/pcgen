@@ -476,7 +476,7 @@ $Date$
 
      <td align="left" valign="top" rowspan="4" class="border8"><div align="right" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
 |FOR,%ability,0,count("ABILITIES","ASPECT=SaveBonus")-1,1,0|
-	 |ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus|
+	 |ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus| <br >
 |ENDFOR|</td>
 
     </tr>
@@ -639,7 +639,14 @@ Immune
      <td align="center" width="12%" valign="top" class="lable">BULL RUSH</td>
      <td align="center" width="12%" valign="top" class="lable">OVERRUN</td>
     </tr>
-   </table>
+ 	<tr>
+     <td align="left" valign="top" colspan="14" class="border8"><div align="center" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+|FOR,%ability,0,count("ABILITIES","ASPECT=CombatBonus")-1,1,0|
+	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=CombatBonus.ASPECT.CombatBonus| <br >
+|ENDFOR|
+	</td>
+	</tr>
+  </table>
    <br />
 |ELSE|
     <tr>
@@ -659,6 +666,13 @@ Immune
      <td align="center"  class="abt"></td>
     </tr>
     <tr><td></td></tr>
+	<tr>
+     <td align="left" valign="top" colspan="14" class="border8"><div align="center" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+|FOR,%ability,0,count("ABILITIES","ASPECT=CombatBonus")-1,1,0|
+	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=CombatBonus.ASPECT.CombatBonus| <br >
+|ENDFOR|
+	</td>
+	</tr>
    </table>
    <br />
 |ENDIF|
@@ -1257,10 +1271,19 @@ Immune
 		 <td align="center" class="sign">+</td>
 		 <td align="center" class="skillValue">|SKILL.%skill.MISC|</td>
     </tr>
+
 |ENDFOR|
+	<tr>
+     <td align="left" valign="top" colspan="10" class="border8"><div align="center" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
+	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus| <br >
+|ENDFOR|
+	</td>
+	</tr>
+
 </table>
-   <span class="skill">&#9670; = Useable Untrained</span>
 <!-- STOP Skills Table -->
+	   <span class="skill">&#9670; = Useable Untrained</span>
 
 	</td>
   </tr>
@@ -3326,7 +3349,7 @@ Spells
 
 <!-- End Prepared Spells -->
 <!-- ================================================================= -->
-|%BIO|
+<!-->|%BIO|-->
 <br />
 <a name="Bio"></a>
 <!-- START Bio Table -->
@@ -3373,9 +3396,13 @@ Spells
  <tr><td class="borderbottom" colspan="2" class="font14">Biography</td></tr>
  <tr><td colspan="2" class="font10"><span class="notes">|BIO|</span></td></tr>
 </table>
-|%|
+<!-->|%|-->
 |%NOTES|
 <br />
+
+
+
+
 <table width="100%" cellspacing="0" cellpadding="5">
  <tr>
   <td colspan="2" class="notehead"><b>Notes</b></td>
