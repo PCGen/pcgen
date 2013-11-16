@@ -4407,7 +4407,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		if (aSpell == null)
 		{
-			return (tBonus);
+			return tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
 		}
 
 		if (!spellType.equals(Constants.NONE))
@@ -4579,6 +4579,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			}
 		}
 
+		int result = tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
+
+		return (result);
+	}
+
+	private int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
+		final List<CasterLevelSpellBonus> bonuses)
+	{
 		// now go through all bonuses, checking types to see what should add
 		// together
 		for (int z = 0; z < bonuses.size() - 1; z++)
@@ -4679,8 +4687,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			result = 1; // Casterlevel must be at least 1
 		}
-
-		return (result);
+		return result;
 	}
 
 	private String getSpellBonusType(final String bonusType, final String bonusName)
