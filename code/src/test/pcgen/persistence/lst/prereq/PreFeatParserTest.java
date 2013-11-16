@@ -148,4 +148,47 @@ public class PreFeatParserTest extends EnUsLocaleDependentTestCase
 				+ "<prereq kind=\"feat\" count-multiples=\"true\" key=\"Scribe Scroll\" operator=\"LT\" operand=\"1\" >\n"
 				+ "</prereq>\n</prereq>\n", prereq.toString());
 	}
+	
+	/**
+	 * Test that an error is produced if separators are incorrect
+	 * @throws Exception
+	 */
+	@Test
+	public void testInvalidSeparators() throws Exception
+	{
+		try
+		{
+			PreFeatParser parser = new PreFeatParser();
+			Prerequisite prereq =
+					parser.parse("feat",
+						"1,,KEY_a", false, false);
+			fail("Should have thrown a PersistenceLayerException.");
+		}
+		catch (PersistenceLayerException e)
+		{
+			// Ignore, this is the expected result.
+		}
+	}
+	
+	/**
+	 * Test that an error is produced if separators are incorrect
+	 * @throws Exception
+	 */
+	@Test
+	public void testInvalidCharacter() throws Exception
+	{
+		try
+		{
+			PreFeatParser parser = new PreFeatParser();
+			Prerequisite prereq =
+					parser.parse("feat",
+						"1,KEY_a|Key_b", false, false);
+			fail("Should have thrown a PersistenceLayerException.");
+		}
+		catch (PersistenceLayerException e)
+		{
+			// Ignore, this is the expected result.
+		}
+	}
+	
 }

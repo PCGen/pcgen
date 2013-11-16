@@ -116,4 +116,13 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements
 			prereq.setOperand(oper);
 		}
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean allowsNegate()
+	{
+		return true;
+	}
 }

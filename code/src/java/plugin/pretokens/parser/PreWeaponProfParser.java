@@ -106,4 +106,13 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 			doTypeInvertFixUp(subReq);
 		}
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean allowsNegate()
+	{
+		return true;
+	}
 }

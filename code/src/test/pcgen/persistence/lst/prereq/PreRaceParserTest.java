@@ -1,7 +1,6 @@
 /*
- * PreClassTest.java
- *
- * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
+ * PreRaceParserTest.java
+ * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -10,21 +9,16 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	   See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22-Jan-2004
+ * Created on 16/11/2013
  *
- * Current Ver: $Revision$
- * 
- * Last Editor: $Author$
- * 
- * Last Edited: $Date$
- *
+ * $Id$
  */
 package pcgen.persistence.lst.prereq;
 
@@ -36,26 +30,38 @@ import org.junit.Test;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import plugin.pretokens.parser.PreClassParser;
+import plugin.pretokens.parser.PreRaceParser;
 
 /**
- * @author wardc
- *
+ * PreRaceParserTest checks that the PreRaceParser class is operating 
+ * correctly.
+ * 
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
  */
-@SuppressWarnings("nls")
-public class PreClassTest extends EnUsLocaleDependentTestCase
+public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 {
 
+	/**
+	 * Test that exclusions are parsed properly.
+	 * @throws Exception
+	 */
 	@Test
-	public void testNoClassLevels() throws Exception
+	public void testExclusions() throws Exception
 	{
-		PreClassParser parser = new PreClassParser();
-		Prerequisite prereq = parser.parse("class", "1,Monk=1", true, false);
+		PreRaceParser parser = new PreRaceParser();
 
-		assertEquals(
-			"<prereq kind=\"class\" key=\"Monk\" operator=\"LT\" operand=\"1\" >\n"
-				+ "</prereq>\n", prereq.toString());
+		Prerequisite prereq =
+				parser.parse("race", "1,Elf%,[Elf (aquatic)]",
+					false, false);
 
+		assertEquals("PRERACE with an excluded race",
+			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+				+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
+				+ "</prereq>\n</prereq>\n", prereq.toString());
 	}
 	
 	/**
@@ -67,10 +73,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	{
 		try
 		{
-			PreClassParser parser = new PreClassParser();
+			PreRaceParser parser = new PreRaceParser();
 			Prerequisite prereq =
-					parser.parse("class",
-						"1,,Monk=1", false, false);
+					parser.parse("race",
+						"1,,KEY_a", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -88,10 +94,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	{
 		try
 		{
-			PreClassParser parser = new PreClassParser();
+			PreRaceParser parser = new PreRaceParser();
 			Prerequisite prereq =
-					parser.parse("class",
-						"1,Monk=1|Cleric=1", false, false);
+					parser.parse("race",
+						"1,KEY_a|Key_b", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)
@@ -99,26 +105,5 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 			// Ignore, this is the expected result.
 		}
 	}
-	
-	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
-	 */
-	@Test
-	public void testInvalidNegate() throws Exception
-	{
-		try
-		{
-			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,Monk=1[Cleric=1]", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
-	}
-	
+
 }

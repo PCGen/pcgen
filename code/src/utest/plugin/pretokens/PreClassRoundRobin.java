@@ -20,6 +20,9 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.writer.PreClassWriter;
@@ -74,5 +77,19 @@ public class PreClassRoundRobin extends AbstractRankedRoundRobin
 	public void testSpellcasterTyped()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER.Arcane=2");
+	}
+
+	public void testNestedInvalid()
+	{
+		try
+		{
+			String prereqStr = "PRECLASS:1,Oracle=2[!PRESPELL:1,Veil of Heaven]";
+			Prerequisite p = PreParserFactory.getInstance().parse(prereqStr);
+			fail("Expected " + prereqStr + " to be rejected but got " + p); 
+		}
+		catch (PersistenceLayerException e)
+		{
+			// Expected
+		}
 	}
 }

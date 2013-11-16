@@ -139,4 +139,13 @@ public class PreFeatParser extends AbstractPrerequisiteListParser implements
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean allowsNegate()
+	{
+		return true;
+	}
+
 }

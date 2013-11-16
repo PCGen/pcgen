@@ -108,6 +108,23 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	 * @throws Exception
 	 */
 	@Test
+	public void testNegates() throws Exception
+	{
+		PreAbilityParser parser = new PreAbilityParser();
+		Prerequisite prereq = parser.parse("ability", "1,Sneak Attack,[Alertness]", false, false);
+		assertEquals(
+			"Negated entry should be parsed",
+			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+				+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "</prereq>\n"
+				+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Alertness\" operator=\"LT\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	@Test
 	public void testNoKey() throws Exception
 	{
 
@@ -131,6 +148,48 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 			Prerequisite prereq =
 					parser.parse("ability",
 						"1,CATEGORY.Mutation,KEY_a,CATEGORY.Foo", false, false);
+			fail("Should have thrown a PersistenceLayerException.");
+		}
+		catch (PersistenceLayerException e)
+		{
+			// Ignore, this is the expected result.
+		}
+	}
+	
+	/**
+	 * Test that an error is produced if separators are incorrect
+	 * @throws Exception
+	 */
+	@Test
+	public void testInvalidSeparators() throws Exception
+	{
+		try
+		{
+			PreAbilityParser parser = new PreAbilityParser();
+			Prerequisite prereq =
+					parser.parse("ability",
+						"1,CATEGORY.Mutation,,KEY_a", false, false);
+			fail("Should have thrown a PersistenceLayerException.");
+		}
+		catch (PersistenceLayerException e)
+		{
+			// Ignore, this is the expected result.
+		}
+	}
+	
+	/**
+	 * Test that an error is produced if separators are incorrect
+	 * @throws Exception
+	 */
+	@Test
+	public void testInvalidCharacter() throws Exception
+	{
+		try
+		{
+			PreAbilityParser parser = new PreAbilityParser();
+			Prerequisite prereq =
+					parser.parse("ability",
+						"1,CATEGORY.Mutation,KEY_a|Key_b", false, false);
 			fail("Should have thrown a PersistenceLayerException.");
 		}
 		catch (PersistenceLayerException e)

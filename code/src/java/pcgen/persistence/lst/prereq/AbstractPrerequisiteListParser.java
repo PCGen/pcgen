@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
@@ -149,7 +150,23 @@ public abstract class AbstractPrerequisiteListParser
 		String kind,
 		String formula) throws PersistenceLayerException
 	{
-
+		// Sanity checking
+		ParseResult parseResult = checkForIllegalSeparator(kind, ',', formula);
+		if (!parseResult.passed())
+		{
+			throw new PersistenceLayerException(parseResult.toString());
+		}
+		if (!allowsNegate() && (formula.indexOf("[") >= 0 || formula.indexOf("]") >= 0))
+		{
+			throw new PersistenceLayerException("Prerequisite " + kind
+				+ " can not contain []: " + formula);
+		}
+		if (formula.indexOf("|") >= 0)
+		{
+			throw new PersistenceLayerException("Prerequisite " + kind
+				+ " can not contain |: " + formula);
+		}
+		
 		String[] elements = formula.split(",");
 		int numRequired;
 		try
@@ -378,6 +395,16 @@ public abstract class AbstractPrerequisiteListParser
 	{
 		return false;
 	}
+
+	/**
+	 * @return Does this PREreq kind allow []  for negation 
+	 */
+	protected boolean allowsNegate()
+	{
+		return false;
+	}
+	
+	
 
 	/**
 	 * Flag each Prerequisite created to indicate that no character is 

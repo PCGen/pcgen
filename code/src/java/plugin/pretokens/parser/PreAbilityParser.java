@@ -256,4 +256,13 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected boolean allowsNegate()
+	{
+		return true;
+	}
+
 }

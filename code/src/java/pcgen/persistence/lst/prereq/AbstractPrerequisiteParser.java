@@ -28,6 +28,7 @@ package pcgen.persistence.lst.prereq;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author wardc
@@ -84,4 +85,32 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 		prereq.setOverrideQualify(overrideQualify);
 		return prereq;
 	}
+
+	/**
+	 * Checks a string to see if any separators are used correctly.
+	 * @param separator The separator that is used in the string.
+	 * @param value     The string to check.
+	 * @return  A parse result of success if the string uses separators correctly.
+	 */
+	protected ParseResult checkForIllegalSeparator(String kind, char separator, String value)
+	{
+		if (value.charAt(0) == separator)
+		{
+			return new ParseResult.Fail("PRE"+kind
+				+ " arguments may not start with " + separator + " : " + value);
+		}
+		if (value.charAt(value.length() - 1) == separator)
+		{
+			return new ParseResult.Fail("PRE"+kind
+				+ " arguments may not end with " + separator + " : " + value);
+		}
+		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
+		{
+			return new ParseResult.Fail("PRE"+kind
+				+ " arguments uses double separator " + separator + separator
+				+ " : " + value);
+		}
+		return ParseResult.SUCCESS;
+	}
+    
 }
