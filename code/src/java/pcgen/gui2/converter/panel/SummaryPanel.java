@@ -29,9 +29,11 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.List;
 
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -98,7 +100,7 @@ public class SummaryPanel extends ConvertSubPanel
 		panel.add(instructLabel, gbc);
 
 		JLabel labels[] = new JLabel[4];
-		JLabel values[] = new JLabel[4];
+		JComponent values[] = new JComponent[4];
 		labels[0] = new JLabel("Source Folder:");
 		labels[1] = new JLabel("Destination Folder:");
 		labels[2] = new JLabel("Game mode:");
@@ -108,15 +110,16 @@ public class SummaryPanel extends ConvertSubPanel
 		values[1] = new JLabel(pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
 		values[2] = new JLabel(pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
-		StringBuilder campDisplay = new StringBuilder("<html>");
+		StringBuilder campDisplay = new StringBuilder();
 		for (int i = 0; i < campaigns.size(); i++)
 		{
 			campDisplay.append(campaigns.get(i).getDisplayName());
-			campDisplay.append("<br>");
+			campDisplay.append("\n");
 		}
-		campDisplay.append("</html>");
-		values[3] = new JLabel(campDisplay.toString(), SwingConstants.LEFT);
-		values[3].setVerticalAlignment(SwingConstants.TOP);
+		JTextArea campText = new JTextArea(campDisplay.toString());
+		campText.setEditable(false);
+		JScrollPane scrollPane = new JScrollPane(campText); 
+		values[3] = scrollPane;
 
 		// Place the labels on the page and lay them out
 		Font plainFont = panel.getFont().deriveFont(Font.PLAIN); 
