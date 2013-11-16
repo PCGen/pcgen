@@ -438,6 +438,12 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 								.append(Constants.PIPE);
 							sb.append(ats.getNature()).append(Constants.PIPE)
 								.append(cra.getLstFormat());
+							List<Prerequisite> prereqs = ats.getPrerequisiteList();
+							if (prereqs != null && !prereqs.isEmpty())
+							{
+								sb.append(Constants.PIPE);
+								sb.append(getPrerequisiteString(context, prereqs));
+							}
 							returnSet.add(sb.toString());
 						}
 						catch (PersistenceLayerException e)

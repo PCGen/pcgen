@@ -36,8 +36,10 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.parser.PreRaceParser;
+import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
@@ -56,6 +58,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		TokenRegistration.register(new PreRaceWriter());
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreLevelWriter());
+		TokenRegistration.register(new PreClassParser());
+		TokenRegistration.register(new PreClassWriter());
 	}
 
 	@Override
@@ -304,6 +308,16 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 				"FEAT|VIRTUAL|Abil1|PRERACE:1,Human");
 	}
 
+	@Test
+	public void testRoundRobinListPrereq()
+			throws PersistenceLayerException
+	{
+		construct(primaryContext, "Improved Critical");
+		construct(secondaryContext, "Improved Critical");
+		runRoundRobin("FEAT|AUTOMATIC|Improved Critical(%LIST)|PRECLASS:1,Oracle=8");
+	}
+
+	//  
 	private Ability construct(LoadContext context, String name)
 	{
 		Ability ab = context.ref.constructCDOMObject(Ability.class, name);
