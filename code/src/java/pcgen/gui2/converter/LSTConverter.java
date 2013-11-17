@@ -48,6 +48,7 @@ import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
+import pcgen.gui2.converter.loader.AbilityLoader;
 import pcgen.gui2.converter.loader.BasicLoader;
 import pcgen.gui2.converter.loader.ClassLoader;
 import pcgen.gui2.converter.loader.CopyLoader;
@@ -236,7 +237,7 @@ public class LSTConverter extends Observable
 				ListKey.FILE_LANGUAGE, changeLogWriter));
 		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
 				ListKey.FILE_FEAT, changeLogWriter));
-		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
+		loaderList.add(new AbilityLoader(context, Ability.class,
 				ListKey.FILE_ABILITY, changeLogWriter));
 		loaderList.add(new BasicLoader<Race>(context, Race.class,
 				ListKey.FILE_RACE, changeLogWriter));

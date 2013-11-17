@@ -20,9 +20,12 @@ package pcgen.gui2.converter;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -33,6 +36,8 @@ import pcgen.cdom.enumeration.SubRace;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.system.PluginLoader;
@@ -88,6 +93,9 @@ public class TokenConverter
 	{
 		Class<?> cl = tpe.getPrimary().getClass();
 		String key = tpe.getKey();
+
+		ensureCategoryExists(tpe);
+		
 		List<TokenProcessorPlugin> tokens = getTokens(cl, key);
 		String error = "";
 		try
@@ -115,6 +123,31 @@ public class TokenConverter
 			ex.printStackTrace();
 		}
 		return tpe.isConsumed() ? null : error;
+	}
+
+	/**
+	 * If this is an ABILITY token, ensure that we have an ability category 
+	 * in place to use for conversion. This is because the categories can be 
+	 * declared in data which may not be being converted. 
+	 * @param tpe The token event that is being processed. 
+	 */
+	private static void ensureCategoryExists(TokenProcessEvent tpe)
+	{
+		if (!tpe.getKey().equals("ABILITY"))
+		{
+			return;
+		}
+		String value = tpe.getValue();
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		String cat = tok.nextToken();
+		Category<Ability> category = tpe.getContext().ref
+				.silentlyGetConstructedCDOMObject(AbilityCategory.class, cat);
+		if (category == null)
+		{
+//			Logging.log(Logging.INFO, "Found new cat " + cat + " in " + tpe);
+			tpe.getContext().ref.constructCDOMObject(
+				AbilityCategory.class, cat);
+		}
 	}
 
 	static class ConverterIterator implements Iterator<TokenProcessorPlugin>
