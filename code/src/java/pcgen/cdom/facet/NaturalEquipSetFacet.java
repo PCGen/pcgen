@@ -99,6 +99,6 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	 */
 	public void init()
 	{
-		naturalWeaponFacet.addDataFacetChangeListener(this);
+		naturalWeaponFacet.addDataFacetChangeListener(1, this);
 	}
 }

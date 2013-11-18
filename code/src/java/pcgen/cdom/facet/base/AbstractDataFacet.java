@@ -81,6 +81,8 @@ public abstract class AbstractDataFacet<T> extends AbstractStorageFacet
 	 * and if that occurs, it must be removed an equivalent number of times in
 	 * order to no longer receive events from this AbstractDataFacet.
 	 * 
+	 * @param priority The lower the priority the earlier in the list the new 
+	 * listener will get advised of the change.
 	 * @param listener
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
