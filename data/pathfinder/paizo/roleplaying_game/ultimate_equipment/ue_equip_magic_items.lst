@@ -602,8 +602,8 @@ Boots of the Enduring March										TYPE:Magic.Wondrous.Boot.LesserMinor	COST:1
 Boots of the Mastodon											TYPE:Magic.Wondrous.Boot.LesserMedium	COST:10500	WT:2														SOURCEPAGE:p.229															BONUS:SKILL|Stealth|-2							BONUS:VAR|CMB_Overrun|2|TYPE=Enhancement								SPROP:+2 AC when attempting Overrun
 Boots of the Mire												TYPE:Magic.Wondrous.Boot.LesserMinor	COST:3500	WT:1														SOURCEPAGE:p.229
 Boots of the Winterlands.MOD										TYPE:LesserMinor					COST:2500	WT:1					SOURCEPAGE:p.230
-Burglar Boots (Major)					OUTPUTNAME:Burglar Boots, Major	TYPE:Magic.Wondrous.Boot.LesserMajor	COST:46000	WT:0.5													SOURCEPAGE:p.230															BONUS:SKILL|Perception (Spot Traps)|10|TYPE=Competence															SPROP:+10 AC vs Traps
-Burglar Boots (Minor)					OUTPUTNAME:Burglar Boots, Minor	TYPE:Magic.Wondrous.Boot.GreaterMinor	COST:4000	WT:0.5													SOURCEPAGE:p.230															BONUS:SKILL|Perception (Spot Traps)|5|TYPE=Competence																SPROP:+10 AC vs Traps
+Burglar Boots (Major)					OUTPUTNAME:Burglar Boots, Major	TYPE:Magic.Wondrous.Boot.LesserMajor	COST:46000	WT:0.5													SOURCEPAGE:p.230															BONUS:SKILL|Perception (Trapfinding)|10|TYPE=Competence															SPROP:+10 AC vs Traps
+Burglar Boots (Minor)					OUTPUTNAME:Burglar Boots, Minor	TYPE:Magic.Wondrous.Boot.GreaterMinor	COST:4000	WT:0.5													SOURCEPAGE:p.230															BONUS:SKILL|Perception (Trapfinding)|5|TYPE=Competence																SPROP:+10 AC vs Traps
 Caltrop Boots												TYPE:Magic.Wondrous.Boot.LesserMedium	COST:10000	WT:1														SOURCEPAGE:p.230
 Daredevil Boots												TYPE:Magic.Wondrous.Boot.LesserMinor	COST:1400	WT:1														SOURCEPAGE:p.230
 Dryad Sandals												TYPE:Magic.Wondrous.Boot.GreaterMedium	COST:24000	WT:1														SOURCEPAGE:p.230
