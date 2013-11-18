@@ -20,7 +20,7 @@ CLASS:Pathfinder Delver	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|D
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Save checks bonus													Combat bonus
 CLASS:Pathfinder Savant	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PaS		MAXLEVEL:7	SOURCEPAGE:p.60	DEFINE:PaSLvl|CL	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Required Feat								Required Skill									Req. Spell Type
-CLASS:Pathfinder Savant	PREFEAT:1,Magical Aptitude	PREFEAT:1,TYPE=ItemCreation	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5|Use Magic Device=5	PRESPELLTYPE:1,Arcane=2,Divine=2
+CLASS:Pathfinder Savant	PREFEAT:1,Magical Aptitude	PREFEAT:1,TYPE=ItemCreation	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5,Use Magic Device=5	PRESPELLTYPE:1,Arcane=2,Divine=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft|Use Magic Device
 1	BONUS:VAR|PaSSkillBonus|max(1,CL/2)					ABILITY:Special Ability|AUTOMATIC|Adept Activation ~ PaS|Master Scholar ~ PaS
