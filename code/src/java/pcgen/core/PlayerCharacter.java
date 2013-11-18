@@ -8298,7 +8298,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 			// if it's a weapon we have to do some
 			// checks for hands already in use
-			if (eqI.isWeapon())
+			if (eqI.isWeapon() && !eqI.isNatural())
 			{
 				// weapons can never occupy the same slot
 				if (es.getName().equals(locName))
