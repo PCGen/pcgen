@@ -198,5 +198,5 @@ CLASS:Seer (Psion)		SPELLLIST:2|Psion|Seer		BONUS:CASTERLEVEL|Seer (Psion)|CL
 CLASS:Shaper (Psion)		SPELLLIST:2|Psion|Shaper	BONUS:CASTERLEVEL|Shaper (Psion)|CL
 CLASS:Telepath (Psion)		SPELLLIST:2|Psion|Telepath	BONUS:CASTERLEVEL|Telepath (Psion)|CL
 
-CLASS:Companion (Psicrystal)	MAXLEVEL:1
+CLASS:Companion (Psicrystal)	MAXLEVEL:1	TYPE:Monster
 1	DONOTADD:HITDIE|SKILLPOINTS
