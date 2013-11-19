@@ -137,7 +137,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	public void setCharacter(CharacterFacade character)
 	{
 		this.character = character;
-		refresh();
+		//refresh();
 	}
 
 	public void setCharacterSheet(File sheet)
