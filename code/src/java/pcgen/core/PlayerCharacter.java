@@ -244,6 +244,8 @@ import pcgen.core.character.EquipSlot;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
@@ -1782,15 +1784,33 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				// but master does, so add it
 				final double sr = SkillRankControl.getTotalRank(mPC, newSkill).doubleValue();
 
-				if (ChooseActivation.hasChooseToken(newSkill))
-				{
-					continue;
-				}
-
 				// We don't pass in a class here so that the real skills can be
 				// distinguished from the ones form the master.
 				SkillRankControl.modRanks(sr, null, true, this, newSkill);
 				skillFacet.add(id, newSkill);
+
+				if (ChooseActivation.hasChooseToken(newSkill))
+				{
+					final List<Language> selLangs = new ArrayList<Language>();
+
+					ChooserUtilities.modChoices(newSkill,
+						new ArrayList<Language>(), selLangs, false, mPC, false,
+						null);
+					ChoiceManagerList<Language> controller =
+							ChooserUtilities.getConfiguredController(newSkill,
+								this, null, new ArrayList<String>());
+					for (Language lang : selLangs)
+					{
+						if (!controller.conditionallyApply(this, lang))
+						{
+							Logging
+								.errorPrint("Failed to add master's language "
+									+ lang + " to companion.");
+						}
+					}
+
+				}
+				
 			}
 		}
 
