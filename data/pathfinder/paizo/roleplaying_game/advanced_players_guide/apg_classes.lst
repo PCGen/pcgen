@@ -286,8 +286,9 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 1	ABILITY:Witch Class Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
 1	ABILITY:Witch Class Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
 1	ABILITY:Witch Class Ability|AUTOMATIC|Hex ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHexes
+1	ABILITY:Witch Class Ability|AUTOMATIC|Witch Patron
+3	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar,TYPE.WitchFamiliarTouchSpells
 ###Block: Witch Pool Progressions
-1	BONUS:ABILITYPOOL|Witch Patron|1
 1	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1
 2	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex2
 4	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex4
@@ -302,7 +303,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 ###Block: Spell Progression
 1	CAST:3,1
 2	CAST:4,2
-3	CAST:4,2,1				ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar,TYPE.WitchFamiliarTouchSpells
+3	CAST:4,2,1				
 4	CAST:4,3,2
 5	CAST:4,3,2,1
 6	CAST:4,3,3,2
