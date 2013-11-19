@@ -679,13 +679,14 @@ public class CharacterLevelsFacadeImpl extends
 
 	protected void updateSkillsTodo()
 	{
-		if (theCharacter.getSkillPoints() < 0)
+		int remainingPoints = calcRemainingSkillPoints();
+		if (remainingPoints < 0)
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills",
 				"in_iskTodoTooMany", 1));
 			todoManager.removeTodo("in_iskTodoRemain");
 		}
-		else if (theCharacter.getSkillPoints() > 0)
+		else if (remainingPoints > 0)
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills",
 				"in_iskTodoRemain", 1));
@@ -696,6 +697,19 @@ public class CharacterLevelsFacadeImpl extends
 			todoManager.removeTodo("in_iskTodoRemain");
 			todoManager.removeTodo("in_iskTodoTooMany");
 		}
+	}
+
+	/**
+	 * @return The total of each level's remaining skill points.
+	 */
+	private int calcRemainingSkillPoints()
+	{
+		int numRemaining = 0;
+		for (CharacterLevelFacade clf : charLevels)
+		{
+			numRemaining += getRemainingSkillPoints(clf);
+		}
+		return numRemaining;
 	}
 
 	private void updateSkillsOutputOrder(Skill aSkill)
