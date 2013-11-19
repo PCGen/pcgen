@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.tabs;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -158,16 +159,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		tableScrollPane = new JScrollPane(skillpointTable);
 		tablePanel.add(tableScrollPane, constraints);
 
-		JPanel skillPanel = new JPanel(new GridBagLayout());
-		GridBagConstraints boxConstraints = new GridBagConstraints();
-		boxConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-		boxConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-
-		GridBagConstraints panelConstraints = new GridBagConstraints();
-		panelConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-		panelConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		panelConstraints.weighty = 1.0;
-
 		htmlPane.setOpaque(false);
 		htmlPane.setEditable(false);
 		htmlPane.setFocusable(false);
@@ -176,8 +167,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillFilterBox.setRenderer(new DefaultListCellRenderer());
 		
 		JScrollPane selScrollPane = new JScrollPane(htmlPane);
-		skillPanel.add(skillFilterBox, boxConstraints);
-		skillPanel.add(selScrollPane, panelConstraints);
+		JPanel skillPanel = new JPanel(new BorderLayout());
+		skillPanel.add(skillFilterBox, BorderLayout.NORTH);
+		skillPanel.add(selScrollPane, BorderLayout.CENTER);
 		selScrollPane.setPreferredSize(new Dimension(530, 300));
 		
 		FlippingSplitPane topPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
