@@ -1196,10 +1196,10 @@ public class PCClass extends PObject implements ClassFacade
 			}
 
 			final int newLevel = oldLevel - 1;
-			PCClassLevel classLevel = aPC.getActiveClassLevel(this, oldLevel);
 
 			if (oldLevel > 0)
 			{
+				PCClassLevel classLevel = aPC.getActiveClassLevel(this, oldLevel-1);
 				aPC.removeHP(classLevel);
 			}
 
@@ -1260,6 +1260,8 @@ public class PCClass extends PObject implements ClassFacade
 					}
 				}
 			}
+
+			aPC.setLevelWithoutConsequence(this, newLevel);
 
 			if (!isMonster() && (total == 0))
 			{
