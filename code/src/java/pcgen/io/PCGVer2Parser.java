@@ -57,6 +57,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -4567,8 +4568,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		for (int sindex = 0; sindex < spellLevels.length; ++sindex)
 		{
 			final int level = spellLevels[sindex];
+			final int metmagicLevels = totalAddedLevelsFromMetamagic(metaFeats); 
 
-			if (spellLevel > 0 && spellLevel != level)
+			if (spellLevel > 0 && spellLevel != (level+metmagicLevels))
 			{
 				// Skip spell in class lists that does not match level the character knows it.
 				continue;
@@ -4669,6 +4671,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						+ source.getDisplayName();
 			warnings.add(message);
 		}
+	}
+
+	private int totalAddedLevelsFromMetamagic(List<Ability> metaFeats)
+	{
+		int addedLevels = 0;
+		
+		for (Ability ability : metaFeats)
+		{
+			Integer featAddSpellLevel = ability.get(IntegerKey.ADD_SPELL_LEVEL);
+			if (featAddSpellLevel != null)
+			{
+				addedLevels += featAddSpellLevel;
+			}
+		}
+		return addedLevels;
 	}
 
 	/*
