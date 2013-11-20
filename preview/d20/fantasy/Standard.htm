@@ -474,7 +474,7 @@ $Date$
      <td align="center"></td>
      <td align="center" width="25" class="lable">TEMP</td>
 
-     <td align="left" valign="top" rowspan="4" class="border8"><div align="right" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+     <td align="left" valign="top" rowspan="4" class="border8"><div align="center" class="lable">CONDITIONNAL SAVE MODIFIERS&nbsp;</div>
 |FOR,%ability,0,count("ABILITIES","ASPECT=SaveBonus")-1,1,0|
 	 |ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus| <br >
 |ENDFOR|</td>
@@ -640,7 +640,7 @@ Immune
      <td align="center" width="12%" valign="top" class="lable">OVERRUN</td>
     </tr>
  	<tr>
-     <td align="left" valign="top" colspan="14" class="border8"><div align="center" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+     <td align="left" valign="top" colspan="14" class="border8"><div align="center" class="lable">CONDITIONNAL COMBAT MODIFIERS&nbsp;</div>
 |FOR,%ability,0,count("ABILITIES","ASPECT=CombatBonus")-1,1,0|
 	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=CombatBonus.ASPECT.CombatBonus| <br >
 |ENDFOR|
@@ -667,7 +667,7 @@ Immune
     </tr>
     <tr><td></td></tr>
 	<tr>
-     <td align="left" valign="top" colspan="14" class="border8"><div align="center" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+     <td align="left" valign="top" colspan="14" class="border8"><div align="center" class="lable">CONDITIONNAL COMBAT MODIFIERS&nbsp;</div>
 |FOR,%ability,0,count("ABILITIES","ASPECT=CombatBonus")-1,1,0|
 	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=CombatBonus.ASPECT.CombatBonus| <br >
 |ENDFOR|
@@ -1273,13 +1273,6 @@ Immune
     </tr>
 
 |ENDFOR|
-	<tr>
-     <td align="left" valign="top" colspan="10" class="border8"><div align="center" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
-|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
-	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus| <br >
-|ENDFOR|
-	</td>
-	</tr>
 
 </table>
 <!-- STOP Skills Table -->
@@ -1287,6 +1280,14 @@ Immune
 
 	</td>
   </tr>
+	<tr>
+     <td align="left" valign="top" colspan="10" class="border8"><div align="center" class="lable">CONDITIONNAL SKILL MODIFIERS&nbsp;</div>
+|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
+	&nbsp;&nbsp;|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus| <br >
+|ENDFOR|
+	</td>
+	</tr>
+
 </table>
 
 
