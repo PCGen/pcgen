@@ -530,10 +530,7 @@ public class CharacterLevelsFacadeImpl extends
 				{
 					delegate.showInfoMessage(Constants.APPLICATION_NAME,
 						LanguageBundle.getFormattedString(
-							"in_iskErr_message_05a", classLevel
-								.getClassKeyName(), String.valueOf(classLevel
-								.getClassLevel()), String.valueOf(classLevel
-								.getSkillPointsGained(theCharacter))));
+							"in_iskErr_message_05", skill));
 					return false;
 				}
 

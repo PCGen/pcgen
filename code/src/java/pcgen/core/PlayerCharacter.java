@@ -7656,8 +7656,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				int currentLevel = getLevel(pcClassClone);
 				pcClassClone.subLevel(bSilent, this);
-				removeLevelInfo(pcClassClone.getKeyName());
+				PCLevelInfo removedLI = removeLevelInfo(pcClassClone.getKeyName());
 				getActiveClassLevel(pcClassClone, currentLevel);
+				int pointsToRemove =
+						removedLI.getSkillPointsGained(this)
+							- removedLI.getSkillPointsRemaining();
+				SkillRankControl.removeSkillsForTopLevel(this, pcClassClone,
+					currentLevel, pointsToRemove);
 			}
 		}
 
@@ -7695,7 +7700,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	}
 
-	private boolean removeLevelInfo(final String classKeyName)
+	/**
+	 * Remove from the character the PCLevelInfo representing the highest level 
+	 * of the supplied class.
+	 *  
+	 * @param classKeyName The keyname of the class to have a level removed.
+	 * @return The level removed, or null if none was found
+	 */
+	private PCLevelInfo removeLevelInfo(final String classKeyName)
 	{
 		for (int idx = getLevelInfoSize() - 1; idx >= 0; --idx)
 		{
@@ -7706,11 +7718,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				levelInfoFacet.remove(id, li);
 				setDirty(true);
 
-				return true;
+				return li;
 			}
 		}
 
-		return false;
+		return null;
 	}
 
 	/**

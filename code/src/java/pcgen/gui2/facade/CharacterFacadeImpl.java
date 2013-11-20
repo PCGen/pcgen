@@ -2488,7 +2488,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		autoLanguagesCache = null;
 
 		int bonusLangMax = theCharacter.getBonusLanguageCount();
-		;
+		
 		currBonusLangs = new ArrayList<Language>();
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
 				"*LANGBONUS");

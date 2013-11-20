@@ -22,10 +22,13 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
@@ -35,8 +38,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.View;
 
 public class SkillRankControl
 {
@@ -306,4 +311,86 @@ public class SkillRankControl
 		}
 	}
 
+	/**
+	 * Adjust the character's skills to reflect the loss of a level. This is 
+	 * done by:
+	 * <ol>
+	 * <li>Removing ranks from any skills with max ranks or more</li>
+	 * <li>Taking any skill points still needing to be refunded off the remainder 
+	 * for the next highest level of the class</li>
+	 * <li>or taking them off the remainder for the highest class level.</li>
+	 * </ol>
+	 * 
+	 * @param playerCharacter The character being updated.
+	 * @param classBeingLevelledDown The class we are removing a level of.
+	 * @param currentLevel The character;s level before the removal.
+	 * @param pointsToRemove The number of points that need to be refunded.
+	 */
+	public static void removeSkillsForTopLevel(PlayerCharacter pc,
+		PCClass classBeingLevelledDown, int currentLevel, int pointsToRemove)
+	{
+
+		double remaining = pointsToRemove;
+		if (remaining <= 0.0)
+		{
+			return;
+		}
+		// Remove a rank from each skill with max ranks at the old level (now above max ranks)
+		for (Skill skill : pc.getSkillSet())
+		{
+			if (!skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
+			{
+				continue;
+			}
+			
+			double maxRanks = pc.getMaxRank(skill,
+				pc.getClassList().get(0)).doubleValue();
+			double rankMod = maxRanks - getTotalRank(pc, skill);
+			if (rankMod < 0)
+			{
+				Logging.log(Logging.INFO, "Removing " + (rankMod*-1) + " ranks from " + skill);
+				String err = modRanks(rankMod, classBeingLevelledDown, true, pc, skill);
+				if (StringUtils.isBlank(err))
+				{
+					remaining += rankMod;
+					if (remaining <= 0)
+					{
+						break;
+					}
+				}
+			}
+		}
+		
+	    // Deal with any remaining skill points to be refunded
+		if (remaining != 0.0)
+		{
+		    //  If there are other levels left of the class being removed, 
+			// subtract the remainder from the remaining value of the next 
+			// highest level of the class removed.
+			PCLevelInfo targetLevel = null;
+			int level = currentLevel-1;
+			while (level > 0)
+			{
+				PCLevelInfo pcLI = pc.getLevelInfo(level-1);
+				if (pcLI.getClassKeyName().equals(classBeingLevelledDown.getKeyName()))
+				{
+					targetLevel = pcLI;
+					break;
+				}
+				level--;
+			}
+			if (targetLevel == null && currentLevel > 0)
+			{
+			    //  Otherwise subtract the remainder from the remaining value of 
+				// the character's highest remaining level.
+				targetLevel = pc.getLevelInfo(currentLevel-2);
+			}
+			if (targetLevel != null)
+			{
+				targetLevel.setSkillPointsRemaining(targetLevel
+					.getSkillPointsRemaining() - (int)remaining);
+			}
+		}
+		
+	}
 }
