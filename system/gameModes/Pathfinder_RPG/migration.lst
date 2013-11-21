@@ -51,10 +51,6 @@ ABILITY:Special Ability|Unexpected Strike		NEWKEY:Unexpected Strike ~ Rage Power
 # Ultimate Combat 
 EQUIPMENT:Bukler Gun	NEWKEY:Buckler Gun		MAXVER:6.0.02	MAXDEVVER:6.1.4
 
-SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pathfinder Society Organised Play	MAXVER:6.2.0 MAXDEVVER:6.1.7
-
-
-
 ###Block: Migration to be sources
 SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide	NEWKEY:Advanced Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Race Guide	NEWKEY:Advanced Race Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
@@ -84,7 +80,8 @@ SOURCE:Paizo - Dwarves of Golarion	NEWKEY:Dwarves of Golarion	MAXVER:6.2.0 MAXDE
 SOURCE:Paizo - Faiths of Purity	NEWKEY:Faiths of Purity	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Gnomes of Golarion	NEWKEY:Gnomes of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Goblins of Golarion	NEWKEY:Goblins of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pathfinder Society Organized Play 4.0	MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pathfinder Society Organized Play	MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Guide To Pathfinder Society Organized Play 4.0	NEWKEY:Guide To Pathfinder Society Organised Play	MAXVER:6.2.0 MAXDEVVER:6.1.9
 SOURCE:Paizo - Guide to the River Kingdoms	NEWKEY:Guide to the River Kingdoms	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Halflings of Golarion	NEWKEY:Halflings of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Heart of the Jungle	NEWKEY:Heart of the Jungle	MAXVER:6.2.0 MAXDEVVER:6.1.8
