@@ -1372,7 +1372,7 @@ Archetype Cleric					CATEGORY:Archetype	TYPE:ClericArchetype	VISIBLE:NO
 
 # COMMENT: Post 6.0 Change
 # Ability Name			Ability
-CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,SPELLCASTER=1|PRESPELLTYPE:1,Ray=1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|PRECLASS:1,TYPE=PC=1
+CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,SPELLCASTER=1|PRESPELLTYPE:1,Ray=1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|PRECLASS:1,TYPE.PC=1
 #CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Blank Weapon Block OS
 
 ###Block: Natural Attack Replacements

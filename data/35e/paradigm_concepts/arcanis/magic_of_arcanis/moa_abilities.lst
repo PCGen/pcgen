@@ -124,7 +124,7 @@ The Wise									CATEGORY:Special Ability	TYPE:SpecialQuality.ShamanSpiritGuide
 ###Block: Spellblade -------------------------------------------------------------------------
 #Summon Familiar
 # Ability Name		Category of Ability		Type				Define				Description				Modify VAR
-Battlemagic			CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:BattlemagicTimes|0	DESC:1%|BattlemagicTimes	BONUS:VAR|BattlemagicTimes|max(CHA,1)
+Battlemagic			CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:BattlemagicTimes|0	DESC:%1|BattlemagicTimes	BONUS:VAR|BattlemagicTimes|max(CHA,1)
 Supreme Battlemagic	CATEGORY:Special Ability	TYPE:SpecialAttack
 
 ###Block: Suromar ----------------------------------------------------------------------------
