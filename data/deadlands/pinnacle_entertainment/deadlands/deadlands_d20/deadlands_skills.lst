@@ -14,6 +14,46 @@ Gunplay						KEYSTAT:DEX											TYPE:Dexterity			SOURCEPAGE:p.46
 Hexslingin'						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:p.47
 Holdout						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.47					BONUS:SKILL|Holdout|SynergyBonus|PRESKILL:1,Disguise=5,Sleight o' Hand=5|TYPE=Synergy.STACK
 Intimidate						KEYSTAT:CHA											TYPE:Charisma			SOURCEPAGE:p.47					BONUS:SKILL|Intimidate|SynergyBonus|PRESKILL:1,Bluff=5,Gunplay=5|TYPE=Synergy.STACK
+# Languages
+Language (Algonquin)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Apache)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Arabic)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Athabaskan)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Bantu)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Caddoan)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Creole)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Chinese)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Danish)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Dutch)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Egyptian)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (English)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Finnish)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (French)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Gaelic)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (German)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Greek)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Haitian)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Hebrew)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Hindi)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Hokan)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Indian Sign)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Italian)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Japanese)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Latin)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Magyar)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Maori)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Norwegian)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Polish)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Portuguese)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Romanian)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Russian)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Siouan)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Spanish)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Swahili)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Swedish)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Welsh)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+Language (Zulu)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Language	SOURCEPAGE:p.44
+#
 Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	SOURCEPAGE:p.43					BONUS:SKILL|Knowledge (Architecture and Engineering)|SynergyBonus|PRESKILL:1,Knowledge (Anthropology)=5,Knowledge (Biology)=5,Knowledge (Chemistry)=5,Knowledge (Engineering)=5,Knowledge (Geology)=5,Knowledge (Mathematics)=5,Knowledge (Meteorology)=5,Knowledge (Physics)=5|TYPE=Synergy.STACK
 Knowledge (Biology)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	SOURCEPAGE:p.43					BONUS:SKILL|Knowledge (Biology)|SynergyBonus|PRESKILL:1,Knowledge (Anthropology)=5,Knowledge (Architecture and Engineering)=5,Knowledge (Chemistry)=5,Knowledge (Engineering)=5,Knowledge (Geology)=5,Knowledge (Mathematics)=5,Knowledge (Meteorology)=5,Knowledge (Physics)=5|TYPE=Synergy.STACK
 Knowledge (Chemistry)				KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge	SOURCEPAGE:p.43					BONUS:SKILL|Knowledge (Chemistry)|SynergyBonus|PRESKILL:1,Knowledge (Anthropology)=5,Knowledge (Architecture and Engineering)=5,Knowledge (Biology)=5,Knowledge (Engineering)=5,Knowledge (Geology)=5,Knowledge (Mathematics)=5,Knowledge (Meteorology)=5,Knowledge (Physics)=5|TYPE=Synergy.STACK
@@ -31,7 +71,7 @@ Profession (Stage Magician)			KEYSTAT:WIS	USEUNTRAINED:NO								TYPE:Wisdom.Pro
 Ridicule						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.48
 Ritual						KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:p.49
 Sleight o' Hand					KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.49
-Speak Language							USEUNTRAINED:NO								TYPE:None.Language		SOURCEPAGE:p.44	CHOOSE:LANG|TYPE=Spoken																																																				AUTO:LANG|%LIST
+#Speak Language							USEUNTRAINED:NO								TYPE:None.Language		SOURCEPAGE:p.44	CHOOSE:LANG|TYPE=Spoken																																																				AUTO:LANG|%LIST
 Speed Load						KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity			SOURCEPAGE:p.49
 Tale Tellin'					KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma			SOURCEPAGE:p.50
 Tinkerin'						KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence			SOURCEPAGE:p.50					BONUS:SKILL|Tinkerin'|SynergyBonus|PRESKILL:1,Mad Science=5|TYPE=Synergy.STACK
