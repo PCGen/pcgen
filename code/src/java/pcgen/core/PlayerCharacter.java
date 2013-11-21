@@ -399,6 +399,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
+	private ObjectCache grantedSpellCache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
 	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
@@ -11065,8 +11066,25 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			for (Spell spell : spellsMap.get(spellLevel))
 			{
-				CharacterSpell acs = new CharacterSpell(aClass, spell);
-				acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
+				CharacterSpell acs = null;
+				Collection<? extends CharacterSpell> characterSpells =
+						getCharacterSpells(grantedSpellCache);
+				for (CharacterSpell cs : characterSpells)
+				{
+					Spell sp = cs.getSpell();
+					if (spell.equals(sp) && (cs.getOwner().equals(aClass)))
+					{
+						acs = cs;
+						break;
+					}
+				}
+				
+				if (acs == null)
+				{
+					acs = new CharacterSpell(aClass, spell);
+					acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
+					addCharacterSpell(grantedSpellCache, acs);
+				}
 				cSpells.add(acs);
 			}
 		}
