@@ -1,0 +1,10 @@
+
+
+#Armor									Armor Rating			Weight	Lethal Immunity					Price
+
+Bombsuit		TYPE:Armor	PROFICIENCY:ARMOR|Standard	BONUS:COMBAT|AC|3|TYPE=Armor	WT:3		SPROP:Lethal Immunity: Yes (entire body)	COST:30000
+Bulletproof Vest	TYPE:Armor	PROFICIENCY:ARMOR|Standard						WT:1		SPROP:Lethal Immunity: Yes (chest)		COST:5000
+Helmet		TYPE:Armor	PROFICIENCY:ARMOR|Standard	BONUS:COMBAT|AC|1|TYPE=Armor	WT:1									COST:200
+
+
+

@@ -1,0 +1,58 @@
+CAMPAIGN:Killshot - The Director's Cut
+RANK:1
+GAMEMODE:Killshot
+GENRE:Modern
+BOOKTYPE:Core Rules
+SETTING:Modern
+TYPE:Killshot.Core
+PUBNAMELONG:Broken Ruler Games
+PUBNAMESHORT:BRG
+PUBNAMEWEB:http://www.brokenrulergames.com/
+SOURCELONG:Killshot - The Director's Cut
+SOURCESHORT:KiSh
+SOURCEWEB:http://www.brokenrulergames.com/p/killshot-osrpg.html
+ISOGL:NO
+ISLICENSED:YES
+ISMATURE:YES
+
+COVER:KillshotDirCut_mock_v1.jpg
+LOGO:BrokenRuler_ICON_RGBv1.png
+LOGO:800px-By-sa_plain300.png
+
+URL:WEBSITE|http://www.brokenrulergames.com/p/killshot-osrpg.html|Visit Broken Ruler Games!
+URL:WEBSITE|http://creativecommons.org/licenses/by-sa/3.0/|Learn more about the Creative Commons-Attribution-ShareAlike 3.0 Unported License!
+URL:DriveThruRPG.com|http://rpg.drivethrustuff.com/product/116918/Killshot-The-Directors-Cut?affiliate_id=200170|Buy this pdf from DriveThruRPG!
+URL:RPG Now.com|http://www.rpgnow.com/product/103822/Killshot-The-Directors-Cut?affiliate_id=200170|Buy this pdf from RPGNow!
+URL:Paizo.com|http://paizo.com/products/btpy8v0p?Killshot-The-Directors-Cut|Buy this book from Paizo.com!
+
+
+COPYRIGHT:Copyright (c) 2012 by Todd Crapper. The Killshot RPG, the Optional System dice mechanic, and Broken Ruler Games are all creations and property of Todd Crapper working under the pseudonym "The Warden." This work is made available under the terms of the Creative Commons Attribution-ShareAlike 3.0 Uported License, http://creativecommons.org/licenses/by-sa/3.0/
+COPYRIGHT:PCGen dataset conversion for "The Killshot RPG" Copyright 2013, PCGen Data Team (Including, but not limited to Andrew Maitland (LegacyKing)) used under a Creative Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0/. This PCGen Dataset conversion is licensed under the same Creative Commons Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0/. 
+
+ABILITY:killshot_abilities.lst
+ABILITY:killshot_abilities_focus.lst
+ABILITY:killshot_abilities_options.lst
+ABILITY:killshot_abilities_reactions.lst
+ABILITY:killshot_abilities_skill.lst
+ABILITY:killshot_abilities_traits.lst
+
+ABILITYCATEGORY:killshot_abilitycategories.lst
+
+CLASS:killshot_class.lst
+
+EQUIPMOD:killshot_eqmods.lst
+EQUIPMENT:killshot_equip_gear.lst
+EQUIPMENT:killshot_equip_weapons.lst
+
+LANGUAGE:killshot_lang.lst
+
+WEAPONPROF:killshot_profs_weapon.lst
+SHIELDPROF:killshot_profs_shield.lst
+ARMORPROF:killshot_profs_armor.lst
+
+RACE:killshot_race.lst
+
+# Dummy Entries
+#KIT:killshot_kit.lst
+#FEAT:killshot_feat.lst
+#SKILL:killshot_skill.lst

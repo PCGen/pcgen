@@ -1,0 +1,31 @@
+
+
+
+
+#Block:Melee Weapon	SLOTS		Attack Type				Damage	Weight	Options	Reactions	Price
+Baseball Bat		SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Normal						WT:2	EQMOD:SMASH.FRACTURE	COST:0
+Club				SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:3	EQMOD:SMASH.FRACTURE	COST:0
+Dagger/Knife		SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal	QUALITY:Range|(1 Move)		WT:1	EQMOD:SLOW			COST:50
+Quarterstaff		SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Normal						WT:1	EQMOD:GRAB.TRIP		COST:0
+Sword (One-Handed)	SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:1	EQMOD:SEVER.BLEED		COST:500
+Sword (Two-Handed)	SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:2	EQMOD:SEVER.BLEED		COST:500
+Throwing knives		SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal	QUALITY:Range|(3 Move)		WT:1	EQMOD:BLEED			COST:200
+
+
+#Block: Ranged/Burst Weapon			SLOTS							Attack Type			Ammo Slots	Damage	Weight	Options Reactions Price
+Assault Rifle					SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(7 Move)	QUALITY:Ammo Slots|6	QUALITY:Damage Type|Lethal	WT:1	EQMOD:BURST.FULLAUTO		COST:1500
+Crossbow+						SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(5 Move)	QUALITY:Ammo Slots|1	QUALITY:Damage Type|Lethal+1	WT:1	EQMOD:SLOW				COST:350
+Grenade						SLOTS:1		TYPE:Weapons.Distance	QUALITY:Range|Burst(1 Move)				QUALITY:Damage Type|Lethal	WT:1	EQMOD:EXPLODE.PUSH		COST:500
+Longbow+						SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(10 Move)	QUALITY:Ammo Slots|1	QUALITY:Damage Type|Lethal	WT:2	EQMOD:PUSH.SLOW			COST:1000
+Machine Gun						SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(10 Move)	QUALITY:Ammo Slots|8	QUALITY:Damage Type|Lethal	WT:2	EQMOD:BURST.FULLAUTO		COST:5000
+Pistol (Machine)					SLOTS:1		TYPE:Weapons.Distance	QUALITY:Range|(5 Move)	QUALITY:Ammo Slots|3	QUALITY:Damage Type|Lethal	WT:1	EQMOD:BURST.FULLAUTO		COST:750
+Pistol (Semiautomatic)				SLOTS:1		TYPE:Weapons.Distance	QUALITY:Range|(5 Move)	QUALITY:Ammo Slots|3	QUALITY:Damage Type|Lethal	WT:1	EQMOD:BURST.FULLAUTO		COST:500
+Revolver						SLOTS:1		TYPE:Weapons.Distance	QUALITY:Range|(5 Move)	QUALITY:Ammo Slots|2	QUALITY:Damage Type|Lethal	WT:1	EQMOD:UNTRACEABLE			COST:350
+Rifle (hunting+)					SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(sight)	QUALITY:Ammo Slots|2	QUALITY:Damage Type|Lethal	WT:1	EQMOD:AIM.SLOW			COST:500
+Rifle (sniper+)					SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(sight)	QUALITY:Ammo Slots|2	QUALITY:Damage Type|Lethal	WT:1	EQMOD:AIM				COST:1500
+Rifle (sniper+ (Heavy))				SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(sight)	QUALITY:Ammo Slots|2	QUALITY:Damage Type|Lethal+1	WT:2	EQMOD:AIM				COST:3000
+Shotgun						SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(2 Move)	QUALITY:Ammo Slots|2	QUALITY:Damage Type|Lethal+2	WT:1	EQMOD:PUSH				COST:400
+Submachine gun					SLOTS:1		TYPE:Weapons.Distance	QUALITY:Range|(5 Move)	QUALITY:Ammo Slots|4	QUALITY:Damage Type|Lethal	WT:1	EQMOD:BURST.FULLAUTO		COST:1000
+RPG (Rocket Propelled Grenade) Launcher	SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(10 Move)					QUALITY:Damage Type|Lethal	WT:1	EQMOD:EXPLODE.PUSH		COST:2000
+
+
