@@ -306,8 +306,8 @@
 								<fo:table-row>
 									<fo:table-cell number-columns-spanned="2">
 										<xsl:apply-templates select="saving_throws"/>
-										<xsl:apply-templates select="attack" mode="ranged_melee"/>
 										<xsl:apply-templates select="attack" mode="conditional"/>
+										<xsl:apply-templates select="attack" mode="ranged_melee"/>
 										<xsl:apply-templates select="weapons/martialarts"/>
 										<xsl:apply-templates select="weapons/unarmed"/>
 										<xsl:apply-templates select="weapons/naturalattack"/>
@@ -2415,21 +2415,6 @@
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-body>
-<!-- This is going to be the new Skill Info Section-->	
-<!-->			<xsl:if test="count(conditional_modifiers/skillbonus) &gt; 0">
-				<fo:table-body border-collapse="collapse" padding="0.5pt">
-					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
-					<fo:table-row>
-						<fo:table-cell number-columns-spanned="17" padding-top="1pt">
-							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Modifiers:</fo:block>
-								<xsl:for-each select="conditional_modifiers/skillbonus">
-									<fo:block font-size="8pt" space-before.optimum="2pt"><xsl:value-of select="description"/></fo:block>
-								</xsl:for-each>
-						</fo:table-cell>
-					</fo:table-row>
-				</fo:table-body>
-				</xsl:if>-->
-<!-- End New Skill Info Section-->
 			</fo:table>
 		</xsl:if>
 		<!-- END Skills table-->
@@ -2452,7 +2437,7 @@
 				<fo:table-body>
 					<fo:table-row>
 						<fo:table-cell padding-top="1pt" border-width="0.5pt" border-style="solid">
-							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Modifiers:</fo:block>
+							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Skill Modifiers:</fo:block>
 								<xsl:for-each select="conditional_modifiers/skillbonus">
 									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 								</xsl:for-each>
@@ -2488,7 +2473,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'border'"/>
 						</xsl:call-template>
-						<fo:block font-size="4pt">Conditional Modifiers</fo:block>
+<!-->						<fo:block font-size="4pt">Conditional Save Modifiers</fo:block>	-->
 						<xsl:for-each select="conditional_modifiers/savebonus">
 							<fo:block font-size="4pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 						</xsl:for-each>
@@ -2626,12 +2611,20 @@
 				</xsl:call-template>
 						<fo:table-row>
 							<fo:table-cell>
-								<fo:block font-size="8pt">Conditional Modifiers:</fo:block>
-								
+							<xsl:if test="count(conditional_modifiers/savebonus) &gt; 0">
+								<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Save Modifiers:</fo:block>	
+
+								<xsl:for-each select="conditional_modifiers/savebonus">
+									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
+								</xsl:for-each>
+							</xsl:if>
+							<xsl:if test="count(conditional_modifiers/combatbonus) &gt; 0">
+								<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Combat Modifiers:</fo:block>	
+
 								<xsl:for-each select="conditional_modifiers/combatbonus">
 									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 								</xsl:for-each>
-								
+							</xsl:if>	
 							</fo:table-cell>
 						</fo:table-row>
 			</fo:table-body>

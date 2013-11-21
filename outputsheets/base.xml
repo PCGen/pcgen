@@ -470,6 +470,12 @@
 					<description>|ABILITYALL.ANY.%ability.ASPECT=CombatBonus.ASPECT.CombatBonus|</description>
 				</combatbonus>
 |ENDFOR|
+|FOR,%ability,0,countdistinct("ABILITIES","ASPECT=SaveBonus")-1,1,0|
+			<savebonus>
+				<description>|ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus|</description>
+			</savebonus>
+|ENDFOR|
+
 		</conditional_modifiers>
 
 		<melee>
