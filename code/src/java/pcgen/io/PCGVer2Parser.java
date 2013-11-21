@@ -1207,6 +1207,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (cache.containsKey(TAG_SPELLNAME))
 		{
+			// Calculate what has been granted so far, particularly any ability granted spells
+			thePC.setImporting(false);
+			thePC.calcActiveBonuses();
+			thePC.setImporting(true);
+			
 			for (final String line : cache.get(TAG_SPELLNAME))
 			{
 				parseSpellLine(line);
@@ -4027,23 +4032,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 
 		// the first element defines the skill key name!!!
+		String skillKey = "";
 		if (it.hasNext())
 		{
 			final PCGElement element = it.next();
 
-			final String skillKey = EntityEncoder.decode(element.getText());
+			skillKey = EntityEncoder.decode(element.getText());
 			aSkill =
 					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 						Skill.class, skillKey);
 
-			if (aSkill == null)
-			{
-				final String message = "Could not add skill: " + skillKey;
-				warnings.add(message);
-
-				return;
-			}
-			if (!thePC.hasSkill(aSkill))
+			if (aSkill != null && !thePC.hasSkill(aSkill))
 			{
 				thePC.addSkill(aSkill);
 			}
@@ -4073,7 +4072,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					// Maybe warn the user?
 				}
 
-				thePC.setSkillOrder(aSkill, outputindex);
+				if (aSkill != null)
+				{
+					thePC.setSkillOrder(aSkill, outputindex);
+				}
 			}
 			else if (TAG_CLASSBOUGHT.equals(tag))
 			{
@@ -4128,6 +4130,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 				}
 
+				if (aSkill == null)
+				{
+					// We only need to report this if the skill had ranks.
+					final String message = "Could not add skill: " + skillKey;
+					warnings.add(message);
+					return;
+				}
+				
 				try
 				{
 					double ranks = Double.parseDouble(childRanks.getText());
@@ -4144,7 +4154,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					continue;
 				}
 			}
-			else if (TAG_ASSOCIATEDDATA.equals(tag))
+			else if (aSkill != null && TAG_ASSOCIATEDDATA.equals(tag))
 			{
 				String key = EntityEncoder.decode(element.getText());
 				ChoiceManagerList<Object> controller =
@@ -4165,11 +4175,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							+ aSkill);
 				}
 			}
-			else if (tag.equals(TAG_LEVELABILITY))
+			else if (aSkill != null && tag.equals(TAG_LEVELABILITY))
 			{
 				parseLevelAbilityInfo(element, aSkill);
 			}
-			else if (tag.equals(TAG_ADDTOKEN))
+			else if (aSkill != null && tag.equals(TAG_ADDTOKEN))
 			{
 				parseAddTokenInfo(element, aSkill);
 			}
@@ -4344,7 +4354,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		int times = 1;
 		int spellLevel = 0;
 		int numPages = 0;
-
+		
 		final List<Ability> metaFeats = new ArrayList<Ability>();
 
 		int ppCost = -1;
@@ -4560,6 +4570,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		thePC.addSpellBook(spellBook);
 		final SpellBook book = thePC.getSpellBookByName(spellBook);
 
+		thePC.calculateKnownSpellsForClassLevel(aPCClass);
 		final Integer[] spellLevels =
 				SpellLevel.levelForKey(aSpell, thePC.getSpellLists(source),
 					thePC);
