@@ -7658,7 +7658,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				int currentLevel = getLevel(pcClassClone);
 				pcClassClone.subLevel(bSilent, this);
 				PCLevelInfo removedLI = removeLevelInfo(pcClassClone.getKeyName());
-				getActiveClassLevel(pcClassClone, currentLevel);
 				int pointsToRemove =
 						removedLI.getSkillPointsGained(this)
 							- removedLI.getSkillPointsRemaining();

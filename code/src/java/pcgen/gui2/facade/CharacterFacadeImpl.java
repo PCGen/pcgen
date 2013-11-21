@@ -1960,11 +1960,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				}
 			}
 		}
+		refreshClassLevelModel();
 		refreshStatScores();
 		age.setReference(charDisplay.getAge());
 		updateAgeCategoryForAge();
 		refreshHeightWeight();
-		refreshClassLevelModel();
 		characterAbilities.rebuildAbilityLists();
 		currentXP.setReference(charDisplay.getXP());
 		xpForNextlevel.setReference(charDisplay.minXPForNextECL());
