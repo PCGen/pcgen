@@ -792,6 +792,13 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
+		// Don't allow the cost modifier to push the value further into the negatives
+		if (c1.compareTo(BigDecimal.ZERO) >= 0
+			&& c1.add(itemCost).add(costMod).compareTo(BigDecimal.ZERO) < 0)
+		{
+			return BigDecimal.ZERO;
+		}
+		
 		return c1.add(itemCost).add(costMod);
 	}
 
