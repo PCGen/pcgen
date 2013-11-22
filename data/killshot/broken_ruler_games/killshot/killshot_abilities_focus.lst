@@ -1,9 +1,9 @@
 SOURCELONG:Killshot	SOURCESHORT:KiSh
 ###Block: Focus Purchase Section
 The Bomber			KEY:The Bomber ~ Bought		SORTKEY:Focus_Bomber_1		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase			PREVARGTEQ:TrainingPool,BomberFocusCost+AdditionalFocusTrainingCost		BONUS:VAR|TrainingPool|-BomberFocusCost	ABILITY:Special Ability|AUTOMATIC|The Bomber
-Bomber Additional		PREABILITY:1,CATEGORY=Special Ability,The Bomber	PRECLASS:1,Assassin=1				SORTKEY:Focus_Bomber_2		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase.FocusAdditional	PREVARGTEQ:TrainingPool,3						BONUS:VAR|TrainingPool|-3	CHOOSE:USERINPUT	MULT:YES	
+Bomber Additional		PREABILITY:1,CATEGORY=Special Ability,The Bomber	PRECLASS:1,Assassin=1				SORTKEY:Focus_Bomber_2		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase.FocusAdditional	PREVARGTEQ:TrainingPool,3						BONUS:VAR|TrainingPool|-3	CHOOSE:USERINPUT	MULT:YES
 The Burglar			KEY:The Burglar ~ Bought	SORTKEY:Focus_Burglar_1		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase			PREVARGTEQ:TrainingPool,BurglarFocusCost+AdditionalFocusTrainingCost		BONUS:VAR|TrainingPool|-BurglarFocusCost	ABILITY:Special Ability|AUTOMATIC|The Burglar
-Burglar Additional	PREABILITY:1,CATEGORY=Special Ability,The Burglar	PRECLASS:1,Assassin=1				SORTKEY:Focus_Burglar_2		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase.FocusAdditional	PREVARGTEQ:TrainingPool,3						BONUS:VAR|TrainingPool|-3	CHOOSE:USERINPUT	MULT:YES	
+Burglar Additional	PREABILITY:1,CATEGORY=Special Ability,The Burglar	PRECLASS:1,Assassin=1				SORTKEY:Focus_Burglar_2		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase.FocusAdditional	PREVARGTEQ:TrainingPool,3						BONUS:VAR|TrainingPool|-3	CHOOSE:USERINPUT	MULT:YES
 The Driver			KEY:The Driver ~ Bought		SORTKEY:Focus_Driver_1		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase			PREVARGTEQ:TrainingPool,DriverFocusCost+AdditionalFocusTrainingCost		BONUS:VAR|TrainingPool|-DriverFocusCost	ABILITY:Special Ability|AUTOMATIC|The Driver
 Driver Additional		PREABILITY:1,CATEGORY=Special Ability,The Driver	PRECLASS:1,Assassin=1				SORTKEY:Focus_Driver_2		COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase.FocusAdditional	PREVARGTEQ:TrainingPool,2						BONUS:VAR|TrainingPool|-2
 The Enforcer		KEY:The Enforcer ~ Bought	SORTKEY:Focus_Enforcer_1	COST:0	CATEGORY:Training Pool	TYPE:FocusPurchase			PREVARGTEQ:TrainingPool,EnforcerFocusCost+AdditionalFocusTrainingCost		BONUS:VAR|TrainingPool|-EnforcerFocusCost	ABILITY:Special Ability|AUTOMATIC|The Enforcer
@@ -50,4 +50,3 @@ The Tech		COST:0	SOURCEPAGE:p.	CATEGORY:Special Ability	VISIBLE:YES	TYPE:Focus.F
 
 # COMMENT: We have a Base Cost of 4, but you can take another 3 Points in the Burglar to modify a single aspect, this may be done multiple times, but may not increase a particular item beyond DOUBLE it's value.
 # COMMENT: Implementation not completed - Would do a separate Ability to Bonus a Var that controls the value.
-

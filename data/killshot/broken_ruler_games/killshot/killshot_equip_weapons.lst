@@ -3,12 +3,12 @@
 
 
 #Block:Melee Weapon	SLOTS		Attack Type				Damage	Weight	Options	Reactions	Price
-Baseball Bat		SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Normal						WT:2	EQMOD:SMASH.FRACTURE	COST:0
-Club				SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:3	EQMOD:SMASH.FRACTURE	COST:0
+Baseball Bat		SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Normal						WT:2	EQMOD:FRACTURE.SMASH	COST:0
+Club				SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:3	EQMOD:FRACTURE.SMASH	COST:0
 Dagger/Knife		SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal	QUALITY:Range|(1 Move)		WT:1	EQMOD:SLOW			COST:50
 Quarterstaff		SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Normal						WT:1	EQMOD:GRAB.TRIP		COST:0
-Sword (One-Handed)	SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:1	EQMOD:SEVER.BLEED		COST:500
-Sword (Two-Handed)	SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:2	EQMOD:SEVER.BLEED		COST:500
+Sword (One-Handed)	SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:1	EQMOD:BLEED.SEVER		COST:500
+Sword (Two-Handed)	SLOTS:2		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal						WT:2	EQMOD:BLEED.SEVER		COST:500
 Throwing knives		SLOTS:1		TYPE:Weapons.Close	QUALITY:Damage Type|Lethal	QUALITY:Range|(3 Move)		WT:1	EQMOD:BLEED			COST:200
 
 
@@ -27,5 +27,3 @@ Rifle (sniper+ (Heavy))				SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(sight)	
 Shotgun						SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(2 Move)	QUALITY:Ammo Slots|2	QUALITY:Damage Type|Lethal+2	WT:1	EQMOD:PUSH				COST:400
 Submachine gun					SLOTS:1		TYPE:Weapons.Distance	QUALITY:Range|(5 Move)	QUALITY:Ammo Slots|4	QUALITY:Damage Type|Lethal	WT:1	EQMOD:BURST.FULLAUTO		COST:1000
 RPG (Rocket Propelled Grenade) Launcher	SLOTS:2		TYPE:Weapons.Distance	QUALITY:Range|(10 Move)					QUALITY:Damage Type|Lethal	WT:1	EQMOD:EXPLODE.PUSH		COST:2000
-
-

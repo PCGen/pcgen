@@ -2,18 +2,18 @@
 Default	CATEGORY:Internal	VISIBLE:NO	TYPE:AutoGranted	DEFINE:AdditionalFocusTrainingCost|0	BONUS:VAR|AdditionalFocusTrainingCost|2|PREABILITY:1,CATEGORY=Special Ability,TYPE.Focus|PRECLASS:1,Assassin=1	BONUS:VAR|AdditionalFocusTrainingCost|4|PREABILITY:2,CATEGORY=Special Ability,TYPE.Focus|PRECLASS:1,Assassin=1	BONUS:VAR|AdditionalFocusTrainingCost|8|PREABILITY:3,CATEGORY=Special Ability,TYPE.Focus|PRECLASS:1,Assassin=1	BONUS:VAR|TrainingPool|-FocusTrainingCostIncrease	DEFINE:FocusTrainingCostIncrease|0		ABILITY:Special Ability|AUTOMATIC|TYPE=AutoReaction		BONUS:ABILITYPOOL|Stat Purchase|TotalTrainingPool/10|PRECHARACTERTYPE:1,Mark	BONUS:ABILITYPOOL|Stat Purchase|TotalTrainingPool/15|PRECHARACTERTYPE:1,Thug		BONUS:ABILITYPOOL|Mark or Thug Builder|1|PRECHARACTERTYPE:1,Mark,Thug	DEFINE:BomberFocusCost|0	BONUS:VAR|BomberFocusCost|5|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|BomberFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:BurglarFocusCost|0	BONUS:VAR|BurglarFocusCost|4|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|BurglarFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:DriverFocusCost|0	BONUS:VAR|DriverFocusCost|4|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|DriverFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:EnforcerFocusCost|0	BONUS:VAR|EnforcerFocusCost|5|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|EnforcerFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:GrifterFocusCost|0	BONUS:VAR|GrifterFocusCost|3|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|GrifterFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:HunterFocusCost|0	BONUS:VAR|HunterFocusCost|4|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|HunterFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:SniperFocusCost|0	BONUS:VAR|SniperFocusCost|5|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|SniperFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:TechFocusCost|0		BONUS:VAR|TechFocusCost|4|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|TechFocusCost|5|PRECHARACTERTYPE:1,Thug,Mark	DEFINE:SkillCost|0	BONUS:VAR|SkillCost|1|PRECHARACTERTYPE:1,Assassin	BONUS:VAR|SkillCost|2|PRECHARACTERTYPE:1,Mark,Thug
 
 # Stats - Measured in d12s
-Body	ASPECT:NAME|Body %1d12|BodyDice	CATEGORY:Special Ability	TYPE:StatDisplay	
-Sense	ASPECT:NAME|Sense %1d12|SenseDice	CATEGORY:Special Ability	TYPE:StatDisplay	
-Mind	ASPECT:NAME|Mind %1d12|MindDice	CATEGORY:Special Ability	TYPE:StatDisplay	
+Body	ASPECT:NAME|Body %1d12|BodyDice	CATEGORY:Special Ability	TYPE:StatDisplay
+Sense	ASPECT:NAME|Sense %1d12|SenseDice	CATEGORY:Special Ability	TYPE:StatDisplay
+Mind	ASPECT:NAME|Mind %1d12|MindDice	CATEGORY:Special Ability	TYPE:StatDisplay
 #
 Body +1	BONUS:LOCKEDSTAT|BOD|1	BONUS:VAR|BodyDice|1	CATEGORY:Special Ability	TYPE:STATPurchase	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:STAT|BOD|1
 Sense +1	BONUS:LOCKEDSTAT|SEN|1	BONUS:VAR|SenseDice|1	CATEGORY:Special Ability	TYPE:STATPurchase	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:STAT|SEN|1
 Mind +1	BONUS:LOCKEDSTAT|MND|1	BONUS:VAR|MindDice|1	CATEGORY:Special Ability	TYPE:STATPurchase	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:STAT|MND|1
 ###Block:
-Mission Reward		CATEGORY:Special Ability	TYPE:Mission	MULT:YES	STACK:YES	CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10	BONUS:VAR|TrainingPool|%LIST
+Mission Reward		CATEGORY:Special Ability	TYPE:Mission	MULT:YES	STACK:YES	CHOOSE:STRING|1|10|2|3|4|5|6|7|8|9	BONUS:VAR|TrainingPool|%LIST
 #Achievement Award		CATEGORY:Special Ability	TYPE:Mission	MULT:YES	STACK:YES	CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10	BONUS:VAR|TrainingPool|%LIST
 
 # COMMENT: Defines the Focus Additional Cost Increase, and separately handles the Pool Deduction - Had to be different otherwise we would be paying before we should.
 
 
-Mark or Thug Training Points	TYPE:NPCBuilding	CATEGORY:Training Pool	PRECHARACTERTYPE:1,Thug,Mark	MULT:YES	STACK:YES	CHOOSE:STRING|5|10|15|20|25|30|35|40|45|50	BONUS:VAR|TrainingPool|%LIST	BONUS:VAR|TotalTrainingPool|%LIST	DEFINE:TotalTrainingPool|0
+Mark or Thug Training Points	TYPE:NPCBuilding	CATEGORY:Training Pool	PRECHARACTERTYPE:1,Thug,Mark	MULT:YES	STACK:YES	CHOOSE:STRING|10|15|20|25|30|35|40|45|5|50	BONUS:VAR|TrainingPool|%LIST	BONUS:VAR|TotalTrainingPool|%LIST	DEFINE:TotalTrainingPool|0
