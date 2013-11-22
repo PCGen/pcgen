@@ -71,11 +71,28 @@ public class BodyStructure implements BodyStructureFacade
 	 * @param holdsAnyType Can this item hold anything at all
 	 * @param forbiddenTypes The exceptions to the 'holds any type' rule.
 	 */
-	public BodyStructure(String name, boolean holdsAnyType, Type... forbiddenTypes)
+	public BodyStructure(String name, boolean holdsAnyType)
+	{
+		this(name, holdsAnyType, null);
+	}
+
+	/**
+	 * Create a new BodyStructure instance noting if it can hold any type 
+	 * of equipment item. BodyStructures such as equipped, carried or not 
+	 * carried may hold items of any type.
+	 * 
+	 * @param name The name of the body structure.
+	 * @param holdsAnyType Can this item hold anything at all
+	 * @param forbiddenTypes The exceptions to the 'holds any type' rule.
+	 */
+	public BodyStructure(String name, boolean holdsAnyType, Set<Type> forbiddenTypes)
 	{
 		this.name = name;
 		this.forbiddenTypes = new HashSet<Type>();
-		this.forbiddenTypes.addAll(Arrays.asList(forbiddenTypes));
+		if (forbiddenTypes != null)
+		{
+			this.forbiddenTypes.addAll(forbiddenTypes);
+		}
 		slots = new ArrayList<EquipSlot>();
 		this.holdsAnyType = holdsAnyType;
 	}

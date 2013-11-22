@@ -40,7 +40,6 @@ import pcgen.util.Logging;
  **/
 public final class EquipSlot implements Cloneable
 {
-	private Set<String> containEqList = new HashSet<String>();
 
 	/**
 	 *
@@ -56,6 +55,7 @@ public final class EquipSlot implements Cloneable
 	 *
 	 **/
 	private String slotName = "";
+	private Set<String> containEqList = new HashSet<String>();
 	private String slotNumType = "";
 	private int containNum = 1;
 

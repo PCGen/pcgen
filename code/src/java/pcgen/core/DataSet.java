@@ -26,9 +26,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
@@ -209,8 +211,9 @@ public class DataSet implements DataSetFacade
 			bodyStructures.addElement(bodyStructure);
 			structMap.put(name, bodyStructure);
 		}
+		Set<Type> typesWithDesignatedSlots = buildSlottedTypeList();
 		bodyStructures.addElement(new BodyStructure(
-			Constants.EQUIP_LOCATION_EQUIPPED, true, Type.WEAPON, Type.SHIELD, Type.ARMOR));
+			Constants.EQUIP_LOCATION_EQUIPPED, true, typesWithDesignatedSlots));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_CARRIED, true));
 		bodyStructures.addElement(new BodyStructure(Constants.EQUIP_LOCATION_NOTCARRIED, true));
 		
@@ -241,6 +244,24 @@ public class DataSet implements DataSetFacade
 		
 		createGearBuySellSchemes();
 		
+	}
+
+	/**
+	 * @return
+	 */
+	private Set<Type> buildSlottedTypeList()
+	{
+		Set<Type> typeList = new HashSet<Type>();
+		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
+		{
+			
+			for (String typeString : es.getContainType())
+			{
+				typeList.add(Type.getConstant(typeString));
+			}
+		}
+		
+		return typeList;
 	}
 
 	/**
