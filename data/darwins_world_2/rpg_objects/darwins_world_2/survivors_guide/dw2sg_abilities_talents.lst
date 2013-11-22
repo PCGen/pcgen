@@ -28,7 +28,11 @@ Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	P
 Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																								BONUS:SKILLRANK|LIST|4
 Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Craft																									BONUS:SKILLRANK|LIST|4
 Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE	MULT:YES	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat											AUTO:FEAT|%LIST
-Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Powered Armor Operation|Surface Vehicle Operation|TYPE=ASVehicle|Vehicle Expert|TITLE=Add a Feat	AUTO:FEAT|%LIST
+Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Powered Armor Operation|Surface Vehicle Operation|Vehicle Expert|Ancient Vehicles (Pilot)|Ancient Vehicles (Drive)|TITLE=Add a Feat	AUTO:FEAT|%LIST
+
+Ancient Vehicles (Pilot)	CATEGORY:FEAT	VISIBLE:NO	ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
+Ancient Vehicles (Drive)	CATEGORY:FEAT	VISIBLE:NO	ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
+
 
 Ancient Vehicles (Pilot)	OUTPUTNAME:Pilot	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																						BONUS:SKILLRANK|Pilot|4
 Ancient Vehicles (Drive)	OUTPUTNAME:Drive	CATEGORY:Talent		TYPE:Talent.ScholarTalent.ASVehicle		VISIBLE:YES																																						BONUS:SKILLRANK|Drive|4
