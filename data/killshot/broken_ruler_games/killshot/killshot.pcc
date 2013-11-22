@@ -52,7 +52,3 @@ ARMORPROF:killshot_profs_armor.lst
 
 RACE:killshot_race.lst
 
-# Dummy Entries
-#KIT:killshot_kit.lst
-#FEAT:killshot_feat.lst
-#SKILL:killshot_skill.lst
