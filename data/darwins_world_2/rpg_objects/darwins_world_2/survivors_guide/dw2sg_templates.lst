@@ -40,12 +40,12 @@ Serrated Dental Development Template	VISIBLE:NO																										BONUS:W
 
 ###Block: Nonexistant Scores
 # Template Name	Visible	Define
-No Strength		VISIBLE:NO	DEFINE:LOCK.STR|10
-No Dexterity	VISIBLE:NO	DEFINE:LOCK.DEX|10
-No Constitution	VISIBLE:NO	DEFINE:LOCK.CON|10
-No Intelligence	VISIBLE:NO	DEFINE:LOCK.INT|10
-No Wisdom		VISIBLE:NO	DEFINE:LOCK.WIS|10
-No Charisma		VISIBLE:NO	DEFINE:LOCK.CHA|10
+No Strength		VISIBLE:NO	DEFINESTAT:NONSTAT|STR
+No Dexterity	VISIBLE:NO	DEFINESTAT:NONSTAT|DEX
+No Constitution	VISIBLE:NO	DEFINESTAT:NONSTAT|CON
+No Intelligence	VISIBLE:NO	DEFINESTAT:NONSTAT|INT
+No Wisdom		VISIBLE:NO	DEFINESTAT:NONSTAT|WIS
+No Charisma		VISIBLE:NO	DEFINESTAT:NONSTAT|CHA
 
 ###Block: Companion Mods
 # Template Name			Visible	Virtual Feat

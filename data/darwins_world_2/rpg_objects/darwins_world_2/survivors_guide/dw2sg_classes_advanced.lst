@@ -52,9 +52,9 @@ CLASS:Guardian	STARTSKILLPTS:3	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledg
 1	SAB:Defender (+%)|defendLvl									BONUS:VAR|defendLvl|2	DEFINE:defendLvl|0
 2																						ADD:FEAT|Weapon Focus
 4	SAB:Tactical Aid											BONUS:VAR|tactAid|1	DEFINE:tactAid|0
-5						BONUS:ABILITYPOOL|Weapon Specialization
+5						BONUS:ABILITYPOOL|Weapon Specialization|1
 7														BONUS:VAR|defendLvl|2
-8						BONUS:ABILITYPOOL|Greater Weapon Specialization
+8						BONUS:ABILITYPOOL|Greater Weapon Specialization|1
 10	SAB:Raider Bane
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus															Combat bonus		Modify VAR
