@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.AspectName;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
 
@@ -364,7 +365,7 @@ public class Aspect extends ConcretePrereqObject
 			}
 			else
 			{
-				buf.append(str);
+				buf.append(EntityEncoder.encode(str));
 			}
 		}
 		if ( theVariables != null )

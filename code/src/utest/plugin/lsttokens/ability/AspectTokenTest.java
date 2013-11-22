@@ -142,6 +142,12 @@ public class AspectTokenTest extends AbstractTokenTestCase<Ability>
 		runRoundRobin("Languedoc-Roussillon Quality|Languedoc-Roussillon");
 	}
 
+	@Test
+	public void testRoundRobinEncoding() throws PersistenceLayerException
+	{
+		runRoundRobin("DESC|&nl; Trained&colon; When you gain this aspect, choose persuasion...");
+	}
+
 	@Override
 	protected String getAlternateLegalValue()
 	{
