@@ -1,0 +1,4 @@
+
+Default		CATEGORY:Internal		BONUS:ABILITYPOOL|Starting Language|1|PRECLASS:1,TYPE.PC=1
+
+Starting Language	CATEGORY:Special Ability	TYPE:SpecialQuality	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILLRANK|%LIST|4+StartingLanguageRankFix	BONUS:SKILL|%LIST|2-StartingLanguageRankFix	DEFINE:StartingLanguageRankFix|0	BONUS:VAR|StartingLanguageRankFix|MIN((TL-1),2)	DESC:%1 is your native language.|%LIST
