@@ -310,7 +310,7 @@ Far Shot.MOD										TYPE:Hunter
 Point Blank Shot.MOD									TYPE:Hunter
 
 # Psychic Investigator
-Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Sense Motive)|Skill Focus +2 to Two Skills(Investigate)
+Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
 Psychic Investigator ~ Skill Focus (Decipher Script and Research)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Decipher Script)|Skill Focus +2 to Two Skills(Research)
 
 # Politician
@@ -329,4 +329,4 @@ Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MUL
 Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
 Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
 Skill Focus (Survival).MOD									TYPE:World_Traveler		VISIBLE:DISPLAY
-Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))|Skill Focus +2 to Two Skills (Gather Information)
+Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Gather Information)|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))

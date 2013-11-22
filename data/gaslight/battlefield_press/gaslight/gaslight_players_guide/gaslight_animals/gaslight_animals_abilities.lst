@@ -39,8 +39,8 @@ Devotion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:
 Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Speak with Animals of its Kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
-Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	TEMPBONUS:PC|SKILL|Spot|3|TYPE=HawkFamiliar	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
+Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	TEMPBONUS:PC|SKILL|Spot|3|TYPE=OwlFamiliar		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
 
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type				Define			Description			Bonus to Ability Pool
