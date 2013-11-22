@@ -34,7 +34,7 @@ CLASS:Counter Terrorist	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|De
 1									BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ABILITY:Special Ability|AUTOMATIC|Special Tactics ~ Counter Terrorist						TEMPLATE:Prestige Class Core Ability	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)|Weapon Group Proficiency (Tactical)
 2																					ABILITY:Special Ability|AUTOMATIC|Precision Takedown ~ Counter Terrorist
 3	BONUS:ABILITYPOOL|Counter Terrorist Feat|1
-4									BONUS:VAR|CrowdControl|CL/4								ABILITY:Special Ability|AUTOMATIC|Safe Attack ~ Counter Terrorist|Crowd control ~ Counter Terrorist
+4									BONUS:VAR|CrowdControl|CL/4								ABILITY:Special Ability|AUTOMATIC|Crowd control ~ Counter Terrorist|Safe Attack ~ Counter Terrorist
 5	BONUS:ABILITYPOOL|Counter Terrorist Feat|1
 6																					ABILITY:Special Ability|AUTOMATIC|Negotiator ~ Counter Terrorist
 7	BONUS:ABILITYPOOL|Counter Terrorist Feat|1
@@ -70,7 +70,7 @@ CLASS:Sniper	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft
 1							BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0													TEMPLATE:Prestige Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Run|Weapon Group Proficiency (Rifle)
 2							BONUS:VAR|MagicTouch|1+(CL>=7)							ABILITY:Special Ability|AUTOMATIC|Magic Touch ~ Sniper
 3	BONUS:ABILITYPOOL|Sniper Feat|1
-4							BONUS:VAR|DeadlyAim|CL/4								ABILITY:Special Ability|AUTOMATIC|One Shot ~ Sniper|Deadly Aim ~ Sniper
+4							BONUS:VAR|DeadlyAim|CL/4								ABILITY:Special Ability|AUTOMATIC|Deadly Aim ~ Sniper|One Shot ~ Sniper
 5	BONUS:ABILITYPOOL|Sniper Feat|1																																AUTO:FEAT|Mobility
 6																			ABILITY:Special Ability|AUTOMATIC|Surprise Shot ~ Sniper
 7	BONUS:ABILITYPOOL|Sniper Feat|1
