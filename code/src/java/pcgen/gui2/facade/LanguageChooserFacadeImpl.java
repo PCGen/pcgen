@@ -34,6 +34,7 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -129,8 +130,17 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		refreshLangListContents(selLangs, selectedList);
 		refreshLangListContents(selLangs, originalSelectedList);
 		
-		int bonusLangMax = theCharacter.getBonusLanguageCount();
-		numSelectionsRemain.setReference(bonusLangMax-selLangs.size());
+		boolean allowBonusLangAfterFirst = Globals.checkRule(RuleConstants.INTBONUSLANG);
+		boolean atFirstLvl = theCharacter.getTotalLevels() <= 1;
+		if (allowBonusLangAfterFirst || atFirstLvl)
+		{
+			int bonusLangMax = theCharacter.getBonusLanguageCount();
+			numSelectionsRemain.setReference(bonusLangMax-selLangs.size());
+		}
+		else
+		{
+			numSelectionsRemain.setReference(0);
+		}
 	}
 
 	/**

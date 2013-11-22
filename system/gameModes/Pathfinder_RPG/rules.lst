@@ -42,7 +42,7 @@ NAME:bypassFeatPreReqs			PARM:FEATPRE			DEFAULT:No					DESC:Bypass Feat Prerequi
 NAME:bypassMaxSkillRanks		PARM:SKILLMAX			DEFAULT:No					DESC:Bypass Max Skill Ranks
 NAME:FreeClothesAtFirst			PARM:FREECLOTHES			DEFAULT:Yes					DESC:Ask For Free Clothing at First Level
 NAME:ClothingEncumbrance		PARM:CLOTHINGENCUMBRANCE	DEFAULT:Yes					DESC:First set of equipped clothing counts towards encumbrance
-NAME:IntBonusLang				PARM:INTBONUSLANG			DEFAULT:No					DESC:Allow Selection of Int bonus Languages after 1st level
+NAME:IntBonusLang				PARM:INTBONUSLANG			DEFAULT:Yes					DESC:Allow Selection of Int bonus Languages after 1st level
 NAME:IncreaseIntBeforeLevel		PARM:INTBEFORE			DEFAULT:Yes					DESC:Increment STAT before calculating skill points when leveling
 NAME:RetrocativeSkillBonus		PARM:RETROSKILL			DEFAULT:Yes					DESC:Changes to bonus skill points are retroactive
 NAME:IgnoreLevelCap			PARM:LEVELCAP			DEFAULT:No					DESC:Ignore Level Cap

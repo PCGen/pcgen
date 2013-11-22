@@ -801,6 +801,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		buildAvailableDomainsList();
 		spellSupportFacade.refreshAvailableKnownSpells();
 		updateScorePurchasePool(false);
+		refreshLanguageList();
 	}
 
 	private void refreshHeightWeight()
@@ -1681,6 +1682,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.saveStatIncrease(pcStat, score - baseScore, false);
 		theCharacter.calcActiveBonuses();
 		hpRef.setReference(theCharacter.hitPoints());
+		refreshLanguageList();
 
 		updateScorePurchasePool(true);
 		if (charLevelsFacade != null)
@@ -2487,6 +2489,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		languages.updateContents(sortedLanguages);
 		autoLanguagesCache = null;
 
+		boolean allowBonusLangAfterFirst = Globals.checkRule(RuleConstants.INTBONUSLANG);
+		boolean atFirstLvl = theCharacter.getTotalLevels() <= 1;
+
 		int bonusLangMax = theCharacter.getBonusLanguageCount();
 		
 		currBonusLangs = new ArrayList<Language>();
@@ -2502,14 +2507,30 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 		int bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		if (!allowBonusLangAfterFirst && !atFirstLvl)
+		{
+			bonusLangRemain = 0;
+		}
 		numBonusLang.setReference(bonusLangRemain);
 		if (bonusLangRemain > 0)
 		{
-			todoManager
-					.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Languages", "in_sumTodoBonusLanguage", 110));
-		} else
+			if (allowBonusLangAfterFirst)
+			{
+				todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY,
+					"Languages", "in_sumTodoBonusLanguage", 110));
+				todoManager.removeTodo("in_sumTodoBonusLanguageFirstOnly");
+			}
+			else
+			{
+				todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY,
+					"Languages", "in_sumTodoBonusLanguageFirstOnly", 110));
+				todoManager.removeTodo("in_sumTodoBonusLanguage");
+			}
+		}
+		else
 		{
 			todoManager.removeTodo("in_sumTodoBonusLanguage");
+			todoManager.removeTodo("in_sumTodoBonusLanguageFirstOnly");
 		}
 
 		int numSkillLangSelected = 0;
