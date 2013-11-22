@@ -15,8 +15,8 @@ SpeakerSpells	TYPE:SpeakerOfTheCity	VISIBLE:NO	PRECLASS:1,Speaker of the City=1
 
 ###Block:Temporary Bonuses
 # Feat Name						Type				Visible	Required Class				Damage reduction									Misc bonus											Bonus to skill																										Spell Res.	Damage Reduction
-Speaker of the City in an urban setting	TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Speaker of the City=1	BONUS:DR|+1|floor(var("CL=Speaker of the City")/10)*5|PREAPPLY:PC	BONUS:MISC|SR|floor(var("CL=Speaker of the City")/10)*20|PREAPPLY:PC	BONUS:SKILL|Bluff,Diplomacy,Intimidate|2|PREAPPLY:PC|TYPE=Competence	BONUS:SKILL|Hide|(min(floor(var("CL=Speaker of the City")/5)),1)*2|PREAPPLY:PC|TYPE=Competence	SR:0		DR:0/+1
-Street Stalker in an urban setting		TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Street Stalker=1																									BONUS:SKILL|Hide,Move Silently|2|PREAPPLY:PC|TYPE=Competence	BONUS:SKILL|Disguise|(var("CL=Street Stalker")/6)|PREAPPLY:PC|TYPE=Competence
+Speaker of the City in an urban setting	TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Speaker of the City=1	TEMPBONUS:PC|DR|+1|floor(var("CL=Speaker of the City")/10)*5	TEMPBONUS:PC|MISC|SR|floor(var("CL=Speaker of the City")/10)*20	TEMPBONUS:PC|SKILL|Bluff,Diplomacy,Intimidate|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Hide|(min(floor(var("CL=Speaker of the City")/5)),1)*2|TYPE=Competence	SR:0		DR:0/+1
+Street Stalker in an urban setting		TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Street Stalker=1																									TEMPBONUS:PC|SKILL|Hide,Move Silently|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Disguise|(var("CL=Street Stalker")/6)|TYPE=Competence
 
 #
 # end

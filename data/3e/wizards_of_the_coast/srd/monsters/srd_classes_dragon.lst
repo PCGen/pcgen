@@ -50,7 +50,7 @@ CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blue Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
+CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
 #*Can also cast cleric spells and those from the Air, Evil, and Law domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|14	BONUS:VAR|BreathWeaponDamageDie|2	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 ###Block: Normal Progression
@@ -141,7 +141,7 @@ CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Evil|DOMAIN.Fire
+CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Chaos|DOMAIN.Evil|DOMAIN.Fire
 #*Can also cast cleric spells and those from the Chaos, Evil, and Fire domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|15	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 ###Block: Normal Progression
@@ -235,7 +235,7 @@ CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Brass Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Knowledge
+CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Cleric|Sorcerer|DOMAIN.Chaos|DOMAIN.Knowledge
 #*Can also cast cleric spells and those from the Chaos and Knowledge domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|13	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sleep
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
@@ -293,7 +293,7 @@ CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bronze Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
+CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
 #*Can also cast cleric spells and those from the Animal, Law, and Water domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|14	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Repulsion Gas
@@ -351,7 +351,7 @@ CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Copper Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
+CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
 #*Can also cast cleric spells and those from the Chaos, Earth, and Trickery domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|13	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Slow
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
@@ -408,7 +408,7 @@ CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gold Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Law|DOMAIN.Luck|DOMAIN.Good
+CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Good|DOMAIN.Law|DOMAIN.Luck
 #*Can also cast cleric spells and those from the Law, Luck, and Good domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDC|16	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 1						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
@@ -466,7 +466,7 @@ CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Silver Dragon	STARTSKILLPTS:6	CSKILL:Listen|Spot|Search|Bluff|Concentration|Diplomacy|Escape Artist|Scry|TYPE=Knowledge
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Law|DOMAIN.Sun
+CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|Sorcerer|DOMAIN.Air|DOMAIN.Law|DOMAIN.Sun
 #*Can also cast cleric spells and those from the Air, Good, Law, and Sun domains as arcane spells.
 1	BONUS:VAR|BreathWeaponDamageDie|2	BONUS:VAR|BreathWeaponDC|15	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
 1												ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas

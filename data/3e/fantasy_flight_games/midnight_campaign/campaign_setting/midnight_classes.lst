@@ -161,12 +161,12 @@ CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intuit Dir
 ###Block: Normal Level Progression
 1	SAB:Horse Lord																																											AUTO:FEAT|Leadership
 2	SAB:Loyal Companions
-3																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(Lance)
+3																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Lance),Weapon Focus(Shortbow%)
 4	SAB:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0
 5	SAB:Whispering Step (Ex) (+5 DC)|PREVARLT:CL,10
-6																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(Lance)
+6																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Lance),Weapon Focus(Shortbow%)
 7	SAB:Spur (Ex)
-9																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(Lance)
+9																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Lance),Weapon Focus(Shortbow%)
 10	SAB:Whispering Step (Ex) (full speed)
 
 # Class Name		Hit Dice	Type			Max Level	Save checks bonus												Combat bonus

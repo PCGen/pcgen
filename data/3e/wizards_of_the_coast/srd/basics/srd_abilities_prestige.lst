@@ -50,7 +50,7 @@ Aura of Despair		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	
 
 ###Block: Dwarven Defender Abilities
 # Ability Name		Category of Ability		Type					Visible	Define																			Description																										Save checks bonus						Combat bonus					Stat bonus									Source Page					Aspects
-Defensive Stance		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:DefensiveStanceTimes|0																DESC:%1 times per day|DefensiveStanceTimes																				BONUS:CHECKS|ALL|2|TYPE=Resistance|PREAPPLY:PC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:PC	BONUS:STAT|STR|2|PREAPPLY:PC	BONUS:STAT|CON|4|PREAPPLY:PC	SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|%1/day|DefensiveStanceTimes
+Defensive Stance		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:DefensiveStanceTimes|0																DESC:%1 times per day|DefensiveStanceTimes																				TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Resistance	TEMPBONUS:PC|COMBAT|AC|4|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|2	TEMPBONUS:PC|STAT|CON|4	SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|%1/day|DefensiveStanceTimes
 Defensive Awareness	CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)	DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0
 
 

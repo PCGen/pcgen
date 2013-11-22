@@ -28,7 +28,7 @@ Half-Plate.MOD																COST:1000
 Full Plate.MOD																COST:1500
 
 # Powered ------------------------------------------------------------------
-Powered Armor			PROFICIENCY:ARMOR|Powered Armor	TYPE:Armor.Powered.Suit.Standard.Metal	COST:80000	WT:500	DEFINE:LOCK.STR|25	ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.	SPELLFAILURE:50		BONUS:COMBAT|AC|10|TYPE=Armor	BONUS:COMBAT|TOHIT|2|TYPE=Equipment	SPROP:X3 to run instead of X2
+Powered Armor			PROFICIENCY:ARMOR|Powered Armor	TYPE:Armor.Powered.Suit.Standard.Metal	COST:80000	WT:500	DEFINESTAT:LOCK|STR|25	ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.	SPELLFAILURE:50		BONUS:COMBAT|AC|10|TYPE=Armor	BONUS:COMBAT|TOHIT|2|TYPE=Equipment	SPROP:X3 to run instead of X2
 
 # Shields ------------------------------------------------------------------
 Buckler.MOD																	COST:100

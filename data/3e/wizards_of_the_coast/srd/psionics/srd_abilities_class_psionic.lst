@@ -21,7 +21,7 @@ PsionicClass	OUTPUTNAME:Psionic	CATEGORY:Special Ability	TYPE:SpecialQuality	VIS
 ###Block: Psionic Feat Support
 # Ability Name			Category of Ability		Type						Visible	Restricted Ability									Required Class			Define									Modify VAR																															Source Page
 Inner Strength Points		CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																		DEFINE:InnerStrFeatCount|0	DEFINE:InnerStrFeatBonus|0	BONUS:VAR|InnerStrFeatCount|var("COUNT[FEATNAME=Inner Strength]")	BONUS:VAR|InnerStrFeatBonus|(InnerStrFeatCount)*((InnerStrFeatCount/2)+.5)	BONUS:VAR|BonusPowerPoints|InnerStrFeatBonus	SOURCEPAGE:srdpsionicfeats.rtf
-Speed of Thought Movement	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																		DEFINE:SOTMOVEBONUS|0							BONUS:VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))|PREAPPLY:PC																			SOURCEPAGE:srdpsionicfeats.rtf
+Speed of Thought Movement	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																		DEFINE:SOTMOVEBONUS|0							TEMPBONUS:PC|VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))																			SOURCEPAGE:srdpsionicfeats.rtf
 
 # These feats support the Talented feat, the user must decide which class the free powers are applied to
 Psychic Warrior Free Powers	CATEGORY:Special Ability	TYPE:Internal.TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psion Free Powers			PRECLASS:1,Psychic Warrior=1											BONUS:VAR|PsyWarFreePowers|3|PREFEAT:1,Talented

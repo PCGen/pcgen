@@ -180,4 +180,3 @@ Water Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 #
 Mindless			CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.Extraordinary					TEMPLATE:Mindless
 #COMMENT: Mindless has a template that triggers DESC tags in three different TRAITS. This is to maintain consistency in application and grants the template
-
