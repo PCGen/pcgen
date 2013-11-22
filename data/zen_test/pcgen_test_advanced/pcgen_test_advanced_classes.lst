@@ -31,7 +31,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 
 # Class Name		Output Name					Hit Dice
-CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1	
+CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
 #1	ABILITY:Special Ability|AUTOMATIC|TYPE.CodeBugOfTheDayTester
 1	ADD:FEAT|TYPE=Code1730
 
@@ -233,7 +233,7 @@ CLASS:Wizard Test	HD:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard Test	STARTSKILLPTS:2	CSKILL:ALL
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Wizard Test	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=3,TYPE=Foo		BONUS:CASTERLEVEL|Wizard Test|CL
+CLASS:Wizard Test	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:TYPE=Foo,LEVEL=3		BONUS:CASTERLEVEL|Wizard Test|CL
 1	CAST:10,10,10,10,10
 2	CAST:10,10,10,10,10
 3	CAST:10,10,10,10,10

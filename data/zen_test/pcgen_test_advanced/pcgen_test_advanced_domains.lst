@@ -14,6 +14,3 @@ Test Spells Domain																SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Spells Tes
 Domain Test Skill		CSKILL:Domain Skill 1
 Domain Test Skill List	CSKILL:LIST			CHOOSE:SKILL|Domain Skill 2|Domain Skill 3
 Domain Add Feat																																			ADD:FEAT|Add Feat Domain
-
-
-

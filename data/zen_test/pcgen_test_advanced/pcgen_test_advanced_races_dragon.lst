@@ -21,7 +21,7 @@ Black Dragon
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Blue Dragon
-	
+
 	KEY:Dragon (Blue)
 	SORTKEY:Dragon_Chromatic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Blue Dragon
@@ -44,7 +44,7 @@ Blue Dragon
 #	MONCSKILL:Bluff|Hide|Spellcraft|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Green Dragon
-	
+
 	KEY:Dragon (Green)
 	SORTKEY:Dragon_Chromatic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Green Dragon
@@ -64,7 +64,7 @@ Green Dragon
 #	MONCSKILL:Bluff|Hide|Move Silently|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Red Dragon
-	
+
 	KEY:Dragon (Red)
 	SORTKEY:Dragon_Chromatic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Red Dragon
@@ -87,7 +87,7 @@ Red Dragon
 #	MONCSKILL:Appraise|Bluff|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 White Dragon
-	
+
 	KEY:Dragon (White)
 	SORTKEY:Dragon_Chromatic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ White Dragon
@@ -107,7 +107,7 @@ White Dragon
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Brass Dragon
-	
+
 	KEY:Dragon (Brass)
 	SORTKEY:Dragon_Metallic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Brass Dragon
@@ -129,7 +129,7 @@ Brass Dragon
 #	MONCSKILL:Bluff|Gather Information|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Bronze Dragon
-	
+
 	KEY:Dragon (Bronze)
 	SORTKEY:Dragon_Metallic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Bronze Dragon
@@ -152,7 +152,7 @@ Bronze Dragon
 #	MONCSKILL:Disguise|Swim|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Copper Dragon
-	
+
 	KEY:Dragon (Copper)
 	SORTKEY:Dragon_Metallic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Copper Dragon
@@ -175,7 +175,7 @@ Copper Dragon
 #	MONCSKILL:Bluff|Hide|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Gold Dragon
-	
+
 	KEY:Dragon (Gold)
 	SORTKEY:Dragon_Metallic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gold Dragon
@@ -198,7 +198,7 @@ Gold Dragon
 #	MONCSKILL:Disguise|Heal|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Silver Dragon
-	
+
 	KEY:Dragon (Silver)
 	SORTKEY:Dragon_Metallic
 	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Silver Dragon

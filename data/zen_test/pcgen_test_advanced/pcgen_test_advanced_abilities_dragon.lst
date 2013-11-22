@@ -232,7 +232,7 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	ABILITY:Special Ability|AUTOMATIC|Corrupt Water ~ Black Dragon|PREVARGTEQ:DragonAge,10
 	ABILITY:Special Ability|AUTOMATIC|Charm Reptile ~ Black Dragon|PREVARGTEQ:DragonAge,12
 
-Breath Weapon			KEY:Breath Weapon ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine	DEFINE:DragonBreathWeaponDieSize|4	
+Breath Weapon			KEY:Breath Weapon ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine	DEFINE:DragonBreathWeaponDieSize|4
 Water Breathing			KEY:Water Breathing ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary	DESC:A black dragon can breathe underwater indefinitely and can freely use its breath weapon, spells, and other abilities while submerged.
 Corrupt Water			KEY:Corrupt Water ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:Once per day an adult or older black dragon can stagnate 10 cubic feet of water, making it become still, foul, and unable to support animal life. The ability spoils liquids containing water. Magic items (such as potions) and items in a creature's possession must succeed on a Will save (DC equal to that of the dragon's frightful presence) or become fouled. This ability is the equivalent of a 1st-level spell. Its range is equal to that of the dragon's frightful presence.
 Charm Reptile			KEY:Charm Reptile ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:A great wyrm black dragon can use this ability three times per day. It works as a mass charm spell that affects only reptilian animals. The dragon can communicate with any charmed reptiles as though casting a speak with animals spell. This ability is the equivalent of a 1st-level spell.
@@ -291,7 +291,7 @@ Racial Traits ~ Blue Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Blue Dragon|Create/Destroy Water ~ Blue Dragon|Skills ~ Blue Dragon|Immunity To Electricity
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Blue Dragon|Create/Destroy Water ~ Blue Dragon|Immunity To Electricity|Skills ~ Blue Dragon
 	ABILITY:Special Ability|AUTOMATIC|Sound Imitation ~ Blue Dragon|PREVARGTEQ:DragonAge,4
 	ABILITY:Special Ability|AUTOMATIC|Other Spell-Like Abilities ~ Blue Dragon|PREVARGTEQ:DragonAge,6
 
@@ -356,7 +356,7 @@ Racial Traits ~ Green Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Green Dragon|Water Breathing ~ Green Dragon|Skills ~ Green Dragon|Immunity To Acid
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Green Dragon|Immunity to Acid|Skills ~ Green Dragon|Water Breathing ~ Green Dragon
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Green Dragon|PREVARGTEQ:DragonAge,6
 
 Breath Weapon		KEY:Breath Weapon ~ Green Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A green dragon has one type of breath weapon, a cone of corrosive (acid) gas. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|6
@@ -485,7 +485,7 @@ Racial Traits ~ White Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ White Dragon|Icewalking ~ White Dragon|Skills ~ White Dragon	
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ White Dragon|Icewalking ~ White Dragon|Skills ~ White Dragon
 	ABILITY:Special Ability|AUTOMATIC|Other Spell-Like Abilities ~ White Dragon|PREVARGTEQ:DragonAge,4
 	ABILITY:Special Ability|AUTOMATIC|Freezing Fog ~ White Dragon|PREVARGTEQ:DragonAge,8
 
@@ -615,7 +615,7 @@ Racial Traits ~ Bronze Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Bronze Dragon|Water Breathing ~ Bronze Dragon|Skills ~ Bronze Dragon|Immunity to Electricity
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Bronze Dragon|Immunity to Electricity|Skills ~ Bronze Dragon|Water Breathing ~ Bronze Dragon
 	ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Bronze Dragon|PREVARGTEQ:DragonAge,3
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Bronze Dragon|PREVARGTEQ:DragonAge,6
 
@@ -681,7 +681,7 @@ Racial Traits ~ Copper Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Copper Dragon|Spider Climb ~ Copper Dragon|Skills ~ Copper Dragon|Immunity to Acid
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Copper Dragon|Immunity to Acid|Skills ~ Copper Dragon|Spider Climb ~ Copper Dragon
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Copper Dragon|PREVARGTEQ:DragonAge,6
 
 Breath Weapon		KEY:Breath Weapon ~ Copper Dragon		SOURCEPAGE:RSRD	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A Copper dragon has two types of breath weapon, a line of acid [Damage %1d%2, DC %3, Length %4] and a cone of slow gas. Creatures within the cone must succeed on a Fortitude save or be slowed for 1d6 rounds plus 1 round per age category of the dragon.|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|4
@@ -754,7 +754,7 @@ Racial Traits ~ Gold Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Gold Dragon|Alternate Form ~ Gold Dragon|Water Breathing ~ Gold Dragon|Skills ~ Gold Dragon
+	ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Gold Dragon|Breath Weapon ~ Gold Dragon|Skills ~ Gold Dragon|Water Breathing ~ Gold Dragon
 	ABILITY:Special Ability|AUTOMATIC|Other Spell-Like Abilities ~ Gold Dragon|PREVARGTEQ:DragonAge,4
 	ABILITY:Special Ability|AUTOMATIC|Luck Bonus ~ Gold Dragon|PREVARGTEQ:DragonAge,6
 	ABILITY:Special Ability|AUTOMATIC|Detect Gems ~ Gold Dragon|PREVARGTEQ:DragonAge,8
@@ -827,7 +827,7 @@ Racial Traits ~ Silver Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Silver Dragon|Alternate Form ~ Silver Dragon|Cloudwalking ~ Silver Dragon|Skills ~ Silver Dragon|Immunity to Acid
+	ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Silver Dragon|Breath Weapon ~ Silver Dragon|Cloudwalking ~ Silver Dragon|Immunity to Acid|Skills ~ Silver Dragon
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Silver Dragon|PREVARGTEQ:DragonAge,4
 
 Breath Weapon		KEY:Breath Weapon ~ Silver Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A Silver dragon has two types of breath weapon, a cone of cold [Damage %1d%2, DC %3, Length %4] and a cone of paralyzing gas. Creatures within a cone of paralyzing gas must succeed on a Fortitude save or be paralyzed for 1d6 rounds plus 1 round per age category of the dragon.|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|8

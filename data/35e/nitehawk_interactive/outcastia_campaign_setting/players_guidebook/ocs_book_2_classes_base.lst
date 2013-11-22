@@ -315,7 +315,7 @@ CLASS:Murmur	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Murmur|CL
 # Class Name		Hit Dice	Type			Source Page		Save checks bonus														Combat bonus
 CLASS:Utter Master	HD:4		TYPE:Base.PC	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Utter Master	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Arcana)|Knowledge (History)|Knowledge (Librarian)|TYPE=PerformVocal|TYPE=Profession|Spellcraft
+CLASS:Utter Master	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (arcana)|Knowledge (history)|Knowledge (librarian)|TYPE=PerformVocal|TYPE=Profession|Spellcraft
 ###Block:
 5	BONUS:VAR|UtterMasterPowerCastTimes|CL/5
 7	BONUS:VAR|UtterMasterQuickCastTimes|CL-3/4

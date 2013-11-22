@@ -1,7 +1,7 @@
 
-Acrobaticsa		KEYSTAT:DEX	USEUNTRAINED:YES	ACHECK:YES			TYPE:Dexterity.BaseSkill.AlignmentSkill		VISIBLE:GUI	PREVARLTEQ:skillinfo("TOTALRANK","Acrobaticsa"),MaxRankAcrobatics			SOURCEPAGE:p.69												BONUS:SKILL|Acrobaticsa ~ Display|SKILL.Acrobaticsa.MISC			BONUS:SKILLRANK|Acrobaticsa ~ Display|skillinfo("TOTALRANK", "Acrobaticsa")|TYPE=Base
-Athleticsa		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES			TYPE:Strength.BaseSkill.AlignmentSkill		VISIBLE:GUI	PREVARLTEQ:skillinfo("TOTALRANK","Athleticsa"),MaxRankAthletics			SOURCEPAGE:p.70												BONUS:SKILL|Athleticsa ~ Display|SKILL.Athleticsa.MISC				BONUS:SKILLRANK|Athleticsa ~ Display|skillinfo("TOTALRANK", "Athleticsa")|TYPE=Base
-Blenda			KEYSTAT:CHA	USEUNTRAINED:YES					TYPE:Charisma.BaseSkill.AlignmentSkill		VISIBLE:GUI	PREVARLTEQ:skillinfo("TOTALRANK","Blenda"),MaxRankBlend				SOURCEPAGE:p.71												BONUS:SKILL|Blenda ~ Display|SKILL.Blenda.MISC					BONUS:SKILLRANK|Blenda ~ Display|skillinfo("TOTALRANK", "Blenda")|TYPE=Base
+Acrobaticsa		KEYSTAT:DEX	USEUNTRAINED:YES	ACHECK:YES			TYPE:Dexterity.BaseSkill.AlignmentSkill		VISIBLE:DISPLAY	PREVARLTEQ:skillinfo("TOTALRANK","Acrobaticsa"),MaxRankAcrobatics			SOURCEPAGE:p.69												BONUS:SKILL|Acrobaticsa ~ Display|SKILL.Acrobaticsa.MISC			BONUS:SKILLRANK|Acrobaticsa ~ Display|skillinfo("TOTALRANK", "Acrobaticsa")|TYPE=Base
+Athleticsa		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES			TYPE:Strength.BaseSkill.AlignmentSkill		VISIBLE:DISPLAY	PREVARLTEQ:skillinfo("TOTALRANK","Athleticsa"),MaxRankAthletics			SOURCEPAGE:p.70												BONUS:SKILL|Athleticsa ~ Display|SKILL.Athleticsa.MISC				BONUS:SKILLRANK|Athleticsa ~ Display|skillinfo("TOTALRANK", "Athleticsa")|TYPE=Base
+Blenda			KEYSTAT:CHA	USEUNTRAINED:YES					TYPE:Charisma.BaseSkill.AlignmentSkill		VISIBLE:DISPLAY	PREVARLTEQ:skillinfo("TOTALRANK","Blenda"),MaxRankBlend				SOURCEPAGE:p.71												BONUS:SKILL|Blenda ~ Display|SKILL.Blenda.MISC					BONUS:SKILLRANK|Blenda ~ Display|skillinfo("TOTALRANK", "Blenda")|TYPE=Base
 
 
 Acrobaticsa		KEY:Acrobaticsa ~ Display		KEYSTAT:DEX	USEUNTRAINED:YES								CLASSES:ALL	VISIBLE:EXPORT

@@ -10,7 +10,7 @@ SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.ni
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Arcane Juggler	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (History)|Listen|TYPE=Perform|TYPE=Profession|Tumble
+CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (history)|Listen|TYPE=Perform|TYPE=Profession|Tumble
 ###Block:
 #all simple weapons|as well as with the shuriken. The juggler is proficient with light armor|is not proficient with shields
 1							AUTO:WEAPONPROF|Shuriken|TYPE=Simple
@@ -65,7 +65,7 @@ CLASS:Bone Mage	HD:12		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS
 # Class Name	Required AL	Required Feat			Required Race		Required Text
 CLASS:Bone Mage	PREALIGN:NE	PREFEAT:1,Improved Initiative	PRERACE:1,Skeleton	PRETEXT:Special: Must have been the target of the create bone mage spell (see the spells chapter).
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Spellcraft
+CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Spellcraft
 ###Block:
 # Weapon and Armor Proficiency: The bone mage gains proficiency in all simple weapons. The bone mage gains no proficiencies in any type of armor or shield.
 # TODO: In fact|it loses any proficiencies it might have had in any type of armor or shield
@@ -132,7 +132,7 @@ CLASS:Cord		HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE
 # Class Name	Required Feat			Req. Spell Type		Required Text
 CLASS:Cord		PREFEAT:2,Craft Wand,Dodge	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Must have worked onboard a ship for an extended period (at least one month at sea)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artist|Hide|Knowledge (Arcana)|Move Silently|TYPE=Profession|Sailing|Spellcraft|Use Rope
+CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artist|Hide|Knowledge (arcana)|Move Silently|TYPE=Profession|Sailing|Spellcraft|Use Rope
 ###Block:
 # No Weapon / Armor Profs
 ###Block:
@@ -301,7 +301,7 @@ CLASS:Holy Terror	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.107	BONUS:CHE
 # Class Name	Req. Att.	Required Feat							Required Skill											Required Text
 CLASS:Holy Terror	PREATT:10	PREFEAT:3,Leadership,Mounted Combat,Power Attack	PRESKILL:4,Diplomacy=4,Dragon Lore=10,Knowledge (religion)=4,Intimidate=6	PRETEXT:Special: In order to become a holy terror, a dragon lord must first achieve the rank of captain within the dragon lords. Currently there are only ten captains within the dragon lords. A new holy terror can only be accepted into their if a previous one has passed away. There can be no more than 5 holy terrors at any given time
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lore|Handle Animal|Hide|Intimidate|Knowledge (religion)|Listen|Move Silently|Ride|Search|Spellcraft|Spot
+CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lore|Handle Animal|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Ride|Search|Spellcraft|Spot
 ###Block:
 #Weapon and Armor Proficiency: Holy terrors are proficient with simple and martial weapons They are proficient with all types of armor, but not with shields
 1												AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial

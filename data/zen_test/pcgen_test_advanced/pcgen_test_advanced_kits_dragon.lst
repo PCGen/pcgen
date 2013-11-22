@@ -48,4 +48,3 @@ CLASS:Dragon	LEVEL:30
 STARTPACK:Dragon Age 12 ~ Great Wyrm	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
 CLASS:Dragon	LEVEL:33	
-

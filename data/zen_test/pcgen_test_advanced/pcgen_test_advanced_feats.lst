@@ -42,12 +42,12 @@ Test-78			TYPE:Test78																																						ADD:TEMPLATE|Template
 
 
 # Feat Name							Unique Key					Type								Visible		Req. Spell Type			Define				Description											Stackable?			Multiple?	Choose																		Selections	Template			Automatically Gained Armor Prof.	Automatically Gained Feat	Automatically Gained Language	Automatically Gained Shield Prof.	Automatically Gained Weapon Prof.	Virtual Feat			Ability																													Add 											Combat bonus				Bonus to HP			Caster level bonus		Modify VAR																																															Cost		Source Page		Description of the Benefits																			SORTKEY
-Test-57 Apply A1												TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57-Ability-1,Dodge
+Test-57 Apply A1												TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57-Ability-1
 Test-57 Apply A2												TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57-Ability-2
 #Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
 Test-57 Apply A4												TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57-Ability-4
 #Test-57 Apply A5	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
-Test-57 Apply A6												TYPE:TEST-57																																			MULT:YES	CHOOSE:NOCHOICE																																																																																						ADD:VFEAT|Test-57-Ability-6,Test-57-Ability-6,Test-57-Ability-6
+Test-57 Apply A6												TYPE:TEST-57																																			MULT:YES	CHOOSE:NOCHOICE																																																																																						ADD:VFEAT|Test-57-Ability-6
 Test-57 Apply A7												TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57-Ability-7
 #Test-57 Apply A8	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
 #Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
@@ -67,7 +67,7 @@ Test-57 Apply A7												TYPE:TEST-57																																								
 
 Test-57 Apply A3 LangGrant										TYPE:TestFooB						VISIBLE:EXPORT																											MULT:YES	CHOOSE:LANG|ALL																																		AUTO:LANG|%LIST
 Test-57 Apply A3 FeatSelector																		VISIBLE:EXPORT																											MULT:YES	CHOOSE:FEATSELECTION|TYPE=TestFooB
-Test-57 Apply A3 MyAddingFeat										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57 Apply A3 FeatSelector,Dodge
+Test-57 Apply A3 MyAddingFeat										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57 Apply A3 FeatSelector
 
 #Think about how this works when MyAddingFeat is selected. It asks FeatSelector to expand the possible choices, which are "any TYPE=Foo" feat. So it says, "any permutation of LangGrant". Well, THAT is CHOOSE as well, so that gets expanded too... so the choice window looks something like:
 #FeatSelector (LangGrant(English))
@@ -79,7 +79,7 @@ Test-57 Apply A3 MyAddingFeat										TYPE:TEST-57																													
 
 Test-57 Apply A5 LangGrant										TYPE:TestFooB						VISIBLE:EXPORT																											MULT:YES	CHOOSE:LANG|ALL																																		AUTO:LANG|%LIST
 Test-57 Apply A5 FeatSelector																		VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:FEATSELECTION|TYPE=TestFooB
-Test-57 Apply A5 MyAddingFeat										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57 Apply A5 FeatSelector,Dodge
+Test-57 Apply A5 MyAddingFeat										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57 Apply A5 FeatSelector
 
 
 
@@ -87,7 +87,7 @@ Test-57 Apply A5 MyAddingFeat										TYPE:TEST-57																													
 #Feat file:
 Test-57 Apply A8 MyFeat (is Really Cool)								TYPE:Foo							VISIBLE:EXPORT
 Test-57 Apply A8 MySelectableFeat																	VISIBLE:EXPORT																											MULT:YES	CHOOSE:FEATSELECTION|TYPE=Foo
-Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57 Apply A8 MySelectableFeat,Dodge
+Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57 Apply A8 MySelectableFeat
 
 #Note the choices you will receive in the window are:
 #MySelectableFeat(My Feat (is Really Cool))
@@ -97,7 +97,7 @@ Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																
 #===
 #9)
 Test-57 Apply A9 MyOtherFeat (is Also Cool)							TYPE:TEST-57						VISIBLE:EXPORT
-Test-57 Apply A9 ToBeAdded										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Test-57 Apply A9 MyOtherFeat (is Also Cool),Dodge
+Test-57 Apply A9 ToBeAdded										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57 Apply A9 MyOtherFeat (is Also Cool)
 
 
 
@@ -132,7 +132,7 @@ Stamina													TYPE:Hi																				DESC:Hi, test
 
 
 Chooser UserInput												TYPE:Test																																				MULT:YES	CHOOSE:USERINPUT|TITLE=Test Case Usage
-Fast Learner (Focused on Skills /Human)		KEY:Fast Learner ~ 2 Skills ~ Human	TYPE:Character Creation.CharCreation.General									DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.					MULT:YES	CHOOSE:STRING|Child|Youth																																																																																																														BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Youth)	COST:2	SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. &lbracket;+%1 total Skill Points Granted&rbracket;.|HumanOffsetBonus+(2*var("EclipseClassLvl"))	SORTKEY:Character Creation Fast Learner / Specialized for Skills
+Fast Learner (Focused on Skills /Human)		KEY:Fast Learner ~ 2 Skills ~ Human	TYPE:Character Creation.CharCreation.General									DEFINE:HumanOffsetBonus|0	DESC:(+2) This ability grants 2 Skills per eclipse character level.					MULT:YES	CHOOSE:STRING|Child|Youth																																																																																																														BONUS:VAR|CharacterSkillPts|HumanOffsetBonus+(2*var("EclipseClassLvl"))	BONUS:VAR|HumanOffsetBonus|6|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Child)	BONUS:VAR|HumanOffsetBonus|4|PREABILITY:1,CATEGORY=Special Ability,Fast Learner ~ 2 Skills ~ Human (Youth)	COST:2	SOURCEPAGE:p.17	BENEFIT:+2 CP towards Skills per level. [+%1 total Skill Points Granted].|HumanOffsetBonus+(2*var("EclipseClassLvl"))	SORTKEY:Character Creation Fast Learner / Specialized for Skills
 Power Gained ~ 1												TYPE:Test															DEFINE:PowerDieSelectLevel|0													STACK:NO			MULT:YES	CHOOSE:STRING|1|2|3|4|5|6|TITLE="1d6 Result"																																																																																																											BONUS:VAR|PowerPoints|%LIST	BONUS:VAR|PowerDieSelectLevel|1
 
 
@@ -281,7 +281,7 @@ Weapon Specialization								TYPE:Special.Fighter				PREFEAT:1,Weapon Focus					
 
 
 Bob Test Feat Choose Spells Monkee						TYPE:General.Tests.BobTest																																																													MULT:YES	CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1]
-Bob Test Feat Choose Spelllevel Arcane					TYPE:General.Tests.BobTest																																																													MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL																																	
+Bob Test Feat Choose Spelllevel Arcane					TYPE:General.Tests.BobTest																																																													MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL
 # BONUS:SPELLCAST|%LIST|1
 
 Bob Testing Type Group A							TYPE:GroupA																																							DESC:Freebie to Add B
@@ -306,6 +306,3 @@ Grant Auto Feat									TYPE:TestFeat																																											
 Test63a										TYPE:TEST-63																																																													STACK:NO	MULT:YES	CHOOSE:STRING|One|Two
 Test63b										TYPE:TEST-63																																																													STACK:YES	MULT:YES	CHOOSE:STRING|One|Two
 Test63c										TYPE:TEST-63																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE
-
-
-

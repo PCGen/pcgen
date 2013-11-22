@@ -179,9 +179,3 @@ Perception (Notice unusual stonework/Underground)	KEYSTAT:WIS	USEUNTRAINED:YES	C
 
 Perception.MOD																																																			BONUS:SKILL|Perception (Notice unusual stonework)|var("SKILL.Perception.MISC")							BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")
 Perception.MOD																																																			BONUS:SKILL|Perception (Notice unusual stonework/Underground)|var("SKILL.Perception (Notice unusual stonework).MISC")	BONUS:SKILLRANK|Perception (Notice unusual stonework/Underground)|skillinfo("TOTALRANK","Perception (Notice unusual stonework)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework/Underground).MISC"),var("SKILL.Perception (Notice unusual stonework).MISC")
-
-
-
-
-
-

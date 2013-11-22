@@ -32,9 +32,9 @@ Add one language																																																																
 
 ###Templates
 
-Construct				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
-Ooze					VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
-Undead				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
+Construct				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|CON
+Ooze					VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|INT
+Undead				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|CON
 
 
 
@@ -252,10 +252,3 @@ Template Choice for Bob ~ 2
 
 
 ###Block: TEST SECTION - STRICTLY TESTS
-
-
-
-
-
-
-
