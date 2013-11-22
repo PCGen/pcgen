@@ -66,7 +66,8 @@ import pcgen.util.Logging;
 import plugin.doomsdaybook.RandomNamePlugin;
 
 /**
- *
+ * Main panel of the random name generator.
+ * 
  * @author  devon
  */
 public class NameGenPanel extends JPanel
@@ -209,7 +210,7 @@ public class NameGenPanel extends JPanel
 
 		for (DataValue val : data)
 		{
-			String aMeaning = val.getSubValue("meaning");
+			String aMeaning = val.getSubValue("meaning"); //$NON-NLS-1$ // XML attribute no translation
 
 			if (aMeaning == null)
 			{
@@ -569,7 +570,8 @@ public class NameGenPanel extends JPanel
 		adjustNamePanel.add(adjNameLabel, BorderLayout.NORTH);
 		
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		NameButton nb = new NameButton(new CRRule());
+		// CODE-2099 Component needed to have correct vertical space available.
+		JLabel nb = new JLabel(" "); //$NON-NLS-1$
 		buttonPanel.add(nb);
 
 		adjustNamePanel.add(buttonPanel, BorderLayout.CENTER);
@@ -675,7 +677,7 @@ public class NameGenPanel extends JPanel
 			Collections.sort(join, new DataElementComperator());
 
 			Vector<RuleSet> catalogs = new Vector<RuleSet>();
-			int oldSelected = 0;
+			int oldSelected = -1;
 			int n = 0;
 
 			for (int i = 0; i < join.size(); i++)
@@ -698,7 +700,8 @@ public class NameGenPanel extends JPanel
 			DefaultComboBoxModel catalogModel =
 					new DefaultComboBoxModel(catalogs);
 			cbCatalog.setModel(catalogModel);
-			cbCatalog.setSelectedIndex(oldSelected);
+			if(oldSelected>=0)
+				cbCatalog.setSelectedIndex(oldSelected);
 		}
 		catch (Exception e)
 		{
