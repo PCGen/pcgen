@@ -4,7 +4,7 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 
 ###Block:Tracker Templates
 # Template Name			Visible	Source Page		Modify VAR																		Choose										Temporary effect description
-Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109	BONUS:VAR|Reputation|%CHOICE|PREFEAT:1,Infamy|PREAPPLY:ANYPC									CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Infamy Reputation modification	TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.
+Infamy Reputation Modificator	VISIBLE:NO	SOURCEPAGE:p.109	TEMPBONUS:ANYPC|VAR|Reputation|%CHOICE|PREFEAT:1,Infamy									CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Infamy Reputation modification	TEMPDESC:This can be used to change the Reputation because of Infamy relevant actions. If you have more than 10 this can be applied multiple times.
 Sidekick Score			VISIBLE:NO				BONUS:VAR|SidekickScore|TL+CHA+(3*var("COUNT[FEATNAME=Renown]"))+var("COUNT[FEATNAME=Sidekick]")+(Wealth>=16)
 Living Weapon Dice		VISIBLE:NO				BONUS:VAR|LivingWeaponDice|6+2*(var("COUNT[FEATNAME=Living Weapon]")-1)|TYPE=NonStacking
 

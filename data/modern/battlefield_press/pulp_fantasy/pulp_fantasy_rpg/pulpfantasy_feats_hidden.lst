@@ -39,21 +39,21 @@ Category(Weird Science)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (We
 
 ###Block: Categories for Talk a Good Game Talent
 # Feat Name					Type					Visible	Required Feat						Special ABility						Source Page
-Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Art)					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
-Category (Behavioral sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Behavioral sciences)		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
-Category (Business)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Business)				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
-Category (Civics)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Civics)				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
-Category (Current events)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Current events)			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.22
-Category (Earth and life sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Earth and life sciences)	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.22
-Category (Hidden lore)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Hidden lore)			SAB:Talk a Good Game (Hidden Lore)			SOURCEPAGE:p.22
-Category (History)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(History)				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
-Category (Military Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Military Science)		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
-Category (Physical sciences)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Physical sciences)		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
-Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Popular culture)			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
-Category (Streetwise)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Streetwise)			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
-Category (Technology)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Technology)			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
-Category (Theology and philosophy)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Theology and philosophy)	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
-Category (Weird Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Weird Science)			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
+Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Art)					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
+Category (Behavioral sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Behavioral sciences)		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
+Category (Business)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Business)				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
+Category (Civics)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Civics)				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
+Category (Current events)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Current events)			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.22
+Category (Earth and life sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Earth and life sciences)	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.22
+Category (Hidden lore)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Hidden lore)			SAB:Talk a Good Game (Hidden Lore)			SOURCEPAGE:p.22
+Category (History)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (History)				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
+Category (Military Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Military Science)		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
+Category (Physical sciences)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Physical sciences)		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
+Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Popular culture)			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
+Category (Streetwise)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Streetwise)			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
+Category (Technology)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Technology)			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
+Category (Theology and philosophy)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Theology and philosophy)	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
+Category (Weird Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Weird Science)			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
 
 ###Block: Fast Learner Level Selections
 # Feat Name				Type				Visible	Multiple Requirements							Bonus to skill point for a level
@@ -340,4 +340,4 @@ Intuit Formula					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Intuit Formula						
 Inventive Mind					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Inventive Mind																									BONUS:SKILL|TYPE.Craft|4													SOURCEPAGE:p.123
 
 ###Sidekick BONUS
-Provide Sidekick w./room etc.			TYPE:SidekickBonus		VISIBLE:NO																																		BONUS:VAR|SidekickScore|2|PREAPPLY:PC
+Provide Sidekick w./room etc.			TYPE:SidekickBonus		VISIBLE:NO																																		TEMPBONUS:PC|VAR|SidekickScore|2

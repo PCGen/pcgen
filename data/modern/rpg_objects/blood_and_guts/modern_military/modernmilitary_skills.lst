@@ -10,4 +10,4 @@ Communication Operations	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Armor
 Paradrop				KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity														SOURCEPAGE:p.34
 
 #Copied from SRD to eliminate simplistic INCLUDE: tag causing errors - Fluxxdog
-Use Rope				KEYSTAT:DEX								TYPE:Dexterity														SOURCEPAGE:srdskillsii.rtf	BONUS:SKILL|Escape Artist,Climb|SynergyBonus|PRESKILL:1,Use Rope=5|PREAPPLY:PC|TYPE=TempSynergy	TEMPDESC:A character with 5 or more ranks of Use Rope gets a +2 synergy bonus on Escape Artist checks when escaping from rope bonds. A character with 5 or more ranks in Use Rope gets a +2 synergy bonus on checks to climb a rope, a knotted rope, or a rope and wall combination
+Use Rope				KEYSTAT:DEX								TYPE:Dexterity														SOURCEPAGE:srdskillsii.rtf	TEMPBONUS:PC|SKILL|Escape Artist,Climb|SynergyBonus|PRESKILL:1,Use Rope=5|TYPE=TempSynergy	TEMPDESC:A character with 5 or more ranks of Use Rope gets a +2 synergy bonus on Escape Artist checks when escaping from rope bonds. A character with 5 or more ranks in Use Rope gets a +2 synergy bonus on checks to climb a rope, a knotted rope, or a rope and wall combination

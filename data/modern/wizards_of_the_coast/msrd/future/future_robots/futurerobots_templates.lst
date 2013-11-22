@@ -3,13 +3,13 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 # Original entry by Eddy Anthony (MoSaT)
 
 # Template Name	Hit Dice Size	Visible	Define			Ability																													Automatically Gained Armor Prof.	Automatically Gained Weapon Prof.	Apply Kit
-Biodroid Traits	HITDIE:10		VISIBLE:NO	DEFINE:LOCK.CON|10	ABILITY:Special Ability|AUTOMATIC|Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection																KIT:1|Biodroid Basics
-Bioreplica Traits	HITDIE:10		VISIBLE:NO	DEFINE:LOCK.CON|10	ABILITY:Special Ability|AUTOMATIC|Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection																KIT:1|Bioreplica Basics
+Biodroid Traits	HITDIE:10		VISIBLE:NO	DEFINESTAT:NONSTAT|CON	ABILITY:Special Ability|AUTOMATIC|Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection																KIT:1|Biodroid Basics
+Bioreplica Traits	HITDIE:10		VISIBLE:NO	DEFINESTAT:NONSTAT|CON	ABILITY:Special Ability|AUTOMATIC|Critical Systems|Cybernetic Incompatibility|Immunities|Lifelike Appearance|Rejuvenation Cycle|Repairable|Robot Resurrection																KIT:1|Bioreplica Basics
 
 
-Robot						VISIBLE:NO	DEFINE:LOCK.CON|10	ABILITY:Special Ability|AUTOMATIC|Robot Purchase DC	ABILITY:Special Ability|AUTOMATIC|Cybernetic Incompatibility|Immunities|Rejuvenation Cycle|Repairable|Robot Resurrection	AUTO:ARMORPROF|ARMORTYPE=Robotic	AUTO:WEAPONPROF|TYPE=Robotic		KIT:1|Robotic Abilities
+Robot						VISIBLE:NO	DEFINESTAT:NONSTAT|CON	ABILITY:Special Ability|AUTOMATIC|Robot Purchase DC	ABILITY:Special Ability|AUTOMATIC|Cybernetic Incompatibility|Immunities|Rejuvenation Cycle|Repairable|Robot Resurrection	AUTO:ARMORPROF|ARMORTYPE=Robotic	AUTO:WEAPONPROF|TYPE=Robotic		KIT:1|Robotic Abilities
 
-Mindless Robot				VISIBLE:NO	DEFINE:LOCK.INT|10
+Mindless Robot				VISIBLE:NO	DEFINESTAT:NONSTAT|INT
 
 ###Block: Robot HP adjustment
 # Template Name	Hit Dice Size	Visible	Bonus to HP

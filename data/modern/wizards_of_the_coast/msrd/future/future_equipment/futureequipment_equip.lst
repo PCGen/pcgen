@@ -26,7 +26,7 @@ Soother Pulse											TYPE:Goods.Tools					COST:14	WT:0		SIZE:D	SOURCEPAGE:Fut
 
 #Progress Level 6 Chemical and Medical Equipment
 Chemical (Antitox)										TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																						SPROP:target character is completely cured of the poison and its effects in 1d6 rounds
-Chemical (Boost)											TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf	BONUS:CHECKS|Reflex|2|PREAPPLY:ANYPC	BONUS:HP|ALTHP|4|PREAPPLY:ANYPC	BONUS:MOVEADD|TYPE.Walk|10|PREAPPLY:ANYPC								BONUS:STAT|STR|4|PREAPPLY:ANYPC					SPROP:Illegal(+4)
+Chemical (Boost)											TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf	TEMPBONUS:ANYPC|CHECKS|Reflex|2	TEMPBONUS:ANYPC|HP|ALTHP|4	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|10								TEMPBONUS:ANYPC|STAT|STR|4					SPROP:Illegal(+4)
 Chemical (Neutrad)										TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																						SPROP:target character is completely cured of the radiation poisoning and its effects in 1d4 hours
 Chemical (Solvaway)										TYPE:Goods.Medical.PL6.Consumable		COST:5	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																						SPROP:designed to break through the restricting compound fired by tangler guns and tangler grenades
 Chemical (Sporekill)										TYPE:Goods.Medical.PL6.Consumable		COST:6	WT:0		SIZE:D	SOURCEPAGE:FutureEquipment.rtf																																						SPROP:target character is completely cured of the disease and its effects in 1d10 hours

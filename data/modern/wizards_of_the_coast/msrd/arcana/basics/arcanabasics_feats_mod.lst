@@ -99,7 +99,7 @@ Wild Talent.MOD				TYPE:Psychic
 Windfall.MOD				TYPE:ArcaneArranger.Glamourist.Mystic.Shadowjack.TechnoMage
 
 ###Block:
-Armor Proficiency (Medium).MOD	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)
+Armor Proficiency (Medium).MOD	AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)
 
 #
 # End
