@@ -5849,26 +5849,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// type of object to set as the creator
 			if (cType.equals(TAG_FEAT))
 			{
-				Ability aFeat =
-						Globals.getContext().ref
+				for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
+				{
+					Ability a = Globals.getContext().ref
 							.silentlyGetConstructedCDOMObject(Ability.class,
-								AbilityCategory.FEAT, cKey);
-				if (aFeat == null)
-				{
-					AbilityCategory saCat =
-							SettingsHandler.getGame().getAbilityCategory(
-								"Special Ability");
-
-					aFeat =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(
-									Ability.class, saCat, cKey);
-				}
-
-				if (aFeat != null)
-				{
-					newB = Bonus.newBonus(context, bonus);
-					creator = aFeat;
+									aCat, cKey);
+					if (a != null)
+					{
+						newB = Bonus.newBonus(context, bonus);
+						creator = a;
+						break;
+					}
 				}
 			}
 			else if (cType.equals(TAG_EQUIPMENT))
