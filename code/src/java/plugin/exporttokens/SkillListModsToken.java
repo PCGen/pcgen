@@ -47,10 +47,6 @@ public class SkillListModsToken extends Token
 		while (iter.hasNext())
 		{
 			Skill sk = iter.next();
-			if (sk.getDisplayName().equals("Test59b"))
-			{
-				String x = null;
-			}
 			if (!pc.includeSkill(sk, SkillFilter.Usable)
 					|| !sk.qualifies(pc, null))
 			{
