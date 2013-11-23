@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  2 19:19:21 2012 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
@@ -36,7 +36,7 @@ Svirfneblin.MOD	SORTKEY:a_base_pc
 
 # Bestiary III - Remove once B3 is completed.
 # Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages											Stat bonus						Automatically Gained Language	Main Race Type	Race Subtype		Type				Challenge Rating	Source Page		SORTKEY
-#Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc		
+#Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc
 
 #Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Aklo,Draconic,Dwarven,Gnoll,Gnome,Goblin,Halfling,Orc,Undercommon	BONUS:STAT|DEX,INT|2	BONUS:STAT|STR|-2	AUTO:LANG|Common			RACETYPE:Humanoid	RACESUBTYPE:Ratfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Ratfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.151	SORTKEY:a_base_pc
 

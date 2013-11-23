@@ -1,11 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
 
-Sling (Stone Bloodline)				PROFICIENCY:WEAPON|Sling (Stone Bloodline)	TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:0	WT:0	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:LEATHER	RANGE:50	SOURCEPAGE:p.93	BONUS:WEAPON|DAMAGE|STR
-Sling (Stone Bloodline).MOD	EQMOD:DISTNC|PREABILITY:1,CATEGORY=Special Ability,Distance ~ Stone Pitch	EQMOD:MERCY|PREABILITY:1,CATEGORY=Special Ability,Merciful ~ Stone Pitch	EQMOD:SEEK|PREABILITY:1,CATEGORY=Special Ability,Seeking ~ Stone Pitch	EQMOD:SPEED|PREABILITY:1,CATEGORY=Special Ability,Speed ~ Stone Pitch
-Sling (Stone Bloodline).MOD	EQMOD:ANARCH|PREABILITY:1,CATEGORY=Special Ability,Anarchic ~ Stone Pitch	EQMOD:AXIOM|PREABILITY:1,CATEGORY=Special Ability,Axiomatic ~ Stone Pitch	EQMOD:HOLY|PREABILITY:1,CATEGORY=Special Ability,Holy ~ Stone Pitch	EQMOD:UNHOLY|PREABILITY:1,CATEGORY=Special Ability,Unholy ~ Stone Pitch
-Bullet (Earth/Clay/Stone Improvised)	OUTPUTNAME:Bullet, [NAME]				TYPE:Ammunition.Standard.Bullet.Individual											COST:0	WT:0	BASEQTY:1										SOURCEPAGE:p.93	BONUS:WEAPON|TOHIT,DAMAGE|-1
+# Equipment Name					Output Name				Required Weapon Proficiency				Type													Contains				Cost		Weight	Base Quantity	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier																																																	Range		Source Page		Weapon prop. bonus
+Sling (Stone Bloodline)									PROFICIENCY:WEAPON|Sling (Stone Bloodline)	TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER																																																RANGE:50	SOURCEPAGE:p.93	BONUS:WEAPON|DAMAGE|STR
+Sling (Stone Bloodline).MOD																																																			EQMOD:DISTNC|PREABILITY:1,CATEGORY=Special Ability,Distance ~ Stone Pitch	EQMOD:MERCY|PREABILITY:1,CATEGORY=Special Ability,Merciful ~ Stone Pitch	EQMOD:SEEK|PREABILITY:1,CATEGORY=Special Ability,Seeking ~ Stone Pitch	EQMOD:SPEED|PREABILITY:1,CATEGORY=Special Ability,Speed ~ Stone Pitch
+Sling (Stone Bloodline).MOD																																																			EQMOD:ANARCH|PREABILITY:1,CATEGORY=Special Ability,Anarchic ~ Stone Pitch	EQMOD:AXIOM|PREABILITY:1,CATEGORY=Special Ability,Axiomatic ~ Stone Pitch	EQMOD:HOLY|PREABILITY:1,CATEGORY=Special Ability,Holy ~ Stone Pitch	EQMOD:UNHOLY|PREABILITY:1,CATEGORY=Special Ability,Unholy ~ Stone Pitch
+Bullet (Earth/Clay/Stone Improvised)	OUTPUTNAME:Bullet, [NAME]									TYPE:Ammunition.Standard.Bullet.Individual											COST:0	WT:0		BASEQTY:1																																																																SOURCEPAGE:p.93	BONUS:WEAPON|TOHIT,DAMAGE|-1
 
 ####Block: Shadow Assassin Specialist Weapons
-Bolas.MOD		TYPE:ShadowAssassin
-Shuriken.MOD	TYPE:ShadowAssassin
+Bolas.MOD																			TYPE:ShadowAssassin
+Shuriken.MOD																		TYPE:ShadowAssassin

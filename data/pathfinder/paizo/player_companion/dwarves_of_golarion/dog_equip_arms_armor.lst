@@ -1,6 +1,6 @@
-# CVS $Revision: 18754 $ $Author: amaitland $ -- Tue Apr 26 19:31:13 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 18754 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #Author: Gerard van Konijnenburg
-SOURCELONG:Dwarves of Golarion	SOURCESHORT:DoG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
+SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
 
 ###Block: Weapons
 # Equipment Name		Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Reach Multiplier	Size		Source Page		Weapon prop. bonus

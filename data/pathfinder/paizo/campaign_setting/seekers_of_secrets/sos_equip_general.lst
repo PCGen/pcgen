@@ -1,12 +1,12 @@
-# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Terry Milnes
 
 ###Block: Adventuring Gear
-# Equipment Name		Output Name				Type							Contains				Cost		Weight	Source Page
+# Equipment Name		Output Name				Type							Contains			Cost		Weight	Source Page
 Adventurer's Sash		OUTPUTNAME:Sash, Adventurer's	TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|ANY	COST:20	WT:3		SOURCEPAGE:p.42
-Charcoal (1 stick)						TYPE:Goods.General									COST:0.5			SOURCEPAGE:p.42
-Pantograph								TYPE:Goods.General									COST:50	WT:2		SOURCEPAGE:p.42
+Charcoal (1 stick)						TYPE:Goods.General								COST:0.5			SOURCEPAGE:p.42
+Pantograph								TYPE:Goods.General								COST:50	WT:2		SOURCEPAGE:p.42
 
 ###Block: Special Substances and Items
 # Equipment Name	Type						Cost		Weight	Source Page		Bonus to skill						Quality and value		Special Property

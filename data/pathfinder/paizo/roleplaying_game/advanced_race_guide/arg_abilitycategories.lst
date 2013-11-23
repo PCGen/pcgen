@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2012/07/28
@@ -38,9 +38,9 @@ ABILITYCATEGORY:Orc Weapon Expertise	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		
 
 
 ###Block: Uncommon Races ability categories
-# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
-ABILITYCATEGORY:Mother's Gift Option			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MothersGiftOption			PLURAL:Mother's Gift Options		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Shaitan Binder Eidolon Stat Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShaitanBinderEidolonStatBonus	PLURAL:Eidolon Stat Bonuses		DISPLAYLOCATION:Racial Abilities
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Mother's Gift Option			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MothersGiftOption			PLURAL:Mother's Gift Options	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Shaitan Binder Eidolon Stat Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShaitanBinderEidolonStatBonus	PLURAL:Eidolon Stat Bonuses	DISPLAYLOCATION:Racial Abilities
 
 ###Block: Archetype ability categories
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location

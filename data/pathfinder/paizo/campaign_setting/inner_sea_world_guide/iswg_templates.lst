@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by:Stefan Radermacher
 
@@ -6,22 +7,22 @@ Clockwork				SOURCEPAGE:p.256	PRERACE:1,RACETYPE=Construct																			ABI
 Nascent Demon Lord Traits	SOURCEPAGE:p.314	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|Aligned Strike ~ NDL|Grant Spells ~ NDL|Immunity to Charm|Immunity to Compulsion|Immunity to Death Effects|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy					SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord)
 
 ###Block: Human Ethnicities
-# Template Name			Visible	Source Page		Subrace
-Human Ethnicity (Azlanti)	VISIBLE:NO	SOURCEPAGE:p.12	SUBRACE:Azlanti	AUTO:LANG|Azlanti
-Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.13	SUBRACE:Chelaxian
-Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.14	SUBRACE:Garundi	AUTO:LANG|Osiriani
-Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.15	SUBRACE:Keleshite	AUTO:LANG|Kelish
-Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.16	SUBRACE:Kellid	AUTO:LANG|Hallit
-Human Ethnicity (Bekyar)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Bekyar	AUTO:LANG|Polyglot
-Human Ethnicity (Bonuwat)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Bonuwat	AUTO:LANG|Polyglot
-Human Ethnicity (Mauxi)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Mauxi	AUTO:LANG|Polyglot
-Human Ethnicity (Zenj)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Zenj	AUTO:LANG|Polyglot
-Human Ethnicity (Shoanti)	VISIBLE:NO	SOURCEPAGE:p.18	SUBRACE:Shoanti	AUTO:LANG|Shoanti
-Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Taldan
-Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Tian	AUTO:LANG|Tien
-Human Ethnicity (Ulfen)		VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Ulfen	AUTO:LANG|Skald
-Human Ethnicity (Varisian)	VISIBLE:NO	SOURCEPAGE:p.22	SUBRACE:Varisian	AUTO:LANG|Varisian
-Human Ethnicity (Vudrani)	VISIBLE:NO	SOURCEPAGE:p.23	SUBRACE:Vudrani	AUTO:LANG|Vudrani
+# Template Name			Visible	Source Page		Automatically Gained Language	Subrace
+Human Ethnicity (Azlanti)	VISIBLE:NO	SOURCEPAGE:p.12	AUTO:LANG|Azlanti			SUBRACE:Azlanti
+Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.13						SUBRACE:Chelaxian
+Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.14	AUTO:LANG|Osiriani		SUBRACE:Garundi
+Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.15	AUTO:LANG|Kelish			SUBRACE:Keleshite
+Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.16	AUTO:LANG|Hallit			SUBRACE:Kellid
+Human Ethnicity (Bekyar)	VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot		SUBRACE:Bekyar
+Human Ethnicity (Bonuwat)	VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot		SUBRACE:Bonuwat
+Human Ethnicity (Mauxi)		VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot		SUBRACE:Mauxi
+Human Ethnicity (Zenj)		VISIBLE:NO	SOURCEPAGE:p.17	AUTO:LANG|Polyglot		SUBRACE:Zenj
+Human Ethnicity (Shoanti)	VISIBLE:NO	SOURCEPAGE:p.18	AUTO:LANG|Shoanti			SUBRACE:Shoanti
+Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.19						SUBRACE:Taldan
+Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.20	AUTO:LANG|Tien			SUBRACE:Tian
+Human Ethnicity (Ulfen)		VISIBLE:NO	SOURCEPAGE:p.21	AUTO:LANG|Skald			SUBRACE:Ulfen
+Human Ethnicity (Varisian)	VISIBLE:NO	SOURCEPAGE:p.22	AUTO:LANG|Varisian		SUBRACE:Varisian
+Human Ethnicity (Vudrani)	VISIBLE:NO	SOURCEPAGE:p.23	AUTO:LANG|Vudrani			SUBRACE:Vudrani
 
 ###Block: Regional Affinities
 # Template Name					Visible	Source Page		Bonus Languages					Region

@@ -1,4 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 # TODO: move to additional resources (not from core)
+# Spell Name			Required Class
 Heroic Fortune.MOD		PRECLASS:1,NPC=1,Monster=1
 Heroic Fortune (Mass).MOD	PRECLASS:1,NPC=1,Monster=1
 Malediction.MOD			PRECLASS:1,NPC=1,Monster=1

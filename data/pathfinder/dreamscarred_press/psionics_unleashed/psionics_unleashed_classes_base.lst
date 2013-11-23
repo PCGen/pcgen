@@ -1,4 +1,4 @@
-# CVS $Revision: 17406 $ $Author: amaitland $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 17406 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Arknight
@@ -155,26 +155,26 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 1	BONUS:VAR|BonusPowerPoints|(CHA*WilderPL)/2|TYPE=WilderBonusPP
 
 ###Block: Class Info
-1	KNOWN:0,1					BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	BONUS:VAR|SurgeLVL|WilderML						ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderPsychicEnervation
-1																										ABILITY:Special Ability|AUTOMATIC|Surge Blast|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgeBlast
-1																										ABILITY:Special Ability|AUTOMATIC|Surge Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgeBond
-1							BONUS:ABILITYPOOL|Surge Type|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderWildSurge					ABILITY:Special Ability|AUTOMATIC|Wild Surge|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderWildSurge
-2	KNOWN:0,2										BONUS:VAR|EludeAttack|1											ABILITY:Special Ability|AUTOMATIC|Elude Attack|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderEludeAttack
-3	KNOWN:0,2										BONUS:VAR|WildSurge|1
-4	KNOWN:0,2,1										BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Surging Euphoria|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgingEuphoria
-5	KNOWN:0,2,1										BONUS:VAR|ImpSurgeBond|1										ABILITY:Special Ability|AUTOMATIC|Improved Surge Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderImprovedSurgeBond
-6	KNOWN:0,2,1,1									BONUS:VAR|EludeAttack|1
-7	KNOWN:0,2,1,1									BONUS:VAR|WildSurge|1
+1	KNOWN:0,1																			BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	BONUS:VAR|SurgeLVL|WilderML	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderPsychicEnervation
+1																																			ABILITY:Special Ability|AUTOMATIC|Surge Blast|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgeBlast
+1																																			ABILITY:Special Ability|AUTOMATIC|Surge Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgeBond
+1						BONUS:ABILITYPOOL|Surge Type|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderWildSurge															ABILITY:Special Ability|AUTOMATIC|Wild Surge|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderWildSurge
+2	KNOWN:0,2																			BONUS:VAR|EludeAttack|1											ABILITY:Special Ability|AUTOMATIC|Elude Attack|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderEludeAttack
+3	KNOWN:0,2																			BONUS:VAR|WildSurge|1
+4	KNOWN:0,2,1																			BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Surging Euphoria|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderSurgingEuphoria
+5	KNOWN:0,2,1																			BONUS:VAR|ImpSurgeBond|1										ABILITY:Special Ability|AUTOMATIC|Improved Surge Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderImprovedSurgeBond
+6	KNOWN:0,2,1,1																		BONUS:VAR|EludeAttack|1
+7	KNOWN:0,2,1,1																		BONUS:VAR|WildSurge|1
 8	KNOWN:0,2,1,1,1
-9	KNOWN:0,2,1,1,1									BONUS:VAR|ImpSurgeBond|1
-10	KNOWN:0,2,1,1,1,1									BONUS:VAR|EludeAttack|1
-11	KNOWN:0,2,1,1,1,1									BONUS:VAR|WildSurge|1
-12	KNOWN:0,2,1,1,1,1,1								BONUS:VAR|SurgingEuphoria|1
-13	KNOWN:0,2,1,1,1,1,1								BONUS:VAR|ImpSurgeBond|1
-14	KNOWN:0,2,1,1,1,1,1,1								BONUS:VAR|EludeAttack|1
-15	KNOWN:0,2,1,1,1,1,1,1								BONUS:VAR|WildSurge|1
+9	KNOWN:0,2,1,1,1																		BONUS:VAR|ImpSurgeBond|1
+10	KNOWN:0,2,1,1,1,1																		BONUS:VAR|EludeAttack|1
+11	KNOWN:0,2,1,1,1,1																		BONUS:VAR|WildSurge|1
+12	KNOWN:0,2,1,1,1,1,1																	BONUS:VAR|SurgingEuphoria|1
+13	KNOWN:0,2,1,1,1,1,1																	BONUS:VAR|ImpSurgeBond|1
+14	KNOWN:0,2,1,1,1,1,1,1																	BONUS:VAR|EludeAttack|1
+15	KNOWN:0,2,1,1,1,1,1,1																	BONUS:VAR|WildSurge|1
 16	KNOWN:0,2,1,1,1,1,1,1,1
-17	KNOWN:0,2,1,1,1,1,1,1,1								BONUS:VAR|ImpSurgeBond|1
-18	KNOWN:0,2,1,1,1,1,1,1,1,1							BONUS:VAR|EludeAttack|1
-19	KNOWN:0,2,1,1,1,1,1,1,1,1							BONUS:VAR|WildSurge|1
-20	KNOWN:0,2,1,1,1,1,1,1,1,2							BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Perfect Surge|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderPerfectSurge
+17	KNOWN:0,2,1,1,1,1,1,1,1																	BONUS:VAR|ImpSurgeBond|1
+18	KNOWN:0,2,1,1,1,1,1,1,1,1																BONUS:VAR|EludeAttack|1
+19	KNOWN:0,2,1,1,1,1,1,1,1,1																BONUS:VAR|WildSurge|1
+20	KNOWN:0,2,1,1,1,1,1,1,1,2																BONUS:VAR|SurgingEuphoria|1										ABILITY:Special Ability|AUTOMATIC|Perfect Surge|!PREABILITY:1,CATEGORY=Archetype,TYPE.WilderPerfectSurge

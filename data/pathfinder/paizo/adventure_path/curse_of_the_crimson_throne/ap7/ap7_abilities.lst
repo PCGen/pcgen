@@ -1,4 +1,5 @@
-SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP7	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-03
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP7	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw	SOURCEDATE:2008-03
 
 # Carrion Golem
 # Ability Name			Output Name				Category of Ability		Type								Visible	Description																										Source Page
@@ -13,13 +14,13 @@ Enchantment Weakness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.
 Soul Focus			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																					DESC:The soul bound to the doll lives within a focus integrated into the doll or its apparel, typically one of the doll's eyes or a gem embedded into the neck or chest of the doll.	SOURCEPAGE:p. 84
 
 ###Block: Devilfish
-# Ability Name	Output Name		Category of Ability		Type							Description																		Source Page
-Dagon's Blood				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	DESC:The unholy blood of the sea god runs through a devilfish									SOURCEPAGE:p. 80
-Devilfish Poison	OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:Injury (savage bite), Fortitude DC %1, initial damage 1d6 Strength, secondary damage 1d6 Strength|12+CON	SOURCEPAGE:p. 80
-Savage Bite					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A devilfish can attack with its savage bite whenever it makes a successful grapple check				SOURCEPAGE:p. 80
-See in Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense	DESC:A devilfish can see perfectly in darkness of any kind										SOURCEPAGE:p. 80
-Jet			KEY:Jet ~ Devilfish			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES	DESC:A devilfish can jet backward once per round as a full-round action, at a speed of 240 feet.
-Water Dependent	KEY:Water Dependent ~ Devilfish	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES	DESC:A devilfish can survive out of the water for 1 hour, after which it becomes fatigued.
+# Ability Name	Unique Key					Output Name		Category of Ability		Type									Visible	Description																		Source Page
+Dagon's Blood										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura					DESC:The unholy blood of the sea god runs through a devilfish									SOURCEPAGE:p. 80
+Devilfish Poison							OUTPUTNAME:Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:Injury (savage bite), Fortitude DC %1, initial damage 1d6 Strength, secondary damage 1d6 Strength|12+CON	SOURCEPAGE:p. 80
+Savage Bite											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:A devilfish can attack with its savage bite whenever it makes a successful grapple check				SOURCEPAGE:p. 80
+See in Darkness										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense					DESC:A devilfish can see perfectly in darkness of any kind										SOURCEPAGE:p. 80
+Jet			KEY:Jet ~ Devilfish						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES	DESC:A devilfish can jet backward once per round as a full-round action, at a speed of 240 feet.
+Water Dependent	KEY:Water Dependent ~ Devilfish				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES	DESC:A devilfish can survive out of the water for 1 hour, after which it becomes fatigued.
 
 ###Block: Dream Spider
 # Ability Name		Output Name		Category of Ability		Type						Description																																				Source Page

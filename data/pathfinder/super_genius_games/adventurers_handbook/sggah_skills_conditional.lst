@@ -1,15 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
 
 ###Block: Conditional Skills for output only
-# Skill Name				Key Stat	Untrained?		Classes	Type			Visible
-Appraise (Perception)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Perception).MISC"),var("SKILL.Appraise.MISC")			PREABILITY:1,CATEGORY=Special Ability,Perspicacity ~ War Master
-Bluff (Feint)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Feint).MISC"),var("SKILL.Bluff.MISC")
-Diplomacy (Knowledge (Nobility))	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Knowledge (Nobility)).MISC"),var("SKILL.Diplomacy.MISC")	PREABILITY:1,CATEGORY=Special Ability,Consul ~ War Master
-Perception (Mystic energy)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Mystic energy).MISC"),var("SKILL.Perception.MISC")		PREFEAT:1,Sensitive
-Sense Motive (Perception)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perception).MISC"),var("SKILL.Sense Motive.MISC")	PREABILITY:1,CATEGORY=Special Ability,Perspicacity ~ War Master
-Spellcraft (Favored spell)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Favored spell).MISC"),var("SKILL.Spellcraft.MISC")
-Spellcraft (Identify spell)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Identify spell).MISC"),var("SKILL.Spellcraft.MISC")
+# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Required Feat		Req. Rule (in options)		Prohibited Var. Value
+Appraise (Perception)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Perspicacity ~ War Master					PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Perception).MISC"),var("SKILL.Appraise.MISC")
+Bluff (Feint)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Feint).MISC"),var("SKILL.Bluff.MISC")
+Diplomacy (Knowledge (Nobility))	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Consul ~ War Master						PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Knowledge (Nobility)).MISC"),var("SKILL.Diplomacy.MISC")
+Perception (Mystic energy)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PREFEAT:1,Sensitive	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Mystic energy).MISC"),var("SKILL.Perception.MISC")
+Sense Motive (Perception)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Perspicacity ~ War Master					PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perception).MISC"),var("SKILL.Sense Motive.MISC")
+Spellcraft (Favored spell)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Favored spell).MISC"),var("SKILL.Spellcraft.MISC")
+Spellcraft (Identify spell)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT																PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Identify spell).MISC"),var("SKILL.Spellcraft.MISC")
 
 ###Block: Skill .MODs
 # Skill Name			Bonus to skill												Bonus to skill rank

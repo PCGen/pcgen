@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -51,11 +51,11 @@ Strengthened By Fear (Con/Dex/Str)	VISIBLE:NO																																			
 Fear Incarnate	VISIBLE:NO	TEMPLATE:Native	RACETYPE:Outsider
 
 ###Block: Battlesense templates
-# Template Name				Visible		Combat bonus												Add to base move										Choose
-Battlesense attack bonus		VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices
-Battlesense AC bonus			VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices
-Battlesense weapon damage bonus	VISIBLE:DISPLAY	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance													CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices
-Battlesense speed bonus			VISIBLE:DISPLAY															TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices
+# Template Name				Visible		Choose											Temporary Bonus
+Battlesense attack bonus		VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices		TEMPBONUS:ANYPC|COMBAT|TOHIT|%CHOICE|TYPE=Circumstance
+Battlesense AC bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices			TEMPBONUS:ANYPC|COMBAT|AC|%CHOICE|TYPE=Circumstance
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance
+Battlesense speed bonus			VISIBLE:DISPLAY	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices		TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance
 
 ###Block: Activate Advanced Construct abilities
 # Template Name		Required Race

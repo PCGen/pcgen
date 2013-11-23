@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Pathfinder Society
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing
@@ -88,8 +89,8 @@ FEAT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide
 #
 
 # Legacy of Fire Player's Guide
-# Equipment: all equipment on pages 22-23, all magic items on pages 26-27 (Note: Handstraps of Roofjumping applies to the Acrobatics skill); 
-# Feat: Sandwalker; 
+# Equipment: all equipment on pages 22-23, all magic items on pages 26-27 (Note: Handstraps of Roofjumping applies to the Acrobatics skill);
+# Feat: Sandwalker;
 # Traits: all traits on pages 7-9 are allowed except Duskwalker Agent (Notes: Uwaga Highlander applies only to the Stealth skill and Eyes and Ears of the City applies only to the Perception skill; no campaign traits are allowed.)
 # Traits: all traits on pages 7-9 are allowed except Duskwalker Agent and any campaign traits.
 FEAT:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_feats.lst|(INCLUDE:Sandwalker)
@@ -300,8 +301,8 @@ ABILITY:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_class.lst
 
 # Pathfinder Campaign Setting: Dragon Empires Gazetteer
 # Subdomains: Moon; Gods: All gods listed on pages 58-63;
-# Languages: all languages on pages 49-51 may be learned via the Linguistics skill; 
-# Races: All human ethnicities are legal, humans begin play knowing all listed languages for their chosen ethnicity as racial languages. 
+# Languages: all languages on pages 49-51 may be learned via the Linguistics skill;
+# Races: All human ethnicities are legal, humans begin play knowing all listed languages for their chosen ethnicity as racial languages.
 # To create a kitsune, nagaji, or wayang character, you must have a Chronicle sheet that opens the race as a legal option at character creation.
 ABILITY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_abilities_race.lst
 ABILITY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_abilities.lst
@@ -328,7 +329,7 @@ TEMPLATE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_templa
 
 # Pathfinder Campaign Setting: Giants Revisited
 # Equipment: all-seeing eye, bloodstone impaler
- 
+
 # Pathfinder Campaign Setting: Gods and Magic
 # Equipment: Azlant pendant, barbed pentacle of Asmodeus, belt of the snake king, broken chain of the beast, bronze dagger of Erastil, cloak of the crusader, cloak of the Dark Tapestry, dawnflower sash, deathlurker's cloak, gossamer amberstone, hag's shabble, holy mask of the living god, icon of the midwife, inheritor's gauntlet, key of the second vault, mask of cutting flesh, nightstone of sorrow, orb of the waybringer, pallid crystal, Preklikin's Book of Cults, rhombocrystal, robe of the master of masters, sacrificial dagger of the blood mother, Shad'Gorum nugget, spellsight bracer, stinging stiletto, tankard of the drunken hero, veil of veils, vurra of the maker, windwave kilt; Gods: all of the gods listed on the inside front cover are legal choices for clerics; Spells: Abadar's truthtelling, blessing of the watch, burst of glory, channel the gift, channel vigor, Deadeye's arrow, defending bone, fallback strategy, Gorum's armor, Gozreh's trident, greater infernal healing, infernal healing, pick your poison, poisoned egg, shield of the dawnflower, traveling dream, unbreakable heart, waters of Lamashtu
 

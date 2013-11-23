@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: Arknight
 # SRD update by: TaluronIscandar
 
-# Template Name		Visible		Var. Min. Value			Modify VAR							Ability																Temporary effect description
-Psionically Focused	VISIBLE:DISPLAY	PREVARGTEQ:TotalPowerPoints,1	TEMPBONUS:PC|VAR|PsionicFocusActive|1																		TEMPDESC:Character is psionically focused.
-Activate Size Changing	VISIBLE:DISPLAY														ABILITY:Special Ability|AUTOMATIC|Size Changing	ABILITY:Special Ability|AUTOMATIC|CM Size Changing
+# Template Name		Visible		Var. Min. Value			Ability																Temporary effect description				Temporary Bonus
+Psionically Focused	VISIBLE:DISPLAY	PREVARGTEQ:TotalPowerPoints,1																		TEMPDESC:Character is psionically focused.	TEMPBONUS:PC|VAR|PsionicFocusActive|1
+Activate Size Changing	VISIBLE:DISPLAY						ABILITY:Special Ability|AUTOMATIC|Size Changing	ABILITY:Special Ability|AUTOMATIC|CM Size Changing
 
 ###BLOCK: Racial Subtype Templates
 # Template Name	Visible	Source Page		Race Subtype

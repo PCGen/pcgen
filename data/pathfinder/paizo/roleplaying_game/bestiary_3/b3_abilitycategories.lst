@@ -1,4 +1,4 @@
-# CVS $Revision: 21669 $ $Author: amaitland $ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21669 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
 
 
@@ -27,23 +27,24 @@ ABILITYCATEGORY:Graven Guardian Domain Selection	VISIBLE:QUALIFY	EDITABLE:YES		E
 
 
 ###Block: Base Races
-ABILITYCATEGORY:Changeling Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ChangelingRacialTrait		PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Catfolk Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait			PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gillman Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GillmanRacialTrait			PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kitsune Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KitsuneRacialTrait			PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nagaji Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NagajiRacialTrait			PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Samsaran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamsaranRacialTrait		PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Strix Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StrixRacialTrait			PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Suli Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliRacialTrait			PLURAL:Suli Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vanara Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VanaraRacialTrait			PLURAL:Vanara Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vishkanya Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaRacialTrait		PLURAL:Vishkanya Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wayang Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WayangRacialTrait			PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait		PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list						Plural description for UI		Display Location
+ABILITYCATEGORY:Changeling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ChangelingRacialTrait										PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Catfolk Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait											PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gillman Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GillmanRacialTrait											PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kitsune Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KitsuneRacialTrait											PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Nagaji Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NagajiRacialTrait											PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Samsaran Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamsaranRacialTrait										PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Strix Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StrixRacialTrait											PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Suli Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliRacialTrait											PLURAL:Suli Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vanara Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VanaraRacialTrait											PLURAL:Vanara Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vishkanya Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaRacialTrait										PLURAL:Vishkanya Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wayang Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WayangRacialTrait											PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ratfolk Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait											PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Suli Language Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage							PLURAL:Suli Language Choices				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Hag Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait						PLURAL:Hag Racial Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Suli Language Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage												PLURAL:Suli Language Choices		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Hag Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait											PLURAL:Hag Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 
-ABILITYCATEGORY:Ruinous Revivification			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Ruinous Revivification ~ Graveknight						PLURAL:Ruinous Revivification				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ruinous Revivification		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Ruinous Revivification ~ Graveknight	PLURAL:Ruinous Revivification		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Fey Creature Special Abilities		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeyCreatureSelection						PLURAL:Fey Creature Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Fey Creature Special Abilities	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeyCreatureSelection										PLURAL:Fey Creature Traits		DISPLAYLOCATION:Racial Abilities

@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 # Original Entry by: Stefan Radermacher
 
@@ -29,9 +29,9 @@ Grippli			TYPE:Spoken.Written.Read
 Protean			TYPE:Spoken.Written.Read
 
 
-Catfolk				TYPE:Spoken.Written.Read
-Samsaran				TYPE:Spoken.Written.Read
-Strix					TYPE:Spoken.Written.Read
-Vanaran				TYPE:Spoken.Written.Read
-Vishkanya				TYPE:Spoken.Written.Read
-Wayang				TYPE:Spoken.Written.Read
+Catfolk			TYPE:Spoken.Written.Read
+Samsaran			TYPE:Spoken.Written.Read
+Strix				TYPE:Spoken.Written.Read
+Vanaran			TYPE:Spoken.Written.Read
+Vishkanya			TYPE:Spoken.Written.Read
+Wayang			TYPE:Spoken.Written.Read

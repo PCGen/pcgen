@@ -1,48 +1,51 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-03
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/01/16
 
 ###Block: Soulknife pseudo-weapons and -armor
 
-Mind Armor (Light)	PROFICIENCY:ARMOR|Mind Armor	TYPE:Armor.Light.Suit.Standard	COST:0	WT:25		SLOTS:1	ACCHECK:-1	MAXDEX:4	SOURCEPAGE:p.7	SPELLFAILURE:20	BONUS:COMBAT|AC|4|TYPE=Armor
-Mind Armor (Medium)	PROFICIENCY:ARMOR|Mind Armor	TYPE:Armor.Medium.Suit.Standard	COST:0	WT:40		SLOTS:1	ACCHECK:-4	MAXDEX:2	SOURCEPAGE:p.7	SPELLFAILURE:30	BONUS:COMBAT|AC|6|TYPE=Armor
-Mind Armor (Heavy)	PROFICIENCY:ARMOR|Mind Armor	TYPE:Armor.Heavy.Suit.Standard	COST:0	WT:45		SLOTS:1	ACCHECK:-6	MAXDEX:0	SOURCEPAGE:p.7	SPELLFAILURE:40	BONUS:COMBAT|AC|7|TYPE=Armor
+# Equipment Name			Required Weapon Proficiency		Required Armor Proficiency			Required Shield Proficiency		Type															Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus			Weapon prop. bonus									Special Property
+Mind Armor (Light)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Light.Suit.Standard										COST:0	WT:25		SLOTS:1	ACCHECK:-1															MAXDEX:4								SOURCEPAGE:p.7	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Mind Armor (Medium)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Medium.Suit.Standard										COST:0	WT:40		SLOTS:1	ACCHECK:-4															MAXDEX:2								SOURCEPAGE:p.7	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Mind Armor (Heavy)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Heavy.Suit.Standard										COST:0	WT:45		SLOTS:1	ACCHECK:-6															MAXDEX:0								SOURCEPAGE:p.7	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
 
 # NEEDS DATA WORK: How does one use the Armor magic item slot, without being counted as armor?
-Improved Mind Armor (Light)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.None.Standard				COST:0	WT:0		SLOTS:1	ACCHECK:0			SOURCEPAGE:p.11				BONUS:COMBAT|AC|4|TYPE=Armor
-Improved Mind Armor (Medium)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.Medium.Suit.Standard.Masterwork	COST:0	WT:30		SLOTS:1	ACCHECK:-3	MAXDEX:3	SOURCEPAGE:p.11	SPELLFAILURE:25	BONUS:COMBAT|AC|6|TYPE=Armor
-Improved Mind Armor (Heavy)	PROFICIENCY:ARMOR|Improved Mind Armor	TYPE:Armor.Heavy.Suit.Standard.Masterwork		COST:0	WT:50		SLOTS:1	ACCHECK:-5	MAXDEX:1	SOURCEPAGE:p.11	SPELLFAILURE:35	BONUS:COMBAT|AC|9|TYPE=Armor
+Improved Mind Armor (Light)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.None.Standard											COST:0	WT:0		SLOTS:1	ACCHECK:0																								SOURCEPAGE:p.11					BONUS:COMBAT|AC|4|TYPE=Armor
+Improved Mind Armor (Medium)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.Medium.Suit.Standard.Masterwork								COST:0	WT:30		SLOTS:1	ACCHECK:-3															MAXDEX:3								SOURCEPAGE:p.11	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
+Improved Mind Armor (Heavy)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.Heavy.Suit.Standard.Masterwork									COST:0	WT:50		SLOTS:1	ACCHECK:-5															MAXDEX:1								SOURCEPAGE:p.11	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
 
-Deadly Fist			PROFICIENCY:WEAPON|Deadly Fist	TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Piercing.Slashing.Finesseable.Close	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	WIELD:Light	SIZE:M	SOURCEPAGE:p.8
+Deadly Fist				PROFICIENCY:WEAPON|Deadly Fist														TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Piercing.Slashing.Finesseable.Close	COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	WIELD:Light									SIZE:M	SOURCEPAGE:p.8
 
-Mind Shield (Heavy)	PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Heavy.Standard.Close	COST:0	WT:0		SLOTS:1	ACCHECK:0	SOURCEPAGE:p.8	BONUS:COMBAT|AC|2|TYPE=Shield	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	WIELD:OneHanded	SIZE:M
-Mind Shield (Tower)	PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Tower.Standard.Close	COST:0	WT:0		SLOTS:1	MAXDEX:2	ACCHECK:-9	SOURCEPAGE:p.8	BONUS:COMBAT|AC|4|TYPE=Shield	SIZE:M	SPELLFAILURE:50		SPROP:can grant full cover
+Mind Shield (Heavy)															PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Heavy.Standard.Close										COST:0	WT:0		SLOTS:1	ACCHECK:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded								SIZE:M	SOURCEPAGE:p.8					BONUS:COMBAT|AC|2|TYPE=Shield
+Mind Shield (Tower)															PROFICIENCY:SHIELD|Mind Shield	TYPE:Shield.Tower.Standard.Close										COST:0	WT:0		SLOTS:1	ACCHECK:-9															MAXDEX:2						SIZE:M	SOURCEPAGE:p.8	SPELLFAILURE:50		BONUS:COMBAT|AC|4|TYPE=Shield													SPROP:can grant full cover
 
-Flurry of Fists		PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close		COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.57	BONUS:WEAPON|ATTACKS|FlurryOfFistsExtraAttacks	BONUS:WEAPON|TOHIT|-2
+Flurry of Fists			PROFICIENCY:WEAPON|Unarmed Strike														TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close				COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light					MODS:NO			SIZE:M	SOURCEPAGE:p.57										BONUS:WEAPON|ATTACKS|FlurryOfFistsExtraAttacks	BONUS:WEAPON|TOHIT|-2
 
 
 ###Block: Psionic Items
-Crystal Bow +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind bolt is increased by +1, up to +5
-Crystal Bow +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind bolt is increased by +2, up to +5
-Crystal Bow +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind bolt is increased by +3, up to +5
-Crystal Gauntlets +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of empowered unarmed strikes is increased by +1, up to +5
-Crystal Gauntlets +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of empowered unarmed strikes is increased by +2, up to +5
-Crystal Gauntlets +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of empowered unarmed strikes is increased by +3, up to +5
-Crystal Grip +1	TYPE:Psionic.CrystallineFocus	COST:5600	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind shield is increased by +1, up to +5
-Crystal Grip +2	TYPE:Psionic.CrystallineFocus	COST:22400	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind shield is increased by +2, up to +5
-Crystal Grip +3	TYPE:Psionic.CrystallineFocus	COST:50400	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind shield is increased by +3, up to +5
-Crystal Hilt (Light) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +1, up to +5
-Crystal Hilt (Light) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +2, up to +5
-Crystal Hilt (Light) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +3, up to +5
-Crystal Hilt (One-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +1, up to +5
-Crystal Hilt (One-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +2, up to +5
-Crystal Hilt (One-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +3, up to +5
-Crystal Hilt (Two-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +1, up to +5
-Crystal Hilt (Two-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +2, up to +5
-Crystal Hilt (Two-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +3, up to +5
-Crystal Spaulders +1	TYPE:Psionic.CrystallineFocus	COST:5600	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind armor is increased by +1, up to +5
-Crystal Spaulders +2	TYPE:Psionic.CrystallineFocus	COST:22400	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind armor is increased by +2, up to +5
-Crystal Spaulders +3	TYPE:Psionic.CrystallineFocus	COST:50400	WT:2	SOURCEPAGE:p.41	SPROP:enhancement of mind armor is increased by +3, up to +5
+# Equipment Name			Type					Cost		Weight	Source Page		Special Property
+Crystal Bow +1			TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind bolt is increased by +1, up to +5
+Crystal Bow +2			TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind bolt is increased by +2, up to +5
+Crystal Bow +3			TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind bolt is increased by +3, up to +5
+Crystal Gauntlets +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of empowered unarmed strikes is increased by +1, up to +5
+Crystal Gauntlets +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of empowered unarmed strikes is increased by +2, up to +5
+Crystal Gauntlets +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of empowered unarmed strikes is increased by +3, up to +5
+Crystal Grip +1			TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind shield is increased by +1, up to +5
+Crystal Grip +2			TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind shield is increased by +2, up to +5
+Crystal Grip +3			TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind shield is increased by +3, up to +5
+Crystal Hilt (Light) +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (Light) +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (Light) +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Hilt (One-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (One-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (One-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Hilt (Two-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (Two-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (Two-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Spaulders +1		TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind armor is increased by +1, up to +5
+Crystal Spaulders +2		TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind armor is increased by +2, up to +5
+Crystal Spaulders +3		TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.41	SPROP:enhancement of mind armor is increased by +3, up to +5
 
 #
 # End

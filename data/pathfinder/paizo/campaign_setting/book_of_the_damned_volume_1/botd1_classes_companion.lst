@@ -1,4 +1,5 @@
-SOURCELONG:Princes of Darkness, Book of the Damned Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 
 # Class Name		Output Name				Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Visible	Save checks bonus											Combat bonus
 CLASS:Imp Companion	OUTPUTNAME:Imp Companion	HD:10		TYPE:Monster.Companion	CLASSTYPE:Monster	ABB:IC		MAXLEVEL:20	SOURCEPAGE:p.44	VISIBLE:NO	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

@@ -1,4 +1,4 @@
-# CVS $Revision: 19388 $ $Author: zaister $ -- Mon Apr 25 17:42:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 19388 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
 # Original Entry by:Stefan Radermacher
 
@@ -11,8 +11,8 @@ Human Ethnicity (Keleshite)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Kele
 Human Ethnicity (Kellid)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Kellid
 Human Ethnicity (Bekyar)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Bekyar
 Human Ethnicity (Bonuwat)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Bonuwat
-Human Ethnicity (Mauxi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Mauxi
-Human Ethnicity (Zenj)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Zenj
+Human Ethnicity (Mauxi)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Mauxi
+Human Ethnicity (Zenj)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Zenj
 Human Ethnicity (Shoanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Shoanti
 Human Ethnicity (Taldan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Taldan
 Human Ethnicity (Tian)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Tian

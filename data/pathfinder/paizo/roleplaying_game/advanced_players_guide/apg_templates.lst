@@ -1,4 +1,4 @@
-# CVS $Revision: 21741 $ $Author: zaister $ -- Wed Sep 18 12:15:51 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: 21741 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 # Oracle Tongues granting Language:
@@ -62,24 +62,24 @@ Oracle Tongues Choice ~ Terran	AUTO:LANG|Terran
 # Oracle Templates
 # Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks
 
-# Template Name			Visible		Template																Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision					Modify VAR							Add to vision			Choose									Apply Kit					Bonus Languages	Vision		Natural Attacks								Temporary effect description
-Aquan Bonus Language																																																																													LANGBONUS:Aquan
+# Template Name			Visible	Template																Minimum Size	Maximum Size	Required Vision				Prohibited Vision						Add to vision			Apply Kit					Bonus Languages	Vision			Natural Attacks
+Aquan Bonus Language																																																				LANGBONUS:Aquan
 
-Small Claws																																			PRESIZELTEQ:S																																																NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d3
-Medium Claws																															PRESIZEGTEQ:M																																																			NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d4
+Small Claws																										PRESIZELTEQ:S																																	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d3
+Medium Claws																						PRESIZEGTEQ:M																																				NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d4
 
 
-Vision Normal																																										!PREVISION:2,Darkvision=1,Low-Light Vision=ANY																																	VISION:Low-Light Vision
-Vision Lowlight																																					PREVISION:1,Low-Light Vision=ANY																BONUS:VISION|Darkvision|30
-Vision Darkvision																																					PREVISION:1,Darkvision=1																BONUS:VISION|Darkvision|30
+Vision Normal																																		!PREVISION:2,Darkvision=1,Low-Light Vision=ANY															VISION:Low-Light Vision
+Vision Lowlight																												PREVISION:1,Low-Light Vision=ANY									BONUS:VISION|Darkvision|30
+Vision Darkvision																												PREVISION:1,Darkvision=1										BONUS:VISION|Darkvision|30
 # TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
 
-Starting Gold ~ APG		VISIBLE:NO		TEMPLATE:CHOOSE:Starting Gold APG ~ Random|Starting Gold APG ~ Maximum|Starting Gold APG ~ Average
-Starting Gold APG ~ Random	VISIBLE:NO																																																																				KIT:1|Starting Gold APG ~ Random
-Starting Gold APG ~ Maximum	VISIBLE:NO																																																																				KIT:1|Starting Gold APG ~ Maximum
-Starting Gold APG ~ Average	VISIBLE:NO																																																																				KIT:1|Starting Gold APG ~ Average
+Starting Gold ~ APG		VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold APG ~ Random|Starting Gold APG ~ Maximum|Starting Gold APG ~ Average
+Starting Gold APG ~ Random	VISIBLE:NO																																											KIT:1|Starting Gold APG ~ Random
+Starting Gold APG ~ Maximum	VISIBLE:NO																																											KIT:1|Starting Gold APG ~ Maximum
+Starting Gold APG ~ Average	VISIBLE:NO																																											KIT:1|Starting Gold APG ~ Average
 
-Formula Book			VISIBLE:NO																																																																				KIT:1|Alchemist Formula Book
+Formula Book			VISIBLE:NO																																											KIT:1|Alchemist Formula Book
 
 #
 # End

@@ -1,5 +1,5 @@
-# CVS $Revision: $ $Author: $ -- Thu May 23 15:46:42 2013 -- reformated by prettylst.pl v1.50 (build 19091)
-SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://paizo.com/products/btpy8xmz?Monster-Focus-Skeletons	SOURCEDATE:2013-04
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Monster Focus: Skeletons	SOURCESHORT:MFS	SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/	SOURCEDATE:2013-04
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 2013/05/23
 
@@ -9,7 +9,7 @@ Bone Bane		TYPE:Goods.Alchemical.Vial.Consumable	COST:15	WT:1		SOURCEPAGE:p.1
 Grave Scent		TYPE:Goods.Alchemical.Vial.Consumable	COST:20	WT:0.5	SOURCEPAGE:p.2
 Impact Oil		TYPE:Goods.Alchemical.Consumable		COST:20	WT:1		SOURCEPAGE:p.2
 Necromancer's Eye	TYPE:Goods.Alchemical.Consumable		COST:50			SOURCEPAGE:p.2
-Obsidian Knuckle	TYPE:Goods.Alchemical.Consumable		COST:100	WT:0.5		SOURCEPAGE:p.2
+Obsidian Knuckle	TYPE:Goods.Alchemical.Consumable		COST:100	WT:0.5	SOURCEPAGE:p.2
 Sun Crystal		TYPE:Goods.Alchemical.Consumable		COST:60			SOURCEPAGE:p.2
 
 ###Block: Magic Weapons

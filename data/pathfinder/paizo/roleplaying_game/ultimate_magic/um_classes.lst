@@ -1,4 +1,4 @@
-# CVS $Revision: 21393 $ $Author: evilmynex $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21393 $ $Author: evilmynex $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher and Eric Smith (Maredudd)
 # ORIGINAL ENTRY DATE: Unknown
@@ -129,6 +129,8 @@ SUBCLASS:Wood	CHOICE:DESCRIPTOR|WoodSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:VAR|WoodSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wood School
 
 ###Block: Cleric Domain Special
+
+# Class Name
 CLASS:Cleric.MOD
 0	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Air Domain]
 0	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Animal Domain]

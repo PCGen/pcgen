@@ -1,6 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
 ###BLOCK: Templates
+# Template Name			Product Identity?	Visible	Source Page		Automatically Gained Language	Subrace
 Human Ethnicity (Tian-Dan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	AUTO:LANG|Draconic|Tien		SUBRACE:Tian-Dan
 Human Ethnicity (Tian-Dtang)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	AUTO:LANG|Dtang|Tien		SUBRACE:Tian-Dtang
 Human Ethnicity (Tian-Hwan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.5	AUTO:LANG|Hwan|Tien		SUBRACE:Tian-Hwan
@@ -11,6 +13,7 @@ Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Min
 
 
 ###BLOCK: Race Templates
+# Template Name	Visible	Race Subtype				Vision
 Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-Light Vision
 Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-Light Vision
 Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-Light Vision

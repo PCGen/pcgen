@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
 
@@ -8,24 +9,24 @@ CLASS:Archon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Fly|Handle Animal|
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Archon	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Archon|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	BONUS:ABILITYPOOL|Archon Weapon Proficiency|2
-1												AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
+1	BONUS:ABILITYPOOL|Archon Weapon Proficiency|2	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1																				AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
 ###Block:Basic Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Archon|Cantrips ~ Archon
 ###Block:Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Rivenspell ~ Archon								BONUS:ABILITYPOOL|Archon Rivenspell|1
-2																	BONUS:ABILITYPOOL|Archon Favored Spell|1
-3	ABILITY:Special Ability|AUTOMATIC|Arcane Armor Training ~ Archon	DEFINE:ArchonArmorTraining|0	BONUS:VAR|ArchonArmorTraining|1
-4																	BONUS:ABILITYPOOL|Archon Rivenspell|(CL-1)/3
-5	ABILITY:Special Ability|AUTOMATIC|Arcane Surge ~ Archon		DEFINE:ArchonSurgeTimes|0	BONUS:VAR|ArchonSurgeTimes|(CL-1)/4
-6																	BONUS:VAR|ArchonArmorTraining|1
-8	ABILITY:Special Ability|AUTOMATIC|Soul of the Spellblade ~ Archon
-11																	BONUS:ABILITYPOOL|Archon Favored Spell 2|1
-12																	BONUS:VAR|ArchonArmorTraining|1
-14																	BONUS:ABILITYPOOL|Archon Hexsword Type|1	BONUS:ABILITYPOOL|Archon Hexsword Damage|1
-15																	BONUS:VAR|ArchonArmorTraining|1
-18																	BONUS:VAR|ArchonArmorTraining|1
-20	ABILITY:Special Ability|AUTOMATIC|Dominion of the Dusk Knight ~ Archon
+1									BONUS:ABILITYPOOL|Archon Rivenspell|1																				ABILITY:Special Ability|AUTOMATIC|Rivenspell ~ Archon
+2									BONUS:ABILITYPOOL|Archon Favored Spell|1
+3																								BONUS:VAR|ArchonArmorTraining|1	DEFINE:ArchonArmorTraining|0	ABILITY:Special Ability|AUTOMATIC|Arcane Armor Training ~ Archon
+4									BONUS:ABILITYPOOL|Archon Rivenspell|(CL-1)/3
+5																								BONUS:VAR|ArchonSurgeTimes|(CL-1)/4	DEFINE:ArchonSurgeTimes|0	ABILITY:Special Ability|AUTOMATIC|Arcane Surge ~ Archon
+6																								BONUS:VAR|ArchonArmorTraining|1
+8																																			ABILITY:Special Ability|AUTOMATIC|Soul of the Spellblade ~ Archon
+11									BONUS:ABILITYPOOL|Archon Favored Spell 2|1
+12																								BONUS:VAR|ArchonArmorTraining|1
+14									BONUS:ABILITYPOOL|Archon Hexsword Type|1	BONUS:ABILITYPOOL|Archon Hexsword Damage|1
+15																								BONUS:VAR|ArchonArmorTraining|1
+18																								BONUS:VAR|ArchonArmorTraining|1
+20																																			ABILITY:Special Ability|AUTOMATIC|Dominion of the Dusk Knight ~ Archon
 #Block: Spellcasting
 1	CAST:1,1			KNOWN:0,1
 2	CAST:1,1			KNOWN:0,2
@@ -52,10 +53,10 @@ CLASS:Archon	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arch
 CLASS:Death Mage	HD:8		TYPE:Base.PC	ABB:DMa		MAXLEVEL:20	SOURCEPAGE:p.14	DEFINE:DeathMageLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Death Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Linguistics|TYPE=Profession|Ride|Spellcraft|Stealth|Use Magic Device
-# Class Name	Spell Stat		Spell Type		Auto know all spells													Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Death Mage|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Falchion|Flail|Kama|Net|Nunchaku|Scimitar|Scythe
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency					AUTO:WEAPONPROF|Falchion|Flail|Kama|Net|Nunchaku|Scimitar|Scythe
 1												AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
 ###Block:Basic Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Death Mage|Cantrips ~ Death Mage
@@ -63,13 +64,13 @@ CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	DOMAIN:Death[PREABILITY:1,CATEGORY=Special Ability,Death Domain ~ Death Mage]
 1	DOMAIN:Repose[PREABILITY:1,CATEGORY=Special Ability,Repose Domain ~ Death Mage]
 ###Block:Level progression
-1	BONUS:ABILITYPOOL|Death Mage Pale Road|1	DEFINE:DeathMagePaleRoadTimes|0	DEFINE:DeathMagePaleRoadDC|0	BONUS:VAR|DeathMagePaleRoadTimes|3+CHA	BONUS:VAR|DeathMagePaleRoadDC|10+CL/2+CHA
-2	ABILITY:Special Ability|AUTOMATIC|Voice of the Dead ~ Death Mage
-3	BONUS:ABILITYPOOL|Death Mage Death Bond|1
-5	ABILITY:Special Ability|AUTOMATIC|Secrets of the Dead ~ Death Mage
-10	ABILITY:Special Ability|AUTOMATIC|Wisdom of the Grave ~ Death Mage
-15	ABILITY:Special Ability|AUTOMATIC|Deathly Abeyance ~ Death Mage
-20	ABILITY:Special Ability|AUTOMATIC|Final Guide ~ Death Mage
+1						BONUS:ABILITYPOOL|Death Mage Pale Road|1	BONUS:VAR|DeathMagePaleRoadTimes|3+CHA	BONUS:VAR|DeathMagePaleRoadDC|10+CL/2+CHA	DEFINE:DeathMagePaleRoadTimes|0	DEFINE:DeathMagePaleRoadDC|0
+2																																						ABILITY:Special Ability|AUTOMATIC|Voice of the Dead ~ Death Mage
+3						BONUS:ABILITYPOOL|Death Mage Death Bond|1
+5																																						ABILITY:Special Ability|AUTOMATIC|Secrets of the Dead ~ Death Mage
+10																																						ABILITY:Special Ability|AUTOMATIC|Wisdom of the Grave ~ Death Mage
+15																																						ABILITY:Special Ability|AUTOMATIC|Deathly Abeyance ~ Death Mage
+20																																						ABILITY:Special Ability|AUTOMATIC|Final Guide ~ Death Mage
 #Block: Spellcasting
 1	CAST:3,1
 2	CAST:4,2
@@ -93,43 +94,42 @@ CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 # This class was originally named the Magus, but was renamed when Paizo published Ultimate Magic with a class of the same name :-)
-# Class Name	Hit Dice	Type			Abbrev	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Magister	HD:6		TYPE:Base.PC	ABB:Mgr	MAXLEVEL:20	SOURCEPAGE:p.24	DEFINE:MagisterLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Magister	HD:6		TYPE:Base.PC	ABB:Mgr		MAXLEVEL:20	SOURCEPAGE:p.24	DEFINE:MagisterLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|Perform (Oratory)|Perform (Sing)|TYPE=Profession|Spellcraft|Use Magic Device
-# Class Name	Spell Stat		Memorize	Caster level
-CLASS:Magister	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Magister|CL
-###Primary Spell List
-CLASS:Magister	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Magister	SPELLTYPE:Divine|PREABILITY:1,CATEGORY=Special Ability,Divine Magister
+# Class Name	Spell Stat		Spell Type																							Memorize	Caster level
+CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Magister	SPELLTYPE:Divine|PREABILITY:1,CATEGORY=Special Ability,Divine Magister	MEMORIZE:NO	BONUS:CASTERLEVEL|Magister|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Magister Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1																AUTO:FEAT|Armor Proficiency (Light)
 ###Block:Basic Class Abilities
-1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Magister|Bonus Feats ~ Magister|Cantrips/Orisons ~ Magister|Feat Access Tracker ~ Magister|Spells ~ Magister	BONUS:ABILITYPOOL|Magister Power Source|1
+1	BONUS:ABILITYPOOL|Magister Power Source|1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Magister|Bonus Feats ~ Magister|Cantrips/Orisons ~ Magister|Feat Access Tracker ~ Magister|Spells ~ Magister
 ###Block:Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus I ~ Magister	BONUS:ABILITYPOOL|Magister Mystic Bond|1
-3												BONUS:ABILITYPOOL|Magister Mystic Talent|(CL+1)/4
-4	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus II ~ Magister
-6	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus III ~ Magister
-8	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus IV ~ Magister
-10	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus V ~ Magister
-12	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus VI ~ Magister
-14	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus VII ~ Magister
-16	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus VIII ~ Magister
-18	ABILITY:Special Ability|AUTOMATIC|Charisma Bonus IX ~ Magister
+1	BONUS:ABILITYPOOL|Magister Mystic Bond|1			ABILITY:Special Ability|AUTOMATIC|Charisma Bonus I ~ Magister
+3	BONUS:ABILITYPOOL|Magister Mystic Talent|(CL+1)/4
+4										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus II ~ Magister
+6										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus III ~ Magister
+8										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus IV ~ Magister
+10										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus V ~ Magister
+12										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus VI ~ Magister
+14										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus VII ~ Magister
+16										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus VIII ~ Magister
+18										ABILITY:Special Ability|AUTOMATIC|Charisma Bonus IX ~ Magister
 ###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE
+1						PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE
 #Block: Spells known
-1	BONUS:ABILITYPOOL|Magister Primary 0 Spells|(Magister0Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 0 Spells|Magister0Spells/2	BONUS:VAR|Magister0Spells|min((CL+8)/2,9)
-1	BONUS:ABILITYPOOL|Magister Primary 1 Spells|(Magister1Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 1 Spells|Magister1Spells/2	BONUS:VAR|Magister1Spells|min((CL+3)/2,5)
-4	BONUS:ABILITYPOOL|Magister Primary 2 Spells|(Magister2Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 2 Spells|Magister2Spells/2	BONUS:VAR|Magister2Spells|min((CL-1)/2,5)
-6	BONUS:ABILITYPOOL|Magister Primary 3 Spells|(Magister3Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 3 Spells|Magister3Spells/2	BONUS:VAR|Magister3Spells|min((CL-3)/2,4)
-8	BONUS:ABILITYPOOL|Magister Primary 4 Spells|(Magister4Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 4 Spells|Magister4Spells/2	BONUS:VAR|Magister4Spells|min((CL-5)/2,4)
-10	BONUS:ABILITYPOOL|Magister Primary 5 Spells|(Magister5Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 5 Spells|Magister5Spells/2	BONUS:VAR|Magister5Spells|min((CL-7)/2,4)
-12	BONUS:ABILITYPOOL|Magister Primary 6 Spells|(Magister6Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 6 Spells|Magister6Spells/2	BONUS:VAR|Magister6Spells|min((CL-9)/2,3)
-14	BONUS:ABILITYPOOL|Magister Primary 7 Spells|(Magister7Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 7 Spells|Magister7Spells/2	BONUS:VAR|Magister7Spells|min((CL-11)/2,3)
-16	BONUS:ABILITYPOOL|Magister Primary 8 Spells|(Magister8Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 8 Spells|Magister8Spells/2	BONUS:VAR|Magister8Spells|min((CL-13)/2,3)
-18	BONUS:ABILITYPOOL|Magister Primary 9 Spells|(Magister9Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 9 Spells|Magister9Spells/2	BONUS:VAR|Magister9Spells|min((CL-15)/2,3)
+1																																								BONUS:ABILITYPOOL|Magister Primary 0 Spells|(Magister0Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 0 Spells|Magister0Spells/2	BONUS:VAR|Magister0Spells|min((CL+8)/2,9)
+1																																								BONUS:ABILITYPOOL|Magister Primary 1 Spells|(Magister1Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 1 Spells|Magister1Spells/2	BONUS:VAR|Magister1Spells|min((CL+3)/2,5)
+4																																								BONUS:ABILITYPOOL|Magister Primary 2 Spells|(Magister2Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 2 Spells|Magister2Spells/2	BONUS:VAR|Magister2Spells|min((CL-1)/2,5)
+6																																								BONUS:ABILITYPOOL|Magister Primary 3 Spells|(Magister3Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 3 Spells|Magister3Spells/2	BONUS:VAR|Magister3Spells|min((CL-3)/2,4)
+8																																								BONUS:ABILITYPOOL|Magister Primary 4 Spells|(Magister4Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 4 Spells|Magister4Spells/2	BONUS:VAR|Magister4Spells|min((CL-5)/2,4)
+10																																								BONUS:ABILITYPOOL|Magister Primary 5 Spells|(Magister5Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 5 Spells|Magister5Spells/2	BONUS:VAR|Magister5Spells|min((CL-7)/2,4)
+12																																								BONUS:ABILITYPOOL|Magister Primary 6 Spells|(Magister6Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 6 Spells|Magister6Spells/2	BONUS:VAR|Magister6Spells|min((CL-9)/2,3)
+14																																								BONUS:ABILITYPOOL|Magister Primary 7 Spells|(Magister7Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 7 Spells|Magister7Spells/2	BONUS:VAR|Magister7Spells|min((CL-11)/2,3)
+16																																								BONUS:ABILITYPOOL|Magister Primary 8 Spells|(Magister8Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 8 Spells|Magister8Spells/2	BONUS:VAR|Magister8Spells|min((CL-13)/2,3)
+18																																								BONUS:ABILITYPOOL|Magister Primary 9 Spells|(Magister9Spells+1)/2	BONUS:ABILITYPOOL|Magister Other 9 Spells|Magister9Spells/2	BONUS:VAR|Magister9Spells|min((CL-15)/2,3)
 #Block: Spellcasting
 1	CAST:0,3
 2	CAST:0,4
@@ -152,52 +152,52 @@ CLASS:Magister	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Mag
 19	CAST:0,6,6,6,6,6,6,6,6,4
 20	CAST:0,6,6,6,6,6,6,6,6,6
 
-# Class Name		HD	Type			Abbrev	Max Level	Source Page		Define				Save checks bonus											Combat bonus
-CLASS:Shadow Assassin	HD:8	TYPE:Base.PC	ABB:ShA	MAXLEVEL:20	SOURCEPAGE:p.32	DEFINE:ShadowAssassinLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
+CLASS:Shadow Assassin	HD:8		TYPE:Base.PC	ABB:ShA		MAXLEVEL:20	SOURCEPAGE:p.32	DEFINE:ShadowAssassinLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Stealth|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Shadow Assassin
 ###Block:Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Deadly Focus ~ Shadow Assassin
-2	ABILITY:Special Ability|AUTOMATIC|Shadowmeld ~ Shadow Assassin|Shadowmeld (Stealth Bonus) ~ Shadow Assassin					BONUS:ABILITYPOOL|Shadow Style|1
-3																							BONUS:ABILITYPOOL|Shadow Talent|(CL+1)/4
-4	ABILITY:Special Ability|AUTOMATIC|Evasion|Shadowmeld (Skill Bonus) ~ Shadow Assassin
-5	ABILITY:Special Ability|AUTOMATIC|Daggermaster ~ Shadow Assassin					BONUS:VAR|DaggermasterBonus|(CL-1)/4
-6	ABILITY:Special Ability|AUTOMATIC|Greater Deadly Focus ~ Shadow Assassin			BONUS:VAR|GDeadlyFocusTimes|1			BONUS:ABILITYPOOL|Shadow Style|1
-8	ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Camouflage) ~ Shadow Assassin
-10	ABILITY:Special Ability|AUTOMATIC|Bypass DR ~ Shadow Assassin|Improved Evasion
-11																							BONUS:ABILITYPOOL|Shadow Style|1
-12	ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Produce Shadow) ~ Shadow Assassin
-14																BONUS:VAR|GDeadlyFocusTimes|1
-15																							BONUS:ABILITYPOOL|Shadow Style|1
-16	ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Living Shadow) ~ Shadow Assassin
-18																BONUS:VAR|GDeadlyFocusTimes|1
-20	ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Death Shadow) ~ Shadow Assassin										BONUS:ABILITYPOOL|Shadow Style|1
+1															ABILITY:Special Ability|AUTOMATIC|Deadly Focus ~ Shadow Assassin
+2	BONUS:ABILITYPOOL|Shadow Style|1									ABILITY:Special Ability|AUTOMATIC|Shadowmeld ~ Shadow Assassin|Shadowmeld (Stealth Bonus) ~ Shadow Assassin
+3	BONUS:ABILITYPOOL|Shadow Talent|(CL+1)/4
+4															ABILITY:Special Ability|AUTOMATIC|Evasion|Shadowmeld (Skill Bonus) ~ Shadow Assassin
+5								BONUS:VAR|DaggermasterBonus|(CL-1)/4	ABILITY:Special Ability|AUTOMATIC|Daggermaster ~ Shadow Assassin
+6	BONUS:ABILITYPOOL|Shadow Style|1		BONUS:VAR|GDeadlyFocusTimes|1			ABILITY:Special Ability|AUTOMATIC|Greater Deadly Focus ~ Shadow Assassin
+8															ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Camouflage) ~ Shadow Assassin
+10															ABILITY:Special Ability|AUTOMATIC|Bypass DR ~ Shadow Assassin|Improved Evasion
+11	BONUS:ABILITYPOOL|Shadow Style|1
+12															ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Produce Shadow) ~ Shadow Assassin
+14								BONUS:VAR|GDeadlyFocusTimes|1
+15	BONUS:ABILITYPOOL|Shadow Style|1
+16															ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Living Shadow) ~ Shadow Assassin
+18								BONUS:VAR|GDeadlyFocusTimes|1
+20	BONUS:ABILITYPOOL|Shadow Style|1									ABILITY:Special Ability|AUTOMATIC|Shadowmeld (Death Shadow) ~ Shadow Assassin
 
-# Class Name	HD	Type			Abbrev	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:War Master	HD:10	TYPE:Base.PC	ABB:WMa	MAXLEVEL:20	SOURCEPAGE:p.40	DEFINE:WarMasterLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:War Master	HD:10		TYPE:Base.PC	ABB:WMa		MAXLEVEL:20	SOURCEPAGE:p.40	DEFINE:WarMasterLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Master	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Engineering)|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Profession|Ride|Sense Motive|Survival
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ War Master
 ###Block:Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Assail|Battle Tactic ~ Countering Tactics|Battle Tactic ~ Covering Maneuvers|Battle Tactic ~ Deployment|Battle Tactics ~ War Master
-2	ABILITY:Special Ability|AUTOMATIC|Consul ~ War Master							BONUS:ABILITYPOOL|War Master Talent|1
-3	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Individual Tactics
-4																BONUS:ABILITYPOOL|War Master Talent|1
-5	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Goad|Mark of Quality ~ War Master
-6																BONUS:ABILITYPOOL|War Master Talent|1
-7	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Guarded Tactics
-8																BONUS:ABILITYPOOL|War Master Talent|1
-9	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Raid Tactics
-10																BONUS:ABILITYPOOL|War Master Talent|1
-11	ABILITY:Special Ability|AUTOMATIC|Rally ~ War Master														BONUS:VAR|WMRallyTimes|1
-12																BONUS:ABILITYPOOL|War Master Talent|1
-13	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Assault Tactics
-14																BONUS:ABILITYPOOL|War Master Talent|1
-15	ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Heroic Tactics
-16																BONUS:ABILITYPOOL|War Master Talent|1
-18																BONUS:ABILITYPOOL|War Master Talent|1
-19																							BONUS:VAR|WMRallyTimes|1
-20	ABILITY:Special Ability|AUTOMATIC|Warlord ~ War Master
+1													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Assail|Battle Tactic ~ Countering Tactics|Battle Tactic ~ Covering Maneuvers|Battle Tactic ~ Deployment|Battle Tactics ~ War Master
+2	BONUS:ABILITYPOOL|War Master Talent|1						ABILITY:Special Ability|AUTOMATIC|Consul ~ War Master
+3													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Individual Tactics
+4	BONUS:ABILITYPOOL|War Master Talent|1
+5													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Goad|Mark of Quality ~ War Master
+6	BONUS:ABILITYPOOL|War Master Talent|1
+7													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Guarded Tactics
+8	BONUS:ABILITYPOOL|War Master Talent|1
+9													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Raid Tactics
+10	BONUS:ABILITYPOOL|War Master Talent|1
+11								BONUS:VAR|WMRallyTimes|1	ABILITY:Special Ability|AUTOMATIC|Rally ~ War Master
+12	BONUS:ABILITYPOOL|War Master Talent|1
+13													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Assault Tactics
+14	BONUS:ABILITYPOOL|War Master Talent|1
+15													ABILITY:Special Ability|AUTOMATIC|Battle Tactic ~ Heroic Tactics
+16	BONUS:ABILITYPOOL|War Master Talent|1
+18	BONUS:ABILITYPOOL|War Master Talent|1
+19								BONUS:VAR|WMRallyTimes|1
+20													ABILITY:Special Ability|AUTOMATIC|Warlord ~ War Master

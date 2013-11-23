@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 # Class Name	Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
 CLASS:Harrower	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Har		MAXLEVEL:10	SOURCEPAGE:p.276	DEFINE:HarrowerLvl|CL	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE

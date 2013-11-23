@@ -1,15 +1,15 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
 ###Block:Exotic Pet
-# Class of the Master	Type			Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Combat bonus					Main Race Type			DEFINESTAT
+# Class of the Master	Type			Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define a Stat			Combat bonus					Main Race Type
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Improved Evasion																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast	DEFINESTAT:MINVALUE|INT|6
-FOLLOWER:ExoticPetLVL=3	TYPE:Exotic Pet																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						DEFINESTAT:MINVALUE|INT|7
-FOLLOWER:ExoticPetLVL=5	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Speak with Master																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						DEFINESTAT:MINVALUE|INT|8
-FOLLOWER:ExoticPetLVL=7	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						DEFINESTAT:MINVALUE|INT|9
-FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						DEFINESTAT:MINVALUE|INT|10
+FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Improved Evasion																				DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
+FOLLOWER:ExoticPetLVL=3	TYPE:Exotic Pet																													DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:ExoticPetLVL=5	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Speak with Master																				DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:ExoticPetLVL=7	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																		DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																													DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 # Locking INT to 10 makes it a non-ability.
 
 # Race of familiar			Type			Bonus to skill			Virtual Feat
@@ -44,22 +44,22 @@ FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																									
 
 
 ###Block:Demonic Familiar (Demonic Apostle)
-# Class of the Master			Type				Spell Res.	Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Required Race			Apply Kit				Combat bonus					Main Race Type			Template				DEFINESTAT
+# Class of the Master			Type				Spell Res.	Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Required Race			Apply Kit				Define a Stat			Combat bonus					Main Race Type			Template
 FOLLOWER:DemonicFamiliarLVL=1		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:DemonicFamiliarLVL=1		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast						DEFINESTAT:MINVALUE|INT|6
-FOLLOWER:DemonicFamiliarLVL=3		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						TEMPLATE:Fiendish Creature	DEFINESTAT:MINVALUE|INT|7
-FOLLOWER:DemonicFamiliarLVL=5		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|8
-FOLLOWER:DemonicFamiliarLVL=7		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|9
-FOLLOWER:DemonicFamiliarLVL=9		TYPE:Demonic Familiar																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|10
-FOLLOWER:DemonicFamiliarLVL=11	TYPE:Demonic Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Familiar																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|11
+FOLLOWER:DemonicFamiliarLVL=1		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																												DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
+FOLLOWER:DemonicFamiliarLVL=3		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																													DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK						TEMPLATE:Fiendish Creature
+FOLLOWER:DemonicFamiliarLVL=5		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																														DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:DemonicFamiliarLVL=7		TYPE:Demonic Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																												DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:DemonicFamiliarLVL=9		TYPE:Demonic Familiar																																									DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:DemonicFamiliarLVL=11	TYPE:Demonic Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Familiar																												DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:DemonicFamiliarLVL=12	TYPE:Demonic Familiar	SR:17
-FOLLOWER:DemonicFamiliarLVL=13	TYPE:Demonic Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|12
+FOLLOWER:DemonicFamiliarLVL=13	TYPE:Demonic Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																														DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:DemonicFamiliarLVL=14	TYPE:Demonic Familiar	SR:19
-FOLLOWER:DemonicFamiliarLVL=15	TYPE:Demonic Familiar	SR:20																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|13
+FOLLOWER:DemonicFamiliarLVL=15	TYPE:Demonic Familiar	SR:20																																								DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:DemonicFamiliarLVL=16	TYPE:Demonic Familiar	SR:21
-FOLLOWER:DemonicFamiliarLVL=17	TYPE:Demonic Familiar	SR:22																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|14
+FOLLOWER:DemonicFamiliarLVL=17	TYPE:Demonic Familiar	SR:22																																								DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:DemonicFamiliarLVL=18	TYPE:Demonic Familiar	SR:23
-FOLLOWER:DemonicFamiliarLVL=19	TYPE:Demonic Familiar	SR:24																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK											DEFINESTAT:MINVALUE|INT|15
+FOLLOWER:DemonicFamiliarLVL=19	TYPE:Demonic Familiar	SR:24																																								DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:DemonicFamiliarLVL=20	TYPE:Demonic Familiar	SR:25
 
 FOLLOWER:DemonicFamiliarLVL=1		TYPE:Demonic Familiar																															PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language

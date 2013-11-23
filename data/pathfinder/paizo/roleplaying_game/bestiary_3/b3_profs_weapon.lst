@@ -1,7 +1,7 @@
-# CVS $Revision: 21638 $ $Author: amaitland $ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21638 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 # Original Entry By: W. Robert 'Mynex' Reed III
 # Entry Date: August 2013
-SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 # Weapon Name	Type
 Dagger (Chain)	TYPE:Weapon.Simple.Light.Melee.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing

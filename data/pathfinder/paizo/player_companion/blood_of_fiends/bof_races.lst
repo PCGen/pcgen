@@ -1,4 +1,4 @@
-# CVS $Revision: 19255 $ $Author: amaitland $ -- Fri Jul 12 13:38:44 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 19255 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 12 July 2013
@@ -17,6 +17,7 @@ SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/b
 #Tiefling (Rakshasa-Spawn)	KEY:Tiefling (Rakshasa-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Rakshasa-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
 
 
+# Race Name		Bonus to Ability Pool
 Tiefling.MOD	BONUS:ABILITYPOOL|Tiefling Subrace|1
 
 #

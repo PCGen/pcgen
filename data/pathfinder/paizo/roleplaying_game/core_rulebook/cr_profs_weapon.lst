@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: abernat
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -198,7 +198,7 @@ Shuriken.MOD				TYPE:Monk.Weapon Group Monk
 Unarmed Strike.MOD			TYPE:Monk.Natural.Weapon Group Monk
 
 #Natural:
-Unarmed Strike.MOD	TYPE:Weapon Group Natural
+Unarmed Strike.MOD			TYPE:Weapon Group Natural
 #Bite.MOD	TYPE:Natural
 #Claw.MOD	TYPE:Natural
 #Gore.MOD	TYPE:Natural

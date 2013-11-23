@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Sep 10 08:17:14 2011 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html	SOURCEDATE:2011-06
 #Original Entry: Douglas Limmer
 
@@ -10,41 +10,41 @@ CLASS:Vitalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|TYPE=Craft|Diplomacy|He
 CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Vitalist|CL
 
 #Block: Proficiencies
-1																																																													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies		AUTO:FEAT|Simple Weapon Proficiency
-1																																																																									AUTO:FEAT|Armor Proficiency (Light)
+1																																																																			ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																												AUTO:FEAT|Simple Weapon Proficiency
+1																																																																																																									AUTO:FEAT|Armor Proficiency (Light)
 
 #Block: Psionic Ability
-1												BONUS:VAR|VitalistML|CL	BONUS:VAR|VitalistML|var("BL=Vitalist")	BONUS:VAR|IsPsionic|1																						DEFINE:VitalistML|0	DEFINE:IsPsionic|0						ABILITY:Special Ability|AUTOMATIC|Psionic
-1												BONUS:VAR|VitalistPL|VitalistML																															DEFINE:VitalistPL|0
-1												BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:VitalistPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:VitalistPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:VitalistPL,4
-1												BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:VitalistPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:VitalistPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:VitalistPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:VitalistPL,8
-1												BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:VitalistPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:VitalistPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:VitalistPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:VitalistPL,12
-1												BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:VitalistPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:VitalistPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:VitalistPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:VitalistPL,16
-1												BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:VitalistPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:VitalistPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:VitalistPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:VitalistPL,20
-1												BONUS:VAR|BonusPowerPoints|(WIS*VitalistPL)/2|TYPE=VitalistBonusPP
+1																							BONUS:VAR|VitalistML|CL	BONUS:VAR|VitalistML|var("BL=Vitalist")	BONUS:VAR|IsPsionic|1																						DEFINE:VitalistML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1																							BONUS:VAR|VitalistPL|VitalistML																															DEFINE:VitalistPL|0
+1																							BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:VitalistPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:VitalistPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:VitalistPL,4
+1																							BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:VitalistPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:VitalistPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:VitalistPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:VitalistPL,8
+1																							BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:VitalistPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:VitalistPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:VitalistPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:VitalistPL,12
+1																							BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:VitalistPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:VitalistPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:VitalistPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:VitalistPL,16
+1																							BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:VitalistPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:VitalistPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:VitalistPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:VitalistPL,20
+1																							BONUS:VAR|BonusPowerPoints|(WIS*VitalistPL)/2|TYPE=VitalistBonusPP
 
 #Block: Class Info
-1	KNOWN:0,2				BONUS:ABILITYPOOL|Vitalist Method|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMethod	BONUS:VAR|MethodLVL|CL																																	DEFINE:MethodLVL|0
-1												BONUS:VAR|CollectiveLVL|CL																																DEFINE:CollectiveLVL|0										ABILITY:Special Ability|AUTOMATIC|Collective|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollective
-1						BONUS:ABILITYPOOL|Knack|2|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks																																										ABILITY:Special Ability|AUTOMATIC|Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing	ABILITY:Special Ability|AUTOMATIC|Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
-1												BONUS:VAR|TransferWoundsDice|(CL+2)/3																																											ABILITY:Special Ability|AUTOMATIC|Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
-2	KNOWN:0,2										BONUS:VAR|HealthSenseLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense	ABILITY:Special Ability|AUTOMATIC|Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
-3	KNOWN:0,0,3										BONUS:VAR|StealHealthLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth	ABILITY:Special Ability|AUTOMATIC|Telepathy ~ Vitalist|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTelepathy
+1	KNOWN:0,2				BONUS:ABILITYPOOL|Vitalist Method|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMethod			BONUS:VAR|MethodLVL|CL																																	DEFINE:MethodLVL|0
+1																							BONUS:VAR|CollectiveLVL|CL																																DEFINE:CollectiveLVL|0					ABILITY:Special Ability|AUTOMATIC|Collective|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollective
+1						BONUS:ABILITYPOOL|Knack|2|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks																																																ABILITY:Special Ability|AUTOMATIC|Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing	ABILITY:Special Ability|AUTOMATIC|Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
+1																							BONUS:VAR|TransferWoundsDice|(CL+2)/3																																						ABILITY:Special Ability|AUTOMATIC|Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
+2	KNOWN:0,2																					BONUS:VAR|HealthSenseLVL|CL																																								ABILITY:Special Ability|AUTOMATIC|Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense	ABILITY:Special Ability|AUTOMATIC|Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
+3	KNOWN:0,0,3																					BONUS:VAR|StealHealthLVL|CL																																								ABILITY:Special Ability|AUTOMATIC|Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth	ABILITY:Special Ability|AUTOMATIC|Telepathy ~ Vitalist|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTelepathy
 4	KNOWN:0,0,3
-5	KNOWN:0,0,0,4																																																										ABILITY:Special Ability|AUTOMATIC|Request Aid|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistRequestAid
+5	KNOWN:0,0,0,4																																																																ABILITY:Special Ability|AUTOMATIC|Request Aid|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistRequestAid
 6	KNOWN:0,0,0,4
 7	KNOWN:0,0,0,0,5
 8	KNOWN:0,0,0,0,5
-9	KNOWN:0,0,0,0,0,6																																																					BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge9
+9	KNOWN:0,0,0,0,0,6			BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge9
 10	KNOWN:0,0,0,0,0,6
 11	KNOWN:0,0,0,0,0,0,7
 12	KNOWN:0,0,0,0,0,0,7
 13	KNOWN:0,0,0,0,0,0,0,8
-14	KNOWN:0,0,0,0,0,0,0,8								BONUS:VAR|StealLifeLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Life|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealLife
+14	KNOWN:0,0,0,0,0,0,0,8																			BONUS:VAR|StealLifeLVL|CL																																								ABILITY:Special Ability|AUTOMATIC|Steal Life|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealLife
 15	KNOWN:0,0,0,0,0,0,0,0,9
 16	KNOWN:0,0,0,0,0,0,0,0,9
 17	KNOWN:0,0,0,0,0,0,0,0,0,10
-18	KNOWN:0,0,0,0,0,0,0,0,0,10																																																			BONUS:ABILITYPOOL|Vitalist Feat|1!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge18
+18	KNOWN:0,0,0,0,0,0,0,0,0,10	BONUS:ABILITYPOOL|Vitalist Feat|1!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge18
 19	KNOWN:0,0,0,0,0,0,0,0,0,11
 20	KNOWN:0,0,0,0,0,0,0,0,0,11
 

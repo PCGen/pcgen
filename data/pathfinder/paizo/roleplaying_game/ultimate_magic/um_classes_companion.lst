@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 24 December 2011
@@ -10,7 +10,7 @@ CLASS:Vermin Companion	STARTSKILLPTS:0	MODTOSKILLS:NO			CSKILL:Acrobatics|Climb|
 ###Block: Level Advancement
 1	AUTO:FEAT|CMB Output
 
-# Class Name	Output Name			Type				Class Type			Abbreviation	Max Level			Source Page		Visible	Bonus to HP
+# Class Name	Output Name			Type				Class Type			Abbreviation	Max Level	Source Page		Visible	Bonus to HP
 CLASS:Black Blade	OUTPUTNAME:Black Blade	TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:BB		MAXLEVEL:1	SOURCEPAGE:p.47	VISIBLE:NO	BONUS:HP|CURRENTMAX|5
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO

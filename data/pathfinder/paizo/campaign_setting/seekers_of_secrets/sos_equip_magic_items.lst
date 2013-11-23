@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Sep 26 07:35:39 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Terry Milnes
 
@@ -93,10 +93,10 @@ Wayfinder of Passage		OUTPUTNAME:Wayfinder of Passage	TYPE:Magic.Wondrous.Wayfin
 Wayfinder of the Sleeping Eye							TYPE:Magic.Wondrous.Wayfinder			COST:70000	WT:1		SOURCEPAGE:p.51																																																					SPROP:Can contain 1 slotted ioun stone. Creates an illusory image of yourself, but drains the power of the slotted ioun stone rendering it dull gray and powerless for 24 hrs
 
 ###Block: Wondrous Items
-# Equipment Name			Type						Contains				Cost		Weight	Slot Needed	Source Page
-Autonomous Cartographer		TYPE:Magic.Wondrous								COST:2000	WT:0.5			SOURCEPAGE:p.55
-Dead Man's Shroud			TYPE:Magic.Wondrous.Cloak							COST:6000	WT:1				SOURCEPAGE:p.55
-Eldritch Egress			TYPE:Magic.Wondrous								COST:10000	WT:4				SOURCEPAGE:p.55
-Horseshoes of Great Burden	TYPE:Magic.Wondrous.Feet							COST:2500	WT:24		SLOTS:4	SOURCEPAGE:p.55
+# Equipment Name			Type						Contains			Cost		Weight	Slot Needed	Source Page
+Autonomous Cartographer		TYPE:Magic.Wondrous							COST:2000	WT:0.5			SOURCEPAGE:p.55
+Dead Man's Shroud			TYPE:Magic.Wondrous.Cloak						COST:6000	WT:1				SOURCEPAGE:p.55
+Eldritch Egress			TYPE:Magic.Wondrous							COST:10000	WT:4				SOURCEPAGE:p.55
+Horseshoes of Great Burden	TYPE:Magic.Wondrous.Feet						COST:2500	WT:24		SLOTS:4	SOURCEPAGE:p.55
 Pathfinder Pouch			TYPE:Magic.Wondrous.Container		CONTAINS:*10|Any		COST:1000	WT:1				SOURCEPAGE:p.56
 Versatile Vest			TYPE:Magic.Wondrous.Shirt.Container	CONTAINS:40%26|Any	COST:2000	WT:1				SOURCEPAGE:p.56

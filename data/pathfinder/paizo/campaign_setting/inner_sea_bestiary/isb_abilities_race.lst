@@ -1,4 +1,5 @@
-SOURCELONG:Inner Sea Bestiary		SOURCESHORT:ISB		SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
 
 # Original Entry by: Scott Meyer
 
@@ -68,9 +69,9 @@ Past-Life Knowledge	KEY:Past-Life Knowledge ~ Ghoran	CATEGORY:Special Ability	TY
 Natural Magic		KEY:Natural Magic ~ Ghoran		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Detect Poison,10+CHA|Goodberry,11+CHA|Purify Food and Drink,10+CHA	DESC:Ghorans gains spell-like abilities																SOURCEPAGE:p.14
 
 ###Block: Giant (Shadow) Abilities
-# Ability Name	Unique Key					Category of Ability		Type						Description																							Automatically Gained Weapon Prof.		Add 							Source Page
+# Ability Name	Unique Key					Category of Ability		Type						Description																							Automatically Gained Weapon Prof.		Add 						Source Page
 Militant		KEY:Militant ~ Shadow Giant		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Proficient with all simple and martial weapons and 1 exotic weapon of choice.											AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:VFEAT|Exotic Weapon Proficiency	SOURCEPAGE:p.15
-Shadow Cloak	KEY:Shadow Cloak ~ Shadow Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.															SOURCEPAGE:p.15
+Shadow Cloak	KEY:Shadow Cloak ~ Shadow Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:In any illumination other than direct sunlight, a shadow giant can cloak itself in moving shadows as per Blur for 1d6+6 rounds 3/day.														SOURCEPAGE:p.15
 
 ###Block: Goblin (Monkey) Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																				Source Page
@@ -204,10 +205,10 @@ Weapon Expertise	KEY:Weapon Expertise ~ Petrified Maiden	CATEGORY:Special Abilit
 Weapon Selection	KEY:Weapon Selection ~ Petrified Maiden	CATEGORY:Special Ability	TYPE:PetrifiedMaidenWeaponSelection	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|TYPE=Martial	SELECT:1	AUTO:WEAPONPROF|%LIST			BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1
 
 ###Block: Psychopomp General Abilities
-# Ability Name	Unique Key				Category of Ability		Type						Description																								Automatically Gained Language			Ability																																Modify VAR									Vision					Source Page
+# Ability Name	Unique Key				Category of Ability		Type						Description																								Automatically Gained Language			Ability																																Modify VAR									Vision						Source Page
 Psychopomp Traits						CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Psychopomps are neutral outsiders native to the plain known as the Boneyard. Psychopomps have a particular suite of traits.				AUTO:LANG|Celestial|Abyssal|Infernal	ABILITY:Special Ability|AUTOMATIC|Immunity to Death Effects|Immunity to Disease|Immunity to Poison|Resistance to Cold|Resistance to Electricity|Spirit Sense ~ Psychopomp|Spirit Touch ~ Psychopomp	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|10	VISION:Darkvision (60')|Low-Light Vision	SOURCEPAGE:p.38
-Spirit Touch	KEY:Spirit Touch ~ Psychopomp	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A psychopomp's natural weapons, as well as any weapon it wields , are treated as though they had the .Ghost Touch weapon special ability.																																																										SOURCEPAGE:p.38
-Spirit Sense	KEY:Spirit Sense ~ Psychopomp	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:A psychopomp notices, locates, and can distinguish between living and undead creatures within 6o feet, just as if it had the blindsight ability.																																																									SOURCEPAGE:p.38
+Spirit Touch	KEY:Spirit Touch ~ Psychopomp	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A psychopomp's natural weapons, as well as any weapon it wields , are treated as though they had the .Ghost Touch weapon special ability.																																																											SOURCEPAGE:p.38
+Spirit Sense	KEY:Spirit Sense ~ Psychopomp	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:A psychopomp notices, locates, and can distinguish between living and undead creatures within 6o feet, just as if it had the blindsight ability.																																																										SOURCEPAGE:p.38
 
 ###Block: Psychopomp (Memitim) Abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description																											Source Page
@@ -347,11 +348,11 @@ Flying Charge	KEY:Flying Charge ~ Whirlmaw	CATEGORY:Special Ability	TYPE:Special
 Keen Sight		KEY:Keen Sight ~ Whirlmaw	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A Whirlmaw takes only half the penalty on Perception checks for distance.																																																					SOURCEPAGE:p.60
 
 ###Block: Woundwyrm Abilities
-# Ability Name		Unique Key						Category of Ability		Type						Innate Spells													Description																																																											Source Page
-Breath Weapon		KEY:Breath Weapon ~ Woundwyrm			CATEGORY:Special Ability	TYPE:SpecialAttack																		DESC:100-ft. line of acid, 16d6, Reflex DC 25 for half, usable every 1d4 rounds																																															SOURCEPAGE:p.61
+# Ability Name		Unique Key						Category of Ability		Type						Innate Spells															Description																																																											Source Page
+Breath Weapon		KEY:Breath Weapon ~ Woundwyrm			CATEGORY:Special Ability	TYPE:SpecialAttack																				DESC:100-ft. line of acid, 16d6, Reflex DC 25 for half, usable every 1d4 rounds																																															SOURCEPAGE:p.61
 Spell-Like Abilities	KEY:Spell-Like Abilities ~ Woundwyrm	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		SPELLS:Innate|TIMES=1|CASTERLEVEL=18|Entropic Shield|Freedom of Movement|Polymorph Any Object,23	DESC:The Woundwyrm possesses spell-like abilities. Constant: Entropic Shield, Freedom of Movement																																												SOURCEPAGE:p.61
-Entropic Breath		KEY:Entropic Breath ~ Woundwyrm		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																DESC:Instead of a line of acid, a woundwyrm can exhale a 30-foot cone of acid fog (as the spell) that persists for 1 minute. Any creature that begins its turn within the entropic breath becomes confused (Will DC 25 negates) for as long as it remains within the cloud and for 1d6 rounds thereafter.											SOURCEPAGE:p.61
-Maw of the Abyss		KEY:Maw of the Abyss ~ Woundwyrm		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																DESC:As a full-round action, a woundwyrm can attempt to suck creatures and unattended objects in a 15-foot cone into a vortex in its maw. This acts as a drag combat maneuver (CMB +30) against creatures, and acts as a Strength check with a +10 bonus to break objects. Creatures and objects alike take 1d12 points of sonic damage per round within the cone.	SOURCEPAGE:p.61
+Entropic Breath		KEY:Entropic Breath ~ Woundwyrm		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																		DESC:Instead of a line of acid, a woundwyrm can exhale a 30-foot cone of acid fog (as the spell) that persists for 1 minute. Any creature that begins its turn within the entropic breath becomes confused (Will DC 25 negates) for as long as it remains within the cloud and for 1d6 rounds thereafter.											SOURCEPAGE:p.61
+Maw of the Abyss		KEY:Maw of the Abyss ~ Woundwyrm		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																		DESC:As a full-round action, a woundwyrm can attempt to suck creatures and unattended objects in a 15-foot cone into a vortex in its maw. This acts as a drag combat maneuver (CMB +30) against creatures, and acts as a Strength check with a +10 bonus to break objects. Creatures and objects alike take 1d12 points of sonic damage per round within the cone.	SOURCEPAGE:p.61
 
 ###Block: Zelishkar of the Bitter Flame Abilities
 # Ability Name			Unique Key						Category of Ability		Type										Innate Spells																																								Description																																																																						Ability																																						Modify VAR																		Source Page
