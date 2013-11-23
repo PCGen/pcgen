@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 # $Author$ -- Wed Jul 23 2003
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
@@ -52,7 +52,7 @@ Flail (Heavy)		OUTPUTNAME:Flail, [NAME]		PROFICIENCY:WEAPON|Flail (Heavy)		TYPE:
 Greatsword									PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Melee.Martial.Standard.Slashing.Sword														COST:50	WT:8				CRITMULT:x2			CRITRANGE:2												DAMAGE:2d6					EQMOD:STEEL						WIELD:TwoHanded								SIZE:M
 Guisarme									PROFICIENCY:WEAPON|Guisarme			TYPE:Weapon.Melee.Martial.Reach.Standard.Slashing.Polearm													COST:9	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL						WIELD:TwoHanded					REACHMULT:2		SIZE:M
 Halberd									PROFICIENCY:WEAPON|Halberd			TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm												COST:10	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL						WIELD:TwoHanded								SIZE:M
-Lance										PROFICIENCY:WEAPON|Lance			TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Lance													COST:10	WT:10				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD						WIELD:OneHanded					REACHMULT:2		SIZE:M	SPROP:One Handed when mounted, Two Handed otherwise.
+Lance										PROFICIENCY:WEAPON|Lance			TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Lance													COST:10	WT:10				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD						WIELD:OneHanded					REACHMULT:2		SIZE:M																																						SPROP:One Handed when mounted, Two Handed otherwise.
 Ranseur									PROFICIENCY:WEAPON|Ranseur			TYPE:Weapon.Melee.Martial.Reach.Standard.Piercing.Polearm													COST:10	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL						WIELD:TwoHanded					REACHMULT:2		SIZE:M
 Scythe									PROFICIENCY:WEAPON|Scythe			TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Scythe													COST:18	WT:10				CRITMULT:x4			CRITRANGE:1												DAMAGE:2d4					EQMOD:STEEL						WIELD:TwoHanded								SIZE:M
 

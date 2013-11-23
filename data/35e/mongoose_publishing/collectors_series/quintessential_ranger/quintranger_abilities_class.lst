@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
@@ -22,8 +22,8 @@ Ape's Mimicry		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's M
 Ape's Muteness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's Muteness (Sp)			SPELLS:Class|TIMES=1|CASTERLEVEL=9|True Seeing
 
 ###Block:Animal Champion ~ (Badger/Dire Badger)
-# Ability Name	Category of Ability		Type			Visible	Special ABility			Save checks bonus						Combat bonus						Stat bonus
-Badger's Fury	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Fury (Ex)										TEMPBONUS:PC|COMBAT|AC|-2			TEMPBONUS:PC|STAT|STR,CON|4
+# Ability Name	Category of Ability		Type			Visible	Special ABility			Temporary Bonus
+Badger's Fury	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Fury (Ex)		TEMPBONUS:PC|COMBAT|AC|-2	TEMPBONUS:PC|STAT|STR,CON|4
 Badger's Luck	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Luck (Sp)
 Badger's Tenacity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Tenacity (Ex)	TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Morale	TEMPBONUS:PC|COMBAT|TOHIT|2|TYPE=Morale
 
@@ -109,7 +109,7 @@ Sunhawk			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Sunhawk (Sp)
 Sunhawk (Fire Shield)	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO				SPELLS:Class|TIMES=3|Fire Shield
 
 ###Block:Animal Champion ~ (Horse/Pony)		PREFEAT:1,Skill Focus(Ride)
-# Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells				Combat bonus								Bonus to skill
+# Ability Name		Category of Ability		Type			Visible	Special ABility			Innate Spells				Temporary Bonus
 Horse's Surefootedness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Horse's Surefootedness
 Born to the Saddle	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Born to the Saddle								TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Ride|2|TYPE=Circumstance
 Horse and Hattock		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Horse and Hattock (Sp)	SPELLS:Class|TIMES=1|Dimension Door
@@ -131,10 +131,10 @@ Lizard's Sunbeam		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Liza
 Lizard's Regeneration	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Lizard's Regeneration (Ex)
 
 ###Block:Animal Champion ~ (Dire Mongoose)	PREFEAT:1,Improved Initiative
-# Ability Name		Category of Ability		Type			Visible	Special ABility				Combat bonus
+# Ability Name		Category of Ability		Type			Visible	Special ABility				Combat bonus					Temporary Bonus
 Mongoose's Quickness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Quickness (Ex)		BONUS:COMBAT|INITIATIVE|4|TYPE=Competence
 Mongoose's Stubbornness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Stubbornness (Ex)
-Mongoose's Retaliation	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Retaliation (Ex)	TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE|INT
+Mongoose's Retaliation	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Mongoose's Retaliation (Ex)								TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE|INT
 
 ###Block:Animal Champion ~ (Owl)	PREFEAT:1,Skill Focus(Knowledge%)
 # Ability Name	Category of Ability		Type			Visible	Special ABility			Innate Spells						Combat bonus
@@ -269,7 +269,7 @@ Unarmed Combat		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	
 #Improved Grab (exists in the RSRD)
 #Rake (exists in the RSRD)
 
-# Ability Name		Category of Ability		Type								Visible	Special ABility			Define				Description																								Vision		Source Page
+# Ability Name		Category of Ability		Type								Visible	Special ABility			Define				Description																								Vision			Source Page
 Stunning Swat		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Stunning Swat (Ex)
 
 Poison Tolerance		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Poison Tolerance (Ex)
@@ -280,7 +280,7 @@ Puncture			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOptio
 Tooth Breaking		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Tooth Breaking (Ex)
 Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																				VISION:Low-Light Vision
 
-Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|10+HD+CON	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|10+HD+CON	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC					SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 Frenzy			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Frenzy (Ex)
 

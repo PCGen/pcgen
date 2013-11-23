@@ -1,12 +1,13 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Eddy Anthony
 
-Imbue Spell Like Ability ~ Cleric	VISIBLE:NO	ADD:SPELLCASTER|Cleric	TEMPBONUS:PC|CASTERLEVEL|Cleric|%CHOICE	CHOOSE:NUMBER|MIN=7|MAX=20|TITLE=Select Cleric Imbuing Spells upon you level
+# Template Name				Visible	Choose												Add 				Apply Kit			Temporary Bonus
+Imbue Spell Like Ability ~ Cleric	VISIBLE:NO	CHOOSE:NUMBER|MIN=7|MAX=20|TITLE=Select Cleric Imbuing Spells upon you level	ADD:SPELLCASTER|Cleric					TEMPBONUS:PC|CASTERLEVEL|Cleric|%CHOICE
 
 
-# Template Name	Visible	Apply Kit
-Spellbook		VISIBLE:NO	KIT:1|Wizard Spell Book
+# Template Name				Visible	Choose												Add 				Apply Kit			Temporary Bonus
+Spellbook					VISIBLE:NO																		KIT:1|Wizard Spell Book
 
 ###Block: Dragon Disciple Attacks
 # Template Name				Visible	Template																	Required Size	Natural Attacks
@@ -16,44 +17,44 @@ Dragon Disciple Attacks Medium	VISIBLE:NO																			PRESIZEEQ:M		NATURAL
 Dragon Disciple Attacks Large		VISIBLE:NO																			PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d6
 
 ###Block: Temporary Bonus Templates
-# Template Name				Visible	Source Page						Save checks bonus									Combat bonus															Bonus to HP							Bonus to skill																				Stat bonus							Choose								Temporary effect description
-Familiar within arms reach		VISIBLE:NO	SOURCEPAGE:ClassesII.rtf																																							TEMPBONUS:ANYPC|SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREFEAT:1,Summon Familiar																							TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
+# Template Name				Visible	Source Page						Choose								Temporary effect description																						Temporary Bonus
+Familiar within arms reach		VISIBLE:NO	SOURCEPAGE:ClassesII.rtf												TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat												TEMPBONUS:ANYPC|SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREFEAT:1,Summon Familiar
 
 # Conditional Templates
-Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
-Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
-Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
-Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
-Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points
-Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points
-Blinded					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK									TEMPBONUS:ANYPC|SKILL|Search,STAT.STR,STAT.DEX|-4																														TEMPDESC:You cannot see
-Cowering					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK																																																TEMPDESC:You are frozen in fear and can take no actions
-Dazzled					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|TOHIT|-1																			TEMPBONUS:ANYPC|SKILL|Search,Spot|-1																																	TEMPDESC:You are unable to see well because of overstimulation of the eyes
-Deafened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4																																																										TEMPDESC:You cannot hear
-Energy Drained				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)										TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)									CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Negative Levels	TEMPDESC:You have gained one or more negative levels
-Entangled					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|TOHIT|-2																																									TEMPBONUS:ANYPC|STAT|DEX|-4												TEMPDESC:You are ensnared
-Exhausted					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|DEX,STR|-6											TEMPDESC:You are exhausted
-Fatigued					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf																																																											TEMPBONUS:ANYPC|STAT|DEX,STR|-2											TEMPDESC:You are fatigued
-Frightened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2			TEMPBONUS:ANYPC|COMBAT|TOHIT|-2																			TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2																			TEMPDESC:You are frightened
-Invisible					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|TOHIT|2|TYPE=Invisibility																																																								TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)
-Panicked					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2																												TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2																			TEMPDESC:You are panicked and must drop anything you hold and flee at top speed from the source of your fear
-Prone						VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|TOHIT.MELEE|-4																																																									TEMPDESC:You are on the ground
-Shaken					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2			TEMPBONUS:ANYPC|COMBAT|TOHIT|-2																			TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2																			TEMPDESC:You are shaken
-Sickened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2			TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE.MELEE,DAMAGE.RANGED|-2															TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2																			TEMPDESC:You are sickened
-Stunned					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf												TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK																																																TEMPDESC:You are stunned, you drop everything held, and cannot take actions
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points														TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points														TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points													TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points													TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points														TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points														TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)
+Blinded					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You cannot see																							TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK	TEMPBONUS:ANYPC|SKILL|Search,STAT.STR,STAT.DEX|-4
+Cowering					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are frozen in fear and can take no actions																	TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK
+Dazzled					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are unable to see well because of overstimulation of the eyes														TEMPBONUS:ANYPC|COMBAT|TOHIT|-1	TEMPBONUS:ANYPC|SKILL|Search,Spot|-1
+Deafened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You cannot hear																						TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4
+Energy Drained				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Negative Levels	TEMPDESC:You have gained one or more negative levels																		TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)
+Entangled					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are ensnared																						TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|STAT|DEX|-4
+Exhausted					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are exhausted																						TEMPBONUS:ANYPC|STAT|DEX,STR|-6
+Fatigued					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are fatigued																						TEMPBONUS:ANYPC|STAT|DEX,STR|-2
+Frightened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are frightened																						TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2
+Invisible					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)	TEMPBONUS:ANYPC|COMBAT|TOHIT|2|TYPE=Invisibility
+Panicked					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are panicked and must drop anything you hold and flee at top speed from the source of your fear								TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2
+Prone						VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are on the ground																					TEMPBONUS:ANYPC|COMBAT|TOHIT.MELEE|-4
+Shaken					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are shaken																							TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2
+Sickened					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are sickened																						TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE.MELEE,DAMAGE.RANGED|-2	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2
+Stunned					VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf										TEMPDESC:You are stunned, you drop everything held, and cannot take actions														TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK
 
 ###Block: Combat Templates
 
-# Template Name			Visible	Source Page			Combat bonus																					Modify VAR																																							Choose									Temporary effect description
-Fighting Defensively		VISIBLE:NO	SOURCEPAGE:CombatI.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-4																	TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary	TEMPBONUS:ANYPC|VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5											TEMPDESC:You are fighting defensively when attacking
-Total Defense			VISIBLE:NO	SOURCEPAGE:CombatI.rtf																								TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary	TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5															TEMPDESC:You are defending yourself as a standard action
-Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary																																									CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
+# Template Name			Visible	Source Page			Choose									Temporary effect description																																Temporary Bonus
+Fighting Defensively		VISIBLE:NO	SOURCEPAGE:CombatI.rtf											TEMPDESC:You are fighting defensively when attacking																												TEMPBONUS:ANYPC|COMBAT|TOHIT|-4	TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary	TEMPBONUS:ANYPC|VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5
+Total Defense			VISIBLE:NO	SOURCEPAGE:CombatI.rtf											TEMPDESC:You are defending yourself as a standard action																											TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary	TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5
+Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary
 
 ###Block: Awakened Animal
-# Template Name			Visible	Template										Define		Required Class			Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
-Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will									PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
-Awakened Animal_Standard	VISIBLE:NO															PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
-Awakened Animal_Will		VISIBLE:NO															PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
+# Template Name			Visible	Template										Define a Stat		Required Class			Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
+Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will										PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
+Awakened Animal_Standard	VISIBLE:NO																PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
+Awakened Animal_Will		VISIBLE:NO																PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
 Awakened Tree																DEFINESTAT:STAT|INT						PRERACE:1,Animated Object%			ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree								RACETYPE:Plant
 
 ###Block: Righteous Might spell workaround
@@ -71,32 +72,32 @@ Timeless Body ~ Venerable	VISIBLE:NO																					PREAGESET:1,Venerable
 
 ###Block: Diseases
 
-# Template Name					Visible	Source Page						Stat bonus							Choose								Temporary effect description
-Disease Damage (Blinding Sickness)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Stength Damage		TEMPDESC:Infection DC 16 (Ingested), Incubation 1d3 days, Damage 1d4 Str (Each time the victim takes 2 or more damage from the disease, he must make another Fortitude save or be permanently blinded), Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Cackle fever)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Wisdom Damage		TEMPDESC:Infection DC 16 (Inhaled), Incubation 1 day, Damage 1d6 Wis, Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Demon fever)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Constitution Damage	TEMPDESC:Infection DC 18 (Injury), Incubation 1 day, Damage 1d6 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Devil chills)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Stength Damage		TEMPDESC:Infection DC 14 (Injury), Incubation 1d4 days, Damage 1d4 Str (The victim must make three successful Fortitude saving throws in a row to recover from devil chills), Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Filth fever/Dex Damage)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Dexterity Damage	TEMPDESC:Infection DC 12 (Injury), Incubation 1d3 days, Damage 1d3 Dex, 1d3 Con, Apply this temporary bonus for the dexterity damage each day the victim takes damage.
-Disease Damage (Filth fever/Con Damage)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|Con|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Constitution Damage	TEMPDESC:Infection DC 12 (Injury), Incubation 1d3 days, Damage 1d3 Dex, 1d3 Con, Apply this temporary bonus for the constitution damage each day the victim takes damage.
-Disease Damage (Mindfire)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Intelligence Damage	TEMPDESC:Infection DC 12 (Inhaled), Incubation 1 day, Damage 1d4 Int, Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Mummy rot)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Constitution Damage	TEMPDESC:Infection DC 20 (Contact), Incubation 1 day, Damage 1d6 Con (Successful saves do not allow the character to recover, Only magical healing can save the character), Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Red ache)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Stength Damage		TEMPDESC:Infection DC 15 (Injury), Incubation 1d3 days, Damage 1d6 Str, Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Shakes)				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Dexterity Damage	TEMPDESC:Infection DC 13 (Contact), Incubation 1 day, Damage 1d8 Dex, Apply this temporary bonus each day the victim takes damage.
-Disease Damage (Slimy doom)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 14 (Contact), Incubation 1 day, Damage 1d4 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.
+# Template Name					Visible	Source Page						Choose								Temporary effect description																																								Temporary Bonus
+Disease Damage (Blinding Sickness)		VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Stength Damage		TEMPDESC:Infection DC 16 (Ingested), Incubation 1d3 days, Damage 1d4 Str (Each time the victim takes 2 or more damage from the disease, he must make another Fortitude save or be permanently blinded), Apply this temporary bonus each day the victim takes damage.	TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
+Disease Damage (Cackle fever)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Wisdom Damage		TEMPDESC:Infection DC 16 (Inhaled), Incubation 1 day, Damage 1d6 Wis, Apply this temporary bonus each day the victim takes damage.																							TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
+Disease Damage (Demon fever)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Constitution Damage	TEMPDESC:Infection DC 18 (Injury), Incubation 1 day, Damage 1d6 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.				TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
+Disease Damage (Devil chills)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Stength Damage		TEMPDESC:Infection DC 14 (Injury), Incubation 1d4 days, Damage 1d4 Str (The victim must make three successful Fortitude saving throws in a row to recover from devil chills), Apply this temporary bonus each day the victim takes damage.					TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
+Disease Damage (Filth fever/Dex Damage)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Dexterity Damage	TEMPDESC:Infection DC 12 (Injury), Incubation 1d3 days, Damage 1d3 Dex, 1d3 Con, Apply this temporary bonus for the dexterity damage each day the victim takes damage.																	TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
+Disease Damage (Filth fever/Con Damage)	VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Constitution Damage	TEMPDESC:Infection DC 12 (Injury), Incubation 1d3 days, Damage 1d3 Dex, 1d3 Con, Apply this temporary bonus for the constitution damage each day the victim takes damage.																TEMPBONUS:ANYPC|STAT|Con|-1*(%CHOICE)
+Disease Damage (Mindfire)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Intelligence Damage	TEMPDESC:Infection DC 12 (Inhaled), Incubation 1 day, Damage 1d4 Int, Apply this temporary bonus each day the victim takes damage.																							TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
+Disease Damage (Mummy rot)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Constitution Damage	TEMPDESC:Infection DC 20 (Contact), Incubation 1 day, Damage 1d6 Con (Successful saves do not allow the character to recover, Only magical healing can save the character), Apply this temporary bonus each day the victim takes damage.						TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
+Disease Damage (Red ache)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=6|TITLE=Stength Damage		TEMPDESC:Infection DC 15 (Injury), Incubation 1d3 days, Damage 1d6 Str, Apply this temporary bonus each day the victim takes damage.																						TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
+Disease Damage (Shakes)				VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Dexterity Damage	TEMPDESC:Infection DC 13 (Contact), Incubation 1 day, Damage 1d8 Dex, Apply this temporary bonus each day the victim takes damage.																							TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
+Disease Damage (Slimy doom)			VISIBLE:NO	SOURCEPAGE:AbilitiesandConditions.rtf	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 14 (Contact), Incubation 1 day, Damage 1d4 Con (When damaged, character must succeed on another saving throw or 1 point of damage is permanent drain instead), Apply this temporary bonus each day the victim takes damage.				TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
 
 ###Block: Planar effects on characters
-# Template Name			Visible	Source Page			Combat bonus								% bonus to range													Bonus to skill																					Modify VAR												Temporary effect description
-High Gravity			VISIBLE:NO	SOURCEPAGE:Planes.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=Circumstance	TEMPBONUS:ANYPC|RANGEMULT|PROJECTILE|-50	TEMPBONUS:ANYPC|RANGEMULT|THROWN|-50	TEMPBONUS:ANYPC|SKILL|Balance,Climb,Jump,Ride,Swim,Tumble|-2|TYPE=Circumstance																							TEMPDESC:Effects of High Gravity.  Does not take into account the fact that all equipment weights are doubled (which affects movement, etc.)
-Low Gravity				VISIBLE:NO	SOURCEPAGE:Planes.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=Circumstance	TEMPBONUS:ANYPC|RANGEMULT|PROJECTILE|50	TEMPBONUS:ANYPC|RANGEMULT|THROWN|50	TEMPBONUS:ANYPC|SKILL|Balance,Ride,Swim,Tumble|-2|TYPE=Circumstance	TEMPBONUS:ANYPC|SKILL|Climb,Jump|2|TYPE=Circumstance														TEMPDESC:Effects of Low Gravity.  Does not take into account the fact that all equipment weights are halved (which affects movement, etc.)
-Mildly Aligned (Chaotic)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE											TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE	TEMPDESC:Effects of Mildly Chaotic Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Mildly Aligned (Evil)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG											TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG	TEMPDESC:Effects of Mildly Evil Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Mildly Aligned (Good)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE											TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE	TEMPDESC:Effects of Mildly Good Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Mildly Aligned (Lawful)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE											TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE	TEMPDESC:Effects of Mildly Lawful Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Strongly Aligned (Chaotic)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:CG,CN,CE								TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE	TEMPDESC:Effects of Mildly Chaotic Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Strongly Aligned (Evil)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:LE,NE,CE								TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG	TEMPDESC:Effects of Mildly Evil Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Strongly Aligned (Good)		VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:LG,NG,CG								TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE	TEMPDESC:Effects of Mildly Good Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Strongly Aligned (Lawful)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:LG,LN,LE								TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE	TEMPDESC:Effects of Mildly Lawful Aligned Plane.  Penalty applied to Skills and Turn Checks only.
-Strongly Aligned (Neutral)	VISIBLE:NO	SOURCEPAGE:Planes.rft																										TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:NG,NE,CN,LN								TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE	TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-4|TYPE=Circumstance|PREALIGN:LG,CG,CE,LE
+# Template Name			Visible	Source Page			Temporary effect description																				Temporary Bonus
+High Gravity			VISIBLE:NO	SOURCEPAGE:Planes.rtf	TEMPDESC:Effects of High Gravity.  Does not take into account the fact that all equipment weights are doubled (which affects movement, etc.)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=Circumstance	TEMPBONUS:ANYPC|RANGEMULT|PROJECTILE|-50	TEMPBONUS:ANYPC|RANGEMULT|THROWN|-50	TEMPBONUS:ANYPC|SKILL|Balance,Climb,Jump,Ride,Swim,Tumble|-2|TYPE=Circumstance
+Low Gravity				VISIBLE:NO	SOURCEPAGE:Planes.rtf	TEMPDESC:Effects of Low Gravity.  Does not take into account the fact that all equipment weights are halved (which affects movement, etc.)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=Circumstance	TEMPBONUS:ANYPC|RANGEMULT|PROJECTILE|50	TEMPBONUS:ANYPC|RANGEMULT|THROWN|50	TEMPBONUS:ANYPC|SKILL|Balance,Ride,Swim,Tumble|-2|TYPE=Circumstance	TEMPBONUS:ANYPC|SKILL|Climb,Jump|2|TYPE=Circumstance
+Mildly Aligned (Chaotic)	VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Chaotic Aligned Plane.  Penalty applied to Skills and Turn Checks only.								TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE
+Mildly Aligned (Evil)		VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Evil Aligned Plane.  Penalty applied to Skills and Turn Checks only.									TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG
+Mildly Aligned (Good)		VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Good Aligned Plane.  Penalty applied to Skills and Turn Checks only.									TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE
+Mildly Aligned (Lawful)		VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Lawful Aligned Plane.  Penalty applied to Skills and Turn Checks only.								TEMPBONUS:ANYPC|SKILL|STAT.CHA|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE
+Strongly Aligned (Chaotic)	VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Chaotic Aligned Plane.  Penalty applied to Skills and Turn Checks only.								TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:CG,CN,CE	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,LN,LE
+Strongly Aligned (Evil)		VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Evil Aligned Plane.  Penalty applied to Skills and Turn Checks only.									TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:LE,NE,CE	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LG,NG,CG
+Strongly Aligned (Good)		VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Good Aligned Plane.  Penalty applied to Skills and Turn Checks only.									TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:LG,NG,CG	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:LE,NE,CE
+Strongly Aligned (Lawful)	VISIBLE:NO	SOURCEPAGE:Planes.rft	TEMPDESC:Effects of Mildly Lawful Aligned Plane.  Penalty applied to Skills and Turn Checks only.								TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|!PREALIGN:LG,LN,LE	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE
+Strongly Aligned (Neutral)	VISIBLE:NO	SOURCEPAGE:Planes.rft																									TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-2|TYPE=Circumstance|PREALIGN:NG,NE,CN,LN	TEMPBONUS:ANYPC|VAR|TurnCheckBase|-2|TYPE=Circumstance|PREALIGN:CG,CN,CE	TEMPBONUS:ANYPC|SKILL|STAT.CHA,STAT.INT,STAT.WIS|-4|TYPE=Circumstance|PREALIGN:LG,CG,CE,LE
 
 ###Block: Raven Familiar Support
 # Template Name		Visible	Source Page				Add 					Ability
@@ -105,47 +106,49 @@ Raven Familiar Language	VISIBLE:NO	SOURCEPAGE:ClassesII.rtf	ADD:LANGUAGE|TYPE=Sp
 ###Block: More Temp Mods
 
 # The only problem with Bardic Abilities are they are level dependent
-# Template Name					Unique Key						Visible	Save checks bonus											Combat bonus																												Bonus to skill									Modify VAR																		Choose
-Bardic Inspire Courage ~ Is the Bard								VISIBLE:NO	TEMPBONUS:PC|CHECKS|ALL|InspireCourageSaves|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|TOHIT|InspireCourageAttack|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|InspireCourageDamage|TYPE=BardicInspireCourage
-Bardic Inspire Competence ~ Is The Bard								VISIBLE:NO																																												TEMPBONUS:PC|SKILL|TYPE.Standard|InspireCompetenceBonus
+# Template Name					Unique Key						Visible	Choose							Temporary Bonus
+Bardic Inspire Courage ~ Is the Bard								VISIBLE:NO									TEMPBONUS:PC|CHECKS|ALL|InspireCourageSaves|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|TOHIT|InspireCourageAttack|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|InspireCourageDamage|TYPE=BardicInspireCourage
+Bardic Inspire Competence ~ Is The Bard								VISIBLE:NO									TEMPBONUS:PC|SKILL|TYPE.Standard|InspireCompetenceBonus
 
 # This is for Non-Bards traveling with Bards - They need to select the Bard's Level.
-Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO																																																							TEMPBONUS:ANYPC|VAR|EnableBardicInspireCourage|1	TEMPBONUS:ANYPC|VAR|OtherInspireCourageLVL|%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level
-Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO																																																							TEMPBONUS:ANYPC|VAR|EnableBardicInspireCompetence|1
+Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level	TEMPBONUS:ANYPC|VAR|EnableBardicInspireCourage|1	TEMPBONUS:ANYPC|VAR|OtherInspireCourageLVL|%CHOICE
+Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO									TEMPBONUS:ANYPC|VAR|EnableBardicInspireCompetence|1
 
 
 
 ###Block: Size Mods for Automatic Changes
-REACH_0	VISIBLE:NO	REACH:0
-REACH_5	VISIBLE:NO	REACH:5
-REACH_10	VISIBLE:NO	REACH:10
-REACH_15	VISIBLE:NO	REACH:15
-REACH_20	VISIBLE:NO	REACH:20
-REACH_30	VISIBLE:NO	REACH:30
+# Template Name	Size		Face/Space	Reach		Visible
+REACH_0						REACH:0	VISIBLE:NO
+REACH_5						REACH:5	VISIBLE:NO
+REACH_10						REACH:10	VISIBLE:NO
+REACH_15						REACH:15	VISIBLE:NO
+REACH_20						REACH:20	VISIBLE:NO
+REACH_30						REACH:30	VISIBLE:NO
 # - Face not working???
-FACE_0	VISIBLE:NO	FACE:0
-FACE_1	VISIBLE:NO	FACE:1
-FACE_2	VISIBLE:NO	FACE:2.5
-FACE_5	VISIBLE:NO	FACE:5
-FACE_10	VISIBLE:NO	FACE:10
-FACE_15	VISIBLE:NO	FACE:15
-FACE_20	VISIBLE:NO	FACE:20
-FACE_30	VISIBLE:NO	FACE:30
+FACE_0				FACE:0			VISIBLE:NO
+FACE_1				FACE:1			VISIBLE:NO
+FACE_2				FACE:2.5			VISIBLE:NO
+FACE_5				FACE:5			VISIBLE:NO
+FACE_10				FACE:10			VISIBLE:NO
+FACE_15				FACE:15			VISIBLE:NO
+FACE_20				FACE:20			VISIBLE:NO
+FACE_30				FACE:30			VISIBLE:NO
 # This is having Issues in PF.
 #DRAGON_SIZE_TRACKER	VISIBLE:NO	SIZE:DragonSizeTracker
 #
-SIZE_F	VISIBLE:NO	SIZE:F
-SIZE_D	VISIBLE:NO	SIZE:D
-SIZE_T	VISIBLE:NO	SIZE:T
-SIZE_S	VISIBLE:NO	SIZE:S
-SIZE_M	VISIBLE:NO	SIZE:M
-SIZE_L	VISIBLE:NO	SIZE:L
-SIZE_H	VISIBLE:NO	SIZE:H
-SIZE_G	VISIBLE:NO	SIZE:G
-SIZE_C	VISIBLE:NO	SIZE:C
-SIZE_C+	VISIBLE:NO	SIZE:P
+SIZE_F		SIZE:F					VISIBLE:NO
+SIZE_D		SIZE:D					VISIBLE:NO
+SIZE_T		SIZE:T					VISIBLE:NO
+SIZE_S		SIZE:S					VISIBLE:NO
+SIZE_M		SIZE:M					VISIBLE:NO
+SIZE_L		SIZE:L					VISIBLE:NO
+SIZE_H		SIZE:H					VISIBLE:NO
+SIZE_G		SIZE:G					VISIBLE:NO
+SIZE_C		SIZE:C					VISIBLE:NO
+SIZE_C+		SIZE:P					VISIBLE:NO
 
 ###Block: Dragon Age
+# Template Name	Visible	Subrace
 Wyrmling		VISIBLE:NO	SUBRACE:YES
 Very Young		VISIBLE:NO	SUBRACE:YES
 Young			VISIBLE:NO	SUBRACE:YES

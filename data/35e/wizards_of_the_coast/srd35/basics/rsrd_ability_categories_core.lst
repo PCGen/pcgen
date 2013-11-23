@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Original Entry by: Tir Gwaith, Eddy Anthony
 #
@@ -46,37 +46,37 @@ ABILITYCATEGORY:Item Creation Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES
 ABILITYCATEGORY:Skill Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT					ABILITYLIST:Skill Focus				DISPLAYLOCATION:Feats
 
 ###Block: New Racial Trait Blocks
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Human Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait								DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Dwarf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait								DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait								DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gnome Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait								DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait								DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Orc Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait								DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Halfling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait							DISPLAYLOCATION:Racial Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list									Plural description for UI		Display Location
+ABILITYCATEGORY:Human Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dwarf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Orc Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Halfling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait																				DISPLAYLOCATION:Racial Abilities
 
 #Abilitycategory File
-ABILITYCATEGORY:Wizard Prohibited School		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WizardProhibitSchool	PLURAL:Wizard Prohibited Schools	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard Prohibited School		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WizardProhibitSchool														PLURAL:Wizard Prohibited Schools	DISPLAYLOCATION:Class Abilities
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
-ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait									DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Class Ability				VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility			PLURAL:Class Abilities			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait																						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Ability				VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility																PLURAL:Class Abilities			DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection							DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell								DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Imbued Spell Like Ability		VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:ImbuedSpellLikeAbility								DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																					DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Imbued Spell Like Ability		VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:ImbuedSpellLikeAbility																				DISPLAYLOCATION:Misc
 
 
-ABILITYCATEGORY:All Monster Domains		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:MonsterDomainGranter			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Drider Caster Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Cleric Class|Wizard Class|Sorcerer Class		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Drider Domain			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Chaos Domain|Destruction Domain|Evil Domain|Trickery Domain		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Lammasu Domain		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Good Domain|Healing Domain|Knowledge Domain|Law Domain		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Titan Elder Casting Class	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Cleric Class|Wizard Class		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:All Monster Domains			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MonsterDomainGranter																				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Drider Caster Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Cleric Class|Wizard Class|Sorcerer Class										DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Drider Domain				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Chaos Domain|Destruction Domain|Evil Domain|Trickery Domain							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Lammasu Domain			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Good Domain|Healing Domain|Knowledge Domain|Law Domain							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Titan Elder Casting Class		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Cleric Class|Wizard Class												DISPLAYLOCATION:Racial Abilities
 
 
-ABILITYCATEGORY:Spell-Like Ability Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Spell-Like Ability Selection	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Mnemonic Enhancer Selections		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mnemonic Enhancer Selections			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spell-Like Ability Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Spell-Like Ability Selection												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Mnemonic Enhancer Selections	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mnemonic Enhancer Selections																			DISPLAYLOCATION:Class Abilities
 #
 # End
 #

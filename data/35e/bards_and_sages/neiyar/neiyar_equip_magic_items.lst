@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
@@ -14,7 +14,7 @@ Wound Wraps			TYPE:Goods.Alchemical.Consumable	COST:20	WT:1.00	SOURCEPAGE:pg.70
 
 ###Block: Magic Items
 
-# Equipment Name				Product Identity?	Output Name							Required Weapon Proficiency		Type											Cost		Weight	Slot Needed	AC Penalty Check	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability								Save checks bonus				Combat bonus				Bonus to skill								Stat bonus						Modify VAR						Weapon prof. bonus					Weapon prop. bonus					Special Property
+# Equipment Name				Product Identity?	Output Name							Required Weapon Proficiency		Type											Cost		Weight	Slot Needed	AC Penalty Check	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Ability								Save checks bonus				Combat bonus				Bonus to skill								Modify VAR						Weapon prof. bonus					Weapon prop. bonus					Special Property				Temporary Bonus
 Potion (Purging)							OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:25	WT:0																																			SOURCEPAGE:pg.78
 Potion (Dragon's Breath)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:250	WT:0																																			SOURCEPAGE:pg.78
 Potion (Bodily Efficiency)					OUTPUTNAME:Potion of [NAME]										TYPE:Magic.Potion.Consumable							COST:400	WT:0																																			SOURCEPAGE:pg.78
@@ -32,15 +32,15 @@ Charm Arrow (Charm)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhanceme
 Charm Arrow (Love)						OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
 Charm Arrow (Forgetfulness)					OUTPUTNAME:Charm Arrow of [NAME]									TYPE:Enhancement.Ammunition.SpecificArrow.Individual			COST:250	WT:0																					EQMOD:STEEL.WOOD												SOURCEPAGE:pg.80
 
-Earth Crusher															PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Bashing.Mace		COST:50312	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.STEEL.THNDR_M		WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.80																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
-Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:50350	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:DANCE.PLUS2W.STEEL		WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.80																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Earth Crusher															PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Enhancement.Weapon.Melee.Martial.Specific.Bashing.Mace		COST:50312	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.STEEL.THNDR_M		WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.80																																																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+Wind Warden																PROFICIENCY:WEAPON|Greatsword		TYPE:Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword	COST:50350	WT:4											CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:DANCE.PLUS2W.STEEL		WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.80																																																			BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
 
 ###
 Ring (Blessing)							OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:25000	WT:0																																			SOURCEPAGE:pg.80
-Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection											TEMPBONUS:PC|STAT|STR,DEX,CON|2																								SPROP:DR %/+1 when enraged|CHA*2
+Ring (Fury)								OUTPUTNAME:Ring of [NAME]										TYPE:Magic.Ring									COST:75000	WT:0																																			SOURCEPAGE:pg.80																				BONUS:COMBAT|AC|4|TYPE=Deflection																																		SPROP:DR %/+1 when enraged|CHA*2	TEMPBONUS:PC|STAT|STR,DEX,CON|2
 
 ####
-Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					ABILITY:Special Ability|AUTOMATIC|Negative Levels																														BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE
+Staff (Blood)							OUTPUTNAME:Staff of [NAME]										TYPE:Magic.Staff									COST:20000	WT:5							BASEITEM:Staff												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81					ABILITY:Special Ability|AUTOMATIC|Negative Levels																							BONUS:VAR|NegLevels|1|!PREALIGN:LE,NE,CE
 Wand (Mischief)							OUTPUTNAME:Wand of [NAME]										TYPE:Magic.Wand											WT:0.0625						BASEITEM:Wand												EQMOD:CHARGED_ITEM_50|CHARGES[50]									SOURCEPAGE:pg.81
 
 ###
@@ -48,7 +48,7 @@ Bestial Boots																					TYPE:Magic.Wondrous.Boot							COST:4000	WT:1	
 Bicycle of Speed																					TYPE:Magic.Wondrous								COST:4000	WT:20		SLOTS:0																																SOURCEPAGE:pg.81
 Bracelet of Useful Things																			TYPE:Magic.Wondrous.Bracelet							COST:6000	WT:1		SLOTS:0																																SOURCEPAGE:pg.81
 Bracelet of Useful Things (Greater)				OUTPUTNAME:[NAME] Bracelet of Useful Things							TYPE:Magic.Wondrous.Bracelet							COST:10000	WT:1		SLOTS:0																																SOURCEPAGE:pg.81
-Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:pg.81														BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																									BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
+Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:pg.81														BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																		BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
 Death Crown																						TYPE:Magic.Wondrous.Headgear							COST:75000	WT:1		SLOTS:1																																SOURCEPAGE:pg.82
 Echo Earrings																					TYPE:Magic.Wondrous								COST:2000	WT:0		SLOTS:0																																SOURCEPAGE:pg.82																										BONUS:SKILL|Listen|10|TYPE=Circumstance
 Fetish (Death)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:8000	WT:1		SLOTS:0																																SOURCEPAGE:pg.82

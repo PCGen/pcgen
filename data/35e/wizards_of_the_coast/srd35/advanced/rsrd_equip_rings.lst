@@ -1,19 +1,19 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: abernat
 # Please follow the standard I did in the first 7 rings.
 #	We are going away from Ring (Blah) for Names of things. - Tir Gwaith
 
 
-# Equipment Name						Output Name									Type			Cost		Weight	Modifier					Source Page				Ability										Innate Spells									Combat bonus				Bonus to skill					Multiply spell cast/day				Modify VAR								Special Property						SORTKEY
+# Equipment Name							Unique Key								Type			Cost		Weight	Modifier					Source Page				Ability										Innate Spells									Combat bonus				Bonus to skill					Multiply spell cast/day				Modify VAR								Special Property						SORTKEY
 Ring of Animal Friendship														TYPE:Magic.Ring	COST:10800	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Charm Animal
 Ring of Blinking																TYPE:Magic.Ring	COST:27000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Blink
 Ring of Chameleon Power															TYPE:Magic.Ring	COST:12700	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Disguise Self								BONUS:SKILL|Hide|10|TYPE=Competence
 Ring of Climbing																TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Climb|5|TYPE=Competence
-Ring of Climbing, Improved				KEY:Ring of Climbing (Improved)					TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Climb|10|TYPE=Competence
+Ring of Climbing, Improved					KEY:Ring of Climbing (Improved)				TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Climb|10|TYPE=Competence
 Ring of Counterspells															TYPE:Magic.Ring	COST:4000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring of Djinni Calling															TYPE:Magic.Ring	COST:125000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Elemental Command (Air)				KEY:Ring of Elemental Command (Air)			TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Elemental Command (Air)				KEY:Ring of Elemental Command (Air)				TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring of Elemental Command (Earth)				KEY:Ring of Elemental Command (Earth)			TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring of Elemental Command (Fire)				KEY:Ring of Elemental Command (Fire)			TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Fire (Sp)																																	BONUS:VAR|FireResistanceBonusSp|20|TYPE=Base
 Ring of Elemental Command (Water)				KEY:Ring of Elemental Command (Water)			TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
@@ -32,37 +32,37 @@ Ring of Energy Resistance, Greater (Cold)			KEY:Ring of Energy Resistance (Great
 Ring of Energy Resistance, Greater (Electricity)	KEY:Ring of Energy Resistance (Greater/Electricity)	TYPE:Magic.Ring	COST:44000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity (Sp)																																BONUS:VAR|ElectricityResistanceBonusSp|30|TYPE=Base	SPROP:Absorbs 30 points of Electrical damage
 Ring of Energy Resistance, Greater (Fire)			KEY:Ring of Energy Resistance (Greater/Fire)		TYPE:Magic.Ring	COST:44000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Fire (Sp)																																	BONUS:VAR|FireResistanceBonusSp|30|TYPE=Base		SPROP:Absorbs 30 points of Fire damage
 Ring of Energy Resistance, Greater (Sonic)		KEY:Ring of Energy Resistance (Greater/Sonic)		TYPE:Magic.Ring	COST:44000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Resistance To Sonic (Sp)																																	BONUS:VAR|SonicResistanceBonusSp|30|TYPE=Base		SPROP:Absorbs 30 points of Sonic damage
-Ring of Evasion												TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
-Ring of Feather Falling											TYPE:Magic.Ring	COST:2200	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=1|Feather Fall
-Ring of Force Shield											TYPE:Magic.Ring	COST:8500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|2|TYPE=Shield
-Ring of Freedom of Movement										TYPE:Magic.Ring	COST:40000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Freedom of Movement
-Ring of Friend Shield											TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Friend Shield (1 of 2)										TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Invisibility											TYPE:Magic.Ring	COST:20000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Invisibility
-Ring of Jumping												TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Jump|5|TYPE=Competence
-Ring of Jumping, Improved				KEY:Ring of Jumping (Improved)					TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Jump|10|TYPE=Competence
-Ring of Meld into Stone											TYPE:Magic.Ring	COST:27000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=5|Meld into Stone
-Ring of Mind Shielding											TYPE:Magic.Ring	COST:8000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Protection +1											TYPE:Magic.Ring	COST:2000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|1|TYPE=Deflection																																SORTKEY:Ring of Protection +01
-Ring of Protection +2											TYPE:Magic.Ring	COST:8000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|2|TYPE=Deflection																																SORTKEY:Ring of Protection +02
-Ring of Protection +3											TYPE:Magic.Ring	COST:18000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|3|TYPE=Deflection																																SORTKEY:Ring of Protection +03
-Ring of Protection +4											TYPE:Magic.Ring	COST:32000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|4|TYPE=Deflection																																SORTKEY:Ring of Protection +04
-Ring of Protection +5											TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|5|TYPE=Deflection																																SORTKEY:Ring of Protection +05
-Ring of the Ram													TYPE:Magic.Ring	COST:8600	WT:0		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsIII.rtf
-Ring of Regeneration											TYPE:Magic.Ring	COST:90000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Shooting Stars											TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Spell Storing, Minor				KEY:Ring of Spell Storing (Minor)						TYPE:Magic.Ring	COST:18000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Spell Storing											TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Spell Storing, Major				KEY:Ring of Spell Storing (Major)						TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Spell Turning											TYPE:Magic.Ring	COST:98280	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=3|CASTERLEVEL=13|Spell Turning
-Ring of Sustenance												TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf
-Ring of Swimming												TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Swim|5|TYPE=Competence
-Ring of Swimming, Improved				KEY:Ring of Swimming (Improved)						TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Swim|10|TYPE=Competence
-Ring of Telekinesis											TYPE:Magic.Ring	COST:75000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Telekinesis
-Ring of Three Wishes											TYPE:Magic.Ring	COST:97950	WT:0		EQMOD:CHARGED_ITEM_3|CHARGES[3]	SOURCEPAGE:MagicItemsIII.rtf
-Ring of Water Walking											TYPE:Magic.Ring	COST:15000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Water Walk
-Ring of Wizardry I												TYPE:Magic.Ring	COST:20000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2																		SORTKEY:Ring of Wizardry 01
-Ring of Wizardry II											TYPE:Magic.Ring	COST:40000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=2|2																		SORTKEY:Ring of Wizardry 02
-Ring of Wizardry III											TYPE:Magic.Ring	COST:70000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=3|2																		SORTKEY:Ring of Wizardry 03
-Ring of Wizardry IV											TYPE:Magic.Ring	COST:100000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2																		SORTKEY:Ring of Wizardry 04
-Ring of X-Ray Vision											TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Evasion																TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
+Ring of Feather Falling															TYPE:Magic.Ring	COST:2200	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=1|Feather Fall
+Ring of Force Shield															TYPE:Magic.Ring	COST:8500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|2|TYPE=Shield
+Ring of Freedom of Movement														TYPE:Magic.Ring	COST:40000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Freedom of Movement
+Ring of Friend Shield															TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Friend Shield (1 of 2)													TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Invisibility															TYPE:Magic.Ring	COST:20000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Invisibility
+Ring of Jumping																TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Jump|5|TYPE=Competence
+Ring of Jumping, Improved					KEY:Ring of Jumping (Improved)				TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Jump|10|TYPE=Competence
+Ring of Meld into Stone															TYPE:Magic.Ring	COST:27000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=5|Meld into Stone
+Ring of Mind Shielding															TYPE:Magic.Ring	COST:8000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Protection +1															TYPE:Magic.Ring	COST:2000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|1|TYPE=Deflection																																SORTKEY:Ring of Protection +01
+Ring of Protection +2															TYPE:Magic.Ring	COST:8000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|2|TYPE=Deflection																																SORTKEY:Ring of Protection +02
+Ring of Protection +3															TYPE:Magic.Ring	COST:18000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|3|TYPE=Deflection																																SORTKEY:Ring of Protection +03
+Ring of Protection +4															TYPE:Magic.Ring	COST:32000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|4|TYPE=Deflection																																SORTKEY:Ring of Protection +04
+Ring of Protection +5															TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																							BONUS:COMBAT|AC|5|TYPE=Deflection																																SORTKEY:Ring of Protection +05
+Ring of the Ram																TYPE:Magic.Ring	COST:8600	WT:0		EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:MagicItemsIII.rtf
+Ring of Regeneration															TYPE:Magic.Ring	COST:90000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Shooting Stars															TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Spell Storing, Minor					KEY:Ring of Spell Storing (Minor)				TYPE:Magic.Ring	COST:18000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Spell Storing															TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Spell Storing, Major					KEY:Ring of Spell Storing (Major)				TYPE:Magic.Ring	COST:200000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Spell Turning															TYPE:Magic.Ring	COST:98280	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=3|CASTERLEVEL=13|Spell Turning
+Ring of Sustenance															TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring of Swimming																TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Swim|5|TYPE=Competence
+Ring of Swimming, Improved					KEY:Ring of Swimming (Improved)				TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																													BONUS:SKILL|Swim|10|TYPE=Competence
+Ring of Telekinesis															TYPE:Magic.Ring	COST:75000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Telekinesis
+Ring of Three Wishes															TYPE:Magic.Ring	COST:97950	WT:0		EQMOD:CHARGED_ITEM_3|CHARGES[3]	SOURCEPAGE:MagicItemsIII.rtf
+Ring of Water Walking															TYPE:Magic.Ring	COST:15000	WT:0								SOURCEPAGE:MagicItemsIII.rtf												SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Water Walk
+Ring of Wizardry I															TYPE:Magic.Ring	COST:20000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2																		SORTKEY:Ring of Wizardry 01
+Ring of Wizardry II															TYPE:Magic.Ring	COST:40000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=2|2																		SORTKEY:Ring of Wizardry 02
+Ring of Wizardry III															TYPE:Magic.Ring	COST:70000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=3|2																		SORTKEY:Ring of Wizardry 03
+Ring of Wizardry IV															TYPE:Magic.Ring	COST:100000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																				BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=4|2																		SORTKEY:Ring of Wizardry 04
+Ring of X-Ray Vision															TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Sep 11 22:01:25 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 # Author: Eddy Anthony
 
@@ -17,7 +17,7 @@ ABILITYCATEGORY:Astral Construct Menu A Ability	VISIBLE:QUALIFY	EDITABLE:YES		ED
 ABILITYCATEGORY:Astral Construct Menu B Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuB			PLURAL:Astral Construct Menu B Abilities	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Astral Construct Menu C Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralConstructMenuC			PLURAL:Astral Construct Menu C Abilities	DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Slayer Favored Enemy					CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Abilities	VISIBLE:QUALIFY	TYPE:SlayerFavoredEnemy
+ABILITYCATEGORY:Slayer Favored Enemy		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SlayerFavoredEnemy											DISPLAYLOCATION:Class Abilities
 
 #
 # End

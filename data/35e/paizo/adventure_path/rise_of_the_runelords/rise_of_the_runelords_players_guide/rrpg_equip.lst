@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
 ###Block:Alchemical Stuff and Liquids
-# Equipment Name	Type						Cost		Weight	Source Page		Modify VAR						Temporary effect description
-Barbarian Chew	TYPE:Goods.Alchemical.Consumable	COST:15	WT:0		SOURCEPAGE:p.10	TEMPBONUS:ANYPC|VAR|RageDuration|1	TEMPDESC:For 1 hour, increase Barbarian Rage duration by 1 round.
+# Equipment Name	Type						Cost		Weight	Source Page		Temporary effect description							Temporary Bonus
+Barbarian Chew	TYPE:Goods.Alchemical.Consumable	COST:15	WT:0		SOURCEPAGE:p.10	TEMPDESC:For 1 hour, increase Barbarian Rage duration by 1 round.	TEMPBONUS:ANYPC|VAR|RageDuration|1
 Harpy Musk		TYPE:Goods.Alchemical.Consumable	COST:2	WT:0		SOURCEPAGE:p.10
 
 ###Block:Goods

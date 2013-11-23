@@ -1,49 +1,49 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
-STARTPACK:Treasure Table Items CR1	SORTKEY:Treasure Table Items CR01	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR1	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR01
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Items		OPTION:72,95
 KIT:Treasure Table Minor Magic Items	OPTION:96,100
 
-STARTPACK:Treasure Table Items CR2	SORTKEY:Treasure Table Items CR02	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR2	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR02
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Items		OPTION:50,85
 KIT:Treasure Table Minor Magic Items	OPTION:86,100
 
-STARTPACK:Treasure Table Items CR3	SORTKEY:Treasure Table Items CR03	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR3	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR03
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Items 1d3	OPTION:50,79
 KIT:Treasure Table Minor Magic Items	OPTION:80,100
 
-STARTPACK:Treasure Table Items CR4	SORTKEY:Treasure Table Items CR04	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR4	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR04
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Items 1d4	OPTION:43,62
 KIT:Treasure Table Minor Magic Items	OPTION:63,100
 
-STARTPACK:Treasure Table Items CR5	SORTKEY:Treasure Table Items CR05	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR5	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR05
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Items 1d4	OPTION:58,67
 KIT:Treasure Table Minor Magic Items 1d3	OPTION:68,100
 
-STARTPACK:Treasure Table Items CR6	SORTKEY:Treasure Table Items CR06	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR6	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR06
 SELECT:roll("1d100")
 KIT:Treasure Table Mundane Items 1d4	OPTION:55,59
 KIT:Treasure Table Minor Magic Items 1d3	OPTION:60,99
 KIT:Treasure Table Medium Magic Items	OPTION:100
 
-STARTPACK:Treasure Table Items CR7	SORTKEY:Treasure Table Items CR07	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR7	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR07
 SELECT:roll("1d100")
 KIT:Treasure Table Minor Magic Items 1d3	OPTION:52,97
 KIT:Treasure Table Medium Magic Items	OPTION:98,100
 
-STARTPACK:Treasure Table Items CR8	SORTKEY:Treasure Table Items CR08	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR8	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR08
 SELECT:roll("1d100")
 KIT:Treasure Table Minor Magic Items 1d4	OPTION:49,96
 KIT:Treasure Table Medium Magic Items	OPTION:97,100
 
-STARTPACK:Treasure Table Items CR9	SORTKEY:Treasure Table Items CR09	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Treasure Table Items CR9	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Treasure Table Items CR09
 SELECT:roll("1d100")
 KIT:Treasure Table Minor Magic Items 1d4	OPTION:44,91
 KIT:Treasure Table Medium Magic Items	OPTION:92,100

@@ -1,4 +1,4 @@
-# CVS $Revision: 6289 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 6289 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
@@ -8,11 +8,11 @@ SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.
 #Scent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Scent %-ft. range (Ex)|ScentRange	DEFINE:ScentRange|0
 
 
-# Ability Name						Category of Ability		Type						Visible	Special ABility		Template				Virtual Feat				Combat bonus				Temporary effect description
+# Ability Name						Category of Ability		Type						Visible	Special ABility		Define				Template				Virtual Feat							Temporary effect description															Temporary Bonus
 Onslaught							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Onslaught (Ex)
 Freedom							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Freedom (Su)
-CATEGORY=Special Ability|Natural Cunning.MOD																		TEMPLATE:Natural Cunning
-Pack Tactics						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pack Tactics (Ex)				DEFINE:PackTacticsActive|0	TEMPBONUS:PC|VAR|PackTacticsActive|1	VFEAT:Improved Trip|PREVARGTEQ:PackTacticsActive,1	TEMPBONUS:PC|COMBAT|TOHIT|1	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.
+CATEGORY=Special Ability|Natural Cunning.MOD																							TEMPLATE:Natural Cunning
+Pack Tactics						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Pack Tactics (Ex)	DEFINE:PackTacticsActive|0						VFEAT:Improved Trip|PREVARGTEQ:PackTacticsActive,1	TEMPDESC:If two or more minotrice are in melee with the same opponent gain +1 to hit and Improved Trip feat.	TEMPBONUS:PC|VAR|PackTacticsActive|1	TEMPBONUS:PC|COMBAT|TOHIT|1
 
 Tunneling							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Tunneling (Ex)
 

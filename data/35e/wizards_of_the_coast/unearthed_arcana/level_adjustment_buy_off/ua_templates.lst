@@ -1,6 +1,8 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 ### UNEARTHED ARCANA BUY DOWN:
+# Template Name			Visible		Level Adjustment
 Level Adjustment Buy down 1	VISIBLE:DISPLAY	LEVELADJUSTMENT:-1
 Level Adjustment Buy down 2	VISIBLE:DISPLAY	LEVELADJUSTMENT:-2
 Level Adjustment Buy down 3	VISIBLE:DISPLAY	LEVELADJUSTMENT:-3

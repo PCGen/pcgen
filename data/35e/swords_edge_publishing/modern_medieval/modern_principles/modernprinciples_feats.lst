@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern Principles	SOURCESHORT:MP	SOURCEWEB:http://swordsedgepublishing.ca/SEP4200.pdf	SOURCEDATE:2006-01
 # Created by Paul King, August 2006
 
@@ -27,7 +27,7 @@ Meticulous										TYPE:General																		DESC:The character is careful 
 Renown										TYPE:General																		DESC:The character takes pains to spread words of his or her valiant deeds and incredible accomplishments. The character likes to be the brightest star in any firmament.																																																																				SOURCEPAGE:p.10
 Streetfighting									TYPE:General	PREATT:2	PREFEAT:1,Brawl													DESC:When the character fights, the character fights to win and will use whatever tactic or stratagem necessary, be damned the rules.																																																																										SOURCEPAGE:p.11
 Studious										TYPE:General																		DESC:In a world of ignorance and superstition, the character has embraced the concept of the scholar, the academic, seeking answers through knowledge and study.																																																													BONUS:SKILL|Decipher Script,Research|2			SOURCEPAGE:p.11
-Supple Hands									TYPE:General																		DESC:The character has the hands of a monkey: small, quick, and light.																																																																											BONUS:SKILL|Escape Artist,Sleight of Hand|2		SOURCEPAGE:p.11
+Supple Hands									TYPE:General																		DESC:The character has the hands of a monkey: small, quick, and light.																																																																												BONUS:SKILL|Escape Artist,Sleight of Hand|2		SOURCEPAGE:p.11
 Sawbones										TYPE:General									PRESKILL:1,Heal=4,Treat Injury=4				DESC:The character has studied medicine in a formal setting or has apprenticed with another practitioner-be it barber or surgeon-and has learned the skills necessary to perform the most hazardous of medical procedures, putting a knife to a patient.																																																							SOURCEPAGE:p.11
 Trustworthy										TYPE:General																		DESC:The character projects innocence and burrows into people's trust with a mole's adroitness.																																																																								BONUS:SKILL|Diplomacy,Gather Information|2		SOURCEPAGE:p.11
 Unarmed Throw									TYPE:General			PREFEAT:1,Defensive Unarmed Combat										DESC:The character can use the opponent's own strength and movements against that opponent.																																																																																	SOURCEPAGE:p.11

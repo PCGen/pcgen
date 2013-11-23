@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 STARTPACK:Frost Giant Jarl	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
@@ -23,11 +23,11 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Quick Draw
-GEAR:Greataxe						SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
-GEAR:Full Plate						SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS2A
+GEAR:Greataxe							SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.FROST_M
+GEAR:Full Plate							SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS2A
 GEAR:Ring of Energy Resistance (Minor/Fire)				LOCATION:Equipped
-GEAR:Cloak of Charisma +2				SIZE:PC	LOCATION:Equipped
-GEAR:Poison (Bloodroot)				QTY:2			LOCATION:Carried
+GEAR:Cloak of Charisma +2					SIZE:PC	LOCATION:Equipped
+GEAR:Poison (Bloodroot)					QTY:2			LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Blackguard|Bull's Strength|Cause Fear|Doom|Magic Weapon
 
 STARTPACK:Harpy Archer	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]

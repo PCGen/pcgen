@@ -1,17 +1,18 @@
-# CVS $Revision: $ $Author: $ -- Mon Dec 29 19:16:19 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
 ###New Spells
-Deepen Wounds.MOD			CLASSES:Ehtzara=1
-Bestow Lesser Curse.MOD		CLASSES:Ehtzara=2
-Invigorating Nectar.MOD		CLASSES:Ehtzara=2
-Gout of Vermin.MOD		CLASSES:Ehtzara=3
-Sting of the Scorpion.MOD	CLASSES:Ehtzara=3
-Wall of Serpents.MOD		CLASSES:Ehtzara=4
-Gaze of the Predator.MOD	CLASSES:Ehtzara=1
-Scavenger's Bounty.MOD		CLASSES:Ehtzara=2
-Ripping Sands.MOD			CLASSES:Ehtzara=4
+# Spell Name				Classes of caster
+Deepen Wounds.MOD				CLASSES:Ehtzara=1
+Bestow Lesser Curse.MOD			CLASSES:Ehtzara=2
+Invigorating Nectar.MOD			CLASSES:Ehtzara=2
+Gout of Vermin.MOD			CLASSES:Ehtzara=3
+Sting of the Scorpion.MOD		CLASSES:Ehtzara=3
+Wall of Serpents.MOD			CLASSES:Ehtzara=4
+Gaze of the Predator.MOD		CLASSES:Ehtzara=1
+Scavenger's Bounty.MOD			CLASSES:Ehtzara=2
+Ripping Sands.MOD				CLASSES:Ehtzara=4
 
 
 ##Mod Spells

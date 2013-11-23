@@ -1,8 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun May 12 11:13:43 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Unearthed Arcana	SOURCESHORT:UA
 # Original Entry by: Tir-Gwaith
 # Updated by: Andrew Maitland
 
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus												Combat bonus
 CLASS:Drow Paragon	HD:6		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.32	DEFINE:DrowParagonLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Drow Paragon	PRERACE:1,Elf (Drow)
@@ -13,8 +14,8 @@ CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|
 2	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Drow Paragon|Light Sensitivity ~ Drow Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Drow Paragon
 ###Block:
-1	BONUS:PCLEVEL|Wizard|1|PREGENDER:M		BONUS:PCLEVEL|Cleric|1|PREGENDER:F
-3	BONUS:PCLEVEL|Wizard|1|PREGENDER:M		BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+1	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+3	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
 CLASS:Dwarf Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.33	DEFINE:DwarfParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -60,7 +61,7 @@ CLASS:Gnome Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide
 
 # Class Name			Output Name					Hit Dice	Type					Abbreviation	Max Level	Source Page		Define					Save checks bonus											Combat bonus
 CLASS:Half-Dragon Paragon	OUTPUTNAME:Half-Dragon Paragon	HD:12		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.37	DEFINE:HalfDragonParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name			Required Race		Required Template
+# Class Name			Required Race			Required Template
 CLASS:Half-Dragon Paragon	PRERACE:1,RACETYPE=Dragon	PRETEMPLATE:1,Half Dragon
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Half-Dragon Paragon	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Intimidate|TYPE=Knowledge|Listen|Search|Sense Motive|Spot
@@ -71,7 +72,7 @@ SUBCLASS:Bronze Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Bronze)	CS
 SUBCLASS:Copper Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Copper)	CSKILL:Bluff|Hide|Jump
 SUBCLASS:Gold Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Gold)	CSKILL:Disguise|Heal|Swim
 SUBCLASS:Green Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Green)	CSKILL:Bluff|Hide|Move Silently
-SUBCLASS:Red Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Red)		CSKILL:Appraise|Bluff|Jump
+SUBCLASS:Red Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Red)	CSKILL:Appraise|Bluff|Jump
 SUBCLASS:Silver Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Silver)	CSKILL:Bluff|Jump|TYPE=Perform
 SUBCLASS:White Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (White)	CSKILL:Hide|Move Silently|Swim
 ###Block:
@@ -133,7 +134,7 @@ CLASS:Human Paragon	STARTSKILLPTS:4
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Orc Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.44	DEFINE:OrcParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Required Race
+# Class Name	Multiple Requirements
 CLASS:Orc Paragon	PREMULT:1,[PRERACE:1,Orc%],[PREMULT:3,[PRERACE:1,Half-Orc],[PRECLASS:1,Half-Orc Paragon=1],[!PRECLASS:1,Human Paragon=1]]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Orc Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Listen|Spot|Survival|Swim

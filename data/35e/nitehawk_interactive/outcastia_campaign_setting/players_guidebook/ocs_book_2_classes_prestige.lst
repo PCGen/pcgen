@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -516,8 +516,8 @@ CLASS:Monolith Sentinel	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Save checks bonus															Combat bonus
 CLASS:Mystic Teacher	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.125	DEFINE:MysticTeacherLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required AL		Req. Att.	Multiple Requirements																																																																																											Required Text
-CLASS:Mystic Teacher	PREALIGN:LG,NG,CG	PREATT:8	PREMULT:2,[PRESKILL:1,Knowledge (Dragons)=4,Knowledge (Weaponology)=4,Knowledge (Arcana)=4,Knowledge (Architecture and Engineering)=4,Knowledge (Dungeoneering)=4,Knowledge (Geography)=4,Knowledge (History)=4,Knowledge (Local)=4,Knowledge (Nobility and Royalty)=4,Knowledge (The Planes)=4],[PRESKILL:2,Knowledge (nature)=4,Knowledge (religion)=4]	PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenMending,TYPE.NavitusFlemenSensing,TYPE.NavitusFlemenControlling	PRETEXT:Knowledge (Any)=4 plus Knowledge (Nature) and Knowledge (Religion)
+# Class Name		Required Ability																		Required AL		Req. Att.	Multiple Requirements																																																							Required Text
+CLASS:Mystic Teacher	PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenMending,TYPE.NavitusFlemenSensing,TYPE.NavitusFlemenControlling	PREALIGN:LG,NG,CG	PREATT:8	PREMULT:2,[PRESKILL:1,Knowledge (Dragons)=4,Knowledge (Weaponology)=4,Knowledge (Arcana)=4,Knowledge (Architecture and Engineering)=4,Knowledge (Dungeoneering)=4,Knowledge (Geography)=4,Knowledge (History)=4,Knowledge (Local)=4,Knowledge (Nobility and Royalty)=4,Knowledge (The Planes)=4],[PRESKILL:2,Knowledge (nature)=4,Knowledge (religion)=4]	PRETEXT:Knowledge (Any)=4 plus Knowledge (Nature) and Knowledge (Religion)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Teacher	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Heal|TYPE=Knowledge|Spellcraft|Tactics
 ###Block:

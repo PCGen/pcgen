@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 
@@ -41,36 +41,36 @@ Air Walk		KEY:Animal Trick ~ Air Walk	CATEGORY:Special Ability	TYPE:AnimalTrick	
 
 
 #Ability Name					Unique Key							SORTKEY			Category of Ability		Type									Restricted Ability							Required Stat	Define					Description																							Stackable?	Multiple?	Choose						Ability																																																																																																																																																																																																																																																																																																																																Combat bonus				Add to base move			Stat bonus		Cost		Description of the Benefits
-# Ability Name			Category of Ability	Define									Ability																																																																																																																																																																																																																																																																																																																																																																																																																																																																										Modify VAR
-Intelligence Lock Tracker	CATEGORY:Internal		DEFINE:IntelligenceLockNumber|0	DEFINE:DisableIntLock|0	ABILITY:Internal|VIRTUAL|Lock Int ~ 1|PREVAREQ:IntelligenceLockNumber,1|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 2|PREVAREQ:IntelligenceLockNumber,2|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 6|PREVAREQ:IntelligenceLockNumber,6|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 7|PREVAREQ:IntelligenceLockNumber,7|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 8|PREVAREQ:IntelligenceLockNumber,8|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 9|PREVAREQ:IntelligenceLockNumber,9|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 10|PREVAREQ:IntelligenceLockNumber,10|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 11|PREVAREQ:IntelligenceLockNumber,11|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 12|PREVAREQ:IntelligenceLockNumber,12|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 13|PREVAREQ:IntelligenceLockNumber,13|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 14|PREVAREQ:IntelligenceLockNumber,14|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 15|PREVAREQ:IntelligenceLockNumber,15|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 16|PREVAREQ:IntelligenceLockNumber,16|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 17|PREVAREQ:IntelligenceLockNumber,17|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 18|PREVAREQ:IntelligenceLockNumber,18|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 19|PREVAREQ:IntelligenceLockNumber,19|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 20|PREVAREQ:IntelligenceLockNumber,20|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 21|PREVAREQ:IntelligenceLockNumber,21|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 22|PREVAREQ:IntelligenceLockNumber,22|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 23|PREVAREQ:IntelligenceLockNumber,23|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 24|PREVAREQ:IntelligenceLockNumber,24|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 25|PREVAREQ:IntelligenceLockNumber,25|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 26|PREVAREQ:IntelligenceLockNumber,26|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 27|PREVAREQ:IntelligenceLockNumber,27|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 28|PREVAREQ:IntelligenceLockNumber,28|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 29|PREVAREQ:IntelligenceLockNumber,29|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 30|PREVAREQ:IntelligenceLockNumber,30|PREVARLT:DisableIntLock,1	BONUS:VAR|DisableIntLock|1|PREVARGT:INTSCORE,IntelligenceLockNumber
+# Ability Name			Category of Ability	Define									Define a Stat			Ability																																																																																																																																																																																																																																																																																																																																																																																																																																																																										Modify VAR
+Intelligence Lock Tracker	CATEGORY:Internal		DEFINE:IntelligenceLockNumber|0	DEFINE:DisableIntLock|0						ABILITY:Internal|VIRTUAL|Lock Int ~ 1|PREVAREQ:IntelligenceLockNumber,1|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 2|PREVAREQ:IntelligenceLockNumber,2|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 6|PREVAREQ:IntelligenceLockNumber,6|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 7|PREVAREQ:IntelligenceLockNumber,7|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 8|PREVAREQ:IntelligenceLockNumber,8|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 9|PREVAREQ:IntelligenceLockNumber,9|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 10|PREVAREQ:IntelligenceLockNumber,10|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 11|PREVAREQ:IntelligenceLockNumber,11|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 12|PREVAREQ:IntelligenceLockNumber,12|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 13|PREVAREQ:IntelligenceLockNumber,13|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 14|PREVAREQ:IntelligenceLockNumber,14|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 15|PREVAREQ:IntelligenceLockNumber,15|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 16|PREVAREQ:IntelligenceLockNumber,16|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 17|PREVAREQ:IntelligenceLockNumber,17|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 18|PREVAREQ:IntelligenceLockNumber,18|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 19|PREVAREQ:IntelligenceLockNumber,19|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 20|PREVAREQ:IntelligenceLockNumber,20|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 21|PREVAREQ:IntelligenceLockNumber,21|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 22|PREVAREQ:IntelligenceLockNumber,22|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 23|PREVAREQ:IntelligenceLockNumber,23|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 24|PREVAREQ:IntelligenceLockNumber,24|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 25|PREVAREQ:IntelligenceLockNumber,25|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 26|PREVAREQ:IntelligenceLockNumber,26|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 27|PREVAREQ:IntelligenceLockNumber,27|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 28|PREVAREQ:IntelligenceLockNumber,28|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 29|PREVAREQ:IntelligenceLockNumber,29|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 30|PREVAREQ:IntelligenceLockNumber,30|PREVARLT:DisableIntLock,1	BONUS:VAR|DisableIntLock|1|PREVARGT:INTSCORE,IntelligenceLockNumber
 #
-Lock Int ~ 1			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|1
-Lock Int ~ 2			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|2
-Lock Int ~ 6			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|6
-Lock Int ~ 7			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|7
-Lock Int ~ 8			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|8
-Lock Int ~ 9			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|9
-Lock Int ~ 10			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|10
-Lock Int ~ 11			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|11
-Lock Int ~ 12			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|12
-Lock Int ~ 13			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|13
-Lock Int ~ 14			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|14
-Lock Int ~ 15			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|15
-Lock Int ~ 16			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|16
-Lock Int ~ 17			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|17
-Lock Int ~ 18			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|18
-Lock Int ~ 19			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|19
-Lock Int ~ 20			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|20
-Lock Int ~ 21			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|21
-Lock Int ~ 22			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|22
-Lock Int ~ 23			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|23
-Lock Int ~ 24			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|24
-Lock Int ~ 25			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|25
-Lock Int ~ 26			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|26
-Lock Int ~ 27			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|27
-Lock Int ~ 28			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|28
-Lock Int ~ 29			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|29
-Lock Int ~ 30			CATEGORY:Internal		DEFINESTAT:MINVALUE|INT|30
+Lock Int ~ 1			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|1
+Lock Int ~ 2			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|2
+Lock Int ~ 6			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|6
+Lock Int ~ 7			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|7
+Lock Int ~ 8			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|8
+Lock Int ~ 9			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|9
+Lock Int ~ 10			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|10
+Lock Int ~ 11			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|11
+Lock Int ~ 12			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|12
+Lock Int ~ 13			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|13
+Lock Int ~ 14			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|14
+Lock Int ~ 15			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|15
+Lock Int ~ 16			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|16
+Lock Int ~ 17			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|17
+Lock Int ~ 18			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|18
+Lock Int ~ 19			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|19
+Lock Int ~ 20			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|20
+Lock Int ~ 21			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|21
+Lock Int ~ 22			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|22
+Lock Int ~ 23			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|23
+Lock Int ~ 24			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|24
+Lock Int ~ 25			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|25
+Lock Int ~ 26			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|26
+Lock Int ~ 27			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|27
+Lock Int ~ 28			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|28
+Lock Int ~ 29			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|29
+Lock Int ~ 30			CATEGORY:Internal												DEFINESTAT:MINVALUE|INT|30
 
 
 
@@ -101,7 +101,7 @@ Special Mount			KEY:Companion Display ~ Special Mount													CATEGORY:Speci
 Animal Companion			KEY:Companion Display ~ Animal Companion													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	BENEFIT:A druid's animal companion is different from a normal animal of its kind in many ways. A druid's animal companion is superior to a normal animal of its kind and has special powers, as described below.
 
 ###Block: Psionic Companion Modifier Abilities
-# Ability Name		Unique Key			Category of Ability		Type						Visible	Description
+# Ability Name		Unique Key			Category of Ability		Type						Visible	Description																																																																																																																									Bonus to skill
 Channel Power						CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:YES	DESC:The owner can manifest powers through the psicrystal to a distance of up to 1 mile. The psicrystal is treated as the power's originator, and all ranges are calculated from its location. When channeling a power through his psicrystal, the owner manifests the power by paying its power point cost. He is still subject to attacks of opportunity and other hazards of manifesting a power, if applicable (for instance, he becomes visible when manifesting an offensive power if invisible, as does the psicrystal).
 Deliver Touch Powers					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:The owner can have his psicrystal can deliver touch powers for him. If the owner and psicrystal are in contact at the time the owner manifests a touch power, he can designate his psicrystal as the "toucher." The psicrystal can then deliver the touch power just as the owner could. As usual, if the owner manifests another power before the touch is delivered, the touch power dissipates.
 Hardness 8							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
@@ -115,4 +115,4 @@ Telepathic Speech						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinar
 
 # Psicrystal
 Sighted							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Although it has no physical sensory organs, a psicrystal can telepathically sense its environment as well as a creature with normal vision and hearing. Darkness (even supernatural darkness) is irrelevant, as are areas of supernatural silence, though a psicrystal still can't discern invisible or ethereal beings. A psicrystal's sighted range is 40 feet.
-Skills			KEY:Skills ~ Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:A psicrystal has the same skill ranks as its owner, except that it has a minimum of 4 ranks each in Spot, Listen, Move Silently, and Search. (Even if its owner has no ranks in these skills, a psicrystal has 4 ranks in each.) A psicrystal uses its own ability modifiers on skill checks.	BONUS:SKILL|Spot|4|-min(4,skillinfo("TOTALRANK","Spot"))	BONUS:SKILL|Listen|4|-min(4,skillinfo("TOTALRANK","Listen"))	BONUS:SKILL|Move Silently|4|-min(4,skillinfo("TOTALRANK","Move Silently"))	BONUS:SKILL|Search|4|-min(4,skillinfo("TOTALRANK","Search"))
+Skills			KEY:Skills ~ Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality					DESC:A psicrystal has the same skill ranks as its owner, except that it has a minimum of 4 ranks each in Spot, Listen, Move Silently, and Search. (Even if its owner has no ranks in these skills, a psicrystal has 4 ranks in each.) A psicrystal uses its own ability modifiers on skill checks.																																																																										BONUS:SKILL|Spot|4|-min(4,skillinfo("TOTALRANK","Spot"))	BONUS:SKILL|Listen|4|-min(4,skillinfo("TOTALRANK","Listen"))	BONUS:SKILL|Move Silently|4|-min(4,skillinfo("TOTALRANK","Move Silently"))	BONUS:SKILL|Search|4|-min(4,skillinfo("TOTALRANK","Search"))

@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
-# Ability Name	Category of Ability		Type				Visible	Special ABility																						Define																																						Stackable?	Multiple?	Choose
-Rebuke Giants	CATEGORY:Special Ability	TYPE:Turning.TurnGiant	VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|TurnCheckBase
+# Ability Name			Unique Key			Category of Ability		Type						Visible	Special ABility																						Define																																						Description						Stackable?	Multiple?	Choose
+Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|TurnCheckBase
 #Issue: Rebuke Giants table isn't showing up on the OS.
-Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality	VISIBLE:YES	DESC:Favored Humanoid Enemy (%1)|%CHOICE																																																									STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
+Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality	VISIBLE:YES																																																																DESC:Favored Humanoid Enemy (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
 
 
 ###Block: Favored Enemies

@@ -1,11 +1,11 @@
-# CVS $Revision: 458 $ $Author: tir $ -- Fri Oct 30 19:19:51 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision: 458 $ $Author: tir $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 # Original Entry by: Tir-Gwaith
 
 # ALLOWBASECLASS:NO with "Barbarian" Subclass, so there won't be any stacking issues. - Tir Gwaith
 
-# Class Name		Subclass?		Base class as subclass?
-CLASS:Barbarian.MOD		ALLOWBASECLASS:NO
+# Class Name		Base class as subclass?
+CLASS:Barbarian.MOD	ALLOWBASECLASS:NO
 ###Block: Ape Totem
 SUBCLASS:Ape Totem Barbarian	ABB:ApeBbn	COST:0	SOURCEPAGE:p.48
 SUBCLASSLEVEL:1						TEMPLATE:Ape Totem Climb Half

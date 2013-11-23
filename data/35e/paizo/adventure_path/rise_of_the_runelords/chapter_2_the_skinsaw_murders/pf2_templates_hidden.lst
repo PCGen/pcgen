@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Mar 31 10:57:37 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
 ###Block: Diseases
-# Template Name					Visible	Source Page		Stat bonus							Choose								Temporary effect description
-Disease Damage (Vorel's Phage/Con Damage)	VISIBLE:NO	SOURCEPAGE:p.27	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 20 (Contact or Ingestion), Incubation 1 day, Damage 1d4 Con, 1d4 Cha, Apply this temporary bonus for the constitution damage each day the victim takes damage.
-Disease Damage (Vorel's Phage/Cha Damage)	VISIBLE:NO	SOURCEPAGE:p.27	TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Charisma Damage		TEMPDESC:Infection DC 20 (Contact or Ingestion), Incubation 1 day, Damage 1d4 Con, 1d4 Cha, Apply this temporary bonus for the charisma damage each day the victim takes damage.
+# Template Name					Visible	Source Page		Choose								Temporary effect description																											Temporary Bonus
+Disease Damage (Vorel's Phage/Con Damage)	VISIBLE:NO	SOURCEPAGE:p.27	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 20 (Contact or Ingestion), Incubation 1 day, Damage 1d4 Con, 1d4 Cha, Apply this temporary bonus for the constitution damage each day the victim takes damage.	TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
+Disease Damage (Vorel's Phage/Cha Damage)	VISIBLE:NO	SOURCEPAGE:p.27	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Charisma Damage		TEMPDESC:Infection DC 20 (Contact or Ingestion), Incubation 1 day, Damage 1d4 Con, 1d4 Cha, Apply this temporary bonus for the charisma damage each day the victim takes damage.		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)

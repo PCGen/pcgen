@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jan 22 16:26:51 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 # Original Entry: Andrew Maitland (LegacyKing)
 # Original Entry Date: 2008
@@ -58,53 +58,53 @@ CLASS:Magister	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|T
 
 ###Block: Via Sapientia ----------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Type			Subclass?		Base class as subclass?
+# Class Name		Type			Base class as subclass?
 CLASS:Via Sapientia	TYPE:Prestige.PC	ALLOWBASECLASS:NO
-# Class Name		Skill Pts/Lvl	Class Skill
+# Class Name		Skill Pts/Lvl
 CLASS:Via Sapientia	STARTSKILLPTS:2
-SUBCLASS:Sapienti of Abjuration	PRECLASS:1,Abjurer=1	COST:0
+SUBCLASS:Sapienti of Abjuration	COST:0	PRECLASS:1,Abjurer=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Abjuration
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Inner Protection
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Raising the Gauntlet
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Shatter the Spell
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Reactive Counterspell
-SUBCLASS:Sapienti of Conjuration	PRECLASS:1,Conjurer=1	COST:0
+SUBCLASS:Sapienti of Conjuration	COST:0	PRECLASS:1,Conjurer=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Conjuration
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Greater Summons
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Powerful Summons
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Extend Summons
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Fast Summons
-SUBCLASS:Sapienti of Divination	PRECLASS:1,Diviner=1	COST:0
+SUBCLASS:Sapienti of Divination	COST:0	PRECLASS:1,Diviner=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Divination
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Telepathy
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Danger Sense
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Evasion
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Uninhibited Vision
-SUBCLASS:Sapienti of Enchantment	PRECLASS:1,Enchanter=1	COST:0
+SUBCLASS:Sapienti of Enchantment	COST:0	PRECLASS:1,Enchanter=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Enchantment
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Enhanced Enchantment
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Clouded Mind
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Thrall
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV -Seeds and Whispers
-SUBCLASS:Sapienti of Evocation	PRECLASS:1,Evoker=1	COST:0
+SUBCLASS:Sapienti of Evocation	COST:0	PRECLASS:1,Evoker=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Evocation
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Empowered Evocation
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Evocation Breakthrough
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Force Mastery
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Mastery of Shaping
-SUBCLASS:Sapienti of Illusion		PRECLASS:1,Illusionist=1	COST:0
+SUBCLASS:Sapienti of Illusion		COST:0	PRECLASS:1,Illusionist=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Illusion
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Chains of Disbelief
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Master of Shadows
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Lord of Shadows
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Mindgames
-SUBCLASS:Sapienti of Necromancy	PRECLASS:1,Wizard.Necromancer=1	COST:0
+SUBCLASS:Sapienti of Necromancy	COST:0	PRECLASS:1,Wizard.Necromancer=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Necromancy
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Sense my Minions
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - My Minions are my Own
 SUBCLASSLEVEL:4	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability III - Lord of the Undead
 SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Necrotic Healing
-SUBCLASS:Sapienti of Transmutation	PRECLASS:1,Wizard.Transmuter=1	COST:0
+SUBCLASS:Sapienti of Transmutation	COST:0	PRECLASS:1,Wizard.Transmuter=1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Specialization Mastery - Transmutation
 SUBCLASSLEVEL:2	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability I - Enhanced Transmutation
 SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability II - Mastery of the Mental
@@ -124,7 +124,7 @@ SUBCLASSLEVEL:5	ABILITY:Special Ability|AUTOMATIC|Sapienti Ability IV - Split Mi
 
 # Class Name		Hit Dice	Type			Source Page		Save checks bonus								Combat bonus
 CLASS:Tears of Almeric	HD:4		TYPE:Prestige.PC	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name		Required AL		Required Feat							Required Skill									Required Text
+# Class Name		Required AL		Required Feat							Required Skill								Required Text
 CLASS:Tears of Almeric	PREALIGN:LG,NG,CG	PREFEAT:3,Iron Will,Lightning Reflexes,Combat Casting	PRESKILL:2,TYPE=Arcana=8,Knowledge (Local/Ymandragore)=8	PRETEXT: Able to prepare and cast 3rd level arcane spells, including expeditious retreat. Special: Must be a member in good standing of the Shield and must have successfully completed 4 missions for the Shield.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tears of Almeric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Arcana|Knowledge (Local/Ymandragore)|Move Silently|TYPE=Profession|Spellcraft
@@ -152,7 +152,7 @@ CLASS:Tears of Almeric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Hide
 
 # Class Name		Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Via Proeliatoris	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.84	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Req. Att.	Required Feat														Required Skill								Required Text
+# Class Name		Req. Att.	Required Feat														Required Skill							Required Text
 CLASS:Via Proeliatoris	PREATT:5	PREFEAT:4,Craft Magic Arms and Armor,Armor Proficiency (Light),Shield Proficiency,Weapon Focus	PRESKILL:3,TYPE=Arcana=10,Research=10,Spellcraft=10	PRETEXT:Spells: Must be able to cast 3rd level arcane spells - Special: Must be a member in good standing with the Sanctorum of the Arcane.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Via Proeliatoris	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Research|Spellcraft|Spot
@@ -177,7 +177,7 @@ CLASS:Via Proeliatoris	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Hide|Inti
 
 # Class Name	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Vieomancers	TYPE:Prestige.PC	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name	Restricted AL		Multiple Requirements													Required Skill									Required Text
+# Class Name	Restricted AL		Multiple Requirements													Required Skill							Required Text
 CLASS:Vieomancers	!PREALIGN:LG,LN,LE	PREMULT:2,[PREFEAT:3,Alertness,Iron Will,Vieomantic Magic Student],[PREFEAT:1,TYPE.Metamagic]	PRESKILL:3,Concentration=9,TYPE=Arcana=9,Spellcraft=9	PRETEXT:Spells: Able to cast 3rd-level arcane spells, as well as dispel magic or greater dispel maigc. Special: The character must be accepted as a student of the Holders of Wisdom, and take an additional Sarishan Oath that he will cease following any line of magical inquiry if ordered to do so by one of the Magisters of the Sanctorum.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vieomancers	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Arcana|Knowledge (the Planes)|TYPE=Profession|Research|Spellcraft
@@ -230,7 +230,7 @@ CLASS:Arcane Infiltrator	STARTSKILLPTS:6	CSKILL:Black Market|Bluff|Climb|Concent
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Battlestaff	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.90	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Req. Att.	Required Feat																		Required Skill					Required Text
+# Class Name	Req. Att.	Required Feat																			Required Skill					Required Text
 CLASS:Battlestaff	PREATT:4	PREFEAT:5,Combat Expertise,Craft Magic Arms and Armor,Two Weapon Fighting,Two Weapon Defense,Weapon Focus (Quarterstaff)	PRESKILL:1,Craft (Weaponsmithing)=10	PRETEXT:Spells: Ability to prepare and cast 3rd level Arcane spells. Special: Must craft a Masterwork or Greater Masterwork quarterstaff and use it to defeat a foe in melee combat.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Battlestaff	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
@@ -255,7 +255,7 @@ CLASS:Battlestaff	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|TYP
 
 # Class Name			Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Discipulus Phisicae	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name			Required Feat					Required Skill												Required Text
+# Class Name			Required Feat					Required Skill										Required Text
 CLASS:Discipulus Phisicae	PREFEAT:1,Skill Focus (Craft (Alchemy))	PRESKILL:4,Craft (Alchemy)=8,TYPE=Arcana=5,TYPE=Nature=5,Spellcraft=8	PRETEXT:Special: Must be invited to study by a current Discipulus Phisicae.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discipulus Phisicae	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Hide|TYPE=Knowledge|Move Silently|TYPE=Profession|Research|Spellcraft
@@ -277,7 +277,7 @@ CLASS:Discipulus Phisicae	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Elementalist	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.94	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name		Required Skill						Required Text
+# Class Name		Required Skill					Required Text
 CLASS:Elementalist	PRESKILL:2,TYPE=Arcana=10,Spellcraft=13	PRETEXT:Multiple requirements, see text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elementalist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
@@ -316,10 +316,11 @@ SUBCLASSLEVEL:8	BONUS:ABILITYPOOL|The Augmentalist Feat|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Ehtzara	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Feat							Required Skill
+# Class Name	Required AL		Required Feat						Required Skill
 CLASS:Ehtzara	PREALIGN:CG,CE,CN	PREFEAT:2,Iron Will,Skill Focus (TYPE=Arcana)	PRESKILL:4,Concentration=8,Craft (Woodworking)=5,TYPE=Arcana=10,Spellcraft=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ehtzara	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Dreaming|Handle Animal|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|TYPE=Religion|Knowledge (The Planes ~ Spirit World)|Knowledge (The Planes ~ Spirit Creatures)|TYPE=Profession|Spellcraft|Spot|Survival|Use Magic Device
+# Class Name	Spell Stat		Caster level
 CLASS:Ehtzara	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Ehtzara|CL
 #Weapon and Armor Proficiency: Ehtzara are proficient with the following weapons: club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, and spear. The Ehtzara are prohibited from wearing any items that grant an armor bonus to AC save his Spirit Robes, even bracers of armor, as wearing such meager means of protection show a lack of faith and anger the Ehtzara's patron sprits. An Ehtzara who wears prohibited armor finds himselfunable to cast any Ehtzara spells or use any of her supernatural or spell-like class abilities for 24 hours thereafter.
 1	ABILITY:Special Ability|AUTOMATIC|Ehtzara Proficiencies
@@ -348,7 +349,7 @@ CLASS:Ehtzara	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Ehtzara|CL
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Discipulus Geometricus	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name			Required Feat							Required Skill										Required Text
+# Class Name			Required Feat							Required Skill									Required Text
 CLASS:Discipulus Geometricus	PREFEAT:2,Prodigy (Arcane Magic),Sculpt Runic Item	PRESKILL:3,Craft (Stoneworking)=5,TYPE=Arcana=12,Spellcraft=12	PRETEXT:Spells: Able to cast 3rd level Arcane spells, at least three of which must be Magic Circle spells.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discipulus Geometricus	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
@@ -404,7 +405,7 @@ CLASS:Knight of the Order of St. Armon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Magus Irascortum	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Restricted AL		Required Skill									Required Text
+# Class Name		Restricted AL		Required Skill							Required Text
 CLASS:Magus Irascortum	!PREALIGN:LG,LN,LE	PRESKILL:3,Concentration=8,TYPE=Arcana=8,Spellcraft=8	PRETEXT:Ability to rage, able to cast 2nd level arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Magus Irascortum	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|TYPE=Arcana|Listen|TYPE=Profession|Spellcraft|Survival|Swim
@@ -442,7 +443,7 @@ CLASS:The Master-Smith	STARTSKILLPTS:6	CSKILL:Appraise|Climb|TYPE=Craft|Concentr
 ###Block:
 1						ABILITY:Special Ability|AUTOMATIC|Apprenticeship|Silvered Weapon|Skill Mastery (Master-Smith)
 2						ABILITY:Special Ability|AUTOMATIC|Master Craftsman (Armorsmith)
-3						ABILITY:Special Ability|AUTOMATIC|Cold-Forging						AUTO:FEAT|Weapon Focus (Warhammer)
+3						ABILITY:Special Ability|AUTOMATIC|Cold-Forging									AUTO:FEAT|Weapon Focus (Warhammer)
 4						ABILITY:Special Ability|AUTOMATIC|Master Craftsman (Weaponsmith)
 5	BONUS:VAR|SecretOfTheSmithy|1	ABILITY:Special Ability|AUTOMATIC|Master-Smith|Secret of the Smithy
 6						ABILITY:Special Ability|AUTOMATIC|Eschew Spell Requirements
@@ -461,7 +462,7 @@ CLASS:The Master-Smith	STARTSKILLPTS:6	CSKILL:Appraise|Climb|TYPE=Craft|Concentr
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Savant	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.108	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name	Required Feat																		Required Skill						Required Text
+# Class Name	Required Feat																		Required Skill					Required Text
 CLASS:Savant	PREFEAT:1,Extend Spell	PREFEAT:2,TYPE.Metamagic,TYPE.Metamagic	PREFEAT:1,Prodigy,Magical Aptitude,Arcane Bloodline	PRESKILL:2,Spellcraft=10,TYPE=Arcana=10	PRETEXT: Must be able to cast 3rd level spells
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
@@ -508,20 +509,22 @@ CLASS:Song Master of Cadic	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|TY
 10	ADD:SPELLCASTER|ANY
 
 ###Block: Spellchanter ---------------------------------------------------------------------------------------------
-CLASS:Spellchanter	SOURCEPAGE:p.111	HD:4		TYPE:Prestige.PC	MAXLEVEL:10			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name		Required Feat								Required Skill																				Required Text
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Spellchanter	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.111	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name		Required Feat								Required Skill																			Required Text
 CLASS:Spellchanter	PREFEAT:1,Magical Aptitude,Skill Focus (Perform (Singing))	PRESKILL:5,Perform (Singing)=11,Spellcraft=6,TYPE=Arcana=6,Concentration=5,Use Magic Device=5	PRESKILL:2,TYPE.Perform=11	PRETEXT:Special: Must be able to cast 2nd level arcane spells; Special: Bardic Music ability
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spellchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
 #Weapon and Armor Proficiency: Spellchanters gain very little in the way of military training; they gain no additional weapon or armor proficiencies
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Advanced Bardic Music|Dual-Song|Performance Requirements|Spell-Singing
-2	ABILITY:Special Ability|AUTOMATIC|Improved Countersong|PRESKILL:1,Perform (Singing)=13
-5	ABILITY:Special Ability|AUTOMATIC|Song of Spell Warding|PRESKILL:1,Perform=16
-8	ABILITY:Special Ability|AUTOMATIC|Song of Healing|PRESKILL:1,Perform=19
-9	ABILITY:Special Ability|AUTOMATIC|Arcane Harmonics
+1															ABILITY:Special Ability|AUTOMATIC|Advanced Bardic Music|Dual-Song|Performance Requirements|Spell-Singing
+2															ABILITY:Special Ability|AUTOMATIC|Improved Countersong|PRESKILL:1,Perform (Singing)=13
+5															ABILITY:Special Ability|AUTOMATIC|Song of Spell Warding|PRESKILL:1,Perform=16
+8															ABILITY:Special Ability|AUTOMATIC|Song of Healing|PRESKILL:1,Perform=19
+9															ABILITY:Special Ability|AUTOMATIC|Arcane Harmonics
 1	BONUS:ABILITYPOOL|Spell Singing|SpellSinging
-1	BONUS:VAR|SpellSinging|1+((CL-1)/3)
+1									BONUS:VAR|SpellSinging|1+((CL-1)/3)
 ###Block:
 1	ADD:SPELLCASTER|Bard
 2	ADD:SPELLCASTER|Bard
@@ -539,7 +542,7 @@ CLASS:Spellchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Terramancer	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.113	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required Feat			Required Skill													Required Text
+# Class Name	Required Feat			Required Skill												Required Text
 CLASS:Terramancer	PREFEAT:1,Sculpt Runic Item	PRESKILL:3,Knowledge (Geology)=8,Knowledge (The Planes/Earth)=8,Craft (Stonework)=8	PRETEXT:Spellcasting: Earth Domain or the ability to cast 3 spells listed in the Earth Domain, must be able to cast stone shape. Special: Have had peaceful contact with a free-willed earth elemental
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Terramancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Geology)|TYPE=Religion|Knowledge (The Planes/Earth)|TYPE=Profession|Spellcraft
@@ -612,7 +615,7 @@ CLASS:Vispilio de Magus	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Weather Witch	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.117	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name		Required Deity							Required Feat		Required Race					Required Skill						Required Text
+# Class Name		Required Deity							Required Feat		Required Race					Required Skill					Required Text
 CLASS:Weather Witch	PREDEITY:1,Shamanic,PANTHEON.Saluwe,PANTHEON.Hurrian	PREFEAT:1,Iron Will	PRERACE:1,Human,Half-human,Dark-kin,Val	PRESKILL:2,Concentration=8,TYPE=Nature=8	PRETEXT:Special: Must pray for spells or cast spells without preparation
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Weather Witch	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|TYPE=Arcana|TYPE=Nature|TYPE=Profession|Spellcraft|Survival|Swim
@@ -647,7 +650,7 @@ CLASS:Weather Witch	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Afatkuq	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name	Required AL		Required Feat							Required Skill																				Required Text
+# Class Name	Required AL		Required Feat								Required Skill																			Required Text
 CLASS:Afatkuq	PREALIGN:LG,LN	PREFEAT:3,Great Fortitude,Iron Will,Skill Focus (Heal)	PRESKILL:5,Heal=8,Knowledge (Local/Pengik)=5,Knowledge (Local/Ssethragore)=5,TYPE.Nature=8,Knowledge (Religion/Pengik)=8	PRETEXT:Must be able to understand Ssethric. Must have mundane blood and be unable to cast spells or manifest powers. Pengik
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Afatkuq	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|TYPE=Nature|TYPE=Local|TYPE=Religion|TYPE=Profession|Spellcraft|Sense Motive|Survival
@@ -712,7 +715,7 @@ CLASS:Berotar	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Dipl
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Death Lord	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.123	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Restricted AL		Required Deity	Required Domain	Required Feat								Required Skill												Required Text
+# Class Name	Restricted AL		Required Deity	Required Domain	Required Feat								Required Skill										Required Text
 CLASS:Death Lord	!PREALIGN:LG,NG,CG	PREDEITY:1,Neroth	PREDOMAIN:1,Death	PREFEAT:2,Spell Focus (Necromancy),Domain Focus (Undead)	PRESKILL:3,TYPE.Arcana=10,Knowledge (Religion/Neroth)=10,Spellcraft=10	PRETEXT:If Wizard, must be a Specialist Wizard focusing on Necromancy. Must be able to cast 4th level Divine spells and 2nd level Arcane spells
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Death Lord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Arcana|TYPE=History|Knowledge (Religion/Neroth)|TYPE=Profession|Spellcraft
@@ -808,7 +811,7 @@ CLASS:Knowledge Warden of Althares	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Climb
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:The Lifewarden	HD:4		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required AL		Required Deity		Required Skill										Required Text
+# Class Name		Required AL		Required Deity		Required Skill									Required Text
 CLASS:The Lifewarden	PREALIGN:LG,NG,CG	PREDEITY:1,Belisarda	PRESKILL:3,Profession (Midwife)=8,TYPE=Religion=8,Spellcraft=8	PRETEXT:Must be an Elorii. Must be able to cast 4th level divine spells
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Lifewarden	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Arcana|TYPE=History|Knowledge (History/Ancient)|TYPE=Religion|TYPE=Religion|TYPE=Profession|Spellcraft
@@ -830,7 +833,7 @@ CLASS:The Lifewarden	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Psionic Inquisitor	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.131	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name			Required AL		Required Deity			Required Feat					Required Skill															Required Text
+# Class Name			Required AL		Required Deity			Required Feat					Required Skill														Required Text
 CLASS:Psionic Inquisitor	PREALIGN:LG,LN,LE	PREDEITY:1,Illiir,Sarish	PREFEAT:2,Inquisitor,Psionic Meditation	PRESKILL:3,Concentration=8,TYPE=Religion=5,Sense Motive=8	PRESKILL:1,Psicraft=5,Spellcraft=5	PRETEXT:Spellcasting- Must be able to cast 1st level divine spells.; Manifesting: Must be able to manifest 1st level powers.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psionic Inquisitor	STARTSKILLPTS:2	CSKILL:Autohypnosis|TYPE=Craft|Concentration|TYPE=Knowledge|Listen|Psicraft|Search|Sense Motive|Spellcraft|Spot
@@ -852,7 +855,7 @@ CLASS:Psionic Inquisitor	STARTSKILLPTS:2	CSKILL:Autohypnosis|TYPE=Craft|Concentr
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Tree Shaper of Saluwe	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.133	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-# Class Name			Req. Att.	Required Deity	Required Skill									Required Text
+# Class Name			Req. Att.	Required Deity	Required Skill								Required Text
 CLASS:Tree Shaper of Saluwe	PREATT:4	PREDEITY:1,Saluwe	PRESKILL:3,Craft (Woodworking)=8,TYPE=Nature=8,Survival=5	PRETEXT:Spells- Able to cast divine spells. Special- Must either have the Plant domain, or be able to cast tree shape.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Tree Shaper of Saluwe	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Craft|Concentration|Diplomacy|Escape Artist|Gather Information|Intimidate|Jump|TYPE=Knowledge|Listen|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Tumble
@@ -883,9 +886,9 @@ CLASS:Tree Shaper of Saluwe	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Craft|Concentrat
 
 ###Block: Ordainer ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Ordainer	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.208	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Required AL		Req. Att.	Required Class				Required Feat						Required Skill										Required Text
+# Class Name	Required AL		Req. Att.	Required Class				Required Feat						Required Skill									Required Text
 CLASS:Ordainer	PREALIGN:LN,LE	PREATT:4	PRECLASS:1,SPELLCASTER.Arcane=5	PREFEAT:1,Track	PREFEAT:1,TYPE.Metamagic	PRESKILL:4,Concentration=5,TYPE=Arcana=5,Spellcraft=5,Survival=5	PRETEXT:Special - Born and raised upon the Isle of Tears. Must swear loyalty to the Sorcerer King of Ymandragore.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ordainer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|Research|Spellcraft|Spot|Survival
@@ -916,7 +919,7 @@ CLASS:Ordainer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Kn
 
 ###Block: Shard Shaper ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shard Shaper	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.210	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
 # Class Name		Required AL		Required Check Base	Required Feat		Required Skill			Required Text
 CLASS:Shard Shaper	PREALIGN:LE,NE,CE	PRECHECKBASE:1,Will=6	PREFEAT:1,Iron Will	PRESKILL:1,Craft (Gemsmith)=5	PRETEXT:In addition, the character must successfully acquire a dwarven soul shard that contains the soul of an arcane spellcaster, and must complete the Ritual of Binding with the shard.
@@ -934,9 +937,9 @@ CLASS:Shard Shaper	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Gemsmith)|TYPE=Ar
 
 ###Block: Wine Drinker ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type						Max Level	Source Page		Save checks bonus											Bonus
+# Class Name		Hit Dice	Type						Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wine Drinker	HD:8		TYPE:Prestige.PC	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.213	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Restricted AL		Required Feat					Required Skill							Required Text
+# Class Name		Restricted AL		Required Feat					Required Skill						Required Text
 CLASS:Wine Drinker	!PREALIGN:LG,NG,CG	PREFEAT:1,Skill Focus (Craft (Alchemy))	PRESKILL:2,Craft (Alchemy)=5,TYPE=Arcana=5	PRETEXT:Special: Must not be able to cast arcane spells prior to membership. Must make a substantial donation (minimum 5,000 gp) to the finger before the society will accept the applicant.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wine Drinker	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Intimidate|TYPE=Arcana|TYPE=Profession|Research|Sense Motive

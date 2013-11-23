@@ -1,86 +1,86 @@
-# CVS $Revision: $ $Author: $ -- Mon Dec 29 19:16:19 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
 
 
 ###FEATS:
-# Feat Name							Type
-Brew Potion.MOD						TYPE:AltherianArtificerBonus
-Craft Magic Arms and Armor.MOD			TYPE:AltherianArtificerBonus
-Craft Rod.MOD						TYPE:AltherianArtificerBonus
-Craft Staff.MOD						TYPE:AltherianArtificerBonus
-Craft Wand.MOD						TYPE:AltherianArtificerBonus
-Craft Wondrous Item.MOD					TYPE:AltherianArtificerBonus
-Forge Ring.MOD						TYPE:AltherianArtificerBonus
+# Feat Name						Type					Required Feat		Required Skill			Virtual Feat
+Brew Potion.MOD					TYPE:AltherianArtificerBonus
+Craft Magic Arms and Armor.MOD		TYPE:AltherianArtificerBonus
+Craft Rod.MOD					TYPE:AltherianArtificerBonus
+Craft Staff.MOD					TYPE:AltherianArtificerBonus
+Craft Wand.MOD					TYPE:AltherianArtificerBonus
+Craft Wondrous Item.MOD				TYPE:AltherianArtificerBonus
+Forge Ring.MOD					TYPE:AltherianArtificerBonus
 
 #Adaptable Magic Selections - May not have any metamagic feats that increase caster level above 2
-Enlarge Spell.MOD						TYPE:AdaptableMagic
-Extend Spell.MOD						TYPE:AdaptableMagic
-Silent Spell.MOD						TYPE:AdaptableMagic
-Still Spell.MOD						TYPE:AdaptableMagic
+Enlarge Spell.MOD					TYPE:AdaptableMagic
+Extend Spell.MOD					TYPE:AdaptableMagic
+Silent Spell.MOD					TYPE:AdaptableMagic
+Still Spell.MOD					TYPE:AdaptableMagic
 
 #Warder
-Blind Fight.MOD						TYPE:WarderFeat
-Combat Reflexes.MOD					TYPE:WarderFeat
-Combat Casting.MOD					TYPE:WarderFeat
-Dodge.MOD							TYPE:WarderFeat
-Combat Expertise.MOD					TYPE:WarderFeat
-Extend Spell.MOD						TYPE:WarderFeat
-Improved Initiative.MOD					TYPE:WarderFeat
-Mobility.MOD						TYPE:WarderFeat
-Point Blank Shot.MOD					TYPE:WarderFeat
-Precise Shot.MOD						TYPE:WarderFeat
-Quick Draw.MOD						TYPE:WarderFeat
-Rapid Shot.MOD						TYPE:WarderFeat
-Shot on the Run.MOD					TYPE:WarderFeat
-Spring Attack.MOD						TYPE:WarderFeat
-Two Weapon Defense.MOD					TYPE:WarderFeat
-Two Weapon Fighting.MOD					TYPE:WarderFeat
-Weapon Finesse.MOD					TYPE:WarderFeat
-Weapon Focus.MOD						TYPE:WarderFeat
-Skill Focus.MOD						TYPE:WarderFeat
+Blind Fight.MOD					TYPE:WarderFeat
+Combat Reflexes.MOD				TYPE:WarderFeat
+Combat Casting.MOD				TYPE:WarderFeat
+Dodge.MOD						TYPE:WarderFeat
+Combat Expertise.MOD				TYPE:WarderFeat
+Extend Spell.MOD					TYPE:WarderFeat
+Improved Initiative.MOD				TYPE:WarderFeat
+Mobility.MOD					TYPE:WarderFeat
+Point Blank Shot.MOD				TYPE:WarderFeat
+Precise Shot.MOD					TYPE:WarderFeat
+Quick Draw.MOD					TYPE:WarderFeat
+Rapid Shot.MOD					TYPE:WarderFeat
+Shot on the Run.MOD				TYPE:WarderFeat
+Spring Attack.MOD					TYPE:WarderFeat
+Two Weapon Defense.MOD				TYPE:WarderFeat
+Two Weapon Fighting.MOD				TYPE:WarderFeat
+Weapon Finesse.MOD				TYPE:WarderFeat
+Weapon Focus.MOD					TYPE:WarderFeat
+Skill Focus.MOD					TYPE:WarderFeat
 
-Greater Spell Focus.MOD					TYPE:ViaProeliatoris
-Greater Spell Penetration.MOD				TYPE:ViaProeliatoris
-Spell Focus.MOD						TYPE:ViaProeliatoris
-Spell Penetration.MOD					TYPE:ViaProeliatoris
+Greater Spell Focus.MOD				TYPE:ViaProeliatoris
+Greater Spell Penetration.MOD			TYPE:ViaProeliatoris
+Spell Focus.MOD					TYPE:ViaProeliatoris
+Spell Penetration.MOD				TYPE:ViaProeliatoris
 
 #ABILITYCATEGORY:Path of Faith Feat
-Improved Familiar.MOD					TYPE:PathOfFaithFeat
-Might of the Elements.MOD				TYPE:PathOfFaithFeat
-Domain Focus.MOD						TYPE:PathOfFaithFeat
-Holy Infusion.MOD						TYPE:PathOfFaithFeat
-Spell Rejuvenation.MOD					TYPE:PathOfFaithFeat
-Elemental Weapon.MOD					TYPE:PathOfFaithFeat
-Improved Deific Focus.MOD				TYPE:PathOfFaithFeat
-Elemental Influx.MOD					TYPE:PathOfFaithFeat
+Improved Familiar.MOD				TYPE:PathOfFaithFeat
+Might of the Elements.MOD			TYPE:PathOfFaithFeat
+Domain Focus.MOD					TYPE:PathOfFaithFeat
+Holy Infusion.MOD					TYPE:PathOfFaithFeat
+Spell Rejuvenation.MOD				TYPE:PathOfFaithFeat
+Elemental Weapon.MOD				TYPE:PathOfFaithFeat
+Improved Deific Focus.MOD			TYPE:PathOfFaithFeat
+Elemental Influx.MOD				TYPE:PathOfFaithFeat
 
 #ABILITYCATEGORY:The Summoner Path Feat
-Improved Familiar.MOD					TYPE:SummonerPathFeat
-Rapid Summoning.MOD					TYPE:SummonerPathFeat
-Might of the Elements.MOD				TYPE:SummonerPathFeat
-Augment Summoning.MOD					TYPE:SummonerPathFeat
-Metamagic Mastery.MOD					TYPE:SummonerPathFeat
-Elemental Focus.MOD					TYPE:SummonerPathFeat
-Elemental Specialization.MOD				TYPE:SummonerPathFeat
-Elemental Influx.MOD					TYPE:SummonerPathFeat
-Spell Focus - Conjuration				TYPE:SummonerPathFeat	VFEAT:Spell Focus(Conjuration)
-Spell School Specialization - Conjuration		TYPE:SummonerPathFeat	VFEAT:Spell School Specialization(Conjuration)	PREFEAT:1,Spell Focus	PRESKILL:1,Spellcraft=15
+Improved Familiar.MOD				TYPE:SummonerPathFeat
+Rapid Summoning.MOD				TYPE:SummonerPathFeat
+Might of the Elements.MOD			TYPE:SummonerPathFeat
+Augment Summoning.MOD				TYPE:SummonerPathFeat
+Metamagic Mastery.MOD				TYPE:SummonerPathFeat
+Elemental Focus.MOD				TYPE:SummonerPathFeat
+Elemental Specialization.MOD			TYPE:SummonerPathFeat
+Elemental Influx.MOD				TYPE:SummonerPathFeat
+Spell Focus - Conjuration			TYPE:SummonerPathFeat											VFEAT:Spell Focus(Conjuration)
+Spell School Specialization - Conjuration	TYPE:SummonerPathFeat		PREFEAT:1,Spell Focus	PRESKILL:1,Spellcraft=15	VFEAT:Spell School Specialization(Conjuration)
 
 #	BONUS:ABILITYPOOL|The Augmentalist Feat|1
 #Metamagic feat
 
-Elemental Focus.MOD					TYPE:TheAugmentalistFeat
-Elemental Specialization.MOD				TYPE:TheAugmentalistFeat
-Lace Elemental Spell.MOD				TYPE:TheAugmentalistFeat
-Might of the Elements.MOD				TYPE:TheAugmentalistFeat
-Elemental Precision.MOD					TYPE:TheAugmentalistFeat
-Metamagic Mastery.MOD					TYPE:TheAugmentalistFeat
-Elemental Influx.MOD					TYPE:TheAugmentalistFeat
-Spell Focus - Evocation					TYPE:TheAugmentalistFeat	VFEAT:Spell Focus (Evocation)
-Spell School Specialization - Evocation		TYPE:TheAugmentalistFeat	VFEAT:Spell School Specialization (Evocation)	PREFEAT:1,Spell Focus	PRESKILL:1,Spellcraft=15
+Elemental Focus.MOD				TYPE:TheAugmentalistFeat
+Elemental Specialization.MOD			TYPE:TheAugmentalistFeat
+Lace Elemental Spell.MOD			TYPE:TheAugmentalistFeat
+Might of the Elements.MOD			TYPE:TheAugmentalistFeat
+Elemental Precision.MOD				TYPE:TheAugmentalistFeat
+Metamagic Mastery.MOD				TYPE:TheAugmentalistFeat
+Elemental Influx.MOD				TYPE:TheAugmentalistFeat
+Spell Focus - Evocation				TYPE:TheAugmentalistFeat										VFEAT:Spell Focus (Evocation)
+Spell School Specialization - Evocation	TYPE:TheAugmentalistFeat	PREFEAT:1,Spell Focus	PRESKILL:1,Spellcraft=15	VFEAT:Spell School Specialization (Evocation)
 
 
-Skill Focus.MOD						TYPE:VispiliodeMagus
+Skill Focus.MOD					TYPE:VispiliodeMagus
 #Skill Focus (Greater).MOD				TYPE:VispiliodeMagus

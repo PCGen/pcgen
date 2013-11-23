@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd) 2007; Andrew Maitland
 #Completed 2008-05-14 - Needs Review
@@ -45,28 +45,28 @@ Brigade Bucket														TYPE:Magic.Wondrous		COST:900						SOURCEPAGE:p.70
 Brooch of the Golden Boughs' of Saluwe										TYPE:Magic.Wondrous.Amulet	COST:13640						SOURCEPAGE:p.70							SPELLS:Brooch of the Golden Boughs' of Saluwe|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=12|Barkskin																																									BONUS:SKILL|Climb,Survival|5|TYPE=Competence
 
 ###Block: C -------------------------------------------------------------------------------------------
-# Equipment Name				Output Name						Type					Cost		Source Page		Ability				Vision		Innate Spells																				Save checks bonus				Combat bonus				Bonus to skill										Stat bonus					Weapon prof. bonus							Special Property
+# Equipment Name				Output Name						Type					Cost		Source Page		Ability				Vision			Innate Spells																				Save checks bonus				Combat bonus				Bonus to skill										Stat bonus					Weapon prof. bonus							Special Property
 Candle of Revealing Presence									TYPE:Magic.Wondrous		COST:364000	SOURCEPAGE:p.70
 Cape of Glory											TYPE:Magic.Wondrous.Cape	COST:18000	SOURCEPAGE:p.70
-Cape of the Feline Form										TYPE:Magic.Wondrous.Cape	COST:8750	SOURCEPAGE:p.70	ABILITY:FEAT|VIRTUAL|Diehard																										BONUS:CHECKS|ALL|2|TYPE=Resistance																																			SPROP:Immunity to Fear
-Cat's Cloak												TYPE:Magic.Wondrous.Cape	COST:51300	SOURCEPAGE:p.70						VISION:Low-Light Vision																																				BONUS:SKILL|Balance,Climb,Hide,Jump,Move Silently|5|TYPE=Competence
+Cape of the Feline Form										TYPE:Magic.Wondrous.Cape	COST:8750	SOURCEPAGE:p.70	ABILITY:FEAT|VIRTUAL|Diehard																											BONUS:CHECKS|ALL|2|TYPE=Resistance																																			SPROP:Immunity to Fear
+Cat's Cloak												TYPE:Magic.Wondrous.Cape	COST:51300	SOURCEPAGE:p.70						VISION:Low-Light Vision																																			BONUS:SKILL|Balance,Climb,Hide,Jump,Move Silently|5|TYPE=Competence
 Cauldron of Combining										TYPE:Magic.Wondrous		COST:200000	SOURCEPAGE:p.71
 Censor of the Raven										TYPE:Magic.Wondrous		COST:5000	SOURCEPAGE:p.71
-Circlet of Darkness										TYPE:Magic.Wondrous.Amulet	COST:10080	SOURCEPAGE:p.71									SPELLS:Circlet of Darkness|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Flaying Darkness,16
-Circlet of Sagacity										TYPE:Magic.Wondrous.Amulet	COST:12000	SOURCEPAGE:p.71																															BONUS:CHECKS|Will|2|TYPE=Luck
-Cloak of the Green Lurker									TYPE:Magic.Wondrous.Cape	COST:21000	SOURCEPAGE:p.71																																																													BONUS:WEAPONPROF=TYPE.Grapple|TOHIT|4|TYPE=Enhancement
+Circlet of Darkness										TYPE:Magic.Wondrous.Amulet	COST:10080	SOURCEPAGE:p.71										SPELLS:Circlet of Darkness|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Flaying Darkness,16
+Circlet of Sagacity										TYPE:Magic.Wondrous.Amulet	COST:12000	SOURCEPAGE:p.71																																BONUS:CHECKS|Will|2|TYPE=Luck
+Cloak of the Green Lurker									TYPE:Magic.Wondrous.Cape	COST:21000	SOURCEPAGE:p.71																																																														BONUS:WEAPONPROF=TYPE.Grapple|TOHIT|4|TYPE=Enhancement
 Cloak of the Invincible Warrior								TYPE:Magic.Wondrous.Cape	COST:22500	SOURCEPAGE:p.72
-Clock of Chaos Confinement									TYPE:Magic.Wondrous.Cape	COST:365000	SOURCEPAGE:p.72									SPELLS:Clock of Chaos Confinement|TIMES=ATWILL|CASTERLEVEL=17|Dispel Chaos
-Cloud Cape												TYPE:Magic.Wondrous.Cape	COST:26200	SOURCEPAGE:p.72									SPELLS:Cloud Cape|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=5|Levitate	SPELLS:Cloud Cape|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=5|Gaseous Form
-Collar of Kinship											TYPE:Magic.Wondrous.Amulet	COST:18750	SOURCEPAGE:p.72																																											BONUS:SKILL|Wild Empathy,Handle Animal|5|TYPE=Competence																			SPROP:Wild Shape Properties
+Clock of Chaos Confinement									TYPE:Magic.Wondrous.Cape	COST:365000	SOURCEPAGE:p.72										SPELLS:Clock of Chaos Confinement|TIMES=ATWILL|CASTERLEVEL=17|Dispel Chaos
+Cloud Cape												TYPE:Magic.Wondrous.Cape	COST:26200	SOURCEPAGE:p.72										SPELLS:Cloud Cape|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=5|Levitate	SPELLS:Cloud Cape|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=5|Gaseous Form
+Collar of Kinship											TYPE:Magic.Wondrous.Amulet	COST:18750	SOURCEPAGE:p.72																																												BONUS:SKILL|Wild Empathy,Handle Animal|5|TYPE=Competence																			SPROP:Wild Shape Properties
 Collar of Submission										TYPE:Magic.Wondrous.Amulet	COST:106200	SOURCEPAGE:p.73
-Corsair's Cloak											TYPE:Magic.Wondrous.Cape	COST:16500	SOURCEPAGE:p.73																																					BONUS:COMBAT|AC|2|TYPE=Deflection	BONUS:SKILL|Balance|5|TYPE=Competence						BONUS:STAT|DEX|2|TYPE=Enhancement
-Corsair's Cloak (Improved)		OUTPUTNAME:Corsair's Cloak, Improved	TYPE:Magic.Wondrous.Cape	COST:44500	SOURCEPAGE:p.73																																					BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:SKILL|Balance|5|TYPE=Competence						BONUS:STAT|DEX|4|TYPE=Enhancement
-Corsair's Cloak (Greater)		OUTPUTNAME:Corsair's Cloak, Greater		TYPE:Magic.Wondrous.Cape	COST:96000	SOURCEPAGE:p.73																																					BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:SKILL|Balance|10|TYPE=Competence						BONUS:STAT|DEX|6|TYPE=Enhancement
+Corsair's Cloak											TYPE:Magic.Wondrous.Cape	COST:16500	SOURCEPAGE:p.73																																						BONUS:COMBAT|AC|2|TYPE=Deflection	BONUS:SKILL|Balance|5|TYPE=Competence						BONUS:STAT|DEX|2|TYPE=Enhancement
+Corsair's Cloak (Improved)		OUTPUTNAME:Corsair's Cloak, Improved	TYPE:Magic.Wondrous.Cape	COST:44500	SOURCEPAGE:p.73																																						BONUS:COMBAT|AC|3|TYPE=Deflection	BONUS:SKILL|Balance|5|TYPE=Competence						BONUS:STAT|DEX|4|TYPE=Enhancement
+Corsair's Cloak (Greater)		OUTPUTNAME:Corsair's Cloak, Greater		TYPE:Magic.Wondrous.Cape	COST:96000	SOURCEPAGE:p.73																																						BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:SKILL|Balance|10|TYPE=Competence						BONUS:STAT|DEX|6|TYPE=Enhancement
 Cosmetics of Comeliness										TYPE:Magic.Wondrous		COST:3300	SOURCEPAGE:p.73
 Cramor's Catalogue of Creatures								TYPE:Magic.Wondrous.Book	COST:306000	SOURCEPAGE:p.73
 Crotalus Gauntlet											TYPE:Magic.Wondrous.Glove	COST:251100	SOURCEPAGE:p.74
-Crown of Darkness											TYPE:Magic.Wondrous.Headgear	COST:17640	SOURCEPAGE:p.74									SPELLS:Crown of Darkness|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Flaying Darkness,16|Vampiric Touch
+Crown of Darkness											TYPE:Magic.Wondrous.Headgear	COST:17640	SOURCEPAGE:p.74										SPELLS:Crown of Darkness|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Flaying Darkness,16|Vampiric Touch
 Cup of the Mendicant										TYPE:Magic.Wondrous		COST:2700	SOURCEPAGE:p.74
 
 ###Block: D --------------------------------------------------------------------------------------------
@@ -198,27 +198,27 @@ Monster Whistle (Scaly Dog)			TYPE:Magic.Wondrous		COST:19000			SOURCEPAGE:p.96
 Monster Whistle (Silken Spinner)		TYPE:Magic.Wondrous		COST:19000			SOURCEPAGE:p.96
 
 ###Block: N, O, P --------------------------------------------------------------------------------------------
-# Equipment Name				Type						Cost		Source Page		Vision		Innate Spells																																																			Save checks bonus				Combat bonus			Bonus to skill											Stat bonus
-Necklace of Beroe				TYPE:Magic.Wondrous.Amulet		COST:117000	SOURCEPAGE:p.96																																																									BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred
+# Equipment Name				Type						Cost		Source Page		Vision			Innate Spells																																																			Save checks bonus				Combat bonus			Bonus to skill											Stat bonus
+Necklace of Beroe				TYPE:Magic.Wondrous.Amulet		COST:117000	SOURCEPAGE:p.96																																																										BONUS:CHECKS|ALL|2|TYPE=Sacred	BONUS:COMBAT|AC|2|TYPE=Sacred
 Necklace of Elements			TYPE:Magic.Wondrous.Amulet		COST:1000	SOURCEPAGE:p.96
 Necromantic Shroud			TYPE:Magic.Wondrous			COST:60500	SOURCEPAGE:p.96
-Needle of Mending				TYPE:Magic.Wondrous			COST:1300	SOURCEPAGE:p.97																																																																				BONUS:SKILL|Heal|2|TYPE=Competence
-Night Robe					TYPE:Magic.Wondrous.Robe		COST:13900	SOURCEPAGE:p.97	VISION:Low-Light Vision		SPELLS:Night Robe|TIMES=1|CASTERLEVEL=5|Deeper Darkness	SPELLS:Night Robe|TIMES=ATWILL|CASTERLEVEL=9|Arcane Sight|True Seeing																																											BONUS:SKILL|Hide|5|TYPE=Competence
+Needle of Mending				TYPE:Magic.Wondrous			COST:1300	SOURCEPAGE:p.97																																																																					BONUS:SKILL|Heal|2|TYPE=Competence
+Night Robe					TYPE:Magic.Wondrous.Robe		COST:13900	SOURCEPAGE:p.97	VISION:Low-Light Vision	SPELLS:Night Robe|TIMES=1|CASTERLEVEL=5|Deeper Darkness	SPELLS:Night Robe|TIMES=ATWILL|CASTERLEVEL=9|Arcane Sight|True Seeing																																											BONUS:SKILL|Hide|5|TYPE=Competence
 Ocular of Vision				TYPE:Magic.Wondrous			COST:160000	SOURCEPAGE:p.97
 Orb of Lore					TYPE:Magic.Wondrous			COST:10150	SOURCEPAGE:p.97
-Orb of Opalescence			TYPE:Magic.Wondrous			COST:306000	SOURCEPAGE:p.97				SPELLS:Orb of Opalescence|TIMES=1|CASTERLEVEL=17|Prismatic Arrow,19|Prismatic Sphere,23|Prismatic Spray,20|Prismatic Wall,22	SPELLS:Orb of Opalescence|TIMES=ATWILL|CASTERLEVEL=17|Rainbow Pattern,16
+Orb of Opalescence			TYPE:Magic.Wondrous			COST:306000	SOURCEPAGE:p.97					SPELLS:Orb of Opalescence|TIMES=1|CASTERLEVEL=17|Prismatic Arrow,19|Prismatic Sphere,23|Prismatic Spray,20|Prismatic Wall,22	SPELLS:Orb of Opalescence|TIMES=ATWILL|CASTERLEVEL=17|Rainbow Pattern,16
 Orb of the Hidden Flame			TYPE:Magic.Wondrous			COST:110400	SOURCEPAGE:p.98
 Orb of Y'rion Sul				TYPE:Magic.Wondrous			COST:112000	SOURCEPAGE:p.98
-Ordainer Circlet				TYPE:Magic.Wondrous.Headgear		COST:90000	SOURCEPAGE:p.98				SPELLS:Ordainer Circlet|TIMES=ATWILL|CASTERLEVEL=10|Detect Magic	SPELLS:Ordainer Circlet|TIMES=1|CASTERLEVEL=10|Charm Person,17
+Ordainer Circlet				TYPE:Magic.Wondrous.Headgear		COST:90000	SOURCEPAGE:p.98					SPELLS:Ordainer Circlet|TIMES=ATWILL|CASTERLEVEL=10|Detect Magic	SPELLS:Ordainer Circlet|TIMES=1|CASTERLEVEL=10|Charm Person,17
 ###For Ordainer Circlet adds levels to Ordainer Class for certain abilities - refer to Magic of Arcanis (Not in Repository 2008-05-14)	SAB:Absorb Spell	SAB:Power Metamagic
 Overlooked Pestle				TYPE:Magic.Wondrous			COST:10000	SOURCEPAGE:p.98
-Pengik Memory Beads			TYPE:Magic.Wondrous.Amulet.Bracer	COST:26100	SOURCEPAGE:p.98																																																																																	BONUS:STAT|INT|4|TYPE=Enhancement
-Periapt of Proof Against Perfidy	TYPE:Magic.Wondrous.Amulet		COST:24360	SOURCEPAGE:p.98				SPELLS:Periapt of Proof Against Perfidy|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=5|Calm Emotions,16|PRECLASS:1,Patrician=1
-Pipes of the Madcap Minstrel		TYPE:Magic.Wondrous			COST:47500	SOURCEPAGE:p.99				SPELLS:Pipes of the Madcap Minstrel|TIMES=1|CASTERLEVEL=13|Confusion,16|Enthrall,13|Suggestion (Mass),19|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15	SPELLS:Pipes of the Madcap Minstrel|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=13|Insanity,20|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15												BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|3|TYPE=Circumstance
-Pipes of the Underworld			TYPE:Magic.Wondrous			COST:25000	SOURCEPAGE:p.99																																																																				BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|2|TYPE=Circumstance
+Pengik Memory Beads			TYPE:Magic.Wondrous.Amulet.Bracer	COST:26100	SOURCEPAGE:p.98																																																																																		BONUS:STAT|INT|4|TYPE=Enhancement
+Periapt of Proof Against Perfidy	TYPE:Magic.Wondrous.Amulet		COST:24360	SOURCEPAGE:p.98					SPELLS:Periapt of Proof Against Perfidy|TIMES=3|TIMEUNIT=Day|CASTERLEVEL=5|Calm Emotions,16|PRECLASS:1,Patrician=1
+Pipes of the Madcap Minstrel		TYPE:Magic.Wondrous			COST:47500	SOURCEPAGE:p.99					SPELLS:Pipes of the Madcap Minstrel|TIMES=1|CASTERLEVEL=13|Confusion,16|Enthrall,13|Suggestion (Mass),19|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15	SPELLS:Pipes of the Madcap Minstrel|TIMES=1|TIMEUNIT=Week|CASTERLEVEL=13|Insanity,20|PRESKILL:1,Perform (Pipes)=15,Perform (Wind Instruments)=15												BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|3|TYPE=Circumstance
+Pipes of the Underworld			TYPE:Magic.Wondrous			COST:25000	SOURCEPAGE:p.99																																																																					BONUS:SKILL|Perform (Pipes),Perform (Wind Instruments)|2|TYPE=Circumstance
 #COMMENT: No Perform (Pipes) Exists - Using Perform (Wind Instruments)
 Pistoleer's/Rifleman's Bandoleer	TYPE:Magic.Wondrous			COST:4000	SOURCEPAGE:p.99
-Pomander of Purity			TYPE:Magic.Wondrous			COST:13333	SOURCEPAGE:p.99																																																																																	BONUS:STAT|CHA|2|TYPE=Enhancement
+Pomander of Purity			TYPE:Magic.Wondrous			COST:13333	SOURCEPAGE:p.99																																																																																		BONUS:STAT|CHA|2|TYPE=Enhancement
 
 ###Block: R, S -------------------------------------------------------------------------------------------------
 # Equipment Name				Type					Cost		Source Page		Ability													Vision			Innate Spells																										Save checks bonus				Combat bonus									Bonus to DC				Bonus to skill													Weapon prof. bonus						Special Property		Special ABility

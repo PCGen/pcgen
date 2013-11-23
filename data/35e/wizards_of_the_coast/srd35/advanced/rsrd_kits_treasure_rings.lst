@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -14,7 +14,7 @@ GEAR:Ring of Counterspells		OPTION:61,70
 GEAR:Ring of Mind Shielding		OPTION:71,75
 GEAR:Ring of Protection +2		OPTION:76,80
 GEAR:Ring of Force Shield		OPTION:81,85
-GEAR:Ring of the Ram				OPTION:86,90
+GEAR:Ring of the Ram			OPTION:86,90
 GEAR:Ring of Animal Friendship	OPTION:91,93
 KIT:Ring of Energy Resistance (Minor)	OPTION:94,96
 GEAR:Ring of Chameleon Power		OPTION:97,98
@@ -26,10 +26,10 @@ GEAR:Ring of Counterspells		OPTION:1,5
 GEAR:Ring of Mind Shielding		OPTION:6,8
 GEAR:Ring of Protection +2		OPTION:9,18
 GEAR:Ring of Force Shield		OPTION:19,23
-GEAR:Ring of the Ram				OPTION:24,28
+GEAR:Ring of the Ram			OPTION:24,28
 GEAR:Ring of Climbing (Improved)	OPTION:29,34
 GEAR:Ring of Jumping (Improved)	OPTION:35,40
-GEAR:Ring of Swimming (Improved)		OPTION:41,46
+GEAR:Ring of Swimming (Improved)	OPTION:41,46
 GEAR:Ring of Animal Friendship	OPTION:47,51
 KIT:Ring of Energy Resistance (Minor)	OPTION:50,56
 GEAR:Ring of Chameleon Power		OPTION:57,61
@@ -45,35 +45,35 @@ KIT:Ring of Energy Resistance (Major)	OPTION:98,100
 
 STARTPACK:Major Rings	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-KIT:Ring of Energy Resistance (Minor)		OPTION:1,2
-GEAR:Ring of Protection +3		OPTION:3,7
-GEAR:Ring of Spell Storing (Minor)	OPTION:8,10
-GEAR:Ring of Invisibility		OPTION:11,15
-GEAR:Ring of Wizardry I			OPTION:16,19
-GEAR:Ring of Evasion			OPTION:20,35
-GEAR:Ring of X-Ray Vision		OPTION:26,28
-GEAR:Ring of Blinking			OPTION:29,32
-KIT:Ring of Energy Resistance (Major)		OPTION:33,39
-GEAR:Ring of Protection +4		OPTION:40,49
+KIT:Ring of Energy Resistance (Minor)	OPTION:1,2
+GEAR:Ring of Protection +3			OPTION:3,7
+GEAR:Ring of Spell Storing (Minor)		OPTION:8,10
+GEAR:Ring of Invisibility			OPTION:11,15
+GEAR:Ring of Wizardry I				OPTION:16,19
+GEAR:Ring of Evasion				OPTION:20,35
+GEAR:Ring of X-Ray Vision			OPTION:26,28
+GEAR:Ring of Blinking				OPTION:29,32
+KIT:Ring of Energy Resistance (Major)	OPTION:33,39
+GEAR:Ring of Protection +4			OPTION:40,49
 GEAR:Ring of Wizardry II			OPTION:50,55
-GEAR:Ring of Freedom of Movement	OPTION:56,60
+GEAR:Ring of Freedom of Movement		OPTION:56,60
 KIT:Ring of Energy Resistance (Greater)	OPTION:61,63
-GEAR:Ring of Friend Shield		OPTION:64,65
-GEAR:Ring of Protection +5		OPTION:66,70
-GEAR:Ring of Shooting Stars		OPTION:71,74
-GEAR:Ring of Spell Storing		OPTION:75,79
-GEAR:Ring of Wizardry III		OPTION:80,83
+GEAR:Ring of Friend Shield			OPTION:64,65
+GEAR:Ring of Protection +5			OPTION:66,70
+GEAR:Ring of Shooting Stars			OPTION:71,74
+GEAR:Ring of Spell Storing			OPTION:75,79
+GEAR:Ring of Wizardry III			OPTION:80,83
 GEAR:Ring of Telekinesis			OPTION:84,86
-GEAR:Ring of Regeneration		OPTION:87,88
-GEAR:Ring of Three Wishes		OPTION:89
-GEAR:Ring of Spell Turning		OPTION:90,92
+GEAR:Ring of Regeneration			OPTION:87,88
+GEAR:Ring of Three Wishes			OPTION:89
+GEAR:Ring of Spell Turning			OPTION:90,92
 GEAR:Ring of Wizardry IV			OPTION:93,94
-GEAR:Ring of Djinni Calling		OPTION:95
+GEAR:Ring of Djinni Calling			OPTION:95
 GEAR:Ring of Elemental Command (Air)	OPTION:96
 GEAR:Ring of Elemental Command (Earth)	OPTION:97
 GEAR:Ring of Elemental Command (Fire)	OPTION:98
 GEAR:Ring of Elemental Command (Water)	OPTION:99
-GEAR:Ring of Spell Storing (Major)	OPTION:100
+GEAR:Ring of Spell Storing (Major)		OPTION:100
 
 STARTPACK:Ring of Energy Resistance (Minor)	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")

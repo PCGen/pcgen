@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -14,9 +14,9 @@ CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Jump|Listen|Mov
 2	BONUS:VAR|EnthrallDuration|CL		DEFINE:EnthrallDuration|0	ABILITY:Special Ability|AUTOMATIC|Master Enthrall ~ Chain Dancer
 4	BONUS:VAR|EnthrallDuration|CL
 ###Block: Normal Level Progression
-1	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer						AUTO:FEAT|Weapon Specialization(Chain (Spiked))
-3																																																															ABILITY:Special Ability|AUTOMATIC|Weapon Use (Elongated Spiked Chain) ~ Chain Dancer
-5																																																															ABILITY:Special Ability|AUTOMATIC|Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer
+1	BONUS:VAR|ChainParryAC|CL	TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	DEFINE:ChainParryAC|0	ABILITY:Special Ability|AUTOMATIC|Chain Parry ~ Chain Dancer						AUTO:FEAT|Weapon Specialization(Chain (Spiked))	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary
+3																																																					ABILITY:Special Ability|AUTOMATIC|Weapon Use (Elongated Spiked Chain) ~ Chain Dancer
+5																																																					ABILITY:Special Ability|AUTOMATIC|Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
@@ -43,13 +43,13 @@ CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal
 1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1																							TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary	BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire
-2											TEMPBONUS:PC|COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense													BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0												ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire
-3																																																												ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
-4																																																												ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
-6	BONUS:CHECKS|BASE.Will|2																																																							ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire
-9	TEMPBONUS:PC|CHECKS|BASE.Reflex|2|TYPE=TrueAwareness																																																		ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire
-10																																																												ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
+1						BONUS:VAR|AidSoulHitPoints|2*(1+floor((CL-1)/3))	DEFINE:AidSoulHitPoints|0	CHOOSE:NUMBER|MIN=1|MAX=7|TITLE=Number of bound Legionnaires	ABILITY:Special Ability|AUTOMATIC|Aid Soul ~ Imperial Legionnaire|Soulbind ~ Imperial Legionnaire				TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary
+2						BONUS:VAR|EnhancedDefenseAC|((CL-2)/3)+1			DEFINE:EnhancedDefenseAC|0												ABILITY:Special Ability|AUTOMATIC|Enhanced Defense ~ Imperial Legionnaire								TEMPBONUS:PC|COMBAT|AC|EnhancedDefenseAC|TYPE=EnhancedDefense
+3																															ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
+4																															ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
+6	BONUS:CHECKS|BASE.Will|2																										ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire
+9																															ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire									TEMPBONUS:PC|CHECKS|BASE.Reflex|2|TYPE=TrueAwareness
+10																															ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus

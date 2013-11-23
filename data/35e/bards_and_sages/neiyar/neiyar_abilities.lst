@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 
 ###Block: Special Abilities: Shalraeku & Zarakku
-# Ability Name			Unique Key							Category of Ability							Type													Visible		Innate Spells											Description									Ability									Save checks bonus		Combat bonus				Modify VAR						Vision			Spell Res.
+# Ability Name			Unique Key							Category of Ability		Type											Visible		Innate Spells											Description									Ability									Save checks bonus		Combat bonus				Modify VAR						Vision			Spell Res.
 Immunity to natural poisons	KEY:ShalraekuZarakku_Imunity				CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.Extraordinary.Immunity	VISIBLE:YES															DESC:You never take poison damage from natural poisons
 Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																																			VISION:Darkvision (60')
 Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire												BONUS:VAR|AcidResistanceBonus|5
@@ -11,12 +11,12 @@ Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Abi
 Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
 Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																		BONUS:CHECKS|ALL|1
 Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
-AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku						VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
-AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku						VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku						VISIBLE:DISPLAY																																																							SR:TL+WIS
-Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku						VISIBLE:DISPLAY																																																							SR:TL+CON
-Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku						VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
-Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku						VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
+AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
+AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																																							SR:TL+WIS
+Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																																							SR:TL+CON
+Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
+Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
 
 ###CLARIFY: Although in the Sourcebook Listed as Damage Reduction, I believe the intent is actually a RESISTANCE
 #DR 5 Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.ShalraekuZarakku.SpecialQuality																																									DR:5/Fire

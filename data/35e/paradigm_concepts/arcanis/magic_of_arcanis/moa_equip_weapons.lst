@@ -1,5 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 ###Block: --------------------------------------------------------------------------------------------------------
-# Equipment Name	Required Proficiency			Type							Critical Hit Multiplier	Critical Hit Range	Damage	Size		Combat bonus
+# Equipment Name	Required Weapon Proficiency		Type							Critical Hit Multiplier	Critical Hit Range	Damage	Size
 Flesh Sword		PROFICIENCY:WEAPON|Flesh Sword	TYPE:Weapon.Melee.Flesh.Slashing.Natural	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	SIZE:M

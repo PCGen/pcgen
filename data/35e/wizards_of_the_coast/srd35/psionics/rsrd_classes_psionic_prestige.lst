@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -87,16 +87,16 @@ CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Info
-1	BONUS:VAR|SlayerFavoredEnemy|2					ABILITY:Special Ability|AUTOMATIC|Sense Favored Enemy		BONUS:ABILITYPOOL|Slayer Favored Enemy|1
-2	BONUS:VAR|BrainNausea|15+CL		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
-3							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Lucid Buffer
-4	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
-5							ADD:SPELLCASTER|Psionic
-6							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Blind
-7	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
-8							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Breech Power Resistance
-9							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Immunity
-10	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Blast Feedback
+1	BONUS:ABILITYPOOL|Slayer Favored Enemy|1	BONUS:VAR|SlayerFavoredEnemy|2					ABILITY:Special Ability|AUTOMATIC|Sense Favored Enemy
+2								BONUS:VAR|BrainNausea|15+CL		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
+3														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Lucid Buffer
+4								BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
+5														ADD:SPELLCASTER|Psionic
+6														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Blind
+7								BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
+8														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Breech Power Resistance
+9														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Immunity
+10								BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Blast Feedback
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity

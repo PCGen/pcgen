@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Sun Aug 24 21:31:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 
-# Skill Name	Key Stat	Untrained?		Type				Bonus to skill															Temporary effect description
-Craft (Fletcher)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	TEMPBONUS:PC|SKILL|Craft (Fletcher)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Bowyer)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	TEMPBONUS:PC|SKILL|Craft (Bowyer)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+# Skill Name	Key Stat	Untrained?		Type				Temporary effect description													Temporary Bonus
+Craft (Fletcher)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Fletcher)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools
+Craft (Bowyer)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Bowyer)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools

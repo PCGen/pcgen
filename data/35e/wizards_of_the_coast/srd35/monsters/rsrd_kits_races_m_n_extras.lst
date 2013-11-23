@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 STARTPACK:Mummy Lord	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]
@@ -19,10 +19,10 @@ SKILL:Concentration		RANK:5
 FEAT:Combat Casting
 FEAT:Weapon Focus(Slam)
 FEAT:Improved Critical(Slam)
-GEAR:Half-Plate					SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
-GEAR:Cloak of Resistance +2					LOCATION:Equipped
+GEAR:Half-Plate						SIZE:PC	LOCATION:Equipped	EQMOD:MWORKA.PLUS2A
+GEAR:Cloak of Resistance +2						LOCATION:Equipped
 GEAR:Ring of Energy Resistance (Minor/Fire)			LOCATION:Equipped
-GEAR:Brooch of Shielding					LOCATION:Equipped
+GEAR:Brooch of Shielding						LOCATION:Equipped
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic=2|Guidance|Read Magic|Resistance|Virtue|Bane|Command|Deathwatch|Divine Favor|Doom|Sanctuary|Shield of Faith|Bull's Strength|Death Knell|Hold Person|Resist Energy|Silence|Spiritual Weapon|Animate Dead|Deeper Darkness|Dispel Magic|Invisibility Purge|Searing Light|Air Walk|Dismissal|Divine Power|Giant Vermin|Spell Immunity|Insect Plague|Slay Living|Spell Resistance|Symbol of Pain
 
 STARTPACK:Nightmare (Cauchemar)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare]

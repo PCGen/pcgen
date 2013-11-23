@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -191,12 +191,24 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 
 ###Block: Monster Support
 
-CLASS:Egoist (Psion)		SPELLLIST:1|Egoist|Psion	BONUS:CASTERLEVEL|Egoist (Psion)|CL
-CLASS:Kineticist (Psion)	SPELLLIST:2|Kineticist|Psion	BONUS:CASTERLEVEL|Kineticist (Psion)|CL
-CLASS:Nomad (Psion)		SPELLLIST:2|Nomad|Psion		BONUS:CASTERLEVEL|Nomad (Psion)|CL
-CLASS:Seer (Psion)		SPELLLIST:2|Psion|Seer		BONUS:CASTERLEVEL|Seer (Psion)|CL
-CLASS:Shaper (Psion)		SPELLLIST:2|Psion|Shaper	BONUS:CASTERLEVEL|Shaper (Psion)|CL
-CLASS:Telepath (Psion)		SPELLLIST:2|Psion|Telepath	BONUS:CASTERLEVEL|Telepath (Psion)|CL
+# Class Name		Caster level				Use Spell List
+CLASS:Egoist (Psion)	BONUS:CASTERLEVEL|Egoist (Psion)|CL	SPELLLIST:1|Egoist|Psion
 
-CLASS:Companion (Psicrystal)	MAXLEVEL:1	TYPE:Monster
+# Class Name			Caster level					Use Spell List
+CLASS:Kineticist (Psion)	BONUS:CASTERLEVEL|Kineticist (Psion)|CL	SPELLLIST:2|Kineticist|Psion
+
+# Class Name		Caster level				Use Spell List
+CLASS:Nomad (Psion)	BONUS:CASTERLEVEL|Nomad (Psion)|CL	SPELLLIST:2|Nomad|Psion
+
+# Class Name		Caster level				Use Spell List
+CLASS:Seer (Psion)	BONUS:CASTERLEVEL|Seer (Psion)|CL	SPELLLIST:2|Psion|Seer
+
+# Class Name		Caster level				Use Spell List
+CLASS:Shaper (Psion)	BONUS:CASTERLEVEL|Shaper (Psion)|CL	SPELLLIST:2|Psion|Shaper
+
+# Class Name		Caster level					Use Spell List
+CLASS:Telepath (Psion)	BONUS:CASTERLEVEL|Telepath (Psion)|CL	SPELLLIST:2|Psion|Telepath
+
+# Class Name			Type			Max Level
+CLASS:Companion (Psicrystal)	TYPE:Monster	MAXLEVEL:1
 1	DONOTADD:HITDIE|SKILLPOINTS

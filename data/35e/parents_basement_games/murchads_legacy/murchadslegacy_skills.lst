@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -36,8 +36,8 @@ Knowledge (Local/Shintai)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledg
 
 ###Block: New sub-skills
 
-# Skill Name				Key Stat	Untrained?		Type					Source Page		Bonus to skill															Temporary effect description
-Craft (Gunsmithing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.36	TEMPBONUS:PC|SKILL|Craft (Gunsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=GunsmithingTools	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+# Skill Name				Key Stat	Untrained?		Type					Source Page		Temporary effect description													Temporary Bonus
+Craft (Gunsmithing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.36	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Gunsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=GunsmithingTools
 Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
 Knowledge (War)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.13
 Perform (Spiked Chain Dancing)	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform		SOURCEPAGE:p.22

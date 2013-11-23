@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:07:13 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
 #Original Entry: Andrew Maitland
 
@@ -88,7 +88,7 @@ Craft Magic Arms and Armor	CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQu
 Create Legendary Item		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Craft Magic Arms and Armor
 
 ###Block: Fairy Lore
-# Ability Name	Category of Ability		Type						Required Ability							Define		Allow Follower		Allowed Companions
+# Ability Name	Category of Ability		Type						Required Ability							Define			Allow Follower		Allowed Companions
 Fey Friend		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality
 Familiar		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality										DEFINE:FamiliarLVL|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
 Monstrous Ally	CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Fey Friend
