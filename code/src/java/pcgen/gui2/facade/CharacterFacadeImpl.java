@@ -1476,9 +1476,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setGender(GenderFacade gender)
 	{
-		this.selectedGender = gender.toString();
-		this.gender.setReference(gender);
 		theCharacter.setGender((Gender) gender);
+		Gender newGender = charDisplay.getGenderObject();
+		this.selectedGender = newGender.toString();
+		this.gender.setReference(newGender);
 		refreshLanguageList();
 	}
 
