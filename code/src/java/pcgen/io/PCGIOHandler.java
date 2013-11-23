@@ -223,9 +223,11 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (PCGParseException pcgex)
 			{
+				Logging.errorPrint("Error loading character: "
+					+ pcgex.getMessage() + "\n Method " + pcgex.getMethod()
+					+ " was unable to parse line " + pcgex.getLine());
 				errors.add(LanguageBundle.getFormattedString(
-					"in_pcgIoErrorReport", pcgex.getMessage(), //$NON-NLS-1$
-					pcgex.getMethod(), pcgex.getLine()));
+					"in_pcgIoErrorReport", pcgex.getMessage())); //$NON-NLS-1$
 			}
 
 			warnings.addAll(parser.getWarnings());
