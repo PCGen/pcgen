@@ -1,4 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 
-Vigilant Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.VigilantFavoredEnemy	VISIBLE:YES																			DEFINE:FavoredEnemy1|FavoredEnemies	DEFINE:FavoredEnemies|0	DESC:+%1 vs. %2|VigilantFavored|%CHOICE		DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|ALL
+# Ability Name		Category of Ability		Type									Visible	Define															Description						Multiple?	Choose
+Vigilant Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.VigilantFavoredEnemy	VISIBLE:YES	DEFINE:FavoredEnemy1|FavoredEnemies	DEFINE:FavoredEnemies|0	DEFINE:VigilantFavored|(CL+2)/4	DESC:+%1 vs. %2|VigilantFavored|%CHOICE	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|ALL

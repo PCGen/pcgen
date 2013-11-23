@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2002-01
 #Original Entry By: Eddy Anthony
 
 ###Block:WargAnimal Companion
 
-# Class of the Master			Type					Hit Dice	Special ABility		Define						Combat bonus						Stat bonus
+# Class of the Master			Type					Hit Dice	Special ABility		Define			Define a Stat			Combat bonus						Stat bonus
 FOLLOWER:WargAnimalCompanionLVL=2	TYPE:Warg Animal Companion
-FOLLOWER:WargAnimalCompanionLVL=7	TYPE:Warg Animal Companion	HD:2		SAB:Share saving throws	DEFINESTAT:MINVALUE|INT|6					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:WargAnimalCompanionLVL=12	TYPE:Warg Animal Companion	HD:2						DEFINESTAT:MINVALUE|INT|7	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:WargAnimalCompanionLVL=16	TYPE:Warg Animal Companion	HD:2						DEFINESTAT:MINVALUE|INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:WargAnimalCompanionLVL=20	TYPE:Warg Animal Companion	HD:2						DEFINESTAT:MINVALUE|INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=7	TYPE:Warg Animal Companion	HD:2		SAB:Share saving throws					DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=12	TYPE:Warg Animal Companion	HD:2						DEFINE:PHBFeatEvasion|0	DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=16	TYPE:Warg Animal Companion	HD:2										DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=20	TYPE:Warg Animal Companion	HD:2										DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 
 #
 # End

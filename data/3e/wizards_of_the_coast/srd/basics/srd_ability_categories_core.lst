@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 # Original Entry by: Tir Gwaith, Eddy Anthony
 #
@@ -33,24 +33,24 @@ ABILITYCATEGORY:Ghost Special Attack	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ABILITYCATEGORY:Perform Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PerformSkillChoice	PLURAL:Perform Skill Choices	DISPLAYLOCATION:Class Abilities
 
 ###Block: New Racial Trait Blocks
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list		Plural description for UI	Display Location
-ABILITYCATEGORY:Human Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Dwarf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gnome Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Elf Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Half-Orc Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Halfling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait														DISPLAYLOCATION:Racial Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list				Plural description for UI	Display Location
+ABILITYCATEGORY:Human Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait																	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dwarf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait																	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait																	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait																	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait																	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Orc Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait																	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Halfling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait																DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Elf Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Elf Weapon Choice						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Proficiency Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Elf Weapon Choice								DISPLAYLOCATION:Racial Abilities
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
-ABILITYCATEGORY:Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack											DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack						PLURAL:Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack													DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack								PLURAL:Class Abilities		DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Special Mount Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection														DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Spell-Like Ability Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Spell-Like Ability Selection	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spell-Like Ability Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Spell-Like Ability Selection						DISPLAYLOCATION:Class Abilities
 
 #
 # End

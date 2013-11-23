@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www.fantasyflightgames.com/dd42.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
@@ -14,9 +14,9 @@ Large Weapon Mastery	TYPE:AssassinSpecialAbilities	VISIBLE:EXPORT	PRECLASS:1,Ass
 SpeakerSpells	TYPE:SpeakerOfTheCity	VISIBLE:NO	PRECLASS:1,Speaker of the City=1
 
 ###Block:Temporary Bonuses
-# Feat Name						Type				Visible	Required Class				Damage reduction									Misc bonus											Bonus to skill																										Spell Res.	Damage Reduction
-Speaker of the City in an urban setting	TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Speaker of the City=1	TEMPBONUS:PC|DR|+1|floor(var("CL=Speaker of the City")/10)*5	TEMPBONUS:PC|MISC|SR|floor(var("CL=Speaker of the City")/10)*20	TEMPBONUS:PC|SKILL|Bluff,Diplomacy,Intimidate|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Hide|(min(floor(var("CL=Speaker of the City")/5)),1)*2|TYPE=Competence	SR:0		DR:0/+1
-Street Stalker in an urban setting		TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Street Stalker=1																									TEMPBONUS:PC|SKILL|Hide,Move Silently|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Disguise|(var("CL=Street Stalker")/6)|TYPE=Competence
+# Feat Name						Type				Visible	Required Class				Spell Res.	Damage Reduction	Temporary Bonus
+Speaker of the City in an urban setting	TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Speaker of the City=1	SR:0		DR:0/+1		TEMPBONUS:PC|DR|+1|floor(var("CL=Speaker of the City")/10)*5	TEMPBONUS:PC|MISC|SR|floor(var("CL=Speaker of the City")/10)*20	TEMPBONUS:PC|SKILL|Bluff,Diplomacy,Intimidate|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Hide|(min(floor(var("CL=Speaker of the City")/5)),1)*2|TYPE=Competence
+Street Stalker in an urban setting		TYPE:TemporaryBonus	VISIBLE:NO	PRECLASS:1,Street Stalker=1							TEMPBONUS:PC|SKILL|Hide,Move Silently|2|TYPE=Competence	TEMPBONUS:PC|SKILL|Disguise|(var("CL=Street Stalker")/6)|TYPE=Competence
 
 #
 # end

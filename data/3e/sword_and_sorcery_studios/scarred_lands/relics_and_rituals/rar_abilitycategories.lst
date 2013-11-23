@@ -1,3 +1,5 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
-ABILITYCATEGORY:Vigilant Favored Enemy	CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Class Abilities	VISIBLE:QUALIFY	TYPE:VigilantFavoredEnemy
+# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Display Location
+ABILITYCATEGORY:Vigilant Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VigilantFavoredEnemy	DISPLAYLOCATION:Class Abilities

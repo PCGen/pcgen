@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 ###Block: Blood Witch class features
@@ -49,8 +49,8 @@ Ignore Metamagic Penalty	TYPE:ClassAbility	VISIBLE:NO	SAB:Ignore Metamagic Penal
 Aquatic Wildshape			TYPE:ClassAbility	VISIBLE:NO	SAB:Aquatic Wildshape %/day|Wildshape		DEFINE:Wildshape|0	SOURCEPAGE:p.18
 
 ###Block: Summoner class features
-# Feat Name							Type			Visible	Multiple?	Choose												Bonus to spell cast/day	Bonus to spell known/L		Source Page
-Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|MAXLEVEL|SPELLTYPE=Divine|1|MAXLEVEL		SOURCEPAGE:p.20
+# Feat Name							Type			Visible	Multiple?	Choose												Source Page
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|MAXLEVEL|SPELLTYPE=Divine|1|MAXLEVEL	SOURCEPAGE:p.20
 # BONUS:SPELLCAST|%LIST|1	BONUS:SPELLKNOWN|%LIST|1
 
 ###Block: Vigilant Class Feats

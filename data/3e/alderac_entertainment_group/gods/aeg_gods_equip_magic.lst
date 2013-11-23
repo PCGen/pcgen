@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Armor and Shields
-# Equipment Name	Required Shield Proficiency	Type						Cost		Weight	AC Penalty Check	Modifier		Nb Hands	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
-Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		ACCHECK:-1		EQMOD:PLUS3S.WOOD						SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
-Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25		ACCHECK:0		EQMOD:PLUS1A			MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
+# Equipment Name	Required Shield Proficiency	Type						Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
+Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		ACCHECK:-1		EQMOD:PLUS3S.WOOD				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25		ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
 
 ###Block: Weapons
 # Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
@@ -31,11 +31,11 @@ ZohlUKahnUs Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.10
 ZohlUNahks Blood			TYPE:Magic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
 
 ###Block: Rings
-# Equipment Name		Output Name				Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
-Ring of Shadow Walking		TYPE:Magic.Ring	COST:117600	WT:0		EQMOD:RING			SOURCEPAGE:pg.28
-Ring of Sundering			TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:pg.96	VFEAT:Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
-Ring of the Land			TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:pg.131				SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
-Ring of Weathercraft		TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:pg.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
+# Equipment Name		Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
+Ring of Shadow Walking	TYPE:Magic.Ring	COST:117600	WT:0		EQMOD:RING			SOURCEPAGE:pg.28
+Ring of Sundering		TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:pg.96	VFEAT:Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
+Ring of the Land		TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:pg.131				SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
+Ring of Weathercraft	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:pg.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 
 ###Block:Rods, Staves and Wands
 # Equipment Name		Output Name				Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property
@@ -56,7 +56,7 @@ Censer of Confusion												TYPE:Magic.Wondrous									COST:10300	WT:1				EQ
 Cloak (Skin)						OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape								COST:21000	WT:10								SOURCEPAGE:pg.105																																														BONUS:COMBAT|AC|1
 Cloak (Bull)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape								COST:16400	WT:1								SOURCEPAGE:pg.95						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=3|Darkness,13|Silence,13																																			BONUS:SKILL|Hide,Move Silently|10|TYPE=Competance
 # |PREALIGN:L,N,C <-- What is that supposed to be?
-Cloak (Maelstrom)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape								COST:150000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.131						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Control Weather,20	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Storm of Vengeance,23																		BONUS:COMBAT|AC|2|TYPR=Luck																		SPROP:Endure Fire and Cold
+Cloak (Maelstrom)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape								COST:150000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.131						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Control Weather,20	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Storm of Vengeance,23																				BONUS:COMBAT|AC|2|TYPR=Luck																		SPROP:Endure Fire and Cold
 Cloak (Meditation)					OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape								COST:4000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.95
 Cloak (Undying Devotion)				OUTPUTNAME:Cloak of [NAME]			TYPE:Magic.Wondrous.Cape								COST:14000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.67
 Collar of the Claw (+1)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet								COST:2000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|1

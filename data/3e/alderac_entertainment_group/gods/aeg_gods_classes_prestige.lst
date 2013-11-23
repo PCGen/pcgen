@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 #
@@ -24,15 +24,15 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 1	ADD:FEAT|TYPE=TotemAnimal
 ###Block: Normal Progression
 1	BONUS:CASTERLEVEL|TYPE.Divine|CL
-2																				ABILITY:FEAT|AUTOMATIC|Read Spirit
-3																				ABILITY:FEAT|AUTOMATIC|Shared Life
-4																				ABILITY:FEAT|AUTOMATIC|Improved Augury
+2																ABILITY:FEAT|AUTOMATIC|Read Spirit
+3																ABILITY:FEAT|AUTOMATIC|Shared Life
+4																ABILITY:FEAT|AUTOMATIC|Improved Augury
 5												ADD:FEAT|TYPE=Metamagic
-6																				ABILITY:FEAT|AUTOMATIC|Rain Dance
-7							BONUS:VAR|BecomeTotemTimes|1									ABILITY:FEAT|AUTOMATIC|Become Totem
+6																ABILITY:FEAT|AUTOMATIC|Rain Dance
+7							BONUS:VAR|BecomeTotemTimes|1					ABILITY:FEAT|AUTOMATIC|Become Totem
 8												ADD:FEAT|TYPE=Metamagic
 9							BONUS:VAR|BecomeTotemTimes|1
-10																				ABILITY:FEAT|AUTOMATIC|Shape of the Beast
+10																ABILITY:FEAT|AUTOMATIC|Shape of the Beast
 
 #
 # Bugbear Prestige Classes
@@ -42,7 +42,7 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Hunter	HD:8		TYPE:PC.Prestige	ABB:Hntr		MAXLEVEL:10	SOURCEPAGE:pg.16	BONUS:CHECKS|Fortitude,Will|(CL/3)	BONUS:CHECKS|Reflex|(CL/2+1)	BONUS:COMBAT|BAB|(CL-1)/4+(CL-1)
-# Class Name	Required Feat					Required Skill								Required Text
+# Class Name	Required Feat						Required Skill								Required Text
 CLASS:Hunter	PREFEAT:2,Track,Weapon Focus (TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently=6,Spot=6,Wilderness Lore=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Use Rope|Wilderness Lore
@@ -51,12 +51,12 @@ CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
 1:REPEATLEVEL:3									ADD:FEAT|Far Shot,Point Blank Shot,Precise Shot,Shot on the Run
-2			BONUS:VAR|CrackShotMult|1																		AUTO:FEAT|Crack Shot
-3			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1															AUTO:FEAT|Vital Shot
+2			BONUS:VAR|CrackShotMult|1															AUTO:FEAT|Crack Shot
+3			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1												AUTO:FEAT|Vital Shot
 5			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
 6			BONUS:VAR|CrackShotMult|1
 7			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-8																									AUTO:FEAT|Arrow of Death
+8																						AUTO:FEAT|Arrow of Death
 9			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
 10			BONUS:VAR|CrackShotMult|1
 
@@ -98,16 +98,16 @@ CLASS:Poison Master	PREALIGN:LE,NE,CE	PREFEAT:1,Brew Potion	PRESKILL:2,Alchemy=6
 CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge (Nature)|Spellcraft|Use Magic Device
 ###Block: Class Features
 ###Block: Normal Progression
-1														AUTO:FEAT|Brew Poison|Poison Use
-2														AUTO:FEAT|Delay Poison
-3														AUTO:FEAT|Immunity to Poison
+1												AUTO:FEAT|Brew Poison|Poison Use
+2												AUTO:FEAT|Delay Poison
+3												AUTO:FEAT|Immunity to Poison
 4	ABILITY:FEAT|AUTOMATIC|Poisoned Flesh|!PRECLASS:1,Poison Master=7
-5														AUTO:FEAT|Identify Potion
-6														AUTO:FEAT|Acid Flesh
-7														AUTO:FEAT|Improved Poisoned Flesh
-8														AUTO:FEAT|Poison Adaptation
-9														AUTO:FEAT|Death Draught
-10														AUTO:FEAT|Breath of Poison
+5												AUTO:FEAT|Identify Potion
+6												AUTO:FEAT|Acid Flesh
+7												AUTO:FEAT|Improved Poisoned Flesh
+8												AUTO:FEAT|Poison Adaptation
+9												AUTO:FEAT|Death Draught
+10												AUTO:FEAT|Breath of Poison
 
 #Class: Spider Warrior (Complete)
 
@@ -226,7 +226,7 @@ CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidat
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
 CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:pg.64	BONUS:CHECKS|Fortitude|CL/3	BONUS:CHECKS|Reflex,Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
-# Class Name			Required AL	Required Feat			Required Race		Required Skill							Required Text
+# Class Name			Required AL	Required Feat			Required Race		Required Skill								Required Text
 CLASS:Servants of the One	PREALIGN:LE	PREFEAT:2,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRETEXT:Character must be able to cast 3rd level spells from the domain of Conquest and be responsible for the desecration of no fewer than three holy sites of other races.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
@@ -307,7 +307,7 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
 CLASS:Master of the Swamp	HD:10		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:pg.86	BONUS:CHECKS|Fortitude|CL/2+2	BONUS:CHECKS|Reflex,Will|CL/3	BONUS:COMBAT|BAB|CL
-# Class Name			Required AL		Req. Att.	Required Feat			Multiple Requirements								Required Race				Required Skill							Required Text
+# Class Name			Required AL		Req. Att.	Required Feat										Required Race				Required Skill							Required Text
 CLASS:Master of the Swamp	PREALIGN:LN,TN	PREATT:6	PREFEAT:2,Iron Will,Track	PREFEAT:1,Point Blank Shot,Power Attack	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Wilderness Lore=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Use Magic Device|Wilderness Lore

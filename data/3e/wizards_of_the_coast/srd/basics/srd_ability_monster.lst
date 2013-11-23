@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Ability Name																																	Unique Key					Output Name					Category of Ability		Type									Visible	Define													Description																	Multiple?	Choose											Bonus to skill						Aspects
@@ -467,7 +467,8 @@ Unicorn Immunities																							CATEGORY:Special Ability	TYPE:SpecialQu
 Unicorn Wilderness Lore Checks	OUTPUTNAME:+3 competence bonus on Wilderness Lore checks within forest									CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Wyvern Spot					OUTPUTNAME:+3 Spot when flying durring daylight													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 ###Block:
-Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality		VISIBLE:YES		DEFINE:DrowRacialSaveBonus|2																																																							DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus																																		ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
+# Ability Name	Unique Key				Category of Ability		Type				Visible	Define				Description															Aspects
+Racial Save Bonus	KEY:Racial Save Bonus ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DrowRacialSaveBonus|2	DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus	ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
 
 ###Block: Creature Type Traits
 # Ability Name		Category of Ability		Type				Visible	Description
@@ -482,8 +483,8 @@ Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	
 
 
 ###Block: Flight Maneuverability
-# Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Modify VAR							Temporary effect description
-Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number
+# Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Temporary effect description												Temporary Bonus
+Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE
 
 ###Block: Maneuverability
 # Ability Name			Category of Ability		Type				Visible	Aspects

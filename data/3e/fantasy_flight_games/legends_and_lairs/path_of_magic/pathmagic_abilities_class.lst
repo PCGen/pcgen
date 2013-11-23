@@ -1,10 +1,11 @@
-# CVS $Revision$ $Author$ -- Sun Mar  2 21:05:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
-SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html	SOURCEDATE:2002-01
 # Original Entry by: Ratheof Blithwyn
 
 
 ###Block: Weapon Proficiencies
 # Feat Name										Automaticaly Gained Weapon Prof.
+# Ability Name				Category of Ability		Automatically Gained Weapon Prof.
 Arsenalist Weapon Proficieincies	CATEGORY:Special Ability	AUTO:WEAPONPROF|Crossbow (Repeating)
 
 
@@ -14,6 +15,7 @@ Arsenalist Weapon Proficieincies	CATEGORY:Special Ability	AUTO:WEAPONPROF|Crossb
 
 ###Block:Generic legendary abilities
 # Feat Name				Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
+# Ability Name			Category of Ability		Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
 Enhanced Dexterity I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p52
 Enhanced Dexterity II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p52
 Enhanced Dexterity III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p52
@@ -47,6 +49,7 @@ Enhanced Charisma V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:
 
 ###Block:Death Lord legendary abilities
 # Feat Name			Type								Visible		Required Class		Prohibited Feat					Special ABility			Innate Spells					Source Page
+# Ability Name		Category of Ability		Type								Visible		Required Class		Prohibited Feat					Special ABility			Innate Spells					Source Page
 Undead Cohorts I		CATEGORY:Special Ability	TYPE:LegendaryUndeadCohorts.DeathLordLAPL1	VISIBLE:NO		PRECLASS:1,Death Lord=1	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SAB:Undead Cohorts (+1)									SOURCEPAGE:p43
 Undead Cohorts II		CATEGORY:Special Ability	TYPE:LegendaryUndeadCohorts.DeathLordLAPL2	VISIBLE:NO		PRECLASS:1,Death Lord=2	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SAB:Undead Cohorts (+2)									SOURCEPAGE:p43
 Undead Cohorts III	CATEGORY:Special Ability	TYPE:LegendaryUndeadCohorts.DeathLordLAPL3	VISIBLE:NO		PRECLASS:1,Death Lord=3	!PREFEAT:1,TYPE.LegendaryUndeadCohorts	SAB:Undead Cohorts (+3)									SOURCEPAGE:p43
@@ -80,6 +83,7 @@ Drain Undead V		CATEGORY:Special Ability	TYPE:LegendaryDrainUndead.DeathLordLAPL
 
 ###Block:Elemental Lord legendary abilities
 # Feat Name				Type									Visible	Required Class			Prohibited Feat						Special ABility						Source Page
+# Ability Name			Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility						Source Page
 Master of the Elements I	CATEGORY:Special Ability	TYPE:LegendaryMasterElements.ElementalLordLAPL1		VISIBLE:NO	PRECLASS:1,Elemental Lord=1	!PREFEAT:1,TYPE.LegendaryMasterElements		SAB:Master of the Elements (1 energy type)	SOURCEPAGE:p46
 Master of the Elements II	CATEGORY:Special Ability	TYPE:LegendaryMasterElements.ElementalLordLAPL2		VISIBLE:NO	PRECLASS:1,Elemental Lord=2	!PREFEAT:1,TYPE.LegendaryMasterElements		SAB:Master of the Elements (2 energy types)	SOURCEPAGE:p46
 Master of the Elements III	CATEGORY:Special Ability	TYPE:LegendaryMasterElements.ElementalLordLAPL3		VISIBLE:NO	PRECLASS:1,Elemental Lord=3	!PREFEAT:1,TYPE.LegendaryMasterElements		SAB:Master of the Elements (3 energy types)	SOURCEPAGE:p46
@@ -114,6 +118,7 @@ Elemental Resistance V		CATEGORY:Special Ability	TYPE:LegendaryElementalResistan
 
 ###Block:Infiltrator legendary abilities
 # Feat Name				Type									Visible	Required Class			Prohibited Feat						Special ABility				Innate Spells								Bonus to skill								Source Page
+# Ability Name			Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility				Innate Spells								Bonus to skill								Source Page
 Undetectable Disguise I		CATEGORY:Special Ability	TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Infiltrator=1	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SAB:Undetectable Disguise		SPELLS:Innate|TIMES=1|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
 Undetectable Disguise II	CATEGORY:Special Ability	TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Infiltrator=2	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SAB:Undetectable Disguise		SPELLS:Innate|TIMES=2|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
 Undetectable Disguise III	CATEGORY:Special Ability	TYPE:LegendaryUndetectableDisguise.InfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Infiltrator=3	!PREFEAT:1,TYPE.LegendaryUndetectableDisguise	SAB:Undetectable Disguise		SPELLS:Innate|TIMES=3|Alter Self|Change Self|Hypnotism											SOURCEPAGE:p48
@@ -148,6 +153,7 @@ Whispers and Lies V		CATEGORY:Special Ability	TYPE:LegendaryWhispersLies.Infiltr
 
 ###Block:Landwalker legendary abilities
 # Feat Name				Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Add						Modify VAR				Source Page
+# Ability Name			Category of Ability		Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Add 						Modify VAR				Source Page
 Dire Familiar I			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (3HD)																													SOURCEPAGE:p50
 Dire Familiar II			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (6HD)																													SOURCEPAGE:p50
 Dire Familiar III			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (9HD)																													SOURCEPAGE:p50
@@ -160,7 +166,7 @@ Healing Earth III			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.Landwalk
 Healing Earth IV			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (4/day)																												SOURCEPAGE:p50
 Healing Earth V			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (5/day)																												SOURCEPAGE:p50
 
-Nature's Song I			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (1/day)																	ADD:FEAT|TYPE=NatureSongSpell						SOURCEPAGE:p50
+Nature's Song I			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (1/day)																	ADD:FEAT|TYPE=NatureSongSpell							SOURCEPAGE:p50
 Nature's Song II			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (2/day)																	ADD:FEAT|2|TYPE=NatureSongSpell						SOURCEPAGE:p50
 Nature's Song III			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (3/day)																	ADD:FEAT|3|TYPE=NatureSongSpell						SOURCEPAGE:p50
 Nature's Song IV			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (4/day)																	ADD:FEAT|4|TYPE=NatureSongSpell						SOURCEPAGE:p50
@@ -192,6 +198,7 @@ Rebuke Plants and Animals	CATEGORY:Special Ability	TYPE:TurnPlantsAnimals					VI
 
 ###Block:Maestro legendary abilities
 # Feat Name				Type								Visible	Required Class		Prohibited Feat						Special ABility				Bonus to skill					Source Page
+# Ability Name			Category of Ability		Type								Visible	Required Class		Prohibited Feat						Special ABility				Bonus to skill					Source Page
 Influence Reaction I		CATEGORY:Special Ability	TYPE:LegendaryInfluenceReaction.MaestroLAPL1	VISIBLE:NO	PRECLASS:1,Maestro=1	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SAB:Influence Reaction (1/day)								SOURCEPAGE:p52
 Influence Reaction II		CATEGORY:Special Ability	TYPE:LegendaryInfluenceReaction.MaestroLAPL2	VISIBLE:NO	PRECLASS:1,Maestro=2	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SAB:Influence Reaction (2/day)								SOURCEPAGE:p52
 Influence Reaction III		CATEGORY:Special Ability	TYPE:LegendaryInfluenceReaction.MaestroLAPL3	VISIBLE:NO	PRECLASS:1,Maestro=3	!PREFEAT:1,TYPE.LegendaryInfluenceReaction	SAB:Influence Reaction (3/day)								SOURCEPAGE:p52
@@ -225,6 +232,7 @@ Legendary Reputation V		CATEGORY:Special Ability	TYPE:LegendaryReputation.Maestr
 
 ###Block:Oracle legendary abilities
 # Feat Name				Type								Visible	Required Class		Prohibited Feat						Special ABility				Innate Spells								Combat bonus				Bonus to skill		Source Page
+# Ability Name			Category of Ability		Type								Visible	Required Class		Prohibited Feat						Special ABility				Innate Spells								Combat bonus				Bonus to skill		Source Page
 Precognition I			CATEGORY:Special Ability	TYPE:LegendaryPrecognition.OracleLAPL1		VISIBLE:NO	PRECLASS:1,Oracle=1	!PREFEAT:1,TYPE.LegendaryPrecognition		SAB:Precognition (+10min +2pct.)	SPELLS:Innate|TIMES=ATWILL|Augury															SOURCEPAGE:p54
 Precognition II			CATEGORY:Special Ability	TYPE:LegendaryPrecognition.OracleLAPL2		VISIBLE:NO	PRECLASS:1,Oracle=2	!PREFEAT:1,TYPE.LegendaryPrecognition		SAB:Precognition (+20min +4pct.)	SPELLS:Innate|TIMES=ATWILL|Augury															SOURCEPAGE:p54
 Precognition III			CATEGORY:Special Ability	TYPE:LegendaryPrecognition.OracleLAPL3		VISIBLE:NO	PRECLASS:1,Oracle=3	!PREFEAT:1,TYPE.LegendaryPrecognition		SAB:Precognition (+30min +6pct.)	SPELLS:Innate|TIMES=ATWILL|Augury															SOURCEPAGE:p54
@@ -259,6 +267,7 @@ Visions V				CATEGORY:Special Ability	TYPE:LegendaryVisions.OracleLAPL5			VISIBL
 
 ###Block:Puppetmaster legendary abilities
 # Feat Name				Type									Visible	Required Class			Prohibited Feat						Special ABility					Source Page
+# Ability Name			Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility					Source Page
 Construct Companions I		CATEGORY:Special Ability	TYPE:LegendaryConstructCompanions.PuppetmasterLAPL1	VISIBLE:NO	PRECLASS:1,Puppetmaster=1	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SAB:Construct Companions (1 object 2HD)	SOURCEPAGE:p55
 Construct Companions II		CATEGORY:Special Ability	TYPE:LegendaryConstructCompanions.PuppetmasterLAPL2	VISIBLE:NO	PRECLASS:1,Puppetmaster=2	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SAB:Construct Companions (2 objects 4HD)	SOURCEPAGE:p55
 Construct Companions III	CATEGORY:Special Ability	TYPE:LegendaryConstructCompanions.PuppetmasterLAPL3	VISIBLE:NO	PRECLASS:1,Puppetmaster=3	!PREFEAT:1,TYPE.LegendaryConstructCompanions	SAB:Construct Companions (3 objects 6HD)	SOURCEPAGE:p55
@@ -293,6 +302,7 @@ Convincing Oration V		CATEGORY:Special Ability	TYPE:LegendaryConvincingOration.P
 
 ###Block:Puzzlemaster legendary abilities
 # Feat Name				Type									Visible	Required Class			Prohibited Feat						Special ABility				Innate Spells			Bonus to skill									Source Page
+# Ability Name			Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility				Innate Spells			Bonus to skill									Source Page
 Unsolvable Riddle I		CATEGORY:Special Ability	TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL1	VISIBLE:NO	PRECLASS:1,Puzzlemaster=1	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SAB:Unsolvable Riddle (1/day)																		SOURCEPAGE:p57
 Unsolvable Riddle II		CATEGORY:Special Ability	TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL2	VISIBLE:NO	PRECLASS:1,Puzzlemaster=2	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SAB:Unsolvable Riddle (2/day)																		SOURCEPAGE:p57
 Unsolvable Riddle III		CATEGORY:Special Ability	TYPE:LegendaryUnsolvableRiddle.PuzzlemasterLAPL3	VISIBLE:NO	PRECLASS:1,Puzzlemaster=3	!PREFEAT:1,TYPE.LegendaryUnsolvableRiddle		SAB:Unsolvable Riddle (3/day)																		SOURCEPAGE:p57
@@ -326,6 +336,7 @@ Inspiration V			CATEGORY:Special Ability	TYPE:LegendaryInspiration.PuzzlemasterL
 
 ###Block:Traveler legendary abilities
 # Feat Name			Type								Visible	Required Class		Prohibited Feat					Special ABility				Source Page
+# Ability Name		Category of Ability		Type								Visible	Required Class		Prohibited Feat					Special ABility				Source Page
 Planar Familiar I		CATEGORY:Special Ability	TYPE:LegendaryPlanarFamiliar.TravelerLAPL1	VISIBLE:NO	PRECLASS:1,Traveler=1	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SAB:Planar Familiar (2HD)		SOURCEPAGE:p59
 Planar Familiar II	CATEGORY:Special Ability	TYPE:LegendaryPlanarFamiliar.TravelerLAPL2	VISIBLE:NO	PRECLASS:1,Traveler=2	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SAB:Planar Familiar (4HD)		SOURCEPAGE:p59
 Planar Familiar III	CATEGORY:Special Ability	TYPE:LegendaryPlanarFamiliar.TravelerLAPL3	VISIBLE:NO	PRECLASS:1,Traveler=3	!PREFEAT:1,TYPE.LegendaryPlanarFamiliar	SAB:Planar Familiar (6HD)		SOURCEPAGE:p59
@@ -359,6 +370,7 @@ Planar Wrenching V	CATEGORY:Special Ability	TYPE:LegendaryPlanarWrenching.Travel
 
 ###Block:Wizard King legendary abilities
 # Feat Name					Type									Visible	Required Class			Prohibited Feat						Special ABility				Add						Bonus to DC					Bonus to skill								Source Page
+# Ability Name				Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility				Add 						Bonus to DC					Bonus to skill								Source Page
 Increased Spell Power I			CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power II		CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|2|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62
 Increased Spell Power III		CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		ADD:FEAT|3|TYPE=IncSpellPowerSchool																	SOURCEPAGE:p62

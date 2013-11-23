@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Alderac Entertainment Group - War	SOURCESHORT:War	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																			Combat bonus					List of Class Spells by Level
@@ -213,16 +213,16 @@ CLASS:Sharpshooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:10	SOURCEPAGE:p.72	B
 CLASS:Sharpshooter	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Weapon Focus (Shortbow%),Weapon Focus (Longbow%),Weapon Focus (Crossbow%)	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sharpshooter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
-1														DEFINE:Eagle|2	ABILITY:Special Ability|AUTOMATIC|Eagle Eye Shot ~ Sharpshooter
-2	VISION:Low-Light Vision															ABILITY:Special Ability|AUTOMATIC|Low-light Vision ~ Sharpshooter
-3																	ABILITY:Special Ability|AUTOMATIC|Disarming Shot ~ Sharpshooter
-4				BONUS:ABILITYPOOL|Sharpshooter Feat|1
-5																	ABILITY:Special Ability|AUTOMATIC|Stumbling Shot ~ Sharpshooter
-6											BONUS:VAR|Eagle|1				ABILITY:Special Ability|AUTOMATIC|Intimidating Shot ~ Sharpshooter
-7																	ABILITY:Special Ability|AUTOMATIC|Covering Fire ~ Sharpshooter
-8				BONUS:ABILITYPOOL|Sharpshooter Feat|1
-9																	ABILITY:Special Ability|AUTOMATIC|Immobilizing Shot ~ Sharpshooter
-10																	ABILITY:Special Ability|AUTOMATIC|Killing Shot ~ Sharpshooter
+1															DEFINE:Eagle|2	ABILITY:Special Ability|AUTOMATIC|Eagle Eye Shot ~ Sharpshooter
+2	VISION:Low-Light Vision														ABILITY:Special Ability|AUTOMATIC|Low-light Vision ~ Sharpshooter
+3																		ABILITY:Special Ability|AUTOMATIC|Disarming Shot ~ Sharpshooter
+4					BONUS:ABILITYPOOL|Sharpshooter Feat|1
+5																		ABILITY:Special Ability|AUTOMATIC|Stumbling Shot ~ Sharpshooter
+6												BONUS:VAR|Eagle|1				ABILITY:Special Ability|AUTOMATIC|Intimidating Shot ~ Sharpshooter
+7																		ABILITY:Special Ability|AUTOMATIC|Covering Fire ~ Sharpshooter
+8					BONUS:ABILITYPOOL|Sharpshooter Feat|1
+9																		ABILITY:Special Ability|AUTOMATIC|Immobilizing Shot ~ Sharpshooter
+10																		ABILITY:Special Ability|AUTOMATIC|Killing Shot ~ Sharpshooter
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shieldbearer	HD:10		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE

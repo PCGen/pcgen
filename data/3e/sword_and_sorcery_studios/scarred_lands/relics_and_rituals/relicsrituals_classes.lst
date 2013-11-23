@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
@@ -173,16 +173,16 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:0,0															AUTO:FEAT|Sprint
-2	CAST:0,0															AUTO:FEAT|Tireless			BONUS:ABILITYPOOL|Vigilant Favored Enemy|1
-3	CAST:0,1															AUTO:FEAT|Ferocity|Toughness
-4	CAST:0,1,0															AUTO:FEAT|Great Fortitude
-5	CAST:0,1,1															AUTO:FEAT|Iron Will
-6	CAST:0,1,1,0														AUTO:FEAT|Lightning Reflexes
-7	CAST:0,1,1,1														AUTO:FEAT|Toughness
-8	CAST:0,1,1,1,0														AUTO:FEAT|Resist Massive Damage
-9	CAST:0,2,1,1,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
-10	CAST:0,2,2,1,1														AUTO:FEAT|Natural Healing
+1	CAST:0,0																	AUTO:FEAT|Sprint
+2	CAST:0,0		BONUS:ABILITYPOOL|Vigilant Favored Enemy|1								AUTO:FEAT|Tireless
+3	CAST:0,1																	AUTO:FEAT|Ferocity|Toughness
+4	CAST:0,1,0																	AUTO:FEAT|Great Fortitude
+5	CAST:0,1,1																	AUTO:FEAT|Iron Will
+6	CAST:0,1,1,0																AUTO:FEAT|Lightning Reflexes
+7	CAST:0,1,1,1																AUTO:FEAT|Toughness
+8	CAST:0,1,1,1,0																AUTO:FEAT|Resist Massive Damage
+9	CAST:0,2,1,1,1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
+10	CAST:0,2,2,1,1																AUTO:FEAT|Natural Healing
 
 ###Block: SRD CLASS .MOD SECTION
 
