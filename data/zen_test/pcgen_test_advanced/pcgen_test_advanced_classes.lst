@@ -1,4 +1,5 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:48:04 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
@@ -36,6 +37,7 @@ CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
 1	ADD:FEAT|TYPE=Code1730
 
 
+# Class Name		Required Skill
 CLASS:Test Bug Harrow	PRESKILL:1,TYPE.Perform=5
 
 ###Class

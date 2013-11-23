@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 
 
 # TEST-88	BONUS:HD|MIN;CLASS.Fighter
-# Ability Name	Category of Ability	Type					Stat bonus			Bonus									Modify HD type
-TEST-88a		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88														BONUS:HD|MIN;CLASS.Sorcerer|5
-TEST-88b		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88														BONUS:HD|MAX;CLASS.Sorcerer|5
+# Ability Name	Category of Ability	Type					Stat bonus			Modify HD type
+TEST-88a		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88					BONUS:HD|MIN;CLASS.Sorcerer|5
+TEST-88b		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88					BONUS:HD|MAX;CLASS.Sorcerer|5
 
 #Please see if:
 #BONUS:HD|MIN;CLASS.Fighter|x
@@ -15,7 +15,7 @@ TEST-88b		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88														BONUS:HD|MAX;C
 
 
 # TEST-89		BONUS:SPECIALTYSPELLKNOWN
-#Test-89		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-89					
+#Test-89		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-89
 #BONUS:SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80
 #where v is a value
 #See if this parses and applies

@@ -1,15 +1,19 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 
 
-# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:DragonLVL|CL
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Define			Save checks bonus								Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	DEFINE:DragonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 
-CLASS:Sorcerer/Cleric (Dragon)	VISIBLE:NO	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Dragon)|CL	SPELLLIST:2|Cleric|Sorcerer
+# Class Name				Visible
+CLASS:Sorcerer/Cleric (Dragon)	VISIBLE:NO
+# Class Name				Spell Stat		Spell Type		Memorize	Caster level						Use Spell List
+CLASS:Sorcerer/Cleric (Dragon)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Dragon)|CL	SPELLLIST:2|Cleric|Sorcerer
 # Air Domain
 1	SPELLLEVEL:CLASS|Sorcerer=1|Obscuring Mist|Sorcerer=2|Wind Wall|Sorcerer=3|Gaseous Form|Sorcerer=4|Air Walk|Sorcerer=5|Control Winds|Sorcerer=6|Chain Lightning|Sorcerer=7|Control Weather|Sorcerer=8|Whirlwind|Sorcerer=9|Elemental Swarm|PREVAREQ:DragonAirAllowed,1
 # Evil Domain
@@ -75,8 +79,18 @@ CLASS:Sorcerer/Cleric (Dragon)	VISIBLE:NO	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZ
 
 
 # Removes missing Classlist error for spells
+
+# Class Name
 CLASS:Adept
+
+# Class Name
 CLASS:Cleric
+
+# Class Name
 CLASS:Druid
+
+# Class Name
 CLASS:Paladin
+
+# Class Name
 CLASS:Ranger

@@ -1,30 +1,30 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #Equip
-# Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type										Cost		Weight	Slot Needed	!PREEQUIP							Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Range		Size		Source Page		Add 				Ability													Combat bonus				Bonus to nb of slots					Special Property
-Test Equipment																				TYPE:CODE433																																																	ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
+# Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type										Cost		Weight	Slot Needed	!PREEQUIP							Define			Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Range		Size		Source Page		Add 				Ability													Combat bonus				Bonus to nb of slots					Modify VAR			Special Property
+Test Equipment																				TYPE:CODE433																																																					ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
 
-Greatcoat																					TYPE:Armor.Light								COST:20	WT:5				!PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Medium											EQMOD:LEATHER								SOURCEPAGE:pg.196																			BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:SLOTS|TORSO|1	BONUS:SLOTS|Ring|1	SPROP:Can be worn over Light Armor.
+Greatcoat																					TYPE:Armor.Light								COST:20	WT:5				!PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Medium															EQMOD:LEATHER								SOURCEPAGE:pg.196																			BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:SLOTS|TORSO|1	BONUS:SLOTS|Ring|1					SPROP:Can be worn over Light Armor.
 
-Longbow				PROFICIENCY:WEAPON|Longbow													TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen					SLOTS:2									CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				WIELD:TwoHanded	RANGE:100	SIZE:M																																				SPROP:This is a test bow
+Longbow				PROFICIENCY:WEAPON|Longbow													TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen					SLOTS:2													CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				WIELD:TwoHanded	RANGE:100	SIZE:M																																								SPROP:This is a test bow
 
 
 Torch																						TYPE:Goods
 Lantern																					TYPE:Goods.Lightsource.Latern
 
-Item Test 42 Virtual Pre																		TYPE:Goods.CODE347																																																ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
-Item Test 42 VCirtual Pre Max																		TYPE:Goods.CODE347																																																ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
-Item Test 42 Virtual																			TYPE:Goods.CODE347																																																ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 Virtual Pre																		TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 VCirtual Pre Max																		TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
+Item Test 42 Virtual																			TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
 
-Item Test 42 Auto Pre																			TYPE:Goods.CODE347																																																ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)|PRELEVEL:MIN=4
-Item Test 42 Auto																				TYPE:Goods.CODE347																																																ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)
+Item Test 42 Auto Pre																			TYPE:Goods.CODE347																																																				ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)|PRELEVEL:MIN=4
+Item Test 42 Auto																				TYPE:Goods.CODE347																																																				ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)
 
 # Weapons
-Fine Wine Blade			PROFICIENCY:WEAPON|Fine Wine Blade												TYPE:Weapon.Melee.Sword																					CRITMULT:x3			CRITRANGE:1			DAMAGE:d6				WIELD:Light
-Light Blades			PROFICIENCY:WEAPON|Light Blades												TYPE:Weapon.Melee.Sword																					CRITMULT:x3			CRITRANGE:1			DAMAGE:d6				WIELD:Light
-Suns Weapon Of Choice		PROFICIENCY:WEAPON|Suns Weapon Of Choice											TYPE:Weapon.Melee.Sword																					CRITMULT:x3			CRITRANGE:1			DAMAGE:d6				WIELD:OneHanded
-Uber Sword				PROFICIENCY:WEAPON|Uber Sword													TYPE:Weapon.Melee.Sword																					CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6				WIELD:TwoHanded
-Cool Sword				PROFICIENCY:WEAPON|Cool Sword													TYPE:Weapon.Melee.Sword																					CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6				WIELD:TwoHanded
-Longsword				PROFICIENCY:WEAPON|Longsword													TYPE:Weapon.Melee.Sword																					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				WIELD:OneHanded
+Fine Wine Blade			PROFICIENCY:WEAPON|Fine Wine Blade												TYPE:Weapon.Melee.Sword																									CRITMULT:x3			CRITRANGE:1			DAMAGE:d6				WIELD:Light
+Light Blades			PROFICIENCY:WEAPON|Light Blades												TYPE:Weapon.Melee.Sword																									CRITMULT:x3			CRITRANGE:1			DAMAGE:d6				WIELD:Light
+Suns Weapon Of Choice		PROFICIENCY:WEAPON|Suns Weapon Of Choice											TYPE:Weapon.Melee.Sword																									CRITMULT:x3			CRITRANGE:1			DAMAGE:d6				WIELD:OneHanded
+Uber Sword				PROFICIENCY:WEAPON|Uber Sword													TYPE:Weapon.Melee.Sword																									CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6				WIELD:TwoHanded
+Cool Sword				PROFICIENCY:WEAPON|Cool Sword													TYPE:Weapon.Melee.Sword																									CRITMULT:x3			CRITRANGE:1			DAMAGE:3d6				WIELD:TwoHanded
+Longsword				PROFICIENCY:WEAPON|Longsword													TYPE:Weapon.Melee.Sword																									CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				WIELD:OneHanded
 
 50lb wt																					TYPE:Goods											WT:50
 
@@ -35,22 +35,22 @@ Test Gear.MOD																				TYPE:Gear
 
 
 # Armor Basic Test
-Medium Armor										PROFICIENCY:ARMOR|Medium						TYPE:Armor.Medium																																																															BONUS:COMBAT|AC|2|TYPE=Armor
-Leather											PROFICIENCY:ARMOR|Leather						TYPE:Armor.Light.Leather																																																													BONUS:COMBAT|AC|2|TYPE=Armor
-Moon Cloth											PROFICIENCY:ARMOR|Moon Cloth						TYPE:Armor.Light.Moon Cloth																																																													BONUS:COMBAT|AC|2|TYPE=Armor
-Heavy Armor											PROFICIENCY:ARMOR|Heavy							TYPE:Armor.Heavy																																																															BONUS:COMBAT|AC|2|TYPE=Armor
-Light Armor											PROFICIENCY:ARMOR|Light							TYPE:Armor.Light																																																															BONUS:COMBAT|AC|2|TYPE=Armor
+Medium Armor										PROFICIENCY:ARMOR|Medium						TYPE:Armor.Medium																																																																			BONUS:COMBAT|AC|2|TYPE=Armor
+Leather											PROFICIENCY:ARMOR|Leather						TYPE:Armor.Light.Leather																																																																	BONUS:COMBAT|AC|2|TYPE=Armor
+Moon Cloth											PROFICIENCY:ARMOR|Moon Cloth						TYPE:Armor.Light.Moon Cloth																																																																	BONUS:COMBAT|AC|2|TYPE=Armor
+Heavy Armor											PROFICIENCY:ARMOR|Heavy							TYPE:Armor.Heavy																																																																			BONUS:COMBAT|AC|2|TYPE=Armor
+Light Armor											PROFICIENCY:ARMOR|Light							TYPE:Armor.Light																																																																			BONUS:COMBAT|AC|2|TYPE=Armor
 
 # Shield Basic Test
-Light Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light.Weapon.Melee	DAMAGE:1d6	CRITRANGE:1	CRITMULT:x2																																																												BONUS:COMBAT|AC|2|TYPE=Shield
-Buckler Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light																																																															BONUS:COMBAT|AC|2|TYPE=Shield
-Heavy Shield															PROFICIENCY:SHIELD|Heavy	TYPE:Shield.Heavy																																																															BONUS:COMBAT|AC|2|TYPE=Shield
+Light Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light.Weapon.Melee																							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6																																BONUS:COMBAT|AC|2|TYPE=Shield
+Buckler Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light																																																																			BONUS:COMBAT|AC|2|TYPE=Shield
+Heavy Shield															PROFICIENCY:SHIELD|Heavy	TYPE:Shield.Heavy																																																																			BONUS:COMBAT|AC|2|TYPE=Shield
 
-Test Equip Feat																				TYPE:FeatTestEquip.Any.Misc																																											ADD:FEAT|Add Feat Equip
+Test Equip Feat																				TYPE:FeatTestEquip.Any.Misc																																															ADD:FEAT|Add Feat Equip
 
 
 # Sprop repeat issue
 
 #Greatsword of Fire and Cold							PROFICIENCY:WEAPON|Greatsword		TYPE:Custom_JIRJ.Magic.Weapon.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:50	WT:8				CRITMULT:x2		CRITRANGE:2		DAMAGE:2d6		EQMOD:STEEL.PLUS1W.FLM_M.FROST_M		WIELD:TwoHanded								SIZE:M	SOURCEPAGE:Custom		BASEITEM:Greatsword											SPROP:The Flaming Sword of Fire and Cold is a plus 1 Flaming Greatsword with a Greater Crystal of Cold Assault. It deals an extra 1d6 of fire damage and an extra 1d6 of Cold when it hits and reduces the targets speed by 10ft for 1 round.
 
-Test 1 Item		TYPE:Equipment.Test.Count	BONUS:VAR|MyVarTest|1	DEFINE:MyVarTest|0	ABILITY:Special Ability|AUTOMATIC|MyVarTest
+Test 1 Item																					TYPE:Equipment.Test.Count																				DEFINE:MyVarTest|0																												ABILITY:Special Ability|AUTOMATIC|MyVarTest																					BONUS:VAR|MyVarTest|1

@@ -1,10 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 # COMMENT: Do not ADD USEUNTRAINED:YES Skills, they will alter Alice, Bob and Charlie's test suites.
-Balance		USEUNTRAINED:NO	KEYSTAT:DEX
-Hide			USEUNTRAINED:NO	KEYSTAT:DEX
-Move Silently	USEUNTRAINED:NO	KEYSTAT:DEX
-Swim			USEUNTRAINED:NO	KEYSTAT:STR
+# Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Prohibited Var. Value										Source Page			Choose			Bonus to skill																Bonus to skill rank																																														Modify VAR														Add
+Balance												KEYSTAT:DEX	USEUNTRAINED:NO
+Hide													KEYSTAT:DEX	USEUNTRAINED:NO
+Move Silently											KEYSTAT:DEX	USEUNTRAINED:NO
+Swim													KEYSTAT:STR	USEUNTRAINED:NO
 
 
 # Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Prohibited Var. Value										Source Page			Choose			Bonus to skill																Bonus to skill rank																																														Modify VAR														Add

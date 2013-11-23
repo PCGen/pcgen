@@ -1,4 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
-Choose Skill Not Working	KEY:Alignment Skill	TYPE:CodeBug		CATEGORY:FEAT	TYPE:AlignmentSkill	CSKILL:LIST	MULT:YES	CHOOSE:SKILL|TYPE=AlignmentSkill	SELECT:4
+# Ability Name			Unique Key			Category of Ability	Type							Multiple?	Choose							Selections	Class Skill
+Choose Skill Not Working	KEY:Alignment Skill	CATEGORY:FEAT		TYPE:CodeBug	TYPE:AlignmentSkill	MULT:YES	CHOOSE:SKILL|TYPE=AlignmentSkill			SELECT:4	CSKILL:LIST
 #Choose Skill Not Working	CATEGORY:FEAT	TYPE:CodeBug	CHOOSE:SKILL|TYPE=TestSkills	MULT:YES
-Choose Userinput is Broken	CATEGORY:FEAT	TYPE:CodeBug	CHOOSE:USERINPUT|TITLE=Userinput is Broken	MULT:YES
+Choose Userinput is Broken					CATEGORY:FEAT		TYPE:CodeBug					MULT:YES	CHOOSE:USERINPUT|TITLE=Userinput is Broken

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #WeaponProf
 # Weapon Name			Type
 Light Blades
@@ -26,7 +26,7 @@ Longbow				TYPE:Martial.Bow.Longbow.WeaponGroupBows
 Deity Weapon Puni			TYPE:Exotic
 Deity Weapon Second Puni	TYPE:Martial
 
-Greatsword		TYPE:Melee.Martial
+Greatsword				TYPE:Melee.Martial
 
 # Bob Specific Tests
 Bob Long Blade			TYPE:Bob.Exotic
