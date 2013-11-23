@@ -22,8 +22,6 @@
  */
 package pcgen.gui2.facade;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -59,6 +57,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	@Before
 	public void setUp() throws Exception
 	{

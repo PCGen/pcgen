@@ -34,10 +34,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
-import plugin.pretokens.writer.PreStatWriter;
 
 /**
  * @author wardc

@@ -48,7 +48,6 @@ import javax.swing.SwingConstants;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;

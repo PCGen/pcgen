@@ -38,7 +38,6 @@ import pcgen.core.PaperInfo;
 import pcgen.core.PointBuyCost;
 import pcgen.core.QualifiedObject;
 import pcgen.core.RuleCheck;
-import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.UnitSet;
 import pcgen.core.character.WieldCategory;

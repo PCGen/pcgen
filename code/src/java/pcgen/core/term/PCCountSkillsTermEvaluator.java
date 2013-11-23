@@ -30,7 +30,6 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Visibility;
