@@ -53,7 +53,7 @@ FOLLOWER:FeatheredCompanionLvl=20	TYPE:Animal Companion	HD:1																				
 
 ###Block: Empyreal Companion
 # Class of the Master		Type				Hit Dice	Spell Res.		Ability																	Automatically Gained Feat	Automatically Gained Armor Prof.	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type		Template				DEFINESTAT
-FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells															AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0																								BONUS:VAR|MasterLevel|1					RACETYPE:Animal							DEFINESTAT:LOCK|INT|6
+FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells															AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0																								BONUS:VAR|MasterLevel|1					RACETYPE:Animal							DEFINESTAT:MINVALUE|INT|6
 FOLLOWER:EmpyrealCompanion=2	TYPE:Special Mount	HD:1																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:EmpyrealCompanion=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Evasion																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:EmpyrealCompanion=4	TYPE:Special Mount	HD:1																																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
