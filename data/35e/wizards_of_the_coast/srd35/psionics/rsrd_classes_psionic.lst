@@ -41,14 +41,7 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Conce
 # Use ADD:SPELLCASTER(Psionic) in PrC's that add to manifester level.
 # Code those that have KNOWN tags similar to this but change the VAR names, i.e. PsionML becomes WilderML,
 # PsionBonusPP becomes WarmindBonusPP, alter the basepp bonus:var's to the correct values, etc.
-1	BONUS:VAR|PsionML|CL	BONUS:VAR|PsionML|var("BL=Psion")																											DEFINE:PsionML|0	TEMPLATE:Psionic
-1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4
-1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionML,8
-1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionML,12
-1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionML,16
-1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionML,20
-1	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
-
+1	BONUS:VAR|PsionML|CL	TEMPLATE:Psionic|Psion Caster Support
 ###Block: Class Info
 1	KNOWN:0,3				BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1
 2	KNOWN:0,5
