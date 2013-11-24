@@ -790,11 +790,11 @@ Amulet of Bullet Protection +5												TYPE:Magic.Wondrous.Amulet.LesserMajor
 Amulet of Elemental Strife													TYPE:Magic.Wondrous.Amulet.GreaterMinor																								COST:4000	WT:1																				SOURCEPAGE:p.254
 Amulet of Hidden Strength													TYPE:Magic.Wondrous.Amulet.LesserMedium																								COST:9000	WT:0																				SOURCEPAGE:p.254
 Amulet of Magecraft.MOD														TYPE:GreaterMedium																											COST:20000	WT:2																				SOURCEPAGE:p.255
-Amulet of Mighty Fists +1.MOD													TYPE:GreaterMinor																												COST:5000	WT:0																				SOURCEPAGE:p.255
-Amulet of Mighty Fists +2.MOD													TYPE:GreaterMedium																											COST:20000	WT:0																				SOURCEPAGE:p.255
-Amulet of Mighty Fists +3.MOD													TYPE:LesserMajor																												COST:45000	WT:0																				SOURCEPAGE:p.255
-Amulet of Mighty Fists +4.MOD													TYPE:GreaterMajor																												COST:80000	WT:0																				SOURCEPAGE:p.255
-Amulet of Mighty Fists +5.MOD													TYPE:GreaterMajor																												COST:125000	WT:0																				SOURCEPAGE:p.255
+Amulet of Mighty Fists +1.MOD													TYPE:GreaterMinor																												COST:4000	WT:0																				SOURCEPAGE:p.255
+Amulet of Mighty Fists +2.MOD													TYPE:GreaterMedium																											COST:16000	WT:0																				SOURCEPAGE:p.255
+Amulet of Mighty Fists +3.MOD													TYPE:LesserMajor																												COST:36000	WT:0																				SOURCEPAGE:p.255
+Amulet of Mighty Fists +4.MOD													TYPE:GreaterMajor																												COST:64000	WT:0																				SOURCEPAGE:p.255
+Amulet of Mighty Fists +5.MOD													TYPE:GreaterMajor																												COST:100000	WT:0																				SOURCEPAGE:p.255
 Amulet of Natural Armor +1.MOD												TYPE:LesserMinor																												COST:2000	WT:0																				SOURCEPAGE:p.256
 Amulet of Natural Armor +2.MOD												TYPE:LesserMedium																												COST:8000	WT:0																				SOURCEPAGE:p.256
 Amulet of Natural Armor +3.MOD												TYPE:GreaterMedium																											COST:18000	WT:0																				SOURCEPAGE:p.256
