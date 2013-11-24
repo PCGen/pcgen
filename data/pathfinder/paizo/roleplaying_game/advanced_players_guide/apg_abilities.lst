@@ -166,3 +166,9 @@ CATEGORY=Special Ability|Magical Knack ~ Trait.MOD	ABILITY:Internal|AUTOMATIC|Ca
 Caster Level ~ Antipaladin	CATEGORY:Internal		BONUS:CASTERLEVEL|Antipaladin|2
 Caster Level ~ Paladin		CATEGORY:Internal		BONUS:CASTERLEVEL|Paladin|2
 Caster Level ~ Ranger		CATEGORY:Internal		BONUS:CASTERLEVEL|Ranger|2
+
+###Block:	Acid|Cold|Electricity|Fire
+Acid		KEY:Elemental Fist ~ Acid			CATEGORY:Internal	TYPE:ElementalFistChoice
+Cold		KEY:Elemental Fist ~ Cold			CATEGORY:Internal	TYPE:ElementalFistChoice
+Electricity	KEY:Elemental Fist ~ Electricity		CATEGORY:Internal	TYPE:ElementalFistChoice
+Fire		KEY:Elemental Fist ~ Fire			CATEGORY:Internal	TYPE:ElementalFistChoice

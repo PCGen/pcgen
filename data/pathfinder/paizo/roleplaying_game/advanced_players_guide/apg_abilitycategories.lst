@@ -222,3 +222,6 @@ ABILITYCATEGORY:Defensive Stance Power			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 
 
 ABILITYCATEGORY:Cavalier Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:CavalierMountSelection																		DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Elemental Fist Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:ElementalFistChoice																		DISPLAYLOCATION:Feats
