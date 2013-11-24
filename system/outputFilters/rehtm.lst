@@ -131,6 +131,8 @@
 \0375	&#253;
 \0376	&#254;
 \0377	&#255;
+\u2028	\n	# Unicode LINE SEPARATOR
+\u2029	\n	# Unicode PARAGRAPH SEPARATOR
 
 #[\r\n]+$	
 ^(.*?[\r\n](.*[\r\n]?)*)$	<p>$1</p>

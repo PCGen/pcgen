@@ -22,12 +22,12 @@
  */
 package pcgen.io.filters;
 
-import static org.junit.Assert.*;
-
-import java.io.IOException;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import pcgen.io.EntityEncoder;
 
 /**
  * PatternFilterTest checks the functioning of the PatternFilter class.
@@ -46,23 +46,75 @@ public class PatternFilterTest
 	public void setUp() throws Exception
 	{
 	}
-	
+
 	@Test
 	public void testHtmlFilterStringSingleLine() throws Exception
 	{
 		PatternFilter filter = new PatternFilter("foo.htm");
 		String testString = "foo\r\nbar";
-		assertEquals("<p>foo</p>\r\n<p>bar</p>", filter.filterString(testString));
+		assertEquals("<p>foo</p>\r\n<p>bar</p>",
+			filter.filterString(testString));
 		testString = "foo\nbar";
 		assertEquals("<p>foo</p>\n<p>bar</p>", filter.filterString(testString));
 	}
-	
+
 	@Test
 	public void testHtmlFilterStringMultiLine() throws Exception
 	{
 		PatternFilter filter = new PatternFilter("foo.htm");
 		String testString = "foo\r\nbar\nbaz";
-		assertEquals("<p>foo</p>\r\n<p>bar</p>\n<p>baz</p>", filter.filterString(testString));
+		assertEquals("<p>foo</p>\r\n<p>bar</p>\n<p>baz</p>",
+			filter.filterString(testString));
+	}
+
+	@Test
+	public void testHtmlFilterStringComplex() throws Exception
+	{
+		PatternFilter filter = new PatternFilter("foo.htm");
+		String testString =
+				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
+		testString = EntityEncoder.decode(testString);
+		assertEquals(
+			"<p>Mirror Image</p>\n<p>       blindness/deafness, </p>\n<p>alter self, cacophoneus call, </p>",
+			filter.filterString(testString));
+	}
+
+	@Test
+	public void testPdfFilterStringComplex() throws Exception
+	{
+		PatternFilter filter = new PatternFilter("foo.fo");
+		String testString =
+				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
+		testString = EntityEncoder.decode(testString);
+		assertEquals(
+			"<fo:block>Mirror Image</fo:block><fo:block>       blindness/deafness, </fo:block>"
+				+ "<fo:block>alter self, cacophoneus call, </fo:block>",
+			filter.filterString(testString));
+	}
+
+	@Test
+	public void testXmlFilterStringComplex() throws Exception
+	{
+		PatternFilter filter = new PatternFilter("foo.xml");
+		String testString =
+				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
+		testString = EntityEncoder.decode(testString);
+		assertEquals(
+			"<para>Mirror Image</para><para>       blindness/deafness, </para>"
+				+ "<para>alter self, cacophoneus call, </para>",
+			filter.filterString(testString));
+	}
+
+	@Test
+	public void testTxtFilterStringComplex() throws Exception
+	{
+		PatternFilter filter = new PatternFilter("foo.txt");
+		String testString =
+				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
+		testString = EntityEncoder.decode(testString);
+		assertEquals(
+			"Mirror Image\n       blindness/deafness, \u2028alter self, cacophoneus call, ",
+			filter.filterString(testString));
 	}
 
 }
