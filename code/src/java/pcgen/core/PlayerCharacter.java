@@ -9449,13 +9449,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	private void addTemplatesIfMissing(Collection<PCTemplate> templateList)
 	{
-		if (!isImporting())
-		{
+//		if (!isImporting())
+//		{
 			for (PCTemplate pct : templateList)
 			{
 				addTemplate(pct);
 			}
-		}
+//		}
 	}
 
 	/**
