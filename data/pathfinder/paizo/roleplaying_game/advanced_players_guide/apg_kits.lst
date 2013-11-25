@@ -14,13 +14,13 @@ FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Cavalier=1
 
 STARTPACK:Starting Gold APG ~ Maximum	VISIBLE:NO	APPLY:INSTANT
 FUNDS:gp	QTY:120	PRECLASS:1,Summoner=1
-FUNDS:gp	QTY:180	PRECLASS:1,Alchemist,Oracle,Witch=1
+FUNDS:gp	QTY:180	PRECLASS:1,Alchemist=1,Oracle=1,Witch=1
 FUNDS:gp	QTY:240	PRECLASS:1,Inquisitor=1
 FUNDS:gp	QTY:300	PRECLASS:1,Cavalier=1
 
 STARTPACK:Starting Gold APG ~ Average	VISIBLE:NO	APPLY:INSTANT
 FUNDS:gp	QTY:120	PRECLASS:1,Summoner=1
-FUNDS:gp	QTY:180	PRECLASS:1,Alchemist,Oracle,Witch=1
+FUNDS:gp	QTY:180	PRECLASS:1,Alchemist=1,Oracle=1,Witch=1
 FUNDS:gp	QTY:240	PRECLASS:1,Inquisitor=1
 FUNDS:gp	QTY:300	PRECLASS:1,Cavalier=1
 

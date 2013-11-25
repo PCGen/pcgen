@@ -69,7 +69,7 @@ Small Claws																										PRESIZELTEQ:S																														
 Medium Claws																						PRESIZEGTEQ:M																																				NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Slashing,*2,1d4
 
 
-Vision Normal																																		!PREVISION:2,Darkvision=1,Low-Light Vision=ANY															VISION:Low-Light Vision
+Vision Normal																																		!PREVISION:1,Darkvision=1,Low-Light Vision=1															VISION:Low-Light Vision
 Vision Lowlight																												PREVISION:1,Low-Light Vision=ANY									BONUS:VISION|Darkvision|30
 Vision Darkvision																												PREVISION:1,Darkvision=1										BONUS:VISION|Darkvision|30
 # TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
