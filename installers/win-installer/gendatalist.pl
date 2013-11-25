@@ -52,6 +52,7 @@ $pub{'behemoth3'} = 'Behemoth3';
 $pub{'big_finger_games'} = 'Big Finger Games';
 $pub{'bloodstone_press'} = 'Bloodstone Press';
 $pub{'blue_devil_games'} = 'Blue Devil Games';
+$pub{'broken_ruler_games'} = 'Broken Ruler Games';
 $pub{'crafty_games'} = 'Crafty Games';
 $pub{'creativemountaingames'} = 'Creative Mountain Games';
 $pub{'distant_horizons_games'} = 'Distant Horizon Games';
