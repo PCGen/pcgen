@@ -239,6 +239,7 @@ public class Bonus
 				{
 					Logging.errorPrint(ple.getMessage(), ple);
 					Logging.reportSource(Logging.ERROR, context);
+					return null;
 				}
 			}
 			else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
@@ -269,6 +270,7 @@ public class Bonus
 							.append(" to bonusType ").append(typeOfBonus)
 							.append(" in Bonus.newBonus").toString());
 					Logging.reportSource(Logging.LST_ERROR, context);
+					return null;
 				}
 			}
 		}
@@ -280,6 +282,14 @@ public class Bonus
 
 		StringTokenizer aTok = new StringTokenizer(bonusInfo, ",");
 
+		if (!aTok.hasMoreTokens())
+		{
+			Logging.log(Logging.LST_ERROR, new StringBuilder().append(
+				"Could not parse empty target ").append(
+				" from BONUS:").append(bonusString).toString());
+			Logging.reportSource(Logging.LST_ERROR, context);
+			return null;
+		}
 		LstUtils.deprecationCheck(aBonus, bonusName, bonusString);
 		while (aTok.hasMoreTokens())
 		{
@@ -292,6 +302,7 @@ public class Bonus
 						"Could not parse token ").append(token).append(
 						" from BONUS:").append(bonusString).toString());
 				Logging.reportSource(Logging.LST_ERROR, context);
+				return null;
 			}
 		}
 
