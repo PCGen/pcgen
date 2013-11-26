@@ -125,7 +125,7 @@ ABILITY:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_abi
 # Animal Companions: elk, megaloceros, thylacine
 ABILITY:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_abilities_companion.lst
 RACE:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_races_companion.lst
-KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits.lst
+KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits.lst|(INCLUDE:Companion ~ Elk|Companion ~ Thylacine)
 # Note: "Animal Companion: Megaloceros" is in CR
 
 # Pathfinder Adventure Path #32: "Rivers Run Red"
