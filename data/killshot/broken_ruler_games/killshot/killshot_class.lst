@@ -1,7 +1,15 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
-CLASS:Assassin		MAXLEVEL:1	TYPE:PC.Base.Default	PRECHARACTERTYPE:1,Assassin
-1	BONUS:VAR|TrainingPool|20|PRECLASS:1,Assassin=1|!PRECHARACTERTYPE:1,Mark,Thug		BONUS:ABILITYPOOL|Stat Purchase|2|PRECLASS:1,Assassin=1|!PRECHARACTERTYPE:1,Mark,Thug
+# Class Name	Type				Max Level
+CLASS:Assassin	TYPE:PC.Base.Default	MAXLEVEL:1
+# Class Name	PRECHARACTERTYPE
+CLASS:Assassin	PRECHARACTERTYPE:1,Assassin
+1	BONUS:ABILITYPOOL|Stat Purchase|2|PRECLASS:1,Assassin=1|!PRECHARACTERTYPE:1,Mark,Thug	BONUS:VAR|TrainingPool|20|PRECLASS:1,Assassin=1|!PRECHARACTERTYPE:1,Mark,Thug
 #
-CLASS:Jobs Completed		TYPE:PC.Base.Default	PRECHARACTERTYPE:1,Assassin		PRECLASS:1,Assassin=1
-1	BONUS:ABILITYPOOL|Training Point Choice|CL|!PRECHARACTERTYPE:1,Mark,Thug		BONUS:ABILITYPOOL|Stat Purchase|CL|!PRECHARACTERTYPE:1,Mark,Thug
+
+# Class Name		Type
+CLASS:Jobs Completed	TYPE:PC.Base.Default
+# Class Name		PRECHARACTERTYPE			Required Class
+CLASS:Jobs Completed	PRECHARACTERTYPE:1,Assassin	PRECLASS:1,Assassin=1
+1	BONUS:ABILITYPOOL|Training Point Choice|CL|!PRECHARACTERTYPE:1,Mark,Thug	BONUS:ABILITYPOOL|Stat Purchase|CL|!PRECHARACTERTYPE:1,Mark,Thug

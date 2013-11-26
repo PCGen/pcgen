@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Tir Gwaith and Doug McMillan, Temporary Bonus Templates by Eddy Anthony
 
@@ -19,40 +19,40 @@ CharismaticSkills	VISIBLE:NO	PRECLASS:1,Charismatic=1
 
 
 ###Block: Temporary Bonus Templates
-# Template Name			Visible	Bonus to skill																				Temporary effect description
-Familiar within arms reach	VISIBLE:NO	TEMPBONUS:ANYPC|SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat
+# Template Name			Visible	Temporary effect description											Temporary Bonus
+Familiar within arms reach	VISIBLE:NO	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat	TEMPBONUS:ANYPC|SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREABILITY:1,CATEGORY=Special Ability,Summon Familiar
 
 ###Block: Conditional Templates
-# Template Name				Visible	Source Page					Save checks bonus							Combat bonus															Bonus to skill																			Stat bonus							Choose								Temporary effect description
-Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points
-Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points
-Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points
-Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points
-Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points
-Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points
-Blinded					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																											TEMPBONUS:ANYPC|SKILL|Search,STAT.STR,STAT.DEX|-4												TEMPBONUS:ANYPC|STAT|DEX|-1*(DEXSCORE-3)										TEMPDESC:You cannot see
-Cowering					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK																																							TEMPDESC:You are frozen in fear and can take no actions
-Deafened					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4																																																	TEMPDESC:You cannot hear
-Entangled					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPBONUS:ANYPC|COMBAT|TOHIT|-2																																TEMPBONUS:ANYPC|STAT|DEX|-4												TEMPDESC:You are ensnared
-Exhausted					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|DEX,STR|-6											TEMPDESC:You are exhausted
-Fatigued					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf																																																TEMPBONUS:ANYPC|STAT|DEX,STR|-2											TEMPDESC:You are fatigued
-Frightened					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2											TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2																		TEMPDESC:You are frightened
-Invisible					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPBONUS:ANYPC|COMBAT|TOHIT|2|TYPE=Invisibility																																															TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)
-Prone						VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPBONUS:ANYPC|COMBAT|TOHIT.MELEE|-4																																																TEMPDESC:You are on the ground
-Shaken					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2											TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2																		TEMPDESC:You are shaken
-Stunned					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK																																							TEMPDESC:You are stunned, you drop everything held, and cannot take actions
+# Template Name				Visible	Source Page					Choose								Temporary effect description																						Temporary Bonus
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Stength Damage		TEMPDESC:You have temporarily lost 1 or more Strength ability score points														TEMPBONUS:ANYPC|STAT|STR|-1*(%CHOICE)
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Dexterity Damage	TEMPDESC:You have temporarily lost 1 or more Dexterity ability score points														TEMPBONUS:ANYPC|STAT|DEX|-1*(%CHOICE)
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:You have temporarily lost 1 or more Constitution ability score points													TEMPBONUS:ANYPC|STAT|CON|-1*(%CHOICE)
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:You have temporarily lost 1 or more Intelligence ability score points													TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:You have temporarily lost 1 or more Wisdom ability score points														TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Charisma Damage	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points														TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)
+Blinded					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You cannot see																							TEMPBONUS:ANYPC|SKILL|Search,STAT.STR,STAT.DEX|-4	TEMPBONUS:ANYPC|STAT|DEX|-1*(DEXSCORE-3)
+Cowering					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are frozen in fear and can take no actions																	TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK
+Deafened					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You cannot hear																						TEMPBONUS:ANYPC|COMBAT|INITIATIVE|-4
+Entangled					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are ensnared																						TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|STAT|DEX|-4
+Exhausted					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are exhausted																						TEMPBONUS:ANYPC|STAT|DEX,STR|-6
+Fatigued					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are fatigued																						TEMPBONUS:ANYPC|STAT|DEX,STR|-2
+Frightened					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are frightened																						TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2
+Invisible					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are invisible, you gain a +2 bonus on attack rolls against sighted opponents, and ignore your opponents' Dexterity bonuses to AC (if any)	TEMPBONUS:ANYPC|COMBAT|TOHIT|2|TYPE=Invisibility
+Prone						VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are on the ground																					TEMPBONUS:ANYPC|COMBAT|TOHIT.MELEE|-4
+Shaken					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are shaken																							TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex,Will|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-2
+Stunned					VISIBLE:NO	SOURCEPAGE:msrdconditionsummary.rtf										TEMPDESC:You are stunned, you drop everything held, and cannot take actions														TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-(max(DEX,0))|TYPE=Ability.STACK
 
 ###Block: Combat Templates
-# Template Name			Visible	Source Page				Combat bonus																					Modify VAR																													Choose									Temporary effect description
-Fighting Defensively		VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-4																	TEMPBONUS:ANYPC|VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5											TEMPDESC:You are fighting defensively when attacking
-Total Defense			VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf																								TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5															TEMPDESC:You are defending yourself as a standard action
-Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf		TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary																															CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
+# Template Name			Visible	Source Page				Choose									Temporary effect description																																Temporary Bonus
+Fighting Defensively		VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf											TEMPDESC:You are fighting defensively when attacking																												TEMPBONUS:ANYPC|COMBAT|TOHIT|-4	TEMPBONUS:ANYPC|VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5
+Total Defense			VISIBLE:NO	SOURCEPAGE:msrdcombat.rtf											TEMPDESC:You are defending yourself as a standard action																											TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5
+Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:Feats.rtf		CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary
 
 ###Block: Tracker Templates
-# Template Name		Visible	Source Page					Var. Min. Value			Modify VAR							Choose											Temporary effect description
-Wealth Adjustment		VISIBLE:NO	SOURCEPAGE:msrdwealth.rtf							TEMPBONUS:ANYPC|VAR|Wealth|%CHOICE		CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Adjust Wealth Score by this much	TEMPDESC:Over the course of play, the hero's Wealth bonus will decrease as the hero purchases expensive items and increase as the hero gains levels.
-Bonus Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf						TEMPBONUS:ANYPC|VAR|Action|%CHOICE		CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Bonus Action Points				TEMPDESC:This can be used to give Bonus Action Points to a character. If you have more than 10 this can be applied multiple times.
-Used Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf	PREVARGTEQ:ActionRemain,1	TEMPBONUS:ANYPC|VAR|ActionUsed|%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=min(10,ActionRemain)|TITLE=Used Action Points	TEMPDESC:Use this to record the Action Points that the character spent. If you have more than 10 this can be applied multiple times.
+# Template Name		Visible	Source Page					Var. Min. Value			Choose											Temporary effect description																					Temporary Bonus
+Wealth Adjustment		VISIBLE:NO	SOURCEPAGE:msrdwealth.rtf							CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Adjust Wealth Score by this much	TEMPDESC:Over the course of play, the hero's Wealth bonus will decrease as the hero purchases expensive items and increase as the hero gains levels.	TEMPBONUS:ANYPC|VAR|Wealth|%CHOICE
+Bonus Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf						CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Bonus Action Points				TEMPDESC:This can be used to give Bonus Action Points to a character. If you have more than 10 this can be applied multiple times.				TEMPBONUS:ANYPC|VAR|Action|%CHOICE
+Used Action Points	VISIBLE:NO	SOURCEPAGE:msrdactionpoints.rtf	PREVARGTEQ:ActionRemain,1	CHOOSE:NUMBER|MIN=1|MAX=min(10,ActionRemain)|TITLE=Used Action Points	TEMPDESC:Use this to record the Action Points that the character spent. If you have more than 10 this can be applied multiple times.			TEMPBONUS:ANYPC|VAR|ActionUsed|%CHOICE
 
 ###Block: CR adjuster for Ordinary base classes
 # Template Name	Challenge Rating	Visible
@@ -67,7 +67,7 @@ Unarmed Damage Advancement	VISIBLE:NO						BONUS:WEAPONPROF=Unarmed Strike|DAMAG
 #damage die 1 category larger than their size would usually grant them. It will adjust UDAM and ULS accordingly.  	        -- Frank Kliewe
 
 ###Block: Subtypes
-# Template Name	Visible	Source Page					Define			Combat bonus										Ability
+# Template Name	Visible	Source Page					Define a Stat		Combat bonus										Ability
 Incorporeal		VISIBLE:NO	SOURCEPAGE:MenaceCreaturesA-I.rtf	DEFINESTAT:NONSTAT|STR	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT|DEX	ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits
 
 #

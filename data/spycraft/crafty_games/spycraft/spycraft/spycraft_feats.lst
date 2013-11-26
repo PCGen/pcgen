@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -73,29 +73,29 @@ Whirlwind Attack						TYPE:MeleeCombat			PREFEAT:2,Expertise,Swift Strike					DE
 
 ###Block: Ranged Combat Feats
 
-# Feat Name			Type			Req. Att.	Required Feat							Required Stat	Description																			Combat bonus							% bonus to range								Weapon prop. bonus													Source Page
-Bullseye			TYPE:RangedCombat	PREATT:3	PREFEAT:1,Precise Shot									DESC:You can take flamboyant shots that are especially lethal.																																													SOURCEPAGE:p.75
-Controlled Burst		TYPE:RangedCombat			PREFEAT:1,Rapid Shot									DESC:You are skilled at firing controlled bursts, able to hit the right marks for maximum effect upon your targets.																																				SOURCEPAGE:p.75
-Controlled Strafe		TYPE:RangedCombat	PREATT:6	PREFEAT:1,Controlled Burst								DESC:You are skilled at making controlled strafe attacks.																																														SOURCEPAGE:p.75
-Coordinate Fire		TYPE:RangedCombat	PREATT:6	PREFEAT:1,Lay Down Fire									DESC:You are most effective when working in concert with your teammates.																																											SOURCEPAGE:p.75
-Diving Shot			TYPE:RangedCombat	PREATT:6	PREFEAT:1,Shot on the Run								DESC:You may take evasive actions while attacking.																																															SOURCEPAGE:p.75
-Extreme Range		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Far Shot									DESC:You're so skilled with ranged weapons that your shots are effective over great distances.														BONUS:RANGEMULT|PROJECTILE|50	BONUS:RANGEMULT|THROWN|100																	SOURCEPAGE:p.75
-Far Shot			TYPE:RangedCombat															DESC:You have practiced firing at increased range.																					BONUS:RANGEMULT|PROJECTILE|50	BONUS:RANGEMULT|THROWN|100																	SOURCEPAGE:p.75
-Hail of Bullets		TYPE:RangedCombat	PREATT:12	PREFEAT:1,Controlled Strafe								DESC:You can fire more than one burst per attack.																																															SOURCEPAGE:p.75
-Increased Precision	TYPE:RangedCombat	PREATT:6	PREFEAT:1,Extreme Range									DESC:You may make precision shots at range.																																																SOURCEPAGE:p.76
-Lay Down Fire		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Point Blank Shot								DESC:You are extremely effective at laying down cover or suppressive fire.																																											SOURCEPAGE:p.76
-Lightning Draw		TYPE:RangedCombat	PREATT:6	PREFEAT:2,Quick Draw,Snap Shot							DESC:You often catch your opponents by surprise.																																															SOURCEPAGE:p.76
-Marksman			TYPE:RangedCombat	PREATT:3	PREFEAT:1,Precise Shot									DESC:When you have time to aim your shots,you can shoot a ranged weapon with deadly effectiveness.																																							SOURCEPAGE:p.76
-Master Sniper		TYPE:RangedCombat	PREATT:12	PREFEAT:1,Sniper										DESC:You are an expert at making killing shots with ranged weapons at long range.																																										SOURCEPAGE:p.76
-Point Blank Shot		TYPE:RangedCombat												PRESTAT:1,DEX=13	DESC:You have been trained to shoot accurately at close range.										BONUS:COMBAT|TOHIT-SHORTRANGE,DAMAGE-SHORTRANGE|1																											SOURCEPAGE:p.76
-Precise Shot		TYPE:RangedCombat			PREFEAT:1,Point Blank Shot								DESC:You are especially skilled at firing into melee combat or past intervening obstacles.																																								SOURCEPAGE:p.76
-Quick Reload		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Speed Trigger						PRESTAT:1,DEX=13	DESC:You can reload a weapon with incredible speed.																																															SOURCEPAGE:p.76
-Rapid Shot			TYPE:RangedCombat	PREATT:3	PREFEAT:1,Speed Trigger						PRESTAT:1,DEX=13	DESC:You are able to fire ranged weapons at an increased rate, but you suffer a loss of accuracy.																							TEMPBONUS:EQ|Weapon,Ranged|WEAPON|TOHIT|-2	TEMPBONUS:EQ|Weapon,Ranged|WEAPON|ATTACKS|1	SOURCEPAGE:p.77
-Sharp-Shooting		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Precise Shot									DESC:You may fire ranged weapons accurately through cover.																																														SOURCEPAGE:p.77
-Shot on the Run		TYPE:RangedCombat			PREFEAT:3,Point Blank Shot,Sidestep,Mobility					DESC:You may move while making a ranged attack.																																																SOURCEPAGE:p.77
-Snap Shot			TYPE:RangedCombat			PREFEAT:1,Rapid Shot									DESC:You are able to get a shot off faster than most.																																															SOURCEPAGE:p.77
-Sniper			TYPE:RangedCombat	PREATT:9	PREFEAT:3,Increased Precision,Marksman,Sharp-Shooting				DESC:You have been trained to make killing shots with ranged weapons at long range.																																										SOURCEPAGE:p.77
-Speed Trigger		TYPE:RangedCombat															DESC:You are skilled with extremely rapid gunfire, even with single-shot firearms.																																										SOURCEPAGE:p.78
+# Feat Name			Type			Req. Att.	Required Feat							Required Stat	Description																			Combat bonus							% bonus to range								Source Page		Temporary Bonus
+Bullseye			TYPE:RangedCombat	PREATT:3	PREFEAT:1,Precise Shot									DESC:You can take flamboyant shots that are especially lethal.																													SOURCEPAGE:p.75
+Controlled Burst		TYPE:RangedCombat			PREFEAT:1,Rapid Shot									DESC:You are skilled at firing controlled bursts, able to hit the right marks for maximum effect upon your targets.																				SOURCEPAGE:p.75
+Controlled Strafe		TYPE:RangedCombat	PREATT:6	PREFEAT:1,Controlled Burst								DESC:You are skilled at making controlled strafe attacks.																														SOURCEPAGE:p.75
+Coordinate Fire		TYPE:RangedCombat	PREATT:6	PREFEAT:1,Lay Down Fire									DESC:You are most effective when working in concert with your teammates.																											SOURCEPAGE:p.75
+Diving Shot			TYPE:RangedCombat	PREATT:6	PREFEAT:1,Shot on the Run								DESC:You may take evasive actions while attacking.																															SOURCEPAGE:p.75
+Extreme Range		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Far Shot									DESC:You're so skilled with ranged weapons that your shots are effective over great distances.														BONUS:RANGEMULT|PROJECTILE|50	BONUS:RANGEMULT|THROWN|100	SOURCEPAGE:p.75
+Far Shot			TYPE:RangedCombat															DESC:You have practiced firing at increased range.																					BONUS:RANGEMULT|PROJECTILE|50	BONUS:RANGEMULT|THROWN|100	SOURCEPAGE:p.75
+Hail of Bullets		TYPE:RangedCombat	PREATT:12	PREFEAT:1,Controlled Strafe								DESC:You can fire more than one burst per attack.																															SOURCEPAGE:p.75
+Increased Precision	TYPE:RangedCombat	PREATT:6	PREFEAT:1,Extreme Range									DESC:You may make precision shots at range.																																SOURCEPAGE:p.76
+Lay Down Fire		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Point Blank Shot								DESC:You are extremely effective at laying down cover or suppressive fire.																											SOURCEPAGE:p.76
+Lightning Draw		TYPE:RangedCombat	PREATT:6	PREFEAT:2,Quick Draw,Snap Shot							DESC:You often catch your opponents by surprise.																															SOURCEPAGE:p.76
+Marksman			TYPE:RangedCombat	PREATT:3	PREFEAT:1,Precise Shot									DESC:When you have time to aim your shots,you can shoot a ranged weapon with deadly effectiveness.																							SOURCEPAGE:p.76
+Master Sniper		TYPE:RangedCombat	PREATT:12	PREFEAT:1,Sniper										DESC:You are an expert at making killing shots with ranged weapons at long range.																										SOURCEPAGE:p.76
+Point Blank Shot		TYPE:RangedCombat												PRESTAT:1,DEX=13	DESC:You have been trained to shoot accurately at close range.										BONUS:COMBAT|TOHIT-SHORTRANGE,DAMAGE-SHORTRANGE|1											SOURCEPAGE:p.76
+Precise Shot		TYPE:RangedCombat			PREFEAT:1,Point Blank Shot								DESC:You are especially skilled at firing into melee combat or past intervening obstacles.																								SOURCEPAGE:p.76
+Quick Reload		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Speed Trigger						PRESTAT:1,DEX=13	DESC:You can reload a weapon with incredible speed.																															SOURCEPAGE:p.76
+Rapid Shot			TYPE:RangedCombat	PREATT:3	PREFEAT:1,Speed Trigger						PRESTAT:1,DEX=13	DESC:You are able to fire ranged weapons at an increased rate, but you suffer a loss of accuracy.																							SOURCEPAGE:p.77	TEMPBONUS:EQ|Weapon,Ranged|WEAPON|TOHIT|-2	TEMPBONUS:EQ|Weapon,Ranged|WEAPON|ATTACKS|1
+Sharp-Shooting		TYPE:RangedCombat	PREATT:3	PREFEAT:1,Precise Shot									DESC:You may fire ranged weapons accurately through cover.																														SOURCEPAGE:p.77
+Shot on the Run		TYPE:RangedCombat			PREFEAT:3,Point Blank Shot,Sidestep,Mobility					DESC:You may move while making a ranged attack.																																SOURCEPAGE:p.77
+Snap Shot			TYPE:RangedCombat			PREFEAT:1,Rapid Shot									DESC:You are able to get a shot off faster than most.																															SOURCEPAGE:p.77
+Sniper			TYPE:RangedCombat	PREATT:9	PREFEAT:3,Increased Precision,Marksman,Sharp-Shooting				DESC:You have been trained to make killing shots with ranged weapons at long range.																										SOURCEPAGE:p.77
+Speed Trigger		TYPE:RangedCombat															DESC:You are skilled with extremely rapid gunfire, even with single-shot firearms.																										SOURCEPAGE:p.78
 
 ###Block: Unarmed Combat Feats
 

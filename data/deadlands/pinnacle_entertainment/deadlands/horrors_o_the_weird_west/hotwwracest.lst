@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 # The Thing Under the Bed entry refers to the skill "Sneak".
 #	This is a skill from the original Deadlands game system;
 #	it does not exist in D20 rules.  Use "Move Silently" instead.
-# Race Name			Starting Feats	Size		Move				Reach		Combat bonus					Stat bonus														Natural Attacks																				Special ABility																Define							Monster Class Name and Starting Level	Main Race Type			Template						Hit Dice Advancement	Challenge Rating	Source Page		Apply Kit
+# Race Name			Starting Feats	Size		Move				Reach		Combat bonus					Stat bonus														Natural Attacks																				Special ABility																Define a Stat						Monster Class Name and Starting Level	Main Race Type			Template						Hit Dice Advancement	Challenge Rating	Source Page		Apply Kit
 Tarnished Phantasy	STARTFEATS:1	SIZE:M	MOVE:Walk,15		REACH:5	BONUS:COMBAT|AC|2|TYPE=Deflection.REPLACE	BONUS:STAT|DEX|-3	BONUS:STAT|INT|1	BONUS:STAT|WIS|2	BONUS:STAT|CHA|5				NATURALATTACKS:Touch,Weapon.Natural.Melee.Bludgeoning,*1,Energy												SAB:Energy drain(Su)	SAB:Incorporeality(Su)											DEFINESTAT:NONSTAT|STR	DEFINESTAT:NONSTAT|CON	MONSTERCLASS:Undead:5				RACETYPE:Undead			TEMPLATE:Incorporeal	TEMPLATE:Undead	HITDICEADVANCEMENT:6,15	CR:4			SOURCEPAGE:p.92	KIT:1|CE
 Terrantula			STARTFEATS:1	SIZE:D	MOVE:Walk,35,Climb,15	REACH:0								BONUS:STAT|STR|-7	BONUS:STAT|CON|-5	BONUS:STAT|WIS|-5	BONUS:STAT|CHA|-5																										SAB:Swarm(Ex)	SAB:Poison(Ex)													DEFINESTAT:NONSTAT|INT					MONSTERCLASS:Vermin:1				RACETYPE:Vermin										HITDICEADVANCEMENT:2,22	CR:1/2		SOURCEPAGE:p.93	KIT:1|TN
 Texas Skeeter		STARTFEATS:1	SIZE:D	MOVE:Climb,5,Fly,35	REACH:0								BONUS:STAT|STR|-5	BONUS:STAT|DEX|2	BONUS:STAT|CON|-3	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,1													SAB:Swarm(Ex)	SAB:Improved grab(Ex)	SAB:Blood drain(Ex)	SAB:Fire vulnerability(Ex)			DEFINESTAT:NONSTAT|INT					MONSTERCLASS:Vermin:1				RACETYPE:Vermin														CR:1/2		SOURCEPAGE:p.94	KIT:1|TN

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by Barak & Hugo & Tir Gwaith)
 
@@ -17,8 +17,8 @@ Smart Weapon		TYPE:ClassAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		MULT:YES	
 Real World Applications	TYPE:ClassAbility	VISIBLE:NO	SAB:Real-World Applications																																												SOURCEPAGE:p.182
 
 ###Block: Mountain Man Favored Prey
-# Feat Name				Type			Visible	Special ABility			Choose
-Mountain Man Favored Prey	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Prey (%CHOICE)	CHOOSE:NUMCHOICES=1|STRING|Beavers|Buffaloes|Coyotes	MULT:YES
+# Feat Name				Type			Visible	Special ABility			Multiple?	Choose
+Mountain Man Favored Prey	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Prey (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Beavers|Buffaloes|Coyotes
 #
 # End
 #

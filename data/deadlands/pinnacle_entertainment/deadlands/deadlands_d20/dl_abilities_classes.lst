@@ -1,49 +1,46 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
-Friends in High Places	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability	DESC:Friends in High Places %1|FriendsHigh	DEFINE:FriendsHigh|0	SOURCEPAGE:p.90
-Requisition Equipment	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability	DESC:Requisition Equipment							SOURCEPAGE:p.90
+# Ability Name		Category of Ability		Type						Define			Description							Source Page
+Friends in High Places	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:FriendsHigh|0	DESC:Friends in High Places %1|FriendsHigh	SOURCEPAGE:p.90
+Requisition Equipment	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC:Requisition Equipment				SOURCEPAGE:p.90
 
 ###Block: Black Magician class features
 # Feat Name					Type			Visible	Special ABility									Define				Source Page
-Black Magician Black Magic Points	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability	VISIBLE:YES	DESC:Black Magician max Black Magic Points (%1)|BlackMagicPoints	DEFINE:BlackMagicPoints|0	SOURCEPAGE:p.124
+# Ability Name				Category of Ability		Type						Visible	Define				Description										Source Page
+Black Magician Black Magic Points	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	VISIBLE:YES	DEFINE:BlackMagicPoints|0	DESC:Black Magician max Black Magic Points (%1)|BlackMagicPoints	SOURCEPAGE:p.124
 
 ###Block: Black Magician spells known
-# Feat Name							Type			Visible	Multiple?	Choose							Bonus to spell known/L		Source Page
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 1st level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1		SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 2nd level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 3rd level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 4th level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 5th level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 6th level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 7th level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 8th level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	SOURCEPAGE:p.124
-# BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 9th level Black Magic	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9	SOURCEPAGE:p.124
+# Feat Name							Type			Visible	Multiple?	Choose							Bonus to spell known/L		Source Page	BONUS:SPELLKNOWN|%LIST|1
+# Ability Name						Category of Ability		Type							Multiple?	Choose							Source Page
+Black Magician up to 1st level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 2nd level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 3rd level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 4th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 5th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 6th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 7th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 8th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
+Black Magician up to 9th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9	SOURCEPAGE:p.124
 
 ###Block: Blessed class features
 # Feat Name			Type			Visible	Special ABility								Define					Source Page
-Divine Intervention	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Divine Intervention %1/week|DivineInterventionTimes	DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
-Blessed Miracle Points	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Blessed max Miracle Points (%1)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
+# Ability Name		Category of Ability		Type						Define					Description									Source Page
+Divine Intervention	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:DivineInterventionTimes|0	DESC:Divine Intervention %1/week|DivineInterventionTimes	SOURCEPAGE:p.24
+Blessed Miracle Points	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:BlessedMiraclesPoints|0	DESC:Blessed max Miracle Points (%1)|BlessedMiraclesPoints	SOURCEPAGE:p.24
 
 ###Block: Blessed spells known
 # Feat Name					Type			Visible	Multiple?	Choose					Bonus to spell known/L		Source Page
-Blessed up to 1st level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 2nd level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 3rd level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 4th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 5th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 6th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 7th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 8th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
-Blessed up to 9th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9	SOURCEPAGE:p.24	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1
+# Ability Name				Category of Ability		Type							Multiple?	Choose					Bonus to spell known/L					Source Page
+Blessed up to 1st level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 2nd level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 3rd level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 4th level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 5th level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 6th level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 7th level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 8th level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
+Blessed up to 9th level Miracles	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9	BONUS:SPELLKNOWN|CLASS=Blessed;LEVEL=%LIST|1	SOURCEPAGE:p.24
 
 
 
@@ -51,92 +48,104 @@ Blessed up to 9th level Miracles	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Spec
 
 ###Block: Brave class features
 # Feat Name		Type			Visible	Special ABility			Define		Source Page
-War Cry		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:War Cry %1/day|WarCry	DEFINE:WarCry|0	SOURCEPAGE:p.26
-Greater War Cry	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Greater War Cry					SOURCEPAGE:p.26
+# Ability Name	Category of Ability		Type						Define		Description				Source Page
+War Cry		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:WarCry|0	DESC:War Cry %1/day|WarCry	SOURCEPAGE:p.26
+Greater War Cry	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality				DESC:Greater War Cry		SOURCEPAGE:p.26
 
 ###Block: Gunslinger class abilities
 # Feat Name		Type			Visible	Special ABility					Define				Source Page
-Greased Lightning	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Greased Lightnin' +%1|GreaseLightning	DEFINE:GreaseLightning|0	SOURCEPAGE:p.28
+# Ability Name	Category of Ability		Type						Define				Description							Source Page
+Greased Lightning	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:GreaseLightning|0	DESC:Greased Lightnin' +%1|GreaseLightning	SOURCEPAGE:p.28
 
 ###Block: Huckster class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
-Old Hand			TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Old Hand %1|OldHand				DEFINE:OldHand|0		SOURCEPAGE:p.30
-Blood Magic			TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Blood Magic									SOURCEPAGE:p.30
-Huckster Hex Points	TYPE:Internal.SpecialQuality	CATEGORY:Special Ability				DESC:Huckster max Hex Points (%1)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
+# Ability Name		Category of Ability		Type						Define			Description							Source Page
+Old Hand			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:OldHand|0		DESC:Old Hand %1|OldHand				SOURCEPAGE:p.30
+Blood Magic			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC:Blood Magic						SOURCEPAGE:p.30
+Huckster Hex Points	CATEGORY:Special Ability	TYPE:Internal.SpecialQuality		DEFINE:HexPoints|0	DESC:Huckster max Hex Points (%1)|HexPoints	SOURCEPAGE:p.30
 
 ###Block: Huckster spells known
 # Feat Name					Type			Visible	Multiple?	Choose						Bonus to spell known/L		Source Page
-Huckster up to 1st level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|1	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 2nd level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|2	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 3rd level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|3	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 4th level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|4	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 5th level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|5	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 6th level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|6	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 7th level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|7	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 8th level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|8	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
-Huckster up to 9th level Hexes	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|9	SOURCEPAGE:p.30	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1
+# Ability Name				Category of Ability		Type							Multiple?	Choose						Bonus to spell known/L					Source Page
+Huckster up to 1st level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|1	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 2nd level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|2	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 3rd level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|3	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 4th level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|4	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 5th level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|5	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 6th level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|6	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 7th level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|7	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 8th level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|8	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
+Huckster up to 9th level Hexes	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|9	BONUS:SPELLKNOWN|CLASS=Huckster;LEVEL=%LIST|1	SOURCEPAGE:p.30
 
 ###Block: Mad Scientist class features
 # Feat Name		Type			Visible	Special ABility		Define		Source Page
-Concoct Potion	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Concoct Potion				SOURCEPAGE:p.32
-Starting Gadget	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Starting gadget				SOURCEPAGE:p.32
-Jury Rig		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Jury Rig %1|JuryRig	DEFINE:JuryRig|0	SOURCEPAGE:p.32
-Jinx			TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Jinx						SOURCEPAGE:p.32
+# Ability Name	Category of Ability		Type						Define		Description				Source Page
+Concoct Potion	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality				DESC:Concoct Potion		SOURCEPAGE:p.32
+Starting Gadget	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality				DESC:Starting gadget		SOURCEPAGE:p.32
+Jury Rig		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:JuryRig|0	DESC:Jury Rig %1|JuryRig	SOURCEPAGE:p.32
+Jinx			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality				DESC:Jinx				SOURCEPAGE:p.32
 
 ###Block: Maverick class features
 # Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR				Source Page
-Extraordinary Luck	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
-Gambler's Luck		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Gambler's Luck																		SOURCEPAGE:p.34
-Maverick Sneak Attack	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability								VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
-Slippery Mind		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Slippery Mind																			SOURCEPAGE:p.34
+# Ability Name		Category of Ability		Type						Description			Virtual Feat		Save checks bonus						Modify VAR				Source Page
+Extraordinary Luck	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
+Gambler's Luck		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Gambler's Luck																		SOURCEPAGE:p.34
+Maverick Sneak Attack	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
+Slippery Mind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Slippery Mind																		SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities
 # Feat Name		Type			Visible	Special ABility				Define			Source Page
-Thick Skin		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Thick Skin								SOURCEPAGE:p.36
-Tough as Nails	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Tough as Nails %1|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
+# Ability Name	Category of Ability		Type						Define			Description					Source Page
+Thick Skin		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC:Thick Skin				SOURCEPAGE:p.36
+Tough as Nails	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:ToughNails|0	DESC:Tough as Nails %1|ToughNails	SOURCEPAGE:p.36
 
 ###Block: Shaman class abilities
 # Feat Name			Type						Visible	Special ABility							Define				Source Page
-Nature Sense		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Nature Sense												SOURCEPAGE:p.40
-Vision Quest		TYPE:ClassAbility.SpecialQuality.Supernatural	CATEGORY:Special Ability	DESC:Vision Quest (Su)											SOURCEPAGE:p.40
-View Hunting Grounds	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:View Hunting Grounds										SOURCEPAGE:p.40
-One with Nature		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:One with Nature											SOURCEPAGE:p.40
-Open Portal			TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability					DESC:Open Portal												SOURCEPAGE:p.40
-Shaman Favor Points	TYPE:Internal.SpecialQuality	CATEGORY:Special Ability					DESC:Shaman max Favor Points (%1)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
+# Ability Name		Category of Ability		Type								Define				Description								Source Page
+Nature Sense		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality								DESC:Nature Sense							SOURCEPAGE:p.40
+Vision Quest		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural						DESC:Vision Quest (Su)						SOURCEPAGE:p.40
+View Hunting Grounds	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality								DESC:View Hunting Grounds					SOURCEPAGE:p.40
+One with Nature		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality								DESC:One with Nature						SOURCEPAGE:p.40
+Open Portal			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality								DESC:Open Portal							SOURCEPAGE:p.40
+Shaman Favor Points	CATEGORY:Special Ability	TYPE:Internal.SpecialQuality				DEFINE:ShamanFavorPoints|0	DESC:Shaman max Favor Points (%1)|ShamanFavorPoints	SOURCEPAGE:p.40
 
 ###Block: Shaman spells known
 # Feat Name				Type			Visible	Multiple?	Choose						Bonus to spell known/L		Source Page
-Shaman up to 1st level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|1	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 2nd level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|2	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 3rd level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|3	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 4th level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|4	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 5th level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|5	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 6th level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|6	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 7th level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|7	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 8th level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|8	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
-Shaman up to 9th level Favors	TYPE:Internal	TYPE:SpecialQuality	CATEGORY:Special Ability			MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|9	SOURCEPAGE:p.40	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1
+# Ability Name			Category of Ability		Type							Multiple?	Choose						Bonus to spell known/L						Source Page
+Shaman up to 1st level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|1	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 2nd level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|2	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 3rd level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|3	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 4th level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|4	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 5th level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|5	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 6th level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|6	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 7th level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|7	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 8th level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|8	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
+Shaman up to 9th level Favors	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|9	BONUS:SPELLKNOWN|CLASS=Shaman (DL);LEVEL=%LIST|1	SOURCEPAGE:p.40
 
 ###Block: Texas Ranger class abilities
 # Feat Name				Type			Visible	Special ABility					Define			Bonus to skill								Source Page
-National Law Enforcement	TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:National Law Enforcement																	SOURCEPAGE:p.92
-Ranger's Bible			TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Ranger's Bible								BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
-Ranger's Presence			TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Presence +%1|RangerPres			DEFINE:RangerPres|0	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
-One Riot - One Ranger		TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:One Riot - One Ranger %1|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
-Chapter 13				TYPE:ClassAbility.SpecialQuality	CATEGORY:Special Ability				DESC:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
+# Ability Name			Category of Ability		Type						Define			Description							Bonus to skill								Source Page
+National Law Enforcement	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC:National Law Enforcement														SOURCEPAGE:p.92
+Ranger's Bible			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC:Ranger's Bible					BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
+Ranger's Presence			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:RangerPres|0	DESC:Presence +%1|RangerPres				BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
+One Riot - One Ranger		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DEFINE:RiotRanger|0	DESC:One Riot - One Ranger %1|RiotRanger|1											SOURCEPAGE:p.92
+Chapter 13				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DESC:Chapter 13						BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
 
 ###Block: Special abilities (used by multiple classes)
 # Feat Name		Type					Visible		Special ABility																										Define																			Description						Stackable?	Multiple?	Choose										Selections		Modify VAR							Source Page						Temporary effect description
-Defensive Roll	TYPE:RogueSpecialAbilities.SpecialQuality		CATEGORY:Special Ability					DESC:Defensive Roll																																																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Evasion		TYPE:ClassAbility.SpecialQuality			CATEGORY:Special Ability									DESC:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Improved Evasion	TYPE:RogueSpecialAbilities.SpecialQuality		CATEGORY:Special Ability					DESC:Improved Evasion (Ex)																																																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Leadership Score	TYPE:Special.SpecialQuality				CATEGORY:Special Ability																																																																		CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment				TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE								TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
-Sneak Attack	TYPE:Special.SpecialQuality				CATEGORY:Special Ability							DESC:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																				DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Skill Mastery	TYPE:RogueSpecialAbilities.SpecialQuality		CATEGORY:Special Ability	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT									SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Uncanny Dodge	TYPE:ClassAbility.SpecialQuality			CATEGORY:Special Ability									DESC:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	DESC:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	DESC:Uncanny Dodge (+%1 against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
+# Ability Name	Category of Ability		Type							Visible		Define																			Description																											Stackable?	Multiple?	Choose										Selections		Source Page						Temporary effect description																			Temporary Bonus
+Defensive Roll	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality																								DESC:Defensive Roll																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Evasion		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1										DESC:Evasion (Ex)|PHBFeatEvasion																																									SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Improved Evasion	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality																								DESC:Improved Evasion (Ex)																																										SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Leadership Score	CATEGORY:Special Ability	TYPE:Special.SpecialQuality																																																										CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment											TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
+Sneak Attack	CATEGORY:Special Ability	TYPE:Special.SpecialQuality						DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6												DESC:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																																					SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	CATEGORY:Special Ability	TYPE:RogueSpecialAbilities.SpecialQuality	VISIBLE:EXPORT																					DESC:Take 10 on listed skills, %1|%LIST																						STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT	SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Uncanny Dodge	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)	DESC:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	DESC:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	DESC:Uncanny Dodge (+%1 against traps)|UncannyTraps
 
 ###Block: Turning
 # Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																																									Source Page
-Basic Turning	TYPE:Special.Turning					CATEGORY:Special Ability																																												DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Turn Undead		TYPE:Special.Turning.TurnUndead.SpecialQuality	CATEGORY:Special Ability				PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	DESC:Turn Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Rebuke Undead	TYPE:Special.Turning.TurnUndead.SpecialQuality	CATEGORY:Special Ability				PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	DESC:Rebuke Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+# Ability Name	Category of Ability		Type								Required AL				Prohibited Var. Value			Define																																									Description																									Source Page
+Basic Turning	CATEGORY:Special Ability	TYPE:Special.Turning																DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																																											SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Turn Undead		CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Turn Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Rebuke Undead	CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Rebuke Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:srdbasiccharacterclassesi.rtf

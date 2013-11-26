@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 
-# Ability Name							Modify VAR							Allow Follower			Allowed Companions
-ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD									FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Raven,Snake (Viper/Tiny),Toad
+# Ability Name							Modify VAR								Allow Follower			Allowed Companions
+ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Raven,Snake (Viper/Tiny),Toad
 ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|AnimalCompanionLVL|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Wolf
 
 ###Block: Animal Abilities
@@ -31,7 +31,7 @@ Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.At
 Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 
 ###Block: Companion Modifier Abilities -----------------------------------------
-# Ability Name				Category of Ability		Type						Visible	Bonus to skill							Source Page						Temporary effect description
+# Ability Name				Category of Ability		Type						Visible	Source Page						Temporary effect description							Temporary Bonus
 Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Deliver Touch Spells			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
@@ -39,8 +39,8 @@ Devotion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:
 Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Speak with Animals of its Kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	TEMPBONUS:PC|SKILL|Spot|3|TYPE=HawkFamiliar	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
-Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	TEMPBONUS:PC|SKILL|Spot|3|TYPE=OwlFamiliar		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight		TEMPBONUS:PC|SKILL|Spot|3|TYPE=HawkFamiliar
+Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness	TEMPBONUS:PC|SKILL|Spot|3|TYPE=OwlFamiliar
 
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type				Define			Description			Bonus to Ability Pool

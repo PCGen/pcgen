@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block: Mutations
@@ -12,8 +12,8 @@ Diurnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=M
 Nocturnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Day)	SAB:+% to %CHOICE during Nighttime hours (6pm to 6am)|nightBonus							DEFINE:nightBonus|0		STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|nightBonus|2
 
 ###Block: Barbarian Rage
-# Feat Name	Type			Visible	Special ABility																																			Define																										Save checks bonus					Combat bonus						Stat bonus													Modify VAR
-Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	TEMPBONUS:PC|CHECKS|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
+# Feat Name	Type			Visible	Special ABility																																			Define																										Modify VAR																														Temporary Bonus
+Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	TEMPBONUS:PC|CHECKS|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
 
 ###Block: Sneak Attack
 # Feat Name		Type			Visible	Special ABility							Define								Description				Source Page

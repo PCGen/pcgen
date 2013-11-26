@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 ###Block: Magic Defense
@@ -44,15 +44,15 @@ Potion of Wall Walk			TYPE:FX.Magic.Potion.Consumable	COST:16	WT:0		SOURCEPAGE:A
 Vaporex (Potion of Gaseous Form)	TYPE:FX.Magic.Potion.Consumable	COST:25	WT:0		SOURCEPAGE:ArcanaFXItems.rtf	SPROP:This potent elixir or capsule renders the imbiber gaseous for 5 minutes as per the gaseous form spell.
 
 ###Block: Magic Rings
-# Equipment Name				Type					Cost		Weight	Source Page				Virtual Feat		Vision		Innate Spells									Bonus to skill				Special Property
-Cat's Eye Ring				TYPE:FX.Ring.Magic		COST:37	WT:0		SOURCEPAGE:ArcanaFXItems.rtf					VISION:Low-Light Vision																			SPROP:Once per day the wearer may transform into a cat (Transformation is a move action, turn back at any time).	SPROP: The wearer retains INT, WIS and CHA scores in cat form.
-Decoder Ring				TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																			BONUS:SKILL|Decipher Script|10	SPROP:Grants an equipment bonus on Decipher Script checks
-Ring of Algos				TYPE:FX.Ring.Incantation	COST:36	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																									SPROP:When activated on a handshake, both parties shaking hands make opposed Will saves (ringwearer +CHA Bonus). The lower result receives a -4 penalty to attack rolls, skill checks, and saving throws for the next 12 hours.
-Ring of Cold Cocking			TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf	VFEAT:Knockout Punch																					SPROP:The wearer can make an unarmed attack against a flat-footed opponent as if he had the Knockout Punch feat
-Ring of Lock Picking			TYPE:FX.Ring.Magic		COST:28	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																									SPROP:Grants a +5 bonus on Disable Device checks made to pick or disable a mechanical or electronic lock
-Ring of Lyssa				TYPE:FX.Ring.Incantation	COST:37	WT:0		SOURCEPAGE:ArcanaFXItems.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=12|Sigil of Lyssa,28							SPROP:Ringwearer suffers the effects of a sigil of Lyssa incantation for as long as the ring is worn (Will save DC 28).	SPROP:Upon removal make another Will save (DC 28) or suffer the effects for an additional 16 minutes
-Ring of Surveillance Detection	TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																									SPROP:Pulses dimly when electronic devices are monitoring the wearer. Can detect a working video camera, microphone, motion detector, or other sensor within 50 feet.	SPROP:By taking a full-round action, the wearer can locate the direction and distance to the device.	SPROP:Grants a +5 circumstance bonus on Search checks when trying to find concealed monitoring devices.
-Ring of Via Negativa			TYPE:FX.Ring.Magic		COST:32	WT:0		SOURCEPAGE:ArcanaFXItems.rtf								SPELLS:Magic Item|TIMES=3|CASTERLEVEL=7|Via Negativa,16
+# Equipment Name				Type					Cost		Weight	Source Page				Virtual Feat		Vision			Innate Spells									Bonus to skill				Special Property
+Cat's Eye Ring				TYPE:FX.Ring.Magic		COST:37	WT:0		SOURCEPAGE:ArcanaFXItems.rtf					VISION:Low-Light Vision																		SPROP:Once per day the wearer may transform into a cat (Transformation is a move action, turn back at any time).	SPROP: The wearer retains INT, WIS and CHA scores in cat form.
+Decoder Ring				TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																				BONUS:SKILL|Decipher Script|10	SPROP:Grants an equipment bonus on Decipher Script checks
+Ring of Algos				TYPE:FX.Ring.Incantation	COST:36	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																										SPROP:When activated on a handshake, both parties shaking hands make opposed Will saves (ringwearer +CHA Bonus). The lower result receives a -4 penalty to attack rolls, skill checks, and saving throws for the next 12 hours.
+Ring of Cold Cocking			TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf	VFEAT:Knockout Punch																						SPROP:The wearer can make an unarmed attack against a flat-footed opponent as if he had the Knockout Punch feat
+Ring of Lock Picking			TYPE:FX.Ring.Magic		COST:28	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																										SPROP:Grants a +5 bonus on Disable Device checks made to pick or disable a mechanical or electronic lock
+Ring of Lyssa				TYPE:FX.Ring.Incantation	COST:37	WT:0		SOURCEPAGE:ArcanaFXItems.rtf									SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=12|Sigil of Lyssa,28							SPROP:Ringwearer suffers the effects of a sigil of Lyssa incantation for as long as the ring is worn (Will save DC 28).	SPROP:Upon removal make another Will save (DC 28) or suffer the effects for an additional 16 minutes
+Ring of Surveillance Detection	TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																										SPROP:Pulses dimly when electronic devices are monitoring the wearer. Can detect a working video camera, microphone, motion detector, or other sensor within 50 feet.	SPROP:By taking a full-round action, the wearer can locate the direction and distance to the device.	SPROP:Grants a +5 circumstance bonus on Search checks when trying to find concealed monitoring devices.
+Ring of Via Negativa			TYPE:FX.Ring.Magic		COST:32	WT:0		SOURCEPAGE:ArcanaFXItems.rtf									SPELLS:Magic Item|TIMES=3|CASTERLEVEL=7|Via Negativa,16
 
 ###Block: Magic Tattoos
 # Equipment Name			Type							Cost		Weight	Source Page				Innate Spells											Special Property

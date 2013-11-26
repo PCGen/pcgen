@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com	SOURCEDATE:2003-01
 #Original Entry by: Frank Kliewe
 
@@ -58,17 +58,17 @@ Void Phoenixes	NAMEISPI:YES	VISIBLE:NO	TEMPLATE:CHOOSE:Birthright Ash (Corrosion
 Wild Bloods		NAMEISPI:YES	VISIBLE:NO	TEMPLATE:CHOOSE:Birthright Bestial Urge (Cusith's Urge)|Birthright Bestial Urge (Anat's Calling)|Birthright Chimera (Blood of the Unicorn)|Birthright Wild Flesh (Senses of the Beast)									SAB:Bestial Exertion (Trait) %rounds|max(1,BBB+CON)	SAB:Scent of the Hunt (Trait)	SAB:Primal Fury (Weakness)																																																			BONUS:VAR|ActionUsed|-1	BONUS:VAR|APspentonBR|1	ADD:FEAT|Call of the Wild
 
 ###Block: Tracker Templates for Titan variables
-# Template Name			Visible	Source Page		Var. Min. Value			Modify VAR																		Choose										Temporary effect description
-Gained Legacy Points Tracker	VISIBLE:NO	SOURCEPAGE:p.135						TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan									CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points				TEMPDESC:Use this to track the Legacy Points you gained by rolling a natural 20. If you have more than 10 this can be applied multiple times.
-Bought Legacy Points Tracker	VISIBLE:NO	SOURCEPAGE:p.135	PREVARGTEQ:ActionRemain,5	TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan	BONUS:VAR|ActionUsed|%CHOICE*5|PRERACE:1,Titan	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Point (COST:5 AP each)	TEMPDESC:Use this to track the Legacy Points you bought by spending action points.
-Base Birthright Bonus Tracker	VISIBLE:NO	SOURCEPAGE:p.135	PREVARGTEQ:CheckLPtoBBB,1	TEMPBONUS:ANYPC|VAR|BBB|%CHOICE|PRERACE:1,Titan											CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Base Birthright Bonus		TEMPDESC:This can be used to track your Base Birthright Bonus. If you have more than 10 this can be applied multiple times.
-Strain Tracker			VISIBLE:NO	SOURCEPAGE:p.136						TEMPBONUS:ANYPC|VAR|Strain|%CHOICE|PRERACE:1,Titan										CHOOSE:NUMBER|MIN=-10|MAX=-1|TITLE=Strain					TEMPDESC:This can be used to track your Strain. If you have less than -10 this can be applied multiple times.
+# Template Name			Visible	Source Page		Var. Min. Value			Modify VAR							Choose										Temporary effect description																				Temporary Bonus
+Gained Legacy Points Tracker	VISIBLE:NO	SOURCEPAGE:p.135														CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points				TEMPDESC:Use this to track the Legacy Points you gained by rolling a natural 20. If you have more than 10 this can be applied multiple times.	TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan
+Bought Legacy Points Tracker	VISIBLE:NO	SOURCEPAGE:p.135	PREVARGTEQ:ActionRemain,5	BONUS:VAR|ActionUsed|%CHOICE*5|PRERACE:1,Titan	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Point (COST:5 AP each)	TEMPDESC:Use this to track the Legacy Points you bought by spending action points.											TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan
+Base Birthright Bonus Tracker	VISIBLE:NO	SOURCEPAGE:p.135	PREVARGTEQ:CheckLPtoBBB,1									CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Base Birthright Bonus		TEMPDESC:This can be used to track your Base Birthright Bonus. If you have more than 10 this can be applied multiple times.				TEMPBONUS:ANYPC|VAR|BBB|%CHOICE|PRERACE:1,Titan
+Strain Tracker			VISIBLE:NO	SOURCEPAGE:p.136														CHOOSE:NUMBER|MIN=-10|MAX=-1|TITLE=Strain					TEMPDESC:This can be used to track your Strain. If you have less than -10 this can be applied multiple times.						TEMPBONUS:ANYPC|VAR|Strain|%CHOICE|PRERACE:1,Titan
 
 ###Block: failed Strain check conditions
-# Template Name			Visible	Source Page		Special ABility									Save checks bonus							Combat bonus							Multiply base move														Bonus to skill							Stat bonus								Temporary effect description
-Strain Result (Shaken)		VISIBLE:NO	SOURCEPAGE:p.137												TEMPBONUS:ANYPC|CHECKS|ALL|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|PRERACE:1,Titan																		TEMPBONUS:ANYPC|SKILL|ALL|-2|PRERACE:1,Titan										TEMPDESC:You are shaken due to Strain
-Strain Result (Fatigued)	VISIBLE:NO	SOURCEPAGE:p.137	SAB:You can't run or charge																																																			TEMPBONUS:ANYPC|STAT|STR,DEX|-2|PRERACE:1,Titan	TEMPDESC:You are fatigued due to Strain
-Strain Result (Exhausted)	VISIBLE:NO	SOURCEPAGE:p.137	SAB:You can't run or charge	SAB:You cannot manifest Birthrights																			TEMPBONUS:ANYPC|MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Swim,TYPE.Burrow,TYPE.Climb|0.5|PRERACE:1,Titan										TEMPBONUS:ANYPC|STAT|STR,DEX|-6|PRERACE:1,Titan	TEMPDESC:You are exhausted due to Strain
+# Template Name			Visible	Source Page		Special ABility									Temporary effect description			Temporary Bonus
+Strain Result (Shaken)		VISIBLE:NO	SOURCEPAGE:p.137												TEMPDESC:You are shaken due to Strain	TEMPBONUS:ANYPC|CHECKS|ALL|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|SKILL|ALL|-2|PRERACE:1,Titan
+Strain Result (Fatigued)	VISIBLE:NO	SOURCEPAGE:p.137	SAB:You can't run or charge							TEMPDESC:You are fatigued due to Strain	TEMPBONUS:ANYPC|STAT|STR,DEX|-2|PRERACE:1,Titan
+Strain Result (Exhausted)	VISIBLE:NO	SOURCEPAGE:p.137	SAB:You can't run or charge	SAB:You cannot manifest Birthrights	TEMPDESC:You are exhausted due to Strain	TEMPBONUS:ANYPC|MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Swim,TYPE.Burrow,TYPE.Climb|0.5|PRERACE:1,Titan	TEMPBONUS:ANYPC|STAT|STR,DEX|-6|PRERACE:1,Titan
 
 ###Block: Birthright Selectors
 # Template Name							Product Identity?	Visible		Source Page		Multiple Requirements																																																Modify VAR												Innate Spells

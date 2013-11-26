@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block: Background and Occupation
@@ -39,7 +39,7 @@ Gigantism Penalty Template			VISIBLE:NO	BONUS:STAT|DEX|-1|TYPE=GigantismPenalty	
 Serrated Dental Development Template	VISIBLE:NO																										BONUS:WEAPONPROF=Bite|DAMAGESIZE|SerratedDentalDevelopment	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1			NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
 
 ###Block: Nonexistant Scores
-# Template Name	Visible	Define
+# Template Name	Visible	Define a Stat
 No Strength		VISIBLE:NO	DEFINESTAT:NONSTAT|STR
 No Dexterity	VISIBLE:NO	DEFINESTAT:NONSTAT|DEX
 No Constitution	VISIBLE:NO	DEFINESTAT:NONSTAT|CON

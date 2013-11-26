@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -276,7 +276,7 @@ Weapon Focus.MOD					TYPE:Scholar
 ###Block: Occupation Feat Choices
 
 # Bureaucrat
-# Feat Name											Type					Visible		Stackable?	Multiple?	Choose				Selections	Automatically Gained Feat									Bonus to skill
+# Feat Name											Type					Visible		Stackable?	Multiple?	Choose				Selections	Automatically Gained Feat															Bonus to skill
 Skill Focus.MOD										TYPE:Bureaucrat
 Skill Focus +2 to Two Skills.MOD							TYPE:Bureaucrat
 Renown.MOD											TYPE:Bureaucrat
@@ -291,7 +291,7 @@ Skill Focus.MOD										TYPE:Craftperson
 Skill Focus +2 to Two Skills.MOD							TYPE:Craftperson
 
 # Heir
-Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
 
 
 # Escape Artist
@@ -325,8 +325,8 @@ Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:
 
 # World Traveler
 Renown.MOD											TYPE:World_Traveler
-Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
 Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
 Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
-Skill Focus (Survival).MOD									TYPE:World_Traveler		VISIBLE:DISPLAY
+Skill Focus (Survival).MOD								TYPE:World_Traveler		VISIBLE:DISPLAY
 Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Gather Information)|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))

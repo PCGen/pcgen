@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 ###Block: Mutation Support
 
-# Template Name			Visible	Stat bonus							Modify VAR									Choose							Ability									Temporary effect description
-Adrenaline Jolt (Strength)	VISIBLE:NO	TEMPBONUS:PC|STAT|STR|%CHOICE|TYPE=Jolt											CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt											TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.
-Adrenaline Jolt (Dexterity)	VISIBLE:NO	TEMPBONUS:PC|STAT|DEX|%CHOICE|TYPE=Jolt											CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt											TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.
+# Template Name			Visible	Modify VAR									Choose							Ability									Temporary effect description																															Temporary Bonus
+Adrenaline Jolt (Strength)	VISIBLE:NO											CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt											TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.	TEMPBONUS:PC|STAT|STR|%CHOICE|TYPE=Jolt
+Adrenaline Jolt (Dexterity)	VISIBLE:NO											CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Adrenaline Jolt											TEMPDESC:Once per day, as a free action, you can temporarily increase either your Strength or your Dexterity by 1d4+1 points. The increase lasts for a number of rounds equal to 3 + your Constitution modifier.	TEMPBONUS:PC|STAT|DEX|%CHOICE|TYPE=Jolt
 
-Resistance (Acid)			VISIBLE:NO									BONUS:VAR|AcidResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Acid
-Resistance (Cold)			VISIBLE:NO									BONUS:VAR|ColdResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
-Resistance (Electricity)	VISIBLE:NO									BONUS:VAR|ElectricityResistanceBonus|MutantEnergyAbsorption									ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
-Resistance (Fire)			VISIBLE:NO									BONUS:VAR|FireResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
-Resistance (Sonic)		VISIBLE:NO									BONUS:VAR|SonicResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic
+Resistance (Acid)			VISIBLE:NO	BONUS:VAR|AcidResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Acid
+Resistance (Cold)			VISIBLE:NO	BONUS:VAR|ColdResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+Resistance (Electricity)	VISIBLE:NO	BONUS:VAR|ElectricityResistanceBonus|MutantEnergyAbsorption									ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity
+Resistance (Fire)			VISIBLE:NO	BONUS:VAR|FireResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
+Resistance (Sonic)		VISIBLE:NO	BONUS:VAR|SonicResistanceBonus|MutantEnergyAbsorption										ABILITY:Special Ability|AUTOMATIC|Resistance To Sonic
 
-Cold Susceptibility		VISIBLE:NO																											ABILITY:Special Ability|AUTOMATIC|Cold Susceptibility
-Heat Susceptibility		VISIBLE:NO																											ABILITY:Special Ability|AUTOMATIC|Heat Susceptibility
+Cold Susceptibility		VISIBLE:NO																			ABILITY:Special Ability|AUTOMATIC|Cold Susceptibility
+Heat Susceptibility		VISIBLE:NO																			ABILITY:Special Ability|AUTOMATIC|Heat Susceptibility
 
-Blood Hunger Penalties		VISIBLE:NO	TEMPBONUS:PC|STAT|CON|-1*(%CHOICE)												CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4												TEMPDESC:If you go 24 hours without consuming blood, you take 1d4 points of Constitution damage.
-Poisonous Blood Damage		VISIBLE:NO	TEMPBONUS:PC|STAT|CON|-1*(%CHOICE)												CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4												TEMPDESC:If you go 24 hours without taking a dose of antitox you must make a successful Fortitude save (DC 15) or take 1d4 points of Constitution damage.
+Blood Hunger Penalties		VISIBLE:NO											CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4												TEMPDESC:If you go 24 hours without consuming blood, you take 1d4 points of Constitution damage.																			TEMPBONUS:PC|STAT|CON|-1*(%CHOICE)
+Poisonous Blood Damage		VISIBLE:NO											CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Roll 1d4												TEMPDESC:If you go 24 hours without taking a dose of antitox you must make a successful Fortitude save (DC 15) or take 1d4 points of Constitution damage.										TEMPBONUS:PC|STAT|CON|-1*(%CHOICE)
 
 ###Block: Mutation Natural Weapons
 

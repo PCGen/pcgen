@@ -1,7 +1,9 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 
 #Armor									Armor Rating			Weight	Lethal Immunity					Price
 
-Bombsuit		TYPE:Armor	PROFICIENCY:ARMOR|Standard	BONUS:COMBAT|AC|3|TYPE=Armor	WT:3		SPROP:Lethal Immunity: Yes (entire body)	COST:30000
-Bulletproof Vest	TYPE:Armor	PROFICIENCY:ARMOR|Standard						WT:1		SPROP:Lethal Immunity: Yes (chest)		COST:5000
-Helmet		TYPE:Armor	PROFICIENCY:ARMOR|Standard	BONUS:COMBAT|AC|1|TYPE=Armor	WT:1									COST:200
+# Equipment Name	Required Armor Proficiency	Type		Cost		Weight	Combat bonus			Special Property
+Bombsuit		PROFICIENCY:ARMOR|Standard	TYPE:Armor	COST:30000	WT:3		BONUS:COMBAT|AC|3|TYPE=Armor	SPROP:Lethal Immunity: Yes (entire body)
+Bulletproof Vest	PROFICIENCY:ARMOR|Standard	TYPE:Armor	COST:5000	WT:1							SPROP:Lethal Immunity: Yes (chest)
+Helmet		PROFICIENCY:ARMOR|Standard	TYPE:Armor	COST:200	WT:1		BONUS:COMBAT|AC|1|TYPE=Armor

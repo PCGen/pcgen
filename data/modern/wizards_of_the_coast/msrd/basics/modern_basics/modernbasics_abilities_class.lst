@@ -1,26 +1,26 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------
 
-# Ability Name			Category of Ability		Type								Visible	Required Ability								Required Feat		Var. Min. Value			Special ABility																															Define																										Description		Multiple?	Choose							Combat bonus						Stat bonus													Modify VAR																																							Weapon prof. bonus							Source Page
+# Ability Name			Category of Ability		Type								Visible	Required Ability								Required Feat		Var. Min. Value			Special ABility																															Define																										Description		Multiple?	Choose							Modify VAR																								Weapon prof. bonus							Source Page					Temporary Bonus
 Discern Lie				CATEGORY:Special Ability	TYPE:Class.SpecialAbility				VISIBLE:NO																				SAB:Discern Lie
 Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility				VISIBLE:NO																				SAB:Improvised Weapon Damage
 Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility				VISIBLE:NO																				SAB:Skill Mastery
-Find the Mark			CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Finesse																																																															BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
+Find the Mark			CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Finesse																										BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
 # COMMENT: Changed from Weapon Specialization to Weapon Focus - ABILITY to FEAT
-Increased Weapon Critical	CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
-Rage					CATEGORY:Special Ability									VISIBLE:NO																				SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0														TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
-Weapon Specialization		CATEGORY:Special Ability	TYPE:SpecialAbility.WeaponSpecialization														PREFEAT:1,Weapon Focus	PREVARGTEQ:WeapSpecQualify,1	SAB:Weapon Specialization (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|DAMAGE|2					SOURCEPAGE:msrdadvancedclasses.rtf
+Increased Weapon Critical	CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																										BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
+Rage					CATEGORY:Special Ability									VISIBLE:NO																				SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0														BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2																	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
+Weapon Specialization		CATEGORY:Special Ability	TYPE:SpecialAbility.WeaponSpecialization														PREFEAT:1,Weapon Focus	PREVARGTEQ:WeapSpecQualify,1	SAB:Weapon Specialization (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																										BONUS:WEAPONPROF=%LIST|DAMAGE|2					SOURCEPAGE:msrdadvancedclasses.rtf
 # COMMENT: Changed from Weapon Specialization to Weapon Focus - ABILITY to FEAT
-Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponSpecialization			PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization	PREFEAT:1,Weapon Focus						SAB:Greater Weapon Specialization (%CHOICE)																																																					DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|DAMAGE|2					SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponSpecialization			PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization	PREFEAT:1,Weapon Focus						SAB:Greater Weapon Specialization (%CHOICE)																																																					DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																										BONUS:WEAPONPROF=%LIST|DAMAGE|2					SOURCEPAGE:msrdadvancedclasses.rtf
 # COMMENT: Changed from Weapon Specialization to Weapon Focus - ABILITY to FEAT
-Improved Critical			CATEGORY:Special Ability	TYPE:SpecialAbility.ImprovedCritical				PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization										SAB:Improved Critical (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1				SOURCEPAGE:msrdadvancedclasses.rtf
+Improved Critical			CATEGORY:Special Ability	TYPE:SpecialAbility.ImprovedCritical				PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization										SAB:Improved Critical (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																										BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1				SOURCEPAGE:msrdadvancedclasses.rtf
 
-Greater Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponFocus														PREFEAT:1,Weapon Focus						SAB:Greater Weapon Focus (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|TOHIT|1					SOURCEPAGE:msrdadvancedclasses.rtf
+Greater Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponFocus														PREFEAT:1,Weapon Focus						SAB:Greater Weapon Focus (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																										BONUS:WEAPONPROF=%LIST|TOHIT|1					SOURCEPAGE:msrdadvancedclasses.rtf
 
 # Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
-PsionicClass			CATEGORY:Special Ability	TYPE:PsionicClass						VISIBLE:NO																				SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints											DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1																																								BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+PsionicClass			CATEGORY:Special Ability	TYPE:PsionicClass						VISIBLE:NO																				SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints											DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1																		BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: Turning
 # Ability Name			Category of Ability		Type						Visible	Special ABility																																Define
@@ -161,15 +161,15 @@ Sow Distrust	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:S
 
 
 ###Block: Companion Modifier Abilities -----------------------------------------
-# Ability Name				Category of Ability		Visible	Special ABility				Bonus to skill							Source Page						Temporary effect description
+# Ability Name				Category of Ability		Visible	Special ABility				Source Page						Temporary effect description							Temporary Bonus
 Empathic Link				CATEGORY:Special Ability	VISIBLE:NO	SAB:Empathic Link
 Share Spells				CATEGORY:Special Ability	VISIBLE:NO	SAB:Share Spells
 Deliver Touch Spells			CATEGORY:Special Ability	VISIBLE:NO	SAB:Deliver touch spells
 Speak with Master				CATEGORY:Special Ability	VISIBLE:NO	SAB:Speak with master
 Speak with Animals of its Kind	CATEGORY:Special Ability	VISIBLE:NO	SAB:Speak with animals of its kind
 Scry on Familiar				CATEGORY:Special Ability	VISIBLE:NO	SAB:Scry on familiar
-Hawk Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							TEMPBONUS:PC|SKILL|Spot|3|TYPE=HawkFamiliar	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
-Owl Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							TEMPBONUS:PC|SKILL|Spot|3|TYPE=OwlFamiliar		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+Hawk Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight		TEMPBONUS:PC|SKILL|Spot|3|TYPE=HawkFamiliar
+Owl Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness	TEMPBONUS:PC|SKILL|Spot|3|TYPE=OwlFamiliar
 
 #
 # End

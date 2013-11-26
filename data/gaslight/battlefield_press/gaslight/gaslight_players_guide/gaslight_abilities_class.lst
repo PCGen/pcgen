@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -51,7 +51,7 @@ Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATE
 
 ###Block:   Apprentice class abilities   =======================================
 
-# Ability Name	Category of Ability		Type				Visible	Define		Description																	Source Page
+# Ability Name	Category of Ability		Type				Visible	Define			Description																	Source Page
 Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:FamiliarLVL|0	DESC:An Apprentice has the ability to obtain a familiar. A familiar is magically linked to its master.	SOURCEPAGE:p.81
 
 ###Block: Apprentice Talents

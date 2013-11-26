@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block:Mod of msrd Feat types
@@ -123,7 +123,7 @@ Master Artificer				TYPE:General									VISIBLE:YES																							PRESK
 Master Mechanic				TYPE:General									VISIBLE:YES																							PRESKILL:1,Repair=8																							DESC:See Text.																	SOURCEPAGE:p. 65
 Mounted Archery				TYPE:General.Barbarian								VISIBLE:YES								PREFEAT:1,Mounted Combat											PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p. 66
 Mounted Combat				TYPE:General.Barbarian								VISIBLE:YES																							PRESKILL:1,Ride=1																								DESC:See Text.																	SOURCEPAGE:p. 66
-Powered Armor Operation			TYPE:General.Champion.Mech																VISIBLE:YES			PREFEAT:1,Advanced Technology																											PRESKILL:1,Pilot=4																																	DESC:See Text.																																												SOURCEPAGE:p. 67
+Powered Armor Operation			TYPE:General.Champion.Mech							VISIBLE:YES								PREFEAT:1,Advanced Technology											PRESKILL:1,Pilot=4																							DESC:See Text.																	SOURCEPAGE:p. 67
 Quick Treatment				TYPE:General.JujuDoc								VISIBLE:YES																							PRESKILL:1,Treat Injury=5																						DESC:See Text.																	SOURCEPAGE:p. 68
 Radiation Sense				TYPE:General.JujuDoc.Scholar.Survivalist.Symbiote			VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p. 68
 Reactive Shooter				TYPE:General.Guardian.Survivalist						VISIBLE:YES																																											PRESTAT:1,DEX=13				DESC:See Text.																	SOURCEPAGE:p. 68

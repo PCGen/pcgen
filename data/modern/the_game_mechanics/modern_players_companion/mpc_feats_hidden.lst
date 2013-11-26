@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
 # Original Entry by: Frank Kliewe
 
 
 ###Block: Categories for Logical Talent -
-# Feat Name					Type				Visible	Required Skill							Special ABility					Bonus to skill												Source Page
+# Feat Name								Type				Visible	Required Skill							Special ABility					Bonus to skill												Source Page
 Logical Choice / Category Arcane lore			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Arcane Lore)=4			SAB:Logical (Arcane Lore)			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.6
 Logical Choice / Category Art					TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					SAB:Logical (Art)					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.6
 Logical Choice / Category Behavioral sciences		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		SAB:Logical (Behavioral Sciences)		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.6
@@ -21,19 +21,19 @@ Logical Choice / Category Technology			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,
 Logical Choice / Category Theology and philosophy	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	SAB:Logical (Theology and Philosophy)	BONUS:SKILL|Knowledge (Arcane Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.6
 
 ###Block: Categories for Talk a Good Game Talent
-# Feat Name					Type					Visible	Required Feat						Special ABility						Source Page
+# Feat Name								Type					Visible	Required Feat								Special ABility						Source Page
 Talk a Good Game / Category Arcane lore			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Arcane lore			SAB:Talk a Good Game (Arcane Lore)			SOURCEPAGE:p.6
-Talk a Good Game / Category Art				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Art					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.6
-Talk a Good Game / Category Behavioral sciences		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Behavioral sciences		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.6
-Talk a Good Game / Category Business			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Business				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.6
-Talk a Good Game / Category Civics				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Civics				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.6
-Talk a Good Game / Category Current events		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Current events			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.6
+Talk a Good Game / Category Art				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Art				SAB:Talk a Good Game (Art)				SOURCEPAGE:p.6
+Talk a Good Game / Category Behavioral sciences		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Behavioral sciences	SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.6
+Talk a Good Game / Category Business			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Business			SAB:Talk a Good Game (Business)			SOURCEPAGE:p.6
+Talk a Good Game / Category Civics				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Civics			SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.6
+Talk a Good Game / Category Current events		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Current events		SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.6
 Talk a Good Game / Category Earth and life sciences	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Earth and life sciences	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.6
-Talk a Good Game / Category History				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category History				SAB:Talk a Good Game (History)			SOURCEPAGE:p.6
+Talk a Good Game / Category History				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category History			SAB:Talk a Good Game (History)			SOURCEPAGE:p.6
 Talk a Good Game / Category Physical sciences		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Physical sciences		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.6
-Talk a Good Game / Category Popular culture		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Popular culture			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.6
+Talk a Good Game / Category Popular culture		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Popular culture		SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.6
 Talk a Good Game / Category Streetwise			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Streetwise			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.6
-Talk a Good Game / Category Tactics				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Tactics				SAB:Talk a Good Game (Tactics)			SOURCEPAGE:p.6
+Talk a Good Game / Category Tactics				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Tactics			SAB:Talk a Good Game (Tactics)			SOURCEPAGE:p.6
 Talk a Good Game / Category Technology			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Technology			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.6
 Talk a Good Game / Category Theology and philosophy	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Logical Choice / Category Theology and philosophy	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.6
 

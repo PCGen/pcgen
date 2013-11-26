@@ -1,9 +1,10 @@
-# CVS $Revision$ $Author$ -- Tue Jan 20 22:03:13 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by bD_92)
 
-Grapple	TYPE:Unarmed.Melee
-Ray		TYPE:Unarmed.Melee
+# Weapon Name					Type
+Grapple						TYPE:Unarmed.Melee
+Ray							TYPE:Unarmed.Melee
 
 #Ranged
 # Weapon Name					Type

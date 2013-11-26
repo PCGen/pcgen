@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Equipment Name			Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Range		Size		Source Page		Weapon prop. bonus
@@ -26,4 +26,4 @@ Rifle Bayonet			PROFICIENCY:WEAPON|Rifle Bayonet	TYPE:Weapon.Exotic.Melee.Pierci
 Bowie's Last Knife		PROFICIENCY:WEAPON|Knife		TYPE:Magic.Weapon.Simple.Melee.Piercing					COST:18154	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4				SIZE:T	SOURCEPAGE:p.196	BONUS:WEAPON|DAMAGE,TOHIT|3
 Cortez's Sword			PROFICIENCY:WEAPON|Longsword		TYPE:Magic.Weapon.Martial.Melee.Slashing					COST:18165	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.196	BONUS:WEAPON|DAMAGE,TOHIT|3
 Crazy Horse's Coup Stick	PROFICIENCY:WEAPON|Club			TYPE:Magic.Weapon.Simple.Melee.Bludgeoning				COST:2704	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6+1			SIZE:M	SOURCEPAGE:p.196
-Sacred Tomahawk of the Sun	PROFICIENCY:WEAPON|Tomahawk		TYPE:Magic.Weapon.Simple.Melee.Ranged.Slashing				COST:18153	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:S	SOURCEPAGE:p.198						BONUS:WEAPON|DAMAGE,TOHIT|3
+Sacred Tomahawk of the Sun	PROFICIENCY:WEAPON|Tomahawk		TYPE:Magic.Weapon.Simple.Melee.Ranged.Slashing				COST:18153	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6		RANGE:10	SIZE:S	SOURCEPAGE:p.198	BONUS:WEAPON|DAMAGE,TOHIT|3

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
@@ -39,7 +39,7 @@ Category(Weird Science)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (We
 
 ###Block: Categories for Talk a Good Game Talent
 # Feat Name					Type					Visible	Required Feat						Special ABility						Source Page
-Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Art)					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
+Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Art)				SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
 Category (Behavioral sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Behavioral sciences)		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
 Category (Business)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Business)				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
 Category (Civics)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Civics)				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
@@ -49,7 +49,7 @@ Category (Hidden lore)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category 
 Category (History)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (History)				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
 Category (Military Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Military Science)		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
 Category (Physical sciences)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Physical sciences)		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
-Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Popular culture)			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
+Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Popular culture)		SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
 Category (Streetwise)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Streetwise)			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
 Category (Technology)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Technology)			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
 Category (Theology and philosophy)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Theology and philosophy)	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
@@ -327,7 +327,7 @@ Bald Faced Liar	TYPE:SpyAbility	VISIBLE:NO	SAB:Bald Faced Liar (%/day)|BaldFaced
 Self Deception	TYPE:SpyAbility	VISIBLE:NO	SAB:Self Deception																																								SOURCEPAGE:p.122
 
 ###Block:Weird Inventor Class Abilities
-# Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add 				Bonus to skill			Modify VAR											Source Page
+# Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add 				Bonus to skill			Modify VAR											Source Page		Temporary Bonus
 Jury Rig						TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Jury Rig +%|JuryRigValue								DEFINE:JuryRigValue|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|JuryRigValue|2								SOURCEPAGE:p.123
 Weird Scientist Gadget Creation		TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Weird Science Gadget Creation (% Invention Levels)|InventionLevels	DEFINE:InventionLevels|0																	BONUS:VAR|InventionLevels|var("CL=Weird Inventor")+2+max(0,INTSCORE-12)	SOURCEPAGE:p.123
 Academic Mastery					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Academic Mastery x%|var("COUNT[FEATNAME=Academic Mastery]")							STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Skill Focus																		SOURCEPAGE:p.123
@@ -340,4 +340,4 @@ Intuit Formula					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Intuit Formula						
 Inventive Mind					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Inventive Mind																									BONUS:SKILL|TYPE.Craft|4													SOURCEPAGE:p.123
 
 ###Sidekick BONUS
-Provide Sidekick w./room etc.			TYPE:SidekickBonus		VISIBLE:NO																																		TEMPBONUS:PC|VAR|SidekickScore|2
+Provide Sidekick w./room etc.			TYPE:SidekickBonus		VISIBLE:NO																																																	TEMPBONUS:PC|VAR|SidekickScore|2

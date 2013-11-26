@@ -1,48 +1,48 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 # Source page is to the master chart as that is where all the details are held.
 
 
-# Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Type																Alternative Type				Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page		Combat bonus																Weapon prop. bonus					Special Property								Rate of Fire
-Arrows (12)				OUTPUTNAME:Arrows, 12																TYPE:Ammunition.Standard.Wooden.Arrow																				COST:8	WT:0																																										SOURCEPAGE:p.211
-Bolts (Crossbow/12)		OUTPUTNAME:Crossbow Bolts, 12															TYPE:Ammunition.Standard.Wooden.Bolt																				COST:7	WT:0																																										SOURCEPAGE:p.211
+# Equipment Name		Output Name				Required Armor Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Maximum DEX Bonus	Range		Size		Source Page		Combat bonus																Special Property
+Arrows (12)			OUTPUTNAME:Arrows, 12								TYPE:Ammunition.Standard.Wooden.Arrow							COST:8	WT:0																						SOURCEPAGE:p.211
+Bolts (Crossbow/12)	OUTPUTNAME:Crossbow Bolts, 12							TYPE:Ammunition.Standard.Wooden.Bolt							COST:7	WT:0																						SOURCEPAGE:p.211
 
 # Singles
-Bullet																							TYPE:Ammunition.Standard.Metal.Bullet.Individual																		COST:4	WT:0																																										SOURCEPAGE:p.211
-Bullet (10 ga buckshot)		OUTPUTNAME:Buckshot, 10 ga															TYPE:Ammunition.Standard.Metal.Bullet.Individual																		COST:5	WT:0																																										SOURCEPAGE:p.211
-Bullet (12 ga buckshot)		OUTPUTNAME:Buckshot, 12 ga															TYPE:Ammunition.Standard.Metal.Bullet.Individual																		COST:4	WT:0																																										SOURCEPAGE:p.211
-Arrow																								TYPE:Ammunition.Standard.Wooden.Arrow.Individual																		COST:8	WT:0																																										SOURCEPAGE:p.211
-Bolt (Crossbow)			OUTPUTNAME:[NAME] Bolt																TYPE:Ammunition.Standard.Wooden.Bolt.Individual																			COST:7	WT:0																																										SOURCEPAGE:p.211
+Bullet														TYPE:Ammunition.Standard.Metal.Bullet.Individual					COST:4	WT:0																						SOURCEPAGE:p.211
+Bullet (10 ga buckshot)	OUTPUTNAME:Buckshot, 10 ga							TYPE:Ammunition.Standard.Metal.Bullet.Individual					COST:5	WT:0																						SOURCEPAGE:p.211
+Bullet (12 ga buckshot)	OUTPUTNAME:Buckshot, 12 ga							TYPE:Ammunition.Standard.Metal.Bullet.Individual					COST:4	WT:0																						SOURCEPAGE:p.211
+Arrow															TYPE:Ammunition.Standard.Wooden.Arrow.Individual					COST:8	WT:0																						SOURCEPAGE:p.211
+Bolt (Crossbow)		OUTPUTNAME:[NAME] Bolt								TYPE:Ammunition.Standard.Wooden.Bolt.Individual						COST:7	WT:0																						SOURCEPAGE:p.211
 
 
 # Explosives
-Dynamite																							TYPE:Explosive.Concussion																						COST:12	WT:1					CRITMULT:-			CRITRANGE:0												DAMAGE:2d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:Burst Radius 5', Lic(+1), 2d6 Concussion Damage
-Black Powder																						TYPE:Explosive.Concussion																						COST:12	WT:5					CRITMULT:-			CRITRANGE:0												DAMAGE:1d6																	SIZE:M	SOURCEPAGE:p.212																											SPROP:Burst Radius 5', Lic(+1), 1d6 Concussion Damage
-Nitroglycerin Vial																					TYPE:Explosive.Concussion																						COST:12	WT:0.5				CRITMULT:-			CRITRANGE:0												DAMAGE:6d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:Burst Radius 15', Lic(+1), 6d6 Concussion Damage
+Dynamite														TYPE:Explosive.Concussion									COST:12	WT:1					CRITMULT:-			CRITRANGE:0			DAMAGE:2d6				RANGE:10	SIZE:T	SOURCEPAGE:p.212																			SPROP:Burst Radius 5', Lic(+1), 2d6 Concussion Damage
+Black Powder													TYPE:Explosive.Concussion									COST:12	WT:5					CRITMULT:-			CRITRANGE:0			DAMAGE:1d6						SIZE:M	SOURCEPAGE:p.212																			SPROP:Burst Radius 5', Lic(+1), 1d6 Concussion Damage
+Nitroglycerin Vial												TYPE:Explosive.Concussion									COST:12	WT:0.5				CRITMULT:-			CRITRANGE:0			DAMAGE:6d6				RANGE:10	SIZE:T	SOURCEPAGE:p.212																			SPROP:Burst Radius 15', Lic(+1), 6d6 Concussion Damage
 #
-Acid (mild)				OUTPUTNAME:Acid, mild																TYPE:Splash.Acid																								COST:6	WT:1					CRITMULT:-			CRITRANGE:1												DAMAGE:1d6												RANGE:10				SIZE:T	SOURCEPAGE:p.212																											SPROP:1d6 Acid Damage
-Incendiary Bomb																						TYPE:Splash.Fire																								COST:3	WT:1					CRITMULT:-			CRITRANGE:1												DAMAGE:1d6												RANGE:10				SIZE:S	SOURCEPAGE:p.212																											SPROP:1d6 Fire Damage
+Acid (mild)			OUTPUTNAME:Acid, mild								TYPE:Splash.Acid											COST:6	WT:1					CRITMULT:-			CRITRANGE:1			DAMAGE:1d6				RANGE:10	SIZE:T	SOURCEPAGE:p.212																			SPROP:1d6 Acid Damage
+Incendiary Bomb													TYPE:Splash.Fire											COST:3	WT:1					CRITMULT:-			CRITRANGE:1			DAMAGE:1d6				RANGE:10	SIZE:S	SOURCEPAGE:p.212																			SPROP:1d6 Fire Damage
 
 
 
 
 
-# Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Type																Alternative Type				Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page		Combat bonus																Weapon prop. bonus					Special Property								Rate of Fire
-Leather Jacket																PROFICIENCY:ARMOR|Leather Jacket	TYPE:Armor.Light.Suit																							COST:10	WT:4		ACCHECK:0																									MAXDEX:8													SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK
-Leather Armor																PROFICIENCY:ARMOR|Leather Armor	TYPE:Armor.Light.Suit.Archaic																						COST:12	WT:15		ACCHECK:0																									MAXDEX:6													SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
-Chainmail Shirt																PROFICIENCY:ARMOR|Chainmail Shirt	TYPE:Armor.Medium.Suit.Archaic																					COST:18	WT:40		ACCHECK:-5																									MAXDEX:2													SOURCEPAGE:p.217	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
-Plate Mail																	PROFICIENCY:ARMOR|Plate Mail		TYPE:Armor.Heavy.Suit.Archaic																						COST:23	WT:50		ACCHECK:-6																									MAXDEX:1													SOURCEPAGE:p.217	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+# Equipment Name		Output Name				Required Armor Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Maximum DEX Bonus	Range		Size		Source Page		Combat bonus																Special Property
+Leather Jacket							PROFICIENCY:ARMOR|Leather Jacket	TYPE:Armor.Light.Suit										COST:10	WT:4		ACCHECK:0												MAXDEX:8						SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK
+Leather Armor							PROFICIENCY:ARMOR|Leather Armor	TYPE:Armor.Light.Suit.Archaic									COST:12	WT:15		ACCHECK:0												MAXDEX:6						SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+Chainmail Shirt							PROFICIENCY:ARMOR|Chainmail Shirt	TYPE:Armor.Medium.Suit.Archaic								COST:18	WT:40		ACCHECK:-5												MAXDEX:2						SOURCEPAGE:p.217	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Plate Mail								PROFICIENCY:ARMOR|Plate Mail		TYPE:Armor.Heavy.Suit.Archaic									COST:23	WT:50		ACCHECK:-6												MAXDEX:1						SOURCEPAGE:p.217	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
 
 
 # 5.14 added 'QUALITY:Light|x ft.' and 'QUALITY:DURATION|x hr.'
 
-# Equipment Name			Output Name				Required Weapon Proficiency				Required Armor Proficiency		Type																Alternative Type				Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Maximum DEX Bonus	Requires Modification?	Range		Reach Multiplier	Size		Source Page		Combat bonus																Weapon prop. bonus					Special Property								Rate of Fire
-Doctor's Bag																						TYPE:Goods.Container.General																		CONTAINS:5|Any=5		COST:7	WT:2																																										SOURCEPAGE:p.218
-Briefcase																							TYPE:Goods.Container.General																		CONTAINS:5|Any=5		COST:7	WT:2																																										SOURCEPAGE:p.218
-Handbag																							TYPE:Goods.Container.General																		CONTAINS:2|Any=2		COST:4	WT:1																																										SOURCEPAGE:p.218
-Range Pack (Standard)		OUTPUTNAME:[NAME] Range Pack															TYPE:Goods.Container.General																		CONTAINS:12|Any=12	COST:7	WT:2																																										SOURCEPAGE:p.218
-Range Pack (Oversized)		OUTPUTNAME:[NAME] Range Pack															TYPE:Goods.Container.General																		CONTAINS:18|Any=18	COST:9	WT:3																																										SOURCEPAGE:p.218
+# Equipment Name		Output Name				Required Armor Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Maximum DEX Bonus	Range		Size		Source Page		Combat bonus																Special Property
+Doctor's Bag													TYPE:Goods.Container.General					CONTAINS:5|Any=5		COST:7	WT:2																						SOURCEPAGE:p.218
+Briefcase														TYPE:Goods.Container.General					CONTAINS:5|Any=5		COST:7	WT:2																						SOURCEPAGE:p.218
+Handbag														TYPE:Goods.Container.General					CONTAINS:2|Any=2		COST:4	WT:1																						SOURCEPAGE:p.218
+Range Pack (Standard)	OUTPUTNAME:[NAME] Range Pack							TYPE:Goods.Container.General					CONTAINS:12|Any=12	COST:7	WT:2																						SOURCEPAGE:p.218
+Range Pack (Oversized)	OUTPUTNAME:[NAME] Range Pack							TYPE:Goods.Container.General					CONTAINS:18|Any=18	COST:9	WT:3																						SOURCEPAGE:p.218
 
 ###Block: Clothing
 # Equipment Name			Type				Cost		Weight	Source Page

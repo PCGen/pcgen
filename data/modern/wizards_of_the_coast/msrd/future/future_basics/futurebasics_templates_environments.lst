@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
-# Template Name						Visible	Source Page					Combat bonus						Add to base move							Bonus to skill								Clone Movement		Temporary effect description
-Environment - High Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=HighG	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|-5|TYPE=HighG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|-10|TYPE=HighG					TEMPDESC:Apply this if you are in a High Gravity Environment.
-Environment - Low Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf									TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5|TYPE=LowG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|10|TYPE=LowG						TEMPDESC:Apply this if you are in a Low Gravity Environment.
-Environment - Low Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=LowG	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5|TYPE=LowG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|10|TYPE=LowG						TEMPDESC:Apply this if you are in a Low Gravity Environment and do not have Zero G Training.
-Environment - Zero Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf																		TEMPBONUS:ANYPC|SKILL|TYPE.Strength|20|TYPE=ZeroG	MOVECLONE:Walk,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment.
-Environment - Zero Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	TEMPBONUS:ANYPC|COMBAT|TOHIT|-4|TYPE=ZeroG										TEMPBONUS:ANYPC|SKILL|TYPE.Strength|20|TYPE=ZeroG	MOVECLONE:Walk,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment and do not have Zero G Training.
+# Template Name						Visible	Source Page					Clone Movement		Temporary effect description												Temporary Bonus
+Environment - High Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf					TEMPDESC:Apply this if you are in a High Gravity Environment.						TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=HighG	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|-5|TYPE=HighG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|-10|TYPE=HighG
+Environment - Low Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf					TEMPDESC:Apply this if you are in a Low Gravity Environment.						TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5|TYPE=LowG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|10|TYPE=LowG
+Environment - Low Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf					TEMPDESC:Apply this if you are in a Low Gravity Environment and do not have Zero G Training.	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|TYPE=LowG	TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|5|TYPE=LowG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|10|TYPE=LowG
+Environment - Zero Gravity				VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	MOVECLONE:Walk,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment.						TEMPBONUS:ANYPC|SKILL|TYPE.Strength|20|TYPE=ZeroG
+Environment - Zero Gravity - No Zero G Training	VISIBLE:NO	SOURCEPAGE:FutureEnvironments.rtf	MOVECLONE:Walk,Fly,*1	TEMPDESC:Apply this if you are in a Zero Gravity Environment and do not have Zero G Training.	TEMPBONUS:ANYPC|COMBAT|TOHIT|-4|TYPE=ZeroG	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|20|TYPE=ZeroG
 
 #
 # End

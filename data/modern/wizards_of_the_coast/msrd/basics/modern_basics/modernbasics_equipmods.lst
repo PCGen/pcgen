@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 # Weapon Accessories?
 # Made weapon accessories into eqmods but not sure how to represent the cost.
@@ -67,7 +67,7 @@ Suppressor (Pistol)	KEY:SPPRSS_PIS	NAMEOPT:TEXT=Suppressor			TYPE:Pistol								
 Suppressor (Rifle)	KEY:SPPRSS_RFL	NAMEOPT:TEXT=Suppressor			TYPE:Longarm												COST:0	VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentgeneral.rtf								!PRETYPE:1,SpecialSuppressor					BONUS:EQM|WEIGHTADD|4																							SPROP:Suppressor Purchase DC 14,Mil(+3)
 
 ###Block: Vehicle STATS (Workaround for SPROP not taking variables in EQUIPMENT), the KEY starts with AA so it comes first in SPROP output
-# Modifier Name	Unique Key		Naming Option	Special Property
-Vehicle		KEY:AAVEHICLE	NAMEOPT:NOTHING	SPROP:Crew: %|vcrew	SPROP:Pass: %|vpass	SPROP:Pass: 0|PREVAREQ:vpass,0	SPROP:Cargo: % lbs.|vcargo	SPROP:Cargo: none|PREVAREQ:vcargo,0	SPROP:Init: %|vinit	SPROP:Init:+0|PREVAREQ:vinit,0	SPROP:Maneuver: %|vmaneuver	SPROP:Maneuver:+0|PREVAREQ:vmaneuver,0	SPROP:Top Speed: %(%)|vt_speed|vt_speed/10	SPROP:Defense: %|vdefense	SPROP:Hardness: %|vhard	SPROP:hp %|vhpee	SPROP:Size:S|PREVAREQ:vsize,3	SPROP:Size:M|PREVAREQ:vsize,4	SPROP:Size:L|PREVAREQ:vsize,5	SPROP:Size:H|PREVAREQ:vsize,6	SPROP:Size:G|PREVAREQ:vsize,7	SPROP:Size:C|PREVAREQ:vsize,8
+# Modifier Name	Unique Key			Naming Option	Cost							Visible	Special Property																																																																																															Choose		Nb of Charges
+Vehicle		KEY:AAVEHICLE		NAMEOPT:NOTHING										SPROP:Crew: %|vcrew	SPROP:Pass: %|vpass	SPROP:Pass: 0|PREVAREQ:vpass,0	SPROP:Cargo: % lbs.|vcargo	SPROP:Cargo: none|PREVAREQ:vcargo,0	SPROP:Init: %|vinit	SPROP:Init:+0|PREVAREQ:vinit,0	SPROP:Maneuver: %|vmaneuver	SPROP:Maneuver:+0|PREVAREQ:vmaneuver,0	SPROP:Top Speed: %(%)|vt_speed|vt_speed/10	SPROP:Defense: %|vdefense	SPROP:Hardness: %|vhard	SPROP:hp %|vhpee	SPROP:Size:S|PREVAREQ:vsize,3	SPROP:Size:M|PREVAREQ:vsize,4	SPROP:Size:L|PREVAREQ:vsize,5	SPROP:Size:H|PREVAREQ:vsize,6	SPROP:Size:G|PREVAREQ:vsize,7	SPROP:Size:C|PREVAREQ:vsize,8
 
-Charges (50)	KEY:CHARGED_ITEM_50	COST:((BASECOST/50)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|50
+Charges (50)	KEY:CHARGED_ITEM_50				COST:((BASECOST/50)*%CHARGES)-BASECOST	VISIBLE:NO																																																																																																		CHOOSE:NOCHOICE	CHARGES:1|50

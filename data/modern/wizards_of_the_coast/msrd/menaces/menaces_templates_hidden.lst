@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 #removed SA:Blindsight from Toxic Sludge, as it is already included in Ooze template -- Frank Kliewe
@@ -45,7 +45,7 @@ Maniac Gargantuan		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Me
 Maniac Colossal		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,4d6
 
 ###Block: specific templates
-# Template Name	Visible	Template			Define			Bonus to Ability Pool				Stat bonus			Modify VAR										Ability																																			Automatically Gained Feat			Bonus Languages	Move			Race Subtype	Vision					Innate Spells
+# Template Name	Visible	Template			Define a Stat		Bonus to Ability Pool				Stat bonus			Modify VAR										Ability																																			Automatically Gained Feat			Bonus Languages	Move			Race Subtype	Vision					Innate Spells
 Animated Object	VISIBLE:NO	TEMPLATE:Construct	DEFINESTAT:NONSTAT|INT								BONUS:STAT|WIS,CHA|-10												ABILITY:Special Ability|AUTOMATIC|Blind|Constrict|Hardness|Improved Speed|Trample																																	MOVE:Walk,30				VISION:Darkvision (60')
 Fiend			VISIBLE:NO	TEMPLATE:Outsider						BONUS:ABILITYPOOL|Outsider Proficiency|1																																																											LANGBONUS:Abyssal							VISION:Darkvision (60')
 Infester		VISIBLE:NO	TEMPLATE:Vermin																												ABILITY:Special Ability|AUTOMATIC|Boost Host|Host Protection|Infestation																																		MOVE:Walk,30				VISION:Blindsight (60')

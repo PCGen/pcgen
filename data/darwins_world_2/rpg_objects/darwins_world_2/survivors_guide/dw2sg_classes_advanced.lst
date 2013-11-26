@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 # Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Define						Save checks bonus																Combat bonus		Modify VAR
@@ -49,11 +49,11 @@ CLASS:Guardian	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency,Personal Firearms 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:3	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Tactics)|Knowledge (Current Events)|Knowledge (Mutant Lore)|Listen|Ride|Sense Motive|Spot|Survival
 1						BONUS:ABILITYPOOL|Guardian Feat|(CL/3)
-1	SAB:Defender (+%)|defendLvl									BONUS:VAR|defendLvl|2	DEFINE:defendLvl|0
-2																						ADD:FEAT|Weapon Focus
-4	SAB:Tactical Aid											BONUS:VAR|tactAid|1	DEFINE:tactAid|0
+1	SAB:Defender (+%)|defendLvl										BONUS:VAR|defendLvl|2	DEFINE:defendLvl|0
+2																							ADD:FEAT|Weapon Focus
+4	SAB:Tactical Aid												BONUS:VAR|tactAid|1	DEFINE:tactAid|0
 5						BONUS:ABILITYPOOL|Weapon Specialization|1
-7														BONUS:VAR|defendLvl|2
+7															BONUS:VAR|defendLvl|2
 8						BONUS:ABILITYPOOL|Greater Weapon Specialization|1
 10	SAB:Raider Bane
 

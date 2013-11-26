@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 
@@ -75,8 +75,8 @@ Xenolore				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Xenolore
 Xenoresistance			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	SAB:Xenoresistance +%|Xenoresist			DEFINE:Xenoresist|0
 
 ###Block: Special Abilities
-# Ability Name			Output Name				Category of Ability		Special ABility																									Define																				Combat bonus										Stat bonus										Modify VAR
-Dreadnought Ability Surge	OUTPUTNAME:Ability Surge	CATEGORY:Special Ability	SAB:Ability Surge ~ %/day for % rounds (STR +%, Defense -% when Surged)|AbilitySurgeTimes|AbilitySurgeRounds|AbilitySurgeStrBonus|AbilitySurgeDefensePenalty	DEFINE:AbilitySurgeTimes|0	DEFINE:AbilitySurgeRounds|0	DEFINE:AbilitySurgeStrBonus|0	DEFINE:AbilitySurgeDefensePenalty|0	TEMPBONUS:PC|COMBAT|AC|-AbilitySurgeDefensePenalty|TYPE=Temporary	TEMPBONUS:PC|STAT|STR|AbilitySurgeStrBonus|TYPE=Temporary	BONUS:VAR|AbilitySurgeRounds|0	BONUS:VAR|AbilitySurgeDefensePenalty|2	BONUS:VAR|AbilitySurgeStrBonus|4*AbilitySurgeDefensePenalty
+# Ability Name			Output Name				Category of Ability		Special ABility																									Define																				Modify VAR																						Temporary Bonus
+Dreadnought Ability Surge	OUTPUTNAME:Ability Surge	CATEGORY:Special Ability	SAB:Ability Surge ~ %/day for % rounds (STR +%, Defense -% when Surged)|AbilitySurgeTimes|AbilitySurgeRounds|AbilitySurgeStrBonus|AbilitySurgeDefensePenalty	DEFINE:AbilitySurgeTimes|0	DEFINE:AbilitySurgeRounds|0	DEFINE:AbilitySurgeStrBonus|0	DEFINE:AbilitySurgeDefensePenalty|0	BONUS:VAR|AbilitySurgeRounds|0	BONUS:VAR|AbilitySurgeDefensePenalty|2	BONUS:VAR|AbilitySurgeStrBonus|4*AbilitySurgeDefensePenalty	TEMPBONUS:PC|COMBAT|AC|-AbilitySurgeDefensePenalty|TYPE=Temporary	TEMPBONUS:PC|STAT|STR|AbilitySurgeStrBonus|TYPE=Temporary
 Swift Strike								CATEGORY:Special Ability	SAB:Swift Strike +%d%|SwiftStrike|SwiftStrikeDie																			DEFINE:SwiftStrikeDie|6	DEFINE:SwiftStrike|0
 Trap Sense									CATEGORY:Special Ability	SAB:Trap Sense (Ex) +%|TrapSense																						DEFINE:TrapSense|0
 Uncanny Stealth								CATEGORY:Special Ability	SAB:Uncanny Stealth (full speed)|PREVARLT:UncannyStealthChargeQual,1	SAB:Uncanny Stealth (charge/run)|PREVARGTEQ:UncannyStealthChargeQual,1
