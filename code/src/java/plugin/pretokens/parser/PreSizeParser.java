@@ -28,6 +28,7 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.persistence.PersistenceLayerException;
@@ -83,6 +84,11 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 			}
 			prereq.setOperator(compType);
 
+			
+			if (SizeUtilities.sizeInt(formula, -1) < 0)
+			{
+				throw new PrerequisiteException("Invalid size " + formula);
+			}
 			prereq.setOperand(formula);
 			if (invertResult)
 			{
