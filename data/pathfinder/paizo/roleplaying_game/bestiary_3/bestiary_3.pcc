@@ -7,8 +7,8 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:3,Bestiary,Ultimate Combat,Ultimate Magic
-!PRECAMPAIGN:1,Bonus Bestiary
+PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
+!PRECAMPAIGN:1,INCLUDES=Bonus Bestiary
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

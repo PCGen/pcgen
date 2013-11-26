@@ -7,7 +7,7 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:2,Advanced Player's Guide,Bestiary
+PRECAMPAIGN:2,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

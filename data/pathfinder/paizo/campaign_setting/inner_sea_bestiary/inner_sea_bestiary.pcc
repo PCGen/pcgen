@@ -7,7 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,Ultimate Magic,Ultimate Combat,Inner Sea World Guide
+PRECAMPAIGN:3,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
