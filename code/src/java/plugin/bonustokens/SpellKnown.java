@@ -53,6 +53,11 @@ public final class SpellKnown extends BonusObj
 
 		if (idx < 0)
 		{
+			if (token.equals(Constants.LST_PERCENT_LIST))
+			{
+				addBonusInfo(token);
+				return true;
+			}
 			return false;
 		}
 
@@ -73,18 +78,25 @@ public final class SpellKnown extends BonusObj
 	protected String unparseToken(final Object obj)
 	{
 		final StringBuilder sb = new StringBuilder(30);
-		final SpellCastInfo sci = (SpellCastInfo) obj;
-
-		if (sci.getType() != null)
+		if (obj instanceof SpellCastInfo)
 		{
-			sb.append("TYPE.").append(((SpellCastInfo) obj).getType());
-		}
-		else if (sci.getPcClassName() != null)
-		{
-			sb.append("CLASS.").append(((SpellCastInfo) obj).getPcClassName());
-		}
+			final SpellCastInfo sci = (SpellCastInfo) obj;
 
-		sb.append(";LEVEL.").append(((SpellCastInfo) obj).getLevel());
+			if (sci.getType() != null)
+			{
+				sb.append("TYPE.").append(((SpellCastInfo) obj).getType());
+			}
+			else if (sci.getPcClassName() != null)
+			{
+				sb.append("CLASS.").append(((SpellCastInfo) obj).getPcClassName());
+			}
+
+			sb.append(";LEVEL.").append(((SpellCastInfo) obj).getLevel());
+		}
+		else
+		{
+			sb.append(obj);
+		}
 
 		return sb.toString();
 	}

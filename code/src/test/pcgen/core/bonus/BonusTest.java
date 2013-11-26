@@ -333,4 +333,29 @@ public class BonusTest extends AbstractCharacterTestCase
 			}
 		}
 	}
+
+	/**
+	 * Test to make sure that fix for replacing %LIST within a 
+	 * bonuses value will work.
+	 */
+	public void testSpellKnownBonusWithLISTValue()
+	{
+		final PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
+
+		BonusObj bonus = Bonus.newBonus(context, "SPELLKNOWN|%LIST|1");
+		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		bonusList.add(bonus);
+		Ability testBonus = new Ability();
+		testBonus.setName("TB1Assoc");
+		testBonus.addToListFor(ListKey.BONUS, bonus);
+		testBonus = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
+		character.addAssociation(testBonus, "CLASS.Wizard;LEVEL.1");
+		character.calcActiveBonuses();
+		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
+		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
+		assertEquals(1, bonusPairs.size());
+		BonusPair bp = bonusPairs.get(0);
+		assertEquals("SPELLKNOWN.CLASS.Wizard;LEVEL.1", bp.fullyQualifiedBonusType);
+	}
 }
