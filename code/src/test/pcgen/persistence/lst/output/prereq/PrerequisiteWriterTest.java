@@ -475,6 +475,7 @@ public class PrerequisiteWriterTest extends TestCase
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SettingsHandler.setGame("3.5");
 		TestHelper.createAllAlignments();
+		TestHelper.makeSizeAdjustments();
 	}
 
 	/**
