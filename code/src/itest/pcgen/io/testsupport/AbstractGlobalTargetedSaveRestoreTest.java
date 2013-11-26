@@ -453,4 +453,28 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(reloadedPC.hasTemplate(granted));
 	}
 
+	//Fails due to issues highlighted in CODE-2283
+	//	@Test
+	//	public void testAddSkill()
+	//	{
+	//		PCClass myclass = create(PCClass.class, "SomeClass");
+	//		Skill granted = create(Skill.class, "GrantedSkill");
+	//		create(Skill.class, "Ignored");
+	//		T target = create(getObjectClass(), "Target");
+	//		new plugin.lsttokens.add.SkillToken().parseToken(context, target,
+	//				"GrantedSkill");
+	//		Object o = prepare(target);
+	//		finishLoad();
+	//		pc.incrementClassLevel(1, myclass);
+	//		assertNull(pc.getSkillRankForClass(granted, null));
+	//		applyObject(target);
+	//		assertEquals(1.0, pc.getSkillRankForClass(granted, null));
+	//		runRoundRobin();
+	//		assertEquals(1.0, pc.getSkillRankForClass(granted, null));
+	//		assertEquals(1.0, reloadedPC.getSkillRankForClass(granted, null));
+	//		remove(o);
+	//		reloadedPC.setDirty(true);
+	//		assertNull(pc.getSkillRankForClass(granted, null));
+	//	}
+
 }
