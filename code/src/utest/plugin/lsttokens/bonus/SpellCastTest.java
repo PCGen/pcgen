@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class SpellKnownTest extends AbstractGlobalTokenTestCase
+public class SpellCastTest extends AbstractGlobalTokenTestCase
 {
 	static BonusLst token = new BonusLst();
 	static CDOMTokenLoader<PCTemplate> loader =
@@ -44,7 +44,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("SPELLKNOWN", SpellKnown.class);
+		addBonus("SPELLCAST", SpellKnown.class);
 	}
 
 	@Override
@@ -68,21 +68,21 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputOnlyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown"));
+		assertFalse(parse("SpellCast"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyTypeBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown|"));
+		assertFalse(parse("SpellCast|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1"));
+		assertFalse(parse("SpellCast|CLASS.Wizard;LEVEL.1"));
 		assertNoSideEffects();
 	}
 
@@ -91,7 +91,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1|"));
+			assertFalse(parse("SpellCast|CLASS.Wizard;LEVEL.1|"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -103,14 +103,14 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidNoTarget() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown||2"));
+		assertFalse(parse("SpellCast||2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoubleFirstPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown||CLASS.Wizard;LEVEL.1|1"));
+		assertFalse(parse("SpellCast||CLASS.Wizard;LEVEL.1|1"));
 		assertNoSideEffects();
 	}
 
@@ -119,7 +119,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1||1"));
+			assertFalse(parse("SpellCast|CLASS.Wizard;LEVEL.1||1"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -148,25 +148,25 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinWizardOneFormula()
 		throws PersistenceLayerException
 	{
-		runRoundRobin("SPELLKNOWN|CLASS.Wizard;LEVEL.1|FORMULA");
+		runRoundRobin("SPELLCAST|CLASS.Wizard;LEVEL.1|FORMULA");
 	}
 
 	@Test
 	public void testRoundRobinListNumber() throws PersistenceLayerException
 	{
-		runRoundRobin("SPELLKNOWN|%LIST|1");
+		runRoundRobin("SPELLCAST|%LIST|1");
 	}
 
 	@Override
 	protected String getLegalValue()
 	{
-		return "SPELLKNOWN|CLASS.Cleric;LEVEL.3|1";
+		return "SPELLCAST|CLASS.Cleric;LEVEL.3|1";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "SPELLKNOWN|CLASS.Wizard;LEVEL.1|1";
+		return "SPELLCAST|CLASS.Wizard;LEVEL.1|1";
 	}
 
 	@Override

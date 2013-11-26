@@ -59,6 +59,11 @@ public final class SpellCast extends BonusObj
 
 		if (idx < 0)
 		{
+			if (token.equals(Constants.LST_PERCENT_LIST))
+			{
+				addBonusInfo(token);
+				return true;
+			}
 			return false;
 		}
 
@@ -79,18 +84,28 @@ public final class SpellCast extends BonusObj
 	protected String unparseToken(final Object obj)
 	{
 		final StringBuilder sb = new StringBuilder(30);
-		final SpellCastInfo sci = (SpellCastInfo) obj;
-
-		if (sci.getType() != null)
+		if (obj instanceof SpellCastInfo)
 		{
-			sb.append(Constants.LST_TYPE_DOT).append(((SpellCastInfo) obj).getType());
-		}
-		else if (sci.getPcClassName() != null)
-		{
-			sb.append(Constants.LST_CLASS_DOT).append(((SpellCastInfo) obj).getPcClassName());
-		}
+			final SpellCastInfo sci = (SpellCastInfo) obj;
 
-		sb.append(Constants.LST_SEMI_LEVEL_DOT).append(((SpellCastInfo) obj).getLevel());
+			if (sci.getType() != null)
+			{
+				sb.append(Constants.LST_TYPE_DOT).append(
+					((SpellCastInfo) obj).getType());
+			}
+			else if (sci.getPcClassName() != null)
+			{
+				sb.append(Constants.LST_CLASS_DOT).append(
+					((SpellCastInfo) obj).getPcClassName());
+			}
+
+			sb.append(Constants.LST_SEMI_LEVEL_DOT).append(
+				((SpellCastInfo) obj).getLevel());
+		}
+		else
+		{
+			sb.append(obj);
+		}
 
 		return sb.toString();
 	}
