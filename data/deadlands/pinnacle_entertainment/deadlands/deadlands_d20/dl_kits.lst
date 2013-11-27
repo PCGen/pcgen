@@ -1,0 +1,26 @@
+Brave: 3d6x10
+Blessed: 3d6x10
+Shaman: 3d6x10
+
+Huckster: 4d6x10
+Maverick: 4d6x10
+Rowdy: 4d6x10
+
+Gunslinger: 5d6x10
+Mad Scientist: 5d6x10
+Scout: 7d6x10
+
+
+STARTPACK:Starting Gold CRB ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("3d6")	PRECLASS:1,Brave=1,Blessed=1,Shaman=1
+FUNDS:gp	QTY:10*roll("4d6")	PRECLASS:1,Huckster=1,Maverick=1,Rowdy=1
+FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Gunslinger=1,Mad Scientist=1
+FUNDS:gp	QTY:10*roll("7d6")	PRECLASS:1,Scout=1
+
+STARTPACK:Starting Gold CRB ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:180	PRECLASS:1,Brave=1,Blessed=1,Shaman=1
+FUNDS:gp	QTY:240	PRECLASS:1,Huckster=1,Maverick=1,Rowdy=1
+FUNDS:gp	QTY:300	PRECLASS:1,Gunslinger=1,Mad Scientist=1
+FUNDS:gp	QTY:420	PRECLASS:1,Scout=1
+
+

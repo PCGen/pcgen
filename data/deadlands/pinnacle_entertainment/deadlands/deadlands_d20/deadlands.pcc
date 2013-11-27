@@ -37,6 +37,9 @@ ABILITY:dl_abilities_racial.lst
 
 ABILITYCATEGORY:dl_abilitycategories.lst
 
+KIT:dl_kits.lst
+
+
 CLASS:deadlands_classes.lst
 EQUIPMENT:deadlands_equip_armorshields.lst
 EQUIPMENT:deadlands_equip.lst
