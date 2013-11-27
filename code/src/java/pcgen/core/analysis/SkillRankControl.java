@@ -199,10 +199,10 @@ public class SkillRankControl
 	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
 			PCClass oldClass, PCClass newClass)
 	{
-		Double rank = pc.getSkillRankForClass(sk, oldClass);
+		Double rank = pc.getSkillRankForLocalClass(sk, oldClass);
 		if (rank != null)
 		{
-			pc.removeSkillRankValue(sk, oldClass);
+			pc.removeSkillRankForLocalClass(sk, oldClass);
 			pc.setSkillRankValue(sk, newClass, rank);
 		}
 	}

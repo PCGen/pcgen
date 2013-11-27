@@ -11300,6 +11300,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		//Hedge bets on the class
 		PCClass localClass =
 				(cl == null) ? null : getClassKeyed(cl.getKeyName());
+		removeSkillRankForLocalClass(sk, localClass);
+	}
+
+	public void removeSkillRankForLocalClass(Skill sk, PCClass localClass)
+	{
 		skillRankFacet.remove(id, sk, localClass);
 	}
 
@@ -11355,6 +11360,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		//Yes, the check for "local" class is required (try down-ranking a skill)
 		PCClass localClass =
 				(pcc == null) ? null : getClassKeyed(pcc.getKeyName());
+		return getSkillRankForLocalClass(sk, localClass);
+	}
+
+	public Double getSkillRankForLocalClass(Skill sk, PCClass localClass)
+	{
 		return skillRankFacet.get(id, sk, localClass);
 	}
 
