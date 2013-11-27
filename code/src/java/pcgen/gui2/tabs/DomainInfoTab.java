@@ -210,12 +210,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		((DomainLabelHandler) state.get(DomainLabelHandler.class)).install();
 		((DeityLabelHandler) state.get(DeityLabelHandler.class)).install();
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 		((DomainTableHandler) state.get(DomainTableHandler.class)).install();
 		((DomainInfoHandler) state.get(DomainInfoHandler.class)).install();
 		((DeityInfoHandler) state.get(DeityInfoHandler.class)).install();
 		((DomainRenderer) state.get(DomainRenderer.class)).install();
 		((SelectDeityAction) state.get(SelectDeityAction.class)).install();
-		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 
 		deityTable.setTreeViewModel((DeityTreeViewModel) state.get(DeityTreeViewModel.class));
 		deityTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
