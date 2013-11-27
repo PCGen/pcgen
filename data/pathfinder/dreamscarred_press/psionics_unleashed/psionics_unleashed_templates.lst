@@ -4,6 +4,9 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 # SRD Original Entry by: Arknight
 # SRD update by: TaluronIscandar
 
+Psion Caster Support	VISIBLE:NO		BONUS:VAR|PsionML|var("CL=Psion")	BONUS:VAR|PsionML|var("BL=Psion")	BONUS:VAR|IsPsionic|1																							DEFINE:PsionML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic	BONUS:VAR|PsionPL|PsionML																																DEFINE:PsionPL|0	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionPL,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionPL,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionPL,12	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionPL,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionPL,20	BONUS:VAR|BonusPowerPoints|(INT*PsionPL)/2|TYPE=PsionBonusPP
+
+
 # Template Name		Visible		Var. Min. Value			Ability																Temporary effect description				Temporary Bonus
 Psionically Focused	VISIBLE:DISPLAY	PREVARGTEQ:TotalPowerPoints,1																		TEMPDESC:Character is psionically focused.	TEMPBONUS:PC|VAR|PsionicFocusActive|1
 Activate Size Changing	VISIBLE:DISPLAY						ABILITY:Special Ability|AUTOMATIC|Size Changing	ABILITY:Special Ability|AUTOMATIC|CM Size Changing

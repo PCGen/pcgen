@@ -28,15 +28,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AU
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Psion Weapon Proficiencies
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|PsionML|CL	BONUS:VAR|PsionML|var("BL=Psion")	BONUS:VAR|IsPsionic|1																							DEFINE:PsionML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
-1	BONUS:VAR|PsionPL|PsionML																																DEFINE:PsionPL|0
-1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionPL,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionPL,4
-1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionPL,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionPL,8
-1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionPL,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionPL,12
-1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionPL,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionPL,16
-1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionPL,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionPL,20
-1	BONUS:VAR|BonusPowerPoints|(INT*PsionPL)/2|TYPE=PsionBonusPP
-
+1	TEMPLATE:Psion Caster Support
 ###Block: Class Info
 1	KNOWN:0,3				BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1	ABILITY:Special Ability|AUTOMATIC|Detect Psionics
 2	KNOWN:0,5
