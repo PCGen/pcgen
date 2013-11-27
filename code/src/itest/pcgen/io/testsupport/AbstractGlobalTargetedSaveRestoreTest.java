@@ -25,6 +25,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
@@ -33,12 +35,14 @@ import pcgen.core.PCTemplate;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SkillRankControl;
 import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.CskillLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.auto.WeaponProfToken;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject>
 		extends AbstractSaveRestoreTest
@@ -451,6 +455,67 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		remove(o);
 		reloadedPC.setDirty(true);
 		assertFalse(reloadedPC.hasTemplate(granted));
+	}
+
+	@Test
+	public void testAddAbilityNormalTarget()
+	{
+		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
+		T target = create(getObjectClass(), "Target");
+		Ability abil = context.ref.constructCDOMObject(Ability.class, "GrantedAbility");
+		context.ref.reassociateCategory(AbilityCategory.FEAT, abil);
+		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
+				"FEAT|NORMAL|GrantedAbility");
+		Skill granted = create(Skill.class, "GrantedSkill");
+		create(Skill.class, "IgnoredSkill");
+		new plugin.lsttokens.choose.SkillToken().parseToken(context,
+			abil, "GrantedSkill|IgnoredSkill");
+		new plugin.lsttokens.BonusLst().parseToken(context, abil, "SKILLRANK|%LIST|1");
+		abil.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		Object o = prepare(target);
+		finishLoad();
+		assertEquals(0.0f, SkillRankControl.getTotalRank(pc, granted));
+		applyObject(target);
+		pc.setDirty(true);
+		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
+		runRoundRobin();
+		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
+		assertEquals(1.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
+		remove(o);
+		reloadedPC.setDirty(true);
+		//This fails (see CODE-2387)
+		//assertEquals(0.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
+	}
+
+	@Test
+	public void testAddAbilityVirtualTarget()
+	{
+		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
+		T target = create(getObjectClass(), "Target");
+		Ability abil = context.ref.constructCDOMObject(Ability.class, "GrantedAbility");
+		context.ref.reassociateCategory(AbilityCategory.FEAT, abil);
+		new plugin.lsttokens.add.AbilityToken().parseToken(context, target,
+				"FEAT|VIRTUAL|GrantedAbility");
+		Skill granted = create(Skill.class, "GrantedSkill");
+		create(Skill.class, "IgnoredSkill");
+		new plugin.lsttokens.choose.SkillToken().parseToken(context,
+			abil, "GrantedSkill|IgnoredSkill");
+		new plugin.lsttokens.BonusLst().parseToken(context, abil, "SKILLRANK|%LIST|1");
+		abil.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		Object o = prepare(target);
+		finishLoad();
+		assertEquals(0.0f, SkillRankControl.getTotalRank(pc, granted));
+		applyObject(target);
+		pc.setDirty(true);
+		pc.calcActiveBonuses();
+		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
+		runRoundRobin();
+		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
+		assertEquals(1.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
+		remove(o);
+		reloadedPC.setDirty(true);
+		//This fails (see CODE-2387)
+		//assertEquals(0.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
 	}
 
 	//Fails due to issues highlighted in CODE-2283

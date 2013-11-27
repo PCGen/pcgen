@@ -1086,7 +1086,7 @@ BIO
 			<description></description>
 			<type></type>
 			<associated></associated>
-			<count>0</count>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
@@ -1096,7 +1096,7 @@ BIO
 			<description></description>
 			<type></type>
 			<associated></associated>
-			<count>0</count>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
@@ -1106,7 +1106,7 @@ BIO
 			<description></description>
 			<type></type>
 			<associated></associated>
-			<count>0</count>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>

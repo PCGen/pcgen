@@ -2774,6 +2774,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
+		List<String> associations = new ArrayList<String>();
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -2781,65 +2782,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (tag.equals(TAG_APPLIEDTO))
 			{
-				final String appliedToKey =
-						EntityEncoder.decode(element.getText());
-
-				if (appliedToKey.startsWith(TAG_MULTISELECT))
-				{
-					//
-					// Should be in the form:
-					// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
-					//
-					final StringTokenizer sTok =
-							new StringTokenizer(appliedToKey, TAG_END, false);
-
-					if (sTok.countTokens() > 2)
-					{
-						sTok.nextToken(); // should be TAG_MULTISELECT
-
-						final int maxChoices =
-								Integer.parseInt(sTok.nextToken());
-						sTok.nextToken(); // toss this--number of choices made
-
-						final FixedStringList array =
-								new FixedStringList(maxChoices);
-						while (sTok.hasMoreTokens())
-						{
-							array.add(sTok.nextToken());
-						}
-
-						thePC.addAssociation(ability, array);
-					}
-					else
-					{
-						final String msg =
-								LanguageBundle
-									.getFormattedString(
-										"Warnings.PCGenParser.IllegalAbilityIgnored", //$NON-NLS-1$
-										line);
-						warnings.add(msg);
-					}
-				}
-				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
-					.getSafe(ObjectKey.STACKS))
-					|| !thePC.containsAssociated(ability, appliedToKey))
-				{
-					ChoiceManagerList<Object> controller =
-							ChooserUtilities.getConfiguredController(ability,
-								thePC, category, new ArrayList<String>());
-					if (controller != null)
-					{
-						String[] assoc = appliedToKey.split(Constants.COMMA, -1);
-						for (String string : assoc)
-						{
-							controller.restoreChoice(thePC, ability, string);
-						}
-					}
-					else
-					{
-						warnings.add("Failed to find choose controller for ability " + ability);
-					}
-				}
+				associations.add(EntityEncoder.decode(element.getText()));
 			}
 			else if (TAG_SAVE.equals(tag))
 			{
@@ -2897,6 +2840,68 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					{
 						thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING,
 							Boolean.TRUE);
+					}
+				}
+			}
+			for (String appliedToKey : associations)
+			{
+				if (appliedToKey.startsWith(TAG_MULTISELECT))
+				{
+					//
+					// Should be in the form:
+					// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
+					//
+					final StringTokenizer sTok =
+							new StringTokenizer(appliedToKey, TAG_END, false);
+
+					if (sTok.countTokens() > 2)
+					{
+						sTok.nextToken(); // should be TAG_MULTISELECT
+
+						final int maxChoices =
+								Integer.parseInt(sTok.nextToken());
+						sTok.nextToken(); // toss this--number of choices made
+
+						final FixedStringList array =
+								new FixedStringList(maxChoices);
+						while (sTok.hasMoreTokens())
+						{
+							array.add(sTok.nextToken());
+						}
+
+						thePC.addAssociation(ability, array);
+					}
+					else
+					{
+						final String msg =
+								LanguageBundle
+									.getFormattedString(
+										"Warnings.PCGenParser.IllegalAbilityIgnored", //$NON-NLS-1$
+										line);
+						warnings.add(msg);
+					}
+				}
+				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
+					.getSafe(ObjectKey.STACKS))
+					|| !thePC.containsAssociated(ability, appliedToKey))
+				{
+					ChoiceManagerList<Object> controller =
+							ChooserUtilities.getConfiguredController(ability,
+								thePC, category, new ArrayList<String>());
+					if (controller != null)
+					{
+						String[] assoc =
+								appliedToKey.split(Constants.COMMA, -1);
+						for (String string : assoc)
+						{
+							controller.restoreChoice(thePC, ability, string);
+						}
+					}
+					else
+					{
+						warnings
+							.add("Failed to find choose controller for ability "
+								+ ability);
 					}
 				}
 			}
