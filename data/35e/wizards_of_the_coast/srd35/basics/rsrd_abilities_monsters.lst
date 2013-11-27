@@ -1928,7 +1928,7 @@ Rustproof															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 Safekeeping				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
 Savage				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Scare					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Supernatural	VISIBLE:YES
-Scent					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|0				DESC:%1 ft. range|ScentRange|PREVARGT:ScentRange,0
+Scent					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|30				DESC:%1 ft. range|ScentRange
 Sending				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Shadow Blend			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Shadow Shift			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
