@@ -27,7 +27,7 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.bonustokens.SpellKnown;
+import plugin.bonustokens.SpellCast;
 import plugin.lsttokens.BonusLst;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -44,7 +44,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("SPELLCAST", SpellKnown.class);
+		addBonus("SPELLCAST", SpellCast.class);
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	public void testRoundRobinWizardOneNumber()
 		throws PersistenceLayerException
 	{
-		runRoundRobin("SPELLKNOWN|CLASS.Wizard;LEVEL.1|1");
+		runRoundRobin("SPELLCAST|CLASS.Wizard;LEVEL.1|1");
 	}
 
 	@Test
