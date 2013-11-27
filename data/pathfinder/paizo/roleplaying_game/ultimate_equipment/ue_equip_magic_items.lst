@@ -1224,15 +1224,7 @@ Orb of Storms.MOD															TYPE:LesserMajor																												COST
 Orb of Utter Chaos														TYPE:Magic.Wondrous.LesserMajor																									COST:36000	WT:1																				SOURCEPAGE:p.314						ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LG,LN,LE														SPELLS:Magic Item|TIMES=1|CASTERLEVEL=10|Aid|Dispel Magic	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=10|Entropic Shield																																																																																																				BONUS:VAR|NegLevels|1|PREALIGN:LG,LN,LE																																					SPROP:Three times per day, when the bearer holds the orb and casts a spell with the polymorph subtype, chaotic descriptor, or one that gives creatures the confused condition, she may modify her caster level for that spell by 1d62.
 Origami Swarm															TYPE:Magic.Wondrous.Consumable.LeastMinor																								COST:300	WT:0																				SOURCEPAGE:p.314
 Ornament of Healing Light													TYPE:Magic.Wondrous.LesserMedium																									COST:10000	WT:1																				SOURCEPAGE:p.314
-Page of Spell Knowledge (1st)													TYPE:Magic.Wondrous.LesserMinor																									COST:1000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (2nd)													TYPE:Magic.Wondrous.GreaterMinor																									COST:4000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (3rd)													TYPE:Magic.Wondrous.LesserMedium																									COST:9000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (4th)													TYPE:Magic.Wondrous.LesserMedium																									COST:16000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (5th)													TYPE:Magic.Wondrous.GreaterMedium																									COST:25000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (6th)													TYPE:Magic.Wondrous.LesserMajor																									COST:36000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (7th)													TYPE:Magic.Wondrous.LesserMajor																									COST:49000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (8th)													TYPE:Magic.Wondrous.GreaterMajor																									COST:64000	WT:0																				SOURCEPAGE:p.314
-Page of Spell Knowledge (9th)													TYPE:Magic.Wondrous.GreaterMajor																									COST:81000	WT:0																				SOURCEPAGE:p.314
+Page of Spell Knowledge														TYPE:Magic.Wondrous.PageOfSpellKnowledge																								COST:0	WT:0																				SOURCEPAGE:p.314	MODS:REQUIRED
 Pearl of Power (1st Level).MOD												TYPE:LesserMinor																												COST:1000	WT:0																				SOURCEPAGE:p.314
 Pearl of Power (2nd Level).MOD												TYPE:GreaterMinor																												COST:4000	WT:0																				SOURCEPAGE:p.314
 Pearl of Power (3rd Level).MOD												TYPE:LesserMedium																												COST:9000	WT:0																				SOURCEPAGE:p.314

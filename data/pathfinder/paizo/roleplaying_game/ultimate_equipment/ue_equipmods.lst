@@ -231,3 +231,16 @@ VORPAL.MOD																														SOURCEPAGE:p.149
 WOUND.MOD																														SOURCEPAGE:p.149
 Breaking			KEY:BREAKING									TYPE:Weapon					PLUS:1			VISIBLE:QUALIFY				SOURCEPAGE:p.28	PRETYPE:3,Enhancement,Weapon,Melee													SPROP:Deals an extra 2d6 points of damage against inanimate objects and crystalline creatures on a successful hit and ignores the hardness of objects with a hardness of 5 or lower. Does not stack with Bane.
 Shattering			KEY:SHATTERING									TYPE:Weapon					PLUS:2			VISIBLE:QUALIFY				SOURCEPAGE:p.28	PRETYPE:3,Enhancement,Weapon,Melee													SPROP:Deals an extra 2d6 points of damage against inanimate objects and crystalline creatures on a successful hit and ignores the hardness of objects with a hardness of 10 or lower.	SPROP:On successful critical hit, deals an extra %d10 sonic damage to objects and crystalline creatures.|CRITMULT-1
+
+###Block:
+Page of Spell Knowledge (1st)		KEY:PoSk_1	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:LesserMinor		COST:1000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|1|1	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=1|1
+Page of Spell Knowledge (2nd)		KEY:PoSk_2	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:GreaterMinor	COST:4000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|2|2	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=2|1
+Page of Spell Knowledge (3rd)		KEY:PoSk_3	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:LesserMedium	COST:9000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|3|3	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=3|1
+Page of Spell Knowledge (4th)		KEY:PoSk_4	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:LesserMedium	COST:16000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|4|4	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=4|1
+Page of Spell Knowledge (5th)		KEY:PoSk_5	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:GreaterMedium	COST:25000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|5|5	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
+Page of Spell Knowledge (6th)		KEY:PoSk_6	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:LesserMajor		COST:36000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|6|6	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=6|1
+Page of Spell Knowledge (7th)		KEY:PoSk_7	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:LesserMajor		COST:49000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|7|7	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=7|1
+Page of Spell Knowledge (8th)		KEY:PoSk_8	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:GreaterMajor	COST:64000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|8|8	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=8|1
+Page of Spell Knowledge (9th)		KEY:PoSk_9	VISIBLE:QUALIFY	TYPE:PageOfSpellKnowledge	ITYPE:GreaterMajor	COST:81000	SOURCEPAGE:p.314	CHOOSE:EQBUILDER.SPELL|Arcane|9|9	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=9|1
+
+
