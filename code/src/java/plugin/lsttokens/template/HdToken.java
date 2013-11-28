@@ -27,6 +27,7 @@ import java.util.TreeSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
@@ -34,6 +35,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * Class deals with HD Token
@@ -134,6 +136,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
+		derivative.put(ObjectKey.VISIBILITY, Visibility.HIDDEN);
 		derivative.put(IntegerKey.HD_MIN, minhd);
 		derivative.put(IntegerKey.HD_MAX, maxhd);
 		context.ref.getManufacturer(PCTemplate.class).addDerivativeObject(derivative);

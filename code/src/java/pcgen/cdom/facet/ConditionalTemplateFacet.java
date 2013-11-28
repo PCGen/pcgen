@@ -138,7 +138,16 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		for (Map.Entry<PCTemplate, PCTemplate> me : newMap.entrySet())
 		{
 			PCTemplate a = me.getKey();
-			if (!oldSet.contains(a))
+			// We need to check for presence by object identity (==) rather than equality (.equals)
+			boolean found = false;
+			for (PCTemplate pcTemplate : oldSet)
+			{
+				if (a==pcTemplate)
+				{
+					found = true;
+				}
+			}
+			if (!found)
 			{
 				add(id, a);
 			}
