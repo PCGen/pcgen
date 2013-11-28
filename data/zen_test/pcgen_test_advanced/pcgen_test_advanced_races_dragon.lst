@@ -1,6 +1,19 @@
 
 #COMMENT: Change Var name 'LongRace' to 'RaceSizeIsLong' makes more sense.
 
+A Dragon (Black)
+	KIT:1|Dragon Default Stat Array
+	MONSTERCLASS:Dragon:4
+	RACETYPE:Dragon
+	RACESUBTYPE:Water
+	STARTFEATS:1
+	CR:3
+	DEFINE:LongRace|1
+	DEFINE:RaceSizeIsLong|1
+	LEGS:4
+	MOVE:Walk,5
+	TEMPLATE:Black Dragon
+
 Black Dragon
 	KEY:Dragon (Black)
 	SORTKEY:Dragon_Chromatic

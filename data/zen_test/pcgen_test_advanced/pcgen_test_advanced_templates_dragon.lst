@@ -10,6 +10,14 @@ SIZE_MASTER
 	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
 
 
+Black Dragon	HD:1:ABILITY:Special Ability|AUTOMATIC|Acid Pool ~ Black Dragon	HD:1:TEMPLATE:Dragon (Tiny)	
+#HD:6-7:TEMPLATE:Dragon (Small)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-11:TEMPLATE:Dragon (Medium)	HD:12-17:TEMPLATE:Dragon (Large)	HD:18-23:TEMPLATE:Dragon (Huge)	HD:24+:TEMPLATE:Dragon (Gargantuan)
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Dragon Size templates
+# Template Name		Face/Space	Reach		Visible	Define				Required Size	Modify VAR																							Weapon prof. bonus											Ability															Move			Natural Attacks
+Dragon (Tiny)		FACE:2.5	REACH:0	BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|3			BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 
 
 
