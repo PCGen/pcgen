@@ -111,8 +111,8 @@ public final class PCTemplate extends PObject implements TemplateFacade
 
 		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			if (lt.get(IntegerKey.HD_MAX) <= totalHitDice
-					&& lt.get(IntegerKey.HD_MIN) >= totalHitDice)
+			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice
+					&& lt.get(IntegerKey.HD_MIN) <= totalHitDice)
 			{
 				returnList.add(lt);
 			}
