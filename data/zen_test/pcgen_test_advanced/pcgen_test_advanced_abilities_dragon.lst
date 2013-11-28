@@ -1,6 +1,9 @@
 Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality
 Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality
 
+Acid Pool				KEY:Acid Pool ~ Black Dragon			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																																																																																									DESC:An ancient or older black dragon can use its breath weapon to create an acid pool as a standard action.																																																																																																																																																										SOURCEPAGE:p.92									BENEFIT:An ancient or older black dragon can use its breath weapon to create an acid pool as a standard action. This acid pool has a radius of %1 feet. When an acid pool is created, anyone inside its area takes an amount of damage equal to the dragon's breath weapon (Reflex half). Any creature that starts its turn touching this pool takes damage, but can make a Reflex save for half. Each round, the total damage dice of the pool is halved until the result would be less than 1d6. The acid pool floats on water, and deals damage to anything on the surface.|DragonAge*5
+
+
 Size_Master	VISIBLE:NO	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F
 	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D
