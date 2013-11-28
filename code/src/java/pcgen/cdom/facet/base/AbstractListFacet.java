@@ -92,6 +92,10 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public void addAll(CharID id, Collection<T> c)
 	{
+		if (c.isEmpty())
+		{
+			return;
+		}
 		Collection<T> set = getConstructingCachedSet(id);
 		for (T obj : c)
 		{
