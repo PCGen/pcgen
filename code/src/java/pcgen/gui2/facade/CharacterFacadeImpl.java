@@ -1054,7 +1054,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return 0;
 	}
 
-	private void refreshAvailableTempBonuses()
+	void refreshAvailableTempBonuses()
 	{
 		List<TempBonusFacadeImpl> tempBonuses = new ArrayList<TempBonusFacadeImpl>();
 

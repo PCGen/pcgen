@@ -134,7 +134,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private DefaultListFacade<String> spellBookNames;
 	private DefaultReferenceFacade<String> defaultSpellBook;
 	private TodoManager todoManager;
-	private CharacterFacade pcFacade;
+	private CharacterFacadeImpl pcFacade;
 	private final InfoFactory infoFactory;
 	
 
@@ -150,7 +150,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	public SpellSupportFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
 		DataSetFacade dataSet, TodoManager todoManager,
-		CharacterFacade pcFacade)
+		CharacterFacadeImpl pcFacade)
 	{
 		this.pc = pc;
 		this.infoFactory = pcFacade.getInfoFactory();
@@ -241,6 +241,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		}
 		updateSpellsTodo();
+		pcFacade.refreshAvailableTempBonuses();
 	}
 	
 	/* (non-Javadoc)
@@ -256,6 +257,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			knownSpellNodes.removeElement(spell);
 		}
 		updateSpellsTodo();
+		pcFacade.refreshAvailableTempBonuses();
 	}
 
 	/* (non-Javadoc)
