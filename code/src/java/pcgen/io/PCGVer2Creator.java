@@ -2011,13 +2011,7 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSkillLines(StringBuilder buffer)
 	{
-		SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
-
-		if (filter == SkillFilter.SkillsTab)
-		{
-			filter = thePC.getSkillFilter();
-		}
+		SkillFilter filter = thePC.getSkillFilter();
 
 		thePC.populateSkills(filter);
 
