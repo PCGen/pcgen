@@ -5,4 +5,4 @@ SOURCELONG:D1.5: Revenge of the Kobold King	SOURCESHORT:PFMD1-5	SOURCEWEB:http:/
 ## Wonderous Items
 ##
 # Equipment Name	Type					Cost		Weight	Source Page		Bonus to skill
-Azlanti Sealstone	TYPE:Magic.Artifact.Minor	COST:0	WT:0		SOURCEPAGE:pg.14	BONUS:SKILL|TYPE=Knowledge|4|TYPE=Competance
+Azlanti Sealstone	TYPE:Magic.Artifact.Minor	COST:0	WT:0		SOURCEPAGE:p.14	BONUS:SKILL|TYPE=Knowledge|4|TYPE=Competance

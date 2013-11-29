@@ -3,10 +3,10 @@ SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes	SOURCESHO
 # Original Entry by: Paul Grosse
 
 ### Standard NPCs
-#STARTPACK:NPC ()				VISIBLE:QUALIFY		EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,]			SOURCEPAGE:pg.
+#STARTPACK:NPC ()				VISIBLE:QUALIFY		EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,]			SOURCEPAGE:p.
 #
 # Trinia has two skill points un-assigned
-STARTPACK:NPC (Trinia Sabor/lvl 7)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.48
+STARTPACK:NPC (Trinia Sabor/lvl 7)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.48
 RACE:Human	!PRERACE:1,%
 NAME:Trinia Sabor
 ALIGN:CG
@@ -39,7 +39,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person|Confusion|Cure Light Wound
 
 #Red Mantis Assasins and Cinnabar can't be finished until CotCT 3 and the Red Mantis Assasin PrC is finiahed
 
-STARTPACK:NPC (Shadowcount Sial)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.48
+STARTPACK:NPC (Shadowcount Sial)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.48
 RACE:Human	!PRERACE:1,%
 NAME:Shadowcount Sial
 ALIGN:LE
@@ -50,7 +50,7 @@ CLASS:Cleric		LEVEL:7
 CLASS:Thaumaturgist	LEVEL:4
 
 
-#STARTPACK:NPC (Cindermaw the Clan Eater)	VISIBLE:QUALIFY		EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Purple Worm]	SOURCEPAGE:pg.48
+#STARTPACK:NPC (Cindermaw the Clan Eater)	VISIBLE:QUALIFY		EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Purple Worm]	SOURCEPAGE:p.48
 
 
 #

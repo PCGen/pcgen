@@ -10,16 +10,16 @@ Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:
 
 ###Block: Favored Enemies
 # Ability Name					Output Name							Category of Ability		Type				Visible	Special ABility					Multiple?	Source Page
-#HH Favored Enemy (Humanoid (Aquatic))	OUTPUTNAME:Favored Enemy (Humanoid (Aquatic))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Aquatic))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Dwarf))		OUTPUTNAME:Favored Enemy (Humanoid (Dwarf))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Dwarf))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Elf))		OUTPUTNAME:Favored Enemy (Humanoid (Elf))		CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Elf))		MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Goblinoid))	OUTPUTNAME:Favored Enemy (Humanoid (Goblinoid))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Goblinoid))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Gnoll))		OUTPUTNAME:Favored Enemy (Humanoid (Gnoll))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnoll))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Gnome))		OUTPUTNAME:Favored Enemy (Humanoid (Gnome))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnome))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Halfling))	OUTPUTNAME:Favored Enemy (Humanoid (Halfling))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Halfling))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Human))		OUTPUTNAME:Favored Enemy (Humanoid (Human))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Human))	MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Orc))		OUTPUTNAME:Favored Enemy (Humanoid (Orc))		CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Orc))		MULT:NO	SOURCEPAGE:pg.73
-#HH Favored Enemy (Humanoid (Reptilian))	OUTPUTNAME:Favored Enemy (Humanoid (Reptilian))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Reptilian))	MULT:NO	SOURCEPAGE:pg.73
+#HH Favored Enemy (Humanoid (Aquatic))	OUTPUTNAME:Favored Enemy (Humanoid (Aquatic))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Aquatic))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Dwarf))		OUTPUTNAME:Favored Enemy (Humanoid (Dwarf))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Dwarf))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Elf))		OUTPUTNAME:Favored Enemy (Humanoid (Elf))		CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Elf))		MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Goblinoid))	OUTPUTNAME:Favored Enemy (Humanoid (Goblinoid))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Goblinoid))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Gnoll))		OUTPUTNAME:Favored Enemy (Humanoid (Gnoll))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnoll))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Gnome))		OUTPUTNAME:Favored Enemy (Humanoid (Gnome))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Gnome))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Halfling))	OUTPUTNAME:Favored Enemy (Humanoid (Halfling))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Halfling))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Human))		OUTPUTNAME:Favored Enemy (Humanoid (Human))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Human))	MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Orc))		OUTPUTNAME:Favored Enemy (Humanoid (Orc))		CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Orc))		MULT:NO	SOURCEPAGE:p.73
+#HH Favored Enemy (Humanoid (Reptilian))	OUTPUTNAME:Favored Enemy (Humanoid (Reptilian))	CATEGORY:Special Ability	TYPE:HHFavoredEnemy	VISIBLE:YES	SAB:Favored Enemy (Humanoid (Reptilian))	MULT:NO	SOURCEPAGE:p.73
 
 ###Block: Bonus Known Spells (Complete)
 # Ability Name		Category of Ability		Type				Visible		Req. Spell Type		Required Text														Stackable?	Multiple?	Choose		Bonus to spell known/L

@@ -6,7 +6,7 @@ SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enwo
 ###Block: The Mage ----------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Mage		HD:4		TYPE:Base.PC.EOM	ABB:Mage		MAXLEVEL:20	SOURCEPAGE:pg.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Mage		HD:4		TYPE:Base.PC.EOM	ABB:Mage		MAXLEVEL:20	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage		STARTSKILLPTS:4	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
@@ -68,7 +68,7 @@ CLASS:Mageknight	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS
 ###Block: The Taskmage ----------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus			Combat bonus
-CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	ABB:TskMge		MAXLEVEL:20	SOURCEPAGE:pg.10	BONUS:CHECKS|ALL|((CL+3)*2)/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	ABB:TskMge		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:CHECKS|ALL|((CL+3)*2)/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Taskmage	STARTSKILLPTS:8	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level

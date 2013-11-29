@@ -29,7 +29,7 @@ CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration
 # errata 2006-06-03 applied
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Bonus Languages					Automatically Gained Language	Save checks bonus											Combat bonus					Add domain number
-CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:pg.117	LANGBONUS:Ancient Altharin(Imperial)	AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
+CLASS:Priest	HD:4		TYPE:Base.PC	ABB:Pst		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.117	LANGBONUS:Ancient Altharin(Imperial)	AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1
 # Class Name	Required Deity	Prohibited Subclass
 CLASS:Priest	PREDEITY:1,Y	!PRESUBCLASS:1,Hospitaler
 # Class Name	Skill Pts/Lvl	Class Skill

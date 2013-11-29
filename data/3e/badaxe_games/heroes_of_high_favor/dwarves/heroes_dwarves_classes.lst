@@ -3,7 +3,7 @@ SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badax
 # Original Entry by: Andrew Maitland
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Battle-Rager	HD:12		TYPE:PC.Prestige	ABB:Bat-Rag		MAXLEVEL:10	SOURCEPAGE:pg.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Battle-Rager	HD:12		TYPE:PC.Prestige	ABB:Bat-Rag		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Ability						Required AL				Req. Att.	Required Feat							Required Text
 CLASS:Battle-Rager	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:5	PREFEAT:4,Cleave,Iron Will,Power Attack,Toughness	PRETEXT:Must be able to rage, frenzy or similar class ability.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -22,7 +22,7 @@ CLASS:Battle-Rager	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Swim|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Dwarven Skald	HD:6		TYPE:PC.Prestige	ABB:DSkald		MAXLEVEL:10	SOURCEPAGE:pg.26	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Dwarven Skald	HD:6		TYPE:PC.Prestige	ABB:DSkald		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill										Required Text
 CLASS:Dwarven Skald	PREATT:5	PRESKILL:3,Decipher Script=4,Gather Information=4,Knowledge (Dwarves)=6	PRETEXT:1,Perform (Chant)=3,Perform (Epic)=3,Perform (Storytelling)=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -46,7 +46,7 @@ CLASS:Dwarven Skald	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Rune-Priest	HD:8		TYPE:PC.Prestige	ABB:RPrst		MAXLEVEL:10	SOURCEPAGE:pg.30	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Rune-Priest	HD:8		TYPE:PC.Prestige	ABB:RPrst		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Domain	Multiple Requirements
 CLASS:Rune-Priest	PREATT:4	PREDOMAIN:2,ANY	PREMULT:5,[PRESKILL:2,Craft (Armorsmithing)=4,Craft (Weaponsmithing)=4,Craft (Blacksmithing)=4,Craft (Stoneworking)=4],[PRESKILL:1,Knowledge (Dwarves)=6],[PREWEAPONPROF:1,TYPE.Martial],[PREFEAT:1,Weapon Focus],[PREFEAT:1,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance,Rune of Energy]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -77,7 +77,7 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:pg.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL
+CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL
 # Class Name	Required Feat		Required Language	Required Skill							Req. Spell Type
 CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Animal Empathy=8,Scry=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,7 +98,7 @@ CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Stoneheart Ascetic	HD:8		TYPE:PC.Prestige	ABB:StoneA		MAXLEVEL:10	SOURCEPAGE:pg.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Stoneheart Ascetic	HD:8		TYPE:PC.Prestige	ABB:StoneA		MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Check Base		Required Feat													Required Skill					Required Text
 CLASS:Stoneheart Ascetic	PRECHECKBASE:1,Fortitude=6	PREFEAT:4,Endurance,Improved Unarmed Strike,Stunning Fist,Weapon Focus (Unarmed Strike)	PRESKILL:2,Concentration=6,Sense Motive=4	PRETEXT:Base unarmed damage 1d8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -124,7 +124,7 @@ CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diploma
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Paragon	HD:10		TYPE:PC.Prestige	ABB:Parag		MAXLEVEL:10	SOURCEPAGE:pg.42	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Paragon	HD:10		TYPE:PC.Prestige	ABB:Parag		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Req. Special Ability		Required Skill								Required Text
 CLASS:Paragon	PREATT:5	PREFEAT:2,Sunder,Weapon Specialization	PRESA:1,Lay on Hands (Su)	PRESKILL:2,Craft (Armorsmithing)=8,Knowledge (Dwarves)=6	PRETEXT:Weapon Specialization must be deities favored weapon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -143,7 +143,7 @@ CLASS:Paragon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Kno
 ###Block:  COMMENT: 'Slayer' - Renamed to 'Slayer ~ HoHFD' due to conflict with pre-existing class with same name.
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Slayer ~ HoHFD	HD:10		TYPE:PC.Prestige	ABB:Slyr		MAXLEVEL:10	SOURCEPAGE:pg.46	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Slayer ~ HoHFD	HD:10		TYPE:PC.Prestige	ABB:Slyr		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat							Required Skill								Required Text
 CLASS:Slayer ~ HoHFD	PREATT:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Wilderness Lore=8	PRETEXT:Must have a favored enemy
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -162,7 +162,7 @@ CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Tunnel-Fighter	HD:6		TYPE:PC.Prestige	ABB:TunFgt		MAXLEVEL:10	SOURCEPAGE:pg.50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Tunnel-Fighter	HD:6		TYPE:PC.Prestige	ABB:TunFgt		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Race				Required Skill
 CLASS:Tunnel-Fighter	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Intuit Direction=6,Move Silently=6,Spot=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -179,7 +179,7 @@ CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disab
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:pg.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Check Base		Required Feat							Multiple Requirements											Required Skill									Required Casting Type	Req. Spell Type
 CLASS:Aceldamist	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -199,7 +199,7 @@ CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimid
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat					Multiple Requirements																																Required Skill											Req. Weapond Prof.
 CLASS:Artificer	PREFEAT:1,Craft Magic Arms and Armor	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PREMULT:1,[PREFEAT:1,Shield Proficiency],[PREPROFWITHSHIELD:1,TYPE.Shield,TYPE.Buckler,TYPE.Tower,TYPE.Light,TYPE.Heavy]	PRESKILL:3,Craft (Armorsmithing)=9,Craft (Weaponsmithing)=9,Spellcraft=9	PREWEAPONPROF:2,TYPE.Simple,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill

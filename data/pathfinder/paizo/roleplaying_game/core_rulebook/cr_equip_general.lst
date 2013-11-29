@@ -58,7 +58,7 @@ Staff			TYPE:Staff					COST:0	WT:0				MODS:REQUIRED
 Wand			TYPE:Wand					COST:0	WT:0				MODS:REQUIRED
 # From Magic Overview "Components"
 Spell Component	TYPE:MaterialComponent.Consumable	COST:0	WT:0				MODS:REQUIRED
-Spell Focus		TYPE:SpellFocus				COST:0	WT:0				MODS:REQUIRED
+Spell Focus		TYPE:MaterialComponent.Focus		COST:0	WT:0				MODS:REQUIRED
 #
 Art			TYPE:Art					COST:0	WT:0				MODS:REQUIRED
 Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED

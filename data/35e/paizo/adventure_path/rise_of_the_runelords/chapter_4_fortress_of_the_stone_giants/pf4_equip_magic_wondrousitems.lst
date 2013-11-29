@@ -3,5 +3,5 @@ SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURC
 #Original Entry: Eric C Smith
 
 # Equipment Name		Output Name				Type					Cost		Weight	Source Page		Stat bonus
-Robe (Runes)		OUTPUTNAME:Robe of [NAME]	TYPE:Magic.Wondrous.Robe	COST:44000	WT:1		SOURCEPAGE:Pg.50	BONUS:STAT|INT|4|TYPE=Enhancement
-Lenses (Fogcutting)	OUTPUTNAME:[NAME] Lenses	TYPE:Magic.Wondrous		COST:8000	WT:1		SOURCEPAGE:Pg.50
+Robe (Runes)		OUTPUTNAME:Robe of [NAME]	TYPE:Magic.Wondrous.Robe	COST:44000	WT:1		SOURCEPAGE:p.50	BONUS:STAT|INT|4|TYPE=Enhancement
+Lenses (Fogcutting)	OUTPUTNAME:[NAME] Lenses	TYPE:Magic.Wondrous		COST:8000	WT:1		SOURCEPAGE:p.50

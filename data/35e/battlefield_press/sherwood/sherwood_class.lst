@@ -5,7 +5,7 @@ SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:ww
 ###Block: Engineer ----------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Engineer	HD:6		TYPE:PC.Base	ABB:Eng		MAXLEVEL:10	SOURCEPAGE:pg.2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Engineer	HD:6		TYPE:PC.Base	ABB:Eng		MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Engineer	STARTSKILLPTS:9	CSKILL:Appraise|Climb|TYPE=Craft|Concentration|Diplomacy|Jump|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|TYPE=Profession|Ride|Search|Spot|Swim|Use Magic Device|Use Rope
 ###Block: Proficiencies
@@ -19,7 +19,7 @@ CLASS:Engineer	STARTSKILLPTS:9	CSKILL:Appraise|Climb|TYPE=Craft|Concentration|Di
 ###Block: Knave -------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Knave		HD:6		TYPE:PC.Base	ABB:Kna		MAXLEVEL:10	SOURCEPAGE:pg.4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Knave		HD:6		TYPE:PC.Base	ABB:Kna		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knave		STARTSKILLPTS:7	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	TEMPLATE:Core Class
@@ -34,7 +34,7 @@ CLASS:Knave		STARTSKILLPTS:7	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Disg
 ###Block: Man-at-Arms -------------------------------------------------------------------------------------------
 
 # Class Name	Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Man-at-Arms	OUTPUTNAME:Man-at-Arms	HD:10		TYPE:PC.Base	ABB:Man		MAXLEVEL:10	SOURCEPAGE:pg.5	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Man-at-Arms	OUTPUTNAME:Man-at-Arms	HD:10		TYPE:PC.Base	ABB:Man		MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Man-at-Arms	STARTSKILLPTS:5	CSKILL:Balance|Climb|TYPE=Craft|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|TYPE=Profession|Ride|Search|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
@@ -51,7 +51,7 @@ CLASS:Man-at-Arms	STARTSKILLPTS:5	CSKILL:Balance|Climb|TYPE=Craft|Gather Informa
 ###Block: Noble -------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Noble		HD:8		TYPE:PC.Base	ABB:Nob		MAXLEVEL:10	SOURCEPAGE:pg.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Noble		HD:8		TYPE:PC.Base	ABB:Nob		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:5	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Geography)|Knowledge (History)|Knowledge (Law)|Knowledge (Local)|Knowledge (Nobility and Royalty)|TYPE=Perform|TYPE=Profession|Ride|Swim
 ###Block: Proficiencies
@@ -65,7 +65,7 @@ CLASS:Noble		STARTSKILLPTS:5	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diplomacy|
 ###Block: Priest ------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Priest	HD:6		TYPE:PC.Base	ABB:Pri		MAXLEVEL:10	SOURCEPAGE:pg.10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Priest	HD:6		TYPE:PC.Base	ABB:Pri		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:7	CSKILL:Appraise|Concentration|TYPE=Craft|Diplomacy|Gather Information|Heal|Intimidate|Knowledge (Geography)|Knowledge (History)|Knowledge (Law)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Listen|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Survival|Swim
 ###Block: Proficiencies
@@ -79,7 +79,7 @@ CLASS:Priest	STARTSKILLPTS:7	CSKILL:Appraise|Concentration|TYPE=Craft|Diplomacy|
 ###Block: Yeoman ------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Yeoman	HD:10		TYPE:PC.Base	ABB:Yeo		MAXLEVEL:10	SOURCEPAGE:pg.12	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Yeoman	HD:10		TYPE:PC.Base	ABB:Yeo		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Yeoman	STARTSKILLPTS:7	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Local)|Knowledge (Nature)|TYPE=Perform|TYPE=Profession|Ride|Survival|Swim|Tumble|Use Rope
 ###Block: Proficiencies

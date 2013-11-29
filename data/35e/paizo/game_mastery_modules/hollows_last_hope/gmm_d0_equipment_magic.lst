@@ -3,8 +3,8 @@ SOURCELONG:D0: Hollow's Last Hope	SOURCESHORT:GMMD0	SOURCEWEB:http://paizo.com/s
 
 ###Block: Rings
 # Equipment Name	Product Identity?	Type			Cost		Weight	Source Page		Special ABility
-Ring of Torag	NAMEISPI:YES	TYPE:Magic.Ring	COST:1200	WT:0		SOURCEPAGE:pg.13	SAB:Fire resistance and protection against fire spells and effects.
+Ring of Torag	NAMEISPI:YES	TYPE:Magic.Ring	COST:1200	WT:0		SOURCEPAGE:p.13	SAB:Fire resistance and protection against fire spells and effects.
 
 ###Block: Wonderous Items
 # Equipment Name	Type					Cost		Weight	Source Page		Innate Spells
-Soulspeaker		TYPE:Magic.Wonderous.Amulet	COST:2400	WT:0		SOURCEPAGE:pg.8	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=3|Magic Mouth
+Soulspeaker		TYPE:Magic.Wonderous.Amulet	COST:2400	WT:0		SOURCEPAGE:p.8	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=3|Magic Mouth
