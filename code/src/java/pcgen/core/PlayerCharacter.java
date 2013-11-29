@@ -7502,8 +7502,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 		else if (filter == SkillFilter.Usable)
 		{
-			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 || 
-					skill.getSafe(ObjectKey.USE_UNTRAINED));
+			return qualifySkill(skill)
+				&& (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 || skill
+					.getSafe(ObjectKey.USE_UNTRAINED));
 		}
 		else
 		{
@@ -8070,6 +8071,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			bean.copyContents(id, aClone.id);
 		}
+		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 
 		for (PCClass cloneClass : aClone.classFacet.getClassSet(aClone.id))
 		{
@@ -8112,7 +8114,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 		aClone.calcEquipSetId = calcEquipSetId;
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
-		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 		aClone.setDescriptionLst(getDescriptionLst());
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;

@@ -71,6 +71,8 @@ public class BonusManager
 
 	private Map<String, String> activeBonusMap = new ConcurrentHashMap<String, String>();
 
+	private Map<String, Double> cachedActiveBonusSumsMap = new ConcurrentHashMap<String, Double>();
+
 	private Map<BonusObj, Object> activeBonusBySource = new IdentityHashMap<BonusObj, Object>();
 
 	private Map<BonusObj, TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, TempBonusInfo>();
@@ -93,6 +95,10 @@ public class BonusManager
 	{
 		double bonus = 0;
 		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))
+		{
+			return cachedActiveBonusSumsMap.get(fullyQualifiedBonusType);
+		}
 
 		final List<String> aList = new ArrayList<String>();
 
@@ -178,7 +184,8 @@ public class BonusManager
 				bonus += stackBonus;
 			}
 		}
-
+		
+		cachedActiveBonusSumsMap.put(fullyQualifiedBonusType, bonus);
 		return bonus;
 	}
 
@@ -281,6 +288,7 @@ public class BonusManager
 	void buildActiveBonusMap()
 	{
 		activeBonusMap = new ConcurrentHashMap<String, String>();
+		cachedActiveBonusSumsMap = new ConcurrentHashMap<String, Double>();
 		Map<String, String> nonStackMap = new ConcurrentHashMap<String, String>();
 		Map<String, String> stackMap = new ConcurrentHashMap<String, String>();
 		Set<BonusObj> processedBonuses = new WrappedMapSet<BonusObj>(
