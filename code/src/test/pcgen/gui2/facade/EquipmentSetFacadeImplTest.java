@@ -61,9 +61,9 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	public void testEmptyInit()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
-		EquipmentSetFacadeImpl esfi =
+		EquipmentSetFacadeImpl esfi = 
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList, todoManager);
+					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty node set", nodeList.isEmpty());
 		assertEquals("Incorrect name of base node", Constants.EQUIP_LOCATION_EQUIPPED,
@@ -92,7 +92,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		int adjustedBaseNodes = NUM_BASE_NODES -4;
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
-					equipmentList, todoManager);
+					equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty path set", nodeList.isEmpty());
 		EquipNodeImpl node = (EquipNodeImpl) nodeList.getElementAt(0);
@@ -137,7 +137,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
-					equipmentList, todoManager);
+					equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
 		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
 		for (EquipNode equipNode : nodes)
@@ -174,9 +174,11 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	public void testAddRemove()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
+		CharacterFacadeImpl charFacade =
+				new CharacterFacadeImpl(getCharacter(), uiDelegate, dataset);
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList, todoManager);
+					dataset, equipmentList, todoManager, charFacade);
 		EquipNode root = esfi.getNodes().getElementAt(0);
 		Equipment item = new Equipment();
 		item.setName("Dart");
@@ -225,7 +227,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList, todoManager);
+					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
 		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
 		for (EquipNode equipNode : nodes)
@@ -276,7 +278,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es,
-					dataset, equipmentList, todoManager);
+					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
 		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
 		for (EquipNode equipNode : nodes)
@@ -304,7 +306,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-					dataset, equipmentList, todoManager);
+					dataset, equipmentList, todoManager, null);
 
 		assertNull("Null equipment should give null location", esfi.getNaturalWeaponLoc(null));
 		
@@ -420,7 +422,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		addEquipToEquipSet(pc, es, item4, 1.0f);
 
 		return new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
-			dataset, equipmentList, todoManager);
+			dataset, equipmentList, todoManager, null);
 	}
 	
 	private EquipNodeImpl getEquipNodeByName(ListFacade<EquipNode> nodeList,

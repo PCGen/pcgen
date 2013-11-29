@@ -527,7 +527,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			{
 				final EquipmentSetFacadeImpl facade =
 						new EquipmentSetFacadeImpl(delegate, theCharacter, es,
-							dataSet, purchasedEquip, todoManager);
+							dataSet, purchasedEquip, todoManager, this);
 				eqSetList.add(facade);
 				if (es.getIdPath().equals(currIdPath))
 				{
@@ -802,6 +802,16 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		spellSupportFacade.refreshAvailableKnownSpells();
 		updateScorePurchasePool(false);
 		refreshLanguageList();
+	}
+
+	/**
+	 * Ensure any items that could be affected by the new equipment are refreshed.
+	 */
+	void postEquippingUpdates()
+	{
+		characterAbilities.rebuildAbilityLists();
+		refreshAvailableTempBonuses();
+		hpRef.setReference(theCharacter.hitPoints());
 	}
 
 	private void refreshHeightWeight()
@@ -3813,7 +3823,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.addEquipSet(eSet);
 		final EquipmentSetFacadeImpl facade =
 				new EquipmentSetFacadeImpl(delegate, theCharacter, eSet,
-					dataSet, purchasedEquip, todoManager);
+					dataSet, purchasedEquip, todoManager, this);
 		equipmentSets.addElement(facade);
 
 		return facade;

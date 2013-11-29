@@ -104,6 +104,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private Map<String, EquipNodeImpl> naturalWeaponNodes;
 	/** List of phantom nodes which are currently both empty and not able to contain equipment */
 	private Set<EquipNodeImpl> hiddenPhantomNodes;
+	private CharacterFacadeImpl characterFacadeImpl;
 	
 	
 	/**
@@ -116,14 +117,17 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 * @param dataSet The datasets that the character is using.
 	 * @param purchasedList The list of the charcter's purchased equipment.
 	 * @param todoManager The user tasks tracker.
+	 * @param characterFacadeImpl The UI facade for the character.
 	 */
 	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc,
 		EquipSet eqSet, DataSetFacade dataSet,
-		EquipmentListFacadeImpl purchasedList, TodoManager todoManager)
+		EquipmentListFacadeImpl purchasedList, TodoManager todoManager,
+		CharacterFacadeImpl characterFacadeImpl)
 	{
 		this.delegate = delegate;
 		this.theCharacter = pc;
 		this.todoManager = todoManager;
+		this.characterFacadeImpl = characterFacadeImpl;
 		this.charDisplay = pc.getDisplay();
 		this.dataSet = dataSet;
 		this.purchasedList = purchasedList;
@@ -688,7 +692,8 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		updateOutputOrder();
 		theCharacter.calcActiveBonuses();
 		updatePhantomSlots();
-		
+		characterFacadeImpl.postEquippingUpdates();
+
 		return newItem;
 	}
 
