@@ -3625,12 +3625,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		Equipment equipItemToAdjust = (Equipment) equipment;
 
 		Equipment updatedItem = theCharacter.getEquipmentNamed(equipItemToAdjust.getName());
+		double numRemoved = 0;
 
 		// see if item is already in inventory; update it
 		if (updatedItem != null)
 		{
 			final double prevQty = (updatedItem.qty() < 0) ? 0 : updatedItem.qty();
-			final double newQty = Math.max(prevQty - quantity, 0);
+			numRemoved = Math.min(quantity, prevQty);
+			final double newQty = Math.max(prevQty - numRemoved, 0);
 
 			if (newQty <= 0)
 			{
@@ -3664,7 +3666,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		// Update the PC and equipment
-		double itemCost = calcItemCost(updatedItem, quantity * -1,
+		double itemCost = calcItemCost(updatedItem, numRemoved * -1,
 				(GearBuySellScheme) gearBuySellSchemeRef.getReference());
 		theCharacter.adjustGold(itemCost * -1);
 		theCharacter.setCalcEquipmentList();
