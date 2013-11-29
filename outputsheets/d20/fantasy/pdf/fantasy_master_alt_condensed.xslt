@@ -2613,18 +2613,18 @@
 							<fo:table-cell>
 							<xsl:if test="count(conditional_modifiers/savebonus) &gt; 0">
 								<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Save Modifiers:</fo:block>	
-
+							</xsl:if>
 								<xsl:for-each select="conditional_modifiers/savebonus">
 									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 								</xsl:for-each>
-							</xsl:if>
+							
 							<xsl:if test="count(conditional_modifiers/combatbonus) &gt; 0">
 								<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Combat Modifiers:</fo:block>	
-
+							</xsl:if>
 								<xsl:for-each select="conditional_modifiers/combatbonus">
 									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 								</xsl:for-each>
-							</xsl:if>	
+								
 							</fo:table-cell>
 						</fo:table-row>
 			</fo:table-body>

@@ -2,4 +2,4 @@
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ##Potions
 # Equipment Name			Output Name				Type			Cost		Weight	Source Page
-Potion (Nectar of the Gods)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p. 21, Potions
+Potion (Nectar of the Gods)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion	COST:5000	WT:0		SOURCEPAGE:p.21
