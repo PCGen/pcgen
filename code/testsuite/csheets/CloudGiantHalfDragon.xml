@@ -1621,7 +1621,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Scent</name>
-			<description></description>
+			<description>30 ft. range</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.SENSE</type>
 			<associated></associated>
 			<count>0</count>
