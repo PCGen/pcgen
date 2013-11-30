@@ -4,13 +4,6 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 # ORIGINAL ENTRY: Distant Scholar
 # ORIGINAL ENTRY DATE: 2011/08/02
 
-
-Brine Dragon	TEMPLATE:Base Dragon HD (4)	HD:4-5:TEMPLATE:Dragon (Tiny)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-11:TEMPLATE:Dragon (Medium)	HD:12-17:TEMPLATE:Dragon (Large)	HD:18-25:TEMPLATE:Dragon (Huge)	HD:26+:TEMPLATE:Dragon (Gargantuan)
-Cloud Dragon	TEMPLATE:Base Dragon HD (6)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-9:TEMPLATE:Dragon (Medium)	HD:10-13:TEMPLATE:Dragon (Large)	HD:14-19:TEMPLATE:Dragon (Huge)	HD:20-27:TEMPLATE:Dragon (Gargantuan)	HD:28+:TEMPLATE:Dragon (Colossal)
-Crystal Dragon	TEMPLATE:Base Dragon HD (3)	HD:3-4:TEMPLATE:Dragon (Tiny)	HD:5-6:TEMPLATE:Dragon (Small)	HD:7-10:TEMPLATE:Dragon (Medium)	HD:11-16:TEMPLATE:Dragon (Large)	HD:17-24:TEMPLATE:Dragon (Huge)	HD:25+:TEMPLATE:Dragon (Gargantuan)
-Magma Dragon	TEMPLATE:Base Dragon HD (5)	HD:5-6:TEMPLATE:Dragon (Small)	HD:7-8:TEMPLATE:Dragon (Medium)	HD:9-12:TEMPLATE:Dragon (Large)	HD:13-18:TEMPLATE:Dragon (Huge)	HD:19-26:TEMPLATE:Dragon (Gargantuan)	HD:27+:TEMPLATE:Dragon (Colossal)
-Umbral Dragon	TEMPLATE:Base Dragon HD (7)	HD:7-8:TEMPLATE:Dragon (Small)	HD:9-10:TEMPLATE:Dragon (Medium)	HD:11-14:TEMPLATE:Dragon (Large)	HD:15-20:TEMPLATE:Dragon (Huge)	HD:21-28:TEMPLATE:Dragon (Gargantuan)	HD:29+:TEMPLATE:Dragon (Colossal)
-
 ###Block: Void Zombie template
 # Template Name	Challenge Rating	Visible	Source Page		Required Template			Weapon prof. bonus												Ability									Natural Attacks
 Zombie (Void)	CR:1			VISIBLE:YES	SOURCEPAGE:p.23	PRETEMPLATE:1,Zombie (Fast)	BONUS:WEAPONPROF=Tongue|TOHIT|-5	BONUS:WEAPONPROF=Tongue|TOHIT|3|PREFEAT:1,Multiattack	ABILITY:Special Ability|AUTOMATIC|Blood Drain ~ Void Zombie	NATURALATTACKS:Tongue,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.BloodDrain,*1,1d6
