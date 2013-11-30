@@ -1,18 +1,18 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Halflings of Golarion	SOURCESHORT:HAOG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2012/12/29
 
 
 ###Block:Food, Drink, and Lodging
-# Equipment Name				Product Identity?	Type				Cost		Weight	Requires Modification?	Source Page
-Dragon Punch Whiskey (Cup)					TYPE:Goods.Liquid.Food	COST:10	WT:0.5					SOURCEPAGE:p.10
-Lisken's Medicinal Tonic (Cup)	NAMEISPI:YES	TYPE:Goods.Liquid.Food	COST:10	WT:0.5					SOURCEPAGE:p.10
-Luglurch Ale (Gallon)						TYPE:Goods.Liquid.Food	COST:1	WT:8						SOURCEPAGE:p.10
-Luglurch Ale (Mug)						TYPE:Goods.Liquid.Food	COST:0.4	WT:1						SOURCEPAGE:p.10
+# Equipment Name				Product Identity?	Type					Cost		Weight	Requires Modification?	Source Page
+Dragon Punch Whiskey (Cup)					TYPE:Goods.Liquid.Food		COST:10	WT:0.5					SOURCEPAGE:p.10
+Lisken's Medicinal Tonic (Cup)	NAMEISPI:YES	TYPE:Goods.Liquid.Food		COST:10	WT:0.5					SOURCEPAGE:p.10
+Luglurch Ale (Gallon)						TYPE:Goods.Liquid.Food		COST:1	WT:8						SOURCEPAGE:p.10
+Luglurch Ale (Mug)						TYPE:Goods.Liquid.Food		COST:0.4	WT:1						SOURCEPAGE:p.10
 
 ### BLOCK: Halfling Keepsakes
-Sacred Keepsake							TYPE:MaterialComponent.Focus		COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.24
+Sacred Keepsake							TYPE:MaterialComponent.Focus	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.24
 # Cleanup
 #Black Bead					TYPE:		COST:		WT:		SOURCEPAGE:p.24	SPROP:Usually a trophy seized from a foe, this bead often commemorates tasks involving defeating a threat through manipulation or deception rather than direct action. A halfling who uses the bead while casting cause fear can target multiple creatures within range of the spell so long as their total Hit Dice does not exceed 5. A creature that fails its saving throw becomes shaken for 1d4 rounds; a successful save means that the spell has no effect.
 #Blessed Button				TYPE:MaterialComponent.Focus		COST:0		WT:0	SOURCEPAGE:p.24 SPROP:This brass button often commemorates tasks requiring the youth to destroy or drive off a threat to the community without directly engaging it in handto-hand combat. A halfling who uses it while casting bless weapon on a sling affects enables the sling to confer the spell�s benefits to the ammunition it fires.

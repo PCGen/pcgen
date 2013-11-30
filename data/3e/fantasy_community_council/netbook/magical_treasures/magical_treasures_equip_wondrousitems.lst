@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 # I just can't seem to figure out the demiform boots... someone else is welcome to them.
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ##Wondrous Items
-# Equipment Name						Type													Contains				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page						Virtual Feat					Combat bonus						Bonus to skill								Stat bonus					Special Property
+# Equipment Name						Type													Contains				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page			Virtual Feat					Combat bonus						Bonus to skill								Stat bonus					Special Property
 Amulet of Healing (Cure Light Wounds 1/day)	TYPE:Magic.Wondrous.Amulet														COST:360	WT:0																SOURCEPAGE:p.38																																	SPROP:See text
 Amulet of Healing (Cure Light Wounds 2/day)	TYPE:Magic.Wondrous.Amulet														COST:360	WT:0																SOURCEPAGE:p.38																																	SPROP:See text
 Amulet of Healing (Cure Light Wounds 3/day)	TYPE:Magic.Wondrous.Amulet														COST:360	WT:0																SOURCEPAGE:p.38																																	SPROP:See text

@@ -1,4 +1,4 @@
-# CVS $Revision: 21722 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 21722 $ $Author: zaister $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 ###Block: Modify default ability
@@ -168,7 +168,8 @@ Caster Level ~ Paladin		CATEGORY:Internal		BONUS:CASTERLEVEL|Paladin|2
 Caster Level ~ Ranger		CATEGORY:Internal		BONUS:CASTERLEVEL|Ranger|2
 
 ###Block:	Acid|Cold|Electricity|Fire
-Acid		KEY:Elemental Fist ~ Acid			CATEGORY:Internal	TYPE:ElementalFistChoice
-Cold		KEY:Elemental Fist ~ Cold			CATEGORY:Internal	TYPE:ElementalFistChoice
-Electricity	KEY:Elemental Fist ~ Electricity		CATEGORY:Internal	TYPE:ElementalFistChoice
-Fire		KEY:Elemental Fist ~ Fire			CATEGORY:Internal	TYPE:ElementalFistChoice
+# Ability Name	Unique Key					Category of Ability	Type
+Acid			KEY:Elemental Fist ~ Acid		CATEGORY:Internal		TYPE:ElementalFistChoice
+Cold			KEY:Elemental Fist ~ Cold		CATEGORY:Internal		TYPE:ElementalFistChoice
+Electricity		KEY:Elemental Fist ~ Electricity	CATEGORY:Internal		TYPE:ElementalFistChoice
+Fire			KEY:Elemental Fist ~ Fire		CATEGORY:Internal		TYPE:ElementalFistChoice

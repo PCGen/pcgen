@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Netbook of Magical Treasures	SOURCESHORT:NboMT	SOURCEWEB:http://www.d20magicitems.org/	SOURCEDATE:2002-01
 ###Block:Rods
-# Equipment Name					Output Name						Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page				Weapon prop. bonus					Special Property
+# Equipment Name					Output Name						Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page			Weapon prop. bonus					Special Property
 Rod (Dragon Scepter (Copper & Blue))	OUTPUTNAME:Dragon Scepter (Copper & Blue)	PROFICIENCY:WEAPON|Mace			TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:101200	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					SIZE:S	SOURCEPAGE:p.29		BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:See text
 Rod (Dragon Scepter (Silver & Red))		OUTPUTNAME:Dragon Scepter (Silver & Red)	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Double.Quarterstaff	COST:97600	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.29		BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:See text
 Rod (Punishment)					OUTPUTNAME:Rod of [NAME]			PROFICIENCY:WEAPON|Mace			TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Mace				COST:89000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d8		SIZE:S	SOURCEPAGE:p.29		BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:See text
@@ -9,14 +9,14 @@ Rod (Hand)						OUTPUTNAME:Rod of the [NAME]			PROFICIENCY:WEAPON|Mace			TYPE:Ma
 Rod (Steam)						OUTPUTNAME:[NAME] Rod										TYPE:Magic.Rod										COST:54500	WT:3																		SOURCEPAGE:p.30-31									SPROP:See text
 
 ###Block:Staffs
-# Equipment Name		Output Name					Required Weapon Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page				Weapon prop. bonus					Special Property
-Staff (Dark)		OUTPUTNAME:[NAME] Staff			PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:67500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.33	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:See text
-Staff (Road)		OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:66000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.33	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:See text
-Staff (Sanctuary)		OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Staff											COST:44000	WT:0																		SOURCEPAGE:p.34									SPROP:See text
+# Equipment Name		Output Name					Required Weapon Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page			Weapon prop. bonus					Special Property
+Staff (Dark)		OUTPUTNAME:[NAME] Staff			PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:67500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.33		BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:See text
+Staff (Road)		OUTPUTNAME:Staff of the [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:66000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.33		BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:See text
+Staff (Sanctuary)		OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Staff											COST:44000	WT:0																		SOURCEPAGE:p.34										SPROP:See text
 Staff (Weeping Groves)	OUTPUTNAME:Staff of [NAME]		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	COST:60255	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.34-35									SPROP:See text
 
 ###Block:Wands
-# Equipment Name					Output Name					Type			Cost		Weight	Base Item for EQMOD	Modifier													Source Page				Special Property
+# Equipment Name					Output Name					Type			Cost		Weight	Base Item for EQMOD	Modifier													Source Page		Special Property
 Enchanted Baton (Flame Arrow)			OUTPUTNAME:Enchanted [NAME] Baton	TYPE:Magic.Wand	COST:375	WT:1		BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Flame Arrow]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[1]		SOURCEPAGE:p.36	SPROP:See text
 Enchanted Baton (Hold Person)			OUTPUTNAME:Enchanted [NAME] Baton	TYPE:Magic.Wand	COST:375	WT:1		BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Hold Person]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[1]		SOURCEPAGE:p.36	SPROP:See text
 Enchanted Baton (Lightning Bolt)		OUTPUTNAME:Enchanted [NAME] Baton	TYPE:Magic.Wand	COST:375	WT:1		BASEITEM:Wand		EQMOD:SPL_CHRG|SPELLNAME[Lightning Bolt]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[1]		SOURCEPAGE:p.36	SPROP:See text

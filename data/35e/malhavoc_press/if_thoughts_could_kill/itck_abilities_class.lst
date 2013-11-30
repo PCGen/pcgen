@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 
 # ~ Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
@@ -66,5 +66,5 @@ Knife to the Soul		KEY:Knife to the Soul ~ Soulknife ITCK		CATEGORY:Special Abil
 
 ###Block: hidden feats
 # Feat Name			Type			Visible	Required Class			Stackable?	Multiple?	Choose													Modify VAR						Source Page
-# Ability Name		Category of Ability		Type			Visible	Required Class			Stackable?	Multiple?	Choose							Bonus to spell known/L					Modify VAR						Source Page
+# Ability Name		Category of Ability		Type			Visible	Required Class			Stackable?	Multiple?	Choose							Bonus to spell known/L		Modify VAR						Source Page
 Power Sequestration	CATEGORY:Special Ability	TYPE:ClassSpecial	VISIBLE:NO	PRECLASS:1,Metamind ITCK=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Psionic|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|-1	BONUS:VAR|BasePowerPoints|((%CHOICE*2)-1)	SOURCEPAGE:p.40

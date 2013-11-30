@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
 #  NOTE: ADD:ABILITY|FEAT| doesn't work in domain file, so couldn't update this file
-# Domain Name	Class Skill					Innate Spells												Ability												Virtual Feat				Add 									Special ABility					Caster level					Bonus to skill			Modify VAR												Source Page			Description																																List of Domain Spells by Level
+# Domain Name	Class Skill					Innate Spells												Ability												Virtual Feat				Add 									Special ABility					Caster level					Bonus to skill			Modify VAR												Source Page		Description																																List of Domain Spells by Level
 Afterlife																																																																BONUS:SKILL|TYPE.Religion|2	BONUS:VAR|TurnLevelBase|1									SOURCEPAGE:p.252	DESC:+2 to Knowledge (Religion) checks, turn as a cleric 1 level higher.																					SPELLLEVEL:DOMAIN|Afterlife=1|Consecrate|Afterlife=2|Speak with Dead|Afterlife=3|Beltine's Blessed Strike|Afterlife=4|Death Ward|Afterlife=5|Disrupting Weapon|Afterlife=6|Undeath to Death|Afterlife=7|Control Undead|Afterlife=8|Sunburst|Afterlife=9|Cry For Spirit's Release
 Ancestor																																																																																		SOURCEPAGE:p.252	DESC:You may petition your ancestors for +4 insight bonus on next skill check 1/day.																			SPELLLEVEL:DOMAIN|Ancestor=1|Bless|Ancestor=2|Aid|Ancestor=3|Prayer|Ancestor=4|Divination|Ancestor=5|Commune|Ancestor=6|Legend Lore|Ancestor=7|Eyebite|Ancestor=8|Antimagic Field|Ancestor=9|Miracle
 Artificer																																									ADD:ABILITY|3|Special Ability|VIRTUAL|ArtificerSkills																																	SOURCEPAGE:p.253	DESC:You gain a bonus of +2 on any three Craft skills.																								SPELLLEVEL:DOMAIN|Artificer=1|Hardness|Artificer=2|Identify|Artificer=3|Stone Shape|Artificer=4|Minor Creation|Artificer=5|Major Creation|Artificer=6|Reanimate Construct|Artificer=7|Presence of Master Smiths|Artificer=8|Polymorph Any Object|Artificer=9|Miracle

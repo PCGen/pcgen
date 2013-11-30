@@ -1,4 +1,4 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
@@ -111,10 +111,10 @@ FOLLOWER:EidolonLVL=12	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUT
 FOLLOWER:EidolonLVL=20	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Noble Eidolon ~ Shaitan Binder Eidolon
 
 ###Block Base Eidolon mods for Wild Caller
-# Class of the Master	Type			Bonus to Ability Pool
-FOLLOWER:EidolonLVL=4	TYPE:Eidolon	BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=8	TYPE:Eidolon	BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=12	TYPE:Eidolon	BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=16	TYPE:Eidolon	BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=20	TYPE:Eidolon	BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+# Class of the Master			Type			Define				Bonus to Ability Pool
+FOLLOWER:EidolonLVL=4			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=8			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=12			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=16			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=20			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
 FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon	DEFINE:IsWildCallerEidolon|1

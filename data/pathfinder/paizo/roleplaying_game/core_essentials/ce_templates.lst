@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Builder templates
@@ -175,7 +175,7 @@ FACE_15							FACE:15			VISIBLE:NO
 FACE_20							FACE:20			VISIBLE:NO
 FACE_30							FACE:30			VISIBLE:NO
 # This is having Issues in PF.
-Dragon Size Tracker	SIZE:DragonSizeTracker					VISIBLE:NO	
+Dragon Size Tracker	SIZE:DragonSizeTracker					VISIBLE:NO
 #ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C
 #
 SIZE_F			SIZE:F							VISIBLE:NO
@@ -190,33 +190,33 @@ SIZE_C			SIZE:C							VISIBLE:NO
 SIZE_C+			SIZE:P							VISIBLE:NO
 
 ###Block: Dragon Age
-# Template Name	Visible	Removable?		Subrace
-Wyrmling		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Very Young		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Young			VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Juvenile		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Young Adult		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Adult			VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Mature Adult	VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Old			VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Very Old		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Ancient		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Wyrm			VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
-Great Wyrm		VISIBLE:YES	REMOVABLE:YES	SUBRACE:YES
+# Template Name		Visible	Template				Removable?		Subrace	Hit Dice
+Wyrmling			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Very Young			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Young				VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Juvenile			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Young Adult			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Adult				VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Mature Adult		VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Old				VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Very Old			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Ancient			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Wyrm				VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
+Great Wyrm			VISIBLE:YES						REMOVABLE:YES	SUBRACE:YES
 #
-Base Dragon HD (3)	TEMPLATE:Dragon Size HD (3)	HD:3-4:TEMPLATE:Wyrmling	HD:5-6:TEMPLATE:Very Young	HD:7-8:TEMPLATE:Young	HD:9-10:TEMPLATE:Juvenile	HD:11-12:TEMPLATE:Young Adult	HD:13-14:TEMPLATE:Adult	HD:15-16:TEMPLATE:Mature Adult	HD:17-18:TEMPLATE:Old	HD:19-20:TEMPLATE:Very Old	HD:21-22:TEMPLATE:Ancient	HD:23-24:TEMPLATE:Wyrm	HD:25+:TEMPLATE:Great Wyrm
-Base Dragon HD (4)	TEMPLATE:Dragon Size HD (4)	HD:4-5:TEMPLATE:Wyrmling	HD:6-7:TEMPLATE:Very Young	HD:8-9:TEMPLATE:Young	HD:10-11:TEMPLATE:Juvenile	HD:12-13:TEMPLATE:Young Adult	HD:14-15:TEMPLATE:Adult	HD:16-17:TEMPLATE:Mature Adult	HD:18-19:TEMPLATE:Old	HD:20-21:TEMPLATE:Very Old	HD:22-23:TEMPLATE:Ancient	HD:24-25:TEMPLATE:Wyrm	HD:26+:TEMPLATE:Great Wyrm
-Base Dragon HD (5)	TEMPLATE:Dragon Size HD (5)	HD:5-6:TEMPLATE:Wyrmling	HD:7-8:TEMPLATE:Very Young	HD:9-10:TEMPLATE:Young	HD:11-12:TEMPLATE:Juvenile	HD:13-14:TEMPLATE:Young Adult	HD:15-16:TEMPLATE:Adult	HD:17-18:TEMPLATE:Mature Adult	HD:19-20:TEMPLATE:Old	HD:21-22:TEMPLATE:Very Old	HD:23-24:TEMPLATE:Ancient	HD:25-26:TEMPLATE:Wyrm	HD:27+:TEMPLATE:Great Wyrm
-Base Dragon HD (6)	TEMPLATE:Dragon Size HD (6)	HD:6-7:TEMPLATE:Wyrmling	HD:8-9:TEMPLATE:Very Young	HD:10-11:TEMPLATE:Young	HD:12-13:TEMPLATE:Juvenile	HD:14-15:TEMPLATE:Young Adult	HD:16-17:TEMPLATE:Adult	HD:18-19:TEMPLATE:Mature Adult	HD:20-21:TEMPLATE:Old	HD:22-23:TEMPLATE:Very Old	HD:24-25:TEMPLATE:Ancient	HD:26-27:TEMPLATE:Wyrm	HD:28+:TEMPLATE:Great Wyrm
-Base Dragon HD (7)	TEMPLATE:Dragon Size HD (7)	HD:7-8:TEMPLATE:Wyrmling	HD:9-10:TEMPLATE:Very Young	HD:11-12:TEMPLATE:Young	HD:13-14:TEMPLATE:Juvenile	HD:15-16:TEMPLATE:Young Adult	HD:17-18:TEMPLATE:Adult	HD:19-20:TEMPLATE:Mature Adult	HD:21-22:TEMPLATE:Old	HD:23-24:TEMPLATE:Very Old	HD:25-26:TEMPLATE:Ancient	HD:27-28:TEMPLATE:Wyrm	HD:29+:TEMPLATE:Great Wyrm
-Base Dragon HD (8)	TEMPLATE:Dragon Size HD (8)	HD:8-9:TEMPLATE:Wyrmling	HD:10-11:TEMPLATE:Very Young	HD:12-13:TEMPLATE:Young	HD:14-15:TEMPLATE:Juvenile	HD:16-17:TEMPLATE:Young Adult	HD:18-19:TEMPLATE:Adult	HD:20-21:TEMPLATE:Mature Adult	HD:22-23:TEMPLATE:Old	HD:24-25:TEMPLATE:Very Old	HD:26-27:TEMPLATE:Ancient	HD:28-29:TEMPLATE:Wyrm	HD:30+:TEMPLATE:Great Wyrm
+Base Dragon HD (3)			TEMPLATE:Dragon Size HD (3)						HD:3-4:TEMPLATE:Wyrmling	HD:5-6:TEMPLATE:Very Young	HD:7-8:TEMPLATE:Young	HD:9-10:TEMPLATE:Juvenile	HD:11-12:TEMPLATE:Young Adult	HD:13-14:TEMPLATE:Adult	HD:15-16:TEMPLATE:Mature Adult	HD:17-18:TEMPLATE:Old	HD:19-20:TEMPLATE:Very Old	HD:21-22:TEMPLATE:Ancient	HD:23-24:TEMPLATE:Wyrm	HD:25+:TEMPLATE:Great Wyrm
+Base Dragon HD (4)			TEMPLATE:Dragon Size HD (4)						HD:4-5:TEMPLATE:Wyrmling	HD:6-7:TEMPLATE:Very Young	HD:8-9:TEMPLATE:Young	HD:10-11:TEMPLATE:Juvenile	HD:12-13:TEMPLATE:Young Adult	HD:14-15:TEMPLATE:Adult	HD:16-17:TEMPLATE:Mature Adult	HD:18-19:TEMPLATE:Old	HD:20-21:TEMPLATE:Very Old	HD:22-23:TEMPLATE:Ancient	HD:24-25:TEMPLATE:Wyrm	HD:26+:TEMPLATE:Great Wyrm
+Base Dragon HD (5)			TEMPLATE:Dragon Size HD (5)						HD:5-6:TEMPLATE:Wyrmling	HD:7-8:TEMPLATE:Very Young	HD:9-10:TEMPLATE:Young	HD:11-12:TEMPLATE:Juvenile	HD:13-14:TEMPLATE:Young Adult	HD:15-16:TEMPLATE:Adult	HD:17-18:TEMPLATE:Mature Adult	HD:19-20:TEMPLATE:Old	HD:21-22:TEMPLATE:Very Old	HD:23-24:TEMPLATE:Ancient	HD:25-26:TEMPLATE:Wyrm	HD:27+:TEMPLATE:Great Wyrm
+Base Dragon HD (6)			TEMPLATE:Dragon Size HD (6)						HD:6-7:TEMPLATE:Wyrmling	HD:8-9:TEMPLATE:Very Young	HD:10-11:TEMPLATE:Young	HD:12-13:TEMPLATE:Juvenile	HD:14-15:TEMPLATE:Young Adult	HD:16-17:TEMPLATE:Adult	HD:18-19:TEMPLATE:Mature Adult	HD:20-21:TEMPLATE:Old	HD:22-23:TEMPLATE:Very Old	HD:24-25:TEMPLATE:Ancient	HD:26-27:TEMPLATE:Wyrm	HD:28+:TEMPLATE:Great Wyrm
+Base Dragon HD (7)			TEMPLATE:Dragon Size HD (7)						HD:7-8:TEMPLATE:Wyrmling	HD:9-10:TEMPLATE:Very Young	HD:11-12:TEMPLATE:Young	HD:13-14:TEMPLATE:Juvenile	HD:15-16:TEMPLATE:Young Adult	HD:17-18:TEMPLATE:Adult	HD:19-20:TEMPLATE:Mature Adult	HD:21-22:TEMPLATE:Old	HD:23-24:TEMPLATE:Very Old	HD:25-26:TEMPLATE:Ancient	HD:27-28:TEMPLATE:Wyrm	HD:29+:TEMPLATE:Great Wyrm
+Base Dragon HD (8)			TEMPLATE:Dragon Size HD (8)						HD:8-9:TEMPLATE:Wyrmling	HD:10-11:TEMPLATE:Very Young	HD:12-13:TEMPLATE:Young	HD:14-15:TEMPLATE:Juvenile	HD:16-17:TEMPLATE:Young Adult	HD:18-19:TEMPLATE:Adult	HD:20-21:TEMPLATE:Mature Adult	HD:22-23:TEMPLATE:Old	HD:24-25:TEMPLATE:Very Old	HD:26-27:TEMPLATE:Ancient	HD:28-29:TEMPLATE:Wyrm	HD:30+:TEMPLATE:Great Wyrm
 #
-Dragon Size HD (3)	HD:3-4:TEMPLATE:Dragon (Tiny)	HD:5-6:TEMPLATE:Dragon (Small)	HD:7-10:TEMPLATE:Dragon (Medium)	HD:11-16:TEMPLATE:Dragon (Large)	HD:17-24:TEMPLATE:Dragon (Huge)	HD:25+:TEMPLATE:Dragon (Gargantuan)
-Dragon Size HD (4)	HD:4-5:TEMPLATE:Dragon (Tiny)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-11:TEMPLATE:Dragon (Medium)	HD:12-17:TEMPLATE:Dragon (Large)	HD:18-25:TEMPLATE:Dragon (Huge)	HD:26+:TEMPLATE:Dragon (Gargantuan)
-Dragon Size HD (5)	HD:5-6:TEMPLATE:Dragon (Small)	HD:7-8:TEMPLATE:Dragon (Medium)	HD:9-12:TEMPLATE:Dragon (Large)	HD:13-18:TEMPLATE:Dragon (Huge)	HD:19-26:TEMPLATE:Dragon (Gargantuan)	HD:27+:TEMPLATE:Dragon (Colossal)
-Dragon Size HD (6)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-9:TEMPLATE:Dragon (Medium)	HD:10-13:TEMPLATE:Dragon (Large)	HD:14-19:TEMPLATE:Dragon (Huge)	HD:20-27:TEMPLATE:Dragon (Gargantuan)	HD:28+:TEMPLATE:Dragon (Colossal)
-Dragon Size HD (7)	HD:7-8:TEMPLATE:Dragon (Small)	HD:9-10:TEMPLATE:Dragon (Medium)	HD:11-14:TEMPLATE:Dragon (Large)	HD:15-20:TEMPLATE:Dragon (Huge)	HD:21-28:TEMPLATE:Dragon (Gargantuan)	HD:29+:TEMPLATE:Dragon (Colossal)
-Dragon Size HD (8)	HD:8-9:TEMPLATE:Dragon (Small)	HD:10-11:TEMPLATE:Dragon (Medium)	HD:12-15:TEMPLATE:Dragon (Large)	HD:16-21:TEMPLATE:Dragon (Huge)	HD:22-29:TEMPLATE:Dragon (Gargantuan)	HD:30+:TEMPLATE:Dragon (Colossal)
+Dragon Size HD (3)													HD:3-4:TEMPLATE:Dragon (Tiny)	HD:5-6:TEMPLATE:Dragon (Small)	HD:7-10:TEMPLATE:Dragon (Medium)	HD:11-16:TEMPLATE:Dragon (Large)	HD:17-24:TEMPLATE:Dragon (Huge)	HD:25+:TEMPLATE:Dragon (Gargantuan)
+Dragon Size HD (4)													HD:4-5:TEMPLATE:Dragon (Tiny)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-11:TEMPLATE:Dragon (Medium)	HD:12-17:TEMPLATE:Dragon (Large)	HD:18-25:TEMPLATE:Dragon (Huge)	HD:26+:TEMPLATE:Dragon (Gargantuan)
+Dragon Size HD (5)													HD:5-6:TEMPLATE:Dragon (Small)	HD:7-8:TEMPLATE:Dragon (Medium)	HD:9-12:TEMPLATE:Dragon (Large)	HD:13-18:TEMPLATE:Dragon (Huge)	HD:19-26:TEMPLATE:Dragon (Gargantuan)	HD:27+:TEMPLATE:Dragon (Colossal)
+Dragon Size HD (6)													HD:6-7:TEMPLATE:Dragon (Small)	HD:8-9:TEMPLATE:Dragon (Medium)	HD:10-13:TEMPLATE:Dragon (Large)	HD:14-19:TEMPLATE:Dragon (Huge)	HD:20-27:TEMPLATE:Dragon (Gargantuan)	HD:28+:TEMPLATE:Dragon (Colossal)
+Dragon Size HD (7)													HD:7-8:TEMPLATE:Dragon (Small)	HD:9-10:TEMPLATE:Dragon (Medium)	HD:11-14:TEMPLATE:Dragon (Large)	HD:15-20:TEMPLATE:Dragon (Huge)	HD:21-28:TEMPLATE:Dragon (Gargantuan)	HD:29+:TEMPLATE:Dragon (Colossal)
+Dragon Size HD (8)													HD:8-9:TEMPLATE:Dragon (Small)	HD:10-11:TEMPLATE:Dragon (Medium)	HD:12-15:TEMPLATE:Dragon (Large)	HD:16-21:TEMPLATE:Dragon (Huge)	HD:22-29:TEMPLATE:Dragon (Gargantuan)	HD:30+:TEMPLATE:Dragon (Colossal)
 
 #	FORMULA
 #	BASEHD-BASEHD+1:TEMPLATE:Dragon (Size)
@@ -228,7 +228,7 @@ Dragon Size HD (8)	HD:8-9:TEMPLATE:Dragon (Small)	HD:10-11:TEMPLATE:Dragon (Medi
 #	12	+22+
 
 ###Block: Dragon Size templates
-# Template Name		Face/Space	Reach		Visible	Define				Required Size	Modify VAR																							Weapon prof. bonus											Ability															Move			Natural Attacks
+# Template Name		Face/Space	Reach
 Dragon (Tiny)		FACE:2.5	REACH:0
 #BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|3			BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 Dragon (Small)		FACE:5	REACH:5
@@ -377,4 +377,3 @@ Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	DEFINE:AcidResistanceBonus|10	D
 Arsinoitherium Companion Advancement	SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4							ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8
 Gylptodon Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4														NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d10
 Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:VAR|TrampleDamageDieSize|8	ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8
-

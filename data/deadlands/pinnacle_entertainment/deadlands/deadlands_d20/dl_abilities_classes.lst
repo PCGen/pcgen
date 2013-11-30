@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
 # Ability Name		Category of Ability		Type						Define			Description							Source Page
@@ -12,16 +12,16 @@ Black Magician Black Magic Points	CATEGORY:Special Ability	TYPE:ClassAbility.Spe
 
 ###Block: Black Magician spells known
 # Feat Name							Type			Visible	Multiple?	Choose							Bonus to spell known/L		Source Page	BONUS:SPELLKNOWN|%LIST|1
-# Ability Name						Category of Ability		Type							Multiple?	Choose							Source Page
-Black Magician up to 1st level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 2nd level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 3rd level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 4th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 5th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 6th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 7th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 8th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	SOURCEPAGE:p.124	BONUS:SPELLKNOWN|%LIST|1
-Black Magician up to 9th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9	SOURCEPAGE:p.124
+# Ability Name						Category of Ability		Type							Multiple?	Choose							Bonus to spell known/L		Source Page
+Black Magician up to 1st level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 2nd level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 3rd level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 4th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 5th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 6th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 7th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 8th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 9th level Black Magic	CATEGORY:Special Ability	TYPE:Internal	TYPE:SpecialQuality	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9						SOURCEPAGE:p.124
 
 ###Block: Blessed class features
 # Feat Name			Type			Visible	Special ABility								Define					Source Page

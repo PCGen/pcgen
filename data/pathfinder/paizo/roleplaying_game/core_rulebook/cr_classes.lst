@@ -1,4 +1,4 @@
-# CVS $Revision: 21663 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 21663 $ $Author: amaitland $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
@@ -54,7 +54,7 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4
 14	ABILITY:Barbarian Class Ability|AUTOMATIC|Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Save checks bonus											Combat bonus					Monster Role
 CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLVL|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Bard		STARTSKILLPTS:6
@@ -474,7 +474,7 @@ CLASS:Rogue		STARTSKILLPTS:8
 20	ABILITY:Rogue Class Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus					Monster Role
 CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.70	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills	DEFINE:SorcererLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Sorcerer
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2

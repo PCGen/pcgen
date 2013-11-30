@@ -1,4 +1,4 @@
-# CVS $Revision: 21528 $ $Author: amaitland $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21528 $ $Author: amaitland $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -96,7 +96,7 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 20	ABILITY:Cavalier Class Ability|AUTOMATIC|Supreme Charge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus
 CLASS:Inquisitor	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Var. Must Be Lower
 CLASS:Inquisitor	PREVARLT:ExInquisitor,1
@@ -183,7 +183,7 @@ CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disg
 14	ABILITY:Inquisitor Class Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
 17	ABILITY:Inquisitor Class Ability|AUTOMATIC|Slayer ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Oracle	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Ocl		MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:OracleLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
@@ -222,7 +222,7 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 20	CAST:0,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Summoner	HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Sum		MAXLEVEL:20	SOURCEPAGE:p.54	DEFINE:SummonerLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device

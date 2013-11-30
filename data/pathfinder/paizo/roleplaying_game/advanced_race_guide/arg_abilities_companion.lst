@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Scott Meyer (guru_scott)
 # ORIGINAL ENTRY DATE: 05/26/13
@@ -52,10 +52,10 @@ Companion Advancement (Puffball)			CATEGORY:Special Ability	TYPE:CompChoice	VISI
 Companion Advancement (Sapling Treant)		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Sapling Treant)	ABILITY:Special Ability|AUTOMATIC|Double Damage ~ Sapling Treant		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREVARGTEQ:MasterLevel,4	BONUS:SIZEMOD|NUMBER|1|PREVARGTEQ:MasterLevel,4	BONUS:STAT|STR|8|PREVARGTEQ:MasterLevel,4	BONUS:STAT|CON|4|PREVARGTEQ:MasterLevel,4	BONUS:STAT|DEX|-2|PREVARGTEQ:MasterLevel,4
 
 ###Block: Wild Caller Eidolon ability mods
-# Ability Name										Unique Key			Category of Ability		Type									Required Race					Prohibited Race																Stackable?	Multiple?	Choose													Bonus to skill
+# Ability Name										Unique Key			Category of Ability		Type									Required Race					Required Var. value			Stackable?	Multiple?	Choose													Bonus to skill
 CATEGORY=Special Ability|Evolution_Magic_Attacks.MOD																													PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution_Skilled.MOD																														PREVAREQ:IsWildCallerEidolon,0
-Skilled											KEY:WCEvolution_Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary	PRERACE:1,RACETYPE=Wild Caller Eidolon																			STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
+Skilled											KEY:WCEvolution_Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary	PRERACE:1,RACETYPE=Wild Caller Eidolon							STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
 CATEGORY=Special Ability|Evolution_Energy_Attack_Acid.MOD																												PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution_Energy_Attack_Cold.MOD																												PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution_Energy_Attack_Fire.MOD																												PREVAREQ:IsWildCallerEidolon,0

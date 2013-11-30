@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
 ###Block: Kitsune Abilities (POOL=4 used of 4 possible)
@@ -10,7 +10,7 @@ Natural Weapon	KEY:Natural Weapon ~ Kitsune	CATEGORY:Special Ability	TYPE:Racial
 
 ###Block: Nagaji Abilities (POOL=3 used of 3 possible)
 # Ability Name	Unique Key				Category of Ability		Type															Multiple Requirements																					Description																				Combat bonus						Bonus to skill					Aspects
-Armored Scales	KEY:Armored Scales ~ Nagaji	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Armored Scales ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales]	DESC:Nagaji have a +1 Natural Armor bonus from their scaly flesh.										BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
+Armored Scales	KEY:Armored Scales ~ Nagaji	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Armored Scales ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales]	DESC:Nagaji have a +1 Natural Armor bonus from their scaly flesh.											BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
 Resistant		KEY:Resistant ~ Nagaji		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Resistant ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant]			DESC:Nagaji receive a +2 racial saving throw bonus against mind-affecting effects and poison.																					ASPECT:SaveBonus|+2 vs Mind-affecting effects; +2 vs Poison
 Serpent's Sense	KEY:Serpent's Sense ~ Nagaji	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Serpent's Sense ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense]	DESC:Nagaji receive a +2 racial bonus on Handle Animal checks against reptiles, and a +2 racial bonus on Perception checks.									BONUS:SKILL|Perception|2|TYPE=Racial
 
