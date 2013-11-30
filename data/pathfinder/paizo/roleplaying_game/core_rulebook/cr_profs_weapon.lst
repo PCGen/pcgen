@@ -6,13 +6,13 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # SIMPLE WEAPONS
 # -- unarmed
 # Weapon Name			Type																			Nb Hands
-Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning.Weapon Group Natural
+Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Spells (Ray)			TYPE:Simple.RangedTouch.Spell
 Spells (Touch)			TYPE:Simple
-Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning.Weapon Group Natural.Weapon Group Close
+Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 # Other
-Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded.Close.Weapon Group Close
+Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
