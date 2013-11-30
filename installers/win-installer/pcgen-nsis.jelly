@@ -344,7 +344,7 @@ Section "-Local" Section4
 				"$$INSTDIR\$${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
 	CreateShortCut "$$SMPROGRAMS\PCGEN\$${APPDIR}\$${APPDIR}.lnk" "$$INSTDIR\$${APPDIR}\pcgen.exe" "" \
 				"$$INSTDIR\$${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\Convert Data.lnk" "javaw.exe" "-Xmx256M -jar batch-convert.jar" \
+	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\Convert Data.lnk" "$$SYSDIR\javaw.exe" "-Xmx256M -jar batch-convert.jar" \
 				"$$INSTDIR\$${APPDIR}\Local\convert.ico"
 	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\Release Notes.lnk" "$$INSTDIR\$${APPDIR}\pcgen-release-notes-$${SIMPVER}.html" "" "$$INSTDIR\$${APPDIR}\Local\knight.ico"
 	CreateShortCut "$$SMPROGRAMS\PCGen\$${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" "$$INSTDIR\$${APPDIR}\Local\queen.ico"
