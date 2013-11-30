@@ -1,0 +1,266 @@
+## Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
+# use & for mnemonic, && for & (MENUENTRY only)
+MENUENTRY:Fantasy Craft
+GAMEMODEKEY:FantasyCraft
+MENUTOOLTIP:Use Fantasy Craft character creation settings
+DISPLAYORDER:1
+ALLOWEDMODES:FantasyCraft
+#
+
+# message displayed when experience added allows character to advance a level
+LEVELMSG:Congratulations, you can advance with that much experience!
+#
+#
+HPNAME:Vitality
+HPABBREV:Vit
+ALTHPNAME:Wound Points
+ALTHPABBREV:WP
+
+# AC tags can be used to display AC info by using appropriate name and abbrev.
+# ACNAME: and ACABBREV: are required for proper usage.
+ACNAME:Defense
+ACABBREV:Def
+
+# Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
+ALLOWAUTORESIZE:N
+
+#
+#misc. currency specific items
+#
+CURRENCYUNIT:Silver
+CURRENCYUNITABBREV:s
+
+#
+#define this game mode's default unit set
+#as specified in unitset.lst
+#
+DEFAULTUNITSET:Imperial
+
+# The following determine whether some Class-related
+# variables are displayed on the Classes tab.
+# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
+#  value is displayed.
+# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
+# DISPLAYVARIABLExNAME: determines the variable displayed.
+#  This must match the DEFINE: variable in order to be displayed
+# Up to 3 variables can be displayed in this manner
+
+SHOWCLASSDEFENSE:YES
+DISPLAYVARIABLE1TEXT:Lifestyle
+DISPLAYVARIABLE1NAME:LifestyleScore
+DISPLAYVARIABLE2TEXT:Legend
+DISPLAYVARIABLE2NAME:LegendSCore
+DISPLAYVARIABLE3TEXT:Reputation
+DISPLAYVARIABLE3NAME:ReputationScore
+
+#
+# Whether or not the game mode displays these tabs
+#
+TAB:CLASS		NAME:in_class					CONTEXT:tabpages\tabclasses.html
+TAB:DESCRIPTION	NAME:in_descrip					CONTEXT:tabpages\tabdescription.html
+TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html
+TAB:FEATS		NAME:in_feats					CONTEXT:tabpages\tabfeatsandabilities.html
+TAB:INVENTORY	NAME:in_inventory					CONTEXT:tabpages\tabinventory.html
+TAB:RACE		NAME:in_race			VISIBLE:NO	CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills					CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells					CONTEXT:tabpages\tabspells.html
+TAB:SUMMARY		NAME:in_summary					CONTEXT:tabpages\tabsummary.html
+# Inventory subpanels
+TAB:EQUIPPING	NAME:in_InfoEquipping				CONTEXT:tabpages\tabinventory.html
+TAB:TEMPMOD		NAME:in_InfoTempMod				CONTEXT:tabpages\tabtemporarybonuses.html
+#
+
+#
+# SHORTRANGE sets the Short Range as referenced by
+#  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
+# Integer value, defaults to zero if tag not present to allow GameModes
+# without shortrange bonus/limitations
+SHORTRANGE:30
+#
+# RANGEPENALTY sets the modification of the to-hit value for
+# each range increment after the first.
+# Integer value, defaults to zero if tag not present to allow GameModes
+# without range increment bonus/limitations
+RANGEPENALTY:-2
+
+# SQUARESIZE defines the size of a battlemap square in feet.
+SQUARESIZE:5
+
+#SPELLRANGExxx specifies the formula used to compute spell ranges
+#The formula is evaluated by the PlayerCharacter.getVariableValue() routine
+SPELLRANGE:CLOSE|50
+SPELLRANGE:LOCAL|250
+SPELLRANGE:REMOTE|1000
+SPELLRANGE:CLOSE RANGE|50
+SPELLRANGE:MEDIUM RANGE|250
+SPELLRANGE:LONG RANGE|1000
+
+
+
+SKILLMULTIPLIER:4
+SKILLCOST_EXCLUSIVE:0
+SKILLCOST_CROSSCLASS:2
+SKILLCOST_CLASS:1
+
+SPELLBASEDC:10
+
+# Auto Level Based Progressions
+BONUSFEATLEVELSTARTINTERVAL:3|2|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OtherFeatProgression
+BONUSFEATLEVELSTARTINTERVAL:2|2|PREABILITY:1,CATEGORY=Special Ability,Fast Feats Campaign quality
+
+BONUSSTATLEVELSTARTINTERVAL:4|4
+#|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OtherBonusStatProgression
+#BONUSSTATLEVELSTARTINTERVAL:3|3|PREABILITY:1,CATEGORY=Special Ability,Fast Attributes Campaign quality
+
+
+
+#Attack/Check Cycle attributes
+BABMAXATT:1
+BABATTCYC:20
+BABMINVAL:20
+# Epic stuff
+BABMAXLVL:20
+CHECKSMAXLVL:20
+
+#Class Types
+CLASSTYPE:PC		ISMONSTER:NO	XPPENALTY:NO	CRFORMULA:0	
+CLASSTYPE:NPC		ISMONSTER:NO	XPPENALTY:NO	CRFORMULA:0	
+CLASSTYPE:Monster		ISMONSTER:YES	XPPENALTY:NO	CRFORMULA:0	
+
+#AC Types
+ACTYPE:Total				ADD:TOTAL
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UncannyDodge	REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.UncannyDodge	REMOVE:ClassDefense
+ACTYPE:Touch				ADD:TOTAL		
+ACTYPE:Base					ADD:Base
+ACTYPE:Ability				ADD:Ability
+ACTYPE:Size					ADD:Size
+ACTYPE:ClassDefense			ADD:ClassDefense
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Deflection|Dodge|ShieldEnhancement|ArmorEnhancement|ClassDefense
+
+# These Don't Exist, but cause errors due to OS Sheet usage
+ACTYPE:Armor				ADD:Armor|ArmorEnhancement
+ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
+ACTYPE:Shield				ADD:Shield|ShieldEnhancement
+ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement
+ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
+ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
+ACTYPE:Dodge				ADD:Dodge
+ACTYPE:Deflection				ADD:Deflection
+ACTYPE:Circumstance			ADD:Circumstance
+ACTYPE:Insight				ADD:Insight
+ACTYPE:Morale				ADD:Morale
+ACTYPE:Profane				ADD:Profane
+ACTYPE:Sacred				ADD:Sacred
+
+
+# Damage die changes on size
+BASEDICE:1d4	UP:1d6	DOWN:1d4
+BASEDICE:1d6	UP:1d8	DOWN:1d4
+BASEDICE:1d8	UP:1d10	DOWN:1d6
+BASEDICE:1d10	UP:1d12	DOWN:1d8
+BASEDICE:1d12	UP:2d6	DOWN:1d10
+
+# Long and Short weapon damage types
+WEAPONTYPE:Bludgeoning|B
+WEAPONTYPE:Piercing|P
+WEAPONTYPE:Slashing|S
+WEAPONTYPE:Fire|F
+WEAPONTYPE:Acid|A
+WEAPONTYPE:Electricity|E
+WEAPONTYPE:Cold|C
+WEAPONTYPE:Poison|Po
+WEAPONTYPE:Sonic|So
+
+# Weapon proficiency categories
+WEAPONCATEGORY:Bow
+WEAPONCATEGORY:Blunt
+WEAPONCATEGORY:Edged
+WEAPONCATEGORY:Hurled
+WEAPONCATEGORY:Siege
+WEAPONCATEGORY:Unarmed
+WEAPONCATEGORY:Black Powder
+
+# Non-proficient penalty
+WEAPONNONPROFPENALTY:-4
+
+WIELDCATEGORY:Light		HANDS:0		
+WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1
+WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:0	DAMAGEMULT:2=1
+WIELDCATEGORY:TooLarge		HANDS:999
+WIELDCATEGORY:Unusable		HANDS:999
+WIELDCATEGORY:None		HANDS:0
+
+# Light weapon vs PC size changes
+WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
+WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHanded
+WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
+
+# OneHanded weapon vs PC size changes
+WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
+
+# TwoHanded weapon vs PC size changes
+WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
+
+#
+# Wield Category Steps
+#  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
+WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
+
+WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
+WIELDCATEGORY:OneHanded		UP:TwoHanded								ZERO:OneHanded
+WIELDCATEGORY:TwoHanded							DOWN:OneHanded
+WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded	ZERO:TwoHanded
+
+
+
+#
+# Dice rolling methods for character creation
+#
+#ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,top(3))
+
+# Unit Set
+UNITSET:Imperial		HEIGHTUNIT:ftin	HEIGHTFACTOR:1	HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##
+UNITSET:Metric		HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#		DISTANCEUNIT:m		DISTANCEFACTOR:0.3	DISTANCEPATTERN:#.##	WEIGHTUNIT:kg	WEIGHTFACTOR:0.5	WEIGHTPATTERN:#.###
+
+#
+# Reach mode formula to calculate weapon reach for a player
+#
+# RACEREACH = player's natural reach
+# REACH = equipment's reach
+# REACHMULT = equipment's reach multiple
+#
+WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
+
+
+#
+# Ability Categories
+#
+ABILITYCATEGORY:Special Ability	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability				DISPLAYLOCATION:Special Abilities
+ABILITYCATEGORY:Internal		VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal						
+ABILITYCATEGORY:NPC Ability		VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:NPC Ability					DISPLAYLOCATION:NPC Abilities
+ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Natural Attack					
+ABILITYCATEGORY:FEAT			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			PLURAL:Feats	DISPLAYLOCATION:Feats
+
+###COMMENT: Internal Category is for all hidden abilities.
+
+
+PREVIEWDIR:d20/fantasy_craft
+PREVIEWSHEET:fantasy_craft.htm
+INFOSHEET:SUMMARY|preview/summary/fc_info.html
+INFOSHEET:SKILLS|preview/skills/35e_skills.html
+# Requires 6.01.06
+OUTPUTSHEET:DIRECTORY|d20/fantasy_craft
+OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_craft_std_grey_light.xslt
+OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_craft_std.htm
+
+
+
+# DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
+DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
+
+# Character Types:
+CHARACTERTYPE:PC|NPC
+
+#
+# DONE
+#

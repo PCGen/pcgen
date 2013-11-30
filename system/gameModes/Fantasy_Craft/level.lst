@@ -1,0 +1,33 @@
+# This file determines level based benefits.
+#
+#
+#
+#LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+3		CCSKILLMAX:(LEVEL+3)/2
+
+
+XPTABLE:Standard
+LEVEL:1	MINXP:0		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:2	MINXP:1000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:3	MINXP:2500		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:4	MINXP:5000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:5	MINXP:10000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:6	MINXP:15000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:7	MINXP:25000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:8	MINXP:40000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:9	MINXP:60000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:10	MINXP:80000		CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:11	MINXP:100000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:12	MINXP:125000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:13	MINXP:150000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:14	MINXP:200000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:15	MINXP:250000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:16	MINXP:300000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:17	MINXP:375000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:18	MINXP:450000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:19	MINXP:525000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+LEVEL:20	MINXP:600000	CSKILLMAX:var("MaxRank")	CCSKILLMAX:var("MaxRank")*var("MinRank")
+
+
+#
+# end
+#

@@ -1,0 +1,24 @@
+#
+#
+# Point-buy ability score costs
+#
+STAT:8		COST:0
+STAT:9		COST:1
+STAT:10		COST:2
+STAT:11		COST:3
+STAT:12		COST:4
+STAT:13		COST:6
+STAT:14		COST:8
+STAT:15		COST:11
+STAT:16		COST:14
+STAT:17		COST:18
+STAT:18		COST:22
+STAT:19		COST:27
+STAT:20		COST:32
+STAT:21		COST:37
+
+#
+# Point-buy methods
+#
+METHOD:Fantasy Craft Standard		POINTS:36
+METHOD:Larger-Than-Life Heroes	POINTS:40

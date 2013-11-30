@@ -1,0 +1,56 @@
+#SIZEMULT:Nuisance|0
+#SIZEMULT:Fine|0
+#SIZEMULT:Diminutive|0
+#SIZEMULT:Tiny|0
+#SIZEMULT:Small|0
+#SIZEMULT:Large|0
+#SIZEMULT:Huge|0
+#SIZEMULT:Gargantuan|0
+#SIZEMULT:Colossal|0
+#SIZEMULT:Enormous|0
+#SIZEMULT:Vast|0
+LOAD:0|0
+LOAD:1|15
+LOAD:2|30
+LOAD:3|45
+LOAD:4|60
+LOAD:5|75
+LOAD:6|90
+LOAD:7|105
+LOAD:8|120
+LOAD:9|135
+LOAD:10|150
+LOAD:11|180
+LOAD:12|210
+LOAD:13|240
+LOAD:14|270
+LOAD:15|300
+LOAD:16|360
+LOAD:17|420
+LOAD:18|480
+LOAD:19|540
+LOAD:20|600
+LOAD:21|750
+LOAD:22|900
+LOAD:23|1050
+LOAD:24|1200
+LOAD:25|1350
+LOADMULT:2
+ENCUMBRANCE:Light|1/3||0
+ENCUMBRANCE:Heavy|1||-2
+ENCUMBRANCE:DeadLift|2||-5
+ENCUMBRANCE:LowerUp|2||-5
+
+#ENCUMBRANCE:Overload|1+1||-5
+
+### Docs say these have to stay
+ENCUMBRANCE:Medium|2||-5
+ENCUMBRANCE:OverHead|2||-5
+ENCUMBRANCE:OffGround|2||-5
+ENCUMBRANCE:PushDrag|2||-5
+
+
+#Heavy Load: Your Defense decreases by 2, you suffer a -2 penalty with physical skill checks, and you move at only 1/2 Speed (rounded up).
+#Overloaded: Your Defense decreases by 5, you suffer a -5 penalty with physical skill checks, and you can't move at all, not even with a Bonus 5-ft. Step.
+#You can dead-lift or -lower up to twice your maximum heavy load but cannot move while doing so. You can push or drag up to twice your maximum heavy load at 1/4 Speed (rounded down), or clear up to 3 ? your maximum heavy load in rubble or brush per minute (each square may be filled with 2,000 lbs. of loose debris or half that amount of brush).
+#Encumbrance limits may be improved with a Push Limit check (see page 70).
