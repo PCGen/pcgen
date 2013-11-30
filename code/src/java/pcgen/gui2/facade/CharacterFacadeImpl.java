@@ -332,7 +332,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		name = new DefaultReferenceFacade<String>(charDisplay.getName());
 		file = new DefaultReferenceFacade<File>(new File(charDisplay.getFileName()));
 		
-		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager, name, file);
+		companionSupportFacade = new CompanionSupportFacadeImpl(theCharacter, todoManager, name, file, this);
 		
 		availTempBonuses = new DefaultListFacade<TempBonusFacade>();
 		refreshAvailableTempBonuses();

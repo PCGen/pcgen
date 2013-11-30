@@ -74,6 +74,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private DefaultMapFacade<String, Integer> maxCompanionsMap;
 	private Map<String, CompanionList> keyToCompanionListMap;
 	private final TodoManager todoManager;
+	private final CharacterFacadeImpl pcFacade;
 
 	/**
 	 * Create a new instance of CompanionSupportFacadeImpl
@@ -81,12 +82,15 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 * @param todoManager The user tasks tracker.
 	 * @param nameRef The reference to the character's name. 
 	 * @param fileRef The reference to the character's file. 
+	 * @param pcFacade The UI facade for the master.
 	 */
 	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter,
 		TodoManager todoManager, ReferenceFacade<String> nameRef,
-		ReferenceFacade<File> fileRef)
+		ReferenceFacade<File> fileRef,
+		CharacterFacadeImpl pcFacade)
 	{
 		this.theCharacter = theCharacter;
+		this.pcFacade = pcFacade;
 		this.charDisplay = theCharacter.getDisplay();
 		this.todoManager = todoManager;
 		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
@@ -313,6 +317,9 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 					.getReference(), compList);
 		follower.setRace(compRace);
 		theCharacter.addFollower(follower);
+		theCharacter.setCalcFollowerBonus(theCharacter);
+		theCharacter.calcActiveBonuses();
+		pcFacade.postLevellingUpdates();
 
 		CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 		delegate.setCompanionFacade(companion);

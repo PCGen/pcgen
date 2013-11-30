@@ -101,7 +101,8 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		CompanionSupportFacadeImpl masterCsfi =
 				new CompanionSupportFacadeImpl(master, todoManager,
 					new DefaultReferenceFacade<String>(),
-					new DefaultReferenceFacade<File>());
+					new DefaultReferenceFacade<File>(),
+					new CharacterFacadeImpl(master, uiDelegate, dataSetFacade));
 		
 		PlayerCharacter companion = new PlayerCharacter();
 		companion.setRace(companionRace);
