@@ -542,19 +542,20 @@ public class EquipmentList {
 			// skip over default size
 			gensizes.remove(defaultSize);
 
+			PlayerCharacter dummyPc = new PlayerCharacter();
 			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to Armor, Shield and resizable items
 				//
-				if (!Globals.canResizeHaveEffect(null, eq, null))
+				if (!Globals.canResizeHaveEffect(dummyPc, eq, null))
 				{
 					continue;
 				}
 
 				for (SizeAdjustment sa : gensizes)
 				{
-					createItem(eq, sa, null);
+					createItem(eq, sa, dummyPc);
 				}
 			}
 		}
