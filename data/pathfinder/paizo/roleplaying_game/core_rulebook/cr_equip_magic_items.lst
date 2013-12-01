@@ -3,6 +3,9 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith) and Maredudd (Eric C Smith)
 # Incorporated 05/30/2013 errata (Stefan Radermacher)
+###Block: Wondrous Items
+
+Amulet of Mighty Fists					EQMOD:AmuletMightFistBase	MODS:REQUIRED	TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists																				COST:0	WT:0.02									SOURCEPAGE:p.496																																																																																																																																																																																																												
 
 ###Block: Wondrous Items
 # Equipment Name						Output Name							Type								Contains										Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier					Source Page		Ability																									Vision				Spell Res.	Damage Reduction	Innate Spells																														Bonus to Ability Pool																	Caster level						Save checks bonus										Combat bonus									Add to magical move					Bonus to skill																		Bonus to nb of slots	Stat bonus								Unarmed Damage Level bonus	Modify VAR																																					Weapon prof. bonus																																																																											Quality and value																		Special Property																																																																																																							Temporary Bonus
