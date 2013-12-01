@@ -236,7 +236,7 @@ Wounding					KEY:WOUND								TYPE:Ammunition.Weapon		PLUS:2	VISIBLE:QUALIFY				
 
 ###Block: Amulet of Mighty Fists
 AofMF				SORTKEY:+1	VISIBLE:NO		KEY:MightyFist_AMF	COST:4000*PLUSTOTAL*PLUSTOTAL
-
+#
 +1 to Hit and Damage	SORTKEY:+1		KEY:PLUS1_AMF	PRETYPE:1,EQMOD=MightyFist_AMF	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+1	TYPE:AmuletOfMightyFists	REPLACES:PLUS2_AMF,PLUS3_AMF,PLUS4_AMF,PLUS5_AMF	PLUS:1	VISIBLE:QUALIFY	BONUS:WEAPONPROF=TYPE.Weapon Group Natural|TOHIT,DAMAGE|1|TYPE=Enhancement	
 +2 to Hit and Damage	SORTKEY:+1		KEY:PLUS2_AMF	PRETYPE:1,EQMOD=MightyFist_AMF	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+2	TYPE:AmuletOfMightyFists	REPLACES:PLUS1_AMF,PLUS3_AMF,PLUS4_AMF,PLUS5_AMF	PLUS:2	VISIBLE:QUALIFY	BONUS:WEAPONPROF=TYPE.Weapon Group Natural|TOHIT,DAMAGE|2|TYPE=Enhancement	
 +3 to Hit and Damage	SORTKEY:+1		KEY:PLUS3_AMF	PRETYPE:1,EQMOD=MightyFist_AMF	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+3	TYPE:AmuletOfMightyFists	REPLACES:PLUS2_AMF,PLUS1_AMF,PLUS4_AMF,PLUS5_AMF	PLUS:3	VISIBLE:QUALIFY	BONUS:WEAPONPROF=TYPE.Weapon Group Natural|TOHIT,DAMAGE|3|TYPE=Enhancement	COST:4000*PLUSTOTAL*PLUSTOTAL
@@ -265,7 +265,7 @@ Spell Storing		SORTKEY:+1		KEY:STORE_AMF	PRETYPE:1,EQMOD=MightyFist_AMF							TY
 Thundering		SORTKEY:+1			KEY:THUNDER_AMF	PRETYPE:1,EQMOD=MightyFist_AMF							TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY																SOURCEPAGE:p.349																																																																									SPROP:unarmed and natural attacks do +%d8 sonic damage on a critical hit and permanently deafened unless save vs Fort (DC 14)|CRITMULT-1		ABILITY:Special Ability|AUTOMATIC|Unarmed Thundering
 Unholy			SORTKEY:+1		KEY:UNHOLY_AMF	PRETYPE:1,EQMOD=MightyFist_AMF							TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY																SOURCEPAGE:p.349																										BONUS:VAR|NEGLEVELS|1|PREALIGN:LG,NG,CG																																									SPROP:unarmed and natural attacks are evil aligned, +2d6 damage against good targets, 1 negative level bestowed to good wielder			ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LG,NG,CG	ABILITY:Special Ability|AUTOMATIC|Unarmed Unholy
 Vicious			SORTKEY:+1		KEY:VICIOUS_AMF	PRETYPE:1,EQMOD=MightyFist_AMF							TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY																SOURCEPAGE:p.349																																																																									SPROP:unarmed and natural attacks do +2d6 damage to target, plus 1d6 damage to user											ABILITY:Special Ability|AUTOMATIC|Unarmed Vicious
-Wounding			SORTKEY:+1		KEY:WOUND_AMF								TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY																SOURCEPAGE:p.349																																																																									SPROP:unarmed and natural attacks deal 1 point of bleed damage per hit													ABILITY:Special Ability|AUTOMATIC|Unarmed Wounding
+Wounding			SORTKEY:+1		KEY:WOUND_AMF	PRETYPE:1,EQMOD=MightyFist_AMF							TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY																SOURCEPAGE:p.349																																																																									SPROP:unarmed and natural attacks deal 1 point of bleed damage per hit													ABILITY:Special Ability|AUTOMATIC|Unarmed Wounding
 
 
 ###Block: Armor and Shield
