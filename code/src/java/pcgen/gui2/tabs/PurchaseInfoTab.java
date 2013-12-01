@@ -763,11 +763,13 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		private CharacterFacade character;
 		private String text;
+		private List<EquipmentFacade> oldList;
 
 		public EquipInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
+			oldList = null;
 		}
 
 		public void install()
@@ -794,22 +796,27 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			if (!e.getValueIsAdjusting())
 			{
 				int selectedRows[] = target.getSelectedRows();
-				StringBuilder sb = new StringBuilder(2000);
+				List<EquipmentFacade> newList = new ArrayList<EquipmentFacade>(selectedRows.length);
 				for (int row : selectedRows)
 				{
-					EquipmentFacade equip = null;
 					if (row != -1)
 					{
 						Object value = target.getModel().getValueAt(row, 0);
 						if (value instanceof EquipmentFacade)
 						{
-							equip = (EquipmentFacade) value;
+							newList.add((EquipmentFacade) value);
 						}
 					}
-					if (equip != null)
-					{
-						sb.append(character.getInfoFactory().getHTMLInfo(equip));
-					}
+				}
+				if (newList.isEmpty() || newList.equals(oldList))
+				{
+					return;
+				}
+				oldList = newList;
+				StringBuilder sb = new StringBuilder(2000);
+				for (EquipmentFacade equip : newList)
+				{
+					sb.append(character.getInfoFactory().getHTMLInfo(equip));
 				}
 				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
 				infoPane.setText(text);
