@@ -91,9 +91,11 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
 		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(granted, wizard));
 		templateFacet.add(id, sel, this);
+		pc.calcActiveBonuses();
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
 		assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
 		templateFacet.remove(id, sel, this);
+		pc.calcActiveBonuses();
 		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
 	}
 

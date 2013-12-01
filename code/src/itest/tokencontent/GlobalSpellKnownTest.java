@@ -150,11 +150,11 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		varsource.put(VariableKey.getConstant("MyCasterLevel"), FormulaFactory.getFormulaFor(4.0));
 		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Object>(varsource, null);
 		templateFacet.add(id, sel, this);
-		//pc.setDirty(true);
+		pc.calcActiveBonuses();
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
 		directAbilityFacet.remove(id, cas);
-		pc.setDirty(true);
+		pc.calcActiveBonuses();
 		assertEquals(baseCount(), targetFacetCount());
 	}
 }
