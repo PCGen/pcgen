@@ -110,6 +110,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CDOMObject>
 	{
 		raceFacet.addDataFacetChangeListener(5000, this);
 		deityFacet.addDataFacetChangeListener(5000, this);
-		templateFacet.addDataFacetChangeListener(5000, this);
+		//templateFacet.addDataFacetChangeListener(5000, this);
 	}
 }
