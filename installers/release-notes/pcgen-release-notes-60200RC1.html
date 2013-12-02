@@ -1,0 +1,1103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+		<title>Release Notes for PCGen v6.2.0 RC1</title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v6.2.0 RC1</h1>
+
+		<p>
+		PCGen is a FREE Open Source character generator and maintenance program for role-playing games.
+		</p><p>
+    	PCGen currently supports the d20 RPG system and includes data sets based upon gaming material from Wizards of the Coast, Paizo Publishing and dozens of other publishers.
+    	The project's current focus is on gaming material released under Wizards of the Coast's Open Gaming License (OGL) and sources supporting the Pathfinder RPG by Paizo, but the PCGen team also works with publishers to get permission to include limited Closed Content as well.
+    	PCGen runs on Windows, Mac OS X and Unix/Linux using Java
+		</p>
+
+		<h2>Table of Contents</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v6.2.0 RC1</a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#Thanks">Thanks</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 6.2.0 RC1</a></li>
+			<li><a href="#ChangeLog62">Change Log for 6.2.00</a></li>
+		</ul>
+		
+		<h2><a name="WhatsNew">What's new for v6.2.0 RC1</a></h2>
+
+
+<p>PCGen v6.02.0 RC1 is the first release candidate for PCGen 6.2. It represents a product 
+we believe is ready for production use and which we would like your assistance in testing 
+out. In particular the PCGen team would appreciate your feedback on importing your 
+characters and data from earlier versions of PCGen.
+The highlights of the changes for PCGen 6.2 are listed below:
+</p>
+ 
+<b>Major Changes:</b>
+<ul>
+<li>For Players and GMs</li>
+<ul>
+<li>Automatic character migration to keep up with data changes</li>
+<li>New equipment customizer</li>
+<li>Revert to Saved menu now active</li>
+<li>Types of skills to be output can be selected for each character</li>
+<li>Feedback provided when loading a character</li>
+<li>Natural attacks are automatically equipped again</li>
+<li>Pathfinder RPG Core Rulebook 6th printing errata </li>
+<li>Add Prestige Awards to Pathfinder Society </li>
+<li>Bardic Music and Paladin Auras temp bonuses have been added</li>
+<li>Display Perform & Craft Skills if Bonused </li>
+<li>Improved Company/Format/Setting/Name display for Pathfinder in source selection</li>
+<li>Output sheets now have links to Paizo PRD site for each Pathfinder spell</li>
+<li>Numerous small usability and performance improvements</li>
+</ul>
+<li>For Data Authors</li>
+<ul>
+<li>New data folder option for homebrew data</li>
+<li>LST Converter has been given a spruce up and is now running better than ever</li>
+<li>Tabs can be hidden or renamed to suit different game modes again</li>
+<li>Conditional source loading using PRECAMPAIGN and PRERULE</li>
+<li>Restructure Data Directories to be by GameMode</li>
+<li>Pathfinder Overhaul to standardize naming and layout</li>
+<li>All shipped data automatically converted to the current syntax</li>
+</ul>
+</ul>
+<!-- 
+<p>
+The new user interface does most of what you are used to, but does not currently provide  
+random NPC generation or LST editor functionality. 
+</p>
+ -->
+<h3>New Sources</h3>
+
+<p>The following new sources were added in 6.2.00</p>
+
+<ul>
+<li>[Alderac Entertainment Group] Empire </li>
+<li>[Broken Ruler Games] Killshot: The Director's Cut</li>
+<li>[Dreamscarred Press] Psionics Expanded - Master the Battle</li>
+<li>[Dreamscarred Press] Psionics Expanded - Pawns and Powers</li>
+<li>[Dreamscarred Press] Psionics Expanded</li>
+<li>[Minotaur Games] Monster Focus: Skeletons</li>
+<li>[Minotaur Games] Monster Focus: Zombies</li>
+<li>[Paizo] Pathfinder Campaign Setting: Inner Sea Bestiary</li>
+<li>[Paizo] Pathfinder Player Companion: Blood of Fiends</li>
+<li>[Paizo] Pathfinder Player Companion: Dungeoneer's Handbook</li>
+<li>[Paizo] Pathfinder Player Companion: Faiths of Balance</li>
+<li>[Paizo] Pathfinder Player Companion: Faiths of Corruption</li>
+<li>[Paizo] Pathfinder Player Companion: Goblins of Golarion</li>
+<li>[Paizo] Pathfinder RPG: Advanced Race Guide</li>
+<li>[Paizo] Pathfinder RPG: Bestiary 3</li>
+<li>[Paizo] Pathfinder RPG: Ultimate Equipment</li>
+<li>[Paizo] Skulls &amp; Shackles AP - Player's Guide</li>
+<li>[Paradigm Concepts] Magic of Arcanis</li>
+<li>[Super Genius Games] Adventurer's Handbook</li>
+<li>[Super Genius Games] The Genius Guide to: Air Magic</li>
+<li>Monster Manual II OGC</li>
+</ul>
+ 
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 4 December, 2013.</p>
+		
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 6 or Java 7. PCGEN 6.2.0 RC1 is not compatible with Java 1.5.x and it is NOT SUPPORTED. 
+		To get the latest version of Java, go to
+			<a href="http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=en&amp;host=java.com">java.com</a>.
+			PCGen has been tested with both Java 6 (including OpenJDK) and Java 7.</p>
+
+		<h3>Instructions</h3>
+
+		<p>Please see the
+		<a href="http://www.pcgen.org/autobuilds/pcgen-docs/installationpages/installationpcgen.html">
+		Installation Documentation</a> for information about installing PCGen.
+		</p>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the <a href="http://www.pcgen.org/autobuilds/pcgen-docs/">docs</a> to 
+		familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60200RC1_full.zip?download">pcgen60200RC1_full.zip</a>: <br />
+				everything including GMGen and PDF</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60200RC1_win_install.exe?download">pcgen60200RC1_win_install.exe</a>: <br />
+				the full package bundle in an easy to use installer for Windows</li>
+			<li><a href="http://prdownloads.sourceforge.net/pcgen/pcgen60200RC1_mac_install.dmg?download">pcgen60200RC1_mac_install.dmg</a>: <br />
+				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<p>If you have custom data created using either the old LST Editor, or the my_dataset example files, it is
+			very important that you read the
+            <a href="http://pcgen.org/autobuilds/pcgen-docs/installationpages/upgradepcgen.html">Upgrading PCGen</a> and
+            <a href="http://wiki.pcgen.org/Updating_Homebrew_Sets">Upgrading home brews</a> 
+            before installing your new version of PCGen.</p>
+
+		<h2><a name="Thanks">Thanks</a></h2>
+
+		<p>Thanks to the following people who contributed to the PCGen 6.2 release:
+		Andrew Maitland, Andrew Wilson, Anestis Kozakis, Chris Dolan, Connor Petty, David R Bender, 
+		Devon Jones, Doug Limmer, Eric C Smith, Gabriel Sorrel, Gjorbjond, Henk Slaaf, James Dempsey, 
+		Jami Lowery, Jasper Spaans, Javier Ortiz Bultrón,  Jon Catron, Jonas Karlsson, Kim Winz, 
+		Mark Schrijver, Matt Chambers, Moni, Paul Grosse, Paul Shipley, Rob Reed, Scott Meyer, 
+		Stefan Radermacher, Tom Parker and Vincent Lhote.
+		</p><p>
+		Thanks also to the many people who gave us feedback, reported bugs, contributed to the lists and 
+		helped other PCGen users out!</p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a>
+			or <a href="mailto:Content@pcgen.org">Content@pcgen.org</a>, or
+			simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>The project <strong>home page</strong>:<br />
+				<a href="http://pcgen.org">http://pcgen.org</a></li>
+			<li>The project <strong>Wiki</strong>:<br />
+				<a href="http://wiki.pcgen.org/">http://pcgen.wiki.sourceforge.net/</a></li>
+			<li>The Yahoo <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="http://groups.yahoo.com/group/pcgen">http://groups.yahoo.com/group/pcgen</a></li>
+			<li>The Yahoo <strong>LstHelp mailing list</strong> (for help with making your own data files):<br />
+				<a href="http://groups.yahoo.com/group/PCGenListFileHelp">http://groups.yahoo.com/group/PCGenListFileHelp</a></li>
+			<li>The Yahoo <strong>pcgen_developers mailing list</strong> (for code monkey talk about the development):<br />
+				<a href="http://tech.groups.yahoo.com/group/pcgen_developers/">http://tech.groups.yahoo.com/group/pcgen_developers/</a></li>
+			<li>The Yahoo <strong>pcgen_experimental mailing list</strong> (for the data monkeys with new ideas/problems):<br />
+				<a href="http://groups.yahoo.com/group/pcgen_experimental/">http://groups.yahoo.com/group/pcgen_experimental</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 6.2.0 RC1</a></h2>
+
+<h3>        New Data Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1393'>DATA-1393</a>] -         [PF] Shillelagh missing temp bonus.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1436'>DATA-1436</a>] -         Deadlands - Kit&#39;s needed for starting character funds.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1438'>DATA-1438</a>] -         Page of Spell Knowledge
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1441'>DATA-1441</a>] -         Zen Archer Flurry of Blows
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1448'>DATA-1448</a>] -         Add Fantasy Craft GameMode and misc items to support.
+</li>
+</ul>
+
+
+
+<h3>       Code Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1117'>CODE-1117</a>] -         Problem loading file saved with ADD:ABILITY and Craft skill
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1201'>CODE-1201</a>] -         Stack Trace shows setDirty recursive call is not cut short
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1832'>CODE-1832</a>] -         Inventory/Purchase Tab - Right Clicking on an item in the right pane allows you to sell more of the items than you have.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1840'>CODE-1840</a>] -         The &quot;Convert Data&quot; launcher in the start menu points to an invalid javaw location
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1870'>CODE-1870</a>] -         Problems with familiar&#39;s temp. Alertness feat and granted special benefits updating
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1992'>CODE-1992</a>] -         Could not find class: Paladin when loading an ex-Paladin
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2023'>CODE-2023</a>] -         Temporary Bonus Panel doesn&#39;t update spells available till level up? or reload
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2079'>CODE-2079</a>] -         Equipped items in starting kits not going to their correct slots
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2088'>CODE-2088</a>] -         AUTO_GEN racially resized armor/weapons being generated all at standard cost/wt.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2107'>CODE-2107</a>] -         Kit LevelAbility ABILITY:PROMPT not working
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2130'>CODE-2130</a>] -         AUTO_GEN enhanced items treated as unenhanced by the item customizer
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2131'>CODE-2131</a>] -         Once added, Additional Magic Item Space feat is not removeable
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2148'>CODE-2148</a>] -         Familiar not applying bonuses to master
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2245'>CODE-2245</a>] -         PCGen freezes when selecting Qualified and Affordable from Purchase Equipment List
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2256'>CODE-2256</a>] -         Equipping items does not cause refresh of Feats/Abilities tab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2372'>CODE-2372</a>] -         plugin.bonustokens.SpellCast.java needs to support %LIST in parseToken.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2373'>CODE-2373</a>] -         plugin.bonustokens.SpellKnown.java needs to support %LIST in parseToken.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2383'>CODE-2383</a>] -         BONUS does not correctly error on bad syntax
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2386'>CODE-2386</a>] -         Invalid size in PRESIZE does not report an error
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2388'>CODE-2388</a>] -         .pcg file loads extremely slowly on otherwise fast, new machine
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2391'>CODE-2391</a>] -         Console error when loading characters with the Domain Qualified button selected
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2392'>CODE-2392</a>] -         Template LEVEL and HD tag application problems
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2394'>CODE-2394</a>] -         Performance Degradation - Saving characters - Skill churn
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2396'>CODE-2396</a>] -         FACE:2.5 only displays 2
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2399'>CODE-2399</a>] -         Disappearing Prepared domain spell
+</li>
+</ul>
+
+<h3>       Data  Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1271'>DATA-1271</a>] -         Jotungrip not allowing to equip 2hand weapon in 1hand.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1400'>DATA-1400</a>] -         PF Bestiary 3- Brass golem does not have &quot;Brass Falchion&quot; Natural Attack
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1401'>DATA-1401</a>] -         Monsters with Scent ability lack ScentRange var
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1419'>DATA-1419</a>] -         Simple mele weapons not showing as proficient for characters.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1423'>DATA-1423</a>] -         SPELLKNOWN:CLASS|Witch=x|y is adding an Erroneous KNOWN to the CLASS
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1424'>DATA-1424</a>] -         Psionics- Unbody Issues (3.5/PF)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1429'>DATA-1429</a>] -         Wild Caller Eidolon Unable To Choose Form Restricted Evolutions
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1430'>DATA-1430</a>] -         Pathfinder Adventure Paths etc canot be loaded with &#39;Pathfinder Core Supplements&#39;
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1431'>DATA-1431</a>] -         [Pathfinder] Deprecated syntax used in APG
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1432'>DATA-1432</a>] -         Half-Elf Half-Drow Paragon Feat Tree Unselectable
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1433'>DATA-1433</a>] -         (PF) Dragons- Breath weapon extends 30&#39;/15&#39; too far
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1434'>DATA-1434</a>] -         (PF) Bestiary- Dragons- Face/reach always reads 30 ft/30 ft
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1435'>DATA-1435</a>] -         Deadlands - Requests for changes from my gaming group.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1437'>DATA-1437</a>] -         Bronze Falchion natural attack equipped in inventory, but doesn&#39;t appear on sheet
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1439'>DATA-1439</a>] -         (PF) Adventurer&#39;s Handbook, Vol 1- Death Mage Domain not selectable in Domains tab
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1440'>DATA-1440</a>] -         (PF) Unbodied Missing Incorporeal Subtype
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1442'>DATA-1442</a>] -         Deadly Aim Stacking with Zen Archer Deadly Aim
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1443'>DATA-1443</a>] -         [PF] Dragon bite disappears when going from M-&gt;L, tail slap never shows up
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1444'>DATA-1444</a>] -         Headband of Intellect Skill Choice pool bonus mising for some items
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1445'>DATA-1445</a>] -         (PF) Adventurer&#39;s Handbook, Vol 1- Death Mage- Isn&#39;t receiving domain abilities when selected
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1446'>DATA-1446</a>] -         Pathfinder Ultimate Magic &quot;Head&quot; evolution mis-interacts with APG Bite
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1447'>DATA-1447</a>] -         Pathfinder &quot;Amulet of Might Fists&quot; is mis-coded
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1449'>DATA-1449</a>] -         PF- Various Dragon clean up issues
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1451'>DATA-1451</a>] -         Cavalier does not get option to choose order benefits
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1452'>DATA-1452</a>] -         Bestiary 3- Several broken natural attacks
+</li>
+</ul>
+
+
+		<h2><a name="ChangeLog62">Change Log for 6.2.0</a></h2>
+
+<h3>        New Data Sources
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-28'>NEWSOURCE-28</a>] -         [Paradigm Concepts] Magic of Arcanis</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-33'>NEWSOURCE-33</a>] -         [Alderac Entertainment Group] 	Empire </li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-64'>NEWSOURCE-64</a>] -         [Super Genius Games] Adventurer's Handbook</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-137'>NEWSOURCE-137</a>] -         [Paizo] Pathfinder RPG: Bestiary 3</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-146'>NEWSOURCE-146</a>] -         [Pazio] Advanced Race Guide</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-152'>NEWSOURCE-152</a>] -         [Dreamscarred Press] Psionics Expanded - Pawns and Powers</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-154'>NEWSOURCE-154</a>] -         [Dreamscarred Press] Psionics Expanded - Master the Battle</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-155'>NEWSOURCE-155</a>] -         [Dreamscarred Press] Psionics Expanded</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-160'>NEWSOURCE-160</a>] -         [Paizo] Pathfinder RPG: Ultimate Equipment</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-170'>NEWSOURCE-170</a>] -         [Broken Ruler Games] Killshot: The Director's Cut</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-173'>NEWSOURCE-173</a>] -         [Paizo] Pathfinder Player Compendium: Faiths of Balance</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-174'>NEWSOURCE-174</a>] -         [Paizo] Pathfinder Player Compendium: Faiths of Corruption</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-175'>NEWSOURCE-175</a>] -         [Super Genius Games] The Genius Guide to: Air Magic</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-180'>NEWSOURCE-180</a>] -         [Paizo] Skulls &amp; Shackles AP - Player's Guide</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-181'>NEWSOURCE-181</a>] -         [Minotaur Games] Monster Focus: Skeletons</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-183'>NEWSOURCE-183</a>] -         [Paizo] Blood of Fiends</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-185'>NEWSOURCE-185</a>] -         [Paizo] Goblins of Golarion</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-189'>NEWSOURCE-189</a>] -         Monster Manual II OGC</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-190'>NEWSOURCE-190</a>] -         [PF] Inner Sea Bestiary</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-191'>NEWSOURCE-191</a>] -         Pathfinder Companion - Dungeoneer's Handbook</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-198'>NEWSOURCE-198</a>] -         [Minotaur Games] Monster Focus: Zombies</li>
+</ul>
+
+<h3>        New Code Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-212'>CODE-212</a>] -         keyboard shortcuts for dialogs/buttons</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-258'>CODE-258</a>] -         Add BONUS:SPELLPOINTCOST to prettylst</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-701'>CODE-701</a>] -         Numerically sort CHOOSE choosers</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-848'>CODE-848</a>] -         CompanionMod LST import consistency with other types</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1267'>CODE-1267</a>] -         Character load to warn (with cancel) if appropriate sources are not already loaded</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1363'>CODE-1363</a>] -         Indicate emcumbered load more visibly</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1415'>CODE-1415</a>] -         qualified filters should be available for all tabs</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1511'>CODE-1511</a>] -         'Qualified' filters to 'remember' state</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1520'>CODE-1520</a>] -         cannot filter follower or mount on companion tab</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1615'>CODE-1615</a>] -         Converter with multiple PCCs doesn't scroll down to show all selections, Add Scroll Bar please</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1642'>CODE-1642</a>] -         'Clear' button to clear the log in the Log and Memory Window. </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1680'>CODE-1680</a>] -         Missing option to not display source dialog on program start</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1687'>CODE-1687</a>] -         Allow items to be reordered in equipment sets</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1736'>CODE-1736</a>] -         Debug console to indicate PCC's loaded (in order)</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1793'>CODE-1793</a>] -         Edit-&gt;Add Kit, Dialogue could use a 'qualified' filter as per other dialogs</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1819'>CODE-1819</a>] -         POM updates</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1822'>CODE-1822</a>] -         Update libraries</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1825'>CODE-1825</a>] -         Delete unused code in pcgen.gui</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1851'>CODE-1851</a>] -         Convert equipment builder to new UI</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1852'>CODE-1852</a>] -         Move default choosers to use new UI choosers</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1910'>CODE-1910</a>] -         Unit Test Request: Detect all pcgen.cdom.facet.* classes and ensure they are in ApplicationContext.xml</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1954'>CODE-1954</a>] -         Allow PREREGION to work in Equipment</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1962'>CODE-1962</a>] -         Sources Dialog - Include Book Type in quick search</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1966'>CODE-1966</a>] -         Separating packaging from normal compile</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2022'>CODE-2022</a>] -         Provide support for BONUS:SLOTS on Equipment tab</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2027'>CODE-2027</a>] -         Allow new UI tabs to be hidden using the GAMEMODE Tab token</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2053'>CODE-2053</a>] -         Windows Installer Tidy-up</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2058'>CODE-2058</a>] -         Refactor table column preference handling</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2077'>CODE-2077</a>] -         Add per character skill display selection to Skills tab</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2126'>CODE-2126</a>] -         Import Chris Dolan's Memory and Lst Load Optimisations</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2132'>CODE-2132</a>] -         Implement the Revert to Saved menu item</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2135'>CODE-2135</a>] -         Add some basic tests of the data</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2136'>CODE-2136</a>] -         Report on variable definitions in the data</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2157'>CODE-2157</a>] -         Auto equip natural attacks</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2174'>CODE-2174</a>] -         Extend APPLIEDNAME tag to templates</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2176'>CODE-2176</a>] -         Sort dropdown list of preview files on Character Sheet tab alphabetically</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2180'>CODE-2180</a>] -         New Data Path - Homebrew</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2190'>CODE-2190</a>] -         Display Class(es) and spelllevel(s) in spell description</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2210'>CODE-2210</a>] -         Add support to new choosers for the preference to apply a single choice and close automatically</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2238'>CODE-2238</a>] -         The text before the character sheet chooser is missing the :</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2239'>CODE-2239</a>] -         Waiting animation on character sheet generation in the tab</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2241'>CODE-2241</a>] -         Code Removal for Deprecated Tags</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2290'>CODE-2290</a>] -         Allow new UI tabs to be renamed using the GAMEMODE Tab token</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2304'>CODE-2304</a>] -         Allow PRERULE to work in PCC files</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2308'>CODE-2308</a>] -         Allow FEAT to be modified by game modes</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2309'>CODE-2309</a>] -         PlayerCharacter setDirty being called even when no modifications</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2311'>CODE-2311</a>] -         migration.lst - Relax rules for valid characters in source keys</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2319'>CODE-2319</a>] -         Support clicking links on Basic Sources Info panel</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2321'>CODE-2321</a>] -         Alter Source Allow Override Option to be on by default</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2332'>CODE-2332</a>] -         Show progress bar when loading character</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2339'>CODE-2339</a>] -         Add new output option for selection of displayed skills</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2342'>CODE-2342</a>] -         CHOOSE coupled in ABILITY with COST:0 won't allow any CHOICE with a POOL of 0.</li>
+</ul>
+
+<h3>        New Data Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-324'>DATA-324</a>] -         [RSRD] Slayer Favored Enemy choice</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-385'>DATA-385</a>] -         Unusual special mounts can get incorrect INT score</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-409'>DATA-409</a>] -         Humanlike creatures intelligence</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-411'>DATA-411</a>] -         [SSS] [RR] Vigilant class - Favored Enemy sub-sections</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-414'>DATA-414</a>] -         [SRD] [RSRD] Gauntlet issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-555'>DATA-555</a>] -         [Bonus] Language selection at creation should include full list</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-578'>DATA-578</a>] -         Amulet Of Mighty Fists (energy damage) does not show bonus damage on character sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-594'>DATA-594</a>] -         [PF] Class Abilities/Special Abilities list in &quot;Feats and Abilities&quot;-&gt;&quot;Class Abilities&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-633'>DATA-633</a>] -         [Pathfinder] Add ALTTYPES to all Double Weapons</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-729'>DATA-729</a>] -         [Ultimate Magic] Separatist Forbidden Rights</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-738'>DATA-738</a>] -         [R/SRD] Use TYPE to sort Races</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-739'>DATA-739</a>] -         Bring 3.x Core Sets to newer Standards</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-740'>DATA-740</a>] -         [Ultimate Combat] Gunslinger's Nimble Implementation</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-742'>DATA-742</a>] -         [Ultimate Combat] Brawler Close Combatant Implementation</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-744'>DATA-744</a>] -         Consolidate Bestiaries core data into Core Rulebook dataset</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-745'>DATA-745</a>] -         Add Conditional Will save bonus from Pathfinder Barbarian &quot;Indomitable Will&quot; </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-747'>DATA-747</a>] -         Include all non-free RSRD 3.5 Material Components and Foci as purchasable items</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-750'>DATA-750</a>] -         Restrict Special Mount Selection to a more reasonable list</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-751'>DATA-751</a>] -         Have Paladin Special Mounts start with correct/default stats, skills, feats</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-752'>DATA-752</a>] -         Dark Markets- A Guide to Katapesh- Ghul Special Abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-753'>DATA-753</a>] -         [Darkmarkets- A Guide To Katapesh] Great Ghul monster variant</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-754'>DATA-754</a>] -         Allow Subraces to qualify for the Favored Class Abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-755'>DATA-755</a>] -         Ability to add the &quot;sheds light&quot; property to magic weapons.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-759'>DATA-759</a>] -         Update Vars to Standards - Companion Mods</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-762'>DATA-762</a>] -         Implement the possible Permanency spell changes to self and others</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-766'>DATA-766</a>] -         Full Spell Descriptions For Psionics</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-767'>DATA-767</a>] -         Full Descriptions for Monster Abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-770'>DATA-770</a>] -         [PF] Consolidate Companions into the Core.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-784'>DATA-784</a>] -         [APG] Point Blank Mastery needs tag</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-790'>DATA-790</a>] -         Implement the Speed weapon to add an additional attack</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-798'>DATA-798</a>] -         Update Amulet of Mighty Fist to Dec 4th 2012 Blog</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-799'>DATA-799</a>] -         Update Monk Ki Pool to Dec 4th blog</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-807'>DATA-807</a>] -         Update Core Books to allow ease of use for Advanced Race's Guide</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-811'>DATA-811</a>] -         Implement PFAPG Halfling Monk's Favored Class Bonus to Stunning Fist times per day.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-819'>DATA-819</a>] -         Consolidate BACKGROUND abilitycategory into core folder</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-820'>DATA-820</a>] -         Add Fly Spell to Temporary Bonus Options In Pathfinder</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-822'>DATA-822</a>] -         [PFAPG] Add variables to the DESC for the Sorcerere Bloodline Stormborn Bloodline Power Thunderstaff.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-826'>DATA-826</a>] -         Add 'Air Walk' animal trick</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-832'>DATA-832</a>] -         Monster feats should have PRE?</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-833'>DATA-833</a>] -         Metamagic feat descriptions to indicate spell slot</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-834'>DATA-834</a>] -         Have the “conditional modifiers” for each race appear in that box.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-844'>DATA-844</a>] -         Add in Arcane Archer's Death Arrow as an inventory item.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-846'>DATA-846</a>] -         Add single item arrow/bolt weights to magic single equivalents </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-850'>DATA-850</a>] -         Implement conditional skills for bard's Versatile Performance ability</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-851'>DATA-851</a>] -         Sell and Inventory each Ring (Friend Shield) and Ring Gates separately?</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-852'>DATA-852</a>] -         Have way to reflect only one of two lenses on certain Eyes (Charming, Doom, Eagle)?</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-853'>DATA-853</a>] -         Give charges to the two spell-absorbing ioun stones, like the Rod of Absorption</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-862'>DATA-862</a>] -         Add charges to Sovereign Glue</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-876'>DATA-876</a>] -         Add as an RSRD 3.5-purchaseable item an "Ink (1 Oz. Vial)" "in other colors ... [for] twice as much"</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-880'>DATA-880</a>] -         Add &quot;potion&quot; to the list of items that can put put into the &quot;“Vial, ink or potion”; other Vial suggestions</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-881'>DATA-881</a>] -         Add Liquid type to various flask liquids so that they may be put in the Flask (empty)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-886'>DATA-886</a>] -         When selecting the Knowledge 10 Ranks item lesser power have a chooser for which category</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-894'>DATA-894</a>] -         Implement Mnemonic Enhancer</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-896'>DATA-896</a>] -         Make multi-spell scroll kits give variety of spells, not multiple of same; possible solution provided</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-901'>DATA-901</a>] -         Make some PCGen OCG items resizeable.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-931'>DATA-931</a>] -         D20M Combat Martial Arts/Living Weapon</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-932'>DATA-932</a>] -         Make the Wondrous “gauntlets” (the Gauntlets of Ogre Power and the Gauntlet of Rust) act as gauntlets.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-953'>DATA-953</a>] -         Pathfinder Druid Wildshape templates missing</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-956'>DATA-956</a>] -         Improve names of RSRD Wondrous Items to better match names in MagicItemsV.rtf</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-961'>DATA-961</a>] -         Fix trivial errors in rsrd_equipmods_enhancing.lst comments</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-964'>DATA-964</a>] -         Add the RSRD &quot;specific&quot; armor, shields, and weapons from EpicMagicItems1.rtf</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-967'>DATA-967</a>] -         Make a Black Blade (Magus 'Bladebound' archetype) weapon with proper adjustments</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-975'>DATA-975</a>] -         Add charges to the RSRD item Nine Lives Stealer</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-976'>DATA-976</a>] -         Modify costs of Epic Might weapon variations to zero as they come with the Rod</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-977'>DATA-977</a>] -         Add RSRD item Rod of Lordly Might's alt. weapon options (as done with Rod of Epic Might)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-979'>DATA-979</a>] -         Add sort keys to numbered items (standard and Roman) and item sequences</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-986'>DATA-986</a>] -         Add charges to the RSRD Luck Blade swords</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-991'>DATA-991</a>] -         Remove charges that represent uses per day from three RSRD rods for consistency </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-998'>DATA-998</a>] -         Implement the Ring of Jumping, Improved (missing RSRD item)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1001'>DATA-1001</a>] -         Add charges to the RSRD Ring of the Ram; output name issue</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1002'>DATA-1002</a>] -         Add shield type to AC bonus provided by the RSRD item Ring of Force Shield</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1006'>DATA-1006</a>] -         Add charges to the Rod of Epic Cancellation, Consumable type to R. of Cancellation, R. of Besiegement spell</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1007'>DATA-1007</a>] -         Add SPROPs to Ioun Stones</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1008'>DATA-1008</a>] -         Implement Psychic warrior favored class bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1011'>DATA-1011</a>] -         Add special ability mods to three epic staves</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1017'>DATA-1017</a>] -         Have the rings, etc., use a uniform naming scheme: Ring of Blah or Ring (Blah)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1018'>DATA-1018</a>] -         Add sort keys to Treasure Tables to make them sort better</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1024'>DATA-1024</a>] -         Implement ways (Epic feats, etc.) to increase Darkvision, Low-light vision</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1027'>DATA-1027</a>] -         Various small improvements to the RSRD epic equipment file</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1029'>DATA-1029</a>] -         Add consistency by giving each artifact its type, Major and Minor; Epic type as well?</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1032'>DATA-1032</a>] -         Adding energy resistances conferred by items in a way beyond simply using SPROPs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1050'>DATA-1050</a>] -         Various small improvements to the epic and non-epic artifacts</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1053'>DATA-1053</a>] -         Add Steel type to javelins, spears and darts, like arrows and bolts</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1056'>DATA-1056</a>] -         Allow specific arrows/bolts to go in bow/crossbow 'containers'</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1061'>DATA-1061</a>] -         [Ultimate Combat] Add missing Bonus Feat 'Bodyguard' for Cavalier 'Honor Guard' Intercept Ability</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1064'>DATA-1064</a>] -         [Inner Sea World Guide] ISWG weapons not assorted into Fighter Weapon Training Categories</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1066'>DATA-1066</a>] -         Drow Racial Save Bonus variable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1070'>DATA-1070</a>] -         Samurai Ride to display non-ACP skill version</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1074'>DATA-1074</a>] -         Ultimate Magic - Greensting Scorpion Familiar Bonus has been updated. Need Errata.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1075'>DATA-1075</a>] -         Add sort keys to dragon age categories (i.e. &quot;races&quot;) so it is wyrmling to great wyrm</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1076'>DATA-1076</a>] -         Allow Dwarven Auto Languages to be removed.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1078'>DATA-1078</a>] -         [Inner Sea World Guide] Dervish Dance Not Adding Dex bonus to Attack and Damage with Scimitar</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1079'>DATA-1079</a>] -         (Advanced Player's Guide) Blight Druid Nature Bond</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1081'>DATA-1081</a>] -         [Advanced Player's Guide] Animal Shaman- nature bond</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1083'>DATA-1083</a>] -         (UM, UC) Assorted Animal Shaman Archetypes not getting any nature bond selections</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1086'>DATA-1086</a>] -         Cohorts and followers</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1089'>DATA-1089</a>] -         Implement epic advancement of rsrd true dragons; files provided</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1095'>DATA-1095</a>] -         Implement Augmented Subtype</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1097'>DATA-1097</a>] -         Implement charges for Power Pack (50)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1098'>DATA-1098</a>] -         Add Writing and Documents types to the PRD's &quot;Rice Paper (Sheet)&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1101'>DATA-1101</a>] -         Pathfinder RPG Core Rulebook 6th printing errata</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1107'>DATA-1107</a>] -         Fix performance issues - Class Abilities Redone</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1128'>DATA-1128</a>] -         Clarify Survival bonus given by the Pathfinder trait Starchild (Desna)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1133'>DATA-1133</a>] -         Properly Implement Shieldbash</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1134'>DATA-1134</a>] -         make Bottled Ooze available as an extract</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1137'>DATA-1137</a>] -         [Guide To Pathfinder Society Organised Play] Add a kit with standard gold</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1140'>DATA-1140</a>] -         Ranger Favored Community for Urban Ranger Archetype</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1148'>DATA-1148</a>] -         Looking for a lizard mount for a cavalier</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1150'>DATA-1150</a>] -         Restructure Data Directories to be by GameMode</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1157'>DATA-1157</a>] -         Sorcerer Favored Class bonus not for Human%</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1158'>DATA-1158</a>] -         Implement Sohei armor and weapon proficiencies (Ultimate Combat)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1168'>DATA-1168</a>] -         Implement the Conditional Save Bonus Display for Eternal Hope</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1169'>DATA-1169</a>] -         &quot;Headband of Vast Intelligence should provide a skill selector/bonus when added</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1170'>DATA-1170</a>] -         Ultimate Magic - Magus Armor Proficiency - Remove Arcane Spell failure if Magus is the only class and qualifies</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1171'>DATA-1171</a>] -         Ultimate Magic Favored Class options not implemented</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1185'>DATA-1185</a>] -         CLONE - Add Steel type to javelins, spears and darts, like arrows and bolts</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1204'>DATA-1204</a>] -         Implement Black Blade Hit Points for Weapon Enhancement Bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1213'>DATA-1213</a>] -         Add Prestige Awards to PSGtOP</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1216'>DATA-1216</a>] -         Display Perform &amp; Craft Skills if Bonused</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1226'>DATA-1226</a>] -         Ultimate Combat - Add ITEM:POTION for Spells.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1231'>DATA-1231</a>] -         Favoured Class Bonus for Magus Arcane Pool extends to Suli and Tiefling</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1232'>DATA-1232</a>] -         Favored Class Abilities from Advanced Race Guide not present</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1241'>DATA-1241</a>] -         [Pathfinder][Advanced Race Guide] Allow Race restrictions on spells to be bypassed if desired</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1245'>DATA-1245</a>] -         Implement the Bardic Music and Paladin Auras Temp Bonuses</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1248'>DATA-1248</a>] -         Fiendish Sorcery</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1249'>DATA-1249</a>] -         Change all spells with TEMPBONUS or PREAPPLY to ANYPC to allow ease of Scroll/Wand/Potion use</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1250'>DATA-1250</a>] -         Potions of Inflict Wounds not in Equipment</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1252'>DATA-1252</a>] -         Implement ASPECT:SaveBonus| in eligible traits.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1258'>DATA-1258</a>] -         Witch Hex as a standard variable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1274'>DATA-1274</a>] -         OS lacks mention of the Witch patron</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1277'>DATA-1277</a>] -         Implement the Monk Flurry BAB for Temporary Bonus Combat Feats</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1285'>DATA-1285</a>] -         Convert all Pathfinder Dragons to New Method</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1287'>DATA-1287</a>] -         APG - Add prereqs for weapon equipment modifiers</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1294'>DATA-1294</a>] -         Combat Expertise Feat Benefit text not adjusting when values are modified.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1296'>DATA-1296</a>] -         Add 'Kensai Chosen Weapon' choice.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1300'>DATA-1300</a>] -         Request to apply 'darkvision ability' to Celestial and fiendish templates</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1308'>DATA-1308</a>] -         Archetype Support - Weapon and Armor Profs need to be adjusted</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1314'>DATA-1314</a>] -         Data File &amp; Directory Restructure for Pazio Pathfinder</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1316'>DATA-1316</a>] -         Turn/Command Undead feat benefit output should include DC</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1320'>DATA-1320</a>] -         Bulk add of SOURCELINK entries to Pathfinder spells to allow linking on output sheets</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1332'>DATA-1332</a>] -         Pathfinder Overhaul to new standardized layout and specifications</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1343'>DATA-1343</a>] -         Nunchaku are base type Wood. Source states Metal or Wood - add a metal version.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1365'>DATA-1365</a>] -         Bestiary 3- Implement Creature Spellcasting Abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1366'>DATA-1366</a>] -         Bestiary III- Implement Fey Creature Special Ability selections</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1367'>DATA-1367</a>] -         PF Bestiary III- Implement Fey Creature Template Spell-like abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1369'>DATA-1369</a>] -         PF Bestiary 3- Implement Graveknight defensive abilities into Defense portion of statblock</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1371'>DATA-1371</a>] -         PF Bestiary 3- Implement selection of Ruinous Revification ability energy type</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1376'>DATA-1376</a>] -         Implement 'Imbue with Spell Ability'</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1377'>DATA-1377</a>] -         Half-XXX count as Base Race per Errata</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1378'>DATA-1378</a>] -         Need method to associate an archetype with its base class</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1380'>DATA-1380</a>] -         Make unique names for the Weapon Training &quot;Weapon Groups&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1393'>DATA-1393</a>] -         [PF] Shillelagh missing temp bonus.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1396'>DATA-1396</a>] -         Converter Run for 6.2 Release</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1436'>DATA-1436</a>] -         Deadlands - Kit's needed for starting character funds.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1438'>DATA-1438</a>] -         Page of Spell Knowledge</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1441'>DATA-1441</a>] -         Zen Archer Flurry of Blows</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1448'>DATA-1448</a>] -         Add Fantasy Craft GameMode and misc items to support.</li>
+</ul>
+
+<h3>        New Output Sheet Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-99'>OS-99</a>] -         TIMEUNIT needs to be added for Spell Support</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-208'>OS-208</a>] -         Touch Attach (Ray) shouldn't appear in inventory</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-217'>OS-217</a>] -         Homebrew Support - Allow Both DESC and BENEFIT to be used</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-220'>OS-220</a>] -         [Pathfinder] Show Words of Power on output sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-231'>OS-231</a>] -         Add Archetype Class Name next to the Class in the HTM OS</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-241'>OS-241</a>] -         ASPECT 'Name' as an alternative to the actual name, to allow Special Name Changes</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-242'>OS-242</a>] -         [PF] Turning &amp; Eclipse Channeling blocks appear on all chars O/S</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-243'>OS-243</a>] -         Allow Name to support Variables</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-249'>OS-249</a>] -         Traits do not appear on standard HTML export output sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-270'>OS-270</a>] -         Html sheets - link spells to web descriptions where available</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-271'>OS-271</a>] -         Add a link to the PCGen website in the OS</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-272'>OS-272</a>] -         Present feats the same way special qualities are</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-277'>OS-277</a>] -         Add links to spells in fantasy PDF when SOURCELINK is available</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-281'>OS-281</a>] -         Sheets display source page for spells, but not actual source</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-285'>OS-285</a>] -         Preview - Fantasy Standard - Make ASPECT &quot;Bonus&quot; family use new lines</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-286'>OS-286</a>] -         Condensed Sheet - Add CombatBonus ASPECT - Clean up SaveBonus</li>
+</ul>
+
+<h3>        New Documentation Features
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-54'>DOCS-54</a>] -         Document Ouput Sheet tokens &quot;Associated&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-56'>DOCS-56</a>] -         Document SPELLPOINTCOST</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-75'>DOCS-75</a>] -         Identify Race Token Consolidation Rules</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-78'>DOCS-78</a>] -         Identify Deity Token Consolidation Rules</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-79'>DOCS-79</a>] -         Identify Domain Token Consolidation Rules</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-84'>DOCS-84</a>] -         Identify Skill Token Consolidation Rules</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-217'>DOCS-217</a>] -         Add 'BENEFIT' to Feat and Ability as valid EXPORT tokens</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-263'>DOCS-263</a>] -         RESIZABLEEQUIPTYPE is not documented</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-276'>DOCS-276</a>] -         Update SPELLLEVEL and SPELLKNOWN to hidden Usage Case</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-277'>DOCS-277</a>] -         Add New Path to Homebrew Data Folder to PCC File PCC Tag Docs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-280'>DOCS-280</a>] -         Record that MOVE should always be present in race</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-285'>DOCS-285</a>] -         Remove deprecated tags from docs.</li>
+</ul>
+
+
+
+<h3>       Code Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-160'>CODE-160</a>] -         [Pathfinder] CR issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1117'>CODE-1117</a>] -         Problem loading file saved with ADD:ABILITY and Craft skill</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1201'>CODE-1201</a>] -         Stack Trace shows setDirty recursive call is not cut short</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1580'>CODE-1580</a>] -         Font doesn't look good</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1708'>CODE-1708</a>] -         DeferredTokens never process embedded (level dependent) subtemplates</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1815'>CODE-1815</a>] -         Inventory &gt; Equipment available list does nto remember column settings</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1832'>CODE-1832</a>] -         Inventory/Purchase Tab - Right Clicking on an item in the right pane allows you to sell more of the items than you have.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1840'>CODE-1840</a>] -         The &quot;Convert Data&quot; launcher in the start menu points to an invalid javaw location</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1841'>CODE-1841</a>] -         Error Exporting to PDF when skins are not installed</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1858'>CODE-1858</a>] -         ABILITYCATEGORY &gt; EDITABLE:NO does not work</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1867'>CODE-1867</a>] -         &quot;Too many skill ranks chosen&quot; disagreeing with Skill tab points Remaining</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1870'>CODE-1870</a>] -         Problems with familiar's temp. Alertness feat and granted special benefits updating</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1896'>CODE-1896</a>] -         Language granted by CHOOSE:LANGAUTO not removed when parent is removed</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1897'>CODE-1897</a>] -         Typo in error message</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1899'>CODE-1899</a>] -         CDOMChoiceManager requires GUI2</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1926'>CODE-1926</a>] -         Negated CHOOSE:ANY is not unparsed correctly</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1932'>CODE-1932</a>] -         Class Skill Application for a selection is not applied properly</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1933'>CODE-1933</a>] -         FEATSELECTION choice can be incorrectly filtered</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1934'>CODE-1934</a>] -         Java 7 allows errors to pass through Token/Loader System</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1941'>CODE-1941</a>] -         Item customizer may mess up SPROP with each new save</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1951'>CODE-1951</a>] -         TEMPLATE with CHOICE - Not taking a choice still adds the template</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1957'>CODE-1957</a>] -         Changed Race leaves MONCSKILL:%LIST skills in place</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1958'>CODE-1958</a>] -         Template awarded from %LIST is not removed if granting object is removed</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1964'>CODE-1964</a>] -         Target %LIST items may not be checked for validity</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1965'>CODE-1965</a>] -         False Positive Warning on load for CHOOSE validity</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1982'>CODE-1982</a>] -         Mystic Theurge available if Cleric 1 by taking Domains</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1989'>CODE-1989</a>] -         DOMAIN from PCClass/PCClassLevel can be ignored under certain conditions &amp; handle remove poorly</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1992'>CODE-1992</a>] -         Could not find class: Paladin when loading an ex-Paladin</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2009'>CODE-2009</a>] -         ADD:LANGUAGE not preserved when no LANGBONUS with the Language exists</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2019'>CODE-2019</a>] -         Spell showing up when it shouldn't</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2023'>CODE-2023</a>] -         Temporary Bonus Panel doesn't update spells available till level up? or reload</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2033'>CODE-2033</a>] -         Body slot-limited items not having benefits limited to being equipped in slots</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2046'>CODE-2046</a>] -         Info panel takes too much space on chooser dialog</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2047'>CODE-2047</a>] -         Templates with VISIBLE:NO are visible in the UI</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2048'>CODE-2048</a>] -         Source names in campaign info can be too short</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2051'>CODE-2051</a>] -         TempBonus tab - fails to apply spell bonuses</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2054'>CODE-2054</a>] -         Kits that have EQUIPBUY:100 still cost in &quot;Cashless&quot; purchase mode</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2055'>CODE-2055</a>] -         Raven Familiar is getting the Language Selection Pop up box twice.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2057'>CODE-2057</a>] -         Familiars not being saved</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2060'>CODE-2060</a>] -         Column hider dropdown does not work on domain list</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2061'>CODE-2061</a>] -         Domain selection color not consistent with rest of program</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2067'>CODE-2067</a>] -         BONUS:WEAPONPROF=TYPE.x not affecting WIELDCATEGORY</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2076'>CODE-2076</a>] -         Converter unable to UNPARSE PREAPPLY</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2078'>CODE-2078</a>] -         Serious Lag switching Tabs and Ability Pools</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2079'>CODE-2079</a>] -         Equipped items in starting kits not going to their correct slots</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2088'>CODE-2088</a>] -         AUTO_GEN racially resized armor/weapons being generated all at standard cost/wt.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2093'>CODE-2093</a>] -         Templates with VISIBLE:DISPLAY don't appear in the Selected Window</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2099'>CODE-2099</a>] -         Random Name Generator - Buttons overlap field</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2104'>CODE-2104</a>] -         Standard equipping locations not being found when using default monster kits</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2106'>CODE-2106</a>] -         null pointer exception while loading bad data</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2107'>CODE-2107</a>] -         Kit LevelAbility ABILITY:PROMPT not working</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2127'>CODE-2127</a>] -         Treasure Table generated &quot;SEVERE AWT-EventQueue-0 Main:560 Uncaught error ...&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2130'>CODE-2130</a>] -         AUTO_GEN enhanced items treated as unenhanced by the item customizer</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2131'>CODE-2131</a>] -         Once added, Additional Magic Item Space feat is not removeable</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2137'>CODE-2137</a>] -         Rapid Shot creates a new item, but applies to both weapons when checked.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2141'>CODE-2141</a>] -         MODS:REQUIRED no longer popping up a screen to make the selections - breaks strength bows.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2143'>CODE-2143</a>] -         SPELLBOOK.x.TYPE always returns &quot;Prepared Spell List&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2144'>CODE-2144</a>] -         &quot;Things to be Done&quot; not recognizing free skill points granted by monster default</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2146'>CODE-2146</a>] -         PRESPELLTYPE issue</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2148'>CODE-2148</a>] -         Familiar not applying bonuses to master</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2149'>CODE-2149</a>] -         Windows Installer - homebrew/conversion_support not installed</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2160'>CODE-2160</a>] -         TEMPLATE applied after granting ability removed???</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2164'>CODE-2164</a>] -         GENDERLOCK not respected in UI.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2165'>CODE-2165</a>] -         Problem with divine spell levels as requirements</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2170'>CODE-2170</a>] -         count(&quot;ABILITIES&quot;) broken with multiples of the same ability</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2175'>CODE-2175</a>] -         COUNT[TEMPLATES] counts invisible templates</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2177'>CODE-2177</a>] -         Language chooser loses selected languages after load of character</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2185'>CODE-2185</a>] -         BONUS:SKILLPOOL causes skill points remaining to spiral into negative</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2191'>CODE-2191</a>] -         SPELLLEVEL in character file ignored</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2193'>CODE-2193</a>] -         Unable to Delete Custom Items</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2194'>CODE-2194</a>] -         Error when unequipping item</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2195'>CODE-2195</a>] -         Cleric domains don't display in the Cleric Spell List</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2200'>CODE-2200</a>] -         EQMODs with a CHOICE are stacking upon themselves each character save</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2201'>CODE-2201</a>] -         ADD:CLASSSKILL in sub class throws error</li><li>[<a href='http://jira.pcgen.org/browse/CODE-1918'>CODE-1918</a>] -         Batch Converter issue with AbilityCategory not being defined</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2202'>CODE-2202</a>] -         CHOOSE:USERINPUT with PREXXX can't remove selection once chosen</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2203'>CODE-2203</a>] -         Remaining Selections not showing for CHOOSE:USERINPUT</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2204'>CODE-2204</a>] -         User prompt for &quot;switch sources&quot; on character load is confusing - usability improvment</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2206'>CODE-2206</a>] -         RetroSkill rule resets 1st level multiplier to x1 after gaining 2nd level</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2219'>CODE-2219</a>] -         Unselecting a race with racial hit dice raises error</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2220'>CODE-2220</a>] -         35e Bonus languages seem to be based on current Int bonus, not starting Int bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2225'>CODE-2225</a>] -         The ability scores are not updated on age category change</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2234'>CODE-2234</a>] -         Can't create character - when no BONUSFEATLEVELSTARTINTERVAL in game mode</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2235'>CODE-2235</a>] -         Plugin not found in JepCommand-COUNTDISTINCT.jar</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2240'>CODE-2240</a>] -         Preview Sheet - I'm seeing &quot;Square&quot; instead of x in the Weapon Crit Block </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2245'>CODE-2245</a>] -         PCGen freezes when selecting Qualified and Affordable from Purchase Equipment List</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2248'>CODE-2248</a>] -         Customized wand cost becomes negative </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2256'>CODE-2256</a>] -         Equipping items does not cause refresh of Feats/Abilities tab</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2258'>CODE-2258</a>] -         Modified Base items reapplying eqmods</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2263'>CODE-2263</a>] -         CHOOSE:USERINPUT does not work with single choice option selected</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2268'>CODE-2268</a>] -         Familiar should get Linguistics from master</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2278'>CODE-2278</a>] -         Hidden templates shown on load</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2288'>CODE-2288</a>] -         Converter writes out PROHIBITSPELL token twice on class level lines</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2292'>CODE-2292</a>] -         CAST failing with VarNames or Formulas</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2294'>CODE-2294</a>] -         Spell ToDo not displayed for spontaneous divine casters</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2300'>CODE-2300</a>] -         Unloading selected sources and changing gamemode generates error</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2302'>CODE-2302</a>] -         Kits - Instant Kits should be able to be reapplied</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2307'>CODE-2307</a>] -         ABILITYCATEGORY - EDITPOOL is not working</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2314'>CODE-2314</a>] -         Languages todo doesn't account for bonus ranks in linguistics</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2315'>CODE-2315</a>] -         Paper type preferences not saved between sessions</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2317'>CODE-2317</a>] -         PCC subtag INCLUDE confused by MOD lines</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2318'>CODE-2318</a>] -         MOD does not apply global SOURCExxx tags</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2322'>CODE-2322</a>] -         Summary screen - Deity Drop Down - Does not refresh after a Deity is assigned via a kit</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2323'>CODE-2323</a>] -         Kits - Domain cannot be applied if it is in a subkit</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2324'>CODE-2324</a>] -         Clicking links in source selection screen gives SEVERE warning on Mac</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2325'>CODE-2325</a>] -         Kits - Items without an OPTION tag are ignored once a SELECT is processed</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2331'>CODE-2331</a>] -         Skill modifier breakdown shows large negative OTHER bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2333'>CODE-2333</a>] -         Skills pane's ability modifier out of sync with actual modifiers.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2335'>CODE-2335</a>] -         Unchecking weight on description tab hides every weight allowance value from output</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2337'>CODE-2337</a>] -         &quot;Save Party&quot; stores absolute path to characters which prevents loading</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2338'>CODE-2338</a>] -         Alignment dropdown not updating after selecting race that applies default kit</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2341'>CODE-2341</a>] -         (PF) Innate spellcasting creatures w/ sorc lvls spontaneously gaining caster levels</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2343'>CODE-2343</a>] -         Default Load granting illegal abilities/traits.</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2350'>CODE-2350</a>] -         Natural Attacks do not get equipped</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2358'>CODE-2358</a>] -         Using CASTERLEVEL in spell DESC generates java error</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2359'>CODE-2359</a>] -         NullPointerException when showing Source Selection Dialog when no sources are present</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2367'>CODE-2367</a>] -         Invalid nested prereq on PRECLASS is not rejected at load</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2371'>CODE-2371</a>] -         Removing a level mixes up skills</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2375'>CODE-2375</a>] -         Preview refresh on character switch causing delay</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2383'>CODE-2383</a>] -         BONUS does not correctly error on bad syntax</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2386'>CODE-2386</a>] -         Invalid size in PRESIZE does not report an error</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2388'>CODE-2388</a>] -         .pcg file loads extremely slowly on otherwise fast, new machine</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2392'>CODE-2392</a>] -         Template LEVEL and HD tag application problems</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2396'>CODE-2396</a>] -         FACE:2.5 only displays 2</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2399'>CODE-2399</a>] -         Disappearing Prepared domain spell</li>
+</ul>
+
+<h3>       Data  Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-28'>DATA-28</a>] -         Fix Divine Weapon Specialization</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-554'>DATA-554</a>] -         Linguistics at first level is restrict to Bonus Languages instead of being wide open</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-730'>DATA-730</a>] -         [Ultimate Combat] Tactician errors</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-731'>DATA-731</a>] -         [APG]Bonus Bombs Per Day favored class bonus doesn't work properly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-733'>DATA-733</a>] -         [Ultimate Combat] Firearm critical hit threat range reads &quot;none&quot; instead of 20</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-734'>DATA-734</a>] -         [Ultimate Combat] Firearm ammunition not enchantable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-735'>DATA-735</a>] -         [Ultimate Combat] Item &quot;Bullet (Firearm/30) Customizer figuring cost according to single ammo, not 30</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-736'>DATA-736</a>] -         The lesser power of &quot;Listen&quot; for an intelligent item is misspelled &quot;Liste&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-737'>DATA-737</a>] -         [Ultimate Combat] Samurai- incorrect class skills</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-741'>DATA-741</a>] -         Standardize sorting for all Gems</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-743'>DATA-743</a>] -         When character files from the previous version (i.e. PCGen 5.6.14) using D&amp;D 3.5 rules are loaded, a warning about sources being not found is displayed</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-746'>DATA-746</a>] -         Typo in Pathfinder Barbarian Strength Surge rage power description</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-748'>DATA-748</a>] -         Many errors in basic familiars (missing feats, extra vision capabilities, etc.)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-756'>DATA-756</a>] -         Int for familiar of Wizard replaced by &quot;*&quot; starting at 9th level</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-756'>DATA-756</a>] -         Int for familiar of Wizard replaced by &quot;*&quot; starting at 9th level</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-758'>DATA-758</a>] -         Various Knowledge synergies giving +1 instead of +2.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-760'>DATA-760</a>] -         Adept not getting spells</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-761'>DATA-761</a>] -         OSRIC game mode causing duplicate SRD 3.5 entry in quick sources</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-764'>DATA-764</a>] -         Feat listing error in 6.01 (not 6.00) causes defective repeats of some after end of regular list</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-765'>DATA-765</a>] -         The Int for a Raven familiar of a 9th or 10th level Wizard is 11 instead of 10.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-769'>DATA-769</a>] -         [Ultimate Combat] Cavalier archetype Emissary problems</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-771'>DATA-771</a>] -         Assorted Bugs in Ultimate Combat</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-773'>DATA-773</a>] -         Loremaster not properly qualifying for secrets</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-774'>DATA-774</a>] -         6.00.0 Pathfinder RPG for Game Masters doesn't load APG</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-776'>DATA-776</a>] -         The Animal Trick &quot;Attack II&quot; is missing a Description.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-777'>DATA-777</a>] -         The feat &quot;Armor Proficiency (Barding)&quot; is invalid - remove.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-778'>DATA-778</a>] -         Animal Trick &quot;Attach&quot; has identical &quot;Description&quot; and &quot;Benefit&quot;; only one to do so</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-779'>DATA-779</a>] -         [Ultimate Magic] Cloistered cleric missing class skills</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-781'>DATA-781</a>] -         Animal Trick &quot;Trained for Combat Riding&quot; has identical &quot;Description&quot; and &quot;Benefit&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-782'>DATA-782</a>] -         [PFRPG] Alchemist in Organized Play Brew Potion error</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-783'>DATA-783</a>] -         Loremaster &quot;Secrets&quot; adding to &quot;Base&quot; saves rather than &quot;Misc.&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-788'>DATA-788</a>] -         Missing Familiars from Improved Familiar Feat</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-789'>DATA-789</a>] -         Pathfinder: Fire Shield and Fire Seeds spells are reversed in full description</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-791'>DATA-791</a>] -         EQMOD:BNS_ENHC_AC calls itself &quot;Armor Enhancement Bonus&quot; but grants &quot;Armor Bonus&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-793'>DATA-793</a>] -         Unarmed Fighter Weapon Proficiencies</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-801'>DATA-801</a>] -         Pathfinder Paladin Smite Evil incorrect when &quot;Undead Scourge&quot; is selected</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-802'>DATA-802</a>] -         Kensai archetype - not qualified for Exotic Weapon or Martial Weapon Proficiency; Not Qualified for Weapon Focus.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-804'>DATA-804</a>] -         Paladin Mercy selections cap at level 12 should be level 18.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-805'>DATA-805</a>] -         Gunslinger Training Selection incorrect progression</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-806'>DATA-806</a>] -         Gunslinger not gaining Dex bonus to Selected Firearm</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-808'>DATA-808</a>] -         R/SRD for Players shipping with Unconstructed References &amp; bad object references</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-810'>DATA-810</a>] -         Stunning Fist feat benefit DC value wrong</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-812'>DATA-812</a>] -         [PFCR Spells] Divine Power Temporary Bonus Target Incorrect</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-813'>DATA-813</a>] -         [R/SRD] Temporary Bonus Errors</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-814'>DATA-814</a>] -         [SRD] Temporary Bonus Error</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-815'>DATA-815</a>] -         [Deadlands d20] Temporary Bonus Error</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-818'>DATA-818</a>] -         Pathfinder Earth Domain references Nobility instead of Earth in &quot;SPELLLEVEL:DOMAIN&quot; Tag</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-821'>DATA-821</a>] -         Possible bad character in &quot;Strand of Prayer Beads&quot; item description</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-823'>DATA-823</a>] -         Magical Knack not increasing Arcane Strike Effect, May Need Code Work</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-824'>DATA-824</a>] -         Archaeologist's Luck doesn't allow selection of Extra Performance feat</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-827'>DATA-827</a>] -         Patron of Wisdom is missing from APG</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-829'>DATA-829</a>] -         Eidolon not leveling properly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-835'>DATA-835</a>] -         Missing file in pathfinder bestiary (pfb_abilities_racial.lst)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-836'>DATA-836</a>] -         Gladiator archetype from UC missing skills and feat</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-837'>DATA-837</a>] -         &quot;Halfling Morale&quot; &quot;Racial Ability&quot; inconsistency</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-838'>DATA-838</a>] -         Many of the &quot;Racial Abilities&quot; do not have Descriptions; other errors in Descriptions</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-839'>DATA-839</a>] -         Elemental Fist when granted not qualifying for 'elemental style' feats</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-841'>DATA-841</a>] -         Psionic Keen Edge power missing duration</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-843'>DATA-843</a>] -         Loading Ultimate Combat causes spurious Perception subskill to appear</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-845'>DATA-845</a>] -         BarJack lost access to spells due to backport of CHA vs. INT in PRExxx</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-847'>DATA-847</a>] -         SRD multiple racial traits are incorrect - review and correct.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-849'>DATA-849</a>] -         Gentle Repose should be 2nd level for clerics</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-854'>DATA-854</a>] -         Druid Domains allows all domains to be selected instead of just those allowed by the sources.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-860'>DATA-860</a>] -         Temp Fix: BarJack is experiencing a transient error on ALTHP</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-861'>DATA-861</a>] -         Incorrect caster levels for Hand of Glory and Hand of the Mage</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-864'>DATA-864</a>] -         MSRD data grants no languages</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-865'>DATA-865</a>] -         BONUS:SLOTS|ARMOR doesn't work</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-867'>DATA-867</a>] -         Pathfinder Core - New Arcana Arcane Sorcerer Bloodline class feature doesn't give spells known</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-868'>DATA-868</a>] -         RSRD Lycanthrope Templates request infinite loop</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-871'>DATA-871</a>] -         RSRD 3.5 Divine Power spell bonus is applied wrong</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-872'>DATA-872</a>] -         Druid Level 8 Animal Companion Eagle is becoming MEDIUM size, instead of staying SMALL</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-873'>DATA-873</a>] -         Misspelled words in in rsrd_spells.lst (hourss, usess)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-874'>DATA-874</a>] -         Arcanis incorrectly uses REMOVE:FEAT</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-875'>DATA-875</a>] -         The word &quot;sapphire&quot; is misspelled in the PCGen OGC SpellFocus &quot;Lens, ruby or sapphine, set in golden loop&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-877'>DATA-877</a>] -         Creating a custom scroll has Epic allowable instead of using the same gatekeeper system Minor, Medium and Major.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-878'>DATA-878</a>] -         Crossblooded Sorcerer archetype (Draconic bloodline) not meeting Dragon Disciple prereq</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-883'>DATA-883</a>] -         Epic lvl Wiz class progression continuing non-epic lvl Wiz bonus feat progression</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-884'>DATA-884</a>] -         Space at end of PCGen OGC &quot;Miniature (portal carving, ivory) [...]&quot; causing loading problem</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-885'>DATA-885</a>] -         Greater Spell Focus Feat give an error when selecting the spell school</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-887'>DATA-887</a>] -         On character sheet, listen item lesser power still reads as 'liste'.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-888'>DATA-888</a>] -         [PF] UC missing link to armor.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-892'>DATA-892</a>] -         AUTO_GEN weapons being generated for specific weapons</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-893'>DATA-893</a>] -         Mace of Terror and Mace of Smiting (RSRD 3.5 specific weapons) have incorrect weights</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-895'>DATA-895</a>] -         In the divine list of scroll spells, Wall of Stone lacks the Divine designation, causing it to become Arcane</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-897'>DATA-897</a>] -         35e default rat shows a &quot;too many skill ranks&quot; to do</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-900'>DATA-900</a>] -         Multiple Issues with updated Arcanis Players Guide</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-968'>DATA-968</a>] -         Rogue Sneak Attack not calculating correctly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-981'>DATA-981</a>] -         RSRD's Ring of Epic Psionics 8 missing, 10 added</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-995'>DATA-995</a>] -         Correct errors in RSRD Rod of Flailing, other rods</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1005'>DATA-1005</a>] -         Correct errors in Rod of Epic Absorption, remove daily use charges from Rod of Epic Negation</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1012'>DATA-1012</a>] -         &quot;Destination path too long&quot; error for PF file curse_of_the_crimson_throne_players_guide_pfrpg</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1016'>DATA-1016</a>] -         Robe of Useful Items 2 missing Container type</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1026'>DATA-1026</a>] -         Sirrush and Sirrush (Three Headed) have incorrect energy resistances</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1028'>DATA-1028</a>] -         Three RSRD artifacts have non-zero costs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1038'>DATA-1038</a>] -         Int. Item Greater Power (s) - Detect Chaos/Evil/Good/Law not adding; fix provided</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1042'>DATA-1042</a>] -         Various small errors (typos, etc.) in the file rsrd_equipmods_enhancing.lst</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1044'>DATA-1044</a>] -         Adding CONTAINS tags to the Constructs, Container type to the Necklace(s) of Fireballs 2</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1049'>DATA-1049</a>] -         Change name of &quot;Improved Low-light Vision&quot; to &quot;Improved Low-Light Vision&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1052'>DATA-1052</a>] -         Adding Epic energy resistance feat causes stackoverflow error</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1055'>DATA-1055</a>] -         Fix incorrect Low-Light Vision multiplier for the chromatic &amp; metallic dragons</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1057'>DATA-1057</a>] -         Various small errors in the RSRD specific weapons file</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1060'>DATA-1060</a>] -         Two tiny errors in rsrd_equip_armorshields_specific.lst</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1062'>DATA-1062</a>] -         Magical Knack not increasing Ranger caster level</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1063'>DATA-1063</a>] -         [Pathfinder] - Core Rulebook - Eldritch Knight Fighter Feat Level, Bonus Feats Miscalculated</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1065'>DATA-1065</a>] -         [Pathfinder] Ultimate Magic/Orcs of Golarion - Crossblooded Sorcerer Orc Bloodline</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1067'>DATA-1067</a>] -         Choosing Enhance Weapon Antipaladin Fiendish Boon breaks printing</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1068'>DATA-1068</a>] -         Two errors/inconsistencies in RSRD spells presentation</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1069'>DATA-1069</a>] -         Improve/correct monsters spells' components for Spell-Like Abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1071'>DATA-1071</a>] -         RSRD Wrong ability for Bralani -  'Petrification' should be 'Immunity to Petrification'</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1072'>DATA-1072</a>] -         Hit die advancement for dragons should be unlimited (instead of 99)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1073'>DATA-1073</a>] -         Errors in (and some improvement for) the file on the RSRD Epic dragons</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1077'>DATA-1077</a>] -         Fighter Weapon Training and the Marksman's Favored Weapon for thrown weapons does not bonus the Blowgun, Sling, or Halfling Sling Staff</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1080'>DATA-1080</a>] -         (Advanced Player's Guide) Urban Druid- no domain offered</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1082'>DATA-1082</a>] -         [Ultimate Magic] Storm Druid- no domains selectable </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1084'>DATA-1084</a>] -         Lillend Monster Class should have bardic music</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1085'>DATA-1085</a>] -         Errors loading Pathfinder RPG for PFS set</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1088'>DATA-1088</a>] -         Inquisitor: Judgment Surge unavailable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1090'>DATA-1090</a>] -         Using 3.5 RSRD - Campaign Set - No Psionics as the only source generates 97 errors after loading</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1094'>DATA-1094</a>] -         UC Magus Arcana missing PREVARx tag</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1096'>DATA-1096</a>] -         Versatile Performance Sing has typo</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1099'>DATA-1099</a>] -         [Pathfinder] - Psionics Expanded - Unlimited Possibilities - Aegis Flight Customization Level Requirement</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1100'>DATA-1100</a>] -         [Pathfinder] - Psionics Expanded - Unlimited Possibilities - Bonus Customization Points Favored Class Option</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1103'>DATA-1103</a>] -         Ant Haul Calculation Errors on non-medium character</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1105'>DATA-1105</a>] -         Swift Foot Rage Power Enhancement Stacking - lacks the TYPE=Enhancement</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1106'>DATA-1106</a>] -         [Pathfinder] Elemental Spell feat from APG cannot be correctly applied</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1108'>DATA-1108</a>] -         Price of Strand Of Prayer Beads 20000 GP Too Low</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1109'>DATA-1109</a>] -         [PF - Legacy of Fire Player's Guide] Minor fixes to campaign traits</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1110'>DATA-1110</a>] -         Errors on Load - Missing data?</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1114'>DATA-1114</a>] -         Lance can not be wielded one-handed (for mounted combat)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1115'>DATA-1115</a>] -         [PFCR] Touch Attack (Ray) equipment throws a SEVERE</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1116'>DATA-1116</a>] -         Monks can take Shaitan Style feats without meeting prerequisites</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1117'>DATA-1117</a>] -         Characters cannot take Panther Parry feat</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1118'>DATA-1118</a>] -         [PFCR] Monk doublecount of levels for class abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1119'>DATA-1119</a>] -         [PFUC] SEVERE errors caused by Bestiary companions used in archetype</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1121'>DATA-1121</a>] -         APG Vest of the Cockroach price wrong</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1122'>DATA-1122</a>] -         PFS APG Starknife (Sparkwake) price wrong</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1123'>DATA-1123</a>] -         PF Cavalier mount animal companion feats</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1124'>DATA-1124</a>] -         Gift of Tongues racial trait not giving bonus language for Linguistics properly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1125'>DATA-1125</a>] -         [Pathfinder] Ranger combat style bonus feats broken</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1126'>DATA-1126</a>] -         Extra space in Pathfinder Bard spell &quot;Negative Reaction&quot; description</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1127'>DATA-1127</a>] -         Misspellings in Pathfinder traits</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1132'>DATA-1132</a>] -         Sidewinder Errors</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1138'>DATA-1138</a>] -         Pathfinder Tengu Swordtrained</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1139'>DATA-1139</a>] -         Pathfinder Tengu Guifted Linguist</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1141'>DATA-1141</a>] -         Smite Evil broken for Paladin Archetypes</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1142'>DATA-1142</a>] -         Load test Errors - Pathfinder, 3e and Spycraft</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1144'>DATA-1144</a>] -         Pathfinder, Gloves of Dueling do not appear to add +2 Weapon Training bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1145'>DATA-1145</a>] -         PF Fighter Archetype - Tactician, not applying skills properly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1147'>DATA-1147</a>] -         [PFCR] Eldritch Knight prereqs broken</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1151'>DATA-1151</a>] -         Phase II - As part of the directory restructure, hardcoded file paths are broken. Need to fix those</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1153'>DATA-1153</a>] -         [PFCR] Missing SERVESAS from new wpn/armor/shield proficiency lines</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1154'>DATA-1154</a>] -         Dancing Lights has wrong duration</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1156'>DATA-1156</a>] -         Genesis spell not on wizard list</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1160'>DATA-1160</a>] -         Losing the wrong bonus feat for monk archetypes</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1162'>DATA-1162</a>] -         [Pathfinder for PFS] Double region of origin</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1163'>DATA-1163</a>] -         [Pathfinder] Darkleaf Cloth should be applicable to leather lamellar and barding</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1172'>DATA-1172</a>] -         small (gnome) spellcaster &quot;ray&quot; to-hit bonus doesn't get size +1 bonus that ranged does</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1174'>DATA-1174</a>] -         Vermin Heart not allowed with Cave Druid</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1175'>DATA-1175</a>] -         PF: Incorrect 'Weapon Proficiency' information on character sheet for clerics</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1177'>DATA-1177</a>] -         Enlarge Person Temporary Bonus is not adding the correct Stat enhancements</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1178'>DATA-1178</a>] -         [Pathfinder] [APG] Witch’s Evil Eye doesn’t mention mind affecting</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1179'>DATA-1179</a>] -         [Pathfinder] Cleric armor proficiencies are incorrect</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1181'>DATA-1181</a>] -         [Pathfinder] Druid Shaman entries. Nature Bond disappearing or wrong.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1183'>DATA-1183</a>] -         [Pathfinder] Some armor and weapon are missing their material</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1184'>DATA-1184</a>] -         [APG] Oracle Sidestep is a placeholder only</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1187'>DATA-1187</a>] -         Ninja and Samurai can’t equip katana in one hand</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1188'>DATA-1188</a>] -         Ninja No Trace ability is not added to Disguise</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1189'>DATA-1189</a>] -         Gladius should benefit from Short Sword feats</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1193'>DATA-1193</a>] -         Throwing Shield as a shield modifier</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1194'>DATA-1194</a>] -         Dragon Empire Gazeeter - Remove incorrect info text.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1196'>DATA-1196</a>] -         Disguise Kit has eleven boxes in output sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1197'>DATA-1197</a>] -         LST files beteween different Pathfinder source books use different TYPES for exclusion on archetypes</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1198'>DATA-1198</a>] -         Dependency on Primers and AP Path packages not valid for stable source loads</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1199'>DATA-1199</a>] -         Ranger Shapeshifter Archetype not providing correct blessing progression</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1200'>DATA-1200</a>] -         Kensai Archetype grants Weapon Focus, but Feats don't pick up on it</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1202'>DATA-1202</a>] -         6.01.05-dev : Magus  Black Blade weapon selection has bug</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1203'>DATA-1203</a>] -         Canny Defense on Kensai Magus not gaining Dodge AC Bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1205'>DATA-1205</a>] -         Eastern Weapons in UC missing REACHMULT tag.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1207'>DATA-1207</a>] -         Tengu Weapon Proficiency not properly implemented in Data Sets</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1208'>DATA-1208</a>] -         Monk not proficient with Temple Sword</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1209'>DATA-1209</a>] -         Tengu not gaining bonus languages for Linguistics</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1210'>DATA-1210</a>] -         Strongly aligned planes (temp modifiers) not correct</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1212'>DATA-1212</a>] -         Some monsters don't get their racial spellcasting properly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1214'>DATA-1214</a>] -         Inquisitors &amp; Druid Subdomains Missing</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1215'>DATA-1215</a>] -         Ninja No Trace is missing the conditional modifier on Stealth</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1219'>DATA-1219</a>] -         Pathfinder Arcane Archer Enhance Arrows Class Ability using 35e text.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1220'>DATA-1220</a>] -         Druid Nature Bond displays multiple abilities.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1221'>DATA-1221</a>] -         The witch is missing the arcane mark cantrip</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1222'>DATA-1222</a>] -         Druid World Walker Favored Terrain Ex ability not granting choices.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1224'>DATA-1224</a>] -         [UC] Kensai Archetype Exotic Weapon Proficiency Katana not granting One-Handed use</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1227'>DATA-1227</a>] -         Reduce Person Effects Not Applied Correctly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1229'>DATA-1229</a>] -         Oracle Lightning Breath calculated values are not updated</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1230'>DATA-1230</a>] -         Knight of the Sepulcher Archetype allowing Paladin when it's Anti-Paladin only.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1235'>DATA-1235</a>] -         Kitsune Innate Spell Dancing Lights still on PC after Kitsune magic replaced</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1237'>DATA-1237</a>] -         (Advanced Player's Guide) Urban Druid - Lorekeeper</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1238'>DATA-1238</a>] -         [PF] Samuari with Order of the Paw not gaining abilities</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1239'>DATA-1239</a>] -         [ARG] Scarred Witch Doctor Archetype ability 'Constitution Dependent' not implemented</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1240'>DATA-1240</a>] -         [ARG] Scarred Witch Doctor Archetype scarshield calculation incorrect</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1242'>DATA-1242</a>] -         [Pathfinder][Inner Sea Guide] Spells incorrectly have PREDEITY entries.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1244'>DATA-1244</a>] -         [PF] Adding 2nd level of Storm Druid archetype breaks character.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1246'>DATA-1246</a>] -         [Pathfinder][Ultimate Combat] The ninja trick Deadly range can be taken several times and stacks</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1247'>DATA-1247</a>] -         Enlarge Person temporary bonus does not change weapon damage dice</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1255'>DATA-1255</a>] -         Tiefling Alternate Spell-like ability DC is not set (and defaults to 10) </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1256'>DATA-1256</a>] -         Issue with Acrobatics (Jump/Underground)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1259'>DATA-1259</a>] -         [PF] Night Hag requiring user to equip Heartstone to gain soul bind and etherealness</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1261'>DATA-1261</a>] -         [Pathfinder] Rangers should be proficient in medium armor</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1264'>DATA-1264</a>] -         Elven chain cost and weight</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1267'>DATA-1267</a>] -         3.5 Traits for Legacy of Fire World Traveler does not save selection</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1268'>DATA-1268</a>] -         Splash weapon damage shouldn’t include Strength modifier</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1271'>DATA-1271</a>] -         Jotungrip not allowing to equip 2hand weapon in 1hand.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1271'>DATA-1271</a>] -         Jotungrip not allowing to equip 2hand weapon in 1hand.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1272'>DATA-1272</a>] -         [PF - Inner Sea Primer] Wizard Subschools aren't appearing</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1273'>DATA-1273</a>] -         Bonded Witch Item Selections don't appear in UI</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1275'>DATA-1275</a>] -         Favored class bonus for alternate classes not present</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1278'>DATA-1278</a>] -         Spell issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1279'>DATA-1279</a>] -         Familiar Speak One Language indicates raven but can be given to other familiar</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1280'>DATA-1280</a>] -         Ninja sneak attack damage is not indicated</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1282'>DATA-1282</a>] -         Sidestep Secret is not adding CHA to AC or reflex saves</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1283'>DATA-1283</a>] -         Alternative Classes Won't allow themselves to be taken.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1288'>DATA-1288</a>] -         Incorrect 'release' of Inner Sea World Bestiary located within Inner Sea World Guide</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1289'>DATA-1289</a>] -         3e Human gaining 2 Skill Points per level.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1290'>DATA-1290</a>] -         Scorpion whip not using correct proficiency; Dirty Trick missing CMD/CMB Boost</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1295'>DATA-1295</a>] -         Ethnicity language</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1297'>DATA-1297</a>] -         Large bolt in Large Lt. crossbow</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1302'>DATA-1302</a>] -         Halfling Adoptive Race not granting ability pool point correctly.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1303'>DATA-1303</a>] -         Druid can't select subdomain</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1304'>DATA-1304</a>] -         Adding 2nd level of Druid selects all domains</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1305'>DATA-1305</a>] -         Celestial Full Plate AC Bonus wrong</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1306'>DATA-1306</a>] -         Specialty Wizard should only get bonus Specialty Spell level 1 and up</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1310'>DATA-1310</a>] -         [Pathfinder] Rage AC penalty should also apply to CMD</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1312'>DATA-1312</a>] -         BONUS:SPELLCAST and BONUS:SPELLKNOWN have Dual listed %LIST entries which are causing errors</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1313'>DATA-1313</a>] -         [APG] Spell Perfection Feat not giving choice of Spell.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1315'>DATA-1315</a>] -         Glory Domain bonus to Channel Energy DC not added or displayed</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1317'>DATA-1317</a>] -         Dragon Shaman not getting Monitor Lizard companion choice</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1318'>DATA-1318</a>] -         [ARG] Gnome racial trait &quot;Bond of the Land&quot; should be &quot;Bond to the Land&quot;, replaces DefTraining &amp; Hatred</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1319'>DATA-1319</a>] -         Glaive-Guisarme does not show as having reach</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1321'>DATA-1321</a>] -         Rogue Gillman racial archetype</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1322'>DATA-1322</a>] -         Wary half-elf racial trait should replace the keen senses racial trait</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1323'>DATA-1323</a>] -         Some bladed weapons marked as EQMOD:WOOD</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1325'>DATA-1325</a>] -         All Humanoid characters are getting all simple weapon proficiencies.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1328'>DATA-1328</a>] -         Catfolk Not Displaying Racial Traits</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1329'>DATA-1329</a>] -         Gnome Racial Trait - Darkvision doesn't remove &quot;low light vision&quot; from Char sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1330'>DATA-1330</a>] -         Catfolk Claw Blades Issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1330'>DATA-1330</a>] -         Catfolk Claw Blades Issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1331'>DATA-1331</a>] -         Claw Weapon Type</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1333'>DATA-1333</a>] -         Equipment Missed during merge.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1334'>DATA-1334</a>] -         Dwarven racial trait Goldsniffer does not give the described bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1335'>DATA-1335</a>] -         Gnome racial trait Magical Linguist does not give save bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1336'>DATA-1336</a>] -         Some Game mode default sources do not load cleanly</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1337'>DATA-1337</a>] -         Kobold race does not get racial bonus to Craft (Traps)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1338'>DATA-1338</a>] -         Duplicate favored class bonus - Bonus Oracle Spell Known</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1339'>DATA-1339</a>] -         Kobold natural armor is not considered as such</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1340'>DATA-1340</a>] -         Charming trait skill bonuses not shown</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1341'>DATA-1341</a>] -         Gunslinger Mismatch from the boards</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1342'>DATA-1342</a>] -         Survival (Follow or identify tracks/Underground) sub-skill should not appear and has wrong value</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1346'>DATA-1346</a>] -         Aldori Dueling Sword typo - Finessable should be Finesseable </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1351'>DATA-1351</a>] -         Bomb gets attack penalty for non-medium sized characters</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1352'>DATA-1352</a>] -         Aldori Swordlord is Aldori Sworldlord in the data</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1353'>DATA-1353</a>] -         Canter trait bonus not applied</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1358'>DATA-1358</a>] -         Druid Shaman Archetypes unable to benefit from their powers - TYPO in calls.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1359'>DATA-1359</a>] -         PF Bestiary 3- Incorrect Flumph Fly speed manuverability</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1360'>DATA-1360</a>] -         PF Bestiary III monsters getting one less feat than they should</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1362'>DATA-1362</a>] -         Mwangi is not an ethnicity</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1363'>DATA-1363</a>] -         PF Bestiary III- Imperial Dragon Not Getting Right Age Stats</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1364'>DATA-1364</a>] -         Bestiary III- Brain Ooze lacks Intelligence (and subsequently skills and feats)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1368'>DATA-1368</a>] -         PF Bestiary III- Fey Creature Template Granted Fly Speed and Manueverability</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1372'>DATA-1372</a>] -         [Pathfinder] Urban Ranger archetype not removing two skills.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1373'>DATA-1373</a>] -         Treesinger Druid Archetype Still Allowing Animal Companion</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1374'>DATA-1374</a>] -         Plant Companions not using same table progression as Animal Companions</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1381'>DATA-1381</a>] -         Typo in Survival Kit generates subtype category &quot;General)&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1382'>DATA-1382</a>] -         Missing Catfolk Rogue Talents</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1383'>DATA-1383</a>] -         Catfolk Exemplar Sharp Claws &amp; Improved Natural Attack</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1385'>DATA-1385</a>] -         Some Catfolk Abillities not showing as expected on Character Sheets</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1387'>DATA-1387</a>] -         PF Bestiary III-Imperial foo creature- incorrect caster level</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1388'>DATA-1388</a>] -         Wushu Dart should be Wushu Dart (5)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1389'>DATA-1389</a>] -         Catfolk Claw Blades stacking enhancement bonus and misspelled Finesseable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1390'>DATA-1390</a>] -         Druid's Vestment Grants +2 to Wildshape if UE was loaded.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1391'>DATA-1391</a>] -         Applying spell Heroism results in ALL conditional skills printed out</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1392'>DATA-1392</a>] -         Druid Wildshape - Animal form choices not linked to size</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1395'>DATA-1395</a>] -         PsiCrystal Bonus not populating as skill bonus on skill page.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1397'>DATA-1397</a>] -         PF Bestiary 3 Make natural weapons finesseable </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1398'>DATA-1398</a>] -         3.5 Sets Converter Issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1399'>DATA-1399</a>] -         Pathfinder Bestiary 3- Unintelligent constructs receiving intelligence</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1400'>DATA-1400</a>] -         PF Bestiary 3- Brass golem does not have &quot;Brass Falchion&quot; Natural Attack</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1401'>DATA-1401</a>] -         Monsters with Scent ability lack ScentRange var</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1402'>DATA-1402</a>] -         Conversion issues with 3e sets</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1403'>DATA-1403</a>] -         Cloistered cleric skill points cross-polluting other classes</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1404'>DATA-1404</a>] -         Firearms not showing as proficient.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1405'>DATA-1405</a>] -         Weapon proficiency not applying to firearms from Way of the Gun. </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1406'>DATA-1406</a>] -         [Deadlands] Melee weapons missing proficiency entry.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1409'>DATA-1409</a>] -         Pathfinder - Many trap spotting skills </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1410'>DATA-1410</a>] -         Pathfinder - Ioun Stone, Pale green Prism causes skill explosion</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1411'>DATA-1411</a>] -         Linguistics doesn't give option for Ancient Languages in ISWG</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1412'>DATA-1412</a>] -         Scarred Witch Doctor: Save DCs incorrectly calculated</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1413'>DATA-1413</a>] -         Clothing not equipping to the correct slot</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1419'>DATA-1419</a>] -         Simple mele weapons not showing as proficient for characters.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1421'>DATA-1421</a>] -         APG Witch Patrons Not Granting Patron Spells Known</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1422'>DATA-1422</a>] -         Deadlands - Language skill not working correctly.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1423'>DATA-1423</a>] -         SPELLKNOWN:CLASS|Witch=x|y is adding an Erroneous KNOWN to the CLASS</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1424'>DATA-1424</a>] -         Psionics- Unbody Issues (3.5/PF)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1425'>DATA-1425</a>] -         Crossblooded Sorcerer Bloodline Powers need to use BloodLineLVL</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1426'>DATA-1426</a>] -         Elemental Fist when granted by Archetypes was bypassing the primary UI version which was confusing users.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1429'>DATA-1429</a>] -         Wild Caller Eidolon Unable To Choose Form Restricted Evolutions</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1430'>DATA-1430</a>] -         Pathfinder Adventure Paths etc canot be loaded with 'Pathfinder Core Supplements'</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1431'>DATA-1431</a>] -         [Pathfinder] Deprecated syntax used in APG</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1432'>DATA-1432</a>] -         Half-Elf Half-Drow Paragon Feat Tree Unselectable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1433'>DATA-1433</a>] -         (PF) Dragons- Breath weapon extends 30'/15' too far</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1434'>DATA-1434</a>] -         (PF) Bestiary- Dragons- Face/reach always reads 30 ft/30 ft</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1435'>DATA-1435</a>] -         Deadlands - Requests for changes from my gaming group.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1437'>DATA-1437</a>] -         Bronze Falchion natural attack equipped in inventory, but doesn't appear on sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1439'>DATA-1439</a>] -         (PF) Adventurer's Handbook, Vol 1- Death Mage Domain not selectable in Domains tab</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1440'>DATA-1440</a>] -         (PF) Unbodied Missing Incorporeal Subtype</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1442'>DATA-1442</a>] -         Deadly Aim Stacking with Zen Archer Deadly Aim</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1443'>DATA-1443</a>] -         [PF] Dragon bite disappears when going from M-&gt;L, tail slap never shows up</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1444'>DATA-1444</a>] -         Headband of Intellect Skill Choice pool bonus mising for some items</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1445'>DATA-1445</a>] -         (PF) Adventurer's Handbook, Vol 1- Death Mage- Isn't receiving domain abilities when selected</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1446'>DATA-1446</a>] -         Pathfinder Ultimate Magic &quot;Head&quot; evolution mis-interacts with APG Bite</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1447'>DATA-1447</a>] -         Pathfinder &quot;Amulet of Might Fists&quot; is mis-coded</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1449'>DATA-1449</a>] -         PF- Various Dragon clean up issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1451'>DATA-1451</a>] -         Cavalier does not get option to choose order benefits</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1452'>DATA-1452</a>] -         Bestiary 3- Several broken natural attacks</li>
+</ul>
+
+<h3>      Output Sheet Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/OS-36'>OS-36</a>] -         New features for Pathfinder not reflected in Output Sheets</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-190'>OS-190</a>] -         2H sword atk/dam reads as null for &quot;simple&quot; exported OS</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-246'>OS-246</a>] -         &quot;funds&quot; on the inventory tab don't show up in the &quot;Money&quot; section of the character sheet</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-257'>OS-257</a>] -         The laptop sheets don’t take into account acrobatics rank for fighting defensively</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-260'>OS-260</a>] -         CMB displayed &quot;+-1&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-276'>OS-276</a>] -         Two-handed weapons show no to hit bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-283'>OS-283</a>] -         Deadlands Preview Sheet has multiple display issues</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-284'>OS-284</a>] -         Bonus languages from high intelligence are not carrying over to character sheet.</li>
+</ul>
+
+<h3>      Documentation Bug Fixes
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-91'>DOCS-91</a>] -         Remove Deprecated Syntax from PRExxx Docs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-95'>DOCS-95</a>] -         Remove Deprecated Syntax for Formula: cl(&quot;x&quot;) and CL=&lt;Bard&gt;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-98'>DOCS-98</a>] -         Remove gamemode SHOWTAB tag docs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-99'>DOCS-99</a>] -         Remove global BONUS:TOHIT tag docs</li><li>[<a href='http://jira.pcgen.org/browse/DOCS-112'>DOCS-112</a>] -         Update FOR. loop documentation</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-220'>DOCS-220</a>] -         Apostrophe missing in &quot;To be the worlds most flexible d20 character generation ...&quot;. :Should be &quot;... world's ...&quot; </li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-221'>DOCS-221</a>] -         Update LST File Class #14, Deities, to conform to 6.0.x</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-258'>DOCS-258</a>] -         SIZEMULT in load.lst documentation</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-270'>DOCS-270</a>] -         Trivial errors (typos, etc.) in various datafilestagpages</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-271'>DOCS-271</a>] -         Docs disagree with data about weapons having &quot;one, and only one, of types Melee or Ranged.&quot;</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-273'>DOCS-273</a>] -         Trivial errors (typos, etc.) on doc page globalfilesother</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-274'>DOCS-274</a>] -         Assassin Vine not a correct example for HITDICEADVANCEMENT limited to 99 HD.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-275'>DOCS-275</a>] -         DEFINE:BAB doesn't (seem to) work as described in docs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-278'>DOCS-278</a>] -         PRECHARACTYPE missing #,... throws error if missing</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-279'>DOCS-279</a>] -         ENCUMBRANCE doc has different example</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-281'>DOCS-281</a>] -         DISPLAYVARIABLExNAME and DISPLAYVARIABLExTEXT gameMode tag not documented</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-283'>DOCS-283</a>] -         Clean up Stats &amp; Checks docs</li>
+<li>[<a href='http://jira.pcgen.org/browse/DOCS-286'>DOCS-286</a>] -         BONUS:STAT Examples use incorrect CHOOSE reference</li>
+</ul>
+
+	</body>
+</html>
