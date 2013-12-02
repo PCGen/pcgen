@@ -7318,12 +7318,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			// Right now, if there are slots left over at this level,
 			// it means that there are slots left to add the spell that started
 			// all of this.
-			if (!isSpecialtySpell && (excNon > 0))
+			if (!isSpecialtySpell && (excNon > 0) && (excNon + excSpec > 0))
 			{
 				available = true;
 			}
 
-			if (isSpecialtySpell && ((excNon > 0) || (excSpec > 0)))
+			// Account for specialty spells using up non specialty slots
+			if (isSpecialtySpell && (excNon + excSpec > 0))
 			{
 				available = true;
 			}
