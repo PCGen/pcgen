@@ -634,6 +634,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			"+18/+13/+8/+3", token
 				.getToken("WEAPON.3.BASEHIT", character, null));
 		character.removeTemplate(longswordTemplate);
+		character.calcActiveBonuses();
 		assertEquals("Large sword - can't be wielded one handed", null, token
 			.getToken("WEAPON.3.BASEHIT", character, null));
 
