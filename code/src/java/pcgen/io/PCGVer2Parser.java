@@ -4636,7 +4636,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 
 			CharacterSpell aCharacterSpell =
-					thePC.getCharacterSpellForSpell(aPCClass, aSpell);
+					thePC.getCharacterSpellForSpell(aPCClass, aSpell, source);
 
 			// PC does not have that spell on that classes list
 			// so we'll need to add it to the list

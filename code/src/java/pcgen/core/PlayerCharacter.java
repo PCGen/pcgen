@@ -9953,7 +9953,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return newhml;
 	}
 
-	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell)
+	/**
+	 * Retrieve the character's existing version of this spell, if any.
+	 * @param po The source of the spell list for this spell (normally a PCClass) 
+	 * @param spell The spell to be retrieved
+	 * @param owner The source of the spell (either the PCClass or the Domian)
+	 * @return The character's existing instance of the spell, or null if none.
+	 */
+	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell, PObject owner)
 	{
 		List<CharacterSpell> cspells = new ArrayList<CharacterSpell>(getCharacterSpells(po));
 		// Add in the spells granted by objects
@@ -9962,7 +9969,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		for (CharacterSpell cs : cspells)
 		{
 			Spell sp = cs.getSpell();
-			if (spell.equals(sp) && (cs.getOwner().equals(po)))
+			if (spell.equals(sp) && (cs.getOwner().equals(owner)))
 			{
 				return cs;
 			}
@@ -11431,7 +11438,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 							true, this))
 						{
 							CharacterSpell cs =
-									getCharacterSpellForSpell(pcc, spell);
+									getCharacterSpellForSpell(pcc, spell, pcc);
 							if (cs == null)
 							{
 								// Create a new character spell for this level.
