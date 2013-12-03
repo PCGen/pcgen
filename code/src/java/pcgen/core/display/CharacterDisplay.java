@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -551,13 +552,30 @@ public class CharacterDisplay
 	 */
 	public List<PCTemplate> getOutputVisibleTemplateList()
 	{
+		return getVisibleToTemplateList(EnumSet.of(Visibility.DEFAULT,
+			Visibility.OUTPUT_ONLY));
+	}
+
+	/**
+	 * Retrieve a list of the templates applied to this PC that should be
+	 * visible on display.
+	 * 
+	 * @return The list of templates visible in the UI.
+	 */
+	public List<PCTemplate> getDisplayVisibleTemplateList()
+	{
+		return getVisibleToTemplateList(EnumSet.of(Visibility.DEFAULT,
+			Visibility.DISPLAY_ONLY));
+	}
+
+	private List<PCTemplate> getVisibleToTemplateList(Set<Visibility> visiSet)
+	{
 		List<PCTemplate> tl = new ArrayList<PCTemplate>();
 
 		TreeSet<PCTemplate> treeSet = new TreeSet<PCTemplate>(CDOMObjectUtilities.CDOM_SORTER);
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			if ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-				|| (template.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
+			if (visiSet.contains(template.getSafe(ObjectKey.VISIBILITY)))
 			{
 				treeSet.add(template);
 			}
