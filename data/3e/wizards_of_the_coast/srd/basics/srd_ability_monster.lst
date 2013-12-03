@@ -405,11 +405,11 @@ Immunity To Transmutation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraor
 
 ###Block: Resistances
 # Ability Name			Category of Ability		Visible	Define					Ability
-Resistance To Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid,Vulnerability To Acid
-Resistance To Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold,Vulnerability To Cold
-Resistance To Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire,Vulnerability To Fire
-Resistance To Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity,Vulnerability To Electricity
-Resistance To Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic,Vulnerability To Sonic
+Resistance To Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid
+Resistance To Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold
+Resistance To Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire
+Resistance To Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity
+Resistance To Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic
 
 ###Block: Resistances Output
 # Ability Name				Output Name						Category of Ability		Type								Visible	Description																			Aspects
