@@ -2113,11 +2113,11 @@ Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Abi
 
 ###Block: Resistances - Magic Item Additions
 # Ability Name				Category of Ability		Visible	Define						Ability
-Resistance To Acid (Sp)			CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid,Vulnerability To Acid
-Resistance To Cold (Sp)			CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold,Vulnerability To Cold
-Resistance To Fire (Sp)			CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire,Vulnerability To Fire
-Resistance To Electricity (Sp)	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonusSp|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity,Vulnerability To Electricity
-Resistance To Sonic (Sp)		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic,Vulnerability To Sonic
+Resistance To Acid (Sp)			CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid
+Resistance To Cold (Sp)			CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold
+Resistance To Fire (Sp)			CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire
+Resistance To Electricity (Sp)	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonusSp|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity
+Resistance To Sonic (Sp)		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonusSp|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output (Sp)|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic
 
 ###Block: Resistances Output - Magic Item Additions
 # Ability Name					Output Name						Category of Ability		Type							Visible	Description																			Aspects
