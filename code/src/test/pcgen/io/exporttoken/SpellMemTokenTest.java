@@ -158,7 +158,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 				character.addSpell(charSpell, null, arcaneClass.getKeyName(),
 					Globals.getDefaultSpellBook(), 1, 1);
 		assertEquals("No CHA, so should reject attempt to add spell",
-			"You can only learn 0 spells for level 1"
+			"You can only learn 0 spells for level 1 "
 				+ "\nand there are no higher-level slots available.", result);
 
 		SpellMemToken token = new SpellMemToken();
@@ -199,7 +199,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 				character.addSpell(charSpell, null, divineClass.getKeyName(),
 					spellBook, 1, 1);
 		assertEquals("No WIS, so should reject attempt to add spell",
-			"You can only prepare 0 spells for level 1"
+			"You can only prepare 0 spells for level 1 "
 				+ "\nand there are no higher-level slots available.", result);
 
 		setPCStat(character, wis, 12);

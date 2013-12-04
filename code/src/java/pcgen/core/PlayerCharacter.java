@@ -4931,7 +4931,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			} else
 			{
 				ret = "You can only learn " + (known + specialKnown) + " spells for level " + adjSpellLevel
-						+ "\nand there are no higher-level slots available.";
+						+ " \nand there are no higher-level slots available.";
 				maxAllowed = known + specialKnown;
 			}
 			int memTot = SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
@@ -4946,21 +4946,35 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			String ret;
 			int maxAllowed;
-			if (!acs.isSpecialtySpell(this) && availableSpells(adjSpellLevel, aClass, bookName, false, true))
+			if (!acs.isSpecialtySpell(this)
+				&& availableSpells(adjSpellLevel, aClass, bookName, false, true))
 			{
 				ret = "Your remaining slot(s) must be filled with your speciality or domain.";
-				maxAllowed = this.getSpellSupport(aClass).getCastForLevel(adjSpellLevel, bookName, false, true, this);
-			} else
-			{
-				ret = "You can only prepare " + cast + " spells for level " + adjSpellLevel
-						+ "\nand there are no higher-level slots available.";
-				maxAllowed = cast;
+				maxAllowed =
+						this.getSpellSupport(aClass).getCastForLevel(
+							adjSpellLevel, bookName, false, true, this);
 			}
-			int memTot = SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
-			int spellDifference = maxAllowed - memTot;
-			if (spellDifference > 0)
+			else if (acs.isSpecialtySpell(this)
+				&& availableSpells(adjSpellLevel, aClass, bookName, false,
+					false))
 			{
-				ret += "\n" + spellDifference + " spells from lower levels are using slots for this level.";
+				ret = "Your remaining slot(s) must be filled with spells not from your speciality or domain.";
+				maxAllowed =
+						this.getSpellSupport(aClass).getCastForLevel(
+							adjSpellLevel, bookName, false, true, this);
+			}
+			else
+			{
+				ret = "You can only prepare "  + cast + " spells for level "
+					+ adjSpellLevel 
+					+ " \nand there are no higher-level slots available.";
+				maxAllowed = cast;
+				int memTot = SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
+				int spellDifference = maxAllowed - memTot;
+				if (spellDifference > 0)
+				{
+					ret += "\n" + spellDifference + " spells from lower levels are using slots for this level.";
+				}
 			}
 			return ret;
 		}
@@ -7324,7 +7338,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			}
 
 			// Account for specialty spells using up non specialty slots
-			if (isSpecialtySpell && (excNon + excSpec > 0))
+			if (isDivine)
+			{
+				if (isSpecialtySpell && (excSpec > 0))
+				{
+					available = true;
+				}
+			}
+			else if (isSpecialtySpell && (excNon + excSpec > 0))
 			{
 				available = true;
 			}

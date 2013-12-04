@@ -57,6 +57,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -99,6 +100,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	Ability toughness = null;
 	AbilityCategory specialFeatCat;
 	AbilityCategory specialAbilityCat;
+	private PCClass classMemDivine;
+	private Domain luckDomain;
+	private Spell luckDomainLvl1Spell;
+	private Spell luckDomainLvl2Spell;
+	private Spell luckDomainLvl3Spell;
 	
 	/**
 	 * Run the tests.
@@ -163,6 +169,15 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.ref.importObject(pcClass);
+		
+		classMemDivine = new PCClass();
+		classMemDivine.setName("MemDivine");
+		classMemDivine.put(StringKey.SPELLTYPE, "DIVINE");
+		classMemDivine.put(ObjectKey.MEMORIZE_SPELLS, true);
+		context.unconditionallyProcess(classMemDivine, "SPELLSTAT", "WIS");
+		context.unconditionallyProcess(classMemDivine.getOriginalClassLevel(1), "CAST", "3,2,2");
+		context.unconditionallyProcess(classMemDivine, "BONUS", "DOMAIN|NUMBER|1");
+		context.ref.importObject(classMemDivine);
 	
 		classWarmind = new PCClass();
 		classWarmind.setName("Warmind");
@@ -242,6 +257,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		specialFeatCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		specialAbilityCat = Globals.getContext().ref
 				.constructNowIfNecessary(AbilityCategory.class, "Special Ability");
+		
+		luckDomain = TestHelper.makeDomain("Luck");
+		context.ref.buildDerivedObjects();
+		
+		luckDomainLvl1Spell = TestHelper.makeSpell("true strike");
+		luckDomainLvl2Spell = TestHelper.makeSpell("aid");
+		luckDomainLvl3Spell = TestHelper.makeSpell("protection from energy");
+		context
+			.unconditionallyProcess(
+				luckDomain,
+				"SPELLLEVEL",
+				"DOMAIN|Luck=1|KEY_True Strike|Luck=2|KEY_Aid|Luck=3|KEY_Protection from Energy");
+		
 	}
 
 	private void readyToRun()
@@ -708,7 +736,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 					spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to no levels.",
-			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available.",
+			"You can only prepare 0 spells for level 1 \nand there are no higher-level slots available.",
 			response);
 
 		response =
@@ -725,7 +753,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 					spellBookName, 1, 1);
 		assertEquals(
 			"Add spell should be rejected due to no levels.",
-			"You can only prepare 0 spells for level 1\nand there are no higher-level slots available.",
+			"You can only prepare 0 spells for level 1 \nand there are no higher-level slots available.",
 			response);
 
 		book.setType(SpellBook.TYPE_SPELL_BOOK);
@@ -770,6 +798,108 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 					addedSpell.getSpellInfoFor(spellBookName, 1),
 					giantClass, spellBookName);
 		assertEquals("Delete spell should not be rejected.", "", response);
+	}
+
+	/**
+	 * Tests available spell slot calculations for a divine caster who 
+	 * memorizes spells.
+	 */
+	public void testAvailableSpellsMemorizedDivine()
+	{
+		readyToRun();
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		character.setStat(wis, 15);
+		character.incrementClassLevel(1, classMemDivine, true);
+		PCClass pcMdClass = character.getClassKeyed(classMemDivine.getKeyName());
+
+		Spell spellNonSpec0 = new Spell();
+		spellNonSpec0.setName("Basic Spell Lvl0");
+		CharacterSpell charSpellNonSpec0 = new CharacterSpell(pcMdClass, spellNonSpec0);
+		Spell spellNonSpec1 = new Spell();
+		spellNonSpec1.setName("Basic Spell Lvl1");
+		CharacterSpell charSpellNonSpec1 = new CharacterSpell(pcMdClass, spellNonSpec1);
+		Spell spellNonSpec2 = new Spell();
+		spellNonSpec2.setName("Basic Spell Lvl2");
+		CharacterSpell charSpellNonSpec2 = new CharacterSpell(pcMdClass, spellNonSpec2);
+		
+		final List<Ability> none = Collections.emptyList();
+		boolean available =
+				character.availableSpells(1, pcMdClass, Globals.getDefaultSpellBook(), true, false);
+		assertEquals("availableSpells should not be called when there ar eno limits on known spells",
+			false, available);
+		
+		// Test specialty/non with no spells, some spells, all spells, spells from lower level
+		String spellBookName = "Town Spells";
+		SpellBook townSpells = new SpellBook(spellBookName, SpellBook.TYPE_PREPARED_LIST);
+		assertTrue("Adding spellbook " + townSpells, character.addSpellBook(townSpells));
+		assertTrue("Adding domain " + luckDomain, character.addDomain(luckDomain));
+		DomainApplication.applyDomain(character, luckDomain);
+
+		// Test for spell availability with no spells in list
+		for (int i = 0; i < 3; i++)
+		{
+			assertEquals("Empty list - Non specialty available for level " + i, true,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertEquals("Empty list - Specialty available for level " + i, i>0,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+		}
+
+		// Test for spell availability with some spells in list
+		assertEquals("", character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(),
+			spellBookName, 0, 0));
+		assertEquals("", character.addSpell(charSpellNonSpec1, none, pcMdClass.getKeyName(),
+			spellBookName, 1, 1));
+		assertEquals("", character.addSpell(charSpellNonSpec2, none, pcMdClass.getKeyName(),
+			spellBookName, 2, 2));
+		for (int i = 0; i < 3; i++)
+		{
+			assertEquals("Partial list - Non specialty available for level " + i, true,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertEquals("Partial list - Specialty available for level " + i, i>0,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+		}
+
+		// Test for spell availability with only 1st level with a spare slot
+		assertEquals("", character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(),
+			spellBookName, 0, 0));
+		assertEquals("", character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(),
+			spellBookName, 0, 0));
+		assertEquals("", character.addSpell(charSpellNonSpec2, none, pcMdClass.getKeyName(),
+			spellBookName, 2, 2));
+		for (int i = 0; i < 3; i++)
+		{
+			assertEquals("Full lvl0, lvl2 list - Non specialty available for level " + i, i==1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			//TODO: The current implementation only finds the domain specialty slot if a domain spell is already prepared. 
+			// So the domain spell can't be the last added. Once fixed, i==1 should be i>=1
+			assertEquals("Full lvl0, lvl2 list - Specialty available for level " + i, i>=1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+		}
+
+		// Test for spell availability with 1st having one domain spell full and one non domain free
+		CharacterSpell charSpellSpec1 = new CharacterSpell(luckDomain, luckDomainLvl1Spell);
+		assertEquals("", character.addSpell(charSpellSpec1, none, pcMdClass.getKeyName(),
+			spellBookName, 1, 1));
+		for (int i = 0; i < 3; i++)
+		{
+			assertEquals("Specialty: No, Level: " + i + ". 1st lvl non domain only free", i==1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertEquals("Specialty: Yes, Level: " + i + ". 1st lvl non domain only free", i==2,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+		}
+
+		// Test for spell availability with 2nd having both domain and normal full
+		CharacterSpell charSpellSpec2 = new CharacterSpell(luckDomain, luckDomainLvl2Spell);
+		assertEquals("", character.addSpell(charSpellSpec2, none, pcMdClass.getKeyName(),
+			spellBookName, 2, 2));
+		for (int i = 0; i < 3; i++)
+		{
+			assertEquals("Specialty: No, Level: " + i + ". 1st lvl non domain only free", i==1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertEquals("Specialty: Yes, Level: " + i + ". 1st lvl non domain only free", false,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+		}
 	}
 
 	/**
