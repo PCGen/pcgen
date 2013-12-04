@@ -4,3 +4,6 @@ SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SO
 
 # Ability Name			Category of Ability		Type			Aspects
 Flawed Gamboge Nodule Ability	CATEGORY:Special Ability	TYPE:Internal	ASPECT:SaveBonus|-4 penalty against curses and diseases
+
+Animal Companion	PREVARGT:AnimalCompanionLVL,0		KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal	TYPE:BoonCompanionSelection	BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar		PREVARGT:FamiliarLVL,0			KEY:Boon Companion ~ Familiar			CATEGORY:Internal	TYPE:BoonCompanionSelection	BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
