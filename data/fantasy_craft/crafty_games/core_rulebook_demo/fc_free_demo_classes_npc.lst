@@ -1,0 +1,67 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+
+# NPC Race Type Sets Class - These are phantom to allow bonuses elsewhere
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Animal	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Animal	PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Beast		HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Beast		PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Construct	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Construct	PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Elemental	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Elemental	PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Fey		HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Fey		PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Folk		HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Folk		PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Horror	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Horror	PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Ooze		HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Ooze		PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Outsider	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Outsider	PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Plant		HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Plant		PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Spirit	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Spirit	PRELEVELMAX:1
+
+# Class Name	Hit Dice	Type			Max Level	Visible	Bonus to HP
+CLASS:Undead	HD:1		TYPE:NPC.Monster	MAXLEVEL:1	VISIBLE:NO	BONUS:HP|CURRENTMAX|-1
+# Class Name	Maximum Level
+CLASS:Undead	PRELEVELMAX:1

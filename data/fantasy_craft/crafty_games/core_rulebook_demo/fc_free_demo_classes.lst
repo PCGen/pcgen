@@ -1,0 +1,251 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+
+#-----------------------#
+#	Base Classes	#
+#-----------------------#
+
+###Block: Assassin ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus									Combat bonus
+CLASS:Assassin	BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Assassin	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Assassin	STARTSKILLPTS:6	CSKILL:Blend|Bluff|Crafting|Disguise|Intimidate|Notice|Prestidigitation|Resolve|Sense Motive|Tactics
+###Block: Class Progression
+1																							ABILITY:Special Ability|AUTOMATIC|Hand of Death
+2														BONUS:VAR|ColdReadTimes|1					ABILITY:Special Ability|AUTOMATIC|Cold Read
+3														BONUS:VAR|QuickOnYourFeetTimes|1				ABILITY:Special Ability|AUTOMATIC|Quick on your Feet
+4														BONUS:VAR|UnspokenNameBonus|1					ABILITY:Special Ability|AUTOMATIC|Unspoken Name
+#Block:
+1	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|2	BONUS:VAR|LifestyleScore|1
+2	BONUS:COMBAT|INITIATIVE|1									BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1
+4	BONUS:COMBAT|INITIATIVE|1
+
+###Block: Burglar ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Burglar	BONUS:HP|CURRENTMAX|CON+CL*6		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex|CL+2/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Burglar	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Burglar	STARTSKILLPTS:8	CSKILL:Acrobatics|Athletics|Bluff|Crafting|Haggle|Investigate|Notice|Prestidigitation|Ride|Search|Sneak|Tactics
+###Block: Class Progression
+1																							ABILITY:Special Ability|AUTOMATIC|Very Very Sneaky
+2														BONUS:VAR|EvasionLvl|1						ABILITY:Internal|AUTOMATIC|Evasion
+3														BONUS:VAR|BurglarFeatCount|1					ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Burglar
+4														BONUS:VAR|UncannyDodgeLvl|1					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge I
+#Block:
+1	BONUS:COMBAT|INITIATIVE|2	BONUS:COMBAT|AC|2|TYPE=ClassDefense.REPLACE	BONUS:VAR|LegendScore|1
+2	BONUS:COMBAT|INITIATIVE|1	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE
+3	BONUS:COMBAT|INITIATIVE|1									BONUS:VAR|LegendScore|1	BONUS:VAR|LifestyleScore|1
+4	BONUS:COMBAT|INITIATIVE|1	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE
+
+###Block: Captain ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Captain	BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Captain	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Captain	STARTSKILLPTS:6	CSKILL:Athletics|Impress|Intimidate|Medicine|Notice|Resolve|Ride|Sense Motive|Survival|Tactics
+###Block: Class Progression
+1																				ABILITY:Special Ability|AUTOMATIC|Right-Hand Man
+2									BONUS:VAR|MasterAndCommanderLvl|-1						ABILITY:Internal|AUTOMATIC|Master and Commander
+3									BONUS:VAR|BattlePlanningLvl|1	BONUS:VAR|BattlePlanningCount|1	ABILITY:Internal|AUTOMATIC|Battle Planning
+4									BONUS:VAR|TakeCommandBonus|1							ABILITY:Special Ability|AUTOMATIC|Take Command
+#Block:
+1	BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+2	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LegendScore|1
+4	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE
+
+###Block: Courtier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Courtier	BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Courtier	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Courtier	STARTSKILLPTS:6	CSKILL:Bluff|Haggle|Impress|Intimidate|Investigate|Notice|Prestidigitation|Resolve|Ride|Sense Motive
+###Block: Class Progression
+1																							ABILITY:Special Ability|AUTOMATIC|With a Word
+2														BONUS:VAR|GiftsAndFavorsCityLvl|1				ABILITY:Internal|AUTOMATIC|Gifts and Favors ~ City
+3																							ABILITY:Special Ability|AUTOMATIC|Obligations
+4														BONUS:VAR|EloquenceCount|1					ABILITY:Special Ability|AUTOMATIC|Eloquence
+#Block:
+1	BONUS:COMBAT|INITIATIVE|2									BONUS:VAR|LifestyleScore|2	BONUS:VAR|LegendScore|1
+2	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1
+3	BONUS:COMBAT|INITIATIVE|1									BONUS:VAR|LegendScore|1
+4	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1
+
+###Block: Explorer ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Explorer	BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude|CL+2/2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Explorer	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Bluff|Crafting|Haggle|Impress|Investigate|Medicine|Notice|Resolve|Search|Sense Motive|Survival|Tactics
+###Block: Class Progression
+1																							ABILITY:Special Ability|AUTOMATIC|Tomb Raider
+2														BONUS:VAR|BookwormLvl|1						ABILITY:Internal|AUTOMATIC|Bookworm
+3														BONUS:VAR|ExplorerFeatCount|1					ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Explorer
+4														BONUS:VAR|UncannyDodgeLvl|1					ABILITY:Internal|AUTOMATIC|Uncanny Dodge
+#Block:
+1	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+2														BONUS:VAR|LifestyleScore|1
+3	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LegendScore|1
+
+###Block: Keeper ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Keeper	BONUS:HP|CURRENTMAX|CON+CL*6		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.39	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Keeper	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Keeper	STARTSKILLPTS:8	CSKILL:Bluff|Crafting|Haggle|Impress|Investigate|Medicine|Notice|Resolve|Search|Sense Motive|Survival|Tactics
+1	
+###Block: Class Progression
+1																		ABILITY:Special Ability|AUTOMATIC|Man of Reason
+2									BONUS:VAR|TradeSecretsCount|1					ABILITY:Special Ability|AUTOMATIC|Trade Secrets
+3									BONUS:VAR|BrightIdeaTimes|1					ABILITY:Special Ability|AUTOMATIC|Bright Idea
+4									BONUS:VAR|KeeperFeatCount|1					ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Keeper
+#Block:
+1	BONUS:COMBAT|AC|2|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|2	BONUS:VAR|LegendScore|1
+2	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LegendScore|1
+4	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1
+
+###Block: Lancer ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Lancer	BONUS:HP|CURRENTMAX|CON+CL*12	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Lancer	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lancer	STARTSKILLPTS:4	CSKILL:Athletics|Impress|Intimidate|Notice|Resolve|Ride|Survival|Tactics
+###Block: Class Progression
+1																							ABILITY:Special Ability|AUTOMATIC|Born in the Saddle
+2														BONUS:VAR|MettleLvl|1						ABILITY:Internal|AUTOMATIC|Mettle
+3														BONUS:VAR|LancerFeatCount|1					ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Lancer
+4														BONUS:VAR|BredForWarBonus|2					ABILITY:Special Ability|AUTOMATIC|Bred for War
+#Block:
+1	BONUS:COMBAT|INITIATIVE|2									BONUS:VAR|LifestyleScore|2
+2	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|INITIATIVE|1
+4	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1
+
+###Block: Mage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define							Save checks bonus											Combat bonus		Modify VAR
+CLASS:Mage		BONUS:HP|CURRENTMAX|CON+CL*6		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.43	DEFINE:ArcaneAdept|0	DEFINE:ArcaneKnown|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL*1/2	BONUS:VAR|SpellPoints|CL*2	BONUS:VAR|TotalCasterLvl|1
+# Class Name	Required Non-Monster Lvl
+CLASS:Mage		PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mage		STARTSKILLPTS:8	CSKILL:Bluff|Crafting|Impress|Intimidate|Investigate|Medicine|Notice|Prestidigitation|Resolve|Ride|Search|Sense Motive
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Mage		SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage|TotalCasterLvl
+###Block: Class Progression
+1						ABILITY:Special Ability|AUTOMATIC|Subtle and Quick to Anger
+2	BONUS:VAR|ArcaneMightCount|1	ABILITY:Special Ability|AUTOMATIC|Arcane Might
+3	BONUS:VAR|CircleOfPowerLvl|1	ABILITY:Internal|AUTOMATIC|Circle of Power
+4	BONUS:VAR|MageFeatCount|1	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Mage
+###Block:
+1	CAST:0,0,0,0,0,0,0,0,0,0	KNOWN:ArcaneAdept,0,0,0,0,0,0,0,0,0
+2	CAST:0,0,0,0,0,0,0,0,0,0	KNOWN:ArcaneAdept,0,0,0,0,0,0,0,0,0
+3	CAST:0,0,0,0,0,0,0,0,0,0	KNOWN:ArcaneAdept,0,0,0,0,0,0,0,0,0
+4	CAST:0,0,0,0,0,0,0,0,0,0	KNOWN:ArcaneAdept,0,0,0,0,0,0,0,0,0
+#Block:
+1												BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+2												BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3												BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LegendScore|1
+4												BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE
+
+###Block: Priest ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Priest	BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude,,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|TotalCasterLvl|CL
+# Class Name	Required Non-Monster Lvl
+CLASS:Priest	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Priest	STARTSKILLPTS:6	CSKILL:Impress|Intimidate|Medicine|Notice|Resolve|Sense Motive
+###Block: Class Progression
+1																		ABILITY:Special Ability|AUTOMATIC|Acolyte
+2									BONUS:VAR|SignsAndPortentsLvl|1				ABILITY:Internal|AUTOMATIC|Signs and Portents
+3									BONUS:VAR|PathOfTheDevotedStepLvl|1				ABILITY:Special Ability|AUTOMATIC|Path of the Devoted
+4									BONUS:VAR|PriestFeatCount|1					ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Priest
+#Block:
+1	BONUS:COMBAT|AC|2|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+2	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LegendScore|1
+4	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE
+
+###Block: Sage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Source Page		Save checks bonus									Combat bonus
+CLASS:Sage		BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	ALLOWBASECLASS:NO		SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Sage		PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sage		STARTSKILLPTS:6	CSKILL:Crafting|Disguise|Haggle|Investigate|Medicine|Notice|Ride|Search|Sense Motive|Tactics
+SUBCLASS:Sage 1st	OUTPUTNAME:Sage	COST:0	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,Sage=1]
+SUBCLASSLEVEL:1	ADD:CLASSSKILLS|4|CROSSCLASSSKILLS,AUTORANK=2	
+SUBCLASS:Sage 2nd	OUTPUTNAME:Sage	COST:0									PREPCLEVEL:MIN=2
+###Block: Class Progression
+1																		ABILITY:Special Ability|AUTOMATIC|Wise Counsel
+2									BONUS:VAR|AssistanceLvl|1					ABILITY:Internal|AUTOMATIC|Assistance
+3									BONUS:VAR|BestOfTheBestTimes|1				ABILITY:Special Ability|AUTOMATIC|Best of the Best
+4									BONUS:VAR|CrossTrainingCount|1				ABILITY:Special Ability|AUTOMATIC|Cross-Training
+#Block:
+1	BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+2	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|INITIATIVE|1				BONUS:VAR|LegendScore|1
+4	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE
+
+###Block: Scout ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Scout		BONUS:HP|CURRENTMAX|CON+CL*9		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL+2/2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Scout		PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scout		STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Blend|Medicine|Notice|Resolve|Ride|Sneak|Survival|Tactics
+###Block: Class Progression
+1																			ABILITY:Special Ability|AUTOMATIC|Stalker
+2														BONUS:VAR|RoughLivingBonus|2	ABILITY:Special Ability|AUTOMATIC|Rough Living
+3														BONUS:VAR|ScoutFeatCount|1	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Scout
+4														BONUS:VAR|SneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+#Block:
+1	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|2
+2	BONUS:COMBAT|INITIATIVE|1									BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1
+4	BONUS:COMBAT|INITIATIVE|1
+
+###Block: Soldier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Soldier	BONUS:HP|CURRENTMAX|CON+CL*12		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Non-Monster Lvl
+CLASS:Soldier	PREPCLEVEL:MAX=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Athletics|Crafting|Intimidate|Notice|Resolve|Search|Survival|Tactics
+1						
+###Block: Class Progression
+1														BONUS:VAR|FightOnCount|1					ABILITY:Special Ability|AUTOMATIC|Fight On
+2														BONUS:VAR|FortunesOfWarLvl|1					ABILITY:Internal|AUTOMATIC|Fortunes of War
+3														BONUS:VAR|FightOnCount|1
+4														BONUS:VAR|ArmorUseLvl|1						ABILITY:Internal|AUTOMATIC|Armor Use
+#Block:
+1	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LegendScore|1
+3	BONUS:COMBAT|AC|1|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|1	BONUS:VAR|LifestyleScore|1	BONUS:VAR|LegendScore|2
+
+
+#
+# END
+#

@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+
+# Rogue's Gallery
+STARTPACK:Personal Lieutenant ~ Default
+ABILITY:CATEGORY=NPC Ability|Default NPC Human	!PREABILITY:1,CATEGORY=NPC Ability,TYPE.RogueRaceDefault
+
+# NPC Kits
+STARTPACK:Default NPC Stat Array	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=Internal|NPC Basics	FREE:YES
+ABILITY:CATEGORY=Internal|Default		FREE:YES
+
+STARTPACK:War Dog Gear	VISIBLE:NO	EQUIPBUY:0
+GEAR:Moderate Leather Armor Barding	LOCATION:Equipped
+
+
+#
+# EOF
+#

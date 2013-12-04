@@ -1,0 +1,154 @@
+# CVS $Revision$ $Author$ -- Fri Apr 29 14:39:24 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+
+# Weapon Name	Type
+Bow			TYPE:Bow
+Blunt			TYPE:Blunt
+Edged			TYPE:Edged
+Hurled		TYPE:Hurled
+Siege			TYPE:Siege
+Unarmed		TYPE:Unarmed.UnarmedAttack.UnarmedForte
+Black Powder	TYPE:Black Powder
+
+
+
+###Block: Blunt
+# Weapon Name	Type
+# Clubs
+# Weapon Name	Type
+Club			TYPE:Blunt.MeleeAttack
+Great Club		TYPE:Blunt.MeleeAttack
+Jitte			TYPE:BluntForte.Exotic.MeleeAttack
+Sai			TYPE:BluntForte.Exotic.MeleeAttack
+Mace			TYPE:Blunt.MeleeAttack
+Sap			TYPE:Blunt.MeleeAttack
+Tonfa			TYPE:BluntForte.Exotic.MeleeAttack
+War Club		TYPE:Blunt.MeleeAttack
+# Flails
+Flail			TYPE:Blunt.MeleeAttack
+Nunchaku		TYPE:BluntForte.Exotic.MeleeAttack
+Scourge		TYPE:Blunt.MeleeAttack
+Three-Section Rod	TYPE:BluntForte.Exotic.MeleeAttack
+# Hammers
+Malet			TYPE:Blunt.MeleeAttack
+Maul			TYPE:Blunt.MeleeAttack
+Pick			TYPE:Blunt.MeleeAttack
+War Hammer		TYPE:Blunt.MeleeAttack
+# Shields
+Buckler		TYPE:Blunt.MeleeAttack
+Shield (Hide)	TYPE:Blunt.MeleeAttack
+Shield (Metal)	TYPE:Blunt.MeleeAttack
+Shield (Tower)	TYPE:Blunt.MeleeAttack
+# Staves
+Staff (Long)	TYPE:BluntForte.Exotic.MeleeAttack
+Staff (Quarter)	TYPE:Blunt.MeleeAttack
+Staff (Shod)	TYPE:Blunt.MeleeAttack
+Staff (Short)	TYPE:Blunt.MeleeAttack
+# Whips
+Barwhip		TYPE:BluntForte.Exotic.MeleeAttack
+Bullwhip		TYPE:Blunt.MeleeAttack
+Chain			TYPE:Blunt.MeleeAttack
+
+###Block: Edged Weapons		.EdgedForte.Exotic
+# Axes
+# Weapon Name	Type
+Axe			TYPE:Edged.MeleeAttack
+Battle Axe		TYPE:Edged.MeleeAttack
+Broad Axe		TYPE:Edged.MeleeAttack
+Cavalry Axe		TYPE:Edged.MeleeAttack
+Double Axe		TYPE:Edged.MeleeAttack
+Hatchet		TYPE:Edged.MeleeAttack
+# Fencing Blades
+Cutlass		TYPE:Edged.MeleeAttack
+Saber			TYPE:Edged.MeleeAttack
+Ninja-To		TYPE:Edged.MeleeAttack
+Sword Cane		TYPE:Edged.MeleeAttack
+Rapier		TYPE:Edged.MeleeAttack
+Razor Sword		TYPE:EdgedForte.Exotic.MeleeAttack
+Scholar's Sword	TYPE:Edged.MeleeAttack
+# Knives
+Dagger		TYPE:Edged.MeleeAttack
+Fan Blade		TYPE:EdgedForte.Exotic.MeleeAttack
+Hand Claw		TYPE:Edged.MeleeAttack
+Hook			TYPE:Edged.MeleeAttack
+Long Knife		TYPE:Edged.MeleeAttack
+Kukri			TYPE:Edged.MeleeAttack
+Main Gauche		TYPE:EdgedForte.Exotic.MeleeAttack
+Punch Dagger	TYPE:Edged.MeleeAttack
+Razor			TYPE:Edged.MeleeAttack
+Sickle		TYPE:Edged.MeleeAttack
+Kama			TYPE:Edged.MeleeAttack
+Stiletto		TYPE:EdgedForte.Exotic.MeleeAttack
+# Swords
+Bastard Sword	TYPE:Edged.MeleeAttack
+Jagged Sword	TYPE:Edged.MeleeAttack
+Katana		TYPE:Edged.MeleeAttack
+Long Sword		TYPE:Edged.MeleeAttack
+Machete		TYPE:Edged.MeleeAttack
+Short Sword		TYPE:Edged.MeleeAttack
+Sickle Sword	TYPE:Edged.MeleeAttack
+# Greatswords
+Claymore		TYPE:EdgedForte.Exotic.MeleeAttack
+Double Sword	TYPE:Edged.MeleeAttack
+No-Dachi		TYPE:EdgedForte.Exotic.MeleeAttack
+Shamshir		TYPE:EdgedForte.Exotic.MeleeAttack
+Polesword		TYPE:EdgedForte.Exotic.MeleeAttack
+Nagamaki		TYPE:EdgedForte.Exotic.MeleeAttack
+Zweihander		TYPE:EdgedForte.Exotic.MeleeAttack
+# Polearms
+Glaive		TYPE:Edged.MeleeAttack
+Naginata		TYPE:Edged.MeleeAttack
+Halberd		TYPE:Edged.MeleeAttack
+Ji			TYPE:Edged.MeleeAttack
+Mancatcher		TYPE:Edged.MeleeAttack
+Rake			TYPE:Edged.MeleeAttack
+Pole Dagger		TYPE:Edged.MeleeAttack
+Scythe		TYPE:EdgedForte.Exotic.MeleeAttack
+# Spears
+Boar Spear		TYPE:Edged.MeleeAttack
+Fork			TYPE:Edged.MeleeAttack
+Trident		TYPE:Edged.MeleeAttack
+Lance			TYPE:EdgedForte.Exotic.MeleeAttack
+Pike			TYPE:Edged.MeleeAttack
+Throwing Spear	TYPE:Edged.MeleeAttack
+
+#Block: Hurled Weapons
+# Thrown
+Atlatl		TYPE:HurledForte.Exotic.RangedAttack
+Blowgun		TYPE:Hurled.RangedAttack
+Bola			TYPE:HurledForte.Exotic.RangedAttack
+Boomerang		TYPE:HurledForte.Exotic.RangedAttack
+Chakram		TYPE:Hurled.RangedAttack
+Dart			TYPE:Hurled.RangedAttack
+Harpoon		TYPE:Hurled.RangedAttack
+Javelin		TYPE:Hurled.RangedAttack
+Lasso			TYPE:HurledForte.Exotic.RangedAttack
+Net			TYPE:HurledForte.Exotic.RangedAttack
+Rock (Large)	TYPE:Hurled.RangedAttack
+Rock (Small)	TYPE:Hurled.RangedAttack
+Shuriken		TYPE:HurledForte.Exotic.RangedAttack
+Sling			TYPE:Hurled.RangedAttack
+Staff Sling		TYPE:Hurled.RangedAttack
+Throwing Knife	TYPE:Hurled.RangedAttack
+#Grenades
+Bomb			TYPE:HurledForte.Exotic.RangedAttack
+Concussion Bomb	TYPE:HurledForte.Exotic.RangedAttack
+Flash Bomb		TYPE:HurledForte.Exotic.RangedAttack
+Greek Fire		TYPE:HurledForte.Exotic.RangedAttack
+
+###Block: Bows - 182
+# Weapon Name		Type
+Crossbow (Hand)		TYPE:BowForte.Exotic.RangedAttack
+Crossbow (Light)		TYPE:Bow.RangedAttack
+Crossbow (Heavy)		TYPE:Bow.RangedAttack
+Crossbow (Repeating)	TYPE:Bow.RangedAttack
+Daikyu			TYPE:BowForte.Exotic.RangedAttack
+Foot Bow			TYPE:BowForte.Exotic.RangedAttack
+Hand Bow			TYPE:BowForte.Exotic.RangedAttack
+Long Bow			TYPE:Bow.RangedAttack
+Reflex Bow			TYPE:Bow.RangedAttack
+Short Bow			TYPE:Bow.RangedAttack
+Pellet Bow			TYPE:Bow.RangedAttack

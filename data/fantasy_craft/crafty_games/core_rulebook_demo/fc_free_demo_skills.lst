@@ -1,0 +1,32 @@
+# CVS $Revision$ $Author$ -- Fri Apr 29 14:39:24 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+#Original Entry By: Crafty Games, Inc - courtesy of DragonDarkLord
+
+
+# Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Type					Var. Max. Value											Source Page		Define								Ability
+Acrobatics		KEYSTAT:DEX	USEUNTRAINED:YES	ACHECK:YES						TYPE:Dexterity.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Acrobatics"),MaxRankAcrobatics			SOURCEPAGE:p.69	DEFINE:MaxRankAcrobatics|var("MaxRank")-10		ABILITY:Internal|AUTOMATIC|Default
+Athletics		KEYSTAT:STR	USEUNTRAINED:YES	ACHECK:YES						TYPE:Strength.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Athletics"),MaxRankAthletics			SOURCEPAGE:p.70	DEFINE:MaxRankAthletics|var("MaxRank")-10
+Blend			KEYSTAT:CHA	USEUNTRAINED:YES								TYPE:Charisma.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Blend"),MaxRankBlend				SOURCEPAGE:p.71	DEFINE:MaxRankBlend|var("MaxRank")-10
+Bluff			KEYSTAT:CHA	USEUNTRAINED:YES								TYPE:Charisma.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Bluff"),MaxRankBluff				SOURCEPAGE:p.72	DEFINE:MaxRankBluff|var("MaxRank")-10
+Crafting		KEYSTAT:INT	USEUNTRAINED:YES								TYPE:Intelligence.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Crafting"),MaxRankCrafting			SOURCEPAGE:p.72	DEFINE:MaxRankCrafting|var("MaxRank")-10			ABILITY:Internal|AUTOMATIC|Crafting Base
+Disguise		KEYSTAT:CHA	USEUNTRAINED:YES								TYPE:Charisma.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Disguise"),MaxRankDisguise			SOURCEPAGE:p.73	DEFINE:MaxRankDisguise|var("MaxRank")-10
+Haggle		KEYSTAT:WIS	USEUNTRAINED:YES								TYPE:Wisdom.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Haggle"),MaxRankHaggle				SOURCEPAGE:p.74	DEFINE:MaxRankHaggle|var("MaxRank")-10
+Impress		KEYSTAT:CHA	USEUNTRAINED:YES								TYPE:Charisma.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Impress"),MaxRankImpress				SOURCEPAGE:p.74	DEFINE:MaxRankImpress|var("MaxRank")-10
+Intimidate		KEYSTAT:WIS	USEUNTRAINED:YES								TYPE:Wisdom.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Intimidate"),MaxRankIntimidate			SOURCEPAGE:p.75	DEFINE:MaxRankIntimidate|var("MaxRank")-10
+Investigate		KEYSTAT:WIS	USEUNTRAINED:YES								TYPE:Wisdom.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Investigate"),MaxRankInvestigate		SOURCEPAGE:p.76	DEFINE:MaxRankInvestigate|var("MaxRank")-10
+Medicine		KEYSTAT:INT	USEUNTRAINED:YES								TYPE:Intelligence.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Medicine"),MaxRankMedicine			SOURCEPAGE:p.77	DEFINE:MaxRankMedicine|var("MaxRank")-10
+Notice		KEYSTAT:WIS	USEUNTRAINED:YES								TYPE:Wisdom.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Notice"),MaxRankNotice				SOURCEPAGE:p.78	DEFINE:MaxRankNotice|var("MaxRank")-10
+Prestidigitation	KEYSTAT:DEX	USEUNTRAINED:YES	ACHECK:YES						TYPE:Dexterity.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Prestidigitation"),MaxRankPrestidigitation	SOURCEPAGE:p.79	DEFINE:MaxRankPrestidigitation|var("MaxRank")-10
+Resolve		KEYSTAT:CON	USEUNTRAINED:YES	ACHECK:YES						TYPE:Constitution.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Resolve"),MaxRankResolve				SOURCEPAGE:p.80	DEFINE:MaxRankResolve|var("MaxRank")-10
+Ride			KEYSTAT:DEX	USEUNTRAINED:YES	ACHECK:YES						TYPE:Dexterity.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Ride"),MaxRankRide					SOURCEPAGE:p.80	DEFINE:MaxRankRide|var("MaxRank")-10
+Search		KEYSTAT:INT	USEUNTRAINED:YES								TYPE:Intelligence.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Search"),MaxRankSearch				SOURCEPAGE:p.81	DEFINE:MaxRankSearch|var("MaxRank")-10
+Sense Motive	KEYSTAT:WIS	USEUNTRAINED:YES								TYPE:Wisdom.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Sense Motive"),MaxRankSenseMotive		SOURCEPAGE:p.81	DEFINE:MaxRankSenseMotive|var("MaxRank")-10
+Sneak			KEYSTAT:DEX	USEUNTRAINED:YES	ACHECK:YES						TYPE:Dexterity.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Sneak"),MaxRankSneak				SOURCEPAGE:p.82	DEFINE:MaxRankSneak|var("MaxRank")-10
+Survival		KEYSTAT:WIS	USEUNTRAINED:YES								TYPE:Wisdom.BaseSkill		PREVARLTEQ:skillinfo("TOTALRANK","Survival"),MaxRankSurvival			SOURCEPAGE:p.82	DEFINE:MaxRankSurvival|var("MaxRank")-10
+Tactics		KEYSTAT:INT	USEUNTRAINED:YES								TYPE:Intelligence.BaseSkill	PREVARLTEQ:skillinfo("TOTALRANK","Tactics"),MaxRankTactics				SOURCEPAGE:p.83	DEFINE:MaxRankTactics|var("MaxRank")-10
+#
+Spellcasting	KEYSTAT:INT	USEUNTRAINED:YES					EXCLUSIVE:YES	TYPE:Intelligence			PREVARLTEQ:skillinfo("TOTALRANK","Spellcasting"),MaxRankSpellcasting		SOURCEPAGE:p.111	DEFINE:MaxRankSpellcasting|var("MaxRank")-10
+
+#
+# END
+#

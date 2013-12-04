@@ -1,0 +1,272 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+STARTPACK:Treasure ~ 1T
+
+# Apothecary
+STARTPACK:Rogue Gallery ~ Apothecary	EQUIPBUY:0
+GEAR:Cart			LOCATION:NotCarried
+GEAR:Bandages (10)	LOCATION:Equipped
+GEAR:Chemist's Kit	LOCATION:Equipped
+GEAR:Doctor's Bag		LOCATION:Equipped
+
+# Apprentice
+STARTPACK:Rogue Gallery ~ Apprentice	EQUIPBUY:0
+GEAR:Dagger		LOCATION:PrimaryHand
+GEAR:Cart		LOCATION:NotCarried
+GEAR:Crafting Kit	LOCATION:Equipped
+
+# Artist
+STARTPACK:Rogue Gallery ~ Artist	EQUIPBUY:0
+GEAR:Staff (Short)	LOCATION:PrimaryHand
+GEAR:Crafting Kit		LOCATION:Equipped
+
+# Attendant
+STARTPACK:Rogue Gallery ~ Attendant	EQUIPBUY:0
+GEAR:Short Sword			LOCATION:PrimaryHand
+GEAR:Horse (Riding)		LOCATION:NotCarried
+GEAR:Partial Leather Armor	LOCATION:Equipped		EQMOD:CEREMONIAL_ARMR
+
+# Banker
+STARTPACK:Rogue Gallery ~ Banker	EQUIPBUY:0
+GEAR:Sword Cane		LOCATION:PrimaryHand
+GEAR:Coach			LOCATION:NotCarried
+GEAR:Ink (Common)		LOCATION:Equipped
+GEAR:Paper (Sheaf)	LOCATION:Equipped
+GEAR:Signet Ring		LOCATION:Equipped
+GEAR:Chest (Small)	LOCATION:Equipped		EQMOD:COMBO_LOCK
+#COMMENT: No EQmod in Basic   with combination lock
+
+# Barkeep
+STARTPACK:Rogue Gallery ~ Barkeep/Tavern Master	EQUIPBUY:0
+GEAR:Club			LOCATION:PrimaryHand
+GEAR:Booze		QTY:6	LOCATION:Equipped
+GEAR:Spirits	QTY:3	LOCATION:Equipped
+
+# Bowman
+STARTPACK:Rogue Gallery ~ Bowman	EQUIPBUY:0
+GEAR:Dagger						LOCATION:Carried
+GEAR:Long Bow					LOCATION:BothHands
+GEAR:Standard Arrow		QTY:40	LOCATION:Carried
+GEAR:Partial Leather Armor			LOCATION:Equipped
+
+# Brigand
+STARTPACK:Rogue Gallery ~ Brigand	EQUIPBUY:0
+GEAR:Short Sword			LOCATION:PrimaryHand
+GEAR:Horse (Riding)		LOCATION:NotCarried
+GEAR:Partial Leather Armor	LOCATION:Equipped
+GEAR:Saddlebags			LOCATION:Equipped
+
+# Con Man
+STARTPACK:Rogue Gallery ~ Con Man	EQUIPBUY:0
+GEAR:Sap				LOCATION:PrimaryHand
+GEAR:Coach				LOCATION:NotCarried
+GEAR:Booze				LOCATION:Equipped
+GEAR:Poison (Knockout)	QTY:3	LOCATION:Equipped
+
+# Craftsman
+STARTPACK:Rogue Gallery ~ Craftsman	EQUIPBUY:0
+GEAR:Hammer (Tool)		LOCATION:Equipped
+GEAR:Crafting Kit	LOCATION:Equipped	EQMOD:MASTERWORK_KIT
+
+# Cutpurse
+STARTPACK:Rogue Gallery ~ Cutpurse	EQUIPBUY:0
+GEAR:Dagger			LOCATION:PrimaryHand
+GEAR:Thieves' Tools	LOCATION:Equipped
+
+# Damsel
+STARTPACK:Rogue Gallery ~ Damsel	EQUIPBUY:0
+GEAR:Horse (Riding)	LOCATION:NotCarried
+GEAR:Potion (Love)	LOCATION:Equipped
+
+# Devotee
+STARTPACK:Rogue Gallery ~ Devotee	EQUIPBUY:0
+GEAR:Ritual Weapon	LOCATION:PrimaryHand
+GEAR:Holy book		LOCATION:Equipped
+
+# Entertainer
+STARTPACK:Rogue Gallery ~ Entertainer	EQUIPBUY:0
+GEAR:Dagger					LOCATION:PrimaryHand
+GEAR:Disguise Kit				LOCATION:Equipped
+GEAR:Musical Instrument (Other)	LOCATION:Equipped
+GEAR:Torches (5)				LOCATION:Equipped
+
+# Farmer
+STARTPACK:Rogue Gallery ~ Farmer	EQUIPBUY:0
+GEAR:Scythe			LOCATION:PrimaryHand
+GEAR:Wagon			LOCATION:NotCarried
+GEAR:Food (Fresh)	QTY:3	LOCATION:Equipped
+
+# Fortune Teller
+STARTPACK:Rogue Gallery ~ Fortune Teller	EQUIPBUY:0
+GEAR:Dagger		LOCATION:PrimaryHand
+GEAR:Wagon		LOCATION:NotCarried
+GEAR:Mage's Pouch	LOCATION:Equipped
+
+# Goon
+STARTPACK:Rogue Gallery ~ Goon	EQUIPBUY:0
+GEAR:Club				LOCATION:PrimaryHand
+GEAR:Partial Leather Armor	LOCATION:Equipped
+GEAR:Booze				LOCATION:Equipped
+
+# Guide
+STARTPACK:Rogue Gallery ~ Guide	EQUIPBUY:0
+GEAR:Machete				LOCATION:PrimaryHand
+GEAR:Short Bow				LOCATION:Carried
+GEAR:Standard Arrow	QTY:20	LOCATION:Carried
+GEAR:Mule					LOCATION:NotCarried
+GEAR:Horse (Riding)			LOCATION:NotCarried
+# Choose between the Mule or Horse
+GEAR:Compass				LOCATION:Equipped
+GEAR:Saddlebags				LOCATION:Equipped
+GEAR:Rations		QTY:10	LOCATION:Equipped
+GEAR:Torches (5)				LOCATION:Equipped
+
+# Guild Boss
+STARTPACK:Rogue Gallery ~ Guild Boss	EQUIPBUY:0
+GEAR:Dagger	LOCATION:PrimaryHand
+GEAR:Coach	LOCATION:NotCarried
+
+# Hunter
+STARTPACK:Rogue Gallery ~ Hunter	EQUIPBUY:0
+GEAR:Hatchet				LOCATION:Carried
+GEAR:Reflex Bow				LOCATION:BothHands
+GEAR:Arrow (Barbed (20))	QTY:2	LOCATION:Carried
+GEAR:Horse (Riding)			LOCATION:NotCarried
+GEAR:Jaw Trap			QTY:2	LOCATION:Equipped
+
+
+# Knight
+STARTPACK:Rogue Gallery ~ Knight	EQUIPBUY:0
+STAT:STR=15|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+GEAR:Lance				LOCATION:Carried
+GEAR:Long Sword			LOCATION:PrimaryHand
+GEAR:Shield (Metal)		LOCATION:Equipped
+GEAR:War-Horse			LOCATION:NotCarried
+GEAR:Moderate Platemail Armor	LOCATION:Equipped		EQMOD:FITTINGS_HVY
+
+# Laborer
+STARTPACK:Rogue Gallery ~ Laborer	EQUIPBUY:0
+GEAR:Hammer (Tool)		LOCATION:Equipped
+GEAR:Crafting Kit	LOCATION:Carried
+
+# Man-at-Arms
+STARTPACK:Rogue Gallery ~ Man-at-Arms	EQUIPBUY:0
+GEAR:Glaive				LOCATION:PrimaryHand
+GEAR:Shield (Metal)		LOCATION:Equipped
+GEAR:Short Sword			LOCATION:Carried
+GEAR:Partial Chainmail Armor	LOCATION:Equipped		EQMOD:FITTINGS_LT
+
+# Mercenary
+STARTPACK:Rogue Gallery ~ Mercenary	EQUIPBUY:0
+GEAR:Dagger					QTY:4	LOCATION:Carried
+GEAR:Long Sword					LOCATION:PrimaryHand
+GEAR:Horse (Riding)				LOCATION:NotCarried
+GEAR:Partial Studded Leather Armor		LOCATION:Equipped
+GEAR:Game						LOCATION:Equipped
+GEAR:Spirits					LOCATION:Equipped
+
+# Merchant
+STARTPACK:Rogue Gallery ~ Merchant	EQUIPBUY:0
+GEAR:Dagger	LOCATION:PrimaryHand
+GEAR:Wagon	LOCATION:NotCarried
+
+# Necromancer
+STARTPACK:Rogue Gallery ~ Necromancer	EQUIPBUY:0
+GEAR:Staff (Shod)			LOCATION:PrimaryHand
+GEAR:Horse (Riding)		LOCATION:NotCarried
+GEAR:Moderate Padded Armor	LOCATION:Equipped
+GEAR:Mage's Pouch			LOCATION:Equipped
+GEAR:Potion (Mana)		LOCATION:Equipped
+
+# Nobleman
+STARTPACK:Rogue Gallery ~ Nobleman	EQUIPBUY:0
+GEAR:Dagger				LOCATION:PrimaryHand
+GEAR:Rapier				LOCATION:Carried
+GEAR:Horse (Riding)		LOCATION:NotCarried
+GEAR:Partial Leather Armor	LOCATION:Equipped		EQMOD:CEREMONIAL_ARMR
+
+# Outrider
+STARTPACK:Rogue Gallery ~ Outrider	EQUIPBUY:0
+GEAR:Cutlass			LOCATION:PrimaryHand
+GEAR:Lasso				LOCATION:Equipped
+GEAR:Horse (Riding)		LOCATION:NotCarried
+GEAR:Partial Leather Armor	LOCATION:Equipped
+
+# Peasant
+STARTPACK:Rogue Gallery ~ Peasant	EQUIPBUY:0
+GEAR:Fork	LOCATION:PrimaryHand
+
+# Scholar
+STARTPACK:Rogue Gallery ~ Scholar	EQUIPBUY:0
+GEAR:Scholar's Sword	LOCATION:PrimaryHand
+GEAR:Donkey			LOCATION:NotCarried
+GEAR:Scribe's Kit		LOCATION:Carried
+GEAR:Astrolabe		LOCATION:Carried
+GEAR:Magnifying Glass	LOCATION:Carried
+
+# Servant
+STARTPACK:Rogue Gallery ~ Servant	EQUIPBUY:0
+#Treasure: 1G
+
+# Strumpet
+STARTPACK:Rogue Gallery ~ Strumpet	EQUIPBUY:0
+GEAR:Stiletto		LOCATION:PrimaryHand
+GEAR:Grooming Case	LOCATION:Carried
+
+# Town Drunk
+STARTPACK:Rogue Gallery ~ Town Drunk	EQUIPBUY:0
+STAT:STR=10|DEX=10|CON=10|INT=8|WIS=10|CHA=8
+GEAR:Club			LOCATION:PrimaryHand
+GEAR:Spirits	QTY:3	LOCATION:Carried
+
+# Town Crier
+STARTPACK:Rogue Gallery ~ Town Crier	EQUIPBUY:0
+GEAR:Lantern (Hooded)	LOCATION:Carried
+
+# Treasure Hunter
+STARTPACK:Rogue Gallery ~ Treasure Hunter	EQUIPBUY:0
+GEAR:Bullwhip		LOCATION:PrimaryHand
+GEAR:Mule			LOCATION:NotCarried
+GEAR:Backpack		LOCATION:Equipped
+GEAR:Grappling Hook	LOCATION:Carried
+GEAR:Rope (Hemp)		LOCATION:Carried
+GEAR:Shovel			LOCATION:Carried
+GEAR:Thieves' Tools	LOCATION:Carried
+GEAR:Torches (5)		LOCATION:Carried
+
+# Warlord
+STARTPACK:Rogue Gallery ~ Warlord	EQUIPBUY:0
+STAT:STR=15|DEX=10|CON=10|INT=8|WIS=10|CHA=8
+GEAR:Bastard Sword		LOCATION:PrimaryHand
+GEAR:Shield (Tower)		LOCATION:SecondaryHand
+GEAR:War-Horse			LOCATION:NotCarried
+GEAR:Moderate Scalemail Armor	LOCATION:Equipped		EQMOD:FITTINGS_LT
+
+# Watchman
+STARTPACK:Rogue Gallery ~ Watchman	EQUIPBUY:0
+GEAR:Club					LOCATION:PrimaryHand
+GEAR:Mancatcher				LOCATION:Carried
+GEAR:Partial Hardened Leather Armor	LOCATION:Equipped
+GEAR:Lantern (Hooded)			LOCATION:Carried
+GEAR:Manacles				LOCATION:Carried
+GEAR:Whistle				LOCATION:Carried
+
+# Wizard
+STARTPACK:Rogue Gallery ~ Wizard	EQUIPBUY:0
+STAT:STR=10|DEX=10|CON=10|INT=14|WIS=10|CHA=14
+SPELLS:Cure Wounds I|Identify I|Knock|Mage Armor|Magic Missile|Read Magic|Sleep I
+GEAR:Staff (Quarter)	LOCATION:BothHands
+GEAR:Horse (Riding)	LOCATION:NotCarried
+GEAR:Mage's Pouch		LOCATION:Carried
+GEAR:Potion (Mana)	LOCATION:Carried
+
+# Worshipper
+STARTPACK:Rogue Gallery ~ Worshipper	EQUIPBUY:0
+GEAR:Club	LOCATION:PrimaryHand
+
+#
+# END
+#

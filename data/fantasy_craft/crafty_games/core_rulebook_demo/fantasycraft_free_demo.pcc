@@ -1,0 +1,127 @@
+# CVS $Revision$ $Author$ -- Fri Apr 29 14:39:24 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+
+# ORIGINAL ENTRY BY: Dragon Dark Lord
+# ORIGINAL ENTRY DATE: 2011-03-01
+
+CAMPAIGN:Core Rulebook (Demo)
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Core Rulebook (Demo)]
+GAMEMODE:FantasyCraft
+TYPE:Crafty Games.Fantasy Craft.Core
+STATUS:BETA
+SHOWINMENU:YES
+BOOKTYPE:Core Rules
+SETTING:Fantasy
+RANK:1
+PUBNAMELONG:Crafty Games
+PUBNAMESHORT:CG
+PUBNAMEWEB:http://www.crafty-games.com
+SOURCELONG:Fantasy Craft
+SOURCESHORT:FC
+#SOURCEWEB:http://www?
+SOURCEDATE:2009-07
+ISOGL:YES
+ISLICENSED:YES
+
+COPYRIGHT:Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc. System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson. Spycraft 2.0 Rulebook, Copyright 2005, Alderac Entertainment Group, Inc.; Authors Alexander Flagg, Scott Gearin, and Patrick Kapera. Spycraft Espionage Handbook Copyright 2002, Alderac Entertainment Group, Inc.; Authors Patrick Kapera and Kevin Wilson.
+COPYRIGHT:Fantasy Craft and all related marks are (TM) and &copy 2009 Crafty Games LLC. All Characters, names, places and text herein is copyrighted by Crafty Games.
+COPYRIGHT:PCGen dataset conversion for "Fantasy Craft Core Rulebook" Copyright 2009, Fantasy Craft PCGen Data conversion team: Dragon Dark Lord
+
+INFOTEXT:Experience Fantasy Craft Rules, this introductory set allows you to reach 4th level to see what you can look forward to with the expanded set along with the Core Rule Book.
+#INFOTEXT:OGL.txt
+
+
+#COVER:
+URL:WEBSITE|http://www.crafty-games.com|Visit Crafty Games website.
+URL:WEBSITE|http://www.crafty-games.com/forum/|Visit Crafty Games Forum Support.
+URL:Drive Thru|http://rpg.drivethrustuff.com/product_info.php?products_id=63884&affiliate_id=71282|Grab the Fantasy Craft 2nd Printing PDF! -Waiting to get the New Affiliate Link
+
+COVER:fc_cover.jpg
+LOGO:@/publisher_logos/Crafty-Games-logo-web.png
+
+#Options:
+OPTION:optionAllowedInSources=true
+OPTION:showHPDialogAtLevelUp=false
+OPTION:gameMode.FantasyCraft.purchaseMethodName=Fantasy Craft Standard
+OPTION:gameMode.FantasyCraft.rollMethod=2
+
+
+#-----------------------------#
+#	Auto granted Items	#
+#-----------------------------#
+
+#BONUS:ABILITYPOOL|Specialty|1
+BONUS:ABILITYPOOL|Interests|2|!PRECLASS:1,TYPE=Monster
+BONUS:ABILITYPOOL|Mage Spells Known|ArcaneKnown|PRECLASS:1,SPELLCASTER=1
+BONUS:FEAT|PCPOOL|1|PREPCLEVEL:MIN=1
+BONUS:ABILITYPOOL|NPC Type Selector|1|PRECLASS:1,TYPE=Monster
+
+
+#-----------------------------#
+#		FILES			#
+#-----------------------------#
+
+ABILITY:fc_free_demo_abilities.lst
+ABILITY:fc_free_demo_abilities_companion.lst
+ABILITY:fc_free_demo_abilities_interests.lst
+ABILITY:fc_free_demo_abilities_natural_attacks.lst
+ABILITY:fc_free_demo_abilities_npc.lst
+ABILITY:fc_free_demo_abilities_racial.lst
+ABILITY:fc_free_demo_abilities_specialties.lst
+ABILITY:fc_free_demo_abilities_talents.lst
+
+ABILITYCATEGORY:fc_free_demo_abilitycategory.lst
+
+CLASS:fc_free_demo_classes.lst
+CLASS:fc_free_demo_classes_npc.lst
+
+COMPANIONMOD:fc_free_demo_companionmods.lst
+
+EQUIPMENT:fc_free_demo_equip.lst
+EQUIPMENT:fc_free_demo_equip_armor.lst
+EQUIPMENT:fc_free_demo_equip_weapons.lst
+
+EQUIPMOD:fc_free_demo_equipmods_base.lst
+
+FEAT:fc_free_demo_feats.lst
+
+KIT:fc_free_demo_kits.lst
+KIT:fc_free_demo_kits_npc.lst
+
+LANGUAGE:fc_free_demo_languages.lst
+
+ARMORPROF:fc_free_demo_profs_armor.lst
+SHIELDPROF:fc_free_demo_profs_shield.lst
+WEAPONPROF:fc_free_demo_profs_weapon.lst
+
+RACE:fc_free_demo_races.lst
+RACE:fc_free_demo_races_npc.lst
+
+SKILL:fc_free_demo_skills.lst
+SKILL:fc_free_demo_skills_conditional.lst
+
+SPELL:fc_free_demo_spells.lst
+
+TEMPLATE:fc_free_demo_templates.lst
+
+
+#-----------------------------#
+#	Housekeeping		#
+#-----------------------------#
+
+# These are to Hide Object Types and Keep the Clutter down - FEAT encompasses ALL Ability objects // Avoid Any Ability TYPE and FEAT TYPE overlap.
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+
+# PCGen Team has a Feature Request to Hide TYPEs not in use for ABILITY. Will implement this as soon as it comes available.
+
+
+# Universal tags
+#COMPANIONLIST:Mount|ANY
+#COMPANIONLIST:Follower|ANY
+
+#  Version: 0.2  -- PCGen 5.17.6 - 29 April 2011
+#  Version: 0.3  -- PCGen 5.17.9 - 15 December 2011

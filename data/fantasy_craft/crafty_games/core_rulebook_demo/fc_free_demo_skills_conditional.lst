@@ -1,0 +1,47 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+#Original Entry By: Crafty Games, Inc - courtesy of DragonDarkLord
+
+
+#Block: Conditional Skills
+# Skill Name			Key Stat	Untrained?		Classes	Type						Visible		Required Ability										Req. Rule (in options)		Prohibited Var. Value									Source Page		Bonus to skill								Bonus to skill rank
+Acrobatics (Jump)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),SKILL.Acrobatics.MISC	SOURCEPAGE:p.87
+#
+Crafting (Carving)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Carving).MISC"),SKILL.Crafting.MISC
+Crafting (Carpentry)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Carpentry).MISC"),SKILL.Crafting.MISC
+Crafting (Chemistry)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Chemistry).MISC"),SKILL.Crafting.MISC
+Crafting (Cooking)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Cooking).MISC"),SKILL.Crafting.MISC
+Crafting (Inscription)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Inscription).MISC"),SKILL.Crafting.MISC
+Crafting (Metalworking)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Metalworking).MISC"),SKILL.Crafting.MISC
+Crafting (Pharmacy)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Pharmacy).MISC"),SKILL.Crafting.MISC
+Crafting (Pottery)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Pottery).MISC"),SKILL.Crafting.MISC
+Crafting (Stonecutting)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Stonecutting).MISC"),SKILL.Crafting.MISC
+Crafting (Tailoring)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse				VISIBLE:EXPORT													PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Crafting (Tailoring).MISC"),SKILL.Crafting.MISC
+
+
+#Block: Modification to Original Skill Involves Granting the Bonuses to the Skill
+Acrobatics.MOD																																																			BONUS:SKILL|Acrobatics (Jump)|SKILL.Acrobatics.MISC		BONUS:SKILLRANK|Acrobatics (Jump)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),SKILL.Acrobatics.MISC
+#
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Carving)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Carving)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Carving).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Carpentry)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Carpentry)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Carpentry).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Chemistry)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Chemistry)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Chemistry).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Cooking)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Cooking)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Cooking).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Inscription)|SKILL.Crafting.MISC	BONUS:SKILLRANK|Crafting (Inscription)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Inscription).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Metalworking)|SKILL.Crafting.MISC	BONUS:SKILLRANK|Crafting (Metalworking)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Metalworking).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Pharmacy)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Pharmacy)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Pharmacy).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Pottery)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Pottery)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Pottery).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Stonecutting)|SKILL.Crafting.MISC	BONUS:SKILLRANK|Crafting (Stonecutting)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Stonecutting).MISC"),SKILL.Crafting.MISC
+Crafting.MOD																																																			BONUS:SKILL|Crafting (Tailoring)|SKILL.Crafting.MISC		BONUS:SKILLRANK|Crafting (Tailoring)|skillinfo("TOTALRANK", "Crafting")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Crafting (Tailoring).MISC"),SKILL.Crafting.MISC
+
+
+
+#Block: Untrained Items
+# Skill Name			Key Stat	Untrained?		Classes	Type						Visible		Required Ability										Req. Rule (in options)		Prohibited Var. Value									Source Page		Bonus to skill								Bonus to skill rank
+Untrained (Calm)			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Calm)
+Untrained (Decipher)				USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Decipher)
+Untrained (Influence)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Influence)
+Untrained (Kick Attacks)			USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Kick Attacks)
+Untrained (Jump)			KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Jump)
+Untrained (Swim)			KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Swim)
+Untrained (Outmaneuver)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Outmaneuver)
+Untrained (Tumble)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:RestrictedAction.SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Restricted Actions (Tumble)

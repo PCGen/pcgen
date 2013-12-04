@@ -1,0 +1,719 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+#Basic Core - All Classes
+# Ability Name				Unique Key			Category of Ability		Type				Visible	Define																																																																																																																																																																	Description												Stackable?	Multiple?	Choose		Automatically Gained Armor Prof.	Ability																																																																																																																																																																																																																																							Modify VAR
+Default									CATEGORY:Internal							VISIBLE:NO	DEFINE:DisplayVersion|0	DEFINE:SpellCastingFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Spellcasting")	DEFINE:BasicCombatFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Basic Combat")	DEFINE:MeleeCombatFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Melee Combat")	DEFINE:RangedCombatFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Ranged Combat")	DEFINE:UnarmedCombatFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Unarmed Combat")	DEFINE:ChanceFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Chance")	DEFINE:CovertFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Covert")	DEFINE:GearFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Gear")	DEFINE:SkillFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Skill")	DEFINE:SpeciesFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Species")	DEFINE:StyleFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Style")	DEFINE:TerrainFeatCount|count("ABILITIES","CATEGORY=FEAT","TYPE=Terrain")																					AUTO:ARMORPROF|ARMORTYPE=Armor	ABILITY:Special Ability|AUTOMATIC|Lifestyle ~ Display	ABILITY:Internal|AUTOMATIC|Basic Natural Attack Output|Racial Traits
+
+CATEGORY=Internal|Default.MOD											ABILITY:Internal|AUTOMATIC|1st Base Class|PRECLASS:1,TYPE.Base=1
+1st Base Class			CATEGORY:Internal		TEMPLATE:Base Class Core Ability
+
+
+#
+CATEGORY=Internal|Default.MOD																	DEFINE:ProficiencyBowLvl|0	DEFINE:ProficiencyBluntLvl|0	DEFINE:ProficiencyEdgedLvl|0	DEFINE:ProficiencyHurledLvl|0	DEFINE:ProficiencyUnarmedLvl|0	DEFINE:ProficiencySiegeLvl|0	DEFINE:ProficiencyBlackPowderLvl|0																																																																																																																																																								ABILITY:Internal|AUTOMATIC|Display Weapon Proficiency Groups	ABILITY:Special Ability|AUTOMATIC|Granted Bow Proficiency|PREVARGTEQ:ProficiencyBowLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Blunt Proficiency|PREVARGTEQ:ProficiencyBluntLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Edged Proficiency|PREVARGTEQ:ProficiencyEdgedLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Hurled Proficiency|PREVARGTEQ:ProficiencyHurledLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Unarmed Proficiency|PREVARGTEQ:ProficiencyUnarmedLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Siege Proficiency|PREVARGTEQ:ProficiencySiegeLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Black Powder Proficiency|PREVARGTEQ:ProficiencyBlackPowderLvl,1	ABILITY:Special Ability|AUTOMATIC|Granted Bow Forte|PREVARGTEQ:ProficiencyBowLvl,2	ABILITY:Special Ability|AUTOMATIC|Granted Blunt Forte|PREVARGTEQ:ProficiencyBluntLvl,2	ABILITY:Special Ability|AUTOMATIC|Granted Edged Forte|PREVARGTEQ:ProficiencyEdgedLvl,2	ABILITY:Special Ability|AUTOMATIC|Granted Hurled Forte|PREVARGTEQ:ProficiencyHurledLvl,2	ABILITY:Special Ability|AUTOMATIC|Granted Unarmed Forte|PREVARGTEQ:ProficiencyUnarmedLvl,2	ABILITY:Special Ability|AUTOMATIC|Granted Siege Forte|PREVARGTEQ:ProficiencySiegeLvl,2	ABILITY:Special Ability|AUTOMATIC|Granted Black Powder Forte|PREVARGTEQ:ProficiencyBlackPowderLvl,2
+CATEGORY=Internal|Default.MOD																	DEFINE:BiteGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:ClawGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:KickGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:SlamGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:TalonGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:GoreGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:SqueezeGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:SwallowGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:TailSlapGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:TrampleGrade|0
+CATEGORY=Internal|Default.MOD																	DEFINE:I|1	DEFINE:II|2	DEFINE:III|3	DEFINE:IV|4	DEFINE:V|5	DEFINE:VI|6	DEFINE:VII|7	DEFINE:VIII|8	DEFINE:IX|9	DEFINE:X|10
+
+Display Weapon Proficiency Groups					CATEGORY:Internal																																																																																																																																																																																																					ABILITY:Special Ability|AUTOMATIC|TYPE=ProfOutput
+
+#
+Lifestyle						KEY:Lifestyle ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:LifestyleScore|0	DEFINE:Panache|0	DEFINE:Prudence|0	DEFINE:LifestyleTotal|0	DESC:Lifestyle %1 == Panache %2 (%4, %5s)/ Prudence %3 (%6 pct)|LifestyleTotal|Panache|Prudence|(Panache+1)/3|Panache*10|15+(Prudence*5)																																																																																																																																																																																						BONUS:ABILITYPOOL|Lifestyle|LifestyleScore								BONUS:VAR|LifestyleScore|CHA	BONUS:VAR|LifestyleTotal|Panache+Prudence
+
+#
+Panache						KEY:Panache+1							CATEGORY:Special Ability	TYPE:LifestyleChoice																																																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																											BONUS:VAR|Panache|1
+Prudence						KEY:Prudence+1							CATEGORY:Special Ability	TYPE:LifestyleChoice																																																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																											BONUS:VAR|Prudence|1
+#COMMENT: This changes the Description displays to the full content
+
+Reputation	KEY:Reputation Display	CATEGORY:Special Ability		DESC:%1|ReputationScore	DEFINE:ReputationScore|0	BONUS:VAR|ReputationScore|TL*10
+
+Renown															CATEGORY:Internal											DEFINE:HeroicRenown|0	DEFINE:MilitaryRenown|0	DEFINE:NobleRenown|0		DEFINE:RenownTotal|0																																																																																		ABILITY:Special Ability|AUTOMATIC|Heroic Title|PREVARGTEQ:HeroicRenown,1	ABILITY:Special Ability|AUTOMATIC|Military Title|PREVARGTEQ:MilitaryRenown,1	ABILITY:Special Ability|AUTOMATIC|Noble Title|PREVARGTEQ:NobleRenown,1	BONUS:ABILITYPOOL|Renown Choice|RenownTotal
+#
+Heroic Title										SORTKEY:ARenown		CATEGORY:Special Ability	TYPE:SpecialQuality.Renown.RenownTrackChoices															DESC:Swordsman|PREVAREQ:HeroicRenown,1	DESC:Adventurer|PREVAREQ:HeroicRenown,2	DESC:Gallant|PREVAREQ:HeroicRenown,3	DESC:Champion|PREVAREQ:HeroicRenown,4	DESC:Knight Errant|PREVAREQ:HeroicRenown,5	DESC:Knight|PREVAREQ:HeroicRenown,6	DESC:Exemplar|PREVAREQ:HeroicRenown,7	DESC:Knight Champion|PREVAREQ:HeroicRenown,8	DESC:Dragon Slayer|PREVAREQ:HeroicRenown,9	DESC:Savior of the Realm|PREVARGTEQ:HeroicRenown,10																																																																																																																																																																																									BENEFIT:Swordsman|PREVAREQ:HeroicRenown,1	BENEFIT:Adventurer|PREVAREQ:HeroicRenown,2	BENEFIT:Gallant|PREVAREQ:HeroicRenown,3	BENEFIT:Champion|PREVAREQ:HeroicRenown,4	BENEFIT:Knight Errant|PREVAREQ:HeroicRenown,5	BENEFIT:Knight|PREVAREQ:HeroicRenown,6	BENEFIT:Exemplar|PREVAREQ:HeroicRenown,7	BENEFIT:Knight Champion|PREVAREQ:HeroicRenown,8	BENEFIT:Dragon Slayer|PREVAREQ:HeroicRenown,9	BENEFIT:Savior of the Realm|PREVARGTEQ:HeroicRenown,10
+Military Title										SORTKEY:ARenown		CATEGORY:Special Ability	TYPE:SpecialQuality.Renown.RenownTrackChoices															DESC:Squire|PREVAREQ:MilitaryRenown,1	DESC:Man-at-Arms|PREVAREQ:MilitaryRenown,2	DESC:Corporal|PREVAREQ:MilitaryRenown,3	DESC:Sergeant|PREVAREQ:MilitaryRenown,4	DESC:Lieutenant|PREVAREQ:MilitaryRenown,5	DESC:Captain|PREVAREQ:MilitaryRenown,6	DESC:Major|PREVAREQ:MilitaryRenown,7	DESC:Lieutenant General|PREVAREQ:MilitaryRenown,8	DESC:General|PREVAREQ:MilitaryRenown,9	DESC:Warlord|PREVARGTEQ:MilitaryRenown,10																																																																																																																																																																																										BENEFIT:Squire|PREVAREQ:MilitaryRenown,1	BENEFIT:Man-at-Arms|PREVAREQ:MilitaryRenown,2	BENEFIT:Corporal|PREVAREQ:MilitaryRenown,3	BENEFIT:Sergeant|PREVAREQ:MilitaryRenown,4	BENEFIT:Lieutenant|PREVAREQ:MilitaryRenown,5	BENEFIT:Captain|PREVAREQ:MilitaryRenown,6	BENEFIT:Major|PREVAREQ:MilitaryRenown,7	BENEFIT:Lieutenant General|PREVAREQ:MilitaryRenown,8	BENEFIT:General|PREVAREQ:MilitaryRenown,9	BENEFIT:Warlord|PREVARGTEQ:MilitaryRenown,10
+Noble Title											SORTKEY:ARenown		CATEGORY:Special Ability	TYPE:SpecialQuality.Renown.RenownTrackChoices															DESC:Lord|PREVAREQ:NobleRenown,1	DESC:Baron|PREVAREQ:NobleRenown,2	DESC:Viscount|PREVAREQ:NobleRenown,3	DESC:Earl|PREVAREQ:NobleRenown,4	DESC:Margrave|PREVAREQ:NobleRenown,5	DESC:Marquis|PREVAREQ:NobleRenown,6	DESC:Duke|PREVAREQ:NobleRenown,7	DESC:Archduke|PREVAREQ:NobleRenown,8	DESC:Monarch|PREVAREQ:NobleRenown,9	DESC:Lord Sovereign|PREVARGTEQ:NobleRenown,10																																																																																																																																																																																																		BENEFIT:Lord|PREVAREQ:NobleRenown,1	BENEFIT:Baron|PREVAREQ:NobleRenown,2	BENEFIT:Viscount|PREVAREQ:NobleRenown,3	BENEFIT:Earl|PREVAREQ:NobleRenown,4	BENEFIT:Margrave|PREVAREQ:NobleRenown,5	BENEFIT:Marquis|PREVAREQ:NobleRenown,6	BENEFIT:Duke|PREVAREQ:NobleRenown,7	BENEFIT:Archduke|PREVAREQ:NobleRenown,8	BENEFIT:Monarch|PREVAREQ:NobleRenown,9	BENEFIT:Lord Sovereign|PREVARGTEQ:NobleRenown,10
+#
+Heroic Renown Bonus +1													CATEGORY:Special Ability	TYPE:RenownTrackChoices																																																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																											BONUS:VAR|HeroicRenown|1
+Military Renown Bonus +1												CATEGORY:Special Ability	TYPE:RenownTrackChoices																																																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																											BONUS:VAR|MilitaryRenown|1
+Noble Renown Bonus +1													CATEGORY:Special Ability	TYPE:RenownTrackChoices																																																																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																											BONUS:VAR|NobleRenown|1
+#
+
+#-----------------------#
+#	Racial Abilities	#
+#-----------------------#
+
+###Block: Universal Abilities
+# Ability Name		Unique Key						SORTKEY			Category of Ability		Type						Required Ability									Automatically Gained Weapon Prof.		Modify VAR						Weapon prof. bonus
+
+# Output Display
+# Ability Name		Unique Key						SORTKEY			Category of Ability		Type						Required Ability									Define			Automatically Gained Weapon Prof.		Modify VAR									Weapon prof. bonus																	Aspects
+Bow				KEY:Bow Proficiency Display			SORTKEY:Proficiency_a1	CATEGORY:Special Ability	TYPE:ProfOutput																																																								ASPECT:Proficiency|%1|ProficiencyBowLvl
+Blunt				KEY:Blunt Proficiency Display			SORTKEY:Proficiency_a3	CATEGORY:Special Ability	TYPE:ProfOutput															DEFINE:BluntForte|0								BONUS:VAR|BluntForte|1|PREVARGTEQ:ProficiencyBluntLvl,2																					ASPECT:Proficiency|%1|ProficiencyBluntLvl	ASPECT:Forte|%1|BluntForte
+Edged				KEY:Edged Proficiency Display			SORTKEY:Proficiency_a5	CATEGORY:Special Ability	TYPE:ProfOutput																																																								ASPECT:Proficiency|%1|ProficiencyEdgedLvl
+Hurled			KEY:Hurled Proficiency Display		SORTKEY:Proficiency_a7	CATEGORY:Special Ability	TYPE:ProfOutput																																																								ASPECT:Proficiency|%1|ProficiencyHurledLvl
+Unarmed			KEY:Unarmed Proficiency Display		SORTKEY:Proficiency_b3	CATEGORY:Special Ability	TYPE:ProfOutput																																																								ASPECT:Proficiency|%1|ProficiencyUnarmedLvl
+Siege				KEY:Siege Proficiency Display			SORTKEY:Proficiency_b1	CATEGORY:Special Ability	TYPE:ProfOutput																																																								ASPECT:Proficiency|%1|ProficiencySiegeLvl
+Black Powder		KEY:Black Powder Proficiency Display	SORTKEY:Proficiency_b5	CATEGORY:Special Ability	TYPE:ProfOutput																																																								ASPECT:Proficiency|%1|ProficiencyBlackPowderLvl
+
+
+# These are the selection choices to grant Proficiency, the Granted do the actual work load.
+Bow				KEY:Bow Proficiency				SORTKEY:Proficiency_a1	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									BONUS:VAR|ProficiencyBowLvl|1																										ASPECT:Proficiency|1
+Blunt				KEY:Blunt Proficiency				SORTKEY:Proficiency_a3	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									BONUS:VAR|ProficiencyBluntLvl|1
+Edged				KEY:Edged Proficiency				SORTKEY:Proficiency_a5	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									BONUS:VAR|ProficiencyEdgedLvl|1
+Hurled			KEY:Hurled Proficiency				SORTKEY:Proficiency_a7	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									BONUS:VAR|ProficiencyHurledLvl|1
+Unarmed			KEY:Unarmed Proficiency				SORTKEY:Proficiency_b3	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									BONUS:VAR|ProficiencyUnarmedLvl|1
+
+# Weapon Forte's
+Bow Forte			KEY:Bow Forte					SORTKEY:Proficiency_a2	CATEGORY:Special Ability	TYPE:ProficiencyDisplay			PREABILITY:1,CATEGORY=Special Ability,Bow Proficiency							AUTO:WEAPONPROF|TYPE=BowForte			BONUS:VAR|ProficiencyBowLvl|1						BONUS:WEAPONPROF=TYPE.Bow|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.BowForte|TOHIT|1|TYPE=Proficiency
+Blunt Forte			KEY:Blunt Forte					SORTKEY:Proficiency_a4	CATEGORY:Special Ability	TYPE:ProficiencyDisplay			PREABILITY:1,CATEGORY=Special Ability,Blunt Proficiency						AUTO:WEAPONPROF|TYPE=BluntForte		BONUS:VAR|ProficiencyBluntLvl|1					BONUS:WEAPONPROF=TYPE.Blunt|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.BluntForte|TOHIT|1|TYPE=Proficiency
+Edged Forte			KEY:Edged Forte					SORTKEY:Proficiency_a6	CATEGORY:Special Ability	TYPE:ProficiencyDisplay			PREABILITY:1,CATEGORY=Special Ability,Edged Proficiency						AUTO:WEAPONPROF|TYPE=EdgedForte		BONUS:VAR|ProficiencyEdgedLvl|1					BONUS:WEAPONPROF=TYPE.Edged|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.EdgedForte|TOHIT|1|TYPE=Proficiency
+Hurled Forte		KEY:Hurled Forte					SORTKEY:Proficiency_a8	CATEGORY:Special Ability	TYPE:ProficiencyDisplay			PREABILITY:1,CATEGORY=Special Ability,Hurled Proficiency						AUTO:WEAPONPROF|TYPE=HurledForte		BONUS:VAR|ProficiencyHurledLvl|1					BONUS:WEAPONPROF=TYPE.Hurled|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.HurledForte|TOHIT|1|TYPE=Proficiency
+Unarmed Forte		KEY:Unarmed Forte					SORTKEY:Proficiency_b4	CATEGORY:Special Ability	TYPE:ProficiencyDisplay			PREABILITY:1,CATEGORY=Special Ability,Unarmed Proficiency						AUTO:WEAPONPROF|TYPE=UnarmedForte		BONUS:VAR|ProficiencyUnarmedLvl|1					BONUS:WEAPONPROF=TYPE.Unarmed|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.UnarmedForte|TOHIT|1|TYPE=Proficiency
+
+
+# Included for PREREQ Purposes, but not enabled due to errors generated if missing the actual items.
+Siege				KEY:Siege Proficiency				SORTKEY:Proficiency_b1	CATEGORY:Special Ability																													BONUS:VAR|ProficiencySiegeLvl|1
+Black Powder		KEY:Black Powder Proficiency			SORTKEY:Proficiency_b5	CATEGORY:Special Ability																													BONUS:VAR|ProficiencyBlackPowderLvl|1
+#
+Siege Forte			KEY:Siege Forte					SORTKEY:Proficiency_b2	CATEGORY:Special Ability							PREABILITY:1,CATEGORY=Special Ability,Siege Proficiency													BONUS:VAR|ProficiencySiegeLvl|1
+Black Powder Forte	KEY:Black Powder Forte				SORTKEY:Proficiency_b6	CATEGORY:Special Ability							PREABILITY:1,CATEGORY=Special Ability,Black Powder Proficiency												BONUS:VAR|ProficiencyBlackPowderLvl|1
+
+
+# Weapon Proficiencies ~ Actual Ability
+# Ability Name		Unique Key						SORTKEY			Category of Ability		Type						Required Ability									Define			Automatically Gained Weapon Prof.		Modify VAR									Weapon prof. bonus																	Aspects
+Bow				KEY:Granted Bow Proficiency			SORTKEY:Proficiency_a1	CATEGORY:Special Ability	TYPE:Proficiency																			AUTO:WEAPONPROF|Bow|TYPE=Bow																																	ASPECT:Proficiency|1
+Blunt				KEY:Granted Blunt Proficiency			SORTKEY:Proficiency_a3	CATEGORY:Special Ability	TYPE:Proficiency																			AUTO:WEAPONPROF|Blunt|TYPE=Blunt
+Edged				KEY:Granted Edged Proficiency			SORTKEY:Proficiency_a5	CATEGORY:Special Ability	TYPE:Proficiency																			AUTO:WEAPONPROF|Edged|TYPE=Edged
+Hurled			KEY:Granted Hurled Proficiency		SORTKEY:Proficiency_a7	CATEGORY:Special Ability	TYPE:Proficiency																			AUTO:WEAPONPROF|Hurled|TYPE=Hurled
+Unarmed			KEY:Granted Unarmed Proficiency		SORTKEY:Proficiency_b3	CATEGORY:Special Ability	TYPE:Proficiency																			AUTO:WEAPONPROF|Unarmed|TYPE=Unarmed
+# Weapon Forte
+Bow Forte			KEY:Granted Bow Forte				SORTKEY:Proficiency_a2	CATEGORY:Special Ability	TYPE:Proficiency.Forte.BowForte	PREABILITY:1,CATEGORY=Special Ability,Bow Proficiency							AUTO:WEAPONPROF|TYPE=BowForte													BONUS:WEAPONPROF=TYPE.Bow|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.BowForte|TOHIT|1|TYPE=Proficiency
+Blunt Forte			KEY:Granted Blunt Forte				SORTKEY:Proficiency_a4	CATEGORY:Special Ability	TYPE:Proficiency.Forte.BluntForte	PREABILITY:1,CATEGORY=Special Ability,Blunt Proficiency						AUTO:WEAPONPROF|TYPE=BluntForte												BONUS:WEAPONPROF=TYPE.Blunt|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.BluntForte|TOHIT|1|TYPE=Proficiency
+Edged Forte			KEY:Granted Edged Forte				SORTKEY:Proficiency_a6	CATEGORY:Special Ability	TYPE:Proficiency.Forte.EdgedForte	PREABILITY:1,CATEGORY=Special Ability,Edged Proficiency						AUTO:WEAPONPROF|TYPE=EdgedForte												BONUS:WEAPONPROF=TYPE.Edged|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.EdgedForte|TOHIT|1|TYPE=Proficiency
+Hurled Forte		KEY:Granted Hurled Forte			SORTKEY:Proficiency_a8	CATEGORY:Special Ability	TYPE:Proficiency.Forte.HurledForte	PREABILITY:1,CATEGORY=Special Ability,Hurled Proficiency						AUTO:WEAPONPROF|TYPE=HurledForte												BONUS:WEAPONPROF=TYPE.Hurled|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.HurledForte|TOHIT|1|TYPE=Proficiency
+Unarmed Forte		KEY:Granted Unarmed Forte			SORTKEY:Proficiency_b4	CATEGORY:Special Ability	TYPE:Proficiency.Forte.UnarmedForte	PREABILITY:1,CATEGORY=Special Ability,Unarmed Proficiency						AUTO:WEAPONPROF|TYPE=UnarmedForte												BONUS:WEAPONPROF=TYPE.Unarmed|TOHIT|1|TYPE=Proficiency	BONUS:WEAPONPROF=TYPE.UnarmedForte|TOHIT|1|TYPE=Proficiency
+
+# Included for PREREQ Purposes, but not enabled due to errors generated if missing the actual items.
+Siege				KEY:Granted Siege Proficiency			SORTKEY:Proficiency_b1	CATEGORY:Special Ability
+Black Powder		KEY:Granted Black Powder Proficiency	SORTKEY:Proficiency_b5	CATEGORY:Special Ability
+#
+Siege Forte			KEY:Granted Siege Forte				SORTKEY:Proficiency_b2	CATEGORY:Special Ability	TYPE:Forte.SiegeForte			PREABILITY:1,CATEGORY=Special Ability,Siege Proficiency
+Black Powder Forte	KEY:Granted Black Powder Forte		SORTKEY:Proficiency_b6	CATEGORY:Special Ability	TYPE:Forte.BlackPowderForte		PREABILITY:1,CATEGORY=Special Ability,Black Powder Proficiency
+
+
+###Block: Origin Skills
+# Ability Name	Unique Key					Category of Ability		Type			Class Skill
+Acrobatics		KEY:Acrobatics ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Acrobatics
+Athletics		KEY:Athletics ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Athletics
+Blend			KEY:Blend ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Blend
+Bluff			KEY:Bluff ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Bluff
+Crafting		KEY:Crafting ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Crafting
+Disguise		KEY:Disguise ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Disguise
+Haggle		KEY:Haggle ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Haggle
+Impress		KEY:Impress ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Impress
+Intimidate		KEY:Intimidate ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Intimidate
+Investigate		KEY:Investigate ~ Origin Skill	CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Investigate
+Medicine		KEY:Medicine ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Medicine
+Notice		KEY:Notice ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Notice
+Prestidigitation	KEY:Prestidigitation ~ Origin Skill	CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Prestidigitation
+Resolve		KEY:Resolve ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Resolve
+Ride			KEY:Ride ~ Origin Skill			CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Ride
+Search		KEY:Search ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Search
+Sense Motive	KEY:Sense Motive ~ Origin Skill	CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Sense Motive
+Sneak			KEY:Sneak ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Sneak
+Survival		KEY:Survival ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Survival
+Tactics		KEY:Tactics ~ Origin Skill		CATEGORY:Special Ability	TYPE:OriginSkill	CSKILL:Tactics
+
+###Block: Prodigal Skills
+# Ability Name	Unique Key						Category of Ability		Type				Ability										Modify VAR
+Acrobatics		KEY:Acrobatics ~ Prodigal Skill		CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Acrobatics ~ Origin Skill		BONUS:VAR|MaxRanksAcrobatics|3
+Athletics		KEY:Athletics ~ Prodigal Skill		CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Athletics ~ Origin Skill		BONUS:VAR|MaxRanksAthletics|3
+Blend			KEY:Blend ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Blend ~ Origin Skill		BONUS:VAR|MaxRanksBlend|3
+Bluff			KEY:Bluff ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Bluff ~ Origin Skill		BONUS:VAR|MaxRanksBluff|3
+Crafting		KEY:Crafting ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Crafting ~ Origin Skill		BONUS:VAR|MaxRanksCrafting|3
+Disguise		KEY:Disguise ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Disguise ~ Origin Skill		BONUS:VAR|MaxRanksDisguise|3
+Haggle		KEY:Haggle ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Haggle ~ Origin Skill		BONUS:VAR|MaxRanksHaggle|3
+Impress		KEY:Impress ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Impress ~ Origin Skill		BONUS:VAR|MaxRanksImpress|3
+Intimidate		KEY:Intimidate ~ Prodigal Skill		CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Intimidate ~ Origin Skill		BONUS:VAR|MaxRanksIntimidate|3
+Investigate		KEY:Investigate ~ Prodigal Skill		CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Investigate ~ Origin Skill	BONUS:VAR|MaxRanksInvestigate|3
+Medicine		KEY:Medicine ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Medicine ~ Origin Skill		BONUS:VAR|MaxRanksMedicine|3
+Notice		KEY:Notice ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Notice ~ Origin Skill		BONUS:VAR|MaxRanksNotice|3
+Prestidigitation	KEY:Prestidigitation ~ Prodigal Skill	CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Prestidigitation ~ Origin Skill	BONUS:VAR|MaxRanksPrestidigitation|3
+Resolve		KEY:Resolve ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Resolve ~ Origin Skill		BONUS:VAR|MaxRanksResolve|3
+Ride			KEY:Ride ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Ride ~ Origin Skill			BONUS:VAR|MaxRanksRide|3
+Search		KEY:Search ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Search ~ Origin Skill		BONUS:VAR|MaxRanksSearch|3
+Sense Motive	KEY:Sense ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Sense Motive ~ Origin Skill	BONUS:VAR|MaxRanksSenseMotive|3
+Sneak			KEY:Sneak ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Sneak ~ Origin Skill		BONUS:VAR|MaxRanksSneak|3
+Survival		KEY:Survival ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Survival ~ Origin Skill		BONUS:VAR|MaxRanksSurvival|3
+Tactics		KEY:Tactics ~ Prodigal Skill			CATEGORY:Special Ability	TYPE:ProdigalSkill	ABILITY:Special Ability|AUTOMATIC|Tactics ~ Origin Skill		BONUS:VAR|MaxRanksTactics|3
+
+
+###Block: Positive Stat Choices
+# Ability Name	Unique Key			SORTKEY		Category of Ability		Type						Multiple Requirements									Stackable?	Multiple?	Choose		Stat bonus
++2 Strength		KEY:Strength +2		SORTKEY:STAT_1A	CATEGORY:Special Ability	TYPE:PositiveStatChoice.DrakeChoice																				BONUS:STAT|STR|2
++2 Dexterity	KEY:Dexterity +2		SORTKEY:STAT_1B	CATEGORY:Special Ability	TYPE:PositiveStatChoice																						BONUS:STAT|DEX|2
++2 Constitution	KEY:Constitution +2	SORTKEY:STAT_1C	CATEGORY:Special Ability	TYPE:PositiveStatChoice																						BONUS:STAT|CON|2
++2 Intelligence	KEY:Intelligence +2	SORTKEY:STAT_1D	CATEGORY:Special Ability	TYPE:PositiveStatChoice.DrakeChoice																				BONUS:STAT|INT|2
++2 Wisdom		KEY:Wisdom +2		SORTKEY:STAT_1E	CATEGORY:Special Ability	TYPE:PositiveStatChoice																						BONUS:STAT|WIS|2
++2 Charisma		KEY:Charisma +2		SORTKEY:STAT_1F	CATEGORY:Special Ability	TYPE:PositiveStatChoice																						BONUS:STAT|CHA|2
+
+# Low Score Pairings
++1 Intelligence	KEY:Low Stat ~ INT	SORTKEY:STAT_1D	CATEGORY:Special Ability	TYPE:LowerOfIntCha			PREMULT:1,[PREVARLTEQ:INTSCORE,CHASCORE],[PREVAREQ:INTSCORE,CHASCORE]	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1
++1 Charisma		KEY:Low Stat ~ CHA	SORTKEY:STAT_1F	CATEGORY:Special Ability	TYPE:LowerOfIntCha			PREMULT:1,[PREVARLTEQ:CHASCORE,INTSCORE],[PREVAREQ:CHASCORE,INTSCORE]	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1
+#
++1 Constitution	KEY:Low Stat ~ CON	SORTKEY:STAT_1C	CATEGORY:Special Ability	TYPE:LowerOfStrCon			PREMULT:1,[PREVARLTEQ:CONSCORE,STRSCORE],[PREVAREQ:CONSCORE,STRSCORE]	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1
++1 Strength		KEY:Low Stat ~ STR	SORTKEY:STAT_1A	CATEGORY:Special Ability	TYPE:LowerOfStrCon			PREMULT:1,[PREVARLTEQ:STRSCORE,CONSCORE],[PREVAREQ:STRSCORE,CONSCORE]	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1
+
+# High Score Pairings
++1 INT		KEY:High Stat ~ INT	SORTKEY:STAT_1D	CATEGORY:Special Ability	TYPE:ChooseHighestOfIntWisCha		PREVARGTEQ:INTSCORE,WISSCORE,INTSCORE,CHASCORE	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1
++1 WIS		KEY:High Stat ~ WIS	SORTKEY:STAT_1E	CATEGORY:Special Ability	TYPE:ChooseHighestOfIntWisCha		PREVARGTEQ:WISSCORE,INTSCORE,WISSCORE,CHASCORE	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|1
++1 CHA		KEY:High Stat ~ CHA	SORTKEY:STAT_1F	CATEGORY:Special Ability	TYPE:ChooseHighestOfIntWisCha		PREVARGTEQ:CHASCORE,WISSCORE,CHASCORE,INTSCORE	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1
+
+# Negative Stat Choices
+-2 Strength		KEY:Strength -2		SORTKEY:STAT_2A	CATEGORY:Special Ability	TYPE:NegativeStatChoice
+-2 Dexterity	KEY:Dexterity -2		SORTKEY:STAT_2B	CATEGORY:Special Ability	TYPE:NegativeStatChoice
+-2 Constitution	KEY:Constitution -2	SORTKEY:STAT_2C	CATEGORY:Special Ability	TYPE:NegativeStatChoice
+-2 Intelligence	KEY:Intelligence -2	SORTKEY:STAT_2D	CATEGORY:Special Ability	TYPE:NegativeStatChoice
+-2 Wisdom		KEY:Wisdom -2		SORTKEY:STAT_2E	CATEGORY:Special Ability	TYPE:NegativeStatChoice
+-2 Charisma		KEY:Charisma -2		SORTKEY:STAT_2F	CATEGORY:Special Ability	TYPE:NegativeStatChoice
+
+###Block: Common Abilities:
+
+# Ability Name				Unique Key				SORTKEY			Category of Ability		Type						Required Ability										Define								Description																		Stackable?	Multiple?	Choose		Automatically Gained Feat				Ability																																																																																																																										Bonus to Ability Pool					Combat bonus					Modify VAR																							Damage Reduction	Source Page
+Cold-Blooded													CATEGORY:Special Ability	TYPE:SpecialQuality
+Darkvision														CATEGORY:Internal			TYPE:SpecialQuality															DEFINE:DarkvisionLvl|0																																								ABILITY:Special Ability|AUTOMATIC|Darkvision I|PREVAREQ:DarkvisionLvl,1	ABILITY:Special Ability|AUTOMATIC|Darkvision II|PREVAREQ:DarkvisionLvl,2
+# - Display
+Darkvision I													CATEGORY:Special Ability	TYPE:SpecialQuality
+Darkvision II													CATEGORY:Special Ability	TYPE:SpecialQuality
+
+Thick Hide														CATEGORY:Internal																					DEFINE:ThickHideLvl|0	DEFINE:ThickHideTakenCount|0	DESC:+%1|ThickHideLvl																															ABILITY:Special Ability|AUTOMATIC|Thick Hide I|PREVAREQ:ThickHideLvl,1	ABILITY:Special Ability|AUTOMATIC|Thick Hide II|PREVAREQ:ThickHideLvl,2	ABILITY:Special Ability|AUTOMATIC|Thick Hide III|PREVAREQ:ThickHideLvl,3	ABILITY:Special Ability|AUTOMATIC|Thick Hide IV|PREVAREQ:ThickHideLvl,4	ABILITY:Special Ability|AUTOMATIC|Thick Hide V|PREVAREQ:ThickHideLvl,5	ABILITY:Special Ability|AUTOMATIC|Thick Hide VI|PREVAREQ:ThickHideLvl,6	ABILITY:Special Ability|AUTOMATIC|Thick Hide VII|PREVAREQ:ThickHideLvl,7	ABILITY:Special Ability|AUTOMATIC|Thick Hide VIII|PREVAREQ:ThickHideLvl,8	ABILITY:Special Ability|AUTOMATIC|Thick Hide IX|PREVAREQ:ThickHideLvl,9	ABILITY:Special Ability|AUTOMATIC|Thick Hide X|PREVAREQ:ThickHideLvl,10																BONUS:VAR|ThickHideLvl|ThickHideTakenCount	BONUS:VAR|ThickHideTakenCount|count("ABILITIES","CATEGORY=Special Ability","TYPE=ThickHide")-1	DR:ThickHideLvl/-
+# Actual Ability - Does the Calculations
+Thick Hide 1									SORTKEY:ThickHide_a	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|1|TYPE=ThickHide
+Thick Hide 2									SORTKEY:ThickHide_b	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|2|TYPE=ThickHide
+Thick Hide 3									SORTKEY:ThickHide_c	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|3|TYPE=ThickHide
+Thick Hide 4									SORTKEY:ThickHide_d	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|4|TYPE=ThickHide
+Thick Hide 5									SORTKEY:ThickHide_e	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|5|TYPE=ThickHide
+Thick Hide 6									SORTKEY:ThickHide_f	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|6|TYPE=ThickHide
+Thick Hide 7									SORTKEY:ThickHide_g	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|7|TYPE=ThickHide
+Thick Hide 8									SORTKEY:ThickHide_h	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|9|TYPE=ThickHide
+Thick Hide 9									SORTKEY:ThickHide_i	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|9|TYPE=ThickHide
+Thick Hide 10									SORTKEY:ThickHide_j	CATEGORY:Special Ability	TYPE:SpecialQuality.ThickHide																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE									ABILITY:Internal|AUTOMATIC|Thick Hide																																																																																																																																				BONUS:VAR|ThickHideLvl|10|TYPE=ThickHide
+# Display Option:
+Thick Hide I									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide II									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide III									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide IV									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide V									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide VI									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide VII									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide VIII									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide IX									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+Thick Hide X									SORTKEY:ThickHide		CATEGORY:Special Ability	TYPE:SpecialQuality
+#
+Lumbering														CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness
+Improved Stability												CATEGORY:Special Ability	TYPE:SpecialQuality
+Light-Sensitive													CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness
+Agile Defense													CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																																																																													BONUS:COMBAT|AC|1|TYPE=DefenseBase.STACK
+#
+Natural Defense (Lethal)											CATEGORY:Special Ability	TYPE:SpecialQuality
+#
+Achilles Heel (Cold)												CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness																																																																																																																																																																																																																														SOURCEPAGE:p.230
+Achilles Heel (Electricity)											CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness																																																																																																																																																																																																																														SOURCEPAGE:p.230
+Achilles Heel (Sonic)												CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness																																																																																																																																																																																																																														SOURCEPAGE:p.230
+
+# Resistances - Base Ability
+Bang Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Bang ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Bang Damage
+Blunt Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Blunt ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Blunt Damage
+Cold Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Cold ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Cold Damage
+Divine Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Divine ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Divine Damage
+Edged Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Edged ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Edged Damage
+Electrical Resistance												CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Electrical ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Electrical Damage
+Falling Resistance												CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Falling ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Falling Damage
+Flash Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Flash ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Flash Damage
+Fire Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Fire ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fire Damage
+Ranged Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Ranged ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Ranged Damage
+Heat Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Heat ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Heat Damage
+Spirit Resistance													CATEGORY:Special Ability																																																														ABILITY:Special Ability|AUTOMATIC|Spirit ~ Display|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Spirit Damage
+
+
+# Resistance Output Display - Reduce Potential Clutter - These display unless the character is immune to the listed resistance
+Bang Resistance				KEY:Bang ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:BangResistanceBonus|0					DESC:1%%|BangResistanceBonus
+Blunt Resistance				KEY:Blunt ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:BluntResistanceBonus|0					DESC:1%%|BluntResistanceBonus
+Cold Resistance				KEY:Cold ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:ColdResistanceBonus|0					DESC:1%%|ColdResistanceBonus
+Divine Resistance				KEY:Divine ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:DivineResistanceBonus|0				DESC:1%%|DivineResistanceBonus
+Edged Resistance				KEY:Edged ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:EdgedResistanceBonus|0					DESC:1%%|EdgedResistanceBonus
+Electrical Resistance			KEY:Electrical ~ Display					CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:ElectricalResistanceBonus|0				DESC:1%%|ElectricalResistanceBonus
+Falling Resistance			KEY:Falling ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:FallingResistanceBonus|0				DESC:1%%|FallingResistanceBonus
+Flash Resistance				KEY:Flash ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:FlashResistanceBonus|0					DESC:1%%|FlashResistanceBonus
+Fire Resistance				KEY:Fire ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:FireResistanceBonus|0					DESC:1%%|FireResistanceBonus
+Ranged Resistance				KEY:Ranged ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:RangedResistanceBonus|0				DESC:1%%|RangedResistanceBonus
+Heat Resistance				KEY:Heat ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:HeatResistanceBonus|0					DESC:1%%|HeatResistanceBonus
+Spirit Resistance				KEY:Spirit ~ Display						CATEGORY:Special Ability	TYPE:SpecialQuality.Resistance													DEFINE:SpiritResistanceBonus|0				DESC:1%%|SpiritResistanceBonus
+#
+Immunity to Bang Damage												CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Blunt Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Cold Damage												CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Divine Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Edged Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Electrical Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Falling Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Flash Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Fire Damage												CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Ranged Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Heat Damage												CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+Immunity to Spirit Damage											CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
+
+
+#
+Evasion														CATEGORY:Internal																					DEFINE:EvasionLvl|0																																								ABILITY:Special Ability|AUTOMATIC|Evasion I|PREVAREQ:EvasionLvl,1
+#ABILITY:Special Ability|AUTOMATIC|Evasion II|PREVAREQ:EvasionLvl,2	ABILITY:Special Ability|AUTOMATIC|Evasion III|PREVAREQ:EvasionLvl,3
+
+Evasion I														CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																																																																																																															SOURCEPAGE:p.32
+#Evasion II							CATEGORY:Special Ability	TYPE:SpecialQuality														SOURCEPAGE:p.32
+#Evasion III							CATEGORY:Special Ability	TYPE:SpecialQuality														SOURCEPAGE:p.32
+
+Uncanny Dodge													CATEGORY:Internal																					DEFINE:UncannyDodgeLvl|0																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge I|PREVAREQ:UncannyDodgeLvl,1
+#ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge II|PREVAREQ:UncannyDodgeLvl,2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge III|PREVAREQ:UncannyDodgeLvl,3
+
+Uncanny Dodge I													CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																																																																																																																																																															SOURCEPAGE:p.32
+#Uncanny Dodge II						CATEGORY:Special Ability	TYPE:SpecialQuality														SOURCEPAGE:p.32
+#Uncanny Dodge III						CATEGORY:Special Ability	TYPE:SpecialQuality														SOURCEPAGE:p.32
+
+
+# NPC Qualities
+Night-Blind														CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness																																																																																																																																																																																																																														SOURCEPAGE:p.234
+
+
+
+#Block: Crafting Focuses ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Crafting Base													CATEGORY:Internal																					DEFINE:CraftingLvl|0																																																																																																																																																																			BONUS:ABILITYPOOL|Crafting Focus|CraftingLvl								BONUS:VAR|CraftingLvl|skillinfo("TOTALRANK","Crafting")/4	BONUS:VAR|CraftingLvl|1|PRESKILL:1,Crafting=1
+#
+Crafting (Carving) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:bone objects.
+Crafting (Carpentry) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:wood objects.
+Crafting (Chemistry) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:chemical objects, like gunpowder and explosives.
+Crafting (Cooking) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:food.
+Crafting (Inscription) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:documents, including books and paintings.
+Crafting (Metalworking) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:metal objects.
+Crafting (Pharmacy) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:medical supplies and poisons.
+Crafting (Pottery) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:clay and ceramic objects.
+Crafting (Stonecutting) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:stone objects.
+Crafting (Tailoring) Focus											CATEGORY:Special Ability	TYPE:CraftingFocus.SpecialQuality																						DESC:cloth and leather objects.
+
+#Block: Crafting Feats ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Crafting Basics (Carving)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Carving) Focus																																					AUTO:FEAT|Crafting Basics (Carving)
+Crafting Basics (Carpentry)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Carpentry) Focus																																					AUTO:FEAT|Crafting Basics (Carpentry)
+Crafting Basics (Chemistry)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Chemistry) Focus																																					AUTO:FEAT|Crafting Basics (Chemistry)
+Crafting Basics (Cooking)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Cooking) Focus																																					AUTO:FEAT|Crafting Basics (Cooking)
+Crafting Basics (Inscription)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Inscription) Focus																																				AUTO:FEAT|Crafting Basics (Inscription)
+Crafting Basics (Metalworking)										CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Metalworking) Focus																																				AUTO:FEAT|Crafting Basics (Metalworking)
+Crafting Basics (Pharmacy)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Pharmacy) Focus																																					AUTO:FEAT|Crafting Basics (Pharmacy)
+Crafting Basics (Pottery)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Pottery) Focus																																					AUTO:FEAT|Crafting Basics (Pottery)
+Crafting Basics (Stonecutting)										CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Stonecutting) Focus																																				AUTO:FEAT|Crafting Basics (Stonecutting)
+Crafting Basics (Tailoring)											CATEGORY:Special Ability	TYPE:CraftingBasic			PREABILITY:1,CATEGORY=Special Ability,Crafting (Tailoring) Focus																																					AUTO:FEAT|Crafting Basics (Tailoring)
+#
+Crafting Mastery (Carving)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Carving)																																					AUTO:FEAT|Crafting Mastery (Carving)
+Crafting Mastery (Carpentry)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Carpentry)																																					AUTO:FEAT|Crafting Mastery (Carpentry)
+Crafting Mastery (Chemistry)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Chemistry)																																					AUTO:FEAT|Crafting Mastery (Chemistry)
+Crafting Mastery (Cooking)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Cooking)																																					AUTO:FEAT|Crafting Mastery (Cooking)
+Crafting Mastery (Inscription)										CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Inscription)																																				AUTO:FEAT|Crafting Mastery (Inscription)
+Crafting Mastery (Metalworking)										CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Metalworking)																																				AUTO:FEAT|Crafting Mastery (Metalworking)
+Crafting Mastery (Pharmacy)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Pharmacy)																																					AUTO:FEAT|Crafting Mastery (Pharmacy)
+Crafting Mastery (Pottery)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Pottery)																																					AUTO:FEAT|Crafting Mastery (Pottery)
+Crafting Mastery (Stonecutting)										CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Stonecutting)																																				AUTO:FEAT|Crafting Mastery (Stonecutting)
+Crafting Mastery (Tailoring)											CATEGORY:Special Ability	TYPE:CraftingMastery			PREABILITY:1,CATEGORY=Special Ability,Crafting Basics (Tailoring)																																					AUTO:FEAT|Crafting Mastery (Tailoring)
+#
+Crafting Supremacy (Carving)											CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Carving)																																					AUTO:FEAT|Crafting Supremacy (Carving)
+Crafting Supremacy (Carpentry)										CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Carpentry)																																				AUTO:FEAT|Crafting Supremacy (Carpentry)
+Crafting Supremacy (Chemistry)										CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Chemistry)																																				AUTO:FEAT|Crafting Supremacy (Chemistry)
+Crafting Supremacy (Cooking)											CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Cooking)																																					AUTO:FEAT|Crafting Supremacy (Cooking)
+Crafting Supremacy (Inscription)										CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Inscription)																																				AUTO:FEAT|Crafting Supremacy (Inscription)
+Crafting Supremacy (Metalworking)										CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Metalworking)																																				AUTO:FEAT|Crafting Supremacy (Metalworking)
+Crafting Supremacy (Pharmacy)											CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Pharmacy)																																					AUTO:FEAT|Crafting Supremacy (Pharmacy)
+Crafting Supremacy (Pottery)											CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Pottery)																																					AUTO:FEAT|Crafting Supremacy (Pottery)
+Crafting Supremacy (Stonecutting)										CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Stonecutting)																																				AUTO:FEAT|Crafting Supremacy (Stonecutting)
+Crafting Supremacy (Tailoring)										CATEGORY:Special Ability	TYPE:CraftingSupremacy			PREABILITY:1,CATEGORY=Special Ability,Crafting Mastery (Tailoring)																																				AUTO:FEAT|Crafting Supremacy (Tailoring)
+
+
+#-----------------------------#
+#	Basic Combat Tricks	#
+#-----------------------------#
+#Block: Combat Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Charge														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Run Trick)	DESC:%1|ActionDice
+
+#-----------------------------#
+#	Melee Combat Tricks	#
+#-----------------------------#
+#Block:
+Punish the Defiant												CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.87
+Sundering Chop													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Axe Attack Trick)																																																																																																																																																																																																				SOURCEPAGE:p.87
+Cleave in Twain													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Axe Attack Trick)																																																																																																																																																																																																				SOURCEPAGE:p.87
+Driving Stance													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.87
+Brained														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Club Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.88
+Earth Shaker													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Club Trip Trick)																																																																																																																																																																																																				SOURCEPAGE:p.88
+Work the Line													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.88
+En Garde!														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Fencing Blade Total Defense Trick)																																																																																																																																																																																																	SOURCEPAGE:p.88
+Touche!														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Fencing Blade Attack Trick)																																																																																																																																																																																																		SOURCEPAGE:p.88
+Whirling Serpent													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.88
+Thresher Spin													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Flail Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.88
+Leaping Arc														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Flail Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.88
+Overpowering Force												CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.89
+Blade Wall														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Greatsword Total Defense Trick)																																																																																																																																																																																																	SOURCEPAGE:p.89
+Spiral Cutter													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Greatsword Attack Trick)																																																																																																																																																																																																		SOURCEPAGE:p.89
+Turn the Millstone												CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.89
+Bone Crusher													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Hammer Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.89
+Splatter														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Hammer Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.89
+Wicked Dance													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.89
+Blade Flurry													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Knife Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.89
+Shank!														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Knife Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.89
+Spinning Shield													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.90
+Topple and Gut													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Polearm Trip Trick)																																																																																																																																																																																																			SOURCEPAGE:p.90
+Skull Crack														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Polearm Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.90
+Phalanx Fighting													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.90
+Shield Slam														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Shield Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.90
+Throw Them Back!													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Shield Total Defense Trick)																																																																																																																																																																																																		SOURCEPAGE:p.90
+Monkey's Grip													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.90
+Falling Lightning													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spear Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.90
+Run Through														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spear Bull Rush Trick)																																																																																																																																																																																																			SOURCEPAGE:p.91
+Whirling Guard													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.91
+Wall of Branches													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Staff Total Defense Trick)																																																																																																																																																																																																		SOURCEPAGE:p.91
+Guardian's Circle													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Staff Total Defense Trick)																																																																																																																																																																																																		SOURCEPAGE:p.91
+Martial Spirit													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.91
+Bury the Blade													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Sword Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.91
+Think Ahead														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Sword Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.91
+Vicious Intensity													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.91
+Entwine														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Whip Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.91
+Thrash														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Whip Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.91
+
+
+#-----------------------------#
+#	Ranged Combat Tricks	#
+#-----------------------------#
+#Block: Ranged Combat Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Deadshot														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.92
+Eagle Eye														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Bow Attack Trick)																																																																																																																																																																																																				SOURCEPAGE:p.92
+Multi-Shot														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Bow Attack Trick)																																																																																																																																																																																																				SOURCEPAGE:p.92
+Zen Shot														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.92
+Staple														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Thrown Weapon Attack Trick)																																																																																																																																																																																																		SOURCEPAGE:p.92
+Ricochet														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Thrown Weapon Attack Trick)																																																																																																																																																																																																		SOURCEPAGE:p.92
+
+
+#-----------------------------#
+#	Unarmed Combat Tricks	#
+#-----------------------------#
+#Block: Unarmed Combat Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Shifting Footwork													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.93
+Guillotine Kick													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Unarmed Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.93
+Hurricane Kick													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Unarmed Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.93
+Berserk Stance													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.93
+Open Stance														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.94
+Clothesline														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Unarmed Attack Trick)																																																																																																																																																																																																			SOURCEPAGE:p.94
+Piledriver														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Unarmed Trip Trick)																																																																																																																																																																																																			SOURCEPAGE:p.94
+
+
+#-----------------------------#
+#	Covert Combat Tricks	#
+#-----------------------------#
+Crippling Strike													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Attack Trick)																																																																																																																																																																																																				SOURCEPAGE:p.95
+Wraith of the Battlefield											CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Stance)																																																																																																																																																																																																					SOURCEPAGE:p.95
+Choke Out														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Garrote Grapple Benefit)																																																																																																																																																																																																		SOURCEPAGE:p.95
+
+
+#-----------------------------#
+#	Spellcasting Tricks	#
+#-----------------------------#
+Confine Area													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.106
+Expand Area														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.106
+Careful Casting													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Quick Casting													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Concentrated Spell												CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Reaching Spell													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Burst Spell														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Lasting Spell													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Focus Spell														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+Power Spell														CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Spellcasting Trick)																																																																																																																																																																																																			SOURCEPAGE:p.107
+
+
+#-----------------------------#
+#	Style Tricks		#
+#-----------------------------#
+Silver Tongue													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Distract Trick)																																																																																																																																																																																																				SOURCEPAGE:p.108
+Painful Secrets													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Threaten Trick)																																																																																																																																																																																																				SOURCEPAGE:p.108
+Staggering Pronouncement											CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Distract Trick)																																																																																																																																																																																																				SOURCEPAGE:p.108
+
+#Species
+Flustering Shot													CATEGORY:Special Ability	TYPE:SpecialAttack.GrantedTrick																						DESC:(Bow Attack Trick)	DESC:The target must also resist a Distract action with the attack result as the DC.																																																																																																																																																																																					SOURCEPAGE:p.102
+
+#-----------------------#
+#	Class Abilities	#
+#-----------------------#
+
+###Block: Assassin ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name							Category of Ability		Type								Define				Description						Source Page
+Heartseeker			KEY:Heartseeker ~ Assassin	CATEGORY:Special Ability	TYPE:SpecialAttack																	SOURCEPAGE:p.30
+#
+Hand of Death							CATEGORY:Special Ability	TYPE:SpecialQuality																	SOURCEPAGE:p.30
+Cold Read								CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbilitySelectable	DEFINE:ColdReadTimes|0		DESC:%1/session|ColdReadTimes			SOURCEPAGE:p.30
+Quick on Your Feet						CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:QuickOnYourFeetTimes|0	DESC:%1/session|QuickOnYourFeetTimes	SOURCEPAGE:p.30
+Unspoken Name							CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:UnspokenNameBonus|0	DESC:+%1|UnspokenNameBonus			SOURCEPAGE:p.31
+
+
+###Block: Burglar ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key				Category of Ability		Type				Define				Bonus to Ability Pool					Source Page
+Dexterous		KEY:Dexterous ~ Burglar					CATEGORY:Special Ability	TYPE:SpecialQuality														SOURCEPAGE:p.32
+#
+Very, Very Sneaky	KEY:Very Very Sneaky		CATEGORY:Special Ability	TYPE:SpecialQuality														SOURCEPAGE:p.32
+Bonus Feat		KEY:Bonus Feat ~ Burglar	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BurglarFeatCount|0	BONUS:ABILITYPOOL|Burglar Feat|BurglarFeatCount	SOURCEPAGE:p.32
+
+
+###Block: Captain ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		SORTKEY				Category of Ability		Type						Define																			Automatically Gained Feat	Ability														Bonus to Ability Pool							Modify VAR																											Source Page
+Cadre				KEY:Cadre ~ Captain		CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																	SOURCEPAGE:p.34
+#
+Right-Hand Man							CATEGORY:Special Ability	TYPE:SpecialQuality																							AUTO:FEAT|Personal Lieutenant																																																						SOURCEPAGE:p.34
+Master and Commander						CATEGORY:Internal									DEFINE:MasterAndCommanderLvl|0	DEFINE:MasterAndCommanderTacticsBonus|0	DEFINE:MasterAndCommanderFeatCount|0						ABILITY:Special Ability|AUTOMATIC|Master and Commander I|PREVAREQ:MasterAndCommanderLvl,1	BONUS:ABILITYPOOL|Terrain Feat|MasterAndCommanderFeatCount	BONUS:VAR|MasterAndCommanderFeatCount|1	BONUS:VAR|MaxRankTactics|MasterAndCommanderTacticsBonus|TYPE=Enlightened	BONUS:VAR|MasterAndCommanderTacticsBonus|3
+#
+Master and Commander I						CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																	SOURCEPAGE:p.34
+#
+Battle Planning							CATEGORY:Internal									DEFINE:BattlePlanningCount|0	DEFINE:BattlePlanningLvl|0																ABILITY:Special Ability|AUTOMATIC|Battle Planning I|PREVAREQ:BattlePlanningLvl,1		BONUS:ABILITYPOOL|Battle Planning|BattlePlanningCount		BONUS:VAR|BattlePlanningCount|2|PREVAREQ:BattlePlanningLvl,1
+#
+Battle Planning I							CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																	SOURCEPAGE:p.34
+#
+Crush Them!			SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+Fire at Will!		SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+Guard Yourselves!		SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+I Want Them Alive!	SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+No Prisoners!		SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+Press On!			SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+Stand Fast!			SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+Steady Now!			SORTKEY:Battle Planning J1	CATEGORY:Special Ability	TYPE:SpecialQuality.BattlePlanning																																																																															SOURCEPAGE:p.35
+###
+Take Command							CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:TakeCommandBonus|0																																																																										SOURCEPAGE:p.35
+
+
+###Block: Courtier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name			Category of Ability		Type								Define					Ability															Bonus to Ability Pool								Source Page
+Only the Finest			KEY:Only the Finest ~ Courtier	CATEGORY:Special Ability	TYPE:SpecialQuality																																						SOURCEPAGE:p.36
+#
+With a Word										CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbilitySelectable																																		SOURCEPAGE:p.36
+Gifts and Favors ~ City								CATEGORY:Internal											DEFINE:GiftsAndFavorsCityLvl|0	ABILITY:Special Ability|AUTOMATIC|Gifts and Favors I (City)|PREVAREQ:GiftsAndFavorsCityLvl,1
+#
+Gifts and Favors I (City)							CATEGORY:Special Ability	TYPE:SpecialQuality																																						SOURCEPAGE:p.36
+Obligations										CATEGORY:Special Ability	TYPE:SpecialQuality																																						SOURCEPAGE:p.36
+Eloquence										CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:EloquenceCount|0																			BONUS:ABILITYPOOL|Increase Lower of INT or CHA|EloquenceCount	SOURCEPAGE:p.36
+
+
+###Block: Explorer ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key					Category of Ability		Type				Define				Automatically Gained Feat	Ability											Bonus to Ability Pool						Source Page
+Friends All Over	KEY:Friends All Over ~ Explorer	CATEGORY:Special Ability	TYPE:SpecialQuality						AUTO:FEAT|Extra Contact																							SOURCEPAGE:p.38
+#
+Tomb Raider								CATEGORY:Special Ability	TYPE:SpecialQuality																																SOURCEPAGE:p.38
+Bookworm								CATEGORY:Internal							DEFINE:BookwormLvl|0							ABILITY:Special Ability|AUTOMATIC|Bookworm I|PREVAREQ:BookwormLvl,1
+#
+Bookworm I								CATEGORY:Special Ability	TYPE:SpecialQuality																																SOURCEPAGE:p.38
+Bonus Feat		KEY:Bonus Feat ~ Explorer		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ExplorerFeatCount|0																		BONUS:ABILITYPOOL|Explorer Feat|ExplorerFeatCount	SOURCEPAGE:p.38
+
+
+###Block: Keeper ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name				Unique Key			Category of Ability		Type				Define				Description					Bonus to Ability Pool						Modify VAR								Source Page
+Teacher					KEY:Teacher ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality																														SOURCEPAGE:p.40
+#
+Man of Reason								CATEGORY:Special Ability	TYPE:SpecialQuality																														SOURCEPAGE:p.40
+Trade Secrets								CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:TradeSecretsCount|0							BONUS:ABILITYPOOL|Trade Secrets|TradeSecretsCount										SOURCEPAGE:p.40
+Bright Idea									CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BrightIdeaTimes|0	DESC:%1/session|BrightIdeaTimes																			SOURCEPAGE:p.40
+Bonus Feat					KEY:Bonus Feat ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:KeeperFeatCount|0							BONUS:ABILITYPOOL|Keeper Feat|KeeperFeatCount											SOURCEPAGE:p.40
+
+# Trade Secrets Selection
+Trade Secrets (Acrobatics)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankAcrobatics|5|TYPE=Enlightened
+Trade Secrets (Athletics)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankAthletics|5|TYPE=Enlightened
+Trade Secrets (Blend)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankBlend|5|TYPE=Enlightened
+Trade Secrets (Bluff)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankBluff|5|TYPE=Enlightened
+Trade Secrets (Crafting)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankCrafting|5|TYPE=Enlightened
+Trade Secrets (Disguise)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankDisguise|5|TYPE=Enlightened
+Trade Secrets (Haggle)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankHaggle|5|TYPE=Enlightened
+Trade Secrets (Impress)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankImpress|5|TYPE=Enlightened
+Trade Secrets (Intimidate)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankIntimidate|5|TYPE=Enlightened
+Trade Secrets (Investigate)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankInvestigate|5|TYPE=Enlightened
+Trade Secrets (Medicine)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankMedicine|5|TYPE=Enlightened
+Trade Secrets (Notice)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankNotice|5|TYPE=Enlightened
+Trade Secrets (Prestidigitation)					CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankPrestidigitation|5|TYPE=Enlightened
+Trade Secrets (Resolve)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankResolve|5|TYPE=Enlightened
+Trade Secrets (Ride)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankRide|5|TYPE=Enlightened
+Trade Secrets (Search)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankSearch|5|TYPE=Enlightened
+Trade Secrets (Sense Motive)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankSenseMotive|5|TYPE=Enlightened
+Trade Secrets (Sneak)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankSneak|5|TYPE=Enlightened
+Trade Secrets (Survival)						CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankSurvival|5|TYPE=Enlightened
+Trade Secrets (Tactics)							CATEGORY:Special Ability	TYPE:TradeSecretsSkill																					BONUS:VAR|MaxRankTactics|5|TYPE=Enlightened
+
+
+###Block: Lancer ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		Unique Key					Category of Ability		Type				Define									Description			Automatically Gained Feat	Ability										Bonus to Ability Pool					Modify VAR																Source Page
+Lifetime Companion	KEY:Lifetime Companion ~ Lancer	CATEGORY:Special Ability	TYPE:SpecialQuality															AUTO:FEAT|Animal Partner																																					SOURCEPAGE:p.42
+#
+Born in the Saddle							CATEGORY:Special Ability	TYPE:SpecialQuality																																																								SOURCEPAGE:p.42
+Mettle									CATEGORY:Internal							DEFINE:MettleLvl|0	DEFINE:MettleResolveRankBonus|0					AUTO:FEAT|Armor Basics		ABILITY:Special Ability|AUTOMATIC|Mettle I|PREVAREQ:MettleLvl,1									BONUS:VAR|MaxRankResolve|MettleResolveRankBonus|TYPE=Enlightened	BONUS:VAR|MettleResolveRankBonus|3
+#
+Mettle I									CATEGORY:Special Ability	TYPE:SpecialQuality																																																								SOURCEPAGE:p.42
+Bonus Feat			KEY:Bonus Feat ~ Lancer			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:LancerFeatCount|0																										BONUS:ABILITYPOOL|Lancer Feat|LancerFeatCount																		SOURCEPAGE:p.42
+Bred for War								CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BredForWarBonus|0						DESC:%1|BredForWarBonus																																										SOURCEPAGE:p.42
+
+###Block: Mage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name			Unique Key			Category of Ability		Type					Define				Stackable?	Multiple?	Choose		Ability													Bonus to Ability Pool									Bonus to spell known/L				Modify VAR				Class Skill			Source Page
+Arcane Adept			KEY:Arcane Adept ~ Mage	CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:ArcaneAdeptCount|0																																									BONUS:VAR|ArcaneAdeptCount|4
+#
+Subtle and Quick to Anger					CATEGORY:Special Ability	TYPE:SpecialQuality																																																				CSKILL:Spellcasting	SOURCEPAGE:p.43
+Arcane Might							CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:ArcaneMightCount|0																						BONUS:ABILITYPOOL|Increase Highest of INT/WIS/CHA|ArcaneMightCount																	SOURCEPAGE:p.43
+#
+Circle of Power							CATEGORY:Internal								DEFINE:CircleOfPowerLvl|0								ABILITY:Special Ability|AUTOMATIC|Circle of Power I|PREVAREQ:CircleOfPowerLvl,1
+#
+Circle of Power I							CATEGORY:Special Ability	TYPE:SpecialQuality																																																								SOURCEPAGE:p.43
+Bonus Feat				KEY:Bonus Feat ~ Mage	CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MageFeatCount|1																							BONUS:ABILITYPOOL|Mage Feat|MageFeatCount																						SOURCEPAGE:p.44
+
+# Mage Workaround due to Hardcoded D&D Reliance in PCGen ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Mage Spell Level 0						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=0|1
+Mage Spell Level 1						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=1|1
+Mage Spell Level 2						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=2|1
+Mage Spell Level 3						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=3|1
+Mage Spell Level 4						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=4|1
+Mage Spell Level 5						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=5|1
+Mage Spell Level 6						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=6|1
+Mage Spell Level 7						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=7|1
+Mage Spell Level 8						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=8|1
+Mage Spell Level 9						CATEGORY:Special Ability	TYPE:BonusSpellKnownMage						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																											BONUS:SPELLKNOWN|CLASS=Mage;LEVEL=9|1
+
+
+###Block: Priest ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name		Unique Key				Category of Ability		Type				Define					Ability														Bonus to Ability Pool								Source Page
+Devout			KEY:Devout ~ Priest		CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p.44
+Acolyte								CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p.44
+Signs and Portents						CATEGORY:Internal							DEFINE:SignsAndPortentsLvl|0		ABILITY:Special Ability|AUTOMATIC|Signs and Portents I|PREVAREQ:SignsAndPortentsLvl,1
+#
+Signs & Portents I	KEY:Signs and Portents I	CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p.45
+Path of the Devoted						CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:PathOfTheDevotedStepLvl|0																BONUS:ABILITYPOOL|Alignment Path Steps|PathOfTheDevotedStepLvl	SOURCEPAGE:p.45
+Bonus Feat			KEY:Bonus Feat ~ Priest		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:PriestFeatCount|0																	BONUS:ABILITYPOOL|Priest Feat|PriestFeatCount				SOURCEPAGE:p.45
+
+
+###Block: Sage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name							Unique Key								Category of Ability		Type				Define				Ability											Bonus to Ability Pool							Modify VAR											Source Page
+Breadth of Experience	KEY:Breadth of Experience ~ Sage									CATEGORY:Special Ability	TYPE:SpecialQuality																																								SOURCEPAGE:p.47
+#
+Wise Counsel																CATEGORY:Special Ability	TYPE:SpecialQuality																																								SOURCEPAGE:p.47
+Assistance																	CATEGORY:Internal							DEFINE:AssistanceLvl|0		ABILITY:Special Ability|AUTOMATIC|Assistance I|PREVAREQ:AssistanceLvl,1
+#
+Assistance I																CATEGORY:Special Ability	TYPE:SpecialQuality																																								SOURCEPAGE:p.47
+Best of the Best																CATEGORY:Special Ability	TYPE:SpecialQuality																																								SOURCEPAGE:p.47
+Cross-Training																CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:CrossTrainingCount|0													BONUS:ABILITYPOOL|Cross-Training Choice|CrossTrainingCount													SOURCEPAGE:p.47
+#
+Class Ability (Assassin / Hand of Death)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Hand of Death																											SOURCEPAGE:p.47
+Class Ability (Assassin / Cold Read)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Cold Read															BONUS:VAR|ColdReadTimes|1								SOURCEPAGE:p.47
+Class Ability (Assassin / Quick On Your Feet)											CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Quick On Your Feet														BONUS:VAR|QuickOnYourFeetTimes|1							SOURCEPAGE:p.47
+Class Ability (Assassin / Unspoken Name)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Unspoken Name															BONUS:VAR|UnspokenNameBonus|1								SOURCEPAGE:p.47
+#
+Class Ability (Burglar / Very, Very Sneaky)		KEY:Class Ability (Burglar / Very Very Sneaky)		CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Very Very Sneaky																										SOURCEPAGE:p.47
+Class Ability (Burglar / Evasion)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Evasion																	BONUS:VAR|EvasionLvl|1									SOURCEPAGE:p.47
+Class Ability (Burglar / Bonus Feat)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Burglar													BONUS:VAR|BonusFeatBurglarCount|1							SOURCEPAGE:p.47
+Class Ability (Burglar / Uncanny Dodge)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Uncanny Dodge																BONUS:VAR|Uncanny DodgeLvl|1								SOURCEPAGE:p.47
+#
+Class Ability (Captain / Right-hand Man)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Right-hand Man																										SOURCEPAGE:p.47
+Class Ability (Captain / Master and Commander)											CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Master and Commander															BONUS:VAR|MasterAndCommanderLvl|1							SOURCEPAGE:p.47
+Class Ability (Captain / Battle Planning)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Battle Planning															BONUS:VAR|BattlePlanningLvl|1								SOURCEPAGE:p.47
+Class Ability (Captain / Take Command)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Take Command															BONUS:VAR|TakeCommandBonus|1								SOURCEPAGE:p.47
+#
+Class Ability (Courtier / With a Word)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|With a Word																											SOURCEPAGE:p.47
+Class Ability (Courtier / Gifts and Favors)											CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Gifts and Favors ~ City														BONUS:VAR|GiftsAndFavorsCityLvl|1							SOURCEPAGE:p.47
+Class Ability (Courtier / Obligations)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Obligations																											SOURCEPAGE:p.47
+Class Ability (Courtier / Eloquence)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Eloquence																											SOURCEPAGE:p.47
+#
+Class Ability (Explorer / Tomb Raider)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Tomb Raider																											SOURCEPAGE:p.47
+Class Ability (Explorer / Bookworm)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Bookworm																	BONUS:VAR|BookwormLvl|1									SOURCEPAGE:p.47
+Class Ability (Explorer / Bonus Feat)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Explorer													BONUS:VAR|BonusFeatExplorerCount|1							SOURCEPAGE:p.47
+Class Ability (Explorer / Uncanny Dodge)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Uncanny Dodge																BONUS:VAR|UncannyDodgeLvl|1								SOURCEPAGE:p.47
+#
+Class Ability (Keeper / Man of Reason)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Man of Reason																											SOURCEPAGE:p.47
+Class Ability (Keeper / Trade Secrets)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Trade Secrets															BONUS:VAR|TradeSecretsCount|1	BONUS:VAR|TradeSecretsCount|1			SOURCEPAGE:p.47
+Class Ability (Keeper / Bright Idea)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bright Idea															BONUS:VAR|BrightIdeaLvl|1								SOURCEPAGE:p.47
+Class Ability (Keeper / Bonus Feat)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Keeper														BONUS:VAR|KeeperFeatCount|1								SOURCEPAGE:p.47
+#
+Class Ability (Lancer / Born in the Saddle)											CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Born in the Saddle																										SOURCEPAGE:p.47
+Class Ability (Lancer / Mettle)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Mettle																	BONUS:VAR|MettleLvl|1									SOURCEPAGE:p.47
+Class Ability (Lancer / Bonus Feat)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Lancer														BONUS:VAR|LancerFeatCount|1								SOURCEPAGE:p.47
+Class Ability (Lancer / Bred for War)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bred for War																											SOURCEPAGE:p.47
+#
+Class Ability (Mage / Subtle and Quick to Anger)										CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Subtle and Quick to Anger																									SOURCEPAGE:p.47
+Class Ability (Mage / Arcane Might)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Arcane Might																											SOURCEPAGE:p.47
+Class Ability (Mage / Bonus Feat)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Mage														BONUS:VAR|MageFeatCount|1								SOURCEPAGE:p.47
+#
+Class Ability (Priest / Acolyte)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Acolyte																												SOURCEPAGE:p.47
+Class Ability (Priest / Signs & Portents I)		KEY:Class Ability (Priest / Signs and Portents I)	CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Signs and Portents															BONUS:VAR|SignsAndPortentsLvl|1							SOURCEPAGE:p.47
+Class Ability (Priest / Path of the Devoted)											CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Path of the Devoted														BONUS:VAR|PathOfTheDevotedCount|1	BONUS:VAR|PathOfTheDevotedStepLvl|1	SOURCEPAGE:p.47
+Class Ability (Priest / Bonus Feat)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Priest														BONUS:VAR|BonusFeatPriestCount|1	BONUS:VAR|PriestFeatCount|1		SOURCEPAGE:p.47
+#
+Class Ability (Scout / Stalker)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Stalker																												SOURCEPAGE:p.48
+Class Ability (Scout / Rough Living)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Rough Living															BONUS:VAR|RoughLivingBonus|2								SOURCEPAGE:p.48
+Class Ability (Scout / Bonus Feat)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Scout														BONUS:VAR|BonusFeatScoutCount|1	BONUS:VAR|ScoutFeatCount|1		SOURCEPAGE:p.48
+Class Ability (Scout / Sneak Attack)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Sneak Attack															BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SneakAttackDice|1			SOURCEPAGE:p.48
+#
+Class Ability (Soldier / Fight on)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Special Ability|AUTOMATIC|Fight On															BONUS:VAR|FightOnCount|2								SOURCEPAGE:p.48
+Class Ability (Soldier / Fortunes of War)												CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Fortunes of War															BONUS:VAR|FortunesOfWarLvl|1								SOURCEPAGE:p.48
+Class Ability (Soldier / Armor Use)													CATEGORY:Special Ability	TYPE:CrossTraining						ABILITY:Internal|AUTOMATIC|Armor Use																BONUS:VAR|ArmorUseLvl|1									SOURCEPAGE:p.48
+
+
+###Block: Scout ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key			Category of Ability		Type				Define									Description							Bonus to Ability Pool					Source Page
+Trailblazer		KEY:Trailblazer ~ Scout	CATEGORY:Special Ability	TYPE:SpecialQuality																											SOURCEPAGE:p.49
+#
+Stalker						CATEGORY:Special Ability	TYPE:SpecialQuality																											SOURCEPAGE:p.49
+Rough Living					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:RoughLivingBonus|0						DESC:+%1|RoughLivingBonus												SOURCEPAGE:p.49
+Bonus Feat		KEY:Bonus Feat ~ Scout	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ScoutFeatCount|0															BONUS:ABILITYPOOL|Scout Feat|ScoutFeatCount	SOURCEPAGE:p.49
+Sneak Attack					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackSize|6	DESC:%1d%2|SneakAttackDice|SneakAttackSize									SOURCEPAGE:p.49
+
+
+###Block: Soldier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key		Category of Ability		Type				Define				Ability													Bonus to Ability Pool					Combat bonus								Damage Reduction	Source Page
+Accurate		KEY:Accurate ~ Soldier	CATEGORY:Special Ability	TYPE:SpecialQuality																																									SOURCEPAGE:p.51
+Fight On						CATEGORY:Special Ability	TYPE:SpecialQuality																				BONUS:ABILITYPOOL|Fight On Choice|FightOnLvl														SOURCEPAGE:p.51
+# Fight On Choices
++2 Proficiecies	KEY:Prof_Choice		CATEGORY:Special Ability	TYPE:FightOnChoice																				BONUS:ABILITYPOOL|Proficiencies and Tricks|2
++1 Combat Feat	KEY:Feat_Choice		CATEGORY:Special Ability	TYPE:FightOnChoice																				BONUS:ABILITYPOOL|Combat Feat|1
+#
+
+Fortunes of War					CATEGORY:Internal							DEFINE:FortunesOfWarLvl|0	ABILITY:Special Ability|AUTOMATIC|Fortunes of War I|PREVAREQ:FortunesOfWarLvl,1																			DR:1/-
+Armor Use						CATEGORY:Internal							DEFINE:ArmorUseLvl|0		ABILITY:Special Ability|AUTOMATIC|Armor Use I|PREVAREQ:ArmorUseLvl,1											BONUS:COMBAT|AC|1|TYPE=ClassDefense|PREEQUIP:1,TYPE=Armor
+#
+Fortunes of War I					CATEGORY:Special Ability	TYPE:SpecialQuality																																									SOURCEPAGE:p.51
+Armor Use I						CATEGORY:Special Ability	TYPE:SpecialQuality																																									SOURCEPAGE:p.51
+
+
+###Block: ADVANCED ACTIONS AND TRICKS ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type											Required Ability											Stackable?	Multiple?	Choose																		Source Page
+Arrow Cutting	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.InitiativeAction				PREABILITY:1,CATEGORY=Special Ability,TYPE.Forte																												SOURCEPAGE:p.221
+Called Shot		CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.AttackTrick																																									SOURCEPAGE:p.221
+Cheap Shot		CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.AttackTrick																																									SOURCEPAGE:p.221
+Forced Opening	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick				PREABILITY:1,CATEGORY=Special Ability,Edged Forte,Blunt Forte																										SOURCEPAGE:p.221
+Fully Engaged	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick.UnarmedAttackTrick	PREABILITY:1,CATEGORY=Special Ability,Unarmed Forte,Edged Forte,Blunt Forte																								SOURCEPAGE:p.221
+Daunting Shot	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.RangedAttackTrick				PREABILITY:1,CATEGORY=Special Ability,TYPE.Forte																												SOURCEPAGE:p.221
+Mix-Up		CATEGORY:Special Ability	TYPE:SpecialQuality.Trick																				STACK:NO	MULT:YES	CHOOSE:STRING|Anticipate|Bull Rush|Disarm|Distract|Feint|Grapple|Pummel|TITLE=Choice|Taunt|Threaten|Tire|Trip	SOURCEPAGE:p.221
+Parry			CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.InitiativeAction				PREABILITY:1,CATEGORY=Special Ability,TYPE.Forte																												SOURCEPAGE:p.222
+Ragged Wound	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick				PREABILITY:1,CATEGORY=Special Ability,Edged Forte,Blunt Forte																										SOURCEPAGE:p.222
+Relentless Attack	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick																																											SOURCEPAGE:p.222
+Salt The Wound	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick							PREABILITY:1,CATEGORY=Special Ability,TYPE.Forte																												SOURCEPAGE:p.222
+Shield Block	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.InitiativeAction																																								SOURCEPAGE:p.222
+Shove			CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick.UnarmedAttackTrick	PREABILITY:1,CATEGORY=Special Ability,Unarmed Forte,Edged Forte,Blunt Forte																								SOURCEPAGE:p.222
+Steady Shot		CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.BowAttackTrick.HurledAttackTrick		PREABILITY:1,CATEGORY=Special Ability,Bow Forte,Hurled Forte																										SOURCEPAGE:p.222
+Triumphant Swing	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick																																								SOURCEPAGE:p.222
+Venom Master	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.AttackTrick																																									SOURCEPAGE:p.222
+Warding Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick				PREABILITY:1,CATEGORY=Special Ability,Edged Forte,Blunt Forte																										SOURCEPAGE:p.222
+Whirling Strike	CATEGORY:Special Ability	TYPE:SpecialQuality.Trick.MeleeAttackTrick																																								SOURCEPAGE:p.223
+
+#
+# END
+#

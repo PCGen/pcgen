@@ -1,0 +1,97 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2011-04
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+ABILITYCATEGORY:Path					VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	CATEGORY:Path
+ABILITYCATEGORY:Renown Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:RenownTrackChoices															PLURAL:Renown Choices			DISPLAYLOCATION:Class Abilities
+
+# Race Selections
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Specific choices list	Plural description for UI			Display Location
+ABILITYCATEGORY:Racial Stat Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:PositiveStatChoice						PLURAL:Racial Stat Choices			DISPLAYLOCATION:Origin
+ABILITYCATEGORY:Drake Stat Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:DrakeChoice							PLURAL:Drake Stat Choices			DISPLAYLOCATION:Origin
+
+
+ABILITYCATEGORY:Racial Negative Stat Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:NegativeStatChoice						PLURAL:Racial Negative Stat Choices		DISPLAYLOCATION:Origin
+ABILITYCATEGORY:Natural Camouflage Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:NaturalCamouflageChoice					PLURAL:Natural Camouflage Choices		DISPLAYLOCATION:Origin
+ABILITYCATEGORY:Origin Skill Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:OriginSkill							PLURAL:Origin Skill Choices			DISPLAYLOCATION:Origin
+#ABILITYCATEGORY:Proficiency Choice			TYPE:Proficiency			PLURAL:Proficiency Choices			CATEGORY:Special Ability	EDITABLE:YES	EDITPOOL:YES	DISPLAYLOCATION:Racial Abilities	VISIBLE:QUALIFY
+ABILITYCATEGORY:Proficiencies and Tricks		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ProficiencyDisplay.Trick					PLURAL:Proficiency and Trick Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Mix-Up Trick				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability						ABILITYLIST:Mix-Up	PLURAL:Mix-up Choices				DISPLAYLOCATION:Class Abilities
+
+###Block: Class Pools
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object								Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Languages				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Language															PLURAL:Languages				DISPLAYLOCATION:Origin
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object								Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Fight On Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:FightOnChoice														PLURAL:Fight On Choices			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Combat Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Basic Combat.Melee Combat.Ranged Combat.Unarmed Combat								PLURAL:Combat Feat Choices		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Mage Spells Known			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:BonusSpellKnownMage													PLURAL:Mage Spell Known			DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Talent					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Talent																PLURAL:Talent Choices			DISPLAYLOCATION:Origin
+ABILITYCATEGORY:Specialty				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Specialty															PLURAL:Specialty Choices		DISPLAYLOCATION:Origin
+ABILITYCATEGORY:Interests				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Language.Alignment.StudyInterest											PLURAL:Interest Choices			DISPLAYLOCATION:Origin
+ABILITYCATEGORY:Lifestyle				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:LifestyleChoice														PLURAL:Lifestyle Choices		DISPLAYLOCATION:Class Abilities
+
+
+# Skill Selections
+ABILITYCATEGORY:Crafting Focus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CraftingFocus														PLURAL:Crafting Focuses			DISPLAYLOCATION:Class Abilities
+
+# Class Selections:
+ABILITYCATEGORY:Battle Planning			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:BattlePlanning														PLURAL:Battle Planning			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Terrain Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Terrain															PLURAL:Terrain Feats			DISPLAYLOCATION:Class Abilities
+
+#
+ABILITYCATEGORY:Increase Lower of INT or CHA	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:LowerOfIntCha														PLURAL:Eloquence Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Increase Lower of STR or CON	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:LowerOfStrCon														PLURAL:Increase Lower of STR or CON	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Increase Highest of INT/WIS/CHA	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ChooseHighestOfIntWisCha													PLURAL:Arcane Might			DISPLAYLOCATION:Class Abilities
+
+
+
+ABILITYCATEGORY:Enlightened Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:EnlightenedSkill														PLURAL:Enlightened Skills		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Talent Attribute Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Internal			TYPE:TalentAttributeNegative.TalentAttribute										PLURAL:Talent Attributes		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Lesser Talent Attribute Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Internal			TYPE:LesserTalentAttributeNegative.LesserTalentAttribute								PLURAL:Lesser Talent Attributes	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Trade Secrets				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:TradeSecretsSkill														PLURAL:Trade Secrets			DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Crafting Basics			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CraftingBasic														PLURAL:Crafting Basics			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Crafting Mastery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CraftingMastery														PLURAL:Crafting Mastery			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Crafting Supremacy			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CraftingSupremacy														PLURAL:Crafting Supremacy		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cross-Training Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CrossTraining														PLURAL:Trade Secrets			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Prodigal Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ProdigalSkill														PLURAL:Prodigal Skills			DISPLAYLOCATION:Class Abilities
+
+
+
+# Feat Selections
+ABILITYCATEGORY:Spellcasting Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Spellcasting															PLURAL:Spellcasting Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Pathfinder Basics			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT													ABILITYLIST:Pathfinder Basics ~ Base	PLURAL:Pathfinder Basics		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Chance Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Chance																PLURAL:Chance Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Species Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Species															PLURAL:Species Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Burglar Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Melee Combat.Covert													PLURAL:Explorer Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Explorer Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Basic Combat.Chance													PLURAL:Explorer Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Keeper Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Gear.Skill															PLURAL:Keeper Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Lancer Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Melee Combat.Style														PLURAL:Lancer Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mage Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Skill.Spellcasting														PLURAL:Mage Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Priest Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Chance.Style															PLURAL:Priest Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scout Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT			TYPE:Ranged Combat.Terrain													PLURAL:Scout Feats			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Show-Off Skill Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ShowOffSkill															PLURAL:Show-Off Skill Selections	DISPLAYLOCATION:Class Abilities
+
+# Alignment Progression
+ABILITYCATEGORY:Alignment Path Steps		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:AlignmentStep														PLURAL:Path of the Devoted		DISPLAYLOCATION:Class Abilities
+
+# This is for the Homebrews that are Allowed to Choose Their Own Alignment, and Select Their Own Alignment Paths
+ABILITYCATEGORY:Alignment Path Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:AlignmentPathChoice													PLURAL:Alignment Path Selections	DISPLAYLOCATION:Class Abilities
+
+# NPC / Companion Support
+ABILITYCATEGORY:Personal Lieutenant Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:NPC Ability		TYPE:PersonalLieutenantChoice													PLURAL:Personal Lieutenant Choice	DISPLAYLOCATION:NPC Abilities
+
+ABILITYCATEGORY:Threat Level Selector		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:NPC Ability												ABILITYLIST:Threat Level			PLURAL:Threat Level Selector		DISPLAYLOCATION:NPC Abilities
+ABILITYCATEGORY:NPC Type Selector			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:NPC Ability		TYPE:NPCTypeSelection														PLURAL:NPC Type Selector		DISPLAYLOCATION:NPC Abilities
+ABILITYCATEGORY:NPC Ability				VISIBLE:NO		EDITABLE:YES		EDITPOOL:NO		CATEGORY:NPC Ability																									DISPLAYLOCATION:NPC Ability
+#
+# EOF
+#

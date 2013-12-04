@@ -1,0 +1,149 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+# Template Name		Visible	Template																	Required Class		Maximum Level	Bonus to Ability Pool					Modify VAR			Ability															Subrace
+#Bite OS Test																																					BONUS:VAR|BiteGrade|1	ABILITY:Natural Attack|AUTOMATIC|Bite
+
+#-----------------------#
+#	Core Ability	#
+#-----------------------#
+
+# Template Name		Visible	Template																	Required Class		Maximum Level	Bonus to Ability Pool					Modify VAR			Ability															Subrace
+Base Class Core Ability	VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseClass]	REMOVABLE:NO
+###Block: Choices
+# Template Name	Visible	Required Class		Modify VAR				Ability										Removable?		Type
+Assassin		VISIBLE:NO	PRECLASS:1,Assassin=1	BONUS:VAR|ProficiencyCount|4	ABILITY:Special Ability|AUTOMATIC|Heartseeker ~ Assassin		REMOVABLE:NO	TYPE:BaseClass
+Burglar		VISIBLE:NO	PRECLASS:1,Burglar=1	BONUS:VAR|ProficiencyCount|3	ABILITY:Special Ability|AUTOMATIC|Dexterous ~ Burglar			REMOVABLE:NO	TYPE:BaseClass
+Captain		VISIBLE:NO	PRECLASS:1,Captain=1	BONUS:VAR|ProficiencyCount|4	ABILITY:Special Ability|AUTOMATIC|Cadre ~ Captain			REMOVABLE:NO	TYPE:BaseClass
+Courtier		VISIBLE:NO	PRECLASS:1,Courtier=1	BONUS:VAR|ProficiencyCount|3	ABILITY:Special Ability|AUTOMATIC|Only the Finest ~ Courtier	REMOVABLE:NO	TYPE:BaseClass
+Explorer		VISIBLE:NO	PRECLASS:1,Explorer=1	BONUS:VAR|ProficiencyCount|4	ABILITY:Special Ability|AUTOMATIC|Friends All Over ~ Explorer	REMOVABLE:NO	TYPE:BaseClass
+Keeper		VISIBLE:NO	PRECLASS:1,Keeper=1	BONUS:VAR|ProficiencyCount|2	ABILITY:Special Ability|AUTOMATIC|Teacher ~ Keeper			REMOVABLE:NO	TYPE:BaseClass
+Lancer		VISIBLE:NO	PRECLASS:1,Lancer=1	BONUS:VAR|ProficiencyCount|6	ABILITY:Special Ability|AUTOMATIC|Lifetime Companion ~ Lancer	REMOVABLE:NO	TYPE:BaseClass
+Mage			VISIBLE:NO	PRECLASS:1,Mage=1		BONUS:VAR|ProficiencyCount|2	ABILITY:Special Ability|AUTOMATIC|Arcane Adept ~ Mage			REMOVABLE:NO	TYPE:BaseClass
+Priest		VISIBLE:NO	PRECLASS:1,Priest=1	BONUS:VAR|ProficiencyCount|4	ABILITY:Special Ability|AUTOMATIC|Devout ~ Priest			REMOVABLE:NO	TYPE:BaseClass
+Sage			VISIBLE:NO	PRECLASS:1,Sage=1		BONUS:VAR|ProficiencyCount|4	ABILITY:Special Ability|AUTOMATIC|Breadth of Experience ~ Sage	REMOVABLE:NO	TYPE:BaseClass
+Scout			VISIBLE:NO	PRECLASS:1,Scout=1	BONUS:VAR|ProficiencyCount|4	ABILITY:Special Ability|AUTOMATIC|Trailblazer ~ Scout			REMOVABLE:NO	TYPE:BaseClass
+Soldier		VISIBLE:NO	PRECLASS:1,Soldier=1	BONUS:VAR|ProficiencyCount|6	ABILITY:Special Ability|AUTOMATIC|Accurate ~ Soldier			REMOVABLE:NO	TYPE:BaseClass
+
+#-----------------------#
+#	Subrace		#
+#-----------------------#
+###Block:
+# Drake &  Giant Shared
+Lesser			VISIBLE:NO																																																						SUBRACE:YES
+#Elemental Heritage - Shared Drake/Giant
+Crystal			VISIBLE:NO																																																						SUBRACE:YES
+Darkness			VISIBLE:NO																																																						SUBRACE:YES
+Dust/Sand			VISIBLE:NO																																																						SUBRACE:YES
+Earth				VISIBLE:NO																																																						SUBRACE:YES
+Fire				VISIBLE:NO																																																						SUBRACE:YES
+Ice				VISIBLE:NO																																																						SUBRACE:YES
+Lava				VISIBLE:NO																																																						SUBRACE:YES
+Light				VISIBLE:NO																																																						SUBRACE:YES
+Lightning			VISIBLE:NO																																																						SUBRACE:YES
+Metal				VISIBLE:NO																																																						SUBRACE:YES
+Mist/Smoke			VISIBLE:NO																																																						SUBRACE:YES
+Water				VISIBLE:NO																																																						SUBRACE:YES
+Wind				VISIBLE:NO																																																						SUBRACE:YES
+Wood				VISIBLE:NO																																																						SUBRACE:YES
+#Truescale
+Aquatic			VISIBLE:NO																																																						SUBRACE:YES
+Arctic			VISIBLE:NO																																																						SUBRACE:YES
+Caverns/Mountains		VISIBLE:NO																																																						SUBRACE:YES
+Desert			VISIBLE:NO																																																						SUBRACE:YES
+Forest/Jungle		VISIBLE:NO																																																						SUBRACE:YES
+Indoors/Settled		VISIBLE:NO																																																						SUBRACE:YES
+Plains			VISIBLE:NO																																																						SUBRACE:YES
+Swamp				VISIBLE:NO																																																						SUBRACE:YES
+
+# Dwarf
+Mountain			VISIBLE:NO																																																						SUBRACE:YES
+#
+Hill				VISIBLE:NO																																																						SUBRACE:YES
+Magma				VISIBLE:NO																																																						SUBRACE:YES
+
+# Elf
+High				VISIBLE:NO																																																						SUBRACE:YES
+#
+#Wood				VISIBLE:NO																																														SUBRACE:YES
+Gray				VISIBLE:NO																																																						SUBRACE:YES
+Dark				VISIBLE:NO																																																						SUBRACE:YES
+
+# Goblin
+Cave				VISIBLE:NO																																																						SUBRACE:YES
+# Goblin and Orc Shared
+Skull Tribe			VISIBLE:NO																																																						SUBRACE:YES
+Blood Tribe			VISIBLE:NO																																																						SUBRACE:YES
+Bone Tribe			VISIBLE:NO																																																						SUBRACE:YES
+Fang Tribe			VISIBLE:NO																																																						SUBRACE:YES
+Iron Tribe			VISIBLE:NO																																																						SUBRACE:YES
+
+# Human
+True Blood			VISIBLE:NO																																																						SUBRACE:YES
+#
+Heavenly Blood		VISIBLE:NO																																																						SUBRACE:YES
+Hellish Blood		VISIBLE:NO																																																						SUBRACE:YES
+Drake Blood			VISIBLE:NO																																																						SUBRACE:YES
+Ancient Blood		VISIBLE:NO																																																						SUBRACE:YES
+Fey Blood			VISIBLE:NO																																																						SUBRACE:YES
+
+#Ogre
+Earth Brave			VISIBLE:NO																																																						SUBRACE:YES
+#
+Oni				VISIBLE:NO																																																						SUBRACE:YES
+Merrow			VISIBLE:NO																																																						SUBRACE:YES
+Troll				VISIBLE:NO																																																						SUBRACE:YES
+
+# Orc
+Black Blade			VISIBLE:NO																																																						SUBRACE:YES
+
+# Pech
+Lightfoot			VISIBLE:NO																																																						SUBRACE:YES
+#
+Hairfoot			VISIBLE:NO																																																						SUBRACE:YES
+Gnome				VISIBLE:NO																																																						SUBRACE:YES
+
+# Rootwalker
+Deeproot
+#
+#New Leaf
+Evergreen			VISIBLE:NO																																																						SUBRACE:YES
+Ironwood			VISIBLE:NO																																																						SUBRACE:YES
+Mistbranch			VISIBLE:NO																																																						SUBRACE:YES
+Purewood			VISIBLE:NO																																																						SUBRACE:YES
+Skybranch			VISIBLE:NO																																																						SUBRACE:YES
+Sunleaf			VISIBLE:NO																																																						SUBRACE:YES
+Tangleroot			VISIBLE:NO																																																						SUBRACE:YES
+Whitebark			VISIBLE:NO																																																						SUBRACE:YES
+
+# Saurian
+Lizard-Folk			VISIBLE:NO																																																						SUBRACE:YES
+#
+Draconian			VISIBLE:NO																																																						SUBRACE:YES
+Chameleon			VISIBLE:NO																																																						SUBRACE:YES
+Frogman			VISIBLE:NO																																																						SUBRACE:YES
+
+# Unborn
+Steel Golem			VISIBLE:NO																																																						SUBRACE:YES
+#
+Brass				VISIBLE:NO																																																						SUBRACE:YES
+Clay				VISIBLE:NO																																																						SUBRACE:YES
+Clockwork			VISIBLE:NO																																																						SUBRACE:YES
+Flesh				VISIBLE:NO																																																						SUBRACE:YES
+Gem				VISIBLE:NO																																																						SUBRACE:YES
+Granite			VISIBLE:NO																																																						SUBRACE:YES
+Living Metal		VISIBLE:NO																																																						SUBRACE:YES
+
+###Block: Cover
+# Template Name	Visible	Save checks bonus						Combat bonus						SORTKEY
+Cover 1/4		VISIBLE:NO	TEMPBONUS:ANYPC|CHECKS|Reflex|1|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=Cover	SORTKEY:Cover 1
+Cover 1/2		VISIBLE:NO	TEMPBONUS:ANYPC|CHECKS|Reflex|2|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Cover	SORTKEY:Cover 2
+Cover 3/4		VISIBLE:NO	TEMPBONUS:ANYPC|CHECKS|Reflex|3|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|6|TYPE=Cover	SORTKEY:Cover 3
+Cover Total		VISIBLE:NO	TEMPBONUS:ANYPC|CHECKS|Reflex|4|TYPE=Cover								SORTKEY:Cover 4
+
+
+#
+# EOF
+#

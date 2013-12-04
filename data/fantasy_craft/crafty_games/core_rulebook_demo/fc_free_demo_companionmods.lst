@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+
+# Animal Partner
+# Class of the Master			Type					Ability														Define				Bonus to Ability Pool					Modify VAR
+FOLLOWER:AnimalPartnerLvl=0		TYPE:Animal Partner		ABILITY:NPC Ability|AUTOMATIC|Special Character								DEFINE:NPCThreatLvl|0										BONUS:VAR|NPCThreatLvl|1|TYPE=Base
+
+# Personal Lieutenant
+FOLLOWER:PersonalLieutenantLvl=0	TYPE:Personal Lieutenant	ABILITY:Internal|AUTOMATIC|NPC Basics	ABILITY:NPC Ability|AUTOMATIC|Special Character	DEFINE:NPCThreatLvl|0		BONUS:ABILITYPOOL|Personal Lieutenant Choice|1	BONUS:VAR|NPCThreatLvl|1|TYPE=Base
+FOLLOWER:PersonalLieutenantLvl=0	TYPE:Personal Lieutenant																DEFINE:PersonalLieutenantXP|0									BONUS:VAR|PersonalLieutenantXP|50
+#
+FOLLOWER:PersonalLieutenantXP=55	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+FOLLOWER:PersonalLieutenantXP=60	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+FOLLOWER:PersonalLieutenantXP=65	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+FOLLOWER:PersonalLieutenantXP=70	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+FOLLOWER:PersonalLieutenantXP=75	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+FOLLOWER:PersonalLieutenantXP=80	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+FOLLOWER:PersonalLieutenantXP=85	TYPE:Personal Lieutenant																													BONUS:VAR|PersonalLieutenantXP|5
+
+
+#
+# END
+#

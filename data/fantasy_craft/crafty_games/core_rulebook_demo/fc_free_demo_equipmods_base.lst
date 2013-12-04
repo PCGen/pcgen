@@ -1,0 +1,71 @@
+# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
+# Original Entry By: Dragon Dark Lord
+# Original Entry Date: 2011-03-01
+
+# PCGEN SUPPORT:
+#COMMENT: Need a Method to bonus the Reach of the Actual Weapon, not the entire PC
+#COMMENT: Need individual Equipment Vars - ArmorDPValue would be better served as Equipment Only
+
+# Weapon Upgrades
+# Modifier Name		Unique Key			Type		Visible		Source Page		Save checks bonus						Combat bonus					Damage reduction	Misc bonus			Add to base move			Bonus to skill				Modify VAR					Weapon prop. bonus						Special Property																				Choose											Define
+Accurate			KEY:ACCURATE				VISIBLE:NO																																																					SPROP:Negates Inaccurate
+Armor-Piercing (AP)	KEY:AP					VISIBLE:NO																																																					SPROP:AP [%CHOICE]|PREVAREQ:DisplayVersion,0															CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10|11|12|13|14|TITLE=Armor Piercing
+Bayonet			KEY:BAYONET					VISIBLE:NO																																																					SPROP:Spike|PREVAREQ:DisplayVersion,0
+Bleed				KEY:BLEED					VISIBLE:NO																																																					SPROP:Bleed|PREVAREQ:DisplayVersion,0
+Bludgeon			KEY:BLUDGEON				VISIBLE:NO																																																					SPROP:Bludgeon|PREVAREQ:DisplayVersion,0
+Cavalry			KEY:CAVALRY					VISIBLE:NO																																																					SPROP:Cavalry|PREVAREQ:DisplayVersion,0
+Cord				KEY:CORD					VISIBLE:NO																																																					SPROP:Cord|PREVAREQ:DisplayVersion,0
+Finesse			KEY:FINESSE					VISIBLE:NO																																												BONUS:WEAPON|TOHIT|min(STR-DEX),0				SPROP:Finesse|PREVAREQ:DisplayVersion,0
+Grip				KEY:GRIP					VISIBLE:NO																																																					SPROP:Grip|PREVAREQ:DisplayVersion,0
+Hook				KEY:HOOK					VISIBLE:NO																																																					SPROP:Hook|PREVAREQ:DisplayVersion,0
+Hurl				KEY:HURL					VISIBLE:NO																																																					SPROP:Hurl|PREVAREQ:DisplayVersion,0
+Keen				KEY:KEEN					VISIBLE:NO																																																					SPROP:Keen [%CHOICE]|PREVAREQ:DisplayVersion,0															CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10|11|12|13|14|TITLE=Keen
+Load				KEY:LOAD					VISIBLE:NO																																																					SPROP:Load [%CHOICE]|PREVAREQ:DisplayVersion,0															CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10|11|12|13|14|TITLE=Load
+Lure				KEY:LURE					VISIBLE:NO																																																					SPROP:Lure|PREVAREQ:DisplayVersion,0
+Massive			KEY:MASSIVE					VISIBLE:NO																																																					SPROP:Massive [UNUSABLE]|!PRESTAT:1,STR=15|PREVAREQ:DisplayVersion,0	SPROP:Massive|PRESTAT:1,STR=15|PREVAREQ:DisplayVersion,0
+Poisonous			KEY:POISONOUS				VISIBLE:NO																																																					SPROP:Poisonous|PREVAREQ:DisplayVersion,0
+Trip				KEY:TRIP					VISIBLE:NO																																																					SPROP:Trip|PREVAREQ:DisplayVersion,0
+Unreliable			KEY:UNRELIABLE				VISIBLE:NO																																																					SPROP:Unreliable|PREVAREQ:DisplayVersion,0
+# - Other Weapon Qualities
+Aligned			KEY:ALIGNED					VISIBLE:NO																																																					SPROP:Aligned|PREVAREQ:DisplayVersion,0
+Blast				KEY:BLAST					VISIBLE:NO																																																					SPROP:Blast|PREVAREQ:DisplayVersion,0
+Double			KEY:DOUBLE					VISIBLE:NO																																																					SPROP:Double|PREVAREQ:DisplayVersion,0
+Excruciating		KEY:EXCRUCIATING				VISIBLE:NO																																																					SPROP:Excruciating|PREVAREQ:DisplayVersion,0
+Guard				KEY:GUARD					VISIBLE:NO													BONUS:COMBAT|AC|%CHOICE|TYPE=Gear																																			SPROP:Guard +[%CHOICE]|PREVAREQ:DisplayVersion,0														CHOOSE:STRING|1|2|3|4|5|6|7|8|9|10|11|12|13|14|TITLE=Guard
+Heavy				KEY:HEAVY					VISIBLE:NO																																																					SPROP:Heavy|PREVAREQ:DisplayVersion,0
+Inaccurate			KEY:INACCURATE				VISIBLE:NO																																												BONUS:WEAPON|TOHIT|-2|!PRETYPE:1,EQMOD=NEGATE_INACCUR	SPROP:Inaccurate|!PRETYPE:1,EQMOD=NEGATE_INACCUR|PREVAREQ:DisplayVersion,0
+Indirect			KEY:INDIRECT				VISIBLE:NO																																																					SPROP:Indirect|PREVAREQ:DisplayVersion,0
+Lightweight			KEY:LIGHTWEIGHT				VISIBLE:NO																																																					SPROP:Lightweight|PREVAREQ:DisplayVersion,0
+Pummeling			KEY:PUMMELING				VISIBLE:NO																																																					SPROP:Pummeling|PREVAREQ:DisplayVersion,0
+Reach				KEY:REACH					VISIBLE:NO																																																					SPROP:Reach +[%CHOICE]|PREVAREQ:DisplayVersion,0														CHOOSE:STRING|1|2|3|4|TITLE=Reach
+#COMMENT: Need a Method to bonus the Reach of the Actual Weapon
+Return			KEY:RETURN					VISIBLE:NO																																																					SPROP:Return|PREVAREQ:DisplayVersion,0
+Spread			KEY:SPREAD					VISIBLE:NO																																																					SPROP:Spread|PREVAREQ:DisplayVersion,0
+Stationary			KEY:STATIONARY				VISIBLE:NO																																																					SPROP:Stationary|PREVAREQ:DisplayVersion,0
+
+# Armor EQMODS
+Cold				KEY:RES_COLD				VISIBLE:NO																																																					SPROP:Cold %CHOICE																			CHOOSE:STRING|1|2|3|4|5|TITLE=Resistance
+Fire				KEY:RES_FIRE				VISIBLE:NO																																																					SPROP:Fire %CHOICE																			CHOOSE:STRING|1|2|3|4|5|TITLE=Resistance
+Edged				KEY:RES_EDGED				VISIBLE:NO																																																					SPROP:Edged %CHOICE																			CHOOSE:STRING|1|2|3|4|5|TITLE=Resistance
+Blunt				KEY:RES_BLUNT				VISIBLE:NO																																																					SPROP:Blunt %CHOICE																			CHOOSE:STRING|1|2|3|4|5|TITLE=Resistance
+
+Def				KEY:DP					VISIBLE:NO					BONUS:CHECKS|Reflex|ArmorDPValue|TYPE=Armor	BONUS:COMBAT|AC|ArmorDPValue|TYPE=Armor																			BONUS:VAR|ArmorDPValue|%CHOICE																																CHOOSE:STRING|-1|-2|-3|-4|-5|TITLE=DP						DEFINE:ArmorDPValue|0
+Dis				KEY:DISGUISE				VISIBLE:NO																																BONUS:SKILL|Disguise|DiguisePenalty	BONUS:VAR|DisguisePenalty|%CHOICE										SPROP:Disguise %CHOICE																			CHOOSE:STRING|0|-1|-2|-3|-4|-5|-6|-7|-8|Obvious|TITLE=Disguise		DEFINE:DisguisePenalty|0
+
+#
+# Fittings
+Light Fittings		KEY:FITTINGS_LT		TYPE:Armor	VISIBLE:QUALIFY	SOURCEPAGE:p.174																BONUS:DR|-|1	BONUS:MISC|ACCHECK|-1
+Heavy Fittings		KEY:FITTINGS_HVY		TYPE:Armor	VISIBLE:QUALIFY	SOURCEPAGE:p.174																BONUS:DR|-|2	BONUS:MISC|ACCHECK|-1	BONUS:MOVEADD|TYPE.Walk|-5							BONUS:VAR|ArmorDPValue|-1
+
+
+# Required for Support:
+Ceremonial			KEY:CEREMONIAL_ARMR
+Masterwork			KEY:MASTERWORK_KIT
+Combination Lock		KEY:COMBO_LOCK
+
+
+
+#
+# END
+#
