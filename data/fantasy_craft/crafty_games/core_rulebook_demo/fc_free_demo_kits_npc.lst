@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -68,8 +68,8 @@ GEAR:Poison (Knockout)	QTY:3	LOCATION:Equipped
 
 # Craftsman
 STARTPACK:Rogue Gallery ~ Craftsman	EQUIPBUY:0
-GEAR:Hammer (Tool)		LOCATION:Equipped
-GEAR:Crafting Kit	LOCATION:Equipped	EQMOD:MASTERWORK_KIT
+GEAR:Hammer (Tool)	LOCATION:Equipped
+GEAR:Crafting Kit		LOCATION:Equipped	EQMOD:MASTERWORK_KIT
 
 # Cutpurse
 STARTPACK:Rogue Gallery ~ Cutpurse	EQUIPBUY:0
@@ -149,8 +149,8 @@ GEAR:Moderate Platemail Armor	LOCATION:Equipped		EQMOD:FITTINGS_HVY
 
 # Laborer
 STARTPACK:Rogue Gallery ~ Laborer	EQUIPBUY:0
-GEAR:Hammer (Tool)		LOCATION:Equipped
-GEAR:Crafting Kit	LOCATION:Carried
+GEAR:Hammer (Tool)	LOCATION:Equipped
+GEAR:Crafting Kit		LOCATION:Carried
 
 # Man-at-Arms
 STARTPACK:Rogue Gallery ~ Man-at-Arms	EQUIPBUY:0

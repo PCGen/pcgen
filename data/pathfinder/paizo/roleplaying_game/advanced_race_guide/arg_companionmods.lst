@@ -1,4 +1,4 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
@@ -44,8 +44,8 @@ FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																									
 
 
 ###Block:Demonic Familiar (Demonic Apostle)
-# Class of the Master	Type		
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar	PREABILITY:1,CATEGORY=Special Ability,Fiendish Familiar ~ Fiendish Vessel	TEMPLATE:Fiendish Creature
+# Class of the Master	Type			Required Race			Apply Kit				Template				Required Ability
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar											TEMPLATE:Fiendish Creature	PREABILITY:1,CATEGORY=Special Ability,Fiendish Familiar ~ Fiendish Vessel
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
 
 ###Block:Familiar Bonuses to Master

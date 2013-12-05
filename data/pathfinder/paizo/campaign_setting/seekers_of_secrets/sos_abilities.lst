@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Paul Shipley
 
-# Ability Name			Category of Ability		Type			Aspects
-Flawed Gamboge Nodule Ability	CATEGORY:Special Ability	TYPE:Internal	ASPECT:SaveBonus|-4 penalty against curses and diseases
+# Ability Name			Unique Key						Category of Ability		Type					Var. Must Be Grater		Modify VAR																Aspects
+Flawed Gamboge Nodule Ability								CATEGORY:Special Ability	TYPE:Internal																									ASPECT:SaveBonus|-4 penalty against curses and diseases
 
-Animal Companion	PREVARGT:AnimalCompanionLVL,0		KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal	TYPE:BoonCompanionSelection	BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1
-Familiar		PREVARGT:FamiliarLVL,0			KEY:Boon Companion ~ Familiar			CATEGORY:Internal	TYPE:BoonCompanionSelection	BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
+Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGT:AnimalCompanionLVL,0	BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGT:FamiliarLVL,0		BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0

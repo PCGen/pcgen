@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 #SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # CVS $Revision: 21252 $ $Author: evilmynex $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original Entry by: Paul Shipley
 
 ###Block: Ioun Stone Categories
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Ioun Weapon Familiarity	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IounWpnFam		PLURAL:Ioun Weapon Familiarities	DISPLAYLOCATION:Equipment
-ABILITYCATEGORY:Esoteric Magic Spell	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EsotericSpell	PLURAL:Esoteric Magic Spells		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Dispelling Master Class	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DispellingMaster							DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Boon Companion Selection	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BoonCompanionSelection						DISPLAYLOCATION:Feats
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Ioun Weapon Familiarity	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IounWpnFam			PLURAL:Ioun Weapon Familiarities	DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Esoteric Magic Spell	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EsotericSpell		PLURAL:Esoteric Magic Spells		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Dispelling Master Class	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DispellingMaster								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Boon Companion Selection	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BoonCompanionSelection							DISPLAYLOCATION:Feats

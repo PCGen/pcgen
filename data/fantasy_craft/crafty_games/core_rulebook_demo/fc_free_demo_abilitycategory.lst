@@ -1,10 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 # SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2011-04
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
 
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Specific choices list	Plural description for UI			Display Location
 ABILITYCATEGORY:Path					VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	CATEGORY:Path
-ABILITYCATEGORY:Renown Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:RenownTrackChoices															PLURAL:Renown Choices			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Renown Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:Special Ability	TYPE:RenownTrackChoices						PLURAL:Renown Choices				DISPLAYLOCATION:Class Abilities
 
 # Race Selections
 # Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Specific choices list	Plural description for UI			Display Location

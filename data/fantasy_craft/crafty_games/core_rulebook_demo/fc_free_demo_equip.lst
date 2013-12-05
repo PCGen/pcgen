@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 #Original Entry By:Crafty Games, Inc - courtesy of Dragon Dark Lord
 
@@ -12,8 +12,8 @@ Blanket									TYPE:Gear	COST:5	WT:3				SOURCEPAGE:p.158	QUALITY:Const|Soft 1	Q
 Bedroll									TYPE:Gear	COST:5	WT:3				SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Cold Resistance 4 Special
 Block and Tackle								TYPE:Gear	COST:10	WT:25		SIZE:M	SOURCEPAGE:p.158	QUALITY:Const|Hard 3	QUALITY:Comp|7W	QUALITY:Era|Ancient	SPROP:+4 Str for lifting
 Brand										TYPE:Gear	COST:5	WT:3		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Hard 2	QUALITY:Comp|5D	QUALITY:Era|Ancient	SPROP:Permanently marks target with Coup de Grace
-Canteen									TYPE:Gear	COST:5	WT:0.5		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 2 quarts of liquid
-Waterskin									TYPE:Gear	COST:5	WT:0.5		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 2 quarts of liquid
+Canteen									TYPE:Gear	COST:5	WT:0.5	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 2 quarts of liquid
+Waterskin									TYPE:Gear	COST:5	WT:0.5	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 2 quarts of liquid
 #Chain				OUTPUTNAME:Chain ~ Gear		COST:10	WT:10		SIZE:S	TYPE:Gear	SOURCEPAGE:p.158	QUALITY:Const|Hard 4	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:10 ft. long; max load 2,000 lbs; escape DC 25
 Chest (Large)			OUTPUTNAME:Chest, [NAME]	TYPE:Gear	COST:20	WT:20		SIZE:M	SOURCEPAGE:p.158	QUALITY:Const|Hard 3	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:Holds 1 Small or more smaller items (max. 100)
 Chest (Small)			OUTPUTNAME:Chest, [NAME]	TYPE:Gear	COST:15	WT:10		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Hard 2	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:Holds 1 Tiny or more smaller items (max 50)
@@ -21,13 +21,13 @@ Compass									TYPE:Gear	COST:40	WT:1		SIZE:F	SOURCEPAGE:p.158	QUALITY:Const|Br
 Sextant									TYPE:Gear	COST:40	WT:1		SIZE:F	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|12M	QUALITY:Era|Ancient	SPROP:Tells direction; +2 gear bonus with Knowledge to navigate
 Flag										TYPE:Gear	COST:40	WT:12		SIZE:M	SOURCEPAGE:p.158	QUALITY:Const|Soft 2	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:+2 gear bonus with Impress (ally) or Intimidate (adversary)
 Standard									TYPE:Gear	COST:40	WT:12		SIZE:M	SOURCEPAGE:p.158	QUALITY:Const|Soft 2	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:+2 gear bonus with Impress (ally) or Intimidate (adversary)
-Firesteel									TYPE:Gear	COST:8	WT:0.5		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard	QUALITY:Comp|1 7D	QUALITY:Era|Ancient	SPROP:Starts fire in 1 round
-Tinderbox									TYPE:Gear	COST:8	WT:0.5		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard	QUALITY:Comp|1 7D	QUALITY:Era|Ancient	SPROP:Starts fire in 1 round
+Firesteel									TYPE:Gear	COST:8	WT:0.5	SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard	QUALITY:Comp|1 7D	QUALITY:Era|Ancient	SPROP:Starts fire in 1 round
+Tinderbox									TYPE:Gear	COST:8	WT:0.5	SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard	QUALITY:Comp|1 7D	QUALITY:Era|Ancient	SPROP:Starts fire in 1 round
 Fishing Pole/Net								TYPE:Gear	COST:5	WT:4		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Hard 1	QUALITY:Comp|7D	QUALITY:Era|Ancient	SPROP:+2 gear bonus with Forage when fishing
 Game										TYPE:Gear	COST:10	WT:1		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard 1	QUALITY:Comp|7W	QUALITY:Era|Primitive	SPROP:+2 gear bonus with Relax
-Garrote									TYPE:Gear	COST:1	WT:0.1		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Silences a held or pinned target as a free action
-Glasses									TYPE:Gear	COST:20	WT:0.5		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10W	QUALITY:Era|Primitive	SPROP:Flash Resistance 4
-Goggles									TYPE:Gear	COST:20	WT:0.5		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10W	QUALITY:Era|Primitive	SPROP:Flash Resistance 4
+Garrote									TYPE:Gear	COST:1	WT:0.1	SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Silences a held or pinned target as a free action
+Glasses									TYPE:Gear	COST:20	WT:0.5	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10W	QUALITY:Era|Primitive	SPROP:Flash Resistance 4
+Goggles									TYPE:Gear	COST:20	WT:0.5	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10W	QUALITY:Era|Primitive	SPROP:Flash Resistance 4
 Grappling Hook								TYPE:Gear	COST:12	WT:4		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Hard 2	QUALITY:Comp|7D	QUALITY:Era|Ancient	SPROP:+2 gear bonus with Climb when using rope
 Grooming Case								TYPE:Gear	COST:8	WT:2		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|5D	QUALITY:Era|Ancient	SPROP:+1 to user's Appearance bonus
 Hammer (Tool)			OUTPUTNAME:Hammer, [NAME]	TYPE:Gear	COST:5	WT:5		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Hard 2	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Pounds things; improvised mallet
@@ -40,13 +40,13 @@ Jug										TYPE:Gear	COST:3	WT:1		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittl
 Lantern (Bullseye)		OUTPUTNAME:Lantern, [NAME]	TYPE:Gear	COST:30	WT:3		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|10D	QUALITY:Era|Feudal	SPROP:Dim light (50-ft. cone); uses oil
 Lantern (Candle)			OUTPUTNAME:Lantern, [NAME]	TYPE:Gear	COST:8	WT:1		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|5D	QUALITY:Era|Ancient	SPROP:Faint light (30-ft. radius); uses candles
 Lantern (Hooded)			OUTPUTNAME:Lantern, [NAME]	TYPE:Gear	COST:20	WT:2		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|7D	QUALITY:Era|Ancient	SPROP:Dim light (50-ft. radius); may be covered; uses oil
-Lanyard									TYPE:Gear	COST:1	WT:0.5		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Feudal	SPROP:Attached item remains in user's square
+Lanyard									TYPE:Gear	COST:1	WT:0.5	SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Feudal	SPROP:Attached item remains in user's square
 Magnet									TYPE:Gear	COST:10	WT:1		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Hard 3	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:Attracts and holds up to 2 of metal
-Magnifying Glass								TYPE:Gear	COST:40	WT:0.5		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|12W	QUALITY:Era|Feudal	SPROP:Makes Fine or smaller item appear1 Size larger to user
+Magnifying Glass								TYPE:Gear	COST:40	WT:0.5	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|12W	QUALITY:Era|Feudal	SPROP:Makes Fine or smaller item appear1 Size larger to user
 Manacles									TYPE:Gear	COST:20	WT:2		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard 3	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:Escape DC 25
-Map (Average)			OUTPUTNAME:Map, [NAME]		TYPE:Gear	COST:5	WT:0.1		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10D	QUALITY:Era|Primitive	SPROP:+1 MPH and +2 for navigation in mapped area
-Map (Detailed)			OUTPUTNAME:Map, [NAME]		TYPE:Gear	COST:30	WT:0.1		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:As average map and +2 with Knowledge in area
-Mirror									TYPE:Gear	COST:25	WT:0.5		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard 1	QUALITY:Comp|7W	QUALITY:Era|Ancient	SPROP:Signals distant friends; reflects gaze attacks
+Map (Average)			OUTPUTNAME:Map, [NAME]		TYPE:Gear	COST:5	WT:0.1	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10D	QUALITY:Era|Primitive	SPROP:+1 MPH and +2 for navigation in mapped area
+Map (Detailed)			OUTPUTNAME:Map, [NAME]		TYPE:Gear	COST:30	WT:0.1	SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:As average map and +2 with Knowledge in area
+Mirror									TYPE:Gear	COST:25	WT:0.5	SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard 1	QUALITY:Comp|7W	QUALITY:Era|Ancient	SPROP:Signals distant friends; reflects gaze attacks
 Music Box									TYPE:Gear	COST:75	WT:1		SIZE:T	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|15M	QUALITY:Era|Reason	SPROP:Plays 1 song
 # Musical Instrument						TYPE:Gear	COST:50	WT:5		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|12W	QUALITY:Era|Primitive	SPROP:Used in musical performance
 Musical Instrument (Lute)						TYPE:Gear	COST:50	WT:5		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|12W	QUALITY:Era|Primitive	SPROP:Used in musical performance
@@ -58,27 +58,27 @@ Musical Instrument (Harp)						TYPE:Gear	COST:50	WT:5		SIZE:S	SOURCEPAGE:p.158	Q
 Musical Instrument (Other)						TYPE:Gear	COST:50	WT:5		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Brittle 2	QUALITY:Comp|12W	QUALITY:Era|Primitive	SPROP:Used in musical performance
 #Pick				OUTPUTNAME:Pick ~ Gear		COST:5	WT:5		SIZE:S	TYPE:Gear	SOURCEPAGE:p.158	QUALITY:Const|Hard 2	QUALITY:Comp|5D	QUALITY:Era|Ancient	SPROP:+4 Str for clearing rubble; improvised fighting pick
 Shovel									TYPE:Gear	COST:5	WT:5		SIZE:S	SOURCEPAGE:p.158	QUALITY:Const|Hard 2	QUALITY:Comp|5D	QUALITY:Era|Ancient	SPROP:+4 Str for clearing rubble; improvised fighting pick
-Pipe										TYPE:Gear	COST:5	WT:0.1		SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:+2 gear bonus with Concentrate (current scene)
-Pocket Watch								TYPE:Gear	COST:150	WT:0.1		SIZE:F	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|15M	QUALITY:Era|Reason	SPROP:Accurately keeps time
+Pipe										TYPE:Gear	COST:5	WT:0.1	SIZE:D	SOURCEPAGE:p.158	QUALITY:Const|Hard 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:+2 gear bonus with Concentrate (current scene)
+Pocket Watch								TYPE:Gear	COST:150	WT:0.1	SIZE:F	SOURCEPAGE:p.158	QUALITY:Const|Brittle 1	QUALITY:Comp|15M	QUALITY:Era|Reason	SPROP:Accurately keeps time
 Pole (10ft)				OUTPUTNAME:Pole, 10-ft.		TYPE:Gear	COST:5	WT:5		SIZE:M	SOURCEPAGE:p.159	QUALITY:Const|Hard 2	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:+2 gear bonus with Jump; triggers traps; improvised long staff
 Pouch										TYPE:Gear	COST:2			SIZE:D	SOURCEPAGE:p.159	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 50 coins
 Purse										TYPE:Gear	COST:5			SIZE:T	SOURCEPAGE:p.159	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 200 coins
-Ring (Poison)			OUTPUTNAME:Ring, [NAME]		TYPE:Gear	COST:30	WT:0.1		SIZE:N	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|12W	QUALITY:Era|Ancient	SPROP:Target exposed with successful Standard Unarmed Attack that inflicts at least 1 point of damage
+Ring (Poison)			OUTPUTNAME:Ring, [NAME]		TYPE:Gear	COST:30	WT:0.1	SIZE:N	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|12W	QUALITY:Era|Ancient	SPROP:Target exposed with successful Standard Unarmed Attack that inflicts at least 1 point of damage
 Rope (Hemp)				OUTPUTNAME:Rope, [NAME]		TYPE:Gear	COST:6	WT:10		SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Soft 2	QUALITY:Comp|7W	QUALITY:Era|Primitive	SPROP:50 ft. long; max load 1,000 lbs; escape DC 20
 Rope (Silk)				OUTPUTNAME:Rope, [NAME]		TYPE:Gear	COST:20	WT:5		SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Soft 2	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:50 ft. long; max load 750 lbs.; escape DC 25
-Sack (Large)			OUTPUTNAME:Sack, [NAME]		TYPE:Gear	COST:3	WT:0.5		SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 1 Small or more smaller items (max. 25 lbs.)
+Sack (Large)			OUTPUTNAME:Sack, [NAME]		TYPE:Gear	COST:3	WT:0.5	SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 1 Small or more smaller items (max. 25 lbs.)
 Sack (Small)			OUTPUTNAME:Sack, [NAME]		TYPE:Gear	COST:1	WT:0.25	SIZE:T	SOURCEPAGE:p.159	QUALITY:Const|Soft 1	QUALITY:Comp|5D	QUALITY:Era|Primitive	SPROP:Holds 1 Tiny or more smaller items (max. 10 lbs.)
 Saddlebags									TYPE:Gear	COST:10	WT:5				SOURCEPAGE:p.159	QUALITY:Const|Soft 2	QUALITY:Comp|5D	QUALITY:Era|Ancient	SPROP:+2 Str for carrying capacity Special
 Saw										TYPE:Gear	COST:5	WT:2		SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Hard 2	QUALITY:Comp|7W	QUALITY:Era|Ancient	SPROP:Cuts wood; +4 Str for clearing brush
-Seal										TYPE:Gear	COST:40	WT:0.1		SIZE:N	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|10W	QUALITY:Era|Feudal	SPROP:Seals document with hot wax image
-Signet Ring									TYPE:Gear	COST:40	WT:0.1		SIZE:N	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|10W	QUALITY:Era|Feudal	SPROP:Seals document with hot wax image
+Seal										TYPE:Gear	COST:40	WT:0.1	SIZE:N	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|10W	QUALITY:Era|Feudal	SPROP:Seals document with hot wax image
+Signet Ring									TYPE:Gear	COST:40	WT:0.1	SIZE:N	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|10W	QUALITY:Era|Feudal	SPROP:Seals document with hot wax image
 Scale (Hand)			OUTPUTNAME:Scale, [NAME]	TYPE:Gear	COST:35	WT:2		SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|12D	QUALITY:Era|Ancient	SPROP:Accurately measures weight
 Skis										TYPE:Gear	COST:8	WT:10				SOURCEPAGE:p.159	QUALITY:Const|Hard 2	QUALITY:Comp|7D	QUALITY:Era|Ancient	SPROP:+10 ft. ground Speed on snow and ice; -2 gear penalty with certain attacks and checks
 Snowshoes									TYPE:Gear	COST:10	WT:3				SOURCEPAGE:p.159	QUALITY:Const|Hard 2	QUALITY:Comp|7D	QUALITY:Era|Primitive	SPROP:1/2 ground Speed penalty on snow and ice Special
 Spyglass									TYPE:Gear	COST:100	WT:3		SIZE:T	SOURCEPAGE:p.159	QUALITY:Const|Hard 2	QUALITY:Comp|12W	QUALITY:Era|Feudal	SPROP:Doubles vision increment
 Tent										TYPE:Gear	COST:10	WT:15		SIZE:L	SOURCEPAGE:p.159	QUALITY:Const|Soft 2	QUALITY:Comp|10W	QUALITY:Era|Primitive	SPROP:Heat and Cold Resistance 4
 Umbrella									TYPE:Gear	COST:5	WT:3		SIZE:S	SOURCEPAGE:p.159	QUALITY:Const|Soft 2	QUALITY:Comp|10W	QUALITY:Era|Ancient	SPROP:Heat Resistance 4
-Whistle									TYPE:Gear	COST:2	WT:0.1		SIZE:D	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|7D	QUALITY:Era|Primitive	SPROP:Signal 1 mile (outdoors) or 500 ft. (indoors)
+Whistle									TYPE:Gear	COST:2	WT:0.1	SIZE:D	SOURCEPAGE:p.159	QUALITY:Const|Hard 1	QUALITY:Comp|7D	QUALITY:Era|Primitive	SPROP:Signal 1 mile (outdoors) or 500 ft. (indoors)
 
 # Required for NPC Support:
 

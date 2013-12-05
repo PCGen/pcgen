@@ -1,4 +1,4 @@
-# CVS $Revision: 21528 $ $Author: amaitland $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: 21528 $ $Author: amaitland $ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -645,19 +645,19 @@ CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PR
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
 1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionMasterLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
-2																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
-3																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
-4																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
+2																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
+3																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
+4																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
 #5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
 #
 #  Since "This ability is identical to and stacks with the ranger class ability.", it's easier just to advance the ranger variable.
 #
-5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL										ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
-6																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
-7																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
-8																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
-9																						ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
-10																		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
+5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
+6																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
+7																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
+8																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
+9																							ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
+10																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
 
 ###Block: Rage Prophet --------------------------------------------------------------------------------------------------------------------------------------------
 

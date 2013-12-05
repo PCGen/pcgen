@@ -1,22 +1,22 @@
-# CVS $Revision$ $Author$ -- Fri Apr 29 14:39:24 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
 
 
 # Native Language
-# Language		Type
-Drake			TYPE:Native.Spoken.Written.Read
-Dwarf			TYPE:Native.Spoken.Written.Read
-Elf			TYPE:Native.Spoken.Written.Read
-Giant			TYPE:Native.Spoken.Written.Read
-Goblin		TYPE:Native.Spoken.Written.Read
-Human			TYPE:Native.Spoken.Written.Read
-Orc			TYPE:Native.Spoken.Written.Read
-Ogre			TYPE:Native.Spoken.Written.Read
-Pech			TYPE:Native.Spoken.Written.Read
-Rootwalker		TYPE:Native.Spoken.Written.Read
-Saurian		TYPE:Native.Spoken.Written.Read
-Unborn		TYPE:Native.Spoken.Written.Read
+# Language	Type
+Drake		TYPE:Native.Spoken.Written.Read
+Dwarf		TYPE:Native.Spoken.Written.Read
+Elf		TYPE:Native.Spoken.Written.Read
+Giant		TYPE:Native.Spoken.Written.Read
+Goblin	TYPE:Native.Spoken.Written.Read
+Human		TYPE:Native.Spoken.Written.Read
+Orc		TYPE:Native.Spoken.Written.Read
+Ogre		TYPE:Native.Spoken.Written.Read
+Pech		TYPE:Native.Spoken.Written.Read
+Rootwalker	TYPE:Native.Spoken.Written.Read
+Saurian	TYPE:Native.Spoken.Written.Read
+Unborn	TYPE:Native.Spoken.Written.Read
 
 #
