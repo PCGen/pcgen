@@ -25,6 +25,8 @@
 		<ul>
 			<li><a href="#WhatsNew">What's new for v6.2.0 RC1</a></li>
 			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#614HomebrewChanges">Changes Affecting Homebrew Data</a></li>
+			<li><a href="#618HomebrewPathfinder">Changes Affecting Homebrew Pathfinder Data</a></li>
 			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
 			<li><a href="#Thanks">Thanks</a></li>
 			<li><a href="#WantToHelp">Want to Help?</a></li>
@@ -88,6 +90,7 @@ random NPC generation or LST editor functionality.
 <li>[Dreamscarred Press] Psionics Expanded - Master the Battle</li>
 <li>[Dreamscarred Press] Psionics Expanded - Pawns and Powers</li>
 <li>[Dreamscarred Press] Psionics Expanded</li>
+<li>[Fantasy Craft] Core Rulebook (Demo)</li>
 <li>[Minotaur Games] Monster Focus: Skeletons</li>
 <li>[Minotaur Games] Monster Focus: Zombies</li>
 <li>[Paizo] Pathfinder Campaign Setting: Inner Sea Bestiary</li>
@@ -109,7 +112,7 @@ random NPC generation or LST editor functionality.
 <p>
 For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
 </p>
-<p><i>James Dempsey</i> for the PCGEN Team -- 4 December, 2013.</p>
+<p><i>James Dempsey</i> for the PCGEN Team -- 5 December, 2013.</p>
 		
 		<h2><a name="Installation">Installation</a></h2>
 
@@ -143,6 +146,75 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 				the full package bundle in an easy to use installer for Mac (distributed as a disk image)</li>
 		</ul>
 		<p></p>
+
+		<h2><a name="614HomebrewChanges">Changes Affecting Homebrew Data</a></h2>
+		<p>
+		With our ever growing data folder and a growing need to organize the sets for better
+		maintainability, the following changes WILL impact our homebrew community:
+		</p><p>
+		Note: These changes were made in v6.1.4. Data which was migrated or created 
+		in 6.1.4 or later does not need further changes.
+		</p><p>
+		The d20ogl folder has been removed, in it's place is now a folder for each gamemode we support. Each
+		folder should contain sets only for that gamemode, there are a few exceptions.
+		</p><p>
+		The format for the data structure is very simple:	/gamemode/publisher/book or subcategory
+		</p><p>
+		Example of folders in place of d20ogl:
+		<ul>
+		<li>3e</li>
+		<li>35e</li>
+		<li>darwins_world_2</li>
+		<li>pathfinder</li>
+		<li>etc.</li>
+		</ul>
+		</p><p>
+		If you have data pointing to any of the core sets, you'll need to correct your full path link
+		associations. Links are any that have a file path starting at the base data folder -<br/>
+		PCC:@/d20ogl/srd35/xxx.pcc  You won't need to change relative links.
+		</p><p>
+		For the main sets the following changes need to be made:
+		<table border="0">
+		<tr><td>srd</td><td>/3e/wizards_of_the_coast/srd/</td></tr>
+		<tr><td>srd35</td><td>/35e/wizards_of_the_coast/srd35/</td></tr>
+		<tr><td>PF Main Books</td><td>/pathfinder/paizo/pathfinder/CORE_BOOK_NAME</td></tr>
+		<tr><td>PF Adventure Paths</td><td>/pathfinder/paizo/adventure_path</td></tr>
+		<tr><td>PF Campaign Setting</td><td>/pathfinder/paizo/campaign_setting</td></tr>
+		<tr><td>PF Player Companion</td><td>/pathfinder/paizo/player_companion</td></tr>
+		</table>
+		</p><p>
+		We apologize for the inconvenience this will cause, but think this change will better help for set
+		maintainability and future improvements as we incorporate new systems.
+		</p><p>
+		Any questions or support items, please contact our Support Desk Monkey Andrew Maitland at
+		<a href="mailto:help@pcgen.org">help@pcgen.org</a>.
+		</p>
+		
+
+		<h2><a name="618HomebrewPathfinder">Changes Affecting Homebrew Pathfinder Data</a></h2>
+		
+		<p>With the huge number of sources we are supporting for Pathfinder, we had to 
+		do some further reorganizing for better maintainability and closer alignment to 
+		the publisher's abbreviations and terms. The changes WILL impact our homebrew 
+		community, but they are limited to the Pathfinder sets only.</p>
+		
+		<p>Note: These changes were made in v6.1.8. Data which was migrated or created 
+		in 6.1.8 or later does not need further changes.</p>
+		
+		<p>The main changes were</p>
+		<ul>
+		<li>Renamed campaigns to match the publisher's names and remove redundant info. e.g. "Paizo - Pathfinder Roleplaying Game Ultimate Combat" became "Ultimate Combat". See system/gameModes/Pathfinder_RPG/migration.lst for a comprehensive list of renames.</li> 
+		<li>Removed the Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement source (APG can be used for character traits).</li>
+		<li>Merged multiple files in a source of the same type into a single or limited number of files (e.g. all core rulebook equipmod files into cr_equipmods.lst</li>
+		<li>Renamed source folders to match publisher names</li>
+		<li>Renamed the pathfinder/paizo/pathfinder folder to pathfinder/paizo/roleplaying_game . This is the folder containing the main rule books.</li>
+		<li>Moved the main source definitions (e.g. pathfinder_for_gms.pcc) to be in the pathfinder/paizo folder.</li>
+		</ul>
+		<p>The use of the migration tools means that this change should not impact 
+		characters using the sources included in PCGen. Instead the characters should be 
+		updated to the new source names on load.</p>
+		
+		<p>Any questions or support items, please contact our Support Desk Monkey Andrew Maitland at help@pcgen.org.</p>
 
 		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
 
@@ -193,6 +265,14 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 		</ul>
 
 		<h2><a name="ChangeLog">Change Log for 6.2.0 RC1</a></h2>
+
+
+<h3>        New Source
+</h3>
+<ul>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-201'>NEWSOURCE-201</a>] -         [Fantasy Craft] Core Rulebook (Demo)
+</li>
+</ul>
 
 <h3>        New Data Features
 </h3>
@@ -262,13 +342,21 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2396'>CODE-2396</a>] -         FACE:2.5 only displays 2
 </li>
-<li>[<a href='http://jira.pcgen.org/browse/CODE-2399'>CODE-2399</a>] -         Disappearing Prepared domain spell
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2399'>CODE-2399</a>] -         (SGG Adventurer&#39;s HB Volume 1) Disappearing Prepared domain spell
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2400'>CODE-2400</a>] -         (Pathfinder) Infinite Domain Spell Preparation
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2401'>CODE-2401</a>] -         Display only templates not visible in UI
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2402'>CODE-2402</a>] -         (PF) PCGen is allowing domain spells to take up nondomain slots
 </li>
 </ul>
 
 <h3>       Data  Bug Fixes
 </h3>
 <ul>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1124'>DATA-1124</a>] -         Gift of Tongues racial trait not giving bonus language for Linguistics properly
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1271'>DATA-1271</a>] -         Jotungrip not allowing to equip 2hand weapon in 1hand.
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1400'>DATA-1400</a>] -         PF Bestiary 3- Brass golem does not have &quot;Brass Falchion&quot; Natural Attack
@@ -280,6 +368,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1423'>DATA-1423</a>] -         SPELLKNOWN:CLASS|Witch=x|y is adding an Erroneous KNOWN to the CLASS
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1424'>DATA-1424</a>] -         Psionics- Unbody Issues (3.5/PF)
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1428'>DATA-1428</a>] -         [Pathfinder] ARG - Favored Class Bonus Spells not working.
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1429'>DATA-1429</a>] -         Wild Caller Eidolon Unable To Choose Form Restricted Evolutions
 </li>
@@ -315,9 +405,27 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1449'>DATA-1449</a>] -         PF- Various Dragon clean up issues
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1450'>DATA-1450</a>] -         (PF) Erroneous &quot;Cannot find natural weapon&quot; messages when a dragon is loaded
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1451'>DATA-1451</a>] -         Cavalier does not get option to choose order benefits
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1452'>DATA-1452</a>] -         Bestiary 3- Several broken natural attacks
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1453'>DATA-1453</a>] -         (SGG Adventurer&#39;s Handbook Vol 1) Death Mage domain not showing +1 in spell selection screen
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1456'>DATA-1456</a>] -         (PF/3..X) Energy vulnerability preventing resistance from other sources appearing
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1457'>DATA-1457</a>] -         (PF:Seeker of Secrets) Boon Companion feat causes endless bonus loop resulting in bad result.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1458'>DATA-1458</a>] -         Naked Courage doesn&#39;t give Dodge Bonus
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1459'>DATA-1459</a>] -         Natural Toughness missing Natural Armor
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1460'>DATA-1460</a>] -         Extra Evolution feat not available to Summoner archetypes 
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1461'>DATA-1461</a>] -         Wild Caller archetype should substitute Summon Nature&#39;s Ally for Summon Monster Spells
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1462'>DATA-1462</a>] -         (PF APG) Command rather than Greater Command is a 5th lvl Inquisitor spell in PCGen
 </li>
 </ul>
 
@@ -348,6 +456,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-190'>NEWSOURCE-190</a>] -         [PF] Inner Sea Bestiary</li>
 <li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-191'>NEWSOURCE-191</a>] -         Pathfinder Companion - Dungeoneer's Handbook</li>
 <li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-198'>NEWSOURCE-198</a>] -         [Minotaur Games] Monster Focus: Zombies</li>
+<li>[<a href='http://jira.pcgen.org/browse/NEWSOURCE-201'>NEWSOURCE-201</a>] -         [Fantasy Craft] Core Rulebook (Demo)</li>
 </ul>
 
 <h3>        New Code Features
@@ -512,6 +621,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1098'>DATA-1098</a>] -         Add Writing and Documents types to the PRD's &quot;Rice Paper (Sheet)&quot;</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1101'>DATA-1101</a>] -         Pathfinder RPG Core Rulebook 6th printing errata</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1107'>DATA-1107</a>] -         Fix performance issues - Class Abilities Redone</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1124'>DATA-1124</a>] -         Gift of Tongues racial trait not giving bonus language for Linguistics properly</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1128'>DATA-1128</a>] -         Clarify Survival bonus given by the Pathfinder trait Starchild (Desna)</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1133'>DATA-1133</a>] -         Properly Implement Shieldbash</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1134'>DATA-1134</a>] -         make Bottled Ooze available as an extract</li>
@@ -539,6 +649,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1250'>DATA-1250</a>] -         Potions of Inflict Wounds not in Equipment</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1252'>DATA-1252</a>] -         Implement ASPECT:SaveBonus| in eligible traits.</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1258'>DATA-1258</a>] -         Witch Hex as a standard variable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1271'>DATA-1271</a>] -         Jotungrip not allowing to equip 2hand weapon in 1hand.</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1274'>DATA-1274</a>] -         OS lacks mention of the Witch patron</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1277'>DATA-1277</a>] -         Implement the Monk Flurry BAB for Temporary Bonus Combat Feats</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1285'>DATA-1285</a>] -         Convert all Pathfinder Dragons to New Method</li>
@@ -563,6 +674,12 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1380'>DATA-1380</a>] -         Make unique names for the Weapon Training &quot;Weapon Groups&quot;</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1393'>DATA-1393</a>] -         [PF] Shillelagh missing temp bonus.</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1396'>DATA-1396</a>] -         Converter Run for 6.2 Release</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1401'>DATA-1401</a>] -         Monsters with Scent ability lack ScentRange var</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1419'>DATA-1419</a>] -         Simple mele weapons not showing as proficient for characters.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1424'>DATA-1424</a>] -         Psionics- Unbody Issues (3.5/PF)</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1428'>DATA-1428</a>] -         [Pathfinder] ARG - Favored Class Bonus Spells not working.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1432'>DATA-1432</a>] -         Half-Elf Half-Drow Paragon Feat Tree Unselectable</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1435'>DATA-1435</a>] -         Deadlands - Requests for changes from my gaming group.</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1436'>DATA-1436</a>] -         Deadlands - Kit's needed for starting character funds.</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1438'>DATA-1438</a>] -         Page of Spell Knowledge</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1441'>DATA-1441</a>] -         Zen Archer Flurry of Blows</li>
@@ -1054,14 +1171,18 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1439'>DATA-1439</a>] -         (PF) Adventurer's Handbook, Vol 1- Death Mage Domain not selectable in Domains tab</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1440'>DATA-1440</a>] -         (PF) Unbodied Missing Incorporeal Subtype</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1442'>DATA-1442</a>] -         Deadly Aim Stacking with Zen Archer Deadly Aim</li>
-<li>[<a href='http://jira.pcgen.org/browse/DATA-1443'>DATA-1443</a>] -         [PF] Dragon bite disappears when going from M-&gt;L, tail slap never shows up</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1444'>DATA-1444</a>] -         Headband of Intellect Skill Choice pool bonus mising for some items</li>
-<li>[<a href='http://jira.pcgen.org/browse/DATA-1445'>DATA-1445</a>] -         (PF) Adventurer's Handbook, Vol 1- Death Mage- Isn't receiving domain abilities when selected</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1446'>DATA-1446</a>] -         Pathfinder Ultimate Magic &quot;Head&quot; evolution mis-interacts with APG Bite</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1447'>DATA-1447</a>] -         Pathfinder &quot;Amulet of Might Fists&quot; is mis-coded</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1449'>DATA-1449</a>] -         PF- Various Dragon clean up issues</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1451'>DATA-1451</a>] -         Cavalier does not get option to choose order benefits</li>
-<li>[<a href='http://jira.pcgen.org/browse/DATA-1452'>DATA-1452</a>] -         Bestiary 3- Several broken natural attacks</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1456'>DATA-1456</a>] -         (PF/3..X) Energy vulnerability preventing resistance from other sources appearing</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1457'>DATA-1457</a>] -         (PF:Seeker of Secrets) Boon Companion feat causes endless bonus loop resulting in bad result.</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1458'>DATA-1458</a>] -         Naked Courage doesn&#39;t give Dodge Bonus</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1459'>DATA-1459</a>] -         Natural Toughness missing Natural Armor</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1460'>DATA-1460</a>] -         Extra Evolution feat not available to Summoner archetypes </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1461'>DATA-1461</a>] -         Wild Caller archetype should substitute Summon Nature&#39;s Ally for Summon Monster Spells</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1462'>DATA-1462</a>] -         (PF APG) Command rather than Greater Command is a 5th lvl Inquisitor spell in PCGen</li>
 </ul>
 
 <h3>      Output Sheet Bug Fixes
