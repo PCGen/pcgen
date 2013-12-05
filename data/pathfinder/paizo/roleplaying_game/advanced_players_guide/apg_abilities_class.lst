@@ -658,6 +658,8 @@ Gate								KEY:Gate ~ Summoner					CATEGORY:Special Ability	TYPE:SummonerClassA
 
 Eidolon							KEY:Eidolon							CATEGORY:Special Ability	TYPE:Hidden.EidolonBase
 
+Summon Monster Spell List				KEY:Summon Monster Spell List ~ Summoner		CATEGORY:Internal			TYPE:Hidden.SpellBase	SPELLLEVEL:CLASS|Summoner=1|Summon Monster I|Summoner=2|Summon Monster II|Summoner=3|Summon Monster IV|Summoner=4|Summon Monster V|Summoner=5|Summon Monster VII|Summoner=6|Summon Monster VIII
+
 #Witch Special Abilities
 # Ability Name	Unique Key	Category of Ability	Type	Visible	Define	Description	Virtual Feat	Source Page	Followers
 ####Witch

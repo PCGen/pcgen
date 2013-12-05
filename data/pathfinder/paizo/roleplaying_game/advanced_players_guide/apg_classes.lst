@@ -233,6 +233,7 @@ CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summ
 1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLightArmor,TYPE.SummonerArmorProficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
 ###Block: Class Abilities
+1	ABILITY:Internal|AUTOMATIC|Summon Monster Spell List ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonsterSpells
 1	ABILITY:Summoner Class Ability|AUTOMATIC|Cantrips ~ Summoner
 1	ABILITY:Summoner Class Ability|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon
 1	ABILITY:Summoner Class Ability|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
