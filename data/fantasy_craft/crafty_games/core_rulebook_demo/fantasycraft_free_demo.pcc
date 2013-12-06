@@ -3,8 +3,8 @@
 # ORIGINAL ENTRY BY: Dragon Dark Lord
 # ORIGINAL ENTRY DATE: 2011-03-01
 
-CAMPAIGN:Core Rulebook (Demo)
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Core Rulebook (Demo)]
+CAMPAIGN:Fantasy Craft Core Rulebook (Demo)
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Fantasy Craft Core Rulebook (Demo)]
 GAMEMODE:FantasyCraft
 TYPE:Crafty Games.Fantasy Craft.Core
 STATUS:BETA
