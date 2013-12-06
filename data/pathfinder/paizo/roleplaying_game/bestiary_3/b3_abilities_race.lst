@@ -1795,3 +1795,22 @@ Default Traits ~ Raccoon												CATEGORY:Internal
 Default Traits ~ Spinosaurus												CATEGORY:Internal
 Default Traits ~ Unfettered Eidolon											CATEGORY:Internal
 Default Traits ~ Sapphire Jellyfish											CATEGORY:Internal
+
+###Block: Companion Support
+# Abilities
+4th-Level Advancement ~ Companion (Antelope)			PRERACE:1,Companion (Antelope)		CATEGORY:Special Ability	TYPE:CompChoice	BONUS:STAT|STR,DEX,CON|2|TYPE=Racial.STACK	DESC:Ability Scores Str +2, Dex +2, Con +2.	
+7th-Level Advancement ~ Companion (Archelon)			PRERACE:1,Companion (Archelon)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	DESC:bite (1d8), Ability Scores Str +8, Dex -2, Con +4. +2 Natural Armor. Size Large.
+4th Level Advancement ~ Companion (Axe Beak)			PRERACE:1,Companion (Axe Beak)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	ABILITY:Special Ability|AUTOMATIC|Sudden Charge ~ Axe Beak
+7th-Level Advancement ~ Companion (Baluchitherium)		PRERACE:1,Companion (Baluchitherium)	CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	ABILITY:Special Ability|AUTOMATIC|Trample
+7th-Level Advancement ~ Companion (Basilosaurus)		PRERACE:1,Companion (Basilosaurus)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1		BONUS:VAR|BlindsenseRange|60
+7th-Level Advancement ~ Companion (Dimetrodon)			PRERACE:1,Companion (Dimetrodon)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	BONUS:COMBAT|AC|-1|TYPE=NaturalArmor	
+7th-Level Advancement ~ Companion (Elk)				PRERACE:1,Companion (Elk)			CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1		ABILITY:Internal|AUTOMATIC|Gore|Hoof
+4th-Level Advancement ~ Companion (Giant Chameleon)		PRERACE:1,Companion (Giant Chameleon)	CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	MOVE:Walk,40,Climb,40		ABILITY:Special Ability|AUTOMATIC|Pull|Tongue ~ Giant Chameleon
+4th-Level Advancement ~ Companion (Giant Gecko)			PRERACE:1,Companion (Giant Gecko)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	MOVE:Walk,40
+7th-Level Advancement ~ Companion (Giant Vulture)		PRERACE:1,Companion (Giant Vulture)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	
+7th-Level Advancement ~ Companion (Iguanodon)			PRERACE:1,Companion (Iguanodon)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	ABILITY:Special Ability|AUTOMATIC|Thumb Spikes ~ Iguanodon
+4th-Level Advancement ~ Companion (Kangaroo)			PRERACE:1,Companion (Kangaroo)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	MOVE:Walk,50		NATURALATTACKS:Kick,Natural.Melee.Weapon.Bludgeoning,*1,1d6
+7th-Level Advancement ~ Companion (Megalania)			PRERACE:1,Companion (Megalania)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	BONUS:COMBAT|AC|-1|TYPE=NaturalArmor	ABILITY:Special Ability|AUTOMATIC|Grab|Poison ~ Megalania
+7th-Level Advancement ~ Companion (Pachycephalosaurus)	PRERACE:1,Companion (Pachycephalosaurus)	CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	ABILITY:Special Ability|AUTOMATIC|Clobbering Charge ~ Pachycephalosaurus
+7th-Level Advancement ~ Companion (Spinosaurus)			PRERACE:1,Companion (Spinosaurus)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1
+4th-Level Advancement ~ Companion (Thylacine)			PRERACE:1,Companion (Thylacine)		CATEGORY:Special Ability	TYPE:CompChoice		BONUS:SIZEMOD|NUMBER|1	

@@ -76,6 +76,7 @@ EQUIPMOD:b3_equipmods.lst
 KIT:b3_kits_race.lst
 LANGUAGE:b3_languages.lst
 RACE:b3_races.lst
+RACE:b3_races_companion.lst
 TEMPLATE:b3_templates.lst
 WEAPONPROF:b3_profs_weapon.lst
 
