@@ -32,25 +32,3 @@ CLASS:Shaitan Binder Eidolon (Ref/Will)	PRERACETYPE:Shaitan Binder Eidolon
 # Class Name					Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Shaitan Binder Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
-###Block: Wild Caller Eidolon
-
-# Class Name					Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
-CLASS:Wild Caller Eidolon (Fort/Ref)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.146	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name					Reg. Race Type
-CLASS:Wild Caller Eidolon (Fort/Ref)	PRERACETYPE:Wild Caller Eidolon
-# Class Name					Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Wild Caller Eidolon (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
-
-# Class Name					Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
-CLASS:Wild Caller Eidolon (Fort/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.146	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name					Reg. Race Type
-CLASS:Wild Caller Eidolon (Fort/Will)	PRERACETYPE:Wild Caller Eidolon
-# Class Name					Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Wild Caller Eidolon (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
-
-# Class Name					Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
-CLASS:Wild Caller Eidolon (Ref/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.146	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name					Reg. Race Type
-CLASS:Wild Caller Eidolon (Ref/Will)	PRERACETYPE:Wild Caller Eidolon
-# Class Name					Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Wild Caller Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth

@@ -10,6 +10,8 @@ Double Damage			KEY:Double Damage ~ Sapling Treant	CATEGORY:Special Ability	TYPE
 Constrict				KEY:Constrict ~ Crawling Vine		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialAttack.SpecialAbility									DESC:1d6 bludgeoning with a successful grapple check
 Plant Companion Advancement							CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Companion Advancement (Carnivorous Flower)|PRERACE:1,Companion (Carnivorous Flower)	ABILITY:Special Ability|AUTOMATIC|Companion Advancement (Crawling Vine)|PRERACE:1,Companion (Crawling Vine)	ABILITY:Special Ability|AUTOMATIC|Companion Advancement (Puffball)|PRERACE:1,Companion (Puffball)	ABILITY:Special Ability|AUTOMATIC|Companion Advancement (Sapling Treant)|PRERACE:1,Companion (Sapling Treant)
 
+Eidolon ~ Wild Caller Eidolon		CATEGORY:Special Ability	TYPE:Internal	DEFINE:IsWildCallerEidolon|1
+
 
 ###Block: Shaitan Binder Eidolon Abilities
 # Ability Name						Unique Key							Category of Ability		Type									Required Ability												Required Race					Required Stat	Var. Min. Value			Define						Innate Spells																Description																																																																																								Modify VAR							Cost		Source, Long Desc.	Source, Short Desc.	Source Page
@@ -55,7 +57,7 @@ Companion Advancement (Sapling Treant)		CATEGORY:Special Ability	TYPE:CompChoice
 # Ability Name										Unique Key			Category of Ability		Type									Required Race					Required Var. value			Stackable?	Multiple?	Choose													Bonus to skill
 CATEGORY=Special Ability|Evolution_Magic_Attacks.MOD																													PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution_Skilled.MOD																														PREVAREQ:IsWildCallerEidolon,0
-Skilled											KEY:WCEvolution_Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary	PRERACE:1,RACETYPE=Wild Caller Eidolon							STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
+Skilled											KEY:WCEvolution_Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary								PREVAREQ:IsWildCallerEidolon,1	STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
 CATEGORY=Special Ability|Evolution_Energy_Attack_Acid.MOD																												PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution_Energy_Attack_Cold.MOD																												PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution_Energy_Attack_Fire.MOD																												PREVAREQ:IsWildCallerEidolon,0
