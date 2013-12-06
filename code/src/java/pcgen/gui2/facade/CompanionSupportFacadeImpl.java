@@ -42,6 +42,7 @@ import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.PartyFacade;
+import pcgen.core.facade.RaceFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -387,8 +388,10 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		{
 			File file = delegate.getFileRef().getReference();
 			String name = delegate.getNameRef().getReference();
+			RaceFacade race = delegate.getRaceRef().getReference();
 			if (file.equals(character.getFileRef().getReference())
-				&& name.equals(character.getNameRef().getReference()))
+				&& name.equals(character.getNameRef().getReference()) 
+				&& (race == null || race.equals(character.getRaceRef().getReference())))
 			{
 				String companionType = delegate.getCompanionType();
 				delegate.setCompanionFacade(character);
