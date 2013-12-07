@@ -35,7 +35,10 @@ COPYRIGHT:PCGen dataset conversion for "Paizo - Blog: Pirate Familiars" Copyrigh
 #EXTRAFILE:OGL.txt
 
 
-COMPANIONMOD:ap55_companionmods.lst
-RACE:ap55_races_companions.lst
-KIT:ap55_kits_companions.lst
 ABILITY:ap55_abilities_class.lst
+ABILITY:ap55_abilities_race.lst
+COMPANIONMOD:ap55_companionmods.lst
+KIT:ap55_kits_companions.lst
+KIT:ap55_kits_races.lst
+RACE:ap55_races.lst
+RACE:ap55_races_companions.lst

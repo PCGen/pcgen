@@ -23,3 +23,10 @@ MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar						BONUS:SKILL|Linguistics|3	
 MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar						BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	BONUS:CHECKS|Fortitude|2						VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar						BONUS:SKILL|Fly|3			VFEAT:Alertness
+
+
+MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	VFEAT:Alertness	BONUS:COMBAT|INITIATIVE|4
+MASTERBONUSRACE:Familiar (Dwarf Caiman)	TYPE:Familiar	VFEAT:Alertness	BONUS:SKILL|Stealth|3
+MASTERBONUSRACE:Familiar (Giant Isopod)	TYPE:Familiar	VFEAT:Alertness	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+MASTERBONUSRACE:Familiar (Seal)		TYPE:Familiar	VFEAT:Alertness	BONUS:SKILL|Swim|3
+#MASTERBONUSRACE:Familiar (Marine Iguana)	TYPE:Familiar	VFEAT:Alertness	BONUS:SKILL|Swim|3

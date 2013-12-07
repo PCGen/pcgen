@@ -1,0 +1,13 @@
+
+Default Traits ~ Dodo		CATEGORY:Internal
+
+
+Default Traits ~ Dwarf Caiman		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Hold Breath ~ Dwarf Caiman|Sprint ~ Dwarf Caiman	
+Hold Breath					KEY:Hold Breath ~ Dwarf Caiman	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.Dwarf CaimanRaceTrait.SpecialQuality	DESC:A dwarf caiman can hold its breath for a number of rounds equal to 4 ? its Constitution score before it risks drowning. 
+Sprint					KEY:Sprint ~ Dwarf Caiman		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.Dwarf CaimanRaceTrait.SpecialQuality	DESC:Once per minute, a dwarf caiman may sprint, increasing its land speed to 20 feet for 1 round. 
+
+Default Traits ~ Giant Isopod		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Curl ~ Giant Isopod|Immunity to Mind-Affecting Effects
+Curl						KEY:Curl ~ Giant Isopod	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.Giant IsopodRaceTrait.SpecialQuality	DESC:As a standard action, a giant isopod can curl into a ball, increasing its natural armor bonus by +2 but preventing it from taking any move actions. Uncurling also requires a standard action. 
+
+Default Traits ~ Seal	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Hold Breath ~ Seal
+Hold Breath					KEY:Hold Breath ~ Seal	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.SealRaceTrait.SpecialQuality	DESC:A seal can hold its breath for a number of minutes equal to 6 ? its Constitution score before it risks drowning. 
