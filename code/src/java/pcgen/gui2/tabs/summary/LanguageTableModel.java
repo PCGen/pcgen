@@ -158,7 +158,7 @@ public class LanguageTableModel extends AbstractTableModel
 	public boolean isCellEditable(int rowIndex, int columnIndex)
 	{
 		if (rowIndex < languages.getSize()
-				&& character.isAutomatic(languages.getElementAt(rowIndex)))
+				&& !character.isRemovable(languages.getElementAt(rowIndex)))
 		{
 			return false;
 		}
@@ -321,6 +321,8 @@ public class LanguageTableModel extends AbstractTableModel
 			{
 				boolean automatic = value instanceof LanguageFacade
 						&& character.isAutomatic((LanguageFacade) value);
+				boolean removable = value instanceof LanguageFacade
+						&& character.isRemovable((LanguageFacade) value);
 				Point mouse = jTable.getMousePosition();
 
 				if (automatic)
@@ -334,7 +336,7 @@ public class LanguageTableModel extends AbstractTableModel
 				cellLabel.setText(value.toString());
 				cellLabel.setFont(jTable.getFont());
 				removeButton.setVisible(mouse != null && jTable.rowAtPoint(mouse) == row
-						&& !automatic);
+						&& removable);
 				cardLayout.show(this, REMOVE_ID);
 			}
 			else

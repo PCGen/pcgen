@@ -289,6 +289,14 @@ public interface CharacterFacade extends CompanionFacade
 
 	public boolean isAutomatic(LanguageFacade language);
 
+	/**
+	 * Is the user allowed to remove this language currently? 
+	 * e.g Automatic languages may not be removed.  
+	 * @param language The language to be checked.
+	 * @return true if the language can be removed.
+	 */
+	public boolean isRemovable(LanguageFacade language);
+
 	public void addTemplate(TemplateFacade template);
 
 	public void removeTemplate(TemplateFacade template);
