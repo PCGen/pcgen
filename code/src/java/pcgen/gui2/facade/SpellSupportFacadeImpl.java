@@ -314,8 +314,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				int highestSpellLevel = pc.getSpellSupport(aClass).getHighestLevelSpell(pc);
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
-					if (pc.availableSpells(i, aClass, Globals
-						.getDefaultSpellBook(), true, true))
+					if (pc.availableSpells(i, aClass,
+						Globals.getDefaultSpellBook(), true, false)
+						|| pc.availableSpells(i, aClass,
+							Globals.getDefaultSpellBook(), true, true))
 					{
 						hasFree = true;
 						break;
