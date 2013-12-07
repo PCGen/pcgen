@@ -5287,7 +5287,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return objClass.getName().substring(pckName.length() + 1);
 	}
 
-	@Deprecated
 	private WeaponProf getWeaponProf(final String aString)
 	{
 		WeaponProf wp =
@@ -5298,7 +5297,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final String message =
 					"Unable to find Weapon Proficiency in Rules Data:"
 						+ aString;
-			warnings.add(message);
+			Logging.debugPrint(message);
 		}
 		return wp;
 	}
