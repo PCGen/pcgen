@@ -148,7 +148,7 @@ STAT:STR=12|DEX=13|CON=11|INT=9|WIS=10|CHA=8
 ABILITY:CATEGORY=Region of Origin|Absalom
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 FEAT:Skill Focus (Perception)
 SKILL:Swim	RANK:1
 GEAR:Trident			SIZE:M	LOCATION:Both Hands
@@ -205,7 +205,7 @@ STAT:STR=12|DEX=13|CON=10|INT=8|WIS=11|CHA=9
 ABILITY:CATEGORY=Region of Origin|Cheliax
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Fly)
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Fly)
 FEAT:Improved Initiative
 SKILL:Linguistics	RANK:1	SELECTION:Common
 GEAR:Spear	SIZE:M	LOCATION:Both Hands

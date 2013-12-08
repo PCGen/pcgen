@@ -93,14 +93,14 @@ STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
 TEMPLATE:Nosferatu
 CLASS:Wizard	LEVEL:8	SUBCLASS:Wizard
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Wizard Bonus Feat|Silent Spell
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
 SKILL:Craft (Alchemy)		RANK:2

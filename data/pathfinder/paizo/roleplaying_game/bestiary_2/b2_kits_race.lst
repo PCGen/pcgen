@@ -1610,7 +1610,7 @@ ALIGN:CE
 STAT:STR=13|DEX=15|CON=12|INT=10|WIS=8|CHA=14
 CLASS:Fighter	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Survival)
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Survival)
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Finesse
 SKILL:Intimidate
 SKILL:Ride
@@ -2890,7 +2890,7 @@ ALIGN:TN
 STAT:STR=13|DEX=15|CON=14|INT=8|WIS=10|CHA=12
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Knowledge (Planes))
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Knowledge (Planes))
 SKILL:Appraise
 SKILL:Bluff
 SKILL:Diplomacy
@@ -3255,7 +3255,7 @@ ALIGN:TN
 STAT:STR=14|DEX=15|CON=13|INT=12|WIS=10|CHA=8
 CLASS:Ranger	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Ranger
-#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+#ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Vermin)
 SKILL:Acrobatics
 SKILL:Climb
@@ -3476,7 +3476,7 @@ STAT:STR=10|DEX=14|CON=12|INT=13|WIS=8|CHA=15
 LANGBONUS:Gnome
 CLASS:Sorcerer	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Sorcerer
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Sorcerer Bloodline|Elemental Bloodline (Fire)
 SKILL:Bluff				RANK:1
 SKILL:Knowledge (Arcana)	RANK:1
@@ -3872,10 +3872,10 @@ ABILITY:CATEGORY=Ability Bonus|+2 Wisdom
 NAME:Werebear
 CLASS:Ranger	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Ranger
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Climb				RANK:4
 SKILL:Handle Animal		RANK:4
 SKILL:Heal				RANK:4
@@ -3918,8 +3918,8 @@ ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
 NAME:Wereboar
 CLASS:Barbarian	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Barbarian
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Handle Animal		RANK:2
 SKILL:Intimidate			RANK:2
 SKILL:Knowledge (Nature)	RANK:2
@@ -3960,10 +3960,10 @@ ABILITY:CATEGORY=Ability Bonus|+2 Charisma
 NAME:Weretiger
 CLASS:Rogue	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics		RANK:4
 SKILL:Climb			RANK:4
 SKILL:Handle Animal	RANK:4
@@ -4395,8 +4395,8 @@ STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
 TEMPLATE:Ogrekin
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Ogrekin Beneficial Deformity|Oversized Maw ~ Ogrekin
 ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Weak Mind ~ Ogrekin
 SKILL:Climb	RANK:2
@@ -4417,7 +4417,7 @@ GENDER:Female
 STAT:STR=13|DEX=15|CON=14|INT=8|WIS=12|CHA=10
 CLASS:Fighter	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Fighter
-#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+#ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longbow)
 SKILL:Intimidate	RANK:1
 FEAT:Iron Will
@@ -5355,7 +5355,7 @@ STAT:STR=8|DEX=15|CON=12|INT=13|WIS=14|CHA=10
 LANGBONUS:Elven|Halfling
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics		RANK:1
 SKILL:Appraise		RANK:1
 SKILL:Bluff			RANK:1
@@ -5663,7 +5663,7 @@ GENDER:Male
 STAT:STR=13|DEX=12|CON=8|INT=10|WIS=15|CHA=14
 CLASS:Cleric	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Cleric
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Channel Energy|Channel Positive Energy ~ Cleric
 SKILL:Diplomacy			RANK:1
 SKILL:Knowledge (Religion)	RANK:1
@@ -5897,19 +5897,19 @@ TEMPLATE:Worm that Walks
 LANGBONUS:Abyssal|Aklo|Infernal
 CLASS:Wizard	LEVEL:13	SUBCLASS:Conjurer
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Wizard Bonus Feat|Craft Wondrous Item
 ABILITY:CATEGORY=Wizard Bonus Feat|Craft Magic Arms and Armor
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
@@ -6076,8 +6076,8 @@ STAT:STR=14|DEX=15|CON=10|INT=8|WIS=13|CHA=10
 TEMPLATE:Zombie (Juju)
 CLASS:Rogue	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Rogue
-#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-#ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+#ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+#ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Combat Trick
 SKILL:Acrobatics		RANK:1
 SKILL:Climb			RANK:1

@@ -7,7 +7,7 @@ NAME:Goblin Warchanter
 ALIGN:NE
 CLASS:Bard	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Bard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=10|DEX=12|CON=13|INT=8|WIS=12|CHA=15
 SKILL:Acrobatics		RANK:1
 SKILL:Perception		RANK:1
@@ -54,7 +54,7 @@ ALIGN:LE
 LANGBONUS:Goblin
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=10|DEX=15|CON=8|INT=13|WIS=14|CHA=10
 SKILL:Acrobatics				RANK:1
 SKILL:Bluff					RANK:1
@@ -78,8 +78,8 @@ FEAT:Weapon Finesse
 #ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
 ABILITY:CATEGORY=Monk Bonus Feat|Deflect Arrows
 ABILITY:CATEGORY=Favored Class|Monk
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Potion of Cure Light Wounds	LOCATION:Equipped
 GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
 GEAR:Ring of Protection +1		LOCATION:Equipped
@@ -94,8 +94,8 @@ NAME:Koruvus
 ALIGN:CE
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=17|DEX=9|CON=16|INT=3|WIS=8|CHA=12
 SKILL:Intimidate	RANK:2
 FEAT:Great Fortitude
@@ -114,10 +114,10 @@ ALIGN:NE
 CLASS:Druid	LEVEL:4
 ABILITY:CATEGORY=Nature Bond|Nature's Bond ~ Animal Companion
 ABILITY:CATEGORY=Favored Class|Druid
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=10|DEX=10|CON=14|INT=8|WIS=15|CHA=14
 SKILL:Handle Animal		RANK:4
 SKILL:Knowledge (Nature)	RANK:4
@@ -139,10 +139,10 @@ NAME:Warchief Ripnugget
 ALIGN:NE
 CLASS:Fighter	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=14|DEX=10|CON=14|INT=10|WIS=8|CHA=15
 SKILL:Handle Animal	RANK:2
 SKILL:Intimidate		RANK:1
@@ -165,7 +165,7 @@ NAME:Bruthazamus
 ALIGN:CE
 CLASS:Ranger	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Ranger
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=11|DEX=14|CON=16|INT=8|WIS=12|CHA=10
 SKILL:Intimidate	RANK:1
 SKILL:Perception	RANK:1
@@ -189,9 +189,9 @@ NAME:Orik Vancaskerkin
 ALIGN:CN
 CLASS:Fighter	LEVEL:3
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=13|DEX=13|CON=14|INT=10|WIS=12|CHA=8
 SKILL:Climb		RANK:1
 SKILL:Intimidate	RANK:1
@@ -222,9 +222,9 @@ LANGBONUS:Goblin|Thassilonian
 CLASS:Wizard	LEVEL:3	SUBCLASS:Wizard
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=8|DEX=14|CON=12|INT=13|WIS=10|CHA=13
 SKILL:Knowledge (Arcana)	RANK:3
 SKILL:Knowledge (Engineering)	RANK:3
@@ -316,8 +316,8 @@ ALIGN:CE
 STAT:STR=16|DEX=8|CON=14|INT=10|WIS=12|CHA=13
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate			RANK:2
 SKILL:Ride				RANK:2
 DEITY:Lamashtu

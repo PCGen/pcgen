@@ -21,10 +21,10 @@ ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Stealth)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Use Magic Device)
 CLASS:Rogue		LEVEL:4
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Fast Stealth
 ABILITY:CATEGORY=Rogue Talent|Minor Magic (Daze)
 STAT:STR=8|DEX=14|CON=8|INT=13|WIS=12|CHA=16
@@ -56,9 +56,9 @@ NAME:Lavender Thug
 ALIGN:CN
 CLASS:Fighter	LEVEL:3
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=13|DEX=13|CON=14|INT=10|WIS=8|CHA=12
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
@@ -82,11 +82,11 @@ ALIGN:CE
 STAT:STR=11|DEX=14|CON=12|INT=10|WIS=9|CHA=10
 CLASS:Fighter	LEVEL:5
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Wererat
@@ -120,14 +120,14 @@ NAME:Yvicca
 ALIGN:NE
 CLASS:Druid	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Druid
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Nature Bond|Nature's Bond ~ Druid Domain
 ABILITY:CATEGORY=Druid Domain|Druid Domain ~ Water
 CLASS:Druid	LEVEL:1
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=12|DEX=14|CON=14|INT=8|WIS=16|CHA=10
 SKILL:Handle Animal		RANK:5
 SKILL:Knowledge (Nature)	RANK:3
@@ -154,12 +154,12 @@ NAME:Jolistina Susperio
 ALIGN:CE
 CLASS:Rogue		LEVEL:6
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Trap Spotter
 ABILITY:CATEGORY=Rogue Talent|Surprise Attack
 ABILITY:CATEGORY=Rogue Talent|Finesse Rogue
@@ -209,8 +209,8 @@ NAME:Gray Maiden
 ALIGN:LE
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=12|DEX=12|CON=15|INT=10|WIS=8|CHA=13
 SKILL:Acrobatics	RANK:2
 SKILL:Climb		RANK:2
@@ -233,8 +233,8 @@ NAME:Queen's Physician
 ALIGN:NE
 CLASS:Rogue	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Fast Stealth
 STAT:STR=12|DEX=15|CON=12|INT=13|WIS=10|CHA=8
 SKILL:Acrobatics		RANK:2
@@ -275,10 +275,10 @@ ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Sleight of Hand)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Linguistics)
 CLASS:Bard		LEVEL:4
 ABILITY:CATEGORY=Favored Class|Bard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Versatile Performance|Oratory
 STAT:STR=8|DEX=12|CON=10|INT=16|WIS=12|CHA=14
 SKILL:Appraise			RANK:4
@@ -318,14 +318,14 @@ NAME:Rolth
 ALIGN:CE
 CLASS:Wizard	LEVEL:8	SUBCLASS:Necromancer
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=8|DEX=12|CON=14|INT=16|WIS=10|CHA=12
 SKILL:Craft (Alchemy)		RANK:8
 SKILL:Knowledge (Arcana)	RANK:8
@@ -362,8 +362,8 @@ NAME:Priest of Urgathoa
 ALIGN:NE
 CLASS:Cleric	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Cleric
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 DEITY:Urgathoa	DOMAIN:Death|War
 STAT:STR=11|DEX=10|CON=14|INT=12|WIS=15|CHA=8
 SKILL:Heal				RANK:2
@@ -390,15 +390,15 @@ NAME:Lady Andaisin
 ALIGN:NE
 CLASS:Cleric	LEVEL:9
 ABILITY:CATEGORY=Favored Class|Cleric
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 DEITY:Urgathoa	DOMAIN:Death|War
 STAT:STR=10|DEX=8|CON=18|INT=10|WIS=17|CHA=13
 SKILL:Perception			RANK:9

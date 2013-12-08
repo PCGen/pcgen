@@ -10,8 +10,8 @@ ALIGN:LE
 TEMPLATE:Yargin Balko's Skills
 CLASS:Expert	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Expert
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Appraise)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Bluff)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Craft (Alchemy))
@@ -53,7 +53,7 @@ STAT:STR=7|DEX=13|CON=10|INT=9|WIS=8|CHA=10
 TEMPLATE:Lamm's Lambs Skills
 CLASS:Expert	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Expert
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Acrobatics)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Bluff)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Climb)
@@ -82,7 +82,7 @@ NAME:Hookshanks Gruller
 ALIGN:NE
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=13|DEX=15|CON=12|INT=10|WIS=14|CHA=8
 SKILL:Bluff			RANK:1
 SKILL:Climb			RANK:1
@@ -107,7 +107,7 @@ ALIGN:CE
 STAT:STR=13|DEX=13|CON=14|INT=8|WIS=12|CHA=10
 CLASS:Fighter	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Fighter Bonus Feat|Combat Reflexes
 SKILL:Intimidate	RANK:1
 FEAT:Weapon Focus(Flail)
@@ -125,10 +125,10 @@ STAT:STR=5|DEX=11|CON=7|INT=16|WIS=14|CHA=15
 TEMPLATE:Gaedren Lamm's Skills
 CLASS:Expert	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Expert
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Appraise)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Bluff)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Disable Device)
@@ -168,8 +168,8 @@ NAME:Renegade Guard
 ALIGN:CE
 CLASS:Warrior	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=11|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 SKILL:Handle Animal	RANK:2
 SKILL:Intimidate		RANK:2
@@ -191,9 +191,9 @@ NAME:Verik Vancaskerkin
 ALIGN:CN
 CLASS:Fighter	LEVEL:3
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=13|DEX=14|CON=12|INT=10|WIS=8|CHA=13
 SKILL:Handle Animal	RANK:3
 SKILL:Intimidate		RANK:3
@@ -218,10 +218,10 @@ NAME:Devargo Barvasi
 ALIGN:LE
 CLASS:Rogue	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Finesse Rogue
 ABILITY:CATEGORY=Rogue Talent|Surprise Attack
 STAT:STR=12|DEX=14|CON=14|INT=10|WIS=8|CHA=13
@@ -254,10 +254,10 @@ NAME:Trinia Sabor
 ALIGN:CG
 CLASS:Bard	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Bard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Versatile Performance|Comedy
 SKILL:Acrobatics		RANK:4
 SKILL:Bluff			RANK:4
@@ -287,8 +287,8 @@ ALIGN:CN
 TEMPLATE:Cabbagehead Ogrekin
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=13|DEX=13|CON=14|INT=10|WIS=8|CHA=10
 SKILL:Climb	RANK:2
 SKILL:Swim	RANK:2
@@ -306,11 +306,11 @@ NAME:Vreeg
 ALIGN:NE
 CLASS:Wizard	LEVEL:5	SUBCLASS:Necromancer
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
 ABILITY:CATEGORY=Arcane Opposition School|Conjuration Opposition School
 ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School

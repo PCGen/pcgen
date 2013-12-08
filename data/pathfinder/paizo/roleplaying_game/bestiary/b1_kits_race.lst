@@ -9,7 +9,7 @@ NAME:Aasimar Cleric
 DEITY:Sarenrae
 CLASS:Cleric	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Cleric
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Channel Energy|Channel Positive Energy ~ Cleric
 DEITY:Sarenrae	DOMAIN:Good|Healing
 LANGBONUS:Draconic
@@ -3220,7 +3220,7 @@ ALIGN:CE
 STAT:STR=11|DEX=13|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Weapon Finesse
@@ -3240,9 +3240,9 @@ NAME:Drow Noble
 CLASS:Cleric	LEVEL:3
 DEITY:None	DOMAIN:Chaos|Death
 ABILITY:CATEGORY=Favored Class|Cleric
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Skill Point (Spellcraft)
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Spellcraft)
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Spellcraft)
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Spellcraft)
 ABILITY:CATEGORY=Special Ability|Channel Negative Energy
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Sense Motive		RANK:3
@@ -3289,7 +3289,7 @@ RACE:Duergar	!PRERACE:1,%
 NAME:Duergar
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Weapon Focus (Warhammer)
@@ -4429,7 +4429,7 @@ ALIGN:NE
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Ride	RANK:1
 SKILL:Swim	RANK:1
 FEAT:Improved Initiative
@@ -4635,7 +4635,7 @@ RACE:Hobgoblin	!PRERACE:1,%
 NAME:Hobgoblin
 CLASS:Fighter	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Toughness
@@ -4807,7 +4807,7 @@ RACE:Kobold	!PRERACE:1,%
 NAME:Kobold
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Craft (Traps)	RANK:1
 SKILL:Perception		RANK:1
 FEAT:Skill Focus (Perception)
@@ -5181,7 +5181,7 @@ ALIGN:NE
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Swim		RANK:1
 FEAT:Skill Focus (Perception)
@@ -5523,7 +5523,7 @@ ALIGN:CE
 STAT:STR=13|DEX=11|CON=12|INT=9|WIS=10|CHA=8
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
 FEAT:Weapon Focus (Falchion)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
@@ -6056,7 +6056,7 @@ RACE:Skeletal Champion (Human)	!PRERACE:1,%
 NAME:Skeletal Champion
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ALIGN:NE
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
@@ -6261,7 +6261,7 @@ RACE:Svirfneblin	!PRERACE:1,%
 NAME:Svirfneblin Ranger
 CLASS:Ranger	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Ranger
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Dwarf))
 SKILL:Craft (Alchemy)			RANK:1
 SKILL:Heal					RANK:1
@@ -6304,7 +6304,7 @@ ALIGN:TN
 STAT:STR=12|DEX=15|CON=14|INT=10|WIS=13|CHA=8
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics		RANK:1
 SKILL:Appraise		RANK:1
 SKILL:Bluff			RANK:1
@@ -6326,7 +6326,7 @@ ALIGN:NE
 STAT:STR=13|DEX=15|CON=14|INT=10|WIS=12|CHA=8
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics		RANK:1
 SKILL:Bluff			RANK:1
 SKILL:Disable Device	RANK:1
@@ -6834,17 +6834,17 @@ STAT:STR=10|DEX=14|CON=10|INT=16|WIS=12|CHA=14
 TEMPLATE:Lich
 CLASS:Wizard	LEVEL:11	SUBCLASS:Necromancer
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
 ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
 ABILITY:CATEGORY=Arcane Opposition School|Transmutation Opposition School
@@ -6939,8 +6939,8 @@ ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Wererat
 CLASS:Rogue	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Fast Stealth
 SKILL:Acrobatics		RANK:2
 SKILL:Bluff			RANK:2
@@ -6975,8 +6975,8 @@ ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Werewolf
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Climb		RANK:2
 SKILL:Intimidate	RANK:2
 SKILL:Perception	RANK:2	FREE:YES
@@ -7008,14 +7008,14 @@ CLASS:Sorcerer	LEVEL:8
 ABILITY:CATEGORY=Ability Bonus|+2 Charisma
 ABILITY:CATEGORY=Sorcerer Bloodline|Undead Bloodline
 ABILITY:CATEGORY=Favored Class|Sorcerer
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Bluff				RANK:8
 SKILL:Knowledge (Arcana)	RANK:8
 SKILL:Knowledge (Religion)	RANK:8

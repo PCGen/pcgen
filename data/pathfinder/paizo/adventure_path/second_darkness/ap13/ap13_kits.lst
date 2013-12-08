@@ -10,7 +10,7 @@ STAT:STR=11|DEX=15|CON=14|INT=12|WIS=10|CHA=8
 NAME:Riddleport Thief
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics		RANK:1
 SKILL:Bluff			RANK:1
 SKILL:Climb			RANK:1
@@ -39,7 +39,7 @@ ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Riddleport Thug
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
 SKILL:Swim		RANK:1
 FEAT:Improved Unarmed Strike
@@ -60,8 +60,8 @@ STAT:STR=10|DEX=14|CON=13|INT=13|WIS=12|CHA=8
 NAME:Angvar Thestlecrit
 CLASS:Wizard	LEVEL:2	SUBCLASS:Wizard
 ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
 SKILL:Appraise			RANK:1
 SKILL:Bluff				RANK:2
@@ -108,7 +108,7 @@ STAT:STR=10|DEX=13|CON=12|INT=14|WIS=8|CHA=13
 NAME:Thuvalia Barabbio
 CLASS:Bard	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Bard
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics		RANK:1
 SKILL:Disguise		RANK:1
 SKILL:Escape Artist	RANK:1
@@ -143,10 +143,10 @@ STAT:STR=11|DEX=13|CON=13|INT=13|WIS=9|CHA=14
 NAME:Saul Vancaskerkin
 CLASS:Rogue	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Surprise Attack
 ABILITY:CATEGORY=Rogue Talent|Trap Spotter
 SKILL:Appraise			RANK:4
@@ -183,9 +183,9 @@ NAME:Samaritha Beldusk
 CLASS:Wizard	LEVEL:3	SUBCLASS:Transmuter
 ABILITY:CATEGORY=Favored Class|Wizard
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Arcane Opposition School|Abjuration Opposition School
 ABILITY:CATEGORY=Arcane Opposition School|Illusion Opposition School
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
@@ -229,10 +229,10 @@ STAT:STR=15|DEX=8|CON=12|INT=10|WIS=9|CHA=11
 NAME:Lymas Smeed
 CLASS:Expert	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Expert
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Appraise)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Bluff)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Diplomacy)
@@ -275,9 +275,9 @@ STAT:STR=13|DEX=12|CON=14|INT=8|WIS=10|CHA=13
 NAME:Braddikar Faje
 CLASS:Fighter	LEVEL:3
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:3
 SKILL:Acrobatics	RANK:3
 FEAT:Alertness
@@ -299,9 +299,9 @@ STAT:STR=14|DEX=15|CON=13|INT=8|WIS=12|CHA=6
 NAME:Jasker Gant
 CLASS:Monk	LEVEL:3
 ABILITY:CATEGORY=Favored Class|Monk
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Acrobatics	RANK:3
 SKILL:Climb		RANK:3
 SKILL:Intimidate	RANK:3
@@ -324,7 +324,7 @@ STAT:STR=15|DEX=12|CON=14|INT=8|WIS=13|CHA=6
 NAME:Croat Thug
 CLASS:Fighter	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
 FEAT:Iron Will
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
@@ -343,10 +343,10 @@ STAT:STR=15|DEX=14|CON=14|INT=8|WIS=12|CHA=8
 NAME:Kwava
 CLASS:Ranger	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Ranger
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Human))
 ABILITY:CATEGORY=Combat Style|Archery
 ABILITY:CATEGORY=Favored Terrain|Favored Terrain (Forest)
@@ -379,7 +379,7 @@ STAT:STR=10|DEX=15|CON=10|INT=12|WIS=13|CHA=10
 NAME:Wererat
 CLASS:Rogue	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Afflicted Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Wererat
@@ -414,8 +414,8 @@ STAT:STR=12|DEX=13|CON=15|INT=8|WIS=12|CHA=10
 NAME:Bojask
 CLASS:Ranger	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Ranger
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
 ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
 SKILL:Handle Animal		RANK:2
@@ -442,11 +442,11 @@ STAT:STR=13|DEX=16|CON=14|INT=12|WIS=8|CHA=12
 NAME:Depora Azrinae
 CLASS:Fighter	LEVEL:5
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Crossbows
 SKILL:Craft (Alchemy)	RANK:5
 SKILL:Intimidate		RANK:5
@@ -477,10 +477,10 @@ STAT:STR=8|DEX=13|CON=14|INT=12|WIS=10|CHA=14
 NAME:Beltias Kreun, The Splithog Pauper
 CLASS:Rogue	LEVEL:4
 ABILITY:CATEGORY=Favored Class|Rogue
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Rogue Talent|Ledge Walker
 ABILITY:CATEGORY=Rogue Talent|Trap Spotter
 SKILL:Acrobatics		RANK:4
@@ -514,8 +514,8 @@ STAT:STR=13|DEX=12|CON=14|INT=10|WIS=8|CHA=13
 NAME:Badeye Rumblefist
 CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:2
 SKILL:Climb		RANK:2
 FEAT:Improved Initiative
