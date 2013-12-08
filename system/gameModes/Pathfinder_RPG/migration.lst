@@ -113,6 +113,69 @@ ABILITY:Special Ability|Bonus Stabilisation				NEWKEY:Favored Class Bonus ~ Stab
 ABILITY:Special Ability|Bonus Trap Sense or Supersititous Rage	NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Wild Empathy (Underground)		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Wizard Spell				NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+# Advanced Race Guide
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Gnome		NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Human		NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Dwarf		NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Elf		NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Human		NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Gnome			NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Halfling		NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Human			NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Elf		NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Human		NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Dwarf		NEWKEY:Favored Class Bonus ~ Domain Power Use Cleric	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Halfling		NEWKEY:Favored Class Bonus ~ Domain Power Use Cleric	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Human		NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Gnome			NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Domain Power Use Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Human			NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Dwarf		NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Elf		NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Halfling		NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Human		NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Human		NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Halfling		NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Human			NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Dwarf		NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Gnome		NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Human		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Dwarf		NEWKEY:Favored Class Bonus ~ Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Halfling		NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Human		NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Dwarf		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Elf			NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Gnome		NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling		NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling		NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human		NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Dwarf			NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Gnome			NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Human			NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Elf		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Human		NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Gnome		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Halfling		NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Human			NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Elf			NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Gnome		NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Human		NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 
 
 # Ultimate Combat
