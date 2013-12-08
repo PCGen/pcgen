@@ -65,8 +65,8 @@ ABILITY:Special Ability|APGRT ~ CMD-DO					NEWKEY:Favored Class Bonus ~ CMD Disa
 ABILITY:Special Ability|APGRT ~ CMD-DS					NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|APGRT ~ CMD-G-S					NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|APGRT ~ CMD-GT					NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ DomCl					NEWKEY:Favored Class Bonus ~ Domain Power Use Cleric	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ DomDr					NEWKEY:Favored Class Bonus ~ Domain Power Use Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ DomCl					NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ DomDr					NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Banner Ability				NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Bard Spell					NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Bloodline Power Use			NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
@@ -128,12 +128,12 @@ ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Halfling		NEWKEY:Favored Cl
 ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Human			NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Elf		NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Human		NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Dwarf		NEWKEY:Favored Class Bonus ~ Domain Power Use Cleric	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Halfling		NEWKEY:Favored Class Bonus ~ Domain Power Use Cleric	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Dwarf		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Halfling		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Human		NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Gnome			NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
 #ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Domain Power Use Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Human			NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Dwarf		NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
