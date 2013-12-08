@@ -3958,7 +3958,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bonus Skill Point (Handle Animal, Knowledge (Geography), Sense Motive, Knowledge (Local), Knowledge (Dungeoneering), Knowledge (Engineering))</name>
+			<name>Bonus Skill Rank (Handle Animal, Knowledge (Geography), Sense Motive, Knowledge (Local), Knowledge (Dungeoneering), Knowledge (Engineering))</name>
 			<description></description>
 			<type>FAVOREDCLASSBONUS</type>
 			<associated>Handle Animal,Knowledge (Geography),Sense Motive,Knowledge (Local),Knowledge (Dungeoneering),Knowledge (Engineering)</associated>

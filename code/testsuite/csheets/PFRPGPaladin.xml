@@ -3192,7 +3192,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bonus Skill Point (Diplomacy, Diplomacy, Diplomacy, Diplomacy)</name>
+			<name>Bonus Skill Rank (Diplomacy, Diplomacy, Diplomacy, Diplomacy)</name>
 			<description></description>
 			<type>FAVOREDCLASSBONUS</type>
 			<associated>Diplomacy,Diplomacy,Diplomacy,Diplomacy</associated>

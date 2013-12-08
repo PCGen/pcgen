@@ -2262,7 +2262,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bonus Skill Point (Knowledge (Religion), Knowledge (Planes))</name>
+			<name>Bonus Skill Rank (Knowledge (Religion), Knowledge (Planes))</name>
 			<description></description>
 			<type>FAVOREDCLASSBONUS</type>
 			<associated>Knowledge (Religion),Knowledge (Planes)</associated>
