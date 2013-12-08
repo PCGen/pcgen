@@ -27,9 +27,9 @@ ABILITY:Special Ability|Guarded Stance			NEWKEY:Guarded Stance ~ Rage Power			MA
 ABILITY:Special Ability|Internal Fortitude		NEWKEY:Internal Fortitude ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Intimidating Glare		NEWKEY:Intimidating Glare ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Knockback				NEWKEY:Knockback ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Low-Light Vision		NEWKEY:Low-Light Vision ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Low-Light Vision			NEWKEY:Low-Light Vision ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Mighty Swing			NEWKEY:Mighty Swing ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Moment of Clarity		NEWKEY:Moment of Clarity ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Moment of Clarity			NEWKEY:Moment of Clarity ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Night Vision			NEWKEY:Night Vision ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|No Escape				NEWKEY:No Escape ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Powerful Blow			NEWKEY:Powerful Blow ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
@@ -43,12 +43,79 @@ ABILITY:Special Ability|Roused Anger			NEWKEY:Roused Anger ~ Rage Power			MAXVER
 ABILITY:Special Ability|Scent					NEWKEY:Scent ~ Rage Power					MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Strength Surge			NEWKEY:Strength Surge ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Superstition			NEWKEY:Superstition ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Surprise Accuracy		NEWKEY:Surprise Accuracy ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Surprise Accuracy			NEWKEY:Surprise Accuracy ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Swift Foot				NEWKEY:Swift Foot ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Terrifying Howl			NEWKEY:Terrifying Howl ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Unexpected Strike		NEWKEY:Unexpected Strike ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Unexpected Strike			NEWKEY:Unexpected Strike ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
 
-# Ultimate Combat 
+###Block: Favored Class Bonus Ability changes
+# Core Rulebook
+ABILITY:Special Ability|Bonus Hit Point					NEWKEY:Favored Class Bonus ~ Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Skill Point					NEWKEY:Favored Class Bonus ~ Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+# Advanced Player's Guide
+ABILITY:Special Ability|APGRT ~ CMD-2					NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Bull Rush			NEWKEY:Favored Class Bonus ~ Bonus CMD Bull Rush	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Disarm				NEWKEY:Favored Class Bonus ~ Bonus CMD Disarm	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Grapple				NEWKEY:Favored Class Bonus ~ Bonus CMD Grapple	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Overrun				NEWKEY:Favored Class Bonus ~ Bonus CMD Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Sunder				NEWKEY:Favored Class Bonus ~ Bonus CMD Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Trip				NEWKEY:Favored Class Bonus ~ Bonus CMD Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-BT					NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-DO					NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-DS					NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-G-S					NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-GT					NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ DomCl					NEWKEY:Favored Class Bonus ~ Domain Power Use Cleric	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ DomDr					NEWKEY:Favored Class Bonus ~ Domain Power Use Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Banner Ability				NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bard Spell					NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bloodline Power Use			NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bomb Damage					NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bombs Per Day				NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Companion DR				NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Companion Hit Point			NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Companion Skill				NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Concentration				NEWKEY:Favored Class Bonus ~ Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Creature Attitude				NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Critical Confirm (Elf)			NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Critical Confirm (Halfling)		NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Curse Level					NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Disable Device & Trap Sense (Stone)	NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Disable Device & UMD (Writings)	NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Druid Companion Skill			NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Druid Energy Resistance			NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Eidolon Evolution				NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Eidolon Hit Point				NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Eidolon Skill				NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Energy Resistance				NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Extract Formula				NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Familiar Skill				NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Familiar Spell				NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Fast Movement				NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Favored Enemy Dodge			NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Feint & Gather Information		NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Fire Damage					NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Inquisitor Spell				NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Intimidate & Creature Identify	NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Ki						NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Lay On Hands				NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Mount Hit Point				NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Oracle Spell				NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Performance Round				NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Proficient Weapon				NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Rage Round					NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Rogue Talent				NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus School Power Use				NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Social Skills				NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Sorcerer Spell				NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Spell Penetration Vs Outsiders	NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Stabilisation				NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Trap Sense or Supersititous Rage	NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Wild Empathy (Underground)		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Wizard Spell				NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+
+
+# Ultimate Combat
 EQUIPMENT:Bukler Gun	NEWKEY:Buckler Gun		MAXVER:6.0.02	MAXDEVVER:6.1.4
 
 ###Block: Migration to be sources
