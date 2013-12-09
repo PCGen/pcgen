@@ -668,12 +668,13 @@
 
 <hr>
 
-	<p class="lststatus"><a name="NATURALATTACKS">*** New 5.11.13</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:w,x.x,y,z|w,x.x,y,z</p>
-	<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Natural weapon type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Number of attacks)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Text (Natural weapon damage)</p>
+	<p class="new"><a name="NATURALATTACKS">*** Updated 6.1.9</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> NATURALATTACKS:v,w.w,x,y,z|v,w.w,x,y,z</p>
+	<p class="indent1"><strong>Variables Used (v):</strong> Text (Natural weapon name)</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> Text (Natural weapon type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of attacks)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Natural weapon damage)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> SPROP=Text (special property description, Optional)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent1">
 		<li>This tag is used to define natural attacks and add them to the character when the
@@ -687,17 +688,20 @@
 		</ul>
 		<li>For multiple attacks included in the same <code>NATURALATTACKS</code> tag, the first is 
 			treated as a primary weapon and the second is treated as a secondary attack.</li>
-		<li>Natural weapon types (x) should be period-delimited (.). This must always
+		<li>Natural weapon types (w) should be period-delimited (.). This must always
 			start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
 			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapon's
 			damage types are listed which can be &quot;Bludgeoning&quot;,
 			&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
-		<li>If the number of attacks (y) has an asterisk in front of the number it
+		<li>If the number of attacks (x) has an asterisk in front of the number it
 			indicates that the number of attacks is non-iterative, that is it is not
 			based on the creature's attack progression but rather how many of the
 			natural weapons it possesses.</li>
 		<li>The damage the natural weapon does is entered in the standard dice notation
 			such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
+		<li>The SPROP= tag (z) allows special properties of the attack to be described. This might be 
+			&quot;SPROP=plus poison&quot; or &quot;SPROP=plus 1d6 fire&quot; . Note
+			there is no variable or prereq support, unlike equipment SPROP entries.</li>
 		<li>If this tag is applied through a race or template object, the &quot;size&quot; of 
 			the character is determined through those objects, otherwise, the attacks will 
 			always be size &quot;Medium&quot;.
@@ -709,6 +713,8 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6</code></p>
 	<p class="indent3">Race has 2 Claw attacks and a Bite attack.</p>
+	<p class="indent2"><code>NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d4,SPROP=plus&nbsp;1d4&nbsp;acid&nbsp;and&nbsp;grab</code></p>
+	<p class="indent3">Race has a single slam attack that has the extra information that it does 1d4 acid and grab.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Ability, Feat, Race, and Template files.</p>
 	<p></p>
