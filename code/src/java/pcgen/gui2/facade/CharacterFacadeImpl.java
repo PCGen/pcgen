@@ -413,7 +413,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		charLevelsFacade =
 				new CharacterLevelsFacadeImpl(theCharacter, delegate,
-					todoManager, dataSet);
+					todoManager, dataSet, this);
 		pcClasses = new ArrayList<ClassFacade>();
 		pcClassLevels = new DefaultListFacade<CharacterLevelFacade>();
 		refreshClassLevelModel();

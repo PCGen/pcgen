@@ -47,6 +47,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
@@ -89,6 +90,7 @@ public class CharacterLevelsFacadeImpl extends
 	private final TodoManager todoManager;
 	private CharID charID;
 	private final DataSetFacade dataSetFacade;
+	private CharacterFacadeImpl characterFacadeImpl;
 	
 	/**
 	 * Create a new CharacterLevelsFacadeImpl instance for a character.
@@ -96,11 +98,13 @@ public class CharacterLevelsFacadeImpl extends
 	 * @param delegate The user interface delegate that can do dialogs and choosers for us.
 	 * @param todoManager The user tasks tracker.
 	 * @param dataSetFacade The datasets that the character is using.
+	 * @param characterFacadeImpl The facade managing the character.
 	 */
 	CharacterLevelsFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
-		TodoManager todoManager, DataSetFacade dataSetFacade)
+		TodoManager todoManager, DataSetFacade dataSetFacade, CharacterFacadeImpl characterFacadeImpl)
 	{
 		this.theCharacter = pc;
+		this.characterFacadeImpl = characterFacadeImpl;
 		this.charDisplay = pc.getDisplay();
 		this.delegate = delegate;
 		this.todoManager = todoManager;
@@ -594,6 +598,12 @@ public class CharacterLevelsFacadeImpl extends
 			&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 		{
 			theCharacter.removeSkill(aSkill);
+		}
+		
+		if (ChooseActivation.hasChooseToken(aSkill)
+			&& characterFacadeImpl != null)
+		{
+			characterFacadeImpl.postLevellingUpdates();
 		}
 
 		if (errMessage.length() > 0)
