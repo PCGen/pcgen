@@ -107,6 +107,37 @@
 		<p class="indent3">Display characters catch phrase.</p>
 
 		<p></p><hr>
+		<p class="new"><a name="CAMPAIGNHISTORY">*** New 6.1.9</a></p>
+		<p class="indent0"><strong>Token Name:</strong> CAMPAIGNHISTORY.v.x.y</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Text (Visibility, Optional)</p>
+		<ul class="indent2">
+			<li>None - As per VISIBLE.</li>
+			<li>VISIBLE - Filter to just the entries that are marked for export.</li>
+			<li>HIDDEN - Filter to just the entries that are not marked for export.</li>
+			<li>ALL - Shows all entries.</li>
+		</ul>
+		<p class="indent1"><strong> Variables Used (x):</strong> Number (Entry's Position)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Entry Property, Optional)</p>
+		<ul class="indent2">
+			<li>None - Displays the xth entry's text.</li>
+			<li>CAMPAIGN - Name of the campaign</li>
+			<li>ADVENTURE - Name of the adventure.</li>
+			<li>PARTY - Name of the party.</li>
+			<li>DATE - Date of the event.</li>
+			<li>XP - Amount of XP awarded.</li>
+			<li>GM - Name of the game master.</li>
+			<li>TEXT - Text of the entry.</li>
+		</ul>		
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays information about the xth entry in the character's campaign history list.</p>
+		<p class="indent2">Entry position (x) is a zero-based index for the entries after filtering (see above) for visibility (v).</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>CAMPAIGNHISTORY.0</code></p>
+		<p class="indent3">Output the text of the 1st (top-most) campaign history entry that is marked for export.</p>
+		<p class="indent2"><code>CAMPAIGNHISTORY.ALL.0.CAMPAIGN</code></p>
+		<p class="indent3">Output the campaign name from the 1st (top-most) campaign history entry regardless of if it is marked for export.</p>
+
+		<p></p><hr>
 		<p class="indent0"><strong><a name="CHARACTERTYPE">Token Name:</a></strong> CHARACTERTYPE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Display the characters type, e.g. <strong>PC</strong>, <strong>NPC</strong>, etc..</p>
