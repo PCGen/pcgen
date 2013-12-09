@@ -75,7 +75,7 @@ ABILITY:Special Ability|Bonus Bombs Per Day				NEWKEY:Favored Class Bonus ~ Bomb
 ABILITY:Special Ability|Bonus Companion DR				NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Companion Hit Point			NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Companion Skill				NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Concentration				NEWKEY:Favored Class Bonus ~ Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Concentration				NEWKEY:Favored Class Bonus ~ Paladin Spell Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Creature Attitude				NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Critical Confirm (Elf)			NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Critical Confirm (Halfling)		NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
@@ -114,67 +114,142 @@ ABILITY:Special Ability|Bonus Trap Sense or Supersititous Rage	NEWKEY:Favored Cl
 ABILITY:Special Ability|Bonus Wild Empathy (Underground)		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Bonus Wizard Spell				NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 # Advanced Race Guide
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Dwarf		NEWKEY:Favored Class Bonus ~ Mutagen Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Elf		NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Gnome		NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Splash Weapon Range Increment	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Halfling	NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Human		NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Dwarf		NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Elf		NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Gnome		NEWKEY:Favored Class Bonus ~ Trap Sense	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Trap Sense Half-Elf	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Halfling	NEWKEY:Favored Class Bonus ~ Surprise Accuracy	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Halfling	NEWKEY:Favored Class Bonus ~ Trap Sense	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Human		NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Dwarf			NEWKEY:Favored Class Bonus ~ Arcane Spell Failure Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Gnome			NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Halfling		NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Human			NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Dwarf		NEWKEY:Favored Class Bonus ~ Challenge Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Elf		NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Gnome		NEWKEY:Favored Class Bonus ~ Mount Base Speed	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Mount Base Speed	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Halfling		NEWKEY:Favored Class Bonus ~ Challenge Attack of Opportunity Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Human		NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Dwarf		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Elf			NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Gnome		NEWKEY:Favored Class Bonus ~ Channeled Energy Animals Fey Plants	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Channeled Energy	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Halfling		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Human		NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Dwarf			NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Elf			NEWKEY:Favored Class Bonus ~ Wild Shape Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Gnome			NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
 #ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
 #ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Halfling		NEWKEY:Favored Class Bonus ~ Animal Companion Saving Throws	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Wild Shape Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Human			NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Dwarf		NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Gnome		NEWKEY:Favored Class Bonus ~ CMD DirtyTrick Steal	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Elf		NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Halfling		NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Human		NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Dwarf		NEWKEY:Favored Class Bonus ~ Misfire Chance Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Elf		NEWKEY:Favored Class Bonus ~ Critical Confirmation Firearms	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Gnome		NEWKEY:Favored Class Bonus ~ Firearm Restore Time Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Grit	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Halfling	NEWKEY:Favored Class Bonus ~ Armor Class Dodge Deed	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Halfling	NEWKEY:Favored Class Bonus ~ Armor Class Nimble	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Pistol Whip Deed Attack	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Human		NEWKEY:Favored Class Bonus ~ Grit	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Dwarf		NEWKEY:Favored Class Bonus ~ Judgement Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Elf		NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Gnome		NEWKEY:Favored Class Bonus ~ Inquisitor Spell Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Teamwork Feat Change	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Halfling	NEWKEY:Favored Class Bonus ~ Teamwork Feat Change	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Human		NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Dwarf			NEWKEY:Favored Class Bonus ~ Magus Arcana Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Elf			NEWKEY:Favored Class Bonus ~ Magus Arcana	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Gnome			NEWKEY:Favored Class Bonus ~ Weapon Special Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Arcane Pool	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Halfling		NEWKEY:Favored Class Bonus ~ Magus Arcana	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Human			NEWKEY:Favored Class Bonus ~ Arcane Pool	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Dwarf			NEWKEY:Favored Class Bonus ~ Object Hardness Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Elf			NEWKEY:Favored Class Bonus ~ Base Speed	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Gnome			NEWKEY:Favored Class Bonus ~ Ki Acrobatics	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Skills Escape Artist Acrobatics	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Halfling		NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Half-Orc		NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Human			NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Dwarf		NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Elf			NEWKEY:Favored Class Bonus ~ Revelation Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Gnome		NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Halfling		NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Human		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Dwarf		NEWKEY:Favored Class Bonus ~ Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Elf			NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Aura Size	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Halfling		NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Critical Confirmation Smite Evil	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Human		NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Dwarf		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Elf			NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Elf			NEWKEY:Favored Class Bonus ~ Critical Confirmation Elf Weapons	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Gnome		NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling		NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling		NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling		NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
 #ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human		NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
 #ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Dwarf			NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Elf			NEWKEY:Favored Class Bonus ~ Magic Rogue Talent Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Gnome			NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Halfling		NEWKEY:Favored Class Bonus ~ Critical Confirmation Halfling Weapons	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Critical Confirmation Sneak Attack	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Human			NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Dwarf		NEWKEY:Favored Class Bonus ~ Acid and Earth Spell Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Elf		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Gnome		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Halfling		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Human		NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Dwarf		NEWKEY:Favored Class Bonus ~ Eidolon Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Elf		NEWKEY:Favored Class Bonus ~ Eidolon Summoning Time Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Gnome		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Halfling		NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Human		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Human		NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Dwarf			NEWKEY:Favored Class Bonus ~ Witch Familiar Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Elf			NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Gnome			NEWKEY:Favored Class Bonus ~ Hex	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Halfling		NEWKEY:Favored Class Bonus ~ Caster Level Witch Patron Spells	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Human			NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Dwarf		NEWKEY:Favored Class Bonus ~ Item Creation Feat Progress	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Elf			NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Gnome		NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Caster Level Enchantment	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Halfling		NEWKEY:Favored Class Bonus ~ Familiar Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Wizard Concentration Damaged	MAXVER:6.2.0 MAXDEVVER:6.1.8
 ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Human		NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
 
 
