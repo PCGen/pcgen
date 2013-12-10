@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -1462,5 +1463,33 @@ public class BonusManager
 		}
 
 		return ret;
+	}
+
+	/**
+	 * Report the change in bonuses from the last checkpoint to the log.
+	 */
+	public void logChangeFromCheckpoint()
+	{
+		Map<String, String> addedMap = new HashMap<String, String>(activeBonusMap);
+		for (Entry<String, String> prevEntry : checkpointMap.entrySet())
+		{
+			String addedValue = addedMap.get(prevEntry.getKey());
+			if (prevEntry.getValue().equals(addedValue))
+			{
+				addedMap.remove(prevEntry.getKey());
+			}
+		}
+		Map<String, String> removedMap = new HashMap<String, String>(checkpointMap);
+		for (Entry<String, String> prevEntry : activeBonusMap.entrySet())
+		{
+			String addedValue = removedMap.get(prevEntry.getKey());
+			if (prevEntry.getValue().equals(addedValue))
+			{
+				removedMap.remove(prevEntry.getKey());
+			}
+		}
+
+		Logging.errorPrint("..Bonuses removed last round: " + removedMap);
+		Logging.errorPrint("..Bonuses added last round: " + addedMap);
 	}
 }

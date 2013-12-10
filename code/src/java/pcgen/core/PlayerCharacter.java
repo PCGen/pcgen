@@ -5340,6 +5340,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		int count = 0;
 		do
 		{
+			if (count >= 29)
+			{
+				Logging
+					.errorPrint("Active bonus loop exceeded reasonable limit of "
+						+ count + ".");
+				bonusManager.logChangeFromCheckpoint();
+				if (count > 31)
+				{
+					break;
+				}
+			}
 			bonusManager.checkpointBonusMap();
 			setDirty(true);
 			count++;
