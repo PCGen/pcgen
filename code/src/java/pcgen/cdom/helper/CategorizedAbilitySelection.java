@@ -363,6 +363,11 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 			 */
 			sel = st.nextToken();
 		}
+		else if (persistentFormat.endsWith(Constants.PIPE))
+		{
+			// Handle the StringTokenizer ignoring blank tokens at the end
+			sel = "";
+		}
 		if (st.hasMoreTokens())
 		{
 			throw new IllegalArgumentException(
