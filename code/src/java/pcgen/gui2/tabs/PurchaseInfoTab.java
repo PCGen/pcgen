@@ -1506,6 +1506,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			popupMenu.add(copyMenu);
 			popupMenu.addSeparator();
 			popupMenu.add(new ModifyChargesMenuItem(character, targets));
+			popupMenu.add(new AddNoteMenuItem(character, targets));
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 
@@ -1622,6 +1623,32 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		public void actionPerformed(ActionEvent e)
 		{
 			character.modifyCharges(targets);
+		}
+
+	}
+
+	private class AddNoteMenuItem extends JMenuItem implements ActionListener
+	{
+
+		private final CharacterFacade character;
+		private final List<EquipmentFacade> targets;
+
+		AddNoteMenuItem(CharacterFacade character, List<EquipmentFacade> targets)
+		{
+			super(LanguageBundle.getString("in_igAddNote")); //$NON-NLS-1$
+			this.character = character;
+			this.targets = targets;
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to modify the number of charges on the items.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			character.addNote(targets);
 		}
 
 	}

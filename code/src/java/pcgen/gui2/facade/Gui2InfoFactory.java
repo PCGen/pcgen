@@ -975,6 +975,13 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextProp", IDS); //$NON-NLS-1$
 		}
 
+		String note = equip.getNote();
+		if (note.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextNote", note); //$NON-NLS-1$
+		}
+
 		return b;
 	}
 
@@ -1052,7 +1059,6 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
 		}
 
-		
 		String bString = equipMod.getSource();
 		if (bString.length() > 0)
 		{

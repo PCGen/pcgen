@@ -1279,6 +1279,14 @@ public final class PCGVer2Creator implements IOConstants
 			buffer.append('|');
 			buffer.append(TAG_QUANTITY).append(':');
 			buffer.append(eq.qty());
+			
+			final String note = eq.getNote();
+			if (note != null)
+			{
+				buffer.append('|');
+				buffer.append(TAG_NOTE).append(':');
+				buffer.append(eq.getNote());
+			}
 
 			final String customization = eq.formatSaveLine('$', '=').trim();
 			final int delimiterIndex = customization.indexOf('$');

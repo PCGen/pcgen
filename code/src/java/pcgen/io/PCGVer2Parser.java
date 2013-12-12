@@ -5587,6 +5587,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				// TODO This else if switch currently does nothing?
 			}
+			else if (TAG_NOTE.equals(tag))
+			{
+				aEquip.setNote(element.getText());
+			}
 		}
 	}
 

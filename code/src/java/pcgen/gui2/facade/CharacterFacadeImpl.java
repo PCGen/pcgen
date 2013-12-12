@@ -4577,6 +4577,43 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		return charges;
 	}
+
+	@Override
+	public void addNote(List<EquipmentFacade> targets)
+	{
+		List<Equipment> notedEquip = new ArrayList<Equipment>();
+		for (EquipmentFacade equipmentFacade : targets)
+		{
+			if (equipmentFacade instanceof Equipment)
+			{
+				notedEquip.add((Equipment) equipmentFacade);
+			}
+		}
+		
+		if (notedEquip.isEmpty())
+		{
+			return;
+		}
+		
+		for (Equipment equip : notedEquip)
+		{
+			String note = getNote(equip);
+			if (note == null)
+			{
+				return;
+			}
+			equip.setNote(note);
+			purchasedEquip.modifyElement(equip);	
+		}
+	}
+	
+	private String getNote(Equipment equip)
+	{
+		
+		return delegate.showInputDialog(equip.toString(), LanguageBundle
+					.getFormattedString("in_igEnterNote"), //$NON-NLS-1$
+						equip.getNote());
+	}
 	
 	/**
 	 * The Class <code>LanguageListener</code> tracks adding and removal of 

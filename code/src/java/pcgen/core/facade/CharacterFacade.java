@@ -882,4 +882,10 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param equip The equipment item to be deleted.
 	 */
 	public void deleteCustomEquipment(EquipmentFacade equip);
+
+	/**
+	 * Modify the user-defined notes for the items of equipment. 
+	 * @param targets The equipment to be updated.
+	 */
+	public void addNote(List<EquipmentFacade> targets);
 }
