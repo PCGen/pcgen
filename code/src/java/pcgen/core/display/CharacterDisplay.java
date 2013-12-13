@@ -37,6 +37,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
@@ -820,6 +821,17 @@ public class CharacterDisplay
 	public int getXPAward()
 	{
 		return crFacet.getXPAward(id);
+	}
+
+	public int getRacialHDSize()
+	{
+		int hdSize = 0;
+		LevelCommandFactory lcf = getRace().get(ObjectKey.MONSTER_CLASS);
+		if (lcf != null)
+		{
+			hdSize = getLevelHitDie(lcf.getPCClass(), 1).getDie();
+		}
+		return hdSize;
 	}
 
 	public Set<Domain> getSortedDomainSet()

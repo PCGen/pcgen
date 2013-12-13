@@ -788,6 +788,21 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_PC_RACIALHDSIZE
+			("RACIALHDSIZE",
+			new String[] { "RACIALHDSIZE" },
+			true) {	
+
+		@Override
+		public TermEvaluator getTermEvaluator(
+				final String expressionString, 
+				final String src, 
+				final String matchedSection) {
+
+			return new PCRacialHDSizeTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_PC_SCORE
 			("SCORE",
 			 new String[] { "SCORE" },

@@ -523,7 +523,17 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 				throw new IllegalArgumentException(
 					"Level cannot be negative in getClassLevel");
 			}
-			Map<Integer, PCClassLevel> localMap = map.get(pcc);
+			//map.get(pcc) doesn't seem to find the monster class
+			//Map<Integer, PCClassLevel> localMap = map.get(pcc);
+			Map<Integer, PCClassLevel> localMap = null;
+			for (PCClass k : map.keySet())
+			{
+				if (pcc.equals(k))
+				{
+					localMap = map.get(k);
+					break;
+				}
+			}
 			if (localMap == null)
 			{
 				throw new IllegalArgumentException(
