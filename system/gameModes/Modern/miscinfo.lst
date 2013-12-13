@@ -66,7 +66,7 @@ TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\tabsummary.html
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
 #
-MENUENTRY:&MSRD Modern
+MENUENTRY:MSRD Modern
 MENUTOOLTIP:Use Modern character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Modern

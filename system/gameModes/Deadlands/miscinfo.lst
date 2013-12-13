@@ -73,7 +73,7 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
 #
-MENUENTRY:&Deadlands
+MENUENTRY:Deadlands
 MENUTOOLTIP:Use 3.0 character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Deadlands
@@ -225,7 +225,7 @@ INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
-DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
+DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 
 # Types which automatic resizing is activated on
 RESIZABLEEQUIPTYPE:Weapon|Armor|Shield|Ammunition|Resizable

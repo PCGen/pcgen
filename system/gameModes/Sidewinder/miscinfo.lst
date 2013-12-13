@@ -66,7 +66,7 @@ TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\tabsummary.html
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
 #
-MENUENTRY:&Sidewinder
+MENUENTRY:Sidewinder
 MENUTOOLTIP:Use Sidewinder:Recoiled character creation settings
 DISPLAYORDER:2
 #
@@ -222,7 +222,7 @@ OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_std_blue.xslt
 OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_std.htm
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
-DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
+DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 
 # Types which automatic resizing is activated on
 RESIZABLEEQUIPTYPE:Weapon|Armor|Shield|Ammunition|Resizable

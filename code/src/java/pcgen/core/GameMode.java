@@ -107,7 +107,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String defaultSpellBook = "Known Spells";
 	private String defaultUnitSet = Constants.STANDARD_UNITSET_NAME;
 	private UnitSet selectedUnitSet = null;
-	private String displayName = null;
+	private String displayName = "";
 	private String displayVariable2Name = "";
 	private String displayVariable2Text = "";
 	private String displayVariable3Name = "";
@@ -118,7 +118,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String hpAbbrev = "";
 	private String hpName = "";
 	private String levelUpMessage = "";
-	private String menuEntry = "";
 	private String menuToolTip = "";
 	private String name = "";
 	private String spellBaseDC = "0";
@@ -223,6 +222,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		name = modeName;
 		folderName = modeName;
+		displayName = modeName;
 		thePreviewDir = modeName;
 		theDefaultPreviewSheet = "preview.html"; //$NON-NLS-1$
 	}
@@ -488,11 +488,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
     @Override
 	public String getDisplayName()
 	{
-		if (displayName == null)
-		{
-			return name;
-		}
-
 		return displayName;
 	}
 
@@ -603,20 +598,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the menu entry
-	 * @return menu entry
-	 */
-	public String getMenuEntry()
-	{
-		if (menuEntry == null)
-		{
-			return name;
-		}
-
-		return menuEntry;
-	}
-
-	/**
 	 * Get the menu tool tip
 	 * @return menu tool tip
 	 */
@@ -632,15 +613,11 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/**
 	 * Set the game mode name
-	 * @param aString The MENUENTRY value.
+	 * @param modeName The MENUENTRY value.
 	 */
-	public void setModeName(final String aString)
+	public void setModeName(final String modeName)
 	{
-		menuEntry = aString;
-		String name = aString.replace("&&", "__AMP__"); 
-		name = name.replace("&", ""); 
-		name = name.replace("__AMP__", "&"); 
-		displayName = name;
+		displayName = modeName;
 	}
 
 	/**
