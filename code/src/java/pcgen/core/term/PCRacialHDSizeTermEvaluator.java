@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCRacialHDSizeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+		extends BasePCDTermEvaluator implements TermEvaluator {
 
 	public PCRacialHDSizeTermEvaluator(
 			String originalText)
@@ -38,9 +38,9 @@ public class PCRacialHDSizeTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return (float) pc.getDisplay().getRacialHDSize();
+		return (float) display.getRacialHDSize();
 	}
 
 	@Override
