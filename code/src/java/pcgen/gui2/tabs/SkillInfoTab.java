@@ -43,11 +43,11 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
-import javax.swing.SwingConstants;
 import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ListDataEvent;
@@ -74,7 +74,6 @@ import pcgen.gui2.filter.FilterUtilities;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.HtmlSheetSupport;
-import pcgen.gui2.tabs.skill.SkillCostTableModel;
 import pcgen.gui2.tabs.skill.SkillPointTableModel;
 import pcgen.gui2.tabs.skill.SkillTreeViewModel;
 import pcgen.gui2.tools.FlippingSplitPane;
@@ -95,7 +94,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 {
 
 	private final FilteredTreeViewTable<CharacterFacade, SkillFacade> skillTable;
-	private final JTable skillcostTable;
+	//private final JTable skillcostTable;
 	private final JTable skillpointTable;
 	private final InfoPane infoPane;
 	private final TabTitle tabTitle;
@@ -108,7 +107,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 		super("Skill");
 		this.skillTable = new FilteredTreeViewTable<CharacterFacade, SkillFacade>();
-		this.skillcostTable = new JTable();
+		//this.skillcostTable = new JTable();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
 		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillQualified");
@@ -199,7 +198,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		state.put(ListSelectionModel.class, listModel);
 		state.put(SkillPointTableModel.class, new SkillPointTableModel(character));
 		state.put(SkillTreeViewModel.class, new SkillTreeViewModel(character, listModel));
-		state.put(SkillCostTableModel.class, new SkillCostTableModel(character, listModel));
+		//state.put(SkillCostTableModel.class, new SkillCostTableModel(character, listModel));
 		state.put(FilterHandler.class, new FilterHandler(character, listModel));
 		state.put(InfoHandler.class, new InfoHandler(character));
 		state.put(LevelSelectionHandler.class, new LevelSelectionHandler(character, listModel));
@@ -228,7 +227,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		((SkillFilterHandler) state.get(SkillFilterHandler.class)).install();
 		skillpointTable.setModel((SkillPointTableModel) state.get(SkillPointTableModel.class));
 		skillpointTable.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
-		skillcostTable.setModel((SkillCostTableModel) state.get(SkillCostTableModel.class));
+		//skillcostTable.setModel((SkillCostTableModel) state.get(SkillCostTableModel.class));
 		skillTable.setDefaultEditor(Float.class, (SkillRankSpinnerEditor) state.get(SkillRankSpinnerEditor.class));
 		
 		((SkillTreeViewModel) state.get(SkillTreeViewModel.class)).install(skillTable);
@@ -313,18 +312,22 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void run()
 		{
-			for (int i = 0; i < levels.getSize(); i++)
+			for (int startIndex : new int[] {model.getMinSelectionIndex(), 0})
 			{
-				CharacterLevelFacade level = levels.getElementAt(i);
-				if (levels.getSpentSkillPoints(level) < levels.getGainedSkillPoints(level))
+				for (int i = startIndex; i < levels.getSize(); i++)
 				{
-					if (i != model.getMinSelectionIndex())
+					CharacterLevelFacade level = levels.getElementAt(i);
+					if (levels.getSpentSkillPoints(level) < levels.getGainedSkillPoints(level))
 					{
-						model.setSelectionInterval(i, i);
-						skillpointTable.scrollRectToVisible(skillpointTable
-							.getCellRect(i, 0, true));
+						if (i != model.getMinSelectionIndex())
+						{
+							//Logging.errorPrint("updateSelectedIndex got " + level);
+							model.setSelectionInterval(i, i);
+							skillpointTable.scrollRectToVisible(skillpointTable
+								.getCellRect(i, 0, true));
+						}
+						return;
 					}
-					return;
 				}
 			}
 			// Fall back for a non empty list of levels is to select the highest one.

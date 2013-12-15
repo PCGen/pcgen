@@ -45,7 +45,9 @@ import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
- *
+ * A model to back the table of character levels and the skill points 
+ * associated with them.
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SkillPointTableModel extends AbstractTableModel

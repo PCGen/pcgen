@@ -308,7 +308,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	private PCLevelInfo getLevelInfo(CharacterLevelFacade level)
+	PCLevelInfo getLevelInfo(CharacterLevelFacade level)
 	{
 		if (level == null
 			|| !(level instanceof CharacterLevelFacadeImpl))
@@ -627,24 +627,141 @@ public class CharacterLevelsFacadeImpl extends
 		CharacterLevelFacade baseLevel, float newRank)
 	{
 		Skill aSkill = (Skill) skill;
-		float testRank = SkillRankControl.getTotalRank(theCharacter, aSkill);
-		if (newRank < testRank)
+		SkillCost skillCost = getSkillCost(baseLevel, aSkill);
+		float maxRanks = getMaxRanks(baseLevel, skillCost);
+
+		float currRank = SkillRankControl.getTotalRank(theCharacter, aSkill);
+		if (newRank < currRank)
 		{
-			// Removing ranks, so just pass back the top level
-			return getElementAt(getSize()-1);
+			// 1. Selected level (if class had purchased a rank and is not above max ranks)
+			if (classHasRanksIn(skill,
+				((CharacterLevelFacadeImpl) baseLevel).getSelectedClass())
+				&& maxRanks != Float.NaN
+				&& maxRanks >= currRank
+				&& getSpentSkillPoints(baseLevel) > 0)
+			{
+				return baseLevel;
+			}
+
+			// 2. Scan from level 1 for first level of the same class as currently 
+			// selected level in which the rank to be removed is below max ranks and 
+			// is a class that has bought ranks in the class
+			CharacterLevelFacade levelToRefundSkill =
+					scanForLevelToRefundSkill(aSkill, currRank,
+						(PCClass) getClassTaken(baseLevel));
+			if (levelToRefundSkill != null)
+			{
+				return levelToRefundSkill;
+			}
+
+			// 3. Scan from level 1 for first level of any class in which the rank 
+			// to be removed is below max ranks and is a class that has bought 
+			// ranks in the class
+			levelToRefundSkill =
+					scanForLevelToRefundSkill(aSkill, currRank, null);
+			return levelToRefundSkill;
 		}
-		
+
+		// Check if current level ok
+		if (maxRanks != Float.NaN && maxRanks >= newRank
+			&& getRemainingSkillPoints(baseLevel) > 0)
+		{
+			return baseLevel;
+		}
+
+		// Check for class cost on this level or higher
 		int baseLevelIndex = getLevelIndex(baseLevel);
+		CharacterLevelFacade levelToBuySkill =
+				scanForwardforLevelToBuySkill(aSkill, newRank, baseLevelIndex,
+					SkillCost.CLASS);
+		if (levelToBuySkill != null)
+		{
+			return levelToBuySkill;
+		}
+		// Check for class cost on any level
+		levelToBuySkill =
+				scanForwardforLevelToBuySkill(aSkill, newRank, 0,
+					SkillCost.CLASS);
+		if (levelToBuySkill != null)
+		{
+			return levelToBuySkill;
+		}
+		// Check for any cost on this level or higher
+		levelToBuySkill =
+				scanForwardforLevelToBuySkill(aSkill, newRank, baseLevelIndex,
+					null);
+		if (levelToBuySkill != null)
+		{
+			return levelToBuySkill;
+		}
+		// Check for any cost on any level
+		levelToBuySkill =
+				scanForwardforLevelToBuySkill(aSkill, newRank, 0, null);
+
+		return levelToBuySkill;
+	}
+
+	private CharacterLevelFacade scanForwardforLevelToBuySkill(Skill aSkill, float testRank,
+		int baseLevelIndex, SkillCost costToMatch)
+	{
 		for (int i = baseLevelIndex; i < charLevels.size(); i++)
 		{
 			CharacterLevelFacade testLevel = getElementAt(i);
-			SkillCost skillCost = getSkillCost(testLevel, aSkill);
-			float maxRanks = getMaxRanks(testLevel, skillCost);
-					
-			if (maxRanks != Float.NaN && maxRanks > testRank)
+			//Logging.errorPrint("Checking " + testLevel);
+			if (getRemainingSkillPoints(testLevel) <= 0)
 			{
+				//Logging.errorPrint("Skipping level " + testLevel + " as it does not have points left.");
+				continue;
+			}
+			SkillCost skillCost = getSkillCost(testLevel, aSkill);
+			if (costToMatch != null && skillCost.getCost() != costToMatch.getCost())
+			{
+				//Logging.errorPrint("Skipping level " + testLevel + " as it is not the same cost as " + costToMatch);
+				continue;
+			}
+			float maxRanks = getMaxRanks(testLevel, skillCost);
+			if (maxRanks != Float.NaN && maxRanks >= testRank)
+			{
+				//Logging.errorPrint("Selected level " + testLevel);
 				return testLevel;
 			}
+			//Logging.errorPrint("Skipping level " + testLevel + " as skill is above max ranks");
+		}
+		return null;
+	}
+
+	private CharacterLevelFacade scanForLevelToRefundSkill(Skill aSkill, float testRank,
+		PCClass classToMatch)
+	{
+		for (int i = 0; i < charLevels.size(); i++)
+		{
+			CharacterLevelFacade testLevel = getElementAt(i);
+			//Logging.errorPrint("Checking " + testLevel);
+			String lvlClassName = getLevelInfo(testLevel).getClassKeyName();
+			if (classToMatch != null && !classToMatch.getKeyName().equals(lvlClassName))
+			{
+				//Logging.errorPrint("Skipping level " + testLevel + " as it is not the same class as " + classToMatch);
+				continue;
+			}
+			if (!classHasRanksIn(aSkill,
+				((CharacterLevelFacadeImpl) testLevel).getSelectedClass()))
+			{
+				//Logging.errorPrint("Skipping level " + testLevel + " as it does not have ranks in " + aSkill);
+				continue;
+			}
+			if (getSpentSkillPoints(testLevel) <= 0)
+			{
+				//Logging.errorPrint("Skipping level " + testLevel + " as it does not have spent points.");
+				continue;
+			}
+			SkillCost skillCost = getSkillCost(testLevel, aSkill);
+			float maxRanks = getMaxRanks(testLevel, skillCost);
+			if (maxRanks != Float.NaN && maxRanks >= testRank)
+			{
+				//Logging.errorPrint("Selected level " + testLevel);
+				return testLevel;
+			}
+			//Logging.errorPrint("Skipping level " + testLevel + " as skill is above max ranks");
 		}
 		return null;
 	}

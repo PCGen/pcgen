@@ -73,10 +73,12 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.GameModeFileLoader;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
+import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 
@@ -239,7 +241,7 @@ public class TestHelper
 	 * @param untrained Can this be used untrained
 	 * @param armorCheck should an armor check penalty be applied
 	 */
-	public static void makeSkill(
+	public static Skill makeSkill(
             final String name,
             final String type,
             final PCStat stat,
@@ -254,6 +256,7 @@ public class TestHelper
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
 		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
 		Globals.getContext().ref.importObject(aSkill);
+		return aSkill;
 	}
 
 	/**
@@ -584,5 +587,25 @@ public class TestHelper
 		chronEntry.setXpField(xp);
 		chronEntry.setChronicle(chronicle);
 		return chronEntry;
+	}
+
+	public static PCClass parsePCClassText(String classPCCText,
+		CampaignSourceEntry source) throws PersistenceLayerException
+	{
+		PCClassLoader pcClassLoader = new PCClassLoader();
+		PCClass reconstClass = null;
+		StringTokenizer tok = new StringTokenizer(classPCCText, "\n");
+		while (tok.hasMoreTokens())
+		{
+			String line = tok.nextToken();
+			if (line.trim().length() > 0)
+			{
+				System.out.println("Processing line:'" + line + "'.");
+				reconstClass =
+						pcClassLoader.parseLine(Globals.getContext(),
+							reconstClass, line, source);
+			}
+		}
+		return reconstClass;
 	}
 }

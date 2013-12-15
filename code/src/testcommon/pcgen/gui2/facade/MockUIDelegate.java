@@ -28,6 +28,7 @@ import pcgen.core.facade.EquipmentBuilderFacade;
 import pcgen.core.facade.SpellBuilderFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.system.PropertyContext;
+import pcgen.util.Logging;
 
 /**
  * The Class <code></code> is ...
@@ -49,6 +50,7 @@ public class MockUIDelegate implements UIDelegate
 	public Boolean maybeShowWarningConfirm(String title, String message,
 		String checkBoxText, PropertyContext context, String contextProp)
 	{
+		Logging.log(Logging.WARNING, title + " - " + message);
 		return false;
 	}
 
@@ -58,7 +60,7 @@ public class MockUIDelegate implements UIDelegate
     @Override
 	public void showErrorMessage(String title, String message)
 	{
-		// No action
+		Logging.log(Logging.ERROR, title + " - " + message);
 	}
 
 	/* (non-Javadoc)
@@ -67,7 +69,7 @@ public class MockUIDelegate implements UIDelegate
     @Override
 	public void showInfoMessage(String title, String message)
 	{
-		// No action
+		Logging.log(Logging.INFO, title + " - " + message);
 	}
 
 	/* (non-Javadoc)
