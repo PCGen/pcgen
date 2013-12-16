@@ -1,0 +1,111 @@
+SOURCELONG:Quintessential Samurai	SOURCESHORT:mpgqs	
+#SOURCEWEB:www.mongoose.com
+# Original Entry by: Andrew Maitland
+
+###Block: Concepts
+Ancestral Honour	CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.4	
+Ashigaru		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.5	
+Dragon Family	CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.6	
+First Born		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.7	
+Ill-Fated		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.7	
+Lowborn		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.8	
+Nameless		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.9	
+Spirit Touched	CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.10	
+Untouchable		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEPAGE:p.11	
+
+###Block: Class
+# Sword School "Abilities"
+Cleaving Thunder I		PREFEAT:1,Power Attack		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+Dazzling Cascade I		PREFEAT:1,Improved Initiative	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+Parting Waves I			PREFEAT:1,Dodge			SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+Returning Fortunes I		PREFEAT:1,Quick Draw		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+Striking Spirit I			PREFEAT:1,Alertness		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+Trampling Dragon I		PRESTAT:1,CHA=13			SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+Unwavering Strike I		PREFEAT:1,Weapon Finesse	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack	DESC:Gain listed Techniques of the school for Tier I.
+
+# Second Tier
+Cleaving Thunder II		PREFEAT:1,Cleave			SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+Dazzling Cascade II		PREFEAT:1,Combat Reflexes	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+Parting Waves II			PREFEAT:1,Mobility		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+Returning Fortunes II		PREFEAT:1,Improved Initiative	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+Striking Spirit II		PREFEAT:1,Ki Activation		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+Trampling Dragon II		PREFEAT:1,Iron Will		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+Unwavering Strike II		PREFEAT:1,Weapon Focus		SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier II.
+
+# Third Tier
+Cleaving Thunder III		PREFEAT:1,Sunder			SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+Dazzling Cascade III		PREFEAT:1,Lightning Reflexes	SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+Parting Waves III			PREFEAT:1,Spring Attack		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+Returning Fortunes III		PREFEAT:1,Combat Reflexes	SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+Striking Spirit III		PREFEAT:1,Ki Channel		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+Trampling Dragon III		PREFEAT:1,Leadership		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+Unwavering Strike III		PREFEAT:1,Expertise		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	DESC:Gain listed Techniques of the school for Tier III.
+
+# Forth Tier
+Cleaving Thunder IV		PREFEAT:1,Great Cleave		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+Dazzling Cascade IV		PREFEAT:1,Expertise		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+Parting Waves IV			PREFEAT:1,Whirlwind Attack	SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+Returning Fortunes IV		PREFEAT:1,Expertise		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+Striking Spirit IV		PREFEAT:1,Ki Capture		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+Trampling Dragon IV		PREFEAT:1,Inner Calm		SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+Unwavering Strike IV		PREFEAT:1,Improved Critical	SOURCEPAGE:p.35	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	DESC:Gain listed Techniques of the school for Tier IV.
+
+
+###Block: Prestige Classes
+# Bodyguard
+Sworn Charge		SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sworn Charge ~ Bodyguard
+Reflexive Defence		SOURCEPAGE:p.15	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Reflexive Defence ~ Bodyguard
+Screen Defence		SOURCEPAGE:p.15	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Screen Defence ~ Bodyguard
+Undying Defence		SOURCEPAGE:p.15	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Undying Defence ~ Bodyguard		AUTO:FEAT|Undying Defence
+Acceptance of Pain	SOURCEPAGE:p.15	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Acceptance of Pain ~ Bodyguard
+
+# Delegate
+Social Authority	SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Social Authority ~ Delegate
+Command		SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Command ~ Delegate
+Perceptive Spirit	SOURCEPAGE:p.17	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Perceptive Spirit ~ Delegate	BONUS:SKILL|Bluff,Diplomacy,Innuendo,Sense Motive|2|TYPE=Competence
+Insructable Liar	SOURCEPAGE:p.17	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Insructable Liar ~ Delegate		BONUS:SKILL|Bluff,Intimidate|4|TYPE=Competence
+Estate		SOURCEPAGE:p.17	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Estate ~ Delegate
+
+# Information Broker
+Extended Network	SOURCEPAGE:p.17	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Extended Network ~ Information Broker
+Rumour Mill		SOURCEPAGE:p.18	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Rumour Mill ~ Information Broker
+Nose for Gold	SOURCEPAGE:p.18	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Nose for Gold ~ Information Broker
+Black Market	SOURCEPAGE:p.19	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Black Market ~ Information Broker
+The Mark		SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:The Mark ~ Information Broker
+
+# Overseer
+Five Samurai		SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Five Samurai ~ Overseer
+Battlefield Instincts	SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Battlefield Instincts ~ Overseer
+Skilled Guidance		SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Skilled Guidance ~ Overseer
+Co-ordinated Attack	SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Co-ordinated Attack ~ Overseer
+Fight As One		SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Fight As One ~ Overseer
+
+
+# Paragon
+Bladeless Duel		SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Bladeless Duel ~ Paragon
+Action Without Thought	SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Action Without Thought ~ Paragon	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+Mounted Mastery		SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Mounted Mastery ~ Paragon		BONUS:SKILL|Ride|5|TYPE=Competence
+Zen Archery			SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Zen Archery ~ Paragon
+Sword Saint			SOURCEPAGE:p.22	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sword Saint ~ Paragon
+
+# Protector
+Detect Interloper	SOURCEPAGE:p.23	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Detect Interloper ~ Protector
+Track			SOURCEPAGE:p.23	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Track ~ Protector	AUTO:FEAT|Track
+Intercept		SOURCEPAGE:p.23	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Intercept ~ Protector
+Brush Shot		SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Brush Shot ~ Protector
+Ki Arrows		SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Ki Arrows ~ Protector
+
+# Ronin
+Liberated Loyalty	SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Liberated Loyalty ~ Ronin
+Sword for Hire	SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Sword for Hire ~ Ronin
+Unfettered Ki	SOURCEPAGE:p.25	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Unfettered Ki ~ Ronin
+Unlikely Allies	SOURCEPAGE:p.25	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Unlikely Allies ~ Ronin
+Mixed Styles	SOURCEPAGE:p.25	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Mixed Styles ~ Ronin
+
+# Slayer
+Timeless Honour		SOURCEPAGE:p.27	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Timeless Honour ~ Slayer
+See the Void		SOURCEPAGE:p.27	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:See the Void ~ Slayer
+Challenge of Destiny	SOURCEPAGE:p.27	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Challenge of Destiny ~ Slayer
+Honourable Paralysis	SOURCEPAGE:p.27	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Honourable Paralysis ~ Slayer
+Execution of Fate		SOURCEPAGE:p.27	CATEGORY:Special Ability	TYPE:SpecialQuality	KEY:Execution of Fate ~ Slayer
+

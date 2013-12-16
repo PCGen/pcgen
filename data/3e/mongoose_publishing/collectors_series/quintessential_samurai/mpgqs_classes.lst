@@ -1,0 +1,122 @@
+SOURCELONG:Quintessential Samurai	SOURCESHORT:mpgqs	
+#SOURCEWEB:www.mongoose.com
+# Original Entry by: Andrew Maitland
+
+
+# The Samurai -------------------------------------------------------------------------
+CLASS:The Samurai	SOURCEPAGE:p.12	HD:10	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:The Samurai	PREALIGN:LG,LN,LE
+CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|TYPE=Perform|Ride|Sense Motive|Swim
+1	AUTO:WEAPONPROF|Katana|Wakizashi|TYPE=Bow
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	
+1	AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1	AUTO:FEAT|Exotic Weapon Proficiency (Katana)
+# Level Progression
+2	BONUS:ABILITYPOOL|Samurai Feat|1
+6	BONUS:ABILITYPOOL|Samurai Feat|1
+10	BONUS:ABILITYPOOL|Samurai Feat|1
+16	BONUS:ABILITYPOOL|Samurai Feat|1
+18	BONUS:ABILITYPOOL|Samurai Feat|1
+20	BONUS:ABILITYPOOL|Samurai Feat|1
+#
+1	BONUS:ABILITYPOOL|Sword School Feat|1
+4	BONUS:ABILITYPOOL|Sword School Feat|1
+8	BONUS:ABILITYPOOL|Sword School Feat|1
+12	BONUS:ABILITYPOOL|Sword School Feat|1
+#
+12	AUTO:FEAT|Improved Two-Weapon Fighting
+14	AUTO:FEAT|Daisho Fighting
+
+
+
+###Block: Prestige Classes -------------------------------------
+
+# Bodyguard
+CLASS:Bodyguard	SOURCEPAGE:p.14	MAXLEVEL:5	HD:10	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2
+CLASS:Bodyguard	PREALIGN:LG,LN,LE	PREATT:10	PREFEAT:2,Great Fortitude,Improved Initiative
+CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Sense Motive|Swim
+1	ABILITY:Class Ability|AUTOMATIC|Sworn Charge ~ Bodyguard
+2	ABILITY:Class Ability|AUTOMATIC|Reflexive Defence ~ Bodyguard
+3	ABILITY:Class Ability|AUTOMATIC|Screen Defence ~ Bodyguard
+4	ABILITY:Class Ability|AUTOMATIC|Undying Defence ~ Bodyguard
+5	ABILITY:Class Ability|AUTOMATIC|Acceptance of Pain ~ Bodyguard
+
+# Delegate
+CLASS:Delegate	SOURCEPAGE:p.15	MAXLEVEL:5	HD:8	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Delegate	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:1,Diplomacy=10	PREFEAT:1,Socially Graceful
+CLASS:Delegate	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|Intimidate|Listen|Read Lips|Sense Motive|Speak Language
+1	ABILITY:Class Ability|AUTOMATIC|Social Authority ~ Delegate
+2	ABILITY:Class Ability|AUTOMATIC|Command ~ Delegate
+3	ABILITY:Class Ability|AUTOMATIC|Perceptive Spirit ~ Delegate
+4	ABILITY:Class Ability|AUTOMATIC|Insructable Liar ~ Delegate
+5	ABILITY:Class Ability|AUTOMATIC|Estate ~ Delegate
+
+# Information Broker
+CLASS:Information Broker	SOURCEPAGE:p.17	MAXLEVEL:5		HD:10	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Information Broker	PREALIGN:LG,LN,LE	PRESKILL:1,Gather Information=10	PREFEAT:1,Informants
+CLASS:Information Broker	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|Intimidate|Listen|Read Lips|Sense Motive|Speak Language
+1	ABILITY:Class Ability|AUTOMATIC|Extended Network ~ Information Broker
+2	ABILITY:Class Ability|AUTOMATIC|Rumour Mill ~ Information Broker
+3	ABILITY:Class Ability|AUTOMATIC|Nose for Gold ~ Information Broker
+4	ABILITY:Class Ability|AUTOMATIC|Black Market ~ Information Broker
+5	ABILITY:Class Ability|AUTOMATIC|The Mark ~ Information Broker
+
+# Overseer
+CLASS:Overseer			SOURCEPAGE:p.20	HD:10	MAXLEVEL:5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Overseer	PREALIGN:LG,LN,LE	PREFEAT:1,Leadership	PREATT:10
+CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|Ride|Sense Motive|Swim
+###Block:
+2	BONUS:COMBAT|BAB|2|TYPE=Base.REPLACE
+4	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+###Block:
+1	ABILITY:Class Ability|AUTOMATIC|Five Samurai ~ Overseer
+2	ABILITY:Class Ability|AUTOMATIC|Battlefield Instincts ~ Overseer
+3	ABILITY:Class Ability|AUTOMATIC|Skilled Guidance ~ Overseer
+4	ABILITY:Class Ability|AUTOMATIC|Co-ordinated Attack ~ Overseer
+5	ABILITY:Class Ability|AUTOMATIC|Fight As One ~ Overseer
+
+# Paragon
+CLASS:Paragon	SOURCEPAGE:p.21	HD:10	MAXLEVEL:5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Paragon	PREALIGN:LG,LN,LE	PREATT:15	PRESKILL:1,Riding=12	PREFEAT:3,Mounted Combat,Weapon Focus (Longbow),Weapon Focus (Katana)	PRETEXT:Honour 15+
+CLASS:Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|Ride|Sense Motive|Swim
+1	ABILITY:Class Ability|AUTOMATIC|Bladeless Duel ~ Paragon
+2	ABILITY:Class Ability|AUTOMATIC|Action Without Thought ~ Paragon
+3	ABILITY:Class Ability|AUTOMATIC|Mounted Mastery ~ Paragon
+4	ABILITY:Class Ability|AUTOMATIC|Zen Archery ~ Paragon
+5	ABILITY:Class Ability|AUTOMATIC|Sword Saint ~ Paragon
+
+# Protector
+CLASS:Protector	SOURCEPAGE:p.23	HD:10	MAXLEVEL:5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2
+CLASS:Protector	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:2,Handle Animal=5,Ride=5
+CLASS:Protector	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Jump|Move Silently|Ride|Sense Motive|Spot|Swim|Wilderness Lore
+1	ABILITY:Class Ability|AUTOMATIC|Detect Interloper ~ Protector
+2	ABILITY:Class Ability|AUTOMATIC|Track ~ Protector
+3	ABILITY:Class Ability|AUTOMATIC|Intercept ~ Protector
+4	ABILITY:Class Ability|AUTOMATIC|Brush Shot ~ Protector
+5	ABILITY:Class Ability|AUTOMATIC|Ki Arrows ~ Protector
+
+# Ronin
+CLASS:Ronin	SOURCEPAGE:p.24	HD:12	MAXLEVEL:5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Ronin	PREALIGN:LG,LN,LE	PREATT:5	PRETEXT:The samurai must either be released from service or have suffered the loss of his daimyo to some other misfortune.
+CLASS:Ronin	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Jump|Move Silently|Ride|Sense Motive|Spot|Swim|Wilderness Lore
+1	ABILITY:Class Ability|AUTOMATIC|Liberated Loyalty ~ Ronin
+2	ABILITY:Class Ability|AUTOMATIC|Sword for Hire ~ Ronin
+3	ABILITY:Class Ability|AUTOMATIC|Unfettered Ki ~ Ronin
+4	ABILITY:Class Ability|AUTOMATIC|Unlikely Allies ~ Ronin
+5	ABILITY:Class Ability|AUTOMATIC|Mixed Styles ~ Ronin
+
+# Slayer
+CLASS:Slayer	SOURCEPAGE:p.26	HD:12	MAXLEVEL:5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Slayer	PREALIGN:LG,LN,LE	PREATT:10	PRETEXT:Honour 10+
+CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Jump|Move Silently|Ride|Sense Motive|Spot|Swim|Wilderness Lore
+1	ABILITY:Class Ability|AUTOMATIC|Timeless Honour ~ Slayer
+2	ABILITY:Class Ability|AUTOMATIC|See the Void ~ Slayer
+3	ABILITY:Class Ability|AUTOMATIC|Challenge of Destiny ~ Slayer
+4	ABILITY:Class Ability|AUTOMATIC|Honourable Paralysis ~ Slayer
+5	ABILITY:Class Ability|AUTOMATIC|Execution of Fate ~ Slayer
+
+
+
+
+
+

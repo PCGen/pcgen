@@ -1,0 +1,66 @@
+SOURCELONG:Quintessential Samurai	SOURCESHORT:mpgqs	
+#SOURCEWEB:www.mongoose.com
+# Original Entry by: Andrew Maitland
+
+
+Ancestral Katana		TYPE:Samurai		SOURCEPAGE:p.28	PREATT:4								DESC:Your katana has been handed down for generations, travelling through the hands of one samurai after another, all striving to honour the family name. Though you may not have known it at the time you began your career, taking this feat awakens the ancestors within the blade, allowing you to enhance the weapon as you gain experience.
+Daisho Fighting		TYPE:Samurai		SOURCEPAGE:p.28	PREFEAT:2,Ambidexterity,Improved Two-Weapon Fighting	DESC:With a Katana in your right hand and a wakizashi in your other, you are able to attack more effectively or defend yourself more efficiently than if you were wielding but a single weapon.
+Deadly Draw			TYPE:Samurai		SOURCEPAGE:p.29	PREATT:7	PREFEAT:1,Quick Draw	DESC:You have mastered the art of iaido and are able to execute a powerful slicing attack as you remove your katana from its scabbard.
+Dead Shot			TYPE:Samurai		SOURCEPAGE:p.29	PREFEAT:1,Blind-Fight	PREATT:9	DESC:You are a master bowman and are able to pierce the concealment that protects your targets.
+Flanking Horse		TYPE:Samurai.Fighter	SOURCEPAGE:p.29	PREFEAT:1,Mounted Combat	PRESKILL:1,Ride=10	PREATT:6	DESC:You are so well-trained in fighting from your horse that you are able to effectively flank a target while mounted - without the need for an ally on the target's opposite side.
+Grateful Leader		TYPE:General		SOURCEPAGE:p.30	PRETEXT:Samurai must be involved in the successful completion of a particular mission for a noble or other important personage.
+Improved Horse Shield	TYPE:Samurai.Fighter	SOURCEPAGE:p.30	PREFEAT:1,Mounted Combat	PRESKILL:1,Ride=10
+Improved Mounted Archery	TYPE:Samurai	SOURCEPAGE:p.31	PREFEAT:1,Mounted Archery	PREATT:10
+Informants				TYPE:General	SOURCEPAGE:p.31	PRESKILL:1,Gather Information=5
+Inner Calm				TYPE:General	SOURCEPAGE:p.31
+
+Ki Activation		TYPE:Samurai	SOURCEPAGE:p.32	PRESKILL:1,Heal=5
+Ki Capture			TYPE:Samurai	SOURCEPAGE:p.32	PREFEAT:1,Ki Channel
+Ki Channel			TYPE:Samurai	SOURCEPAGE:p.32	PRESTAT:1,WIS=13
+Ki Harness			TYPE:Samurai	SOURCEPAGE:p.32	PREFEAT:1,Ki Channel
+Ki Healing			TYPE:Samurai	SOURCEPAGE:p.33	PREFEAT:1,Ki Channel
+Ki Reservoir		TYPE:Samurai	SOURCEPAGE:p.33	PREFEAT:1,Ki Harness
+Ki Survival			TYPE:Samurai	SOURCEPAGE:p.33	PREFEAT:1,Ki Activation
+Noble Birth			TYPE:General	SOURCEPAGE:p.33
+Lightning Mount		TYPE:Samurai	SOURCEPAGE:p.33	PREFEAT:1,Mounted Combat
+Retainers			TYPE:Samurai	SOURCEPAGE:p.33	PREFEAT:1,Noble Birth,Grateful Leader
+Socially Graceful		TYPE:General	SOURCEPAGE:p.34	PRESTAT:2,WIS=11,CHA=12
+Stamp				TYPE:Samurai.Fighter	SOURCEPAGE:p.34	PREFEAT:1,Mounted Combat
+Still Thought		TYPE:Samurai	SOURCEPAGE:p.34	PREFEAT:1,Inner Calm
+#
+Sword School First Tier		TYPE:Samurai.Fighter	SOURCEPAGE:p.34	BONUS:ABILITYPOOL|Sword School Tier I|1		CHOOSE:NOCHOICE	STACK:YES	MULT:YES
+Sword School Second Tier	TYPE:Samurai.Fighter	SOURCEPAGE:p.34	BONUS:ABILITYPOOL|Sword School Tier II|1		CHOOSE:NOCHOICE	STACK:YES	MULT:YES
+Sword School Third Tier		TYPE:Samurai.Fighter	SOURCEPAGE:p.35	BONUS:ABILITYPOOL|Sword School Tier III|1		CHOOSE:NOCHOICE	STACK:YES	MULT:YES
+Sword School Forth Tier		TYPE:Samurai.Fighter	SOURCEPAGE:p.35	BONUS:ABILITYPOOL|Sword School Tier IV|1		CHOOSE:NOCHOICE	STACK:YES	MULT:YES
+#
+Undying Defence			TYPE:Samurai		SOURCEPAGE:p.35	PREFEAT:1,Iron Will	PRETEXT:Honour 10+
+Venomous Tongue			TYPE:General		SOURCEPAGE:p.35
+
+
+# Mods Block:
+Ambidexterity.MOD				TYPE:SamuraiFeat
+Alertness.MOD				TYPE:SamuraiFeat
+Cleave.MOD					TYPE:SamuraiFeat
+Combat Reflexes.MOD			TYPE:SamuraiFeat
+Dodge.MOD					TYPE:SamuraiFeat
+Expertise.MOD				TYPE:SamuraiFeat
+Great Cleave.MOD				TYPE:SamuraiFeat
+Improved Critical.MOD			TYPE:SamuraiFeat
+Improved Initiative.MOD			TYPE:SamuraiFeat
+Improved Two-Weapon Fighting.MOD	TYPE:SamuraiFeat
+Inner Calm.MOD				TYPE:SamuraiFeat
+Iron Will.MOD				TYPE:SamuraiFeat
+Ki Activation.MOD				TYPE:SamuraiFeat
+Ki Capture.MOD				TYPE:SamuraiFeat
+Ki Channel.MOD				TYPE:SamuraiFeat
+Leadership.MOD				TYPE:SamuraiFeat
+Lightning Reflexes.MOD			TYPE:SamuraiFeat
+Mobility.MOD				TYPE:SamuraiFeat
+Power Attack.MOD				TYPE:SamuraiFeat
+Quick Draw.MOD				TYPE:SamuraiFeat
+Spring Attack.MOD				TYPE:SamuraiFeat
+Sunder.MOD					TYPE:SamuraiFeat
+Two-Weapon Fighting.MOD			TYPE:SamuraiFeat
+Weapon Finesse.MOD			TYPE:SamuraiFeat
+Weapon Focus.MOD				TYPE:SamuraiFeat
+Whirlwind Attack.MOD			TYPE:SamuraiFeat
