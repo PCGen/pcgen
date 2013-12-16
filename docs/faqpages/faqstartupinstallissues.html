@@ -59,7 +59,8 @@
 			<li><p><span class="underline">How do I start PCGen?</span></p>
 				<ul>
 					<li>In <strong>Windows</strong>, simply double-click <strong>PCGen.bat</strong> or <strong>PCGen.Jar</strong>.</li>
-					<li>In <strong>Mac OS 10.1</strong>, simply double-click <strong>PCGen.jar</strong>.</li>
+					<li>In <strong>Mac OS 10.1+</strong>, simply double-click <strong>PCGen.jar</strong> file, if you d/l'd the zipped file. 
+						If you installed PCGen from the Mac Install file you will simply doule-click on the PCGen application file copied to your hard-drive.</li>
 					<li>In <strong>Unix/Linux</strong>, you need to execute <code>java -jar pcgen.jar</code>.<br /></li>
 				</ul>
 			</li>
@@ -68,19 +69,17 @@
 
 				<p>Glad you asked, because for many of you the instructions failed didn't they?  Well here's why.</p>
 
-				<p>Make sure that have the Java 2 v1.5.x or above (at time of writing we recommend 1.5.0_11 or 1.6.0_1).
-				Runtime environment (or the SDK) installed on your machine. It's available from:
-				<a href="http://java.sun.com/j2se/">http://java.sun.com/j2se/</a>.</p>
+				<p>Make sure that have the Java 2 v1.6.x or above Runtime Environment (or the SDK) installed on your machine. 
+					It's available from: <a href="http://java.com/en/download/">http://java.com/en/download/</a>.</p>
 
-				<p>Mac users should note that Apple does not, and will not, support Java 2 v1.3.1 or greater for
-				anything less than Mac OS X.</p>
+				<p>Mac users should note that Apple does not, and will not, support Java 2 v1.7.x or greater for Mac OSX 10.6.8 or earlier.</p>
 			</li>
 
 			<li>
 				<p><span class="underline">Will PCGen run on my machine?</span></p>
 
 				<p>That depends. The one thing that decides if you can run PCGen or not, is whether
-				you have at least JAVA 1.5.x installed. If you do, then it should run. If not, it won't.
+				you have at least JAVA 1.6+ installed. If you do, then it should run. If not, it won't.
 				It really is that simple.</p>
 
 				<p>However, some might want to check here, so here is a small list:</p>
@@ -98,24 +97,36 @@
 						</td>
 					</tr>
 					<tr>
-						<td>Mac OS 10.x</td>
-						<td>Yes</td>
+						<td>Mac OSX 10 to 10.4</td>
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>Mac OSX 10.5+</td>
+						<td>Yes (Running Windows XP, Vista, or 7 on Boot Camp)</td>
+					</tr>
+					<tr>
+						<td>Mac OSX 10.5.2 to 10.6.8</td>
+						<td>Yes (64bit Only)</td>
+					</tr>
+					<tr>
+						<td>Mac OSX 10.7+</td>
+						<td>Yes (JRE 1.7+ required)</td>
 					</tr>
 					<tr>
 						<td>Win 98</td>
-						<td>Yes</td>
+						<td>No</td>
 					</tr>
 					<tr>
 						<td>Win 98 SE</td>
-						<td>Yes</td>
-					</tr>
-					<tr>
-						<td>Win 2000</td>
-						<td>Yes</td>
+						<td>No</td>
 					</tr>
 					<tr>
 						<td>Win NT</td>
-						<td>Yes</td>
+						<td>No</td>
+					</tr>
+					<tr>
+						<td>Win 2000</td>
+						<td>Yes (32bit Only)</td>
 					</tr>
 					<tr>
 						<td>Win XP</td>
@@ -135,7 +146,34 @@
 					</tr>
 				</table>
 
-				<p>All the solutions above have been tested.</p>
+				<p>Not all of these configurations have been tested.</p>
+			</li>
+
+			<li>
+				<P><span class="underline">Mac OSX telling me &quot;PCGen can't be opened because . . . &quot;</span></P>
+				
+				<p>Starting with Mac OSX 10.7 Apple added an anti-malware application called the <strong>Gatekeeper</strong>. 
+					The purpose of this addition to the Mac OS was to restrict applications downloaded from the Internet from 
+					launching. Initially Gatekeeper had no teeth, requiring the user to "opt-in" as it's default startup settings 
+					were to allow everything to run. Starting with Mac OSX 10.8, Gatekeeper's default setting was changed to 
+					restrict everything that was not downloaded either from the App Store or from an otherwise &quot;identified&quot; 
+					developer. Fortunately Apple did provide for a workaround which is described below:</p>
+				<p><strong>Gatekeeper Bypass Instructions</strong></p>
+					<ol>
+						<li>Open System Preferences by choosing it from the Apple menu.</li>
+						<li>Select the &quot;Security &amp; Privacy&quot; control panel and go to the &quot;General&quot; tab.</li>
+						<li>Under &quot;Allow applications downloaded from:&quot; click the radio button next to &quot;Anywhere&quot;.</li>
+						<li>On the dialog box that pops up select the &quot;Allow From Anywhere&quot; button to change the setting and close the Preferences window.</li>
+						<li>Launch PCGen and verify that it is working. (If PCGen still doesn't launch please drop by the PCGen forum and provide a report.)</li>
+						<li>Relaunch System Preferences and change Gatekeeper's settings back to the original setting.</li>
+					</ol>
+				</p>
+				<p class="sidebar0">* - There are several different messages that can be seen as part of this issue including the following:<br>
+						&nbsp;&nbsp;a. <em>&quot;PCGen x.xx.xx&quot; can't be opened because it is from an unidentified developer.</em><br>
+						&nbsp;&nbsp;b. <em>&quot;PCGen x.xx.xx&quot; is damaged and can't be opened. You should move it to the Trash.</em></p>
+
+				<p>The installed version of PCGen will now run without the need to change Gatekeeper's setting.</p>
+
 			</li>
 
 			<li>
