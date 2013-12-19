@@ -49,9 +49,9 @@ Ioun Stone (Nacreous gray Sphere - Flawed)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:M
 Ioun Stone (Onyx Rhomboid)					OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun				COST:24000	DEFINE:OnyxStoneStack|0																					SOURCEPAGE:p.44																																																										BONUS:STAT|CON|min(6,2*OnyxStoneStack)|TYPE=Enhancement			BONUS:VAR|OnyxStoneStack|1
 Ioun Stone (Onyx Rhomboid - Cracked)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Cracked			COST:12000	DEFINE:OnyxStoneStack|0	DEFINE:OnyxStoneCStack|0																SOURCEPAGE:p.47																																																										BONUS:STAT|CON|min(6,2*OnyxStoneStack)|TYPE=Enhancement			BONUS:VAR|CrimsonStoneCStack|1	BONUS:VAR|OnyxStoneStack|(OnyxStoneCStack/2)
 Ioun Stone (Onyx Rhomboid - Flawed)				OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Flawed			COST:16000	DEFINE:OnyxStoneFStack|0																				SOURCEPAGE:p.50																																																										BONUS:STAT|CON|min(4,2*OnyxStoneFStack)|TYPE=Enhancement			BONUS:VAR|OnyxStoneFStack|1
-Ioun Stone (Opalescent white Pyramid)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.IounWeapon			COST:10000																									SOURCEPAGE:p.44																																																																																					SPROP:Proficiency with one weapon
+Ioun Stone (Opalescent white Pyramid)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.IounWeapon			COST:10000																									SOURCEPAGE:p.44																																																																																					SPROP:Proficiency with one weapon											BONUS:ABILITYPOOL|Weapon Proficiency Granted|1
 Ioun Stone (Opalescent white Pyramid - Cracked)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.IounWpnFam.Cracked	COST:1500																									SOURCEPAGE:p.47																																																																																					SPROP:Weapon familiarity with one exotic weapon
-Ioun Stone (Opalescent white Pyramid - Flawed)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.IounWeapon.Flawed	COST:3000																									SOURCEPAGE:p.50																																																										BONUS:STAT|DEX|-2																									SPROP:Proficiency with one weapon
+Ioun Stone (Opalescent white Pyramid - Flawed)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.IounWeapon.Flawed	COST:3000																									SOURCEPAGE:p.50																																																										BONUS:STAT|DEX|-2																									SPROP:Proficiency with one weapon											BONUS:ABILITYPOOL|Weapon Proficiency Granted|1
 Ioun Stone (Orange Prism - Cracked)				OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Cracked			COST:10000																									SOURCEPAGE:p.47																																																																																					SPROP:Add one 0-level spell to user's spells known or prepared
 Ioun Stone (Orange Prism - Flawed)				OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Flawed			COST:25000																									SOURCEPAGE:p.50												BONUS:CASTERLEVEL|TYPE.Arcane,TYPE.Divine|1																																							BONUS:STAT|var(SPELLSTAT)|-2
 Ioun Stone (Pale blue Rhomboid - Cracked)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Cracked			COST:200											CHOOSE:NUMCHOICES=1|SKILL|TYPE=Strength								SOURCEPAGE:p.47																																																	BONUS:SKILL|LIST|1
@@ -95,8 +95,8 @@ Wayfinder of the Sleeping Eye							TYPE:Magic.Wondrous.Wayfinder			COST:70000	W
 ###Block: Wondrous Items
 # Equipment Name			Type						Contains			Cost		Weight	Slot Needed	Source Page
 Autonomous Cartographer		TYPE:Magic.Wondrous							COST:2000	WT:0.5			SOURCEPAGE:p.55
-Dead Man's Shroud			TYPE:Magic.Wondrous.Cloak						COST:6000	WT:1				SOURCEPAGE:p.55
+Dead Man's Shroud			TYPE:Magic.Wondrous.Cape						COST:6000	WT:1				SOURCEPAGE:p.55
 Eldritch Egress			TYPE:Magic.Wondrous							COST:10000	WT:4				SOURCEPAGE:p.55
-Horseshoes of Great Burden	TYPE:Magic.Wondrous.Feet						COST:2500	WT:24		SLOTS:4	SOURCEPAGE:p.55
+Horseshoes of Great Burden	TYPE:Magic.Wondrous.Boot.Footwear					COST:2500	WT:24		SLOTS:4	SOURCEPAGE:p.55
 Pathfinder Pouch			TYPE:Magic.Wondrous.Container		CONTAINS:*10|Any		COST:1000	WT:1				SOURCEPAGE:p.56
 Versatile Vest			TYPE:Magic.Wondrous.Shirt.Container	CONTAINS:40%26|Any	COST:2000	WT:1				SOURCEPAGE:p.56
