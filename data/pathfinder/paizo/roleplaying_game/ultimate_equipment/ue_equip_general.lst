@@ -277,27 +277,48 @@ Artisan's Tools (Shoes).MOD																																				SOURCEPAGE:p.76
 Artisan's Tools (Stonemasonry).MOD																																			SOURCEPAGE:p.76
 Artisan's Tools (Traps).MOD																																				SOURCEPAGE:p.76
 Artisan's Tools (Weaponsmithing).MOD																																		SOURCEPAGE:p.76
-Artisan's Tools (Armor).COPY=Artisan's Tools (Armor/Masterwork)																										COST:55						BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
-Artisan's Tools (Baskets).COPY=Artisan's Tools (Baskets/Masterwork)																									COST:55						BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
-Artisan's Tools (Books).COPY=Artisan's Tools (Books/Masterwork)																										COST:55						BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
-Artisan's Tools (Bows).COPY=Artisan's Tools (Bows/Masterwork)																										COST:55						BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
-Artisan's Tools (Calligraphy).COPY=Artisan's Tools (Calligraphy/Masterwork)																								COST:55						BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
-Artisan's Tools (Carpentry).COPY=Artisan's Tools (Carpentry/Masterwork)																									COST:55						BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
-Artisan's Tools (Cloth).COPY=Artisan's Tools (Cloth/Masterwork)																										COST:55						BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
-Artisan's Tools (Clothing).COPY=Artisan's Tools (Clothing/Masterwork)																									COST:55						BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
-Artisan's Tools (Gemcutting).COPY=Artisan's Tools (Gemcutting/Masterwork)																								COST:55						BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
-Artisan's Tools (Glass).COPY=Artisan's Tools (Glass/Masterwork)																										COST:55						BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
-Artisan's Tools (Jewelry).COPY=Artisan's Tools (Jewelry/Masterwork)																									COST:55						BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
-Artisan's Tools (Leather).COPY=Artisan's Tools (Leather/Masterwork)																									COST:55						BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
-Artisan's Tools (Locks).COPY=Artisan's Tools (Locks/Masterwork)																										COST:55						BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
-Artisan's Tools (Paintings).COPY=Artisan's Tools (Paintings/Masterwork)																									COST:55						BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
-Artisan's Tools (Pottery).COPY=Artisan's Tools (Pottery/Masterwork)																									COST:55						BONUS:SKILL|Craft (Pottery/)|2|TYPE=Circumstance
-Artisan's Tools (Sculptures).COPY=Artisan's Tools (Sculptures/Masterwork)																								COST:55						BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
-Artisan's Tools (Ships).COPY=Artisan's Tools (Ships/Masterwork)																										COST:55						BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
-Artisan's Tools (Shoes).COPY=Artisan's Tools (Shoes/Masterwork)																										COST:55						BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
-Artisan's Tools (Stonemasonry).COPY=Artisan's Tools (Stonemasonry/Masterwork)																								COST:55						BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
-Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)																										COST:55						BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
-Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)																							COST:55						BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance
+Artisan's Tools (Armor).COPY=Artisan's Tools (Armor/Masterwork)
+Artisan's Tools (Armor/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
+Artisan's Tools (Baskets).COPY=Artisan's Tools (Baskets/Masterwork)
+Artisan's Tools (Baskets/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
+Artisan's Tools (Books).COPY=Artisan's Tools (Books/Masterwork)
+Artisan's Tools (Books/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
+Artisan's Tools (Bows).COPY=Artisan's Tools (Bows/Masterwork)
+Artisan's Tools (Bows/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
+Artisan's Tools (Calligraphy).COPY=Artisan's Tools (Calligraphy/Masterwork)
+Artisan's Tools (Calligraphy/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
+Artisan's Tools (Carpentry).COPY=Artisan's Tools (Carpentry/Masterwork)
+Artisan's Tools (Carpentry/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
+Artisan's Tools (Cloth).COPY=Artisan's Tools (Cloth/Masterwork)	
+Artisan's Tools (Cloth/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
+Artisan's Tools (Clothing).COPY=Artisan's Tools (Clothing/Masterwork)
+Artisan's Tools (Clothing/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
+Artisan's Tools (Gemcutting).COPY=Artisan's Tools (Gemcutting/Masterwork)
+Artisan's Tools (Gemcutting/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
+Artisan's Tools (Glass).COPY=Artisan's Tools (Glass/Masterwork)
+Artisan's Tools (Glass/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
+Artisan's Tools (Jewelry).COPY=Artisan's Tools (Jewelry/Masterwork)
+Artisan's Tools (Jewelry/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
+Artisan's Tools (Leather).COPY=Artisan's Tools (Leather/Masterwork)
+Artisan's Tools (Leather/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
+Artisan's Tools (Locks).COPY=Artisan's Tools (Locks/Masterwork)
+Artisan's Tools (Locks/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
+Artisan's Tools (Paintings).COPY=Artisan's Tools (Paintings/Masterwork)
+Artisan's Tools (Paintings/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
+Artisan's Tools (Pottery).COPY=Artisan's Tools (Pottery/Masterwork)
+Artisan's Tools (Pottery/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Pottery/)|2|TYPE=Circumstance
+Artisan's Tools (Sculptures).COPY=Artisan's Tools (Sculptures/Masterwork)
+Artisan's Tools (Sculptures/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
+Artisan's Tools (Ships).COPY=Artisan's Tools (Ships/Masterwork)
+Artisan's Tools (Ships/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
+Artisan's Tools (Shoes).COPY=Artisan's Tools (Shoes/Masterwork)
+Artisan's Tools (Shoes/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
+Artisan's Tools (Stonemasonry).COPY=Artisan's Tools (Stonemasonry/Masterwork)
+Artisan's Tools (Stonemasonry/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
+Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)
+Artisan's Tools (Traps/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
+Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)
+Artisan's Tools (Weaponsmithing/Masterwork).MOD																							COST:55						BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance
 Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12		SOURCEPAGE:p.76
 Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.76
 Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3		SOURCEPAGE:p.76
@@ -331,21 +352,36 @@ Musical Instrument (Flute).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Pan Pipes).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Recorder).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork																											SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)																											SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
+Musical Instrument (Harpsichord/Masterwork.MOD																											SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
+Musical Instrument (Piano/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
+Musical Instrument (Pipe Organ/Masterwork).MOD																											SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
+Musical Instrument (Bells/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
+Musical Instrument (Chimes/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
+Musical Instrument (Drums/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
+Musical Instrument (Gong/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
+Musical Instrument (Fiddle/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
+Musical Instrument (Harp/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
+Musical Instrument (Lute/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
+Musical Instrument (Mandolin/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
+Musical Instrument (Flute/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)	
+Musical Instrument (Pan Pipes/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
+Musical Instrument (Recorder/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
+Musical Instrument (Trumpet/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2		SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3		SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20		SOURCEPAGE:p.79
@@ -355,11 +391,14 @@ Spell Component Pouch.MOD																																				SOURCEPAGE:p.79
 Spellbook (Wizard's/Blank).MOD																																			SOURCEPAGE:p.79
 Stretcher																				TYPE:Goods.Tools													COST:1	WT:10		SOURCEPAGE:p.79
 Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5		SOURCEPAGE:p.79
-Surgeon's Tools.COPY=Surgeon's Tools (Small)																															WT:1.25	SOURCEPAGE:p.79
+Surgeon's Tools.COPY=Surgeon's Tools (Small)
+Surgeon's Tools (Small).MOD																															WT:1.25	SOURCEPAGE:p.79
 Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.79
 Thieves' Tools.MOD																																					SOURCEPAGE:p.79
-Thieves' Tools.COPY=Thieves' Tools (Masterwork)																													COST:100	WT:2		SOURCEPAGE:p.79	BONUS:SKILL|Disable Device|2|TYPE=Circumstance
+Thieves' Tools.COPY=Thieves' Tools (Masterwork)
+Thieves' Tools (Masterwork).MOD																													COST:100	WT:2		SOURCEPAGE:p.79	BONUS:SKILL|Disable Device|2|TYPE=Circumstance
 Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
+Traveling Formula Book (Blank).MOD
 Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.79
 Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		SOURCEPAGE:p.79	BONUS:SKILL|Heal|1|TYPE=Circumstance	BONUS:SKILL|Heal (Animal)|3|TYPE=Circumstance
 
@@ -396,7 +435,8 @@ Butterfly Net.MOD																TYPE:Goods.General.Resizable														COST:
 Caltrops.MOD																																									SOURCEPAGE:p.60
 Camouflage Netting															TYPE:Goods.Tools																COST:20	WT:5					SOURCEPAGE:p.61																																									SPROP:When you hide under the netting in the appropriate terrain, you gain a +4 circumstance bonus on Stealth checks as long as you remain immobile and prone.
 Candle.MOD																																										SOURCEPAGE:p.61
-Candle.COPY=Candles (10)																																COST:0.1			BASEQTY:10
+Candle.COPY=Candles (10)
+Candles (10).MOD																																COST:0.1			BASEQTY:10
 Candle Lamp																	TYPE:Goods.General.Lightsource													COST:5	WT:1					SOURCEPAGE:p.61																																									SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
 Candlestick																	TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.61
 Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:2	WT:1					SOURCEPAGE:p.61
@@ -458,20 +498,30 @@ Heritage Book																TYPE:Goods.Tools.Book															COST:50	WT:2			
 Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
 Hollowed Pommel																TYPE:Goods.General															COST:5						SOURCEPAGE:p.66
 Holy Symbol (Wooden).MOD																																							SOURCEPAGE:p.66
-Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Compartment)									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
-Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Flask)										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
+Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Compartment)
+Holy Symbol (Wooden/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
+Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Flask)
+Holy Symbol (Wooden/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
 Holy Symbol (Iron)															TYPE:Goods.Tools.DivineFocus														COST:5	WT:1					SOURCEPAGE:p.66
-Holy Symbol (Iron).COPY=Holy Symbol (Iron/Compartment)									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
-Holy Symbol (Iron).COPY=Holy Symbol (Iron/Flask)										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:15
+Holy Symbol (Iron).COPY=Holy Symbol (Iron/Compartment)
+Holy Symbol (Iron/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
+Holy Symbol (Iron).COPY=Holy Symbol (Iron/Flask)
+Holy Symbol (Iron/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:15
 Holy Symbol (Silver).MOD																																							SOURCEPAGE:p.66
-Holy Symbol (Silver).COPY=Holy Symbol (Silver/Compartment)									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
-Holy Symbol (Silver).COPY=Holy Symbol (Silver/Flask)										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
+Holy Symbol (Silver).COPY=Holy Symbol (Silver/Compartment)
+Holy Symbol (Silver/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
+Holy Symbol (Silver).COPY=Holy Symbol (Silver/Flask)
+Holy Symbol (Silver/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
 Holy Symbol (Gold)															TYPE:Goods.Tools.DivineFocus														COST:100	WT:1					SOURCEPAGE:p.66
-Holy Symbol (Gold).COPY=Holy Symbol (Gold/Compartment)									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
-Holy Symbol (Gold).COPY=Holy Symbol (Gold/Flask)										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
+Holy Symbol (Gold).COPY=Holy Symbol (Gold/Compartment)
+Holy Symbol (Gold/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
+Holy Symbol (Gold).COPY=Holy Symbol (Gold/Flask)
+Holy Symbol (Gold/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
 Holy Symbol (Platinum)															TYPE:Goods.Tools.DivineFocus														COST:500	WT:1					SOURCEPAGE:p.66
-Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Compartment)								TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
-Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)									TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
+Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Compartment)
+Holy Symbol (Platinum/Compartment).MOD								TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
+Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
+Holy Symbol (Platinum/Flask).MOD									TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
 Holy Symbol (Tattoo)															TYPE:Goods.Tools.DivineFocus														COST:100						SOURCEPAGE:p.66
 Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																									SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
 Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																									SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
