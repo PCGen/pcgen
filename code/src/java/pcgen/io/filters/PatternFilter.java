@@ -42,7 +42,11 @@ public class PatternFilter implements OutputFilter
 	{
 		super();
 
-		final int idx = templateFileName.lastIndexOf('.');
+		int idx = templateFileName.lastIndexOf('.');
+		if (idx < 0)
+		{
+			idx = templateFileName.lastIndexOf('-');
+		}
 
 		String filterName = templateFileName;
 		if (idx >= 0)

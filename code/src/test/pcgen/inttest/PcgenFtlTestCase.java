@@ -1,5 +1,5 @@
 /*
- * pcGenGUIPfrpgRogueTest.java
+ * PcgenFtlTestCase.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,60 +16,36 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 07/06/2013
+ * Created on 23/10/2013
  *
  * $Id$
  */
-package pcgen.inttest.game_pathfinder;
-
-import pcgen.inttest.PcgenFtlTestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+package pcgen.inttest;
 
 /**
- * Tests loading and exporting a pathfinder rogue.
- * See the PCG file for details
+ * PcgenFtlTestCase is a base class for tests which use the FreeMarker
+ * base template to produce an XML output for a character and then compare that
+ * output with the expected result.
+ * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-@SuppressWarnings("nls")
-public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
+public abstract class PcgenFtlTestCase extends pcGenGUITestCase
 {
 
-	/**
-	 * Create a new test instance.
-	 */
-	public pcGenGUIPfrpgRogueTest()
-	{
-		super("pf_rogue");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIPfrpgRogueTest(String name)
+	public PcgenFtlTestCase(String name)
 	{
 		super(name);
 	}
-
+	
 	/**
-	 * @return A <tt>TestSuite</tt>
+	 * {@inheritDoc}
 	 */
-	public static Test suite()
+	@Override
+	protected String getSheetName()
 	{
-		return new TestSuite(pcGenGUIPfrpgRogueTest.class);
+		return "code/testsuite/base-xml.ftl";
 	}
 
-	/**
-	 * Loads and outputs the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
-	public void testCode() throws Exception
-	{
-		runTest("PFRPGRogue", "Pathfinder_RPG");
-	}
 }

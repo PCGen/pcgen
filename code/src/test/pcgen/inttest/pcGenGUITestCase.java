@@ -110,8 +110,12 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		System.out.println("RUNTEST with the character: " + character
 			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
-		String outputFile = "code/testsuite/output/" + character + ".xml";
-		new File(outputFile).delete();
+		File outputFolder= new File("code/testsuite/output");
+		outputFolder.mkdirs();
+		String outputFileName = character + ".xml";
+		File outputFileFile = new File(outputFolder, outputFileName);
+		outputFileFile.delete();
+		String outputFile = outputFileFile.getCanonicalPath();
 		
 		String configFolder = "testsuite";
 		
@@ -148,7 +152,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 				+ Constants.EXTENSION_CHARACTER_FILE;
 
 			Main.loadCharacterAndExport(characterFile,
-				"code/testsuite/base.xml", outputFile, TEST_CONFIG_FILE);
+				getSheetName(), outputFile, TEST_CONFIG_FILE);
 
 			// Optionally do a second run
 			if (runTwice)
@@ -157,7 +161,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 				Globals.emptyLists();
 				PersistenceManager.getInstance().clear();
 				Main.loadCharacterAndExport(characterFile,
-					"code/testsuite/base.xml", outputFile, TEST_CONFIG_FILE);
+					getSheetName(), outputFile, TEST_CONFIG_FILE);
 			}
 			
 			// Read in the actual XML produced by PCGen
@@ -174,6 +178,14 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 
 		// Do the XML comparison
 		assertXMLEqual(expected, actual);
+	}
+
+	/**
+	 * @return
+	 */
+	protected String getSheetName()
+	{
+		return "code/testsuite/base.xml";
 	}
 
 	/**

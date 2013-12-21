@@ -74,10 +74,17 @@ import pcgen.io.exporttoken.Token;
 import pcgen.io.exporttoken.TotalToken;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
+import pcgen.io.freemarker.LoopDirective;
+import pcgen.io.freemarker.PCBooleanFunction;
+import pcgen.io.freemarker.PCStringDirective;
+import pcgen.io.freemarker.PCVarFunction;
 import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -105,6 +112,12 @@ public final class ExportHandler
 	 */
 	private static boolean tokenMapPopulated;
 
+	/**
+	 * ExportEngine describes a possible templating engine to be used to 
+	 * process a character and a template to produce the character output.
+	 */
+	private enum ExportEngine { PCGEN, FREEMARKER};
+	
 	// Processing state variables
 
 	/** TODO What is this used for? */
@@ -146,6 +159,9 @@ public final class ExportHandler
 	/** TODO What is this used for? */
 	private boolean inLabel;
 
+	/** The templating engine we will be using for this export. */
+	private ExportEngine exportEngine;
+	
 	/**
 	 * Constructor.  Populates the token map (a list of possible output tokens) and 
 	 * sets the character sheet template we are using.
@@ -156,6 +172,7 @@ public final class ExportHandler
 	{
 		populateTokenMap();
 		setTemplateFile(templateFile);
+		decideExportEngine();
 	}
 
 	/**
@@ -188,6 +205,15 @@ public final class ExportHandler
 		if (templateFile == null)
 		{
 			throw new IllegalStateException("Template file must not be null");
+		}
+
+		if (exportEngine == ExportEngine.FREEMARKER)
+		{
+			FileAccess.setCurrentOutputFilter(templateFile.getName().substring(
+				0, templateFile.getName().length() - 4));
+			
+			exportCharacterUsingFreemarker(aPC, out);
+			return;
 		}
 		
 		// Set an output filter based on the type of template in use.
@@ -269,6 +295,64 @@ public final class ExportHandler
 	}
 
 	/**
+	 * Produce an output file for a character using a FreeMarker template.
+	 * 
+	 * @param aPC The character being output.
+	 * @param outputWriter The destination for the output.
+	 */
+	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter)
+	{
+		Configuration cfg = new Configuration();
+
+		try
+		{
+			// Set Directory for templates
+			cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
+			// load template
+			Template template = cfg.getTemplate(templateFile.getName());
+
+			// Configure our custom directives and functions.
+			cfg.setSharedVariable("pcstring", new PCStringDirective());
+			cfg.setSharedVariable("pcvar", new PCVarFunction());
+			cfg.setSharedVariable("pcboolean", new PCBooleanFunction());
+			cfg.setSharedVariable("loop", new LoopDirective());
+			cfg.setSharedVariable("pc", aPC);
+			
+			// data-model
+			Map<String, Object> input = new HashMap<String, Object>();
+			input.put("pc", aPC);
+			input.put("exportHandler", this);
+//			input.put("gameModeVarCountMap", gameModeVarCountMap);
+//			input.put("pathIgnoreLen", dataPathLen + 1);
+
+			// Process the template
+			template.process(input, outputWriter);
+		}
+		catch (IOException exc)
+		{
+			Logging.errorPrint("Error exporting character using template " + templateFile, exc);
+		}
+		catch (TemplateException e)
+		{
+			Logging.errorPrint("Error exporting character using template " + templateFile, e);
+		}
+		finally
+		{
+			if (outputWriter != null)
+			{
+				try
+				{
+					outputWriter.flush();
+				}
+				catch (Exception e2)
+				{
+				}
+			}
+		}
+	}
+	
+	
+	/**
 	 * A helper method to prepare the template for exporting
 	 * 
 	 * Read lines from the character sheet template and store them in a buffer 
@@ -344,6 +428,19 @@ public final class ExportHandler
 	public File getTemplateFile()
 	{
 		return templateFile;
+	}
+
+	/**
+	 * Determine which templating engine should be used for the template file.
+	 */
+	private void decideExportEngine()
+	{
+		exportEngine = ExportEngine.PCGEN;
+		
+		if (templateFile.getName().toLowerCase().endsWith(".ftl"))
+		{
+			exportEngine = ExportEngine.FREEMARKER;
+		}
 	}
 
 	/**
