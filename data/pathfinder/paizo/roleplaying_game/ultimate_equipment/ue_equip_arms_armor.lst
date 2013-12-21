@@ -147,7 +147,7 @@ Barding (Do-maru)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.
 Barding (Kikko)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.Standard.Nonmetal.Barding.Mount					COST:60	WT:25		ACCHECK:-3					EQMOD:CLOTH								MAXDEX:4						SOURCEPAGE:p.80	SPELLFAILURE:20									BONUS:COMBAT|AC|5|TYPE=Armor
 Barding (Lemellar/Horn)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.Standard.Nonmetal.Barding.Mount					COST:200	WT:30		ACCHECK:-4					EQMOD:BONE								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:25									BONUS:COMBAT|AC|5|TYPE=Armor
 Barding (Scale Mail).MOD
-Barding (Agile Breastplate)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.Standard.Nonmetal.Barding.Mount					COST:800	WT:25		ACCHECK:-4					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:25									BONUS:COMBAT|AC|6|TYPE=Armor
+Barding (Agile Breastplate)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.Standard.Nonmetal.Barding.Mount					COST:800	WT:25		ACCHECK:-4					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:25									BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:SKILL|Acrobatics (Jump),Climb|3
 Barding (Chainmail).MOD
 Barding (Breastplate).MOD
 Barding (Four-mirror)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.Standard.Nonmetal.Barding.Mount					COST:90	WT:45		ACCHECK:-5					EQMOD:STEEL								MAXDEX:2						SOURCEPAGE:p.80	SPELLFAILURE:30									BONUS:COMBAT|AC|6|TYPE=Armor
@@ -158,7 +158,7 @@ Barding (Kusari Gusoku)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Ar
 Barding (Banded Mail).MOD
 Barding (Lamellar/Iron)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.Standard.Nonmetal.Barding.Mount					COST:400	WT:50		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40									BONUS:COMBAT|AC|7|TYPE=Armor
 Barding (Tatami-do)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.Standard.Nonmetal.Barding.Mount					COST:2000	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:35									BONUS:COMBAT|AC|7|TYPE=Armor
-Barding (Agile Half-Plate)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.Standard.Nonmetal.Barding.Mount					COST:1700	WT:55		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40									BONUS:COMBAT|AC|8|TYPE=Armor
+Barding (Agile Half-Plate)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.Standard.Nonmetal.Barding.Mount					COST:1700	WT:55		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40									BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:SKILL|Acrobatics (Jump),Climb|3
 Barding (Half-Plate).MOD
 Barding (Lamellar/Stone)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.Standard.Nonmetal.Barding.Mount					COST:1000	WT:45		ACCHECK:-7					EQMOD:STONE								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40									BONUS:COMBAT|AC|8|TYPE=Armor
 Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.Standard.Nonmetal.Barding.Mount					COST:3400	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:2						SOURCEPAGE:p.80	SPELLFAILURE:35									BONUS:COMBAT|AC|8|TYPE=Armor
