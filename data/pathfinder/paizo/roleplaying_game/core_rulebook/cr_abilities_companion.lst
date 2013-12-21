@@ -86,8 +86,8 @@ Companion Advancement (Dire Rat)			CATEGORY:Special Ability	TYPE:CompChoice	VISI
 # Advances at level 7
 Companion Advancement (Cat (Big (Lion)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Lion)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Cat (Big (Tiger)))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Cat (Big (Tiger)))								ABILITY:Special Ability|AUTOMATIC|Grab|Pounce											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dinosaur (Deinonychus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Deinonychus))																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Dinosaur (Velociraptor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Velociraptor))																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Dinosaur (Deinonychus))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Deinonychus))						ABILITY:Special Ability|AUTOMATIC|Pounce												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d4
+Companion Advancement (Dinosaur (Velociraptor))	CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Dinosaur (Velociraptor))						ABILITY:Special Ability|AUTOMATIC|Pounce												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d4
 Companion Advancement (Wolf)				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Wolf)																																			BONUS:SIZEMOD|NUMBER|1
 
 
