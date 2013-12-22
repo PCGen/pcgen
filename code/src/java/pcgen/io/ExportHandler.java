@@ -437,7 +437,7 @@ public final class ExportHandler
 	{
 		exportEngine = ExportEngine.PCGEN;
 		
-		if (templateFile.getName().toLowerCase().endsWith(".ftl"))
+		if (templateFile != null && templateFile.getName().toLowerCase().endsWith(".ftl"))
 		{
 			exportEngine = ExportEngine.FREEMARKER;
 		}
