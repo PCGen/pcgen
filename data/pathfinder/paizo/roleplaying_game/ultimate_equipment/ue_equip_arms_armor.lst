@@ -214,7 +214,7 @@ Barding (Splint Mail).COPY=Barding (Splint Mail/Large)
 Barding (Splint Mail/Large).MOD																													COST:800	WT:90
 Barding (Kusari Gusoku).COPY=Barding (Kusari Gusoku/Large)
 Barding (Kusari Gusoku/Large).MOD																													COST:1400	WT:90
-Barding (Banded Mail).COPY=
+Barding (Banded Mail).COPY=Barding (Banded Mail/Large)
 Barding (Banded Mail/Large).MOD																													COST:1000	WT:70
 Barding (Lamellar/Iron).COPY=Barding (Lamellar/Iron/Large)
 Barding (Lamellar/Iron/Large).MOD																													COST:800	WT:80
