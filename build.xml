@@ -93,7 +93,8 @@ These files can be renamed and used for releases.
         ${lib.dir}/commons-logging.jar 
         ${lib.dir}/spring-asm.jar 
         ${lib.dir}/spring-beans.jar 
-        ${lib.dir}/spring-core.jar" />
+        ${lib.dir}/spring-core.jar
+    	${lib.dir}/freemarker.jar" />
 
     <!-- For writing the compatibility checker jar -->
     <property name="convert-jar.bin.file" value="batch-convert.jar" />
@@ -861,6 +862,7 @@ pcgen.filepaths=user
             <jvmarg value="-Demma.coverage.out.merge=true" />
             <jvmarg value="-Xmx300M" />
             <formatter type="brief" />
+            <!-- formatter type="xml" / -->
             <classpath>
                 <path refid="test.project.classpath" />
                 <path refid="emma.lib" />
@@ -913,6 +915,29 @@ pcgen.filepaths=user
             <batchtest todir="${build.dir}/test-results/xml">
                 <fileset dir="${basedir}/code/src/test">
                   <include name="pcgen/inttest/**/*Test.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <!-- Run the data and code integration tests for pathfinder only -->
+    <target name="pfinttest" depends="dopfinttest, failure.notice, success.notice, reporttest" description="Run the data/code integration subset of the test suite (include lib/test/junit.jar in CLASSPATH)">
+    </target>
+
+    <target name="dopfinttest" depends="testclean, test.jar" >
+        <junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
+            <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+            <jvmarg value="-Demma.coverage.out.merge=true" />
+            <jvmarg value="-Xmx256M" />
+            <formatter type="plain" />
+            <formatter type="xml" />
+            <classpath>
+                <path refid="test.project.classpath" />
+                <path refid="emma.lib" />
+            </classpath>
+            <batchtest todir="${build.dir}/test-results/xml">
+                <fileset dir="${basedir}/code/src/test">
+                  <include name="pcgen/inttest/game_pathfinder/*Test.java"/>
                 </fileset>
             </batchtest>
         </junit>
