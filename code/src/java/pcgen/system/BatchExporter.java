@@ -31,7 +31,6 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
@@ -44,6 +43,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.io.ExportHandler;
+import pcgen.io.ExportUtilities;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.util.fop.FOPHandler;
@@ -57,7 +57,7 @@ import pcgen.util.Logging;
  * <p>
  * BatchExporter is intended to be used for both batch export of characters 
  * and as a library for other code to easily provide output capability. When
- * used in batch mode an instance should be created for the the temolate and 
+ * used in batch mode an instance should be created for the the template and 
  * one of the export methods called. When used as a library the static methods
  * should be used and supplied with preloaded characters.  
  *
@@ -87,12 +87,7 @@ public class BatchExporter
 		this.exportTemplateFilename = exportTemplateFilename;
 		this.uiDelegate = uiDelegate;
 
-		String extension =
-				StringUtils.substringAfterLast(exportTemplateFilename, ".");
-		isPdf =
-				extension.equalsIgnoreCase("xslt")
-					|| extension.equalsIgnoreCase("xsl")
-					|| extension.equalsIgnoreCase("fo");
+		isPdf = ExportUtilities.isPdfTemplate(exportTemplateFilename);
 	}
 
 	/**
@@ -316,13 +311,9 @@ public class BatchExporter
 	 */
 	public static File getTempOutputFilename(File templateFile)
 	{
-		String extension = FilenameUtils.getExtension(templateFile.getName());
-		
-		// Special case for templates processed into PDFs
-		if (isPdfTemplate(templateFile))
-		{
-			extension = "pdf";
-		}
+		String extension =
+				ExportUtilities.getOutputExtension(templateFile.getName(),
+					ExportUtilities.isPdfTemplate(templateFile));
 
 		try
 		{
@@ -343,20 +334,6 @@ public class BatchExporter
 	}
 	
 	/**
-	 * Identify if this template will result in a pdf file.
-	 * @param templateFile The output template.
-	 * @return true if this is a pdf template.
-	 */
-	public static boolean isPdfTemplate(File templateFile)
-	{
-		String extension = FilenameUtils.getExtension(templateFile.getName());
-		return (extension.equalsIgnoreCase("pdf")
-			|| extension.equalsIgnoreCase("fo")
-			|| extension.equalsIgnoreCase("xml") || extension
-				.equalsIgnoreCase("xslt"));
-	}
-	
-	/**
 	 * Write a PDF party sheet for the characters in the party to the output 
 	 * file. The party sheet will be built according to the template file. If  
 	 * the output file exists it will be overwritten.
@@ -369,8 +346,10 @@ public class BatchExporter
 	public static boolean exportPartyToPDF(PartyFacade party, File outFile,
 		File templateFile)
 	{
+		// We want the non pdf extension here for the intermediate file.
 		String extension =
-				StringUtils.substringAfterLast(templateFile.getName(), ".");
+				ExportUtilities.getOutputExtension(templateFile.getName(),
+					false);
 		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
 		File tempFile = null;
 		try
@@ -562,11 +541,8 @@ public class BatchExporter
 		File charFile = new File(characterFilename);
 		String charname = charFile.getName();
 		String extension =
-				StringUtils.substringAfterLast(exportTemplateFilename, ".");
-		if (isPdf)
-		{
-			extension = "pdf";
-		}
+				ExportUtilities.getOutputExtension(exportTemplateFilename,
+					isPdf);
 		String outputName =
 				charname.substring(0, charname.lastIndexOf('.')) + "."
 					+ extension;

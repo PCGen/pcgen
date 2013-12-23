@@ -93,6 +93,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.io.ExportUtilities;
 import pcgen.system.BatchExporter;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -1423,7 +1424,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		File outputFile = BatchExporter.getTempOutputFilename(templateFile);
 		
 		boolean success;
-		if (BatchExporter.isPdfTemplate(templateFile))
+		if (ExportUtilities.isPdfTemplate(templateFile))
 		{
 			success = BatchExporter.exportCharacterToPDF(pcFacade, outputFile, templateFile);
 		}
@@ -1513,7 +1514,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 			// Output the file
 			File templateFile = new File(template);
-			if (BatchExporter.isPdfTemplate(templateFile))
+			if (ExportUtilities.isPdfTemplate(templateFile))
 			{
 				BatchExporter.exportCharacterToPDF(pcFacade, outFile, templateFile);
 			}
