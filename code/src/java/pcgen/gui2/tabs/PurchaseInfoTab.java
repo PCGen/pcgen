@@ -480,7 +480,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		int row = table.rowAtPoint(e.getPoint());
 		if (!table.isRowSelected(row))
 		{
-			table.setRowSelectionInterval(row, row);
+			if ((0 <= row) && (table.getRowCount() > row))
+			{
+				table.setRowSelectionInterval(row, row);
+			}
 		}
 		List<EquipmentFacade> targets = new ArrayList<EquipmentFacade>();
 		for (int selRow : table.getSelectedRows())
