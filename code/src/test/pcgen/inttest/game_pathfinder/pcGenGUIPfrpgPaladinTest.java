@@ -22,9 +22,9 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests loading and exporting a pathfinder paladin.
@@ -34,7 +34,7 @@ import junit.framework.TestSuite;
  * @version $Revision$
  */
 @SuppressWarnings("nls")
-public class pcGenGUIPfrpgPaladinTest extends pcGenGUITestCase
+public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -42,7 +42,7 @@ public class pcGenGUIPfrpgPaladinTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIPfrpgPaladinTest()
 	{
-		// Empty Constructor
+		super("pf_paladin");
 	}
 
 	/**

@@ -1546,7 +1546,7 @@ BIO
 	<!-- Bard -->
 
 
-		<!-- Character Rage -->
+	<!-- Character Rage -->
 	<!-- Turning ability -->
 
 	<!-- 3.0 stunning fist -->
@@ -2697,908 +2697,908 @@ BIO
 		<equipmentsets>
 		<equipmentset name="">
 			<item>
-					<name>Amulet of Natural Armor +2</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>8000</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WONDROUS.AMULET</type>
-					<weight>0.02</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Amulet of Natural Armor +2</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>8000</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WONDROUS.AMULET</type>
+				<weight>0.02</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Headband of Vast Intelligence +2 ( Maximize Knowledge SkillKnowledge (Geography))</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>4000</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Grants maximum skill ranks in Knowledge (Geography)</special_properties>
-					<type>MAGIC.WONDROUS.HEADBAND.INTELLIGENCE.CUSTOM</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Headband of Vast Intelligence +2 ( Maximize Knowledge SkillKnowledge (Geography))</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>4000</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Grants maximum skill ranks in Knowledge (Geography)</special_properties>
+				<type>MAGIC.WONDROUS.HEADBAND.INTELLIGENCE.CUSTOM</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Dagger +1 (Small)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2302</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
-					<weight>0.5</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Dagger +1 (Small)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2302</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>0.5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Rapier +1 (Small)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2320</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WEAPON.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Rapier +1 (Small)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2320</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WEAPON.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Ring of Protection +2</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>8000</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.RING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Ring of Protection +2</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>8000</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.RING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Ring of Swimming</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2500</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.RING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Ring of Swimming</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2500</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.RING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Belt of Incredible Dexterity +2</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>4000</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WONDROUS.BELT</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Belt of Incredible Dexterity +2</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>4000</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WONDROUS.BELT</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Chain Shirt +1 (Small/Mithral)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2100</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties>30 hp/inch, hardness 15</special_properties>
-					<type>MAGIC.ARMOR.LIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
-					<weight>6.25</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Chain Shirt +1 (Small/Mithral)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2100</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties>30 hp/inch, hardness 15</special_properties>
+				<type>MAGIC.ARMOR.LIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>6.25</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Cloak of Resistance +3</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>9000</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WONDROUS.CLOAK</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Cloak of Resistance +3</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>9000</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WONDROUS.CLOAK</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Outfit (Explorer&#39;s/Small)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING.CUSTOM</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Outfit (Explorer&#39;s/Small)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING.CUSTOM</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Boots of Elvenkind</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2500</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WONDROUS.BOOT</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Boots of Elvenkind</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2500</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WONDROUS.BOOT</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Backpack (Masterwork) (Small)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil (1 Pint Flask), 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
-					<cost>50</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.CONTAINER.RESIZABLE.CUSTOM</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Backpack (Masterwork) (Small)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil (1 Pint Flask), 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
+				<cost>50</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.CONTAINER.RESIZABLE.CUSTOM</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Case (Map or Scroll)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs., 1 Map of Inner Daggermark, 4 Parchment (Sheet)</contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL</type>
-					<weight>0.5</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Case (Map or Scroll)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0 lbs., 1 Map of Inner Daggermark, 4 Parchment (Sheet)</contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.GENERAL</type>
+				<weight>0.5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Map of Inner Daggermark</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.2</cost>
-					<equipped>N</equipped>
-					<location>Case (Map or Scroll)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>(Parchment (Sheet))</special_properties>
-					<type>GOODS.GENERAL.WRITING.DOCUMENTS.CUSTOM</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Map of Inner Daggermark</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.2</cost>
+				<equipped>N</equipped>
+				<location>Case (Map or Scroll)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>(Parchment (Sheet))</special_properties>
+				<type>GOODS.GENERAL.WRITING.DOCUMENTS.CUSTOM</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Parchment (Sheet)</name>
-					<carried>4.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.2</cost>
-					<equipped>N</equipped>
-					<location>Case (Map or Scroll)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>4</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.WRITING.DOCUMENTS</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Parchment (Sheet)</name>
+				<carried>4.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.2</cost>
+				<equipped>N</equipped>
+				<location>Case (Map or Scroll)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>4</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.WRITING.DOCUMENTS</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Flint and Steel</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Flint and Steel</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Inkpen</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.WRITING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Inkpen</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.WRITING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Lantern (Bullseye)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>12</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-					<type>GOODS.GENERAL.LIGHTSOURCE</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Lantern (Bullseye)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>12</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
+				<type>GOODS.GENERAL.LIGHTSOURCE</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Oil (1 Pint Flask)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Oil (1 Pint Flask)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Oil (1 Pint Flask)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Oil (1 Pint Flask)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Potion of Cure Light Wounds</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>50</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Cures 1d8+1 points of damage</special_properties>
-					<type>MAGIC.POTION.CONSUMABLE</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Potion of Cure Light Wounds</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>50</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Cures 1d8+1 points of damage</special_properties>
+				<type>MAGIC.POTION.CONSUMABLE</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Rations (Trail/Per Day)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.5</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Rations (Trail/Per Day)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.5</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Rations (Trail/Per Day)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.5</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>4</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Rations (Trail/Per Day)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.5</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>4</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Rope of Climbing</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>3000</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.WONDROUS</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Rope of Climbing</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>3000</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.WONDROUS</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Sealing Wax</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Backpack (Masterwork) (Small)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.WRITING</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Sealing Wax</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.WRITING</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Masterwork Thieves&#39; Tools</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>100</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.TOOLS.THIEF.THIEFTOOLS.CUSTOM.MASTERWORK</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Masterwork Thieves&#39; Tools</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>100</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.TOOLS.THIEF.THIEFTOOLS.CUSTOM.MASTERWORK</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Pouch (Belt)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0.14 lbs., 1 Coin (Gold Piece), 6 Coin (Silver Piece)</contents>
-					<cost>1</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
-					<weight>0.5</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Pouch (Belt)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0.14 lbs., 1 Coin (Gold Piece), 6 Coin (Silver Piece)</contents>
+				<cost>1</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
+				<weight>0.5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Coin (Gold Piece)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Pouch (Belt)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>COIN</type>
-					<weight>0.02</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Coin (Gold Piece)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Pouch (Belt)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>COIN</type>
+				<weight>0.02</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Coin (Silver Piece)</name>
-					<carried>6.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Pouch (Belt)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>6</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>COIN</type>
-					<weight>0.02</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Coin (Silver Piece)</name>
+				<carried>6.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Pouch (Belt)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>6</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>COIN</type>
+				<weight>0.02</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Sling (Small)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs.</contents>
-					<cost>0</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.RANGED.STANDARD.BLUDGEONING.CONTAINER.PROJECTILE.SLING.WEAPON GROUP THROWN.CUSTOM</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Sling (Small)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0 lbs.</contents>
+				<cost>0</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.RANGED.STANDARD.BLUDGEONING.CONTAINER.PROJECTILE.SLING.WEAPON GROUP THROWN.CUSTOM</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Masterwork Sap (Small)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>301</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
-					<type>WEAPON.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Masterwork Sap (Small)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>301</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Dog (Riding)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Saddle (Riding), 1 Saddlebags, 1 Waterskin</contents>
-					<cost>150</cost>
-					<equipped>N</equipped>
-					<location></location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Dog (Riding)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Saddle (Riding), 1 Saddlebags, 1 Waterskin</contents>
+				<cost>150</cost>
+				<equipped>N</equipped>
+				<location></location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Dagger (Small)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL</type>
-					<weight>0.5</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Dagger (Small)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL</type>
+				<weight>0.5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Bedroll</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Bedroll</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Masterwork Morningstar (Small/Alchemical Silver)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>398</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties>10 hp/inch, hardness 8</special_properties>
-					<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Masterwork Morningstar (Small/Alchemical Silver)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>398</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Masterwork Rapier (Small/Cold Iron)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>340</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties>30 hp/inch, hardness 10</special_properties>
-					<type>WEAPON.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Masterwork Rapier (Small/Cold Iron)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>340</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties>30 hp/inch, hardness 10</special_properties>
+				<type>WEAPON.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Saddle (Riding)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.MOUNT.SADDLE.RESIZABLE</type>
-					<weight>25</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Saddle (Riding)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.MOUNT.SADDLE.RESIZABLE</type>
+				<weight>25</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Saddlebags</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>31 lbs., 1 Oil (1 Pint Flask), 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
-					<cost>4</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.MOUNT.RESIZABLE</type>
-					<weight>8</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Saddlebags</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>31 lbs., 1 Oil (1 Pint Flask), 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
+				<cost>4</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.MOUNT.RESIZABLE</type>
+				<weight>8</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Grappling Hook</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Grappling Hook</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Map Maker&#39;s Kit</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.TOOLS</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Map Maker&#39;s Kit</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.TOOLS</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Tent</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>20</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Tent</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>20</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Waterskin</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs.</contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Dog (Riding)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Waterskin</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0 lbs.</contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Dog (Riding)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.GENERAL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
-					<name>Bullets, Sling (10)</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>AMMUNITION.STANDARD.BULLET.METAL</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
+				<name>Bullets, Sling (10)</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>AMMUNITION.STANDARD.BULLET.METAL</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
       </equipmentsets>
 	</equipment>
@@ -3731,5 +3731,511 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
 
+	<ability_objects>
+		<!-- Visible Normal "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Brigand</name>
+			<description>You hail from the River Kingdoms or the more lawless reaches of Brevoy. Life has been hard for you. Perhaps your parents and siblings were crooks and con artists, or maybe your rough, lonely life lead you to fall in with thieves and worse. You know how to ambush travelers, bully traders, avoid the law, and camp where no one might find you. Recently, you&#39;ve run into some trouble, either with the law or with other bandits, and you&#39;re looking to get away to somewhere no one would ever think to look for you. An expedition into the rugged wilderness seems like a perfect way to lie low until the trouble blows over. You gain a +1 trait bonus on Bluff, Diplomacy, Intimidate, and Sense Motive checks when dealing with brigands, thieves, bandits, and their ilk.</description>
+			<type>TRAIT.CAMPAIGNTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Canny Observer</name>
+			<description>When a rogue with this talent makes a Perception check to hear the details of a conversation or to find concealed or secret objects (including doors and traps), she gains a +4 bonus.</description>
+			<type>ROGUETALENT.SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Crippling Strike</name>
+			<description>You can sneak attack opponents with such precision that your blows weaken and hamper them. An opponent damaged by one of your sneak attacks also takes 2 points of Strength damage.</description>
+			<type>ROGUECLASSABILITY.SPECIALATTACK.EXTRAORDINARY.ROGUETALENT.ROGUEADVANCEDTALENT.ATTACKOPTION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Guileful Polyglot</name>
+			<description>A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself.</description>
+			<type>ROGUETALENT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Guileful Polyglot (Aklo, Hallit, Giant, Varisian)</name>
+			<description>A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself.</description>
+			<type>GUILEFULPOLYGOTLANG.SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated>Aklo,Hallit,Giant,Varisian</associated>
+			<count>4</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Natural-Born Leader</name>
+			<description>You&#39;ve always found yourself in positions where others look up to you as a leader, and you can distinctly remember an event from your early childhood where you led several other children to accomplish a goal that each of you individually could not. All cohorts, followers, or summoned creatures under your leadership gain a +1 morale bonus on Will saves to avoid mind-affecting effects. If you ever take the Leadership feat, you gain a +1 trait bonus to your Leadership score.</description>
+			<type>TRAIT.BASICTRAIT.SOCIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Trap Spotter</name>
+			<description>Whenever you come within 10 feet of a trap, you receive an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.</description>
+			<type>ROGUECLASSABILITY.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Fearless</name>
+			<description>Halflings receive a +2 racial bonus on saving throws against fear. This bonus stacks with the bonus granted by Halfling Luck.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Halfling Luck</name>
+			<description>Halflings receive a +1 racial bonus on all saving throws.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Improved Evasion</name>
+			<description>You can avoid damage from many area-effect attacks. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE.ADVANCEDROGUETALENT.ROGUECLASSABILITY.RANGERCLASSABILITY.MONKCLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Improved Uncanny Dodge</name>
+			<description>You can no longer be flanked. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker is a rogue of at least level 16.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Keen Senses</name>
+			<description>Halflings receive a +2 bonus on Perception skill checks.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.KEENSENSES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Sneak Attack</name>
+			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. Your attack deals 6d6 points of extra damage anytime your target would be denied a Dexterity bonus to AC, or when you flank your target. Should you score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage, you can make a sneak attack that deals nonlethal damage instead of lethal damage. You cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. You must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. You cannot sneak attack while striking a creature with concealment.</description>
+			<type>ROGUECLASSABILITY.SPECIALATTACK.EXTRAORDINARY.ATTACKOPTION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Sure-Footed</name>
+			<description>Halflings receive a +2 racial bonus on Acrobatics and Climb skill checks.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Trapfinding</name>
+			<description>You add +6 to Perception skill checks made to locate traps and to Disable Device skill checks. You can use the Disable Device skill to disarm magical traps.</description>
+			<type>ROGUECLASSABILITY.SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Trap Sense</name>
+			<description>You gain a +4 bonus on Reflex saves made to avoid traps, and a +4 dodge bonus to AC against attacks made by traps.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE.BARBARIANCLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Uncanny Dodge</name>
+			<description>You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon and Armor Proficiency</name>
+			<description>Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, sap, shortbow, and short sword. Rogues are proficient with light armor, but not with shields.</description>
+			<type>ROGUECLASSABILITY.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Familiarity</name>
+			<description>Halflings are proficient with slings and treat any weapon with the word &quot;halfling&quot; in its name as a martial weapon.</description>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<!-- Hidden Normal "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Bonus Hit Point (6x)</name>
+			<description></description>
+			<type>FAVOREDCLASSBONUS</type>
+			<associated>,,,,,</associated>
+			<count>6</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bonus Skill Rank (Handle Animal, Knowledge (Geography), Sense Motive, Knowledge (Local), Knowledge (Dungeoneering), Knowledge (Engineering))</name>
+			<description></description>
+			<type>FAVOREDCLASSBONUS</type>
+			<associated>Handle Animal,Knowledge (Geography),Sense Motive,Knowledge (Local),Knowledge (Dungeoneering),Knowledge (Engineering)</associated>
+			<count>6</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Combat Trick</name>
+			<description>You gain a bonus combat feat.</description>
+			<type>ROGUECLASSABILITY.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Improved Evasion</name>
+			<description>This works like Evasion, except that while you still take no damage on a successfulk Reflex saving throw against attacks, you henceforth take only half damage on a failed save. If you are helpless, you do not gain the benefit of Improved Evasion.</description>
+			<type>ROGUECLASSABILITY.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT.ROGUEADVANCEDTALENT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Rogue</name>
+			<description></description>
+			<type>FAVOREDCLASS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Evasion</name>
+			<description></description>
+			<type>INTERNAL.CLASSABILITY.RANGERCLASSABILITY.ROGUECLASSABILITY.MONKCLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Halfling Traits</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Humanoid Traits</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Retain Dex To AC ~ Flat-footed</name>
+			<description>You retain your Dexterity bonus to AC even when flat-footed</description>
+			<type>INTERNAL.CLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Rogue Talents</name>
+			<description></description>
+			<type>INTERNAL.ROGUECLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Sneak Attack ~ Rogue</name>
+			<description></description>
+			<type>INTERNAL.ROGUECLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Trap Sense ~ Rogue</name>
+			<description></description>
+			<type>INTERNAL.ROGUECLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Uncanny Dodge ~ Base</name>
+			<description></description>
+			<type>INTERNAL.CLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Armor Prof ~ Light</name>
+			<description></description>
+			<type>ARMORPROFLIGHT.ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Halfling Racial Trait Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Rogue Archetype Support</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Rogue Core Class Skills</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Auto</name>
+			<description></description>
+			<type>WEAPONPROFAUTO</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Simple</name>
+			<description></description>
+			<type>WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Proficiencies ~ Rogue</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<!-- Hidden Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Archetype Display</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+	</ability_objects>
+	<!--
+	  ====================================
+	  ====================================
+			MISCELLANEOUS
+	  ====================================
+	  ====================================-->
+
+	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Hand), Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rapier, Rock, Sap, Shortbow, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Stake, Sword (Short), Unarmed Strike</weapon_proficiencies>
+	<languages>Aklo, Common, Elven, Giant, Halfling, Hallit, Skald, Sylvan, Varisian</languages>
+
+
+	<misc>
+	</misc>
+	<!--
+	  ====================================
+	  ====================================
+			COMPANIONS
+	  ====================================
+	  ====================================-->
+
+	<companions>
+	</companions>
+	<!--
+	  ====================================
+	  ====================================
+			SPELLS
+	  ====================================
+	  ====================================-->
+	<spells>
+		<!-- ### BEGIN Innate spells ### -->
+	<spells_innate number="none"/>
+<!-- ### END Innate spells ### -->
+		<!-- ### BEGIN Known spells ### -->
+		<known_spells>
+
+	</known_spells>
+		<!-- ### END Known spells ### -->
+		<!-- ### BEGIN memorized spells ### -->
+	<memorized_spells/>
+<!-- ### END class Spellbook memorized spells ### -->
+	</spells>
 </character>

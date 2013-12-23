@@ -32,7 +32,7 @@ BIO
 			<levels_total>6</levels_total>
 			<levels_ecl>6</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Pld6                   </shortform>
+			<shortform>Pld6</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description>God of cities, wealth, merchants, law</description>
 			<domainlist>Defense Subdomain, Earth, Inevitable Subdomain, Law, Leadership Subdomain, Martyr Subdomain, Metal Subdomain, Nobility, Protection, Trade Subdomain, Travel</domainlist>
 			<favoredweapon>Crossbow (Light)</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
 			<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.91</source>
@@ -1468,17 +1467,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -2251,619 +2255,617 @@ BIO
 			<capacity>300</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="">
-		<item>
-					<name>Flail +1 (Heavy)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2315</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-					<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
-					<weight>10</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Flail +1 (Heavy)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2300</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-					<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Ring of Protection +1</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2000</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.RING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Full Plate +1</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2650</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MAGIC.ARMOR.HEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
-					<weight>50</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Backpack</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
-					<cost>2</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Antitoxin (Vial)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>50</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>+5 alchemical bonus to Fortitude saves against poison for 1 hour</special_properties>
-					<type>GOODS.ALCHEMICAL.VIAL.CONSUMABLE</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Flint and Steel</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Holy Symbol (Silver)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>25</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.TOOLS.DIVINEFOCUS</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Holy Water (Flask)</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>25</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.FLASK.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Iron Spike</name>
-					<carried>3.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.05</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>3</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Lantern (Bullseye)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>12</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-					<type>GOODS.GENERAL.LIGHTSOURCE</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Oil (1 Pint Flask)</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Sunrod</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHTSOURCE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Dagger</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Javelin</name>
-					<carried>3.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>3</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Javelin</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Horse (Heavy/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Longsword (Alchemical Silver)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>105</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>10 hp/inch, hardness 8</special_properties>
-					<type>WEAPON.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Wooden Stake</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.CUSTOM.WOODEN</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Horse (Heavy/Combat Trained)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>65 lbs., 2 Javelin, 1 Saddle (Military), 1 Saddlebags</contents>
-					<cost>300</cost>
-					<equipped>N</equipped>
-					<location></location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Large</long>
-						<short>L</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Saddle (Military)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>20</cost>
-					<equipped>N</equipped>
-					<location>Horse (Heavy/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>+2 circumstance bonus on Ride checks related to staying in the saddle</special_properties>
-					<type>GOODS.MOUNT.SADDLE.MILITARY.RESIZABLE</type>
-					<weight>30</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Saddlebags</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin (Filled)</contents>
-					<cost>4</cost>
-					<equipped>N</equipped>
-					<location>Horse (Heavy/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.MOUNT.RESIZABLE</type>
-					<weight>8</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Bedroll</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Grappling Hook</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Explorer&#39;s Outfit</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING.CUSTOM</type>
-					<weight>8</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Waterskin (Filled)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Saddlebags</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Gauntlet, Spiked</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>5</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Traveler&#39;s Outfit</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Rope (Silk/50 ft.)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>4 hp, DC 24 Strength check to burst</special_properties>
-					<type>GOODS.GENERAL</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Wooden Stake</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="">
+			<item>
+				<name>Flail +1 (Heavy)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2315</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>10</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Flail +1 (Heavy)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2300</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Ring of Protection +1</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2000</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.RING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Full Plate +1</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2650</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MAGIC.ARMOR.HEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<weight>50</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Backpack</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+				<cost>2</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Antitoxin (Vial)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>50</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>+5 alchemical bonus to Fortitude saves against poison for 1 hour</special_properties>
+				<type>GOODS.ALCHEMICAL.VIAL.CONSUMABLE</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Flint and Steel</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Holy Symbol (Silver)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>25</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.TOOLS.DIVINEFOCUS</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Holy Water (Flask)</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>25</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.FLASK.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Iron Spike</name>
+				<carried>3.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.05</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>3</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Lantern (Bullseye)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>12</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
+				<type>GOODS.GENERAL.LIGHTSOURCE</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Oil (1 Pint Flask)</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Sunrod</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHTSOURCE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Dagger</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Javelin</name>
+				<carried>3.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>3</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Javelin</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Horse (Heavy/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Longsword (Alchemical Silver)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>105</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<type>WEAPON.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Wooden Stake</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.CUSTOM.WOODEN</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Horse (Heavy/Combat Trained)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>65 lbs., 2 Javelin, 1 Saddle (Military), 1 Saddlebags</contents>
+				<cost>300</cost>
+				<equipped>N</equipped>
+				<location></location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Large</long>
+					<short>L</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Saddle (Military)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>20</cost>
+				<equipped>N</equipped>
+				<location>Horse (Heavy/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>+2 circumstance bonus on Ride checks related to staying in the saddle</special_properties>
+				<type>GOODS.MOUNT.SADDLE.MILITARY.RESIZABLE</type>
+				<weight>30</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Saddlebags</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin (Filled)</contents>
+				<cost>4</cost>
+				<equipped>N</equipped>
+				<location>Horse (Heavy/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.MOUNT.RESIZABLE</type>
+				<weight>8</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Bedroll</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Grappling Hook</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Explorer&#39;s Outfit</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING.CUSTOM</type>
+				<weight>8</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Waterskin (Filled)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Gauntlet, Spiked</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>5</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Traveler&#39;s Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Rope (Silk/50 ft.)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>4 hp, DC 24 Strength check to burst</special_properties>
+				<type>GOODS.GENERAL</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Wooden Stake</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -2936,7 +2938,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -2999,8 +3003,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Bonus Energy Resistance (2x)</name>
 			<description>Add +1 to the paladin&#39;s energy resistance to one kind of energy (maximum +10).</description>
@@ -3067,7 +3072,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Aura of Courage</name>
 			<description>You are immune to fear (magical or otherwise). Each ally within 10 feet of you gains a +4 morale bonus on saving throws against fear effects. This ability functions only while you are conscious, not if you are unconscious or dead.</description>
@@ -3167,7 +3172,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
+		<!-- Visible Virtual "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Aura of Good</name>
 			<description>You project a strong good aura.</description>
@@ -3179,7 +3184,7 @@ BIO
 			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Standard "Special Ability" Ability Objects -->
+		<!-- Hidden Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+2 Strength</name>
 			<description></description>
@@ -3213,7 +3218,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Divine Bond</name>
 			<description></description>
@@ -3269,7 +3274,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Armor Prof ~ Heavy</name>
 			<description></description>
@@ -3380,7 +3385,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Archetype Display</name>
 			<description></description>
@@ -3399,19 +3404,12 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Amentum (Javelin), Atlatl, Axe (Throwing), Bardiche, Battleaxe, Bayonet, Bec de Corbin, Bill, Blowgun, Broadsword (Nine Ring), Butterfly Sword, Cestus, Chakram, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Double Chicken Saber, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Glaive-Guisarme, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Hooked Lance, Iron Brush, Javelin, Jutte, Katana, Kerambit, Kukri, Lance, Longbow, Longspear, Longsword, Lucern Hammer, Lungchuan Tamo, Mace (Heavy), Mace (Light), Mattock, Mere Club, Monk&#39;s Spade, Morningstar, Naginata, Nodachi, Pick (Heavy), Pick (Light), Pilum, Poisoned Sand Tube, Quarterstaff, Ranseur, Rapier, Rhomphaia, Rock, Sansetsukon, Sap, Scimitar, Scizore, Scythe, Shang Gou, Shieldbash, Shortbow, Shortspear, Sibat, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Spiked Armor, Stake, Starknife, Sword (Bastard), Sword (Short), Sword (Tri-Point Double-Edged), Sword Cane, Tepoztopilli, Terbutje, Tiger Fork, Tonfa, Trident, Tube Arrow Shooter, Unarmed Strike, Waraxe (Dwarven), Warhammer, Wushu Dart</weapon_proficiencies>
 	<languages>Common, Varisian</languages>
 
-	<templates>
-		<list></list>
-	</templates>
-
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -3419,11 +3417,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -3436,9 +3431,8 @@ BIO
 	<spells_innate>
 
 		<class_innate>
-
 			<spellbook number="2" name="Class">
-				<spell>
+					<spell>
 						<name>Detect Evil</name>
 						<outputname>Detect Evil</outputname>
 						<times_memorized>At Will</times_memorized>
@@ -3468,18 +3462,15 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
-
 		</class_innate>
 		</spells_innate>
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="1" spelllistclass="Paladin" spellcastertype="Divine">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="0" cast="2">
-				<spell>
+					<spell>
 						<name>Bless</name>
 						<outputname>Bless</outputname>
 						<times_memorized>1</times_memorized>
@@ -3508,7 +3499,7 @@ BIO
 						<description>Bless fills your allies with courage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless Water</name>
 						<outputname>Bless Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -3537,7 +3528,7 @@ BIO
 						<description>This transmutation imbues a flask of water with positive energy, turning it into holy water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless Weapon</name>
 						<outputname>Bless Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -3566,7 +3557,7 @@ BIO
 						<description>This transmutation makes a weapon strike true against evil foes.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bowstaff</name>
 						<outputname>Bowstaff</outputname>
 						<times_memorized>1</times_memorized>
@@ -3595,7 +3586,7 @@ BIO
 						<description>A shortbow may double as a club, or a longbow as a quarterstaff.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Challenge Evil</name>
 						<outputname>Challenge Evil</outputname>
 						<times_memorized>1</times_memorized>
@@ -3624,7 +3615,7 @@ BIO
 						<description>Sickens creature if it refuses to fight you.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Compel Hostility</name>
 						<outputname>Compel Hostility</outputname>
 						<times_memorized>1</times_memorized>
@@ -3653,7 +3644,7 @@ BIO
 						<description>Compels opponents to attack you instead of your allies.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Create Water</name>
 						<outputname>Create Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -3682,7 +3673,7 @@ BIO
 						<description>This spell generates wholesome, drinkable water, just like clean rain water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cure Light Wounds</name>
 						<outputname>Cure Light Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -3711,7 +3702,7 @@ BIO
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Poison</name>
 						<outputname>Detect Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -3740,7 +3731,7 @@ BIO
 						<description>You determine whether a creature, object, or area has been poisoned or is poisonous.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Undead</name>
 						<outputname>Detect Undead</outputname>
 						<times_memorized>1</times_memorized>
@@ -3769,7 +3760,7 @@ BIO
 						<description>You can detect the aura that surrounds undead creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Diagnose Disease</name>
 						<outputname>Diagnose Disease</outputname>
 						<times_memorized>1</times_memorized>
@@ -3798,7 +3789,7 @@ BIO
 						<description>Detect and identify diseases.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Divine Favor</name>
 						<outputname>Divine Favor</outputname>
 						<times_memorized>1</times_memorized>
@@ -3827,7 +3818,7 @@ BIO
 						<description>Calling upon the strength and wisdom of a deity, you gain a +(max(1,min(3,floor(CASTERLEVEL/3)))) luck bonus on attack and weapon damage rolls.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Endure Elements</name>
 						<outputname>Endure Elements</outputname>
 						<times_memorized>1</times_memorized>
@@ -3856,7 +3847,7 @@ BIO
 						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Ghostbane Dirge</name>
 						<outputname>Ghostbane Dirge</outputname>
 						<times_memorized>1</times_memorized>
@@ -3885,7 +3876,7 @@ BIO
 						<description>Incorporeal creature takes half damage from nonmagical weapons.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Grace</name>
 						<outputname>Grace</outputname>
 						<times_memorized>1</times_memorized>
@@ -3914,7 +3905,7 @@ BIO
 						<description>Movement doesn&#39;t provoke attacks of opportunity.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Hero&#39;s Defiance</name>
 						<outputname>Hero&#39;s Defiance</outputname>
 						<times_memorized>1</times_memorized>
@@ -3943,7 +3934,7 @@ BIO
 						<description>Allows the use of lay on hands while falling unconscious.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Honeyed Tongue</name>
 						<outputname>Honeyed Tongue</outputname>
 						<times_memorized>1</times_memorized>
@@ -3972,7 +3963,7 @@ BIO
 						<description>Roll 2 dice when using Diplomacy, take higher roll.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Horn of Pursuit</name>
 						<outputname>Horn of Pursuit</outputname>
 						<times_memorized>1</times_memorized>
@@ -4001,7 +3992,7 @@ BIO
 						<description>Create three notes heard miles away.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Knight&#39;s Calling</name>
 						<outputname>Knight&#39;s Calling</outputname>
 						<times_memorized>1</times_memorized>
@@ -4030,7 +4021,7 @@ BIO
 						<description>Forces target to move toward you and fight you.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Know the Enemy</name>
 						<outputname>Know the Enemy</outputname>
 						<times_memorized>1</times_memorized>
@@ -4059,7 +4050,7 @@ BIO
 						<description>Gain +10 on a monster Knowledge check.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Liberating Command</name>
 						<outputname>Liberating Command</outputname>
 						<times_memorized>1</times_memorized>
@@ -4088,7 +4079,7 @@ BIO
 						<description>Target makes an Escape Artist check as an immediate action and gains a bonus on it.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Litany of Sloth</name>
 						<outputname>Litany of Sloth</outputname>
 						<times_memorized>1</times_memorized>
@@ -4117,7 +4108,7 @@ BIO
 						<description>Single target cannot make attacks of opportunity for 1 round.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Longshot</name>
 						<outputname>Longshot</outputname>
 						<times_memorized>1</times_memorized>
@@ -4146,7 +4137,7 @@ BIO
 						<description>Grants a +10 foot bonus to the range increment for any ranged weapon fired.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Magic Weapon</name>
 						<outputname>Magic Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -4175,7 +4166,7 @@ BIO
 						<description>Magic weapon gives a weapon a +1 enhancement bonus on attack and damage rolls.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Chaos</name>
 						<outputname>Protection from Chaos</outputname>
 						<times_memorized>1</times_memorized>
@@ -4204,7 +4195,7 @@ BIO
 						<description>This spell wards a creature from attacks by chaotic creatures, from mental control, and from summoned creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Evil</name>
 						<outputname>Protection from Evil</outputname>
 						<times_memorized>1</times_memorized>
@@ -4233,7 +4224,7 @@ BIO
 						<description>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Rally Point</name>
 						<outputname>Rally Point</outputname>
 						<times_memorized>1</times_memorized>
@@ -4262,7 +4253,7 @@ BIO
 						<description>Square gives good creatures bonuses.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Read Magic</name>
 						<outputname>Read Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -4291,7 +4282,7 @@ BIO
 						<description>You can decipher magical inscriptions on objects--books, scrolls, weapons, and the like--that would otherwise be unintelligible.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Resistance</name>
 						<outputname>Resistance</outputname>
 						<times_memorized>1</times_memorized>
@@ -4320,7 +4311,7 @@ BIO
 						<description>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Restoration (Lesser)</name>
 						<outputname>Restoration (Lesser)</outputname>
 						<times_memorized>1</times_memorized>
@@ -4349,7 +4340,7 @@ BIO
 						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Sanctify Corpse</name>
 						<outputname>Sanctify Corpse</outputname>
 						<times_memorized>1</times_memorized>
@@ -4378,7 +4369,7 @@ BIO
 						<description>Prevent a corpse from becoming an undead creature.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Sun Metal</name>
 						<outputname>Sun Metal</outputname>
 						<times_memorized>1</times_memorized>
@@ -4407,7 +4398,7 @@ BIO
 						<description>Weapon touched bursts into flames.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Tactical Acumen</name>
 						<outputname>Tactical Acumen</outputname>
 						<times_memorized>1</times_memorized>
@@ -4436,7 +4427,7 @@ BIO
 						<description>You gain an additional +1 on attack rolls or to AC due to battlefield positioning.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Veil of Positive Energy</name>
 						<outputname>Veil of Positive Energy</outputname>
 						<times_memorized>1</times_memorized>
@@ -4465,7 +4456,7 @@ BIO
 						<description>+2 AC, +2 on saves vs. undead.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Virtue</name>
 						<outputname>Virtue</outputname>
 						<times_memorized>1</times_memorized>
@@ -4494,7 +4485,7 @@ BIO
 						<description>With a touch, you infuse a creature with a tiny surge of life, granting the subject 1 temporary hit point.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Wartrain Mount</name>
 						<outputname>Wartrain Mount</outputname>
 						<times_memorized>1</times_memorized>
@@ -4523,7 +4514,7 @@ BIO
 						<description>Animal gains combat training.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Word of Resolve</name>
 						<outputname>Word of Resolve</outputname>
 						<times_memorized>1</times_memorized>
@@ -4567,15 +4558,13 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 			<spellbook number="2" name="Class">
-				<spell>
+					<spell>
 						<name>Detect Evil</name>
 						<outputname>Detect Evil</outputname>
 						<times_memorized>At Will</times_memorized>
@@ -4605,17 +4594,13 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
-
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-<!-- FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="2" name="Class">
-
+		<spellbook number="2" name="Class">
 			<class number="1" spelllistclass="Paladin">
 				<level number="0" spellcount="0"/>
 				<level number="1" spellcount="0"/>
@@ -4628,76 +4613,70 @@ BIO
 				<level number="8" spellcount="0"/>
 				<level number="9" spellcount="0"/>
 			</class>
-
 		</spellbook>
-<!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
-<!-- END FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,0,COUNT[SPELLSINBOOK0.3.0],COUNT[SPELLSINBOOK0.3.0],1,1 -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="3" name="Prepared Spells">
-
+		<spellbook number="3" name="Prepared Spells">
 			<class number="1" spelllistclass="Paladin">
 				<level number="0" spellcount="0"/>
 				<level number="1" spellcount="2">
 					<spell>
-							<name>Compel Hostility</name>
-							<outputname>Compel Hostility</outputname>
-							<times_memorized>1</times_memorized>
-							<range>Personal</range>
-							<components>V, S, M (a drop of your blood)</components>
-							<castingtime>1 standard action</castingtime>
-							<casterlevel>3</casterlevel>
-							<dc>13</dc>
-							<duration>3 rounds</duration>
-							<effect>Compels opponents to attack you instead of your allies.</effect>
-							<target>You</target>
-							<saveinfo>see text</saveinfo>
-							<school>
-								<school>Enchantment</school>
-								<subschool>Compulsion</subschool>
-								<descriptor>Mind-Affecting</descriptor>
-								<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
-							</school>
-							<source>
-								<sourcelevel>Brd1, Clr1, Inq1, Pld1, Rgr1, Sum1, Wit1</sourcelevel>
-								<source>Paizo Publishing, LLC - Ultimate Combat</source>
-								<sourcepage>null</sourcepage>
-								<sourceshort>UC</sourceshort>
-							</source>
-							<spell_resistance>see text</spell_resistance>
-							<description>Compels opponents to attack you instead of your allies.</description>
-							<bonusspell></bonusspell>
-						</spell>
+						<name>Compel Hostility</name>
+						<outputname>Compel Hostility</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S, M (a drop of your blood)</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>13</dc>
+						<duration>3 rounds</duration>
+						<effect>Compels opponents to attack you instead of your allies.</effect>
+						<target>You</target>
+						<saveinfo>see text</saveinfo>
+						<school>
+							<school>Enchantment</school>
+							<subschool>Compulsion</subschool>
+							<descriptor>Mind-Affecting</descriptor>
+							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Clr1, Inq1, Pld1, Rgr1, Sum1, Wit1</sourcelevel>
+							<source>Paizo Publishing, LLC - Ultimate Combat</source>
+							<sourcepage>null</sourcepage>
+							<sourceshort>UC</sourceshort>
+						</source>
+						<spell_resistance>see text</spell_resistance>
+						<description>Compels opponents to attack you instead of your allies.</description>
+						<bonusspell></bonusspell>
+					</spell>
 					<spell>
-							<name>Restoration (Lesser)</name>
-							<outputname>Restoration (Lesser)</outputname>
-							<times_memorized>1</times_memorized>
-							<range>Touch</range>
-							<components>V, S</components>
-							<castingtime>3 rounds</castingtime>
-							<casterlevel>3</casterlevel>
-							<dc>13</dc>
-							<duration>Instantaneous</duration>
-							<effect>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</effect>
-							<target>Creature touched</target>
-							<saveinfo>Will negates (harmless)</saveinfo>
-							<school>
-								<school>Conjuration</school>
-								<subschool>Healing</subschool>
-								<descriptor></descriptor>
-								<fullschool>Conjuration (Healing)</fullschool>
-							</school>
-							<source>
-								<sourcelevel>Alc2, Clr2, Drd2, Inq2, Pld1</sourcelevel>
-								<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
-								<sourcepage>p.334</sourcepage>
-								<sourceshort>CR</sourceshort>
-							</source>
-							<spell_resistance>Yes (harmless)</spell_resistance>
-							<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
-							<bonusspell></bonusspell>
-						</spell>
+						<name>Restoration (Lesser)</name>
+						<outputname>Restoration (Lesser)</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S</components>
+						<castingtime>3 rounds</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>13</dc>
+						<duration>Instantaneous</duration>
+						<effect>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</effect>
+						<target>Creature touched</target>
+						<saveinfo>Will negates (harmless)</saveinfo>
+						<school>
+							<school>Conjuration</school>
+							<subschool>Healing</subschool>
+							<descriptor></descriptor>
+							<fullschool>Conjuration (Healing)</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Alc2, Clr2, Drd2, Inq2, Pld1</sourcelevel>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
+							<sourcepage>p.334</sourcepage>
+							<sourceshort>CR</sourceshort>
+						</source>
+						<spell_resistance>Yes (harmless)</spell_resistance>
+						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
+						<bonusspell></bonusspell>
+					</spell>
 				</level>
 				<level number="2" spellcount="0"/>
 				<level number="3" spellcount="0"/>
@@ -4708,10 +4687,7 @@ BIO
 				<level number="8" spellcount="0"/>
 				<level number="9" spellcount="0"/>
 			</class>
-
 		</spellbook>
-<!-- END FOR,0,COUNT[SPELLSINBOOK0.3.0],COUNT[SPELLSINBOOK0.3.0],1,1 -->
-<!-- END FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

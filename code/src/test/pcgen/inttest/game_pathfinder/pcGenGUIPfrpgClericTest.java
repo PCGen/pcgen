@@ -1,15 +1,15 @@
 package pcgen.inttest.game_pathfinder;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a Unit Test Case of a pathfinder cleric.
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIPfrpgClericTest extends pcGenGUITestCase
+public class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -17,7 +17,7 @@ public class pcGenGUIPfrpgClericTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIPfrpgClericTest()
 	{
-		// Empty Constructor
+		super("pf_cleric");
 	}
 
 	/**

@@ -23,6 +23,7 @@
 package pcgen.io.freemarker;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import pcgen.core.PlayerCharacter;
@@ -32,19 +33,22 @@ import freemarker.template.AdapterTemplateModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
+import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
  * Implements a custom Freemarker macro to allow exporting of a string value  
  * from the character. It evaluates a PCGen export token for the current character  
- * and returns the value as a string. e.g. <@pcstring tag="PLAYERNAME"/>
+ * and returns the value as a string. e.g. <@pcstring tag="PLAYERNAME"/> or 
+ * ${pcstring('PLAYERNAME')}
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PCStringDirective extends CharacterExportAction implements TemplateDirectiveModel
+public class PCStringDirective extends CharacterExportAction implements
+		TemplateDirectiveModel, TemplateMethodModelEx
 {
 	@SuppressWarnings("rawtypes")
 	@Override
@@ -83,4 +87,31 @@ public class PCStringDirective extends CharacterExportAction implements Template
 		env.getOut().append(value);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Object exec(List arg0) throws TemplateModelException
+	{
+		if (arg0.size() != 1)
+		{
+			throw new TemplateModelException(
+				"Wrong arguments. tag required");
+		}
+
+		Environment env = Environment.getCurrentEnvironment();
+		TemplateModel model = env.getVariable("pc");
+		PlayerCharacter pc =
+				(PlayerCharacter) ((AdapterTemplateModel) model)
+					.getAdaptedObject(PlayerCharacter.class);
+		TemplateModel modelEh = env.getVariable("exportHandler");
+		ExportHandler eh =
+				(ExportHandler) ((AdapterTemplateModel) modelEh)
+					.getAdaptedObject(ExportHandler.class);
+		
+		String tag = arg0.get(0).toString();
+		String value = getExportVariable(tag, pc, eh);
+		return value;
+	}
 }

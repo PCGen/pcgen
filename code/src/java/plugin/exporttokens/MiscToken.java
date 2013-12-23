@@ -82,6 +82,6 @@ public class MiscToken extends Token
 			}
 		}
 
-		return buf.toString();
+		return buf.toString().trim();
 	}
 }

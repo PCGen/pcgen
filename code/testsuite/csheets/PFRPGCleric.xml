@@ -32,7 +32,7 @@ BIO
 			<levels_total>3</levels_total>
 			<levels_ecl>3</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Clr3                   </shortform>
+			<shortform>Clr3</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description>Goddess of the sun, redemption, honesty, healing</description>
 			<domainlist>Agathion Subdomain, Day Subdomain, Fire, Glory, Good, Healing, Heroism Subdomain, Light Subdomain, Restoration Subdomain, Resurrection Subdomain, Sun</domainlist>
 			<favoredweapon>Scimitar</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
 			<source>Paizo Publishing, LLC - Advanced Player&#39;s Guide, p.91</source>
@@ -1008,17 +1007,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1583,451 +1587,449 @@ BIO
 			<capacity>100</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="">
-		<item>
-					<name>Masterwork Morningstar</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>308</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
-					<weight>6</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Traveler&#39;s Outfit</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Scale Mail</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>50</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
-					<weight>30</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Amethyst</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>100</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GEM</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Backpack</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>9.5 lbs., 2 Amethyst, 1 Bolts, Crossbow (10), 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Crossbow, Light, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
-					<cost>2</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
-					<weight>2</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Bedroll</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Horse (Light/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Blanket (Winter)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.5</cost>
-					<equipped>N</equipped>
-					<location>Horse (Light/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Bolts, Crossbow (10)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Bolts, Crossbow (10)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Horse (Light/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Citrine</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>50</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GEM</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Coin (Gold Piece)</name>
-					<carried>10.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>10</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>COIN</type>
-					<weight>0.02</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Coin (Platinum Piece)</name>
-					<carried>5.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>5</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>COIN</type>
-					<weight>0.02</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Coin (Silver Piece)</name>
-					<carried>10.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.1</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>10</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>COIN</type>
-					<weight>0.02</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Crossbow, Light</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs.</contents>
-					<cost>35</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Holy Symbol (Silver)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>25</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.TOOLS.DIVINEFOCUS</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Horse (Light/Combat Trained)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 Bolts, Crossbow (10)</contents>
-					<cost>110</cost>
-					<equipped>N</equipped>
-					<location></location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Large</long>
-						<short>L</short>
-					</size>
-					<special_properties></special_properties>
-					<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Potion of Cure Light Wounds</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>50</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Cures 1d8+1 points of damage</special_properties>
-					<type>MAGIC.POTION.CONSUMABLE</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Rations (Trail/Per Day)</name>
-					<carried>4.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0.5</cost>
-					<equipped>N</equipped>
-					<location>Backpack</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>4</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Saddle (Military)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>20</cost>
-					<equipped>N</equipped>
-					<location>Horse (Light/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>+2 circumstance bonus on Ride checks related to staying in the saddle</special_properties>
-					<type>GOODS.MOUNT.SADDLE.MILITARY.RESIZABLE</type>
-					<weight>30</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Shield, Light Steel</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>9</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>SHIELD.LIGHT.STANDARD.CLOSE.WEAPON.MELEE.SHIELDBASH.METAL</type>
-					<weight>6</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Waterskin (Filled)</name>
-					<carried>0.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>N</equipped>
-					<location>Horse (Light/Combat Trained)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.GENERAL.RESIZABLE</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="">
+			<item>
+				<name>Masterwork Morningstar</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>308</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.MASTERWORK</type>
+				<weight>6</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Traveler&#39;s Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Scale Mail</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>50</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+				<weight>30</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Amethyst</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>100</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GEM</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Backpack</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>9.5 lbs., 2 Amethyst, 1 Bolts, Crossbow (10), 1 Citrine, 10 Coin (Gold Piece), 5 Coin (Platinum Piece), 10 Coin (Silver Piece), 1 Crossbow, Light, 1 Potion of Cure Light Wounds, 4 Rations (Trail/Per Day)</contents>
+				<cost>2</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.GENERAL.RESIZABLE</type>
+				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Bedroll</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Horse (Light/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Blanket (Winter)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.5</cost>
+				<equipped>N</equipped>
+				<location>Horse (Light/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Bolts, Crossbow (10)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Bolts, Crossbow (10)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Horse (Light/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>AMMUNITION.STANDARD.BOLT.METAL.WOODEN</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Citrine</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>50</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GEM</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Coin (Gold Piece)</name>
+				<carried>10.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>10</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>COIN</type>
+				<weight>0.02</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Coin (Platinum Piece)</name>
+				<carried>5.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>5</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>COIN</type>
+				<weight>0.02</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Coin (Silver Piece)</name>
+				<carried>10.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.1</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>10</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>COIN</type>
+				<weight>0.02</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Crossbow, Light</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0 lbs.</contents>
+				<cost>35</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.CONTAINER.PROJECTILE.CROSSBOW.WEAPON GROUP CROSSBOWS.WOODEN</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Holy Symbol (Silver)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>25</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.TOOLS.DIVINEFOCUS</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Horse (Light/Combat Trained)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>43 lbs., 1 Saddle (Military), 1 Waterskin (Filled), 1 Bedroll, 1 Blanket (Winter), 1 Bolts, Crossbow (10)</contents>
+				<cost>110</cost>
+				<equipped>N</equipped>
+				<location></location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Large</long>
+					<short>L</short>
+				</size>
+				<special_properties></special_properties>
+				<type>MOUNT.GOODS.TRANSPORTATION.CONTAINER</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Potion of Cure Light Wounds</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>50</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>Cures 1d8+1 points of damage</special_properties>
+				<type>MAGIC.POTION.CONSUMABLE</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Rations (Trail/Per Day)</name>
+				<carried>4.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0.5</cost>
+				<equipped>N</equipped>
+				<location>Backpack</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>4</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.FOOD.RESIZABLE.CONSUMABLE</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Saddle (Military)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>20</cost>
+				<equipped>N</equipped>
+				<location>Horse (Light/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties>+2 circumstance bonus on Ride checks related to staying in the saddle</special_properties>
+				<type>GOODS.MOUNT.SADDLE.MILITARY.RESIZABLE</type>
+				<weight>30</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Shield, Light Steel</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>9</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>SHIELD.LIGHT.STANDARD.CLOSE.WEAPON.MELEE.SHIELDBASH.METAL</type>
+				<weight>6</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Waterskin (Filled)</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Horse (Light/Combat Trained)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -2090,7 +2092,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -2113,8 +2117,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
@@ -2148,7 +2153,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Bonus Feat</name>
 			<description>Humans select one extra feat at 1st level.</description>
@@ -2226,7 +2231,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
+		<!-- Visible Virtual "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Aura of Good</name>
 			<description>You project a moderate good aura.</description>
@@ -2238,7 +2243,7 @@ BIO
 			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Standard "Special Ability" Ability Objects -->
+		<!-- Hidden Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+2 Charisma</name>
 			<description></description>
@@ -2294,7 +2299,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Channel Energy</name>
 			<description></description>
@@ -2339,7 +2344,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Armor Prof ~ Light</name>
 			<description></description>
@@ -2461,7 +2466,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Archetype Display</name>
 			<description></description>
@@ -2491,19 +2496,11 @@ BIO
 			<power>You see truth in the pure and burning light of the sun, and can call upon its blessing or wrath to work great deeds.</power>
 		</domain>
 	</domains>
-	<!-- Domains -->
 	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Stake, Unarmed Strike</weapon_proficiencies>
 	<languages>Celestial, Common</languages>
 
-	<templates>
-		<list></list>
-	</templates>
-
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -2511,11 +2508,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -2529,10 +2523,9 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="Cleric" spellcastertype="Divine">
 			<level number="0" known="0" cast="4">
-				<spell>
+					<spell>
 						<name>Bleed</name>
 						<outputname>Bleed</outputname>
 						<times_memorized>1</times_memorized>
@@ -2561,7 +2554,7 @@ BIO
 						<description>You cause a living creature that is below 0 hit points but stabilized to resume dying.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Create Water</name>
 						<outputname>Create Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -2590,7 +2583,7 @@ BIO
 						<description>This spell generates wholesome, drinkable water, just like clean rain water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Magic</name>
 						<outputname>Detect Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -2619,7 +2612,7 @@ BIO
 						<description>You detect magical auras.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Poison</name>
 						<outputname>Detect Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -2648,7 +2641,7 @@ BIO
 						<description>You determine whether a creature, object, or area has been poisoned or is poisonous.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Guidance</name>
 						<outputname>Guidance</outputname>
 						<times_memorized>1</times_memorized>
@@ -2677,7 +2670,7 @@ BIO
 						<description>This spell imbues the subject with a touch of divine guidance.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Light</name>
 						<outputname>Light</outputname>
 						<times_memorized>1</times_memorized>
@@ -2706,7 +2699,7 @@ BIO
 						<description>This spell causes a touched object to glow like a torch.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mending</name>
 						<outputname>Mending</outputname>
 						<times_memorized>1</times_memorized>
@@ -2735,7 +2728,7 @@ BIO
 						<description>This spell repairs damaged objects, restoring 1d4 hit points to the object.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Purify Food and Drink</name>
 						<outputname>Purify Food and Drink</outputname>
 						<times_memorized>1</times_memorized>
@@ -2764,7 +2757,7 @@ BIO
 						<description>This spell makes spoiled, rotten, diseased, poisonous, or otherwise contaminated food and water pure and suitable for eating and drinking.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Read Magic</name>
 						<outputname>Read Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -2793,7 +2786,7 @@ BIO
 						<description>You can decipher magical inscriptions on objects--books, scrolls, weapons, and the like--that would otherwise be unintelligible.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Resistance</name>
 						<outputname>Resistance</outputname>
 						<times_memorized>1</times_memorized>
@@ -2822,7 +2815,7 @@ BIO
 						<description>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Spark</name>
 						<outputname>Spark</outputname>
 						<times_memorized>1</times_memorized>
@@ -2851,7 +2844,7 @@ BIO
 						<description>Ignites flammable objects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Stabilize</name>
 						<outputname>Stabilize</outputname>
 						<times_memorized>1</times_memorized>
@@ -2880,7 +2873,7 @@ BIO
 						<description>Upon casting this spell, you target a living creature that has -1 or fewer hit points.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Virtue</name>
 						<outputname>Virtue</outputname>
 						<times_memorized>1</times_memorized>
@@ -2911,7 +2904,7 @@ BIO
 					</spell>
 			</level>
 			<level number="1" known="0" cast="3+1">
-				<spell>
+					<spell>
 						<name>Ant Haul</name>
 						<outputname>Ant Haul</outputname>
 						<times_memorized>1</times_memorized>
@@ -2940,7 +2933,7 @@ BIO
 						<description>Triples carrying capacity of a creature.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bane</name>
 						<outputname>Bane</outputname>
 						<times_memorized>1</times_memorized>
@@ -2969,7 +2962,7 @@ BIO
 						<description>Bane fills your enemies with fear and doubt.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless</name>
 						<outputname>Bless</outputname>
 						<times_memorized>1</times_memorized>
@@ -2998,7 +2991,7 @@ BIO
 						<description>Bless fills your allies with courage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless Water</name>
 						<outputname>Bless Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -3027,7 +3020,7 @@ BIO
 						<description>This transmutation imbues a flask of water with positive energy, turning it into holy water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cause Fear</name>
 						<outputname>Cause Fear</outputname>
 						<times_memorized>1</times_memorized>
@@ -3056,7 +3049,7 @@ BIO
 						<description>The affected creature becomes frightened.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Command</name>
 						<outputname>Command</outputname>
 						<times_memorized>1</times_memorized>
@@ -3085,7 +3078,7 @@ BIO
 						<description>You give the subject a single command, which it obeys to the best of its ability at its earliest opportunity.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Comprehend Languages</name>
 						<outputname>Comprehend Languages</outputname>
 						<times_memorized>1</times_memorized>
@@ -3114,7 +3107,7 @@ BIO
 						<description>You can understand the spoken words of creatures or read otherwise incomprehensible written messages.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cure Light Wounds</name>
 						<outputname>Cure Light Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -3143,7 +3136,7 @@ BIO
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Dancing Lantern</name>
 						<outputname>Dancing Lantern</outputname>
 						<times_memorized>1</times_memorized>
@@ -3172,7 +3165,7 @@ BIO
 						<description>Animates a lantern that follows you.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Deathwatch</name>
 						<outputname>Deathwatch</outputname>
 						<times_memorized>1</times_memorized>
@@ -3201,7 +3194,7 @@ BIO
 						<description>Using the powers of necromancy, you can determine the condition of creatures near death within the spell&#39;s range.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Chaos</name>
 						<outputname>Detect Chaos</outputname>
 						<times_memorized>1</times_memorized>
@@ -3230,7 +3223,7 @@ BIO
 						<description>You can sense the auras of chaotic creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Evil</name>
 						<outputname>Detect Evil</outputname>
 						<times_memorized>1</times_memorized>
@@ -3259,7 +3252,7 @@ BIO
 						<description>You can sense the presence of evil.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Good</name>
 						<outputname>Detect Good</outputname>
 						<times_memorized>1</times_memorized>
@@ -3288,7 +3281,7 @@ BIO
 						<description>You can sense the presence of good.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Law</name>
 						<outputname>Detect Law</outputname>
 						<times_memorized>1</times_memorized>
@@ -3317,7 +3310,7 @@ BIO
 						<description>You can sense the auras of lawful creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Undead</name>
 						<outputname>Detect Undead</outputname>
 						<times_memorized>1</times_memorized>
@@ -3346,7 +3339,7 @@ BIO
 						<description>You can detect the aura that surrounds undead creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Divine Favor</name>
 						<outputname>Divine Favor</outputname>
 						<times_memorized>1</times_memorized>
@@ -3375,7 +3368,7 @@ BIO
 						<description>Calling upon the strength and wisdom of a deity, you gain a +(max(1,min(3,floor(CASTERLEVEL/3)))) luck bonus on attack and weapon damage rolls.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Doom</name>
 						<outputname>Doom</outputname>
 						<times_memorized>1</times_memorized>
@@ -3404,7 +3397,7 @@ BIO
 						<description>This spell fills a single subject with a feeling of horrible dread that causes it to become shaken.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Endure Elements</name>
 						<outputname>Endure Elements</outputname>
 						<times_memorized>1</times_memorized>
@@ -3433,7 +3426,7 @@ BIO
 						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
 						<bonusspell>**</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Endure Elements</name>
 						<outputname>Endure Elements</outputname>
 						<times_memorized>1</times_memorized>
@@ -3462,7 +3455,7 @@ BIO
 						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Entropic Shield</name>
 						<outputname>Entropic Shield</outputname>
 						<times_memorized>1</times_memorized>
@@ -3491,7 +3484,7 @@ BIO
 						<description>A magical field appears around you, glowing with a chaotic blast of multicolored hues deflecting incoming arrows, rays, and other ranged attacks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Hide from Undead</name>
 						<outputname>Hide from Undead</outputname>
 						<times_memorized>1</times_memorized>
@@ -3520,7 +3513,7 @@ BIO
 						<description>Undead cannot see, hear, or smell creatures warded by this spell.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Inflict Light Wounds</name>
 						<outputname>Inflict Light Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -3549,7 +3542,7 @@ BIO
 						<description>When laying your hand upon a creature, you channel negative energy that deals 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Magic Stone</name>
 						<outputname>Magic Stone</outputname>
 						<times_memorized>1</times_memorized>
@@ -3578,7 +3571,7 @@ BIO
 						<description>You transmute as many as three pebbles, which can be no larger than sling bullets, so that they strike with great force when thrown or slung.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Magic Weapon</name>
 						<outputname>Magic Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -3607,7 +3600,7 @@ BIO
 						<description>Magic weapon gives a weapon a +1 enhancement bonus on attack and damage rolls.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Obscuring Mist</name>
 						<outputname>Obscuring Mist</outputname>
 						<times_memorized>1</times_memorized>
@@ -3636,7 +3629,7 @@ BIO
 						<description>A misty, stationary vapor arises around you obscuring all sight, including darkvision, beyond 5 feet.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Chaos</name>
 						<outputname>Protection from Chaos</outputname>
 						<times_memorized>1</times_memorized>
@@ -3665,7 +3658,7 @@ BIO
 						<description>This spell wards a creature from attacks by chaotic creatures, from mental control, and from summoned creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Evil</name>
 						<outputname>Protection from Evil</outputname>
 						<times_memorized>1</times_memorized>
@@ -3694,7 +3687,7 @@ BIO
 						<description>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Law</name>
 						<outputname>Protection from Law</outputname>
 						<times_memorized>1</times_memorized>
@@ -3723,7 +3716,7 @@ BIO
 						<description>This spell wards a creature from attacks by lawful creatures, from mental control, and from summoned creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Remove Fear</name>
 						<outputname>Remove Fear</outputname>
 						<times_memorized>1</times_memorized>
@@ -3752,7 +3745,7 @@ BIO
 						<description>You instill courage in the subject, granting it a +4 morale bonus against fear effects for 10 minutes.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Sanctuary</name>
 						<outputname>Sanctuary</outputname>
 						<times_memorized>1</times_memorized>
@@ -3781,7 +3774,7 @@ BIO
 						<description>Any opponent attempting to directly attack the warded creature, even with a targeted spell, must attempt a Will save.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Shield of Faith</name>
 						<outputname>Shield of Faith</outputname>
 						<times_memorized>1</times_memorized>
@@ -3810,7 +3803,7 @@ BIO
 						<description>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</description>
 						<bonusspell>**</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Shield of Faith</name>
 						<outputname>Shield of Faith</outputname>
 						<times_memorized>1</times_memorized>
@@ -3839,7 +3832,7 @@ BIO
 						<description>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Summon Monster I</name>
 						<outputname>Summon Monster I</outputname>
 						<times_memorized>1</times_memorized>
@@ -3870,7 +3863,7 @@ BIO
 					</spell>
 			</level>
 			<level number="2" known="0" cast="2+1">
-				<spell>
+					<spell>
 						<name>Aid</name>
 						<outputname>Aid</outputname>
 						<times_memorized>1</times_memorized>
@@ -3899,7 +3892,7 @@ BIO
 						<description>Aid grants +1 morale bonus on attack rolls and saves vs fear effects, plus 1d8 + (min(CASTERLEVEL,10)) temporary hit points.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Align Weapon</name>
 						<outputname>Align Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -3928,7 +3921,7 @@ BIO
 						<description>Align weapon makes a weapon chaotic, evil, good, or lawful, as you choose.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Augury</name>
 						<outputname>Augury</outputname>
 						<times_memorized>1</times_memorized>
@@ -3957,7 +3950,7 @@ BIO
 						<description>An augury can tell you whether a particular action will bring good or bad results for you in the immediate future.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bear&#39;s Endurance</name>
 						<outputname>Bear&#39;s Endurance</outputname>
 						<times_memorized>1</times_memorized>
@@ -3986,7 +3979,7 @@ BIO
 						<description>The affected creature gains greater vitality and stamina granting the subject a +4 enhancement bonus to Constitution.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless Weapon</name>
 						<outputname>Bless Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -4015,7 +4008,7 @@ BIO
 						<description>This transmutation makes a weapon strike true against evil foes.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Blessing of Courage and Life</name>
 						<outputname>Blessing of Courage and Life</outputname>
 						<times_memorized>1</times_memorized>
@@ -4044,7 +4037,7 @@ BIO
 						<description>Grants a +2 bonus on saves vs. fear and death.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bull&#39;s Strength</name>
 						<outputname>Bull&#39;s Strength</outputname>
 						<times_memorized>1</times_memorized>
@@ -4073,7 +4066,7 @@ BIO
 						<description>The subject becomes stronger granting a +4 enhancement bonus to Strength.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Calm Emotions</name>
 						<outputname>Calm Emotions</outputname>
 						<times_memorized>1</times_memorized>
@@ -4102,7 +4095,7 @@ BIO
 						<description>This spell calms agitated creatures.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Consecrate</name>
 						<outputname>Consecrate</outputname>
 						<times_memorized>1</times_memorized>
@@ -4131,7 +4124,7 @@ BIO
 						<description>This spell blesses an area with positive energy.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cure Moderate Wounds</name>
 						<outputname>Cure Moderate Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -4160,7 +4153,7 @@ BIO
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Darkness</name>
 						<outputname>Darkness</outputname>
 						<times_memorized>1</times_memorized>
@@ -4189,7 +4182,7 @@ BIO
 						<description>This spell causes an object to radiate darkness out to a 20-foot radius.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Delay Poison</name>
 						<outputname>Delay Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -4218,7 +4211,7 @@ BIO
 						<description>The subject becomes temporarily immune to poison.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Eagle&#39;s Splendor</name>
 						<outputname>Eagle&#39;s Splendor</outputname>
 						<times_memorized>1</times_memorized>
@@ -4247,7 +4240,7 @@ BIO
 						<description>The transmuted creature becomes more poised, articulate, and personally forceful gaining a +4 enhancement bonus to Charisma.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Enthrall</name>
 						<outputname>Enthrall</outputname>
 						<times_memorized>1</times_memorized>
@@ -4276,7 +4269,7 @@ BIO
 						<description>If you have the attention of a group of creatures, you can use this spell to hold them enthralled.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Find Traps</name>
 						<outputname>Find Traps</outputname>
 						<times_memorized>1</times_memorized>
@@ -4305,7 +4298,7 @@ BIO
 						<description>You gain intuitive insight into the workings of traps.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Gentle Repose</name>
 						<outputname>Gentle Repose</outputname>
 						<times_memorized>1</times_memorized>
@@ -4334,7 +4327,7 @@ BIO
 						<description>You preserve the remains of a dead creature so that they do not decay.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Ghostbane Dirge</name>
 						<outputname>Ghostbane Dirge</outputname>
 						<times_memorized>1</times_memorized>
@@ -4363,7 +4356,7 @@ BIO
 						<description>Incorporeal creature takes half damage from nonmagical weapons.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Grace</name>
 						<outputname>Grace</outputname>
 						<times_memorized>1</times_memorized>
@@ -4392,7 +4385,7 @@ BIO
 						<description>Movement doesn&#39;t provoke attacks of opportunity.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Heat Metal</name>
 						<outputname>Heat Metal</outputname>
 						<times_memorized>1</times_memorized>
@@ -4421,7 +4414,7 @@ BIO
 						<description>Heat metal causes metal objects to become red-hot.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Hold Person</name>
 						<outputname>Hold Person</outputname>
 						<times_memorized>1</times_memorized>
@@ -4450,7 +4443,7 @@ BIO
 						<description>The subject becomes paralyzed and freezes in place.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Inflict Moderate Wounds</name>
 						<outputname>Inflict Moderate Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -4479,7 +4472,7 @@ BIO
 						<description>When laying your hand upon a creature, you channel negative energy that deals 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Instant Armor</name>
 						<outputname>Instant Armor</outputname>
 						<times_memorized>1</times_memorized>
@@ -4508,7 +4501,7 @@ BIO
 						<description>Summon armor temporarily replacing your current attire.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Make Whole</name>
 						<outputname>Make Whole</outputname>
 						<times_memorized>1</times_memorized>
@@ -4537,7 +4530,7 @@ BIO
 						<description>This spell functions as mending, except that it repairs (min(5,CASTERLEVEL))d6 points of damage when cast on a construct creature.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Owl&#39;s Wisdom</name>
 						<outputname>Owl&#39;s Wisdom</outputname>
 						<times_memorized>1</times_memorized>
@@ -4566,7 +4559,7 @@ BIO
 						<description>The transmuted creature becomes wiser gaining a +4 enhancement bonus to Wisdom.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Remove Paralysis</name>
 						<outputname>Remove Paralysis</outputname>
 						<times_memorized>1</times_memorized>
@@ -4595,7 +4588,7 @@ BIO
 						<description>You can free one or more creatures from the effects of temporary paralysis or related magic.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Resist Energy</name>
 						<outputname>Resist Energy</outputname>
 						<times_memorized>1</times_memorized>
@@ -4624,7 +4617,7 @@ BIO
 						<description>This abjuration grants a creature limited protection from damage of whichever one of five energy types you select.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Restoration (Lesser)</name>
 						<outputname>Restoration (Lesser)</outputname>
 						<times_memorized>1</times_memorized>
@@ -4653,7 +4646,7 @@ BIO
 						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Share Language</name>
 						<outputname>Share Language</outputname>
 						<times_memorized>1</times_memorized>
@@ -4682,7 +4675,7 @@ BIO
 						<description>Subject understands chosen language.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Shatter</name>
 						<outputname>Shatter</outputname>
 						<times_memorized>1</times_memorized>
@@ -4711,7 +4704,7 @@ BIO
 						<description>Shatter creates a loud, ringing noise that breaks brittle, nonmagical objects; sunders a single solid, nonmagical object; or damages a crystalline creature.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Shield Other</name>
 						<outputname>Shield Other</outputname>
 						<times_memorized>1</times_memorized>
@@ -4740,7 +4733,7 @@ BIO
 						<description>This spell wards the subject and creates a mystic connection between you and the subject so that some of its wounds are transferred to you.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Silence</name>
 						<outputname>Silence</outputname>
 						<times_memorized>1</times_memorized>
@@ -4769,7 +4762,7 @@ BIO
 						<description>Upon the casting of this spell, complete silence prevails in the affected area.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Sound Burst</name>
 						<outputname>Sound Burst</outputname>
 						<times_memorized>1</times_memorized>
@@ -4798,7 +4791,7 @@ BIO
 						<description>You blast an area with a tremendous cacophony.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Spiritual Weapon</name>
 						<outputname>Spiritual Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -4827,7 +4820,7 @@ BIO
 						<description>A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8+(min(5,floor(CASTERLEVEL/3))) force damage per hit.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Status</name>
 						<outputname>Status</outputname>
 						<times_memorized>1</times_memorized>
@@ -4856,7 +4849,7 @@ BIO
 						<description>When you need to keep track of comrades who may get separated, status allows you to mentally monitor their relative positions and general condition.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Summon Monster II</name>
 						<outputname>Summon Monster II</outputname>
 						<times_memorized>1</times_memorized>
@@ -4885,7 +4878,7 @@ BIO
 						<description>This spell functions like summon monster I, except that you can summon one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Undetectable Alignment</name>
 						<outputname>Undetectable Alignment</outputname>
 						<times_memorized>1</times_memorized>
@@ -4914,7 +4907,7 @@ BIO
 						<description>An undetectable alignment spell conceals the alignment of an object or a creature from all forms of divination.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Weapon of Awe</name>
 						<outputname>Weapon of Awe</outputname>
 						<times_memorized>1</times_memorized>
@@ -4943,7 +4936,7 @@ BIO
 						<description>Weapon gets +2 on damage rolls.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Zone of Truth</name>
 						<outputname>Zone of Truth</outputname>
 						<times_memorized>1</times_memorized>

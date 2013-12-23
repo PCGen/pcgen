@@ -638,7 +638,7 @@
 	
 		</#if>	<!-- Barbarian of 15th Level -->
 		</rage>
-	</#if>	<!-- Character Rage -->
+	</#if><!-- Character Rage -->
 	<!-- Turning ability -->
 	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")')-1 ; turncount , turncount_has_next >
 	<#assign turnKind>
@@ -684,11 +684,11 @@
 
 <#if (pcvar('TOTALPOWERPOINTS') >= 1) >	<!-- Psionics -->
 		<psionics>
-<@pcstring tag="IIF(HASVAR:Manifester.OR.HASVAR:PsychicWarriorManifester)"/>
+	<#if (pcboolean('HASVAR:Manifester.OR.HASVAR:PsychicWarriorManifester')) >
 			<type>3.0</type>
-<@pcstring tag="ELSE"/>
+	<#else>
 			<type>3.5</type>
-<@pcstring tag="ENDIF"/>
+	</#if>
 			<base_pp><@pcstring tag="VAR.BASEPOWERPOINTS.INTVAL"/></base_pp>
 			<bonus_pp><@pcstring tag="VAR.BONUSPOWERPOINTS.INTVAL"/></bonus_pp>
 			<total_pp><@pcstring tag="VAR.TOTALPOWERPOINTS.INTVAL"/></total_pp>
@@ -763,26 +763,26 @@
 		<equipmentset name="<@pcstring tag="EQSET.NAME"/>">
 			<@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]')-1 ; equip , equip_has_next >
 			<item>
-					<name><@pcstring tag="EQ.MERGELOC.${equip}.NAME"/></name>
-					<carried><@pcstring tag="EQ.MERGELOC.${equip}.CARRIED"/></carried>
-					<charges><@pcstring tag="EQ.MERGELOC.${equip}.CHARGES"/></charges>
-					<charges_used><@pcstring tag="EQ.MERGELOC.${equip}.CHARGESUSED"/></charges_used>
-					<contents><@pcstring tag="EQ.MERGELOC.${equip}.CONTENTS"/></contents>
-					<cost><@pcstring tag="EQ.MERGELOC.${equip}.COST"/></cost>
-					<equipped><@pcstring tag="EQ.MERGELOC.${equip}.EQUIPPED"/></equipped>
-					<location><@pcstring tag="EQ.MERGELOC.${equip}.LOCATION"/></location>
-					<maxcharges><@pcstring tag="EQ.MERGELOC.${equip}.MAXCHARGES"/></maxcharges>
-					<note><@pcstring tag="EQ.MERGELOC.${equip}.NOTE"/></note>
-					<quantity><@pcstring tag="EQ.MERGELOC.${equip}.QTY"/></quantity>
-					<size>
-						<long><@pcstring tag="EQ.MERGELOC.${equip}.SIZELONG"/></long>
-						<short><@pcstring tag="EQ.MERGELOC.${equip}.SIZE"/></short>
-					</size>
-					<special_properties><@pcstring tag="EQ.MERGELOC.${equip}.SPROP"/></special_properties>
-					<type><@pcstring tag="EQ.MERGELOC.${equip}.TYPE"/></type>
-					<weight><@pcstring tag="EQ.MERGELOC.${equip}.WT"/></weight>
-					<bonuslist><@pcstring tag="EQ.MERGELOC.${equip}.BONUSLIST"/></bonuslist>
-				</item>
+				<name><@pcstring tag="EQ.MERGELOC.${equip}.NAME"/></name>
+				<carried><@pcstring tag="EQ.MERGELOC.${equip}.CARRIED"/></carried>
+				<charges><@pcstring tag="EQ.MERGELOC.${equip}.CHARGES"/></charges>
+				<charges_used><@pcstring tag="EQ.MERGELOC.${equip}.CHARGESUSED"/></charges_used>
+				<contents><@pcstring tag="EQ.MERGELOC.${equip}.CONTENTS"/></contents>
+				<cost><@pcstring tag="EQ.MERGELOC.${equip}.COST"/></cost>
+				<equipped><@pcstring tag="EQ.MERGELOC.${equip}.EQUIPPED"/></equipped>
+				<location><@pcstring tag="EQ.MERGELOC.${equip}.LOCATION"/></location>
+				<maxcharges><@pcstring tag="EQ.MERGELOC.${equip}.MAXCHARGES"/></maxcharges>
+				<note><@pcstring tag="EQ.MERGELOC.${equip}.NOTE"/></note>
+				<quantity><@pcstring tag="EQ.MERGELOC.${equip}.QTY"/></quantity>
+				<size>
+					<long><@pcstring tag="EQ.MERGELOC.${equip}.SIZELONG"/></long>
+					<short><@pcstring tag="EQ.MERGELOC.${equip}.SIZE"/></short>
+				</size>
+				<special_properties><@pcstring tag="EQ.MERGELOC.${equip}.SPROP"/></special_properties>
+				<type><@pcstring tag="EQ.MERGELOC.${equip}.TYPE"/></type>
+				<weight><@pcstring tag="EQ.MERGELOC.${equip}.WT"/></weight>
+				<bonuslist><@pcstring tag="EQ.MERGELOC.${equip}.BONUSLIST"/></bonuslist>
+			</item>
 			</@loop><#lt><#-- Equipment -->
 			</equipmentset>
 <@pcstring tag="EQSET.END"/>
@@ -868,7 +868,7 @@
 </@loop>	
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-<@loop from=0 to=pcvar('COUNT[VFEATS.HIDDEN]-1') ; feat , feat_has_next >
+<@loop from=0 to=pcvar('COUNT[FEATS.HIDDEN]-1') ; feat , feat_has_next >
 		<feat>
 			<name><@pcstring tag="FEAT.HIDDEN.${feat}"/></name>
 			<description><@pcstring tag="FEAT.HIDDEN.${feat}.DESC"/></description>
@@ -907,5 +907,387 @@
 		</feat>
 </@loop>
 	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			ABILITY OBJECTS
+	  ====================================
+	  ====================================-->
+<#macro abilityBlock category nature hidden >
+	<#if hidden>
+		<#assign visibilityCrit = 'VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY' />
+		<#assign visName = 'HIDDEN' />
+	<#else>
+		<#assign visibilityCrit = 'VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY' />
+		<#assign visName = 'VISIBLE' />
+	</#if>
+	<#assign abilityToken = 'ABILITY' />
+	<#assign isAuto = 'F' />
+	<#assign isVirtual = 'F' />
+	<#if nature='AUTOMATIC'>
+		<#assign abilityToken = 'ABILITYAUTO' />
+		<#assign isAuto = 'T' />
+	<#elseif nature='VIRTUAL' >
+		<#assign abilityToken = 'VABILITY' />
+		<#assign isVirtual = 'T' />
+	</#if>
+	<#assign numAbilities =
+		pcvar('countdistinct("ABILITIES","CATEGORY=${category}","${visibilityCrit}","NATURE=${nature}")') />
+	<#if (numAbilities > 0) >
+		<!-- ${visName?capitalize} ${nature?capitalize} "${category}" Ability Objects -->
+	</#if>
+	<@loop from=0 to=numAbilities-1 ; abilityIdx >
+		<ability_object>
+			<name><@pcstring tag="${abilityToken}.${category}.${visName}.${abilityIdx}"/></name>
+			<description><@pcstring tag="${abilityToken}.${category}.${visName}.${abilityIdx}.DESC"/></description>
+			<type><@pcstring tag="${abilityToken}.${category}.${visName}.${abilityIdx}.TYPE"/></type>
+			<associated><@pcstring tag="${abilityToken}.${category}.${visName}.${abilityIdx}.ASSOCIATED"/></associated>
+			<count><@pcstring tag="${abilityToken}.${category}.${visName}.${abilityIdx}.ASSOCIATEDCOUNT"/></count>
+			<auto>${isAuto}</auto>
+			<hidden><#if hidden>T<#else>F</#if></hidden>
+			<virtual>${isVirtual}</virtual>
+			<category>${category}</category>
+		</ability_object>
+	</@loop>
+</#macro>
 
+	<ability_objects>
+		<#assign natureList = ['NORMAL', 'AUTOMATIC', 'VIRTUAL' ] />
+		<#list natureList as nature>
+			<@abilityBlock category="Special Ability" nature="${nature}" hidden=false />
+		</#list>
+		<#list natureList as nature>
+			<@abilityBlock category="Special Ability" nature="${nature}" hidden=true />
+		</#list>
+		<@abilityBlock category="Salient Divine Ability" nature="NORMAL" hidden=false />
+		<@abilityBlock category="Mutation" nature="NORMAL" hidden=false />
+		<#list natureList as nature>
+			<@abilityBlock category="Talent" nature="${nature}" hidden=false />
+		</#list>
+		<#list natureList as nature>
+			<@abilityBlock category="Talent" nature="${nature}" hidden=true />
+		</#list>
+		<#list natureList as nature>
+			<@abilityBlock category="Internal" nature="${nature}" hidden=false />
+		</#list>
+		<#list natureList as nature>
+			<@abilityBlock category="Internal" nature="${nature}" hidden=true />
+		</#list>
+	</ability_objects>
+	<!--
+	  ====================================
+	  ====================================
+			MISCELLANEOUS
+	  ====================================
+	  ====================================-->
+
+<#if (pcvar('COUNT[DOMAINS]') > 0) >
+	<domains>
+	<@loop from=1 to=pcvar('COUNT[DOMAINS]') ; domain >
+		<domain>
+			<name><@pcstring tag="DOMAIN.${domain}"/></name>
+			<power><@pcstring tag="DOMAIN.${domain}.POWER"/></power>
+		</domain>
+	</@loop>
+	</domains>
+</#if>
+	<weapon_proficiencies><@pcstring tag="WEAPONPROFS"/></weapon_proficiencies>
+	<languages><@pcstring tag="LANGUAGES"/></languages>
+
+<#if (pcvar('COUNT[TEMPLATES]') > 0) >
+	<templates>
+		<list><@pcstring tag="TEMPLATELIST"/></list>
+	<@loop from=0 to=pcvar('COUNT[TEMPLATES]')-1 ; template >
+		<template>
+			<name><@pcstring tag="TEMPLATE.${template}.NAME"/></name>
+			<strmod><@pcstring tag="TEMPLATE.${template}.STRMOD"/></strmod>
+			<dexmod><@pcstring tag="TEMPLATE.${template}.DEXMOD"/></dexmod>
+			<conmod><@pcstring tag="TEMPLATE.${template}.CONMOD"/></conmod>
+			<intmod><@pcstring tag="TEMPLATE.${template}.INTMOD"/></intmod>
+			<wismod><@pcstring tag="TEMPLATE.${template}.WISMOD"/></wismod>
+			<chamod><@pcstring tag="TEMPLATE.${template}.CHAMOD"/></chamod>
+			<cr><@pcstring tag="TEMPLATE.${template}.CR"/></cr>
+			<dr><@pcstring tag="TEMPLATE.${template}.DR"/></dr>
+			<feat><@pcstring tag="TEMPLATE.${template}.FEAT"/></feat>
+			<sa><@pcstring tag="TEMPLATE.${template}.SA"/></sa>
+			<sr><@pcstring tag="TEMPLATE.${template}.SR"/></sr>
+			<bonuslist><@pcstring tag="TEMPLATE.${template}.BONUSLIST"/></bonuslist>
+		</template>
+	</@loop>
+	</templates>
+</#if>
+<#assign prohibitedlist>
+	<@pcstring tag="PROHIBITEDLIST"/>
+</#assign>
+<#if (prohibitedlist?length > 0) >
+	<prohibited_schools>${prohibitedlist}</prohibited_schools>
+</#if>
+
+	<misc>
+	<#assign miscFunds>
+		<@pcstring tag="MISC.FUNDS"/>
+	</#assign>
+	<#if (miscFunds?length > 0) >
+		<funds>
+			<fund>${miscFunds}</fund>
+		</funds>
+	</#if>
+	<#assign miscCompanions>
+		<@pcstring tag="MISC.COMPANIONS"/>
+	</#assign>
+	<#if (miscCompanions?length > 0) >
+		<companions>
+			<companion>${miscCompanions}</companion>
+		</companions>
+	</#if>
+	<#assign miscMagic>
+		<@pcstring tag="MISC.MAGIC"/>
+	</#assign>
+	<#if (miscMagic?length > 0) >
+		<magics>
+			<magic>${miscMagic}</magic>
+		</magics>
+	</#if>
+	</misc>
+	<!--
+	  ====================================
+	  ====================================
+			COMPANIONS
+	  ====================================
+	  ====================================-->
+<#macro companionBlock nodeName followerType >
+	<#assign numComp = pcvar('COUNT[FOLLOWERTYPE.${followerType}]') />
+	<@loop from=0 to=numComp-1 ; companion >
+		<${nodeName}>
+			<name><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.NAME"/></name>
+			<race><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.RACE"/></race>
+			<hp><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.HP"/></hp>
+			<ac><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.BONUS.COMBAT.AC.TOTAL"/></ac>
+			<fortitude><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.CHECK.0.TOTAL"/></fortitude>
+			<reflex><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.CHECK.1.TOTAL"/></reflex>
+			<willpower><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.CHECK.2.TOTAL"/></willpower>
+			<initiative_mod><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.INITIATIVEMOD"/></initiative_mod>
+			<special_properties><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.SPECIALLIST"/></special_properties>
+			<attacks>
+			<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.${followerType}.${companion}.EQTYPE.WEAPON]')-1 ; weap >
+				<attack>
+					<common>
+						<name>
+							<short><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.NAME"/></short>
+							<long><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.LONGNAME"/></long>
+						</name>
+						<category><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.CATEGORY"/></category>
+						<critical>
+							<range><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.CRIT"/></range>
+							<multiplier><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.MULT"/></multiplier>
+						</critical>
+						<to_hit>
+							<hit><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.HIT"/></hit>
+							<magic_hit><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.MAGICHIT"/></magic_hit>
+							<total_hit><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TOTALHIT"/></total_hit>
+						</to_hit>
+						<feat><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.FEAT"/></feat>
+						<hand><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.HAND"/></hand>
+						<num_attacks><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.NUMATTACKS"/></num_attacks>
+						<reach><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.REACH"/></reach>
+						<size><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.SIZE"/></size>
+						<special_properties><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.SPROP"/></special_properties>
+						<template><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TEMPLATE"/></template>
+						<type><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TYPE"/></type>
+						<weight><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.WT"/></weight>
+						<sequence><@pcstring tag="%weap"/></sequence>
+					</common>
+					<simple>
+						<to_hit><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TOTALHIT"/></to_hit>
+						<damage><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.DAMAGE"/></damage>
+						<range><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.RANGE"/></range>
+					</simple>
+				</attack>
+			</@loop>
+			</attacks>
+		</${nodeName}>
+	</@loop>
+</#macro>
+
+	<companions>
+		<@companionBlock nodeName="familiar" followerType="FAMILIAR" />
+		<@companionBlock nodeName="psicrystal" followerType="Psicrystal" />
+		<@companionBlock nodeName="mount" followerType="SPECIAL MOUNT" />
+		<@companionBlock nodeName="companion" followerType="ANIMAL COMPANION" />
+		<@companionBlock nodeName="follower" followerType="FOLLOWER" />
+	</companions>
+	<!--
+	  ====================================
+	  ====================================
+			SPELLS
+	  ====================================
+	  ====================================-->
+<#macro spellBlock class spellbook level spell>
+					<spell>
+						<name><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME"/></name>
+						<outputname><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME"/></outputname>
+						<times_memorized><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES"/></times_memorized>
+						<range><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.RANGE"/></range>
+						<components><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.COMPONENTS"/></components>
+						<castingtime><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.CASTINGTIME"/></castingtime>
+						<casterlevel><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.CASTERLEVEL"/></casterlevel>
+						<dc><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC"/></dc>
+						<duration><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.DURATION"/></duration>
+						<effect><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.EFFECT"/></effect>
+						<target><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.TARGET"/></target>
+						<saveinfo><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO"/></saveinfo>
+						<school>
+							<school><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SCHOOL"/></school>
+							<subschool><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SUBSCHOOL"/></subschool>
+							<descriptor><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTOR"/></descriptor>
+							<fullschool><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.FULLSCHOOL"/></fullschool>
+						</school>
+						<source>
+							<sourcelevel><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SOURCELEVEL"/></sourcelevel>
+							<source><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SOURCE"/></source>
+							<sourcepage><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SOURCEPAGE"/></sourcepage>
+							<sourceshort><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SOURCESHORT"/></sourceshort>
+						</source>
+						<spell_resistance><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.SR"/></spell_resistance>
+						<description><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION"/></description>
+						<bonusspell><@pcstring tag="SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL"/></bonusspell>
+					</spell>
+</#macro>
+	<spells>
+		<!-- ### BEGIN Innate spells ### -->
+<#if pcvar('COUNT[SPELLRACE]') = 0 >
+	<spells_innate number="none"/>
+<#else>
+	<spells_innate>
+	<#assign spellbook = 1 />
+	<#assign class = 0 />
+	<#assign level = 0 />
+<#-- |%SPELLLISTBOOK.%class.%level.%spellbook| -->
+	<#if (pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') > 0) >
+		<racial_innate>
+		<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]')-1 ; spell >
+			<@spellBlock class="${class}" spellbook="${spellbook}" level="${level}" spell="${spell}" />
+		</@loop>
+		</racial_innate>
+	</#if>
+<#-- |%| -->
+
+		<class_innate>
+		<#assign class = 0 />
+		<#assign level = 0 />
+		<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook >
+<#-- |%SPELLLISTBOOK.%class.%level.%spellbook| -->
+		<#if (pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') > 0) >
+			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
+			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]')-1 ; spell >
+				<@spellBlock class="${class}" spellbook="${spellbook}" level="${level}" spell="${spell}" />
+			</@loop>
+			</spellbook>
+		</#if>
+<#-- |%| -->
+		</@loop>
+		</class_innate>
+		</spells_innate>
+</#if>
+<!-- ### END Innate spells ### -->
+		<!-- ### BEGIN Known spells ### -->
+		<known_spells>
+	<#assign spellbook = 0 />
+	<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]')-1 ; class , class_has_next >
+<#-- |%SPELLLISTCLASS.%class| -->
+		<#if (pcstring('SPELLLISTCLASS.${class}')?length > 0) >
+		<class number="${class}" spelllistclass="${pcstring('SPELLLISTCLASS.${class}')}" spellcastertype="${pcstring('SPELLLISTTYPE.${class}')}">
+		<@loop from=0 to=9 ; level >
+		<#if pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') = 0 >
+			<level number="${level}" known="0" cast="0"/>
+		<#else>
+			<level number="${level}" known="<@pcstring tag="SPELLLISTKNOWN.${class}.${level}"/>" cast="<@pcstring tag="SPELLLISTCAST.${class}.${level}"/>">
+			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]')-1 ; spell >
+				<@spellBlock class="${class}" spellbook="${spellbook}" level="${level}" spell="${spell}" />
+			</@loop>
+			</level>
+		</#if>
+		</@loop>
+		</class>
+		</#if>
+
+<#-- |%| -->
+	</@loop>
+	</known_spells>
+		<!-- ### END Known spells ### -->
+		<!-- ### BEGIN memorized spells ### -->
+<#if pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') = 0 >
+	<memorized_spells/>
+<#else>
+	<memorized_spells>
+		<!-- ### BEGIN innate memorized spell section -->	
+	<#if (pcvar('COUNT[SPELLRACE]') > 0) >
+		<!-- ### BEGIN innate memorized spells ### -->
+		<#assign spellbook = 1 />
+		<#assign class = 0 />
+		<#assign level = 0 />
+		<#-- |SPELLLISTBOOK.%class.%level.%spellbook| -->
+		<#assign spellcount = pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') />
+		<#if (spellcount>0) >
+		<racial_innate_memorized>
+			<@loop from=0 to=spellcount-1 ; spell >
+				<@spellBlock class="${class}" spellbook="${spellbook}" level="${level}" spell="${spell}" />
+			</@loop>
+		</racial_innate_memorized>
+		</#if>
+		<#-- |%| -->
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
+		<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook >
+			<#assign class = 0 />
+			<#assign level = 0 />
+			<#-- |SPELLLISTBOOK.%class.%level.%spellbook| -->
+			<#assign spellcount = pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') />
+			<#if (spellcount>0) >
+			<spellbook number="${spellbook}" name="<@pcstring tag="SPELLBOOKNAME.${spellbook}"/>">
+				<@loop from=0 to=spellcount-1 ; spell >
+					<@spellBlock class="${class}" spellbook="${spellbook}" level="${level}" spell="${spell}" />
+				</@loop>
+			</spellbook>
+			</#if>
+			<#-- |%| -->
+		</@loop>
+		</class_innate_memorized>
+			<!-- ### END class innate memorized spells ### -->
+	</#if>
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
+	<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook >
+		<#assign foo = pcvar('COUNT[SPELLRACE]') />
+		<#assign bar = pcvar('COUNT[SPELLSINBOOK0.${spellbook}.0]') />
+		<#if (foo = 0 || bar = 0) >
+<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+		<spellbook number="${spellbook}" name="<@pcstring tag="SPELLBOOKNAME.${spellbook}"/>">
+		<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class >
+			<#-- |%SPELLLISTCLASS.%class| -->
+			<class number="${class}" spelllistclass="<@pcstring tag="SPELLLISTCLASS.${class}"/>">
+			<@loop from=0 to=9 ; level >
+			<#assign spelllevelcount = pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') />
+			<#if spelllevelcount = 0 >
+				<level number="${level}" spellcount="${spelllevelcount}"/>
+			<#else>
+				<level number="${level}" spellcount="${spelllevelcount}">
+				<@loop from=0 to=spelllevelcount-1 ; spell >
+					<@spellBlock class="${class}" spellbook="${spellbook}" level="${level}" spell="${spell}" />
+				</@loop>
+				</level>
+			</#if>
+			</@loop>
+			</class>
+			<#-- |%| -->
+		</@loop>
+		</spellbook>
+		</#if>
+	</@loop>
+	</memorized_spells>
+</#if>
+<!-- ### END class Spellbook memorized spells ### -->
+	</spells>
 </character>

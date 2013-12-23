@@ -1,15 +1,15 @@
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a 35e Psion.
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIQuasvinTest extends pcGenGUITestCase
+public class pcGenGUIQuasvinTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -17,7 +17,7 @@ public class pcGenGUIQuasvinTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIQuasvinTest()
 	{
-		// Empty Constructor
+		super("3e_quasvin");
 	}
 
 	/**

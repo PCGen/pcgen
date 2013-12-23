@@ -32,7 +32,7 @@ BIO
 			<levels_total>5</levels_total>
 			<levels_ecl>5</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Tel5                   </shortform>
+			<shortform>Tel5</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -1035,16 +1034,20 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
 		<psionics>
 			<type>3.5</type>
@@ -1053,6 +1056,7 @@ BIO
 			<total_pp>37</total_pp>
 		</psionics>
 	<!-- Psionics -->
+
 
 
 
@@ -1175,94 +1179,92 @@ BIO
 			<capacity>130</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="">
-		<item>
-					<name>Buckler</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>15</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>SHIELD.BUCKLER.STANDARD.METAL</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Shortspear</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>1</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MELEE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SPEAR.WOODEN</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Leather</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>ARMOR.LIGHT.SUIT.STANDARD.NONMETAL</type>
-					<weight>15</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Outfit (Artisan&#39;s)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-					<weight>4</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="">
+			<item>
+				<name>Buckler</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>15</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>SHIELD.BUCKLER.STANDARD.METAL</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Shortspear</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MELEE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SPEAR.WOODEN</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Leather</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>ARMOR.LIGHT.SUIT.STANDARD.NONMETAL</type>
+				<weight>15</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Outfit (Artisan&#39;s)</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+				<weight>4</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1355,7 +1357,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Alertness</name>
@@ -1378,8 +1382,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Aberration Traits</name>
 			<description></description>
@@ -1468,7 +1473,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1491,7 +1496,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1536,7 +1541,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-	<!-- Hidden Automatic "Internal" Ability Objects -->
+		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Master Traits</name>
 			<description></description>
@@ -1555,7 +1560,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Shortspear, Spells (Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Draconic, Elven, Halfling, Orc</languages>
 
@@ -1593,11 +1598,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1605,11 +1606,21 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
+		<psicrystal>
+			<name></name>
+			<race></race>
+			<hp></hp>
+			<ac></ac>
+			<fortitude></fortitude>
+			<reflex></reflex>
+			<willpower></willpower>
+			<initiative_mod></initiative_mod>
+			<special_properties></special_properties>
+			<attacks>
+			</attacks>
+		</psicrystal>
 	</companions>
 	<!--
 	  ====================================
@@ -1623,11 +1634,10 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="Psion" spellcastertype="Psionic">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="5" cast="0">
-				<spell>
+					<spell>
 						<name>Charm, Psionic</name>
 						<outputname>Charm, Psionic</outputname>
 						<times_memorized>1</times_memorized>
@@ -1656,7 +1666,7 @@ BIO
 						<description>As charm person except as noted in the text.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Entangling Ectoplasm</name>
 						<outputname>Entangling Ectoplasm</outputname>
 						<times_memorized>1</times_memorized>
@@ -1685,7 +1695,7 @@ BIO
 						<description>You entangle target in ectoplasmic goo on a successful ranged touch attack.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mind Thrust</name>
 						<outputname>Mind Thrust</outputname>
 						<times_memorized>1</times_memorized>
@@ -1714,7 +1724,7 @@ BIO
 						<description>Deal 1d10 damage.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mindlink</name>
 						<outputname>Mindlink</outputname>
 						<times_memorized>1</times_memorized>
@@ -1743,7 +1753,7 @@ BIO
 						<description>You forge a limited mental bond with another creature.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Skate</name>
 						<outputname>Skate</outputname>
 						<times_memorized>1</times_memorized>
@@ -1774,7 +1784,7 @@ BIO
 					</spell>
 			</level>
 			<level number="2" known="4" cast="0">
-				<spell>
+					<spell>
 						<name>Brain Lock</name>
 						<outputname>Brain Lock</outputname>
 						<times_memorized>1</times_memorized>
@@ -1803,7 +1813,7 @@ BIO
 						<description>Mentally paralyzes one humanoid.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Concealing Amorpha</name>
 						<outputname>Concealing Amorpha</outputname>
 						<times_memorized>1</times_memorized>
@@ -1832,7 +1842,7 @@ BIO
 						<description>Quasi-real film distorts your features, granting you concealment.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Ego Whip</name>
 						<outputname>Ego Whip</outputname>
 						<times_memorized>1</times_memorized>
@@ -1861,7 +1871,7 @@ BIO
 						<description>Target takes 1d4 Charisma damage, and may also be dazed for 1 round.</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Suggestion, Psionic</name>
 						<outputname>Suggestion, Psionic</outputname>
 						<times_memorized>1</times_memorized>
@@ -1892,7 +1902,7 @@ BIO
 					</spell>
 			</level>
 			<level number="3" known="2" cast="0">
-				<spell>
+					<spell>
 						<name>Crisis of Breath</name>
 						<outputname>Crisis of Breath</outputname>
 						<times_memorized>1</times_memorized>
@@ -1921,7 +1931,7 @@ BIO
 						<description>You compel the subject to purge its store of air</description>
 						<bonusspell>*</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Empathic Transfer, Hostile</name>
 						<outputname>Empathic Transfer, Hostile</outputname>
 						<times_memorized>1</times_memorized>

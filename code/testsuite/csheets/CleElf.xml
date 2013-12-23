@@ -32,7 +32,7 @@ BIO
 			<levels_total>2</levels_total>
 			<levels_ecl>2</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Clr2                   </shortform>
+			<shortform>Clr2</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
 			<favoredweapon>ANY</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>
@@ -1109,24 +1108,29 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
 	<turning kind="UNDEAD" type="TURN">
-			<level>2</level>
-			<turn_check>1d20-1</turn_check>
-			<damage>2d6 +1</damage>
-			<uses_per_day>6</uses_per_day>
-			<notes>You destroy Undead creatures with total hit dice up to 1.</notes>
-		</turning>
+		<level>2</level>
+		<turn_check>1d20-1</turn_check>
+		<damage>2d6+1</damage>
+		<uses_per_day>6</uses_per_day>
+		<notes>You destroy Undead creatures with total hit dice up to 1.</notes>
+	</turning>
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1249,94 +1253,92 @@ BIO
 			<capacity>100</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="">
-		<item>
-					<name>Banded Mail</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>250</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>ARMOR.HEAVY.SUIT.STANDARD.METAL</type>
-					<weight>35</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Buckler</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>15</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>SHIELD.BUCKLER.STANDARD.METAL</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Club</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.MELEE.RANGED.BLUDGEONING.STANDARD.THROWN.CLUB.WOODEN</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Handaxe</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>6</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Small</long>
-						<short>S</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.MARTIAL.MELEE.STANDARD.SLASHING.AXE.METAL</type>
-					<weight>5</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="">
+			<item>
+				<name>Banded Mail</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>250</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>ARMOR.HEAVY.SUIT.STANDARD.METAL</type>
+				<weight>35</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Buckler</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>15</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>SHIELD.BUCKLER.STANDARD.METAL</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Club</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.MELEE.RANGED.BLUDGEONING.STANDARD.THROWN.CLUB.WOODEN</type>
+				<weight>3</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Handaxe</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>6</cost>
+				<equipped>N</equipped>
+				<location>Carried</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Small</long>
+					<short>S</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.MARTIAL.MELEE.STANDARD.SLASHING.AXE.METAL</type>
+				<weight>5</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1379,6 +1381,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Armor Proficiency (Heavy)</name>
@@ -1430,6 +1433,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1442,8 +1446,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Elf Weapon Choice (Longsword)</name>
 			<description></description>
@@ -1466,7 +1471,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+2 racial bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door.</name>
 			<description>+2 racial bonus on Listen, Search, and Spot checks. An elf who merely passes within 5 feet of a secret or concealed door is entitled to a Search check to notice it as if she were actively looking for the door.</description>
@@ -1555,7 +1560,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
+		<!-- Visible Virtual "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Spontaneous casting - Cure spells</name>
 			<description></description>
@@ -1567,7 +1572,7 @@ BIO
 			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1590,7 +1595,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1642,15 +1647,11 @@ BIO
 			<power>You can generate a protective ward, a spell-like ability to grant someone you touch a resistance bonus on their next saving throw equal to your level. It&#39;s an abjuration effect that lasts one hour, once per day.</power>
 		</domain>
 	</domains>
-	<!-- Domains -->
 	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Halfspear, Javelin, Longbow, Longbow (Composite), Longsword, Mace, Mace (Heavy), Mace (Light), Morningstar, Quarterstaff, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Spells(Ray), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Elven, Orc</languages>
 
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1658,11 +1659,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1676,10 +1674,9 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="0" spelllistclass="Cleric" spellcastertype="Divine">
 			<level number="0" known="0" cast="4">
-				<spell>
+					<spell>
 						<name>Create Water</name>
 						<outputname>Create Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -1708,7 +1705,7 @@ BIO
 						<description>Creates (CASTERLEVEL*2) gallons of pure water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cure Minor Wounds</name>
 						<outputname>Cure Minor Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -1737,7 +1734,7 @@ BIO
 						<description>Cures 1 point of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Magic</name>
 						<outputname>Detect Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -1766,7 +1763,7 @@ BIO
 						<description>Detects spells and magic items within 60 ft.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Poison</name>
 						<outputname>Detect Poison</outputname>
 						<times_memorized>1</times_memorized>
@@ -1795,7 +1792,7 @@ BIO
 						<description>Detects poison in one creature or small object.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Guidance</name>
 						<outputname>Guidance</outputname>
 						<times_memorized>1</times_memorized>
@@ -1824,7 +1821,7 @@ BIO
 						<description>+1 on one roll, save, or check.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Inflict Minor Wounds</name>
 						<outputname>Inflict Minor Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -1853,7 +1850,7 @@ BIO
 						<description>Touch attack, 1 point of damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Light</name>
 						<outputname>Light</outputname>
 						<times_memorized>1</times_memorized>
@@ -1882,7 +1879,7 @@ BIO
 						<description>Object shines like a torch.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Mending</name>
 						<outputname>Mending</outputname>
 						<times_memorized>1</times_memorized>
@@ -1911,7 +1908,7 @@ BIO
 						<description>Makes minor repairs on an object.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Purify Food and Drink</name>
 						<outputname>Purify Food and Drink</outputname>
 						<times_memorized>1</times_memorized>
@@ -1940,7 +1937,7 @@ BIO
 						<description>Purifies (CASTERLEVEL) cu. ft. of food or water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Read Magic</name>
 						<outputname>Read Magic</outputname>
 						<times_memorized>1</times_memorized>
@@ -1969,7 +1966,7 @@ BIO
 						<description>Read scrolls and spellbooks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Resistance</name>
 						<outputname>Resistance</outputname>
 						<times_memorized>1</times_memorized>
@@ -1998,7 +1995,7 @@ BIO
 						<description>Subject gains +1 on saving throws.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Virtue</name>
 						<outputname>Virtue</outputname>
 						<times_memorized>1</times_memorized>
@@ -2029,7 +2026,7 @@ BIO
 					</spell>
 			</level>
 			<level number="1" known="0" cast="3+1">
-				<spell>
+					<spell>
 						<name>Bane</name>
 						<outputname>Bane</outputname>
 						<times_memorized>1</times_memorized>
@@ -2058,7 +2055,7 @@ BIO
 						<description>Enemies suffer -1 attack, -1 on saves against fear.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless</name>
 						<outputname>Bless</outputname>
 						<times_memorized>1</times_memorized>
@@ -2087,7 +2084,7 @@ BIO
 						<description>Allies gain +1 attack and +1 on saves against fear.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Bless Water</name>
 						<outputname>Bless Water</outputname>
 						<times_memorized>1</times_memorized>
@@ -2116,7 +2113,7 @@ BIO
 						<description>Makes holy water.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cause Fear</name>
 						<outputname>Cause Fear</outputname>
 						<times_memorized>1</times_memorized>
@@ -2145,7 +2142,7 @@ BIO
 						<description>One creature flees for 1d4 rounds.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Command</name>
 						<outputname>Command</outputname>
 						<times_memorized>1</times_memorized>
@@ -2174,7 +2171,7 @@ BIO
 						<description>One subject obeys one-word command for 1 round.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Comprehend Languages</name>
 						<outputname>Comprehend Languages</outputname>
 						<times_memorized>1</times_memorized>
@@ -2203,7 +2200,7 @@ BIO
 						<description>Understands all spoken and written languages.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Cure Light Wounds</name>
 						<outputname>Cure Light Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -2232,7 +2229,7 @@ BIO
 						<description>Cures 1d8 + (min(CASTERLEVEL,5)) damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Deathwatch</name>
 						<outputname>Deathwatch</outputname>
 						<times_memorized>1</times_memorized>
@@ -2261,7 +2258,7 @@ BIO
 						<description>Sees how wounded subjects within 30 ft. are.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Chaos</name>
 						<outputname>Detect Chaos</outputname>
 						<times_memorized>1</times_memorized>
@@ -2290,7 +2287,7 @@ BIO
 						<description>Reveals creatures, spells, or objects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Evil</name>
 						<outputname>Detect Evil</outputname>
 						<times_memorized>1</times_memorized>
@@ -2319,7 +2316,7 @@ BIO
 						<description>Reveals creatures, spells, or objects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Good</name>
 						<outputname>Detect Good</outputname>
 						<times_memorized>1</times_memorized>
@@ -2348,7 +2345,7 @@ BIO
 						<description>Reveals creatures, spells, or objects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Law</name>
 						<outputname>Detect Law</outputname>
 						<times_memorized>1</times_memorized>
@@ -2377,7 +2374,7 @@ BIO
 						<description>Reveals creatures, spells, or objects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Detect Undead</name>
 						<outputname>Detect Undead</outputname>
 						<times_memorized>1</times_memorized>
@@ -2406,7 +2403,7 @@ BIO
 						<description>Reveals undead within 60 ft.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Divine Favor</name>
 						<outputname>Divine Favor</outputname>
 						<times_memorized>1</times_memorized>
@@ -2435,7 +2432,7 @@ BIO
 						<description>The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))).</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Doom</name>
 						<outputname>Doom</outputname>
 						<times_memorized>1</times_memorized>
@@ -2464,7 +2461,7 @@ BIO
 						<description>One subject suffers -2 on attacks, damage, saves, and checks.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Endure Elements</name>
 						<outputname>Endure Elements</outputname>
 						<times_memorized>1</times_memorized>
@@ -2493,7 +2490,7 @@ BIO
 						<description>Ignores 5 damage/round from one energy type.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Entropic Shield</name>
 						<outputname>Entropic Shield</outputname>
 						<times_memorized>1</times_memorized>
@@ -2522,7 +2519,7 @@ BIO
 						<description>Ranged attacks against the caster suffer 20% miss chance.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Inflict Light Wounds</name>
 						<outputname>Inflict Light Wounds</outputname>
 						<times_memorized>1</times_memorized>
@@ -2551,7 +2548,7 @@ BIO
 						<description>Touch, 1d8 + (min(CASTERLEVEL,5)) damage</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Invisibility to Undead</name>
 						<outputname>Invisibility to Undead</outputname>
 						<times_memorized>1</times_memorized>
@@ -2580,7 +2577,7 @@ BIO
 						<description>Undead can&#39;t perceive (CASTERLEVEL) subjects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Magic Stone</name>
 						<outputname>Magic Stone</outputname>
 						<times_memorized>1</times_memorized>
@@ -2609,7 +2606,7 @@ BIO
 						<description>Three stones gain +1 attack, deal 1d6+1 damage.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Magic Weapon</name>
 						<outputname>Magic Weapon</outputname>
 						<times_memorized>1</times_memorized>
@@ -2638,7 +2635,7 @@ BIO
 						<description>Weapon gains +1 bonus.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Obscuring Mist</name>
 						<outputname>Obscuring Mist</outputname>
 						<times_memorized>1</times_memorized>
@@ -2667,7 +2664,7 @@ BIO
 						<description>Fog surrounds the caster.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Chaos</name>
 						<outputname>Protection from Chaos</outputname>
 						<times_memorized>1</times_memorized>
@@ -2696,7 +2693,7 @@ BIO
 						<description>+2 AC and saves, counter mind control, hedge out elementals and outsiders.</description>
 						<bonusspell>**</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Chaos</name>
 						<outputname>Protection from Chaos</outputname>
 						<times_memorized>1</times_memorized>
@@ -2725,7 +2722,7 @@ BIO
 						<description>+2 AC and saves, counter mind control, hedge out elementals and outsiders.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Protection from Evil</name>
 						<outputname>Protection from Evil</outputname>
 						<times_memorized>1</times_memorized>
@@ -2754,7 +2751,7 @@ BIO
 						<description>+2 AC and saves, counter mind control, hedge out elementals and outsiders.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Random Action</name>
 						<outputname>Random Action</outputname>
 						<times_memorized>1</times_memorized>
@@ -2783,7 +2780,7 @@ BIO
 						<description>One creature acts randomly for one round.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Remove Fear</name>
 						<outputname>Remove Fear</outputname>
 						<times_memorized>1</times_memorized>
@@ -2812,7 +2809,7 @@ BIO
 						<description>+4 on saves against fear for (CASTERLEVEL/4+1) subjects.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Sanctuary</name>
 						<outputname>Sanctuary</outputname>
 						<times_memorized>1</times_memorized>
@@ -2841,7 +2838,7 @@ BIO
 						<description>Opponents can&#39;t attack the caster, and the caster can&#39;t attack.</description>
 						<bonusspell>**</bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Sanctuary</name>
 						<outputname>Sanctuary</outputname>
 						<times_memorized>1</times_memorized>
@@ -2870,7 +2867,7 @@ BIO
 						<description>Opponents can&#39;t attack the caster, and the caster can&#39;t attack.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Shield of Faith</name>
 						<outputname>Shield of Faith</outputname>
 						<times_memorized>1</times_memorized>
@@ -2899,7 +2896,7 @@ BIO
 						<description>Aura grants +2 or higher deflection bonus.</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Summon Monster I</name>
 						<outputname>Summon Monster I</outputname>
 						<times_memorized>1</times_memorized>

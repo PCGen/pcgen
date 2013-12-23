@@ -1,14 +1,14 @@
 package pcgen.inttest.game_3e;
 
-import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
 
 /**
  * Tests a 3e 2nd level Elf Cleric Law and Protection domains.
  */
 @SuppressWarnings("nls")
-public class pcGenGUICleElfTest extends pcGenGUITestCase
+public class pcGenGUICleElfTest extends PcgenFtlTestCase
 {
 
 	/**
