@@ -696,18 +696,21 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			if ("SELECT".equals(e.getActionCommand()))
+			if (!"null".equals(e.getActionCommand()))
 			{
-				newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
-				CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
-				newCompanion.setRace(selected.getRaceRef().getReference());
-				character.getCompanionSupport().addCompanion(newCompanion, companionType);
-				setVisible(false);
-			}
-			else
-			{
-				newCompanion = null;
-				setVisible(false);
+				if ("SELECT".equals(e.getActionCommand()) || (JTreeTable.ACTION_DOUBLECLICK == e.getID()))
+				{
+					newCompanion = CharacterManager.createNewCharacter(character.getUIDelegate(), character.getDataSet());
+					CompanionStubFacade selected = (CompanionStubFacade) raceTable.getSelectedObject();
+					newCompanion.setRace(selected.getRaceRef().getReference());
+					character.getCompanionSupport().addCompanion(newCompanion, companionType);
+					setVisible(false);
+				}
+				else
+				{
+					newCompanion = null;
+					setVisible(false);
+				}
 			}
 		}
 		
