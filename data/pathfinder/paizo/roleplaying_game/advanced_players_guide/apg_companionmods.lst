@@ -174,7 +174,7 @@ FOLLOWER:CavalierMountHP=20	TYPE:Cavalier Mount															BONUS:VAR|Cavalier
 
 ###Block:Companion for Cavalier
 # Class of the Master		Type				Hit Dice	Ability																							Automatically Gained Feat		Define												Bonus to Ability Pool					Combat bonus					Bonus to HP							Stat bonus			Modify VAR							Main Race Type
-FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding	AUTO:FEAT|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0																BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:CavalierMountLVL=1	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Training|Animal Tricks and Training|Bonus Tricks|Link	AUTO:FEAT|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	DEFINE:CavalierMountHP|0																BONUS:HP|CURRENTMAX|var("CavalierMountHP")					BONUS:ABILITYPOOL|Animal Trick|-6	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:CavalierMountLVL=2	TYPE:Cavalier Mount	HD:1																																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:CavalierMountLVL=3	TYPE:Cavalier Mount			ABILITY:Special Ability|AUTOMATIC|Evasion																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:CavalierMountLVL=4	TYPE:Cavalier Mount	HD:1																																													BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
