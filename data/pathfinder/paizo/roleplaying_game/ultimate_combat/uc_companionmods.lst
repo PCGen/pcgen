@@ -77,7 +77,7 @@ FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																											
 
 
 # Class of the Master		Type				Hit Dice	Spell Res.		Ability																		Automatically Gained Feat	Automatically Gained Armor Prof.	Define							Define a Stat			Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type		Template
-FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Training|Animal Tricks and Training|Bonus Tricks|Link	AUTO:FEAT|Endurance								DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																									BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:BeastRiderLvl=1	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Training|Animal Tricks and Training|Bonus Tricks|Link	AUTO:FEAT|Endurance								DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																									BONUS:ABILITYPOOL|Animal Trick|-6	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:BeastRiderLvl=2	TYPE:Animal Companion	HD:1																																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:BeastRiderLvl=3	TYPE:Animal Companion						ABILITY:Special Ability|AUTOMATIC|Evasion																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:BeastRiderLvl=4	TYPE:Animal Companion	HD:1																																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
