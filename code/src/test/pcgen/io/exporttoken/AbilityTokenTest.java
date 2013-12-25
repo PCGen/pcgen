@@ -29,13 +29,19 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillArmorCheck;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AlignmentConverter;
+import pcgen.core.bonus.Bonus;
+import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
@@ -63,6 +69,8 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		return new TestSuite(AbilityTokenTest.class);
 	}
+
+	private Ability skillFocus;
 
 	/*
 	 * @see TestCase#setUp()
@@ -100,6 +108,25 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
 		character.addAbilityNeedCheck(AbilityCategory.FEAT, ab1);
+
+		TestHelper.makeSkill("Bluff", "Charisma", cha, true,
+			SkillArmorCheck.NONE);
+		TestHelper.makeSkill("Listen", "Wisdom", wis, true,
+			SkillArmorCheck.NONE);
+
+		skillFocus =
+				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
+		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), "SKILL|LIST|3");
+		if (aBonus != null)
+		{
+			skillFocus.addToListFor(ListKey.BONUS, aBonus);
+		}
+		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		skillFocus.put(StringKey.CHOICE_STRING, "SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
+		Ability ability = character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
+		character.addAssociation(ability, "KEY_Bluff");
+		character.addAssociation(ability, "KEY_Listen");
+		character.calcActiveBonuses();
 	}
 
 	/**
@@ -192,5 +219,88 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 			character, eh));
 		assertEquals("Y", tok.getToken("ABILITY.FEAT.0.HASASPECT.Age In Years",
 			character, eh));
+	}
+
+	/**
+	 * Tests the name subtoken of ABILITY.
+	 */
+	public void testName()
+	{
+		AbilityToken tok = new AbilityToken();
+		ExportHandler eh = new ExportHandler(null);
+		PlayerCharacter character = getCharacter();
+
+		assertEquals(
+			"Perform (Dance)",
+			tok.getToken("ABILITY.FEAT.0.NAME", character, eh));
+		assertEquals(
+			"Skill Focus",
+			tok.getToken("ABILITY.FEAT.1.NAME", character, eh));
+	}
+
+	/**
+	 * Tests the key subtoken of ABILITY.
+	 */
+	public void testKey()
+	{
+		AbilityToken tok = new AbilityToken();
+		ExportHandler eh = new ExportHandler(null);
+		PlayerCharacter character = getCharacter();
+
+		assertEquals(
+			"KEY_Perform (Dance)",
+			tok.getToken("ABILITY.FEAT.0.KEY", character, eh));
+
+		assertEquals(
+			"KEY_Skill Focus",
+			tok.getToken("ABILITY.FEAT.1.KEY", character, eh));
+	}
+
+	/**
+	 * Tests the category subtoken of ABILITY.
+	 */
+	public void testCategory()
+	{
+		AbilityToken tok = new AbilityToken();
+		ExportHandler eh = new ExportHandler(null);
+		PlayerCharacter character = getCharacter();
+
+		assertEquals(
+			"Feat",
+			tok.getToken("ABILITY.FEAT.0.CATEGORY", character, eh));
+	}
+
+	/**
+	 * Tests the associated subtoken of ABILITY.
+	 */
+	public void testAssociated()
+	{
+		AbilityToken tok = new AbilityToken();
+		ExportHandler eh = new ExportHandler(null);
+		PlayerCharacter character = getCharacter();
+
+		assertEquals("",
+			tok.getToken("ABILITY.FEAT.0.ASSOCIATED", character, eh));
+		assertEquals("KEY_Bluff,KEY_Listen",
+			tok.getToken("ABILITY.FEAT.1.ASSOCIATED", character, eh));
+		assertEquals("KEY_Bluff",
+			tok.getToken("ABILITY.FEAT.1.ASSOCIATED.0", character, eh));
+		assertEquals("KEY_Listen",
+			tok.getToken("ABILITY.FEAT.1.ASSOCIATED.1", character, eh));
+	}
+
+	/**
+	 * Tests the ASSOCIATEDCOUNT subtoken of ABILITY.
+	 */
+	public void testAssociatedCount()
+	{
+		AbilityToken tok = new AbilityToken();
+		ExportHandler eh = new ExportHandler(null);
+		PlayerCharacter character = getCharacter();
+
+		assertEquals("0",
+			tok.getToken("ABILITY.FEAT.0.ASSOCIATEDCOUNT", character, eh));
+		assertEquals("2",
+			tok.getToken("ABILITY.FEAT.1.ASSOCIATEDCOUNT", character, eh));
 	}
 }

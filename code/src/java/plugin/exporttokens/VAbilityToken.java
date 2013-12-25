@@ -74,4 +74,13 @@ public class VAbilityToken extends AbilityToken
 		}
 		return abilityList;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Nature getTargetNature()
+	{
+		return Nature.VIRTUAL;
+	}
 }

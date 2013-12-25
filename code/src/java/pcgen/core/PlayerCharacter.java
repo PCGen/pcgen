@@ -10566,6 +10566,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return newSet;
 	}
 
+	/**
+	 * Retrieve the first category in which the ability has been taken. 
+	 * @param nature The ability nature in which the ability is present. 
+	 * @param ability The ability to be found.
+	 * @return The category of the ability, or null if no matching ability can be found.
+	 */
+	public Category<Ability> getAbilityCategory(Nature nature, Ability ability)
+	{
+		Category<Ability> cat = abFacet.getCategory(id, nature, ability);
+		Category<Ability> cat2 = grantedAbilityFacet.getCategory(id, nature, ability);
+		return cat == null? cat2  : cat;
+	}
+
 	public Nature getAbilityNature(Category<Ability> cat, Ability ability)
 	{
 		Nature n = abFacet.getNature(id, cat, ability);

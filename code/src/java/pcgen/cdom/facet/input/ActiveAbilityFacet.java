@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
@@ -598,6 +599,39 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 				}
 			}
 		}
+	}
+
+	/**
+	 * Retrieve the first category in which the ability has been taken. 
+	 * @param id The CharID identifying the Player Character
+	 * @param nature The ability nature in which the ability is present. 
+	 * @param ability The ability to be found.
+	 * @return The category of the ability, or null if no matching ability can be found.
+	 */
+	public Category<Ability> getCategory(CharID id, Nature nature,
+		Ability ability)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
+				getCachedMap(id);
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> entry : catMap
+				.entrySet())
+			{
+				Category<Ability> mapKeyCat = entry.getKey();
+				Map<Nature, Set<Ability>> natMap = catMap.get(mapKeyCat);
+				if (natMap != null)
+				{
+					Set<Ability> abilitySet = natMap.get(nature);
+					if (abilitySet != null && abilitySet.contains(ability))
+					{
+						return mapKeyCat;
+					}
+				}
+			}
+		}
+
+		return null;
 	}
 
 	/**

@@ -63,4 +63,13 @@ public class FeatAutoToken extends AbilityToken
 		return abilityList;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Nature getTargetNature()
+	{
+		return Nature.AUTOMATIC;
+	}
+
 }

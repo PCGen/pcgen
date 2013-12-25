@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
@@ -519,6 +520,13 @@ public class AbilityToken extends Token
 				retString =
 						StringUtil.join(pc.getAssociationList(aAbility), ",");
 			}
+			else if (tokenSource.indexOf(".ASSOCIATED.") > -1)
+			{
+				final String key =
+						tokenSource
+							.substring(tokenSource.indexOf(".ASSOCIATED.") + 12);
+				retString = getAssociationString(pc, aAbility, key);
+			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
 				retString =
@@ -555,6 +563,35 @@ public class AbilityToken extends Token
 							.indexOf(".HASASPECT.") + 11);
 				retString = getHasAspectString(aAbility, key);
 			}
+			else if (tokenSource.indexOf(".CATEGORY") > -1)
+			{
+				Nature[] searchOrder;
+				if (getTargetNature() != null)
+				{
+					searchOrder = new Nature[] {getTargetNature()};
+				}
+				else
+				{
+					searchOrder = new Nature[] {Nature.NORMAL, Nature.VIRTUAL, Nature.AUTOMATIC};
+				}
+				for (Nature nature : searchOrder)
+				{
+					Category<Ability> category = pc.getAbilityCategory(nature, aAbility);
+					if (category != null)
+					{
+						retString = String.valueOf(category);
+						break;
+					}
+				}
+			}
+			else if (tokenSource.indexOf(".NAME") > -1)
+			{
+				retString = aAbility.getDisplayName();
+			}
+			else if (tokenSource.indexOf(".KEY") > -1)
+			{
+				retString = aAbility.getKeyName();
+			}
 			else
 			{
 				retString = QualifiedName.qualifiedName(pc, aAbility);
@@ -568,6 +605,32 @@ public class AbilityToken extends Token
 		}
 
 		return retString;
+	}
+
+	/**
+	 * @return The nature of the abilities being listed.
+	 */
+	protected Nature getTargetNature()
+	{
+		return Nature.NORMAL;
+	}
+
+	/**
+	 * @param pc
+	 * @param aAbility
+	 * @param key
+	 * @return
+	 */
+	private String getAssociationString(PlayerCharacter pc, Ability aAbility,
+		String key)
+	{
+		List<String> associationList = pc.getAssociationList(aAbility);
+		int index = Integer.parseInt(key);
+		if (index >=0 && index < associationList.size())
+		{
+			return associationList.get(index);
+		}
+		return "";
 	}
 
 	/**
