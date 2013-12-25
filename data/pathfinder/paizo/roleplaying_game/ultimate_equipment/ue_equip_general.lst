@@ -318,7 +318,7 @@ Artisan's Tools (Stonemasonry/Masterwork).MOD																								COST:55				
 Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)
 Artisan's Tools (Traps/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
 Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)
-Artisan's Tools (Weaponsmithing/Masterwork).MOD																							COST:55						BONUS:SKILL|Craft (Weaponsmithing)|2|TYPE=Circumstance
+Artisan's Tools (Weaponsmithing/Masterwork).MOD																							COST:55						BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance
 Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12		SOURCEPAGE:p.76
 Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.76
 Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3		SOURCEPAGE:p.76
