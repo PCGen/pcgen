@@ -15,7 +15,7 @@ Longaxe (Dwarven)			TYPE:Melee.Dwarven.Slashing.Exotic
 Longhammer (Dwarven)		TYPE:Melee.Dwarven.Bludgeoning.Exotic
 
 # COMMENT: Catfolk Claw Blades
-Claw Blades (Catfolk)		TYPE:Melee.Light.ClawBlades.Slashing.Piercing.Finessable
+Claw Blades (Catfolk)		TYPE:Melee.Light.ClawBlades.Slashing.Piercing.Finesseable
 
 # COMMENT: Kobold tail attachment weaponprofs
 Kobold Tail Attachment		TYPE:Melee.Light.Natural.KoboldTailAttachment
