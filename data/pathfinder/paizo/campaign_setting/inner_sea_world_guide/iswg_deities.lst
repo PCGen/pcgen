@@ -89,3 +89,76 @@ Lissala			NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Nobility,Rune|PREALIGN:LN,LE,N
 The Peacock Spirit	NAMEISPI:YES																	PANTHEON:Dead Gods	SOURCEPAGE:p.235
 Razmir			NAMEISPI:YES																	PANTHEON:False Gods	SOURCEPAGE:p.235
 Ydersius			NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,CE		DEITYWEAP:Dagger	ALIGN:CE	PANTHEON:Forgotten Gods	SOURCEPAGE:p.235
+
+###Block: Subdomain Inclusion
+Achaekek.MOD		DOMAINS:Blood Subdomain,Deception Subdomain,Devil Subdomain,Murder Subdomain,Tactics Subdomain,Thievery Subdomain|PREALIGN:LN,LE,NE
+Apsu.MOD			DOMAINS:Archon Subdomain,Construct Subdomain,Dragon Subdomain,Exploration Subdomain,Toil Subdomain,Trade Subdomain|PREALIGN:LG,LN,NG
+Besmara.MOD			DOMAINS:Deception Subdomain,Oceans Subdomain,Protean Subdomain,Tactics Subdomain,Thievery Subdomain,Storms Subdomain|PREALIGN:CG,TN,CN,CE
+Dahak.MOD			DOMAINS:Catastrophe Subdomain,Deception Subdomain,Demon Subdomain,Dragon Subdomain,Rage Subdomain,Thievery Subdomain|PREALIGN:NE,CN,CE
+Ghlaunder.MOD		DOMAINS:Catastrophe Subdomain,Cloud Subdomain,Demon Subdomain,Fur Subdomain,Rage Subdomain,Wind Subdomain|PREALIGN:NE,CN,CE
+Groetus.MOD			DOMAINS:Catastrophe Subdomain,Insanity Subdomain,Loss Subdomain,Night Subdomain,Protean Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
+Gyronna.MOD			DOMAINS:Demon Subdomain,Insanity Subdomain,Nightmare Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
+Hanspur.MOD			DOMAINS:Exploration Subdomain,Murder Subdomain,Protean Subdomain,Trade Subdomain|PREALIGN:CG,TN,CN,CE
+Kurgess.MOD			DOMAINS:Agathion Subdomain,Family Subdomain,Fate Subdomain,Home Subdomain,Resolve Subdomain,Trade Subdomain|PREALIGN:LG,NG,CG,TN
+Milani.MOD			DOMAINS:Azata Subdomain,Defense Subdomain,Freedom Subdomain,Purity Subdomain,Restoration Subdomain,Revolution Subdomain|PREALIGN:NG,CG,CN
+Sivanah.MOD			DOMAINS:Deception Subdomain,Insanity Subdomain,Memory Subdomain,Protean Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Zyphus.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Daemon Subdomain,Decay Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
+#Archdevils
+Baalzebul.MOD		DOMAINS:Devil Subdomain,Murder Subdomain,Undead Subdomain,Wind Subdomain|PREALIGN:LN,LE,NE
+Barbatos.MOD		DOMAINS:Arcane Subdomain,Devil Subdomain,Divine Subdomain,Trade Subdomain|PREALIGN:LN,LE,NE
+Belial.MOD			DOMAINS:Catastrophe Subdomain,Devil Subdomain,Lust Subdomain,Rage Subdomain|PREALIGN:LN,LE,NE
+Dispater.MOD		DOMAINS:Deception Subdomain,Devil Subdomain,Leadership Subdomain,Thievery Subdomain|PREALIGN:LN,LE,NE
+Geryon.MOD			DOMAINS:Devil Subdomain,Ferocity Subdomain,Oceans Subdomain,Resolve Subdomain|PREALIGN:LN,LE,NE
+Mammon.MOD			DOMAINS:Construct Subdomain,Devil Subdomain,Metal Subdomain,Toil Subdomain|PREALIGN:LN,LE,NE
+Mephistopheles.MOD	DOMAINS:Devil Subdomain,Language Subdomain,Memory Subdomain,Thought Subdomain|PREALIGN:LN,LE,NE
+Moloch.MOD			DOMAINS:Ash Subdomain,Devil Subdomain,Smoke Subdomain,Tactics Subdomain|PREALIGN:LN,LE,NE
+#Demon Lords
+Abraxas.MOD			DOMAINS:Arcane Subdomain,Demon Subdomain,Memory Subdomain,Thought Subdomain|PREALIGN:NE,CN,CE
+Angazhan.MOD		DOMAINS:Decay Subdomain,Demon Subdomain,Fur Subdomain,Growth Subdomain|PREALIGN:NE,CN,CE
+Baphomet.MOD		DOMAINS:Demon Subdomain,Ferocity Subdomain,Fur Subdomain,Resolve Subdomain|PREALIGN:NE,CN,CE
+Cyth-V'sug.MOD		DOMAINS:Caves Subdomain,Decay Subdomain,Demon Subdomain,Growth Subdomain|PREALIGN:NE,CN,CE
+Dagon.MOD			DOMAINS:Catastrophe Subdomain,Demon Subdomain,Oceans Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
+Deskari.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Demon Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
+Gogunta.MOD			DOMAINS:Demon Subdomain,Murder Subdomain,Undead Subdomain,Oceans Subdomain|PREALIGN:NE,CN,CE
+Kostchtchie.MOD		DOMAINS:Demon Subdomain,Ferocity Subdomain,Ice* Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
+Nocticula.MOD		DOMAINS:Demon Subdomain,Loss Subdomain,Lust Subdomain,Night Subdomain|PREALIGN:NE,CN,CE
+Orcus.MOD			DOMAINS:Demon Subdomain,Divine Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:NE,CN,CE
+Pazuzu.MOD			DOMAINS:Cloud Subdomain,Deception Subdomain,Demon Subdomain,Wind Subdomain|PREALIGN:NE,CN,CE
+Shax.MOD			DOMAINS:Demon Subdomain,Leadership Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
+Socothbenoth.MOD		DOMAINS:Demon Subdomain,Exploration Subdomain,Trade Lust Subdomain|PREALIGN:NE,CN,CE
+Zura.MOD			DOMAINS:Blood Subdomain,Demon Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:NE,CN,CE
+#The Eldest
+Count Ranalc.MOD		DOMAINS:Exploration Subdomain,Loss Subdomain,Martyr Subdomain,Night Subdomain|PREALIGN:CG,TN,CN,CE
+Green Mother.MOD		DOMAINS:Caves Subdomain,Decay Subdomain,Growth Subdomain,Lust Subdomain|PREALIGN:TN,LE,NE,CE
+Imbrex.MOD			DOMAINS:Family Subdomain,Home Subdomain,Metal Subdomain,Resolve Subdomain|PREALIGN:LG,LN,NG,TN
+Lantern King.MOD		DOMAINS:Deception Subdomain,Love Subdomain,Lust Subdomain,Thievery Subdomain|PREALIGN:CG,TN,CN,CE
+Lost Prince.MOD		DOMAINS:Ancestors Subdomain,Insanity Subdomain,Martyr Subdomain,Memory Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Magdh.MOD			DOMAINS:Curse Subdomain,Fate Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LG,LN,NG,TN
+Ng.MOD			DOMAINS:Exploration Subdomain,Seasons Subdomain,Thought Subdomain,Trade Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Ragadahn.MOD		DOMAINS:Ancestors* Subdomain,Dragon Subdomain,Oceans Subdomain,Saurian Subdomain|PREALIGN:NE,CN,CE
+Shyka.MOD			DOMAINS:Arcane Subdomain,Catastrophe Subdomain,Divine Subdomain,Insanity Subdomain|PREALIGN:LN,NG,TN,NE,CN
+#Elemental Lords
+Ayrzul.MOD			DOMAINS:Caves Subdomain,Metal Subdomain|PREALIGN:TN,LE,NE,CE
+Hshurha.MOD			DOMAINS:Clouds Subdomain,Wind Subdomain|PREALIGN:TN,LE,NE,CE
+Kelizandri.MOD		DOMAINS:Ice Subdomain,Oceans Subdomain|PREALIGN:TN,LE,NE,CE
+Ymeri.MOD			DOMAINS:Ash Subdomain,Smoke Subdomain|PREALIGN:TN,LE,NE,CE
+#Empyreal Lords
+Andoletta.MOD		DOMAINS:Archon Subdomain,Defense Subdomain,Memory Subdomain,Purity Subdomain|PREALIGN:LG,LN,NG
+Arshea.MOD			DOMAINS:Agathion Subdomain,Freedom Subdomain,Love Subdomain,Lust Subdomain|PREALIGN:LG,NG,CG,TN
+Korada.MOD			DOMAINS:Agathion Subdomain,Purity Subdomain,Restoration Subdomain,Resurrection Subdomain|PREALIGN:LG,NG,CG,TN
+Ragathiel.MOD		DOMAINS:Archon Subdomain,Leadership Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:LG,LN,NG
+Sinashakti.MOD		DOMAINS:Azata Subdomain,Exploration Subdomain,Fate Subdomain,Trade Subdomain|PREALIGN:NG,CG,CN
+Valani.MOD			DOMAINS:Azata Subdomain,Growth* Subdomain,Seasons Subdomain,Storms Subdomain|PREALIGN:NG,CG,CN
+#Horsemen
+Apollyon.MOD		DOMAINS:Catastrophe Subdomain,Daemon Subdomain,Loss Subdomain,Night Subdomain|PREALIGN:TN,LE,NE,CE
+Charon.MOD			DOMAINS:Daemon Subdomain,Ice Subdomain,Memory Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
+Szuriel.MOD			DOMAINS:Blood Subdomain,Daemon Subdomain,Ferocity Subdomain,Tactics Subdomain|PREALIGN:TN,LE,NE,CE
+Trelmarixian.MOD		DOMAINS:Daemon Subdomain,Decay* Subdomain,Insanity Subdomain,Seasons Subdomain|PREALIGN:TN,LE,NE,CE
+#The Fallen, False, and Forgotten
+#Aroden.MOD			DOMAINS:None
+Great Old Ones.MOD	DOMAINS:Dark Tapestry Subdomain,Insanity Subdomain,Language Subdomain,Memory Subdomain,Nightmare Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
+Lissala.MOD			DOMAINS:Devil Subdomain,Language Subdomain,Leadership Subdomain,Memory Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,LE,NE
+#Peacock Spirit.MOD	DOMAINS:None
+#Razmir.MOD			DOMAINS:None
+Ydersius.MOD		DOMAINS:Demon Subdomain,Leadership Subdomain,Martyr Subdomain,Saurian Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
+
