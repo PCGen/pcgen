@@ -90,7 +90,7 @@ The Peacock Spirit	NAMEISPI:YES																	PANTHEON:Dead Gods	SOURCEPAGE:p.
 Razmir			NAMEISPI:YES																	PANTHEON:False Gods	SOURCEPAGE:p.235
 Ydersius			NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,CE		DEITYWEAP:Dagger	ALIGN:CE	PANTHEON:Forgotten Gods	SOURCEPAGE:p.235
 
-###Block: Subdomain Inclusion
+###Block: Subdomain Inclusion -  http://paizo.com/paizo/blog/v5748dyo5lbwn?Golarion-Day-Subdomains-for-Everyone
 Achaekek.MOD		DOMAINS:Blood Subdomain,Deception Subdomain,Devil Subdomain,Murder Subdomain,Tactics Subdomain,Thievery Subdomain|PREALIGN:LN,LE,NE
 Apsu.MOD			DOMAINS:Archon Subdomain,Construct Subdomain,Dragon Subdomain,Exploration Subdomain,Toil Subdomain,Trade Subdomain|PREALIGN:LG,LN,NG
 Besmara.MOD			DOMAINS:Deception Subdomain,Oceans Subdomain,Protean Subdomain,Tactics Subdomain,Thievery Subdomain,Storms Subdomain|PREALIGN:CG,TN,CN,CE
