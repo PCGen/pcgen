@@ -120,7 +120,7 @@ Cyth-V'sug.MOD		DOMAINS:Caves Subdomain,Decay Subdomain,Demon Subdomain,Growth S
 Dagon.MOD			DOMAINS:Catastrophe Subdomain,Demon Subdomain,Oceans Subdomain,Rage Subdomain|PREALIGN:NE,CN,CE
 Deskari.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Demon Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
 Gogunta.MOD			DOMAINS:Demon Subdomain,Murder Subdomain,Undead Subdomain,Oceans Subdomain|PREALIGN:NE,CN,CE
-Kostchtchie.MOD		DOMAINS:Demon Subdomain,Ferocity Subdomain,Ice* Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
+Kostchtchie.MOD		DOMAINS:Demon Subdomain,Ferocity Subdomain,Ice Subdomain,Tactics Subdomain|PREALIGN:NE,CN,CE
 Nocticula.MOD		DOMAINS:Demon Subdomain,Loss Subdomain,Lust Subdomain,Night Subdomain|PREALIGN:NE,CN,CE
 Orcus.MOD			DOMAINS:Demon Subdomain,Divine Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:NE,CN,CE
 Pazuzu.MOD			DOMAINS:Cloud Subdomain,Deception Subdomain,Demon Subdomain,Wind Subdomain|PREALIGN:NE,CN,CE
@@ -135,7 +135,7 @@ Lantern King.MOD		DOMAINS:Deception Subdomain,Love Subdomain,Lust Subdomain,Thie
 Lost Prince.MOD		DOMAINS:Ancestors Subdomain,Insanity Subdomain,Martyr Subdomain,Memory Subdomain|PREALIGN:LN,NG,TN,NE,CN
 Magdh.MOD			DOMAINS:Curse Subdomain,Fate Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LG,LN,NG,TN
 Ng.MOD			DOMAINS:Exploration Subdomain,Seasons Subdomain,Thought Subdomain,Trade Subdomain|PREALIGN:LN,NG,TN,NE,CN
-Ragadahn.MOD		DOMAINS:Ancestors* Subdomain,Dragon Subdomain,Oceans Subdomain,Saurian Subdomain|PREALIGN:NE,CN,CE
+Ragadahn.MOD		DOMAINS:Ancestors Subdomain,Dragon Subdomain,Oceans Subdomain,Saurian Subdomain|PREALIGN:NE,CN,CE
 Shyka.MOD			DOMAINS:Arcane Subdomain,Catastrophe Subdomain,Divine Subdomain,Insanity Subdomain|PREALIGN:LN,NG,TN,NE,CN
 #Elemental Lords
 Ayrzul.MOD			DOMAINS:Caves Subdomain,Metal Subdomain|PREALIGN:TN,LE,NE,CE
@@ -148,12 +148,12 @@ Arshea.MOD			DOMAINS:Agathion Subdomain,Freedom Subdomain,Love Subdomain,Lust Su
 Korada.MOD			DOMAINS:Agathion Subdomain,Purity Subdomain,Restoration Subdomain,Resurrection Subdomain|PREALIGN:LG,NG,CG,TN
 Ragathiel.MOD		DOMAINS:Archon Subdomain,Leadership Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:LG,LN,NG
 Sinashakti.MOD		DOMAINS:Azata Subdomain,Exploration Subdomain,Fate Subdomain,Trade Subdomain|PREALIGN:NG,CG,CN
-Valani.MOD			DOMAINS:Azata Subdomain,Growth* Subdomain,Seasons Subdomain,Storms Subdomain|PREALIGN:NG,CG,CN
+Valani.MOD			DOMAINS:Azata Subdomain,Growth Subdomain,Seasons Subdomain,Storms Subdomain|PREALIGN:NG,CG,CN
 #Horsemen
 Apollyon.MOD		DOMAINS:Catastrophe Subdomain,Daemon Subdomain,Loss Subdomain,Night Subdomain|PREALIGN:TN,LE,NE,CE
 Charon.MOD			DOMAINS:Daemon Subdomain,Ice Subdomain,Memory Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
 Szuriel.MOD			DOMAINS:Blood Subdomain,Daemon Subdomain,Ferocity Subdomain,Tactics Subdomain|PREALIGN:TN,LE,NE,CE
-Trelmarixian.MOD		DOMAINS:Daemon Subdomain,Decay* Subdomain,Insanity Subdomain,Seasons Subdomain|PREALIGN:TN,LE,NE,CE
+Trelmarixian.MOD		DOMAINS:Daemon Subdomain,Decay Subdomain,Insanity Subdomain,Seasons Subdomain|PREALIGN:TN,LE,NE,CE
 #The Fallen, False, and Forgotten
 #Aroden.MOD			DOMAINS:None
 Great Old Ones.MOD	DOMAINS:Dark Tapestry Subdomain,Insanity Subdomain,Language Subdomain,Memory Subdomain,Nightmare Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
