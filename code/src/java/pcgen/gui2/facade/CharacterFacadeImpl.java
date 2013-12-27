@@ -1066,11 +1066,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		//
-		// next do all Feats to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
-		for (Ability aFeat : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
-				.getAllObjects())
+		// next do all abilities to get TEMPBONUS:ANYPC only
+		GameMode game = (GameMode) dataSet.getGameMode();
+		for (AbilityCategory cat : game.getAllAbilityCategories())
 		{
-			scanForNonPcTempBonuses(tempBonuses, aFeat);
+			if (cat.getParentCategory() == cat)
+			{
+				for (Ability aFeat : Globals.getContext().ref.getManufacturer(
+					Ability.class, cat).getAllObjects())
+				{
+					scanForAnyPcTempBonuses(tempBonuses, aFeat);
+				}
+			}
 		}
 
 		//
@@ -1153,6 +1160,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 		if (TempBonusHelper.hasNonPCTempBonus(obj, theCharacter))
+		{
+			tempBonuses.add(new TempBonusFacadeImpl(obj));
+		}
+	}
+
+	private void scanForAnyPcTempBonuses(List<TempBonusFacadeImpl> tempBonuses, PObject obj)
+	{
+		if (obj == null)
+		{
+			return;
+		}
+		if (TempBonusHelper.hasAnyPCTempBonus(obj, theCharacter))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
