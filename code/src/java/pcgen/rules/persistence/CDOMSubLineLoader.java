@@ -74,6 +74,13 @@ public class CDOMSubLineLoader<T extends Loadable>
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
+			if (key == null || value == null)
+			{
+				Logging.errorPrint("Invalid token - key or value missing: "
+					+ token + " in line " + val, context);
+				returnValue = false;
+				continue;
+			}
 			boolean passed = context.processToken(obj, key.intern(), value.intern());
 			if (passed)
 			{
