@@ -67,6 +67,14 @@
 		<skills.lightline.total><subattrib medium="" /></skills.lightline.total>
 		<skills.footer border-bottom-width="0.5pt" border-bottom-style="solid"></skills.footer>
 
+		<skillinfo.header><subattrib centre="" inverse=""/></skillinfo.header>
+		<skillinfo.border><subattrib border="" inverse=""/></skillinfo.border>
+		<skillinfo.darkline><subattrib medium="" /></skillinfo.darkline>
+		<skillinfo.lightline><subattrib light="" /></skillinfo.lightline>
+		<skillinfo.darkline.total><subattrib dark="" /></skillinfo.darkline.total>
+		<skillinfo.lightline.total><subattrib medium="" /></skillinfo.lightline.total>
+		<skillinfo.footer border-bottom-width="0.5pt" border-bottom-style="solid"></skillinfo.footer>
+
 		<saves.title><subattrib border="" centre="" inverse=""/></saves.title>
 		<saves.total><subattrib border="" centre="" light=""/></saves.total>
 		<saves><subattrib border="" centre="" normal=""/></saves>

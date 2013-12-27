@@ -2429,15 +2429,26 @@
 	<xsl:template match="skillinfo">
 		<!-- BEGIN Skills table -->
 		<xsl:if test="count(conditional_modifiers/skillbonus) &gt; 0">
-
+<!-->	Attempting to get shading to work. So far, nothing.
+		<xsl:variable name="shade">
+			<xsl:choose>
+				<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+				<xsl:otherwise>lightline</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('skills.', $shade)"/></xsl:call-template>
+-->
 		<fo:table table-layout="fixed" space-before="2mm" padding="0.5pt">
 			<fo:table-column column-width="86mm"/>
 			<fo:table-column column-width="10mm"/>
 			<fo:table-column column-width="30mm"/>
 				<fo:table-body>
 					<fo:table-row>
+
 						<fo:table-cell padding-top="1pt" border-width="0.5pt" border-style="solid">
+
 							<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Skill Modifiers:</fo:block>
+
 								<xsl:for-each select="conditional_modifiers/skillbonus">
 									<fo:block font-size="8pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 								</xsl:for-each>
