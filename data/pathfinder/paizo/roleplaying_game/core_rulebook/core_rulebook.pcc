@@ -89,3 +89,5 @@ COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
 FORWARDREF:RACE|Orc
+
+# Implement Pharasma-Friendly Death Domain from http://paizo.com/paizo/blog/v5748dyo5lbvp

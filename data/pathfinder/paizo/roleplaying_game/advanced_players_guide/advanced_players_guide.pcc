@@ -77,3 +77,5 @@ ABILITY:apg_abilities_heropoints.lst|PRERULE:1,HEROPOINTS
 ABILITYCATEGORY:apg_abilitycategories_heropoints.lst|PRERULE:1,HEROPOINTS
 FEAT:apg_feats_heropoints.lst|PRERULE:1,HEROPOINTS
 SPELL:apg_spells_heropoints.lst|PRERULE:1,HEROPOINTS
+
+# Implement Pharasma-Friendly Souls Subdomain from http://paizo.com/paizo/blog/v5748dyo5lbvp
