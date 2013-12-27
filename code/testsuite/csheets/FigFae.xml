@@ -1010,7 +1010,7 @@ BIO
 		</total>
 		<equipmentsets>
 
-      <equipmentset name="">
+      <equipmentset name="Default Set">
 		<item>
 					<name>Rapier</name>
 					<carried>2.0</carried>

@@ -2255,7 +2255,7 @@ BIO
 			<capacity>300</capacity>
 		</total>
 		<equipmentsets>
-		<equipmentset name="">
+		<equipmentset name="Default Set">
 			<item>
 				<name>Flail +1 (Heavy)</name>
 				<carried>1.0</carried>

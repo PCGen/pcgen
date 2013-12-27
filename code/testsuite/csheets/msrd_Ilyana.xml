@@ -1585,7 +1585,7 @@ BIO
 		</total>
 		<equipmentsets>
 
-      <equipmentset name="">
+      <equipmentset name="Default Set">
 		<item>
 					<name>Beretta 92F (9mm autoloader) (Medium)</name>
 					<carried>1.0</carried>

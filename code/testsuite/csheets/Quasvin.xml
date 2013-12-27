@@ -1179,7 +1179,7 @@ BIO
 			<capacity>130</capacity>
 		</total>
 		<equipmentsets>
-		<equipmentset name="">
+		<equipmentset name="Default Set">
 			<item>
 				<name>Buckler</name>
 				<carried>1.0</carried>

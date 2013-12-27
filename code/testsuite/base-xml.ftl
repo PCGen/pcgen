@@ -759,7 +759,7 @@
 			<capacity><@pcstring tag="TOTAL.CAPACITY"/></capacity>
 		</total>
 		<equipmentsets>
-<@pcstring tag="EQSET.START"/>
+<@equipsetloop>
 		<equipmentset name="<@pcstring tag="EQSET.NAME"/>">
 			<@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]')-1 ; equip , equip_has_next >
 			<item>
@@ -785,7 +785,7 @@
 			</item>
 			</@loop><#lt><#-- Equipment -->
 			</equipmentset>
-<@pcstring tag="EQSET.END"/>
+</@equipsetloop>
       </equipmentsets>
 	</equipment>
 	<weight_allowance>

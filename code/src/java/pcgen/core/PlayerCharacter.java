@@ -664,6 +664,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		if (calcEquipSetId != eqSetId)
 		{
 			calcEquipSetId = eqSetId;
+			EquipSet equipSet = getEquipSetByIdPath(eqSetId);
+			if (equipSet != null)
+			{
+				setCurrentEquipSetName(equipSet.getName());
+			}
 			setDirty(true);
 		}
 	}

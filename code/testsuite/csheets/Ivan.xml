@@ -869,7 +869,7 @@ BIO
 		</total>
 		<equipmentsets>
 
-      <equipmentset name="">
+      <equipmentset name="Default Set">
 			</equipmentset>
 
       </equipmentsets>

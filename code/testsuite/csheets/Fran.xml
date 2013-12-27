@@ -1001,7 +1001,7 @@ BIO
 		</total>
 		<equipmentsets>
 
-      <equipmentset name="">
+      <equipmentset name="Default Set">
 		<item>
 					<name>Tentacles of the Fey</name>
 					<carried>1.0</carried>

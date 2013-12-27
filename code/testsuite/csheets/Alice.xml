@@ -1195,7 +1195,7 @@ BIO
 		</total>
 		<equipmentsets>
 
-      <equipmentset name="">
+      <equipmentset name="Default Set">
 		<item>
 					<name>Heavy Armor</name>
 					<carried>1.0</carried>
