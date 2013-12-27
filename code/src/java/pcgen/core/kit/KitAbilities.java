@@ -131,9 +131,18 @@ public final class KitAbilities extends BaseKit
 		for (Map.Entry<CDOMReference<Ability>, List<String>> me : abilityMap
 			.entrySet())
 		{
+			
 			List<String> choices = me.getValue();
 			for (Ability a : me.getKey().getContainedObjects())
 			{
+				if (a == null)
+				{
+					warnings.add("ABILITY: " + me.getKey()
+						+ " could not be found.");
+					minCost = 0;
+					continue;
+				}
+				
 				if (a.getCost() < minCost)
 				{
 					minCost = a.getCost();
