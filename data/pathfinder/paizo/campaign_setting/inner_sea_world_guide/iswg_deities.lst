@@ -101,7 +101,7 @@ Gyronna.MOD			DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Insanity Su
 Hanspur.MOD			DOMAINS:Exploration Subdomain,Murder Subdomain,Protean Subdomain,Trade Subdomain|PREALIGN:CG,TN,CN,CE
 Kurgess.MOD			DOMAINS:Agathion Subdomain,Family Subdomain,Fate Subdomain,Home Subdomain,Resolve Subdomain,Trade Subdomain|PREALIGN:LG,NG,CG,TN
 Milani.MOD			DOMAINS:Azata Subdomain (Good),Azata Subdomain (Chaos),Defense Subdomain,Freedom Subdomain,Purity Subdomain,Restoration Subdomain,Revolution Subdomain|PREALIGN:NG,CG,CN
-Sivanah.MOD			DOMAINS:Deception Subdomain,Insanity Subdomain,Memory Subdomain,Protean Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Sivhana.MOD			DOMAINS:Deception Subdomain,Insanity Subdomain,Memory Subdomain,Protean Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN
 Zyphus.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Daemon Subdomain,Decay Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
 #Archdevils
 Baalzebul.MOD		DOMAINS:Devil Subdomain (Law),Devil Subdomain (Evil),Murder Subdomain,Undead Subdomain,Wind Subdomain|PREALIGN:LN,LE,NE
