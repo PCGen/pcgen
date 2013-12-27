@@ -89,14 +89,14 @@ public class TempBonusToken extends Token
 	}
 
 	/**
-	 * Get the TEMPBONUS value
+	 * Get the indicated TEMPBONUS value if present.
 	 * @param pc
 	 * @param tempIndex
-	 * @return the TEMPBONUS value
+	 * @return the TEMPBONUS value or empty string
 	 */
 	public static String getNameToken(PlayerCharacter pc, int tempIndex)
 	{
-		if (tempIndex > pc.getNamedTempBonusList().size())
+		if (tempIndex >= pc.getNamedTempBonusList().size())
 		{
 			return "";
 		}
@@ -105,7 +105,7 @@ public class TempBonusToken extends Token
 
 	public static String getDescToken(PlayerCharacter pc, int tempIndex)
 	{
-		if (tempIndex > pc.getNamedTempBonusDescList().size())
+		if (tempIndex >= pc.getNamedTempBonusDescList().size())
 		{
 			return "";
 		}
