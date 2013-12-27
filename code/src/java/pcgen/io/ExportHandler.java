@@ -74,6 +74,7 @@ import pcgen.io.exporttoken.Token;
 import pcgen.io.exporttoken.TotalToken;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
+import pcgen.io.freemarker.EquipSetLoopDirective;
 import pcgen.io.freemarker.LoopDirective;
 import pcgen.io.freemarker.PCBooleanFunction;
 import pcgen.io.freemarker.PCStringDirective;
@@ -316,6 +317,7 @@ public final class ExportHandler
 			cfg.setSharedVariable("pcvar", new PCVarFunction());
 			cfg.setSharedVariable("pcboolean", new PCBooleanFunction());
 			cfg.setSharedVariable("loop", new LoopDirective());
+			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective());
 			cfg.setSharedVariable("pc", aPC);
 			
 			// data-model
