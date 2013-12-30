@@ -322,9 +322,11 @@ Perception (Identify Potion)						KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:
 Acrobatics (Uneven Ground)						KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Uneven Ground).MISC"),var("SKILL.Acrobatics.MISC")
 Climb (Narrow Surfaces)							KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Climb (Narrow Surfaces).MISC"),var("SKILL.Climb.MISC")
 Survival (Urban)								KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Urban).MISC"),var("SKILL.Survival.MISC")
+Appraise (Treasure found in or under the water)			KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Treasure found in or under the water).MISC"),var("SKILL.Appraise.MISC")
 
 ###Block: Skill .MODs
 # Skill Name		Bonus to skill															Bonus to skill rank
+Appraise.MOD		BONUS:SKILL|Appraise (Treasure found in or under the water)|var("SKILL.Appraise.MISC")						BONUS:SKILLRANK|Appraise (Treasure found in or under the water)|skillinfo("TOTALRANK", "Appraise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Appraise (Treasure found in or under the water).MISC"),var("SKILL.Appraise.MISC")
 Sense Motive.MOD		BONUS:SKILL|Sense Motive (Sense Enchantment)|var("SKILL.Sense Motive.MISC")					BONUS:SKILLRANK|Sense Motive (Sense Enchantment)|skillinfo("TOTALRANK","Sense Motive")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Sense Motive (Sense Enchantment).MISC"),var("SKILL.Sense Motive.MISC")
 Spellcraft.MOD		BONUS:SKILL|Spellcraft (Identify Enchantment)|var("SKILL.Spellcraft.MISC")					BONUS:SKILLRANK|Spellcraft (Identify Enchantment)|skillinfo("TOTALRANK","Spellcraft")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Spellcraft (Identify Enchantment).MISC"),var("SKILL.Spellcraft.MISC")
 Spellcraft.MOD		BONUS:SKILL|Spellcraft (Identify Curse or Emotion)|var("SKILL.Spellcraft.MISC")				BONUS:SKILLRANK|Spellcraft (Identify Curse or Emotion)|skillinfo("TOTALRANK","Spellcraft")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Spellcraft (Identify Curse or Emotion).MISC"),var("SKILL.Spellcraft.MISC")
