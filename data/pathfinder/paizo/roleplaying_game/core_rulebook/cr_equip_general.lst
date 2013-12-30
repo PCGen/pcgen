@@ -146,7 +146,7 @@ Pick (Miner's)									TYPE:Goods.General															COST:3	WT:10		SOURCEPAGE
 Pitcher (Clay)									TYPE:Goods.Container.General				CONTAINS:4|Liquid								COST:0.02	WT:5		SOURCEPAGE:p.158
 Piton											TYPE:Goods.General															COST:0.1	WT:0.5	SOURCEPAGE:p.158
 Pole (10 Ft)			OUTPUTNAME:Pole (10 Ft.)		TYPE:Goods.General															COST:0.05	WT:8		SOURCEPAGE:p.158
-Pot (Iron)										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.8	WT:10		SOURCEPAGE:p.158
+Pot (Iron)										TYPE:Goods.Container.General				CONTAINS:UNLIM|Any							COST:0.8	WT:4		SOURCEPAGE:p.158
 Pouch (Belt)									TYPE:Goods.Container.General.Resizable		CONTAINS:UNLIM|Any							COST:1	WT:0.5	SOURCEPAGE:p.158
 Ram (Portable)									TYPE:Goods.General															COST:10	WT:20		SOURCEPAGE:p.157
 Rations (Trail/Per Day)								TYPE:Goods.Food.Resizable.Consumable												COST:0.5	WT:1		SOURCEPAGE:p.158
