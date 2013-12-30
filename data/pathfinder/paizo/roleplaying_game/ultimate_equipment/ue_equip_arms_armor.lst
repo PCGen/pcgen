@@ -605,7 +605,7 @@ Longbow.MOD																																																													COST:75	
 Shortbow (Composite).MOD					OUTPUTNAME:Composite Shortbow																																																	COST:75	WT:2																																																											SOURCEPAGE:p.25
 Shortbow.MOD																																																												COST:30	WT:2																																																											SOURCEPAGE:p.36
 Sling Staff (Halfling).MOD					OUTPUTNAME:Halfling Sling Staff																																																COST:20	WT:3																																																											SOURCEPAGE:p.29
-Sling.MOD																																																													COST:0	WT:0.1																																																										SOURCEPAGE:p.37
+Sling.MOD																																																													COST:0																																																												SOURCEPAGE:p.37
 Chakram.MOD																																																													COST:1	WT:1																																																											SOURCEPAGE:p.25
 Pilum.MOD																																																													COST:5	WT:4																																																											SOURCEPAGE:p.34
 Boomerang.MOD																																																												COST:3	WT:3																																																											SOURCEPAGE:p.24
