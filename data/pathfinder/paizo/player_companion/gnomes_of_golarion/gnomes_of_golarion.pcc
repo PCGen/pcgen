@@ -35,6 +35,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 
 # Data files
 ABILITY:gnog_abilities.lst
+#ABILITY:gnog_abilities_pfs.lst|PRECAMPAIGN:1,INCLUDESBOOKTYPE=Faction Guide
+ABILITY:gnog_abilities_pfs.lst
 DEITY:gnog_deities.lst
 EQUIPMENT:gnog_equip_arms_armor.lst
 FEAT:gnog_feats.lst
