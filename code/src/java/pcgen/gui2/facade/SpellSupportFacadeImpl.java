@@ -71,7 +71,6 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;

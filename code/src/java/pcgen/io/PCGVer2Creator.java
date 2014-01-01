@@ -98,7 +98,6 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenPropBundle;
-import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
