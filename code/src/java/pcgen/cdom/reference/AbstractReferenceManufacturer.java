@@ -342,19 +342,19 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			for (Map.Entry<FixedStringList, WeakReference<CDOMGroupRef<T>>> me : typeReferences
 					.entrySet())
 			{
-				boolean typeOkay = true;
-				for (String type : me.getKey())
+				CDOMGroupRef<T> trt = me.getValue().get();
+				if (trt != null)
 				{
-					if (!obj.isType(type))
+					boolean typeOkay = true;
+					for (String type : me.getKey())
 					{
-						typeOkay = false;
-						break;
+						if (!obj.isType(type))
+						{
+							typeOkay = false;
+							break;
+						}
 					}
-				}
-				if (typeOkay)
-				{
-					CDOMGroupRef<T> trt = me.getValue().get();
-					if (trt != null)
+					if (typeOkay)
 					{
 						trt.addResolution(obj);
 					}
