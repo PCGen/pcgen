@@ -9,8 +9,8 @@ Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN
 Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of inventors				DEITYWEAP:Hammer (Light)	ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
 Groetus		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Destruction,Madness,Void|PREALIGN:CG,TN,CN,CE	DESC:God of empty places, ruins, oblivion		DEITYWEAP:Flail (Heavy)		ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
 Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE				DESC:God of the waterways				DEITYWEAP:Trident			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
-Naderi		NAMEISPI:YES	DOMAINS:Charm,Repose,Water|PREALIGN:LN,NG,TN,NE,CN				DESC:Goddess of sucides					DEITYWEAP:Dagger			ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
-Sivhana		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery	DEITYWEAP:Bladed Scarf		ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
+Naderi		NAMEISPI:YES	DOMAINS:Charm,Repose,Water|PREALIGN:LN,NG,TN,NE,CN				DESC:Goddess of suicides					DEITYWEAP:Dagger			ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
+Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery	DEITYWEAP:Bladed Scarf		ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
 
 ###Block: Eldest
 # Deity Name	Product Identity?	Domains										Desciption of Deity/Title						Deity Weapon		Alignment	Pantheon		Source Page
