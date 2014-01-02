@@ -20,6 +20,8 @@
  */
 package pcgen.gui2;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.logging.LogRecord;
 
@@ -68,6 +70,7 @@ public final class PCGenStatusBar extends JPanel
 		progressBar.setVisible(false);
 		add(progressBar);
 		add(loadStatusLabel);
+		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());			
 	}
 
 	public void setContextMessage(String message)
@@ -172,5 +175,18 @@ public final class PCGenStatusBar extends JPanel
 		setContextMessage(null);
 		getProgressBar().setString(null);
 		getProgressBar().setVisible(false);
+	}
+	
+	/**
+	 * Shows the log window when the load status icon is clicked.
+	 */
+	private class LoadStatusMouseAdapter extends MouseAdapter
+	{
+		@Override
+		public void mouseReleased(MouseEvent arg0)
+		{
+			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
+		}
+		
 	}
 }
