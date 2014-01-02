@@ -65,7 +65,7 @@ Mhar			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Earth,Fire|PREALIGN:CG,TN,CN,CE		D
 Nyarlathotep	NAMEISPI:YES	DOMAINS:Chaos,Evil,Knowledge,Magic,Trickery|PREALIGN:NE,CN,CE	DEITYWEAP:Dagger		ALIGN:CE	PANTHEON:Great Old Ones & Outer Gods	SOURCEPAGE:p.20
 Shub-Nuggurath	NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant,Void|PREALIGN:NE,CN,CE		DEITYWEAP:Dagger		ALIGN:CE	PANTHEON:Great Old Ones & Outer Gods	SOURCEPAGE:p.20
 Xhamen-Dor		NAMEISPI:YES	DOMAINS:Death,Evil,Plant,Trickery|PREALIGN:TN,LE,NE,CE		DEITYWEAP:Spear		ALIGN:NE	PANTHEON:Great Old Ones & Outer Gods	SOURCEPAGE:p.20
-Yog-Sothtoth	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Great Old Ones & Outer Gods	SOURCEPAGE:p.20
+Yog-Sothoth		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Great Old Ones & Outer Gods	SOURCEPAGE:p.20
 
 #
 # End
