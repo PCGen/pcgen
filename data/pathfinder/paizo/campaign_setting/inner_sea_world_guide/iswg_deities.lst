@@ -15,7 +15,7 @@ Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE		
 Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE				DESC:Hanspur is a creature of place; he rules the waters, the currents, the rats, and the ships that travel on the many marshy roads that unite the territories of the Sellen River watershed.						DEITYWEAP:Trident			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.229
 Kurgess		NAMEISPI:YES	DOMAINS:Community,Good,Luck,Strength,Travel|PREALIGN:LG,NG,CG,TN		DESC:God of competition, sport, self-sacrifice																														DEITYWEAP:Javelin			ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.229
 Milani		NAMEISPI:YES	DOMAINS:Chaos,Good,Healing,Liberation,Protection|PREALIGN:NG,CG,CN	DESC:Goddess of hope, devotion, uprisings																															DEITYWEAP:Morningstar		ALIGN:CG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.229
-Sivhana		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery																														DEITYWEAP:Bladed Scarf		ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.230
+Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery																														DEITYWEAP:Bladed Scarf		ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.230
 Zyphus		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Plant,War|PREALIGN:TN,LE,NE,CE		DESC:God of accidental death, graveyards, tragedy																													DEITYWEAP:Pick (Heavy)		ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.230
 
 ###Block: Archdevils
@@ -101,7 +101,7 @@ Gyronna.MOD			DOMAINS:Demon Subdomain (Chaos),Demon Subdomain (Evil),Insanity Su
 Hanspur.MOD			DOMAINS:Exploration Subdomain,Murder Subdomain,Protean Subdomain,Trade Subdomain|PREALIGN:CG,TN,CN,CE
 Kurgess.MOD			DOMAINS:Agathion Subdomain,Family Subdomain,Fate Subdomain,Home Subdomain,Resolve Subdomain,Trade Subdomain|PREALIGN:LG,NG,CG,TN
 Milani.MOD			DOMAINS:Azata Subdomain (Good),Azata Subdomain (Chaos),Defense Subdomain,Freedom Subdomain,Purity Subdomain,Restoration Subdomain,Revolution Subdomain|PREALIGN:NG,CG,CN
-Sivhana.MOD			DOMAINS:Deception Subdomain,Insanity Subdomain,Memory Subdomain,Protean Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN
+Sivanah.MOD			DOMAINS:Deception Subdomain,Insanity Subdomain,Memory Subdomain,Protean Subdomain,Thought Subdomain,Wards Subdomain|PREALIGN:LN,NG,TN,NE,CN
 Zyphus.MOD			DOMAINS:Blood Subdomain,Catastrophe Subdomain,Daemon Subdomain,Decay Subdomain,Murder Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
 #Archdevils
 Baalzebul.MOD		DOMAINS:Devil Subdomain (Law),Devil Subdomain (Evil),Murder Subdomain,Undead Subdomain,Wind Subdomain|PREALIGN:LN,LE,NE
