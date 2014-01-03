@@ -4,11 +4,10 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 
 #Block: .MODs for Magister bonus feats
 #Core
-# Feat Name					Type						Modify VAR
+# Feat Name					Type			Modify VAR
 Arcane Armor Training.MOD		TYPE:Magister
 Arcane Armor Mastery.MOD		TYPE:Magister
-#TODO: Modify Arcane Strike so that arcane classes in this set add to the benefit
-Arcane Strike.MOD				TYPE:Magister				BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
+Arcane Strike.MOD				TYPE:Magister	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
 Armor Proficiency (Medium).MOD	TYPE:Magister
 Augment Summoning.MOD			TYPE:Magister
 Combat Casting.MOD			TYPE:Magister

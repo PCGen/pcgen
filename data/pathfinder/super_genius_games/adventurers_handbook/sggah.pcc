@@ -43,14 +43,10 @@ COPYRIGHT:PCGen dataset conversion for the "Adventurer's Handbook: Genius Guide 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-FORWARDREF:CLASSSPELLLIST|Antipaladin,Inquisitor,Magus,Summoner,Witch
-FORWARDREF:FEAT|Arcane Blast,Arcane Shield,Arcane Talent
-FORWARDREF:FEAT|Bouncing Spell,Disruptive Spell,Ectoplasmic Spell,Elemental Spell,Focused Spell,Intensified Spell,Lingering Spell,Merciful Spell,Selective Spell
-FORWARDREF:FEAT|Flaring Spell,Piercing Spell,Rime Spell,Toppling Spell
-FORWARDREF:FEAT|Disrupting Shot,Shield Specialization
-FORWARDREF:FEAT|Shatterspell,Martial Versatility
-
 ABILITY:sggah_abilities_class.lst
+ABILITY:sggah_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:sggah_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:sggah_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 ABILITY:sggah_abilities_feats.lst
 ABILITY:sggah_abilities_racial.lst
 ABILITYCATEGORY:sggah_abilitycategories.lst
@@ -62,6 +58,8 @@ EQUIPMENT:sggah_equip.lst
 EQUIPMOD:sggah_equipmods.lst
 FEAT:sggah_feats.lst
 FEAT:sggah_feats_pfcr.lst
+FEAT:sggah_feats_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
+FEAT:sggah_feats_um.lst|PRECAMPAIGN:1,Ultimate Magic
 KIT:sggah_kits_companions.lst
 LANGUAGE:sggah_languages.lst
 SKILL:sggah_skills_conditional.lst
