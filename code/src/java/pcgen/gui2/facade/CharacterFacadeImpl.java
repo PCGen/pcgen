@@ -4088,7 +4088,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		ClassFacade classFacade)
 	{
 		if (!(spellFacade instanceof SpellFacadeImplem)
-			|| !(classFacade instanceof PCClass))
+			|| !(classFacade == null || classFacade instanceof PCClass))
 		{
 			return false;
 		}
