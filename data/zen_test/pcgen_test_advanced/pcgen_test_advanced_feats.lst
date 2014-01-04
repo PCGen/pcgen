@@ -2,6 +2,11 @@
 
 #Tom Test
 Test91			TYPE:Test.Test91	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim
+Test92			TYPE:Test.Test92	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim	DESC:Look at all the Things (%1)|%LIST
+Test93			TYPE:Test.Test93	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim	ASPECT:DisplaySomething|Look at all the Things (%1)|%LIST
+Test94			TYPE:Test.Test94	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim	BONUS:SKILLRANK|%LIST|1
+
+
 
 
 # Feat Name			Type				Required Feat							Stackable?	Multiple?	Choose				Automatically Gained Feat	Ability											Add 					Bonus to skill		List of Class Spells by Level
