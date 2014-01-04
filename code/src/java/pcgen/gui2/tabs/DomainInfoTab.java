@@ -682,6 +682,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final List<DefaultDataViewColumn> columns = Arrays.asList(new DefaultDataViewColumn("in_alignLabel", Object.class), //$NON-NLS-1$
 																		  new DefaultDataViewColumn("in_domains", String.class), //$NON-NLS-1$
 																		  new DefaultDataViewColumn("in_pantheon", String.class), //$NON-NLS-1$
+																		  new DefaultDataViewColumn("in_favoredWeapon", String.class), //$NON-NLS-1$
 																		  new DefaultDataViewColumn("in_sourceLabel", String.class)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private InfoFactory infoFactory;
@@ -721,6 +722,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			return Arrays.asList(obj.getAlignment(),
 								 infoFactory.getDomains(obj), infoFactory.getPantheons(obj),
+								 infoFactory.getFavoredWeapons(obj),
 								 obj.getSource());
 		}
 

@@ -1986,6 +1986,23 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	/**
+	 * Get a display string of the deity's favored weapons.
+	 * @param deityFacade The deity to be output.
+	 * @return The comma separated list of weapons.
+	 */
+	public String getFavoredWeapons(DeityFacade deityFacade)
+	{
+		if (deityFacade == null || !(deityFacade instanceof Deity))
+		{
+			return EMPTY_STRING;
+		}
+		Deity deity = (Deity) deityFacade;
+		List<CDOMReference<WeaponProf>> wpnList =
+				deity.getSafeListFor(ListKey.DEITYWEAPON);
+		return ReferenceUtilities.joinLstFormat(wpnList, ",");
+	}
+	
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
