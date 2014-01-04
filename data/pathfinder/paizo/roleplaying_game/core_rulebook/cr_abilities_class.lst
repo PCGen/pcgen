@@ -551,20 +551,20 @@ CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingPoleA
 CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingSpears|WeaponTrainingTierThree|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Spears
 CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingThrown|WeaponTrainingTierThree|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Thrown
 
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingAxes|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Axes
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingBladesHeavy|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Blades Heavy
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingBladesLight|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Blades Light
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingBows|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Bows
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingClose|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Close
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingCrossbows|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Crossbows
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingDouble|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Double
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingFlails|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Flails
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingHammers|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Hammers
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingMonk|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Monk
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingNatural|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Natural
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingPoleArms|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Pole Arms
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingSpears|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Spears
-CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingThrown|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 3 Thrown
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingAxes|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Axes
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingBladesHeavy|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Blades Heavy
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingBladesLight|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Blades Light
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingBows|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Bows
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingClose|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Close
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingCrossbows|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Crossbows
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingDouble|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Double
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingFlails|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Flails
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingHammers|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Hammers
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingMonk|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Monk
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingNatural|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Natural
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingPoleArms|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Pole Arms
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingSpears|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Spears
+CATEGORY=Special Ability|Weapon Training.MOD							BONUS:VAR|WeaponTrainingThrown|WeaponTrainingTierFour|PREABILITY:1,CATEGORY=Special Ability,Weapon Training 4 Thrown
 
 
 ###Block: Weapon Training I

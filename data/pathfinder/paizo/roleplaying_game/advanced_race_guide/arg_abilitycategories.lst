@@ -9,7 +9,8 @@ ABILITYCATEGORY:Focused Study Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 ABILITYCATEGORY:Hag Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait						PLURAL:Hag Racial Traits				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Shards of the Past Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge					PLURAL:Shards of the Past Knowledge Skills	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Suli Language Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage							PLURAL:Suli Language Choices				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaPerformSkill					PLURAL:Vishkanya Perform Skill Bonuss		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaPerformSkill					PLURAL:Vishkanya Perform Skill Bonuses		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Umbral Scion Spell						PLURAL:Umbral Scion Spells				DISPLAYLOCATION:Feats
 
 
 ###Block: Class Bonus Feat Categories

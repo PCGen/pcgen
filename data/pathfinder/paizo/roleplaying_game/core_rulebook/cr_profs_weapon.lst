@@ -113,23 +113,23 @@ Rock					TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
 #Axes:
 # Weapon Name				Type
 Battleaxe.MOD				TYPE:Axe.Weapon Group Axes
-Waraxe (Dwarven).MOD			TYPE:Axe.Weapon Group Axes
-Greataxe.MOD				TYPE:Axe.Weapon Group Axes
+Waraxe (Dwarven).MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
+Greataxe.MOD				TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
 Handaxe.MOD					TYPE:Axe.Weapon Group Axes
 Pick (Heavy).MOD				TYPE:Axe.Weapon Group Axes
 Pick (Light).MOD				TYPE:Axe.Weapon Group Axes
-Axe (Orc Double).MOD			TYPE:Axe.Weapon Group Axes
+Axe (Orc Double).MOD			TYPE:Axe.Weapon Group Axes.Weapon Group Axes TwoHanded
 Axe (Throwing).MOD			TYPE:Axe.Weapon Group Axes
 
 #Blades, Heavy:
-Sword (Bastard).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sword (Bastard).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 Curve Blade (Elven).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
 Falchion.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Greatsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Greatsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 Longsword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
 Scimitar.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Scythe.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sword (Two-Bladed).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
+Scythe.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
+Sword (Two-Bladed).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Blades Heavy TwoHanded
 
 #Blades, Light:
 Dagger.MOD					TYPE:Bladelight.Weapon Group Blades Light
@@ -166,25 +166,25 @@ Crossbow (Light).MOD			TYPE:Crossbow.Weapon Group Crossbows
 Crossbow (Repeating Light).MOD	TYPE:Crossbow.Weapon Group Crossbows
 
 #Double:
-Flail (Dire).MOD				TYPE:Double.Weapon Group Double
-Urgrosh (Dwarven).MOD			TYPE:Double.Weapon Group Double
-Hammer (Gnome Hooked).MOD		TYPE:Double.Weapon Group Double
-Axe (Orc Double).MOD			TYPE:Double.Weapon Group Double
-Quarterstaff.MOD				TYPE:Double.Weapon Group Double
-Sword (Two-Bladed).MOD			TYPE:Double.Weapon Group Double
+Flail (Dire).MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Urgrosh (Dwarven).MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Hammer (Gnome Hooked).MOD		TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Axe (Orc Double).MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Quarterstaff.MOD				TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
+Sword (Two-Bladed).MOD			TYPE:Double.Weapon Group Double.Weapon Group Double TwoHanded
 
 
 #Flails:
-Flail (Dire).MOD				TYPE:Flail.Weapon Group Flails
+Flail (Dire).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Flail.MOD					TYPE:Flail.Weapon Group Flails
-Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flails
+Flail (Heavy).MOD				TYPE:Flail.Weapon Group Flails.Weapon Group Flails TwoHanded
 Morningstar.MOD				TYPE:Flail.Weapon Group Flails
 Chain (Spiked).MOD			TYPE:Flail.Weapon Group Flails
 Whip.MOD					TYPE:Flail.Weapon Group Flails
 
 #Hammers:
 Club.MOD					TYPE:Hammer.Weapon Group Hammers
-Greatclub.MOD				TYPE:Hammer.Weapon Group Hammers
+Greatclub.MOD				TYPE:Hammer.Weapon Group Hammers.Weapon Group Hammers TwoHanded
 Mace (Heavy).MOD				TYPE:Hammer.Weapon Group Hammers
 Hammer (Light).MOD			TYPE:Hammer.Weapon Group Hammers
 Mace (Light).MOD				TYPE:Hammer.Weapon Group Hammers
@@ -192,7 +192,7 @@ Warhammer.MOD				TYPE:Hammer.Weapon Group Hammers
 
 #Monk:
 Kama.MOD					TYPE:Monk.Weapon Group Monk
-Quarterstaff.MOD				TYPE:Monk.Weapon Group Monk
+Quarterstaff.MOD				TYPE:Monk.Weapon Group Monk.Weapon Group Monk TwoHanded
 Sai.MOD					TYPE:Monk.Weapon Group Monk
 Shuriken.MOD				TYPE:Monk.Weapon Group Monk
 Unarmed Strike.MOD			TYPE:Monk.Natural.Weapon Group Monk
@@ -206,16 +206,16 @@ Unarmed Strike.MOD			TYPE:Weapon Group Natural
 #Wing.MOD	TYPE:Natural
 
 #Pole Arms:
-Glaive.MOD					TYPE:Polearm.Weapon Group Pole Arms
-Guisarme.MOD				TYPE:Polearm.Weapon Group Pole Arms
-Halberd.MOD					TYPE:Polearm.Weapon Group Pole Arms
-Ranseur.MOD					TYPE:Polearm.Weapon Group Pole Arms
+Glaive.MOD					TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+Guisarme.MOD				TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+Halberd.MOD					TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
+Ranseur.MOD					TYPE:Polearm.Weapon Group Pole Arms.Weapon Group Pole Arms TwoHanded
 
 #Spears:
 Javelin.MOD					TYPE:Spear.Weapon Group Spears
 #Harpoon.MOD	TYPE:Spear
 Lance.MOD					TYPE:Spear.Weapon Group Spears
-Longspear.MOD				TYPE:Spear.Weapon Group Spears
+Longspear.MOD				TYPE:Spear.Weapon Group Spears.Weapon Group Spears TwoHanded
 Shortspear.MOD				TYPE:Spear.Weapon Group Spears
 Spear.MOD					TYPE:Spear.Weapon Group Spears
 Trident.MOD					TYPE:Spear.Weapon Group Spears
