@@ -10584,13 +10584,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return cat == null? cat2  : cat;
 	}
 
-	public Nature getAbilityNature(Category<Ability> cat, Ability ability)
-	{
-		Nature n = abFacet.getNature(id, cat, ability);
-		Nature n2 = grantedAbilityFacet.getNature(id, cat, ability);
-		return Nature.getBestNature(n, n2);
-	}
-
 	public Nature getAbilityNature(Ability ability)
 	{
 		Nature n = abFacet.getNature(id, ability.getCDOMCategory(), ability);

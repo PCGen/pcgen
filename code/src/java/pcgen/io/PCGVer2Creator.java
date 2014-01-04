@@ -1390,81 +1390,27 @@ public final class PCGVer2Creator implements IOConstants
 		
 		for (final AbilityCategory cat : categories)
 		{
-			final List<Ability> abilitiesToSave =
+			final List<Ability> normalAbilitiesToSave =
 					new ArrayList<Ability>(thePC.getAbilityList(cat, Nature.NORMAL));
+			final List<Ability> virtualAbilitiesToSave = new ArrayList<Ability>();
 			for (final Ability vability : thePC.getAbilityList(cat, Nature.VIRTUAL))
 			{
 				Boolean needsSaving = thePC.getAssoc(vability, AssociationKey.NEEDS_SAVING);
 				if (needsSaving != null && needsSaving)
 				{
-					abilitiesToSave.add(vability);
+					virtualAbilitiesToSave.add(vability);
 				}
 			}
 			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
-			for (final Ability ability : abilitiesToSave)
+			for (final Ability ability : normalAbilitiesToSave)
 			{
-				buffer.append(TAG_ABILITY).append(TAG_END);
-				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
-					TAG_SEPARATOR);
-				buffer.append(TAG_TYPE).append(TAG_END);
-				buffer
-					.append(
-						EntityEncoder.encode(thePC.getAbilityNature(cat, ability)
-							.toString())).append(TAG_SEPARATOR);
-				buffer.append(TAG_CATEGORY).append(TAG_END);
-				buffer.append(EntityEncoder.encode(ability.getCategory()))
-					.append(TAG_SEPARATOR);
-				buffer.append(TAG_MAPKEY).append(TAG_END);
-				buffer.append(EntityEncoder.encode(ability.getKeyName()))
-					.append(TAG_SEPARATOR);
-				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					buffer.append(TAG_APPLIEDTO).append(TAG_END);
-					List<FixedStringList> assocList =
-							thePC.getDetailedAssociations(ability);
-					boolean first = true;
-					for (FixedStringList assocArray : assocList)
-					{
-						if (assocArray.size() > 1)
-						{
-							buffer.append(TAG_MULTISELECT).append(':');
-						}
-						for (String assoc : assocArray)
-						{
-							if (!first)
-							{
-								buffer.append(Constants.COMMA);
-							}
-							first = false;
-							buffer.append(EntityEncoder.encode(assoc));
-						}
-					}
-					buffer.append(TAG_SEPARATOR);
-				}
-				buffer.append(TAG_TYPE).append(TAG_END);
-				buffer.append(EntityEncoder.encode(ability.getType()));
-
-				for (final BonusObj save : thePC.getAddedBonusList(ability))
-				{
-					if (save.saveToPCG())
-					{
-						buffer.append('|');
-						buffer.append(TAG_SAVE).append(':');
-						buffer.append(EntityEncoder.encode("BONUS|" + save));
-					}
-				}
-
-				for (final Description desc : ability
-					.getSafeListFor(ListKey.DESCRIPTION))
-				{
-					buffer.append(Constants.PIPE);
-					buffer.append(TAG_DESC).append(':');
-					buffer.append(EntityEncoder.encode(desc.getPCCText()));
-				}
-
-				buffer.append(LINE_SEP);
+				writeAbilityToBuffer(buffer, cat, Nature.NORMAL, ability);
 			}
-			if (!abilitiesToSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
+			for (final Ability ability : virtualAbilitiesToSave)
+			{
+				writeAbilityToBuffer(buffer, cat, Nature.VIRTUAL, ability);
+			}
+			if (!normalAbilitiesToSave.isEmpty() || !virtualAbilitiesToSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
 			{
 				buffer.append(TAG_USERPOOL).append(TAG_END);
 				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
@@ -1474,6 +1420,68 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append(LINE_SEP);
 			}
 		}
+	}
+
+	private void writeAbilityToBuffer(StringBuilder buffer,
+			final AbilityCategory cat, Nature nature, Ability ability) {
+		buffer.append(TAG_ABILITY).append(TAG_END);
+		buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
+			TAG_SEPARATOR);
+		buffer.append(TAG_TYPE).append(TAG_END);
+		buffer.append(EntityEncoder.encode(nature.toString())).append(
+				TAG_SEPARATOR);
+		buffer.append(TAG_CATEGORY).append(TAG_END);
+		buffer.append(EntityEncoder.encode(ability.getCategory()))
+			.append(TAG_SEPARATOR);
+		buffer.append(TAG_MAPKEY).append(TAG_END);
+		buffer.append(EntityEncoder.encode(ability.getKeyName()))
+			.append(TAG_SEPARATOR);
+		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			buffer.append(TAG_APPLIEDTO).append(TAG_END);
+			List<FixedStringList> assocList =
+					thePC.getDetailedAssociations(ability);
+			boolean first = true;
+			for (FixedStringList assocArray : assocList)
+			{
+				if (assocArray.size() > 1)
+				{
+					buffer.append(TAG_MULTISELECT).append(':');
+				}
+				for (String assoc : assocArray)
+				{
+					if (!first)
+					{
+						buffer.append(Constants.COMMA);
+					}
+					first = false;
+					buffer.append(EntityEncoder.encode(assoc));
+				}
+			}
+			buffer.append(TAG_SEPARATOR);
+		}
+		buffer.append(TAG_TYPE).append(TAG_END);
+		buffer.append(EntityEncoder.encode(ability.getType()));
+
+		for (final BonusObj save : thePC.getAddedBonusList(ability))
+		{
+			if (save.saveToPCG())
+			{
+				buffer.append('|');
+				buffer.append(TAG_SAVE).append(':');
+				buffer.append(EntityEncoder.encode("BONUS|" + save));
+			}
+		}
+
+		for (final Description desc : ability
+			.getSafeListFor(ListKey.DESCRIPTION))
+		{
+			buffer.append(Constants.PIPE);
+			buffer.append(TAG_DESC).append(':');
+			buffer.append(EntityEncoder.encode(desc.getPCCText()));
+		}
+
+		buffer.append(LINE_SEP);
 	}
 
 	/*
