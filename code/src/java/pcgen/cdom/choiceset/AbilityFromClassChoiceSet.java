@@ -166,8 +166,7 @@ public class AbilityFromClassChoiceSet implements
 					for (Ability aFeat : abilityList)
 					{
 						set.add(new CategorizedAbilitySelection(
-							AbilityCategory.FEAT, aFeat, pc
-								.getAbilityNature(aFeat)));
+							AbilityCategory.FEAT, aFeat, Nature.VIRTUAL));
 					}
 				}
 			}
