@@ -77,6 +77,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 		NAME,
 		NATURE,
 		TYPE,
+		EXCLUDETYPE,
 		VISIBILITY,
 		ASPECT,
 		CAT,
@@ -229,6 +230,13 @@ public abstract class AbstractCountCommand extends PCGenCommand
 								filterPObjectByType(abIt, keyValue[1]);
 								break;
 	
+							case EXCLUDETYPE:
+								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+								abIt = cs.iterator();
+
+								removePObjectByType(abIt, keyValue[1]);
+								break;
+
 							case VISIBILITY:
 							case VIS:
 								cs = new HashSet<Ability>(abdata.get(Nature.ANY));
@@ -1122,6 +1130,29 @@ public abstract class AbstractCountCommand extends PCGenCommand
 								it.remove();
 								break;
 							}
+						}
+					}
+				}
+			}
+			
+			protected static void removePObjectByType(final Iterator<? extends CDOMObject> it, final String rString)
+			{
+				// Make a List of all the types that each PObject should not match
+				final Collection<String> typeList = new ArrayList<String>();
+				Collections.addAll(typeList, rString.split("\\."));
+
+				// These nested loops remove all PObjects from the collection being
+				// iterated that match any of the types in typeList
+				while (it.hasNext())
+				{
+					final CDOMObject pObj = it.next();
+
+					for (final String type : typeList)
+					{
+						if (pObj.isType(type))
+						{
+							it.remove();
+							break;
 						}
 					}
 				}

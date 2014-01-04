@@ -394,6 +394,9 @@ public interface Constants
 	/** Comma ',' character as a string. */
 	String COMMA = ","; //$NON-NLS-1$
 
+	/** Semicolon ',' character as a string. */
+	String SEMICOLON = ";"; //$NON-NLS-1$
+
 	/** Dot '.' character as a string. */
 	String DOT = ".";
 

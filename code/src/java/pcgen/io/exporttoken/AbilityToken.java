@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
@@ -48,6 +49,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -244,17 +246,35 @@ public class AbilityToken extends Token
 		{
 			final String typeStr = aTok.nextToken();
 			int typeInd = typeStr.indexOf("TYPE=");
+			int extypeInd = typeStr.indexOf("EXCLUDETYPE=");
+
 			// If it's TYPE and it actually has a value attached then process it 
-			if (typeInd != -1 && typeStr.length() > 5)
+			if (typeInd != -1 && extypeInd == -1 && typeStr.length() > 5)
 			{
 				// It's a type to be excluded from the filter list 
 				if (typeStr.startsWith("!"))
 				{
+					Logging.deprecationPrint("The use of !TYPE with ABILITY output tokens is deprecated. Please use EXCLUDETYPE.");
 					negate.add(typeStr.substring(typeInd + 5));
 				}
 				else
 				{
-					types.add(typeStr.substring(typeInd + 5));
+					StringTokenizer incTok = new StringTokenizer(typeStr.substring(typeInd + 5), Constants.SEMICOLON);
+					while (incTok.hasMoreTokens())
+					{
+						types.add(incTok.nextToken());
+					}
+				}
+			}
+
+			// If it's EXCLUDETYPE and it actually has a value attached then process it 
+			if (extypeInd != -1 && typeStr.length() > 12)
+			{
+				// exclude TYPEs from comma-separated list
+				StringTokenizer exTok = new StringTokenizer(typeStr.substring(extypeInd + 12), Constants.SEMICOLON);
+				while (exTok.hasMoreTokens())
+				{
+					negate.add(exTok.nextToken());	
 				}
 			}
 			
