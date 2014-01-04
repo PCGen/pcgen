@@ -1,5 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
+TEST-91	VFEAT:Test91(Balance)	AUTO:FEAT|Test91(Hide)
+
+
 # Template Name	Visible	Source Page						Define a Stat		Required Var. value	Bonus to skill									Stat bonus		Ability										Feat							Region		Removable?		Innate Spells										More language
 Region Order																																ABILITY:Special Ability|AUTOMATIC|Order Works|PREREGION:1,Order								REGION:Order
 
