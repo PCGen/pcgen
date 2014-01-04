@@ -294,10 +294,11 @@ Call Lightning Storm.COPY=Call Lightning Storm (Starsoul)																							
 ###
 
 ###Block: Temp Mods
-# Spell Name	Temporary Bonus
-Ant Haul.MOD	TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|2|PRESIZEGTEQ:M	TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|1.5|PRESIZELTEQ:S
-Strong Jaw.MOD	TEMPBONUS:EQ|Natural;Unarmed|COMBAT|DAMAGESIZE|2|TYPE=Temporary
-
+# Spell Name		Temporary Bonus
+Ant Haul.MOD		TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|2|PRESIZEGTEQ:M	TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|1.5|PRESIZELTEQ:S
+Strong Jaw.MOD		TEMPBONUS:EQ|Natural;Unarmed|COMBAT|DAMAGESIZE|2|TYPE=Temporary
+Weapon of Awe.MOD		TEMPBONUS:EQ|Weapon|WEAPON|DAMAGE|2|TYPE=Sacred
+Wrathful Mantle.MOD	TEMPBONUS:ANYPC|CHECKS|ALL|1|TYPE=Resistance
 
 
 ###BLOCK: .Mod Spells

@@ -40,6 +40,10 @@ Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
 Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
 Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
+###Block: Alter Self basic size & stat adjustments
+Alter Self (Medium)	SIZE:M	FACE:5	REACH:5	BONUS:STAT|STR|2	PRESPELL:1,Alter Self
+Alter Self (Small)	SIZE:S	FACE:5	REACH:5	BONUS:STAT|DEX|2	PRESPELL:1,Alter Self
+
 ###Block: Righteous Might temporary bonus DR enabler
 # Template Name					Visible		Damage Reduction	Required Ability									Req. Known Spell			Description
 Righteous Might (Damage Reduction/Evil)	VISIBLE:DISPLAY	DR:0/Evil		PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.

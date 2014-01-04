@@ -740,6 +740,7 @@ Shield.MOD																																																																					T
 Shield of Faith.MOD																																			CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level																							TEMPDESC:Grants a +2 deflection bonus to AC, +1 for every six levels you have (maximum +5 deflection bonus at 18th level)											TEMPBONUS:ANYPC|COMBAT|AC|min(2+floor(%CHOICE/6),5)|TYPE=Deflection
 Shield of Law.MOD																																																																				TEMPDESC:Grants a +4 deflection bonus to AC and a +4 resistance bonus on saves																		TEMPBONUS:ANYPC|CHECKS|ALL|4|TYPE=Resistance	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Deflection
 Shillelagh.MOD																																																																																																			TEMPBONUS:EQ|Club;Quarterstaff|WEAPON|DAMAGESIZE|2	TEMPBONUS:EQ|Club;Quarterstaff|WEAPON|DAMAGE,TOHIT|1
+Stoneskin.MOD																																																																				TEMPDESC:Grants DR 10/adamantine for a total of 10 points of damage per caster level (maximum 150 points).														TEMPBONUS:ANYPC|DR|Adamantine|10
 Unholy Aura.MOD																																																																				TEMPDESC:Grants a +4 deflection bonus to AC and a +4 resistance bonus on saves																		TEMPBONUS:ANYPC|CHECKS|ALL|4|TYPE=Resistance	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Deflection
 
 ###Block: Righteous Might (because it is so loooong)
