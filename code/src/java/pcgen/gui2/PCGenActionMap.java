@@ -46,7 +46,7 @@ import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
-import pcgen.gui2.dialog.ConsoleDialog;
+import pcgen.gui2.dialog.CalculatorDialog;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
@@ -132,7 +132,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String GMGEN_COMMAND = TOOLS_COMMAND + ".gmgen";
 	public static final String LOG_COMMAND = TOOLS_COMMAND + ".log";
 	public static final String LOGGING_LEVEL_COMMAND = TOOLS_COMMAND + ".loggingLevel";
-	public static final String CONSOLE_COMMAND = TOOLS_COMMAND + ".console";
+	public static final String CALCULATOR_COMMAND = TOOLS_COMMAND + ".calculator";
 	//the help menu commands
 	public static final String HELP_COMMAND = "help";
 	public static final String HELP_CONTEXT_COMMAND = HELP_COMMAND + ".context";
@@ -189,7 +189,7 @@ public final class PCGenActionMap extends ActionMap
 		put(GMGEN_COMMAND, new GMGenAction());
 		put(LOG_COMMAND, new DebugAction());
 		put(LOGGING_LEVEL_COMMAND, new LoggingLevelAction());
-		put(CONSOLE_COMMAND, new ConsoleAction());
+		put(CALCULATOR_COMMAND, new CalculatorAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
 		put(KIT_FILTERS_COMMAND,
@@ -430,14 +430,14 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class ConsoleAction extends PCGenAction
+	private class CalculatorAction extends PCGenAction
 	{
 
-		private ConsoleDialog dialog = null;
+		private CalculatorDialog dialog = null;
 
-		public ConsoleAction()
+		public CalculatorAction()
 		{
-			super("mnuToolsConsole", CONSOLE_COMMAND, "F11");
+			super("mnuToolsCalculator", CALCULATOR_COMMAND, "F11");
 		}
 
 		@Override
@@ -445,7 +445,7 @@ public final class PCGenActionMap extends ActionMap
 		{
 			if (dialog == null)
 			{
-				dialog = new ConsoleDialog(frame);
+				dialog = new CalculatorDialog(frame);
 			}
 			Utility.setDialogRelativeLocation(frame, dialog);
 			dialog.setVisible(true);

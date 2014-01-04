@@ -1,5 +1,5 @@
 /*
- * ConsoleDialog.java
+ * CalculatorDialog.java
  * Copyright 2011 Stefan Radermacher <zaister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -34,22 +34,25 @@ import pcgen.core.VariableProcessor;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 
 /**
- *
+ * A dialog to allow character variables and expressions to be evaluated 
+ * interactively by the user.
+ * 
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
  */
-public class ConsoleDialog extends JDialog
+public class CalculatorDialog extends JDialog
 {
 	private final PCGenFrame pcgenFrame;
 	private final FormulaPanel formulaPanel;
 	private final JTextArea outputText;
 
-	public ConsoleDialog(PCGenFrame parent)
+	public CalculatorDialog(PCGenFrame parent)
 	{
 		super(parent);
 		this.pcgenFrame = parent;
-		setTitle("Debugging Console");
+		setTitle(LanguageBundle.getString("in_mnuToolsCalculator"));
 		outputText = new JTextArea();
 		formulaPanel = new FormulaPanel(outputText);
 		initComponents();
@@ -78,8 +81,8 @@ public class ConsoleDialog extends JDialog
 		
 		public ButtonPanel(JTextField formulaText, JTextArea outputText)
 		{
-			calcButton = new JButton("Calculate");
-			clearButton = new JButton("Clear");
+			calcButton = new JButton(LanguageBundle.getString("in_calculate"));
+			clearButton = new JButton(LanguageBundle.getString("in_clear"));
 			this.formulaText = formulaText;
 			this.outputText = outputText;
 			initComponents();
