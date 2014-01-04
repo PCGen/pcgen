@@ -24,6 +24,7 @@ import java.util.Set;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -152,7 +153,7 @@ public class AbilityFromClassChoiceSet implements
 				for (Ability aFeat : abilityList)
 				{
 					set.add(new CategorizedAbilitySelection(
-						AbilityCategory.FEAT, aFeat, pc.getAbilityNature(aFeat)));
+						AbilityCategory.FEAT, aFeat, Nature.VIRTUAL));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
