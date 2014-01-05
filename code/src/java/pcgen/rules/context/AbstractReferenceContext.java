@@ -365,7 +365,12 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 					String subKey = subcl.getKeyName();
 					if (subKey.equalsIgnoreCase(key))
 					{
-						needSelf = false;
+						//Now an error to explicitly create this match, see CODE-1928
+						Logging.errorPrint("Cannot explicitly create a SUBCLASS that matches the parent class.  "
+								+ "Use ALLOWBASECLASS.  "
+								+ "Tokens on the offending SUBCLASS line will be ignored");
+						pcc.removeFromListFor(ListKey.SUB_CLASS, subcl);
+						continue;
 					}
 					skl = constructCDOMObject(CLASSSKILLLIST_CLASS, subKey);
 					if (isMonster)
