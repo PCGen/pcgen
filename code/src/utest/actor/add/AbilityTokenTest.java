@@ -19,8 +19,6 @@ package actor.add;
 
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,13 +27,21 @@ import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
+import pcgen.core.Language;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.testsupport.CharacterUsingTest;
+import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class AbilityTokenTest extends TestCase
+public class AbilityTokenTest extends CharacterUsingTest
 {
+
+	private static final AddLst ADD_TOKEN = new plugin.lsttokens.AddLst();
+	private static final AbilityToken ADD_ABILITY_TOKEN = new plugin.lsttokens.add.AbilityToken();
 
 	static AbilityToken pca = new AbilityToken();
 
@@ -81,6 +87,60 @@ public class AbilityTokenTest extends TestCase
 					Nature.NORMAL);
 		assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
+	}
+
+
+	@Test
+	public void testWithChoose()
+	{
+		try {
+			setUpPC();
+			//Need to make sure we use the character related context
+			context = Globals.getContext();
+			context.ref.importObject(AbilityCategory.FEAT);
+			TokenRegistration.register(ADD_TOKEN);
+			TokenRegistration.register(ADD_ABILITY_TOKEN);
+		} catch (PersistenceLayerException e1) {
+			fail("Cannot set up PC");
+		}
+		Ability item = construct("ChooseAbility");
+		Ability parent = construct("Parent");
+		context.ref.constructCDOMObject(Language.class, "Foo");
+		context.ref.constructCDOMObject(Language.class, "Bar");
+		context.ref.constructCDOMObject(Language.class, "Goo");
+		try {
+			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo"));
+			assertTrue(context.processToken(item, "MULT", "Yes"));
+			assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
+		} catch (PersistenceLayerException e) {
+			e.printStackTrace();
+			fail();
+		}
+		PlayerCharacter pc = new PlayerCharacter();
+		finishLoad(context);
+		
+		CategorizedAbilitySelection fooCAS = new CategorizedAbilitySelection(AbilityCategory.FEAT,
+				item, Nature.AUTOMATIC, "Foo");
+		CategorizedAbilitySelection barCAS = new CategorizedAbilitySelection(AbilityCategory.FEAT,
+				item, Nature.VIRTUAL, "Bar");
+		CategorizedAbilitySelection gooCAS = new CategorizedAbilitySelection(AbilityCategory.FEAT,
+				item, Nature.NORMAL, "Goo");
+		
+		assertTrue(pca.allow(fooCAS, pc, false));
+		assertTrue(pca.allow(barCAS, pc, false));
+		assertTrue(pca.allow(gooCAS, pc, false));
+		pc.applyAbility(fooCAS);
+		assertFalse(pca.allow(fooCAS, pc, false));
+		assertTrue(pca.allow(barCAS, pc, false));
+		assertTrue(pca.allow(gooCAS, pc, false));
+		pc.applyAbility(barCAS);
+		assertFalse(pca.allow(fooCAS, pc, false));
+		assertFalse(pca.allow(barCAS, pc, false));
+		assertTrue(pca.allow(gooCAS, pc, false));
+		pc.applyAbility(gooCAS);
+		assertFalse(pca.allow(fooCAS, pc, false));
+		assertFalse(pca.allow(barCAS, pc, false));
+		assertFalse(pca.allow(gooCAS, pc, false));
 	}
 
 	protected Ability construct(String one)

@@ -36,6 +36,7 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -54,6 +55,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
@@ -411,15 +413,28 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		// Remove any already selected
 		for (Ability a : pc.getAllAbilities())
 		{
+			//TODO Need to validate CATEGORY is related here or this can make mistakes
 			if (a.getKeyName().equals(choice.getAbilityKey()))
 			{
-				if (!pc.canSelectAbility(a, isVirtual)
+				if (!pc.canSelectAbility(a, false)
 						|| !a.getSafe(ObjectKey.VISIBILITY).equals(
-								Visibility.DEFAULT)
-						|| !allowStack(a, allowStack)
-						&& hasAssoc(pc.getAssociationList(a), choice))
+								Visibility.DEFAULT))
 				{
 					return false;
+				}
+				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
+					&& !allowStack(a, allowStack))
+				{
+					ChooseInformation<?> info =
+							a.get(ObjectKey.CHOOSE_INFO);
+					List<?> oldSelections =
+							info.getChoiceActor().getCurrentlySelected(a,
+								pc);
+					Object decoded = info.decodeChoice(Globals.getContext(), choice.getSelection());
+					if (oldSelections != null && oldSelections.contains(decoded))
+					{
+						return false;
+					}
 				}
 			}
 		}
