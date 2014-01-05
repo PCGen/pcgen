@@ -32,7 +32,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -165,7 +164,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		AbilityUtilities.modAbility(pc, choice.getAbility(), choice
 		.getSelection(), AbilityCategory.FEAT);
-		pc.addAssoc(owner, AssociationListKey.TEMPLATE_FEAT, choice);
+		pc.addTemplateFeat(owner, choice);
 	}
 
 	@Override

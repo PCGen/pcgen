@@ -4939,8 +4939,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								CategorizedAbilitySelection as =
 										CategorizedAbilitySelection
 											.getAbilitySelectionFromPersistentFormat(feat);
-								thePC.addAssoc(subt,
-									AssociationListKey.TEMPLATE_FEAT, as);
+								thePC.addTemplateFeat(subt, as);
 							}
 						}
 					}

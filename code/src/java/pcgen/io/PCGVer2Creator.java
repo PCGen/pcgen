@@ -2581,8 +2581,8 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				List<CategorizedAbilitySelection> featList = thePC.getAssocList(lt,
-						AssociationListKey.TEMPLATE_FEAT);
+				List<? extends CategorizedAbilitySelection> featList = thePC
+						.getTemplateFeatList(lt);
 				if (featList != null)
 				{
 					writeTemplateFeat(aString, lt, featList);
@@ -2591,8 +2591,8 @@ public final class PCGVer2Creator implements IOConstants
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			List<CategorizedAbilitySelection> featList = thePC.getAssocList(lt,
-					AssociationListKey.TEMPLATE_FEAT);
+			List<? extends CategorizedAbilitySelection> featList = thePC
+					.getTemplateFeatList(lt);
 			if (featList != null)
 			{
 				writeTemplateFeat(aString, lt, featList);
@@ -2601,8 +2601,8 @@ public final class PCGVer2Creator implements IOConstants
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			List<CategorizedAbilitySelection> featList = thePC.getAssocList(lt,
-					AssociationListKey.TEMPLATE_FEAT);
+			List<? extends CategorizedAbilitySelection> featList = thePC
+					.getTemplateFeatList(lt);
 			if (featList != null)
 			{
 				writeTemplateFeat(aString, lt, featList);
@@ -2611,7 +2611,8 @@ public final class PCGVer2Creator implements IOConstants
 		return aString.toString();
 	}
 
-	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct, List<CategorizedAbilitySelection> featList)
+	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
+		List<? extends CategorizedAbilitySelection> featList)
 	{
 		for (CategorizedAbilitySelection s : featList)
 		{

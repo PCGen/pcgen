@@ -131,6 +131,7 @@ import pcgen.cdom.facet.StatCalcFacet;
 import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubstitutionClassFacet;
+import pcgen.cdom.facet.TemplateFeatFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
@@ -334,6 +335,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
 	private NonStatStatFacet nonStatStatFacet = FacetLibrary.getFacet(NonStatStatFacet.class);
 	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary.getFacet(NonStatToStatFacet.class);
+	private TemplateFeatFacet templateFeatFacet = FacetLibrary.getFacet(TemplateFeatFacet.class);
 
 	/*
 	 * Note "minimal" here means getDirty is allowed on a set, it may be used in
@@ -9640,8 +9642,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				Collection<? extends CategorizedAbilitySelection> featList = getAssocList(lt,
-						AssociationListKey.TEMPLATE_FEAT);
+				Collection<? extends CategorizedAbilitySelection> featList = 
+						getTemplateFeatList(lt);
 				if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
 				{
 					featList = getLevelFeat(lt);
@@ -9654,8 +9656,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			Collection<? extends CategorizedAbilitySelection> featList = getAssocList(lt,
-					AssociationListKey.TEMPLATE_FEAT);
+			Collection<? extends CategorizedAbilitySelection> featList =
+					getTemplateFeatList(lt);
 			if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
 			{
 				featList = getLevelFeat(lt);
@@ -9668,8 +9670,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			Collection<? extends CategorizedAbilitySelection> featList = getAssocList(lt,
-					AssociationListKey.TEMPLATE_FEAT);
+			Collection<? extends CategorizedAbilitySelection> featList =
+					getTemplateFeatList(lt);
 			if (featList == null && addNew && lt.get(IntegerKey.HD_MAX) <= hitdice
 					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
 			{
@@ -9681,7 +9683,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			}
 		}
 
-		Collection<? extends CategorizedAbilitySelection> featList = getAssocList(pct, AssociationListKey.TEMPLATE_FEAT);
+		Collection<? extends CategorizedAbilitySelection> featList =
+				getTemplateFeatList(pct);
 		if (featList == null && addNew)
 		{
 			featList = getLevelFeat(pct);
@@ -11631,5 +11634,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			removeCharacterSpell(pcc, characterSpell);
 		}
+	}
+
+	public void addTemplateFeat(CDOMObject template, CategorizedAbilitySelection as)
+	{
+		templateFeatFacet.add(id, as, template);
+	}
+
+	public List<? extends CategorizedAbilitySelection> getTemplateFeatList(CDOMObject template)
+	{
+		return templateFeatFacet.getSet(id, template);
 	}
 }

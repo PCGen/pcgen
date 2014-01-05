@@ -539,6 +539,7 @@
 	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet" />
 	<!-- T -->
 	<bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>
+	<bean id="templateFeatFacet" class="pcgen.cdom.facet.TemplateFeatFacet"/>
 	<bean id="templateInputFacet" class="pcgen.cdom.facet.input.TemplateInputFacet">
 		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
 	</bean>

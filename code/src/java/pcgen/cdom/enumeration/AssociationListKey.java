@@ -30,7 +30,6 @@ import java.util.Map;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 
 /**
@@ -76,8 +75,6 @@ public final class AssociationListKey<T>
 	 * Facets. So the use of this key is not localized
 	 */
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
-
-	public static final AssociationListKey<CategorizedAbilitySelection> TEMPLATE_FEAT = new AssociationListKey<CategorizedAbilitySelection>();
 
 	/*
 	 * End non-local token-related keys
