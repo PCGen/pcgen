@@ -27,11 +27,11 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.testsupport.CharacterUsingTest;
+import pcgen.testsupport.AbstractCharacterUsingTestCase;
 
 import compare.InequalityTesterInst;
 
-public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends CharacterUsingTest
+public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends AbstractCharacterUsingTestCase
 {
 
 	public abstract ChooseSelectionActor<T> getActor();

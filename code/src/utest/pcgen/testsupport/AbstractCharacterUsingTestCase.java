@@ -43,7 +43,7 @@ import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-public class CharacterUsingTest extends TestCase {
+public class AbstractCharacterUsingTestCase extends TestCase {
 
 	protected PCStat str;
 	protected PCStat cha;

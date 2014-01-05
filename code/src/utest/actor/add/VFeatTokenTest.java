@@ -32,12 +32,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.testsupport.CharacterUsingTest;
+import pcgen.testsupport.AbstractCharacterUsingTestCase;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.VFeatToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class VFeatTokenTest extends CharacterUsingTest
+public class VFeatTokenTest extends AbstractCharacterUsingTestCase
 {
 
 	private static final AddLst ADD_TOKEN = new plugin.lsttokens.AddLst();

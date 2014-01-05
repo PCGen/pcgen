@@ -33,11 +33,11 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.testsupport.CharacterUsingTest;
+import pcgen.testsupport.AbstractCharacterUsingTestCase;
 import plugin.lsttokens.template.FeatToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class FeatTokenTest extends CharacterUsingTest
+public class FeatTokenTest extends AbstractCharacterUsingTestCase
 {
 
 	static FeatToken pca = new FeatToken();
