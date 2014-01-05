@@ -9343,6 +9343,35 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return ret;
 	}
 
+	public boolean hasVisibleAbility(final AbilityCategory aCategory)
+	{
+		for (final Ability ability : getRealAbilitiesListAnyCat(aCategory))
+		{
+			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			{
+				return true;
+			}
+		}
+		for (final Ability ability : getAbilityList(aCategory, Nature.AUTOMATIC))
+		{
+			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			{
+				return true;
+			}
+		}
+		for (final Ability ability : getAbilityList(aCategory, Nature.VIRTUAL))
+		{
+			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private Set<Ability> getAbilitySetByNature(Nature n)
 	{
 		GameMode gm = SettingsHandler.getGame();
