@@ -260,15 +260,13 @@ public class AbilityUtilities
 	static void modFeatsFromList(final PlayerCharacter aPC,
 			final CategorizedAbilitySelection as)
 	{
-		Ability anAbility = aPC.getFeatNamed(as.getAbilityKey());
-
-		if (anAbility != null)
+		if (aPC.hasFeatNamed(as.getAbilityKey()))
 		{
 			return;
 		}
 
 		// Get ability from global storage by Name
-		anAbility = as.getAbility().clone();
+		Ability anAbility = as.getAbility().clone();
 		aPC.addFeat(anAbility);
 
 		String choice = as.getSelection();

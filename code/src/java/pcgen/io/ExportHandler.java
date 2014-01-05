@@ -700,7 +700,7 @@ public final class ExportHandler
 		if (expr1.startsWith("HASFEAT:"))
 		{
 			expr1 = expr1.substring(8).trim();
-			return (aPC.getFeatNamed(expr1) != null);
+			return (aPC.hasFeatNamed(expr1));
 		}
 
 		// Deal with HASSA:
