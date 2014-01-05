@@ -1532,7 +1532,7 @@ BIO
 			<longname>Shield (Light/Steel)</longname>
 			<id></id>
 			<name>Shield, Light Steel</name>
-			<carried>2.0</carried>
+			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
@@ -1581,7 +1581,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<total>
-			<weight>65.5 lbs.</weight>
+			<weight>59.5 lbs.</weight>
 			<value>926.6 gp</value>
 			<load>Medium</load>
 			<capacity>100</capacity>
@@ -1989,7 +1989,7 @@ BIO
 			</item>
 			<item>
 				<name>Shield, Light Steel</name>
-				<carried>2.0</carried>
+				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>

@@ -1139,7 +1139,7 @@ BIO
 			<longname>Light Shield</longname>
 			<id></id>
 			<name>Light Shield</name>
-			<carried>2.0</carried>
+			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
@@ -1219,7 +1219,7 @@ BIO
 				</item>
 		<item>
 					<name>Light Shield</name>
-					<carried>2.0</carried>
+					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
