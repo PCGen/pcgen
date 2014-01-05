@@ -9163,6 +9163,20 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return null;
 	}
 
+	public boolean hasAbilityKeyed(final AbilityCategory aCategory, final String aKey)
+	{
+		final List<Ability> abilities = getAggregateAbilityList(aCategory);
+		for (final Ability ability : abilities)
+		{
+			if (ability.getKeyName().equals(aKey))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	/**
 	 * Get an ability of any category that matches the key.
 	 * @param aKey The key to search for

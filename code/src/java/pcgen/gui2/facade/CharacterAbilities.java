@@ -790,18 +790,17 @@ public class CharacterAbilities
 		AbilityCategory theCategory)
 	{
 		final String aKey = anAbility.getKeyName();
-		Ability ability = theCharacter.getAbilityKeyed(theCategory, aKey);
+		boolean pcHasIt = theCharacter.hasAbilityKeyed(theCategory, aKey);
 
-		final boolean pcHasIt = (ability != null);
-
-		if (pcHasIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		if (pcHasIt && !anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
 				.getString("InfoAbility.Messages.Duplicate")); //$NON-NLS-1$
 			return false;
 		}
 
-		ability =
+		//TODO Why do we regrab the context-based Ability when an Ability was passed in?
+		Ability ability =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Ability.class, theCategory, aKey);
 		if (ability != null
