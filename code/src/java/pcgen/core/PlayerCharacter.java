@@ -9535,7 +9535,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		cabFacet.update(id);
 	}
 
-	private void applyAbility(CategorizedAbilitySelection cas)
+	//WARNING: This is public only for testing, do NOT use without understanding what you are shortcutting!!
+	public void applyAbility(CategorizedAbilitySelection cas)
 	{
 		if (cas.hasPrerequisites())
 		{
