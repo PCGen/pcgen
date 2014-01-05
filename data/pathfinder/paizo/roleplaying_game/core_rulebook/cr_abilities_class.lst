@@ -1327,10 +1327,11 @@ Metamagic Mastery		KEY:Metamagic Mastery ~ Universal School		CATEGORY:Special Ab
 
 Wizard Free Spellbook									CATEGORY:Internal																																																																																																																																			TEMPLATE:Wizard Spellbook
 
+
 ###Block: Expert Abilities --------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Unique Key						Category of Ability		Type				Visible		Description										Stackable?	Multiple?	Choose		Class Skill	Source Page		Description of the Benefits
 Expert Class Skills									CATEGORY:Special Ability	TYPE:ExpertClassSkills	VISIBLE:DISPLAY												STACK:NO	MULT:YES	CHOOSE:SKILL|ALL	CSKILL:LIST	SOURCEPAGE:p.450
-
+Single Simple Weapon Proficiency	CATEGORY:Special Ability	TYPE:SingleSimpleWeaponProficiency.SpecialQuality	DESC:You understand how to use %1|%LIST	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Simple]	AUTO:WEAPONPROF|%LIST
 # Work Around to Old Problem
 
 Martial Weapon Proficiency	KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT							VISIBLE:EXPORT	DESC:You understand how to use your martial weapons in combat.										SOURCEPAGE:p.130	BENEFIT:You make attack rolls with all your martial weapons normally (without the non-proficient penalty).
@@ -1449,7 +1450,7 @@ Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Thaumaturgist	CA
 # NPC
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Adept			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		DESC:Adepts are skilled with all simple weapons. Adepts are not proficient with any type of armor nor with shields.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Aristocrat		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		DESC:The aristocrat is proficient in the use of all simple and martial weapons and with all types of armor and shields.
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Commoner		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		DESC:The commoner is proficient with one simple weapon. He is not proficient with any other weapons, nor is he proficient with any type of armor or shields.
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Commoner		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		DESC:The commoner is proficient with one simple weapon. He is not proficient with any other weapons, nor is he proficient with any type of armor or shields.	BONUS:ABILITYPOOL|Simple Weapon Proficiency Choice|1
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Expert			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		DESC:The expert is proficient in the use of all simple weapons and with light armor but not shields.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Warrior		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		DESC:The warrior is proficient in the use of all simple and martial weapons and all armor and shields.
 
