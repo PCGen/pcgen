@@ -299,33 +299,29 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			boolean allowStack)
 	{
 		// Remove any already selected
-		for (Ability a : pc.getAllAbilities())
+		for (Ability a : pc.getAllAbilities(AbilityCategory.FEAT))
 		{
-			//TODO This is not smart to ask for all abilities and then immediately filter them to FEATs :(
-			if (AbilityCategory.FEAT.equals(a.getCDOMCategory()
-					.getParentCategory()))
+			if (a.getKeyName().equals(choice.getAbilityKey()))
 			{
-				if (a.getKeyName().equals(choice.getAbilityKey()))
+				if (!pc.canSelectAbility(a, false)
+					|| !a.getSafe(ObjectKey.VISIBILITY).equals(
+						Visibility.DEFAULT))
 				{
-					if (!pc.canSelectAbility(a, false)
-							|| !a.getSafe(ObjectKey.VISIBILITY).equals(
-									Visibility.DEFAULT))
+					return false;
+				}
+				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
+					&& !allowStack(a, allowStack))
+				{
+					ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
+					List<?> oldSelections =
+							info.getChoiceActor().getCurrentlySelected(a, pc);
+					Object decoded =
+							info.decodeChoice(Globals.getContext(),
+								choice.getSelection());
+					if (oldSelections != null
+						&& oldSelections.contains(decoded))
 					{
 						return false;
-					}
-					if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-						&& !allowStack(a, allowStack))
-					{
-						ChooseInformation<?> info =
-								a.get(ObjectKey.CHOOSE_INFO);
-						List<?> oldSelections =
-								info.getChoiceActor().getCurrentlySelected(a,
-									pc);
-						Object decoded = info.decodeChoice(Globals.getContext(), choice.getSelection());
-						if (oldSelections != null && oldSelections.contains(decoded))
-						{
-							return false;
-						}
 					}
 				}
 			}

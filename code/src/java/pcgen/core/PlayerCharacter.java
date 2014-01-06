@@ -8774,6 +8774,29 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return list;
 	}
 
+	/*
+	 * Returns all abilities in the given Category and the subcategories of that Category.
+	 */
+	public List<Ability> getAllAbilities(Category<Ability> cat)
+	{
+		Set<Category<Ability>> abCats = new HashSet<Category<Ability>>();
+		abCats.addAll(abFacet.getCategories(id));
+		abCats.addAll(grantedAbilityFacet.getCategories(id));
+
+		List<Ability> list = new ArrayList<Ability>();
+
+		for (Category<Ability> ac : abCats)
+		{
+			if (ac.getParentCategory().equals(cat))
+			{
+				list.addAll(getAbilityList(ac, Nature.AUTOMATIC));
+				list.addAll(getAbilityList(ac, Nature.NORMAL));
+				list.addAll(getAbilityList(ac, Nature.VIRTUAL));
+			}
+		}
+		return list;
+	}
+
 	/**
 	 * Get a list of real abilities of a particular AbilityCategory
 	 * no matter which AbilityCategory list they reside in.

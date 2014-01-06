@@ -412,35 +412,29 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
 		Category<Ability> category = choice.getAbilityCategory().getParentCategory();
 		// Remove any already selected
-		for (Ability a : pc.getAllAbilities())
+		for (Ability a : pc.getAllAbilities(category))
 		{
-			//TODO This is not smart to ask for all abilities and then immediately filter them to a specific CATEGORY :(
-			if (category.equals(a.getCDOMCategory().getParentCategory()))
+			if (a.getKeyName().equals(choice.getAbilityKey()))
 			{
-				if (a.getKeyName().equals(choice.getAbilityKey()))
+				if (!pc.canSelectAbility(a, false)
+					|| !a.getSafe(ObjectKey.VISIBILITY).equals(
+						Visibility.DEFAULT))
 				{
-					if (!pc.canSelectAbility(a, false)
-						|| !a.getSafe(ObjectKey.VISIBILITY).equals(
-							Visibility.DEFAULT))
+					return false;
+				}
+				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
+					&& !allowStack(a, allowStack))
+				{
+					ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
+					List<?> oldSelections =
+							info.getChoiceActor().getCurrentlySelected(a, pc);
+					Object decoded =
+							info.decodeChoice(Globals.getContext(),
+								choice.getSelection());
+					if (oldSelections != null
+						&& oldSelections.contains(decoded))
 					{
 						return false;
-					}
-					if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-						&& !allowStack(a, allowStack))
-					{
-						ChooseInformation<?> info =
-								a.get(ObjectKey.CHOOSE_INFO);
-						List<?> oldSelections =
-								info.getChoiceActor().getCurrentlySelected(a,
-									pc);
-						Object decoded =
-								info.decodeChoice(Globals.getContext(),
-									choice.getSelection());
-						if (oldSelections != null
-							&& oldSelections.contains(decoded))
-						{
-							return false;
-						}
 					}
 				}
 			}

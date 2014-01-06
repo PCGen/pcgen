@@ -147,9 +147,8 @@ public class ChooserUtilities
 				cat = category;
 			}
 			aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));
-			for (Ability ab : aPC.getAllAbilities())
+			for (Ability ab : aPC.getAllAbilities(cat.getParentCategory()))
 			{
-				//TODO This needs to test CATEGORY to be correct :/
 				if (ab.getKeyName().equals(a.getKeyName()))
 				{
 					reservedList.addAll(aPC.getAssociationList(ab));
