@@ -15,16 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package resultactor.auto;
+package selectionactor.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Language;
 import plugin.lsttokens.auto.LangToken;
-import resultactor.testsupport.AbstractResultActorTest;
+import selectionactor.testsupport.AbstractSelectionActorTest;
 
-public class LangTokenTest extends AbstractResultActorTest<Language>
+public class LangTokenTest extends AbstractSelectionActorTest<Language>
 {
 
 	static LangToken cra = new LangToken();
@@ -36,7 +36,7 @@ public class LangTokenTest extends AbstractResultActorTest<Language>
 	}
 
 	@Override
-	public ChooseResultActor getActor()
+	public ChooseSelectionActor<Language> getActor()
 	{
 		return cra;
 	}

@@ -20,7 +20,7 @@ package plugin.lsttokens.auto;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -28,10 +28,10 @@ import pcgen.core.Language;
 import pcgen.core.QualifiedObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractAutoSelectionTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
+public class LangTokenTest extends AbstractAutoSelectionTokenTestCase<Language> {
 
 	static LangToken subtoken = new LangToken();
 
@@ -60,7 +60,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	}
 
 	@Override
-	protected ChooseResultActor getActor()
+	protected ChooseSelectionActor<Language> getActor()
 	{
 		return subtoken;
 	}

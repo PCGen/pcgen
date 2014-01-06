@@ -24,7 +24,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.ShieldProfProvider;
@@ -35,9 +35,9 @@ import pcgen.core.ShieldProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractAutoSelectionTokenTestCase;
 
-public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
+public class ShieldProfTokenTest extends AbstractAutoSelectionTokenTestCase<ShieldProf>
 {
 
 	static ShieldProfToken subtoken = new ShieldProfToken();
@@ -81,7 +81,7 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 	}
 
 	@Override
-	protected ChooseResultActor getActor()
+	protected ChooseSelectionActor<ShieldProf> getActor()
 	{
 		return subtoken;
 	}
