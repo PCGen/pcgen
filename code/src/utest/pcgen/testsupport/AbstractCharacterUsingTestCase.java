@@ -43,6 +43,15 @@ import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
+/*
+ * Differs from code/src/test AbstractCharacterTestCase in that this does not
+ * attempt to load all plugins (trying to be light weight)
+ * 
+ * In fact, use of this class can be seen as a weakness of the design of the
+ * class/interface requiring the use of PlayerCharacter where the module being
+ * tested in a utest environment should probably not be dependent on
+ * PlayerCharacter in a fully isolated system
+ */
 public class AbstractCharacterUsingTestCase extends TestCase {
 
 	protected PCStat str;
