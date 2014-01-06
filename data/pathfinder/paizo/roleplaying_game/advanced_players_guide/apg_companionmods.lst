@@ -129,12 +129,6 @@ FOLLOWER:EidolonAspect=1	TYPE:Eidolon																																				BONUS:A
 FOLLOWER:EidolonAspect=2	TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|-1
 FOLLOWER:EidolonAspect=3	TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|-1
 
-#FOLLOWER:EidolonLVL=1		TYPE:Eidolon																								DEFINE:EidolonAspect|0									BONUS:ABILITYPOOL|Eidolon Evolution|-var("EidolonAspect")
-
-#FOLLOWER:EidolonAspect=1	TYPE:Eidolon																																																																								BONUS:VAR|EidolonAspect|1
-#FOLLOWER:EidolonAspect=2	TYPE:Eidolon																																																																								BONUS:VAR|EidolonAspect|1
-#FOLLOWER:EidolonAspect=3	TYPE:Eidolon																																																																								BONUS:VAR|EidolonAspect|1
-
 # Base Eidolon
 FOLLOWER:EidolonLVL=1		TYPE:Eidolon							ABILITY:Special Ability|AUTOMATIC|Link~Eidolon|Share Spells~Eidolon						DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4																								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
 FOLLOWER:EidolonLVL=2		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Evasion																							BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
