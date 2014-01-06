@@ -24,6 +24,7 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -108,9 +109,18 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		context.ref.constructCDOMObject(Language.class, "Foo");
 		context.ref.constructCDOMObject(Language.class, "Bar");
 		context.ref.constructCDOMObject(Language.class, "Goo");
+		context.ref.constructCDOMObject(Language.class, "Wow");
+		context.ref.constructCDOMObject(Language.class, "Rev");
+		AbilityCategory ff = context.ref.constructCDOMObject(AbilityCategory.class, "Fighter Feat");
+		ff.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
+		AbilityCategory oc = context.ref.constructCDOMObject(AbilityCategory.class, "Some Other Category");
+		Ability badCA = context.ref.constructCDOMObject(Ability.class, "ChooseAbility");
+		context.ref.reassociateCategory(oc, badCA);
 		try {
-			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo"));
+			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(item, "MULT", "Yes"));
+			assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
+			assertTrue(context.processToken(badCA, "MULT", "Yes"));
 			assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
 		} catch (PersistenceLayerException e) {
 			e.printStackTrace();
@@ -119,28 +129,67 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		PlayerCharacter pc = new PlayerCharacter();
 		finishLoad(context);
 		
+		CategorizedAbilitySelection badCACAS = new CategorizedAbilitySelection(oc,
+			badCA, Nature.AUTOMATIC, "Foo");
 		CategorizedAbilitySelection fooCAS = new CategorizedAbilitySelection(AbilityCategory.FEAT,
 				item, Nature.AUTOMATIC, "Foo");
 		CategorizedAbilitySelection barCAS = new CategorizedAbilitySelection(AbilityCategory.FEAT,
 				item, Nature.VIRTUAL, "Bar");
 		CategorizedAbilitySelection gooCAS = new CategorizedAbilitySelection(AbilityCategory.FEAT,
 				item, Nature.NORMAL, "Goo");
+		CategorizedAbilitySelection wowCAS =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
+					Nature.NORMAL, "Wow");
+		CategorizedAbilitySelection wowFFCAS = new CategorizedAbilitySelection(ff,
+			item, Nature.NORMAL, "Wow");
+		CategorizedAbilitySelection revCAS =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
+					Nature.NORMAL, "Rev");
+		CategorizedAbilitySelection revFFCAS = new CategorizedAbilitySelection(ff,
+			item, Nature.NORMAL, "Rev");
 		
 		assertTrue(pca.allow(fooCAS, pc, false));
 		assertTrue(pca.allow(barCAS, pc, false));
 		assertTrue(pca.allow(gooCAS, pc, false));
+		assertTrue(pca.allow(wowCAS, pc, false));
+		assertTrue(pca.allow(revFFCAS, pc, false));
+		pc.applyAbility(badCACAS);
+		//Should have had no effect
+		assertTrue(pca.allow(fooCAS, pc, false));
+		assertTrue(pca.allow(barCAS, pc, false));
+		assertTrue(pca.allow(gooCAS, pc, false));
+		assertTrue(pca.allow(wowCAS, pc, false));
+		assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(fooCAS);
 		assertFalse(pca.allow(fooCAS, pc, false));
 		assertTrue(pca.allow(barCAS, pc, false));
 		assertTrue(pca.allow(gooCAS, pc, false));
+		assertTrue(pca.allow(wowCAS, pc, false));
+		assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(barCAS);
 		assertFalse(pca.allow(fooCAS, pc, false));
 		assertFalse(pca.allow(barCAS, pc, false));
 		assertTrue(pca.allow(gooCAS, pc, false));
+		assertTrue(pca.allow(wowCAS, pc, false));
+		assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(gooCAS);
 		assertFalse(pca.allow(fooCAS, pc, false));
 		assertFalse(pca.allow(barCAS, pc, false));
 		assertFalse(pca.allow(gooCAS, pc, false));
+		assertTrue(pca.allow(wowCAS, pc, false));
+		assertTrue(pca.allow(revFFCAS, pc, false));
+		pc.applyAbility(wowFFCAS);
+		assertFalse(pca.allow(fooCAS, pc, false));
+		assertFalse(pca.allow(barCAS, pc, false));
+		assertFalse(pca.allow(gooCAS, pc, false));
+		assertFalse(pca.allow(wowCAS, pc, false));
+		assertTrue(pca.allow(revFFCAS, pc, false));
+		pc.applyAbility(revCAS);
+		assertFalse(pca.allow(fooCAS, pc, false));
+		assertFalse(pca.allow(barCAS, pc, false));
+		assertFalse(pca.allow(gooCAS, pc, false));
+		assertFalse(pca.allow(wowCAS, pc, false));
+		assertFalse(pca.allow(revFFCAS, pc, false));
 	}
 
 	protected Ability construct(String one)
