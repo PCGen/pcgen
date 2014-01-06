@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,6 +36,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
+import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.LastGroupSeparator;
@@ -144,10 +146,8 @@ public class AbilityUtilities
 		}
 		else
 		{
-			if (canAddAssociation(aPC, ability, choice))
-			{
-				aPC.addAssociation(ability, choice);
-			}
+			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(ability, aPC);
+			add(cm, aPC, ability, choice);
 		}
 
 		/* 
@@ -195,6 +195,13 @@ public class AbilityUtilities
 			aPC.calcActiveBonuses();
 			aPC.refreshSkillList();
 		}
+	}
+
+	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.applyChoice(pc, obj, sel);
 	}
 
 	public static void adjustPool(final Ability ability,

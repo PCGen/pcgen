@@ -27,9 +27,12 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.choose.StringToken;
 
 /**
  * The Class <code>Gui2InfoFactoryTest</code> verifies the operation of the 
@@ -58,7 +61,11 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		Ability choiceAbility =
 				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT,
 					"General");
-		choiceAbility.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		choiceAbility.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		StringToken st = new plugin.lsttokens.choose.StringToken();
+		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
+		assertTrue(pr.passed());
+		Globals.getContext().commit();
 		Ability pcAbility =
 				pc.addAbilityNeedCheck(AbilityCategory.FEAT, choiceAbility);
 		AbilityUtilities.finaliseAbility(pcAbility, "Perception", pc,
@@ -68,7 +75,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 
 		AbilityUtilities.finaliseAbility(pcAbility, "Acrobatics", pc,
 			AbilityCategory.FEAT);
-		assertEquals("Incorrect multiple choice", "Perception,Acrobatics",
+		assertEquals("Incorrect multiple choice", "Perception, Acrobatics",
 			ca.getChoices(pcAbility));
 	}
 	

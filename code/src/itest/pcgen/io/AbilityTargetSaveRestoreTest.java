@@ -19,8 +19,6 @@ package pcgen.io;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -104,13 +102,5 @@ public class AbilityTargetSaveRestoreTest extends
 	{
 		return false;
 	}
-
-	@Override
-	@Test
-	public void testAddTemplate()
-	{
-		//CODE-2016 Ignore as known to be not symmetric yet :P
-	}
-	
 	
 }

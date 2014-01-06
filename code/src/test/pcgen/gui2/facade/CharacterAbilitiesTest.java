@@ -29,12 +29,15 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.choose.StringToken;
 
 /**
  * The Class <code>CharacterAbilitiesTest</code> verifies the operation of the 
@@ -97,7 +100,11 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		
 		// Add an entry - note rebuild is implicit
 		Ability reading = TestHelper.makeAbility("reading", AbilityCategory.FEAT, "interest");
-		reading.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		reading.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
+		StringToken st = new plugin.lsttokens.choose.StringToken();
+		ParseResult pr = st.parseToken(Globals.getContext(), reading, "STRING|Magazines|Books");
+		assertTrue(pr.passed());
+		Globals.getContext().commit();
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, reading);
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());

@@ -454,7 +454,10 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertTrue(reloadedPC.hasTemplate(granted));
 		remove(o);
 		reloadedPC.setDirty(true);
-		assertFalse(reloadedPC.hasTemplate(granted));
+		if (isSymmetric())
+		{
+			assertFalse(reloadedPC.hasTemplate(granted));
+		}
 	}
 
 	@Test

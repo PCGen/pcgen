@@ -1106,7 +1106,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));
 		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor(str, true, false));
 
-		AbilityUtilities.modAbility(pc, strBonusAbility, "Strength power up", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(pc, strBonusAbility, null, AbilityCategory.FEAT);
 		pc.calcActiveBonuses();
 
 		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor(str, false, false));

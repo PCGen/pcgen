@@ -3095,7 +3095,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					.getSafe(ObjectKey.STACKS))
 					|| !thePC.containsAssociated(aFeat, appliedToKey))
 				{
-					thePC.addAssociation(aFeat, appliedToKey);
+					ChoiceManagerList<Object> controller =
+							ChooserUtilities.getConfiguredController(aFeat,
+								thePC, AbilityCategory.FEAT, new ArrayList<String>());
+					if (controller != null)
+					{
+						String[] assoc =
+								appliedToKey.split(Constants.COMMA, -1);
+						for (String string : assoc)
+						{
+							controller.restoreChoice(thePC, aFeat, string);
+						}
+					}
+					else
+					{
+						warnings
+							.add("Failed to find choose controller for Feat "
+								+ aFeat);
+					}
 				}
 			}
 			else if (TAG_SAVE.equals(tag))
