@@ -22,7 +22,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -92,8 +91,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	@Override
 	public Domain decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			DOMAIN_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, s);
 	}
 
 	@Override

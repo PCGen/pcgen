@@ -20,7 +20,6 @@ package plugin.lsttokens.choose;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.ArmorProf;
-import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -49,8 +48,7 @@ public class ArmorProficiencyToken extends
 	@Override
 	public ArmorProf decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				ARMORPROF_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, s);
 	}
 
 	@Override

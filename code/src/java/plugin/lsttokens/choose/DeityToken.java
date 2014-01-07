@@ -20,7 +20,6 @@ package plugin.lsttokens.choose;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Deity;
-import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -48,8 +47,7 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	@Override
 	public Deity decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				DEITY_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(DEITY_CLASS, s);
 	}
 
 	@Override

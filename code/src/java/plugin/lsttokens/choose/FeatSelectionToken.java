@@ -36,7 +36,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -261,7 +260,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
 		Ability ability =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				context.ref.silentlyGetConstructedCDOMObject(
 					Ability.class, AbilityCategory.FEAT, s);
 
 		if (ability == null)
@@ -269,7 +268,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			List<String> choices = new ArrayList<String>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 			ability =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					context.ref.silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, baseKey);
 			if (ability == null)
 			{

@@ -36,7 +36,6 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.ParsingSeparator;
@@ -192,7 +191,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public PCTemplate decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return context.ref.silentlyGetConstructedCDOMObject(
 				PCTEMPLATE_CLASS, s);
 	}
 

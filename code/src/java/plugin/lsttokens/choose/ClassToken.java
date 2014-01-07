@@ -20,7 +20,6 @@ package plugin.lsttokens.choose;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SubClassCategory;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
@@ -61,14 +60,14 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 		if (dotLoc == -1)
 		{
 			// Primitive
-			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
+			return context.ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
 		}
 
 		// SubClass
 		String parent = s.substring(0, dotLoc);
 		String subclass = s.substring(dotLoc + 1);
 		SubClassCategory scc = SubClassCategory.getConstant(parent);
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(SUBCLASS_CLASS, scc,
+		return context.ref.silentlyGetConstructedCDOMObject(SUBCLASS_CLASS, scc,
 				subclass);
 	}
 

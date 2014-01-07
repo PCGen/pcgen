@@ -36,7 +36,6 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -226,8 +225,7 @@ public class SkillToken extends AbstractToken implements
 	@Override
 	public Skill decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				SKILL_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
 	}
 
 	@Override

@@ -298,8 +298,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		String ab = st.nextToken();
 		Ability a =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Ability.class, ac, ab);
+				context.ref.silentlyGetConstructedCDOMObject(Ability.class, ac,
+					ab);
 		if (a == null)
 		{
 			throw new IllegalArgumentException(

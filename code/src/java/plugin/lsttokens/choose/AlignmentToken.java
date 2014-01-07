@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.AbbreviatedCreator;
@@ -53,8 +52,7 @@ public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 	@Override
 	public PCAlignment decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.getAbbreviatedObject(PCALIGNMENT_CLASS,
-				s);
+		return context.ref.getAbbreviatedObject(PCALIGNMENT_CLASS, s);
 	}
 
 	@Override

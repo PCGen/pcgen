@@ -563,15 +563,16 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		// load weapon profs first
 		wProfLoader.loadLstFiles(context, weaponProfFileList);
-		WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class,
-																				  "Unarmed Strike");
+		WeaponProf wp =
+				context.ref.silentlyGetConstructedCDOMObject(WeaponProf.class,
+					"Unarmed Strike");
 		if (wp == null)
 		{
 			wp = new WeaponProf();
 			wp.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
 			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
-			Globals.getContext().ref.importObject(wp);
+			context.ref.importObject(wp);
 		}
 
 		aProfLoader.loadLstFiles(context, armorProfFileList);

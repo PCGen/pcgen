@@ -20,7 +20,6 @@ package plugin.lsttokens.choose;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -48,8 +47,7 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	@Override
 	public Equipment decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				EQUIPMENT_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, s);
 	}
 
 	@Override

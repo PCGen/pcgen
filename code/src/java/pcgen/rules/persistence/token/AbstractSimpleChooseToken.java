@@ -38,7 +38,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.ChoiceSetLoadUtilities;
@@ -268,7 +267,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	@Override
 	public T decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return context.ref.silentlyGetConstructedCDOMObject(
 			getChooseClass(), s);
 	}
 

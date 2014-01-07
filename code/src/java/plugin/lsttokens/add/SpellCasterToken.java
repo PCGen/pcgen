@@ -38,7 +38,6 @@ import pcgen.cdom.choiceset.SpellCasterChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMGroupRef;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusAddition;
@@ -271,8 +270,7 @@ public class SpellCasterToken extends AbstractToken implements
 	@Override
 	public PCClass decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				PCCLASS_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
 	}
 
 	@Override
