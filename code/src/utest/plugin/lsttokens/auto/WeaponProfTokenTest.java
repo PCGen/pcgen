@@ -33,12 +33,11 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractAutoSelectionTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreWeaponProfParser;
 
-public class WeaponProfTokenTest extends
-		AbstractAutoSelectionTokenTestCase<WeaponProf>
+public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 {
 
 	static WeaponProfToken subtoken = new WeaponProfToken();

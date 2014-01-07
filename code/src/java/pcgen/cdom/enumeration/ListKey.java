@@ -32,7 +32,6 @@ import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
@@ -230,7 +229,6 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Race>> SERVES_AS_RACE = new ListKey<CDOMReference<Race>>();
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
-	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
 	public static final ListKey<ChooseSelectionActor<?>> DF_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<ChooseSelectionActor<?>> GVF_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<WeaponProfProvider> WEAPONPROF = new ListKey<WeaponProfProvider>();

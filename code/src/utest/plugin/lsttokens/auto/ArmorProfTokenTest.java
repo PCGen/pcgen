@@ -35,9 +35,9 @@ import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractAutoSelectionTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
-public class ArmorProfTokenTest extends AbstractAutoSelectionTokenTestCase<ArmorProf>
+public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 {
 
 	static ArmorProfToken subtoken = new ArmorProfToken();

@@ -35,9 +35,9 @@ import pcgen.core.ShieldProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractAutoSelectionTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
-public class ShieldProfTokenTest extends AbstractAutoSelectionTokenTestCase<ShieldProf>
+public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 {
 
 	static ShieldProfToken subtoken = new ShieldProfToken();

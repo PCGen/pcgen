@@ -28,10 +28,10 @@ import pcgen.core.Language;
 import pcgen.core.QualifiedObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.testsupport.AbstractAutoSelectionTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class LangTokenTest extends AbstractAutoSelectionTokenTestCase<Language> {
+public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 
 	static LangToken subtoken = new LangToken();
 
