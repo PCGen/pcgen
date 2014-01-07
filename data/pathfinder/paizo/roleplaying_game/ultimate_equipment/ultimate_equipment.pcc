@@ -50,7 +50,8 @@ EQUIPMENT:ue_equip_general.lst
 EQUIPMENT:ue_equip_magic_items.lst
 EQUIPMOD:ue_equipmods.lst
 KIT:ue_kits.lst
-SPELL:ue_spells.lst
+# ue_spells.lst only required if UC is not loaded - it avoids a dependency there
+SPELL:ue_spells.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 TEMPLATE:ue_templates.lst
 
 ARMORPROF:ue_profs_armor.lst
