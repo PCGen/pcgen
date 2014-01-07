@@ -527,7 +527,7 @@ Exotic Weapon Proficiency.MOD																																																			
 
 ###Block: Support Feat
 # Feat Name			Visible		Required Ability									Required Feat																	Multiple?	Choose			Automatically Gained Feat
-Gundarme Bonus Feat	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Archetype,Cavalier Archetype ~ Gundarme	PREFEAT:7,Improved Bull Rush,Mounted Combat,Power Attack,Ride-By Attack,Spirited Charge,Spring Attack,Unseat	MULT:YES	CHOOSE:FEAT|TYPE=Combat	AUTO:FEAT|%LIST
+Gundarme Bonus Feat	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Archetype,Cavalier Archetype ~ Gundarme	PREFEAT:7,Improved Bull Rush,Mounted Combat,Power Attack,Ride-By Attack,Spirited Charge,Spring Attack,Unseat	MULT:YES	CHOOSE:FEATSELECTION|TYPE=Combat	AUTO:FEAT|%LIST
 
 
 ###Block: Wounds and Vigor Variant Feats
