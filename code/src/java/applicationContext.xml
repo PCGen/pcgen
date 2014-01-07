@@ -207,6 +207,7 @@
 		<property name="deityFacet" ref="deityFacet"/>
 	</bean>
 	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
+	<bean id="directAbilityInputFacet" class="pcgen.cdom.facet.DirectAbilityInputFacet" />
 	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet">
 		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
 	</bean>

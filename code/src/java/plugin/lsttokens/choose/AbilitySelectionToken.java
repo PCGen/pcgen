@@ -32,10 +32,10 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -54,7 +54,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<CategorizedAbilitySelection>
+		PersistentChoiceActor<AbilitySelection>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
 			AbilityCategory.class;
@@ -175,7 +175,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection st,
+	public void applyChoice(CDOMObject owner, AbilitySelection st,
 		PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -183,7 +183,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		AbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors =
@@ -200,7 +200,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
@@ -216,14 +216,14 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(AbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -277,57 +277,20 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<CategorizedAbilitySelection> getListKey()
+	protected AssociationListKey<AbilitySelection> getListKey()
 	{
-		return AssociationListKey.getKeyFor(CategorizedAbilitySelection.class, "CHOOSE*ABILITYSELECTION");
+		return AssociationListKey.getKeyFor(AbilitySelection.class, "CHOOSE*ABILITYSELECTION");
 	}
 
 	// TODO - code below here needs to be made category aware
 	@Override
-	public CategorizedAbilitySelection decodeChoice(LoadContext context, String s)
+	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
-//		Ability ability = Globals.getContext().ref
-//				.silentlyGetConstructedCDOMObject(Ability.class,
-//						AbilityCategory.FEAT, s);
-//
-//		if (ability == null)
-//		{
-//			List<String> choices = new ArrayList<String>();
-//			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-//			ability = Globals.getContext().ref
-//					.silentlyGetConstructedCDOMObject(Ability.class,
-//							AbilityCategory.FEAT, baseKey);
-//			if (ability == null)
-//			{
-//				throw new IllegalArgumentException("String in decodeChoice "
-//						+ "must be a Feat Key "
-//						+ "(or Feat Key with Selection if appropriate), was: "
-//						+ s);
-//			}
-//			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
-//				ability, Nature.NORMAL, choices.get(0));
-//		}
-//		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-//		{
-//			/*
-//			 * MULT:YES, CHOOSE:NOCHOICE can land here
-//			 * 
-//			 * TODO There needs to be better validation at some point that this
-//			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
-//			 */
-//			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
-//				ability, Nature.NORMAL, "");
-//		}
-//		else
-//		{
-//			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
-//				ability, Nature.NORMAL);
-//		}
+		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
 	@Override
-	public String encodeChoice(CategorizedAbilitySelection choice)
+	public String encodeChoice(AbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}

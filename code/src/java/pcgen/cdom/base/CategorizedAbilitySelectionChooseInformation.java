@@ -23,7 +23,7 @@
 package pcgen.cdom.base;
 
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.core.Ability;
 
 /**
@@ -34,7 +34,7 @@ import pcgen.core.Ability;
  * @version $Revision$
  */
 public class CategorizedAbilitySelectionChooseInformation extends
-		BasicChooseInformation<CategorizedAbilitySelection>
+		BasicChooseInformation<AbilitySelection>
 {
 
 	private CollectionToAbilitySelection casChoiceSet;

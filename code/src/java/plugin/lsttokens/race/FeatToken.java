@@ -191,7 +191,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 						AbilityTargetSelector ats = new AbilityTargetSelector(
 								getTokenName(), AbilityCategory.FEAT, ref,
 								Nature.AUTOMATIC);
-						context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, ats);
+						context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, ats);
 						loadList = false;
 					}
 				}

@@ -61,6 +61,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
@@ -99,6 +100,7 @@ import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet;
 import pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
+import pcgen.cdom.facet.DirectAbilityInputFacet;
 import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
@@ -381,6 +383,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
+	private DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
@@ -11668,5 +11671,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public List<? extends CategorizedAbilitySelection> getTemplateFeatList(CDOMObject template)
 	{
 		return templateFeatFacet.getSet(id, template);
+	}
+
+	public void addAppliedAbility(CDOMObject owner, Category<Ability> category,
+		Nature nature, AbilitySelection cas)
+	{
+		directAbilityInputFacet.add(id, owner, category, nature, cas);
+	}
+
+	public void removeAppliedAbility(CDOMObject owner,
+		Category<Ability> category, Nature nature, AbilitySelection cas)
+	{
+		directAbilityInputFacet.remove(id, owner, category, nature, cas);
 	}
 }

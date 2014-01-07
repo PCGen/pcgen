@@ -25,7 +25,7 @@ import java.util.StringTokenizer;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -148,7 +148,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 		AssociatedChanges<CDOMReference<Ability>> changes = context
 				.getListContext().getChangesInList(getTokenName(), domain,
 						Ability.FEATLIST);
-		Changes<ChooseResultActor> actors = context.getObjectContext()
+		Changes<ChooseSelectionActor<?>> actors = context.getObjectContext()
 				.getListChanges(domain, ListKey.DF_CHOOSE_ACTOR);
 		MapToList<CDOMReference<Ability>, AssociatedPrereqObject> added = changes
 				.getAddedAssociations();
@@ -188,10 +188,10 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 				}
 			}
 		}
-		Collection<ChooseResultActor> addedActors = actors.getAdded();
+		Collection<ChooseSelectionActor<?>> addedActors = actors.getAdded();
 		if (addedActors != null)
 		{
-			for (ChooseResultActor cra : addedActors)
+			for (ChooseSelectionActor<?> cra : addedActors)
 			{
 				if (getTokenName().equals(cra.getSource()))
 				{
@@ -232,7 +232,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 	@Override
 	public boolean process(LoadContext context, Domain domain)
 	{
-		domain.addAllToListFor(ListKey.CHOOSE_ACTOR,
+		domain.addAllToListFor(ListKey.NEW_CHOOSE_ACTOR,
 			domain.getListFor(ListKey.DF_CHOOSE_ACTOR));
 		return true;
 	}

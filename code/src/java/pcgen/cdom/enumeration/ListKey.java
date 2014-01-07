@@ -231,8 +231,8 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<PCClass>> SERVES_AS_CLASS = new ListKey<CDOMReference<PCClass>>();
 	public static final ListKey<CDOMReference<Ability>> SERVES_AS_ABILITY = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseResultActor> CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
-	public static final ListKey<ChooseResultActor> DF_CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
-	public static final ListKey<ChooseResultActor> GVF_CHOOSE_ACTOR = new ListKey<ChooseResultActor>();
+	public static final ListKey<ChooseSelectionActor<?>> DF_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
+	public static final ListKey<ChooseSelectionActor<?>> GVF_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<WeaponProfProvider> WEAPONPROF = new ListKey<WeaponProfProvider>();
 	public static final ListKey<CDOMSingleRef<WeaponProf>> IMPLIED_WEAPONPROF = new ListKey<CDOMSingleRef<WeaponProf>>();
 	public static final ListKey<QualifiedObject<CDOMReference<Equipment>>> EQUIPMENT = new ListKey<QualifiedObject<CDOMReference<Equipment>>>();
@@ -262,7 +262,7 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Ability>> FEAT_TOKEN_LIST = new ListKey<CDOMReference<Ability>>();
 	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<KitStat> STAT_LIST = new ListKey<KitStat>();
-	public static final ListKey<ListKey<ChooseResultActor>> GA_CAKEYS = new ListKey<ListKey<ChooseResultActor>>();
+	public static final ListKey<ListKey<ChooseSelectionActor<?>>> GA_CAKEYS = new ListKey<ListKey<ChooseSelectionActor<?>>>();
 	public static final ListKey<String> MONSTER_ROLES = new ListKey<String>();
 
 	//These are case sensitive, please do not change them to upper case

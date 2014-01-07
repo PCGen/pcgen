@@ -262,7 +262,7 @@ public abstract class LoadContext
 		return support.processToken(this, derivative, typeStr, argument);
 	}
 	
-	public <T extends CDOMObject> void unconditionallyProcess(T cdo, String key, String value)
+	public <T extends Loadable> void unconditionallyProcess(T cdo, String key, String value)
 	{
 		try
 		{

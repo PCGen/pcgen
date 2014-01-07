@@ -101,6 +101,7 @@ public class FacetInitialization {
 		EquipmentConsolidationFacet eqObjectFacet = FacetLibrary.getFacet(EquipmentConsolidationFacet.class);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
+		DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 		OldChooseCleanupFacet occFacet = FacetLibrary.getFacet(OldChooseCleanupFacet.class);
 
@@ -121,6 +122,7 @@ public class FacetInitialization {
 		levelFacet.addLevelChangeListener(sizeFacet);
 
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
+		directAbilityInputFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
 		raceSelectionFacet.addDataFacetChangeListener(-1000, occFacet);

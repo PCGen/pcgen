@@ -19,11 +19,13 @@ package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -36,8 +38,8 @@ import pcgen.persistence.PersistenceLayerException;
  * This is generally used as the storage container when a selection has been
  * made from a token like ADD:FEAT
  */
-public class AbilityTargetSelector extends ConcretePrereqObject implements
-		QualifyingObject, ChooseResultActor
+public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
+		QualifyingObject, ChooseSelectionActor<T>
 {
 
 	private final String source;
@@ -159,10 +161,19 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
+	public void applyChoice(CDOMObject obj, T choice, PlayerCharacter pc)
 	{
+		Ability ab = ability.resolvesTo();
+		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
+		detailedApply(obj, ci, choice, pc);
+	}
+	
+	private <T> void detailedApply(CDOMObject obj, ChooseInformation<T> ci,
+		T choice, PlayerCharacter pc)
+	{
+		String string = ci.encodeChoice(choice);
 		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
-				obj, category, ability.resolvesTo(), nature, choice);
+				obj, category, ability.resolvesTo(), nature, string);
 		pc.addAppliedAbility(appliedSelection);
 	}
 
@@ -179,13 +190,22 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
+	public void removeChoice(CDOMObject obj, T choice, PlayerCharacter pc)
 	{
-		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
-				obj, category, ability.resolvesTo(), nature, choice);
-		pc.removeAppliedAbility(appliedSelection);
+		Ability ab = ability.resolvesTo();
+		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
+		detailedRemove(obj, ci, choice, pc);
 	}
 	
+	private <T> void detailedRemove(CDOMObject obj, ChooseInformation<T> ci,
+		T choice, PlayerCharacter pc)
+	{
+		String string = ci.encodeChoice(choice);
+		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
+				obj, category, ability.resolvesTo(), nature, string);
+		pc.removeAppliedAbility(appliedSelection);
+	}
+
 	@Override
 	public int hashCode()
 	{
@@ -204,5 +224,10 @@ public class AbilityTargetSelector extends ConcretePrereqObject implements
 					&& nature.equals(other.nature);
 		}
 		return false;
+	}
+
+	public Class<T> getChoiceClass()
+	{
+		return (Class<T>) ability.resolvesTo().get(ObjectKey.CHOOSE_INFO).getClassIdentity().getChoiceClass();
 	}
 }

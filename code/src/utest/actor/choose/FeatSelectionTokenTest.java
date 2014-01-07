@@ -24,16 +24,17 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.choose.FeatSelectionToken;
+import plugin.lsttokens.choose.StringToken;
 
 public class FeatSelectionTokenTest extends TestCase
 {
@@ -58,16 +59,18 @@ public class FeatSelectionTokenTest extends TestCase
 	public void testEncodeChoice()
 	{
 		Ability item = construct("ItemName");
-		CategorizedAbilitySelection as =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
-					Nature.NORMAL);
+		AbilitySelection as = new AbilitySelection(item, null);
 		assertEquals("ItemName", pca.encodeChoice(as));
 		Ability paren = construct("ParenName (test)");
-		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, paren, Nature.NORMAL);
+		as = new AbilitySelection(paren, null);
 		assertEquals("ParenName (test)", pca.encodeChoice(as));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, sel, Nature.NORMAL, "selection");
+		StringToken st = new plugin.lsttokens.choose.StringToken();
+		ParseResult pr = st.parseToken(Globals.getContext(), sel, "selection|Acrobatics");
+		assertTrue(pr.passed());
+		Globals.getContext().commit();
+		as = new AbilitySelection(sel, "selection");
 		assertEquals("ChooseName(selection)", pca.encodeChoice(as));
 	}
 
@@ -84,16 +87,18 @@ public class FeatSelectionTokenTest extends TestCase
 			// OK
 		}
 		Ability item = construct("ItemName");
-		CategorizedAbilitySelection as =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
-					Nature.NORMAL);
+		AbilitySelection as = new AbilitySelection(item, null);
 		assertEquals(as, pca.decodeChoice(context, "ItemName"));
 		Ability paren = construct("ParenName (test)");
-		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, paren, Nature.NORMAL);
+		as = new AbilitySelection(paren, null);
 		assertEquals(as, pca.decodeChoice(context, "ParenName (test)"));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, sel, Nature.NORMAL, "selection");
+		StringToken st = new plugin.lsttokens.choose.StringToken();
+		ParseResult pr = st.parseToken(Globals.getContext(), sel, "selection|Acrobatics");
+		assertTrue(pr.passed());
+		Globals.getContext().commit();
+		as = new AbilitySelection(sel, "selection");
 		assertEquals(as, pca.decodeChoice(context, "ChooseName(selection)"));
 	}
 

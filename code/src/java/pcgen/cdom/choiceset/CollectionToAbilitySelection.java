@@ -29,17 +29,16 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.base.PrimitiveFilter;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChooserUtilities;
 
 public class CollectionToAbilitySelection implements
-		PrimitiveChoiceSet<CategorizedAbilitySelection>
+		PrimitiveChoiceSet<AbilitySelection>
 {
 	private final PrimitiveCollection<Ability> collection;
 	
@@ -62,9 +61,9 @@ public class CollectionToAbilitySelection implements
 	}
 
 	@Override
-	public Class<? super CategorizedAbilitySelection> getChoiceClass()
+	public Class<? super AbilitySelection> getChoiceClass()
 	{
-		return CategorizedAbilitySelection.class;
+		return AbilitySelection.class;
 	}
 
 	@Override
@@ -80,7 +79,7 @@ public class CollectionToAbilitySelection implements
 	}
 
 	@Override
-	public Collection<CategorizedAbilitySelection> getSet(PlayerCharacter pc)
+	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
 	{
 		return collection.getCollection(pc, new ExpandingConverter(pc, category));
 	}
@@ -118,7 +117,7 @@ public class CollectionToAbilitySelection implements
 	}
 
 	public static class ExpandingConverter implements
-			Converter<Ability, CategorizedAbilitySelection>
+			Converter<Ability, AbilitySelection>
 	{
 
 		private final PlayerCharacter character;
@@ -132,9 +131,9 @@ public class CollectionToAbilitySelection implements
 		}
 
 		@Override
-		public Collection<CategorizedAbilitySelection> convert(CDOMReference<Ability> ref)
+		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref)
 		{
-			Set<CategorizedAbilitySelection> returnSet = new HashSet<CategorizedAbilitySelection>();
+			Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
 			for (Ability a : ref.getContainedObjects())
 			{
 				processAbility(ref, returnSet, a);
@@ -143,7 +142,7 @@ public class CollectionToAbilitySelection implements
 		}
 
 		private void processAbility(CDOMReference<Ability> ref,
-				Set<CategorizedAbilitySelection> returnSet, Ability a)
+				Set<AbilitySelection> returnSet, Ability a)
 		{
 			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
@@ -152,15 +151,15 @@ public class CollectionToAbilitySelection implements
 			}
 			else
 			{
-				returnSet.add(new CategorizedAbilitySelection(category, a, Nature.NORMAL));
+				returnSet.add(new AbilitySelection(a, null));
 			}
 		}
 
 		@Override
-		public Collection<CategorizedAbilitySelection> convert(CDOMReference<Ability> ref,
+		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref,
 				PrimitiveFilter<Ability> lim)
 		{
-			Set<CategorizedAbilitySelection> returnSet = new HashSet<CategorizedAbilitySelection>();
+			Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
 			for (Ability a : ref.getContainedObjects())
 			{
 				if (lim.allow(character, a))
@@ -171,7 +170,7 @@ public class CollectionToAbilitySelection implements
 			return returnSet;
 		}
 
-		private Collection<CategorizedAbilitySelection> addMultiplySelectableAbility(
+		private Collection<AbilitySelection> addMultiplySelectableAbility(
 				final PlayerCharacter aPC, Ability ability, String subName)
 		{
 			// If already have taken the feat, use it so we can remove
@@ -251,12 +250,11 @@ public class CollectionToAbilitySelection implements
 				}
 			}
 
-			List<CategorizedAbilitySelection> returnList = new ArrayList<CategorizedAbilitySelection>(
+			List<AbilitySelection> returnList = new ArrayList<AbilitySelection>(
 					availableList.size());
 			for (String s : availableList)
 			{
-				returnList
-						.add(new CategorizedAbilitySelection(category, pcability, Nature.NORMAL, s));
+				returnList.add(new AbilitySelection(pcability, s));
 			}
 			return returnList;
 		}

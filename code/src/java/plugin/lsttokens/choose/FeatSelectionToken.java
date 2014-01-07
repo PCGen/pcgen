@@ -1,19 +1,19 @@
 /*
  * Copyright 2007 (C) Thomas Parker <thpr@users.sourceforge.net>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package plugin.lsttokens.choose;
 
@@ -28,11 +28,10 @@ import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -49,7 +48,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<CategorizedAbilitySelection>
+		PersistentChoiceActor<AbilitySelection>
 {
 
 	@Override
@@ -87,8 +86,9 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 				}
 				if (title == null || title.length() == 0)
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+					return new ParseResult.Fail(
+						getParentToken() + ":" + getTokenName()
+							+ " had TITLE= but no title: " + value, context);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -99,7 +99,8 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 
-		PrimitiveCollection<Ability> prim = context.getChoiceSet(rm, activeValue);
+		PrimitiveCollection<Ability> prim =
+				context.getChoiceSet(rm, activeValue);
 		if (prim == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
@@ -109,11 +110,11 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			return new ParseResult.Fail("Non-sensical " + getFullName()
 				+ ": Contains ANY and a specific reference: " + value, context);
 		}
-		PrimitiveChoiceSet<CategorizedAbilitySelection> pcs =
+		PrimitiveChoiceSet<AbilitySelection> pcs =
 				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
-		BasicChooseInformation<CategorizedAbilitySelection> tc =
-				new BasicChooseInformation<CategorizedAbilitySelection>(getTokenName(),
-					pcs);
+		BasicChooseInformation<AbilitySelection> tc =
+				new BasicChooseInformation<AbilitySelection>(
+					getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -164,7 +165,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection st,
+	public void applyChoice(CDOMObject owner, AbilitySelection st,
 		PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
@@ -172,7 +173,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		AbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors =
@@ -189,7 +190,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
@@ -205,14 +206,15 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
+		boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -233,8 +235,9 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	public ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		return parseTokenWithSeparator(context, context.ref.getManufacturer(
-			ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
+		return parseTokenWithSeparator(context,
+			context.ref.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT),
+			obj, value);
 	}
 
 	@Override
@@ -248,34 +251,33 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<CategorizedAbilitySelection> getListKey()
+	protected AssociationListKey<AbilitySelection> getListKey()
 	{
-		return AssociationListKey.getKeyFor(CategorizedAbilitySelection.class, "CHOOSE*FEATSELECTION");
+		return AssociationListKey.getKeyFor(AbilitySelection.class,
+			"CHOOSE*FEATSELECTION");
 	}
 
 	@Override
-	public CategorizedAbilitySelection decodeChoice(LoadContext context, String s)
+	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		Ability ability = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, s);
+		Ability ability =
+				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Ability.class, AbilityCategory.FEAT, s);
 
 		if (ability == null)
 		{
 			List<String> choices = new ArrayList<String>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-			ability = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, baseKey);
+			ability =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, AbilityCategory.FEAT, baseKey);
 			if (ability == null)
 			{
 				throw new IllegalArgumentException("String in decodeChoice "
-						+ "must be a Feat Key "
-						+ "(or Feat Key with Selection if appropriate), was: "
-						+ s);
+					+ "must be a Feat Key "
+					+ "(or Feat Key with Selection if appropriate), was: " + s);
 			}
-			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
-				ability, Nature.NORMAL, choices.get(0));
+			return new AbilitySelection(ability, choices.get(0));
 		}
 		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
@@ -285,20 +287,27 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			 * TODO There needs to be better validation at some point that this
 			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
 			 */
-			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
-				ability, Nature.NORMAL, "");
+			return new AbilitySelection(ability, "");
 		}
 		else
 		{
-			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
-				ability, Nature.NORMAL);
+			return new AbilitySelection(ability, null);
 		}
 	}
 
 	@Override
-	public String encodeChoice(CategorizedAbilitySelection choice)
+	public String encodeChoice(AbilitySelection choice)
 	{
-		return choice.getFullAbilityKey();
+		Ability ability = choice.getObject();
+		StringBuilder sb = new StringBuilder();
+		sb.append(ability.getKeyName());
+		String selection = choice.getSelection();
+		if (selection != null && selection.length() > 0)
+		{
+			sb.append('(');
+			sb.append(selection);
+			sb.append(')');
+		}
+		return sb.toString();
 	}
-
 }

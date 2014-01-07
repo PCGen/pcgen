@@ -17,22 +17,15 @@
  */
 package pcgen.cdom.helper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
@@ -43,7 +36,7 @@ import pcgen.persistence.PersistenceLayerException;
  * made from a token like ADD:FEAT
  */
 public class AbilitySelector extends ConcretePrereqObject implements
-		QualifyingObject, ChooseResultActor
+		QualifyingObject, ChooseSelectionActor<AbilitySelection>
 {
 
 	private final String source;
@@ -97,9 +90,10 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String choice)
+	public void applyChoice(CDOMObject obj, AbilitySelection cas,
+		PlayerCharacter pc)
 	{
-		pc.addAppliedAbility(decodeChoice(obj, choice));
+		pc.addAppliedAbility(obj, category, nature, cas);
 	}
 
 	@Override
@@ -109,100 +103,10 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String choice)
+	public void removeChoice(CDOMObject obj, AbilitySelection cas,
+		PlayerCharacter pc)
 	{
-		pc.removeAppliedAbility(decodeChoice(obj, choice));
-	}
-
-	public CategorizedAbilitySelection decodeChoice(Object owner, String s)
-	{
-		if (s.startsWith("CATEGORY="))
-		{
-			return decodeCategorizedChoice(owner, s);
-		}
-		else
-		{
-			Ability ability = Globals.getContext().ref
-					.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, s);
-	
-			if (ability == null)
-			{
-				List<String> choices = new ArrayList<String>();
-				String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
-				ability = Globals.getContext().ref
-						.silentlyGetConstructedCDOMObject(Ability.class,
-								AbilityCategory.FEAT, baseKey);
-				if (ability == null)
-				{
-					throw new IllegalArgumentException("String in decodeChoice "
-							+ "must be a Feat Key "
-							+ "(or Feat Key with Selection if appropriate), was: "
-							+ s);
-				}
-				return new CategorizedAbilitySelection(owner, AbilityCategory.FEAT,
-						ability, Nature.AUTOMATIC, choices.get(0));
-			}
-			else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				/*
-				 * MULT:YES, CHOOSE:NOCHOICE can land here
-				 * 
-				 * TODO There needs to be better validation at some point that this
-				 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
-				 */
-				return new CategorizedAbilitySelection(owner, AbilityCategory.FEAT,
-						ability, Nature.AUTOMATIC, "");
-			}
-			else
-			{
-				return new CategorizedAbilitySelection(owner, AbilityCategory.FEAT,
-						ability, Nature.AUTOMATIC);
-			}
-		}
-	}
-
-	private CategorizedAbilitySelection decodeCategorizedChoice(Object owner,
-		String s)
-	{
-		String[] parts = s.split("\\|");
-		AbilityCategory choiceCategory = null;
-		Nature nature = Nature.AUTOMATIC;
-		int i = 0;
-		if (!parts[i].startsWith("CATEGORY="))
-		{
-			throw new IllegalArgumentException("String in decodeChoice "
-					+ "is not in a valid format. Stirng was: "
-					+ s);
-		}
-		choiceCategory = SettingsHandler.getGame().getAbilityCategory(parts[i].substring(9));
-		i++;
-		if (parts[i].startsWith("NATURE="))
-		{
-			nature = Nature.valueOf(parts[i].substring(7));
-			i++;
-		}
-		
-		// Ability name
-		Ability ability = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class,
-					choiceCategory, parts[i++]);
-		if (ability==null)
-		{
-			throw new IllegalArgumentException("String in decodeChoice "
-					+ "did not describe a valid ability. String was: "
-					+ s);
-		}
-		
-		// Selection
-		if (i< parts.length)
-		{
-			return new CategorizedAbilitySelection(owner, choiceCategory,
-				ability, nature, parts[i]);
-		}
-		
-		return new CategorizedAbilitySelection(owner, choiceCategory,
-			ability, nature);
+		pc.removeAppliedAbility(obj, category, nature, cas);
 	}
 
 	@Override
@@ -228,5 +132,10 @@ public class AbilitySelector extends ConcretePrereqObject implements
 					&& nature.equals(other.nature);
 		}
 		return false;
+	}
+
+	public Class<AbilitySelection> getChoiceClass()
+	{
+		return AbilitySelection.class;
 	}
 }

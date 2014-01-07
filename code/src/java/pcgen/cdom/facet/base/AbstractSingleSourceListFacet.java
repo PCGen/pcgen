@@ -589,4 +589,46 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			}
 		}
 	}
+
+	/**
+	 * Removes one item from the given source from this AbstractSourcedListFacet
+	 * for the PlayerCharacter represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which an item
+	 *            from the given source will be removed
+	 * @param source
+	 *            The source for the object to be removed from the list of items
+	 *            stored for the Player Character identified by the given CharID
+	 */
+	public void removeOne(CharID id, Object source)
+	{
+		Map<T, ST> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			T removed = null;
+			for (Iterator<Entry<T, ST>> it = componentMap.entrySet().iterator(); it
+				.hasNext();)
+			{
+				Entry<T, ST> me = it.next();
+				ST src = me.getValue();
+				if (source.equals(src))
+				{
+					removed = me.getKey();
+					it.remove();
+					break;
+				}
+			}
+			if (componentMap.isEmpty())
+			{
+				removeCache(id);
+			}
+			if (removed != null)
+			{
+				fireDataFacetChangeEvent(id, removed,
+					DataFacetChangeEvent.DATA_REMOVED);
+			}
+		}
+	}
+
 }

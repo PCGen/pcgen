@@ -29,7 +29,7 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
@@ -248,12 +248,12 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 			returnList.addAll(returnSet);
 		}
-		Changes<ChooseResultActor> actors = context.getObjectContext()
+		Changes<ChooseSelectionActor<?>> actors = context.getObjectContext()
 				.getListChanges(obj, ListKey.GVF_CHOOSE_ACTOR);
-		Collection<ChooseResultActor> addedActors = actors.getAdded();
+		Collection<ChooseSelectionActor<?>> addedActors = actors.getAdded();
 		if (addedActors != null)
 		{
-			for (ChooseResultActor cra : addedActors)
+			for (ChooseSelectionActor<?> cra : addedActors)
 			{
 				if (getTokenName().equals(cra.getSource()))
 				{
@@ -294,7 +294,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public boolean process(LoadContext context, CDOMObject cdo)
 	{
-		cdo.addAllToListFor(ListKey.CHOOSE_ACTOR,
+		cdo.addAllToListFor(ListKey.NEW_CHOOSE_ACTOR,
 			cdo.getListFor(ListKey.GVF_CHOOSE_ACTOR));
 		return true;
 	}

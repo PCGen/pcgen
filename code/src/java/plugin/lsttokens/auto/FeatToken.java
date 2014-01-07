@@ -29,10 +29,11 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
-import pcgen.cdom.content.ConditionalChoiceActor;
+import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -139,11 +140,12 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 			else if (Constants.LST_PERCENT_LIST.equals(token))
 			{
-				ConditionalChoiceActor cca = new ConditionalChoiceActor(
-						new AbilitySelector(SOURCE,
-								AbilityCategory.FEAT, Nature.AUTOMATIC));
+				ConditionalSelectionActor<AbilitySelection> cca =
+						new ConditionalSelectionActor<AbilitySelection>(
+							new AbilitySelector(SOURCE, AbilityCategory.FEAT,
+								Nature.AUTOMATIC));
 				edgeList.add(cca);
-				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cca);
+				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cca);
 			}
 			else
 			{
@@ -167,7 +169,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 								SOURCE, category, ref, nature);
-							context.obj.addToList(obj, ListKey.CHOOSE_ACTOR,
+							context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR,
 									ats);
 							edgeList.add(ats);
 							loadList = false;
@@ -255,13 +257,13 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 							"|.CLEAR.", true));
 		}
 
-		Changes<ChooseResultActor> listChanges =
+		Changes<ChooseSelectionActor<?>> listChanges =
 				context.getObjectContext().getListChanges(obj,
-					ListKey.CHOOSE_ACTOR);
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+					ListKey.NEW_CHOOSE_ACTOR);
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor csa : listAdded)
+			for (ChooseSelectionActor<?> csa : listAdded)
 			{
 				if (csa.getSource().equals(SOURCE))
 				{
