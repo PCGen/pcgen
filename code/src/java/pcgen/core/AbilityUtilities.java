@@ -30,6 +30,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -79,7 +80,7 @@ public class AbilityUtilities
 
 			if (choice != null)
 			{
-				if (canAddAssociation(pc, newAbility, choice))
+				if (!alreadySelected(pc, newAbility, choice, true))
 				{
 					pc.addAssociation(newAbility, choice);
 				}
@@ -382,18 +383,36 @@ public class AbilityUtilities
 	}
 
 	/**
-	 * Whether we can add newAssociation to the associated list of this
-	 * Ability
-	 * @param pc TODO
-	 * @param newAssociation The thing to be associated with this Ability
+	 * Whether an association has already been selected for this PC.
+	 * to the associated list of this
 	 *
-	 * @return true if we can add the association
+	 * @return true if the association has already been selected
 	 */
-	public static boolean canAddAssociation(PlayerCharacter pc, Ability a, final String newAssociation)
+	public static boolean alreadySelected(PlayerCharacter pc, Ability ability,
+		String selection, boolean allowStack)
 	{
-		return a.getSafe(ObjectKey.STACKS)
-				|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc
-						.containsAssociated(a, newAssociation));
+		for (Ability a : pc.getAllAbilities(ability.getCDOMCategory().getParentCategory()))
+		{
+			if (a.getKeyName().equals(ability.getKeyName()))
+			{
+				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
+					&& !(allowStack && a.getSafe(ObjectKey.STACKS)))
+				{
+					ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
+					List<?> oldSelections =
+							info.getChoiceActor().getCurrentlySelected(a, pc);
+					Object decoded =
+							info.decodeChoice(Globals.getContext(),
+								selection);
+					if (oldSelections != null
+						&& oldSelections.contains(decoded))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	/**

@@ -9539,7 +9539,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 						{
 							for (final String choice : choices)
 							{
-								if (AbilityUtilities.canAddAssociation(this, ab, choice))
+								if (!AbilityUtilities.alreadySelected(this, ab, choice, true))
 								{
 									CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab,
 											nature, choice);

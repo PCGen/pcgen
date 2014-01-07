@@ -36,7 +36,6 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -55,7 +54,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
@@ -409,59 +407,19 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public boolean allow(CategorizedAbilitySelection choice,
 		PlayerCharacter pc, boolean allowStack)
 	{
-		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
-		Category<Ability> category = choice.getAbilityCategory().getParentCategory();
-		// Remove any already selected
-		for (Ability a : pc.getAllAbilities(category))
-		{
-			if (a.getKeyName().equals(choice.getAbilityKey()))
-			{
-				if (!pc.canSelectAbility(a, false)
-					|| !a.getSafe(ObjectKey.VISIBILITY).equals(
-						Visibility.DEFAULT))
-				{
-					return false;
-				}
-				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-					&& !allowStack(a, allowStack))
-				{
-					ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
-					List<?> oldSelections =
-							info.getChoiceActor().getCurrentlySelected(a, pc);
-					Object decoded =
-							info.decodeChoice(Globals.getContext(),
-								choice.getSelection());
-					if (oldSelections != null
-						&& oldSelections.contains(decoded))
-					{
-						return false;
-					}
-				}
-			}
-		}
-		return pc.canSelectAbility(choice.getAbility(), isVirtual);
-	}
-
-	private boolean hasAssoc(List<String> associationList,
-		CategorizedAbilitySelection choice)
-	{
-		if (associationList == null)
+		Ability ability = choice.getAbility();
+		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
 		{
 			return false;
 		}
-		for (String a : associationList)
+		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
+		if (!pc.canSelectAbility(ability, isVirtual))
 		{
-			if (choice.containsAssociation(a))
-			{
-				return true;
-			}
+			return false;
 		}
-		return false;
-	}
-
-	private boolean allowStack(Ability a, boolean allowStack)
-	{
-		return a.getSafe(ObjectKey.STACKS) && allowStack;
+		String selection = choice.getSelection();
+		// Avoid any already selected
+		return !AbilityUtilities.alreadySelected(pc, ability, selection, allowStack);
 	}
 
 	@Override
