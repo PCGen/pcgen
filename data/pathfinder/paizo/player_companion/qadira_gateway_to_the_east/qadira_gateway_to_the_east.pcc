@@ -49,4 +49,5 @@ FEAT:qgtte_feats.lst
 KIT:qgtte_kits_race.lst
 LANGUAGE:qgtte_languages.lst
 RACE:qgtte_races.lst
+SKILL:qgtte_skills.lst
 TEMPLATE:qgtte_templates.lst
