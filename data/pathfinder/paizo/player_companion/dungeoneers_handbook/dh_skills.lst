@@ -5,11 +5,9 @@ SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Conditional skills (for output only)
 # Skill Name			Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
-Perception (Locate Traps)	KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Locate Traps).MISC"),var("SKILL.Perception.MISC")
-Disable Device (Traps)		KEYSTAT:WIS	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")
+Disable Device (Traps)		KEYSTAT:DEX	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")
 
 
 ###Block: Skill .MODs
 # Skill Name		Bonus to skill										Bonus to skill rank
-Perception.MOD		BONUS:SKILL|Perception (Locate Traps)|var("SKILL.Perception.MISC")	BONUS:SKILLRANK|Perception (Locate Traps)|skillinfo("TOTALRANK","Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Locate Traps).MISC"),var("SKILL.Perception.MISC")
 Disable Device.MOD	BONUS:SKILL|Disable Device (Traps)|var("SKILL.Disable Device.MISC")	BONUS:SKILLRANK|Disable Device (Traps)|skillinfo("TOTALRANK","Disable Device")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")
