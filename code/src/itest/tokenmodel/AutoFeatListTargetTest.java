@@ -30,6 +30,7 @@ import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
+import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -43,7 +44,48 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 	private static FeatToken token = new FeatToken();
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testFromTemplate() throws PersistenceLayerException
+	{
+		PCTemplate source = create(PCTemplate.class, "Source");
+		Ability granted = createGrantedObject();
+		context.ref.constructCDOMObject(Language.class, "English");
+		ParseResult result =
+				new MultToken().parseToken(context, granted, "YES");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = new LangToken().parseToken(context, granted, "ALL");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = new LangToken().parseToken(context, source, "ALL");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = token.parseToken(context, source, "Granted (%LIST)");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+		assertEquals(0, directAbilityFacet.getCount(id));
+		Selection<PCTemplate, ?> sel = getSelectionObject(source);
+		templateFacet.add(id, sel, this);
+		assertTrue(containsExpected(granted));
+		assertEquals(1, directAbilityFacet.getCount(id));
+		templateFacet.remove(id, sel, this);
+		assertEquals(0, directAbilityFacet.getCount(id));
+	}
+
+	@Test
+	public void testFromAbility() throws PersistenceLayerException
 	{
 		Ability source = create(Ability.class, "Source");
 		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
