@@ -116,7 +116,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
-		passthru.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		passthru.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		result = CSKILL_TOKEN.parseToken(context, passthru, "LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -168,7 +168,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 
 	protected Ability createGrantedObject()
 	{
-		Ability a = create(Ability.class, "Granted");;
+		Ability a = create(Ability.class, "Granted");
 		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}

@@ -76,7 +76,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		create(WeaponProf.class, "Longsword");
 		create(WeaponProf.class, "Dagger");
 		Ability granted = createGrantedObject();
-		granted.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		granted.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		ParseResult result = token.parseToken(context, source, "Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -171,7 +171,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 
 	protected Ability createGrantedObject()
 	{
-		Ability a = create(Ability.class, "Granted");;
+		Ability a = create(Ability.class, "Granted");
 		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}

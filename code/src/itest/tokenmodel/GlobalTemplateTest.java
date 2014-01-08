@@ -87,7 +87,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
-		source.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		source.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		finishLoad();
 		assertEquals(0, templateConsolidationFacet.getCount(id));
 		raceInputFacet.set(id, source);

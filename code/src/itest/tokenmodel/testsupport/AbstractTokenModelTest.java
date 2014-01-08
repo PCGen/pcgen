@@ -270,7 +270,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		tiny = createSize("Tiny");
 		small = createSize("Small");
 		medium = createSize("Medium");
-		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
+		medium.put(ObjectKey.IS_DEFAULT_SIZE, Boolean.TRUE);
 		large = createSize("Large");
 		huge = createSize("Huge");
 		gargantuan = createSize("Gargantuan");
