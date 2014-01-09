@@ -44,6 +44,8 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -347,11 +349,23 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		
 		if (anAbility != null)
 		{
+			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
+				remove(cm, pc, anAbility, choice.getSelection());
+			}
 			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			pc.adjustMoveRates();
 		}
+	}
+
+	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.removeChoice(pc, obj, sel);
 	}
 
 	@Override

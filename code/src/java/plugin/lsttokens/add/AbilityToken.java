@@ -55,6 +55,8 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -454,7 +456,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 
 		Ability pcAbility = pc.getMatchingAbility(choice.getAbilityCategory(),
-				choice.getAbility(), Nature.NORMAL);
+				choice.getAbility(), choice.getNature());
 
 		if (pcAbility != null)
 		{
@@ -475,13 +477,28 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			
 			if (!result)
 			{
-				removed = pc.removeRealAbility(choice.getAbilityCategory(),
+				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+				{
+					ChoiceManagerList cm = ChooserUtilities.getChoiceManager(pcAbility, pc);
+					remove(cm, pc, pcAbility, choice.getSelection());
+				}
+				if (choice.getNature().equals(Nature.NORMAL))
+				{
+					removed = pc.removeRealAbility(choice.getAbilityCategory(),
 						pcAbility);
+				}
+				else
+				{
+					pc.removeUserVirtualAbility(choice.getAbilityCategory(),
+						pcAbility);
+					removed = true;
+				}
 				CDOMObjectUtilities.removeAdds(pcAbility, pc);
 				CDOMObjectUtilities.restoreRemovals(pcAbility, pc);
 			}
 			
-			if (choice.getAbilityCategory() == AbilityCategory.FEAT)
+			if ((choice.getNature() == Nature.NORMAL)
+				&& (choice.getAbilityCategory() == AbilityCategory.FEAT))
 			{
 				AbilityUtilities.adjustPool(pcAbility, pc, false, abilityCount,
 						removed);
@@ -489,6 +506,13 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			
 			pc.adjustMoveRates();
 		}
+	}
+
+	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.removeChoice(pc, obj, sel);
 	}
 
 	@Override

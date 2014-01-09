@@ -24,6 +24,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
@@ -45,6 +46,8 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -346,11 +349,46 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		CategorizedAbilitySelection choice)
 	{
+		// See if our choice is not auto or virtual
+		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice
+				.getAbility(), Nature.VIRTUAL);
+		
+		if (anAbility != null)
+		{
+			boolean required = false;
+			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				required = true;
+				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
+				if (remove(cm, pc, anAbility, choice.getSelection()))
+				{
+					required = false;
+				}
+			}
+			if (!required)
+			{
+				CDOMObjectUtilities.removeAdds(anAbility, pc);
+				CDOMObjectUtilities.restoreRemovals(anAbility, pc);
+				pc.adjustMoveRates();
+				pc.removeUserVirtualAbility(AbilityCategory.FEAT, anAbility);
+			}
+		}
+
 		//TODO Need to reverse this action:
 		// String featName = choice.getFullAbilityKey();
 		// final Ability aFeat = AbilityUtilities.addVirtualAbility("FEAT",
 		// featName, pc.getDirectVirtualAbilities(AbilityCategory.FEAT),
 		// pc, null);
+	}
+
+	private static <T> boolean remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.removeChoice(pc, obj, sel);
+		List<T> selected = new ArrayList<T>();
+		aMan.getChoices(pc, new ArrayList<T>(), selected);
+		return selected.isEmpty();
 	}
 
 	@Override
