@@ -62,10 +62,4 @@ public final class PCAlignment extends PObject implements AlignmentFacade
 	{
 		return getDisplayName();
 	}
-
-    @Override
-	public String getAbbreviation()
-	{
-		return getKeyName();
-	}
 }

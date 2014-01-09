@@ -29,8 +29,6 @@ public interface AlignmentFacade
 
     public String getName();
 
-    public String getAbbreviation();
-
     @Override
     public String toString();
 
