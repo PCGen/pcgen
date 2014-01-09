@@ -94,7 +94,7 @@ public class RaceInputFacet
 		{
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(race, pc);
-			processImport(id, pc, race, aMan, choice);
+			processImport(id, race, aMan, choice);
 		}
 		else
 		{
@@ -102,7 +102,7 @@ public class RaceInputFacet
 		}
 	}
 
-	private <T> void processImport(CharID id, PlayerCharacter pc, Race race,
+	private <T> void processImport(CharID id, Race race,
 		ChoiceManagerList<T> aMan, String choice)
 	{
 		directSet(id, race, aMan.decodeChoice(choice));

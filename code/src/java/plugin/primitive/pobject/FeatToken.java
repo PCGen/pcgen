@@ -80,14 +80,6 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		return getTokenName() + "=" + ref.getLSTformat(useAny);
 	}
 
-	public boolean allow(PlayerCharacter pc, T obj)
-	{
-		Ability a = ref.resolvesTo();
-		ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
-		List<?> currentItems = getList(pc, a, info);
-		return (currentItems != null) && currentItems.contains(obj);
-	}
-
 	private <R> List<R> getList(PlayerCharacter pc, Ability a,
 			ChooseInformation<R> info)
 	{

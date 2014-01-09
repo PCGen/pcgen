@@ -62,34 +62,6 @@ public class DeityToken implements PrimitiveToken<Domain>
 		return getTokenName();
 	}
 
-	public boolean allow(PlayerCharacter pc, Domain domain)
-	{
-		Deity deity = pc.getDisplay().getDeity();
-		if (deity == null)
-		{
-			return false;
-		}
-		CDOMReference<DomainList> list = Deity.DOMAINLIST;
-		Collection<CDOMReference<Domain>> mods = deity.getListMods(list);
-		for (CDOMReference<Domain> ref : mods)
-		{
-			if (ref.contains(domain))
-			{
-				Collection<AssociatedPrereqObject> assoc = deity
-						.getListAssociations(list, ref);
-				for (AssociatedPrereqObject apo : assoc)
-				{
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), pc,
-							deity))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
 	@Override
 	public GroupingState getGroupingState()
 	{

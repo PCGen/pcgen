@@ -62,25 +62,6 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		return "DEITYWEAPON";
 	}
 
-	public boolean allow(PlayerCharacter pc, WeaponProf pcc)
-	{
-		Deity deity = pc.getDisplay().getDeity();
-		if (deity == null)
-		{
-			return false;
-		}
-		List<CDOMReference<WeaponProf>> dwp = deity
-				.getSafeListFor(ListKey.DEITYWEAPON);
-		for (CDOMReference<WeaponProf> ref : dwp)
-		{
-			if (ref.contains(pcc))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	@Override
 	public GroupingState getGroupingState()
 	{

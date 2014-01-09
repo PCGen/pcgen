@@ -107,7 +107,7 @@ public class DomainInputFacet
 					int closeloc = string.lastIndexOf(')');
 					string = string.substring(openloc + 1, closeloc);
 				}
-				processImport(id, pc, obj, aMan, string, source);
+				processImport(id, obj, aMan, string, source);
 			}
 		}
 		else
@@ -116,7 +116,7 @@ public class DomainInputFacet
 		}
 	}
 
-	private <T> void processImport(CharID id, PlayerCharacter pc, Domain obj,
+	private <T> void processImport(CharID id, Domain obj,
 		ChoiceManagerList<T> aMan, String choice, ClassSource source)
 	{
 		directSet(id, obj, aMan.decodeChoice(choice), source);

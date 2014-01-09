@@ -96,7 +96,7 @@ public class TemplateInputFacet
 		{
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(obj, pc);
-			processImport(id, pc, obj, aMan, choice);
+			processImport(id, obj, aMan, choice);
 		}
 		else
 		{
@@ -104,8 +104,8 @@ public class TemplateInputFacet
 		}
 	}
 
-	private <T> void processImport(CharID id, PlayerCharacter pc,
-		PCTemplate obj, ChoiceManagerList<T> aMan, String choice)
+	private <T> void processImport(CharID id, PCTemplate obj,
+		ChoiceManagerList<T> aMan, String choice)
 	{
 		directAdd(id, obj, aMan.decodeChoice(choice));
 	}

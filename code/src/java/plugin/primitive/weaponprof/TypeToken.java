@@ -22,7 +22,6 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.Converter;
-import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -34,8 +33,7 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 /**
  * TYPE needs special care for WeaponProf due to CHANGEPROF
  */
-public class TypeToken implements PrimitiveToken<WeaponProf>,
-		PrimitiveFilter<WeaponProf>
+public class TypeToken implements PrimitiveToken<WeaponProf>
 {
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 	private CDOMGroupRef<WeaponProf> typeRef;
@@ -75,12 +73,6 @@ public class TypeToken implements PrimitiveToken<WeaponProf>,
 	public String getLSTformat(boolean useAny)
 	{
 		return typeRef.getLSTformat(useAny);
-	}
-
-	@Override
-	public boolean allow(PlayerCharacter pc, WeaponProf obj)
-	{
-		return pc.getDisplay().getWeaponProfsInTarget(typeRef).contains(obj);
 	}
 
 	@Override
