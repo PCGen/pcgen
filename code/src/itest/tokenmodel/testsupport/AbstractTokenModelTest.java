@@ -102,11 +102,11 @@ public abstract class AbstractTokenModelTest extends TestCase
 		return context.ref.constructCDOMObject(cl, key);
 	}
 
-	private static final MultToken ABILITY_MULT_TOKEN =
+	protected static final MultToken ABILITY_MULT_TOKEN =
 			new plugin.lsttokens.ability.MultToken();
 	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
 			new plugin.lsttokens.ChooseLst();
-	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
+	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
 			new plugin.lsttokens.choose.LangToken();
 	private static final VisibleToken ABILITY_VISIBLE_TOKEN =
 			new plugin.lsttokens.ability.VisibleToken();
