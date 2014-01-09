@@ -959,8 +959,6 @@ public class PCClass extends PObject implements ClassFacade
 			aPC.setDefaultDomainSource(new ClassSource(this, newLevel));
 		}
 
-		doPlusLevelMods(newLevel, aPC);
-
 		// Don't roll the hit points if the gui is not being used.
 		// This is so GMGen can add classes to a person without pcgen flipping
 		// out
@@ -1151,26 +1149,6 @@ public class PCClass extends PObject implements ClassFacade
 		PCClassLevel pcl = aPC.getActiveClassLevel(this, oldLevel);
 		CDOMObjectUtilities.removeAdds(pcl, aPC);
 		CDOMObjectUtilities.restoreRemovals(pcl, aPC);
-	}
-
-	/*
-	 * REFACTOR Since this is side effects of adding a level, the
-	 * PlayerCharacter needs to perform this work, not PCClass.
-	 * Then again, this could be in PCClassLevel.
-	 */
-	void doPlusLevelMods(
-		final int newLevel,
-		final PlayerCharacter aPC)
-	{
-		// moved after changeSpecials and addVariablesForLevel
-		// for bug #688564 -- sage_sam, 18 March 2003
-		aPC.calcActiveBonuses();
-		if (!aPC.isImporting() && aPC.doLevelAbilities())
-		{
-			PCClassLevel activeClassLevel = aPC.getActiveClassLevel(this, newLevel);
-			CDOMObjectUtilities.addAdds(activeClassLevel, aPC);
-			CDOMObjectUtilities.checkRemovals(activeClassLevel, aPC);
-		}
 	}
 
 	void subLevel(final boolean bSilent, final PlayerCharacter aPC)

@@ -6152,11 +6152,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				setHP(topcl, hpArray[i]);
 			}
 
-			for (int i = 0; i < fromLevel; i++)
-			{
-				toClass.doPlusLevelMods(toLevel + i + 1, this);
-			}
-
 			//
 			// change all the levelling info to the ex-class as well
 			//
@@ -6698,11 +6693,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			PCClassLevel topcl = getActiveClassLevel(toClass, i);
 			setHP(topcl, hpArray[i]);
-		}
-
-		for (int i = 0; i < iCount; i++)
-		{
-			toClass.doPlusLevelMods(toLevel + i + 1, this);
 		}
 
 		// first, change the toClass current PCLevelInfo level
@@ -11006,6 +10996,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
 	{
 		abFacet.add(id, cat, Nature.VIRTUAL, newAbility);
+	}
+
+	public void removeUserVirtualAbility(Category<Ability> cat, Ability newAbility)
+	{
+		abFacet.remove(id, cat, Nature.VIRTUAL, newAbility);
 	}
 
 	public void checkSkillModChange()

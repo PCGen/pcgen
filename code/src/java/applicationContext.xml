@@ -26,6 +26,7 @@
 		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
+		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<bean id="addLanguageFacet" class="pcgen.cdom.facet.input.AddLanguageFacet">
 		<property name="languageFacet" ref="languageFacet"/>
@@ -457,6 +458,7 @@
 		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
+		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<!-- S -->
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
