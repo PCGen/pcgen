@@ -56,10 +56,4 @@ public final class PCAlignment extends PObject implements AlignmentFacade
 		String abb = getAbb();
 		return abb == null ? 0 : getAbb().hashCode();
 	}
-
-    @Override
-	public String getName()
-	{
-		return getDisplayName();
-	}
 }

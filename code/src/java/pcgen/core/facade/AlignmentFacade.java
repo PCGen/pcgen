@@ -27,8 +27,6 @@ package pcgen.core.facade;
 public interface AlignmentFacade
 {
 
-    public String getName();
-
     @Override
     public String toString();
 
