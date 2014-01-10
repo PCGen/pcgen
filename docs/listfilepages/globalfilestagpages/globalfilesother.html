@@ -1367,7 +1367,6 @@
 		</ul>
 		</li>
 		<li>The name of the object must match EXACTLY the existing object, i.e. case sensitive.</li>
-		<li>If you want to <code>.MOD</code> the name of an object you need to include the <code>NAME:</code> tag.</li>
 		<li>Any tags that follow the <code>.MOD</code> tag are added to the list of tags already in the object.</li>
 		<li>If only one tag is allowed, such as <code>HD</code> for classes or <code>COST</code> in equipment, the new
 			tag will replace the tag in the original entry.</li>
@@ -1423,23 +1422,23 @@
 	
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>Human.MOD</code></p>
-	<p class="indent3">Modifies the Human race (in a race.lst file)</p>
+	<p class="indent3">Modifies the <strong>Human</strong> race (in a <span class="lstfile">race.lst</span> file)</p>
 	<p class="indent2"><code>Dagger.MOD &lt;tab&gt; DESC:Short and pointy</code></p>
-	<p class="indent3">Replaces the description of the Dagger weapon (in equipment.lst file)</p>
+	<p class="indent3">Replaces the description of the <strong>Dagger</strong> weapon (in <span class="lstfile">equipment.lst</span> file)</p>
 	<p class="indent2"><code>CLASS:Ranger.MOD</code></p>
-	<p class="indent3">Modifies the Ranger class (in class.lst)</p>
-	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; NAME:My Acid Arrow</code></p>
-	<p class="indent3">Renames the Acid Arrow spell to My Acid Arrow(in a spells.lst file)</p>
+	<p class="indent3">Modifies the <strong>Ranger</strong> class (in <span class="lstfile">class.lst</span> file)</p>
+	<p class="indent2"><code>Acid Arrow.MOD &lt;tab&gt; OUTPUTNAME:My Acid Arrow</code></p>
+	<p class="indent3">Renames the <strong>Acid Arrow</strong> spell to <strong>My Acid Arrow</strong> (in a <span class="lstfile"></span>spells.lst</span> file)</p>
 	<p class="indent2"><code>Resistance.MOD &lt;tab&gt; BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance|PREAPPLY:ANYPC</code></p>
-	<p class="indent3">Adds a Saving Throw Temporary bonus function to the Resistance spell</p>
+	<p class="indent3">Adds a saving throw temporary bonus function to the <strong>Resistance</strong> spell</p>
 	<p class="indent2"><code>CLASS:Arcane Archer.MOD &lt;tab&gt; BONUS:CHECKS|BASE.Will|-1*(CL/3) &lt;tab&gt; BONUS:CHECKS|BASE.Will|CL/2+2</code></p>
-	<p class="indent3">Modifies the Arcane Archer by first removing the original &quot;Will&quot; bonus and then adding the new bonus.</p>
+	<p class="indent3">Modifies the <strong>Arcane Archer</strong> by first removing the original &quot;Will&quot; bonus and then adding the new bonus.</p>
 	<p class="indent2"><code>Skill Focus.MOD</code></p>
-	<p class="indent3">Modifies the Skill Focus feat (in feat.lst)</p>
+	<p class="indent3">Modifies the <strong>Skill Focus</strong> feat (<span class="lstfile">in feat.lst</span> file)</p>
 	<p class="indent2"><code>BOWSTR.MOD</code></p>
-	<p class="indent3">Modifies the &quot;BOWSTR&quot; eqmod (in eqmod.lst)</p>
+	<p class="indent3">Modifies the <strong>BOWSTR</strong> eqmod (<span class="lstfile">in eqmod.lst</span> file)</p>
 	<p class="indent2"><code>CATEGORY=Mutation|Weak Immune System.MOD</code></p>
-	<p class="indent3">Modifies an ability of the category Mutation, which is called Weak Immune System.
+	<p class="indent3">Modifies an ability of the category &quot;Mutation&quot;, which is called <strong>Weak Immune System</strong>.
 		Another ability of the same name, which belongs to another category, would not be affected.</p>
 	<p></p>
 
