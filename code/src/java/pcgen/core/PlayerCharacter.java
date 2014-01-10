@@ -3382,21 +3382,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 	}
 
-	public boolean setDeity(final Deity aDeity)
+	public void setDeity(final Deity aDeity)
 	{
-		if (!canSelectDeity(aDeity))
-		{
-			return false;
-		}
-
-		if (deityFacet.set(id, aDeity))
+		if (canSelectDeity(aDeity) && deityFacet.set(id, aDeity))
 		{
 			setDirty(true);
-			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 
