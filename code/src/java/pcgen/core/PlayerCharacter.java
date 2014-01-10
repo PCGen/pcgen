@@ -7015,8 +7015,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			list.add(align);
 		}
 
-		// armorProfList is still just a list of Strings
-		// results.addAll(getArmorProfList());
 		// BioSet
 		list.add(bioSetFacet.get(id));
 
@@ -7636,18 +7634,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 				// Add the class to the character classes as level 0
 				classFacet.addClass(id, pcClassClone);
-
-				// do the following only if adding a level of a class for the
-				// first time
-				//				if (numberOfLevels > 0)
-				//				{
-				//					for (CDOMReference<Language> ref : pcClassClone
-				//						.getSafeListFor(ListKey.AUTO_LANGUAGES))
-				//					{
-				//						langAutoFacet.addAll(id, ref.getContainedObjects(),
-				//								pcClassClone);
-				//					}
-				//				}
 			} else
 			{
 				// mod is < 0 and character does not have class. Return.
@@ -7825,8 +7811,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			this.setPoolAmount(0);
 			this.costPool = 0;
 		}
-		//TODO Why does rolling stats delete the language list?!?
-		languageFacet.removeAll(id);
 		if (method != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
 			setPoolAmount(0);
