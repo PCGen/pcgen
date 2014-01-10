@@ -78,10 +78,27 @@ These files can be renamed and used for releases.
         ${lib.dir}/commons-lang.jar 
     	${lib.dir}/commons-io.jar 
         ${lib.dir}/xercesImpl.jar 
-        ${lib.dir}/avalon-framework.jar 
+        ${lib.dir}/avalon-framework-api.jar 
+        ${lib.dir}/avalon-framework-impl.jar 
         ${lib.dir}/xml-apis.jar 
+        ${lib.dir}/xml-apis-ext.jar 
         ${lib.dir}/xalan.jar 
-        ${lib.dir}/batik-1.5-fop.jar 
+        ${lib.dir}/batik-anim.jar
+        ${lib.dir}/batik-awt-util.jar
+        ${lib.dir}/batik-bridge.jar
+        ${lib.dir}/batik-css.jar
+        ${lib.dir}/batik-dom.jar
+        ${lib.dir}/batik-ext.jar
+        ${lib.dir}/batik-extension.jar
+        ${lib.dir}/batik-gvt.jar
+        ${lib.dir}/batik-parser.jar
+        ${lib.dir}/batik-script.jar
+        ${lib.dir}/batik-svg-dom.jar
+        ${lib.dir}/batik-svggen.jar
+        ${lib.dir}/batik-transcoder.jar
+        ${lib.dir}/batik-util.jar
+        ${lib.dir}/batik-xml.jar
+        ${lib.dir}/cglib-nodep.jar
         ${lib.dir}/fop.jar 
         ${lib.dir}/kunststoff.jar 
         ${lib.dir}/skinlf.jar 
@@ -94,6 +111,8 @@ These files can be renamed and used for releases.
         ${lib.dir}/spring-asm.jar 
         ${lib.dir}/spring-beans.jar 
         ${lib.dir}/spring-core.jar
+    	${lib.dir}/serializer.jar
+    	${lib.dir}/xmlgraphics-commons.jar
     	${lib.dir}/freemarker.jar" />
 
     <!-- For writing the compatibility checker jar -->
@@ -1030,10 +1049,10 @@ Class-Path: ${test.manifest.extra.jars}
     <!-- Create the Windows and POSIX scripts to externally run the tests -->
     <target name="test.scripts" depends="init">
         <echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
-java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit.jar;lib/xercesImpl.jar;lib/avalon-framework.jar;lib/xml-apis.jar;lib/xalan.jar;lib/batik.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/jep.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit.jar;lib/xercesImpl.jar;lib/avalon-framework-api.jar;lib/avalon-framework-impl.jar;lib/xml-apis.jar;lib/xml-apis-ext.jar;lib/xalan.jar;lib/batik-anim.jar;lib/batik-awt-util.jar;lib/batik-bridge.jar;lib/batik-css.jar;lib/batik-dom.jar;lib/batik-ext.jar;lib/batik-extension.jar;lib/batik-gvt.jar;lib/batik-parser.jar;lib/batik-script.jar;lib/batik-svg-dom.jar;lib/batik-svggen.jar;lib/batik-transcoder.jar;lib/batik-util.jar;lib/batik-xml.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/jep.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
         <echo file="${bin.dir}/${test.bin.pcgen.sh}">#!/bin/sh
-java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit.jar;lib/xercesImpl.jar;lib/avalon-framework.jar;lib/xml-apis.jar;lib/xalan.jar;lib/batik.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/jep.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit.jar;lib/xercesImpl.jar;lib/avalon-framework-api.jar;lib/avalon-framework-impl.jar;;lib/xml-apis.jar;lib/xml-apis-ext.jar;lib/xalan.jar;lib/batik-all-1.7.jar;lib/batik-awt-util.jar;lib/batik-bridge.jar;lib/batik-css.jar;lib/batik-dom.jar;lib/batik-ext.jar;lib/batik-extension.jar;lib/batik-gvt.jar;lib/batik-parser.jar;lib/batik-script.jar;lib/batik-svg-dom.jar;lib/batik-svggen.jar;lib/batik-transcoder.jar;lib/batik-util.jar;lib/batik-xml.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/jep.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
         <chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
     </target>

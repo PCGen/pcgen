@@ -20,22 +20,11 @@
  */
 package pcgen.util.fop;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import org.apache.fop.apps.Driver;
-import org.apache.fop.apps.FOInputHandler;
-import org.apache.fop.apps.FOPException;
-import org.apache.fop.apps.InputHandler;
-import org.apache.fop.apps.XSLTInputHandler;
 import org.apache.fop.render.awt.AWTRenderer;
-import org.apache.fop.viewer.SecureResourceBundle;
-import org.xml.sax.XMLReader;
 
 import pcgen.cdom.base.Constants;
 import pcgen.util.Logging;
@@ -51,11 +40,11 @@ import pcgen.util.Logging;
  */
 public final class FOP0205HandlerImpl implements FOPHandler {
 
-	private Driver driver;
+	//private Driver driver;
 	private File outFile;
 	private FileOutputStream fos;
 
-	private InputHandler inputHandler;
+	//private InputHandler inputHandler;
 	private AWTRenderer renderer;
 	private StringBuilder errBuffer;
 	private int mode;
@@ -65,8 +54,8 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 	 */
 	FOP0205HandlerImpl()
 	{
-		driver = new Driver();
-		inputHandler = null;
+		//driver = new Driver();
+		//inputHandler = null;
 		outFile = null;
 		mode = PDF_MODE;
 		errBuffer = new StringBuilder();
@@ -105,7 +94,7 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 					+ in.getAbsolutePath() + " not found ");
 			}
 
-			inputHandler = new FOInputHandler(in);
+			//inputHandler = new FOInputHandler(in);
 		}
 		catch (FileNotFoundException e)
 		{
@@ -149,7 +138,7 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 					+ xsltFile.getAbsolutePath() + " not found ");
 			}
 
-			inputHandler = new XSLTInputHandler(xmlFile, xsltFile);
+			//inputHandler = new XSLTInputHandler(xmlFile, xsltFile);
 		}
 		catch (FileNotFoundException e)
 		{
@@ -161,11 +150,13 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 			errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
 		}
+		/*
 		catch (FOPException e)
 		{
 			errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
 			Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
 		}
+		*/
 	}
 
 	/**
@@ -206,6 +197,7 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 	{
 		errBuffer.delete(0, errBuffer.length());
 
+		/*
 		if (inputHandler == null)
 		{
 			errBuffer.append("Export request failed. Please see console for details.").append(
@@ -217,7 +209,7 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 		
 		// Reset the driver from the last run
 		driver.reset();
-
+		
 		// PDF Mode
 		if (mode == PDF_MODE)
 		{
@@ -225,10 +217,6 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 			renderer = null;
 			driver.setRenderer(Driver.RENDER_PDF);
 
-			/* 
-			 * Expanded functionality to be able to handle XSLT files.
-			 * Now operates based on InputHandlers.
-			 */
 			try
 			{
 				XMLReader parser = inputHandler.getParser();
@@ -294,17 +282,19 @@ public final class FOP0205HandlerImpl implements FOPHandler {
 		{
 			Logging.errorPrint("Unsupported mode for file export.");
 		}
+		 */
 	}
 
+    /*
 	/**
 	 * Get the AWT Renderer
 	 * @return AWTRenderer
-	 */
+	 *
 	private static AWTRenderer createAWTRenderer()
 	{
 		final byte[] bytes = new byte[0];
 
 		return new AWTRenderer(new SecureResourceBundle(
 			new ByteArrayInputStream(bytes)));
-	}
+	}*/
 }

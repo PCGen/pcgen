@@ -731,19 +731,11 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>fop</groupId>
-            <artifactId>fop</artifactId>
-            <version>0.20.5</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- 
-        <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>fop</artifactId>
-            <version>1.1</version>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
-        -->
         <dependency>
             <groupId>jep</groupId>
             <artifactId>jep</artifactId>
@@ -770,13 +762,6 @@
             <version>2.7.1</version>
             <scope>compile</scope>
             <!-- url>http://xml.apache.org/xalan-j/</ url -->
-        </dependency>
-        <dependency>
-            <groupId>xerces</groupId>
-            <artifactId>xmlParserAPIs</artifactId>
-            <version>2.6.2</version>
-            <scope>compile</scope>
-            <!-- url>http://xml.apache.org/xerces-j/</ url -->
         </dependency>
         <dependency>
             <groupId>xerces</groupId>
@@ -860,14 +845,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>avalon</groupId>
-            <artifactId>avalon-framework</artifactId>
-            <version>4.1.4</version>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-api</artifactId>
+            <version>4.3.1</version>
         </dependency>
         <dependency>
-            <groupId>net.java.dev.javacc</groupId>
-            <artifactId>javacc</artifactId>
-            <version>4.1</version>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-impl</artifactId>
+            <version>4.3.1</version>
         </dependency>
         <dependency>
             <groupId>com.incors.plaf</groupId>

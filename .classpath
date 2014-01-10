@@ -7,10 +7,7 @@
 	<classpathentry kind="src" path="code/src/testcommon"/>
 	<classpathentry kind="lib" path="lib/jdom.jar"/>
 	<classpathentry kind="lib" path="lib/MRJ141Stubs.jar"/>
-	<classpathentry kind="lib" path="lib/javacc.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/avalon-framework.jar"/>
-	<classpathentry kind="lib" path="lib/batik-1.5-fop.jar"/>
 	<classpathentry kind="lib" path="lib/cglib-nodep.jar"/>
 	<classpathentry kind="lib" path="lib/clover.jar"/>
 	<classpathentry kind="lib" path="lib/cobra.jar"/>
@@ -24,7 +21,6 @@
 	<classpathentry kind="lib" path="lib/easymockclassextension.jar"/>
 	<classpathentry kind="lib" path="lib/emma_ant.jar"/>
 	<classpathentry kind="lib" path="lib/emma.jar"/>
-	<classpathentry kind="lib" path="lib/fop.jar"/>
 	<classpathentry kind="lib" path="lib/google-collections.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-core.jar"/>
 	<classpathentry kind="lib" path="lib/jep.jar"/>
@@ -41,8 +37,27 @@
 	<classpathentry kind="lib" path="lib/xalan.jar"/>
 	<classpathentry kind="lib" path="lib/xercesImpl.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis.jar"/>
-	<classpathentry kind="lib" path="lib/xmlParserAPIs.jar"/>
 	<classpathentry kind="lib" path="lib/xmlunit.jar"/>
 	<classpathentry kind="lib" path="lib/freemarker.jar"/>
+	<classpathentry kind="lib" path="lib/fop.jar"/>
+	<classpathentry kind="lib" path="lib/avalon-framework-api.jar"/>
+	<classpathentry kind="lib" path="lib/avalon-framework-impl.jar"/>
+	<classpathentry kind="lib" path="lib/batik-awt-util.jar"/>
+	<classpathentry kind="lib" path="lib/batik-bridge.jar"/>
+	<classpathentry kind="lib" path="lib/batik-css.jar"/>
+	<classpathentry kind="lib" path="lib/batik-dom.jar"/>
+	<classpathentry kind="lib" path="lib/batik-ext.jar"/>
+	<classpathentry kind="lib" path="lib/batik-extension.jar"/>
+	<classpathentry kind="lib" path="lib/batik-gvt.jar"/>
+	<classpathentry kind="lib" path="lib/batik-parser.jar"/>
+	<classpathentry kind="lib" path="lib/batik-script.jar"/>
+	<classpathentry kind="lib" path="lib/batik-svg-dom.jar"/>
+	<classpathentry kind="lib" path="lib/batik-svggen.jar"/>
+	<classpathentry kind="lib" path="lib/batik-transcoder.jar"/>
+	<classpathentry kind="lib" path="lib/batik-util.jar"/>
+	<classpathentry kind="lib" path="lib/batik-xml.jar"/>
+	<classpathentry kind="lib" path="lib/xml-apis-ext.jar"/>
+	<classpathentry kind="lib" path="lib/xmlgraphics-commons.jar"/>
+	<classpathentry kind="lib" path="lib/batik-anim.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>

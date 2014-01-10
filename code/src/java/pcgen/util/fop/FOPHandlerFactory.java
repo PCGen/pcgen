@@ -23,7 +23,7 @@ package pcgen.util.fop;
 public class FOPHandlerFactory {
 	public static FOPHandler createFOPHandlerImpl(boolean oldFop) {
 		if(oldFop) {
-			return new FOP0205HandlerImpl();
+			return new FOP11HandlerImpl();//There is no going back new FOP0205HandlerImpl();
 		} else {
 			return new FOP11HandlerImpl();
 		}
