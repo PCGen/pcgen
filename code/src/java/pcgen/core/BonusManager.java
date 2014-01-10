@@ -45,6 +45,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
 import pcgen.core.bonus.util.MissingObject;
+import pcgen.core.display.BonusDisplay;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
@@ -899,7 +900,7 @@ public class BonusManager
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
 		{
-			ret.add(getBonusDisplayName(me.getKey(), me.getValue()));
+			ret.add(BonusDisplay.getBonusDisplayName(me.getKey(), me.getValue()));
 		}
 		return ret;
 	}
@@ -1021,7 +1022,7 @@ public class BonusManager
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo ti = me.getValue();
-			if (!tempBonusFilters.contains(getBonusDisplayName(bonus, ti)))
+			if (!tempBonusFilters.contains(BonusDisplay.getBonusDisplayName(bonus, ti)))
 			{
 				ret.put(bonus, ti);
 			}
@@ -1190,38 +1191,6 @@ public class BonusManager
 			}
 		}
 		return source;
-	}
-
-	/**
-	 * Returns a String which can be used to display in the GUI
-	 * 
-	 * @return name
-	 */
-	public String getBonusDisplayName(BonusObj bonus, TempBonusInfo ti)
-	{
-		final StringBuilder buffer = new StringBuilder();
-
-		buffer.append(ti.source.toString());
-		buffer.append(" [");
-
-		Object targetObj = ti.target;
-
-		if (targetObj instanceof PlayerCharacter)
-		{
-			buffer.append("PC");
-		}
-		else if (targetObj instanceof Equipment)
-		{
-			buffer.append(((Equipment) targetObj).getName());
-		}
-		else
-		{
-			buffer.append("NONE");
-		}
-
-		buffer.append(']');
-
-		return buffer.toString();
 	}
 
 	public List<BonusPair> getStringListFromBonus(BonusObj bo)

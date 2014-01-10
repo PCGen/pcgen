@@ -91,6 +91,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.display.BonusDisplay;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -2311,7 +2312,7 @@ public final class PCGVer2Creator implements IOConstants
 			trackList.add(outString);
 			buffer.append(outString);
 			
-			String bonusName = new BonusManager(thePC).getBonusDisplayName(bonus, tbi);
+			String bonusName = BonusDisplay.getBonusDisplayName(bonus, tbi);
 			if (thePC.getTempBonusFilters().contains(bonusName))
 			{
 				buffer.append('|');

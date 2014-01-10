@@ -125,6 +125,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.display.BonusDisplay;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -5977,7 +5978,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			
 			if (!active)
 			{
-				String bonusName = new BonusManager(thePC).getBonusDisplayName(newB, tempBonusInfo);
+				String bonusName = BonusDisplay.getBonusDisplayName(newB, tempBonusInfo);
 				thePC.setTempBonusFilter(bonusName);
 			}
 		}
