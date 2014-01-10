@@ -4772,11 +4772,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		if (added)
 		{
 			setDirty(true);
-		}
-
-		if (!isImporting())
-		{
-			calcActiveBonuses();
+			if (!isImporting())
+			{
+				calcActiveBonuses();
+			}
 		}
 	}
 
