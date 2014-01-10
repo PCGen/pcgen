@@ -97,7 +97,10 @@
 	</bean>
 	<bean id="bonusActiviationFacet" class="pcgen.cdom.facet.BonusActiviationFacet">
 		<property name="raceFacet" ref="raceFacet"/>
+		<property name="companionModFacet" ref="companionModFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
+		<property name="domainFacet" ref="domainFacet"/>
+		<property name="skillFacet" ref="skillFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="bonusChangeFacet" class="pcgen.cdom.facet.BonusChangeFacet">
@@ -300,6 +303,8 @@
 	<bean id="kitChoiceFacet" class="pcgen.cdom.facet.KitChoiceFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
+		<property name="domainFacet" ref="domainFacet"/>
+		<property name="skillFacet" ref="skillFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
@@ -448,6 +453,8 @@
 	<bean id="regionChoiceFacet" class="pcgen.cdom.facet.RegionChoiceFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
+		<property name="domainFacet" ref="domainFacet"/>
+		<property name="skillFacet" ref="skillFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="regionFacet" class="pcgen.cdom.facet.fact.RegionFacet">

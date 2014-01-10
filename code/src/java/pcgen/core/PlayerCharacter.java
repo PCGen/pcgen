@@ -1,5 +1,4 @@
 /*
- * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -225,8 +224,6 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.BonusManager.TempBonusInfo;
-import pcgen.core.analysis.AddObjectActions;
-import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
@@ -878,7 +875,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 					// Found race and type of follower
 					// so add bonus to the master
 					companionModFacet.add(id, cm);
-					BonusActivation.activateBonuses(cm, aPC);
 				}
 			}
 		}
@@ -4772,22 +4768,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addSkill(final Skill addSkill)
 	{
-		// First, check to see if skill is already in list
-		if (hasSkill(addSkill))
+		boolean added = skillFacet.add(id, addSkill);
+		if (added)
 		{
-			return;
+			setDirty(true);
 		}
-
-		//
-		// Skill not found, add to list
-		//
-		skillFacet.add(id, addSkill);
-		setDirty(true);
 
 		if (!isImporting())
 		{
-			AddObjectActions.doBaseChecks(addSkill, this);
-			BonusActivation.activateBonuses(addSkill, this);
 			calcActiveBonuses();
 		}
 	}

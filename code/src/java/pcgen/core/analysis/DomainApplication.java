@@ -120,12 +120,6 @@ public class DomainApplication
 				}
 			}
 		}
-
-		if (!pc.isImporting())
-		{
-			AddObjectActions.doBaseChecks(d, pc);
-			BonusActivation.activateBonuses(d, pc);
-		}
 	}
 
 	/**
