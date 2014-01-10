@@ -247,7 +247,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 				return ParseResult.SUCCESS;
 			}
 			token = sep.next();
-			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			if (looksLikeAPrerequisite(token))
 			{
 				break;
 			}

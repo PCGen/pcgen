@@ -171,7 +171,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		String token = tok.nextToken();
 
-		if (token.startsWith("PRE") || token.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(token))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 				+ getTokenName() + ": " + value, context);
@@ -270,7 +270,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			first = false;
 			token = tok.nextToken();
-			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			if (looksLikeAPrerequisite(token))
 			{
 				break;
 			}

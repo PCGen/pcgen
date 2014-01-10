@@ -84,7 +84,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		while (commaTok.hasMoreTokens())
 		{
 			String tokString = commaTok.nextToken();
-			if (tokString.startsWith("PRE") || tokString.startsWith("!PRE"))
+			if (looksLikeAPrerequisite(tokString))
 			{
 				return new ParseResult.Fail("Invalid " + getTokenName()
 						+ ": PRExxx was comma delimited : " + value, context);

@@ -98,7 +98,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String token = tok.nextToken();
 
-		if (token.startsWith("PRE") || token.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(token))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getFullName()
 							+ ": " + value, context);
@@ -196,7 +196,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 			first = false;
 			token = tok.nextToken();
-			if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			if (looksLikeAPrerequisite(token))
 			{
 				break;
 			}

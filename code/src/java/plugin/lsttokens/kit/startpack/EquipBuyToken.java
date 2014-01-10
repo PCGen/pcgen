@@ -70,7 +70,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		String activeValue = sep.next();
-		if (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(activeValue))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 					+ getTokenName(), context);

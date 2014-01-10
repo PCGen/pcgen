@@ -66,7 +66,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
 
 		String firstToken = tok.nextToken();
-		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(firstToken))
 		{
 			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
 					+ getTokenName(), context);
@@ -85,7 +85,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			foundClear = true;
 		}
 
-		if (firstToken.startsWith("PRE") || firstToken.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(firstToken))
 		{
 			return new ParseResult.Fail(
 					"Cannot use PREREQs when using .CLEAR in "
@@ -118,7 +118,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				return new ParseResult.Fail("SA tag confused by '.CLEAR' as a "
 						+ "middle token: " + aString, context);
 			}
-			else if (token.startsWith("PRE") || token.startsWith("!PRE"))
+			else if (looksLikeAPrerequisite(token))
 			{
 				break;
 			}

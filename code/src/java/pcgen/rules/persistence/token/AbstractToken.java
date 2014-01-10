@@ -46,6 +46,12 @@ public abstract class AbstractToken
 		}
 	}
 
+	protected boolean looksLikeAPrerequisite(String activeValue)
+	{
+		return (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE"))
+			&& activeValue.contains(":");
+	}
+
 	protected Prerequisite getPrerequisite(String token)
 	{
 		/*

@@ -189,7 +189,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 						context.ref.getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
 			}
-			else if (tokString.startsWith("PRE") || tokString.startsWith("!PRE"))
+			else if (looksLikeAPrerequisite(tokString))
 			{
 				return new ParseResult.Fail(getTokenName()
 					+ " Error: " + tokString + " found where companion race expected.", context);
@@ -246,7 +246,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 					return cpr;
 				}
 			}
-			else if (optArg.startsWith("PRE") || optArg.startsWith("!PRE"))
+			else if (looksLikeAPrerequisite(optArg))
 			{
 				break;
 			}

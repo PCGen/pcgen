@@ -78,7 +78,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 		String descString = tok.nextToken();
 
-		if (descString.startsWith("PRE") || descString.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(descString))
 		{
 			return new ParseResult.Fail(getTokenName() + " encountered only a PRExxx: "
 				+ aDesc, context);
@@ -107,7 +107,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 						+ " tag confused by '.CLEAR' as a " + "middle token: "
 						+ aDesc, context);
 				}
-				else if (token.startsWith("PRE") || token.startsWith("!PRE"))
+				else if (looksLikeAPrerequisite(token))
 				{
 					break;
 				}

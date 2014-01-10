@@ -78,7 +78,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		String visionString = aTok.nextToken();
-		if (visionString.startsWith("PRE") || visionString.startsWith("!PRE"))
+		if (looksLikeAPrerequisite(visionString))
 		{
 			return new ParseResult.Fail(
 					"Cannot have only PRExxx subtoken in " + getTokenName()
@@ -117,8 +117,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				}
 				foundClear = true;
 			}
-			else if (visionString.startsWith("PRE")
-					|| visionString.startsWith("!PRE"))
+			else if (looksLikeAPrerequisite(visionString))
 			{
 				break;
 			}
