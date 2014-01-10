@@ -183,6 +183,14 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		runRoundRobin("TestWP1");
 	}
 
+	@Test
+	public void testRoundRobinOnePreFooler() throws PersistenceLayerException
+	{
+		construct(primaryContext, "Prefool");
+		construct(secondaryContext, "Prefool");
+		runRoundRobin("Prefool");
+	}
+
 	protected void construct(LoadContext loadContext, String one)
 	{
 		loadContext.ref.constructCDOMObject(getTargetClass(), one);

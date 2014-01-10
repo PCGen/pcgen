@@ -284,6 +284,14 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	}
 
 	@Test
+	public void testRoundRobinOnePreFooler() throws PersistenceLayerException
+	{
+		construct(primaryContext, "Prefool");
+		construct(secondaryContext, "Prefool");
+		runRoundRobin("Prefool");
+	}
+
+	@Test
 	public void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

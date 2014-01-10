@@ -128,7 +128,16 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	{
 		try
 		{
-			assertFalse(parse("TYPE."));
+			boolean ret = parse("TYPE.");
+			if (ret)
+			{
+				assertConstructionError();
+			}
+			else
+			{
+				assertNoSideEffects();
+			}
+			
 		}
 		catch (IllegalArgumentException e)
 		{

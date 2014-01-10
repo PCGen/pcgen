@@ -667,47 +667,31 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		try
 		{
 			Integer.parseInt(val);
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException("A number cannot be a valid single item: " + val);
 		}
 		catch (NumberFormatException nfe)
 		{
 			// ok
 		}
-		if (val.startsWith("TYPE"))
+		if (val.contains("="))
 		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException("= cannot be a in valid single item (perhaps something like TYPE= is not supported in this token?): " + val);
 		}
 		if (val.equalsIgnoreCase("ANY"))
 		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException("Any cannot be a valid single item (not supported in this token?)");
 		}
 		if (val.equalsIgnoreCase("ALL"))
 		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException("All cannot be a valid single item (not supported in this token?)");
 		}
-		if (val.startsWith("PRE"))
+		if (val.contains(":"))
 		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException(": cannot exist in a valid single item (did you try to use a PRE where it is not supported?) " + val);
 		}
-		if (val.startsWith("CHOOSE"))
+		if (val.equalsIgnoreCase("%LIST"))
 		{
-			throw new IllegalArgumentException(val);
-		}
-		if (val.startsWith("TIMES="))
-		{
-			throw new IllegalArgumentException(val);
-		}
-		if (val.startsWith("TIMEUNIT="))
-		{
-			throw new IllegalArgumentException(val);
-		}
-		if (val.startsWith("CASTERLEVEL="))
-		{
-			throw new IllegalArgumentException(val);
-		}
-		if (val.equals("%LIST"))
-		{
-			throw new IllegalArgumentException(val);
+			throw new IllegalArgumentException("%LIST cannot be a valid single item (not supported in this token?)");
 		}
 
 		WeakReference<CDOMSingleRef<T>> wr = referenced.get(val);

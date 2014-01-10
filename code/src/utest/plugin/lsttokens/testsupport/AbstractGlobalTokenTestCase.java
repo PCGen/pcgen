@@ -207,8 +207,20 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public boolean parse(String str) throws PersistenceLayerException
 	{
-		ParseResult pr = getToken()
-				.parseToken(primaryContext, primaryProf, str);
+		ParseResult pr;
+		try
+		{
+			pr = getToken().parseToken(primaryContext, primaryProf, str);
+		}
+		catch (IllegalArgumentException e)
+		{
+			Logging.addParseMessage(
+				Logging.LST_ERROR,
+				"Token generated an IllegalArgumentException: "
+					+ e.getLocalizedMessage());
+			pr = new ParseResult.Fail("Token processing failed");
+		}
+
 		if (pr.passed())
 		{
 			primaryContext.commit();

@@ -181,8 +181,15 @@ public class FeatTokenTest extends
 	@Test
 	public void testInvalidInputDoubleEquals() throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "CLASS==Fighter"));
-		assertConstructionError();
+		boolean ret = parse(getSubTokenName() + '|' + "CLASS==Fighter");
+		if (ret)
+		{
+			assertConstructionError();
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test

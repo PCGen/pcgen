@@ -199,9 +199,16 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1." + good
-				+ "]"));
-		assertConstructionError();
+		boolean ret = parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1." + good
+				+ "]");
+		if (ret)
+		{
+			assertConstructionError();
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test

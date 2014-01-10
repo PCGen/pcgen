@@ -355,8 +355,15 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierDot() throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + qualifier + "." + qualifier));
-		assertConstructionError();
+		boolean parse = parse(getSubTokenName() + '|' + qualifier + "." + qualifier);
+		if (parse)
+		{
+			assertConstructionError();
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -491,8 +498,15 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputJoinedDotQualifier()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "PC." + qualifier));
-		assertConstructionError();
+		boolean parse = parse(getSubTokenName() + '|' + "PC." + qualifier);
+		if (parse)
+		{
+			assertConstructionError();
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -1054,8 +1068,15 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputJoinedDotNotQualifierAlone()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "PC.!" + qualifier + ""));
-		assertConstructionError();
+		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier + "");
+		if (parse)
+		{
+			assertConstructionError();
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -1097,9 +1118,16 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier + "[!"
-					+ qualifier + "]"));
-			assertConstructionError();
+			boolean parse = parse(getSubTokenName() + '|' + "!" + qualifier + "[!"
+					+ qualifier + "]");
+			if (parse)
+			{
+				assertConstructionError();
+			}
+			else
+			{
+				assertNoSideEffects();
+			}
 		}
 	}
 

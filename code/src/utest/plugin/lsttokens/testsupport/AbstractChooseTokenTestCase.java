@@ -434,6 +434,14 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	}
 
 	@Test
+	public void testRoundRobinOnePreFooler() throws PersistenceLayerException
+	{
+		construct(primaryContext, "Prefool");
+		construct(secondaryContext, "Prefool");
+		runRoundRobin(getSubTokenName() + '|' + "Prefool");
+	}
+
+	@Test
 	public void testRoundRobinParen() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1 (Test)");
