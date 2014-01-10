@@ -71,19 +71,24 @@ public class FOP11HandlerImpl implements FOPHandler
         fopFactory.setStrictValidation(false);
         
         // Allow optional customization with configuration file
-        String configPath = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fop-1.1.xconf";
-    	Logging.log(Logging.WARNING,"Checking for config file at " + configPath);
+        String configPath = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fop.xconf";
+    	Logging.log(Logging.INFO,"Checking for config file at " + configPath);
         File userConfigFile = new File(configPath);
-        if (userConfigFile.exists())
-        {
-        	Logging.log(Logging.WARNING,"FOPHandler using config file " + configPath);
-        	try {
+		if (userConfigFile.exists())
+		{
+			Logging.log(Logging.INFO, "FOPHandler using config file "
+				+ configPath);
+			try
+			{
 				fopFactory.setUserConfig(userConfigFile);
-			} catch (Exception e) {
-	        	Logging.errorPrint("Problem with FOP configuration " + configPath + ": ",e);
 			}
-        } 
-        factory = TransformerFactory.newInstance();
+			catch (Exception e)
+			{
+				Logging.errorPrint("Problem with FOP configuration "
+					+ configPath + ": ", e);
+			}
+		}
+		factory = TransformerFactory.newInstance();
 
 		outFile = null;
 		mode = PDF_MODE;
