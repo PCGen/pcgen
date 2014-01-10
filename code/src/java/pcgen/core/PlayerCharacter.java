@@ -594,38 +594,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Returns the Spell Stat bonus for a class.
-	 * 
-	 * @param aClass the class to calculate the bonus for
-	 * @return base spell stat bonus
-	 */
-	public int getBaseSpellStatBonus(final PCClass aClass)
-	{
-		if (aClass == null)
-		{
-			return 0;
-		}
-
-		int baseSpellStat = 0;
-		PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
-		if (ss != null)
-		{
-			baseSpellStat = this.getTotalStatFor(ss);
-			// final List<TypedBonus> bonuses = getBonusesTo("STAT",
-			// "BASESPELLSTAT");
-			// bonuses.addAll( getBonusesTo("STAT",
-			// "BASESPELLSTAT;CLASS."+aClass.getKeyName()) );
-			// bonuses.addAll( getBonusesTo("STAT", "CAST." + statString) );
-			// baseSpellStat += TypedBonus.totalBonuses(bonuses);
-			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT");
-			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS=" + aClass.getKeyName());
-			baseSpellStat += (int) getTotalBonusTo("STAT", "CAST." + ss.getAbb());
-			baseSpellStat = this.getModForNumber(baseSpellStat, ss);
-		}
-		return baseSpellStat;
-	}
-
-	/**
 	 * Set the character's BIO.
 	 * 
 	 * @param bio the biography

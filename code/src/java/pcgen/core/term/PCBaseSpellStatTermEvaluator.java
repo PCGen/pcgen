@@ -26,8 +26,10 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
 public class PCBaseSpellStatTermEvaluator
@@ -53,7 +55,27 @@ public class PCBaseSpellStatTermEvaluator
 					.silentlyGetConstructedCDOMObject(PCClass.class, source);
 		}
 		//null safe to pass in
-		return (float) pc.getBaseSpellStatBonus(pcClass);
+		return (float) getBaseSpellStatBonus(pc, pcClass);
+	}
+
+	private int getBaseSpellStatBonus(PlayerCharacter pc, PCClass pcClass)
+	{
+		if (pcClass == null)
+		{
+			return 0;
+		}
+		
+		int baseSpellStat = 0;
+		PCStat ss = pcClass.get(ObjectKey.SPELL_STAT);
+		if (ss != null)
+		{
+			baseSpellStat = pc.getTotalStatFor(ss);
+			baseSpellStat += (int) pc.getTotalBonusTo("STAT", "BASESPELLSTAT");
+			baseSpellStat += (int) pc.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS=" + pcClass.getKeyName());
+			baseSpellStat += (int) pc.getTotalBonusTo("STAT", "CAST." + ss.getAbb());
+			baseSpellStat = pc.getModForNumber(baseSpellStat, ss);
+		}
+		return baseSpellStat;
 	}
 
 	@Override
