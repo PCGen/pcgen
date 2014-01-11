@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2012.
+ * Copyright (c) Thomas Parker, 2014.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,26 +15,28 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.input;
+package pcgen.cdom.facet;
 
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.meta.CorePerspective;
-import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Language;
 
 /**
- * FreeLanguageFacet is a Facet that tracks the Languages that have been granted
- * to a Player Character for free.
+ * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
+ * to a Player Character through the AUTO:LANG and LANGAUTO tokens
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FreeLanguageFacet extends AbstractSourcedListFacet<Language>
-		implements PerspectiveLocation
+public class AutoLanguageUnconditionalFacet extends
+		AbstractSourcedListFacet<Language> implements PerspectiveLocation
 {
 
 	private LanguageFacet languageFacet;
-
+	
 	public void setLanguageFacet(LanguageFacet languageFacet)
 	{
 		this.languageFacet = languageFacet;
@@ -49,6 +51,6 @@ public class FreeLanguageFacet extends AbstractSourcedListFacet<Language>
 	@Override
 	public String getIdentity()
 	{
-		return "CHOOSE:LANGAUTO";
+		return "AUTO:LANG|<ref> (no prerequisite)";
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2012.
+ * Copyright (c) Thomas Parker, 2013.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,29 +15,9 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.input;
+package pcgen.cdom.meta;
 
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.facet.model.LanguageFacet;
-import pcgen.core.Language;
-
-/**
- * SkillLanguageFacet tracks the Language object granted to the Player Character
- * from skills that grant Languages.
- * 
- * @author Thomas Parker (thpr [at] yahoo.com)
- */
-public class SkillLanguageFacet extends AbstractSourcedListFacet<Language>
+public interface PerspectiveLocation
 {
-	private LanguageFacet languageFacet;
-
-	public void setLanguageFacet(LanguageFacet languageFacet)
-	{
-		this.languageFacet = languageFacet;
-	}
-
-	public void init()
-	{
-		addDataFacetChangeListener(languageFacet);
-	}
+	public String getIdentity();
 }

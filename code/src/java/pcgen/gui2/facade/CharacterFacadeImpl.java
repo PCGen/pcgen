@@ -72,6 +72,7 @@ import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -126,6 +127,7 @@ import pcgen.core.facade.CharacterLevelsFacade.HitPointListener;
 import pcgen.core.facade.CharacterStubFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.CompanionSupportFacade;
+import pcgen.core.facade.CoreViewNodeFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.DeityFacade;
@@ -4701,4 +4703,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		
 	}
+
+	@Override
+	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers)
+	{
+		List<CoreViewNodeFacade> coreDebugList = CoreUtils.buildCoreDebugList(theCharacter, pers);
+		return coreDebugList;
+	}
+
 }

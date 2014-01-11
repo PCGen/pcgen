@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -29,13 +28,6 @@ public class LanguageFacetTest extends
 {
 
 	private LanguageFacet facet = new LanguageFacet();
-
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		facet.setAutoLanguageFacet(new AutoLanguageFacet());
-	}
 
 	@Override
 	protected AbstractSourcedListFacet<Language> getFacet()

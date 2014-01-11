@@ -17,15 +17,13 @@
  */
 package pcgen.cdom.facet.model;
 
-import java.util.IdentityHashMap;
-import java.util.Set;
-
-import pcgen.base.util.WrappedMapSet;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Language;
 
 /**
@@ -35,9 +33,8 @@ import pcgen.core.Language;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
-		DataFacetChangeListener<Language>
+		DataFacetChangeListener<Language>, PerspectiveLocation
 {
-	private AutoLanguageFacet autoLanguageFacet;
 
 	/**
 	 * Adds the Language object identified in the DataFacetChangeEvent to this
@@ -80,36 +77,15 @@ public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
-
-	public void setAutoLanguageFacet(AutoLanguageFacet autoLanguageFacet)
+	
+	public void init()
 	{
-		this.autoLanguageFacet = autoLanguageFacet;
+		CorePerspectiveDB.register(CorePerspective.LANGUAGE, FacetBehavior.MODEL, this);
 	}
 
 	@Override
-	public boolean contains(CharID id, Language lang)
+	public String getIdentity()
 	{
-		return super.contains(id, lang) || autoLanguageFacet.getAutoLanguage(id).contains(lang);
-	}
-
-	@Override
-	public Set<Language> getSet(CharID id)
-	{
-		final Set<Language> ret = new WrappedMapSet<Language>(IdentityHashMap.class);
-		ret.addAll(super.getSet(id));
-		ret.addAll(autoLanguageFacet.getAutoLanguage(id));
-		return ret;
-	}
-
-	@Override
-	public boolean isEmpty(CharID id)
-	{
-		return super.isEmpty(id) && autoLanguageFacet.getAutoLanguage(id).isEmpty();
-	}
-
-	@Override
-	public int getCount(CharID id)
-	{
-		return super.getCount(id) + autoLanguageFacet.getAutoLanguage(id).size();
+		return "Character Languages";
 	}
 }

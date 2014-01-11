@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.base;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -253,5 +255,20 @@ public abstract class AbstractDataFacet<T> extends AbstractStorageFacet
 				}
 			}
 		}
+	}
+
+	public DataFacetChangeListener<? super T>[] getDataFacetChangeListeners()
+	{
+		List<DataFacetChangeListener<? super T>> list =
+				new ArrayList<DataFacetChangeListener<? super T>>();
+		for (DataFacetChangeListener<? super T>[] dfclArray : listeners
+			.values())
+		{
+			for (DataFacetChangeListener<? super T> listener : dfclArray)
+			{
+				list.add(listener);
+			}
+		}
+		return list.toArray(new DataFacetChangeListener[list.size()]);
 	}
 }

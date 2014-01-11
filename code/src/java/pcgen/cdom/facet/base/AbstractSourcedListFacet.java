@@ -692,4 +692,17 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		return false;
 	}
 
+	public Collection<Object> getSources(CharID id, T obj)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			Set<Object> sources = componentMap.get(obj);
+			if (sources != null)
+			{
+				return Collections.unmodifiableSet(sources);
+			}
+		}
+		return Collections.emptySet();
+	}
 }

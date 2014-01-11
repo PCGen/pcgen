@@ -46,6 +46,7 @@ import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
+import pcgen.gui2.coreview.CoreViewFrame;
 import pcgen.gui2.dialog.CalculatorDialog;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.dialog.DebugDialog;
@@ -133,6 +134,7 @@ public final class PCGenActionMap extends ActionMap
 	public static final String LOG_COMMAND = TOOLS_COMMAND + ".log";
 	public static final String LOGGING_LEVEL_COMMAND = TOOLS_COMMAND + ".loggingLevel";
 	public static final String CALCULATOR_COMMAND = TOOLS_COMMAND + ".calculator";
+	public static final String COREVIEW_COMMAND = TOOLS_COMMAND + ".coreview";
 	//the help menu commands
 	public static final String HELP_COMMAND = "help";
 	public static final String HELP_CONTEXT_COMMAND = HELP_COMMAND + ".context";
@@ -190,6 +192,7 @@ public final class PCGenActionMap extends ActionMap
 		put(LOG_COMMAND, new DebugAction());
 		put(LOGGING_LEVEL_COMMAND, new LoggingLevelAction());
 		put(CALCULATOR_COMMAND, new CalculatorAction());
+		put(COREVIEW_COMMAND, new CoreViewAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
 		put(KIT_FILTERS_COMMAND,
@@ -449,6 +452,25 @@ public final class PCGenActionMap extends ActionMap
 			}
 			Utility.setDialogRelativeLocation(frame, dialog);
 			dialog.setVisible(true);
+		}
+
+	}
+
+	private class CoreViewAction extends PCGenAction
+	{
+
+
+		public CoreViewAction()
+		{
+			super("mnuToolsCoreView", COREVIEW_COMMAND, "Shift-F11");
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			CharacterFacade cf = frame.getSelectedCharacterRef().getReference();
+			CoreViewFrame cvf = new CoreViewFrame(frame, cf);
+			cvf.setVisible(true);
 		}
 
 	}

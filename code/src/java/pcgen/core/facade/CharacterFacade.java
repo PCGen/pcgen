@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
+import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
 import pcgen.core.facade.event.ChangeListener;
@@ -888,4 +889,6 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param targets The equipment to be updated.
 	 */
 	public void addNote(List<EquipmentFacade> targets);
+	
+	public List<CoreViewNodeFacade> getCoreViewTree(CorePerspective pers);
 }

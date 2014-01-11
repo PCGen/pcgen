@@ -19,6 +19,10 @@ package pcgen.cdom.facet.input;
 
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Language;
 
 /**
@@ -28,6 +32,7 @@ import pcgen.core.Language;
  * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AddLanguageFacet extends AbstractSourcedListFacet<Language>
+		implements PerspectiveLocation
 {
 	private LanguageFacet languageFacet;
 
@@ -39,5 +44,12 @@ public class AddLanguageFacet extends AbstractSourcedListFacet<Language>
 	public void init()
 	{
 		addDataFacetChangeListener(languageFacet);
+		CorePerspectiveDB.register(CorePerspective.LANGUAGE, FacetBehavior.INPUT, this);
+	}
+
+	@Override
+	public String getIdentity()
+	{
+		return "ADD:LANGUAGE";
 	}
 }

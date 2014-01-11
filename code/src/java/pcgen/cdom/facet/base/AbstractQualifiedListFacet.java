@@ -760,4 +760,17 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		return list;
 	}
 
+	public Collection<Object> getSources(CharID id, T obj)
+	{
+		Map<T, Set<Object>> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			Set<Object> sources = componentMap.get(obj);
+			if (sources != null)
+			{
+				return Collections.unmodifiableSet(sources);
+			}
+		}
+		return Collections.emptySet();
+	}
 }

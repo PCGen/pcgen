@@ -89,6 +89,7 @@ import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
+import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AvailableSpellFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.CheckBonusFacet;
@@ -187,7 +188,6 @@ import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
-import pcgen.cdom.facet.input.SkillLanguageFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
@@ -303,7 +303,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
-	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
 			.getFacet(GlobalAddedSkillCostFacet.class);
@@ -395,6 +394,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
 	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
 
+	private AutoLanguageGrantedFacet condLangFacet = FacetLibrary.getFacet(AutoLanguageGrantedFacet.class);
+	
 	private SkillCostFacet skillCostFacet = FacetLibrary.getFacet(SkillCostFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
@@ -978,6 +979,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			cabFacet.update(id);
 			cAvSpellFacet.update(id);
 			cKnSpellFacet.update(id);
+			condLangFacet.update(id);
 		}
 
 		dirtyFlag = dirtyState;
@@ -6685,18 +6687,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void removeAddLanguage(final Language aLang, CDOMObject source)
 	{
 		addLangFacet.remove(id, aLang, source);
-		setDirty(true);
-	}
-
-	public void addSkillLanguage(final Language aLang, CDOMObject source)
-	{
-		skillLangFacet.add(id, aLang, source);
-		setDirty(true);
-	}
-
-	public void removeSkillLanguage(final Language aLang, CDOMObject source)
-	{
-		skillLangFacet.remove(id, aLang, source);
 		setDirty(true);
 	}
 

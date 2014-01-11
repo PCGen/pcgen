@@ -65,8 +65,17 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.input.AutoEquipmentListFacet" />
-	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet" />
+	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet">
+		<property name="autoLanguageUnconditionalFacet" ref="autoLanguageUnconditionalFacet"/>
+	</bean>
+	<bean id="autoLanguageGrantedFacet" class="pcgen.cdom.facet.AutoLanguageGrantedFacet">
+		<property name="languageFacet" ref="languageFacet"/>
+		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
+	</bean>
 	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet">
+		<property name="languageFacet" ref="languageFacet"/>
+	</bean>
+	<bean id="autoLanguageUnconditionalFacet" class="pcgen.cdom.facet.AutoLanguageUnconditionalFacet">
 		<property name="languageFacet" ref="languageFacet"/>
 	</bean>
 	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet">
@@ -315,9 +324,7 @@
 		<property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
 	</bean>
 	<!-- L -->
-	<bean id="languageFacet" class="pcgen.cdom.facet.model.LanguageFacet">
-		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
-	</bean>
+	<bean id="languageFacet" class="pcgen.cdom.facet.model.LanguageFacet"/>
 	<bean id="legalDeityFacet" class="pcgen.cdom.facet.analysis.LegalDeityFacet">
 		<property name="classFacet" ref="classFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
@@ -494,9 +501,6 @@
 		<property name="masterSkillFacet" ref="masterSkillFacet"/>
 		<property name="subClassFacet" ref="subClassFacet"/>
 		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
-	</bean>
-	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.input.SkillLanguageFacet">
-		<property name="languageFacet" ref="languageFacet"/>
 	</bean>
 	<bean id="skillOutputOrderFacet" class="pcgen.cdom.facet.SkillOutputOrderFacet"/>
 	<bean id="skillPoolFacet" class="pcgen.cdom.facet.SkillPoolFacet"/>
