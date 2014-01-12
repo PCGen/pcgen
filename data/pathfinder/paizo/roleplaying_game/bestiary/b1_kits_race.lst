@@ -5344,7 +5344,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Person|Cure Light Wounds|Divi
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Invisibility|Summon Swarm
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement|Fireball
 
-STARTPACK:Neothelid Default	TYPE:DefaultMonster.Aberation	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]	SOURCEPAGE:214
+STARTPACK:Neothelid Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]	SOURCEPAGE:214
 RACE:Neothelid	!PRERACE:1,%
 NAME:Neothelid
 ALIGN:CE
@@ -5530,7 +5530,7 @@ GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Falchion			SIZE:PC	LOCATION:Both Hands
 GEAR:Javelin		QTY:4	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Otyugh Default	TYPE:DefaultMonster.Aberation	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Otyugh]	SOURCEPAGE:223
+STARTPACK:Otyugh Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Otyugh]	SOURCEPAGE:223
 RACE:Otyugh	!PRERACE:1,%
 NAME:Otyugh
 ALIGN:TN
