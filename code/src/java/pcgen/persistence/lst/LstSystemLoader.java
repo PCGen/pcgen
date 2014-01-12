@@ -123,7 +123,7 @@ public final class LstSystemLoader implements SystemLoader
 					// call loadPCCFilesInDirectory repeatedly. -rlk 2002-03-30
 					if (Globals.getCampaignByURI(uri, false) == null)
 					{
-						campaignLoader.loadLstFile(null, uri);
+						campaignLoader.loadCampaignLstFile(uri);
 					}
 				}
 				/*

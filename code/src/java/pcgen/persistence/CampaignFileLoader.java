@@ -41,9 +41,12 @@ import pcgen.util.Logging;
  */
 public class CampaignFileLoader extends PCGenTask
 {
-
 	private File alternateSourceFolder = null;
-	
+
+    /**
+     * A {@link java.io.FilenameFilter FilenameFilter} that returns true if a given
+     * file path ends with .pcc or is a directory.
+     */
 	private final FilenameFilter pccFileFilter = new FilenameFilter()
 	{
 
@@ -67,8 +70,10 @@ public class CampaignFileLoader extends PCGenTask
 		}
 
 	};
+    /**
+     * A list of URIs for PCC files to load. Populated by {@link #findPCCFiles(java.io.File) findPCCFiles}.
+     */
 	private LinkedList<URI> campaignFiles = new LinkedList<URI>();
-	private CampaignLoader campaignLoader = new CampaignLoader();
 
 	@Override
 	public String getMessage()
@@ -103,6 +108,10 @@ public class CampaignFileLoader extends PCGenTask
 		initCampaigns();
 	}
 
+    /**
+     * Recursively looks inside a given directory for PCC files and adds them to the {@link #campaignFiles campaignFiles} list.
+     * @param aDirectory The directory to search.
+     */
 	private void findPCCFiles(File aDirectory)
 	{
 		if (!aDirectory.exists() || !aDirectory.isDirectory())
@@ -120,17 +129,25 @@ public class CampaignFileLoader extends PCGenTask
 		}
 	}
 
+    /**
+     * Passes the campaign PCC files referenced by {@link #campaignFiles campaignFiles} to a {@link pcgen.persistence.lst.CampaignLoader CampaignLoader},
+     * which will load the data within into the {@link pcgen.rules.context.LoadContext LoadContext} of the {@link pcgen.core.Campaign Campaign}.
+     */
 	private void loadCampaigns()
 	{
 		int progress = 0;
+        CampaignLoader campaignLoader = new CampaignLoader();
 		while (!campaignFiles.isEmpty())
 		{
+            // Pull the first URI from the list
 			URI uri = campaignFiles.poll();
+            // Do not load campaign if already loaded
 			if (Globals.getCampaignByURI(uri, false) == null)
 			{
 				try
 				{
-					campaignLoader.loadLstFile(null, uri);
+                    // Pass this URI to campaign loader
+					campaignLoader.loadCampaignLstFile(uri);
 				}
 				catch (PersistenceLayerException ex)
 				{
@@ -144,13 +161,18 @@ public class CampaignFileLoader extends PCGenTask
 		}
 	}
 
+    /**
+     * Goes through the campaigns in {@link #campaignFiles campaignFiles} and loads
+     * data associated with dependent campaigns.
+     */
 	private void initCampaigns()
 	{
 		// This may modify the globals list; need a local copy so
 		// the iteration doesn't fail.
 		List<Campaign> initialCampaigns =
 				new ArrayList<Campaign>(Globals.getCampaignList());
-		
+
+        CampaignLoader campaignLoader = new CampaignLoader();
 		for (Campaign c : initialCampaigns)
 		{
 			campaignLoader.initRecursivePccFiles(c);

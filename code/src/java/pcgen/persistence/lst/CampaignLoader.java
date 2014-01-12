@@ -47,6 +47,9 @@ import pcgen.util.Logging;
  */
 public class CampaignLoader extends LstLineFileLoader
 {
+    /**
+     * The {@link pcgen.core.Campaign Campaign} being loaded by {@link #loadCampaignLstFile(java.net.URI) loadCampaignLstFile}.
+     */
 	private Campaign campaign = null;
 	private final List<Campaign> inittedCampaigns = new ArrayList<Campaign>();
 
@@ -61,7 +64,7 @@ public class CampaignLoader extends LstLineFileLoader
 	/**
 	 * This method initializes any campaigns that include other campaigns,
 	 * avoiding an infinite loop in the event of recursive, for example
-	 * interdependent campaigns
+	 * interdependent campaigns.
 	 *
 	 * @throws PersistenceLayerException if an error occurs reading a
 	 *                                   newly-encountered campaign
@@ -79,18 +82,140 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(LoadContext, URI)
-	 */
-	@Override
-	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
+    /**
+     * This method initializes any campaigns that include other campaigns,
+     * avoiding an infinite loop in the event of recursive (for example
+     * interdependent campaigns)
+     *
+     * This specific overloading will recurse down the given
+     * campaign object dependency tree, then return
+     *
+     * @param baseCampaign Campaign object that may or may not require
+     *                     other campaigns
+     * @throws PersistenceLayerException if an error occurs reading a
+     *                                   newly-encountered campaign
+     */
+    public void initRecursivePccFiles(Campaign baseCampaign)
+    //throws PersistenceLayerException
+    {
+        if (baseCampaign == null || inittedCampaigns.contains(baseCampaign))
+        {
+            return;
+        }
+
+        inittedCampaigns.add(baseCampaign);
+
+        // Add all sub-files to the base campaign, regardless of exclusions
+        for (CampaignSourceEntry cse : baseCampaign.getSafeListFor(ListKey.FILE_PCC))
+        {
+            URI fName = cse.getURI();
+            if (PCGFile.isPCGenCampaignFile(fName))
+            {
+                // Find referenced campaign if loaded
+                Campaign globalSubCampaign =
+                        Globals.getCampaignByURI(fName, false);
+
+                // If this campaign has not already been loaded, do so
+                if (globalSubCampaign == null)
+                {
+                    try
+                    {
+                        loadCampaignLstFile(fName);
+                        globalSubCampaign =
+                                Globals.getCampaignByURI(fName, false);
+                    }
+                    catch (PersistenceLayerException e)
+                    {
+                        Logging.errorPrint("Recursive init failed on file "
+                                + fName, e);
+                    }
+                }
+
+                // add all sub-subs etc to the list
+                initRecursivePccFiles(globalSubCampaign);
+
+                // add subfile to the parent campaign for loading
+                initRecursivePccFiles(baseCampaign, globalSubCampaign);
+            }
+        }
+    }
+
+    /**
+     * This method adds all files from the included campaigns to this one.
+     * It then strips out the excluded files via a call to stripLstExcludes.
+     *
+     * @param baseCampaign Campaign that includes another campaign
+     * @param subCampaign  Campaign included by the baseCampaign
+     */
+    private void initRecursivePccFiles(Campaign baseCampaign,
+                                       Campaign subCampaign)
+    {
+        if (subCampaign == null)
+        {
+            return;
+        }
+
+        baseCampaign.addAllToListFor(ListKey.FILE_LST_EXCLUDE, subCampaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
+        baseCampaign.addAllToListFor(ListKey.FILE_RACE, subCampaign.getSafeListFor(ListKey.FILE_RACE));
+        baseCampaign.addAllToListFor(ListKey.FILE_CLASS, subCampaign.getSafeListFor(ListKey.FILE_CLASS));
+        baseCampaign.addAllToListFor(ListKey.FILE_COMPANION_MOD, subCampaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
+        baseCampaign.addAllToListFor(ListKey.FILE_COVER, subCampaign.getSafeListFor(ListKey.FILE_COVER));
+        baseCampaign.addAllToListFor(ListKey.FILE_SKILL, subCampaign.getSafeListFor(ListKey.FILE_SKILL));
+        baseCampaign.addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+        baseCampaign.addAllToListFor(ListKey.FILE_ABILITY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY));
+        baseCampaign.addAllToListFor(ListKey.FILE_FEAT, subCampaign.getSafeListFor(ListKey.FILE_FEAT));
+        baseCampaign.addAllToListFor(ListKey.FILE_DEITY, subCampaign.getSafeListFor(ListKey.FILE_DEITY));
+        baseCampaign.addAllToListFor(ListKey.FILE_DOMAIN, subCampaign.getSafeListFor(ListKey.FILE_DOMAIN));
+        baseCampaign.addAllToListFor(ListKey.FILE_ARMOR_PROF, subCampaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
+        baseCampaign.addAllToListFor(ListKey.FILE_SHIELD_PROF, subCampaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
+        baseCampaign.addAllToListFor(ListKey.FILE_WEAPON_PROF, subCampaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
+        baseCampaign.addAllToListFor(ListKey.FILE_EQUIP, subCampaign.getSafeListFor(ListKey.FILE_EQUIP));
+        baseCampaign.addAllToListFor(ListKey.FILE_SPELL, subCampaign.getSafeListFor(ListKey.FILE_SPELL));
+        baseCampaign.addAllToListFor(ListKey.FILE_LANGUAGE, subCampaign.getSafeListFor(ListKey.FILE_LANGUAGE));
+        baseCampaign.addAllToListFor(ListKey.FILE_TEMPLATE, subCampaign.getSafeListFor(ListKey.FILE_TEMPLATE));
+        baseCampaign.addAllToListFor(ListKey.FILE_EQUIP_MOD, subCampaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
+        baseCampaign.addAllToListFor(ListKey.FILE_KIT, subCampaign.getSafeListFor(ListKey.FILE_KIT));
+        baseCampaign.addAllToListFor(ListKey.FILE_BIO_SET, subCampaign.getSafeListFor(ListKey.FILE_BIO_SET));
+    }
+
+    /**
+     * Parses a campaign LST file and adds it to the Global container if not already added.
+     * @param filePath The file path to load.
+     * @throws PersistenceLayerException
+     */
+	public void loadCampaignLstFile(URI filePath) throws PersistenceLayerException
 	{
+        // Instantiate a Campaign, which will automatically establish a LoadContext
 		campaign = new Campaign();
-		campaign.setSourceURI(fileName);
+		campaign.setSourceURI(filePath);
 
-		super.loadLstFile(campaign.getCampaignContext(), fileName);
+        // Parses the data in the referenced URI and loads it into a LoadContext;
+        // this quickly goes to the parseLine method below
+		super.loadLstFile(campaign.getCampaignContext(), filePath);
 
-		finishCampaign();
+        // Make sure this campaign has not already been added to the Global container
+        if (Globals.getCampaignByURI(campaign.getSourceURI(), false) == null)
+        {
+            // Check the campaign's prerequisites, generating errors if any are not met but proceeding
+            validatePrereqs(campaign.getPrerequisiteList());
+            List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
+            if (copyright != null)
+            {
+                StringBuilder sec15 = Globals.getSection15();
+                sec15.append("<br><b>Source Material:</b>");
+                sec15.append(SourceFormat.getFormattedString(campaign,
+                        SourceFormat.LONG, true));
+                sec15.append("<br>");
+                sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
+                for (String license : copyright)
+                {
+                    sec15.append(license).append("<br>");
+                }
+            }
+
+            // Adds this campaign to the Global container.
+            Globals.addCampaign(campaign);
+        }
 	}
 
 	@Override
@@ -98,35 +223,6 @@ public class CampaignLoader extends LstLineFileLoader
 		throws PersistenceLayerException
 	{
 		LstUtils.processToken(context, campaign, sourceURI, inputLine);
-	}
-
-	/**
-	 * This method finishes the campaign being loaded by saving its section 15
-	 * information as well as adding it to Globals, if it has not already been
-	 * loaded.
-	 */
-	protected void finishCampaign()
-	{
-		if (Globals.getCampaignByURI(campaign.getSourceURI(), false) == null)
-		{
-			validatePrereqs(campaign.getPrerequisiteList());
-			List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
-			if (copyright != null)
-			{
-				StringBuilder sec15 = Globals.getSection15();
-				sec15.append("<br><b>Source Material:</b>");
-				sec15.append(SourceFormat.getFormattedString(campaign,
-						SourceFormat.LONG, true));
-				sec15.append("<br>");
-				sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
-				for (String license : copyright)
-				{
-					sec15.append(license).append("<br>");
-				}
-			}
-
-			Globals.addCampaign(campaign);
-		}
 	}
 
 	/**
@@ -162,100 +258,6 @@ public class CampaignLoader extends LstLineFileLoader
 			else
 			{
 				validatePrereqs(prereq.getPrerequisites());
-			}
-		}
-	}
-
-	/**
-	 * This method adds all files from the included campaigns to this one.
-	 * It then strips out the excluded files via a call to stripLstExcludes.
-	 *
-	 * @param baseCampaign Campaign that includes another campaign
-	 * @param subCampaign  Campaign included by the baseCampaign
-	 */
-	private void initRecursivePccFiles(Campaign baseCampaign,
-		Campaign subCampaign)
-	{
-		if (subCampaign == null)
-		{
-			return;
-		}
-
-		baseCampaign.addAllToListFor(ListKey.FILE_LST_EXCLUDE, subCampaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
-		baseCampaign.addAllToListFor(ListKey.FILE_RACE, subCampaign.getSafeListFor(ListKey.FILE_RACE));
-		baseCampaign.addAllToListFor(ListKey.FILE_CLASS, subCampaign.getSafeListFor(ListKey.FILE_CLASS));
-		baseCampaign.addAllToListFor(ListKey.FILE_COMPANION_MOD, subCampaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
-		baseCampaign.addAllToListFor(ListKey.FILE_COVER, subCampaign.getSafeListFor(ListKey.FILE_COVER));
-		baseCampaign.addAllToListFor(ListKey.FILE_SKILL, subCampaign.getSafeListFor(ListKey.FILE_SKILL));
-		baseCampaign.addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-		baseCampaign.addAllToListFor(ListKey.FILE_ABILITY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY));
-		baseCampaign.addAllToListFor(ListKey.FILE_FEAT, subCampaign.getSafeListFor(ListKey.FILE_FEAT));
-		baseCampaign.addAllToListFor(ListKey.FILE_DEITY, subCampaign.getSafeListFor(ListKey.FILE_DEITY));
-		baseCampaign.addAllToListFor(ListKey.FILE_DOMAIN, subCampaign.getSafeListFor(ListKey.FILE_DOMAIN));
-		baseCampaign.addAllToListFor(ListKey.FILE_ARMOR_PROF, subCampaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
-		baseCampaign.addAllToListFor(ListKey.FILE_SHIELD_PROF, subCampaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
-		baseCampaign.addAllToListFor(ListKey.FILE_WEAPON_PROF, subCampaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-		baseCampaign.addAllToListFor(ListKey.FILE_EQUIP, subCampaign.getSafeListFor(ListKey.FILE_EQUIP));
-		baseCampaign.addAllToListFor(ListKey.FILE_SPELL, subCampaign.getSafeListFor(ListKey.FILE_SPELL));
-		baseCampaign.addAllToListFor(ListKey.FILE_LANGUAGE, subCampaign.getSafeListFor(ListKey.FILE_LANGUAGE));
-		baseCampaign.addAllToListFor(ListKey.FILE_TEMPLATE, subCampaign.getSafeListFor(ListKey.FILE_TEMPLATE));
-		baseCampaign.addAllToListFor(ListKey.FILE_EQUIP_MOD, subCampaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
-		baseCampaign.addAllToListFor(ListKey.FILE_KIT, subCampaign.getSafeListFor(ListKey.FILE_KIT));
-		baseCampaign.addAllToListFor(ListKey.FILE_BIO_SET, subCampaign.getSafeListFor(ListKey.FILE_BIO_SET));
-	}
-
-	/**
-	 * This method initializes any campaigns that include other campaigns,
-	 * avoiding an infinite loop in the event of recursive (for example
-	 * interdependent campaigns)
-	 *
-	 * This specific overloading will recurse down a the given
-	 * campaign object dependency tree, then return
-	 *
-	 * @param baseCampaign Campaign object that may or may not require
-	 *                     other campaigns
-	 * @throws PersistenceLayerException if an error occurs reading a
-	 *                                   newly-encountered campaign
-	 */
-	public void initRecursivePccFiles(Campaign baseCampaign)
-		//throws PersistenceLayerException
-	{
-		if (baseCampaign == null || inittedCampaigns.contains(baseCampaign))
-		{
-			return;
-		}
-
-		inittedCampaigns.add(baseCampaign);
-		
-		// Add all sub-files to the main campaign, regardless of exclusions
-		for (CampaignSourceEntry cse : baseCampaign.getSafeListFor(ListKey.FILE_PCC))
-		{
-			URI fName = cse.getURI();
-			if (PCGFile.isPCGenCampaignFile(fName))
-			{
-				Campaign globalSubCampaign =
-						Globals.getCampaignByURI(fName, false);
-
-				if (globalSubCampaign == null)
-				{
-					try
-					{
-						loadLstFile(null, fName);
-						globalSubCampaign =
-								Globals.getCampaignByURI(fName, false);
-					}
-					catch (PersistenceLayerException e)
-					{
-						Logging.errorPrint("Recursive init failed on file "
-							+ fName, e);
-					}
-				}
-
-				// add all sub-subs etc to the list
-				initRecursivePccFiles(globalSubCampaign);
-
-				// add subfiles to the parent campaign for loading
-				initRecursivePccFiles(baseCampaign, globalSubCampaign);
 			}
 		}
 	}
