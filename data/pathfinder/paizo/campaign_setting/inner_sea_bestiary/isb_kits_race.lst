@@ -107,11 +107,11 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Charnal Colossus Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charnal Colossus],[!PRERACE:1,%]	SOURCEPAGE:p.10
+STARTPACK:Charnel Colossus Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charnel Colossus],[!PRERACE:1,%]	SOURCEPAGE:p.10
 ALIGN:NE
-RACE:Charnal Colossus	!PRERACE:1,%
+RACE:Charnel Colossus	!PRERACE:1,%
 GENDER:Neuter
-NAME:Charnal Colossus
+NAME:Charnel Colossus
 SKILL:Climb				RANK:30
 SKILL:Intimidate			RANK:30
 SKILL:Knowledge (Arcana)	RANK:30
@@ -120,7 +120,7 @@ SKILL:Knowledge (Religion)	RANK:30
 SKILL:Perception			RANK:30
 SKILL:Sense Motive		RANK:30
 SKILL:Spellcraft			RANK:30
-FEAT:Ability Focus (Voice of the Ancients ~ Charnal Colossus)
+FEAT:Ability Focus (Voice of the Ancients ~ Charnel Colossus)
 FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Combat Reflexes

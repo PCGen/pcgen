@@ -10,7 +10,7 @@ Cold Damage									CATEGORY:Special Ability	TYPE:SpecialAttack													DESC
 
 ###Block: Charda Abilities
 # Ability Name		Category of Ability		Type								Define					Description															Source Page
-Immunity To Black Blood	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity							DESC:You are uneffected by black bloood										SOURCEPAGE:p. 84
+Immunity To Black Blood	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity							DESC:You are unaffected by black blood										SOURCEPAGE:p. 84
 Black Bile			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary									DESC:All chardas retain a store of black blood in muscular organs attached to their mouths.	SOURCEPAGE:p. 84
 Blood Bite			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption							DESC:On a successfully bite attack, a charda can choose to deal additional cold damage.		SOURCEPAGE:p. 84
 Bile Blast			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption							DESC:A charda can spit a concentrated stream of black blood.						SOURCEPAGE:p. 84

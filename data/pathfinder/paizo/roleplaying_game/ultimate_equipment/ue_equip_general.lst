@@ -429,7 +429,7 @@ Bottle (Glass).MOD																																								SOURCEPAGE:p.60
 Breakaway Chains																TYPE:Goods.Tools.Masterwork														COST:65	WT:2					SOURCEPAGE:p.60																																									SPROP:These masterwork chains are easy to break, even though they look like normal chains (Perception DC 25 to notice the difference). A DC 10 Strength check breaks them instantly.
 Bucket.MOD																																										SOURCEPAGE:p.60
 Lantern (Bullseye).MOD								OUTPUTNAME:Bullseye Lantern																												SOURCEPAGE:p.60
-Buoy (Common).MOD									OUTPUTNAME:Bouy, Common				TYPE:Goods.General															COST:0.5	WT:16					SOURCEPAGE:p.60
+Buoy (Common).MOD									OUTPUTNAME:Buoy, Common				TYPE:Goods.General															COST:0.5	WT:16					SOURCEPAGE:p.60
 Buoy (Superior).MOD								OUTPUTNAME:Buoy, Superior			TYPE:Goods.General															COST:10	WT:30					SOURCEPAGE:p.60
 Butterfly Net.MOD																TYPE:Goods.General.Resizable														COST:5	WT:2					SOURCEPAGE:p.60
 Caltrops.MOD																																									SOURCEPAGE:p.60

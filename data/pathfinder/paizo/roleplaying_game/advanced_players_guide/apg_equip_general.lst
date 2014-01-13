@@ -8,7 +8,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 Backpack (Masterwork)		OUTPUTNAME:Backpack, Masterwork		TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any		COST:50	WT:4		SOURCEPAGE:p.182	BONUS:VAR|LOADSCORE|1
 Barbed Vest											TYPE:Goods.General									COST:10	WT:4		SOURCEPAGE:p.182
 Blanket											TYPE:Goods.General.Resizable								COST:0.2	WT:1		SOURCEPAGE:p.182
-Buoy (Common)			OUTPUTNAME:Bouy, Common				TYPE:Goods.General									COST:0.5	WT:16		SOURCEPAGE:p.182
+Buoy (Common)			OUTPUTNAME:Buoy, Common				TYPE:Goods.General									COST:0.5	WT:16		SOURCEPAGE:p.182
 Buoy (Superior)										TYPE:Goods.General									COST:10	WT:30		SOURCEPAGE:p.182
 Butterfly Net										TYPE:Goods.General.Resizable								COST:5	WT:2		SOURCEPAGE:p.182
 Chalkboard											TYPE:Goods.General									COST:1	WT:2		SOURCEPAGE:p.182

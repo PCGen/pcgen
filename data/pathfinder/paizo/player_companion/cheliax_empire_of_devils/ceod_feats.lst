@@ -12,7 +12,7 @@ Cornugon Trip	TYPE:Combat												PREFEAT:2,Improved Trip,Weapon Focus (Chain
 Fury's Fall		TYPE:Combat												PREFEAT:1,Improved Trip																		DESC:You can use your strength and agility to send foes crashing to the ground.													BONUS:VAR|CMB_Trip|DEX	SOURCEPAGE:p.26
 Fury's Snare	TYPE:Combat												PREFEAT:2,Fury's Fall,Improved Trip																DESC:You entangle your foe in your weapon.																							SOURCEPAGE:p.26
 Hamatula Grasp	TYPE:Combat										PREATT:9	PREFEAT:2,Hamatula Strike,Improved Grapple						PRESTAT:1,STR=13						DESC:You deal terrible damage to impaled foes.																							SOURCEPAGE:p.27
-Hamatula Strike	TYPE:Combat										PREATT:7	PREFEAT:1,Improved Grapple									PRESTAT:1,STR=13						DESC:You can cath your opponents on your weapon and hold them in place.																			SOURCEPAGE:p.27
+Hamatula Strike	TYPE:Combat										PREATT:7	PREFEAT:1,Improved Grapple									PRESTAT:1,STR=13						DESC:You can catch your opponents on your weapon and hold them in place.																			SOURCEPAGE:p.27
 Hellcat Pounce	TYPE:Combat	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack			PREFEAT:2,Hellcat Stealth,Skill Focus (Stealth)									PREVARGTEQ:SneakAttackDice,2	DESC:You attack unsuspecting foes twice.																								SOURCEPAGE:p.27
 Hellcat Stealth	TYPE:Combat												PREFEAT:1,Skill Focus (Stealth)				PRESKILL:1,Stealth=6									DESC:You are difficult to see in the light.																							SOURCEPAGE:p.27
 Osyluth Guile	TYPE:Combat												PREFEAT:1,Dodge							PRESKILL:1,Bluff=8									DESC:You are skilled at misdirecting an opponent's attack.																					SOURCEPAGE:p.27
