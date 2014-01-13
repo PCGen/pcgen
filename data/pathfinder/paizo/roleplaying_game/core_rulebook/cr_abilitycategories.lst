@@ -18,7 +18,7 @@ ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 # Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Barbarian Class Ability	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BarbarianClassAbility	PLURAL:Barbarian Class Abilities	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Bard Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BardClassAbility		PLURAL:Bard Class Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Cleric Class Ability	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ClericClassAbility		PLURAL:Clerc Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cleric Class Ability	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ClericClassAbility		PLURAL:Cleric Class Abilities		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Druid Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DruidClassAbility		PLURAL:Druid Class Abilities		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Fighter Class Ability	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FighterClassAbility	PLURAL:Fighter Class Abilities	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Monk Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MonkClassAbility		PLURAL:Monk Class Abilities		DISPLAYLOCATION:Class Abilities

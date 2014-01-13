@@ -369,8 +369,8 @@ Int Item / Stat Charisma 18					KEY:IntItemStatCHA18			NAMEOPT:NOTHING	TYPE:Weap
 Int Item / Stat Charisma 19					KEY:IntItemStatCHA19			NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:5200	VISIBLE:QUALIFY	REPLACES:IntItemStatCHA10,IntItemStatCHA11,IntItemStatCHA12,IntItemStatCHA13,IntItemStatCHA14,IntItemStatCHA15,IntItemStatCHA16,IntItemStatCHA17,IntItemStatCHA18,IntItemStatCHA20	PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item Stat CHA ~ 19
 Int Item / Stat Charisma 20					KEY:IntItemStatCHA20			NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:8000	VISIBLE:QUALIFY	REPLACES:IntItemStatCHA10,IntItemStatCHA11,IntItemStatCHA12,IntItemStatCHA13,IntItemStatCHA14,IntItemStatCHA15,IntItemStatCHA16,IntItemStatCHA17,IntItemStatCHA18,IntItemStatCHA19	PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item Stat CHA ~ 20
 
-Int Item / Commication Speech					KEY:IntSpeech				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:500	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Speech
-Int Item / Commication Telepathy				KEY:IntTelepathy				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:1000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Telepathy
+Int Item / Communication Speech					KEY:IntSpeech				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:500	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Speech
+Int Item / Communication Telepathy				KEY:IntTelepathy				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:1000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Telepathy
 
 Int Item / Senses (60')						KEY:IntSense60				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:500	VISIBLE:QUALIFY	REPLACES:IntSense120																											PRETYPE:1,EQMOD=IntItemBase					BONUS:VAR|INTITEMSENSERANGE|30
 Int Item / Senses (120')					KEY:IntSense120				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:1000	VISIBLE:QUALIFY	REPLACES:IntSense60																											PRETYPE:1,EQMOD=IntItemBase					BONUS:VAR|INTITEMSENSERANGE|90
@@ -378,8 +378,8 @@ Int Item / Senses (120')					KEY:IntSense120				NAMEOPT:NOTHING	TYPE:Weapon.Armo
 Int Item / Senses Darkvision					KEY:IntDarkvision				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:500	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Darkvision
 Int Item / Senses Blindsense					KEY:IntBlindsense				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:5000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Blindsense
 
-Int Item / Commication Read Languages			KEY:IntReadLang				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:1000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ ReadLang
-Int Item / Commication Read Magic				KEY:IntReadMagic				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:2000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ ReadMagic
+Int Item / Communication Read Languages			KEY:IntReadLang				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:1000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ ReadLang
+Int Item / Communication Read Magic				KEY:IntReadMagic				NAMEOPT:NOTHING	TYPE:Weapon.Armor.Goods	COST:2000	VISIBLE:QUALIFY																															PRETYPE:1,EQMOD=IntItemBase											ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ ReadMagic
 
 
 # Magic Item Powers -
