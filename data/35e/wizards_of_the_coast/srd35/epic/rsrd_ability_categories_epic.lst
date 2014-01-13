@@ -32,8 +32,8 @@ ABILITYCATEGORY:Epic Shadowdancer Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 
 ###Block: Epic Prestige Class Abilities
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
-ABILITYCATEGORY:Improved Terrain Mastery		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedTerrain	PLURAL:Improved Terrain Mastery		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Infiltrator Specialist Training	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpecialistTraining	PLURAL:Infiltrator Specialist Training	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Improved Terrain Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedTerrain	PLURAL:Improved Terrain Mastery		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Infiltrator Specialist Training	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpecialistTraining	PLURAL:Infiltrator Specialist Training	DISPLAYLOCATION:Class Abilities
 
 ###Block: Epic Class Feat Pools
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI		Display Location
@@ -47,7 +47,7 @@ ABILITYCATEGORY:Perfect Wight Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 
 ###Block: Epic Spellcasting Support
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list		Plural description for UI		Display Location
-ABILITYCATEGORY:Epic Spellcasting Type	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpicSpells							PLURAL:Epic Spellcasting Types	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Spellcasting Type	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EpicSpells							PLURAL:Epic Spellcasting Types	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Familiar Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FamiliarSpell						PLURAL:Familiar Spell Choices		DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Tenacious Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT							ABILITYLIST:Tenacious Magic	PLURAL:Tenacious Magic Choices	DISPLAYLOCATION:Feats
