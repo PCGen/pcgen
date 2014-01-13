@@ -124,4 +124,19 @@ public class AbilitySelection extends Selection<Ability, String>
 		String assoc = getSelection();
 		return (a == assoc) || ((a != null) && a.equalsIgnoreCase(assoc));
 	}
+	
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(getAbilityKey());
+		String selection = getSelection();
+		if ((selection != null) && (selection.length() > 0))
+		{
+			sb.append(" (");
+			sb.append(selection);
+			sb.append(')');
+		}
+		return sb.toString();
+	}
 }
