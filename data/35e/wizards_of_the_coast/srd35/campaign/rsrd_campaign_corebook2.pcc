@@ -57,7 +57,7 @@ EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equipmods_base.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equipmods_enhancing.lst
 
-FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Multiattack)
+FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Multiattack,Improved Natural Attack)
 FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats.lst
 
 KIT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_kits_races__animals.lst
