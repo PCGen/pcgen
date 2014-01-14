@@ -89,6 +89,12 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		this.character = character;
 		this.table = jtable;
 		this.stats = character.getDataSet().getStats();
+		int min = Integer.MAX_VALUE;
+		for (StatFacade sf : stats)
+		{
+			min = Math.min(sf.getMinValue(), min);
+		}
+		editor.setMinValue(min);
 
 		final JTextField field = editor.getTextField();
 		InputMap map = field.getInputMap(JComponent.WHEN_FOCUSED);
@@ -322,6 +328,17 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			this.spinner = new JSpinner(new SpinnerNumberModel(0, 0, null, 1));
 		}
 
+		/**
+		 * Set a new lower bound for the spinner.
+		 * @param minValue The new minimum value.
+		 */
+		public void setMinValue(int minValue)
+		{
+			SpinnerNumberModel spinnerModel =
+					(SpinnerNumberModel) spinner.getModel();
+			spinnerModel.setMinimum(minValue);
+		}
+		
 		public JTextField getTextField()
 		{
 			return ((JSpinner.DefaultEditor) spinner.getEditor()).getTextField();

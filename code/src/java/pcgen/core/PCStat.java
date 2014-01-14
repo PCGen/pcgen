@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.facade.StatFacade;
@@ -38,6 +39,11 @@ public final class PCStat extends PObject implements StatFacade
 		return get(StringKey.ABB);
 	}
 
+	public int getMinValue()
+	{
+		return getSafe(IntegerKey.MIN_VALUE);		
+	}
+	
 	@Override
 	public String toString()
 	{

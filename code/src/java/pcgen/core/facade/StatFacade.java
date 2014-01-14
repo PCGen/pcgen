@@ -34,4 +34,9 @@ public interface StatFacade
     @Override
     public String toString();
 
+	/**
+	 * @return
+	 */
+	public int getMinValue();
+
 }

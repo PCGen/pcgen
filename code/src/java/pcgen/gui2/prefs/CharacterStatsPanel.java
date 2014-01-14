@@ -239,7 +239,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 					.getString("in_Prefs_purchaseModeConfig"));
 		gridbag.setConstraints(purchaseModeButton, c);
 		this.add(purchaseModeButton);
-		purchaseModeButton.addActionListener(new PurcahseModeButtonListener());
+		purchaseModeButton.addActionListener(new PurchaseModeButtonListener());
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -343,6 +343,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		if (pmsFrame == null)
 		{
 			pmsFrame = new PurchaseModeFrame(parent);
+			final GameMode gameMode = SettingsHandler.getGame();
+			
+			pmsFrame.setStatMin(gameMode.getStatMin());
+			pmsFrame.setStatMax(gameMode.getStatMax());
 
 			// add a listener to know when the window has closed
 			pmsFrame.addWindowListener(new WindowAdapter()
@@ -531,7 +535,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	/**
 	 * Handler for the Purchase Mode Config button.
 	 */
-	private final class PurcahseModeButtonListener implements ActionListener
+	private final class PurchaseModeButtonListener implements ActionListener
 	{
 
 		/* (non-Javadoc)

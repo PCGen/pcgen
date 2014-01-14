@@ -109,6 +109,9 @@ public final class PurchaseModeFrame extends JDialog
 	private JTextField purchaseScoreMaxEdit;
 	private JTextField purchaseScoreMinEdit;
 	private PurchaseModel purchaseModel = null;
+	
+	private int statMin = STANDARD_MIN_PURCHASE_SCORE;
+	private int statMax = STANDARD_MAX_PURCHASE_SCORE;
 
 	/** Creates new form PurchaseModeFrame */
 	public PurchaseModeFrame()
@@ -223,16 +226,16 @@ public final class PurchaseModeFrame extends JDialog
 		cancelButton = new JButton();
 		resetButton = new JButton();
 		purchaseScoreMinLabel = new JLabel();
-		purchaseScoreMinEdit = new JTextField();
+		purchaseScoreMinEdit = new JTextField(3);
 		purchaseScoreMaxLabel = new JLabel();
-		purchaseScoreMaxEdit = new JTextField();
+		purchaseScoreMaxEdit = new JTextField(3);
 		statusBar = new JLabel();
 		jPanel2 = new JPanel();
 		currentPurchaseMethods = new JComboBoxEx();
 		currentPurchaseMethods.setAutoSort(true);
 		savedMethodLabel = new JLabel();
 		methodPointsLabel = new JLabel();
-		purchaseMethodPointsEdit = new JTextField();
+		purchaseMethodPointsEdit = new JTextField(4);
 		purchaseMethodPanel = new JPanel();
 		purchaseMethodNamePanel = new JPanel();
 		purchaseMethodPointsPanel = new JPanel();
@@ -274,7 +277,6 @@ public final class PurchaseModeFrame extends JDialog
 		jPanel1.add(purchaseScoreMinLabel);
 
 		purchaseScoreMinEdit.setHorizontalAlignment(SwingConstants.RIGHT);
-		purchaseScoreMinEdit.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinEdit.addActionListener(new ActionListener()
 		{
 			@Override
@@ -296,8 +298,6 @@ public final class PurchaseModeFrame extends JDialog
 
 		purchaseScoreMinIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
 		purchaseScoreMinIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMin")); //$NON-NLS-1$
-		purchaseScoreMinIncreaseButton.setMargin(new Insets(2, 2, 2, 2));
-		purchaseScoreMinIncreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinIncreaseButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -311,8 +311,6 @@ public final class PurchaseModeFrame extends JDialog
 
 		purchaseScoreMinDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
 		purchaseScoreMinDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMin")); //$NON-NLS-1$
-		purchaseScoreMinDecreaseButton.setMargin(new Insets(2, 2, 2, 2));
-		purchaseScoreMinDecreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMinDecreaseButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -340,7 +338,6 @@ public final class PurchaseModeFrame extends JDialog
 		jPanel2.add(purchaseScoreMaxLabel);
 
 		purchaseScoreMaxEdit.setHorizontalAlignment(SwingConstants.RIGHT);
-		purchaseScoreMaxEdit.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxEdit.addActionListener(new ActionListener()
 		{
 			@Override
@@ -362,8 +359,6 @@ public final class PurchaseModeFrame extends JDialog
 
 		purchaseScoreMaxIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
 		purchaseScoreMaxIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMax")); //$NON-NLS-1$
-		purchaseScoreMaxIncreaseButton.setMargin(new Insets(2, 2, 2, 2));
-		purchaseScoreMaxIncreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxIncreaseButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -377,8 +372,6 @@ public final class PurchaseModeFrame extends JDialog
 
 		purchaseScoreMaxDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
 		purchaseScoreMaxDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMax")); //$NON-NLS-1$
-		purchaseScoreMaxDecreaseButton.setMargin(new Insets(2, 2, 2, 2));
-		purchaseScoreMaxDecreaseButton.setPreferredSize(new Dimension(30, 20));
 		purchaseScoreMaxDecreaseButton.addActionListener(new ActionListener()
 			{
 				@Override
@@ -433,7 +426,6 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseMethodPointsEdit.setEditable(false);
 
 		//purchaseMethodPointsEdit.setText("10");
-		purchaseMethodPointsEdit.setPreferredSize(new Dimension(90, 20));
 		purchaseMethodPointsPanel.add(purchaseMethodPointsEdit);
 
 		gridBagConstraints = new GridBagConstraints();
@@ -598,21 +590,17 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = convertStringToInt(valueString);
+		if (!validateNewMaxValue(value-1))
+		{
+			return;
+		}
 
-		// bad value?
-		if (value == -1)
+		// decrease the value in the model
+		statusBar.setText(""); //$NON-NLS-1$
+		if (!purchaseModel.setPurchaseScoreMax(value - 1))
 		{
 			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_badMaxFixing")); //$NON-NLS-1$
-		}
-		else
-		{
-			// decrease the value in the model
-			if (!purchaseModel.setPurchaseScoreMax(value - 1))
-			{
-				// set a status message
-				statusBar.setText(LanguageBundle.getString("in_Prefs_maxBelowMin")); //$NON-NLS-1$
-			}
+			statusBar.setText(LanguageBundle.getString("in_Prefs_maxBelowMin")); //$NON-NLS-1$
 		}
 
 		// ensure the edit value gets updated correctly
@@ -628,30 +616,15 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = convertStringToInt(valueString);
+		if (!validateNewMaxValue(value+1))
+		{
+			return;
+		}
 		boolean updateOk = false;
 
-		if (!Globals.checkRule(RuleConstants.ABILRANGE))
-		{
-			if (value >= STANDARD_MAX_PURCHASE_SCORE)
-			{
-				statusBar.setText(
-					LanguageBundle.getFormattedString("in_Prefs_mayNotInc", STANDARD_MAX_PURCHASE_SCORE)); //$NON-NLS-1$
-
-				return;
-			}
-		}
-
-		// bad value?
-		if (value == -1)
-		{
-			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_badMaxFixing")); //$NON-NLS-1$
-		}
-		else
-		{
-			// increase the value in the model
-			updateOk = purchaseModel.setPurchaseScoreMax(value + 1);
-		}
+		// increase the value in the model
+		statusBar.setText(""); //$NON-NLS-1$
+		updateOk = purchaseModel.setPurchaseScoreMax(value + 1);
 
 		// ensure the edit value gets updated correctly
 		updatePurchaseScoreMax(oldValue);
@@ -672,31 +645,15 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = convertStringToInt(valueString);
+		if (!validateNewMaxValue(value))
+		{
+			return;
+		}
 		boolean updateOk = false;
 
-		if (!Globals.checkRule(RuleConstants.ABILRANGE))
-		{
-			if (value > STANDARD_MAX_PURCHASE_SCORE)
-			{
-				statusBar.setText(
-					LanguageBundle.getFormattedString("in_Prefs_mayNotIncr", //$NON-NLS-1$
-						STANDARD_MAX_PURCHASE_SCORE));
-
-				return;
-			}
-		}
-
-		// bad value?
-		if (value == -1)
-		{
-			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_badMaxFixing")); //$NON-NLS-1$
-		}
-		else
-		{
-			// increase the value in the model
-			updateOk = purchaseModel.setPurchaseScoreMax(value);
-		}
+		// increase the value in the model
+		statusBar.setText(""); //$NON-NLS-1$
+		updateOk = purchaseModel.setPurchaseScoreMax(value);
 
 		// ensure the edit value gets updated correctly
 		updatePurchaseScoreMax(oldValue);
@@ -708,6 +665,23 @@ public final class PurchaseModeFrame extends JDialog
 		}
 	}
 
+	private boolean validateNewMaxValue(int value)
+	{
+		if (!Globals.checkRule(RuleConstants.ABILRANGE))
+		{
+			if (value > statMax)
+			{
+				statusBar.setText(
+					LanguageBundle.getFormattedString("in_Prefs_mayNotInc", //$NON-NLS-1$
+						statMax));
+
+				return false;
+			}
+		}
+		return true;
+	}
+
+	
 	private void purchaseScoreMinDecreaseButtonActionPerformed()
 	{
 		int oldValue = purchaseModel.getPurchaseScoreMin();
@@ -717,34 +691,21 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = convertStringToInt(valueString);
+		if (!validateNewMinValue(value-1))
+		{
+			return;
+		}
 		boolean updateOk = false;
 
-		if (!Globals.checkRule(RuleConstants.ABILRANGE))
-		{
-			if (value == STANDARD_MIN_PURCHASE_SCORE)
-			{
-				statusBar.setText(
-					LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
-						STANDARD_MIN_PURCHASE_SCORE));
-
-				return;
-			}
-		}
-
-		// bad value?
-		if (value == -1)
+		// decrease the value in the model
+		if (!(updateOk = purchaseModel.setPurchaseScoreMin(value - 1)))
 		{
 			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_badMinFixing")); //$NON-NLS-1$
+			statusBar.setText(LanguageBundle.getString("in_Prefs_noMinBelow0")); //$NON-NLS-1$
 		}
 		else
 		{
-			// decrease the value in the model
-			if (!(updateOk = purchaseModel.setPurchaseScoreMin(value - 1)))
-			{
-				// set a status message
-				statusBar.setText(LanguageBundle.getString("in_Prefs_noMinBelow0")); //$NON-NLS-1$
-			}
+			statusBar.setText("");
 		}
 
 		// ensure the edit value gets updated correctly
@@ -755,7 +716,7 @@ public final class PurchaseModeFrame extends JDialog
 			purchaseModel.setValueAt(Integer.valueOf(purchaseModel.predictNextPurchaseCostMin()), 0, 1);
 		}
 	}
-
+	
 	private void purchaseScoreMinIncreaseButtonActionPerformed()
 	{
 		int oldValue = purchaseModel.getPurchaseScoreMin();
@@ -765,22 +726,18 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = convertStringToInt(valueString);
-
-		// bad value?
-		if (value == -1)
+		if (!validateNewMinValue(value+1))
 		{
-			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_badMinFixing")); //$NON-NLS-1$
+			return;
 		}
-		else
+
+		// increase the value in the model
+		statusBar.setText(""); //$NON-NLS-1$
+		if (!purchaseModel.setPurchaseScoreMin(value + 1))
 		{
-			// increase the value in the model
-			if (!purchaseModel.setPurchaseScoreMin(value + 1))
-			{
-				// TODO Disable buttons (then no need for those messages)
-				// set a status message
-				statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
-			}
+			// TODO Disable buttons (then no need for those messages)
+			// set a status message
+			statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
 		}
 
 		// ensure the edit value gets updated correctly
@@ -796,27 +753,51 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = convertStringToInt(valueString);
+		if (!validateNewMinValue(value))
+		{
+			return;
+		}
 
-		// bad value?
-		if (value == -1)
+		// change the value in the model
+		statusBar.setText(""); //$NON-NLS-1$
+		if (!purchaseModel.setPurchaseScoreMin(value))
 		{
 			// set a status message
-			statusBar.setText(LanguageBundle.getString("in_Prefs_badMinFixing")); //$NON-NLS-1$
-		}
-		else
-		{
-			// change the value in the model
-			if (!purchaseModel.setPurchaseScoreMin(value))
-			{
-				// set a status message
-				statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
-			}
+			statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
 		}
 
 		// ensure the edit value gets updated correctly
 		updatePurchaseScoreMin(oldValue);
 	}
 
+	private boolean validateNewMinValue(int value)
+	{
+		int unconditionalMin = Math.min(0,  statMin);
+
+		if (!Globals.checkRule(RuleConstants.ABILRANGE))
+		{
+			if (value < statMin)
+			{
+				statusBar.setText(
+					LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
+						statMin));
+
+				return false;
+			}
+		}
+
+		// bad value?
+		if (value < unconditionalMin)
+		{
+			// set a status message
+			statusBar.setText(LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
+				unconditionalMin)); //$NON-NLS-1$
+			return false;
+		}
+		return true;
+	}
+
+	
 	/**
 	 * Remove the current selection from the list of purchase methods.
 	 */
@@ -844,8 +825,8 @@ public final class PurchaseModeFrame extends JDialog
 	{
 		//renewAbilityScoreCostTable();
 		purchaseModel.copySavedToCurrent();
-		updatePurchaseScoreMin(-1);
-		updatePurchaseScoreMax(-1);
+		updatePurchaseScoreMin(purchaseModel.getPurchaseScoreMin());
+		updatePurchaseScoreMax(purchaseModel.getPurchaseScoreMax());
 		purchaseModel.fireTableStructureChanged();
 
 		initializeCurrentPurchaseMethods();
@@ -856,7 +837,7 @@ public final class PurchaseModeFrame extends JDialog
 		int score = purchaseModel.getPurchaseScoreMax();
 		purchaseScoreMaxEdit.setText(Integer.toString(score));
 
-		if ((oldValue != -1) && (oldValue != score))
+		if (oldValue != score)
 		{
 			purchaseModel.appendRows(score - oldValue);
 			purchaseModel.fireTableStructureChanged();
@@ -868,12 +849,28 @@ public final class PurchaseModeFrame extends JDialog
 		int score = purchaseModel.getPurchaseScoreMin();
 		purchaseScoreMinEdit.setText(Integer.toString(score));
 
-		if ((oldValue != -1) && (oldValue != score))
+		if (oldValue != score)
 		{
 			purchaseModel.prependRows(score - oldValue);
 			purchaseModel.resetAllCosts();
 			purchaseModel.fireTableStructureChanged();
 		}
+	}
+
+	/**
+	 * @param statMin The new lowest value a purchase mode can take a stat to.
+	 */
+	public void setStatMin(int statMin)
+	{
+		this.statMin = statMin;
+	}
+
+	/**
+	 * @param statMax The new highest value a purchase mode can take a stat to.
+	 */
+	public void setStatMax(int statMax)
+	{
+		this.statMax = statMax;
 	}
 
 	private class PurchaseModel extends AbstractTableModel
@@ -1097,7 +1094,7 @@ public final class PurchaseModeFrame extends JDialog
 		 */
 		boolean setPurchaseScoreMin(int purchaseScoreMin)
 		{
-			if ((purchaseScoreMin >= 0) && (purchaseScoreMin <= currentPurchaseScoreMax))
+			if (purchaseScoreMin <= currentPurchaseScoreMax)
 			{
 				currentPurchaseScoreMin = purchaseScoreMin;
 
