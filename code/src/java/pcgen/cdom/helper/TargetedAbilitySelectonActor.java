@@ -215,7 +215,7 @@ public class TargetedAbilitySelectonActor<T extends Loadable> extends ConcretePr
 	@Override
 	public Class<T> getChoiceClass()
 	{
-		ChooseInformation<?> ci = (ChooseInformation<T>) ability.resolvesTo().get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> ci = ability.resolvesTo().get(ObjectKey.CHOOSE_INFO);
 		ClassIdentity<?> iden = ci.getClassIdentity();
 		return (Class<T>) iden.getChoiceClass();
 	}

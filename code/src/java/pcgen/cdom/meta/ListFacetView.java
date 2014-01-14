@@ -61,6 +61,7 @@ public class ListFacetView<T> implements FacetView<T>
 		return facet.equals(src);
 	}
 	
+	@Override
 	public String toString()
 	{
 		return "Facet: " + facet.getClass().getSimpleName();

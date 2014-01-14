@@ -72,12 +72,12 @@ public enum SkillFilter
 	public int getValue()
 	{
 		return value;
-	};
+	}
 
 	public String getToken()
 	{
 		return token;
-	};
+	}
 
 	@Override
 	public String toString()

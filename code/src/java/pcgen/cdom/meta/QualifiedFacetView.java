@@ -62,6 +62,7 @@ public class QualifiedFacetView<T extends QualifyingObject> implements FacetView
 		return facet.equals(src);
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Facet: " + facet.getClass().getSimpleName();

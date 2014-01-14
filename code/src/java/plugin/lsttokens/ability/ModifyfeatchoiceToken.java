@@ -178,9 +178,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 
 		for (int i = 0; i < selectedSize; ++i)
 		{
-			pc
-					.addAssociation(choice, (String) chooserFacade.getFinalSelected()
-							.get(i));
+			pc.addAssociation(choice, chooserFacade.getFinalSelected().get(i));
 		}
 	}
 

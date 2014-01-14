@@ -67,7 +67,6 @@ public class SpringHelper
 	 * @param cl The type of bean to be retrieved.
 	 * @return The bean, or null if none exists.
 	 */
-	@SuppressWarnings("unchecked")
 	public static <T extends Object> T getBean(Class<T> cl)
 	{
 		if (beanFactory == null)
@@ -80,7 +79,7 @@ public class SpringHelper
 		{
 			return null;
 		}
-		return (T) beanFactory.getBean (beanNamesForType[0], cl);
+		return beanFactory.getBean (beanNamesForType[0], cl);
 	}
 	
 	public static Collection<AbstractStorageFacet> getStorageBeans()

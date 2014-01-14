@@ -81,7 +81,7 @@ public class CollectionToAbilitySelection implements
 	@Override
 	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		return collection.getCollection(pc, new ExpandingConverter(pc, category));
+		return collection.getCollection(pc, new ExpandingConverter(pc));
 	}
 
 	public Category<Ability> getCategory()
@@ -122,12 +122,9 @@ public class CollectionToAbilitySelection implements
 
 		private final PlayerCharacter character;
 
-		private final Category<Ability> category;
-
-		public ExpandingConverter(PlayerCharacter pc, Category<Ability> cat)
+		public ExpandingConverter(PlayerCharacter pc)
 		{
 			character = pc;
-			category = cat;
 		}
 
 		@Override
