@@ -526,7 +526,7 @@ Bandages of Rapid Recovery.MOD												TYPE:LesserMinor																						
 Bane Baldric															TYPE:Magic.Wondrous.LesserMedium.Shirt																								COST:10000	WT:1																								SOURCEPAGE:p.220
 Cackling Hag's Blouse														TYPE:Magic.Wondrous.GreaterMinor.Shirt																								COST:6000	WT:2																								SOURCEPAGE:p.220																																																																																																															BONUS:SKILL|Intimidate|2|TYPE=Competence
 Deadshot Vest															TYPE:Magic.Wondrous.GreaterMinor.Shirt																								COST:6000	WT:1																								SOURCEPAGE:p.220
-Endless Bandolier															TYPE:Magic.Wondrous.LesserMinor.Shirt.Container			CONTAINS:UNLIM|Any																	COST:1500	WT:2																								SOURCEPAGE:p.220
+Endless Bandolier															TYPE:Magic.Wondrous.LesserMinor.Shirt.Container			CONTAINS:*UNLIM|Any																	COST:1500	WT:2																								SOURCEPAGE:p.220
 Mantle of Faith.MOD														TYPE:GreaterMajor																												COST:76000	WT:0																								SOURCEPAGE:p.221
 Mantle of Immortality														TYPE:Magic.Wondrous.LesserMajor.Shirt																								COST:50000	WT:1																								SOURCEPAGE:p.221																																																																																																																																																																																																		SPROP:Removes penalties due to aging.
 Mantle of Spell Resistance.MOD												TYPE:GreaterMajor																												COST:90000	WT:0																								SOURCEPAGE:p.221
