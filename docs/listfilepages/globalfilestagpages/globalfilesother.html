@@ -1116,8 +1116,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This grants the character spell-like abilities.</li>
-		<li>The spellbook should never be the same name as a Class, as it will cause an exception in
-			PCGen.</li>
+		<li>The spellbook name should conform to PCGen's <a href="../../listfilepages/listfileLSTstandards.html#STDSPELLNAME">Standard Spellbook Names</a>.</li>
 		<li><code>TIMES</code> is an optional parameter and if not present will default to 1.</li>
 		<li><code>TIMEUNIT</code> can be any unit of time, e.g. Day, Week, Month, Encounter, etc., but is
 			optional and if not present will default to &quot;Day&quot;.</li>
@@ -1133,7 +1132,6 @@
 		</li>
 		<li>Formulas which use commas within them should be encapsulated using parentheses &quot;( )&quot;.</li>
 		<li>Because the <code>SPELLS</code> tag is not associated with any one class the variable &quot;CL&quot; will not work in it.</li>
-		<li><a href="../../listfilepages/listfileLSTstandards.html#STDSPELLNAME">Standard Spellbook Names</a></li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Acid Arrow,12+CHA|PRESTAT:1,CHA=12</code></p>
