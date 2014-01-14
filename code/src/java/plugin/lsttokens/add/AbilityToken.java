@@ -91,7 +91,7 @@ import pcgen.util.enumeration.Visibility;
  * (Sun, 20 May 2007) $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @version $Rev$
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CategorizedAbilitySelection>
@@ -396,13 +396,14 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 							choice.getAbility(), choice.getSelection(), cat);
 			pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, a);
 			pc.setAssoc(a, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			AbilityUtilities.finaliseAbility(a, association, pc, cat);
 		}
 		else
 		{
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
 			AbilityUtilities.modAbility(pc, ab, association, cat);
+			pc.addAssociation(ab, association);
 		}
-		pc.addAssociation(ab, association);
 	}
 
 	@Override

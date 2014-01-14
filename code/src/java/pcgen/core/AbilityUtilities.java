@@ -77,14 +77,6 @@ public class AbilityUtilities
 		if (needToAddVirtualAbility(pc, cat, anAbility))
 		{
 			newAbility = anAbility.clone();
-
-			if (choice != null)
-			{
-				if (!alreadySelected(pc, newAbility, choice, true))
-				{
-					pc.addAssociation(newAbility, choice);
-				}
-			}
 			pc.addUserVirtualAbility(cat, newAbility);
 			newAbility.clearPrerequisiteList();
 		}

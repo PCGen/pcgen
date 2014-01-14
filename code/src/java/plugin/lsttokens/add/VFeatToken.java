@@ -289,7 +289,13 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		Ability aFeat = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc, choice.getAbility(), choice.getSelection(), AbilityCategory.FEAT);
+		Ability ab = choice.getAbility();
+		String selection = choice.getSelection();
+		AbilityCategory cat = AbilityCategory.FEAT;
+		Ability aFeat =
+				AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc,
+					ab, selection, cat);
+		AbilityUtilities.finaliseAbility(aFeat, selection, pc, cat);
 		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
 		// TODO: Why is this here? Normally this is only used in the UI layer.
 		pc.setDirty(true);
