@@ -1010,6 +1010,12 @@ Spell Turning			KEY:Spell Turning ~ Constant				CATEGORY:Special Ability	TYPE:Sp
 Spider Climb			KEY:Spider Climb ~ Constant				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					DEFINE:SLA_CL|0						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SLA_CL|Spider Climb				DESC:You can use Spider Climb, as per the spell, as a constant ability.																																																																																												BENEFIT:You can use Spider Climb, as per the spell, as a constant ability. Constant spell-like abilities function at all times but can be dispelled. Constant spell-like abilities can be reactivated as a swift action.
 Unseen Servant			KEY:Unseen Servant ~ Constant				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					DEFINE:SLA_CL|0						SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SLA_CL|Unseen Servant			DESC:You can use Unseen Servant, as per the spell, as a constant ability.																																																																																											BENEFIT:You can use Unseen Servant, as per the spell, as a constant ability. Constant spell-like abilities function at all times but can be dispelled. Constant spell-like abilities can be reactivated as a swift action.
 
+###Block: Giant Creature Selection
+Giant Creature (Proper Rules)		SORTKEY:Giant Creature_1a	CATEGORY:Special Ability	TYPE:GiantCreatureSelection				DESC:The publisher intended people to use the size adjustment rules, but the other options are to speed up play. Not necessary as PCGen will calculate the new size for you.	BONUS:SIZEMOD|NUMBER|1
+Giant Creature (Rebuild Option)	SORTKEY:Giant Creature_1b	CATEGORY:Special Ability	TYPE:GiantCreatureSelection				DESC:Rebuild Rules: Used for on-the-fly gaming. Size increase by one category; AC increase natural armor by +3; Attacks increase dice rolled by 1 step; Ability Scores +4 size bonus to Str and Con, -2 Dex.	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CON|4|TYPE=Size	BONUS:STAT|DEX|-2|TYPE=Size	DEFINE:BypassSizeMods|1
+Giant Creature (Quick Rules)		SORTKEY:Giant Creature_1c	CATEGORY:Special Ability	TYPE:GiantCreatureSelection.SpecialQuality	DESC:Quick Rules: +2 to all rolls based on Str or Con, +2 hp/HD, -1 penalty on all rolls based on Dex.
+
+
 #
 # End
 #
