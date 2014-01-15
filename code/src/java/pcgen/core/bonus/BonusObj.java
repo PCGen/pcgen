@@ -438,7 +438,12 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		{
 			dependMap.put("NAME|STAT", "1");
 		}
-
+		if (aString.indexOf("MODEQUIPMAXDEX") >= 0)
+		{
+			dependMap.put("MAXDEX", "1");
+		}
+		
+		
 		// First whack out all the () pairs to find variable names
 		while (aString.lastIndexOf('(') >= 0)
 		{
