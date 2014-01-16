@@ -21,7 +21,7 @@ Cutlass Spider Hide			OUTPUTNAME:+8 racial bonus on Hide checks (+12 amid trash 
 Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																	SOURCEPAGE:p. 86
 Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|10+(HD/2)+CON	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	SOURCEPAGE:p. 86
 Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement								DESC:Three times per day, a forest drake may take an additional move action												SOURCEPAGE:p. 86
-Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damge			CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86
+Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damage			CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86
 Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86
 Forest Drake Water Breathing	OUTPUTNAME:Water Breathing								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DESC:A forest drake can breathe underwater indefinitely and can freely use its breath weapon and other abilities while underwater.			SOURCEPAGE:p. 86
 
