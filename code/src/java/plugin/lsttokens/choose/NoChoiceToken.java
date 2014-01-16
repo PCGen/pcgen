@@ -37,13 +37,16 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.NoChoiceManager;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * New chooser plugin, handles no Choice.
  */
 public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
-		ChooseInformation<String>, PersistentChoiceActor<String>
+		ChooseInformation<String>, PersistentChoiceActor<String>,
+		DeferredToken<CDOMObject>
 {
 
 	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
@@ -139,13 +142,13 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	@Override
 	public String decodeChoice(LoadContext context, String choice)
 	{
-		return choice;
+		return (choice == null) ? "" : null;
 	}
 
 	@Override
 	public String encodeChoice(String choice)
 	{
-		return choice;
+		return (choice == null) ? "" : null;
 	}
 
 	@Override
@@ -236,6 +239,24 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 			sb.append("x");
 		}
 		return sb;
+	}
+
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+		ChooseInformation<?> ci = obj.get(ObjectKey.CHOOSE_INFO);
+		if ((ci == this) && !obj.getSafe(ObjectKey.STACKS))
+		{
+			Logging
+				.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
+					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+			return false;
+		}
+		return true;
+	}
+
+	public Class<CDOMObject> getDeferredTokenClass()
+	{
+		return CDOMObject.class;
 	}
 
 }
