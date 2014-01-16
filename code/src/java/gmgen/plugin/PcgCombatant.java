@@ -53,6 +53,7 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
+import pcgen.core.display.SkillDisplay;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -784,7 +785,7 @@ public class PcgCombatant extends Combatant
 			pc.refreshSkillList(); //force refresh of skills
 
 			List<Skill> skillList =
-					pc.getSkillListInOutputOrder(display
+					SkillDisplay.getSkillListInOutputOrder(pc, display
 						.getPartialSkillList(Visibility.OUTPUT_ONLY));
 			boolean firstLine = true;
 

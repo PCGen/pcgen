@@ -25,6 +25,7 @@ package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
@@ -108,7 +109,7 @@ public class SkillTypeToken extends SkillToken
 		}
 
 		final List<Skill> skillSubset = new ArrayList<Skill>();
-		for (Skill bSkill : pc.getSkillListInOutputOrder())
+		for (Skill bSkill : SkillDisplay.getSkillListInOutputOrder(pc))
 		{
 			if (bSkill.isType(details.getProperty(0)))
 			{

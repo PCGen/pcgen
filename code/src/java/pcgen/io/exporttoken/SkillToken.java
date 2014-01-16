@@ -43,6 +43,7 @@ import pcgen.core.analysis.SkillInfoUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.SkillCostDisplay;
+import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
@@ -184,7 +185,7 @@ public class SkillToken extends Token
 		}
 		
 		final List<Skill> pcSkills =
-				pc.getSkillListInOutputOrder(pc.getDisplay()
+				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
 					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 		cachedSkillList = pcSkills;
 		lastPC = pc;

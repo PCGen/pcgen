@@ -22,6 +22,7 @@ import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.SkillDisplay;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Visibility;
@@ -344,7 +345,7 @@ public class SkillsPane extends javax.swing.JPanel
 		pc.populateSkills(filter);
 
 		List<Skill> skillList =
-				pc.getSkillListInOutputOrder(pc.getDisplay()
+				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
 					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 		// Remove only the skill lines, not the header block. 

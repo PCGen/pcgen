@@ -59,6 +59,7 @@ import pcgen.core.Skill;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.display.SkillDisplay;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.exporttoken.AbilityListToken;
 import pcgen.io.exporttoken.AbilityToken;
@@ -751,7 +752,7 @@ public final class ExportHandler
 			if (fString.length() > 5)
 			{
 				final int i = Integer.parseInt(fString.substring(5));
-				final List<Skill> pcSkills = aPC.getSkillListInOutputOrder();
+				final List<Skill> pcSkills = SkillDisplay.getSkillListInOutputOrder(aPC);
 
 				if (i <= (pcSkills.size() - 1))
 				{

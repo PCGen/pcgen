@@ -35,7 +35,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -2100,83 +2099,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Collection<Skill> getSkillSet()
 	{
 		return skillFacet.getSet(id);
-	}
-
-	/**
-	 * Retrieves a list of the character's skills in output order. This is in
-	 * ascending order of the skill's outputIndex field. If skills have the same
-	 * outputIndex they will be ordered by name. Note hidden skills (outputIndex =
-	 * -1) are not included in this list.
-	 * 
-	 * @return An ArrayList of the skill objects in output order.
-	 */
-	public List<Skill> getSkillListInOutputOrder()
-	{
-		return getSkillListInOutputOrder(new ArrayList<Skill>(getSkillSet()));
-	}
-
-	/**
-	 * Retrieves a list of the character's skills in output order. This is in
-	 * ascending order of the skill's outputIndex field. If skills have the same
-	 * outputIndex they will be ordered by name. Note hidden skills (outputIndex =
-	 * -1) are not included in this list.
-	 * 
-	 * @param skills A list of skills which will be sorted, filtered and returned
-	 * 
-	 * @return An ArrayList of the skill objects in output order.
-	 */
-	public List<Skill> getSkillListInOutputOrder(final List<Skill> skills)
-	{
-		final PlayerCharacter pc = this;
-		Collections.sort(skills, new Comparator<Skill>() {
-			/**
-			 * Comparator will be specific to Skill objects
-			 */
-			@Override
-			public int compare(final Skill skill1, final Skill skill2)
-			{
-				Integer obj1Index = pc.getSkillOrder(skill1);
-				Integer obj2Index = pc.getSkillOrder(skill2);
-
-				// Force unset items (index of 0) to appear at the end
-				if (obj1Index == null || obj1Index == 0)
-				{
-					obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
-				}
-
-				if (obj2Index == null || obj2Index == 0)
-				{
-					obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
-				}
-
-				if (obj1Index > obj2Index)
-				{
-					return 1;
-				} else if (obj1Index < obj2Index)
-				{
-					return -1;
-				} else
-				{
-					return skill1.getOutputName().compareToIgnoreCase(skill2.getOutputName());
-				}
-			}
-		});
-
-		// Remove the hidden skills from the list
-		for (Iterator<Skill> i = skills.iterator(); i.hasNext();)
-		{
-			final Skill bSkill = i.next();
-
-			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
-			Integer outputIndex = getSkillOrder(bSkill);
-			if ((outputIndex != null && outputIndex == -1) || skVis.equals(Visibility.HIDDEN)
-					|| skVis.equals(Visibility.DISPLAY_ONLY) || !bSkill.qualifies(this, null))
-			{
-				i.remove();
-			}
-		}
-
-		return skills;
 	}
 
 	/**

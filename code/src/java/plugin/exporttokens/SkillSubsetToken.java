@@ -28,6 +28,7 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
@@ -114,7 +115,7 @@ public class SkillSubsetToken extends SkillToken
 		int prefixLength = skillPrefix.length();
 		List<Skill> skillSubset = new ArrayList<Skill>();
 		final List<Skill> skills =
-				pc.getSkillListInOutputOrder(pc.getDisplay()
+				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
 					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 		for (Skill bSkill : skills)

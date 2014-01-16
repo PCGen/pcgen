@@ -10,6 +10,7 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -42,7 +43,7 @@ public class SkillListModsToken extends Token
 		StringBuilder returnString = new StringBuilder();
 		boolean needcomma = false;
 
-		final List<Skill> pcSkills = pc.getSkillListInOutputOrder();
+		final List<Skill> pcSkills = SkillDisplay.getSkillListInOutputOrder(pc);
 		Iterator<Skill> iter = pcSkills.iterator();
 		while (iter.hasNext())
 		{
