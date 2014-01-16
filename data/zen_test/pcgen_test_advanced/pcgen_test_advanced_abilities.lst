@@ -2,8 +2,11 @@
 # Ability
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
+SIZE_MASTER	CATEGORY:Internal
 
-
+# CODE-2441 - This tests to see if PRE in the name triggers a PRExxx error message
+# Moved to Broken Tests
+#CODE-2441						CATEGORY:Special Ability	TYPE:SpecialQuality		SPELLKNOWN:CLASS|Sorcerer=1|PREQUALIFIER FAKE OUT
 
 # Ability Name					Category of Ability		Type								Define			Description																																			Ability										Add 								Aspects
 Fast Healing					CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:FastHealing|0																																																								ASPECT:Name|Fast Healing %1|FastHealing

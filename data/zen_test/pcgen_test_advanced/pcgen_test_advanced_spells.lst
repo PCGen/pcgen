@@ -11,7 +11,7 @@ Darkness																																					TYPE:Arcane																								
 Dancing Lights																																				TYPE:Arcane																																																				DESC:Lights Dance
 Faerie Fire																																					TYPE:Arcane																																																				DESC:Faeries play with fire.
 
-
+PREQUALIFIER FAKE OUT		SCHOOL:CODE-2441	DESC:Fake PRExxx Spell	TYPE:Code.Arcane	COMPS:V	RANGE:0 ft.	SAVEINFO:None
 
 # Made up
 Test Foo Spell																SCHOOL:Evocation																		TYPE:Foo			COMPS:V, M/DF	CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Object touched																							SAVEINFO:Fort Half	SPELLRES:No				DESC:Awesome Spell for Tom

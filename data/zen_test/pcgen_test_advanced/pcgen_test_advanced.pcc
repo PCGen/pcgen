@@ -17,6 +17,7 @@ SOURCESHORT:PTS
 SOURCEWEB:http://pcgen.sourceforge.net
 ISOGL:YES
 
+ABILITY:pcgen_test_adv_abilities.lst
 
 ABILITY:pcgen_test_advanced_abilities.lst
 

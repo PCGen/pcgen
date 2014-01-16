@@ -2,4 +2,6 @@
 # Ability
 
 # Ability Name						Category of Ability		Type					Innate Spells										Description
-Ability Grant Spell that produces false alert	CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	SPELLS:Innate|TIMES=1|TIMEUNIT=Behive|CASTERLEVEL=7|Fireball,80+CHA	DESC:This ability Grants a Spell incorrectly producing a false report for caster level [Fireball, level 7, 1/beehive with a DC of 80+ Charisma]
+#Ability Grant Spell that produces false alert	CATEGORY:Special Ability	TYPE:Racial.SpecialQuality	SPELLS:Innate|TIMES=1|TIMEUNIT=Behive|CASTERLEVEL=7|Fireball,80+CHA	DESC:This ability Grants a Spell incorrectly producing a false report for caster level [Fireball, level 7, 1/beehive with a DC of 80+ Charisma]
+
+CODE-2441						CATEGORY:Special Ability	TYPE:SpecialQuality		SPELLKNOWN:CLASS|Sorcerer=1|PREQUALIFIER FAKE OUT

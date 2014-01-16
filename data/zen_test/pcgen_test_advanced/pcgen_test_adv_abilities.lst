@@ -1,6 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
 # Ability Name			Unique Key			Category of Ability	Type							Multiple?	Choose							Selections	Class Skill
-Choose Skill Not Working	KEY:Alignment Skill	CATEGORY:FEAT		TYPE:CodeBug	TYPE:AlignmentSkill	MULT:YES	CHOOSE:SKILL|TYPE=AlignmentSkill			SELECT:4	CSKILL:LIST
+#Choose Skill Not Working	KEY:Alignment Skill	CATEGORY:FEAT		TYPE:CodeBug	TYPE:AlignmentSkill	MULT:YES	CHOOSE:SKILL|TYPE=AlignmentSkill			SELECT:4	CSKILL:LIST
 #Choose Skill Not Working	CATEGORY:FEAT	TYPE:CodeBug	CHOOSE:SKILL|TYPE=TestSkills	MULT:YES
-Choose Userinput is Broken					CATEGORY:FEAT		TYPE:CodeBug					MULT:YES	CHOOSE:USERINPUT|TITLE=Userinput is Broken
+#Choose Userinput is Broken					CATEGORY:FEAT		TYPE:CodeBug					MULT:YES	CHOOSE:USERINPUT|TITLE=Userinput is Broken
+
+
+Master Ability		CATEGORY:Special Ability	TYPE:Test777.SpecialQuality	MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=CaseExample		ABILITY:Special Ability|AUTOMATIC|Granted Choice|PREABILITY:1,CATEGORY=Special Ability,Master Ability(Second Choice)
+
+Second Choice		CATEGORY:Special Ability	TYPE:CaseExample.SpecialQuality
+Granted Choice		CATEGORY:Special Ability		TYPE:SpecialQuality
+Master Ability 2		CATEGORY:Special Ability	TYPE:Test777.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Master Ability(Second Choice)
+

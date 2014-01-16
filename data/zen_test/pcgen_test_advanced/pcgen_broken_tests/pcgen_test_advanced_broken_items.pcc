@@ -49,7 +49,7 @@ ABILITY:pcgen_test_advanced_broken_abilities.lst
 
 #SKILL:pcgen_test_advanced_skills.lst
 
-#SPELL:pcgen_test_advanced_spells.lst
+SPELL:pbt_spells.lst
 
 
 #TEMPLATE:pcgen_test_advanced_templates_global.lst
