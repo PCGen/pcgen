@@ -5,7 +5,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 
 ###Block: Adventuring Gear
 # Equipment Name			Output Name						Type							Contains				Cost		Weight	Source Page		Modify VAR			Special Property
-Backpack (Masterwork)		OUTPUTNAME:Backpack, Masterwork		TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any		COST:50	WT:4		SOURCEPAGE:p.182	BONUS:VAR|LOADSCORE|1
+Backpack (Masterwork)		OUTPUTNAME:Backpack, Masterwork		TYPE:Goods.General.Container.Resizable	CONTAINS:UNLIM|Any		COST:50	WT:4		SOURCEPAGE:p.182	BONUS:VAR|LOADSCORE|1|TYPE=Masterwork
 Barbed Vest											TYPE:Goods.General									COST:10	WT:4		SOURCEPAGE:p.182
 Blanket											TYPE:Goods.General.Resizable								COST:0.2	WT:1		SOURCEPAGE:p.182
 Buoy (Common)			OUTPUTNAME:Buoy, Common				TYPE:Goods.General									COST:0.5	WT:16		SOURCEPAGE:p.182
