@@ -1176,9 +1176,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Ability resToAcid =
 				TestHelper.makeAbility("Swelter",
 					AbilityCategory.FEAT.getKeyName(), "Foo");
+		LoadContext context = Globals.getContext();
+		context.unconditionallyProcess(resToAcid, "MULT", "YES");
+		context.unconditionallyProcess(resToAcid, "STACK", "YES");
+		context.unconditionallyProcess(resToAcid, "CHOOSE", "NOCHOICE");
 		PCTemplate template = TestHelper.makeTemplate("TemplateVirt"); 
 		PCTemplate templateNorm = TestHelper.makeTemplate("TemplateNorm"); 
-		LoadContext context = Globals.getContext();
 		context.ref.importObject(resToAcid);
 		context.unconditionallyProcess(human, "ABILITY", "FEAT|AUTOMATIC|KEY_Swelter");
 		context.unconditionallyProcess(template, "ABILITY", "FEAT|VIRTUAL|KEY_Swelter");
