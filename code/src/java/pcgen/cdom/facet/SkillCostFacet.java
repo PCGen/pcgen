@@ -17,9 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -27,15 +25,13 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
 import pcgen.cdom.facet.analysis.ListSkillCostFacet;
 import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
-import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
+import pcgen.cdom.facet.model.SkillListFacet;
 import pcgen.cdom.list.ClassSkillList;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
-import pcgen.rules.context.ReferenceContext;
 
 /**
  * SkillCostFacet is a Facet that tracks costs of Skills for each PCClass
@@ -44,14 +40,13 @@ import pcgen.rules.context.ReferenceContext;
  */
 public class SkillCostFacet
 {
-	private ClassSkillListFacet classSkillListFacet;
+	private SkillListFacet skillListFacet;
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
 	private GlobalSkillCostFacet globalSkillCostFacet;
 	private ListSkillCostFacet listSkillCostFacet;
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet;
 	private LocalSkillCostFacet localSkillCostFacet;
 	private MasterSkillFacet masterSkillFacet;
-	private SubClassFacet subClassFacet;
 	private MonsterCSkillFacet monsterCSkillFacet;
 
 	public SkillCost skillCostForPCClass(CharID id, Skill sk, PCClass aClass)
@@ -83,7 +78,7 @@ public class SkillCostFacet
 			throw new IllegalArgumentException(
 				"Skill in isClassSkill cannot be null");
 		}
-		Collection<ClassSkillList> classSkillList = getClassSkillLists(id, pcc);
+		Collection<ClassSkillList> classSkillList = skillListFacet.getSet(id, pcc);
 		return hasGlobalCost(id, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, pcc, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, classSkillList, skill, SkillCost.CLASS)
@@ -107,44 +102,11 @@ public class SkillCostFacet
 		{
 			return false;
 		}
-		Collection<ClassSkillList> classSkillList = getClassSkillLists(id, pcc);
+		Collection<ClassSkillList> classSkillList = skillListFacet.getSet(id, pcc);
 
 		return hasGlobalCost(id, skill, SkillCost.CROSS_CLASS)
 			|| hasLocalCost(id, pcc, skill, SkillCost.CROSS_CLASS)
 			|| hasLocalCost(id, classSkillList, skill, SkillCost.CROSS_CLASS);
-	}
-
-	private final Collection<ClassSkillList> getClassSkillLists(CharID id,
-		PCClass pcc)
-	{
-		Collection<ClassSkillList> classSkillList =
-				classSkillListFacet.getSet(id, pcc);
-		if (classSkillList.isEmpty())
-		{
-			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
-			ReferenceContext ref = Globals.getContext().ref;
-			Class<ClassSkillList> csl = ClassSkillList.class;
-			ClassSkillList l =
-					ref.silentlyGetConstructedCDOMObject(csl, pcc.getKeyName());
-			if (l != null)
-			{
-				returnList.add(l);
-			}
-			String subClassKey = subClassFacet.get(id, pcc);
-			if (subClassKey != null)
-			{
-				l = ref.silentlyGetConstructedCDOMObject(csl, subClassKey);
-				if (l != null)
-				{
-					returnList.add(l);
-				}
-			}
-			return returnList;
-		}
-		else
-		{
-			return classSkillList;
-		}
 	}
 
 	private boolean hasGlobalCost(CharID id, Skill skill, SkillCost sc)
@@ -186,9 +148,9 @@ public class SkillCostFacet
 		return false;
 	}
 
-	public void setClassSkillListFacet(ClassSkillListFacet classSkillListFacet)
+	public void setSkillListFacet(SkillListFacet skillListFacet)
 	{
-		this.classSkillListFacet = classSkillListFacet;
+		this.skillListFacet = skillListFacet;
 	}
 
 	public void setGlobalAddedSkillCostFacet(
@@ -222,11 +184,6 @@ public class SkillCostFacet
 	public void setMasterSkillFacet(MasterSkillFacet masterSkillFacet)
 	{
 		this.masterSkillFacet = masterSkillFacet;
-	}
-
-	public void setSubClassFacet(SubClassFacet subClassFacet)
-	{
-		this.subClassFacet = subClassFacet;
 	}
 
 	public void setMonsterCSkillFacet(MonsterCSkillFacet monsterCSkillFacet)

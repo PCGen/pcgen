@@ -30,7 +30,6 @@ import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.display.CharacterDisplay;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -139,11 +138,10 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
-		CharacterDisplay display = pc.getDisplay();
-		Collection<PCClass> classlist = display.getClassSet();
+		Collection<PCClass> classlist = pc.getClassSet();
 		for (PCClass cl : classlist)
 		{
-			if (display.isClassSkill(cl, sk))
+			if (pc.isClassSkill(cl, sk))
 			{
 				return true;
 			}

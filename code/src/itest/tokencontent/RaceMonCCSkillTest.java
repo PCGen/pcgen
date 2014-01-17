@@ -81,6 +81,8 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 		ClassSkillList dragonCSL =
 				context.ref.silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
+		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
+		pc.incrementClassLevel(1, dragon);
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));
 		raceFacet.remove(id);

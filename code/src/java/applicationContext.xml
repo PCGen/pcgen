@@ -171,7 +171,10 @@
 		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<bean id="classSkillListFacet" class="pcgen.cdom.facet.input.ClassSkillListFacet">
-			<property name="classFacet" ref="classFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+		<property name="subClassFacet" ref="subClassFacet"/>
+		<property name="defaultClassSkillListFacet" ref="defaultClassSkillListFacet"/>
+		<property name="skillListFacet" ref="skillListFacet"/>
 	</bean>
 	<bean id="classSpellListFacet" class="pcgen.cdom.facet.ClassSpellListFacet">
 		<property name="spellListFacet" ref="spellListFacet"/>
@@ -214,6 +217,9 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
+	<bean id="defaultClassSkillListFacet" class="pcgen.cdom.facet.DefaultClassSkillListFacet">
+		<property name="skillListFacet" ref="skillListFacet"/>
 	</bean>
 	<bean id="deityFacet" class="pcgen.cdom.facet.model.DeityFacet" />
 	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet">
@@ -492,16 +498,16 @@
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
 	<bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
 	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
-		<property name="classSkillListFacet" ref="classSkillListFacet"/>
+		<property name="skillListFacet" ref="skillListFacet"/>
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
 		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
 		<property name="listSkillCostFacet" ref="listSkillCostFacet"/>
 		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
 		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
 		<property name="masterSkillFacet" ref="masterSkillFacet"/>
-		<property name="subClassFacet" ref="subClassFacet"/>
 		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
 	</bean>
+	<bean id="skillListFacet" class="pcgen.cdom.facet.model.SkillListFacet" />
 	<bean id="skillOutputOrderFacet" class="pcgen.cdom.facet.SkillOutputOrderFacet"/>
 	<bean id="skillPoolFacet" class="pcgen.cdom.facet.SkillPoolFacet"/>
 	<bean id="skillRankFacet" class="pcgen.cdom.facet.SkillRankFacet"/>

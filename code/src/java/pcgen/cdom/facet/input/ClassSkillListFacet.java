@@ -20,16 +20,22 @@ package pcgen.cdom.facet.input;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.DefaultClassSkillListFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.base.AbstractScopeFacet;
+import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
+import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.SkillListFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SubClass;
 
 /**
  * ClassSkillListFacet stores the ClassSkillListFacet choices for a
@@ -39,12 +45,18 @@ import pcgen.core.PlayerCharacter;
  */
 public class ClassSkillListFacet extends
 		AbstractScopeFacet<PCClass, ClassSkillList> implements
-		ClassLevelChangeListener
+		ClassLevelChangeListener, ScopeFacetChangeListener<PCClass, String>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private ClassFacet classFacet;
+	
+	private DefaultClassSkillListFacet defaultClassSkillListFacet;
+
+	private SubClassFacet subClassFacet;
+
+	private SkillListFacet skillListFacet;
 
 	@Override
 	public void levelChanged(ClassLevelChangeEvent lce)
@@ -55,9 +67,16 @@ public class ClassSkillListFacet extends
 			CharID id = lce.getCharID();
 			TransitionChoice<ClassSkillList> csc =
 					cl.get(ObjectKey.SKILLLIST_CHOICE);
-			if (csc != null)
+			if (csc == null)
 			{
-				removeAllFromSource(id, cl);
+				ClassSkillList l = cl.get(ObjectKey.CLASS_SKILLLIST);
+				if (l != null)
+				{
+					defaultClassSkillListFacet.add(id, cl, l, cl);
+				}
+			}
+			else
+			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
 				for (ClassSkillList st : csc.driveChoice(pc))
 				{
@@ -77,13 +96,55 @@ public class ClassSkillListFacet extends
 		//ignore
 	}
 
+	public void dataAdded(ScopeFacetChangeEvent<PCClass, String> dfce)
+	{
+		PCClass cl = dfce.getScope();
+		String subClassKey = dfce.getCDOMObject();
+		SubClass subclass = cl.getSubClassKeyed(subClassKey);
+		if (subclass != null)
+		{
+			ClassSkillList scl = subclass.get(ObjectKey.CLASS_SKILLLIST);
+			defaultClassSkillListFacet.add(dfce.getCharID(), cl, scl, subclass);
+		}
+	}
+
+	public void dataRemoved(ScopeFacetChangeEvent<PCClass, String> dfce)
+	{
+		PCClass cl = dfce.getScope();
+		String subClassKey = dfce.getCDOMObject();
+		SubClass subclass = cl.getSubClassKeyed(subClassKey);
+		if (subclass != null)
+		{
+			ClassSkillList scl = subclass.get(ObjectKey.CLASS_SKILLLIST);
+			defaultClassSkillListFacet.add(dfce.getCharID(), cl, scl, subclass);
+		}
+	}
+
 	public void setClassFacet(ClassFacet classFacet)
 	{
 		this.classFacet = classFacet;
 	}
 
+	public void setSubClassFacet(SubClassFacet subClassFacet)
+	{
+		this.subClassFacet = subClassFacet;
+	}
+
+	public void setDefaultClassSkillListFacet(
+		DefaultClassSkillListFacet defaultClassSkillListFacet)
+	{
+		this.defaultClassSkillListFacet = defaultClassSkillListFacet;
+	}
+
+	public void setSkillListFacet(SkillListFacet skillListFacet)
+	{
+		this.skillListFacet = skillListFacet;
+	}
+
 	public void init()
 	{
 		classFacet.addLevelChangeListener(this);
+		subClassFacet.addScopeFacetChangeListener(this);
+		addScopeFacetChangeListener(skillListFacet);
 	}
 }

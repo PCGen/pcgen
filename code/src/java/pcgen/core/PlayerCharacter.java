@@ -10801,12 +10801,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
 	{
-		return skillCostFacet.skillCostForPCClass(id, sk, aClass);
+		//For safety
+		PCClass cl = getClassKeyed(aClass.getKeyName());
+		return skillCostFacet.skillCostForPCClass(id, sk, cl == null ? aClass : cl);
 	}
 
 	public boolean isClassSkill(PCClass aClass, Skill sk)
 	{
-		return skillCostFacet.isClassSkill(id, aClass, sk);
+		//For safety
+		PCClass cl = getClassKeyed(aClass.getKeyName());
+		return skillCostFacet.isClassSkill(id, cl == null ? aClass : cl, sk);
 	}
 
 	public boolean isQualified(CDOMObject po)

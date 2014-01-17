@@ -24,6 +24,7 @@ import java.util.Set;
 
 import pcgen.base.util.ListSet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * An AbstractAssociationFacet is a DataFacet that contains information about
@@ -42,7 +43,7 @@ import pcgen.cdom.enumeration.CharID;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFacet
+public abstract class AbstractAssociationFacet<S, A> extends AbstractScopeFacet<S, A>
 {
 
 	/**
@@ -96,7 +97,12 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		{
 			throw new IllegalArgumentException("Association may not be null");
 		}
-		getConstructingCachedMap(id).put(obj, association);
+		A old = getConstructingCachedMap(id).put(obj, association);
+		if (old != null)
+		{
+			fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
+		}
+		fireScopeFacetChangeEvent(id, obj, association, DataFacetChangeEvent.DATA_ADDED);
 	}
 
 	/**
@@ -115,7 +121,8 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		Map<S, A> map = getCachedMap(id);
 		if (map != null)
 		{
-			map.remove(obj);
+			A old = map.remove(obj);
+			fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
 	}
 
@@ -144,12 +151,16 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 	 */
 	public Map<S, A> removeAll(CharID id)
 	{
-		Map<S, A> componentMap = getCachedMap(id);
+		Map<S, A> componentMap = (Map<S, A>) removeCache(id);
 		if (componentMap == null)
 		{
 			return Collections.emptyMap();
 		}
-		removeCache(id);
+		for (Map.Entry<S, A> entry : componentMap.entrySet())
+		{
+			fireScopeFacetChangeEvent(id, entry.getKey(), entry.getValue(),
+				DataFacetChangeEvent.DATA_REMOVED);
+		}
 		return componentMap;
 	}
 

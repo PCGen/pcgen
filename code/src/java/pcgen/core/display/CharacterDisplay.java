@@ -47,7 +47,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -65,7 +64,6 @@ import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
-import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillRankFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
@@ -232,7 +230,6 @@ public class CharacterDisplay
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
-	private SkillCostFacet skillCostFacet = FacetLibrary.getFacet(SkillCostFacet.class);
 	private SkillRankFacet skillRankFacet = FacetLibrary.getFacet(SkillRankFacet.class);
 	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
 	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
@@ -1942,16 +1939,6 @@ public class CharacterDisplay
 	public Float getRank(Skill sk)
 	{
 		return skillRankFacet.getRank(id, sk);
-	}
-
-	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
-	{
-		return skillCostFacet.skillCostForPCClass(id, sk, aClass);
-	}
-
-	public boolean isClassSkill(PCClass aClass, Skill sk)
-	{
-		return skillCostFacet.isClassSkill(id, aClass, sk);
 	}
 
 	public List<WeaponProf> getWeaponProfsInTarget(CDOMGroupRef<WeaponProf> master)

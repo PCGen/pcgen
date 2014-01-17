@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
+import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
@@ -187,6 +188,7 @@ public class FacetInitialization {
 		FacetLibrary.getFacet(ChooseDriverFacet.class);
 		FacetLibrary.getFacet(AvailableSpellInputFacet.class);
 		FacetLibrary.getFacet(KnownSpellInputFacet.class);
+		FacetLibrary.getFacet(ClassSkillListFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
 		//and others just in case...

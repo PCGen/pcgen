@@ -193,6 +193,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
 		TokenRegistration.register(getToken());
+		TokenRegistration.register(plugin.bonustokens.Feat.class);
 
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);

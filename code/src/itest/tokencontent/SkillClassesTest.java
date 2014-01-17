@@ -63,6 +63,7 @@ public class SkillClassesTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+		pc.incrementClassLevel(1, dragon);
 		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 	}
 

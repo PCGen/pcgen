@@ -99,33 +99,33 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 			return race;
 		}
 		
-		@Override
-		public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
-		{
-			SkillCost sc = skillCostMap.get(sk, aClass);
-			if (sc == null)
-			{
-				if (sk.getSafe(ObjectKey.EXCLUSIVE))
-				{
-					return SkillCost.EXCLUSIVE;
-				}
-				return SkillCost.CROSS_CLASS;
-			}
-			return sc;
-		}
-
+//		@Override
+//		public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
+//		{
+//			SkillCost sc = skillCostMap.get(sk, aClass);
+//			if (sc == null)
+//			{
+//				if (sk.getSafe(ObjectKey.EXCLUSIVE))
+//				{
+//					return SkillCost.EXCLUSIVE;
+//				}
+//				return SkillCost.CROSS_CLASS;
+//			}
+//			return sc;
+//		}
+//
 		@Override
 		public Set<Skill> getSkillSet()
 		{
 			return (skillSet == null) ? new ListSet<Skill>() : skillSet.keySet();
 		}
 
-		@Override
-		public boolean isClassSkill(PCClass aClass, Skill sk)
-		{
-			return SkillCost.CLASS.equals(skillCostMap.get(sk, aClass));
-		}
-
+//		@Override
+//		public boolean isClassSkill(PCClass aClass, Skill sk)
+//		{
+//			return SkillCost.CLASS.equals(skillCostMap.get(sk, aClass));
+//		}
+//
 		@Override
 		public Set<WeaponProf> getWeaponProfSet()
 		{
