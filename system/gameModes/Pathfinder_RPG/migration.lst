@@ -329,4 +329,46 @@ SOURCE:Pathfinder RPG for Players - Advanced	NEWKEY:Pathfinder RPG for Players	M
 SOURCE:Pathfinder RPG for PFS	NEWKEY:Pathfinder Society	MAXVER:6.2.0 MAXDEVVER:6.1.8
 SOURCE:Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement	NEWKEY:Advanced Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
 
+### Block DATA-1579 typos
+ABILITY:Special Ability|Brastewark Businessman ~ Trait	NEWKEY:Brastlewark Businessman ~ Trait	MAXVER:6.2.0
+ABILITY:Special Ability|Spell-Like Abilities ~ Charnal Colossus	NEWKEY:Spell-Like Abilities ~ Charnel Colossus	MAXVER:6.2.0
+ABILITY:Special Ability|Corporate Will ~ Charnal Colossus	NEWKEY:Corporate Will ~ Charnel Colossus	MAXVER:6.2.0
+ABILITY:Special Ability|Mind Feed ~ Charnal Colossus	NEWKEY:Mind Feed ~ Charnel Colossus	MAXVER:6.2.0
+ABILITY:Special Ability|Voice of the Ancients ~ Charnal Colossus	NEWKEY:Voice of the Ancients ~ Charnel Colossus	MAXVER:6.2.0
+###
+# Don't know how to code this change:
+# RACE:Charnal Colossus	NEWKEY:Charnel Colossus	MAXVER:6.2.0
+# ##
+ABILITY:Special Ability|Arctic Native ~ Artic Druid	NEWKEY:Arctic Native ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Icewalking  ~ Artic Druid	NEWKEY:Icewalking ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Arctic Endurance ~ Artic Druid	NEWKEY:Arctic Endurance ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Wild Shape ~ Artic Druid	NEWKEY:Wild Shape ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Snowcaster ~ Artic Druid	NEWKEY:Snowcaster ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Flurry Form ~ Artic Druid	NEWKEY:Flurry Form ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Stand Firm	NEWKEY:Fighter Phalanx Soldier ~ Stand Firm	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Phalanx Fighting	NEWKEY:Fighter Phalanx Soldier ~ Phalanx Fighting	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Ready Pike	NEWKEY:Fighter Phalanx Soldier ~ Ready Pike	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Deft Shield	NEWKEY:Fighter Phalanx Soldier ~ Deft Shield	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Shield Ally	NEWKEY:Fighter Phalanx Soldier ~ Shield Ally	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Irresistible Advance	NEWKEY:Fighter Phalanx Soldier ~ Irresistible Advance	MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Shielded Fortress	NEWKEY:Fighter Phalanx Soldier ~ Shielded Fortress	MAXVER:6.2.0
 
+### Block DATA-1596 typos
+ABILITY:Special Ability|Wealthy Dabler	NEWKEY:Wealthy Dabbler	MAXVER:6.2.0
+ABILITY:FEAT|Thoughtful Descernment	NEWKEY:Thoughtful Discernment	MAXVER:6.2.0
+ABILITY:Special Ability|Dog-Sniff_Hate ~ Trait	NEWKEY:Dog-Sniff-Hate ~ Trait	MAXVER:6.2.0
+ABILITY:Special Ability|Eldrich Surge ~ Quantium Golem	NEWKEY:Eldritch Surge ~ Quantium Golem	MAXVER:6.2.0
+EQUIPMENT:Elixer of Darksight	NEWKEY:Elixir of Darksight	MAXVER:6.2.0
+EQUIPMENT:Elixer of Forceful Exhalation	NEWKEY:Elixir of Forceful Exhalation	MAXVER:6.2.0
+ABILITY:Special Ability|Irreligeous ~ Redcap	NEWKEY:Irreligious ~ Redcap	MAXVER:6.2.0
+
+### Block DATA-1579 typos only caught with this update
+ABILITY:Archetype|Rogue Arcehtype ~ BANDIT	NEWKEY:Rogue Archetype ~ BANDIT	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ CHAMELEON	NEWKEY:Rogue Archetype ~ CHAMELEON	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ CHARLATAN	NEWKEY:Rogue Archetype ~ CHARLATAN	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ DRIVER	NEWKEY:Rogue Archetype ~ DRIVER	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ KNIFE MASTER	NEWKEY:Rogue Archetype ~ KNIFE MASTER	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ PIRATE	NEWKEY:Rogue Archetype ~ PIRATE	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ ROOF RUNNER	NEWKEY:Rogue Archetype ~ ROOF RUNNER	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ SANCTIFIED ROGUE	NEWKEY:Rogue Archetype ~ SANCTIFIED ROGUE	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ SURVIVALIST	NEWKEY:Rogue Archetype ~ SURVIVALIST	MAXVER:6.2.0
