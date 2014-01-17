@@ -76,6 +76,10 @@
 		choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability category to which this ability will be added.)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Nature of the added ability)</p>
+<!--
+	<p class="indent1"><strong>Variables Used (y):</strong> STACKS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> STACKS=Number (Number of stacking abilities allowed.)</p>
+-->
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Ability name or KEY)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (Ability type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -83,10 +87,12 @@
 		<li>Will add a number (w) of abilities from the presented list (z) and will assign it a category (x) and nature (y).</li>
 		<li>The ability list is a comma-delimited (&quot;,&quot;) list of ability names and/or types.</li>
 		<li>Valid ability natures are <code>NORMAL</code> or <code>VIRTUAL</code>.</li>
-		<li>Valid ability types are <code>REGION</code>, <code>SUBREGION</code>, <code>ALLREGION</code>, and &lt;abilitytype&gt; as defined in the
-		<em>ability.lst</em> file.</li>
+<!--
+		<li><code>STACKS</code> subtag will cause the designated ability to stack.</li>
+		<li><code>STACKS=Number</code> subtag will cause up to the designated number of the designated ability to stack.</li>
+-->
 		<li>If the ability being added has a chooser <code>ADD:ABILITY</code> is the only tag which will activate it
-			(ABILITY will not).</li>
+			(<code>ABILITY</code> alone will not).</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADD:ABILITY|2|FEAT|NORMAL|Alertness,TYPE=Fighter,Electric Boogalo</code></p>
@@ -132,6 +138,10 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Number
 		of choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat name)</p>
+<!--
+	<p class="indent1"><strong>Variables Used (y):</strong> STACKS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> STACKS=Number (Number of stacking feats allowed.)</p>
+-->
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL (List of all feats.)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -139,10 +149,12 @@
 		<li>Will add a number (x) of feats from the presented list of feats (y).</li>
 		<li>The feat list (y) is a comma-delimited (&quot;,&quot;) list.</li>
 		<li>Wildcards (%), e.g. Skill Focus(Craft%), can be used in this tag.</li>
-		<li>If the count (x) is not used, &quot;1&quot; is assumed.</li>
-		<li>Valid feat types are REGION, SUBREGION, ALLREGION, and the feat-type as defined in the
-		<em>feat.lst</em> file.</li>
-		<li>If the feat being added has a chooser, ADD:FEAT will activate it. (VFEAT will not.)</li>
+		<li>If the parameter (x) is not used, the count defaults to &quot;1&quot;.</li>
+<!--
+		<li><code>STACKS</code> subtag will cause the designated feat to stack.</li>
+		<li><code>STACKS=Number</code> subtag will cause up to the designated number of the designated feat to stack.</li>
+-->
+		<li>If the feat being added has a chooser, <code>ADD:FEAT</code> will activate it. (<code>FEAT</code> alone will not.)</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADD:FEAT|2|Alertness,TYPE=Fighter,Electric Boogalo</code></p>
@@ -309,6 +321,10 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable or Formula (Number
 		of choices granted. Optional)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Feat name)</p>
+<!--
+	<p class="indent1"><strong>Variables Used (y):</strong> STACKS</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> STACKS=Number (Number of stacking abilities allowed.)</p>
+-->
 	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Type of feat)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -316,9 +332,12 @@
 		<li>Will add a number (x) of virtual feats from the provided list of feats (y) to the character
 			regardless of qualification.</li>
 		<li>Feats listed are a comma-delimited &quot;,&quot; list.</li>
-		<li>Valid TYPE's are &quot;REGION&quot;, &quot;SUBREGION&quot;, &quot;ALLREGION&quot;, and
-			the feat-type as defined in the <em>feat.lst</em> file.</li>
-		<li>If the feat being added has a chooser, ADD:VFEAT will activate it. (VFEAT will not.)</li>
+		<li>If the parameter (x) is not used, the count defaults to &quot;1&quot;.</li>
+<!--
+		<li><code>STACKS</code> subtag will cause the designated virtual feat to stack..</li>
+		<li><code>STACKS=Number</code> subtag will cause up to the designated number of the designated virtual feat to stack.</li>
+-->
+		<li>If the feat being added has a chooser, <code>ADD:VFEAT</code> will activate it. (<code>VFEAT</code> alone will not.)</li>
 		<li>Once added, virtual feats cannot be removed.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
