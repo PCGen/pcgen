@@ -504,8 +504,12 @@
 		<property name="listSkillCostFacet" ref="listSkillCostFacet"/>
 		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
 		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
-		<property name="masterSkillFacet" ref="masterSkillFacet"/>
+		<property name="skillListToCostFacet" ref="skillListToCostFacet"/>
 		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
+	</bean>
+	<bean id="skillListToCostFacet" class="pcgen.cdom.facet.SkillListToCostFacet">
+		<property name="skillListFacet" ref="skillListFacet"/>
+		<property name="masterSkillFacet" ref="masterSkillFacet"/>
 	</bean>
 	<bean id="skillListFacet" class="pcgen.cdom.facet.model.SkillListFacet" />
 	<bean id="skillOutputOrderFacet" class="pcgen.cdom.facet.SkillOutputOrderFacet"/>

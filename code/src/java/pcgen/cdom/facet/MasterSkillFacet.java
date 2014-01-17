@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2010-14 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -85,6 +85,27 @@ public class MasterSkillFacet
 			initialize();
 		}
 		return hml.containsInList(csl, sk);
+	}
+
+	/**
+	 * Returns a Collection of the Skill objects available on the global list of
+	 * skills in the given ClassSkillList. (Note: The global list of skills are
+	 * by definition class skills)
+	 * 
+	 * @param csl
+	 *            The ClassSkillList which should be checked to return the Skill
+	 *            objects available on the global list of skills
+	 * @return A Collection of the Skill objects available on the global list of
+	 *         skills in the given ClassSkillList; null if there are no skills
+	 *         on the global list for the given ClassSkillList
+	 */
+	public Collection<Skill> getSet(ClassSkillList csl)
+	{
+		if (hml == null)
+		{
+			initialize();
+		}
+		return hml.getListFor(csl);
 	}
 
 	/**

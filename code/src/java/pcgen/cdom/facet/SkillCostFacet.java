@@ -46,7 +46,7 @@ public class SkillCostFacet
 	private ListSkillCostFacet listSkillCostFacet;
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet;
 	private LocalSkillCostFacet localSkillCostFacet;
-	private MasterSkillFacet masterSkillFacet;
+	private SkillListToCostFacet skillListToCostFacet;
 	private MonsterCSkillFacet monsterCSkillFacet;
 
 	public SkillCost skillCostForPCClass(CharID id, Skill sk, PCClass aClass)
@@ -82,7 +82,7 @@ public class SkillCostFacet
 		return hasGlobalCost(id, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, pcc, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, classSkillList, skill, SkillCost.CLASS)
-			|| hasMasterSkill(classSkillList, skill)
+			|| skillListToCostFacet.contains(id, pcc, SkillCost.CLASS, skill)
 			|| monsterCSkillFacet.contains(id, skill);
 	}
 
@@ -135,19 +135,6 @@ public class SkillCostFacet
 		return false;
 	}
 
-	private boolean hasMasterSkill(Collection<ClassSkillList> skillLists,
-		Skill skill)
-	{
-		for (ClassSkillList csl : skillLists)
-		{
-			if (masterSkillFacet.hasMasterSkill(csl, skill))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public void setSkillListFacet(SkillListFacet skillListFacet)
 	{
 		this.skillListFacet = skillListFacet;
@@ -181,9 +168,9 @@ public class SkillCostFacet
 		this.localSkillCostFacet = localSkillCostFacet;
 	}
 
-	public void setMasterSkillFacet(MasterSkillFacet masterSkillFacet)
+	public void setSkillListToCostFacet(SkillListToCostFacet skillListToCostFacet)
 	{
-		this.masterSkillFacet = masterSkillFacet;
+		this.skillListToCostFacet = skillListToCostFacet;
 	}
 
 	public void setMonsterCSkillFacet(MonsterCSkillFacet monsterCSkillFacet)
