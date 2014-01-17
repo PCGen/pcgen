@@ -46,6 +46,7 @@ public class MigrationRule
 	{
 		ABILITY(true), 
 		EQUIPMENT(false), 
+		RACE(false), 
 		SOURCE(false);
 		
 		private final boolean categorized;

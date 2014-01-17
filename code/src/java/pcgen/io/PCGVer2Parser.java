@@ -137,6 +137,7 @@ import pcgen.io.migration.AbilityMigration;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
 import pcgen.io.migration.EquipSetMigration;
 import pcgen.io.migration.EquipmentMigration;
+import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -3885,17 +3886,21 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		List<PCGElement> elements = new PCGTokenizer(line).getElements();
 		PCGElement raceElement = elements.get(0);
-		String race_name = EntityEncoder.decode(raceElement.getText());
+		String raceName = EntityEncoder.decode(raceElement.getText());
+		// Check for a race key that has been updated.
+		raceName =
+				RaceMigration.getNewRaceKey(raceName, pcgenVersion,
+					SettingsHandler.getGame().getName());
 		final Race aRace =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Race.class, race_name);
+					Race.class, raceName);
 
 		if (aRace == null)
 		{
 			final String msg =
 					LanguageBundle.getFormattedString(
 						"Exceptions.PCGenParser.RaceNotFound", //$NON-NLS-1$
-						race_name);
+						raceName);
 			throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
 		}
 		String selection = null;

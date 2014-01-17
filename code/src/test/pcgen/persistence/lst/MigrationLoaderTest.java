@@ -92,6 +92,16 @@ public class MigrationLoaderTest
 	}
 	
 	@Test
+	public void testParseFirstTokenValidRace()
+	{
+		MigrationRule migrationRule = migrationLoader.parseFirstToken("RACE:Old Key", "", sourceURI);
+		assertNotNull(migrationRule);
+		assertEquals("Object type", ObjectType.RACE,  migrationRule.getObjectType());
+		assertEquals("Old key", "Old Key",  migrationRule.getOldKey());
+		assertNull("Old category", migrationRule.getOldCategory());
+	}
+	
+	@Test
 	public void testParseFirstTokenInValidObjType()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("FOO:Old Key", "", sourceURI);
