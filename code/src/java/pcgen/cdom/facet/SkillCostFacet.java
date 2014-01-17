@@ -17,19 +17,15 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.Collection;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
-import pcgen.cdom.facet.analysis.ListSkillCostFacet;
+import pcgen.cdom.facet.analysis.ListToSkillCostFacet;
 import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
-import pcgen.cdom.facet.model.SkillListFacet;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
@@ -40,10 +36,9 @@ import pcgen.core.Skill;
  */
 public class SkillCostFacet
 {
-	private SkillListFacet skillListFacet;
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
 	private GlobalSkillCostFacet globalSkillCostFacet;
-	private ListSkillCostFacet listSkillCostFacet;
+	private ListToSkillCostFacet listToSkillCostFacet;
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet;
 	private LocalSkillCostFacet localSkillCostFacet;
 	private SkillListToCostFacet skillListToCostFacet;
@@ -78,10 +73,8 @@ public class SkillCostFacet
 			throw new IllegalArgumentException(
 				"Skill in isClassSkill cannot be null");
 		}
-		Collection<ClassSkillList> classSkillList = skillListFacet.getSet(id, pcc);
 		return hasGlobalCost(id, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, pcc, skill, SkillCost.CLASS)
-			|| hasLocalCost(id, classSkillList, skill, SkillCost.CLASS)
 			|| skillListToCostFacet.contains(id, pcc, SkillCost.CLASS, skill)
 			|| monsterCSkillFacet.contains(id, skill);
 	}
@@ -102,11 +95,8 @@ public class SkillCostFacet
 		{
 			return false;
 		}
-		Collection<ClassSkillList> classSkillList = skillListFacet.getSet(id, pcc);
-
 		return hasGlobalCost(id, skill, SkillCost.CROSS_CLASS)
-			|| hasLocalCost(id, pcc, skill, SkillCost.CROSS_CLASS)
-			|| hasLocalCost(id, classSkillList, skill, SkillCost.CROSS_CLASS);
+			|| hasLocalCost(id, pcc, skill, SkillCost.CROSS_CLASS);
 	}
 
 	private boolean hasGlobalCost(CharID id, Skill skill, SkillCost sc)
@@ -119,25 +109,8 @@ public class SkillCostFacet
 		SkillCost sc)
 	{
 		return localSkillCostFacet.contains(id, pcc, sc, skill)
-			|| localAddedSkillCostFacet.contains(id, pcc, sc, skill);
-	}
-
-	private boolean hasLocalCost(CharID id,
-		Collection<ClassSkillList> skillLists, Skill skill, SkillCost sc)
-	{
-		for (ClassSkillList csl : skillLists)
-		{
-			if (listSkillCostFacet.contains(id, csl, sc, skill))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public void setSkillListFacet(SkillListFacet skillListFacet)
-	{
-		this.skillListFacet = skillListFacet;
+			|| localAddedSkillCostFacet.contains(id, pcc, sc, skill)
+			|| listToSkillCostFacet.contains(id, pcc, sc, skill);
 	}
 
 	public void setGlobalAddedSkillCostFacet(
@@ -152,9 +125,9 @@ public class SkillCostFacet
 		this.globalSkillCostFacet = globalSkillCostFacet;
 	}
 
-	public void setListSkillCostFacet(ListSkillCostFacet listSkillCostFacet)
+	public void setListToSkillCostFacet(ListToSkillCostFacet listToSkillCostFacet)
 	{
-		this.listSkillCostFacet = listSkillCostFacet;
+		this.listToSkillCostFacet = listToSkillCostFacet;
 	}
 
 	public void setLocalAddedSkillCostFacet(

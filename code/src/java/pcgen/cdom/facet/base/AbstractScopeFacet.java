@@ -138,6 +138,16 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet
 		return new ArrayList<T>(scopeMap.keySet());
 	}
 
+	public Collection<S> getScopes(CharID id)
+	{
+		Map<S, Map<T, Set<Object>>> map = getInfo(id);
+		if (map == null)
+		{
+			return Collections.emptyList();
+		}
+		return new ArrayList<S>(map.keySet());
+	}
+
 	public boolean contains(CharID id, S scope, T obj)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);

@@ -349,6 +349,10 @@
 		<property name="resolveFacet" ref="formulaResolvingFacet"/>
 		<property name="xpTableFacet" ref="xpTableFacet"/>
 	</bean>
+	<bean id="listToSkillCostFacet" class="pcgen.cdom.facet.analysis.ListToSkillCostFacet">
+		<property name="skillListFacet" ref="skillListFacet"/>
+		<property name="listSkillCostFacet" ref="listSkillCostFacet"/>
+	</bean>
 	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.analysis.ListSkillCostFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
@@ -498,10 +502,9 @@
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
 	<bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
 	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
-		<property name="skillListFacet" ref="skillListFacet"/>
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
 		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
-		<property name="listSkillCostFacet" ref="listSkillCostFacet"/>
+		<property name="listToSkillCostFacet" ref="listToSkillCostFacet"/>
 		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
 		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
 		<property name="skillListToCostFacet" ref="skillListToCostFacet"/>
