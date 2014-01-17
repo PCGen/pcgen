@@ -78,7 +78,7 @@ public class RaceTargetSaveRestoreTest extends
 		new SkillToken().parseToken(context, monster, "MonSkill|MySkill");
 		finishLoad();
 		pc.setRace(monster);
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(monskill, monclass));
 		assertEquals(SkillCost.CLASS,
@@ -101,7 +101,7 @@ public class RaceTargetSaveRestoreTest extends
 		new ClassToken().parseToken(context, monster, "MonClass|MyClass");
 		finishLoad();
 		pc.setRace(monster);
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
 		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
 			.contains(monclass));
@@ -125,7 +125,7 @@ public class RaceTargetSaveRestoreTest extends
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));
 		remove(o);

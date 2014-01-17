@@ -38,7 +38,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testBoilerplateOnly()
 	{
 		finishLoad();
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		Deity deity = create(Deity.class, "MyDeity");
 		finishLoad();
 		pc.setDeity(deity);
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	//TODO No way to remove a deity once set :(
@@ -67,7 +67,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		finishLoad();
 		pc.setAlignment(le);
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	//TODO No way to remove a alignment once set :(
@@ -87,7 +87,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		PCTemplate template = create(PCTemplate.class, "MyTemplate");
 		finishLoad();
 		pc.addTemplate(template);
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test
@@ -106,7 +106,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		finishLoad();
 		pc.addSpellBook("MyBook");
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test
@@ -127,7 +127,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 			"MyType"}));
 		finishLoad();
 		pc.setCharacterType("MyType");
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test
@@ -135,7 +135,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		finishLoad();
 		pc.addNotesItem(new NoteItem(1, -1, "NoteName", "NoteValue"));
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test
@@ -145,7 +145,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		NoteItem item = new NoteItem(1, -1, "NoteName", "NoteValue");
 		pc.addNotesItem(item);
 		pc.removeNote(item);
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test
@@ -153,7 +153,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		create(Skill.class, "MySkill");
 		finishLoad();
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	//TODO need to test different types of skills:
@@ -172,7 +172,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		pc.setStat(dex, 17);
 		pc.setStat(con, 18);
 		pc.setStat(cha, 19);
-		runRoundRobin();
+		runRoundRobin(null);
 	}
 
 	@Test

@@ -82,7 +82,7 @@ public class DomainTargetSaveRestoreTest extends
 		PCClass myclass = pc.getClassKeyed("MyClass");
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, myclass));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		myclass = reloadedPC.getClassKeyed("MyClass");
@@ -109,7 +109,7 @@ public class DomainTargetSaveRestoreTest extends
 		PCClass myclass = pc.getClassKeyed("MyClass");
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		myclass = reloadedPC.getClassKeyed("MyClass");

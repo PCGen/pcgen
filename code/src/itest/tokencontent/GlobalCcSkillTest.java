@@ -87,6 +87,7 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		PCClass wizard = create(PCClass.class, "Wizard");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
 		finishLoad();
+		pc.incrementClassLevel(1, wizard);
 		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
 		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
 		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(granted, wizard));

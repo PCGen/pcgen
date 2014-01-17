@@ -284,6 +284,11 @@
 	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="globalToSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalToSkillCostFacet">
+		<property name="classFacet" ref="classFacet"/>
+		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
+		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
+	</bean>
 	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<!-- H -->
@@ -502,8 +507,7 @@
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
 	<bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
 	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
-		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
-		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
+		<property name="globalToSkillCostFacet" ref="globalToSkillCostFacet"/>
 		<property name="listToSkillCostFacet" ref="listToSkillCostFacet"/>
 		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
 		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>

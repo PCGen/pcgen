@@ -41,6 +41,7 @@ import plugin.lsttokens.CskillLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.auto.WeaponProfToken;
 import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.skill.ExclusiveToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -71,6 +72,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	public void testGlobalCSkill()
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
+		new HdToken().parseToken(context, monclass, "8");
 		new TypeLst().parseToken(context, monclass, "Monster");
 		Skill granted = create(Skill.class, "Granted");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
@@ -80,12 +82,32 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		new CskillLst().parseToken(context, target, "Granted");
 		Object o = prepare(target);
 		finishLoad();
+		pc.incrementClassLevel(1, monclass);
+		pc.setHP(pc.getActiveClassLevel(monclass, 0), 3);
 		assertEquals(SkillCost.EXCLUSIVE,
 			pc.getSkillCostForClass(granted, monclass));
 		applyObject(target);
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
-		runRoundRobin();
+		final Runnable cleanup = getPreEqualityCleanup();
+		Runnable fullcleanup = new Runnable()
+		{
+
+			public void run()
+			{
+				if (cleanup != null)
+				{
+					cleanup.run();
+				}
+				//TODO need this to create the spell support :/
+				PCClass cl =
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+							"MonClass");
+				reloadedPC.getSpellSupport(cl);
+			}
+			
+		};
+		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
 		assertEquals(SkillCost.CLASS,
@@ -100,6 +122,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	public void testGlobalCSkillList()
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
+		new HdToken().parseToken(context, monclass, "8");
 		new TypeLst().parseToken(context, monclass, "Monster");
 		Skill granted = create(Skill.class, "Granted");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
@@ -111,12 +134,32 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		additionalChooseSet(target);
 		Object o = prepare(target);
 		finishLoad();
+		pc.incrementClassLevel(1, monclass);
+		pc.setHP(pc.getActiveClassLevel(monclass, 0), 3);
 		assertEquals(SkillCost.EXCLUSIVE,
 			pc.getSkillCostForClass(granted, monclass));
 		applyObject(target);
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
-		runRoundRobin();
+		final Runnable cleanup = getPreEqualityCleanup();
+		Runnable fullcleanup = new Runnable()
+		{
+
+			public void run()
+			{
+				if (cleanup != null)
+				{
+					cleanup.run();
+				}
+				//TODO need this to create the spell support :/
+				PCClass cl =
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+							"MonClass");
+				reloadedPC.getSpellSupport(cl);
+			}
+			
+		};
+		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
 		assertEquals(SkillCost.CLASS,
@@ -134,6 +177,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	public void testGlobalCCSkill()
 	{
 		PCClass myclass = create(PCClass.class, "SomeClass");
+		new HdToken().parseToken(context, myclass, "8");
 		Skill granted = create(Skill.class, "Granted");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
 		T target = create(getObjectClass(), "Target");
@@ -141,12 +185,32 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		new CcskillLst().parseToken(context, target, "Granted");
 		Object o = prepare(target);
 		finishLoad();
+		pc.incrementClassLevel(1, myclass);
+		pc.setHP(pc.getActiveClassLevel(myclass, 0), 3);
 		assertEquals(SkillCost.EXCLUSIVE,
 			pc.getSkillCostForClass(granted, myclass));
 		applyObject(target);
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
-		runRoundRobin();
+		final Runnable cleanup = getPreEqualityCleanup();
+		Runnable fullcleanup = new Runnable()
+		{
+
+			public void run()
+			{
+				if (cleanup != null)
+				{
+					cleanup.run();
+				}
+				//TODO need this to create the spell support :/
+				PCClass cl =
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+							"SomeClass");
+				reloadedPC.getSpellSupport(cl);
+			}
+			
+		};
+		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		assertEquals(SkillCost.CROSS_CLASS,
@@ -160,6 +224,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	public void testGlobalCCSkillList()
 	{
 		PCClass myclass = create(PCClass.class, "SomeClass");
+		new HdToken().parseToken(context, myclass, "8");
 		Skill granted = create(Skill.class, "Granted");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
 		T target = create(getObjectClass(), "Target");
@@ -169,12 +234,32 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		additionalChooseSet(target);
 		Object o = prepare(target);
 		finishLoad();
+		pc.incrementClassLevel(1, myclass);
+		pc.setHP(pc.getActiveClassLevel(myclass, 0), 3);
 		assertEquals(SkillCost.EXCLUSIVE,
 			pc.getSkillCostForClass(granted, myclass));
 		applyObject(target);
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
-		runRoundRobin();
+		final Runnable cleanup = getPreEqualityCleanup();
+		Runnable fullcleanup = new Runnable()
+		{
+
+			public void run()
+			{
+				if (cleanup != null)
+				{
+					cleanup.run();
+				}
+				//TODO need this to create the spell support :/
+				PCClass cl =
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+							"SomeClass");
+				reloadedPC.getSpellSupport(cl);
+			}
+			
+		};
+		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		assertEquals(SkillCost.CROSS_CLASS,
@@ -200,7 +285,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasWeaponProf(granted));
 		applyObject(target);
 		assertTrue(pc.hasWeaponProf(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasWeaponProf(granted));
 		assertTrue(reloadedPC.hasWeaponProf(granted));
 		remove(o);
@@ -223,7 +308,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasWeaponProf(granted));
 		applyObject(target);
 		assertTrue(pc.hasWeaponProf(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasWeaponProf(granted));
 		assertTrue(reloadedPC.hasWeaponProf(granted));
 		remove(o);
@@ -250,7 +335,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.isProficientWith(e));
 		applyObject(target);
 		assertTrue(pc.isProficientWith(e));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.isProficientWith(e));
 		assertTrue(reloadedPC.isProficientWith(e));
 		remove(o);
@@ -277,7 +362,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.isProficientWith(e));
 		applyObject(target);
 		assertTrue(pc.isProficientWith(e));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.isProficientWith(e));
 		assertTrue(reloadedPC.isProficientWith(e));
 		remove(o);
@@ -304,7 +389,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.isProficientWith(e));
 		applyObject(target);
 		assertTrue(pc.isProficientWith(e));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.isProficientWith(e));
 		assertTrue(reloadedPC.isProficientWith(e));
 		remove(o);
@@ -331,7 +416,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.isProficientWith(e));
 		applyObject(target);
 		assertTrue(pc.isProficientWith(e));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.isProficientWith(e));
 		assertTrue(reloadedPC.isProficientWith(e));
 		remove(o);
@@ -355,7 +440,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));
 		remove(o);
@@ -379,7 +464,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));
 		remove(o);
@@ -428,7 +513,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));
 		remove(o);
@@ -449,7 +534,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasTemplate(granted));
 		applyObject(target);
 		assertTrue(pc.hasTemplate(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasTemplate(granted));
 		assertTrue(reloadedPC.hasTemplate(granted));
 		remove(o);
@@ -481,7 +566,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		applyObject(target);
 		pc.setDirty(true);
 		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
 		assertEquals(1.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
 		remove(o);
@@ -512,7 +597,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		pc.setDirty(true);
 		pc.calcActiveBonuses();
 		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
 		assertEquals(1.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
 		remove(o);
@@ -544,5 +629,10 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	//		reloadedPC.setDirty(true);
 	//		assertNull(pc.getSkillRankForClass(granted, null));
 	//	}
+
+	protected Runnable getPreEqualityCleanup()
+	{
+		return null;
+	}
 
 }

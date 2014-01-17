@@ -69,7 +69,7 @@ public class TemplateTargetSaveRestoreTest extends
 		new ClassToken().parseToken(context, monster, "MonClass|MyClass");
 		finishLoad();
 		pc.addTemplate(monster);
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
 		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
 			.contains(monclass));
@@ -93,7 +93,7 @@ public class TemplateTargetSaveRestoreTest extends
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
+		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));
 		remove(o);

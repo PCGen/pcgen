@@ -20,10 +20,9 @@ package pcgen.cdom.facet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
+import pcgen.cdom.facet.analysis.GlobalToSkillCostFacet;
 import pcgen.cdom.facet.analysis.ListToSkillCostFacet;
 import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
-import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
 import pcgen.core.PCClass;
@@ -36,13 +35,12 @@ import pcgen.core.Skill;
  */
 public class SkillCostFacet
 {
-	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
-	private GlobalSkillCostFacet globalSkillCostFacet;
 	private ListToSkillCostFacet listToSkillCostFacet;
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet;
 	private LocalSkillCostFacet localSkillCostFacet;
 	private SkillListToCostFacet skillListToCostFacet;
 	private MonsterCSkillFacet monsterCSkillFacet;
+	private GlobalToSkillCostFacet globalToSkillCostFacet;
 
 	public SkillCost skillCostForPCClass(CharID id, Skill sk, PCClass aClass)
 	{
@@ -73,8 +71,7 @@ public class SkillCostFacet
 			throw new IllegalArgumentException(
 				"Skill in isClassSkill cannot be null");
 		}
-		return hasGlobalCost(id, skill, SkillCost.CLASS)
-			|| hasLocalCost(id, pcc, skill, SkillCost.CLASS)
+		return hasLocalCost(id, pcc, skill, SkillCost.CLASS)
 			|| skillListToCostFacet.contains(id, pcc, SkillCost.CLASS, skill)
 			|| monsterCSkillFacet.contains(id, skill);
 	}
@@ -95,34 +92,22 @@ public class SkillCostFacet
 		{
 			return false;
 		}
-		return hasGlobalCost(id, skill, SkillCost.CROSS_CLASS)
-			|| hasLocalCost(id, pcc, skill, SkillCost.CROSS_CLASS);
-	}
-
-	private boolean hasGlobalCost(CharID id, Skill skill, SkillCost sc)
-	{
-		return globalSkillCostFacet.contains(id, sc, skill)
-			|| globalAddedSkillCostFacet.contains(id, sc, skill);
+		return hasLocalCost(id, pcc, skill, SkillCost.CROSS_CLASS);
 	}
 
 	private boolean hasLocalCost(CharID id, PCClass pcc, Skill skill,
 		SkillCost sc)
 	{
-		return localSkillCostFacet.contains(id, pcc, sc, skill)
+		return globalToSkillCostFacet.contains(id, pcc, sc, skill)
+			|| localSkillCostFacet.contains(id, pcc, sc, skill)
 			|| localAddedSkillCostFacet.contains(id, pcc, sc, skill)
 			|| listToSkillCostFacet.contains(id, pcc, sc, skill);
 	}
 
-	public void setGlobalAddedSkillCostFacet(
-		GlobalAddedSkillCostFacet globalAddedSkillCostFacet)
+	public void setGlobalToSkillCostFacet(
+		GlobalToSkillCostFacet globalToSkillCostFacet)
 	{
-		this.globalAddedSkillCostFacet = globalAddedSkillCostFacet;
-	}
-
-	public void setGlobalSkillCostFacet(
-		GlobalSkillCostFacet globalSkillCostFacet)
-	{
-		this.globalSkillCostFacet = globalSkillCostFacet;
+		this.globalToSkillCostFacet = globalToSkillCostFacet;
 	}
 
 	public void setListToSkillCostFacet(ListToSkillCostFacet listToSkillCostFacet)

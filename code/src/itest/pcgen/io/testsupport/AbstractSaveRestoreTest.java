@@ -366,18 +366,16 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		return align;
 	}
 
-	protected void runRoundRobin()
+	protected void runRoundRobin(Runnable preEqualityCleanup)
 	{
 		runWriteRead();
-		preEqualityCleanup();
+		if (preEqualityCleanup != null)
+		{
+			preEqualityCleanup.run();
+		}
 		checkEquality();
 	}
 
-	protected void preEqualityCleanup()
-	{
-		
-	}
-	
 	protected void checkEquality()
 	{
 		InequalityTester it = InequalityTesterInst.getInstance();

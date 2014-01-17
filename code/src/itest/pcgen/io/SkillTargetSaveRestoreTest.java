@@ -79,13 +79,26 @@ public class SkillTargetSaveRestoreTest extends
 	}
 
 	@Override
-	protected void preEqualityCleanup()
+	protected Runnable getPreEqualityCleanup()
 	{
-		//TODO need this to create the spell support :/
-		PCClass cl =
-				context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
-					"MyClass");
-		reloadedPC.getSpellSupport(cl);
+		final Runnable sup = super.getPreEqualityCleanup();
+		return new Runnable()
+		{
+
+			public void run()
+			{
+				if (sup != null)
+				{
+					sup.run();
+				}
+				//TODO need this to create the spell support :/
+				PCClass cl =
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+							"MyClass");
+				reloadedPC.getSpellSupport(cl);
+			}
+			
+		};
 	}
 
 	//CODE-2015 needs to ensure this gets removed...

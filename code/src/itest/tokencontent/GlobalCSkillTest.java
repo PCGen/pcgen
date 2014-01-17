@@ -85,6 +85,7 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 		}
 		PCClass wizard = create(PCClass.class, "Wizard");
 		finishLoad();
+		pc.incrementClassLevel(1, wizard);
 		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
