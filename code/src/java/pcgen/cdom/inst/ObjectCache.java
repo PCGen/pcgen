@@ -17,12 +17,7 @@
  */
 package pcgen.cdom.inst;
 
-import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.SkillCost;
-import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.Skill;
 
 /**
  * An ObjectCache is a CDOMObject designed to serve as a cache of information
@@ -39,39 +34,6 @@ public class ObjectCache extends CDOMObject
 	public boolean isType(String type)
 	{
 		return false;
-	}
-
-	/**
-	 * Stores a cache of the cost of each Skill based on the Skill's key and
-	 * PCClass
-	 */
-	private final DoubleKeyMap<Skill, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<Skill, PCClass, SkillCost>();
-
-	/**
-	 * Returns the cost of a given Skill for the given PlayerCharacter and
-	 * PCClass. 
-	 * Note: Some continuous looping behaviour has been observed when two 
-	 * threads are using this method, so it has been synchronized as a precaution. 
-	 * 
-	 * @param pc
-	 *            The PlayerCharacter for which the SkillCost is being
-	 *            calculated.
-	 * @param skill
-	 *            The Skill for which the SkillCost is being calculated.
-	 * @param pcc
-	 *            The PCClass for which the SkillCost is being calculated.
-	 * @return The cost of a given Skill for the given PlayerCharacter and
-	 *         PCClass.
-	 */
-	public synchronized SkillCost getSkillCost(PlayerCharacter pc, Skill skill, PCClass pcc)
-	{
-		SkillCost cost = skillCostMap.get(skill, pcc);
-		if (cost == null)
-		{
-			cost = pc.skillCostForPCClass(skill, pcc);
-			skillCostMap.put(skill, pcc, cost);
-		}
-		return cost;
 	}
 
 }

@@ -168,7 +168,7 @@ public class NPCGenerator
 			{
 				if ( skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT )
 				{
-					if (aPC.isClassSkill(skill, aClass))
+					if (aPC.isClassSkill(aClass, skill))
 					{
 						WeightedCollection.add(new SkillChoice(skill.getKeyName()), 8);
 					}

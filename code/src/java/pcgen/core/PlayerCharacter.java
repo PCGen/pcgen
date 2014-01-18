@@ -3760,7 +3760,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 			for (PCClass bClass : getClassSet())
 			{
-				if (this.isClassSkill(aSkill, bClass))
+				if (this.isClassSkill(bClass, aSkill))
 				{
 					levelForSkillPurposes += getLevel(bClass);
 				}
@@ -9578,16 +9578,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		addedTemplateFacet.add(id, pct, po);
 	}
 
-	public boolean isClassSkill(Skill sk, PCClass pcc)
-	{
-		return SkillCost.CLASS.equals(cache.getSkillCost(this, sk, pcc));
-	}
-
 	public boolean isClassSkill(Skill sk)
 	{
 		for (PCClass cl : getClassSet())
 		{
-			if (isClassSkill(sk, cl))
+			if (isClassSkill(cl, sk))
 			{
 				return true;
 			}
@@ -9597,7 +9592,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	private boolean isCrossClassSkill(Skill sk, PCClass pcc)
 	{
-		return SkillCost.CROSS_CLASS.equals(cache.getSkillCost(this, sk, pcc));
+		PCClass cl = getClassKeyed(pcc.getKeyName());
+		if (cl == null)
+		{
+			return false;
+		}
+		return skillCostFacet.isCrossClassSkill(id, pcc, sk);
 	}
 
 	private boolean isCrossClassSkill(Skill sk)
@@ -9619,9 +9619,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		 */
 		if (cl == null)
 		{
-			return SkillCost.CROSS_CLASS;
+			return sk.getSafe(ObjectKey.EXCLUSIVE) ? SkillCost.EXCLUSIVE : SkillCost.CROSS_CLASS;
 		}
-		return cache.getSkillCost(this, sk, cl);
+		cl = getClassKeyed(cl.getKeyName());
+		if (cl == null)
+		{
+			return sk.getSafe(ObjectKey.EXCLUSIVE) ? SkillCost.EXCLUSIVE : SkillCost.CROSS_CLASS;
+		}
+		return skillCostFacet.skillCostForPCClass(id, sk, cl);
 	}
 
     @Override
@@ -10759,15 +10764,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
 		localAddedSkillCostFacet.add(id, pcc, sc, skill, owner);
-		// Make sure any cached skill cost is cleared.
-		cache = new ObjectCache();
 	}
 
 	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
 		localAddedSkillCostFacet.remove(id, pcc, sc, skill, owner);
-		// Make sure any cached skill cost is cleared.
-		cache = new ObjectCache();
 	}
 
 	public String getSubClassName(PCClass cl)

@@ -23,8 +23,11 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.analysis.GlobalToSkillCostFacet;
 import pcgen.cdom.facet.analysis.ListToSkillCostFacet;
 import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
+import pcgen.cdom.facet.analysis.MonCSkillToSkillCostFacet;
+import pcgen.cdom.facet.base.AbstractSubScopeFacet;
+import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
+import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
-import pcgen.cdom.facet.input.MonsterCSkillFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
@@ -33,13 +36,15 @@ import pcgen.core.Skill;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SkillCostFacet
+public class SkillCostFacet extends
+		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
+		SubScopeFacetChangeListener<PCClass, SkillCost, Skill>
 {
 	private ListToSkillCostFacet listToSkillCostFacet;
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet;
 	private LocalSkillCostFacet localSkillCostFacet;
 	private SkillListToCostFacet skillListToCostFacet;
-	private MonsterCSkillFacet monsterCSkillFacet;
+	private MonCSkillToSkillCostFacet monCSkillToSkillCostFacet;
 	private GlobalToSkillCostFacet globalToSkillCostFacet;
 
 	public SkillCost skillCostForPCClass(CharID id, Skill sk, PCClass aClass)
@@ -71,9 +76,7 @@ public class SkillCostFacet
 			throw new IllegalArgumentException(
 				"Skill in isClassSkill cannot be null");
 		}
-		return hasLocalCost(id, pcc, skill, SkillCost.CLASS)
-			|| skillListToCostFacet.contains(id, pcc, SkillCost.CLASS, skill)
-			|| monsterCSkillFacet.contains(id, skill);
+		return contains(id, pcc, SkillCost.CLASS, skill);
 	}
 
 	public boolean isCrossClassSkill(CharID id, PCClass pcc, Skill skill)
@@ -88,20 +91,22 @@ public class SkillCostFacet
 			throw new IllegalArgumentException(
 				"Skill in isCrossClassSkill cannot be null");
 		}
-		if (isClassSkill(id, pcc, skill))
-		{
-			return false;
-		}
-		return hasLocalCost(id, pcc, skill, SkillCost.CROSS_CLASS);
+		return !contains(id, pcc, SkillCost.CLASS, skill)
+			&& contains(id, pcc, SkillCost.CROSS_CLASS, skill);
 	}
 
-	private boolean hasLocalCost(CharID id, PCClass pcc, Skill skill,
-		SkillCost sc)
+	public void dataAdded(
+		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{
-		return globalToSkillCostFacet.contains(id, pcc, sc, skill)
-			|| localSkillCostFacet.contains(id, pcc, sc, skill)
-			|| localAddedSkillCostFacet.contains(id, pcc, sc, skill)
-			|| listToSkillCostFacet.contains(id, pcc, sc, skill);
+		add(dfce.getCharID(), dfce.getScope1(), dfce.getScope2(),
+			dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	public void dataRemoved(
+		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
+	{
+		remove(dfce.getCharID(), dfce.getScope1(), dfce.getScope2(),
+			dfce.getCDOMObject(), dfce.getSource());
 	}
 
 	public void setGlobalToSkillCostFacet(
@@ -110,7 +115,8 @@ public class SkillCostFacet
 		this.globalToSkillCostFacet = globalToSkillCostFacet;
 	}
 
-	public void setListToSkillCostFacet(ListToSkillCostFacet listToSkillCostFacet)
+	public void setListToSkillCostFacet(
+		ListToSkillCostFacet listToSkillCostFacet)
 	{
 		this.listToSkillCostFacet = listToSkillCostFacet;
 	}
@@ -126,13 +132,25 @@ public class SkillCostFacet
 		this.localSkillCostFacet = localSkillCostFacet;
 	}
 
-	public void setSkillListToCostFacet(SkillListToCostFacet skillListToCostFacet)
+	public void setSkillListToCostFacet(
+		SkillListToCostFacet skillListToCostFacet)
 	{
 		this.skillListToCostFacet = skillListToCostFacet;
 	}
 
-	public void setMonsterCSkillFacet(MonsterCSkillFacet monsterCSkillFacet)
+	public void setMonCSkillToSkillCostFacet(
+		MonCSkillToSkillCostFacet monCSkillToSkillCostFacet)
 	{
-		this.monsterCSkillFacet = monsterCSkillFacet;
+		this.monCSkillToSkillCostFacet = monCSkillToSkillCostFacet;
+	}
+
+	public void init()
+	{
+		skillListToCostFacet.addSubScopeFacetChangeListener(this);
+		globalToSkillCostFacet.addSubScopeFacetChangeListener(this);
+		localSkillCostFacet.addSubScopeFacetChangeListener(this);
+		localAddedSkillCostFacet.addSubScopeFacetChangeListener(this);
+		listToSkillCostFacet.addSubScopeFacetChangeListener(this);
+		monCSkillToSkillCostFacet.addSubScopeFacetChangeListener(this);
 	}
 }

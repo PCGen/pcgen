@@ -390,6 +390,10 @@
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
 	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.input.MonsterCSkillFacet"/>
+	<bean id="monCSkillToSkillCostFacet" class="pcgen.cdom.facet.analysis.MonCSkillToSkillCostFacet">
+		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
+		<property name="classFacet" ref="classFacet"/>
+	</bean>
 	<bean id="movementFacet" class="pcgen.cdom.facet.analysis.MovementFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -512,7 +516,7 @@
 		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
 		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
 		<property name="skillListToCostFacet" ref="skillListToCostFacet"/>
-		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
+		<property name="monCSkillToSkillCostFacet" ref="monCSkillToSkillCostFacet"/>
 	</bean>
 	<bean id="skillListToCostFacet" class="pcgen.cdom.facet.SkillListToCostFacet">
 		<property name="skillListFacet" ref="skillListFacet"/>

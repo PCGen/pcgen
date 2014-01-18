@@ -77,6 +77,7 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
 		assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		pc.addClass(dragon);
 		pc.setDirty(true);
 		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
@@ -104,6 +105,7 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
 		assertTrue(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		pc.addClass(dragon);
 		pc.setDirty(true);
 		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);

@@ -36,6 +36,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.pcclass.HdToken;
+import plugin.lsttokens.pcclass.IsmonsterToken;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
@@ -62,6 +64,8 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
 		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
+		new HdToken().parseToken(context, dragon, "8");
+		new IsmonsterToken().parseToken(context, dragon, "YES");
 		TokenRegistration.register(CHOOSE_SKILL_TOKEN);
 		ChooserFactory.setDelegate(new MockUIDelegate());
 	}
@@ -111,6 +115,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		raceInputFacet.set(id, source);
 		assertTrue(mcsFacet.contains(id, sk));
 		assertEquals(1, mcsFacet.getCount(id));
+		pc.incrementClassLevel(1, dragon);
 		pc.setDirty(true);
 		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceInputFacet.remove(id);

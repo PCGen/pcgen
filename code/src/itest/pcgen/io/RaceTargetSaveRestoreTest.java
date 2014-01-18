@@ -29,6 +29,8 @@ import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.pcclass.HdToken;
+import plugin.lsttokens.pcclass.IsmonsterToken;
 import plugin.lsttokens.race.ChooseLangautoToken;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.race.MoncskillToken;
@@ -68,6 +70,8 @@ public class RaceTargetSaveRestoreTest extends
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new TypeLst().parseToken(context, monclass, "Monster");
+		new HdToken().parseToken(context, monclass, "8");
+		new IsmonsterToken().parseToken(context, monclass, "YES");
 		Skill monskill = create(Skill.class, "MonSkill");
 		new ExclusiveToken().parseToken(context, monskill, "Yes");
 		Race monster = create(Race.class, "Monster");
@@ -78,7 +82,27 @@ public class RaceTargetSaveRestoreTest extends
 		new SkillToken().parseToken(context, monster, "MonSkill|MySkill");
 		finishLoad();
 		pc.setRace(monster);
-		runRoundRobin(getPreEqualityCleanup());
+		pc.incrementClassLevel(1,  monclass);
+		pc.setHP(pc.getActiveClassLevel(monclass, 0), 3);
+		final Runnable cleanup = getPreEqualityCleanup();
+		Runnable fullcleanup = new Runnable()
+		{
+
+			public void run()
+			{
+				if (cleanup != null)
+				{
+					cleanup.run();
+				}
+				//TODO need this to create the spell support :/
+				PCClass cl =
+						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+							"MonClass");
+				reloadedPC.getSpellSupport(cl);
+			}
+			
+		};
+		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(monskill, monclass));
 		assertEquals(SkillCost.CLASS,
