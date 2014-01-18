@@ -152,10 +152,6 @@ Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
 Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm			HANDS:2
 Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
 
-###Block: new weapon proficiency to properly implement the splash weapons
-# Weapon Name	Type
-Splash Weapon	TYPE:Simple.Ranged.Splash
-
 ###Block: placeholder proficiency to make sure weapon always has nonproficiency penalty
 # Weapon Name		Type
 Star Candle Firework	TYPE:Ranged
