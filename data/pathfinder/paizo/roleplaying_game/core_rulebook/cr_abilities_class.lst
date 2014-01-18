@@ -1406,7 +1406,7 @@ Weapon Proficiencies ~ Wizard	CATEGORY:Internal		AUTO:WEAPONPROF|Club|Dagger|Cro
 
 ###Block: Proficiency Master Groups - Cut Down on Cross Referencing
 # Ability Name		Category of Ability	Type							Serves As						Automatically Gained Weapon Prof.					Ability
-Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto											AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)	ABILITY:FEAT|AUTOMATIC|CMB Output
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto											AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)|Splash Weapon	ABILITY:FEAT|AUTOMATIC|CMB Output
 Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial	SERVESAS:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
 Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial				SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Armor Types

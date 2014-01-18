@@ -13,6 +13,7 @@ Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 # Other
 Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded
+Splash Weapon			TYPE:Simple
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
