@@ -8418,7 +8418,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		else if (locName.equalsIgnoreCase("Equipped"))
 		{
 			String singleLoc = getSingleLocation(eqI);
-			if (singleLoc.length() >= 0)
+			if (singleLoc.length() > 0)
 			{
 				locName = singleLoc; 
 			}

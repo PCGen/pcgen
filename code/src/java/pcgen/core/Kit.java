@@ -168,6 +168,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		{
 			bk.apply(pc);
 		}
+		pc.setCalcEquipmentList();
 
 		if (getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT)
 		{

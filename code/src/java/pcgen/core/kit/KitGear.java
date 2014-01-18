@@ -38,6 +38,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
@@ -369,9 +370,13 @@ public final class KitGear extends BaseKit
 		{
 			theLocation = actingLocation;
 			if (!theLocation.equalsIgnoreCase("DEFAULT")
-					&& !theLocation.equalsIgnoreCase("Equipped"))
+					&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
+					&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
+					&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
 			{
-				theTarget = aPC.getEquipmentNamed(theLocation);
+				theTarget =
+						EquipmentUtilities.findEquipmentByBaseKey(
+							aPC.getEquipmentMasterList(), theLocation);
 			}
 			else if (theLocation.equalsIgnoreCase("DEFAULT"))
 			{
@@ -429,11 +434,17 @@ public final class KitGear extends BaseKit
 		// If the target is null, try and grab it incase it is there now
 		Equipment theTarget = null;
 		EquipSet eSet;
-		if (theLocation.length() != 0
-				&& !theLocation.equalsIgnoreCase("Equipped"))
+		if (!theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_CARRIED)
+				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_NOTCARRIED)
+				&& !theLocation.equalsIgnoreCase(Constants.EQUIP_LOCATION_EQUIPPED))
 		{
-			theTarget = aPC.getEquipmentNamed(theLocation);
-			//TODO (JD 7Nov07) Resized items get missed by the above call as their name has changed 
+			theTarget =
+					EquipmentUtilities.findEquipmentByBaseKey(
+						aPC.getEquipmentMasterList(), theLocation);
+			if (theTarget == null)
+			{
+				theLocation = Constants.EQUIP_LOCATION_CARRIED;
+			}
 		}
 		if (theTarget == null)
 		{

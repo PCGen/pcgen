@@ -24,7 +24,13 @@
  */
 package pcgen.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.PCGenTestCase;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.util.TestHelper;
 
 /**
  * @author nuance
@@ -54,4 +60,29 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 			strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
 	}
 
+	public void testFindEquipmentByBaseKey()
+	{
+		TestHelper.makeSizeAdjustments();
+		Equipment towel = new Equipment();
+		towel.setName("Towel");
+		Equipment backpackMed = new Equipment();
+		backpackMed.setName("Backpack");
+		final Equipment backpackSml = backpackMed.clone();
+		backpackSml.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(backpackMed));
+		SizeAdjustment small = Globals.getContext().ref.getAbbreviatedObject(
+			SizeAdjustment.class, "S");
+		final String newName = backpackSml.createNameForAutoResize(small);
+		backpackSml.setName(newName);
+		backpackSml.setKeyName(backpackSml.createKeyForAutoResize(small));
+
+		List<Equipment> eqList = new ArrayList<Equipment>();
+		eqList.add(towel);
+		eqList.add(backpackSml);
+		assertEquals("Expected to find backpack", backpackSml,
+			EquipmentUtilities.findEquipmentByBaseKey(eqList, "backpack"));
+		assertEquals("Expected not to find torch", null,
+			EquipmentUtilities.findEquipmentByBaseKey(eqList, "torch"));
+		assertEquals("Expected to find towel", towel,
+			EquipmentUtilities.findEquipmentByBaseKey(eqList, "ToWeL"));
+	}
 }

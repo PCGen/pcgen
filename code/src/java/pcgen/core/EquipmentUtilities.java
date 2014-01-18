@@ -29,6 +29,9 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
+
 /**
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
@@ -121,4 +124,34 @@ public final class EquipmentUtilities
 
 		return aBuf.toString();
 	}
+
+	/**
+	 * Find an item of equipment matching the supplied key. This will check the 
+	 * supplied list look for the specific item of equipment or an item of 
+	 * equipment based on an item with the key. 
+	 * @param aList The list of equipment to be checked.
+	 * @param baseKey The key the equipment must have. 
+	 * @return A matching item of equipment, or null if none are found.
+	 */
+	public static Equipment findEquipmentByBaseKey(final List<Equipment> aList, final String baseKey)
+	{
+		for (Equipment equipment : aList)
+		{
+			Equipment target = equipment;
+			while (target != null)
+			{
+				if (target.getKeyName().equalsIgnoreCase(baseKey))
+				{
+					// Once found, return the actual item from the list
+					return equipment;
+				}
+				CDOMSingleRef<Equipment> baseItem =
+						target.get(ObjectKey.BASE_ITEM);
+				target = baseItem == null ? null : baseItem.resolvesTo();
+			}
+		}
+		
+		return null;
+	}
+	
 }
