@@ -11492,4 +11492,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		directAbilityInputFacet.remove(id, owner, category, nature, cas);
 	}
+
+	public Ability getUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
+	{
+		return abFacet.getContained(id, cat, Nature.VIRTUAL, abilityInfo);
+	}
 }

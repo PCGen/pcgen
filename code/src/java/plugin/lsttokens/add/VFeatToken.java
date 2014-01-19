@@ -295,6 +295,10 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		Ability aFeat =
 				AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc,
 					ab, selection, cat);
+		if (aFeat == null)
+		{
+			aFeat = pc.getUserVirtualAbility(cat, ab);
+		}
 		AbilityUtilities.finaliseAbility(aFeat, selection, pc, cat);
 		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
 		// TODO: Why is this here? Normally this is only used in the UI layer.

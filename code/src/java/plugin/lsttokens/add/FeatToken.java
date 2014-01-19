@@ -284,14 +284,14 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		double cost = choice.getAbility().getSafe(ObjectKey.SELECTION_COST)
-				.doubleValue();
+		Ability ability = choice.getAbility();
+		double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 		if (cost > 0.0001)
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modAbility(pc, choice.getAbility(), choice
-		.getSelection(), AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(pc, ability, choice.getSelection(),
+			AbilityCategory.FEAT);
 	}
 
 	@Override

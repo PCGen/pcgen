@@ -393,7 +393,11 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			Ability a = AbilityUtilities
 					.addCloneOfAbilityToVirtualListwithChoices(pc,
-							choice.getAbility(), choice.getSelection(), cat);
+							ab, association, cat);
+			if (a == null)
+			{
+				a = pc.getUserVirtualAbility(cat, ab);
+			}
 			pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, a);
 			pc.setAssoc(a, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
 			AbilityUtilities.finaliseAbility(a, association, pc, cat);
