@@ -335,10 +335,7 @@ ABILITY:Special Ability|Spell-Like Abilities ~ Charnal Colossus	NEWKEY:Spell-Lik
 ABILITY:Special Ability|Corporate Will ~ Charnal Colossus	NEWKEY:Corporate Will ~ Charnel Colossus	MAXVER:6.2.0
 ABILITY:Special Ability|Mind Feed ~ Charnal Colossus	NEWKEY:Mind Feed ~ Charnel Colossus	MAXVER:6.2.0
 ABILITY:Special Ability|Voice of the Ancients ~ Charnal Colossus	NEWKEY:Voice of the Ancients ~ Charnel Colossus	MAXVER:6.2.0
-###
-# Don't know how to code this change:
-# RACE:Charnal Colossus	NEWKEY:Charnel Colossus	MAXVER:6.2.0
-# ##
+RACE:Charnal Colossus	NEWKEY:Charnel Colossus	MAXVER:6.2.0
 ABILITY:Special Ability|Arctic Native ~ Artic Druid	NEWKEY:Arctic Native ~ Arctic Druid	MAXVER:6.2.0
 ABILITY:Special Ability|Icewalking  ~ Artic Druid	NEWKEY:Icewalking ~ Arctic Druid	MAXVER:6.2.0
 ABILITY:Special Ability|Arctic Endurance ~ Artic Druid	NEWKEY:Arctic Endurance ~ Arctic Druid	MAXVER:6.2.0
