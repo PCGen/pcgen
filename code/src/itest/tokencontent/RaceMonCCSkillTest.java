@@ -20,6 +20,7 @@ package tokencontent;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
@@ -60,6 +61,7 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
 		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
+		dragon.put(ObjectKey.IS_MONSTER, Boolean.TRUE);
 		TokenRegistration.register(CHOOSE_SKILL_TOKEN);
 		ChooserFactory.setDelegate(new MockUIDelegate());
 	}

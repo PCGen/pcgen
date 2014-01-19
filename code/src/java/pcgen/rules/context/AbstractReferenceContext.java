@@ -334,7 +334,7 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		{
 			String key = pcc.getKeyName();
 			ClassSkillList skl = constructCDOMObject(CLASSSKILLLIST_CLASS, key);
-			boolean isMonster = pcc.containsInList(ListKey.TYPE, Type.MONSTER);
+			boolean isMonster = pcc.isMonster();
 			if (isMonster)
 			{
 				skl.addType(Type.MONSTER);
