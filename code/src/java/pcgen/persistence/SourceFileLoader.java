@@ -990,11 +990,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				URI uri = fName.getURI();
 				if (PCGFile.isPCGenCampaignFile(uri))
 				{
-					Campaign subCampaign = Globals.getCampaignByURI(uri, false);
-					if (loadedSet.add(subCampaign))
-					{
-						subCampaign.applyTo(context.ref);
-					}
+					loadedSet.add(Globals.getCampaignByURI(uri, false));
 				}
 				else
 				{
