@@ -20,7 +20,11 @@
  */
 package pcgen.gui2.util;
 
+import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+
 import javax.swing.Action;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
@@ -72,6 +76,14 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	@Override
 	public void elementModified(ListEvent<E> e)
 	{
+	}
+
+	@Override
+	public Point getToolTipLocation(MouseEvent event)
+	{
+		Dimension size = getSize();
+		double oneRowUpHeight = size.getHeight() *-1 - 5;
+		return new Point((int) size.getWidth(), (int) oneRowUpHeight);
 	}
 
 	private void rebuildListMenu()
@@ -160,6 +172,14 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 					{
 						item
 					};
+		}
+
+		@Override
+		public Point getToolTipLocation(MouseEvent event)
+		{
+			Dimension size = getSize();
+			double halfheight = size.getHeight() / 2;
+			return new Point((int) size.getWidth(), (int) halfheight);
 		}
 
 	}
