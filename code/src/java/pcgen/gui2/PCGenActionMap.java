@@ -456,7 +456,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class CoreViewAction extends PCGenAction
+	private class CoreViewAction extends CharacterAction
 	{
 
 
