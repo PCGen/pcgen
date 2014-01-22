@@ -473,6 +473,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
 				pc.removeAssociation(pcAbility, choice.getSelection());
+				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(pcAbility, pc);
+				remove(cm, pc, pcAbility, choice.getSelection());
 				result = pc.hasAssociations(pcAbility); 
 			}
 			
@@ -482,11 +484,6 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			
 			if (!result)
 			{
-				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					ChoiceManagerList cm = ChooserUtilities.getChoiceManager(pcAbility, pc);
-					remove(cm, pc, pcAbility, choice.getSelection());
-				}
 				if (choice.getNature().equals(Nature.NORMAL))
 				{
 					removed = pc.removeRealAbility(choice.getAbilityCategory(),
