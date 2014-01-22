@@ -25,9 +25,7 @@
 
 package plugin.lsttokens.kit.ability;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
@@ -36,7 +34,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.kit.KitAbilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -136,13 +133,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 			{
 				return ParseResult.INTERNAL_ERROR;
 			}
-			List<String> choices = null;
-			if (token.indexOf('(') != -1)
-			{
-				choices = new ArrayList<String>();
-				AbilityUtilities.getUndecoratedName(token, choices);
-			}
-			kitAbil.addAbility(ref, choices);
+			kitAbil.addAbility(ref);
 		}
 		return ParseResult.SUCCESS;
 	}

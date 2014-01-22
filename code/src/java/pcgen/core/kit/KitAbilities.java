@@ -25,13 +25,10 @@ package pcgen.core.kit;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -51,8 +48,8 @@ public final class KitAbilities extends BaseKit
 {
 	private Boolean free = null;
 	private Integer choiceCount;
-	private Map<CDOMReference<Ability>, List<String>> abilityMap =
-			new HashMap<CDOMReference<Ability>, List<String>>();
+	private List<CDOMReference<Ability>> abilities =
+			new ArrayList<CDOMReference<Ability>>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -81,15 +78,14 @@ public final class KitAbilities extends BaseKit
 	{
 		StringBuilder sb = new StringBuilder();
 
-		if ((choiceCount != null) || (abilityMap.size() != 1))
+		if ((choiceCount != null) || (abilities.size() != 1))
 		{
 			sb.append(getSafeCount()).append(" of ");
 		}
 
 		boolean firstDone = false;
 
-		for (Map.Entry<CDOMReference<Ability>, List<String>> me : abilityMap
-			.entrySet())
+		for (CDOMReference<Ability> ref : abilities)
 		{
 			if (firstDone)
 			{
@@ -97,16 +93,16 @@ public final class KitAbilities extends BaseKit
 			}
 			firstDone = true;
 
-			List<String> choices = me.getValue();
-			for (Ability a : me.getKey().getContainedObjects())
+			String choice = ref.getChoice();
+			for (Ability a : ref.getContainedObjects())
 			{
 				if (a != null)
 				{
 					sb.append(a.getKeyName());
-					if (choices != null)
+					if (choice != null)
 					{
 						sb.append(" (");
-						sb.append(StringUtil.joinToStringBuilder(choices, ", "));
+						sb.append(choice);
 						sb.append(')');
 					}
 				}
@@ -128,17 +124,14 @@ public final class KitAbilities extends BaseKit
 		abilitiesToAdd = new ArrayList<AbilitySelection>();
 		double minCost = Double.MAX_VALUE;
 		List<AbilitySelection> available = new ArrayList<AbilitySelection>();
-		for (Map.Entry<CDOMReference<Ability>, List<String>> me : abilityMap
-			.entrySet())
+		for (CDOMReference<Ability> ref : abilities)
 		{
-			
-			List<String> choices = me.getValue();
-			for (Ability a : me.getKey().getContainedObjects())
+			String choice = ref.getChoice();
+			for (Ability a : ref.getContainedObjects())
 			{
 				if (a == null)
 				{
-					warnings.add("ABILITY: " + me.getKey()
-						+ " could not be found.");
+					warnings.add("ABILITY: " + ref + " could not be found.");
 					minCost = 0;
 					continue;
 				}
@@ -147,16 +140,13 @@ public final class KitAbilities extends BaseKit
 				{
 					minCost = a.getCost();
 				}
-				if (choices == null)
+				if (choice == null)
 				{
 					available.add(new AbilitySelection(a, ""));
 				}
 				else
 				{
-					for (String s : choices)
-					{
-						available.add(new AbilitySelection(a, s));
-					}
+					available.add(new AbilitySelection(a, choice));
 				}
 			}
 		}
@@ -299,16 +289,16 @@ public final class KitAbilities extends BaseKit
 		return choiceCount == null ? 1 : choiceCount;
 	}
 
-	public void addAbility(CDOMReference<Ability> ref, List<String> choices)
+	public void addAbility(CDOMReference<Ability> ref)
 	{
-		abilityMap.put(ref, choices);
+		abilities.add(ref);
 	}
 
 	public Collection<CDOMReference<Ability>> getAbilityKeys()
 	{
 		Set<CDOMReference<Ability>> wc = new TreeSet<CDOMReference<Ability>>(
 				ReferenceUtilities.REFERENCE_SORTER);
-		wc.addAll(abilityMap.keySet());
+		wc.addAll(abilities);
 		return wc;
 	}
 
