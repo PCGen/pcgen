@@ -9358,6 +9358,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 						List<String> choices = apo.getAssociation(AssociationKey.ASSOC_CHOICES);
 						if (choices == null)
 						{
+						    //CHOOSE:NOCHOICE can be unconditionally applied (must be STACK:YES)
 							CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab, nature, "");
 							cas.addAllPrerequisites(apo.getPrerequisiteList());
 							applyAbility(cas);
@@ -9376,9 +9377,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 						}
 					} else
 					{
-						CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab, nature);
-						cas.addAllPrerequisites(apo.getPrerequisiteList());
-						applyAbility(cas);
+						if (!AbilityUtilities.alreadySelected(this, ab, null, true))
+						{
+							CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab, nature);
+							cas.addAllPrerequisites(apo.getPrerequisiteList());
+							applyAbility(cas);
+						}
 					}
 				}
 			}

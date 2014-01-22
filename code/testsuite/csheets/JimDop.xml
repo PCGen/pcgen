@@ -1463,16 +1463,6 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Simple Weapon Proficiency</name>
-			<description>You make attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
 			<name>Tower Shield Proficiency</name>
 			<description>You can use a tower shield and suffer only the standard penalties.</description>
 			<type>GENERAL</type>

@@ -387,20 +387,24 @@ public class AbilityUtilities
 		{
 			if (a.getKeyName().equals(ability.getKeyName()))
 			{
-				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-					&& !(allowStack && a.getSafe(ObjectKey.STACKS)))
+				if (!a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
-					ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
-					List<?> oldSelections =
-							info.getChoiceActor().getCurrentlySelected(a, pc);
-					Object decoded =
-							info.decodeChoice(Globals.getContext(),
-								selection);
-					if (oldSelections != null
-						&& oldSelections.contains(decoded))
-					{
-						return true;
-					}
+					//Based on key name / category match
+					return true;
+				}
+				if (allowStack && a.getSafe(ObjectKey.STACKS))
+				{
+					//Must allow it because it stacks
+					return false;
+				}
+				ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
+				List<?> oldSelections =
+						info.getChoiceActor().getCurrentlySelected(a, pc);
+				Object decoded =
+						info.decodeChoice(Globals.getContext(), selection);
+				if ((oldSelections != null) && oldSelections.contains(decoded))
+				{
+					return true;
 				}
 			}
 		}
