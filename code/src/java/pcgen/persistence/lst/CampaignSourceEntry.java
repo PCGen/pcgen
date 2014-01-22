@@ -135,7 +135,8 @@ public class CampaignSourceEntry implements SourceEntry
 
 		public URI getURI()
 		{
-			return getPathURI(u, s);
+			URI uri = getNonNormalizedPathURI(u, s);
+			return uri.normalize();
 		}
 		
         @Override
@@ -278,7 +279,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * @return String containing the converted absolute path or URL
 	 *         (as appropriate)
 	 */
-	private static URI getPathURI(URI pccPath, String basePath)
+	private static URI getNonNormalizedPathURI(URI pccPath, String basePath)
 	{
 		if (basePath.length() <= 0)
 		{
