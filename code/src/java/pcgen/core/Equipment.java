@@ -6581,20 +6581,12 @@ public final class Equipment extends PObject implements Serializable,
 		return null;
 	}
 
-    @Override
 	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES,
 			new FixedStringList(o));
 	}
 
-    @Override
-	public void addAssociation(CDOMObject obj, FixedStringList o)
-	{
-		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
-	}
-
-    @Override
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		List<FixedStringList> list =
@@ -6648,13 +6640,11 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-	@Override
 	public boolean hasAssociations(Object obj)
 	{
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
-    @Override
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
@@ -6662,61 +6652,12 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
-    @Override
 	public void removeAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES,
 			new FixedStringList(o));
 	}
 
-    @Override
-	public int getDetailedAssociationCount(CDOMObject obj)
-	{
-		List<FixedStringList> assocs =
-				assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		int count = 0;
-		if (assocs != null)
-		{
-			for (FixedStringList choice : assocs)
-			{
-				count += choice.size();
-			}
-		}
-		return count;
-	}
-
-    @Override
-	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
-	{
-		List<FixedStringList> list =
-				assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		if (list == null)
-		{
-			list = Collections.emptyList();
-		}
-		return list;
-	}
-
-    @Override
-	public List<String> getExpandedAssociations(CDOMObject obj)
-	{
-		List<FixedStringList> assocs =
-				assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		List<String> list = new ArrayList<String>();
-		if (assocs != null)
-		{
-			for (FixedStringList choice : assocs)
-			{
-				for (String s : choice)
-				{
-					list.add(s);
-				}
-			}
-		}
-		return list;
-	}
-
-    @Override
 	public String getFirstAssociation(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0)

@@ -9633,19 +9633,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return skillCostFacet.skillCostForPCClass(id, sk, cl);
 	}
 
-    @Override
 	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
-    @Override
 	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
-    @Override
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -9685,13 +9682,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return list;
 	}
 
-	@Override
 	public boolean hasAssociations(Object obj)
 	{
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
-    @Override
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
@@ -9699,13 +9694,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return list;
 	}
 
-    @Override
 	public void removeAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
-    @Override
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -9720,7 +9713,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return count;
 	}
 
-    @Override
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -9731,7 +9723,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return list;
 	}
 
-    @Override
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -9749,7 +9740,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return list;
 	}
 
-    @Override
 	public String getFirstAssociation(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0).get(0);
