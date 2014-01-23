@@ -140,7 +140,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int babMinVal = 1;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
-	private final List<String> schoolsList = new ArrayList<String>(20);
 
 	private int skillCosts_Class     = 1;
 	private int skillCost_CrossClass = 2;
@@ -2067,27 +2066,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public int getStatMax()
 	{
 		return statMax;
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the schools list.
-	 * @return an <b>unmodifiable</b> version of the schools list.
-	 */
-	public List<String> getUnmodifiableSchoolsList()
-	{
-		return Collections.unmodifiableList(schoolsList);
-	}
-
-	/**
-	 * Add the school to the list.
-	 * @param school
-	 */
-	public void addToSchoolList(final String school)
-	{
-		if (!schoolsList.contains(school))
-		{
-			schoolsList.add(school);
-		}
 	}
 
 	/**

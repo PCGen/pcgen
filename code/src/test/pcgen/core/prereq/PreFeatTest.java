@@ -21,18 +21,19 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreFeatParser;
 
@@ -204,10 +205,11 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	 */
 	public void test966023c() throws Exception
 	{
-		SettingsHandler.getGame().addToSchoolList("Conjuration");
-		SettingsHandler.getGame().addToSchoolList("Evocation");
-		SettingsHandler.getGame().addToSchoolList("Illusion");
-		SettingsHandler.getGame().addToSchoolList("Necromany");
+		LoadContext context = Globals.getContext();
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Conjuration");
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Evocation");
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Illusion");
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Necromany");
 		final PlayerCharacter character = getCharacter();
 		final Ability spellFocus = new Ability();
 
@@ -246,10 +248,11 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	 */
 	public void testExclusion() throws Exception
 	{
-		SettingsHandler.getGame().addToSchoolList("Conjuration");
-		SettingsHandler.getGame().addToSchoolList("Evocation");
-		SettingsHandler.getGame().addToSchoolList("Illusion");
-		SettingsHandler.getGame().addToSchoolList("Necromany");
+		LoadContext context = Globals.getContext();
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Conjuration");
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Evocation");
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Illusion");
+		context.ref.constructNowIfNecessary(SpellSchool.class, "Necromany");
 		final PlayerCharacter character = getCharacter();
 		final Ability spellFocus = new Ability();
 

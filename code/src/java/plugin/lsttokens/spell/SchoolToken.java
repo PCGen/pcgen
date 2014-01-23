@@ -23,7 +23,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
-import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -87,7 +86,6 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 							tokString);
 				context.getObjectContext().addToList(spell,
 						ListKey.SPELL_SCHOOL, ss);
-				SettingsHandler.getGame().addToSchoolList(tokString);
 			}
 			first = false;
 		}
