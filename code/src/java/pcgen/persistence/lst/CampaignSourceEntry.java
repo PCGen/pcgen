@@ -513,7 +513,9 @@ public class CampaignSourceEntry implements SourceEntry
 				}
 				else
 				{
-					Logging.errorPrint("Invalid Suffix: " + inExString
+					Logging.errorPrint("Invalid Suffix (must have "
+						+ "'(INCLUDE' '(EXCLUDE' or a PRExxx immediately "
+						+ "following the pipe (no spaces): " + inExString
 						+ " on Campaign Source: '" + value + "' in " + sourceUri);
 					return null;
 				}
