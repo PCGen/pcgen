@@ -41,7 +41,6 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BasicChooseInformation;
@@ -2688,43 +2687,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			for (String appliedToKey : associations)
 			{
-				if (appliedToKey.startsWith(TAG_MULTISELECT))
-				{
-					//
-					// Should be in the form:
-					// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
-					//
-					final StringTokenizer sTok =
-							new StringTokenizer(appliedToKey, TAG_END, false);
-
-					if (sTok.countTokens() > 2)
-					{
-						sTok.nextToken(); // should be TAG_MULTISELECT
-
-						final int maxChoices =
-								Integer.parseInt(sTok.nextToken());
-						sTok.nextToken(); // toss this--number of choices made
-
-						final FixedStringList array =
-								new FixedStringList(maxChoices);
-						while (sTok.hasMoreTokens())
-						{
-							array.add(sTok.nextToken());
-						}
-
-						thePC.addAssociation(ability, array);
-					}
-					else
-					{
-						final String msg =
-								LanguageBundle
-									.getFormattedString(
-										"Warnings.PCGenParser.IllegalAbilityIgnored", //$NON-NLS-1$
-										line);
-						warnings.add(msg);
-					}
-				}
-				else if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
+				if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
 					.getSafe(ObjectKey.STACKS))
 					|| !thePC.containsAssociated(ability, appliedToKey))
 				{
@@ -2889,52 +2852,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				final String appliedToKey =
 						EntityEncoder.decode(element.getText());
 
-				// This will delete a perfectly valid feat.  Removed 03/26/06 boomer70
-				//				if (aFeat.getName().endsWith("Weapon Proficiency"))
-				//				{
-				//					aPC.addWeaponProf(updateProficiencyName(appliedToKey, false));
-				//
-				//					// addWeaponProf adds the feat to this
-				//					// PC's list, so don't add it again!
-				//					added = true;
-				//				}
-
-				if (appliedToKey.startsWith(TAG_MULTISELECT))
-				{
-					//
-					// Should be in the form:
-					// MULTISELECCT:maxcount:#chosen:choice1:choice2:...:choicen
-					//
-					final StringTokenizer sTok =
-							new StringTokenizer(appliedToKey, TAG_END, false);
-
-					if (sTok.countTokens() > 2)
-					{
-						sTok.nextToken(); // should be TAG_MULTISELECT
-
-						final int maxChoices =
-								Integer.parseInt(sTok.nextToken());
-						sTok.nextToken(); // toss this--number of choices made
-
-						final FixedStringList array =
-								new FixedStringList(maxChoices);
-						while (sTok.hasMoreTokens())
-						{
-							array.add(sTok.nextToken());
-						}
-
-						thePC.addAssociation(aFeat, array);
-					}
-					else
-					{
-						final String msg =
-								LanguageBundle.getFormattedString(
-									"Warnings.PCGenParser.IllegalFeatIgnored", //$NON-NLS-1$
-									line);
-						warnings.add(msg);
-					}
-				}
-				else if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat
+				if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat
 					.getSafe(ObjectKey.STACKS))
 					|| !thePC.containsAssociated(aFeat, appliedToKey))
 				{

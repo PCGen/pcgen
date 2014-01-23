@@ -35,7 +35,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.FixedStringList;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMObject;
@@ -66,10 +65,8 @@ public class BonusManager
 	private static final String VAR_TOKEN_PATTERN = Pattern
 			.quote(VAR_TOKEN_REPLACEMENT);
 
-	private static final FixedStringList NO_ASSOC = new FixedStringList("");
-
-	private static final List<FixedStringList> NO_ASSOC_LIST = Collections
-			.singletonList(NO_ASSOC);
+	private static final List<String> NO_ASSOC_LIST = Collections
+			.singletonList("");
 
 	private Map<String, String> activeBonusMap = new ConcurrentHashMap<String, String>();
 
@@ -781,8 +778,8 @@ public class BonusManager
 								&& co instanceof CDOMObject)
 						{
 							CDOMObject creator = (CDOMObject) co;
-							for (FixedStringList assoc : pc
-									.getDetailedAssociations(creator))
+							for (String assoc : pc
+									.getExpandedAssociations(creator))
 							{
 								if (assoc.contains(statAbbr))
 								{
@@ -1197,12 +1194,12 @@ public class BonusManager
 	{
 		Object creatorObj = getSourceObject(bo);
 
-		List<FixedStringList> associatedList;
+		List<String> associatedList;
 		CDOMObject anObj = null;
 		if (creatorObj instanceof CDOMObject)
 		{
 			anObj = (CDOMObject) creatorObj;
-			associatedList = pc.getDetailedAssociations(anObj);
+			associatedList = pc.getExpandedAssociations(anObj);
 			if (associatedList == null || associatedList.isEmpty())
 			{
 				associatedList = NO_ASSOC_LIST;
@@ -1220,35 +1217,12 @@ public class BonusManager
 		String[] bonusInfoArray = bo.getBonusInfo().split(",");
 		String bonusType = bo.getTypeString();
 
-		for (FixedStringList assoc : associatedList)
+		for (String assoc : associatedList)
 		{
-			StringBuilder asb = new StringBuilder();
-			int size = assoc.size();
-			if (size == 1)
-			{
-				asb.append(assoc.get(0));
-			}
-			else
-			{
-				asb.append(size).append(':');
-				int loc = asb.length();
-				int count = 0;
-				for (String s : assoc)
-				{
-					if (s != null)
-					{
-						count++;
-						asb.append(':').append(s);
-					}
-				}
-				asb.insert(loc, count);
-			}
-			String assocString = asb.toString();
-
 			String replacedName;
 			if (bonusName.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 			{
-				replacedName = bonusName.replaceAll(VALUE_TOKEN_PATTERN, assocString);
+				replacedName = bonusName.replaceAll(VALUE_TOKEN_PATTERN, assoc);
 			}
 			else
 			{
@@ -1259,20 +1233,17 @@ public class BonusManager
 			{
 				if (bonusInfo.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 				{
-					for (String expInfo : assoc)
-					{
-						replacedInfoList.add(bonusInfo.replaceAll(VALUE_TOKEN_PATTERN,
-								expInfo));
-					}
+					replacedInfoList.add(bonusInfo.replaceAll(
+						VALUE_TOKEN_PATTERN, assoc));
 				}
 				else if (bonusInfo.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
 				{
 					replacedInfoList.add(bonusName
-							.replaceAll(VAR_TOKEN_PATTERN, assocString));
+							.replaceAll(VAR_TOKEN_PATTERN, assoc));
 				}
 				else if (bonusInfo.equals(LIST_TOKEN_REPLACEMENT))
 				{
-					replacedInfoList.add(assocString);
+					replacedInfoList.add(assoc);
 				}
 				else
 				{
@@ -1295,7 +1266,7 @@ public class BonusManager
 				if (listIndex >= 0)
 				{
 					thisValue = value.replaceAll(VALUE_TOKEN_PATTERN,
-							assocString);
+							assoc);
 				}
 				//Need to protect against a selection not being made with a %LIST
 				if (thisValue.length() == 0)

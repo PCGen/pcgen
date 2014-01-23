@@ -9638,11 +9638,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
-	public void addAssociation(CDOMObject obj, FixedStringList o)
-	{
-		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
-	}
-
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -9711,16 +9706,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			}
 		}
 		return count;
-	}
-
-	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
-	{
-		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		if (list == null)
-		{
-			list = Collections.emptyList();
-		}
-		return list;
 	}
 
 	public List<String> getExpandedAssociations(CDOMObject obj)

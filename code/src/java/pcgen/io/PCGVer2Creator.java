@@ -39,7 +39,6 @@ import java.util.TreeSet;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -1440,24 +1439,16 @@ public final class PCGVer2Creator implements IOConstants
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			buffer.append(TAG_APPLIEDTO).append(TAG_END);
-			List<FixedStringList> assocList =
-					thePC.getDetailedAssociations(ability);
+			List<String> assocList = thePC.getExpandedAssociations(ability);
 			boolean first = true;
-			for (FixedStringList assocArray : assocList)
+			for (String assoc : assocList)
 			{
-				if (assocArray.size() > 1)
+				if (!first)
 				{
-					buffer.append(TAG_MULTISELECT).append(':');
+					buffer.append(Constants.COMMA);
 				}
-				for (String assoc : assocArray)
-				{
-					if (!first)
-					{
-						buffer.append(Constants.COMMA);
-					}
-					first = false;
-					buffer.append(EntityEncoder.encode(assoc));
-				}
+				first = false;
+				buffer.append(EntityEncoder.encode(assoc));
 			}
 			buffer.append(TAG_SEPARATOR);
 		}
@@ -1833,28 +1824,21 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		buffer.append(TAG_RACE).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getRace().getKeyName()));
-		List<FixedStringList> assocList =
-				thePC.getDetailedAssociations(charDisplay.getRace());
+		List<String> assocList =
+				thePC.getExpandedAssociations(charDisplay.getRace());
 		if (assocList != null && !assocList.isEmpty())
 		{
 			buffer.append(TAG_SEPARATOR);
 			buffer.append(TAG_APPLIEDTO).append(TAG_END);
 			boolean first = true;
-			for (FixedStringList assocArray : assocList)
+			for (String assoc : assocList)
 			{
-				if (assocArray.size() > 1)
+				if (!first)
 				{
-					buffer.append(TAG_MULTISELECT).append(':');
+					buffer.append(Constants.COMMA);
 				}
-				for (String assoc : assocArray)
-				{
-					if (!first)
-					{
-						buffer.append(Constants.COMMA);
-					}
-					first = false;
-					buffer.append(EntityEncoder.encode(assoc));
-				}
+				first = false;
+				buffer.append(EntityEncoder.encode(assoc));
 			}
 		}
 		appendAddTokenInfo(buffer, charDisplay.getRace());
@@ -2385,28 +2369,20 @@ public final class PCGVer2Creator implements IOConstants
 					buffer.append(']');
 				}
 			}
-			List<FixedStringList> assocList =
-					thePC.getDetailedAssociations(template);
+			List<String> assocList = thePC.getExpandedAssociations(template);
 			if (assocList != null && !assocList.isEmpty())
 			{
 				buffer.append(TAG_SEPARATOR);
 				buffer.append(TAG_APPLIEDTO).append(TAG_END);
 				boolean first = true;
-				for (FixedStringList assocArray : assocList)
+				for (String assoc : assocList)
 				{
-					if (assocArray.size() > 1)
+					if (!first)
 					{
-						buffer.append(TAG_MULTISELECT).append(':');
+						buffer.append(Constants.COMMA);
 					}
-					for (String assoc : assocArray)
-					{
-						if (!first)
-						{
-							buffer.append(Constants.COMMA);
-						}
-						first = false;
-						buffer.append(EntityEncoder.encode(assoc));
-					}
+					first = false;
+					buffer.append(EntityEncoder.encode(assoc));
 				}
 			}
 
