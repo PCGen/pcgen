@@ -523,18 +523,12 @@ public class CharacterAbilities
 				// adjust the associated List
 				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
-					if ("".equals(null) || null == null)
-					{
-						// Get modChoices to adjust the associated list and Feat Pool
-						adjustedAbilityPool =
-								ChooserUtilities.modChoices(pcAbility,
-									new ArrayList<String>(), new ArrayList<String>(), true,
-									theCharacter, false, theCategory);
-					}
-					else
-					{
-						theCharacter.removeAssociation(pcAbility, null);
-					}
+					// Get modChoices to adjust the associated list and Feat Pool
+					adjustedAbilityPool =
+							ChooserUtilities.modChoices(pcAbility,
+								new ArrayList<String>(),
+								new ArrayList<String>(), true, theCharacter,
+								false, theCategory);
 				}
 
 				// if no sub choices made (i.e. all of them removed in Chooser box),
