@@ -9735,7 +9735,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return getFirstAssociation(obj, info);
 	}
 
-	public <T> String getFirstAssociation(CDOMObject obj, ChooseInformation<T> info)
+	private <T> String getFirstAssociation(CDOMObject obj, ChooseInformation<T> info)
 	{
 		List<? extends T> selections =
 				info.getChoiceActor().getCurrentlySelected(obj, this);
