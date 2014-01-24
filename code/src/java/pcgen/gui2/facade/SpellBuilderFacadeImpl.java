@@ -761,10 +761,20 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
+			List<String> assocList =
+					character.getAssociationList((CDOMObject) castingClass);
+			String assoc;
+			if ((assocList == null) || assocList.isEmpty())
+			{
+				assoc = null;
+			}
+			else
+			{
+				assoc = assocList.get(0);
+			}
 			final PCClass aClass =
 					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-						PCClass.class, character
-							.getFirstAssociation((CDOMObject) castingClass));
+						PCClass.class, assoc);
 
 			if (aClass != null)
 			{

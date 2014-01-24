@@ -198,7 +198,7 @@ public class Description extends ConcretePrereqObject
 					{
 						if ( theOwner != null && aPC.hasAssociations(theOwner) )
 						{
-							buf.append(aPC.getFirstAssociation(theOwner));
+							buf.append(aPC.getAssociationList(theOwner).get(0));
 						}
 					}
 					else if ( var.equals(VAR_LIST) )
