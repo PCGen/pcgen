@@ -287,7 +287,7 @@ public class Aspect extends ConcretePrereqObject
 				{
 					if ( theOwner != null )
 					{
-						List<String> assocList = aPC.getExpandedAssociations(theOwner);
+						List<String> assocList = aPC.getAssociationList(theOwner);
 						String joinString;
 						if (assocList.size() == 2)
 						{
@@ -298,7 +298,7 @@ public class Aspect extends ConcretePrereqObject
 							joinString = ", ";
 						}
 		                buf.append(StringUtil.joinToStringBuilder(aPC
-								.getExpandedAssociations(theOwner),
+								.getAssociationList(theOwner),
 								joinString));
 					}
 				}

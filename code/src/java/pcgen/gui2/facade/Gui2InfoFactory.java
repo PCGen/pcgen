@@ -2043,7 +2043,7 @@ public class Gui2InfoFactory implements InfoFactory
 				else
 				{
 					choices.addAll(pc
-						.getExpandedAssociations(ab));
+						.getAssociationList(ab));
 				}
 			}
 

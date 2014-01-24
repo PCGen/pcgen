@@ -9672,7 +9672,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	@Override
 	public List<String> getAssociationList(CDOMObject obj)
 	{
-		return getExpandedAssociations(obj);
+		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		if (info == null)
+		{
+			return Collections.emptyList();
+		}
+		return getExpandedAssociations(obj, info);
 	}
 
 	public boolean hasAssociations(CDOMObject obj)
@@ -9701,16 +9706,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			return 0;
 		}
 		return selections.size();
-	}
-
-	public List<String> getExpandedAssociations(CDOMObject obj)
-	{
-		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
-		if (info == null)
-		{
-			return Collections.emptyList();
-		}
-		return getExpandedAssociations(obj, info);
 	}
 
 	private <T> List<String> getExpandedAssociations(CDOMObject obj,

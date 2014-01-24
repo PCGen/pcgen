@@ -779,7 +779,7 @@ public class BonusManager
 						{
 							CDOMObject creator = (CDOMObject) co;
 							for (String assoc : pc
-									.getExpandedAssociations(creator))
+									.getAssociationList(creator))
 							{
 								if (assoc.contains(statAbbr))
 								{
@@ -1199,7 +1199,7 @@ public class BonusManager
 		if (creatorObj instanceof CDOMObject)
 		{
 			anObj = (CDOMObject) creatorObj;
-			associatedList = pc.getExpandedAssociations(anObj);
+			associatedList = pc.getAssociationList(anObj);
 			if (associatedList == null || associatedList.isEmpty())
 			{
 				associatedList = NO_ASSOC_LIST;

@@ -68,7 +68,7 @@ public class QualifiedName
 			else
 			{
 				choiceInfo = StringUtil.joinToStringBuilder(pc
-						.getExpandedAssociations(a), ", ").toString();
+						.getAssociationList(a), ", ").toString();
 			}
 			
 			if (choiceInfo.length() > 0)

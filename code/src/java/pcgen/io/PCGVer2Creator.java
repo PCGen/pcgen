@@ -1439,7 +1439,7 @@ public final class PCGVer2Creator implements IOConstants
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			buffer.append(TAG_APPLIEDTO).append(TAG_END);
-			List<String> assocList = thePC.getExpandedAssociations(ability);
+			List<String> assocList = thePC.getAssociationList(ability);
 			boolean first = true;
 			for (String assoc : assocList)
 			{
@@ -1825,7 +1825,7 @@ public final class PCGVer2Creator implements IOConstants
 		buffer.append(TAG_RACE).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getRace().getKeyName()));
 		List<String> assocList =
-				thePC.getExpandedAssociations(charDisplay.getRace());
+				thePC.getAssociationList(charDisplay.getRace());
 		if (assocList != null && !assocList.isEmpty())
 		{
 			buffer.append(TAG_SEPARATOR);
@@ -2369,7 +2369,7 @@ public final class PCGVer2Creator implements IOConstants
 					buffer.append(']');
 				}
 			}
-			List<String> assocList = thePC.getExpandedAssociations(template);
+			List<String> assocList = thePC.getAssociationList(template);
 			if (assocList != null && !assocList.isEmpty())
 			{
 				buffer.append(TAG_SEPARATOR);
