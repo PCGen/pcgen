@@ -854,7 +854,6 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		String selection = cas.getSelection();
 		if (selection != null)
 		{
-			pc.removeAssociation(ability, selection);
 			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
 			if (chooseInfo != null)
 			{

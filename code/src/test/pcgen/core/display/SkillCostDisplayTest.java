@@ -28,9 +28,9 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -38,7 +38,6 @@ import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.display.SkillCostDisplay;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
@@ -91,7 +90,12 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 				skillFocus.addToListFor(ListKey.BONUS, aBonus);
 			}
 			skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
-			skillFocus.put(StringKey.CHOICE_STRING, "SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
+			Globals
+				.getContext()
+				.unconditionallyProcess(
+					skillFocus,
+					"CHOOSE",
+					"SKILL|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
 
 			persuasive =
 					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT, "General");
@@ -136,7 +140,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 			bluff, pc, false));
 
 		Ability sf = pc.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
-		pc.addAssociation(sf, "KEY_Bluff");
+		AbilityUtilities.modAbility(pc, sf, "KEY_Bluff", AbilityCategory.FEAT);
 		pc.calcActiveBonuses();
 		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
 			SkillCostDisplay.getModifierExplanation(bluff, pc, false));

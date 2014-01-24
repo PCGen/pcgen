@@ -441,7 +441,6 @@
 	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="oldChooseCleanupFacet" class="pcgen.cdom.facet.OldChooseCleanupFacet"/>
 	<!-- P -->
 	<bean id="playerCharacterTrackingFacet" class="pcgen.cdom.facet.PlayerCharacterTrackingFacet"/>
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>

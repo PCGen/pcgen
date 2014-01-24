@@ -50,6 +50,8 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -284,7 +286,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			// adjust the associated List
 			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				pc.removeAssociation(anAbility, choice.getSelection());
+				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
+				remove(cm, pc, anAbility, choice.getSelection());
 				result = pc.hasAssociations(anAbility); 
 			}
 			
@@ -305,6 +308,13 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		double cost = choice.getAbility().getSafe(ObjectKey.SELECTION_COST)
 				.doubleValue();
 		pc.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(-cost));
+	}
+
+	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.removeChoice(pc, obj, sel);
 	}
 
 	@Override

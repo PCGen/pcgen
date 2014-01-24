@@ -185,7 +185,6 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), "");
-		pc.removeAssociation(owner, "");
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)
@@ -202,7 +201,6 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		String choice)
 	{
 		pc.addAssoc(owner, getListKey(), "");
-		pc.addAssociation(owner, "");
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)

@@ -6617,7 +6617,7 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	@Override
-	public List<String> getAssociationList(Object obj)
+	public List<String> getAssociationList(CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
 		List<FixedStringList> assocList =

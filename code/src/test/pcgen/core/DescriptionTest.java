@@ -27,10 +27,13 @@
 package pcgen.core;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -138,13 +141,15 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testSimpleChoiceReplacement()
 	{
 		final PObject pobj = new PObject();
+		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%CHOICE");
 		PlayerCharacter pc = getCharacter();
 		assertTrue(desc.getDescription(pc, pobj).equals(""));
 
-		pc.addAssociation(pobj, "Foo");
+		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		assertTrue(desc.getDescription(pc, pobj).equals("Foo"));
 	}
 
@@ -154,13 +159,15 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testSimpleListReplacement()
 	{
 		final PObject pobj = new PObject();
+		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%LIST");
 		PlayerCharacter pc = getCharacter();
 		assertTrue(desc.getDescription(pc, pobj).equals(""));
 
-		pc.addAssociation(pobj, "Foo");
+		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		assertTrue(desc.getDescription(pc, pobj).equals("Foo"));
 	}
 
@@ -181,13 +188,15 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	public void testExtraVariables()
 	{
 		final PObject pobj = new PObject();
+		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 
 		final Description desc = new Description("Testing");
 		desc.addVariable("%LIST");
 		PlayerCharacter pc = getCharacter();
 		assertTrue(desc.getDescription(pc, pobj).equals("Testing"));
 
-		pc.addAssociation(pobj, "Foo");
+		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		assertTrue(desc.getDescription(pc, pobj).equals("Testing"));
 	}
 
@@ -196,27 +205,43 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 */
 	public void testComplexVariableReplacement()
 	{
-		final Race dummy = new Race();
+		final Ability dummy = new Ability();
+		Globals.getContext().unconditionallyProcess(dummy, "CATEGORY", "FEAT");
+		Globals.getContext().unconditionallyProcess(dummy, "CHOOSE", "LANG|ALL");
+		Globals.getContext().unconditionallyProcess(dummy, "MULT", "YES");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 1");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 2");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
+		Globals.getContext().resolveReferences(null);
 		PlayerCharacter pc = getCharacter();
-		pc.addAssociation(dummy, "Associated 1");
-		pc.addAssociation(dummy, "Associated 2");
 
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
 		assertEquals("0 test  ", desc.getDescription(pc, dummy));
 
-		pc.setRace(dummy);
+		AbilityCategory category = AbilityCategory.FEAT;
+
+		Ability pcAbility = pc.addAbilityNeedCheck(category, dummy);
+		AbilityUtilities.finaliseAbility(pcAbility, "Associated 1", pc, category);
+		AbilityUtilities.finaliseAbility(pcAbility, "Associated 2", pc, category);
 		assertEquals("2 test  ", desc.getDescription(pc, dummy));
 
 		desc.addVariable("%CHOICE");
 		assertEquals("2 test  Associated 1", desc
-			.getDescription(pc, dummy));
+			.getDescription(pc, pcAbility));
 
 		desc.addVariable("%LIST");
 		assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2 Associated 1", desc
-				.getDescription(pc, dummy));
+				.getDescription(pc, pcAbility));
 	}
+
+	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.applyChoice(pc, obj, sel);
+	}
+
 }

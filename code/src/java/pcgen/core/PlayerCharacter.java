@@ -44,7 +44,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BonusContainer;
@@ -54,6 +53,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrereqObject;
@@ -9633,101 +9633,122 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return skillCostFacet.skillCostForPCClass(id, sk, cl);
 	}
 
-	public void addAssociation(CDOMObject obj, String o)
-	{
-		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
-	}
-
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
-		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		if (list != null)
+		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		if (info == null)
 		{
-			for (FixedStringList fsl : list)
+			return false;
+		}
+		return containsAssociated(obj, info, o);
+	}
+
+	private <T> boolean containsAssociated(CDOMObject obj,
+		ChooseInformation<T> info, String o)
+	{
+		List<? extends T> selections =
+				info.getChoiceActor().getCurrentlySelected(obj, this);
+		if ((selections == null) || selections.isEmpty())
+		{
+			return false;
+		}
+		for (T sel : selections)
+		{
+			if (o.equalsIgnoreCase(info.encodeChoice(sel)))
 			{
-				if (FixedStringList.CASE_INSENSITIVE_ORDER.compare(fsl, new FixedStringList(o)) == 0)
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 		return false;
 	}
 
-    @Override
+	@Override
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
-		return assocSupt.getAssocCount(obj, AssociationListKey.CHOICES)
+		return getDetailedAssociationCount(obj)
 				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 	}
 
 	@Override
-	public List<String> getAssociationList(Object obj)
+	public List<String> getAssociationList(CDOMObject obj)
 	{
-		List<String> list = new ArrayList<String>();
-		List<FixedStringList> assocList = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		if (assocList != null)
+		return getExpandedAssociations(obj);
+	}
+
+	public boolean hasAssociations(CDOMObject obj)
+	{
+		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		if (info == null)
 		{
-			for (FixedStringList ac : assocList)
-			{
-				final String choiceStr = ac.get(0);
-				list.add(choiceStr);
-			}
+			return false;
 		}
-		return list;
-	}
-
-	public boolean hasAssociations(Object obj)
-	{
-		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
-	}
-
-	public List<String> removeAllAssociations(CDOMObject obj)
-	{
-		List<String> list = getAssociationList(obj);
-		assocSupt.removeAllAssocs(obj, AssociationListKey.CHOICES);
-		return list;
-	}
-
-	public void removeAssociation(CDOMObject obj, String o)
-	{
-		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
+		List<?> selections =
+				info.getChoiceActor().getCurrentlySelected(obj, this);
+		return (selections != null) && !selections.isEmpty();
 	}
 
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
-		List<FixedStringList> assocs = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		int count = 0;
-		if (assocs != null)
+		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		if (info == null)
 		{
-			for (FixedStringList choice : assocs)
-			{
-				count += choice.size();
-			}
+			return 0;
 		}
-		return count;
+		List<?> selections =
+				info.getChoiceActor().getCurrentlySelected(obj, this);
+		if ((selections == null) || selections.isEmpty())
+		{
+			return 0;
+		}
+		return selections.size();
 	}
 
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
-		List<FixedStringList> assocs = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
-		List<String> list = new ArrayList<String>();
-		if (assocs != null)
+		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		if (info == null)
 		{
-			for (FixedStringList choice : assocs)
-			{
-				for (String s : choice)
-				{
-					list.add(s);
-				}
-			}
+			return Collections.emptyList();
 		}
-		return list;
+		return getExpandedAssociations(obj, info);
+	}
+
+	private <T> List<String> getExpandedAssociations(CDOMObject obj,
+		ChooseInformation<T> info)
+	{
+		List<? extends T> selections =
+				info.getChoiceActor().getCurrentlySelected(obj, this);
+		if ((selections == null) || selections.isEmpty())
+		{
+			return Collections.emptyList();
+		}
+		List<String> ret = new ArrayList<String>(selections.size());
+		for (T sel : selections)
+		{
+			ret.add(info.encodeChoice(sel));
+		}
+		return ret;
 	}
 
 	public String getFirstAssociation(CDOMObject obj)
 	{
-		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0).get(0);
+		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		if (info == null)
+		{
+			return null;
+		}
+		return getFirstAssociation(obj, info);
+	}
+
+	public <T> String getFirstAssociation(CDOMObject obj, ChooseInformation<T> info)
+	{
+		List<? extends T> selections =
+				info.getChoiceActor().getCurrentlySelected(obj, this);
+		if ((selections == null) || selections.isEmpty())
+		{
+			return null;
+ 		}
+		return info.encodeChoice(selections.get(0));
 	}
 
 	public <T> void addAssoc(Object obj, AssociationListKey<T> ak, T o)

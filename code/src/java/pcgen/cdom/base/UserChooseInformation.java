@@ -98,7 +98,6 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
-		pc.addAssociation(owner, choice);
 	}
 
 	@Override
@@ -133,7 +132,6 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		pc.removeAssociation(owner, choice);
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)

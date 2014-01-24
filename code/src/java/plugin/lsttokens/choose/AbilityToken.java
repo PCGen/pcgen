@@ -190,7 +190,6 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				ca.removeChoice(owner, choice, pc);
 			}
 		}
-		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
 	@Override
@@ -198,7 +197,6 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		Ability choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
-		pc.addAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)

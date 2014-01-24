@@ -202,23 +202,25 @@ public class PObjectTest extends AbstractCharacterTestCase
 	{
 		Ability pObj = new Ability();
 		pObj.setName("My PObject");
+		Globals.getContext().unconditionallyProcess(pObj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "TestPsion 1");
 
 		PlayerCharacter aPC = getCharacter();
 		Ability ability = aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
 
-		aPC.addAssociation(ability, "TestPsion 1");
+		AbilityUtilities.modAbility(aPC, ability, "TestPsion 1", AbilityCategory.FEAT);
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, ability);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		aPC.addAssociation(ability, "TestPsion 1");
+		AbilityUtilities.modAbility(aPC, ability, "TestPsion 1", AbilityCategory.FEAT);
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, ability);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 4 bonus known spells", (2 * 2), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		aPC.addAssociation(ability, "TestPsion 1");
+		AbilityUtilities.modAbility(aPC, ability, "TestPsion 1", AbilityCategory.FEAT);
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, ability);
 		aPC.calcActiveBonuses();
@@ -253,14 +255,15 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability pObj = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Ability.class,
 						AbilityCategory.FEAT, "Toughness");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		pObj = aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
-		aPC.addAssociation(pObj, "");
+		AbilityUtilities.modAbility(aPC, pObj, "", AbilityCategory.FEAT);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		aPC.addAssociation(pObj, "");
+		AbilityUtilities.modAbility(aPC, pObj, "", AbilityCategory.FEAT);
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());
@@ -289,18 +292,18 @@ public class PObjectTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:HP|+3 HP	BONUS:HP|CURRENTMAX|3", source);
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 		Ability pObj = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Ability.class,
 						AbilityCategory.FEAT, "Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		pObj = aPC.addAbilityNeedCheck(AbilityCategory.FEAT, pObj);
-		aPC.addAssociation(pObj, "+3 HP");
+		AbilityUtilities.modAbility(aPC, pObj, "", AbilityCategory.FEAT);
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		aPC.addAssociation(pObj, "+3 HP");
+		AbilityUtilities.modAbility(aPC, pObj, "", AbilityCategory.FEAT);
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());

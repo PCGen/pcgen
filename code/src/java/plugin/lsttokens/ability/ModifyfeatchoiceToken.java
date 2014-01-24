@@ -42,6 +42,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.rules.context.LoadContext;
@@ -148,6 +149,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 						choice.getCategory()));
 
 		final int currentSelections = selectedList.size();
+		final List<String> origSelections = new ArrayList<String>(selectedList);
 
 		//
 		// If nothing to choose, or nothing selected, then leave
@@ -173,13 +175,34 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			return;
 		}
 
-		// replace old selection(s) with new and update bonuses
-		pc.removeAllAssociations(choice);
+		List<String> add = new ArrayList<String>(chooserFacade.getFinalSelected());
+		add.removeAll(origSelections);
+		List<String> remove = new ArrayList<String>(origSelections);
+		remove.removeAll(chooserFacade.getFinalSelected());
 
-		for (int i = 0; i < selectedSize; ++i)
+		ChoiceManagerList cm = ChooserUtilities.getChoiceManager(choice, pc);
+		for (String selection : remove)
 		{
-			pc.addAssociation(choice, chooserFacade.getFinalSelected().get(i));
+			remove(cm, pc, choice, selection);
 		}
+		for (String selection : add)
+		{
+			add(cm, pc, choice, selection);
+		}
+	}
+
+	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.applyChoice(pc, obj, sel);
+	}
+
+	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, String choice)
+	{
+		T sel = aMan.decodeChoice(choice);
+		aMan.removeChoice(pc, obj, sel);
 	}
 
 	@Override

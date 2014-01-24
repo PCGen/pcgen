@@ -153,14 +153,12 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 				ca.removeChoice(owner, choice, pc);
 			}
 		}
-		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
-		pc.addAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)

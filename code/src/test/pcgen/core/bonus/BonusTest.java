@@ -36,8 +36,10 @@ import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.BonusActivation;
@@ -257,8 +259,10 @@ public class BonusTest extends AbstractCharacterTestCase
 		Ability testBonus = new Ability();
 		testBonus.setName("TB1Assoc");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
+		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
+		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
 		testBonus = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		character.addAssociation(testBonus, "INT");
+		AbilityUtilities.modAbility(character, testBonus, "INT", AbilityCategory.FEAT);
 		character.calcActiveBonuses();
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
@@ -282,9 +286,11 @@ public class BonusTest extends AbstractCharacterTestCase
 		final Ability testBonus = new Ability();
 		testBonus.setName("TB2Assoc");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
+		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
+		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
 		Ability tb = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		character.addAssociation(tb, "INT");
-		character.addAssociation(tb, "STR");
+		AbilityUtilities.modAbility(character, tb, "INT", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, tb, "STR", AbilityCategory.FEAT);
 		character.calcActiveBonuses();
 		bonus = tb.getSafeListFor(ListKey.BONUS).get(0);
 
@@ -312,10 +318,12 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
 		testBonus.setName("TB2AssocList");
+		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
+		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Ability tb = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		character.addAssociation(tb, "INT");
-		character.addAssociation(tb, "STR");
+		AbilityUtilities.modAbility(character, tb, "INT", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, tb, "STR", AbilityCategory.FEAT);
 		character.calcActiveBonuses();
 		bonus = tb.getSafeListFor(ListKey.BONUS).get(0);
 
@@ -342,6 +350,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
+		context.ref.constructNowIfNecessary(PCClass.class, "Wizard");
 
 		BonusObj bonus = Bonus.newBonus(context, "SPELLKNOWN|%LIST|1");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
@@ -349,8 +358,10 @@ public class BonusTest extends AbstractCharacterTestCase
 		Ability testBonus = new Ability();
 		testBonus.setName("TB1Assoc");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
+		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "SPELLLEVEL|Wizard|1|5");
+		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
 		testBonus = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		character.addAssociation(testBonus, "CLASS.Wizard;LEVEL.1");
+		AbilityUtilities.modAbility(character, testBonus, "CLASS.Wizard;LEVEL.1", AbilityCategory.FEAT);
 		character.calcActiveBonuses();
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);

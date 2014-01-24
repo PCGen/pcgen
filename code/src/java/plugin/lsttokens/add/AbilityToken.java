@@ -406,7 +406,6 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
 			AbilityUtilities.modAbility(pc, ab, association, cat);
-			pc.addAssociation(ab, association);
 		}
 	}
 
@@ -472,7 +471,6 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			// adjust the associated List
 			if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				pc.removeAssociation(pcAbility, choice.getSelection());
 				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(pcAbility, pc);
 				remove(cm, pc, pcAbility, choice.getSelection());
 				result = pc.hasAssociations(pcAbility); 

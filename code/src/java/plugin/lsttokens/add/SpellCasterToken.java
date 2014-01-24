@@ -243,7 +243,6 @@ public class SpellCasterToken extends AbstractToken implements
 	public void applyChoice(CDOMObject owner, PCClass choice, PlayerCharacter pc)
 	{
 		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
-
 		if (theClass == null)
 		{
 			pc.incrementClassLevel(0, choice);

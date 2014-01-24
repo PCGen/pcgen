@@ -270,11 +270,7 @@ public class AbilityUtilities
 		aPC.addFeat(anAbility);
 
 		String choice = as.getSelection();
-		if (choice != null)
-		{
-			aPC.addAssociation(anAbility, choice);
-		}
-		else
+		if (choice == null)
 		{
 			if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{

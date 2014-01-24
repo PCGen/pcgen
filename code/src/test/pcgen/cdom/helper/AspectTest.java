@@ -28,6 +28,9 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
+import pcgen.core.Globals;
+import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 
@@ -121,16 +124,21 @@ public class AspectTest extends AbstractCharacterTestCase
 	{
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().unconditionallyProcess(pobj, "MULT", "YES");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter pc = getCharacter();
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, pobj);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%CHOICE");
 		assertEquals("", aspect.getAspectText(pc, pobj));
+		AbilityCategory category = AbilityCategory.FEAT;
 
-		pc.addAssociation(pobj, "Foo");
+		Ability pcAbility = pc.addAbilityNeedCheck(category, pobj);
+		AbilityUtilities.finaliseAbility(pcAbility, "Foo", pc, category);
 
-		assertEquals("Foo", aspect.getAspectText(pc, pobj));
+		assertEquals("Foo", aspect.getAspectText(pc, pcAbility));
 	}
 
 	/**
@@ -140,15 +148,20 @@ public class AspectTest extends AbstractCharacterTestCase
 	{
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().unconditionallyProcess(pobj, "MULT", "YES");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter pc = getCharacter();
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, pobj);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%LIST");
 		assertEquals("", aspect.getAspectText(pc, pobj));
+		AbilityCategory category = AbilityCategory.FEAT;
 
-		pc.addAssociation(pobj, "Foo");
-		assertEquals("Foo", aspect.getAspectText(pc, pobj));
+		Ability pcAbility = pc.addAbilityNeedCheck(category, pobj);
+		AbilityUtilities.finaliseAbility(pcAbility, "Foo", pc, category);
+		assertEquals("Foo", aspect.getAspectText(pc, pcAbility));
 	}
 
 	/**
@@ -170,13 +183,16 @@ public class AspectTest extends AbstractCharacterTestCase
 	{
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
+		Globals.getContext().unconditionallyProcess(pobj, "MULT", "YES");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "Testing");
 		aspect.addVariable("%LIST");
 		PlayerCharacter pc = getCharacter();
 		assertEquals("Testing", aspect.getAspectText(pc, pobj));
 
-		pc.addAssociation(pobj, "Foo");
+		AbilityUtilities.modAbility(pc, pobj, "Foo", AbilityCategory.FEAT);
 		assertEquals("Testing", aspect.getAspectText(pc, pobj));
 	}
 
@@ -187,26 +203,30 @@ public class AspectTest extends AbstractCharacterTestCase
 	{
 		final Ability dummy =
 			TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
+		Globals.getContext().unconditionallyProcess(dummy, "CHOOSE", "LANG|ALL");
+		Globals.getContext().unconditionallyProcess(dummy, "MULT", "YES");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 1");
+		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 2");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
 		PlayerCharacter pc = getCharacter();
-		pc.addAssociation(dummy, "Associated 1");
-		pc.addAssociation(dummy, "Associated 2");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1 test %3 %2");
 		aspect.addVariable("TestVar");
 		assertEquals("0 test  ", aspect.getAspectText(pc, dummy));
 
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummy);
-		assertEquals("2 test  ", aspect.getAspectText(pc, dummy));
+		Ability pcAbility = pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummy);
+		AbilityUtilities.finaliseAbility(pcAbility, "Associated 1", pc, AbilityCategory.FEAT);
+		AbilityUtilities.finaliseAbility(pcAbility, "Associated 2", pc, AbilityCategory.FEAT);
+		assertEquals("2 test  ", aspect.getAspectText(pc, pcAbility));
 
 		aspect.addVariable("%CHOICE");
 		assertEquals("2 test  Associated 1", aspect
-			.getAspectText(pc, dummy));
+			.getAspectText(pc, pcAbility));
 
 		aspect.addVariable("%LIST");
 		assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2 Associated 1", aspect
-				.getAspectText(pc, dummy));
+				.getAspectText(pc, pcAbility));
 	}
 }

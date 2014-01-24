@@ -18,6 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
@@ -42,10 +43,10 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 			StringBuilder sb = new StringBuilder();
 			sb.append(key.substring(0, idx));
 
-			if (pc.hasAssociations(source))
+			if (pc.hasAssociations((CDOMObject) source))
 			{
 				sb.append(StringUtil.joinToStringBuilder(
-					pc.getAssociationList(source), ", "));
+					pc.getAssociationList((CDOMObject) source), ", "));
 			}
 			else
 			{

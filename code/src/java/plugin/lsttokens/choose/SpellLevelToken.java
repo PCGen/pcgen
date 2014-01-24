@@ -212,7 +212,6 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 				ca.removeChoice(owner, choice, pc);
 			}
 		}
-		pc.removeAssociation(owner, encodeChoice(choice));
 	}
 
 	@Override
@@ -220,7 +219,6 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		SpellLevel choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
-		pc.addAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
 		if (actors != null)

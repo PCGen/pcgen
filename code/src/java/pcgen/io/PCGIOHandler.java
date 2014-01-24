@@ -391,7 +391,6 @@ public final class PCGIOHandler extends IOHandler
 		{
 			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{
-				currentPC.addAssociation(aFeat, "PLEASE MAKE APPROPRIATE SELECTION");
 				warnings.add("Multiple selection feat found with no selections ("
 						+ aFeat.getDisplayName() + "). Correct on Feat tab.");
 			}

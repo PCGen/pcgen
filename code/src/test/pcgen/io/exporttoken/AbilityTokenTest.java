@@ -33,10 +33,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AlignmentConverter;
@@ -122,10 +122,10 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 			skillFocus.addToListFor(ListKey.BONUS, aBonus);
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
-		skillFocus.put(StringKey.CHOICE_STRING, "SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
+		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
 		Ability ability = character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
-		character.addAssociation(ability, "KEY_Bluff");
-		character.addAssociation(ability, "KEY_Listen");
+		AbilityUtilities.modAbility(character, ability, "KEY_Bluff", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ability, "KEY_Listen", AbilityCategory.FEAT);
 		character.calcActiveBonuses();
 	}
 

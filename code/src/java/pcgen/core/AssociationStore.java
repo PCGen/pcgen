@@ -23,7 +23,7 @@ import pcgen.cdom.base.CDOMObject;
 
 public interface AssociationStore
 {
-	public List<String> getAssociationList(Object obj);
+	public List<String> getAssociationList(CDOMObject obj);
 
 	public int getSelectCorrectedAssociationCount(CDOMObject obj);
 }

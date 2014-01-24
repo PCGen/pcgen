@@ -26,11 +26,11 @@ package plugin.jepcommands;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -109,8 +109,9 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 
         abArray[1].put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-        character.addAssociation(abArray[1], "one");
-        character.addAssociation(abArray[1], "two");
+        Globals.getContext().unconditionallyProcess(abArray[1], "CHOOSE", "STRING|one|two|three");
+        AbilityUtilities.modAbility(character, abArray[1], "one", AbilityCategory.FEAT);
+        AbilityUtilities.modAbility(character, abArray[1], "two", AbilityCategory.FEAT);
 
 		for (int i = 0;6 > i;i++) {
             Ability anAbility = abArray[i];
@@ -467,18 +468,23 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
-		Ability clone = character.addAbilityNeedCheck(gCat, ab);
-		character.addAssociation(clone, "munch");
+		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
+		AbilityCategory category = AbilityCategory.FEAT;
+		
+		Ability pcAbility = character.addAbilityNeedCheck(category, ab);
+		AbilityUtilities.finaliseAbility(pcAbility, "munch", character, category);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
+		AbilityCategory category1 = AbilityCategory.FEAT;
 
-		character.addAssociation(clone, "devour");
+		AbilityUtilities.finaliseAbility(pcAbility, "devour", character, category1);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
+		AbilityCategory category2 = AbilityCategory.FEAT;
 
-		character.addAssociation(clone, "nibble");
-		assertEquals(3, character.getAssocCount(clone, AssociationListKey.CHOICES));
+		AbilityUtilities.finaliseAbility(pcAbility, "nibble", character, category2);
+		assertEquals(3, character.getDetailedAssociationCount(pcAbility));
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");
@@ -507,17 +513,18 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
+		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
 		Ability clone = character.addAbilityNeedCheck(gCat, ab);
-		character.addAssociation(clone, "munch");
+		AbilityUtilities.modAbility(character, clone, "munch", AbilityCategory.FEAT);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		character.addAssociation(clone, "devour");
+		AbilityUtilities.modAbility(character, clone, "devour", AbilityCategory.FEAT);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 
-		character.addAssociation(clone, "nibble");
+		AbilityUtilities.modAbility(character, clone, "nibble", AbilityCategory.FEAT);
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");

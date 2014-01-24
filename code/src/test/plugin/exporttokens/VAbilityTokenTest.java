@@ -33,7 +33,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -124,11 +123,11 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 			skillFocus.addToListFor(ListKey.BONUS, aBonus);
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
-		skillFocus.put(StringKey.CHOICE_STRING, "SKILLSNAMED|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
+		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
 		Ability ability = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(character,
 			skillFocus, null, AbilityCategory.FEAT);
-		character.addAssociation(ability, "KEY_Bluff");
-		character.addAssociation(ability, "KEY_Listen");
+		AbilityUtilities.finaliseAbility(ability, "KEY_Bluff", character, AbilityCategory.FEAT);
+		AbilityUtilities.finaliseAbility(ability, "KEY_Listen", character, AbilityCategory.FEAT);
 		character.calcActiveBonuses();
 	}
 
