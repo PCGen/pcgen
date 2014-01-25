@@ -212,7 +212,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		final PlayerCharacter  aPC,
 		final String           aType,
 		final String           aName,
-		final AssociationStore obj)
+		final Equipment obj)
 	{
 		return BonusCalc.bonusTo(this, aType, aName, obj, getBonusList(obj), aPC);
 	}
