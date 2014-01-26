@@ -41,8 +41,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
-import pcgen.core.AssociationStore;
 import pcgen.core.Description;
+import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
@@ -898,16 +898,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return aList;
 	}
 
-	public List<BonusObj> getBonusList(AssociationStore assocStore)
+	public List<BonusObj> getBonusList(PlayerCharacter assocStore)
 	{
-		if (assocStore instanceof PlayerCharacter)
-		{
-			return getRawBonusList((PlayerCharacter) assocStore);
-		}
-		else
-		{
-			return getRawBonusList(null);
-		}
+		return getRawBonusList(assocStore);
+	}
+	
+	public List<BonusObj> getBonusList(Equipment e)
+	{
+		return getRawBonusList(null);
 	}
 
 	/**

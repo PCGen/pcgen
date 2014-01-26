@@ -481,7 +481,7 @@ public class ArmorToken extends Token
 			// adjustments for new equipment modifier
 			// EQMARMOR|AC|x|TYPE=ENHANCEMENT changed to COMBAT|AC|x|TYPE=Armor.ENHANCEMENT
 			//FileAccess.write(output, Delta.toString(eq.getACMod()));
-			ret.append(Delta.toString((int) BonusCalc.bonusTo(eq, "COMBAT", "AC", aPC, aPC)));
+			ret.append(Delta.toString((int) BonusCalc.charBonusTo(eq, "COMBAT", "AC", aPC)));
 		}
 		else if (property.startsWith("ACBONUS"))
 		{

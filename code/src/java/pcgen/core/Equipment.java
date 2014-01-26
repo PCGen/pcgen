@@ -103,7 +103,7 @@ import pcgen.util.enumeration.Visibility;
  * @version $Revision$
  */
 public final class Equipment extends PObject implements Serializable,
-		Comparable<Object>, VariableContainer, AssociationStore, EquipmentFacade
+		Comparable<Object>, VariableContainer, EquipmentFacade
 {
 	private static final long serialVersionUID = 1;
 
@@ -2774,7 +2774,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (bPrimary)
 		{
-			BonusCalc.bonusTo(this, aType, aName, this, aPC);
+			BonusCalc.equipBonusTo(this, aType, aName, aPC);
 
 			// now do temp bonuses
 			final List<BonusObj> tbList = new ArrayList<BonusObj>();
@@ -6605,7 +6605,6 @@ public final class Equipment extends PObject implements Serializable,
 		return false;
 	}
 
-    @Override
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		Formula f = obj.getSafe(FormulaKey.SELECT);
@@ -6616,7 +6615,6 @@ public final class Equipment extends PObject implements Serializable,
 			/ select;
 	}
 
-	@Override
 	public List<String> getAssociationList(CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();

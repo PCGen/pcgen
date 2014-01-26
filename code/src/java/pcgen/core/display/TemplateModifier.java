@@ -106,7 +106,7 @@ public class TemplateModifier
 			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}
 
-		int nat = (int) BonusCalc.bonusTo(pct, "COMBAT", "AC", aPC, aPC);
+		int nat = (int) BonusCalc.charBonusTo(pct, "COMBAT", "AC", aPC);
 
 		if (nat != 0)
 		{

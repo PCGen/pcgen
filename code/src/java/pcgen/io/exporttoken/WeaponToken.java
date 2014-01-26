@@ -925,7 +925,7 @@ public class WeaponToken extends Token
 		String profName = getProfName(eq);
 		int magicdamage =
 				eq.getBonusToDamage(pc, true)
-					+ (int) BonusCalc.bonusTo(eq, "WEAPONPROF=" + profName, "DAMAGE", pc, pc)
+					+ (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=" + profName, "DAMAGE", pc)
 					+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE", WPTYPEBONUS_EQ);
 		return magicdamage;
 	}
@@ -941,7 +941,7 @@ public class WeaponToken extends Token
 		String profName = getProfName(eq);
 		int magichit =
 				eq.getBonusToHit(pc, true)
-					+ (int) BonusCalc.bonusTo(eq, "WEAPONPROF=" + profName, "TOHIT", pc, pc)
+					+ (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=" + profName, "TOHIT", pc)
 					+ getWeaponProfTypeBonuses(pc, eq, "TOHIT", WPTYPEBONUS_EQ);
 		return magichit;
 	}
@@ -2394,7 +2394,7 @@ public class WeaponToken extends Token
 		meleeDamageMult +=
 				pc.getTotalBonusTo("WEAPONPROF=" + profName, "DAMAGEMULT:"
 					+ hands);
-		meleeDamageMult += BonusCalc.bonusTo(eq, "WEAPON", "DAMAGEMULT:" + hands, pc, pc);
+		meleeDamageMult += BonusCalc.charBonusTo(eq, "WEAPON", "DAMAGEMULT:" + hands, pc);
 
 		int bonus = 0;
 		int weaponProfBonus = 0;
@@ -2457,7 +2457,7 @@ public class WeaponToken extends Token
 					pc.getTotalBonusTo("WEAPONPROF=" + profName, "DAMAGEMULT:"
 						+ hands);
 			meleeDamageMult +=
-					BonusCalc.bonusTo(eq, "WEAPON", "DAMAGEMULT:" + hands, pc, pc);
+					BonusCalc.charBonusTo(eq, "WEAPON", "DAMAGEMULT:" + hands, pc);
 			totalBonus -= eqbonus;
 			/*
 			 * eq.getBonusToDamage(false) returns the eq bonus for
@@ -2808,7 +2808,7 @@ public class WeaponToken extends Token
 
 					case WPTYPEBONUS_EQ:
 						bonus +=
-								(int) BonusCalc.bonusTo(eq, "WEAPONPROF=TYPE." + tString, bonusType, pc, pc);
+								(int) BonusCalc.charBonusTo(eq, "WEAPONPROF=TYPE." + tString, bonusType, pc);
 						break;
 
 					case WPTYPEBONUS_FEAT:

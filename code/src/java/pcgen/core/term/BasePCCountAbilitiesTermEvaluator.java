@@ -31,7 +31,6 @@ import java.util.List;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AssociationStore;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.enumeration.Visibility;
 
@@ -56,7 +55,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @return the number of matching abilities
 	 */
 	protected Float countVisibleAbilities(
-			AssociationStore pc,
+			PlayerCharacter pc,
 			final Iterable<Ability> aList,
 			final boolean visible,
 			final boolean hidden)
@@ -86,7 +85,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @return The number of occurrences of the ability.
 	 */
 	protected Float countVisibleAbility(
-			AssociationStore pc,
+			PlayerCharacter pc,
 			final Ability ability,
 			final boolean visible,
 			final boolean hidden,

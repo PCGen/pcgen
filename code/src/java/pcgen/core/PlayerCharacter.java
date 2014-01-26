@@ -265,7 +265,7 @@ import pcgen.util.enumeration.Visibility;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class PlayerCharacter  implements Cloneable, VariableContainer, AssociationStore 
+public class PlayerCharacter  implements Cloneable, VariableContainer 
 {
 
 	// Constants for use in getBonus
@@ -4079,9 +4079,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				for (Ability feat : metaFeats)
 				{
-					rangeInFeet += (int) BonusCalc.bonusTo(feat, "SPELL", "RANGE", this, this);
+					rangeInFeet += (int) BonusCalc.charBonusTo(feat, "SPELL", "RANGE", this);
 
-					final int iMult = (int) BonusCalc.bonusTo(feat, "SPELL", "RANGEMULT", this, this);
+					final int iMult = (int) BonusCalc.charBonusTo(feat, "SPELL", "RANGEMULT", this);
 
 					if (iMult > 0)
 					{
@@ -4935,7 +4935,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				int ppCost = theSpell.getSafe(IntegerKey.PP_COST);
 				for (Ability feat : aFeatList)
 				{
-					ppCost += (int) BonusCalc.bonusTo(feat, "PPCOST", theSpell.getKeyName(), this, this);
+					ppCost += (int) BonusCalc.charBonusTo(feat, "PPCOST", theSpell.getKeyName(), this);
 				}
 				si.setActualPPCost(ppCost);
 			}
@@ -4946,7 +4946,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				for (Ability feat : aFeatList)
 				{
 					spellPointCost += (int) BonusCalc
-							.bonusTo(feat, "SPELLPOINTCOST", theSpell.getKeyName(), this, this);
+							.charBonusTo(feat, "SPELLPOINTCOST", theSpell.getKeyName(), this);
 				}
 				si.setActualSpellPointCost(spellPointCost);
 			}
@@ -7290,8 +7290,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		int save;
 		final String sString = check.toString();
 		Race race = getRace();
-		save = (int) BonusCalc.bonusTo(race, "CHECKS", "BASE." + sString, this, this);
-		save += (int) BonusCalc.bonusTo(race, "CHECKS", sString, this, this);
+		save = (int) BonusCalc.charBonusTo(race, "CHECKS", "BASE." + sString, this);
+		save += (int) BonusCalc.charBonusTo(race, "CHECKS", sString, this);
 
 		return save;
 	}
@@ -9662,14 +9662,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return false;
 	}
 
-	@Override
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		return getDetailedAssociationCount(obj)
 				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 	}
 
-	@Override
 	public List<String> getAssociationList(CDOMObject obj)
 	{
 		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
@@ -9955,7 +9953,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			for (Ability metaFeat : si.getFeatList())
 			{
 				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metaDC += BonusCalc.bonusTo(metaFeat, "DC", "FEATBONUS", this, this);
+				metaDC += BonusCalc.charBonusTo(metaFeat, "DC", "FEATBONUS", this);
 			}
 		}
 
@@ -10098,7 +10096,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			for (Ability metaFeat : si.getFeatList())
 			{
 				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metaConcentration += BonusCalc.bonusTo(metaFeat, "CONCENTRATION", "FEATBONUS", this, this);
+				metaConcentration += BonusCalc.charBonusTo(metaFeat, "CONCENTRATION", "FEATBONUS", this);
 			}
 		}
 
@@ -10962,7 +10960,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			 * the bonus objects only correctly match TYPE.  The bonus objects
 			 * probably need to be reevaluated to standardize this usage
 			 */
-			final double a = BonusCalc.bonusTo(sizeAdjustment, bonusType, "TYPE." + type, this, this);
+			final double a = BonusCalc.charBonusTo(sizeAdjustment, bonusType, "TYPE." + type, this);
 
 			if (!CoreUtility.doublesEqual(a, 0.0))
 			{

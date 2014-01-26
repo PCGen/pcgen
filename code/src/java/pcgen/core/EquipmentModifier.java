@@ -101,10 +101,21 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *          include one entry for each associated choice.
 	 */
 	@Override
-	public List<BonusObj> getBonusList(AssociationStore as)
+	public List<BonusObj> getBonusList(PlayerCharacter pc)
 	{
-		final List<BonusObj> myBonusList = new ArrayList<BonusObj>(super.getBonusList(as));
-
+		return getBonusList(super.getBonusList(pc), pc.getAssociationList(this));
+	}
+	
+	@Override
+	public List<BonusObj> getBonusList(Equipment e)
+	{
+		return getBonusList(super.getBonusList(e), e.getAssociationList(this));
+	}
+	
+	private List<BonusObj> getBonusList(List<BonusObj> bonusList,
+		List<String> associations)
+	{
+		ArrayList<BonusObj> myBonusList = new ArrayList<BonusObj>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)
 		{
 			final BonusObj aBonus  = myBonusList.get(i);
@@ -115,7 +126,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			if (idx >= 0)
 			{
 				// Add an entry for each of the associated list entries
-				for (String assoc : as.getAssociationList(this))
+				for (String assoc : associations)
 				{
 					final BonusObj newBonus = Bonus.newBonus(Globals.getContext(), aString
 							.replaceAll(PERCENT_CHOICE_PATTERN, assoc));
