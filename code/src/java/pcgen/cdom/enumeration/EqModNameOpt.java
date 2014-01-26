@@ -87,7 +87,6 @@ public enum EqModNameOpt
 		public String returnName(Equipment parent, EquipmentModifier mod)
 		{
 			StringBuilder sb = new StringBuilder(100);
-			sb.append(mod.getDisplayName());
 			sb.append(associatedList(parent.getAssociationList(mod)));
 			return sb.toString().trim().replace('|', ' ');
 		}
