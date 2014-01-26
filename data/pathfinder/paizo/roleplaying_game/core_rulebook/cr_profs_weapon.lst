@@ -13,7 +13,9 @@ Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 # Other
 Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded
-Splash Weapon			TYPE:Simple
+###Block: new weapon proficiency to properly implement the splash weapons
+# Weapon Name	Type
+Splash Weapon	TYPE:Simple.Ranged.Splash
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
@@ -76,8 +78,8 @@ Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePier
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
 Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
 # --ranged
-Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
-Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery										HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery										HANDS:2
 # EXOTIC
 # -- light
 Kama					TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing
