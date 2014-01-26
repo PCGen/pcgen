@@ -53,29 +53,20 @@ public class QualifiedName
 		// don't do for Weapon Profs
 		final StringBuilder aStrBuf = new StringBuilder(outputName);
 
-		if (pc.hasAssociations(a)
-				&& !a.getKeyName().startsWith("Armor Proficiency"))
+		if (pc.hasAssociations(a))
 		{
 			ChooseInformation<?> chooseInfo =
 				a.get(ObjectKey.CHOOSE_INFO);
 
-			String choiceInfo;
 			if (chooseInfo != null)
 			{
-				
-				choiceInfo = chooseInfo.getDisplay(pc, a).toString();
-			}
-			else
-			{
-				choiceInfo = StringUtil.joinToStringBuilder(pc
-						.getAssociationList(a), ", ").toString();
-			}
-			
-			if (choiceInfo.length() > 0)
-			{
-				aStrBuf.append(" (");
-				aStrBuf.append(choiceInfo);
-				aStrBuf.append(")");
+				String choiceInfo = chooseInfo.getDisplay(pc, a).toString();
+				if (choiceInfo.length() > 0)
+				{
+					aStrBuf.append(" (");
+					aStrBuf.append(choiceInfo);
+					aStrBuf.append(")");
+				}
 			}
 		}
 
