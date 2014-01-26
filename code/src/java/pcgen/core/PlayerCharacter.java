@@ -11009,7 +11009,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 					acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
 					addCharacterSpell(grantedSpellCache, acs);
 				}
-				cSpells.add(acs);
+				if (!cSpells.contains(acs))
+				{
+					cSpells.add(acs);
+				}
 			}
 		}
 	}
