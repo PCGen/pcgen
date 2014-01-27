@@ -942,8 +942,9 @@ public class BonusManager
 	public List<String> getNamedTempBonusList()
 	{
 		final List<String> aList = new ArrayList<String>();
+		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList
 				.entrySet())
 		{
 			BonusObj aBonus = me.getKey();
@@ -978,8 +979,9 @@ public class BonusManager
 	public List<String> getNamedTempBonusDescList()
 	{
 		final List<String> aList = new ArrayList<String>();
+		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
 
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
+		for (Map.Entry<BonusObj, TempBonusInfo> me : filteredTempBonusList
 				.entrySet())
 		{
 			BonusObj aBonus = me.getKey();
