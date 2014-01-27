@@ -33,7 +33,6 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -715,9 +714,10 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			aClass =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-						PCClass.class, castingClass.getKeyName());
+			Logging
+				.errorPrint("Found Casting Class in recalc that was not a Class or Domain: "
+					+ castingClass.getClass());
+			return;
 		}
 
 		if (aClass != null)
@@ -761,25 +761,9 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			List<String> assocList =
-					character.getAssociationList((CDOMObject) castingClass);
-			String assoc;
-			if ((assocList == null) || assocList.isEmpty())
-			{
-				assoc = null;
-			}
-			else
-			{
-				assoc = assocList.get(0);
-			}
-			final PCClass aClass =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-						PCClass.class, assoc);
-
-			if (aClass != null)
-			{
-				spellTypes.add(aClass.getSpellType());
-			}
+			Logging
+				.errorPrint("Found Casting Class that was not a Class or Domain: "
+					+ castingClass.getClass());
 		}
 
 		return spellTypes;
