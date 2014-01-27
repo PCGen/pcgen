@@ -1,5 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat	SOURCEDATE:2011-01
+# Implemented 2nd printing errata: 2014-01-27, Stefan Radermacher
 
 ###Block: Ammunition
 # Equipment Name						Type								Cost		Weight	Base Quantity	Modifier		Size		Source Page		Special Property
@@ -152,7 +153,7 @@ Shotgun (Double-Barreled)	PROFICIENCY:WEAPON|Shotgun				TYPE:Weapon.Exotic.Range
 Ballista (Gate Breaker)	PROFICIENCY:WEAPON|Ballista (Gate Breaker)	TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1200	CRITMULT:x2			CRITRANGE:2			DAMAGE:6d8	RANGE:100	SPROP:Crew 5, Aim 3, Load 5, Speed 0 ft.
 Ballista (Heavy)		PROFICIENCY:WEAPON|Ballista (Heavy)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:800	CRITMULT:x2			CRITRANGE:2			DAMAGE:4d8	RANGE:180	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
 Ballista (Light)		PROFICIENCY:WEAPON|Ballista (Light)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:500	CRITMULT:x2			CRITRANGE:2			DAMAGE:3d8	RANGE:120	SPROP:Crew 1, Aim 0, Load 2, Speed 10 ft.
-Bombard (Heavy)		PROFICIENCY:WEAPON|Bombard (Heavy)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:8000	CRITMULT:x4							DAMAGE:9d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 4, Aim 3, Load 5, Speed 0 ft.
+Bombard (Heavy)		PROFICIENCY:WEAPON|Bombard (Heavy)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:16000	CRITMULT:x4							DAMAGE:9d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 4, Aim 3, Load 5, Speed 0 ft.
 Bombard (Light)		PROFICIENCY:WEAPON|Bombard (Light)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:6000	CRITMULT:x4							DAMAGE:5d6	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 2, Aim 1, Load 3, Speed 10 ft.
 Bombard (Standard)	PROFICIENCY:WEAPON|Bombard (Standard)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:8000	CRITMULT:x4							DAMAGE:7d6	RANGE:150	SPROP: Range (100 ft. min.)	SPROP:Crew 2, Aim 1, Load 3, Speed 0 ft.
 Cannon			PROFICIENCY:WEAPON|Cannon				TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:6000	CRITMULT:x4							DAMAGE:6d6	RANGE:100	SPROP:Crew 2, Aim 1, Load 3, Speed 10 ft.
