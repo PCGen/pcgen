@@ -123,7 +123,12 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			else
 			{
 				Type type = Type.getConstant(aType);
-				context.getObjectContext().addToList(cdo, ListKey.TYPE, type);
+				// We want to exclude any duplicates from the type list
+				Changes<Type> listChanges = context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
+				if (listChanges.getAdded() == null || !listChanges.getAdded().contains(type))
+				{
+					context.getObjectContext().addToList(cdo, ListKey.TYPE, type);
+				}
 				bAdd = false;
 			}
 		}
