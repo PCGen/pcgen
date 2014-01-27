@@ -369,3 +369,6 @@ ABILITY:Archetype|Rogue Arcehtype ~ PIRATE	NEWKEY:Rogue Archetype ~ PIRATE	MAXVE
 ABILITY:Archetype|Rogue Arcehtype ~ ROOF RUNNER	NEWKEY:Rogue Archetype ~ ROOF RUNNER	MAXVER:6.2.0
 ABILITY:Archetype|Rogue Arcehtype ~ SANCTIFIED ROGUE	NEWKEY:Rogue Archetype ~ SANCTIFIED ROGUE	MAXVER:6.2.0
 ABILITY:Archetype|Rogue Arcehtype ~ SURVIVALIST	NEWKEY:Rogue Archetype ~ SURVIVALIST	MAXVER:6.2.0
+
+###Block DATA-1603 - Ultimate Combat 2nd printing errata
+ABILITY:Archetype|Hard to Fool ~ Advanced Rogue Talent	NEWKEY:Hard Minded ~ Advanced Rogue Talent	MAXVER:6.2.0
