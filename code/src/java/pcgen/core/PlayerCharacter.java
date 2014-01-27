@@ -2387,7 +2387,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Set temp bonus filter.
+	 * Add the temp bonus to the filter, thus removing its effects from the character.
 	 * 
 	 * @param aBonusStr the temporary bonus to add.
 	 */
@@ -2398,7 +2398,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Unset temp bonus filter.
+	 * Remove the temp bonus from the filter, thus restoring its effects to the character.
 	 * 
 	 * @param aBonusStr the temporary bonus to remove.
 	 */
