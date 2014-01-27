@@ -600,7 +600,7 @@ public class CharacterLevelsFacadeImpl extends
 			theCharacter.removeSkill(aSkill);
 		}
 		
-		if (ChooseActivation.hasChooseToken(aSkill)
+		if (ChooseActivation.hasNewChooseToken(aSkill)
 			&& characterFacadeImpl != null)
 		{
 			characterFacadeImpl.postLevellingUpdates();

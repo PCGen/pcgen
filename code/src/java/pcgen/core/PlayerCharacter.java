@@ -1764,7 +1764,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				SkillRankControl.modRanks(sr, null, true, this, newSkill);
 				skillFacet.add(id, newSkill);
 
-				if (ChooseActivation.hasChooseToken(newSkill))
+				if (ChooseActivation.hasNewChooseToken(newSkill))
 				{
 					final List<Language> selLangs = new ArrayList<Language>();
 
@@ -8876,7 +8876,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 			final int subfeatCount = getSelectCorrectedAssociationCount(aFeat);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			if (ChooseActivation.hasChooseToken(aFeat))
+			if (ChooseActivation.hasNewChooseToken(aFeat))
 			{
 				iCount += Math.ceil(subfeatCount * cost);
 			} else
@@ -8912,7 +8912,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			{
 				final int subfeatCount = getSelectCorrectedAssociationCount(ability);
 				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				if (ChooseActivation.hasChooseToken(ability))
+				if (ChooseActivation.hasNewChooseToken(ability))
 				{
 					spent += Math.ceil(subfeatCount * cost);
 				} else
@@ -9636,11 +9636,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
-		if (info == null)
-		{
-			return false;
-		}
-		return containsAssociated(obj, info, o);
+		return (info != null) && containsAssociated(obj, info, o);
 	}
 
 	private <T> boolean containsAssociated(CDOMObject obj,

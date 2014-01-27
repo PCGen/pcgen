@@ -2040,11 +2040,6 @@ public class Gui2InfoFactory implements InfoFactory
 					choices.add(chooseInfo.getDisplay(pc, ab)
 						.toString());
 				}
-				else
-				{
-					choices.addAll(pc
-						.getAssociationList(ab));
-				}
 			}
 
 			result.append(StringUtil.joinToStringBuilder(choices, ","));

@@ -58,7 +58,7 @@ public class AbilityTargetSaveRestoreTest extends
 	protected void applyObject(Ability obj)
 	{
 		String assoc = null;
-		if (ChooseActivation.hasChooseToken(obj))
+		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			assoc = "Granted";
 		}
@@ -75,7 +75,7 @@ public class AbilityTargetSaveRestoreTest extends
 	protected void remove(Object o)
 	{
 		Ability abil = (Ability) o;
-		if (ChooseActivation.hasChooseToken(abil))
+		if (ChooseActivation.hasNewChooseToken(abil))
 		{
 			ChooserUtilities.modChoices(abil, new ArrayList<String>(),
 				new ArrayList<String>(), true, reloadedPC, false,

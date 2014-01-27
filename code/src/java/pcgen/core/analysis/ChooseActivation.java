@@ -19,17 +19,9 @@ package pcgen.core.analysis;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 
 public class ChooseActivation
 {
-
-	public static final boolean hasChooseToken(CDOMObject po)
-	{
-		String oldchoice = po.get(StringKey.CHOICE_STRING);
-		return oldchoice != null && oldchoice.length() > 0
-				|| po.get(ObjectKey.CHOOSE_INFO) != null;
-	}
 
 	/**
 	 * Check if an object has a new style choose. As at Oct 2013 this meant any

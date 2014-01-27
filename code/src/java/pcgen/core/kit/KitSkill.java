@@ -427,7 +427,7 @@ public final class KitSkill extends BaseKit
 
 		}
 		List<Language> langList = new ArrayList<Language>();
-		if (ChooseActivation.hasChooseToken(aSkill) && !selection.isEmpty())
+		if (ChooseActivation.hasNewChooseToken(aSkill) && !selection.isEmpty())
 		{
 			ChoiceManagerList<Language> controller = ChooserUtilities
 					.getConfiguredController(aSkill, pc, null,

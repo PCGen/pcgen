@@ -46,7 +46,7 @@ public class DomainInputFacet
 
 	public boolean add(CharID id, Domain obj, ClassSource source)
 	{
-		if (ChooseActivation.hasChooseToken(obj))
+		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			ChoiceManagerList<?> aMan =
@@ -94,7 +94,7 @@ public class DomainInputFacet
 		ClassSource source)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		if (ChooseActivation.hasChooseToken(obj))
+		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(obj, pc);

@@ -44,7 +44,7 @@ public class RaceInputFacet
 
 	public boolean set(CharID id, Race race)
 	{
-		if (ChooseActivation.hasChooseToken(race))
+		if (ChooseActivation.hasNewChooseToken(race))
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			ChoiceManagerList<?> aMan =
@@ -90,7 +90,7 @@ public class RaceInputFacet
 	public void importSelection(CharID id, Race race, String choice)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		if (ChooseActivation.hasChooseToken(race))
+		if (ChooseActivation.hasNewChooseToken(race))
 		{
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(race, pc);

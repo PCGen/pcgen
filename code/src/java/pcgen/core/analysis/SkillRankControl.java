@@ -226,7 +226,7 @@ public class SkillRankControl
 
 		if (!aPC.isImporting())
 		{
-			if (ChooseActivation.hasChooseToken(sk))
+			if (ChooseActivation.hasNewChooseToken(sk))
 			{
 				if (!CoreUtility.doublesEqual(rankChange, 0)
 						&& !CoreUtility.doublesEqual(curRank, (int) newRank))
