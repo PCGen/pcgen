@@ -22,8 +22,6 @@
  */
 package pcgen.persistence.lst;
 
-import gmgen.pluginmgr.PluginLoader;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DateFormat;
@@ -34,12 +32,12 @@ import java.util.Date;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.TestHelper;
 
 /**
  * A collection of tests to validate the functioning of the InstallLoader class.
@@ -91,8 +89,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
+		TestHelper.loadPlugins();
 	}
 
 	/* (non-Javadoc)

@@ -99,34 +99,4 @@ public abstract class GMBMessage
 	{
 		vetoed = true;
 	}
-
-	/**
-	 *  A message implementation that cannot be vetoed.
-	 *
-	 *@author     Soulcatcher
-	 *@since        GMGen 3.3
-	 */
-	public abstract static class NonVetoable extends GMBMessage
-	{
-		/**
-		 *  Creates a new non-vetoable message.
-		 *
-		 *@param  source  The message source component
-		 *@since        GMGen 3.3
-		 */
-		public NonVetoable(GMBComponent source)
-		{
-			super(source);
-		}
-
-		/**
-		 *  Disallows this message from being vetoed.
-		 *@since        GMGen 3.3
-		 */
-        @Override
-		public void veto()
-		{
-			throw new InternalError("Can't veto this message");
-		}
-	}
 }

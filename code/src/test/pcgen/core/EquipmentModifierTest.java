@@ -28,20 +28,18 @@
  */
 package pcgen.core;
 
-import gmgen.pluginmgr.PluginLoader;
-
 import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.PCGenTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.TestHelper;
 
 /**
  * Equipment Modifer Test 
@@ -85,15 +83,7 @@ public class EquipmentModifierTest extends PCGenTestCase
 	@Override
 	public void setUp() throws Exception
 	{
-		try
-		{
-			PluginLoader ploader = PluginLoader.inst();
-			ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		}
-		catch (Exception e)
-		{
-			// TODO Deal with exception
-		}
+		TestHelper.loadPlugins();
 	}
 
 	/**

@@ -7,15 +7,14 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import gmgen.pluginmgr.PluginLoader;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import pcgen.base.lang.UnreachableError;
-import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.util.TestHelper;
 
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.
@@ -53,13 +52,22 @@ public class FeatTest extends TestCase
 	}
 
 	/**
+	 * Sets up the test case by loading the system plugins.
+	 * 
+	 * @see pcgen.PCGenTestCase#setUp()
+	 */
+	@Override
+	public void setUp() throws Exception
+	{
+		TestHelper.loadPlugins();
+	}
+
+	/**
 	 * Test Alertness Feat
 	 * @throws Exception
 	 */
 	public void testAlertness() throws Exception
 	{
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
@@ -88,8 +96,6 @@ public class FeatTest extends TestCase
 	 */
 	public void testAmbidexterity() throws Exception
 	{
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
 		try
@@ -117,8 +123,6 @@ public class FeatTest extends TestCase
 	 */
 	public void testSimpleWeapon() throws Exception
 	{
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
 		try

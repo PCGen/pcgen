@@ -31,8 +31,6 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 
-import gmgen.pluginmgr.PluginLoader;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
@@ -55,6 +53,7 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.ReferenceContext;
+import pcgen.util.TestHelper;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
@@ -98,6 +97,7 @@ abstract public class AbstractJunit4CharacterTestCase
 	@Before
 	public void setUp() throws Exception
 	{
+		TestHelper.loadPlugins();
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		gamemode.setAlignmentText("Alignment");
@@ -190,8 +190,6 @@ abstract public class AbstractJunit4CharacterTestCase
 		ref.importObject(createAlignment("None", "NONE"));
 		ref.importObject(createAlignment("Deity's", "Deity"));
 
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		GameModeFileLoader.addDefaultWieldCategories(Globals.getContext());
 		
 		ref.importObject(str);

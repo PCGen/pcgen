@@ -30,15 +30,14 @@ package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import gmgen.pluginmgr.PluginLoader;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.EnUsLocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.TestHelper;
 
 /*** Test
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
@@ -48,18 +47,11 @@ import pcgen.persistence.PersistenceLayerException;
 @SuppressWarnings("nls")
 public class PreMultParserTest extends EnUsLocaleDependentTestCase
 {
+
 	@Before
 	public void setUp() throws Exception
 	{
-		try
-		{
-			PluginLoader ploader = PluginLoader.inst();
-			ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		}
-		catch (Exception e)
-		{
-			// TODO Handle Exception
-		}
+		TestHelper.loadPlugins();
 	}
 
 	@Test

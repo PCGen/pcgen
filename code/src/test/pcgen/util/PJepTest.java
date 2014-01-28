@@ -28,19 +28,19 @@
  */
 package pcgen.util;
 
-import gmgen.pluginmgr.PluginLoader;
+import java.util.Iterator;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
+
 import org.nfunk.jep.SymbolTable;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-
-import java.util.Iterator;
 
 /**
  * Tests {@link PJEP}.
@@ -55,14 +55,6 @@ public class PJepTest extends AbstractCharacterTestCase
 	public PJepTest()
 	{
 		super();
-	}
-
-    @Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-		final PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 	}
 
 	/**

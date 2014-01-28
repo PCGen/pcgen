@@ -27,7 +27,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import gmgen.pluginmgr.PluginLoader;
 
 import java.net.URI;
 import java.util.List;
@@ -35,11 +34,11 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
+import pcgen.util.TestHelper;
 
 /**
  * MigrationLoaderTest checks the function of the MigrationLoader class.
@@ -57,8 +56,7 @@ public class MigrationLoaderTest
 	public void setup() throws Exception
 	{
 		sourceURI = new URI("http://www.pcgen.org");
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
+		TestHelper.loadPlugins();
 	}
 	
 	@Test

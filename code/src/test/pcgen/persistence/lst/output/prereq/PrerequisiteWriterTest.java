@@ -29,8 +29,6 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
-import gmgen.pluginmgr.PluginLoader;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -38,7 +36,6 @@ import java.io.Writer;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -459,15 +456,7 @@ public class PrerequisiteWriterTest extends TestCase
     @Override
 	protected void setUp() throws Exception
 	{
-		try
-		{
-			PluginLoader ploader = PluginLoader.inst();
-			ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		}
-		catch (Exception e)
-		{
-			// TODO Handle Exception
-		}
+		TestHelper.loadPlugins();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");

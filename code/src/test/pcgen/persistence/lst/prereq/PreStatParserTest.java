@@ -31,10 +31,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import gmgen.pluginmgr.PluginLoader;
 import pcgen.EnUsLocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreStatParser;
 
 /**
@@ -44,18 +43,11 @@ import plugin.pretokens.parser.PreStatParser;
 @SuppressWarnings("nls")
 public class PreStatParserTest extends EnUsLocaleDependentTestCase
 {
+
 	@Before
 	public void setUp() throws Exception
 	{
-		try
-		{
-			PluginLoader ploader = PluginLoader.inst();
-			ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		}
-		catch (Exception e)
-		{
-			// TODO Deal with this
-		}
+		TestHelper.loadPlugins();
 	}
 
 	/**

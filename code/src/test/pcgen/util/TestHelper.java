@@ -24,8 +24,6 @@
 
 package pcgen.util;
 
-import gmgen.pluginmgr.PluginLoader;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -43,7 +41,6 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
@@ -134,10 +131,7 @@ public class TestHelper
 	 */
 	public static boolean makeEquipment(final String input)
 	{
-		if (!loaded)
-		{
-			loadPlugins();
-		}
+		loadPlugins();
 		try
 		{
 			final CampaignSourceEntry source = createSource(TestHelper.class);
@@ -176,9 +170,11 @@ public class TestHelper
 	 */
 	public static void loadPlugins()
 	{
-		final PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		loaded = true;
+		if (!loaded)
+		{
+			pcgen.system.Main.createLoadPluginTask().execute();
+			loaded = true;
+		}
 	}
 
 	/**
@@ -305,10 +301,7 @@ public class TestHelper
 	 */
 	public static boolean makeAbilityFromString(final String input)
 	{
-		if (!loaded)
-		{
-			loadPlugins();
-		}
+		loadPlugins();
 
 		try
 		{

@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import gmgen.pluginmgr.PluginLoader;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
@@ -31,6 +29,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.ReferenceContext;
+import pcgen.util.TestHelper;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
@@ -75,6 +74,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		TestHelper.loadPlugins();
 
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
@@ -151,8 +151,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(createAlignment("None", "NONE"));
 		ref.importObject(createAlignment("Deity's", "Deity"));
 
-		PluginLoader ploader = PluginLoader.inst();
-		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		GameModeFileLoader.addDefaultWieldCategories(Globals.getContext());
 		
 		ref.importObject(str);

@@ -28,8 +28,6 @@
  */
 package pcgen.core.prereq;
 
-import gmgen.pluginmgr.PluginLoader;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -40,8 +38,8 @@ import junit.textui.TestRunner;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.PCGenTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.TestHelper;
 
 /**
  * @author wardc
@@ -75,15 +73,7 @@ public class PreReqHandlerTest extends PCGenTestCase
 	@Override
 	public void setUp() throws Exception
 	{
-		try
-		{
-			PluginLoader ploader = PluginLoader.inst();
-			ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		}
-		catch (Exception e)
-		{
-			// TODO Handle exception
-		}
+		TestHelper.loadPlugins();
 	}
 
 	/**

@@ -39,11 +39,6 @@ import java.util.Dictionary;
 public class RelativeImageView extends View implements ImageObserver
 {
 	/**
-	 * Repaint delay when some of the bits are available.
-	 */
-	private static int sIncRate = 100;
-
-	/**
 	 * Icon used while the image is being loaded.
 	 */
 	private static Icon sPendingImageIcon;
@@ -520,13 +515,6 @@ public class RelativeImageView extends View implements ImageObserver
 		if ((flags & (FRAMEBITS | ALLBITS)) != 0)
 		{
 			repaint(0);
-		}
-		else if ((flags & SOMEBITS) != 0)
-		{
-			if (false)
-			{
-				repaint(sIncRate);
-			}
 		}
 
 		return ((flags & ALLBITS) == 0);
@@ -1444,10 +1432,6 @@ public class RelativeImageView extends View implements ImageObserver
 			if ((flags & (FRAMEBITS | ALLBITS)) != 0)
 			{
 				repaint(0);
-			}
-			else if (((flags & SOMEBITS) != 0) && false)
-			{
-				repaint(sIncRate);
 			}
 
 			return ((flags & ALLBITS) == 0);

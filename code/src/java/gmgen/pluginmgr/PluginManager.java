@@ -121,27 +121,22 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		String plSystem = pl.getPluginSystem();
 		String plVersion = pl.getVersion();
 
-		boolean required = RequiredPlugin.class.isAssignableFrom(clazz);
 		boolean load = PCGenSettings.GMGEN_OPTIONS_CONTEXT.getBoolean(logName + ".Load", true);
 
 		if ((logName == null || plVersion == null) || (plName == null))
 		{
 			Logging.log(Logging.WARNING, "Plugin " + clazz.getCanonicalName() + " needs"
 					+ " 'name' and 'version' properties.");
-			pluginMap.put(new Plugin.Broken(clazz.getCanonicalName()), Boolean.FALSE);
 		}
 		else
 		{
-			if (!required)
-			{
-				infoList.add(new PluginInfo(logName, plName, plSystem));
-			}
+			infoList.add(new PluginInfo(logName, plName, plSystem));
 			pluginMap.put(pl, load);
 		}
 	}
 
     @Override
-	public Class[] getPluginClasses()
+	public Class<?>[] getPluginClasses()
 	{
 		return new Class[]
 				{
