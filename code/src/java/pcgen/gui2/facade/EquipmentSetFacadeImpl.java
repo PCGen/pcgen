@@ -235,11 +235,6 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	{
 		EquipSlot wpnSlot = slot.clone();
 		wpnSlot.setSlotName(slotName);
-		// Two handed weapons are coded as SOLTS:2 so we have to counter that to avoid misleading todos
-		if (slotName.equals(Constants.EQUIP_LOCATION_BOTH))
-		{
-			wpnSlot.setContainNum(2);
-		}
 		return wpnSlot;
 	}
 
