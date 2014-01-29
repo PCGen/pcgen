@@ -85,6 +85,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		item2.setName(BOOK);
 		Equipment item3 = new Equipment();
 		item3.setName(QUARTERSTAFF);
+		item3.put(IntegerKey.SLOTS, 2);
 		
 		EquipSet satchelEs = addEquipToEquipSet(pc, es, item, 1.0f);
 		addEquipToEquipSet(pc, satchelEs, item2, 1.0f);
@@ -259,7 +260,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		testNode = nodeMap.get("Both Hands");
 		assertNotNull("Both Hands should be present", testNode);
 		assertEquals("Both Hands type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Both Hands count", 1, esfi.getQuantity(testNode));
+		assertEquals("Both Hands count", 2, esfi.getQuantity(testNode));
 
 		testNode = nodeMap.get("Unarmed");
 		assertNotNull("Unarmed should be present", testNode);

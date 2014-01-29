@@ -235,6 +235,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	{
 		EquipSlot wpnSlot = slot.clone();
 		wpnSlot.setSlotName(slotName);
+		// Two handed weapons are coded as SOLTS:2 so we have to counter that to avoid misleading todos
+		if (slotName.equals(Constants.EQUIP_LOCATION_BOTH))
+		{
+			wpnSlot.setContainNum(2);
+		}
 		return wpnSlot;
 	}
 
@@ -1718,6 +1723,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				return 1;
 
 			case PHANTOM_SLOT:
+				final String slotName = node.getSlot().toString();
+				if (Constants.EQUIP_LOCATION_BOTH.equals(slotName))
+				{
+					return 2;
+				}
 				return node.singleOnly ? 1 : node.getSlot().getSlotCount()
 					+ (int) theCharacter.getTotalBonusTo("SLOTS", node
 						.getSlot().getSlotName());
