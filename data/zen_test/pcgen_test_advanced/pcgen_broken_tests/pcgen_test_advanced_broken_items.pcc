@@ -30,8 +30,8 @@ ABILITY:pcgen_test_advanced_broken_abilities.lst
 #DEITY:pcgen_test_advanced_deities.lst
 #DOMAIN:pcgen_test_advanced_domains.lst
 
-#EQUIPMENT:pcgen_test_advanced_equip.lst
-#EQUIPMOD:pcgen_test_advanced_equipmods.lst
+EQUIPMENT:pbt_equip.lst
+EQUIPMOD:pbt_equipmods.lst
 
 #FEAT:pcgen_test_advanced_feats.lst
 

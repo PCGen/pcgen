@@ -284,7 +284,7 @@ Exotic Weapon Proficiency							TYPE:General.Fighter		PREATT:1																		
 
 
 Weapon Finesse									TYPE:General.Fighter		PREATT:1																																		DESC:See Text																																																			BONUS:COMBAT|TOHIT.Finesseable|(max(STR,DEX+SHIELDACCHECK)-STR)|TYPE=NotRanged							SOURCEPAGE:Feats.rtf
-Weapon Focus									TYPE:General.Fighter		PREATT:1																																		DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																				BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats.rtf
+Weapon Focus									TYPE:General.Fighter																																				DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																				BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:Feats.rtf
 Weapon Specialization								TYPE:Special.Fighter				PREFEAT:1,Weapon Focus															PREVARGTEQ:WeapSpecQualify,1											DESC:See Text																							MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
 
 
