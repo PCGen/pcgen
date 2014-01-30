@@ -410,3 +410,16 @@ Ride.MOD																										DEFINE:RideACP|var(ARMOR.0.ACCHECK)	DEFINE:Sam
 Ride (Samurai Mount)		KEYSTAT:DEX	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	PRERULE:1,DISPLAYSKILLUSE
 
 Stealth.MOD																																								BONUS:SKILL|Stealth (Stationary for at least one round)|var("SKILL.Stealth.MISC")							BONUS:SKILLRANK|Stealth (Stationary for at least one round)|skillinfo("TOTALRANK", "Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Stationary for at least one round).MISC"),var("SKILL.Stealth.MISC")
+
+
+
+###Block:  Quadira & Organized Play
+# Skill Name						Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value													Source Page
+Acrobatics (Move through threatened squares)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Move through threatened squares).MISC"),SKILL.Acrobatics.MISC	SOURCEPAGE:p.102
+Heal (Treat disease and poison)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Heal (Treat disease and poison).MISC"),SKILL.Heal.MISC				SOURCEPAGE:p.90
+
+###Block: Skill .MODs
+# MODs to existing skills - have to do it this way otherwise the BONUS to MISC never fires and the conditions above are never triggered
+# Skill Name	Bonus to skill												Bonus to skill rank
+Acrobatics.MOD	BONUS:SKILL|Acrobatics (Move through threatened squares)|SKILL.Acrobatics.MISC	BONUS:SKILLRANK|Acrobatics (Move through threatened squares)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Move through threatened squares).MISC"),SKILL.Acrobatics.MISC
+Heal.MOD		BONUS:SKILL|Heal (Treat disease and poison)|SKILL.Heal.MISC					BONUS:SKILLRANK|Heal (Treat disease and poison)|skillinfo("TOTALRANK", "Heal")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Heal (Treat disease and poison).MISC"),SKILL.Heal.MISC
