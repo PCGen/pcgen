@@ -77,7 +77,7 @@ TAB:TEMPMOD	NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 MENUENTRY:Osric
 MENUTOOLTIP:Use Osric character creation settings
 DISPLAYORDER:1
-ALLOWEDMODES:Osric
+ALLOWEDMODES:OSRIC|1e
 #
 # SHORTRANGE sets the Short Range as referenced by
 #  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
