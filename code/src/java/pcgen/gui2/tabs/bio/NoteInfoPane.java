@@ -146,26 +146,28 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 			descFacade = character.getDescriptionFacade();
 			noteField.setText(note.getValue());
 			
-			new TextFieldListener(nameField)
-			{
-				@Override
-				protected void textChanged(String text)
+			nameField.getDocument().addDocumentListener(
+				new TextFieldListener(nameField)
 				{
-					descFacade.renameNote(note, text);
-					name = text;
-				}
+					@Override
+					protected void textChanged(String text)
+					{
+						descFacade.renameNote(note, text);
+						name = text;
+					}
 
-			};
-			
-			new TextFieldListener(noteField)
-			{
-				@Override
-				protected void textChanged(String text)
+				});
+
+			noteField.getDocument().addDocumentListener(
+				new TextFieldListener(noteField)
 				{
-					descFacade.setNote(note, text);
-				}
+					@Override
+					protected void textChanged(String text)
+					{
+						descFacade.setNote(note, text);
+					}
 
-			};
+				});
 			removeButton.addActionListener(this);
 		}
 

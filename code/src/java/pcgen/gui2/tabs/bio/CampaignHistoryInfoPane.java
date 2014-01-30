@@ -438,46 +438,50 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 
 			};
 			checkBox.addActionListener(actionListener);
-			new TextFieldListener(campaignField)
-			{
-
-				@Override
-				protected void textChanged(String text)
+			campaignField.getDocument().addDocumentListener(
+				new TextFieldListener(campaignField)
 				{
-					entry.setCampaign(text);
-				}
 
-			};
-			new TextFieldListener(adventureField)
-			{
+					@Override
+					protected void textChanged(String text)
+					{
+						entry.setCampaign(text);
+					}
 
-				@Override
-				protected void textChanged(String text)
+				});
+			adventureField.getDocument().addDocumentListener(
+				new TextFieldListener(adventureField)
 				{
-					entry.setAdventure(text);
-				}
 
-			};
-			new TextFieldListener(partyField)
-			{
+					@Override
+					protected void textChanged(String text)
+					{
+						entry.setAdventure(text);
+					}
 
-				@Override
-				protected void textChanged(String text)
+				});
+			partyField.getDocument().addDocumentListener(
+				new TextFieldListener(partyField)
 				{
-					entry.setParty(text);
-				}
 
-			};
-			new TextFieldListener(dateField)
-			{
+					@Override
+					protected void textChanged(String text)
+					{
+						entry.setParty(text);
+					}
 
-				@Override
-				protected void textChanged(String text)
+				});
+			dateField.getDocument().addDocumentListener(
+				new TextFieldListener(dateField)
 				{
-					entry.setDate(text);
-				}
 
-			};
+					@Override
+					protected void textChanged(String text)
+					{
+						entry.setDate(text);
+					}
+
+				});
 			xpField.addPropertyChangeListener("value", new PropertyChangeListener()
 			{
 
@@ -488,26 +492,28 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 				}
 
 			});
-			new TextFieldListener(gmField)
-			{
-
-				@Override
-				protected void textChanged(String text)
+			gmField.getDocument().addDocumentListener(
+				new TextFieldListener(gmField)
 				{
-					entry.setGmField(text);
-				}
 
-			};
-			new TextFieldListener(textArea)
-			{
+					@Override
+					protected void textChanged(String text)
+					{
+						entry.setGmField(text);
+					}
 
-				@Override
-				protected void textChanged(String text)
+				});
+			textArea.getDocument().addDocumentListener(
+				new TextFieldListener(textArea)
 				{
-					entry.setChronicle(text);
-				}
 
-			};
+					@Override
+					protected void textChanged(String text)
+					{
+						entry.setChronicle(text);
+					}
+
+				});
 		}
 
 	}

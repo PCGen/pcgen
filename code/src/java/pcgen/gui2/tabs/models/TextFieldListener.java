@@ -50,9 +50,8 @@ public abstract class TextFieldListener implements DocumentListener
 	public TextFieldListener(JTextComponent textField)
 	{
 		this.textField = textField;
-		textField.getDocument().addDocumentListener(this);
 	}
-
+	
 	/* (non-Javadoc)
 	 * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.DocumentEvent)
 	 */
