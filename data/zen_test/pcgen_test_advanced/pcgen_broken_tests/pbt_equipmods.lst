@@ -1,0 +1,9 @@
+
+Add Ranged		TYPE:Weapon	ITYPE:Ranged
+Add Range		TYPE:Weapon	ITYPE:Range
+Add Thrown		TYPE:Weapon	ITYPE:Thrown
+Add Reach		TYPE:Weapon	ITYPE:Reach
+Add Weapon				ITYPE:Weapon
+Add Melee		TYPE:Weapon	ITYPE:Melee
+
+
