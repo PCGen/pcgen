@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Sargava, the Lost Colony
@@ -24,10 +24,10 @@ URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2|Buy this publication from Paizo Publishing!
 DESC:On the distant shores of an unexplored tropical continent, brave colonists strive to break with their devil-haunted past and make new lives for themselves in a land of plenty. Yet in fleeing tyranny, these colonists have also imposed their own, and the land's indigenous peoples have greeted the imperialistic settlers with open arms and leveled spears. This is Sargava: a nation on the brink of disaster, surrounded on all sides by pirates, hostile natives, and trackless jungles full of howling beasts and ancient ruins. Through its ports flood ancient treasures beyond imagination, brought forth from the wilderness by the blood and sweat of intrepid explorers. But can the colonists maintain their delicate balance, or will greed and their own deals with the devil see them swept into the sea?
 
-INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Companion: Sargava, the Lost Colony. Copyright 2010, Paizo Publishing, LLC; Author: JD Wiker.
+COPYRIGHT:Pathfinder Companion: Sargava, the Lost Colony. Copyright 2010, Paizo Inc.; Author: JD Wiker.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost Colony" Copyright 2010, PCGen Data Team (including, but not limited to Stefan Radermacher)
 
 # Do not remove the EXTRAFILE comment.

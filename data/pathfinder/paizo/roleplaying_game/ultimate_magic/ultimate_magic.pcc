@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Ultimate Magic
@@ -24,10 +24,10 @@ URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/pathfinderRPG/v5748btpy8g7s|Buy this publication from Paizo Publishing!
 DESC:Unlock the magical mysteries of the Pathfinder RPG with this exhaustive guide to the art of magic, an invaluable resource for players and Game Masters alike! This comprehensive 256-page hardcover reference unveils the magical secrets of the Pathfinder rules like never before. Tons of new tricks and techniques for every spellcasting class in the game fill the book, ranging from arcane secrets uncovered by studious wizards to dazzling ki-tricks performed by canny monks to new mutagens for alchemists, new oracle mysteries, specialized channel energy options for clerics, and more.
 
-INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook. Copyright 2010, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:Anger of Angels. Copyright 2003, Sean K Reynolds.
 COPYRIGHT:Book of Fiends. Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
 COPYRIGHT:The Book of Hallowed Might. Copyright 2002, Monte J. Cook.
@@ -52,7 +52,7 @@ COPYRIGHT:Sandman from the Tome of Horrors, Revised. Copyright 2002, Necromancer
 COPYRIGHT:Scarecrow from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Roger Musson.
 COPYRIGHT:Shadow Demon from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Neville White.
 COPYRIGHT:Wood Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene and Patrick Lawinger.
-COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Inc.; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright 2011, PCGen Data team (Including, but not limited to Stefan Radermacher, Doug Limmer, Henk Slaaf, and Eric Smith (Maredudd)).
 
 # Do not remove the EXTRAFILE comment.

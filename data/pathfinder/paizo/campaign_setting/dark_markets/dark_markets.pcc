@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PUBNAMELONG:Paizo Publishing, LLC
+PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Dark Markets - A Guide to Katapesh
@@ -26,12 +26,12 @@ DESC:The bustling bazaars of Absalom offer countless delights, but even they do 
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Chronicles: Dark Markets, A Guide to Katapesh. Copyright 2009, Paizo Publishing, LLC; Authors: Stephen S. Greer, Amber Scott, Greg A. Vaughan, and Sean K Reynolds.
+COPYRIGHT:Pathfinder Chronicles: Dark Markets, A Guide to Katapesh. Copyright 2009, Paizo Inc.; Authors: Stephen S. Greer, Amber Scott, Greg A. Vaughan, and Sean K Reynolds.
 COPYRIGHT:Tome of Horrors III Copyright 2005 Necromancer Games, Inc. Author Scott Greene, with Casey Christofferson, Erica Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnson, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, and Bill Webb.
 COPYRIGHT:PCGen dataset conversion for "Dark Markets - A Guide to Katapesh (Conversion)" Copyright 2009-2012, PCGen Data team (Including, but not limited to Terry Milner, Stefan Radermacher and Paul Shipley).
 COPYRIGHT:Pathfinder Roleplaying Game Conversion Copyright 2012, PCGen Data Team (including, but not limited to Paul Shipley).
 INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
-INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
