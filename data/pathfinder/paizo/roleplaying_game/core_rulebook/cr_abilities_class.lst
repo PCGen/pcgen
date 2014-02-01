@@ -451,10 +451,10 @@ Bonus Feats				KEY:Bonus Feats ~ Fighter	CATEGORY:Special Ability	TYPE:FighterCl
 
 ###Block: Archetype Armor Training
 # Ability Name						Modify VAR
-CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_One,TYPE.FighterArmorTraining1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,1]
-CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_Two,TYPE.FighterArmorTraining2|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,2]
-CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_Three,TYPE.FighterArmorTraining3|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,3]
-CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_Four,TYPE.FighterArmorTraining4|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,4]
+CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,1]
+CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining2|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,2]
+CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining3|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,3]
+CATEGORY=Special Ability|Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining4|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,4]
 
 ###Block:
 # Ability Name							Bonus to Ability Pool
@@ -478,10 +478,10 @@ Fighter Weapon Training	CATEGORY:Special Ability	TYPE:FighterClassAbility.Intern
 
 ###Block:
 # Ability Name							Bonus to Ability Pool
-CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training I|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_One,TYPE.FighterWeaponTraining1|PREVARGTEQ:FighterWeaponTrainingLVL,5
-CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training II|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_Two,TYPE.FighterWeaponTraining2|PREVARGTEQ:FighterWeaponTrainingLVL,9
-CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training III|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_Three,TYPE.FighterWeaponTraining3|PREVARGTEQ:FighterWeaponTrainingLVL,13
-CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training IV|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_Four,TYPE.FighterWeaponTraining4|PREVARGTEQ:FighterWeaponTrainingLVL,17
+CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training I|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining1|PREVARGTEQ:FighterWeaponTrainingLVL,5
+CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training II|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining2|PREVARGTEQ:FighterWeaponTrainingLVL,9
+CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training III|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining3|PREVARGTEQ:FighterWeaponTrainingLVL,13
+CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training IV|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining4|PREVARGTEQ:FighterWeaponTrainingLVL,17
 
 ###Block:
 # Ability Name						Define					Modify VAR
