@@ -33,7 +33,7 @@ Sword Cane					PROFICIENCY:WEAPON|Sword Cane			TYPE:Weapon.Archaic.Melee.Piercin
 
 #Exotic Melee Weapons -------------------------------------------------------------------------------------------
 # Equipment Name				Required Weapon Proficiency			Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Requires Modification?	Range		Size		Source Page
-Chain						PROFICIENCY:WEAPON|Chain			TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal.Finessable	COST:0.5	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								SIZE:L	SOURCEPAGE:p. 152
+Chain						PROFICIENCY:WEAPON|Chain			TYPE:Weapon.Exotic.Melee.Bludgeoning.Standard.Double.Metal.Finesseable	COST:0.5	WT:5		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6								SIZE:L	SOURCEPAGE:p. 152
 Claymore					PROFICIENCY:WEAPON|Claymore			TYPE:Weapon.Exotic.Melee.Slashing.Standard.Metal				COST:15	WT:6		CRITMULT:x2			CRITRANGE:2			DAMAGE:2d6											SIZE:L	SOURCEPAGE:p. 153
 
 #Unarmed
