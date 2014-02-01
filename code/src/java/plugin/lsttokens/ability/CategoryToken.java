@@ -24,15 +24,15 @@ import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
 /**
  * Deal with CATEGORY token
  */
 public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>, DeferredToken<Ability>
+		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
@@ -101,6 +101,11 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	public Class<Ability> getDeferredTokenClass()
 	{
 		return getTokenClass();
+	}
+
+	public int getPriority()
+	{
+		return 0;
 	}
 
 }
