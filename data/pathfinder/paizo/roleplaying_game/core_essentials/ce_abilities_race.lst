@@ -776,7 +776,7 @@ Gylptodon Companion Natural Attack												CATEGORY:Special Ability							VIS
 
 #Block: Ray (Stingray)
 # Ability Name							Unique Key				Output Name		Category of Ability		Type						Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks																	Aspects
-Poison								KEY:Poison ~ Stingray					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordiary			DEFINE:StingrayPoisonDC|0						DESC:Sting - injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Dex and 1 Con; cure 1 save.|StingrayPoisonDC																			BONUS:VAR|StingrayPoisonDC|10+TL/2+CON	BONUS:VAR|StingrayPoisonDC|2|PREFEAT:1,Ability Focus (Poison)
+Poison								KEY:Poison ~ Stingray					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:StingrayPoisonDC|0						DESC:Sting - injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Dex and 1 Con; cure 1 save.|StingrayPoisonDC																			BONUS:VAR|StingrayPoisonDC|10+TL/2+CON	BONUS:VAR|StingrayPoisonDC|2|PREFEAT:1,Ability Focus (Poison)
 
 
 ###Block: Improved Familiar Abilities
