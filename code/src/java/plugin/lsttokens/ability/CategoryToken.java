@@ -77,12 +77,21 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	@Override
 	public boolean process(LoadContext context, Ability ability)
 	{
-		if (ability.get(ObjectKey.ABILITY_CAT) == null)
+		Category<Ability> cat = ability.get(ObjectKey.ABILITY_CAT);
+		if (cat == null)
 		{
 			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
 					+ " did not have a Category specified.  "
 					+ "A Category is required for an Ability. " 
 					+ "File was " + ability.getSourceURI());
+			return false;
+		}
+		if (cat.getParentCategory() != cat)
+		{
+			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
+				+ " did not refer to a 'parent' Category, used: " + cat
+				+ ". A Parent Category is required for an Ability. "
+				+ "File was " + ability.getSourceURI());
 			return false;
 		}
 		return true;
