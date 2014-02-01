@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2013.
+ * Copyright (c) Thomas Parker, 2013-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -23,6 +23,7 @@ import java.util.HashMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
@@ -39,6 +40,14 @@ public class CorePerspectiveDB
 			new HashMap<Object, CorePerspective>();
 	private static HashMapToList<Object, Object> virtualParents =
 			new HashMapToList<Object, Object>();
+
+	public static <S, D> Object register(CorePerspective perspective,
+		FacetBehavior behavior, AbstractItemConvertingFacet<S, D> facet)
+	{
+		FacetView<Object> view = new ConvertingFacetView<S, D>(facet);
+		finishRegistration(perspective, behavior, view, facet);
+		return view;
+	}
 
 	public static <T> Object register(CorePerspective perspective,
 		FacetBehavior behavior, AbstractSourcedListFacet<T> facet)

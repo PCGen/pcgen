@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2013.
+ * Copyright (c) Thomas Parker, 2013-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -23,7 +23,7 @@ import pcgen.cdom.enumeration.CharID;
 
 public interface FacetView<T> {
 
-	public Collection<T> getSet(CharID id);
+	public Collection<? extends T> getSet(CharID id);
 
 	public Collection<Object> getSources(CharID id, T obj);
 

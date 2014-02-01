@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2010.
+ * Copyright (c) Thomas Parker, 2010-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -608,4 +608,33 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *         AbstractItemConvertingFacet for the given original object
 	 */
 	protected abstract D convert(S obj);
+
+	public Collection<S> getSourceObjects(CharID id)
+	{
+		Set<S> set = new WrappedMapSet<S>(IdentityHashMap.class);
+		Map<S, Target> componentMap = getCachedMap(id);
+		if (componentMap != null)
+		{
+			set.addAll(componentMap.keySet());
+		}
+		return set;
+	}
+	
+	public D getResultFor(CharID id, S obj)
+	{
+		Map<S, Target> componentMap = getCachedMap(id);
+		return (componentMap == null) ? null : componentMap.get(obj).dest;
+	}
+
+	public Collection<Object> getSourcesFor(CharID id, S obj)
+	{
+		Map<S, Target> componentMap = getCachedMap(id);
+		Set<Object> set = new WrappedMapSet<Object>(IdentityHashMap.class);
+		if (componentMap == null)
+		{
+			return set;
+		}
+		set.addAll(componentMap.get(obj).set);
+		return set;
+	}
 }

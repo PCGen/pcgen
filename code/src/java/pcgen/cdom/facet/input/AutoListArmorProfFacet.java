@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2010.
+ * Copyright (c) Thomas Parker, 2010-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -21,6 +21,10 @@ import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.SimpleArmorProfProvider;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.ArmorProf;
 
 /**
@@ -32,6 +36,7 @@ import pcgen.core.ArmorProf;
  */
 public class AutoListArmorProfFacet extends
 		AbstractItemConvertingFacet<ArmorProf, ProfProvider<ArmorProf>>
+		implements PerspectiveLocation
 {
 
 	private ArmorProfProviderFacet armorProfProviderFacet;
@@ -44,6 +49,7 @@ public class AutoListArmorProfFacet extends
 	public void init()
 	{
 		addDataFacetChangeListener(armorProfProviderFacet);
+		CorePerspectiveDB.register(CorePerspective.ARMORPROF, FacetBehavior.INPUT, this);
 	}
 
 	/**
@@ -65,6 +71,12 @@ public class AutoListArmorProfFacet extends
 	protected ProfProvider<ArmorProf> convert(ArmorProf ap)
 	{
 		return new SimpleArmorProfProvider(ap);
+	}
+
+	@Override
+	public String getIdentity()
+	{
+		return "AUTO:ARMORPROF|%LIST";
 	}
 
 }

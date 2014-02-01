@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2013.
+ * Copyright (c) Thomas Parker, 2013-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -27,6 +27,7 @@ public class CorePerspective
 		this.name = name;
 	}
 	public static final CorePerspective LANGUAGE = new CorePerspective("Granted Languages");
+	public static final CorePerspective ARMORPROF = new CorePerspective("Armor Proficiencies");
 
 	@Override
 	public String toString()
