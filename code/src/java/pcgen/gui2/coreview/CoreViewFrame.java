@@ -65,14 +65,16 @@ public class CoreViewFrame extends JFrame
 		viewTable = new JTreeViewTable<CoreViewNodeFacade>();
 
 		perspectiveChooser = new JComboBoxEx();
-		perspectiveChooser.addItem(CorePerspective.LANGUAGE);
-		perspectiveChooser.addItem(CorePerspective.ARMORPROF);
+		for (CorePerspective pers : CorePerspective.getAllConstants())
+		{
+			perspectiveChooser.addItem(pers);
+		}
 		final CoreViewTreeViewModel coreViewTreeViewModel = new CoreViewTreeViewModel(character);
 
 		PerspectiveActionListener pal = new PerspectiveActionListener(coreViewTreeViewModel);
 		perspectiveChooser.addActionListener(pal);
 		initialize(character);
-		perspectiveChooser.setSelectedItem(CorePerspective.LANGUAGE);
+		perspectiveChooser.setSelectedItem(perspectiveChooser.getItemAt(0));
 	}
 	
 	public void initialize(CharacterFacade character)

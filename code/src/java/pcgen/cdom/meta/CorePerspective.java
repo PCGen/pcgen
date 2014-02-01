@@ -17,6 +17,13 @@
  */
 package pcgen.cdom.meta;
 
+import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.HashSet;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+
 public class CorePerspective
 {
 
@@ -26,12 +33,55 @@ public class CorePerspective
 	{
 		this.name = name;
 	}
+
 	public static final CorePerspective LANGUAGE = new CorePerspective("Granted Languages");
 	public static final CorePerspective ARMORPROF = new CorePerspective("Armor Proficiencies");
+	public static final CorePerspective SHIELDPROF = new CorePerspective("Shield Proficiencies");
+
+	private static CaseInsensitiveMap<CorePerspective> map = null;
 
 	@Override
 	public String toString()
 	{
 		return name;
+	}
+
+	static
+	{
+		buildMap();
+	}
+
+	private static void buildMap()
+	{
+		map = new CaseInsensitiveMap<CorePerspective>();
+		Field[] fields = CorePerspective.class.getDeclaredFields();
+		for (int i = 0; i < fields.length; i++)
+		{
+			int mod = fields[i].getModifiers();
+
+			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
+					&& java.lang.reflect.Modifier.isPublic(mod))
+			{
+				try
+				{
+					Object obj = fields[i].get(null);
+					if (obj instanceof CorePerspective)
+					{
+						map.put(fields[i].getName(), (CorePerspective) obj);
+					}
+				} catch (IllegalArgumentException e)
+				{
+					throw new UnreachableError(e);
+				} catch (IllegalAccessException e)
+				{
+					throw new UnreachableError(e);
+				}
+			}
+		}
+	}
+
+	public static Collection<CorePerspective> getAllConstants()
+	{
+		return new HashSet<CorePerspective>(map.values());
 	}
 }

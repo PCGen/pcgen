@@ -22,6 +22,10 @@ import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.ProfProvider;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 
@@ -39,7 +43,7 @@ import pcgen.core.ShieldProf;
  */
 public class ShieldProfProviderFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ShieldProf>> implements
-		DataFacetChangeListener<ProfProvider<ShieldProf>>
+		DataFacetChangeListener<ProfProvider<ShieldProf>>, PerspectiveLocation
 {
 
 	/**
@@ -110,5 +114,16 @@ public class ShieldProfProviderFacet extends
 			}
 		}
 		return false;
+	}
+
+	public void init()
+	{
+		CorePerspectiveDB.register(CorePerspective.SHIELDPROF, FacetBehavior.MODEL, this);
+	}
+
+	@Override
+	public String getIdentity()
+	{
+		return "Shield Proficiencies";
 	}
 }

@@ -21,6 +21,10 @@ import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.facet.model.ShieldProfProviderFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.SimpleShieldProfProvider;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.ShieldProf;
 
 /**
@@ -32,6 +36,7 @@ import pcgen.core.ShieldProf;
  */
 public class AutoListShieldProfFacet extends
 		AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
+		implements PerspectiveLocation
 {
 
 	private ShieldProfProviderFacet shieldProfProviderFacet;
@@ -44,6 +49,7 @@ public class AutoListShieldProfFacet extends
 	public void init()
 	{
 		addDataFacetChangeListener(shieldProfProviderFacet);
+		CorePerspectiveDB.register(CorePerspective.SHIELDPROF, FacetBehavior.INPUT, this);
 	}
 
 	/**
@@ -65,5 +71,11 @@ public class AutoListShieldProfFacet extends
 	protected ProfProvider<ShieldProf> convert(ShieldProf ap)
 	{
 		return new SimpleShieldProfProvider(ap);
+	}
+
+	@Override
+	public String getIdentity()
+	{
+		return "AUTO:SHIELDPROF|%LIST";
 	}
 }
