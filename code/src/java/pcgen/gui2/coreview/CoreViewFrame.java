@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2013.
+ * Copyright (c) Thomas Parker, 2013-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,19 +17,21 @@
  */
 package pcgen.gui2.coreview;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.Box;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JTree;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -41,6 +43,7 @@ import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.DelegatingListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -48,41 +51,80 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 public class CoreViewFrame extends JFrame 
 {
 
-	private JPanel panel = new JPanel();
-	private JTree tree;
+	private JComboBoxEx perspectiveChooser;
 	private final JTreeViewTable<CoreViewNodeFacade> viewTable;
 
 	public CoreViewFrame(Frame frame, CharacterFacade character)
 	{
 		viewTable = new JTreeViewTable<CoreViewNodeFacade>();
-		
-		CoreViewTreeViewModel coreViewTreeViewModel = new CoreViewTreeViewModel(character);
-		coreViewTreeViewModel.setPerspective(CorePerspective.LANGUAGE);
-		viewTable.setTreeViewModel(coreViewTreeViewModel);
+
+		perspectiveChooser = new JComboBoxEx();
+		perspectiveChooser.addItem(CorePerspective.LANGUAGE);
+		perspectiveChooser.addItem(CorePerspective.ARMORPROF);
+		final CoreViewTreeViewModel coreViewTreeViewModel = new CoreViewTreeViewModel(character);
+
+		PerspectiveActionListener pal = new PerspectiveActionListener(coreViewTreeViewModel);
+		perspectiveChooser.addActionListener(pal);
 		initialize(character);
+		perspectiveChooser.setSelectedItem(CorePerspective.LANGUAGE);
 	}
 	
 	public void initialize(CharacterFacade character)
 	{
-		Box box = Box.createVerticalBox();
-		Box picklists = Box.createHorizontalBox();
-		//Add choosers to picklists here
-		box.add(picklists);
+		GridBagLayout gridbag = new GridBagLayout();
+		GridBagConstraints c = new GridBagConstraints();
+		getContentPane().setLayout(gridbag);
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.NORTHWEST;
+		c.insets = new Insets(2, 2, 2, 2);
 
-		
+		int col = 0;
+		Utility.buildConstraints(c, col, 0, 1, 1, 100, 20);
+		JLabel label = new JLabel(LanguageBundle.getFormattedString(
+			"in_CoreView_Perspective")); //$NON-NLS-1$
+		gridbag.setConstraints(label, c);
+		getContentPane().add(label);
+
+		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
+		gridbag.setConstraints(perspectiveChooser, c);
+		getContentPane().add(perspectiveChooser);
+
+		Utility.buildConstraints(c, 0, 2, col, 1, 0, 1000);
 		JScrollPane pane = new JScrollPane(viewTable);
 		pane.setPreferredSize(new Dimension(500, 300));
-		box.add(pane);
-		setLayout(new BorderLayout());
-		getContentPane().add(box, BorderLayout.CENTER);
+		gridbag.setConstraints(pane, c);
+		getContentPane().add(pane);
+
 		setTitle("Core Debug View");
+		getContentPane().setSize(500,400);
 		pack();
 		Utility.centerFrame(this, true);
+	}
+
+
+	private final class PerspectiveActionListener implements ActionListener
+	{
+		private final CoreViewTreeViewModel coreViewTreeViewModel;
+
+		private PerspectiveActionListener(
+			CoreViewTreeViewModel coreViewTreeViewModel)
+		{
+			this.coreViewTreeViewModel = coreViewTreeViewModel;
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			CorePerspective perspective =
+					(CorePerspective) perspectiveChooser.getSelectedItem();
+			coreViewTreeViewModel.setPerspective(perspective);
+			viewTable.setTreeViewModel(coreViewTreeViewModel);
+		}
 	}
 
 
@@ -160,7 +202,6 @@ public class CoreViewFrame extends JFrame
 			TreeViewModel<CoreViewNodeFacade>, DataView<CoreViewNodeFacade>
 	{
 		private final CharacterFacade character;
-		private CorePerspective corePerspective;
 		private DefaultListFacade<CoreViewNodeFacade> coreViewList;
 		private final List<? extends DataViewColumn> dataColumns;
 
@@ -183,8 +224,7 @@ public class CoreViewFrame extends JFrame
 		 */
 		public void setPerspective(CorePerspective corePerspective)
 		{
-			this.corePerspective = corePerspective;
-			List<CoreViewNodeFacade> coreViewNodes = character.getCoreViewTree(CorePerspective.LANGUAGE);
+			List<CoreViewNodeFacade> coreViewNodes = character.getCoreViewTree(corePerspective);
 			coreViewList = new DefaultListFacade<CoreViewNodeFacade>(coreViewNodes);
 		}
 
