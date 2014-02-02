@@ -27,6 +27,7 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.util.Logging;
 
 /**
  * ConditionallyGrantedAbilityFacet is a DataFacet that contains information
@@ -40,6 +41,9 @@ public class ConditionallyGrantedAbilityFacet extends
 {
 
 	private ConditionalAbilityFacet conditionalAbilityFacet;
+	
+	/** Best guess of the current recursion level for debugging purposes only.*/
+	private static int depth = 0;
 
 	/**
 	 * Performs a global update of conditionally granted Abilities for a Player
@@ -51,6 +55,7 @@ public class ConditionallyGrantedAbilityFacet extends
 	 */
 	public void update(CharID id)
 	{
+		depth++;
 		Collection<CategorizedAbilitySelection> current = getSet(id);
 		Collection<CategorizedAbilitySelection> qualified = conditionalAbilityFacet
 				.getQualifiedSet(id);
@@ -60,14 +65,37 @@ public class ConditionallyGrantedAbilityFacet extends
 		List<CategorizedAbilitySelection> toAdd = new ArrayList<CategorizedAbilitySelection>(
 				qualified);
 		toAdd.removeAll(current);
+		if (!toAdd.isEmpty() || !toRemove.isEmpty())
+		{
+			Logging.debugPrint("CGAF at depth " + depth + " removing "
+					+ toRemove + " adding " + toAdd);
+		}
 		for (CategorizedAbilitySelection cas : toRemove)
 		{
-			remove(id, cas);
+			// Things could have changed, so we make sure
+			if (!conditionalAbilityFacet.isQualified(id, cas) && contains(id, cas))
+			{
+				Logging.debugPrint("CGAF at depth " + depth + " removing "
+						+ cas);
+				remove(id, cas);
+			}
 		}
 		for (CategorizedAbilitySelection cas : toAdd)
 		{
-			add(id, cas);
+			// Things could have changed, so we make sure
+			if (conditionalAbilityFacet.isQualified(id, cas) && !contains(id, cas))
+			{
+				Logging.debugPrint("CGAF at depth " + depth + " adding "
+						+ cas);
+				add(id, cas);
+			}
 		}
+
+		if (!toAdd.isEmpty() || !toRemove.isEmpty())
+		{
+			Logging.debugPrint("CGAF at depth " + depth + " completed.");
+		}
+		depth--;
 	}
 
 	/**

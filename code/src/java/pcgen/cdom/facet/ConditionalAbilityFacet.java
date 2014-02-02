@@ -92,6 +92,24 @@ public class ConditionalAbilityFacet extends
 		}
 		return set;
 	}
+	
+	/**
+	 * Check if the character is allowed to take the ability selection.
+	 * @param id
+	 *            The CharID representing the Player Character.
+	 * @param cas The ability selection to be checked.
+	 * @return true if the character qualifies for the selection, false if not.
+	 */
+	public boolean isQualified(CharID id, CategorizedAbilitySelection cas)
+	{
+		Collection<CategorizedAbilitySelection> cached = getCachedSet(id);
+		if (cached != null && cached.contains(cas)
+			&& prerequisiteFacet.qualifies(id, cas, cas.getSource()))
+		{
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Removes all information for the given source from this
