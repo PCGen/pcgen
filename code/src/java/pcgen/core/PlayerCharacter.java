@@ -55,7 +55,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.AbilitySelection;
@@ -5016,15 +5015,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		this.setDirty(true);
 
-		if (!isImporting())
-		{
-			List<CategorizedAbilitySelection> templateFeats = feats(inTemplate, getTotalLevels(), totalHitDice(), true);
-			for (CategorizedAbilitySelection cas : templateFeats)
-			{
-				AbilityUtilities.modFeatsFromList(this, cas);
-			}
-		}
-
 		getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC);
 
 		calcActiveBonuses();
@@ -7552,18 +7542,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 		}
 
-		// Handle any feat changes as a result of level changes
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			final List<CategorizedAbilitySelection> templateFeats = feats(template, getTotalLevels(), totalHitDice(),
-					true);
-
-			for (int j = 0, y = templateFeats.size(); j < y; ++j)
-			{
-				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
-			}
-		}
-
 		calcActiveBonuses();
 	}
 
@@ -9472,104 +9450,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int dbl = 1 + (int) e.bonusTo(this, "EQMWEAPON", "CRITRANGEDOUBLE", primary);
 		return raw * dbl + add;
 
-	}
-
-	/**
-	 * Retrieve the list of the keynames of any feats
-	 * that the PC qualifies for at the supplied level and
-	 * hit dice. 
-	 * 
-	 * @param pct
-	 *
-	 * @param level
-	 *
-	 * @param hitdice
-	 *
-	 * @param addNew
-	 *
-	 * @return a list of feats 
-	 */
-	public List<CategorizedAbilitySelection> feats(PCTemplate pct, final int level, final int hitdice,
-			final boolean addNew)
-	{
-		final List<CategorizedAbilitySelection> feats = new ArrayList<CategorizedAbilitySelection>();
-
-		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
-		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				Collection<? extends CategorizedAbilitySelection> featList = 
-						getTemplateFeatList(lt);
-				if (featList.isEmpty() && addNew && lt.get(IntegerKey.LEVEL) <= level)
-				{
-					featList = getLevelFeat(lt);
-				}
-				if (featList != null)
-				{
-					feats.addAll(featList);
-				}
-			}
-		}
-		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			Collection<? extends CategorizedAbilitySelection> featList =
-					getTemplateFeatList(lt);
-			if (featList.isEmpty() && addNew && lt.get(IntegerKey.LEVEL) <= level)
-			{
-				featList = getLevelFeat(lt);
-			}
-			if (featList != null)
-			{
-				feats.addAll(featList);
-			}
-		}
-
-		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			Collection<? extends CategorizedAbilitySelection> featList =
-					getTemplateFeatList(lt);
-			if (featList.isEmpty() && addNew && lt.get(IntegerKey.HD_MAX) <= hitdice
-					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
-			{
-				featList = getLevelFeat(lt);
-			}
-			if (featList != null)
-			{
-				feats.addAll(featList);
-			}
-		}
-
-		Collection<? extends CategorizedAbilitySelection> featList =
-				getTemplateFeatList(pct);
-		if (featList.isEmpty() && addNew)
-		{
-			featList = getLevelFeat(pct);
-		}
-		if (featList != null)
-		{
-			feats.addAll(featList);
-		}
-
-		return feats;
-	}
-
-	/**
-	 * This is the function that implements a chooser for Feats granted by level
-	 * and/or HD by Templates.
-	 * 
-	 * @param pct
-	 *            The template to be checked for the choices to offer
-	 */
-	private Collection<? extends CategorizedAbilitySelection> getLevelFeat(PCTemplate pct)
-	{
-		PersistentTransitionChoice<CategorizedAbilitySelection> choice = pct.get(ObjectKey.TEMPLATE_FEAT);
-		if (choice == null)
-		{
-			return Collections.emptyList();
-		}
-		Collection<? extends CategorizedAbilitySelection> result = choice.driveChoice(this);
-		choice.act(result, pct, this);
-		return result;
 	}
 
 	public Collection<PCTemplate> getTemplatesAdded(CDOMObject po)

@@ -17,8 +17,18 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Collection;
+
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 
 /**
  * TemplateFeatFacet is a Facet that tracks the selections from the FEAT tokens
@@ -27,6 +37,87 @@ import pcgen.cdom.helper.CategorizedAbilitySelection;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TemplateFeatFacet extends
-		AbstractSourcedListFacet<CategorizedAbilitySelection> {
+		AbstractSourcedListFacet<CategorizedAbilitySelection> implements
+		DataFacetChangeListener<PCTemplate>
+{
+	private TemplateFacet templateFacet;
+
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	/**
+	 * Adds all of the feats to the Player Character triggered by the FEAT token'
+	 * on the given PCTemplate
+	 * 
+	 * Triggered when one of the Facets to which ConditionalTemplateFacet
+	 * listens fires a DataFacetChangeEvent to indicate a PCTemplate was added
+	 * to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 */
+	@Override
+	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	{
+		CharID id = dfce.getCharID();
+		PCTemplate source = dfce.getCDOMObject();
+		if (!containsFrom(id, source))
+		{
+			PersistentTransitionChoice<CategorizedAbilitySelection> choice =
+					source.get(ObjectKey.TEMPLATE_FEAT);
+			if (choice != null)
+			{
+				PlayerCharacter pc = trackingFacet.getPC(id);
+				Collection<? extends CategorizedAbilitySelection> result =
+						choice.driveChoice(pc);
+				choice.act(result, source, pc);
+				for (CategorizedAbilitySelection cas : result)
+				{
+					add(id, cas, source);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Removes all of the feats granted by FEAT: on the PCTemplate removed
+	 * 
+	 * Triggered when one of the Facets to which ConditionalTemplateFacet
+	 * listens fires a DataFacetChangeEvent to indicate a PCTemplate was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	{
+		CharID id = dfce.getCharID();
+		PCTemplate source = dfce.getCDOMObject();
+		PersistentTransitionChoice<CategorizedAbilitySelection> choice =
+				source.get(ObjectKey.TEMPLATE_FEAT);
+		if (choice != null)
+		{
+			PlayerCharacter pc = trackingFacet.getPC(id);
+			choice.remove(source, pc);
+		}
+		removeAll(id, source);
+	}
+
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+
+	public void init()
+	{
+		templateFacet.addDataFacetChangeListener(this);
+	}
 
 }

@@ -26,10 +26,12 @@
 package plugin.exporttokens;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -145,6 +147,67 @@ public class TemplateToken extends Token
 	}
 
 	/**
+	 * Retrieve the list of the keynames of any feats
+	 * that the PC qualifies for at the supplied level and
+	 * hit dice. 
+	 * 
+	 * @param pct
+	 *
+	 * @param level
+	 *
+	 * @param hitdice
+	 *
+	 * @param addNew
+	 *
+	 * @return a list of feats 
+	 */
+	public static List<CategorizedAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct, final int level, final int hitdice)
+	{
+		final List<CategorizedAbilitySelection> feats = new ArrayList<CategorizedAbilitySelection>();
+	
+		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		{
+			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			{
+				Collection<? extends CategorizedAbilitySelection> featList = 
+						pc.getTemplateFeatList(lt);
+				if (featList != null)
+				{
+					feats.addAll(featList);
+				}
+			}
+		}
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		{
+			Collection<? extends CategorizedAbilitySelection> featList =
+					pc.getTemplateFeatList(lt);
+			if (featList != null)
+			{
+				feats.addAll(featList);
+			}
+		}
+	
+		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
+		{
+			Collection<? extends CategorizedAbilitySelection> featList =
+					pc.getTemplateFeatList(lt);
+			if (featList != null)
+			{
+				feats.addAll(featList);
+			}
+		}
+	
+		Collection<? extends CategorizedAbilitySelection> featList =
+				pc.getTemplateFeatList(pct);
+		if (featList != null)
+		{
+			feats.addAll(featList);
+		}
+	
+		return feats;
+	}
+
+	/**
 	 * Get value of CR Sub Token
 	 * @param template
 	 * @param pc
@@ -164,8 +227,9 @@ public class TemplateToken extends Token
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
 		CharacterDisplay display = pc.getDisplay();
-		List<CategorizedAbilitySelection> fList = pc.feats(template, display.getTotalLevels(),
-				display.totalHitDice(), false);
+		List<CategorizedAbilitySelection> fList =
+				feats(pc, template, display.getTotalLevels(),
+					display.totalHitDice());
 		return StringUtil.join(fList, ", ");
 	}
 
