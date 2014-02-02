@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2010-14 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,21 +17,11 @@
  */
 package pcgen.cdom.base;
 
-import java.net.URI;
-
-public interface Loadable extends Identified
+public interface Identified
 {
 
-	public String getLSTformat();
+	public String getKeyName();
 
-	public void setName(String name);
-
-	public URI getSourceURI();
-
-	public void setSourceURI(URI source);
-
-	public boolean isInternal();
-
-	public boolean isType(String type);
+	public String getDisplayName();
 
 }

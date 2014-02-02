@@ -27,7 +27,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.meta.CorePerspective;
@@ -104,9 +104,9 @@ public class CoreUtils
 				List<String> sourceDesc = new ArrayList<String>();
 				for (Object src : view.getSources(id, obj))
 				{
-					if (src instanceof Loadable)
+					if (src instanceof Identified)
 					{
-						sourceDesc.add(getLoadID((Loadable) src));
+						sourceDesc.add(getLoadID(src));
 					}
 					else
 					{
@@ -155,9 +155,9 @@ public class CoreUtils
 
 	private static <T> String getLoadID(T obj)
 	{
-		if (obj instanceof Loadable)
+		if (obj instanceof Identified)
 		{
-			Loadable l = (Loadable) obj;
+			Identified l = (Identified) obj;
 			String name = l.getDisplayName();
 			String id = obj.getClass().getSimpleName() + ": " + name;
 			if (!l.getKeyName().equals(name))

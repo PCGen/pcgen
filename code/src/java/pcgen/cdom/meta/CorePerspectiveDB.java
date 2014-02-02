@@ -25,6 +25,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
 public class CorePerspectiveDB
@@ -53,6 +54,14 @@ public class CorePerspectiveDB
 		FacetBehavior behavior, AbstractSourcedListFacet<T> facet)
 	{
 		FacetView<T> view = new ListFacetView<T>(facet);
+		finishRegistration(perspective, behavior, view, facet);
+		return view;
+	}
+
+	public static <T> Object register(CorePerspective perspective,
+		FacetBehavior behavior, AbstractSingleSourceListFacet<T, ?> facet)
+	{
+		FacetView<T> view = new SingleSourceListFacetView<T>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}

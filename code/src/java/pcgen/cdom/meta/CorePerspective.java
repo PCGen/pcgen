@@ -35,6 +35,7 @@ public class CorePerspective
 	}
 
 	public static final CorePerspective LANGUAGE = new CorePerspective("Granted Languages");
+	public static final CorePerspective DOMAIN = new CorePerspective("Granted Domains");
 	public static final CorePerspective ARMORPROF = new CorePerspective("Armor Proficiencies");
 	public static final CorePerspective SHIELDPROF = new CorePerspective("Shield Proficiencies");
 

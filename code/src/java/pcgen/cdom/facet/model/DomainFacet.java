@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2009-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,6 +19,10 @@ package pcgen.cdom.facet.model;
 
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.helper.ClassSource;
+import pcgen.cdom.meta.CorePerspective;
+import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
+import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Domain;
 
 /**
@@ -26,6 +30,18 @@ import pcgen.core.Domain;
  * Character.
  */
 public class DomainFacet extends
-		AbstractSingleSourceListFacet<Domain, ClassSource>
+		AbstractSingleSourceListFacet<Domain, ClassSource> implements
+		PerspectiveLocation
 {
+	public void init()
+	{
+		CorePerspectiveDB.register(CorePerspective.DOMAIN, FacetBehavior.MODEL, this);
+	}
+
+	@Override
+	public String getIdentity()
+	{
+		return "Character Domains";
+	}
+
 }
