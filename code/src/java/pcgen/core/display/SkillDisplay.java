@@ -27,8 +27,10 @@ import java.util.List;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.SkillComparator;
 import pcgen.util.enumeration.Visibility;
 
 public class SkillDisplay
@@ -111,4 +113,110 @@ public class SkillDisplay
 		return getSkillListInOutputOrder(pc, new ArrayList<Skill>(pc.getSkillSet()));
 	}
 
-}
+	public static void updateSkillsOutputOrder(PlayerCharacter pc, Skill aSkill)
+	{
+		// in order to get the selected table to sort properly
+		// we need to sort the PC's skill list now that the
+		// new skill has been added, this won't get called
+		// when adding a rank to an existing skill
+//		Collections.sort(theCharacter.getSkillList(),
+//			new StringIgnoreCaseComparator());
+
+		// Now re calc the output order
+		if (pc.getSkillsOutputOrder() != SkillsOutputOrder.MANUAL)
+		{
+			resortSelected(pc, pc.getSkillsOutputOrder());
+		}
+		else
+		{
+			Integer outputIndex = pc.getSkillOrder(aSkill);
+			if (outputIndex == null || outputIndex == 0)
+			{
+				pc.setSkillOrder(aSkill, getHighestOutputIndex(pc) + 1);
+			}
+		}
+	}
+
+
+	private static void resortSelected(PlayerCharacter pc, SkillsOutputOrder sortSelection)
+	{
+		int sort = -1;
+		boolean sortOrder = false;
+
+		switch (sortSelection)
+		{
+			case NAME_ASC:
+				sort = SkillComparator.RESORT_NAME;
+				sortOrder = SkillComparator.RESORT_ASCENDING;
+
+				break;
+
+			case NAME_DSC:
+				sort = SkillComparator.RESORT_NAME;
+				sortOrder = SkillComparator.RESORT_DESCENDING;
+
+				break;
+
+			case TRAINED_ASC:
+				sort = SkillComparator.RESORT_TRAINED;
+				sortOrder = SkillComparator.RESORT_ASCENDING;
+
+				break;
+
+			case TRAINED_DSC:
+				sort = SkillComparator.RESORT_TRAINED;
+				sortOrder = SkillComparator.RESORT_DESCENDING;
+
+				break;
+
+			default:
+
+				// Manual sort, or unrecognised, so do no sorting.
+				return;
+		}
+
+		resortSelected(pc, sort, sortOrder);
+	}
+
+	private static void resortSelected(PlayerCharacter pc, int sort, boolean sortOrder)
+	{
+		if (pc == null)
+		{
+			return;
+		}
+		SkillComparator comparator = new SkillComparator(pc, sort, sortOrder);
+		int nextOutputIndex = 1;
+		List<Skill> skillList = new ArrayList<Skill>(pc.getSkillSet());
+		Collections.sort(skillList, comparator);
+
+		for (Skill aSkill : skillList)
+		{
+			Integer outputIndex = pc.getSkillOrder(aSkill);
+			if (outputIndex == null || outputIndex >= 0)
+			{
+				pc.setSkillOrder(aSkill, nextOutputIndex++);
+			}
+		}
+	}
+
+	/**
+	 * Retrieve the highest output index used in any of the
+	 * character's skills.
+	 * @return highest output index
+	 */
+	private static int getHighestOutputIndex(PlayerCharacter pc)
+	{
+		int maxOutputIndex = 0;
+		final List<Skill> skillList = new ArrayList<Skill>(pc.getSkillSet());
+		for (Skill bSkill : skillList)
+		{
+			Integer outputIndex = pc.getSkillOrder(bSkill);
+			if (outputIndex != null && outputIndex > maxOutputIndex)
+			{
+				maxOutputIndex = outputIndex;
+			}
+		}
+
+		return maxOutputIndex;
+	}
+	}

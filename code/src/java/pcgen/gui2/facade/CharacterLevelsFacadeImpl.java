@@ -23,7 +23,6 @@ package pcgen.gui2.facade;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +31,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
@@ -45,12 +43,12 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.display.SkillDisplay;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.ClassFacade;
@@ -578,7 +576,7 @@ public class CharacterLevelsFacadeImpl extends
 		if (!hasSkill)
 		{
 			theCharacter.addSkill(aSkill);
-			updateSkillsOutputOrder(aSkill);
+			SkillDisplay.updateSkillsOutputOrder(theCharacter, aSkill);
 		}
 		
 		final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
@@ -836,112 +834,7 @@ public class CharacterLevelsFacadeImpl extends
 		return numRemaining;
 	}
 
-	private void updateSkillsOutputOrder(Skill aSkill)
-	{
-		// in order to get the selected table to sort properly
-		// we need to sort the PC's skill list now that the
-		// new skill has been added, this won't get called
-		// when adding a rank to an existing skill
-//		Collections.sort(theCharacter.getSkillList(),
-//			new StringIgnoreCaseComparator());
 
-		// Now re calc the output order
-		if (theCharacter.getSkillsOutputOrder() != SkillsOutputOrder.MANUAL)
-		{
-			resortSelected(theCharacter.getSkillsOutputOrder());
-		}
-		else
-		{
-			Integer outputIndex = theCharacter.getSkillOrder(aSkill);
-			if (outputIndex == null || outputIndex == 0)
-			{
-				theCharacter.setSkillOrder(aSkill, getHighestOutputIndex() + 1);
-			}
-		}
-	}
-
-	private void resortSelected(SkillsOutputOrder sortSelection)
-	{
-		int sort = -1;
-		boolean sortOrder = false;
-
-		switch (sortSelection)
-		{
-			case NAME_ASC:
-				sort = SkillComparator.RESORT_NAME;
-				sortOrder = SkillComparator.RESORT_ASCENDING;
-
-				break;
-
-			case NAME_DSC:
-				sort = SkillComparator.RESORT_NAME;
-				sortOrder = SkillComparator.RESORT_DESCENDING;
-
-				break;
-
-			case TRAINED_ASC:
-				sort = SkillComparator.RESORT_TRAINED;
-				sortOrder = SkillComparator.RESORT_ASCENDING;
-
-				break;
-
-			case TRAINED_DSC:
-				sort = SkillComparator.RESORT_TRAINED;
-				sortOrder = SkillComparator.RESORT_DESCENDING;
-
-				break;
-
-			default:
-
-				// Manual sort, or unrecognised, so do no sorting.
-				return;
-		}
-
-		resortSelected(sort, sortOrder);
-	}
-
-	private void resortSelected(int sort, boolean sortOrder)
-	{
-		if (theCharacter == null)
-		{
-			return;
-		}
-		SkillComparator comparator = new SkillComparator(theCharacter, sort, sortOrder);
-		int nextOutputIndex = 1;
-		List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
-		Collections.sort(skillList, comparator);
-
-		for (Skill aSkill : skillList)
-		{
-			Integer outputIndex = theCharacter.getSkillOrder(aSkill);
-			if (outputIndex == null || outputIndex >= 0)
-			{
-				theCharacter.setSkillOrder(aSkill, nextOutputIndex++);
-			}
-		}
-	}
-
-	/**
-	 * Retrieve the highest output index used in any of the
-	 * character's skills.
-	 * @return highest output index
-	 */
-	private int getHighestOutputIndex()
-	{
-		int maxOutputIndex = 0;
-		final List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
-		for (Skill bSkill : skillList)
-		{
-			Integer outputIndex = theCharacter.getSkillOrder(bSkill);
-			if (outputIndex != null && outputIndex > maxOutputIndex)
-			{
-				maxOutputIndex = outputIndex;
-			}
-		}
-
-		return maxOutputIndex;
-	}
-	
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#setGainedSkillPoints(int, int)
