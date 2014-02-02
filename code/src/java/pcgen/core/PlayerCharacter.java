@@ -10412,6 +10412,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public final void setLevelWithoutConsequence(PCClass pcc, final int level)
 	{
 		classFacet.setLevel(id, pcc, level);
+		cabFacet.update(id);
 	}
 
 	public boolean hasEquipment()
