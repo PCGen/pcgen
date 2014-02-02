@@ -65,4 +65,10 @@ public class ClassSource
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "ClassSource: " + pcclass.getFullKey() + " " + level;
+	}
 }
