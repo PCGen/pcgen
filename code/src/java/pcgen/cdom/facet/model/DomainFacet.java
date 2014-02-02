@@ -17,10 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.content.SourcedSelection;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
-import pcgen.cdom.facet.event.DataFacetChangeEvent;
-import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 
@@ -29,33 +26,6 @@ import pcgen.core.Domain;
  * Character.
  */
 public class DomainFacet extends
-		AbstractSingleSourceListFacet<Domain, ClassSource> implements
-		DataFacetChangeListener<SourcedSelection<Domain, ?, ClassSource>>
+		AbstractSingleSourceListFacet<Domain, ClassSource>
 {
-	private DomainSelectionFacet domainSelectionFacet;
-
-	public void setDomainSelectionFacet(
-		DomainSelectionFacet domainSelectionFacet)
-	{
-		this.domainSelectionFacet = domainSelectionFacet;
-	}
-
-	public void init()
-	{
-		domainSelectionFacet.addDataFacetChangeListener(this);
-	}
-
-	@Override
-	public void dataAdded(DataFacetChangeEvent<SourcedSelection<Domain, ?, ClassSource>> dfce)
-	{
-		SourcedSelection<Domain, ?, ClassSource> sel = dfce.getCDOMObject();
-		add(dfce.getCharID(), sel.getObject(), sel.getSource());
-	}
-
-	@Override
-	public void dataRemoved(DataFacetChangeEvent<SourcedSelection<Domain, ?, ClassSource>> dfce)
-	{
-		remove(dfce.getCharID(), dfce.getCDOMObject().getObject());
-	}
-
 }

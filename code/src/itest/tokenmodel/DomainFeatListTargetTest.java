@@ -21,10 +21,9 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import pcgen.cdom.content.SourcedSelection;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.model.DomainSelectionFacet;
+import pcgen.cdom.facet.input.DomainInputFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
@@ -43,7 +42,7 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class DomainFeatListTargetTest extends AbstractTokenModelTest
 {
 	private static FeatToken token = new FeatToken();
-	private DomainSelectionFacet domainSelectionFacet;
+	private DomainInputFacet domainInputFacet;
 
 	@Test
 	public void testSimple() throws PersistenceLayerException
@@ -82,12 +81,10 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 		assertEquals(0, directAbilityFacet.getCount(id));
 		ClassSource classSource = new ClassSource(pcc);
 
-		SourcedSelection<Domain, Language, ClassSource> ss =
-				SourcedSelection.getSelection(source, sel, classSource);
-		domainSelectionFacet.add(id, ss, source);
+		domainInputFacet.directSet(id, source, sel, classSource);
 		assertTrue(containsExpected(granted));
 		assertEquals(1, directAbilityFacet.getCount(id));
-		domainSelectionFacet.remove(id, ss, source);
+		domainInputFacet.remove(id, source);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
@@ -124,8 +121,7 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		domainSelectionFacet =
-				FacetLibrary.getFacet(DomainSelectionFacet.class);
+		domainInputFacet = FacetLibrary.getFacet(DomainInputFacet.class);
 	}
 
 	protected Ability createGrantedObject()

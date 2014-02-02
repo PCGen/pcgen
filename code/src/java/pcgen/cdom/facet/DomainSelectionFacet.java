@@ -15,11 +15,9 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.model;
+package pcgen.cdom.facet;
 
-import pcgen.cdom.content.SourcedSelection;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.helper.ClassSource;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.Domain;
 
 /**
@@ -27,7 +25,7 @@ import pcgen.core.Domain;
  * with the CHOOSE selection that was made (if CHOOSE was present)
  */
 public class DomainSelectionFacet extends
-		AbstractSourcedListFacet<SourcedSelection<Domain, ?, ClassSource>>
+		AbstractAssociationFacet<Domain, Object>
 {
 
 }

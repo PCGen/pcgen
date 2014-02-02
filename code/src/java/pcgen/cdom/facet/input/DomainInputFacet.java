@@ -20,11 +20,11 @@ package pcgen.cdom.facet.input;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.content.SourcedSelection;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.DomainSelectionFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
-import pcgen.cdom.facet.model.DomainSelectionFacet;
+import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
@@ -38,6 +38,8 @@ import pcgen.core.chooser.ChooserUtilities;
  */
 public class DomainInputFacet 
 {
+
+	private DomainFacet domainFacet;
 
 	private DomainSelectionFacet domainSelectionFacet;
 
@@ -122,16 +124,20 @@ public class DomainInputFacet
 		directSet(id, obj, aMan.decodeChoice(choice), source);
 	}
 
-	private <T> void directSet(CharID id, Domain obj, T sel,
+	public <T> void directSet(CharID id, Domain obj, T sel,
 		ClassSource source)
 	{
-		domainSelectionFacet.add(id,
-			SourcedSelection.getSelection(obj, sel, source), obj);
+		domainFacet.add(id, obj, source);
+		if (sel != null)
+		{
+			domainSelectionFacet.set(id, obj, sel);
+		}
 	}
 
 	public void remove(CharID id, Domain obj)
 	{
-		domainSelectionFacet.removeAll(id, obj);
+		domainSelectionFacet.remove(id, obj);
+		domainFacet.remove(id, obj);
 	}
 
 	public void setDomainSelectionFacet(
@@ -140,4 +146,8 @@ public class DomainInputFacet
 		this.domainSelectionFacet = domainSelectionFacet;
 	}
 
+	public void setDomainFacet(DomainFacet domainFacet)
+	{
+		this.domainFacet = domainFacet;
+	}
 }

@@ -18,11 +18,8 @@
 package tokenmodel.testsupport;
 
 import junit.framework.TestCase;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
-import pcgen.cdom.content.Selection;
-import pcgen.cdom.content.SourcedSelection;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -328,19 +325,9 @@ public abstract class AbstractTokenModelTest extends TestCase
 	
 	public abstract CDOMToken<?> getToken();
 
-	protected final <T extends CDOMObject> Selection<T, ?> getSelectionObject(T obj)
-	{
-		return new Selection<T, Object>(obj, getAssoc());
-	}
-
 	protected Object getAssoc()
 	{
 		return null;
-	}
-
-	protected <T extends CDOMObject, ST> SourcedSelection<T, ?, ST> getSourcedSelectionObject(T obj, ST source)
-	{
-		return new SourcedSelection<T, Object, ST>(obj, null, source);
 	}
 
 }

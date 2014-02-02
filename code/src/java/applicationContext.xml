@@ -227,13 +227,12 @@
 	</bean>
 	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
 	<bean id="directAbilityInputFacet" class="pcgen.cdom.facet.DirectAbilityInputFacet" />
-	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet">
-		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
-	</bean>
+	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet"/>
 	<bean id="domainInputFacet" class="pcgen.cdom.facet.input.DomainInputFacet">
 		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
+		<property name="domainFacet" ref="domainFacet"/>
 	</bean>
-	<bean id="domainSelectionFacet" class="pcgen.cdom.facet.model.DomainSelectionFacet"/>
+	<bean id="domainSelectionFacet" class="pcgen.cdom.facet.DomainSelectionFacet"/>
 	<bean id="domainSpellCountFacet" class="pcgen.cdom.facet.DomainSpellCountFacet" />
 	<bean id="domainSpellListFacet" class="pcgen.cdom.facet.DomainSpellListFacet">
 		<property name="spellListFacet" ref="spellListFacet"/>

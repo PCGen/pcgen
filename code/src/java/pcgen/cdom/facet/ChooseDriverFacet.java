@@ -18,12 +18,8 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.content.Selection;
-import pcgen.cdom.facet.event.DataFacetChangeEvent;
-import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
-import pcgen.cdom.facet.model.DomainSelectionFacet;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -50,55 +46,8 @@ public class ChooseDriverFacet
 	private Adder adder = new Adder();
 	private Remover remover = new Remover();
 
-	private class Adder implements DataFacetChangeListener<Selection<?, ?>>,
-			ScopeFacetChangeListener<CDOMObject, Object>
+	private class Adder implements ScopeFacetChangeListener<CDOMObject, Object>
 	{
-		/**
-		 * Triggered when one of the Facets to which ChooseDriverFacet listens
-		 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
-		 * Player Character.
-		 * 
-		 * @param dfce
-		 *            The DataFacetChangeEvent containing the information about
-		 *            the change
-		 * 
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
-		 */
-		@Override
-		public void dataAdded(DataFacetChangeEvent<Selection<?, ?>> dfce)
-		{
-			Selection<?, ?> sel = dfce.getCDOMObject();
-			CDOMObject obj = sel.getObject();
-			if (ChooseActivation.hasNewChooseToken(obj))
-			{
-				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
-				add(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
-			}
-		}
-
-		private <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-			CDOMObject obj, Selection<?, T> sel)
-		{
-			aMan.applyChoice(pc, obj, sel.getSelection());
-		}
-
-		/**
-		 * Triggered when one of the Facets to which ChooseDriverFacet listens
-		 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed
-		 * from a Player Character.
-		 * 
-		 * @param dfce
-		 *            The DataFacetChangeEvent containing the information about
-		 *            the change
-		 * 
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
-		 */
-		@Override
-		public void dataRemoved(DataFacetChangeEvent<Selection<?, ?>> dfce)
-		{
-			//ignore
-		}
-
 		public void dataAdded(ScopeFacetChangeEvent<CDOMObject, Object> dfce)
 		{
 			CDOMObject obj = dfce.getScope();
@@ -122,55 +71,9 @@ public class ChooseDriverFacet
 		}
 	}
 
-	private class Remover implements DataFacetChangeListener<Selection<?, ?>>,
+	private class Remover implements
 			ScopeFacetChangeListener<CDOMObject, Object>
 	{
-		/**
-		 * Triggered when one of the Facets to which ChooseDriverFacet listens
-		 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
-		 * Player Character.
-		 * 
-		 * @param dfce
-		 *            The DataFacetChangeEvent containing the information about
-		 *            the change
-		 * 
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
-		 */
-		@Override
-		public void dataAdded(DataFacetChangeEvent<Selection<?, ?>> dfce)
-		{
-			//ignore
-		}
-
-		/**
-		 * Triggered when one of the Facets to which ChooseDriverFacet listens
-		 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed
-		 * from a Player Character.
-		 * 
-		 * @param dfce
-		 *            The DataFacetChangeEvent containing the information about
-		 *            the change
-		 * 
-		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
-		 */
-		@Override
-		public void dataRemoved(DataFacetChangeEvent<Selection<?, ?>> dfce)
-		{
-			Selection<?, ?> sel = dfce.getCDOMObject();
-			CDOMObject obj = sel.getObject();
-			if (ChooseActivation.hasNewChooseToken(obj))
-			{
-				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
-				remove(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
-			}
-		}
-
-		private <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-			CDOMObject obj, Selection<?, T> sel)
-		{
-			aMan.removeChoice(pc, obj, sel.getSelection());
-		}
-
 		public void dataAdded(ScopeFacetChangeEvent<CDOMObject, Object> dfce)
 		{
 			//ignore
@@ -215,10 +118,10 @@ public class ChooseDriverFacet
 	public void init()
 	{
 		raceSelectionFacet.addScopeFacetChangeListener(1000, adder);
-		domainSelectionFacet.addDataFacetChangeListener(1000, adder);
+		domainSelectionFacet.addScopeFacetChangeListener(1000, adder);
 		templateSelectionFacet.addScopeFacetChangeListener(1000, adder);
 		raceSelectionFacet.addScopeFacetChangeListener(-1000, remover);
-		domainSelectionFacet.addDataFacetChangeListener(-1000, remover);
+		domainSelectionFacet.addScopeFacetChangeListener(-1000, remover);
 		templateSelectionFacet.addScopeFacetChangeListener(-1000, remover);
 	}
 }
