@@ -15,17 +15,41 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.model;
+package pcgen.cdom.facet;
 
-import pcgen.cdom.content.Selection;
-import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.Race;
 
 /**
  * RaceSelectionFacet is a Facet that tracks the Race of a Player Character with
  * the CHOOSE selection that was made
  */
-public class RaceSelectionFacet extends AbstractItemFacet<Selection<Race, ?>>
+public class RaceSelectionFacet extends AbstractAssociationFacet<Race, Object>
+		implements DataFacetChangeListener<Race>
 {
 
+	private RaceFacet raceFacet;
+
+	public void dataAdded(DataFacetChangeEvent<Race> dfce)
+	{
+		//ignore
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<Race> dfce)
+	{
+		remove(dfce.getCharID(), dfce.getCDOMObject());
+	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
+	public void init()
+	{
+		raceFacet.addDataFacetChangeListener(this);
+	}
 }

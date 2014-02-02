@@ -24,7 +24,6 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.cdom.facet.model.DomainSelectionFacet;
-import pcgen.cdom.facet.model.RaceSelectionFacet;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -215,10 +214,10 @@ public class ChooseDriverFacet
 
 	public void init()
 	{
-		raceSelectionFacet.addDataFacetChangeListener(1000, adder);
+		raceSelectionFacet.addScopeFacetChangeListener(1000, adder);
 		domainSelectionFacet.addDataFacetChangeListener(1000, adder);
 		templateSelectionFacet.addScopeFacetChangeListener(1000, adder);
-		raceSelectionFacet.addDataFacetChangeListener(-1000, remover);
+		raceSelectionFacet.addScopeFacetChangeListener(-1000, remover);
 		domainSelectionFacet.addDataFacetChangeListener(-1000, remover);
 		templateSelectionFacet.addScopeFacetChangeListener(-1000, remover);
 	}

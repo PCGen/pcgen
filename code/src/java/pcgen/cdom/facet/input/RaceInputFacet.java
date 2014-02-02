@@ -20,11 +20,11 @@ package pcgen.cdom.facet.input;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
-import pcgen.cdom.facet.model.RaceSelectionFacet;
+import pcgen.cdom.facet.RaceSelectionFacet;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.analysis.ChooseActivation;
@@ -41,6 +41,8 @@ public class RaceInputFacet
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceSelectionFacet raceSelectionFacet;
+
+	private RaceFacet raceFacet;
 
 	public boolean set(CharID id, Race race)
 	{
@@ -108,14 +110,25 @@ public class RaceInputFacet
 		directSet(id, race, aMan.decodeChoice(choice));
 	}
 
-	private <T> boolean directSet(CharID id, Race race, T sel)
+	public <T> boolean directSet(CharID id, Race race, T sel)
 	{
-		return raceSelectionFacet.set(id, new Selection<Race, T>(race, sel));
+		raceFacet.set(id, race);
+		if (sel != null)
+		{
+			raceSelectionFacet.set(id, race, sel);
+		}
+		return true;
 	}
 
 	public void remove(CharID id)
 	{
-		raceSelectionFacet.remove(id);
+		raceFacet.remove(id);
+		/*
+		 * No need to deal with raceSelectionFacet here. It must listen to
+		 * RaceFacet as a set also can implicitly unset the previous race.
+		 * Therefore, listening is easier than trying to write
+		 * raceSelectionFacet here and in directSet above
+		 */
 	}
 
 	public void setRaceSelectionFacet(RaceSelectionFacet raceSelectionFacet)
@@ -123,4 +136,8 @@ public class RaceInputFacet
 		this.raceSelectionFacet = raceSelectionFacet;
 	}
 
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
 }

@@ -62,7 +62,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(containsExpected(granted, null));
 		assertEquals(1, directAbilityFacet.getCount(id));
 		raceFacet.remove(id);

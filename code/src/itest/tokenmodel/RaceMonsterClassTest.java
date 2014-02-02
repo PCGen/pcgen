@@ -48,7 +48,7 @@ public class RaceMonsterClassTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, classFacet.getCount(id));
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		assertEquals(1, classFacet.getCount(id));
 		assertNotNull(pc.getClassKeyed("Granted"));
 		raceFacet.remove(id);

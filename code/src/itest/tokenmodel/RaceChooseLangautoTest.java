@@ -45,7 +45,7 @@ public class RaceChooseLangautoTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, languageFacet.getCount(id));
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(languageFacet.contains(id, granted));
 		assertEquals(1, languageFacet.getCount(id));
 		raceFacet.remove(id);

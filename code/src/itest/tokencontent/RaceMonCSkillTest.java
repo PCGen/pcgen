@@ -81,7 +81,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		ClassSkillList dragonCSL =
 				context.ref.silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");

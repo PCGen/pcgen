@@ -63,7 +63,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		}
 		finishLoad();
 		assertEquals(0, templateConsolidationFacet.getCount(id));
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(templateConsolidationFacet.contains(id, granted));
 		assertEquals(1, templateConsolidationFacet.getCount(id));
 		raceFacet.remove(id);

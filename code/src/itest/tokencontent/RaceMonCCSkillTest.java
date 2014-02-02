@@ -79,7 +79,7 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 		new ExclusiveToken().parseToken(context, sk, "Yes");
 		finishLoad();
 		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		ClassSkillList dragonCSL =
 				context.ref.silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");

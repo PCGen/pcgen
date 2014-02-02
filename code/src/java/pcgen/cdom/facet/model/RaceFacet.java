@@ -29,18 +29,6 @@ import pcgen.core.Race;
 public class RaceFacet extends AbstractItemFacet<Race> implements
 		DataFacetChangeListener<Selection<Race, ?>>
 {
-	private RaceSelectionFacet raceSelectionFacet;
-
-	public void setRaceSelectionFacet(RaceSelectionFacet raceSelectionFacet)
-	{
-		this.raceSelectionFacet = raceSelectionFacet;
-	}
-
-	public void init()
-	{
-		raceSelectionFacet.addDataFacetChangeListener(this);
-	}
-
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Selection<Race, ?>> dfce)
 	{

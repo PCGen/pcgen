@@ -129,7 +129,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		raceFacet.set(id, getSelectionObject(source));
+		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(containsExpected(granted));
 		assertEquals(1, getCount());
 		raceFacet.remove(id);

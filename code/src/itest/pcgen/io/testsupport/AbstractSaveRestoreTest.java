@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.RaceSelectionFacet;
 import pcgen.cdom.facet.TemplateSelectionFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
@@ -50,7 +51,6 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
-import pcgen.cdom.facet.model.RaceSelectionFacet;
 import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
@@ -79,7 +79,6 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
-
 import compare.InequalityTesterInst;
 
 public abstract class AbstractSaveRestoreTest extends TestCase

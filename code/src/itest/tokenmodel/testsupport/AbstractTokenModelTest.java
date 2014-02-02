@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
@@ -42,7 +43,6 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
-import pcgen.cdom.facet.model.RaceSelectionFacet;
 import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
@@ -170,7 +170,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected DomainFacet domainFacet;
 	protected ExpandedCampaignFacet expandedCampaignFacet;
 	protected LanguageFacet languageFacet;
-	protected RaceSelectionFacet raceFacet;
+	protected RaceInputFacet raceFacet;
 	protected SizeFacet sizeFacet;
 	protected SkillFacet skillFacet;
 	protected StatFacet statFacet;
@@ -208,7 +208,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		expandedCampaignFacet =
 				FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 		languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
-		raceFacet = FacetLibrary.getFacet(RaceSelectionFacet.class);
+		raceFacet = FacetLibrary.getFacet(RaceInputFacet.class);
 		sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 		skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		statFacet = FacetLibrary.getFacet(StatFacet.class);

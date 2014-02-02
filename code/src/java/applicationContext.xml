@@ -454,13 +454,14 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- R -->
-	<bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet">
-		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
-	</bean>
+	<bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet"/>
 	<bean id="raceInputFacet" class="pcgen.cdom.facet.input.RaceInputFacet">
 		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
+		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="raceSelectionFacet" class="pcgen.cdom.facet.model.RaceSelectionFacet"/>
+	<bean id="raceSelectionFacet" class="pcgen.cdom.facet.RaceSelectionFacet">
+		<property name="raceFacet" ref="raceFacet"/>
+	</bean>
 	<bean id="raceTypeFacet" class="pcgen.cdom.facet.analysis.RaceTypeFacet">
 		<property name="companionModFacet" ref="companionModFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
