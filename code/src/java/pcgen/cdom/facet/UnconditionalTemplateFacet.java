@@ -22,7 +22,6 @@ import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.core.PCTemplate;
 
 /**
@@ -32,21 +31,10 @@ import pcgen.core.PCTemplate;
 public class UnconditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		implements DataFacetChangeListener<Selection<PCTemplate, ?>>
 {
-	//TODO I don't like that this is a bridge :( -- thpr
-
-	private TemplateSelectionFacet templateSelectionFacet;
-
 	private TemplateFacet templateFacet;
-
-	public void setTemplateSelectionFacet(
-		TemplateSelectionFacet templateSelectionFacet)
-	{
-		this.templateSelectionFacet = templateSelectionFacet;
-	}
 
 	public void init()
 	{
-		templateSelectionFacet.addDataFacetChangeListener(this);
 		addDataFacetChangeListener(templateFacet);
 	}
 

@@ -15,10 +15,9 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.model;
+package pcgen.cdom.facet;
 
-import pcgen.cdom.content.Selection;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCTemplate;
 
 /**
@@ -26,7 +25,7 @@ import pcgen.core.PCTemplate;
  * Character with the CHOOSE selection that was made (if CHOOSE was present)
  */
 public class TemplateSelectionFacet extends
-		AbstractSourcedListFacet<Selection<PCTemplate, ?>>
+		AbstractAssociationFacet<PCTemplate, Object>
 {
 
 }

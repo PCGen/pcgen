@@ -21,8 +21,6 @@ import java.util.Collection;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
@@ -76,11 +74,10 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		Selection<PCTemplate, ?> sel = getSelectionObject(source);
-		templateFacet.add(id, sel, this);
+		templateInputFacet.directAdd(id, source, getAssoc());
 		assertTrue(containsExpected(granted));
 		assertEquals(1, directAbilityFacet.getCount(id));
-		templateFacet.remove(id, sel, this);
+		templateInputFacet.remove(id, source);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
@@ -135,11 +132,10 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected <T extends CDOMObject> Selection<T, ?> getSelectionObject(T obj)
+	protected Language getAssoc()
 	{
-		return new Selection<T, Language>(obj,
-			context.ref.silentlyGetConstructedCDOMObject(Language.class,
-				"English"));
+		return context.ref.silentlyGetConstructedCDOMObject(Language.class,
+			"English");
 	}
 
 	private boolean containsExpected(Ability granted)

@@ -19,10 +19,8 @@ package tokencontent;
 
 import org.junit.Test;
 
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
-import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.gui2.facade.MockUIDelegate;
@@ -40,8 +38,6 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 
 	private static FavoredclassToken token = new FavoredclassToken();
 	private static ClassToken CHOOSE_CLASS_TOKEN = new ClassToken();
-	protected TemplateInputFacet templateInputFacet = FacetLibrary
-			.getFacet(TemplateInputFacet.class);
 
 	private FavoredClassFacet fcFacet;
 
@@ -67,11 +63,10 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		Selection<PCTemplate, ?> sel = getSelectionObject(source);
-		templateFacet.add(id, sel, this);
+		templateInputFacet.directAdd(id, source, getAssoc());
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		templateFacet.remove(id, sel, this);
+		templateInputFacet.remove(id, source);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 

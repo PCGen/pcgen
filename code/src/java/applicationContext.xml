@@ -576,8 +576,9 @@
 	<bean id="templateFeatFacet" class="pcgen.cdom.facet.TemplateFeatFacet"/>
 	<bean id="templateInputFacet" class="pcgen.cdom.facet.input.TemplateInputFacet">
 		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
+		<property name="unconditionalTemplateFacet" ref="unconditionalTemplateFacet"/>
 	</bean>
-	<bean id="templateSelectionFacet" class="pcgen.cdom.facet.model.TemplateSelectionFacet"/>
+	<bean id="templateSelectionFacet" class="pcgen.cdom.facet.TemplateSelectionFacet"/>
 	<bean id="totalWeightFacet" class="pcgen.cdom.facet.analysis.TotalWeightFacet">
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
@@ -588,7 +589,6 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="unconditionalTemplateFacet" class="pcgen.cdom.facet.UnconditionalTemplateFacet">
-		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.analysis.UnencumberedArmorFacet">

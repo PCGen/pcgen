@@ -22,7 +22,6 @@ import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -148,8 +147,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");
 		varsource.put(VariableKey.getConstant("MyCasterLevel"), FormulaFactory.getFormulaFor(4.0));
-		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Object>(varsource, null);
-		templateFacet.add(id, sel, this);
+		templateInputFacet.directAdd(id, varsource, null);
 		pc.calcActiveBonuses();
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());

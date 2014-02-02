@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
@@ -46,7 +47,6 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
@@ -175,7 +175,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected SkillFacet skillFacet;
 	protected StatFacet statFacet;
 	protected TemplateFacet templateConsolidationFacet;
-	protected TemplateSelectionFacet templateFacet;
+	protected TemplateInputFacet templateInputFacet;
 	protected WeaponProfFacet weaponProfFacet;
 
 	protected void setUpContext() throws PersistenceLayerException
@@ -212,7 +212,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 		skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		statFacet = FacetLibrary.getFacet(StatFacet.class);
-		templateFacet = FacetLibrary.getFacet(TemplateSelectionFacet.class);
+		templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
 		templateConsolidationFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 
@@ -328,9 +328,14 @@ public abstract class AbstractTokenModelTest extends TestCase
 	
 	public abstract CDOMToken<?> getToken();
 
-	protected <T extends CDOMObject> Selection<T, ?> getSelectionObject(T obj)
+	protected final <T extends CDOMObject> Selection<T, ?> getSelectionObject(T obj)
 	{
-		return new Selection<T, Object>(obj, null);
+		return new Selection<T, Object>(obj, getAssoc());
+	}
+
+	protected Object getAssoc()
+	{
+		return null;
 	}
 
 	protected <T extends CDOMObject, ST> SourcedSelection<T, ?, ST> getSourcedSelectionObject(T obj, ST source)

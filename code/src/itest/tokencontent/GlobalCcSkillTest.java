@@ -20,7 +20,6 @@ package tokencontent;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
@@ -89,13 +88,12 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		finishLoad();
 		pc.incrementClassLevel(1, wizard);
 		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
-		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
 		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(granted, wizard));
-		templateFacet.add(id, sel, this);
+		templateInputFacet.directAdd(id, source, granted);
 		pc.calcActiveBonuses();
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
 		assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
-		templateFacet.remove(id, sel, this);
+		templateInputFacet.remove(id, source);
 		pc.calcActiveBonuses();
 		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
 	}

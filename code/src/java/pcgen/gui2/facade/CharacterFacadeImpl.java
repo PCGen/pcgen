@@ -52,7 +52,6 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -69,7 +68,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.LanguageFacet;
-import pcgen.cdom.facet.model.TemplateSelectionFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
@@ -309,7 +308,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		FacetLibrary.getFacet(LanguageFacet.class)
 			.removeDataFacetChangeListener(langListener);
-		FacetLibrary.getFacet(TemplateSelectionFacet.class)
+		FacetLibrary.getFacet(TemplateFacet.class)
 			.removeDataFacetChangeListener(templateListener);
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
@@ -438,7 +437,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				new DefaultListFacade<TemplateFacade>(
 					charDisplay.getDisplayVisibleTemplateList());
 		templateListener = new TemplateListener(); 
-		FacetLibrary.getFacet(TemplateSelectionFacet.class).addDataFacetChangeListener(templateListener);
+		FacetLibrary.getFacet(TemplateFacet.class).addDataFacetChangeListener(templateListener);
 
 		initTodoList();
 
@@ -4674,13 +4673,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * The Class <code>TemplateListener</code> tracks adding and removal of 
 	 * templates to the character.
 	 */
-	public class TemplateListener implements DataFacetChangeListener<Selection<PCTemplate, ?>>
+	public class TemplateListener implements DataFacetChangeListener<PCTemplate>
 	{
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Selection<PCTemplate, ?>> dfce)
+		public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4693,7 +4692,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Selection<PCTemplate, ?>> dfce)
+		public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
