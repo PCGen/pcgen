@@ -17,10 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.content.Selection;
 import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.cdom.facet.event.DataFacetChangeEvent;
-import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
@@ -29,25 +26,12 @@ import pcgen.core.PCTemplate;
  * been granted to a Player Character.
  */
 public class UnconditionalTemplateFacet extends AbstractListFacet<PCTemplate>
-		implements DataFacetChangeListener<Selection<PCTemplate, ?>>
 {
 	private TemplateFacet templateFacet;
 
 	public void init()
 	{
 		addDataFacetChangeListener(templateFacet);
-	}
-
-	@Override
-	public void dataAdded(DataFacetChangeEvent<Selection<PCTemplate, ?>> dfce)
-	{
-		add(dfce.getCharID(), dfce.getCDOMObject().getObject());
-	}
-
-	@Override
-	public void dataRemoved(DataFacetChangeEvent<Selection<PCTemplate, ?>> dfce)
-	{
-		remove(dfce.getCharID(), dfce.getCDOMObject().getObject());
 	}
 
 	public void setTemplateFacet(TemplateFacet templateFacet)
