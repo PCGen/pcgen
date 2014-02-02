@@ -9500,7 +9500,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			{
 				Collection<? extends CategorizedAbilitySelection> featList = 
 						getTemplateFeatList(lt);
-				if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
+				if (featList.isEmpty() && addNew && lt.get(IntegerKey.LEVEL) <= level)
 				{
 					featList = getLevelFeat(lt);
 				}
@@ -9514,7 +9514,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			Collection<? extends CategorizedAbilitySelection> featList =
 					getTemplateFeatList(lt);
-			if (featList == null && addNew && lt.get(IntegerKey.LEVEL) <= level)
+			if (featList.isEmpty() && addNew && lt.get(IntegerKey.LEVEL) <= level)
 			{
 				featList = getLevelFeat(lt);
 			}
@@ -9528,7 +9528,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			Collection<? extends CategorizedAbilitySelection> featList =
 					getTemplateFeatList(lt);
-			if (featList == null && addNew && lt.get(IntegerKey.HD_MAX) <= hitdice
+			if (featList.isEmpty() && addNew && lt.get(IntegerKey.HD_MAX) <= hitdice
 					&& lt.get(IntegerKey.HD_MIN) >= hitdice)
 			{
 				featList = getLevelFeat(lt);
@@ -9541,7 +9541,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		Collection<? extends CategorizedAbilitySelection> featList =
 				getTemplateFeatList(pct);
-		if (featList == null && addNew)
+		if (featList.isEmpty() && addNew)
 		{
 			featList = getLevelFeat(pct);
 		}
