@@ -5015,8 +5015,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		this.setDirty(true);
 
-		getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC);
-
 		calcActiveBonuses();
 		int postLockMonsterSkillPoints; // this is what this value was before
 		// adding this template
