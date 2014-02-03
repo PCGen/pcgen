@@ -349,7 +349,7 @@ BIO
 			<used>0</used>
 			<unused>20</unused>
 		</skillpoints>
-		<list_mods></list_mods>
+		<list_mods>Test96f +5</list_mods>
 		<max_class_skill_level>10</max_class_skill_level>
 		<max_cross_class_skill_level>5</max_cross_class_skill_level>
 		<skill>
@@ -727,6 +727,74 @@ BIO
 			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
+			<name>Test96d</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Test96d</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test96f</name>
+			<ranks>5.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Test96f</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>5</trained_total>
+			<exclusive_total>5</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test96g</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>STR</ability>
+			<synergy>Test96g</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Test96h</name>
+			<ranks>0.0</ranks>
+			<mod>20<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>20</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>20<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Test96h</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>20</trained_total>
+			<exclusive_total>20</exclusive_total>
+		</skill>
+		<skill>
 			<name>Uber Scripting from five ranks in Test Coding Script</name>
 			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
@@ -1072,7 +1140,7 @@ BIO
 	<languages>Common</languages>
 
 	<templates>
-		<list>TEST-64, TEST-66A, Test-63a1, Test-63a2, Test-63b1, Test-63b2, Test-63c1, Test-63c2, Test58, Test58b</list>
+		<list>TEST-64, TEST-66A, Test-63a1, Test-63a2, Test-63b1, Test-63b2, Test-63c1, Test-63c2, Test-96, Test-96a, Test-96f, Test-96h, Test58, Test58b</list>
 		<template>
 			<name>TEST-64</name>
 			<strmod>0</strmod>
@@ -1180,6 +1248,66 @@ BIO
 		</template>
 		<template>
 			<name>Test-63c2</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Test-96</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Test-96a</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Test-96f</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Test-96h</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
