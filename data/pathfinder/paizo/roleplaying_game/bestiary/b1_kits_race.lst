@@ -4698,7 +4698,7 @@ FEAT:Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Hydra (Pyrohydra) 	TYPE:DefaultMonster.Magical Beast	Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Pyrohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+STARTPACK:Hydra (Pyrohydra) 	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Pyrohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
 ALIGN:TN
 RACE:Hydra (Pyrohydra)	!PRERACE:1,%
 NAME:Pyrohydra
