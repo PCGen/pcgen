@@ -139,15 +139,16 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				int cLoc = token.indexOf(':');
 				if (cLoc == -1)
 				{
-					Logging
-							.errorPrint("Invalid Token - does not contain a colon: "
-									+ token);
+					Logging.errorPrint("Invalid Token - "
+						+ "does not contain a colon: '" + token + "' on line :"
+						+ inputLine + " in " + source.getURI());
 					continue;
 				}
 				else if (cLoc == 0)
 				{
-					Logging.errorPrint("Invalid Token - starts with a colon: "
-							+ token);
+					Logging.errorPrint("Invalid Token - starts with a colon: '"
+						+ token + "' on line :" + inputLine + " in "
+						+ source.getURI());
 					continue;
 				}
 
@@ -185,7 +186,9 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 					{
 						context.rollback();
 						Logging.errorPrint("Invalid Stateful Token"
-								+ " from Region NONE: PREREGION:" + region);
+							+ " from Region NONE: PREREGION:'" + region
+							+ "' on line :" + inputLine + " in "
+							+ source.getURI());
 						Logging.replayParsedMessages();
 					}
 					Logging.clearParseMessages();
@@ -196,7 +199,9 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 					String gt = st.nextToken();
 					if (!context.addStatefulToken(gt.intern()))
 					{
-						Logging.errorPrint("Invalid Stateful Token: " + gt);
+						Logging.errorPrint("Invalid Stateful Token: '" + gt
+							+ "' on line :" + inputLine + " in "
+							+ source.getURI());
 					}
 				}
 			}
