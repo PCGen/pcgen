@@ -29,6 +29,23 @@ Test59a														USEUNTRAINED:NO								TYPE:Test																											
 Test59c														USEUNTRAINED:NO								TYPE:Test
 Test59p			KEYSTAT:CHA	USEUNTRAINED:YES	PREVAREQ:MonkeyAllowed,1
 
+Test96a		USEUNTRAINED:NO	EXCLUSIVE:YES
+#Give to the PC as a CLASS skill (any method you choose), but provide no ranks
+Test96b		USEUNTRAINED:YES	EXCLUSIVE:YES
+#Do not provide in any way to the PC
+Test96c		USEUNTRAINED:NO	EXCLUSIVE:NO
+#Do not provide in any way to the PC (CROSS_CLASS by default)
+Test96d	USEUNTRAINED:YES	EXCLUSIVE:NO
+#Do not provide in any way to the PC (CROSS_CLASS by default)
+Test96e	USEUNTRAINED:NO	EXCLUSIVE:NO
+#Provide direct Ranks to the PC (selected by the user)
+Test96f	USEUNTRAINED:NO	EXCLUSIVE:NO
+#Provide ranks to the PC via BONUS:SKILLRANK
+Test96g	USEUNTRAINED:YES	EXCLUSIVE:NO	KEYSTAT:STR
+#Provide no ranks, but bonuses to the PC from STAT/SIZE only (may already be there by default, if so, that's ok)
+Test96h	USEUNTRAINED:YES	EXCLUSIVE:NO
+#Provide no ranks, but bonuses to the PC from something other than STAT/SIZE
+
 
 # Bug Code 453
 TestMasterSkill													USEUNTRAINED:NO								TYPE:ClassSkill																																																			BONUS:SKILLRANK|TestSubSkill|skillinfo("TOTAL","TestMasterSkill")

@@ -6,6 +6,12 @@ TEST-92	VFEAT:Test92(Balance)	AUTO:FEAT|Test92(Hide)
 TEST-93	VFEAT:Test93(Balance)	AUTO:FEAT|Test93(Hide)
 TEST-94	VFEAT:Test94(Balance)	AUTO:FEAT|Test94(Hide)
 
+Test-96	TEMPLATE:Test-96a|Test-96f|Test-96h
+
+Test-96a	CSKILL:Test96a
+Test-96f	BONUS:SKILLRANK|Test96f|20
+Test-96h	BONUS:SKILL|Test96h|20
+
 # Template Name	Visible	Source Page						Define a Stat		Required Var. value	Bonus to skill									Stat bonus		Ability										Feat							Region		Removable?		Innate Spells										More language
 Region Order																																ABILITY:Special Ability|AUTOMATIC|Order Works|PREREGION:1,Order								REGION:Order
 
