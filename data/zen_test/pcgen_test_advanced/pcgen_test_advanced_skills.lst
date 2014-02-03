@@ -27,6 +27,7 @@ Test59b														USEUNTRAINED:NO								TYPE:Test
 
 Test59a														USEUNTRAINED:NO								TYPE:Test																																																				BONUS:SKILLRANK|Test59c|skillinfo("TOTAL","Test59a")|PRECLASS:1,Test Nothing=4
 Test59c														USEUNTRAINED:NO								TYPE:Test
+Test59p			KEYSTAT:CHA	USEUNTRAINED:YES	PREVAREQ:MonkeyAllowed,1
 
 
 # Bug Code 453
