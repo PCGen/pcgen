@@ -12,9 +12,6 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearm
 1																	AUTO:FEAT|Armor Proficiency (Light)
-###Block: Vars and Pools
-4	BONUS:VAR|GunslingerBonusFeatCount|CL/4
-5	BONUS:VAR|GunTrainingSelection|(CL-1)/4
 ###Block: Level progression
 1	ABILITY:Gunslinger Class Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
 1	ABILITY:Gunslinger Class Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
