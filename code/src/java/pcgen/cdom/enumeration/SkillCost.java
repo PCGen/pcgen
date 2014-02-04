@@ -35,12 +35,6 @@ public enum SkillCost
 		{
 			return SettingsHandler.getGame().getSkillCost_Class();
 		}
-		
-		@Override
-		public String toString()
-		{
-			return "Class";
-		}
 	},
 
 	CROSS_CLASS
@@ -50,12 +44,6 @@ public enum SkillCost
 		{
 			return SettingsHandler.getGame().getSkillCost_CrossClass();
 		}
-
-		@Override
-		public String toString()
-		{
-			return "Cross Class";
-		}
 	},
 
 	EXCLUSIVE
@@ -64,12 +52,6 @@ public enum SkillCost
 		public int getCost()
 		{
 			return SettingsHandler.getGame().getSkillCost_Exclusive();
-		}
-
-		@Override
-		public String toString()
-		{
-			return "Exclusive";
 		}
 	};
 
