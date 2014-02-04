@@ -581,7 +581,9 @@ public class AbilityToken extends Token
 				final String key =
 						tokenSource.substring(tokenSource
 							.indexOf(".HASASPECT.") + 11);
-				retString = getHasAspectString(aAbility, key);
+				retString =
+						getHasAspectString(pc, aAbility,
+							AspectName.getConstant(key));
 			}
 			else if (tokenSource.indexOf(".CATEGORY") > -1)
 			{
@@ -699,46 +701,30 @@ public class AbilityToken extends Token
 			return "";
 		}
 
-		int index = -1;
+		AspectName aspectName;
 		try
 		{
-			index = Integer.parseInt(key);
-		}
-		catch (NumberFormatException e)
-		{
-			// Ignore exception - expect this as we can get a String at this point
-		}
-		List<Aspect> aspects = null;
-		if (index > -1)
-		{
-			if (index < ability.getSafeSizeOfMapFor(MapKey.ASPECT))
+			int index = Integer.parseInt(key);
+			if ((index >= 0) && (index < ability.getSafeSizeOfMapFor(MapKey.ASPECT)))
 			{
 				Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
 				List<AspectName> sortedKeys =
 						new ArrayList<AspectName>(aspectKeys);
 				Collections.sort(sortedKeys);
-				aspects = ability.get(MapKey.ASPECT, sortedKeys.get(index));
+				aspectName = sortedKeys.get(index);
+			}
+			else
+			{
+				return "";
 			}
 		}
-		else
+		catch (NumberFormatException e)
 		{
-			aspects = getAspectsByName(ability, key);
+			// Ignore exception - expect this as we can get a String at this point
+			aspectName = AspectName.getConstant(key);
 		}
 
-		StringBuilder buff = new StringBuilder();
-		if (aspects != null)
-		{
-			for (int i = 0; i < aspects.size(); i++)
-			{
-				Aspect aspect = aspects.get(i);
-				if (index > -1 & i == 0)
-				{
-					buff.append(aspect.getName()).append(": ");
-				}
-				buff.append(aspect.getAspectText(pc, ability));
-			}
-		}
-		return buff.toString();
+		return ability.printAspect(pc, aspectName);
 	}
 
 	/**
@@ -751,33 +737,15 @@ public class AbilityToken extends Token
 	 * 
 	 * @return Y if the aspect is present, N if not.
 	 */
-	private String getHasAspectString(Ability ability, String key)
+	private String getHasAspectString(PlayerCharacter pc, Ability ability, AspectName key)
 	{
-		List<Aspect> target = getAspectsByName(ability, key);
-		if (target == null)
+		List<Aspect> aspects = ability.get(MapKey.ASPECT, key);
+		Aspect aspect = ability.lastPassingAspect(aspects, pc);
+		if (aspect == null)
 		{
 			return "N";
 		}
 		return "Y";
-	}
-
-	/**
-	 * Retrieve a named aspect from the ability.
-	 * 
-	 * @param ability
-	 *            The ability to query
-	 * @param key
-	 *            The name of the aspect
-	 * @return The aspect, or null if not present.
-	 */
-	private List<Aspect> getAspectsByName(Ability ability, String key)
-	{
-		if (key == null)
-		{
-			return null;
-		}
-
-		return ability.get(MapKey.ASPECT, AspectName.getConstant(key));
 	}
 
 	/**
