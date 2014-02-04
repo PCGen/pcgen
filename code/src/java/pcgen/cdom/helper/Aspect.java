@@ -30,7 +30,6 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -69,7 +68,6 @@ public class Aspect extends ConcretePrereqObject
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
 	private static final String VAR_CHOICE = "%CHOICE"; //$NON-NLS-1$
 	private static final String VAR_LIST = "%LIST"; //$NON-NLS-1$
-	private static final String VAR_FEATS = "%FEAT="; //$NON-NLS-1$
 	
 	private static final String VAR_MARKER = "$$VAR:"; //$NON-NLS-1$
 	
@@ -302,33 +300,7 @@ public class Aspect extends ConcretePrereqObject
 								joinString));
 					}
 				}
-				else if ( var.startsWith(VAR_FEATS) )
-				{
-					final String featName = var.substring(VAR_FEATS.length());
-					if (featName.startsWith("TYPE=") || featName.startsWith("TYPE."))
-					{
-						final List<Ability> feats = aPC.getAggregateAbilityList(AbilityCategory.FEAT);
-						boolean first = true;
-						for ( final Ability feat : feats )
-						{
-							if (feat.isType(featName.substring(5)))
-							{
-								if (!first)
-								{
-									buf.append(Constants.COMMA).append(' ');
-								}
-								buf.append(aPC.getDescription(feat));
-								first = false;
-							}
-						}
-					}
-					else
-					{
-						final Ability feat = aPC.getAbilityKeyed(AbilityCategory.FEAT, featName);
-						buf.append(aPC.getDescription(feat));
-					}
-				}
-				else if ( var.startsWith("\"") ) //$NON-NLS-1$
+					else if ( var.startsWith("\"") ) //$NON-NLS-1$
 				{
 					buf.append(var.substring(1, var.length() - 1));
 				}
