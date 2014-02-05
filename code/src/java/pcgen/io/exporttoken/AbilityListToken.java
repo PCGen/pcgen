@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
@@ -158,7 +159,7 @@ public class AbilityListToken extends Token
 		}
 
 		List<Ability> aList =
-				AbilityToken.buildAbilityList(types, negate, null,
+				buildAbilityList(types, negate, null,
 					AbilityToken.ABILITY_VISIBLE, aspect, abilityList);
 
 		boolean needComma = false;
@@ -175,6 +176,49 @@ public class AbilityListToken extends Token
 
 		return retString.toString();
 	}
+
+	/**
+	 * Build up the list of abilities of interest based on the type and visibility selection.
+	 * 
+	 * @param types
+	 *            The list of types which it must match at least one of.
+	 * @param negate
+	 *            The list of types it must not match any of.
+	 * @param abilityType
+	 *            The type definition it must match.
+	 * @param aspect
+	 *            The aspect which it must match.
+	 * @return List of abilities based on the type, visibility, and aspect selection.
+	 */
+	static List<Ability> buildAbilityList(List<String> types,
+		List<String> negate, String abilityType, int visibility,
+		String aspect, List<Ability> listOfAbilities)
+	{
+		// List to build up
+		List<Ability> aList = new ArrayList<Ability>();
+
+		// Sort the ability list passed in
+		Globals.sortPObjectListByName(listOfAbilities);
+
+		boolean matchTypeDef = false;
+		boolean matchVisibilityDef = false;
+		boolean matchAspectDef = false;
+
+		// For each ability figure out whether it should be displayed depending
+		// on its visibility filtering and its ability type filtering 
+		for (Ability aAbility : listOfAbilities)
+		{
+			matchTypeDef = AbilityToken.abilityMatchesType(abilityType, aAbility, types, negate);
+			matchVisibilityDef = AbilityToken.abilityMatchesVisibility(visibility, aAbility);
+			matchAspectDef = AbilityToken.abilityMatchesAspect(aspect, aAbility);
+			if (matchTypeDef && matchVisibilityDef && matchAspectDef)
+			{
+				aList.add(aAbility);
+			}
+		}
+		return aList;
+	}
+
 
 	/**
 	 * Returns the correct list of abilities of a particular category for the character.

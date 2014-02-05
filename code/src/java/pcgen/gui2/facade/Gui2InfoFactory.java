@@ -43,6 +43,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AspectName;
@@ -50,12 +51,14 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -510,7 +513,10 @@ public class Gui2InfoFactory implements InfoFactory
 				{
 					buff.append(", ");
 				}
-				buff.append(ability.printAspect(pc, key));
+				//Assert here that the actual text displayed is not critical
+				buff.append(Aspect.printAspect(pc, key, Collections
+					.singletonList(new CNAbility(ability.getCDOMCategory(),
+						ability, Nature.NORMAL))));
 			}
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Aspects", //$NON-NLS-1$

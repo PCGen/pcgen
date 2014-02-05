@@ -23,10 +23,11 @@
 
 package plugin.exporttokens;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -57,20 +58,23 @@ public class AbilityAutoToken extends AbilityToken
 	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
 	 */
 	@Override
-	protected List<Ability> getAbilityList(PlayerCharacter pc,
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
 	{
-		final List<Ability> abilityList = new ArrayList<Ability>();
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
-			if (aCat.getParentCategory().equals(aCategory))
+			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
 			{
-				abilityList.addAll(pc.getAbilityList(aCat, Nature.AUTOMATIC));
+				for (Ability a : pc.getAbilityList(aCat, Nature.AUTOMATIC))
+				{
+					listOfAbilities.addToListFor(a, new CNAbility(aCat, a, Nature.AUTOMATIC));
+				}
 			}
 		}
-		return abilityList;
+		return listOfAbilities;
 	}
 
 	/**

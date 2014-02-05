@@ -28,7 +28,9 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.EntityEncoder;
@@ -240,19 +242,17 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getAspectText( final PlayerCharacter aPC, Ability theOwner )
+	public String getAspectText(final PlayerCharacter aPC,
+		List<CNAbility> abilities)
 	{
 		final StringBuilder buf = new StringBuilder();
 		
-		if (theOwner != null)
+		if ((abilities == null) || (abilities.size() == 0))
 		{
-			Ability pcAbility = aPC.getAbilityMatching(theOwner);
-			if (pcAbility != null)
-			{
-				theOwner = pcAbility;
-			}
+			return "";
 		}
-		if(!qualifies(aPC, theOwner))
+		Ability sampleAbilityObject = abilities.get(0).getAbility();
+		if(!qualifies(aPC, sampleAbilityObject))
 		{
 			return "";
 		}
@@ -269,36 +269,28 @@ public class Aspect extends ConcretePrereqObject
 				final String var = theVariables.get(ind - 1);
 				if ( var.equals(VAR_NAME) )
 				{
-					if ( theOwner != null )
-					{
-						buf.append(theOwner.getOutputName());
-					}
-				}
-				else if ( var.equals(VAR_CHOICE) )
-				{
-					if (theOwner != null && aPC.hasAssociations(theOwner))
-					{
-						buf.append(aPC.getAssociationList(theOwner).get(0));
-					}
+					buf.append(sampleAbilityObject.getOutputName());
 				}
 				else if ( var.equals(VAR_LIST) )
 				{
-					if ( theOwner != null )
+					List<String> assocList = new ArrayList<String>();
+					for (CNAbility cna : abilities)
 					{
-						List<String> assocList = aPC.getAssociationList(theOwner);
-						String joinString;
-						if (assocList.size() == 2)
-						{
-							joinString = " and ";
-						}
-						else
-						{
-							joinString = ", ";
-						}
-		                buf.append(StringUtil.joinToStringBuilder(aPC
-								.getAssociationList(theOwner),
-								joinString));
+						Ability a = aPC.getPCAbility(cna);
+						a = (a == null) ? cna.getAbility() : a;
+						assocList.addAll(aPC.getAssociationList(a));
 					}
+					String joinString;
+					if (assocList.size() == 2)
+					{
+						joinString = " and ";
+					}
+					else
+					{
+						joinString = ", ";
+					}
+					buf.append(StringUtil.joinToStringBuilder(assocList,
+						joinString));
 				}
 					else if ( var.startsWith("\"") ) //$NON-NLS-1$
 				{
@@ -391,5 +383,57 @@ public class Aspect extends ConcretePrereqObject
 		}
 		return theComponents.equals(other.theComponents)
 			&& (theVariables == null || theVariables.equals(other.theVariables));
+	}
+
+	public static String printAspect(PlayerCharacter pc, AspectName key,
+		List<CNAbility> abilities, boolean printName)
+	{
+		if (abilities.size() == 0)
+		{
+			return "";
+		}
+		Ability sampleAbilityObject = abilities.get(0).getAbility();
+		StringBuilder buff = new StringBuilder();
+		List<Aspect> aspects = sampleAbilityObject.get(MapKey.ASPECT, key);
+		Aspect aspect = lastPassingAspect(aspects, pc, sampleAbilityObject);
+		if (aspect != null)
+		{
+			if (printName)
+			{
+				buff.append(aspect.getName()).append(": ");
+			}
+			buff.append(aspect.getAspectText(pc, abilities));
+		}
+		return buff.toString();
+	}
+
+	public static String printAspect(PlayerCharacter pc, AspectName key,
+		List<CNAbility> abilities)
+	{
+		return printAspect(pc, key, abilities, true);
+	}
+
+	public static String printAspectValue(PlayerCharacter pc, AspectName key,
+		List<CNAbility> abilities)
+	{
+		return printAspect(pc, key, abilities, false);
+	}
+
+	public static Aspect lastPassingAspect(List<Aspect> aspects,
+		PlayerCharacter pc, Ability a)
+	{
+		Aspect retAspect = null;
+		if (aspects != null)
+		{
+			for (int i = 0; i < aspects.size(); i++)
+			{
+				Aspect testAspect = aspects.get(i);
+				if (testAspect.qualifies(pc, a))
+				{
+					retAspect = testAspect;
+				}
+			}
+		}
+		return retAspect;
 	}
 }

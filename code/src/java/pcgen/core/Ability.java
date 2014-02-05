@@ -28,12 +28,9 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.facade.AbilityFacade;
@@ -297,39 +294,6 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		return false;
 	}
 
-	public String printAspect(PlayerCharacter pc, AspectName key) {
-		StringBuilder buff = new StringBuilder();
-		List<Aspect> aspects = this.get(MapKey.ASPECT, key);
-		Aspect aspect = lastPassingAspect(aspects, pc);
-		if (aspect != null)
-		{
-			buff.append(aspect.getName()).append(": ");
-			buff.append(aspect.getAspectText(pc, this));
-		}
-		return buff.toString();
-	}
-	
-	public String printAspectValue(PlayerCharacter pc, AspectName key)
-	{
-		List<Aspect> aspects = this.get(MapKey.ASPECT, key);
-		Aspect aspect = lastPassingAspect(aspects, pc);
-		return (aspect == null) ? "" : aspect.getAspectText(pc, this);
-	}
-	
-	public Aspect lastPassingAspect(List<Aspect> aspects, PlayerCharacter pc) {
-		Aspect retAspect = null;
-		if(aspects != null) {
-			for(int i = 0; i < aspects.size(); i++) {
-				Aspect testAspect = aspects.get(i);
-				if(testAspect.qualifies(pc, this)) {
-					retAspect = testAspect;
-				}
-			}
-		}
-		return retAspect;
-	}
-
-    @Override
 	public double getCost() {
 		// TODO Auto-generated method stub
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();

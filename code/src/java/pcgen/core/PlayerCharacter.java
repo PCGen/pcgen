@@ -58,6 +58,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
@@ -10309,6 +10310,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		newSet.addAll(abFacet.get(id, cat, nature));
 		newSet.addAll(grantedAbilityFacet.get(id, cat, nature));
 		return newSet;
+	}
+
+	public Ability getPCAbility(Category<Ability> cat, Nature nature, Ability a)
+	{
+		Ability cab = abFacet.getContained(id, cat, nature, a);
+		Ability gab = grantedAbilityFacet.getContained(id, cat, nature, a);
+		return (cab == null) ? gab : cab;
+	}
+
+	public Ability getPCAbility(CNAbility cna)
+	{
+		return getPCAbility(cna.getAbilityCategory(), cna.getNature(),
+			cna.getAbility());
 	}
 
 	/**
