@@ -316,7 +316,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	public void testDescription()
 	{
 		final Description desc1 = new Description("Description 1.");
-		final PObject pobj = new PObject();
+		final Race pobj = new Race();
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
 		PlayerCharacter pc = getCharacter();

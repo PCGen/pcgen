@@ -133,7 +133,7 @@ public class DomainToken extends Token
 			Domain domain =
 				new ArrayList<Domain>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
 
-			return DescriptionFormatting.piDescString(pc, domain);
+			return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true);
 		}
 		catch (Exception e)
 		{

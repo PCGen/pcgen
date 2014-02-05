@@ -11,6 +11,7 @@ import java.awt.Insets;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,8 @@ import java.util.Properties;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Equipment;
@@ -284,7 +287,7 @@ public class Page2Panel extends javax.swing.JPanel
 		for (pcgen.core.Domain domain : pc.getDisplay().getSortedDomainSet())
 		{
 			domainMap.put(OutputNameFormatting.getOutputName(domain),
-			    DescriptionFormatting.piDescString(pc, domain));
+			    DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true));
 		}
 		return domainMap;
 	}
@@ -297,7 +300,10 @@ public class Page2Panel extends javax.swing.JPanel
 		for (int i = 0; i < feats.size(); i++)
 		{
 			Ability feat = (Ability) feats.get(i);
-			featMap.put(QualifiedName.qualifiedName(aPC, feat), aPC.getDescription(feat));
+			List<CNAbility> wrappedFeat =
+					Collections.singletonList(new CNAbility(feat
+						.getCDOMCategory(), feat, Nature.NORMAL));
+			featMap.put(QualifiedName.qualifiedName(aPC, feat), aPC.getDescription(wrappedFeat));
 		}
 		return featMap;
 	}

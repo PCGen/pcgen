@@ -23,11 +23,15 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
@@ -166,16 +170,33 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getDescription( final PlayerCharacter aPC, PObject theOwner )
+	public String getDescription( final PlayerCharacter aPC, List<? extends Object> objList )
 	{
-		final StringBuilder buf = new StringBuilder();
-		
-		if (this.qualifies(aPC, theOwner))
+		if (objList.size() == 0)
 		{
-			if ( theOwner instanceof Ability )
-			{
-				theOwner = aPC.getAbilityMatching((Ability)theOwner);
-			}
+			return Constants.EMPTY_STRING;
+		}
+		PObject sampleObject;
+		Object b = objList.get(0);
+		if (b instanceof PObject)
+		{
+			sampleObject = (PObject) b;
+		}
+		else if (b instanceof CNAbility)
+		{
+			sampleObject = ((CNAbility) b).getAbility();
+		}
+		else
+		{
+			Logging
+				.errorPrint("Unable to resolve Description with object of type: "
+					+ b.getClass().getName());
+			return Constants.EMPTY_STRING;
+		}
+		
+		final StringBuilder buf = new StringBuilder();
+		if (this.qualifies(aPC, sampleObject))
+		{
 			for ( final String comp : theComponents )
 			{
 				if ( comp.startsWith(VAR_MARKER) )
@@ -183,67 +204,116 @@ public class Description extends ConcretePrereqObject
 					final int ind = Integer.parseInt(comp.substring(VAR_MARKER.length()));
 					if ( theVariables == null || ind > theVariables.size() )
 					{
-						buf.append(Constants.EMPTY_STRING);
 						continue;
 					}
 					final String var = theVariables.get(ind - 1);
 					if ( var.equals(VAR_NAME) )
 					{
-						if ( theOwner != null )
+						if ( sampleObject != null )
 						{
-							buf.append(theOwner.getOutputName());
+							buf.append(sampleObject.getOutputName());
 						}
 					}
 					else if ( var.equals(VAR_CHOICE) )
 					{
-						if ( theOwner != null && aPC.hasAssociations(theOwner) )
+						Object obj = objList.get(0);
+						PObject object;
+						if (obj instanceof PObject)
 						{
-							buf.append(aPC.getAssociationList(theOwner).get(0));
+							object = (PObject) b;
+						}
+						else if (obj instanceof CNAbility)
+						{
+							CNAbility cna = (CNAbility) obj;
+							object = aPC.getPCAbility(cna);
+							object = (object == null) ? cna.getAbility() : object;
+						}
+						else
+						{
+							Logging
+								.errorPrint("In Description resolution, "
+									+ "Ignoring object of type: "
+									+ b.getClass().getName());
+							continue;
+						}
+						if (aPC.hasAssociations(object))
+						{
+							buf.append(aPC.getAssociationList(object).get(0));
 						}
 					}
 					else if ( var.equals(VAR_LIST) )
 					{
-						if ( theOwner != null )
+						List<String> assocList = new ArrayList<String>();
+						for (Object obj : objList)
 						{
-							List<String> assocList = aPC.getAssociationList(theOwner);
-							String joinString;
-							if (assocList.size() == 2)
+							PObject object;
+							if (obj instanceof PObject)
 							{
-								joinString = " and ";
+								object = (PObject) b;
+							}
+							else if (obj instanceof CNAbility)
+							{
+								CNAbility cna = (CNAbility) obj;
+								object = aPC.getPCAbility(cna);
+								object = (object == null) ? cna.getAbility() : object;
 							}
 							else
 							{
-								joinString = ", ";
+								Logging
+									.errorPrint("In Description resolution, "
+										+ "Ignoring object of type: "
+										+ b.getClass().getName());
+								continue;
 							}
-			                buf.append(StringUtil.joinToStringBuilder(aPC
-									.getAssociationList(theOwner),
-									joinString));
+							assocList.addAll(aPC.getAssociationList(object));
 						}
+						String joinString;
+						if (assocList.size() == 2)
+						{
+							joinString = " and ";
+						}
+						else
+						{
+							joinString = ", ";
+						}
+						buf.append(StringUtil.joinToStringBuilder(assocList,
+							joinString));
 					}
 					else if ( var.startsWith(VAR_FEATS) )
 					{
 						final String featName = var.substring(VAR_FEATS.length());
+						List<CNAbility> feats;
 						if (featName.startsWith("TYPE=") || featName.startsWith("TYPE."))
 						{
-							final List<Ability> feats = aPC.getAggregateAbilityList(AbilityCategory.FEAT);
-							boolean needSpace = false;
-							for ( final Ability feat : feats )
-							{
-								if (feat.isType(featName.substring(5)))
-								{
-									if (needSpace)
-									{
-										buf.append(' ');
-									}
-									buf.append(aPC.getDescription(feat));
-									needSpace = true;
-								}
-							}
+							feats = getAllFeats(aPC);
 						}
 						else
 						{
-							final Ability feat = aPC.getAbilityKeyed(AbilityCategory.FEAT, featName);
-							buf.append(aPC.getDescription(feat));
+							Ability feat =
+									Globals.getContext().ref
+										.silentlyGetConstructedCDOMObject(
+											Ability.class,
+											AbilityCategory.FEAT, featName);
+							if (feat == null)
+							{
+								Logging
+									.errorPrint("Found invalid Feat reference in Description: "
+										+ featName);
+							}
+							feats = getFeats(aPC, feat);
+						}
+						boolean needSpace = false;
+						for ( final CNAbility cna : feats )
+						{
+							if (cna.getAbility().isType(featName.substring(5)))
+							{
+								if (needSpace)
+								{
+									buf.append(' ');
+								}
+								buf.append(aPC.getDescription(Collections.singletonList(cna)));
+								needSpace = true;
+							}
 						}
 					}
 					else if ( var.startsWith("\"") ) //$NON-NLS-1$
@@ -264,6 +334,61 @@ public class Description extends ConcretePrereqObject
 		return buf.toString();
 	}
 	
+	private List<CNAbility> getFeats(PlayerCharacter pc, Ability a)
+	{
+		List<CNAbility> listOfAbilities = new ArrayList<CNAbility>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getParentCategory().equals(AbilityCategory.FEAT))
+			{
+				Ability pca = pc.getPCAbility(aCat, Nature.NORMAL, a);
+				if (pca != null)
+				{
+					listOfAbilities.add(new CNAbility(aCat, pca, Nature.NORMAL));
+				}
+				pca = pc.getPCAbility(aCat, Nature.VIRTUAL, a);
+				if (pca != null)
+				{
+					listOfAbilities.add(new CNAbility(aCat, pca, Nature.VIRTUAL));
+				}
+				pca = pc.getPCAbility(aCat, Nature.AUTOMATIC, a);
+				if (pca != null)
+				{
+					listOfAbilities.add(new CNAbility(aCat, pca, Nature.AUTOMATIC));
+				}
+			}
+		}
+		return listOfAbilities;
+	}
+
+	private List<CNAbility> getAllFeats(PlayerCharacter pc)
+	{
+		List<CNAbility> listOfAbilities = new ArrayList<CNAbility>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getParentCategory().equals(AbilityCategory.FEAT))
+			{
+				for (Ability a : pc.getAbilityList(aCat, Nature.NORMAL))
+				{
+					listOfAbilities.add(new CNAbility(aCat, a, Nature.NORMAL));
+				}
+				for (Ability a : pc.getAbilityList(aCat, Nature.VIRTUAL))
+				{
+					listOfAbilities.add(new CNAbility(aCat, a, Nature.VIRTUAL));
+				}
+				for (Ability a : pc.getAbilityList(aCat, Nature.AUTOMATIC))
+				{
+					listOfAbilities.add(new CNAbility(aCat, a, Nature.AUTOMATIC));
+				}
+			}
+		}
+		return listOfAbilities;
+	}
+
 	/**
 	 * Gets the Description tag in PCC format.
 	 * 

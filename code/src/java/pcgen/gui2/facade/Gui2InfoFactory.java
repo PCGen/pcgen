@@ -220,7 +220,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-				DescriptionFormatting.piDescSubString(pc, race));
+				DescriptionFormatting.piWrapDesc(race, pc.getDescription(race), false));
 
 			LevelCommandFactory levelCommandFactory =
 					race.get(ObjectKey.MONSTER_CLASS);
@@ -499,9 +499,12 @@ public class Gui2InfoFactory implements InfoFactory
 				cString);
 		}
 
+		List<CNAbility> wrappedAbility =
+				Collections.singletonList(new CNAbility(ability
+					.getCDOMCategory(), ability, Nature.NORMAL));
 		infoText.appendLineBreak();
 		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-			DescriptionFormatting.piDescSubString(pc, ability));
+			DescriptionFormatting.piWrapDesc(ability, pc.getDescription(wrappedAbility), false));
 
 		if (ability.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
@@ -514,21 +517,19 @@ public class Gui2InfoFactory implements InfoFactory
 					buff.append(", ");
 				}
 				//Assert here that the actual text displayed is not critical
-				buff.append(Aspect.printAspect(pc, key, Collections
-					.singletonList(new CNAbility(ability.getCDOMCategory(),
-						ability, Nature.NORMAL))));
+				buff.append(Aspect.printAspect(pc, key, wrappedAbility));
 			}
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Aspects", //$NON-NLS-1$
 				buff.toString());
 		}
 		
-		final String bene = BenefitFormatting.getBenefits(pc, ability);
+		final String bene = BenefitFormatting.getBenefits(pc, wrappedAbility);
 		if (bene != null && bene.length() > 0)
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Benefit", //$NON-NLS-1$
-				BenefitFormatting.getBenefits(pc, ability));
+				BenefitFormatting.getBenefits(pc, wrappedAbility));
 		}
 
 		infoText.appendLineBreak();
@@ -566,7 +567,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 			infoText
 				.appendI18nFormattedElement(
-					"in_InfoDescription", DescriptionFormatting.piDescSubString(pc, aDeity)); //$NON-NLS-1$
+					"in_InfoDescription", DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false)); //$NON-NLS-1$
 
 			aString = getPantheons(aDeity);
 			if (aString != null)
@@ -1264,7 +1265,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(TempBonusFacade tempBonusFacade)
 	{
-		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacade))
+		if (tempBonusFacade == null)
 		{
 			return EMPTY_STRING;
 		}
@@ -1363,9 +1364,10 @@ public class Gui2InfoFactory implements InfoFactory
 		String aString = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
 		if (StringUtils.isEmpty(aString) && originObj instanceof PObject)
 		{
+			Spell sp = (Spell) originObj;
 			aString =
-					DescriptionFormatting.piDescSubString(pc,
-						(PObject) originObj);
+					DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
+						false);
 		}
 		if (aString.length() > 0)
 		{
@@ -1936,7 +1938,11 @@ public class Gui2InfoFactory implements InfoFactory
 
 		try
 		{
-			return DescriptionFormatting.piDescSubString(pc, (Ability) ability);
+			Ability a = (Ability) ability;
+			List<CNAbility> wrappedAbility =
+					Collections.singletonList(new CNAbility(
+						a.getCDOMCategory(), a, Nature.NORMAL));
+			return DescriptionFormatting.piWrapDesc(a, pc.getDescription(wrappedAbility), false);
 		}
 		catch (Exception e)
 		{

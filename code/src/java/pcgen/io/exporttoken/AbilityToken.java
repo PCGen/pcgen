@@ -579,11 +579,11 @@ public class AbilityToken extends Token
 
 			if (tokenSource.endsWith(".DESC"))
 			{
-				retString = pc.getDescription(aAbility);
+				retString = pc.getDescription(abilities);
 			}
 			else if (tokenSource.endsWith(".BENEFIT"))
 			{
-				retString = BenefitFormatting.getBenefits(pc, aAbility);
+				retString = BenefitFormatting.getBenefits(pc, abilities);
 			}
 			else if (tokenSource.endsWith(".TYPE"))
 			{

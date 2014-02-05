@@ -860,7 +860,7 @@ public class PcgCombatant extends Combatant
 
 					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
-					statBuf.append(DescriptionFormatting.piDescString(pc, dom)); //|DOMAIN.POWER|
+					statBuf.append(DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), true)); //|DOMAIN.POWER|
 					statBuf.append(")");
 				}
 

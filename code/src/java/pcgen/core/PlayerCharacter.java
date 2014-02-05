@@ -9681,10 +9681,61 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return statLockFacet.getLockedStat(id, stat);
 	}
 
-	public String getDescription(PObject cdo)
+	public String getDescription(Race cdo)
 	{
-		List<Description> theDescriptions = cdo.getListFor(cdo.getDescriptionKey());
+		return getDescription(Collections.singletonList(cdo));
+	}
 
+	public String getDescription(Spell cdo)
+	{
+		return getDescription(Collections.singletonList(cdo));
+	}
+
+	public String getDescription(PCTemplate cdo)
+	{
+		return getDescription(Collections.singletonList(cdo));
+	}
+
+	public String getDescription(Equipment cdo)
+	{
+		return getDescription(Collections.singletonList(cdo));
+	}
+
+	public String getDescription(Deity cdo)
+	{
+		return getDescription(Collections.singletonList(cdo));
+	}
+
+	public String getDescription(Domain cdo)
+	{
+		return getDescription(Collections.singletonList(cdo));
+	}
+
+	public String getDescription(List<? extends Object> objList)
+	{
+		if (objList.size() == 0)
+		{
+			return Constants.EMPTY_STRING;
+		}
+		PObject cdo;
+		Object b = objList.get(0);
+		if (b instanceof PObject)
+		{
+			cdo = (PObject) b;
+		}
+		else if (b instanceof CNAbility)
+		{
+			cdo = ((CNAbility) b).getAbility();
+		}
+		else
+		{
+			Logging
+				.errorPrint("Unable to resolve Description with object of type: "
+					+ b.getClass().getName());
+			return Constants.EMPTY_STRING;
+		}
+
+		List<Description> theDescriptions = cdo.getListFor(cdo.getDescriptionKey());
 		if (theDescriptions == null)
 		{
 			return Constants.EMPTY_STRING;
@@ -9693,7 +9744,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		boolean needSpace = false;
 		for (final Description desc : theDescriptions)
 		{
-			final String str = desc.getDescription(this, cdo);
+			final String str = desc.getDescription(this, objList);
 			if (str.length() > 0)
 			{
 				if (needSpace)

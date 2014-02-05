@@ -21,16 +21,13 @@ package pcgen.core.display;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+
 
 public class DescriptionFormatting
 {
 
-	private static String piDescString(PlayerCharacter aPC, PObject cdo,
-		boolean useHeader)
+	public static String piWrapDesc(PObject cdo, String desc, boolean useHeader)
 	{
-		final String desc = aPC.getDescription(cdo);
-
 		if (cdo.getSafe(ObjectKey.DESC_PI))
 		{
 			final StringBuilder sb = new StringBuilder(desc.length() + 30);
@@ -51,25 +48,6 @@ public class DescriptionFormatting
 		}
 
 		return desc;
-	}
-
-	/**
-	 * Get the Product Identity description String
-	 * @return the Product Identity description String
-	 */
-	public static String piDescString(PlayerCharacter aPC, PObject po)
-	{
-		return piDescString(aPC, po, true);
-	}
-
-	/**
-	 * In some cases, we need a PI-formatted string to place within a
-	 * pre-existing <html> tag
-	 * @return PI description
-	 */
-	public static String piDescSubString(PlayerCharacter aPC, PObject po)
-	{
-		return piDescString(aPC, po, false);
 	}
 
 }
