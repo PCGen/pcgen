@@ -176,7 +176,7 @@ Flying Ointment	TYPE:Magic.Wondrous	COST:2250	WT:0.01	SOURCEPAGE:p.305
 
 ###Block:G
 # Equipment Name	Type					Cost		Weight	Source Page		Modify VAR
-Gloves of Dueling	TYPE:Magic.Wondrous.Glove	COST:15000	WT:0.01	SOURCEPAGE:p.305	BONUS:VAR|CMD_Disarm,CMD_Sunder|4	BONUS:VAR|WeaponTrainingBase|2|PREABILITY:1,CATEGORY=Special Ability,Weapon Training
+Gloves of Dueling	TYPE:Magic.Wondrous.Glove	COST:15000	WT:0.01	SOURCEPAGE:p.305	BONUS:VAR|CMD_Disarm,CMD_Sunder|4	BONUS:VAR|WeaponTrainingBase|2
 Glowing Glove	TYPE:Magic.Wondrous.Glove	COST:2000			SOURCEPAGE:p.305
 Grappler's Mask	TYPE:Magic.Wondrous.Mask	COST:5000	WT:2		SOURCEPAGE:p.306
 
