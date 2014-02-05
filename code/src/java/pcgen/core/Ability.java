@@ -309,6 +309,13 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		return buff.toString();
 	}
 	
+	public String printAspectValue(PlayerCharacter pc, AspectName key)
+	{
+		List<Aspect> aspects = this.get(MapKey.ASPECT, key);
+		Aspect aspect = lastPassingAspect(aspects, pc);
+		return (aspect == null) ? "" : aspect.getAspectText(pc, this);
+	}
+	
 	public Aspect lastPassingAspect(List<Aspect> aspects, PlayerCharacter pc) {
 		Aspect retAspect = null;
 		if(aspects != null) {

@@ -701,7 +701,6 @@ public class AbilityToken extends Token
 			return "";
 		}
 
-		AspectName aspectName;
 		try
 		{
 			int index = Integer.parseInt(key);
@@ -711,7 +710,8 @@ public class AbilityToken extends Token
 				List<AspectName> sortedKeys =
 						new ArrayList<AspectName>(aspectKeys);
 				Collections.sort(sortedKeys);
-				aspectName = sortedKeys.get(index);
+				AspectName aspectName = sortedKeys.get(index);
+				return ability.printAspectValue(pc, aspectName);
 			}
 			else
 			{
@@ -721,10 +721,9 @@ public class AbilityToken extends Token
 		catch (NumberFormatException e)
 		{
 			// Ignore exception - expect this as we can get a String at this point
-			aspectName = AspectName.getConstant(key);
+			AspectName aspectName = AspectName.getConstant(key);
+			return ability.printAspect(pc, aspectName);
 		}
-
-		return ability.printAspect(pc, aspectName);
 	}
 
 	/**
