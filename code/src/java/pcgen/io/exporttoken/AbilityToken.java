@@ -711,7 +711,7 @@ public class AbilityToken extends Token
 						new ArrayList<AspectName>(aspectKeys);
 				Collections.sort(sortedKeys);
 				AspectName aspectName = sortedKeys.get(index);
-				return ability.printAspectValue(pc, aspectName);
+				return ability.printAspect(pc, aspectName);
 			}
 			else
 			{
@@ -722,7 +722,7 @@ public class AbilityToken extends Token
 		{
 			// Ignore exception - expect this as we can get a String at this point
 			AspectName aspectName = AspectName.getConstant(key);
-			return ability.printAspect(pc, aspectName);
+			return ability.printAspectValue(pc, aspectName);
 		}
 	}
 
