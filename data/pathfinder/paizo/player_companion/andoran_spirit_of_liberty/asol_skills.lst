@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Thu Feb  6 20:36:08 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+#
+SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: J. Hunter Johnson
+
+#Block: Andoran, Spirit of Liberty
+###Block: Conditional skills (for output only)
+# Skill Name					Key Stat	Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+Escape Artist (Escape manacles or ropes)	KEYSTAT:DEX	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Escape Artist (Escape manacles or ropes).MISC"),var("SKILL.Escape Artist.MISC")
+Survival (Get along in the wild)		KEYSTAT:WIS	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Get along in the wild).MISC"),var("SKILL.Survival.MISC")
+#Survival (Navigate) already in another list
+
+###Block: Skill .MODs
+# Skill Name	Bonus to skill													Bonus to skill rank
+Escape Artist.MOD	BONUS:SKILL|Escape Artist (Escape manacles or ropes)|var("SKILL.Escape Artist.MISC")	BONUS:SKILLRANK|Escape Artist (Escape manacles or ropes)|skillinfo("TOTALRANK","Escape Artist")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Escape Artist (Escape manacles or ropes).MISC"),var("SKILL.Escape Artist.MISC")
+Survival.MOD	BONUS:SKILL|Survival (Get along in the wild)|var("SKILL.Survival.MISC")				BONUS:SKILLRANK|Survival (Get along in the wild)|skillinfo("TOTALRANK","Survival")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Survival (Get along in the wild).MISC"),var("SKILL.Survival.MISC")
+#
+# End
+#

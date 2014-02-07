@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Thu Feb  6 20:36:08 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+#
+SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+# Original Entry by: Ben Mullen
+
+###Block: Steel Falcon
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Steel Falcon	HD:10		TYPE:PC.Prestige	ABB:SF		MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required AL		Req. Att.	Required Feat		Required Skill
+CLASS:Steel Falcon	PREALIGN:LG,NG,CG	PREATT:2	PREFEAT:1,Iron Will	PRESKILL:4,Diplomacy=5,Knowledge (History)=2,Knowledge (Local)=2,Sense Motive=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Steel Falcon	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|Sense Motive|Stealth|Survival|Swim
+###Block:Proficiencies
+#none
+
+###Block: Normal Level Progression
+1	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Heart of Freedom ~ Steel Falcon|Enemy of Slavers ~ Steel Falcon|Sailor and Survivalist ~ Steel Falcon
+2									ABILITY:Special Ability|AUTOMATIC|Heroic Speech ~ Steel Falcon|Luck of the Eagle ~ Steel Falcon|Superior Aid ~ Steel Falcon
+3									ABILITY:Special Ability|AUTOMATIC|Natural Traps ~ Steel Falcon|Subtle Manipulator ~ Steel Falcon
+4									ABILITY:Special Ability|AUTOMATIC|Chainbreaker ~ Steel Falcon|Comrade's Bond ~ Steel Falcon
+5	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Talmandor's Blessing ~ Steel Falcon|Talmandor's Fury ~ Steel Falcon
+
+#
+# End
+#

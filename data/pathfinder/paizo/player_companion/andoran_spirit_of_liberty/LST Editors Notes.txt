@@ -1,0 +1,14 @@
+Golden Eagle Epaulets will let your choose any skill, even Diplomacy (again)
+
+No text for the Feather Token (Returning Raven). It costs 800gp, but no official description of what it does. Should the text from http://paizo.com/threads/rzs2kfgl?Andoran-Feather-Token-returning-raven-text#2 be included here? Should it simply be omitted?
+
+I've given some traits the AttackOption, SaveBonus, or Defensive types. Should Traits not get those types?
+
+The Avoral here varies from the one in Bestiary 2. Here it is not an Agathion. The book is wrong on its Perception (it's +23, right in the skills, wrong in the stats as +22) and Will save (+6, not +9). It also has magic missile at will instead of 3/day, and its wings do 2d8+1 instead of 2d6+1 (possibly also a mistake in the book).
+
+The Steel Falcon's Heroic Speech might be better served with a split in the core rulebook of a new InspireCourageBardicPerformanceLVL from BardicPerformanceLVL.
+
+New conditional skills Escape Artist (Escape manacles or ropes) and Survival (Get along in the wild).
+
+New DEFINEs: EnemyOfSlaversSteelFalconBonus, SailorAndSurvivalistSteelFalconBonus, InspireCourageBonus (don't really need the last one)
+
