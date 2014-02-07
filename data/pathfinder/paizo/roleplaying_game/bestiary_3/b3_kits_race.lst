@@ -903,14 +903,15 @@ SKILL:Spellcraft			RANK:18
 SKILL:Stealth			RANK:29
 SKILL:Use Magic Device		RANK:19
 FEAT:Dodge
-FEAT:Improved Critical (Dagger (Chain))
+FEAT:Improved Critical (Dagger)
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Mobility
 FEAT:Spring Attack
 FEAT:Stealthy
 FEAT:Step Up
-FEAT:Weapon Focus (Dagger (Chain))
+FEAT:Weapon Focus (Dagger)
+GEAR:Dagger (Chain)	LOCATION:Equipped	EQMOD:PLUS2W.BLEED
 GEAR:Dagger (Chain)	LOCATION:Equipped	EQMOD:PLUS2W.BLEED
 
 
