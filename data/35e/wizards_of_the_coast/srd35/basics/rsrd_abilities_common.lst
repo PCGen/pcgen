@@ -60,7 +60,7 @@ SIZE_C				CATEGORY:Internal					VISIBLE:NO							TEMPLATE:SIZE_C
 
 
 Holy Avenger Spell Resistance	CATEGORY:Internal																																BONUS:MISC|SR|PaladinLvl+5|TYPE=SpellResistance
-
+Goggles of Minute Seeing	CATEGORY:Special Ability	ASPECT:SkillBonus|Goggles of Minute Seeing grant +5 competence bonus on Search checks to find secret doors, traps, and similar concealed objects.
 Master Traits			CATEGORY:Internal		TYPE:Internal	VISIBLE:NO	DEFINE:AnimalGrowthActivated|0	TEMPLATE:Base Race Type	ABILITY:Internal|AUTOMATIC|Damage Reduction 10/magic|PREVAREQ:AnimalGrowthActivated,1
 # COMMENT: Assigns the Trait based upon RACETYPE
 
