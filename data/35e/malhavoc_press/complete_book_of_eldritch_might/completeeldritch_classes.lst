@@ -9,8 +9,18 @@ CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bard (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Survival|Swim|Tumble|Use Magic Device
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
+CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
 1																			AUTO:FEAT|Simple Weapon Proficiency
+###Block:
+1	BONUS:SPELLKNOWN|CLASS=Bard (Monte Cook's);LEVEL=1|BonusSpellSongNotes
+6	BONUS:SPELLKNOWN|CLASS=Bard (Monte Cook's);LEVEL=3|BonusSpellSongChords
+13	BONUS:SPELLKNOWN|CLASS=Bard (Monte Cook's);LEVEL=5|BonusSpellSongMelodies
+###Block:
+1	DEFINE:BonusSpellSongNotes|0	DEFINE:BonusSpellSongChords|0	DEFINE:BonusSpellSongMelodies|0
+###Block:
+1	BONUS:VAR|BonusSpellSongNotes|max(CHA,0)
+1	BONUS:VAR|BonusSpellSongChords|max(CHA-2,0)
+1	BONUS:VAR|BonusSpellSongMelodies|max(CHA-4,0)
 1	BONUS:VAR|Spellsong|1		DEFINE:Spellsong|0
 1	BONUS:VAR|BardicKnowledge|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
 ###Block: Proficiencies
