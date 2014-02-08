@@ -49,7 +49,7 @@ public class UnarmedDamageDisplay
 						display.getLevel(pcClass), pc, adjustForPCSize));
 		}
 
-		int sizeInt = display.sizeInt();
+		int sizeInt = adjustForPCSize ? display.sizeInt() : display.racialSizeInt();
 		for (List<String> unarmedDamage : display.getUnarmedDamage())
 		{
 			String aDamage;

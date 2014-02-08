@@ -793,7 +793,7 @@ public class PCClass extends PObject implements ClassFacade
 		final PlayerCharacter aPC,
 		boolean adjustForPCSize)
 	{
-		SizeAdjustment pcSize = aPC.getSizeAdjustment();
+		int pcSize = adjustForPCSize ? aPC.sizeInt() : aPC.getDisplay().racialSizeInt();
 
 		//
 		// Check "Unarmed Strike", then default to "1d3"
@@ -818,7 +818,7 @@ public class PCClass extends PObject implements ClassFacade
 		if (adjustForPCSize)
 		{
 			aDamage = Globals.adjustDamage(aDamage, SizeUtilities
-					.getDefaultSizeAdjustment(), pcSize);
+					.getDefaultSizeInt(), pcSize);
 		}
 
 		//
@@ -831,7 +831,6 @@ public class PCClass extends PObject implements ClassFacade
 			classObjects.add(aPC.getActiveClassLevel(this, i));
 		}
 		classObjects.add(this);
-		int iSize = aPC.sizeInt();
 		for (CDOMObject cdo : classObjects)
 		{
 			List<String> udam = cdo.getListFor(ListKey.UNARMED_DAMAGE);
@@ -843,7 +842,7 @@ public class PCClass extends PObject implements ClassFacade
 				}
 				else
 				{
-					aDamage = udam.get(iSize);
+					aDamage = udam.get(pcSize);
 				}
 				break;
 			}
