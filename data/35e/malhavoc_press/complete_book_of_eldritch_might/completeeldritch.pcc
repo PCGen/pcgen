@@ -33,7 +33,11 @@ INFOTEXT:Proper names from The Complete Book of Eldritch Might are ©2004 Monte 
 #EXTRAFILE:OGL.txt
 
 
-# Missing Monsters
+# Sample Monsters
+RACE:@35e/wizards_of_the_coast/srd35/monsters/rsrd_races_g_h.lst|(INCLUDE:Hydra (Eleven Headed))
+RACE:@35e/wizards_of_the_coast/srd35/monsters/rsrd_races_w_x.lst|(INCLUDE:Wyvern)
+RACE:@35e/wizards_of_the_coast/srd35/monsters/rsrd_races_c_d.lst|(INCLUDE:Dire Animal (Dire Tiger))
+
 
 ABILITY:completeeldritch_abilities_class.lst
 ABILITYCATEGORY:completeeldritch_abilitycategories.lst
