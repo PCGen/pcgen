@@ -58,6 +58,7 @@ ABILITYCATEGORY:SPELLBREAKER Impervious Choice			VISIBLE:QUALIFY	EDITABLE:YES		E
 
 
 
+ABILITYCATEGORY:Ape Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Diehard|Endurance|Great Fortitude|Improved Bull Rush|Toughness													DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Bat Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Acrobatic|Agile Maneuvers|Improved Initiative|Lightning Reflexes|Skill Focus (Perception)													DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Boar Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Bleeding Critical|Blind-Fight|Diehard|Improved Overrun																		DISPLAYLOCATION:Feats
