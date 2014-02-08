@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Tue Jan 7 10:00:00 2014
+#SOURCELONG:Blood of Angels	SOURCESHORT:PFBOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-08
+# ORIGINAL ENTRY: "Swiftbrook"
+# ORIGINAL ENTRY DATE: 7 January 2014
+
+###Block: Bardic Masterpiece activation
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Aasimar
+
+#
+# End
+#

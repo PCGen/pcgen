@@ -1,0 +1,9 @@
+SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Andrew Wilson (nuance)
+# ORIGINAL ENTRY DATE: 29 January 2014
+
+###Block:
+Survival (Follow tracks)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Follow tracks).MISC"),SKILL.Survival.MISC
+
+###Block:
+Survival.MOD	BONUS:SKILL|Survival (Follow tracks)|SKILL.Survival.MISC					BONUS:SKILLRANK|Survival (Follow tracks)|skillinfo("TOTALRANK","Survival")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Survival (Follow tracks).MISC"),SKILL.Survival.MISC

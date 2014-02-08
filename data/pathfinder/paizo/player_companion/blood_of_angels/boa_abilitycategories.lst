@@ -1,0 +1,18 @@
+#SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
+
+ABILITYCATEGORY:Aasimar Race Trait		TYPE:AasimarRaceTrait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Traits				PLURAL:Aasimar Race Traits
+ABILITYCATEGORY:Aasimar Subrace		TYPE:AasimarSubrace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Racial Abilities		PLURAL:Aasimar Racial Traits
+ABILITYCATEGORY:Aasimar Variant Ability	TYPE:AasimarVariantAbility	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Racial Abilities		PLURAL:Aasimar Variant Abilities
+ABILITYCATEGORY:Martyred Bloodline Feat	TYPE:MartyredBloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT				DISPLAYLOCATION:Feats				PLURAL:Martyred Bloodline Feats		ABILITYLIST:Diehard|Endurance|Heroic Defiance|Heroic Recovery|Leadership|Persuasive|Skill Focus (Perform (Act))|Skill Focus (Perform (Comedy))|Skill Focus (Perform (Dance))|Skill Focus (Perform (Keyboard Instruments))|Skill Focus (Perform (Oratory))|Skill Focus (Perform (Percussion Instruments))|Skill Focus (Perform (Sing))|Skill Focus (Perform (String Instruments))|Skill Focus (Perform (Wind Instruments))|Toughness
+ABILITYCATEGORY:Revered Guidance Race	TYPE:ReveredGuidanceRace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Feats				PLURAL:Revered Guidance Races
+
+
+
+
+
+
+
+
+
+
+

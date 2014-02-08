@@ -1,0 +1,311 @@
+SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Andrew Wilson (nuance)
+# ORIGINAL ENTRY DATE: 30 September 2013
+
+Unnatural Aura			KEY:Unnatural Aura ~ Aasimar			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		DEFINE:UnnaturalAuraDC|0	BONUS:VAR|UnnaturalAuraDC|25	DESC:Animals do not willingly approach you unless the animal's master makes a DC %1 Handle Animal, Ride, or wild empathy check.|UnnaturalAuraDC	BENEFIT:Animals do not willingly approach you unless the animal's master makes a DC %1 Handle Animal, Ride, or wild empathy check.|UnnaturalAuraDC
+
+
+Channel 1d6					KEY:Channel 1d6 ~ Aasimar					SORTKEY:Variant Ability 001 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Stabilize 3/day				KEY:Stabilize 3/day ~ Aasimar					SORTKEY:Variant Ability 002 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Halo						KEY:Halo ~ Aasimar						SORTKEY:Variant Ability 003 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Holy water healing			KEY:Holy water healing ~ Aasimar				SORTKEY:Variant Ability 004 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Knowledge Religion			KEY:Knowledge Religion ~ Aasimar				SORTKEY:Variant Ability 005 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Talons					KEY:Talons ~ Aasimar						SORTKEY:Variant Ability 006 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+DR/evil					KEY:DR/evil ~ Aasimar						SORTKEY:Variant Ability 007 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Charisma for breath			KEY:Charisma for breath ~ Aasimar				SORTKEY:Variant Ability 008 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial STR Bonus				KEY:Racial STR Bonus ~ Aasimar				SORTKEY:Variant Ability 009 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Honey and wine				KEY:Honey and wine ~ Aasimar					SORTKEY:Variant Ability 010 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Breathe thin air				KEY:Breathe thin air ~ Aasimar				SORTKEY:Variant Ability 011 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Swim speed					KEY:Swim speed ~ Aasimar					SORTKEY:Variant Ability 012 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Crit confirmation				KEY:Crit confirmation ~ Aasimar				SORTKEY:Variant Ability 013 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Unnatural aura				KEY:Unnatural aura ~ Aasimar					SORTKEY:Variant Ability 014 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Aasimar Resilliance			KEY:Aasimar Resilliance ~ Aasimar				SORTKEY:Variant Ability 015 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Exceptional grace				KEY:Exceptional grace ~ Aasimar				SORTKEY:Variant Ability 016 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Spear of Purity 1/day			KEY:Spear of Purity 1/day ~ Aasimar				SORTKEY:Variant Ability 017 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Poision saving throw Bonus		KEY:Poision saving throw Bonus ~ Aasimar			SORTKEY:Variant Ability 018 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Ageless					KEY:Ageless ~ Aasimar						SORTKEY:Variant Ability 019 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial DEX bonus				KEY:Racial DEX bonus ~ Aasimar				SORTKEY:Variant Ability 020 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Manipulate armor				KEY:Manipulate armor ~ Aasimar				SORTKEY:Variant Ability 021 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Will save bonus				KEY:Will save bonus ~ Aasimar					SORTKEY:Variant Ability 022 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Create water 3/day			KEY:Create water 3/day ~ Aasimar				SORTKEY:Variant Ability 023 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Sonic resistance				KEY:Sonic resistance ~ Aasimar				SORTKEY:Variant Ability 024 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Burst of speed				KEY:Burst of speed ~ Aasimar					SORTKEY:Variant Ability 025 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Dodge humans				KEY:Dodge humans ~ Aasimar					SORTKEY:Variant Ability 026 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Craft check bonus				KEY:Craft check bonus ~ Aasimar				SORTKEY:Variant Ability 027 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Aasimar tongues				KEY:Aasimar tongues ~ Aasimar					SORTKEY:Variant Ability 028 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Initiative bonus				KEY:Initiative bonus ~ Aasimar				SORTKEY:Variant Ability 029 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Nonlethal conversion			KEY:Nonlethal conversion ~ Aasimar				SORTKEY:Variant Ability 030 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Charm save bonus				KEY:Charm save bonus ~ Aasimar				SORTKEY:Variant Ability 031 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Shield other 1/day			KEY:Shield other 1/day ~ Aasimar				SORTKEY:Variant Ability 032 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Coin cleaner				KEY:Coin cleaner ~ Aasimar					SORTKEY:Variant Ability 033 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Dodge evil outsiders			KEY:Dodge evil outsiders ~ Aasimar				SORTKEY:Variant Ability 034 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Aid 1/day					KEY:Aid 1/day ~ Aasimar						SORTKEY:Variant Ability 035 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Insect repellant				KEY:Insect repellant ~ Aasimar				SORTKEY:Variant Ability 036 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Perform bonus				KEY:Perform bonus ~ Aasimar					SORTKEY:Variant Ability 037 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Aura						KEY:Aura ~ Aasimar						SORTKEY:Variant Ability 038 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Mimic animal sound			KEY:Mimic animal sound ~ Aasimar				SORTKEY:Variant Ability 039 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial INT bonus				KEY:Racial INT bonus ~ Aasimar				SORTKEY:Variant Ability 040 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Aasimar lullabye				KEY:Aasimar lullabye ~ Aasimar				SORTKEY:Variant Ability 041 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Better aid					KEY:Better aid ~ Aasimar					SORTKEY:Variant Ability 042 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Fear saving bonus				KEY:Fear saving bonus ~ Aasimar				SORTKEY:Variant Ability 043 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Grave scanner				KEY:Grave scanner ~ Aasimar					SORTKEY:Variant Ability 044 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Perception bonus				KEY:Perception bonus ~ Aasimar				SORTKEY:Variant Ability 045 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Frosty breath 1/day			KEY:Frosty breath 1/day ~ Aasimar				SORTKEY:Variant Ability 046 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Sick of evil				KEY:Sick of evil ~ Aasimar					SORTKEY:Variant Ability 047 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Weapon of awe 1/day			KEY:Weapon of awe 1/day ~ Aasimar				SORTKEY:Variant Ability 048 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial reflex save bonus		KEY:Racial reflex save bonus ~ Aasimar			SORTKEY:Variant Ability 049 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial WIS bonus				KEY:Racial WIS bonus ~ Aasimar				SORTKEY:Variant Ability 050 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Ripen fruit					KEY:Ripen fruit ~ Aasimar					SORTKEY:Variant Ability 051 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Understand writing			KEY:Understand writing ~ Aasimar				SORTKEY:Variant Ability 052 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial CMD bonus				KEY:Racial CMD bonus ~ Aasimar				SORTKEY:Variant Ability 053 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Dazzle save bonus				KEY:Dazzle save bonus ~ Aasimar				SORTKEY:Variant Ability 054 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Augury 1/day				KEY:Augury 1/day ~ Aasimar					SORTKEY:Variant Ability 055 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Zone of truth 1/day			KEY:Zone of truth 1/day ~ Aasimar				SORTKEY:Variant Ability 056 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial heal bonus				KEY:Racial heal bonus ~ Aasimar				SORTKEY:Variant Ability 057 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Poisionous					KEY:Poisionous ~ Aasimar					SORTKEY:Variant Ability 058 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Summon good bonus				KEY:Summon good bonus ~ Aasimar				SORTKEY:Variant Ability 059 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Track the sun				KEY:Track the sun ~ Aasimar					SORTKEY:Variant Ability 060 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Damage evil outsiders			KEY:Damage evil outsiders ~ Aasimar				SORTKEY:Variant Ability 061 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Negative level save bonus		KEY:Negative level save bonus ~ Aasimar			SORTKEY:Variant Ability 062 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Strong and stable build			KEY:Strong and stable build ~ Aasimar			SORTKEY:Variant Ability 063 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial intimidate bonus			KEY:Racial intimidate bonus ~ Aasimar			SORTKEY:Variant Ability 064 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Summon holy symbol 1/day		KEY:Summon holy symbol 1/day ~ Aasimar			SORTKEY:Variant Ability 065 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Immune to create spawn			KEY:Immune to create spawn ~ Aasimar			SORTKEY:Variant Ability 066 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial Sense motive bonus		KEY:Racial Sense motive bonus ~ Aasimar			SORTKEY:Variant Ability 067 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Whispering wind 1/day			KEY:Whispering wind 1/day ~ Aasimar				SORTKEY:Variant Ability 068 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Tears cure disease			KEY:Tears cure disease ~ Aasimar				SORTKEY:Variant Ability 069 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial CON bonus				KEY:Racial CON bonus ~ Aasimar				SORTKEY:Variant Ability 070 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Sustenance from sunlight		KEY:Sustenance from sunlight ~ Aasimar			SORTKEY:Variant Ability 071 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Spell resistance				KEY:Spell resistance ~ Aasimar				SORTKEY:Variant Ability 072 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Raise dead 1d4/life			KEY:Raise dead 1d4/life ~ Aasimar				SORTKEY:Variant Ability 073 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Invigorating kiss				KEY:Invigorating kiss ~ Aasimar				SORTKEY:Variant Ability 074 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Sense pregnancy				KEY:Sense pregnancy ~ Aasimar					SORTKEY:Variant Ability 075 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial curse save bonus			KEY:Racial curse save bonus ~ Aasimar			SORTKEY:Variant Ability 076 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial Knowledge (planes) bonus	KEY:Racial Knowledge (planes) bonus ~ Aasimar		SORTKEY:Variant Ability 077 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Comfortably warm				KEY:Comfortably warm ~ Aasimar				SORTKEY:Variant Ability 078 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Track stars					KEY:Track stars ~ Aasimar					SORTKEY:Variant Ability 079 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Fire resistance				KEY:Fire resistance ~ Aasimar					SORTKEY:Variant Ability 080 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Double healing from rest		KEY:Double healing from rest ~ Aasimar			SORTKEY:Variant Ability 081 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Mending 3/day				KEY:Mending 3/day ~ Aasimar					SORTKEY:Variant Ability 082 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Energising ancestor			KEY:Energising ancestor ~ Aasimar				SORTKEY:Variant Ability 083 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial heat resistance			KEY:Racial heat resistance ~ Aasimar			SORTKEY:Variant Ability 084 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Ability restoration bonus		KEY:Ability restoration bonus ~ Aasimar			SORTKEY:Variant Ability 085 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Blessing of courage and life 1/day	KEY:Blessing of courage and life 1/day ~ Aasimar	SORTKEY:Variant Ability 086 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial handle animal and Ride bonus	KEY:Racial handle animal and Ride bonus ~ Aasimar	SORTKEY:Variant Ability 087 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Holy weapon 1/day				KEY:Holy weapon 1/day ~ Aasimar				SORTKEY:Variant Ability 088 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial resist disease bonus		KEY:Racial resist disease bonus ~ Aasimar			SORTKEY:Variant Ability 089 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial CHA bonus				KEY:Racial CHA bonus ~ Aasimar				SORTKEY:Variant Ability 090 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Reanimation immunity			KEY:Reanimation immunity ~ Aasimar				SORTKEY:Variant Ability 091 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial Fort bonus				KEY:Racial Fort bonus ~ Aasimar				SORTKEY:Variant Ability 092 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Summon lantern archon 1/day		KEY:Summon lantern archon 1/day ~ Aasimar			SORTKEY:Variant Ability 093 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Speak to horses				KEY:Speak to horses ~ Aasimar					SORTKEY:Variant Ability 094 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial diplomacy bonus			KEY:Racial diplomacy bonus ~ Aasimar			SORTKEY:Variant Ability 095 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Racial Use magic device bonus		KEY:Racial Use magic device bonus ~ Aasimar		SORTKEY:Variant Ability 096 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Damage resistance/magic			KEY:Damage resistance/magic ~ Aasimar			SORTKEY:Variant Ability 097 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Compassionate ally 1/day		KEY:Compassionate ally 1/day ~ Aasimar			SORTKEY:Variant Ability 098 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Fly speed					KEY:Fly speed ~ Aasimar						SORTKEY:Variant Ability 099 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+Two Variations				KEY:Two Variations ~ Aasimar					SORTKEY:Variant Ability 100 ~ Aasimar	CATEGORY:Special Ability		TYPE:AasimarVariantAbility.SpecialQuality		
+
+
+CATEGORY=Special Ability|Channel 1d6 ~ Aasimar.MOD					DESC:You can channel 1d6 points of positive energy once per day as a supernatural ability. 
+CATEGORY=Special Ability|Stabilize 3/day ~ Aasimar.MOD				DESC:You can use Stabilize 3/day as a spell-like ability. 
+CATEGORY=Special Ability|Halo ~ Aasimar.MOD						DESC:As a move action, you can manifest or dismiss a halo around your head that sheds colored light as a torch. 
+CATEGORY=Special Ability|Holy water healing ~ Aasimar.MOD				DESC:Once per day, you can drink a flask of holy water to heal 1d6 hit points. 
+CATEGORY=Special Ability|Knowledge Religion ~ Aasimar.MOD				DESC:You gain a +4 Racial bonus on Knowledge (religion) checks pertaining to a deity of your choice. 
+CATEGORY=Special Ability|Talons ~ Aasimar.MOD						DESC:You possess taloned fingers that act as natural weapons and deal 1d4 points of damage. 
+CATEGORY=Special Ability|DR/evil ~ Aasimar.MOD						DESC:You gain DR 2/evil. 
+CATEGORY=Special Ability|Charisma for breath ~ Aasimar.MOD				DESC:You use your Charisma score instead of your Constitution score to determine how many rounds you can hold your breath. 
+CATEGORY=Special Ability|Racial STR Bonus ~ Aasimar.MOD				DESC:You gain an additional +2 Racial bonus to your Strength score. 
+CATEGORY=Special Ability|Honey and wine ~ Aasimar.MOD					DESC:You can subsist entirely on honey and wine. 
+CATEGORY=Special Ability|Breathe thin air ~ Aasimar.MOD				DESC:You can breathe both thin and stale air without ill effects, and you never suffer from altitude sickness. 
+CATEGORY=Special Ability|Swim speed ~ Aasimar.MOD					DESC:You have a natural swim speed of 20 feet. 
+CATEGORY=Special Ability|Crit confirmation ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus on attack rolls made to confirm critical hits against evil outsiders. 
+CATEGORY=Special Ability|Unnatural aura ~ Aasimar.MOD					DESC:You possess the unnatural aura universal monster ability, except the DC to make animals come near you is equal to 10 + 1/2 your character level + your Charisma modifier. 
+CATEGORY=Special Ability|Aasimar Resilliance ~ Aasimar.MOD				DESC:Once per day, when you are at 0 hit points, you can take a full round of actions without losing a hit point and falling unconscious. 
+CATEGORY=Special Ability|Exceptional grace ~ Aasimar.MOD				DESC:You display exceptional grace and easily keep your balance. You gain a +2 Racial bonus on Acrobatics checks. 
+CATEGORY=Special Ability|Spear of Purity 1/day ~ Aasimar.MOD			DESC:You can cast spear of purity (see Pathfinder RPG Ultimate Magic) once per day as a spell-like ability. 
+CATEGORY=Special Ability|Poision saving throw Bonus ~ Aasimar.MOD			DESC:You gain a +2 Racial bonus on saving throws made against poison. 
+CATEGORY=Special Ability|Ageless ~ Aasimar.MOD						DESC:Once you’ve reached adulthood, you never appear to age, although you take aging penalties normally and die when it is your time. 
+CATEGORY=Special Ability|Racial DEX bonus ~ Aasimar.MOD				DESC:You gain an additional +2 Racial bonus to your Dexterity score. 
+CATEGORY=Special Ability|Manipulate armor ~ Aasimar.MOD				DESC:You can manipulate any metal armor you wear, causing it to appear to be made of shining silver or gold. This illusion lasts only as long as you wear your armor. 
+CATEGORY=Special Ability|Will save bonus ~ Aasimar.MOD				DESC:You gain a +1 Racial bonus on Will saves. 
+CATEGORY=Special Ability|Create water 3/day ~ Aasimar.MOD				DESC:You can cast create water three times per day as a spell-like ability. 
+CATEGORY=Special Ability|Sonic resistance ~ Aasimar.MOD				DESC:You gain sonic resistance 5. 
+CATEGORY=Special Ability|Burst of speed ~ Aasimar.MOD					DESC:Once per day, you can exhibit a burst of speed, moving as if your base land speed were 50 feet for 1 round. 
+CATEGORY=Special Ability|Dodge humans ~ Aasimar.MOD					DESC:You gain a +2 dodge bonus to AC against attacks of opportunity made by creatures of the human subtype. 
+CATEGORY=Special Ability|Craft check bonus ~ Aasimar.MOD				DESC:You have a knack for creating high-quality objects. You gain a +2 Racial bonus on any one kind of Craft check. 
+CATEGORY=Special Ability|Aasimar tongues ~ Aasimar.MOD				DESC:Once per day, for 1 minute, you can understand and be understood by any creature as though using tongues. 
+CATEGORY=Special Ability|Initiative bonus ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus on initiative checks during the day. 
+CATEGORY=Special Ability|Nonlethal conversion ~ Aasimar.MOD				DESC:Pick one weapon that normally deals lethal damage.  You can deal nonlethal damage with that weapon without the usual -4 penalty on your attack rolls. 
+CATEGORY=Special Ability|Charm save bonus ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus on saving throws against charm effects. 
+CATEGORY=Special Ability|Shield other 1/day ~ Aasimar.MOD				DESC:You can cast shield other once per day as a spell-like ability. 
+CATEGORY=Special Ability|Coin cleaner ~ Aasimar.MOD					DESC:When coins or other small metal objects pass through your hands, they become perfectly clean and shiny again. 
+CATEGORY=Special Ability|Dodge evil outsiders ~ Aasimar.MOD				DESC:You gain a +2 dodge bonus to your AC against attacks of opportunity from evil outsiders or undead. 
+CATEGORY=Special Ability|Aid 1/day ~ Aasimar.MOD					DESC:You can cast aid once per day as a spell-like ability. 
+CATEGORY=Special Ability|Insect repellant ~ Aasimar.MOD				DESC:Nonmagical insects never bite or sting you unless magically compelled to do so. 
+CATEGORY=Special Ability|Perform bonus ~ Aasimar.MOD					DESC:You gain a +2 Racial bonus on checks made with any one Perform skill. 
+CATEGORY=Special Ability|Aura ~ Aasimar.MOD						DESC:Once per day, you can generate a glowing aura that emanates in a 20-foot radius centered on you. Any creature within the aura that is at negative hit points stabilizes immediately. The aura lasts for 1 round. 
+CATEGORY=Special Ability|Mimic animal sound ~ Aasimar.MOD				DESC:You can mimic the sound of any animal perfectly. 
+CATEGORY=Special Ability|Racial INT bonus ~ Aasimar.MOD				DESC:You gain an additional +2 Racial bonus to your Intelligence score. 
+CATEGORY=Special Ability|Aasimar lullabye ~ Aasimar.MOD				DESC:Three times per day, you can sing for 10 minutes to put one willing creature to sleep. Any creature that falls asleep to the sound of your song is protected from nightmare and similar spells for the duration of its rest. 
+CATEGORY=Special Ability|Better aid ~ Aasimar.MOD					DESC:Whenever you successfully use the aid another action to help someone make a skill check, you grant a +3 bonus instead of +2. 
+CATEGORY=Special Ability|Fear saving bonus ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus on saving throws made against fear effects. 
+CATEGORY=Special Ability|Grave scanner ~ Aasimar.MOD					DESC:If you stand atop a grave and meditate for 10 minutes, you learn the name of whoever lies buried below. 
+CATEGORY=Special Ability|Perception bonus ~ Aasimar.MOD				DESC:You have catlike ears that grant you a +2 Racial bonus on hearing-based Perception checks. 
+CATEGORY=Special Ability|Frosty breath 1/day ~ Aasimar.MOD				DESC:Once per day, you can breathe frosty air in a 10-foot cone. This acts as a breath weapon that deals a number of points of cold damage equal to 1d4 + 1/2 your level, to a maximum of 1d4+5. 
+CATEGORY=Special Ability|Sick of evil ~ Aasimar.MOD					DESC:You feel sick to your stomach and take a -1 penalty on ability checks when within 30 feet of an evil outsider. 
+CATEGORY=Special Ability|Weapon of awe 1/day ~ Aasimar.MOD				DESC:You can cast weapon of awe (see the Pathfinder RPG Advanced Player’s Guide) once per day as a spell-like ability. 
+CATEGORY=Special Ability|Racial reflex save bonus ~ Aasimar.MOD			DESC:You gain a +1 Racial bonus on Reflex saves. 
+CATEGORY=Special Ability|Racial WIS bonus ~ Aasimar.MOD				DESC:You gain an additional +2 Racial bonus to your Wisdom score. 
+CATEGORY=Special Ability|Ripen fruit ~ Aasimar.MOD					DESC:You can make fruit ripen with a touch. 
+CATEGORY=Special Ability|Understand writing ~ Aasimar.MOD				DESC:You can understand any written material as though under the effects of comprehend languages. 
+CATEGORY=Special Ability|Racial CMD bonus ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus to your CMD. 
+CATEGORY=Special Ability|Dazzle save bonus ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus on saving throws against spells and effects that would cause you to become dazzled. 
+CATEGORY=Special Ability|Augury 1/day ~ Aasimar.MOD					DESC:You can cast augury once per day as a spell-like ability. 
+CATEGORY=Special Ability|Zone of truth 1/day ~ Aasimar.MOD				DESC:You can cast zone of truth once per day as a spell-like ability. 
+CATEGORY=Special Ability|Racial heal bonus ~ Aasimar.MOD				DESC:You gain a +2 Racial bonus on Heal checks. 
+CATEGORY=Special Ability|Poisionous ~ Aasimar.MOD					DESC:Any creature that bites you must succeed at a DC 12 Fortitude save or become sickened for 1d4 rounds. 
+CATEGORY=Special Ability|Summon good bonus ~ Aasimar.MOD				DESC:Any good creature you call via summon monster remains for 3 rounds longer than usual. 
+CATEGORY=Special Ability|Track the sun ~ Aasimar.MOD					DESC:You always know the current position of the sun. 
+CATEGORY=Special Ability|Damage evil outsiders ~ Aasimar.MOD			DESC:You gain a +1 Racial bonus on attack and damage rolls against evil outsiders. 
+CATEGORY=Special Ability|Negative level save bonus ~ Aasimar.MOD			DESC:You gain a +4 Racial bonus on saving throws to remove any temporary negative levels you possess. 
+CATEGORY=Special Ability|Strong and stable build ~ Aasimar.MOD			DESC:You have a strong and stable build. You gain a +2 Racial bonus to CMD against bull rush and trip attempts. 
+CATEGORY=Special Ability|Racial intimidate bonus ~ Aasimar.MOD			DESC:You gain a +4 Racial bonus on Intimidate checks made to demoralize foes. 
+CATEGORY=Special Ability|Summon holy symbol 1/day ~ Aasimar.MOD			DESC:Once per day as a full-round action, you can summon a silver holy symbol out of thin air. The holy symbol remains in existence for 1 hour or until you drop it. 
+CATEGORY=Special Ability|Immune to create spawn ~ Aasimar.MOD			DESC:You are immune to undead creatures’ create spawn special ability. 
+CATEGORY=Special Ability|Racial Sense motive bonus ~ Aasimar.MOD			DESC:You gain a +2 Racial bonus on Sense Motive checks. 
+CATEGORY=Special Ability|Whispering wind 1/day ~ Aasimar.MOD			DESC:You can cast whispering wind once per day as a spell- like ability. 
+CATEGORY=Special Ability|Tears cure disease ~ Aasimar.MOD				DESC:Your tears cure disease. You can cast remove disease once per day as a spell-like ability. 
+CATEGORY=Special Ability|Racial CON bonus ~ Aasimar.MOD				DESC:You gain an additional +2 Racial bonus to your Constitution score. 
+CATEGORY=Special Ability|Sustenance from sunlight ~ Aasimar.MOD			DESC:You gain sustenance from sunlight. Standing in direct sunlight for half an hour nourishes you as though you had just eaten a hearty meal. You still need to drink water. 
+CATEGORY=Special Ability|Spell resistance ~ Aasimar.MOD				DESC:You gain spell resistance equal to %1|AasimarSpellResistance
+CATEGORY=Special Ability|Raise dead 1d4/life ~ Aasimar.MOD				DESC:If your body is placed on consecrated ground and prayers to your deity are recited continuously for 24 hours, you return to life as if by a raise dead spell. This ability works 1d4 times in your lifetime. 
+CATEGORY=Special Ability|Invigorating kiss ~ Aasimar.MOD				DESC:Your kiss invigorates others. Once per day, you can kiss a creature to change its condition from exhausted to fatigued, or from fatigued to normal. 
+CATEGORY=Special Ability|Sense pregnancy ~ Aasimar.MOD				DESC:You can sense when a creature is pregnant by standing within 10 feet of the creature. 
+CATEGORY=Special Ability|Racial curse save bonus ~ Aasimar.MOD			DESC:You gain a +2 Racial bonus on saving throws made against curses. 
+CATEGORY=Special Ability|Racial Knowledge (planes) bonus ~ Aasimar.MOD		DESC:You gain a +2 Racial bonus on Knowledge (planes) checks. 
+CATEGORY=Special Ability|Comfortably warm ~ Aasimar.MOD				DESC:You are always comfortably warm. You gain a +4 Racial bonus to resist environmental cold effects. 
+CATEGORY=Special Ability|Track stars ~ Aasimar.MOD					DESC:You always know the current position of the stars. 
+CATEGORY=Special Ability|Fire resistance ~ Aasimar.MOD				DESC:You gain fire resistance 5. 
+CATEGORY=Special Ability|Double healing from rest ~ Aasimar.MOD			DESC:You heal double the normal amount of hit points while resting. 
+CATEGORY=Special Ability|Mending 3/day ~ Aasimar.MOD					DESC:You can cast mending three times per day as a spell- like ability. 
+CATEGORY=Special Ability|Energising ancestor ~ Aasimar.MOD				DESC:You feel energized and gain a +1 Racial bonus on ability checks while you are within 30 feet of a good outsider. 
+CATEGORY=Special Ability|Racial heat resistance ~ Aasimar.MOD			DESC:You gain a +4 Racial bonus to resist environmental heat effects. 
+CATEGORY=Special Ability|Ability restoration bonus ~ Aasimar.MOD			DESC:When targeted by lesser restoration or another spell or effect that cures temporary ability damage, you heal an extra +1 point of temporary ability damage. 
+CATEGORY=Special Ability|Blessing of courage and life 1/day ~ Aasimar.MOD	DESC:You can cast blessing of courage and life (see the Advanced Player’s Guide) once per day as a spell-like ability. 
+CATEGORY=Special Ability|Racial handle animal and Ride bonus ~ Aasimar.MOD	DESC:You gain a +2 Racial bonus on Handle Animal and Ride checks. 
+CATEGORY=Special Ability|Holy weapon 1/day ~ Aasimar.MOD				DESC:Once per day as a move action, you can make a melee weapon you are wielding holy. The enchantment lasts for 3 rounds or until you drop or give away your weapon. 
+CATEGORY=Special Ability|Racial resist disease bonus ~ Aasimar.MOD		DESC:You gain a +2 Racial bonus on saving throws made against disease. 
+CATEGORY=Special Ability|Racial CHA bonus ~ Aasimar.MOD				DESC:You gain an additional +2 Racial bonus to your Charisma score. 
+CATEGORY=Special Ability|Reanimation immunity ~ Aasimar.MOD				DESC:If you die, your body can never be reanimated as an undead creature. 
+CATEGORY=Special Ability|Racial Fort bonus ~ Aasimar.MOD				DESC:You gain a +1 Racial bonus on Fortitude saves. 
+CATEGORY=Special Ability|Summon lantern archon 1/day ~ Aasimar.MOD		DESC:You can summon a lantern archon once per day as though by summon monster III. 
+CATEGORY=Special Ability|Speak to horses ~ Aasimar.MOD				DESC:You can speak to horses and other equine animals. 
+CATEGORY=Special Ability|Racial diplomacy bonus ~ Aasimar.MOD			DESC:You gain a +2 Racial bonus on Diplomacy checks. 
+CATEGORY=Special Ability|Racial Use magic device bonus ~ Aasimar.MOD		DESC:You gain a +2 Racial bonus on Use Magic Device checks. 
+CATEGORY=Special Ability|Damage resistance/magic ~ Aasimar.MOD			DESC:You gain DR 2/magic. 
+CATEGORY=Special Ability|Compassionate ally 1/day ~ Aasimar.MOD			DESC:You can cast compassionate ally (see Ultimate Magic) once per day as a spell-like ability. 
+CATEGORY=Special Ability|Fly speed ~ Aasimar.MOD					DESC:You have a natural fly speed of 20 feet (poor). 
+CATEGORY=Special Ability|Two Variations ~ Aasimar.MOD					DESC:You may have two of these Variant Abilities.
+
+# need clarification of DC for this ability, I extrapolated from the Cleric version and the DC for Unnatural aura
+CATEGORY=Special Ability|Channel 1d6 ~ Aasimar.MOD					DEFINE:AasimarChannelPositiveEnergyDC|0		DEFINE:AasimarChannelPositiveEnergyDice|0	DEFINE:AasimarChannelPositiveEnergyDieSize|0	DEFINE:AasimarChannelEnergyTimes|0	BONUS:VAR|AasimarChannelPositiveEnergyDice|1	BONUS:VAR|AasimarChannelPositiveEnergyDieSize|6	BONUS:VAR|AasimarChannelPositiveEnergyDC|10+(TL/2)+CHA	BONUS:VAR|AasimarChannelEnergyTimes|1	ASPECT:Ability Benefit|(%1d%2, DC %3, %4/day)|AasimarChannelPositiveEnergyDice|AasimarChannelPositiveEnergyDieSize|AasimarChannelPositiveEnergyDC|AasimarChannelEnergyTimes	ASPECT:CheckCount|%1|AasimarChannelEnergyTimes	ASPECT:CheckType|Uses per day
+CATEGORY=Special Ability|Stabilize 3/day ~ Aasimar.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=AasimarSpellLikeLVL|Stabilize
+CATEGORY=Special Ability|Halo ~ Aasimar.MOD						
+CATEGORY=Special Ability|Holy water healing ~ Aasimar.MOD				
+CATEGORY=Special Ability|Knowledge Religion ~ Aasimar.MOD				
+CATEGORY=Special Ability|Talons ~ Aasimar.MOD						NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+CATEGORY=Special Ability|DR/evil ~ Aasimar.MOD						DR:2/evil
+CATEGORY=Special Ability|Charisma for breath ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial STR Bonus ~ Aasimar.MOD				BONUS:STAT|STR|2
+CATEGORY=Special Ability|Honey and wine ~ Aasimar.MOD					
+CATEGORY=Special Ability|Breathe thin air ~ Aasimar.MOD				
+CATEGORY=Special Ability|Swim speed ~ Aasimar.MOD					MOVE:Swim,20
+CATEGORY=Special Ability|Crit confirmation ~ Aasimar.MOD				
+CATEGORY=Special Ability|Unnatural aura ~ Aasimar.MOD					ABILITY:Special Ability|NORMAL|Unnatural Aura ~ Aasimar
+CATEGORY=Special Ability|Aasimar Resilliance ~ Aasimar.MOD				
+CATEGORY=Special Ability|Exceptional grace ~ Aasimar.MOD				BONUS:SKILL|Acrobatics|2|TYPE=Racial
+CATEGORY=Special Ability|Spear of Purity 1/day ~ Aasimar.MOD			SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Spear of Purity
+CATEGORY=Special Ability|Poision saving throw Bonus ~ Aasimar.MOD			
+CATEGORY=Special Ability|Ageless ~ Aasimar.MOD						
+CATEGORY=Special Ability|Racial DEX bonus ~ Aasimar.MOD				BONUS:STAT|DEX|2
+CATEGORY=Special Ability|Manipulate armor ~ Aasimar.MOD				
+CATEGORY=Special Ability|Will save bonus ~ Aasimar.MOD				BONUS:CHECKS|Will|2|TYPE=Racial
+CATEGORY=Special Ability|Create water 3/day ~ Aasimar.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=AasimarSpellLikeLVL|Create Water
+CATEGORY=Special Ability|Sonic resistance ~ Aasimar.MOD				DEFINE:SonicResistanceBonus|0		BONUS:VAR|SonicResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic
+CATEGORY=Special Ability|Burst of speed ~ Aasimar.MOD					
+CATEGORY=Special Ability|Dodge humans ~ Aasimar.MOD					
+CATEGORY=Special Ability|Craft check bonus ~ Aasimar.MOD				CHOOSE:SKILL|Craft%	SELECT:1		BONUS:SKILL|%LIST|2|TYPE=Racial	MULT:YES
+CATEGORY=Special Ability|Aasimar tongues ~ Aasimar.MOD				
+CATEGORY=Special Ability|Initiative bonus ~ Aasimar.MOD				
+CATEGORY=Special Ability|Nonlethal conversion ~ Aasimar.MOD				
+CATEGORY=Special Ability|Charm save bonus ~ Aasimar.MOD				
+CATEGORY=Special Ability|Shield other 1/day ~ Aasimar.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Shield Other
+CATEGORY=Special Ability|Coin cleaner ~ Aasimar.MOD					
+CATEGORY=Special Ability|Dodge evil outsiders ~ Aasimar.MOD				
+CATEGORY=Special Ability|Aid 1/day ~ Aasimar.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Aid
+CATEGORY=Special Ability|Insect repellant ~ Aasimar.MOD				
+CATEGORY=Special Ability|Perform bonus ~ Aasimar.MOD					CHOOSE:SKILL|Perform%	SELECT:1		BONUS:SKILL|%LIST|2|TYPE=Racial	MULT:YES
+CATEGORY=Special Ability|Aura ~ Aasimar.MOD						
+CATEGORY=Special Ability|Mimic animal sound ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial INT bonus ~ Aasimar.MOD				BONUS:STAT|INT|2
+CATEGORY=Special Ability|Aasimar lullabye ~ Aasimar.MOD				
+CATEGORY=Special Ability|Better aid ~ Aasimar.MOD					
+CATEGORY=Special Ability|Fear saving bonus ~ Aasimar.MOD				
+CATEGORY=Special Ability|Grave scanner ~ Aasimar.MOD					
+CATEGORY=Special Ability|Perception bonus ~ Aasimar.MOD				
+CATEGORY=Special Ability|Frosty breath 1/day ~ Aasimar.MOD				
+CATEGORY=Special Ability|Sick of evil ~ Aasimar.MOD					
+CATEGORY=Special Ability|Weapon of awe 1/day ~ Aasimar.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Weapon of Awe
+CATEGORY=Special Ability|Racial reflex save bonus ~ Aasimar.MOD			BONUS:CHECKS|Reflex|2|TYPE=Racial
+CATEGORY=Special Ability|Racial WIS bonus ~ Aasimar.MOD				BONUS:STAT|WIS|2
+CATEGORY=Special Ability|Ripen fruit ~ Aasimar.MOD					
+CATEGORY=Special Ability|Understand writing ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial CMD bonus ~ Aasimar.MOD				BONUS:VAR|CMD|2|TYPE=Racial
+CATEGORY=Special Ability|Dazzle save bonus ~ Aasimar.MOD				
+CATEGORY=Special Ability|Augury 1/day ~ Aasimar.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Augury
+CATEGORY=Special Ability|Zone of truth 1/day ~ Aasimar.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Zone of Truth
+CATEGORY=Special Ability|Racial heal bonus ~ Aasimar.MOD				BONUS:SKILL|Heal|2|TYPE=Racial
+CATEGORY=Special Ability|Poisionous ~ Aasimar.MOD					
+CATEGORY=Special Ability|Summon good bonus ~ Aasimar.MOD				
+CATEGORY=Special Ability|Track the sun ~ Aasimar.MOD					
+CATEGORY=Special Ability|Damage evil outsiders ~ Aasimar.MOD			
+CATEGORY=Special Ability|Negative level save bonus ~ Aasimar.MOD			
+CATEGORY=Special Ability|Strong and stable build ~ Aasimar.MOD			BONUS:VAR|CMD_Trip,CMD_Bullrush|2|TYPE=Racial
+CATEGORY=Special Ability|Racial intimidate bonus ~ Aasimar.MOD			
+CATEGORY=Special Ability|Summon holy symbol 1/day ~ Aasimar.MOD			
+CATEGORY=Special Ability|Immune to create spawn ~ Aasimar.MOD			
+CATEGORY=Special Ability|Racial Sense motive bonus ~ Aasimar.MOD			BONUS:SKILL|Sense Motive|2|TYPE=Racial
+CATEGORY=Special Ability|Whispering wind 1/day ~ Aasimar.MOD			SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Whispering Wind
+CATEGORY=Special Ability|Tears cure disease ~ Aasimar.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Remove Disease
+CATEGORY=Special Ability|Racial CON bonus ~ Aasimar.MOD				BONUS:STAT|CON|2
+CATEGORY=Special Ability|Sustenance from sunlight ~ Aasimar.MOD			
+CATEGORY=Special Ability|Spell resistance ~ Aasimar.MOD				DEFINE:AasimarSpellResistance|0	BONUS:VAR|AasimarSpellResistance|10+TL/2	SR:AasimarSpellResistance
+CATEGORY=Special Ability|Raise dead 1d4/life ~ Aasimar.MOD				
+CATEGORY=Special Ability|Invigorating kiss ~ Aasimar.MOD				
+CATEGORY=Special Ability|Sense pregnancy ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial curse save bonus ~ Aasimar.MOD			
+CATEGORY=Special Ability|Racial Knowledge (planes) bonus ~ Aasimar.MOD		BONUS:SKILL|Knowledge (planes)|2|TYPE=Racial
+CATEGORY=Special Ability|Comfortably warm ~ Aasimar.MOD				
+CATEGORY=Special Ability|Track stars ~ Aasimar.MOD					
+CATEGORY=Special Ability|Fire resistance ~ Aasimar.MOD				DEFINE:FireResistanceBonus|0		BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
+CATEGORY=Special Ability|Double healing from rest ~ Aasimar.MOD			
+CATEGORY=Special Ability|Mending 3/day ~ Aasimar.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Mending
+CATEGORY=Special Ability|Energising ancestor ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial heat resistance ~ Aasimar.MOD			
+CATEGORY=Special Ability|Ability restoration bonus ~ Aasimar.MOD			
+CATEGORY=Special Ability|Blessing of courage and life 1/day ~ Aasimar.MOD	SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Blessing of Courage and Life
+CATEGORY=Special Ability|Racial handle animal and Ride bonus ~ Aasimar.MOD	BONUS:SKILL|Handle Animal,Ride|2|TYPE=Racial
+CATEGORY=Special Ability|Holy weapon 1/day ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial resist disease bonus ~ Aasimar.MOD		
+CATEGORY=Special Ability|Racial CHA bonus ~ Aasimar.MOD				BONUS:STAT|CHA|2
+CATEGORY=Special Ability|Reanimation immunity ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial Fort bonus ~ Aasimar.MOD				BONUS:CHECKS|Fortitude|2|TYPE=Racial
+CATEGORY=Special Ability|Summon lantern archon 1/day ~ Aasimar.MOD		SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Summon Monster III (Lantern Archon Only)
+CATEGORY=Special Ability|Speak to horses ~ Aasimar.MOD				
+CATEGORY=Special Ability|Racial diplomacy bonus ~ Aasimar.MOD			BONUS:SKILL|Diplomacy|2|TYPE=Racial
+CATEGORY=Special Ability|Racial Use magic device bonus ~ Aasimar.MOD		BONUS:SKILL|Use Magic Device|2|TYPE=Racial
+CATEGORY=Special Ability|Damage resistance/magic ~ Aasimar.MOD			DR:2/magic
+CATEGORY=Special Ability|Compassionate ally 1/day ~ Aasimar.MOD			SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Compassionate Ally
+CATEGORY=Special Ability|Fly speed ~ Aasimar.MOD					MOVE:Fly,20
+CATEGORY=Special Ability|Two Variations ~ Aasimar.MOD					BONUS:ABILITYPOOL|Aasimar Variant Ability|2
