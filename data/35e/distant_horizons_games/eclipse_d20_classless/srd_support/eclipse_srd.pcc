@@ -36,6 +36,7 @@ ABILITY:eclipse_srd_abilities_skills.lst
 
 ABILITYCATEGORY:eclipse_srd_ability_categories.lst
 #CLASS:eclipse_srd_classes.lst
+RACE:eclipse_srd_races_companions.lst
 
 SKILL:eclipse_srd_skills.lst
 
