@@ -132,7 +132,7 @@ public class ConditionalAbilityFacet extends
 			for (CategorizedAbilitySelection cas : new ArrayList<CategorizedAbilitySelection>(
 					cached))
 			{
-				if (cas.getSource().equals(source))
+				if (cas.getSource() == source)
 				{
 					remove(id, cas);
 				}

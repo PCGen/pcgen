@@ -67,8 +67,7 @@ public class DirectAbilityFacet extends
 			for (CategorizedAbilitySelection cas : new ArrayList<CategorizedAbilitySelection>(
 					cached))
 			{
-				Object src = cas.getSource();
-				if (src != null && src.equals(source))
+				if (cas.getSource() == source)
 				{
 					remove(id, cas);
 				}
