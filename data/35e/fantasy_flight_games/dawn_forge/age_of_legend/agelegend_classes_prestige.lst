@@ -280,7 +280,7 @@ CLASS:Swindler	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Decipher S
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Wilderness Guide	HD:8		TYPE:PC.Prestige	ABB:WGu		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Required Feat				Required Skill						Required Text
-CLASS:Wilderness Guide	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:6	PREFEAT:2,Self Sufficient,Track	PRESKILL:2,Survival=8,Knowledge (Nature)=6	PRETEXT:See Text.
+CLASS:Wilderness Guide	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:6	PREFEAT:2,Self-Sufficient,Track	PRESKILL:2,Survival=8,Knowledge (Nature)=6	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wilderness Guide	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Survival|Swim|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize		Caster level					Use Spell List

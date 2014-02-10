@@ -166,8 +166,8 @@ SKILL:Knowledge (Local)	RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Sleight of Hand	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Two Weapon Fighting
-FEAT:Two Weapon Defense
+FEAT:Two-Weapon Fighting
+FEAT:Two-Weapon Defense
 FEAT:Weapon Finesse
 GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
 GEAR:Potion (Invisibility)				LOCATION:Carried

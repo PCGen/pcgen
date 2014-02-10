@@ -605,7 +605,7 @@ SKILL:Spot			RANK:6
 SKILL:Survival		RANK:6
 SKILL:TYPE=Craft		RANK:6
 FEAT:Mounted Combat
-FEAT:Ride By Attack
+FEAT:Ride-By Attack
 GEAR:Crossbow (Heavy)	SIZE:PC	LOCATION:Carried
 GEAR:Trident		SIZE:PC	LOCATION:Primary Hand
 

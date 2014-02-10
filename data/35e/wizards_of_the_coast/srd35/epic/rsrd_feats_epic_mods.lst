@@ -154,7 +154,7 @@ Legendary Rider.MOD				TYPE:EpicFighter
 Legendary Wrestler.MOD				TYPE:EpicFighter
 Overwhelming Critical.MOD			TYPE:EpicFighter
 Penetrate Damage Reduction.MOD		TYPE:EpicFighter
-Perfect Two Weapon Fighting.MOD		TYPE:EpicFighter
+Perfect Two-Weapon Fighting.MOD		TYPE:EpicFighter
 Reflect Arrows.MOD				TYPE:EpicFighter
 Spellcasting Harrier.MOD			TYPE:EpicFighter
 Storm of Throws.MOD				TYPE:EpicFighter
@@ -235,7 +235,7 @@ Legendary Climber.MOD				TYPE:EpicRanger
 Legendary Rider.MOD				TYPE:EpicRanger
 Legendary Tracker.MOD				TYPE:EpicRanger
 Perfect Health.MOD				TYPE:EpicRanger
-Perfect Two Weapon Fighting.MOD		TYPE:EpicRanger
+Perfect Two-Weapon Fighting.MOD		TYPE:EpicRanger
 Permanent Emanation.MOD				TYPE:EpicRanger
 Spontaneous Spell.MOD				TYPE:EpicRanger
 Storm of Throws.MOD				TYPE:EpicRanger
@@ -433,7 +433,7 @@ Exceptional Deflection.MOD			TYPE:EpicDuelist
 Improved Combat Reflexes.MOD			TYPE:EpicDuelist
 Improved Whirlwind Attack.MOD			TYPE:EpicDuelist
 Infinite Deflection.MOD				TYPE:EpicDuelist
-Perfect Two Weapon Fighting.MOD		TYPE:EpicDuelist
+Perfect Two-Weapon Fighting.MOD		TYPE:EpicDuelist
 Superior Initiative.MOD				TYPE:EpicDuelist
 Two Weapon Rend.MOD				TYPE:EpicDuelist
 
@@ -485,7 +485,7 @@ Instant Reload.MOD				TYPE:EpicEldritchKnight
 Legendary Rider.MOD				TYPE:EpicEldritchKnight
 Overwhelming Critical.MOD			TYPE:EpicEldritchKnight
 Penetrate Damage Reduction.MOD		TYPE:EpicEldritchKnight
-Perfect Two Weapon Fighting.MOD		TYPE:EpicEldritchKnight
+Perfect Two-Weapon Fighting.MOD		TYPE:EpicEldritchKnight
 Permanent Emanation.MOD				TYPE:EpicEldritchKnight
 Spell Knowledge.MOD				TYPE:EpicEldritchKnight
 Spell Opportunity.MOD				TYPE:EpicEldritchKnight

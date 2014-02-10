@@ -16,7 +16,7 @@ CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Ta
 1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
 2											ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
 3	BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))				ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry
-5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride By Attack
+5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride-By Attack
 7								DEFINE:SpurLvl|1	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry
 9																									VFEAT:Spirited Charge
 10											ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
@@ -41,7 +41,7 @@ CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Ta
 1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
 2											ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
 3	BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))				ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry
-5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride By Attack
+5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride-By Attack
 7								DEFINE:SpurLvl|1	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry
 9																									VFEAT:Spirited Charge
 10											ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry

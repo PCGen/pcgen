@@ -135,7 +135,7 @@ SKILL:Open Lock			RANK:7
 SKILL:Profession (Gambler)	RANK:7
 SKILL:Sleight of Hand		RANK:5
 FEAT:Skill Focus (Bluff)
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Finesse
 GEAR:Leather					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Rapier						LOCATION:Primary Hand	EQMOD:PLUS1W
@@ -344,7 +344,7 @@ STAT:STR=14|DEX=13|CON=15|INT=8|WIS=12|CHA=10
 NAME:Bojask
 CLASS:Ranger	LEVEL:2
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
-ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
+ABILITY:CATEGORY=Ranger Combat Style|Two-Weapon Fighting Combat Style
 SKILL:Handle Animal		RANK:5
 SKILL:Hide				RANK:5
 SKILL:Knowledge (Nature)	RANK:5

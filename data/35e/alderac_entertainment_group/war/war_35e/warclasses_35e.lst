@@ -29,7 +29,7 @@ CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Heal|Li
 
 # Class Name
 CLASS:Lancer.MOD
-7	VFEAT:Two Weapon Fighting
+7	VFEAT:Two-Weapon Fighting
 
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Mercenary Captain.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|Intimidate|Listen|TYPE=Perform|Ride|Search|Sense Motive|Spot
@@ -42,7 +42,7 @@ CLASS:Rake.MOD	CSKILL:.CLEAR		CSKILL:Balance|Bluff|Climb|Gather Information|Inti
 # Class Name			Automatically Gained Feat
 CLASS:Wandering Squire.MOD	AUTO:FEAT|Combat Expertise
 # Class Name			Clear Prereq.	Req. Att.	Required Feat
-CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:3,Dodge,Two Weapon Fighting,Weapon Focus (Quarterstaff)
+CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREATT:5	PREFEAT:3,Dodge,Two-Weapon Fighting,Weapon Focus (Quarterstaff)
 
 # Class Name	Remove Class Skill	Class Skill
 CLASS:Warmage.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft

@@ -308,7 +308,7 @@ SKILL:Move Silently	RANK:1
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
 SKILL:Survival		RANK:2
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 GEAR:Gaff		SIZE:PC	LOCATION:Primary Hand
 GEAR:Gaff		SIZE:PC	LOCATION:Secondary Hand
 GEAR:Leather	SIZE:PC	LOCATION:Equipped

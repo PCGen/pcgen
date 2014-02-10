@@ -158,7 +158,7 @@ Martial Weapon Proficiency.MOD	TYPE:TieflingMartialTraining
 Point Blank Shot.MOD			TYPE:ForestWightTalentFeat
 Precise Shot.MOD				TYPE:ForestWightTalentFeat
 Quicken Spell.MOD				TYPE:TieflingCovertCasting
-Self Sufficient.MOD			TYPE:ForestWightTalentFeat
+Self-Sufficient.MOD			TYPE:ForestWightTalentFeat
 Shield Proficiency.MOD			TYPE:TieflingMartialTraining
 Silent Spell.MOD				TYPE:TieflingCovertCasting
 Simple Weapon Proficiency.MOD		TYPE:TieflingMartialTraining

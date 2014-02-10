@@ -224,7 +224,7 @@ SKILL:Search						RANK:5
 SKILL:Spot							RANK:5
 SKILL:Survival						RANK:5
 SKILL:Craft (Stonemasonry)				RANK:9
-ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
+ABILITY:CATEGORY=Ranger Combat Style|Two-Weapon Fighting Combat Style
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
 ABILITY:CATEGORY=FEAT|Cleave
 ABILITY:CATEGORY=FEAT|Great Fortitude
@@ -255,12 +255,12 @@ SKILL:Intimidate		RANK:2
 SKILL:Sleight of Hand	RANK:8
 SKILL:Search		RANK:10
 SKILL:Spot			RANK:10
-ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
+ABILITY:CATEGORY=Ranger Combat Style|Two-Weapon Fighting Combat Style
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
 FEAT:Persuasive
 FEAT:Track
-FEAT:Two Weapon Defense
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Defense
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Finesse
 GEAR:Unarmed Strike	LOCATION:Equipped
 
@@ -344,8 +344,8 @@ STAT:STR=8|DEX=15|CON=12|INT=14|WIS=10|CHA=13
 CLASS:Rogue	LEVEL:2
 FEAT:Combat Expertise
 FEAT:Improved Feint
-FEAT:Improved Two Weapon Fighting
-FEAT:Two Weapon Fighting
+FEAT:Improved Two-Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Finesse
 SKILL:Concentration		RANK:15
 SKILL:Knowledge (Arcana)	RANK:15

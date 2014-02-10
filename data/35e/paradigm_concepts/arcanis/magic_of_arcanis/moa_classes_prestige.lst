@@ -231,7 +231,7 @@ CLASS:Arcane Infiltrator	STARTSKILLPTS:6	CSKILL:Black Market|Bluff|Climb|Concent
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
 CLASS:Battlestaff	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.90	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat																			Required Skill					Required Text
-CLASS:Battlestaff	PREATT:4	PREFEAT:5,Combat Expertise,Craft Magic Arms and Armor,Two Weapon Fighting,Two Weapon Defense,Weapon Focus (Quarterstaff)	PRESKILL:1,Craft (Weaponsmithing)=10	PRETEXT:Spells: Ability to prepare and cast 3rd level Arcane spells. Special: Must craft a Masterwork or Greater Masterwork quarterstaff and use it to defeat a foe in melee combat.
+CLASS:Battlestaff	PREATT:4	PREFEAT:5,Combat Expertise,Craft Magic Arms and Armor,Two-Weapon Fighting,Two-Weapon Defense,Weapon Focus (Quarterstaff)	PRESKILL:1,Craft (Weaponsmithing)=10	PRETEXT:Spells: Ability to prepare and cast 3rd level Arcane spells. Special: Must craft a Masterwork or Greater Masterwork quarterstaff and use it to defeat a foe in melee combat.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Battlestaff	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
 ###Block: Spell Caster Progression

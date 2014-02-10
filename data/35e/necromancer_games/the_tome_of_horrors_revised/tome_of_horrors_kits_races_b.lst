@@ -249,7 +249,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 SKILL:Survival		RANK:4
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Focus (Hammer (Light))
 GEAR:Hammer (Light)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Hammer (Light)	SIZE:PC	LOCATION:Secondary Hand

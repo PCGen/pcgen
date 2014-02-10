@@ -52,7 +52,7 @@ SKILL:Ride			RANK:14
 FEAT:Improved Initiative
 FEAT:Leadership
 FEAT:Mounted Combat
-FEAT:Ride By Attack
+FEAT:Ride-By Attack
 FEAT:Track
 FEAT:Weapon Focus(Greatsword)
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W.C_IRON

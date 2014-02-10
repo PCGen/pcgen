@@ -32,7 +32,7 @@ FEAT:Iron Will
 FEAT:Power Attack
 CLASS:Ranger	LEVEL:6
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Elf))
-ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
+ABILITY:CATEGORY=Ranger Combat Style|Two-Weapon Fighting Combat Style
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Human))
 ABILITY:CATEGORY=Favored Enemy Bonus|Favored Bonus__Humanoid_Elf
 SKILL:Knowledge (Nature)		RANK:6

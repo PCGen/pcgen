@@ -60,7 +60,7 @@ SKILL:Use Magic Device		RANK:15
 FEAT:Extend Spell
 FEAT:Improved Critical (Scimitar)
 FEAT:Iron Will
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Focus (Scimitar)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W

@@ -178,10 +178,10 @@ SKILL:Use Magic Device	RANK:23
 SKILL:TYPE=Knowledge	RANK:23	COUNT:2
 FEAT:Cleave
 FEAT:Improved Initiative
-FEAT:Improved Two Weapon Fighting
+FEAT:Improved Two-Weapon Fighting
 FEAT:Power Attack
 FEAT:Quicken Spell Like Ability(Telekinesis)
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Focus(Longsword)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Whip		SIZE:PC	LOCATION:Secondary Hand	EQMOD:MWORKW.PLUS1W.FLM_M
@@ -913,7 +913,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 SKILL:Climb			RANK:4
 FEAT:Combat Casting
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand

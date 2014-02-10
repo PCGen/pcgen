@@ -72,7 +72,7 @@ CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Cra
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:The Mighty Hunter	HD:8		TYPE:PC.Prestige	ABB:TMH		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:The Mighty Hunter	PREATT:9	PREFEAT:3,Alertness,Self Sufficient,Track	PRESKILL:4,Listen=10,Move Silently=10,Spot=10,Survival=10
+CLASS:The Mighty Hunter	PREATT:9	PREFEAT:3,Alertness,Self-Sufficient,Track	PRESKILL:4,Listen=10,Move Silently=10,Spot=10,Survival=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Mighty Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
 1														BONUS:VAR|TheMightyHunterLVL|CL

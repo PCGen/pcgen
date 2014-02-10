@@ -122,7 +122,7 @@ SKILL:Ride			RANK:5
 FEAT:Weapon Focus(Dogslicer)
 FEAT:Weapon Specialization(Dogslicer)
 ABILITY:CATEGORY=Fighter Feat|Mounted Combat
-ABILITY:CATEGORY=Fighter Feat|Ride By Attack
+ABILITY:CATEGORY=Fighter Feat|Ride-By Attack
 ABILITY:CATEGORY=Fighter Feat|Spirited Charge
 GEAR:Potion (Barkskin +2)					LOCATION:Carried
 GEAR:Potion (Cure Moderate Wounds)	QTY:2			LOCATION:Carried

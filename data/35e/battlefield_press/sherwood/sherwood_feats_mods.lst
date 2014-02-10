@@ -39,7 +39,7 @@ Improved Overrun.MOD		TYPE:ManAtArms.Yeoman
 Improved Sunder.MOD		TYPE:ManAtArms.Yeoman
 Improved Trip.MOD			TYPE:ManAtArms
 # This does not exist in the RSRD and I can't find it elswhere either
-#Improved Two Weapon Defense.MOD	TYPE:ManAtArms
+#Improved Two-Weapon Defense.MOD	TYPE:ManAtArms
 Improved Unarmed Strike.MOD	TYPE:Priest.Yeoman
 In the Groove.MOD			TYPE:Knave.ManAtArms
 Instinctive Shot.MOD		TYPE:Knave.ManAtArms
@@ -70,11 +70,11 @@ Ranged Disarm.MOD			TYPE:Knave.ManAtArms
 Rapid Reload.MOD			TYPE:Engineer.ManAtArms
 Rapid Shot.MOD			TYPE:Knave.ManAtArms.Noble
 Reactive Shot.MOD			TYPE:ManAtArms
-Ride By Attack.MOD		TYPE:ManAtArms.Noble
+Ride-By Attack.MOD		TYPE:ManAtArms.Noble
 Riposte.MOD				TYPE:Knave.ManAtArms
 Rising Strike.MOD			TYPE:ManAtArms
 Run.MOD				TYPE:Priest.Knave.Yeoman
-Self Sufficient.MOD		TYPE:Priest.Yeoman
+Self-Sufficient.MOD		TYPE:Priest.Yeoman
 Shot on the Run.MOD		TYPE:Knave.ManAtArms
 Skill Focus.MOD			TYPE:Priest.Engineer.Noble.Yeoman
 Spirited Charge.MOD		TYPE:ManAtArms.Noble
@@ -88,8 +88,8 @@ Toughness.MOD			TYPE:ManAtArms.Yeoman
 Tournament Archer.MOD		TYPE:Knave.ManAtArms.Noble
 Track.MOD				TYPE:Noble
 Trample.MOD				TYPE:ManAtArms.Noble
-Two Weapon Defense.MOD		TYPE:ManAtArms
-Two Weapon Fighting.MOD		TYPE:ManAtArms
+Two-Weapon Defense.MOD		TYPE:ManAtArms
+Two-Weapon Fighting.MOD		TYPE:ManAtArms
 Weapon Finesse.MOD		TYPE:Knave
 Weapon Focus.MOD			TYPE:Noble.ManAtArms
 Weapon Specialization.MOD	TYPE:ManAtArms
@@ -106,7 +106,7 @@ Great Fortitude.MOD		TYPE:Conjurer
 Iron Will.MOD			TYPE:Conjurer
 Negotiator.MOD			TYPE:Conjurer
 Persuasive.MOD			TYPE:Conjurer
-Self Sufficient.MOD		TYPE:Conjurer
+Self-Sufficient.MOD		TYPE:Conjurer
 Skill Focus.MOD			TYPE:Conjurer
 
 

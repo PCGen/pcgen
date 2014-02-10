@@ -47,9 +47,9 @@ SKILL:Knowledge (History)	RANK:6
 SKILL:Listen			RANK:6
 SKILL:Move Silently		RANK:6
 SKILL:Spot				RANK:6
-FEAT:Improved Two Weapon Fighting
+FEAT:Improved Two-Weapon Fighting
 FEAT:Iron Will
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Focus(Scimitar)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:MWORKW

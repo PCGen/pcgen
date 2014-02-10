@@ -8,7 +8,7 @@ CLASS:Buccaneer.MOD	CSKILL:.CLEAR.Innuendo
 CLASS:Navigator Wizard.MOD	CSKILL:.CLEAR.Scry
 
 # Class Name	Clear Prereq.	Req. Att.	Required Feat						Required Skill
-CLASS:Reaver.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:2,Power Attack,Two Weapon Fighting	PRESKILL:1,Swim=6
+CLASS:Reaver.MOD	PRE:.CLEAR		PREATT:4	PREFEAT:2,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6
 
 # Class Name		Remove Class Skill																	Class Skill
 CLASS:Sea Druid.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Scry	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival

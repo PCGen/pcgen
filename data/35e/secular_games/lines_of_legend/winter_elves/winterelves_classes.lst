@@ -43,7 +43,7 @@ CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name			Required Ability							Req. Att.	Required Feat					Required Race		Required Skill
-CLASS:Knight of the Frostfang	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:9	PREFEAT:2,Mounted Combat,Ride By Attack	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride=9,Survival=9
+CLASS:Knight of the Frostfang	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:9	PREFEAT:2,Mounted Combat,Ride-By Attack	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride=9,Survival=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies

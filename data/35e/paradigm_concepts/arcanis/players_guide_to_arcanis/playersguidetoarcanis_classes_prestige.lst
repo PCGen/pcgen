@@ -460,7 +460,7 @@ CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus												Combat bonus
 CLASS:Pistoleer	HD:8		TYPE:PC.Prestige	ABB:Pstlr		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.206	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat														Required Skill						Req. Weapond Prof.
-CLASS:Pistoleer	PREATT:5	PREFEAT:3,Point Blank Shot,Two Weapon Fighting,Weapon Focus (Altherian Flintlock (Pistol))	PRESKILL:2,Concentration=5,Craft (Flintlocks)=5	PREWEAPONPROF:1,Altherian Flintlock (Pistol)
+CLASS:Pistoleer	PREATT:5	PREFEAT:3,Point Blank Shot,Two-Weapon Fighting,Weapon Focus (Altherian Flintlock (Pistol))	PRESKILL:2,Concentration=5,Craft (Flintlocks)=5	PREWEAPONPROF:1,Altherian Flintlock (Pistol)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pistoleer	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Flintlocks)|Intimidate|Jump|Listen|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|Two-Handed Quick Draw	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
@@ -528,7 +528,7 @@ CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
 CLASS:Sky Knight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:SkKn		MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.214	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat								Multiple Requirements																								Required Skill
-CLASS:Sky Knight	PREATT:5	PREFEAT:3,Mounted Combat,Lightning Reflexes,Ride By Attack	PREMULT:1,[PREMULT:3,[PREGENDER:F],[PREREGION:Milandir],[PREMULT:1,[PREFEAT:1,TYPE=Gentry],[PRECLASS:1,Aristocrat=1,Patrician=1]]],[PREFEAT:1,Pureblood Kio]	PRESKILL:2,Ride=8,Handle Animal=8
+CLASS:Sky Knight	PREATT:5	PREFEAT:3,Mounted Combat,Lightning Reflexes,Ride-By Attack	PREMULT:1,[PREMULT:3,[PREGENDER:F],[PREREGION:Milandir],[PREMULT:1,[PREFEAT:1,TYPE=Gentry],[PRECLASS:1,Aristocrat=1,Patrician=1]]],[PREFEAT:1,Pureblood Kio]	PRESKILL:2,Ride=8,Handle Animal=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sky Knight	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|TYPE=Nature|TYPE=Profession|Ride|Spot|Tumble
 # bonded companion updates NOT coded
@@ -699,13 +699,13 @@ SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Passing the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Defensive Perfection
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Defensive Spin Ability
-SUBCLASS:Twin Sting			ABB:TwnStg	PREFEAT:4,Dodge,Two Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
+SUBCLASS:Twin Sting			ABB:TwnStg	PREFEAT:4,Dodge,Two-Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Double Lunge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Balance and Grace|Trap and Cut
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|The Cruelest Cut
-SUBCLASS:Twin Storms			ABB:TwnStm	PREFEAT:3,Exotic Weapon Proficiency (Sword (Two-Bladed)),Weapon Focus (Sword (Two-Bladed)),Two Weapon Fighting
+SUBCLASS:Twin Storms			ABB:TwnStm	PREFEAT:3,Exotic Weapon Proficiency (Sword (Two-Bladed)),Weapon Focus (Sword (Two-Bladed)),Two-Weapon Fighting
 SUBCLASSLEVEL:1						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Cutting High and Low|Passing the Charge
@@ -717,7 +717,7 @@ SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|To Meet the Charge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Mighty Swing
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Mighty Cleave
-SUBCLASS:Steel Dragon			ABB:StlDrg	PREFEAT:4,Exotic Weapon Proficiency (Steel Whip),Two Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
+SUBCLASS:Steel Dragon			ABB:StlDrg	PREFEAT:4,Exotic Weapon Proficiency (Steel Whip),Two-Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
 SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Spinning Strike

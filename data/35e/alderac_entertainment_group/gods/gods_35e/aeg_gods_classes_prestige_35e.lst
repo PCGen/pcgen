@@ -65,7 +65,7 @@ CLASS:Whip of Urog.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE=Craft|Handle Animal|Inti
 CLASS:Dryad Ranger.MOD	CSKILL:.CLEAR		CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Survival
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base							AUTO:FEAT|.CLEAR.Uncanny Dodge
 7	BONUS:VAR|UncannyDodgeLevel|1
-8																					VFEAT:Improved Two Weapon Fighting
+8																					VFEAT:Improved Two-Weapon Fighting
 
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Vendaks Chosen.MOD	CSKILL:.CLEAR		CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|Swim

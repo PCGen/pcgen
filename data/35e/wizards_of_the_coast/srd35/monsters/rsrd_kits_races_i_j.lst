@@ -50,7 +50,7 @@ SKILL:Diplomacy		RANK:2
 SKILL:Search		RANK:5
 SKILL:Sense Motive	RANK:5
 FEAT:Great Fortitude
-FEAT:Ride By Attack
+FEAT:Ride-By Attack
 FEAT:Spirited Charge
 STAT:STR=11|DEX=11|WIS=11|CHA=11|CON=10|INT=10
 GEAR:Barding (Full Plate)	SIZE:PC	LOCATION:Equipped
