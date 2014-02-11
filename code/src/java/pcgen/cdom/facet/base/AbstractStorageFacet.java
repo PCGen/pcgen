@@ -17,9 +17,11 @@
 package pcgen.cdom.facet.base;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.WeakHashMap;
 
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.DoubleKeyMap;
@@ -70,7 +72,7 @@ public abstract class AbstractStorageFacet
 	 * storing the information
 	 */
 	private static final DoubleKeyMap<CharID, Class<?>, Object> CACHE =
-			new DoubleKeyMap<CharID, Class<?>, Object>();
+			new DoubleKeyMap<CharID, Class<?>, Object>(WeakHashMap.class, HashMap.class);
 
 	/*
 	 * Note: the use of CACHE.getReadOnlyMapFor(K1) in peekAtCache makes calling

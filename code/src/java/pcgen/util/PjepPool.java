@@ -83,6 +83,7 @@ public class PjepPool
 			System.err
 				.println("Tried to release a PJEP instance that we did not aquire...");
 		}
+		interp.setParent(null);
 		freeStack.push(interp);
 	}
 
