@@ -17,6 +17,7 @@
  */
 package compare;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -44,6 +45,7 @@ public final class InequalityTesterInst implements InequalityTester
 	{
 		INEQ_MAP.put(Collection.class, new CollectionInequality());
 		INEQ_MAP.put(Map.class, new MapInequality());
+		INEQ_MAP.put(WeakReference.class, new WeakReferenceInequality());
 		INEQ_MAP.put(IdentityHashMap.class, new IdentityHashMapInequality());
 		INEQ_MAP.put(pcgen.cdom.facet.model.ClassFacet.ClassInfo.class, new ClassFacetInfoInequality());
 		INEQ_MAP.put(PlayerCharacter.class, new IgnoreInequality());

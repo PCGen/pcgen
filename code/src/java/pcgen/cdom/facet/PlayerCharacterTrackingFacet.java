@@ -36,7 +36,15 @@ public class PlayerCharacterTrackingFacet extends AbstractStorageFacet
 
 	public PlayerCharacter getPC(CharID id)
 	{
-		return ((WeakReference<PlayerCharacter>) getCache(id)).get();
+		WeakReference<PlayerCharacter> wr = (WeakReference<PlayerCharacter>) getCache(id);
+		/*
+		 * In theory, wr should never be null. However, we have unit tests that
+		 * test the facets individually, and thus they implicitly call
+		 * PrerequisiteFacet (which calls PlayerCharacterTrackingFacet), but
+		 * they may not have prerequisites present. Therefore we have to protect
+		 * against that situation - Tom P Feb 11 '14
+		 */
+		return (wr == null) ? null : wr.get();
 	}
 
 	@Override
