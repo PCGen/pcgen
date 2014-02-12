@@ -1316,27 +1316,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 				first = false;
 				String adj = ADJ_FMT.format(bonusObj.resolve(pc, "")); //$NON-NLS-1$
-				String bonusDesc = bonusObj.getTypeOfBonus() + " " + bonusObj.getBonusInfo(); //$NON-NLS-1$
-				if ("STAT".equals(bonusObj.getTypeOfBonus())) //$NON-NLS-1$
-				{
-					final PCStat pcstat = Globals.getContext().ref
-							.getAbbreviatedObject(PCStat.class, bonusObj.getBonusInfo());
-					if (pcstat != null)
-					{
-						bonusDesc = pcstat.getName();
-					}
-				}
-				else if ("LOCKEDSTAT".equals(bonusObj.getTypeOfBonus())) //$NON-NLS-1$
-				{
-					final PCStat pcstat = Globals.getContext().ref
-							.getAbbreviatedObject(PCStat.class, bonusObj.getBonusInfo());
-					if (pcstat != null)
-					{
-						bonusDesc = pcstat.getName() + " (locked)";
-					}
-				}
-				
-				bonusValues.append(adj + " " + bonusDesc);  //$NON-NLS-1$
+				bonusValues.append(adj + " " + bonusObj.getDescription());  //$NON-NLS-1$
 			}
 			if (bonusValues.length() > 0)
 			{

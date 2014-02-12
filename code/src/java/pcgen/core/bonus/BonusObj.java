@@ -629,5 +629,10 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		return originalString;
 	}
+
+	public String getDescription()
+	{
+		return getTypeOfBonus() + " " + getBonusInfo(); //$NON-NLS-1$
+	}
 	
 }

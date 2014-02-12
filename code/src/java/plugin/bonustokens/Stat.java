@@ -26,6 +26,7 @@
 package plugin.bonustokens;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.bonus.BonusObj;
@@ -152,4 +153,18 @@ public final class Stat extends BonusObj
 	{
 		return "STAT";
 	}
+
+	@Override
+	public String getDescription()
+	{
+		final PCStat pcstat =
+				Globals.getContext().ref.getAbbreviatedObject(PCStat.class,
+					getBonusInfo());
+		if (pcstat != null)
+		{
+			return pcstat.getName();
+		}
+		return super.getDescription();
+	}	
+	
 }

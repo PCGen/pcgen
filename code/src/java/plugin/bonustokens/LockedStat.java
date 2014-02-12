@@ -25,6 +25,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.MissingObject;
@@ -80,4 +81,19 @@ public final class LockedStat extends BonusObj
 	{
 		return "LOCKEDSTAT";
 	}
+
+	@Override
+	public String getDescription()
+	{
+		final PCStat pcstat =
+				Globals.getContext().ref.getAbbreviatedObject(PCStat.class,
+					getBonusInfo());
+		if (pcstat != null)
+		{
+			return pcstat.getName() + " (locked)";
+		}
+		return super.getDescription();
+	}
+	
+	
 }
