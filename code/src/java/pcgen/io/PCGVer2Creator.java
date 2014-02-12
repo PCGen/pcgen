@@ -869,23 +869,17 @@ public final class PCGVer2Creator implements IOConstants
 				}
 			}
 
-			for (BonusObj save : thePC.getAddedBonusList(pcClass))
+			for (BonusObj save : thePC.getSaveableBonusList(pcClass))
 			{
-				if (save.saveToPCG())
-				{
-					specials.put(key, "BONUS|" + save);
-				}
+				specials.put(key, "BONUS|" + save);
 			}
 			for (int i = 1; i <= charDisplay.getLevel(pcClass); i++)
 			{
 				key = pcClass.getKeyName() + TAG_SAVE + (i - 1);
 				PCClassLevel pcl = charDisplay.getActiveClassLevel(pcClass, i);
-				for (BonusObj save : thePC.getAddedBonusList(pcl))
+				for (BonusObj save : thePC.getSaveableBonusList(pcl))
 				{
-					if (save.saveToPCG())
-					{
-						specials.put(key, "BONUS|" + save);
-					}
+					specials.put(key, "BONUS|" + save);
 				}
 			}
 		}
@@ -1455,14 +1449,11 @@ public final class PCGVer2Creator implements IOConstants
 		buffer.append(TAG_TYPE).append(TAG_END);
 		buffer.append(EntityEncoder.encode(ability.getType()));
 
-		for (final BonusObj save : thePC.getAddedBonusList(ability))
+		for (final BonusObj save : thePC.getSaveableBonusList(ability))
 		{
-			if (save.saveToPCG())
-			{
-				buffer.append('|');
-				buffer.append(TAG_SAVE).append(':');
-				buffer.append(EntityEncoder.encode("BONUS|" + save));
-			}
+			buffer.append('|');
+			buffer.append(TAG_SAVE).append(':');
+			buffer.append(EntityEncoder.encode("BONUS|" + save));
 		}
 
 		for (final Description desc : ability

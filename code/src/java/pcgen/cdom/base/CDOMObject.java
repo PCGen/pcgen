@@ -873,6 +873,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		if (pc != null)
 		{
 			bonusList.addAll(pc.getAddedBonusList(this));
+			bonusList.addAll(pc.getSaveableBonusList(this));
 		}
 		return bonusList;
 	}

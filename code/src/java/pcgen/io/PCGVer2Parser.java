@@ -2639,7 +2639,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						thePC.addBonus(aBonus, ability);
+						thePC.addSaveableBonus(aBonus, ability);
 					}
 				}
 				else
@@ -2888,7 +2888,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						thePC.addBonus(aBonus, aFeat);
+						thePC.addSaveableBonus(aBonus, aFeat);
 					}
 				}
 				else

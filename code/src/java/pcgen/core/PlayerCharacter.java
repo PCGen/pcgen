@@ -115,6 +115,7 @@ import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
+import pcgen.cdom.facet.SaveableBonusFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
@@ -423,6 +424,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
 	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
+	private SaveableBonusFacet saveableBonusFacet = FacetLibrary.getFacet(SaveableBonusFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
@@ -10660,9 +10662,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return addedBonusFacet.getSet(id, source);
 	}
 
-	public void removeAddedBonus(BonusObj bonus, CDOMObject source)
+	public void addSaveableBonus(BonusObj bonus, CDOMObject source)
 	{
-		addedBonusFacet.remove(id, bonus, source);
+		saveableBonusFacet.add(id, bonus, source);
+	}
+
+	public List<? extends BonusObj> getSaveableBonusList(CDOMObject source)
+	{
+		return saveableBonusFacet.getSet(id, source);
+	}
+
+	public void removeSaveableBonus(BonusObj bonus, CDOMObject source)
+	{
+		saveableBonusFacet.remove(id, bonus, source);
 	}
 
 	public void addGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)

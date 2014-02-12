@@ -499,7 +499,6 @@ public class PCClass extends PObject implements ClassFacade
 //						Logging.debugPrint("Feat bonus for " + this + " is "
 //							+ aBuf.toString());
 				BonusObj bon = Bonus.newBonus(Globals.getContext(), aBuf.toString());
-				bon.setSaveToPCG(false);
 				aPC.addBonus(bon, this);
 			}
 		}

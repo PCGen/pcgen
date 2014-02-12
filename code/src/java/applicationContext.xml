@@ -50,6 +50,7 @@
 	<bean id="allowDebtFacet" class="pcgen.cdom.facet.fact.AllowDebtFacet"/>
 	<bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
 		<property name="addedBonusFacet" ref="addedBonusFacet"/>
+		<property name="saveableBonusFacet" ref="saveableBonusFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
@@ -493,6 +494,7 @@
 		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<!-- S -->
+	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>

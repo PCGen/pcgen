@@ -48,7 +48,7 @@ public final class BonusAddition
 		final BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);
 		if (aBonus != null)
 		{
-			aPC.addBonus(aBonus, target);
+			aPC.addSaveableBonus(aBonus, target);
 		}
 	}
 
@@ -67,7 +67,7 @@ public final class BonusAddition
 		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);
 		String bonusStrRep = String.valueOf(aBonus);
 
-		for (BonusObj listBonus : aPC.getAddedBonusList(target))
+		for (BonusObj listBonus : aPC.getSaveableBonusList(target))
 		{
 			if (listBonus.toString().equals(bonusStrRep))
 			{
@@ -77,12 +77,12 @@ public final class BonusAddition
 
 		if (toRemove != null)
 		{
-			aPC.removeAddedBonus(toRemove, target);
+			aPC.removeSaveableBonus(toRemove, target);
 		}
 		else
 		{
 			Logging.errorPrint("removeBonus: Could not find bonus: " + bonusString
-					+ " in bonusList " + aPC.getAddedBonusList(target));
+					+ " in bonusList " + aPC.getSaveableBonusList(target));
 		}
 	}
 
