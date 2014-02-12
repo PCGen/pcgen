@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet;
 
+import java.lang.ref.WeakReference;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.PlayerCharacter;
@@ -29,12 +31,12 @@ public class PlayerCharacterTrackingFacet extends AbstractStorageFacet
 {
 	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
 	{
-		setCache(id, pc);
+		setCache(id, new WeakReference<PlayerCharacter>(pc));
 	}
 
 	public PlayerCharacter getPC(CharID id)
 	{
-		return (PlayerCharacter) getCache(id);
+		return ((WeakReference<PlayerCharacter>) getCache(id)).get();
 	}
 
 	@Override

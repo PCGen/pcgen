@@ -90,7 +90,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		{
 			return 0.0;
 		}
-		return mci.movementOfType(moveType);
+		return mci.movementOfType(id, moveType);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		MovementCacheInfo rci = getInfo(id);
 		if (rci == null)
 		{
-			rci = new MovementCacheInfo(id);
+			rci = new MovementCacheInfo();
 			setCache(id, rci);
 		}
 		return rci;
@@ -144,13 +144,6 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	 */
 	public class MovementCacheInfo
 	{
-		private final CharID id;
-
-		public MovementCacheInfo(CharID charid)
-		{
-			id = charid;
-		}
-
 		private double[] movementMult = EMPTY_DOUBLE_ARRAY;
 		private String[] movementMultOp = Globals.EMPTY_STRING_ARRAY;
 		private String[] movementTypes = Globals.EMPTY_STRING_ARRAY;
@@ -167,14 +160,14 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 *            The movement type to be returned
 		 * @return The movement value of the given type for the Player Character
 		 */
-		public double movementOfType(String moveType)
+		public double movementOfType(CharID id, String moveType)
 		{
 			if (movementTypes == null)
 				return 0.0;
 			for (int moveIdx = 0; moveIdx < movementTypes.length; moveIdx++)
 			{
 				if (movementTypes[moveIdx].equalsIgnoreCase(moveType))
-					return movement(moveIdx);
+					return movement(id, moveIdx);
 			}
 			return 0.0;
 		}
@@ -187,7 +180,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		/**
 		 * recalculate all the move rates and modifiers
 		 */
-		public void adjustMoveRates()
+		public void adjustMoveRates(CharID id)
 		{
 			movementMult = EMPTY_DOUBLE_ARRAY;
 			movementMultOp = Globals.EMPTY_STRING_ARRAY;
@@ -384,7 +377,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 * @param moveIdx
 		 * @return movement
 		 */
-		public double movement(int moveIdx)
+		public double movement(CharID id, int moveIdx)
 		{
 			// get base movement
 			double moveInFeet = getMovement(moveIdx);
@@ -459,7 +452,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 					.calcEncumberedMove(armorLoad, moveInFeet);
 
 			Load pcLoad = loadFacet.getLoadType(id);
-			double loadMove = calcEncumberedMove(pcLoad, moveInFeet);
+			double loadMove = calcEncumberedMove(id, pcLoad, moveInFeet);
 
 			// It is possible to have a PC that is not encumbered by Armor
 			// But is encumbered by Weight carried (and visa-versa)
@@ -525,12 +518,12 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			return move;
 		}
 
-		public List<NamedValue> getMovementValues()
+		public List<NamedValue> getMovementValues(CharID id)
 		{
 			List<NamedValue> list = new ArrayList<NamedValue>();
 			for (int i = 0; i < countMovementTypes(); i++)
 			{
-				list.add(new NamedValue(getMovementType(i), movement(i)));
+				list.add(new NamedValue(getMovementType(i), movement(id, i)));
 			}
 			return list;
 		}
@@ -613,7 +606,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 *            the unencumbered move value
 		 * @return encumbered move as an integer
 		 */
-		public double calcEncumberedMove(Load load, double unencumberedMove)
+		public double calcEncumberedMove(CharID id, Load load, double unencumberedMove)
 		{
 			double encumberedMove;
 
@@ -701,7 +694,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	 */
 	public void reset(CharID id)
 	{
-		getConstructingInfo(id).adjustMoveRates();
+		getConstructingInfo(id).adjustMoveRates(id);
 	}
 
 	/**
@@ -731,7 +724,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		{
 			return Collections.emptyList();
 		}
-		return mci.getMovementValues();
+		return mci.getMovementValues(id);
 	}
 
 	/**
