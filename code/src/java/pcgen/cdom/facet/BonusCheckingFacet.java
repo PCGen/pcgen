@@ -166,44 +166,6 @@ public class BonusCheckingFacet
 	}
 
 	/**
-	 * Returns the Bonus-specific Info related to the Bonuses for the given
-	 * Bonus name in the Player Character identified by the given CharID.
-	 * 
-	 * This method is value-semantic in that ownership of the returned
-	 * Collection is transferred to the class calling this method. Since this is
-	 * a remove all function, modification of the returned Collection will not
-	 * modify this BonusCheckingFacet and modification of this
-	 * BonusCheckingFacet will not modify the returned Collection. Modifications
-	 * to the returned Collection will also not modify any future or previous
-	 * objects returned by this (or other) methods on BonusCheckingFacet. If you
-	 * wish to modify the information stored in this BonusCheckingFacet, you
-	 * must use the add*() and remove*() methods of BonusCheckingFacet.
-	 * 
-	 * @param id
-	 *            The CharID identifying the Player Character for which the
-	 *            bonus information related to the given Bonus name should be
-	 *            returned
-	 * @param bonusName
-	 *            The Bonus name for which the Bonus information should be
-	 *            returned
-	 * @return The Bonus-specific Info related to the Bonuses for the given
-	 *         Bonus name in the Player Character identified by the given CharID
-	 */
-	public Collection<String> getBonusInfo(CharID id, String bonusName)
-	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		List<String> list = new ArrayList<String>();
-		for (BonusObj bonus : pc.getActiveBonusList())
-		{
-			if (bonus.getTypeOfBonus().equals(bonusName))
-			{
-				list.add(bonus.getBonusInfo());
-			}
-		}
-		return list;
-	}
-
-	/**
 	 * Get back a Collection of bonus info with %LIST entries replaced with the
 	 * choices made.
 	 * 
