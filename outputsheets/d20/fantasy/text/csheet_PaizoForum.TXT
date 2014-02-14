@@ -829,7 +829,7 @@ ANIMAL TRICKS
 |ELSE|
 (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
 |ENDIF|
-, 
+,|SPACE|
 |ENDFOR|
 |FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|[i]|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|[/i]
