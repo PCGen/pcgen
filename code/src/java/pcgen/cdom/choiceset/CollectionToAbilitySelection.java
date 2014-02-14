@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
@@ -36,6 +37,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.util.Logging;
 
 public class CollectionToAbilitySelection implements
 		PrimitiveChoiceSet<AbilitySelection>
@@ -127,15 +129,55 @@ public class CollectionToAbilitySelection implements
 			character = pc;
 		}
 
+		private static Stack<Ability> stack = new Stack<Ability>();
+
 		@Override
 		public Collection<AbilitySelection> convert(CDOMReference<Ability> ref)
 		{
 			Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
 			for (Ability a : ref.getContainedObjects())
 			{
-				processAbility(ref, returnSet, a);
+				if (stack.contains(a))
+				{
+					Stack<Ability> current = new Stack<Ability>();
+					current.addAll(stack);
+					Logging.errorPrint("Error: Circular Expansion Found: "
+						+ reportCircularExpansion(current));
+					continue;
+				}
+				try
+				{
+					stack.push(a);
+					processAbility(ref, returnSet, a);
+				}
+				finally
+				{
+					stack.pop();
+				}
 			}
 			return returnSet;
+		}
+
+		private String reportCircularExpansion(Stack<Ability> s)
+		{
+			StringBuilder sb = new StringBuilder(2000);
+			processCircularExpansion(sb, s);
+			sb.append("    which is a circular reference");
+			return sb.toString();
+		}
+
+		private void processCircularExpansion(StringBuilder sb, Stack<Ability> s)
+		{
+			Ability a = s.pop();
+			if (!s.isEmpty())
+			{
+				processCircularExpansion(sb, s);
+				sb.append("     which includes");
+			}
+			sb.append(a.getCDOMCategory()).append(' ').append(a.getKeyName());
+			sb.append(" selects items: ");
+			sb.append(a.get(ObjectKey.CHOOSE_INFO).getLSTformat());
+			sb.append('\n');
 		}
 
 		private void processAbility(CDOMReference<Ability> ref,
