@@ -203,7 +203,23 @@ public class CollectionToAbilitySelection implements
 			{
 				if (lim.allow(character, a))
 				{
-					processAbility(ref, returnSet, a);
+					if (stack.contains(a))
+					{
+						Stack<Ability> current = new Stack<Ability>();
+						current.addAll(stack);
+						Logging.errorPrint("Error: Circular Expansion Found: "
+							+ reportCircularExpansion(current));
+						continue;
+					}
+					try
+					{
+						stack.push(a);
+						processAbility(ref, returnSet, a);
+					}
+					finally
+					{
+						stack.pop();
+					}
 				}
 			}
 			return returnSet;
