@@ -8,7 +8,8 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 
-public class AbilitySelection extends Selection<Ability, String>
+public class AbilitySelection extends Selection<Ability, String> implements
+		Comparable<AbilitySelection>
 {
 
 	public AbilitySelection(Ability obj, String sel)
@@ -138,5 +139,25 @@ public class AbilitySelection extends Selection<Ability, String>
 			sb.append(')');
 		}
 		return sb.toString();
+	}
+
+	public int compareTo(AbilitySelection o)
+	{
+		int acompare = getObject().compareTo(o.getObject());
+		if (acompare != 0)
+		{
+			return acompare;
+		}
+		String selection = getSelection();
+		String oselection = o.getSelection();
+		if (selection == oselection)
+		{
+			return 0;
+		}
+		if (selection == null)
+		{
+			return -1;
+		}
+		return selection.compareTo(oselection);
 	}
 }
