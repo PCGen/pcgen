@@ -514,17 +514,16 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		Ability clone = character.addAbilityNeedCheck(gCat, ab);
-		AbilityUtilities.modAbility(character, clone, "munch", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ab, "munch", AbilityCategory.FEAT);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		AbilityUtilities.modAbility(character, clone, "devour", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ab, "devour", AbilityCategory.FEAT);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 
-		AbilityUtilities.modAbility(character, clone, "nibble", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ab, "nibble", AbilityCategory.FEAT);
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");

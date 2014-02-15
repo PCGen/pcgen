@@ -8544,26 +8544,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
 
-	public HashMap<Nature, Set<Ability>> getAbilitiesSet()
-	{
-		HashMap<Nature, Set<Ability>> st = new HashMap<Nature, Set<Ability>>();
-
-		st.put(Nature.AUTOMATIC, new HashSet<Ability>());
-		st.put(Nature.NORMAL, new HashSet<Ability>());
-		st.put(Nature.VIRTUAL, new HashSet<Ability>());
-		st.put(Nature.ANY, new HashSet<Ability>());
-
-		st.get(Nature.VIRTUAL).addAll(getAbilitySetByNature(Nature.VIRTUAL));
-		st.get(Nature.AUTOMATIC).addAll(getAbilitySetByNature(Nature.AUTOMATIC));
-		st.get(Nature.NORMAL).addAll(getAbilitySetByNature(Nature.NORMAL));
-
-		st.get(Nature.ANY).addAll(st.get(Nature.NORMAL));
-		st.get(Nature.ANY).addAll(st.get(Nature.AUTOMATIC));
-		st.get(Nature.ANY).addAll(st.get(Nature.VIRTUAL));
-
-		return st;
-	}
-
 	public List<Ability> getAllAbilities()
 	{
 		Set<Category<Ability>> abCats = new HashSet<Category<Ability>>();
@@ -9216,45 +9196,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 		}
 		return false;
-	}
-
-	private Set<Ability> getAbilitySetByNature(Nature n)
-	{
-		GameMode gm = SettingsHandler.getGame();
-
-		Set<AbilityCategory> Sc = new HashSet<AbilityCategory>();
-		Sc.addAll(gm.getAllAbilityCategories());
-
-		Set<Ability> Sa = new HashSet<Ability>();
-
-		switch (n)
-		{
-		case AUTOMATIC:
-			for (AbilityCategory Ac : Sc)
-			{
-				Sa.addAll(getAbilityList(Ac, Nature.AUTOMATIC));
-			}
-			break;
-
-		case NORMAL:
-			for (AbilityCategory Ac : Sc)
-			{
-				Sa.addAll(getAbilityList(Ac, Nature.NORMAL));
-			}
-			break;
-
-		case VIRTUAL:
-			for (AbilityCategory Ac : Sc)
-			{
-				Sa.addAll(getAbilityList(Ac, Nature.VIRTUAL));
-			}
-			break;
-
-		default:
-			Logging.errorPrint("Attempt to get abilities of Nature: " + n);
-		}
-
-		return Sa;
 	}
 
 	/**

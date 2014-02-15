@@ -40,6 +40,7 @@ import org.nfunk.jep.ParseException;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
@@ -68,17 +69,35 @@ public abstract class JepCountType
 	 */
 	private static CaseInsensitiveMap<JepCountType> typeMap = null;
 
-	public static final JepCountType ABILITIES = new JepCountFilterable<CNAbility>()
+	public static final JepCountType ABILITIESDISTINCT = new JepCountAbilities()
 	{
-		
-		private final List<String> assocList = new ArrayList<String>();
-
 		@Override
-		protected Collection<CNAbility> getData(final PlayerCharacter pc)
+		protected Double countData(Collection<? extends CNAbility> filtered,
+			PlayerCharacter pc)
 		{
-			assocList.clear();
-			return pc.getCNAbilities();
+			if (assocList.isEmpty())
+			{
+				return (double) filtered.size();
+			}
+
+			double accum = 0;
+			for (final CNAbility ab : filtered)
+			{
+				for (String assoc : pc.getAssociationList(ab.getAbility()))
+				{
+					if (assocList.contains(assoc))
+					{
+						accum++;
+					}
+				}
+			}
+			return accum;
 		}
+
+	};
+
+	public static final JepCountType ABILITIES = new JepCountAbilities()
+	{
 
 		@Override
 		protected Double countData(Collection<? extends CNAbility> filtered,
@@ -106,103 +125,7 @@ public abstract class JepCountType
 			return accum;
 		}
 
-		@Override
-		protected Collection<? extends CNAbility> filterSetP(final String c,
-			Collection<CNAbility> coll)
-		{
-			final String[] keyValue = c.split("=");
-			final JepAbilityCountEnum en;
 
-			try
-			{
-				en = JepAbilityCountEnum.valueOf(keyValue[0]);
-			}
-			catch (IllegalArgumentException ex)
-			{
-				Logging.errorPrint("Bad parameter to count(\"Ability\"), " + c);
-				return new HashSet<CNAbility>();
-			}
-
-			ObjectFilter<CNAbility> filter = null;
-			switch (en)
-			{
-				case CATEGORY:
-				case CAT:
-					filter = new CategoryFilter(keyValue[1]);
-					break;
-
-				case NAME:
-				case NAM:
-					//TODO need to initialize assocFilter :/
-					filter = new DisplayNameFilter(keyValue[1]);
-					break;
-
-				case KEY:
-					filter = new KeyNameFilter(keyValue[1], assocList);
-					break;
-
-				case NATURE:
-				case NAT:
-					try
-					{
-						Nature n = Nature.valueOf(keyValue[1]);
-						if (!n.equals(Nature.ANY))
-						{
-							filter = new NatureFilter(n);
-						}
-					}
-					catch (IllegalArgumentException ex)
-					{
-						Logging
-							.errorPrint("Bad parameter to count(\"Ability\"), no such NATURE "
-								+ c);
-					}
-
-					break;
-
-				case TYPE:
-				case TYP:
-					filter = new TypeFilter(keyValue[1]);
-					break;
-
-				case EXCLUDETYPE:
-					filter = new TypeExclusionFilter(keyValue[1]);
-					break;
-
-				case VISIBILITY:
-				case VIS:
-					try
-					{
-						final Visibility vi = Visibility.valueOf(keyValue[1]);
-						filter = new VisibilityFilter(vi);
-					}
-					catch (IllegalArgumentException ex)
-					{
-						Logging
-							.errorPrint("Bad parameter to count(\"Ability\"), no such Visibility "
-								+ keyValue[1]);
-					}
-					break;
-
-				case ASPECT:
-					filter = new AspectFilter(keyValue);
-					break;
-			}
-
-			List<CNAbility> ret = new ArrayList<CNAbility>(coll);
-			if (filter != null)
-			{
-				for (Iterator<CNAbility> it = ret.iterator(); it.hasNext();)
-				{
-					CNAbility cna = it.next();
-					if (!filter.accept(cna))
-					{
-						it.remove();
-					}
-				}
-			}
-			return ret;
-		}
 	};
 
 	public static final JepCountType CAMPAIGNHISTORY =
@@ -216,7 +139,7 @@ public abstract class JepCountType
 				}
 
 				@Override
-				public Number count(PlayerCharacter pc, Object[] params)
+				public Double count(PlayerCharacter pc, Object[] params)
 					throws ParseException
 				{
 					final Object[] par =
@@ -406,7 +329,7 @@ public abstract class JepCountType
 	public abstract Number count(PlayerCharacter pc, Object[] params)
 		throws ParseException;
 
-	private final class AspectFilter implements ObjectFilter<CNAbility>
+	private static final class AspectFilter implements ObjectFilter<CNAbility>
 	{
 		private final String[] keyValue;
 
@@ -422,7 +345,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class VisibilityFilter implements ObjectFilter<CNAbility>
+	private static final class VisibilityFilter implements ObjectFilter<CNAbility>
 	{
 		private final Visibility vi;
 
@@ -437,7 +360,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class TypeFilter implements ObjectFilter<CNAbility>
+	private static final class TypeFilter implements ObjectFilter<CNAbility>
 	{
 		String type;
 
@@ -453,7 +376,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class TypeExclusionFilter implements ObjectFilter<CNAbility>
+	private static final class TypeExclusionFilter implements ObjectFilter<CNAbility>
 	{
 		String type;
 
@@ -479,7 +402,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class NatureFilter implements ObjectFilter<CNAbility>
+	private static final class NatureFilter implements ObjectFilter<CNAbility>
 	{
 		Nature nature;
 
@@ -494,7 +417,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class KeyNameFilter implements ObjectFilter<CNAbility>
+	private static final class KeyNameFilter implements ObjectFilter<CNAbility>
 	{
 		private final String name;
 		private final List<String> assocList;
@@ -520,7 +443,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class DisplayNameFilter implements ObjectFilter<CNAbility>
+	private static final class DisplayNameFilter implements ObjectFilter<CNAbility>
 	{
 		private final String name;
 
@@ -535,7 +458,7 @@ public abstract class JepCountType
 		}
 	}
 
-	private final class CategoryFilter implements ObjectFilter<CNAbility>
+	private static final class CategoryFilter implements ObjectFilter<CNAbility>
 	{
 		private final String cat;
 
@@ -546,7 +469,8 @@ public abstract class JepCountType
 
 		public boolean accept(CNAbility o)
 		{
-			return o.getAbilityCategory().getKeyName().equalsIgnoreCase(cat);
+			Category<Ability> parentCategory = o.getAbilityCategory().getParentCategory();
+			return parentCategory.getKeyName().equalsIgnoreCase(cat);
 		}
 	}
 
@@ -554,7 +478,7 @@ public abstract class JepCountType
 			extends JepCountFilterable<T>
 	{
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
+		public Double count(PlayerCharacter pc, Object[] params)
 			throws ParseException
 		{
 			return super.count(pc, validateParams(params));
@@ -687,7 +611,7 @@ public abstract class JepCountType
 		}
 
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
+		public Double count(PlayerCharacter pc, Object[] params)
 			throws ParseException
 		{
 			final ParameterTree pt = convertParams(params);
@@ -715,6 +639,115 @@ public abstract class JepCountType
 
 	}
 
+	public static abstract class JepCountAbilities extends JepCountFilterable<CNAbility>
+	{
+		protected final List<String> assocList = new ArrayList<String>();
+
+		@Override
+		protected Collection<CNAbility> getData(final PlayerCharacter pc)
+		{
+			assocList.clear();
+			return pc.getCNAbilities();
+		}
+
+		@Override
+		protected Collection<? extends CNAbility> filterSetP(final String c,
+			Collection<CNAbility> coll)
+		{
+			final String[] keyValue = c.split("=");
+			final JepAbilityCountEnum en;
+
+			try
+			{
+				en = JepAbilityCountEnum.valueOf(keyValue[0]);
+			}
+			catch (IllegalArgumentException ex)
+			{
+				Logging.errorPrint("Bad parameter to count(\"Ability\"), " + c);
+				return new HashSet<CNAbility>();
+			}
+
+			ObjectFilter<CNAbility> filter = null;
+			switch (en)
+			{
+				case CATEGORY:
+				case CAT:
+					filter = new CategoryFilter(keyValue[1]);
+					break;
+
+				case NAME:
+				case NAM:
+					//TODO need to initialize assocFilter :/
+					filter = new DisplayNameFilter(keyValue[1]);
+					break;
+
+				case KEY:
+					filter = new KeyNameFilter(keyValue[1], assocList);
+					break;
+
+				case NATURE:
+				case NAT:
+					try
+					{
+						Nature n = Nature.valueOf(keyValue[1]);
+						if (!n.equals(Nature.ANY))
+						{
+							filter = new NatureFilter(n);
+						}
+					}
+					catch (IllegalArgumentException ex)
+					{
+						Logging
+							.errorPrint("Bad parameter to count(\"Ability\"), no such NATURE "
+								+ c);
+					}
+
+					break;
+
+				case TYPE:
+				case TYP:
+					filter = new TypeFilter(keyValue[1]);
+					break;
+
+				case EXCLUDETYPE:
+					filter = new TypeExclusionFilter(keyValue[1]);
+					break;
+
+				case VISIBILITY:
+				case VIS:
+					try
+					{
+						final Visibility vi = Visibility.valueOf(keyValue[1]);
+						filter = new VisibilityFilter(vi);
+					}
+					catch (IllegalArgumentException ex)
+					{
+						Logging
+							.errorPrint("Bad parameter to count(\"Ability\"), no such Visibility "
+								+ keyValue[1]);
+					}
+					break;
+
+				case ASPECT:
+					filter = new AspectFilter(keyValue);
+					break;
+			}
+
+			List<CNAbility> ret = new ArrayList<CNAbility>(coll);
+			if (filter != null)
+			{
+				for (Iterator<CNAbility> it = ret.iterator(); it.hasNext();)
+				{
+					CNAbility cna = it.next();
+					if (!filter.accept(cna))
+					{
+						it.remove();
+					}
+				}
+			}
+			return ret;
+		}
+	}
 	public interface ObjectFilter<T>
 	{
 		public boolean accept(T o);
@@ -753,14 +786,11 @@ public abstract class JepCountType
 
 	/**
 	 * Returns the constant for the given String (the search for the constant is
-	 * case insensitive). If the constant does not already exist, an
-	 * IllegalArgumentException is thrown.
+	 * case insensitive).
 	 * 
 	 * @param name
 	 *            The name of the constant to be returned
 	 * @return The Constant for the given name
-	 * @throws IllegalArgumentException
-	 *             if the given String is not a previously defined JepCountType
 	 */
 	public static synchronized JepCountType valueOf(String name)
 	{
@@ -768,13 +798,7 @@ public abstract class JepCountType
 		{
 			buildMap();
 		}
-		JepCountType key = typeMap.get(name);
-		if (key == null)
-		{
-			throw new IllegalArgumentException(name
-				+ " is not a previously defined JepCountType");
-		}
-		return key;
+		return typeMap.get(name);
 	}
 
 	/**

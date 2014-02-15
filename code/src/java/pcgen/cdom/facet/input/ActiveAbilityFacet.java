@@ -727,17 +727,20 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		Set<CNAbility> set = new HashSet<CNAbility>();
-		for (Map.Entry<Category<Ability>,  Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+		if (catMap != null)
 		{
-			Category<Ability> cat = catME.getKey();
-			for (Entry<Nature, Set<Ability>> natME : catME.getValue().entrySet())
+			for (Map.Entry<Category<Ability>,  Map<Nature, Set<Ability>>> catME : catMap.entrySet())
 			{
-				Nature nat = natME.getKey();
-				for (Ability a : natME.getValue())
+				Category<Ability> cat = catME.getKey();
+				for (Entry<Nature, Set<Ability>> natME : catME.getValue().entrySet())
 				{
-					if (!a.isInternal())
+					Nature nat = natME.getKey();
+					for (Ability a : natME.getValue())
 					{
-						set.add(new CNAbility(cat, a, nat));
+						if (!a.isInternal())
+						{
+							set.add(new CNAbility(cat, a, nat));
+						}
 					}
 				}
 			}

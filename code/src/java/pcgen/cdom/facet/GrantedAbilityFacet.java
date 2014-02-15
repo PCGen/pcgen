@@ -877,19 +877,22 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap =
 				getCachedMap(id);
 		Set<CNAbility> set = new HashSet<CNAbility>();
-		for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap
-			.entrySet())
+		if (catMap != null)
 		{
-			Category<Ability> cat = catME.getKey();
-			for (Entry<Nature, Map<Ability, List<Object>>> natME : catME
-				.getValue().entrySet())
+			for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap
+				.entrySet())
 			{
-				Nature nat = natME.getKey();
-				for (Ability a : natME.getValue().keySet())
+				Category<Ability> cat = catME.getKey();
+				for (Entry<Nature, Map<Ability, List<Object>>> natME : catME
+					.getValue().entrySet())
 				{
-					if (!a.isInternal())
+					Nature nat = natME.getKey();
+					for (Ability a : natME.getValue().keySet())
 					{
-						set.add(new CNAbility(cat, a, nat));
+						if (!a.isInternal())
+						{
+							set.add(new CNAbility(cat, a, nat));
+						}
 					}
 				}
 			}

@@ -33,7 +33,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -900,81 +899,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			assertEquals("Specialty: Yes, Level: " + i + ". 1st lvl non domain only free", false,
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
 		}
-	}
-
-	/**
-	 * Tests getting a map of sets of abilities
-	 */
-	public void testGetAbilitiesSet()
-	{
-		verbose = true;
-		Logging.errorPrint("--- Start Get Abilities Set Test ---");
-	
-		PCClass arClass = null;
-
-		
-		// do so setup that is specific to testing this method
-		arClass = new PCClass();
-		arClass.setName("AbilityRichClass");
-		arClass.put(StringKey.SPELLTYPE, "ARCANE");
-	
-		LoadContext context = Globals.getContext();
-		context.ref.importObject(arClass);
-	
-		TestHelper.makeAbilityFromString(
-			"TestARc01\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
-		TestHelper.makeAbilityFromString(
-			"TestARc02\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
-		TestHelper.makeAbilityFromString(
-			"TestARc03\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
-		TestHelper.makeAbilityFromString(
-			"TestARc04\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
-		TestHelper.makeAbilityFromString(
-			"TestARc05\tCATEGORY:FEAT\tMULT:YES\tSTACK:YES\tVISIBLE:YES\tCHOOSE:NOCHOICE");
-	
-		PCClassLevel lvl1 = arClass.getOriginalClassLevel(1);
-		context.unconditionallyProcess(lvl1, "ABILITY", "FEAT|NORMAL|TestARc01");
-		context.unconditionallyProcess(lvl1, "ABILITY", "FEAT|AUTOMATIC|TestARc02");
-		context.unconditionallyProcess(arClass.getOriginalClassLevel(2), "ABILITY", "FEAT|VIRTUAL|TestARc03");
-		PCClassLevel lvl3 = arClass.getOriginalClassLevel(3);
-		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc04");
-		context.unconditionallyProcess(lvl3, "ABILITY", "FEAT|AUTOMATIC|TestARc05");
-		readyToRun();
-		
-		final PlayerCharacter pc = new PlayerCharacter();
-	
-		HashMap<Nature, Set<Ability>> map;
-	
-		pc.setRace(human);
-	
-		pc.incrementClassLevel(1, arClass, true);
-
-		map = pc.getAbilitiesSet();
-
-		assertEquals(map.get(Nature.NORMAL).size(),    1);//"First Level human with class AbilityRichClass has 1 normal feat");
-		assertEquals(map.get(Nature.AUTOMATIC).size(), 1);// "First Level human with class AbilityRichClass has 1 automatic feat");
-		assertEquals(map.get(Nature.VIRTUAL).size(),   0);// "First Level human with class AbilityRichClass has 0 virtual feats");
-	
-		pc.incrementClassLevel(1, arClass, true);
-		
-		map = pc.getAbilitiesSet();
-		
-		assertEquals(map.get(Nature.NORMAL).size(),    1);//, "Second Level human with class AbilityRichClass has 1 normal feat");
-		assertEquals(map.get(Nature.AUTOMATIC).size(), 1);//, "Second Level human with class AbilityRichClass has 1 automatic feat");
-		assertEquals(map.get(Nature.VIRTUAL).size(),   1);//, "Second Level human with class AbilityRichClass has 1 virtual feat");
-	
-		pc.incrementClassLevel(1, arClass, true);
-		
-		map = pc.getAbilitiesSet();
-		
-		assertEquals(map.get(Nature.NORMAL).size(),    1);//, "Third Level human with class AbilityRichClass has 1 normal feat");
-		assertEquals(map.get(Nature.AUTOMATIC).size(), 3);//, "Third Level human with class AbilityRichClass has 3 automatic feats");
-		assertEquals(map.get(Nature.VIRTUAL).size(),   1);//, "Third Level human with class AbilityRichClass has 1 virtual feat");
-		
-		GameMode gm = SettingsHandler.getGame();
-		AbilityCategory ac = gm.getAbilityCategory("FEAT");
-		Logging.errorPrint("Real abilities: " + pc.getAbilityList(ac, Nature.NORMAL).size());
-	
 	}
 
 	public void testIsNonAbility()
