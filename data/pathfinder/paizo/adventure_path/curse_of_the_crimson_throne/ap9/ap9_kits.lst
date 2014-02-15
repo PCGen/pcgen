@@ -2,7 +2,7 @@
 SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOURCESHORT:AP9	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5	SOURCEDATE:2008-05
 
 
-STARTPACK:Achaekek (The Mantis God) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaekek (The Mantis God)]
+STARTPACK:Achaekek (The Mantis God) Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaekek (The Mantis God)]
 ALIGN:LE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 RACE:Achaekek (The Mantis God)	!PRERACE:1,%
@@ -30,7 +30,7 @@ FEAT:Weapon Focus (Sting)
 FEAT:Snatch
 
 
-STARTPACK:Beatific One Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beatific One]
+STARTPACK:Beatific One Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beatific One]
 ALIGN:LE
 RACE:Beatific One	!PRERACE:1,%
 NAME:Beatific One
@@ -60,14 +60,14 @@ GEAR:Kukri			SIZE:PC	LOCATION:Equipped
 GEAR:Flurry of Blows			LOCATION:Equipped
 
 
-STARTPACK:Rajput Ambari Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rajput Ambari]
+STARTPACK:Rajput Ambari Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rajput Ambari]
 ALIGN:TN
 RACE:Rajput Ambari	!PRERACE:1,%
 NAME:Rajput Ambari
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
 
-STARTPACK:Rakshasa Maharajah Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rakshasa Maharajah]
+STARTPACK:Rakshasa Maharajah Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rakshasa Maharajah]
 ALIGN:LE
 RACE:Rakshasa Maharajah	!PRERACE:1,%
 NAME:Rakshasa Maharajah
@@ -98,7 +98,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Magic|Flare
 GEAR:Falchion	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS3W
 
 
-STARTPACK:Sikari Macaque Swarm Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sikari Macaque Swarm]
+STARTPACK:Sikari Macaque Swarm Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sikari Macaque Swarm]
 ALIGN:TN
 RACE:Sikari Macaque Swarm	!PRERACE:1,%
 NAME:Sikari Macaque Swarm

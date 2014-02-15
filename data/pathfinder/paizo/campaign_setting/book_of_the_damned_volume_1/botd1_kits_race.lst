@@ -4,7 +4,7 @@ SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	S
 ### Entry Date: 09-2012
 
 
-STARTPACK:Devil (Apostate) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Apostate)]
+STARTPACK:Devil (Apostate) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Apostate)]
 RACE:Devil (Apostate)	!PRERACE:1,%
 NAME:Apostate Devil
 ALIGN:LE
@@ -50,7 +50,7 @@ GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:PLUS5A.SHDW
 
 ###Block: END APOSTATE DEVIL
 
-STARTPACK:Devil (Heresy) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Heresy)]
+STARTPACK:Devil (Heresy) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Heresy)]
 RACE:Devil (Heresy)	!PRERACE:1,%
 NAME:Heresy Devil
 ALIGN:LE
@@ -81,7 +81,7 @@ SKILL:Spellcraft			RANK:13
 #Languages Abyssal, Celestial, Draconic, Infernal
 
 # Lesser Host Devil --------------------------------------------------------------------------
-STARTPACK:Devil (Host Lesser) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Lesser Host)]
+STARTPACK:Devil (Host Lesser) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Lesser Host)]
 RACE:Devil (Lesser Host)	!PRERACE:1,%
 NAME:Lesser Host Devil
 ALIGN:LE
@@ -99,7 +99,7 @@ SKILL:Stealth		RANK:4	FREE:YES
 GEAR:Spear	LOCATION:Equipped	EQMOD:MWORKW
 
 
-STARTPACK:Devil (Host Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Greater Host)]
+STARTPACK:Devil (Host Greater) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Greater Host)]
 RACE:Devil (Greater Host)	!PRERACE:1,%
 NAME:Greater Host Devil
 ALIGN:LE
@@ -121,7 +121,7 @@ GEAR:Ranseur	LOCATION:Equipped	EQMOD:MWORKW
 
 
 ###Block:Devil (Warmonger) -----------------------------------------------------------------------------------
-STARTPACK:Devil (Warmonger) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Warmonger)]
+STARTPACK:Devil (Warmonger) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Warmonger)]
 RACE:Devil (Warmonger)	!PRERACE:1,%
 NAME:Warmonger Devil
 ALIGN:LE

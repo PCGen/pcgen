@@ -2,7 +2,7 @@
 SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
 # Original Entry by:Stefan Radermacher
 
-STARTPACK:Angazhani Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angazhani]	SOURCEPAGE:p.58
+STARTPACK:Angazhani Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angazhani]	SOURCEPAGE:p.58
 ALIGN:CE
 RACE:Angazhani	!PRERACE:1,%
 NAME:Angazhani
@@ -26,19 +26,19 @@ GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 2	EQMOD:MWORKW
 GEAR:Axe (Throwing)		SIZE:L	LOCATION:Secondary Hand 3	EQMOD:MWORKW
 GEAR:Axe (Throwing)	QTY:4	SIZE:L	LOCATION:Carried			EQMOD:MWORKW
 
-STARTPACK:Botfly (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly (Giant)]	SOURCEPAGE:p.59
+STARTPACK:Botfly (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly (Giant)]	SOURCEPAGE:p.59
 RACE:Botfly (Giant)	!PRERACE:1,%
 NAME:Botfly (Giant)
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Botfly Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly Swarm]	SOURCEPAGE:p.59
+STARTPACK:Botfly Swarm Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Botfly Swarm]	SOURCEPAGE:p.59
 RACE:Botfly Swarm	!PRERACE:1,%
 NAME:Botfly Swarm
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 
-STARTPACK:Hippopotamus Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]	SOURCEPAGE:p.60
+STARTPACK:Hippopotamus Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippopotamus]	SOURCEPAGE:p.60
 RACE:Hippopotamus	!PRERACE:1,%
 NAME:Hippopotamus
 ALIGN:TN
@@ -51,7 +51,7 @@ FEAT:Improved Initiative
 FEAT:Power Attack
 FEAT:Weapon Focus (Bite)
 
-STARTPACK:Treant (Tobongo) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treant (Tobongo)],[!PRERACE:1,%]	SOURCEPAGE:p.266
+STARTPACK:Treant (Tobongo) Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treant (Tobongo)],[!PRERACE:1,%]	SOURCEPAGE:p.266
 ALIGN:NG
 RACE:Treant (Tobongo)	!PRERACE:1,%
 NAME:Tobongo

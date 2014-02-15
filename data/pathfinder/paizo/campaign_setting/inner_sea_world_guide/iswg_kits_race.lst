@@ -2,7 +2,7 @@
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Paul Shipley
 
-STARTPACK:Rat (Donkey) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Donkey)]	SOURCEPAGE:p.254
+STARTPACK:Rat (Donkey) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Donkey)]	SOURCEPAGE:p.254
 RACE:Rat (Donkey)	!PRERACE:1,%
 NAME:Donkey Rat
 ALIGN:TN
@@ -11,7 +11,7 @@ SKILL:Stealth	RANK:1
 FEAT:Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Cheliax
 
-STARTPACK:Spider (Drain) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Drain)]	SOURCEPAGE:p.254
+STARTPACK:Spider (Drain) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Drain)]	SOURCEPAGE:p.254
 RACE:Spider (Drain)	!PRERACE:1,%
 NAME:Drain Spider
 ALIGN:TN
@@ -19,7 +19,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 ABILITY:CATEGORY=Region of Origin|Absalom
 
-STARTPACK:Fennec (Firefoot) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fennec (Firefoot)]	SOURCEPAGE:p.254
+STARTPACK:Fennec (Firefoot) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fennec (Firefoot)]	SOURCEPAGE:p.254
 RACE:Fennec (Firefoot)	!PRERACE:1,%
 NAME:Firefoot Fennec
 ALIGN:TN
@@ -28,7 +28,7 @@ SKILL:Perception	RANK:1
 FEAT:Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Andoran
 
-STARTPACK:Gecko (Giant) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gecko (Giant)]	SOURCEPAGE:p.254
+STARTPACK:Gecko (Giant) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gecko (Giant)]	SOURCEPAGE:p.254
 RACE:Gecko (Giant)	!PRERACE:1,%
 NAME:Giant Gecko
 ALIGN:TN
@@ -40,7 +40,7 @@ FEAT:Great Fortitude
 FEAT:Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Unknown
 
-STARTPACK:Shark (Jigsaw) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Jigsaw)]	SOURCEPAGE:p.255
+STARTPACK:Shark (Jigsaw) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Jigsaw)]	SOURCEPAGE:p.255
 RACE:Shark (Jigsaw)	!PRERACE:1,%
 NAME:Jigsaw Shark
 ALIGN:TN
@@ -50,7 +50,7 @@ FEAT:Great Fortitude
 FEAT:Improved Initiative
 ABILITY:CATEGORY=Region of Origin|Unknown
 
-STARTPACK:Boar (Sargavan) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Sargavan)]	SOURCEPAGE:p.255
+STARTPACK:Boar (Sargavan) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Sargavan)]	SOURCEPAGE:p.255
 RACE:Boar (Sargavan)	!PRERACE:1,%
 NAME:Sargavan Boar
 ALIGN:TN
@@ -59,7 +59,7 @@ SKILL:Perception	RANK:2
 FEAT:Toughness
 ABILITY:CATEGORY=Region of Origin|Sargava
 
-STARTPACK:Herd Animal (Storval Aurochs) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Storval Aurochs)]	SOURCEPAGE:p.255
+STARTPACK:Herd Animal (Storval Aurochs) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Storval Aurochs)]	SOURCEPAGE:p.255
 RACE:Herd Animal (Storval Aurochs)	!PRERACE:1,%
 NAME:Storval Aurochs
 ALIGN:TN
@@ -69,7 +69,7 @@ FEAT:Endurance
 FEAT:Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Varisia
 
-STARTPACK:Aluum Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aluum]	SOURCEPAGE:p.306
+STARTPACK:Aluum Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aluum]	SOURCEPAGE:p.306
 RACE:Aluum	!PRERACE:1,%
 NAME:Aluum
 GENDER:Neuter
@@ -77,7 +77,7 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 ABILITY:CATEGORY=Region of Origin|Katapesh
 
-STARTPACK:Calikang Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Calikang]	SOURCEPAGE:p.307
+STARTPACK:Calikang Default	TYPE:Default Monster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Calikang]	SOURCEPAGE:p.307
 RACE:Calikang	!PRERACE:1,%
 NAME:Calikang
 ALIGN:LN
@@ -97,7 +97,7 @@ FEAT:Vital Strike
 GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Longsword	SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1W
 
-STARTPACK:Charau-ka Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charau-ka]	SOURCEPAGE:p.308
+STARTPACK:Charau-ka Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charau-ka]	SOURCEPAGE:p.308
 RACE:Charau-ka	!PRERACE:1,%
 NAME:Charau-ka
 ALIGN:CE
@@ -111,7 +111,7 @@ FEAT:Precise Shot
 GEAR:Club		SIZE:S	LOCATION:Both Hands
 GEAR:Rock (Small)	SIZE:S	LOCATION:Carried
 
-STARTPACK:Daughter of Urgathoa Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daughter of Urgathoa]	SOURCEPAGE:p.309
+STARTPACK:Daughter of Urgathoa Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daughter of Urgathoa]	SOURCEPAGE:p.309
 RACE:Daughter of Urgathoa	!PRERACE:1,%
 NAME:Daughter of Urgathoa
 GENDER:Female
@@ -140,7 +140,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Death Knell|Hold Per
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Cause Fear|Command|Divine Favor|Obscuring Mist|Shield of Faith
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Daughter of Urgathoa|Bleed|Detect Magic|Guidance|Resistance
 
-STARTPACK:Gillman Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gillman]	SOURCEPAGE:p.310
+STARTPACK:Gillman Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gillman]	SOURCEPAGE:p.310
 RACE:Gillman	!PRERACE:1,%
 NAME:Gillman
 ALIGN:TN
@@ -155,7 +155,7 @@ GEAR:Trident			SIZE:M	LOCATION:Both Hands
 GEAR:Crossbow (Light)		SIZE:M	LOCATION:Carried
 GEAR:Bolts (Crossbow/10)	SIZE:M	LOCATION:Carried
 
-STARTPACK:Sandpoint Devil Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandpoint Devil]	SOURCEPAGE:p.311
+STARTPACK:Sandpoint Devil Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandpoint Devil]	SOURCEPAGE:p.311
 RACE:Sandpoint Devil	!PRERACE:1,%
 NAME:Sandpoint Devil
 ALIGN:NE
@@ -173,7 +173,7 @@ SKILL:Knowledge (Geography)	RANK:6
 SKILL:Perception			RANK:12
 SKILL:Stealth			RANK:12
 SKILL:Survival			RANK:12
-STARTPACK:Dragon (Spine) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Spine)]	SOURCEPAGE:p.312
+STARTPACK:Dragon (Spine) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Spine)]	SOURCEPAGE:p.312
 RACE:Dragon (Spine)	!PRERACE:1,%
 NAME:Spine Dragon
 ALIGN:CN
@@ -197,7 +197,7 @@ SKILL:Perception			RANK:16
 SKILL:Sense Motive		RANK:16
 SKILL:Stealth			RANK:16
 
-STARTPACK:Strix Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Strix]	SOURCEPAGE:p.313
+STARTPACK:Strix Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Strix]	SOURCEPAGE:p.313
 RACE:Strix	!PRERACE:1,%
 NAME:Strix
 ALIGN:TN
@@ -210,7 +210,7 @@ FEAT:Improved Initiative
 SKILL:Linguistics	RANK:1	SELECTION:Common
 GEAR:Spear	SIZE:M	LOCATION:Both Hands
 
-STARTPACK:Treerazer Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treerazer]	SOURCEPAGE:p.314
+STARTPACK:Treerazer Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Treerazer]	SOURCEPAGE:p.314
 RACE:Treerazer	!PRERACE:1,%
 NAME:Treerazer
 ALIGN:CE

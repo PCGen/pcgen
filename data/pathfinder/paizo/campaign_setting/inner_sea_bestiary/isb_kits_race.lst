@@ -2,7 +2,7 @@
 SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
 # Original Entry by: Scott Meyer
 
-STARTPACK:Android Rogue	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Android],[!PRERACE:1,%]	SOURCEPAGE:p.3
+STARTPACK:Android Rogue	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Android],[!PRERACE:1,%]	SOURCEPAGE:p.3
 ALIGN:TN
 RACE:Android	!PRERACE:1,%
 GENDER:Female
@@ -26,7 +26,7 @@ STAT:STR=13|DEX=15|CON=14|INT=12|WIS=10|CHA=8
 GEAR:Rapier		QTY:1	SIZE:PC	LOCATION:Primary Hand
 GEAR:Leather	QTY:1	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Apostasy Wraith Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Apostasy Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.4
+STARTPACK:Apostasy Wraith Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Apostasy Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.4
 ALIGN:CE
 RACE:Apostasy Wraith	!PRERACE:1,%
 GENDER:Neuter
@@ -40,21 +40,21 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Beetle (Scarab) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Scarab)],[!PRERACE:1,%]	SOURCEPAGE:p.5
+STARTPACK:Beetle (Scarab) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Scarab)],[!PRERACE:1,%]	SOURCEPAGE:p.5
 ALIGN:TN
 RACE:Beetle (Scarab)	!PRERACE:1,%
 GENDER:Neuter
 NAME:Scarab Beetle
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Beetle (Stalk) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Stalk)],[!PRERACE:1,%]	SOURCEPAGE:p.5
+STARTPACK:Beetle (Stalk) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Stalk)],[!PRERACE:1,%]	SOURCEPAGE:p.5
 ALIGN:TN
 RACE:Beetle (Stalk)	!PRERACE:1,%
 GENDER:Neuter
 NAME:Stalk Beetle
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Blighted Fey Satyr	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Satyr],[!PRERACE:1,%]	SOURCEPAGE:p.6
+STARTPACK:Blighted Fey Satyr	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Satyr],[!PRERACE:1,%]	SOURCEPAGE:p.6
 RACE:Satyr	!PRERACE:1,%
 GENDER:Male
 NAME:Blighted Fey Satyr
@@ -80,7 +80,7 @@ GEAR:Arrow					QTY:20	LOCATION:Carried
 GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:MWORKT
 
 
-STARTPACK:Cayhound Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
+STARTPACK:Cayhound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
 ALIGN:CG
 RACE:Cayhound	!PRERACE:1,%
 NAME:Cayhound
@@ -96,7 +96,7 @@ FEAT:Dimensional Assault
 FEAT:Improved Initiative
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Ceru Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ceru],[!PRERACE:1,%]	SOURCEPAGE:p.9
+STARTPACK:Ceru Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ceru],[!PRERACE:1,%]	SOURCEPAGE:p.9
 ALIGN:NG
 RACE:Ceru	!PRERACE:1,%
 NAME:Ceru
@@ -107,7 +107,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Charnel Colossus Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charnel Colossus],[!PRERACE:1,%]	SOURCEPAGE:p.10
+STARTPACK:Charnel Colossus Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charnel Colossus],[!PRERACE:1,%]	SOURCEPAGE:p.10
 ALIGN:NE
 RACE:Charnel Colossus	!PRERACE:1,%
 GENDER:Neuter
@@ -137,7 +137,7 @@ FEAT:Stand Still
 FEAT:Stunning Critical
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Fungus Queen Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fungus Queen],[!PRERACE:1,%]	SOURCEPAGE:p.12
+STARTPACK:Fungus Queen Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fungus Queen],[!PRERACE:1,%]	SOURCEPAGE:p.12
 ALIGN:CE
 RACE:Fungus Queen	!PRERACE:1,%
 GENDER:Female
@@ -157,7 +157,7 @@ FEAT:Power Attack
 FEAT:Skill Focus (Disguise)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Ghoran Bard	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoran],[!PRERACE:1,%]	SOURCEPAGE:p.14
+STARTPACK:Ghoran Bard	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoran],[!PRERACE:1,%]	SOURCEPAGE:p.14
 ALIGN:TN
 RACE:Ghoran	!PRERACE:1,%
 GENDER:Female
@@ -175,7 +175,7 @@ STAT:STR=8|DEX=13|CON=14|INT=10|WIS=12|CHA=15
 GEAR:Rapier	QTY:1	SIZE:PC	LOCATION:Primary Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person|Disguise Self|Daze|Light|Mending|Message
 
-STARTPACK:Giant (Shadow) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Shadow)],[!PRERACE:1,%]	SOURCEPAGE:p.15
+STARTPACK:Giant (Shadow) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Shadow)],[!PRERACE:1,%]	SOURCEPAGE:p.15
 ALIGN:LE
 RACE:Giant (Shadow)	!PRERACE:1,%
 GENDER:Male
@@ -199,7 +199,7 @@ GEAR:Terbutje (Great)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:BreastPlate									EQMOD:PLUS1A.GOLD
 GEAR:Rock (Small)		QTY:1	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Monkey Goblin Barbarian	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Goblin (Monkey)],[!PRERACE:1,%]	SOURCEPAGE:p.16
+STARTPACK:Monkey Goblin Barbarian	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Goblin (Monkey)],[!PRERACE:1,%]	SOURCEPAGE:p.16
 ALIGN:NE
 RACE:Goblin (Monkey)	!PRERACE:1,%
 GENDER:Male
@@ -220,14 +220,14 @@ GEAR:Net		QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Shortbow	QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Arrow		QTY:10	SIZE:PC	LOCATION:Shortbow
 
-STARTPACK:Golem (Marrowstone) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Marrowstone)],[!PRERACE:1,%]	SOURCEPAGE:p.17
+STARTPACK:Golem (Marrowstone) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Marrowstone)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:TN
 RACE:Golem (Marrowstone)	!PRERACE:1,%
 GENDER:Neuter
 NAME:Marrowstone Golem
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Golem (Noqual) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Noqual)],[!PRERACE:1,%]	SOURCEPAGE:p.18
+STARTPACK:Golem (Noqual) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Noqual)],[!PRERACE:1,%]	SOURCEPAGE:p.18
 ALIGN:TN
 RACE:Golem (Noqual)	!PRERACE:1,%
 GENDER:Neuter
@@ -235,7 +235,7 @@ NAME:Noqual Golem
 FEAT:Toughness
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Golem (Quantium) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Quantium)],[!PRERACE:1,%]	SOURCEPAGE:p.19
+STARTPACK:Golem (Quantium) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Quantium)],[!PRERACE:1,%]	SOURCEPAGE:p.19
 ALIGN:TN
 RACE:Golem (Quantium)	!PRERACE:1,%
 GENDER:Neuter
@@ -244,7 +244,7 @@ FEAT:Whirlwind Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS5W
 
-STARTPACK:Kakuen-Taka Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kakuen-Taka],[!PRERACE:1,%]	SOURCEPAGE:p.20
+STARTPACK:Kakuen-Taka Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kakuen-Taka],[!PRERACE:1,%]	SOURCEPAGE:p.20
 ALIGN:CE
 RACE:Kakuen-Taka	!PRERACE:1,%
 GENDER:Neuter
@@ -267,7 +267,7 @@ FEAT:Step Up
 FEAT:Toughness
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Khaei Default	TYPE:DefaultMonster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Khaei],[!PRERACE:1,%]	SOURCEPAGE:p.22
+STARTPACK:Khaei Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Khaei],[!PRERACE:1,%]	SOURCEPAGE:p.22
 ALIGN:TN
 RACE:Khaei	!PRERACE:1,%
 GENDER:Neuter
@@ -280,7 +280,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Club	QTY:1	SIZE:PC	LOCATION:Primary Hand
 GEAR:Sling	QTY:1	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Korir-Kokembe Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Korir-Kokembe],[!PRERACE:1,%]	SOURCEPAGE:p.23
+STARTPACK:Korir-Kokembe Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Korir-Kokembe],[!PRERACE:1,%]	SOURCEPAGE:p.23
 ALIGN:TN
 RACE:Korir-Kokembe	!PRERACE:1,%
 GENDER:Neuter
@@ -303,7 +303,7 @@ FEAT:Sickening Critical
 FEAT:Wingover
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Kyton (Termagent) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton (Termagant)],[!PRERACE:1,%]	SOURCEPAGE:p.24
+STARTPACK:Kyton (Termagent) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton (Termagant)],[!PRERACE:1,%]	SOURCEPAGE:p.24
 ALIGN:LE
 RACE:Kyton (Termagant)	!PRERACE:1,%
 GENDER:Female
@@ -328,7 +328,7 @@ FEAT:Mobility
 FEAT:Spring Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Female Lashunta Wizard	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lashunta (Male),Lashunta (Female)],[!PRERACE:1,%]	SOURCEPAGE:p.25
+STARTPACK:Female Lashunta Wizard	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lashunta (Male),Lashunta (Female)],[!PRERACE:1,%]	SOURCEPAGE:p.25
 ALIGN:NG
 RACE:Lashunta (Female)	!PRERACE:1,%
 GENDER:Female
@@ -353,7 +353,7 @@ GEAR:Amulet			QTY:1		SIZE:PC	LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile|Acid Splash|Detect Magic|Flare|Read Magic
 
-STARTPACK:Lorthact	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lorthact],[!PRERACE:1,%]	SOURCEPAGE:p.26
+STARTPACK:Lorthact	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lorthact],[!PRERACE:1,%]	SOURCEPAGE:p.26
 ALIGN:LE
 RACE:Lorthact	!PRERACE:1,%
 GENDER:Male
@@ -406,7 +406,7 @@ GEAR:Mirror of Life Trapping	QTY:1	SIZE:PC	LOCATION:Carried
 GEAR:Ring of Evasion		QTY:1	SIZE:PC	LOCATION:Equipped
 GEAR:Ring of Protection +5	QTY:1	SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Gnoll Mutant	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gnoll],[!PRERACE:1,%]	SOURCEPAGE:p.28
+STARTPACK:Gnoll Mutant	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gnoll],[!PRERACE:1,%]	SOURCEPAGE:p.28
 ALIGN:CE
 RACE:Gnoll	!PRERACE:1,%
 GENDER:Male
@@ -428,14 +428,14 @@ STAT:STR=9|DEX=14|CON=13|INT=12|WIS=15|CHA=10
 GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA
 GEAR:Longsword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
 
-STARTPACK:Mantis (Deadly) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mantis (Deadly)],[!PRERACE:1,%]	SOURCEPAGE:p.30
+STARTPACK:Mantis (Deadly) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mantis (Deadly)],[!PRERACE:1,%]	SOURCEPAGE:p.30
 ALIGN:TN
 RACE:Mantis (Deadly)	!PRERACE:1,%
 GENDER:Female
 NAME:Deadly Mantis
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
-STARTPACK:Mockingfey Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mockingfey],[!PRERACE:1,%]	SOURCEPAGE:p.31
+STARTPACK:Mockingfey Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mockingfey],[!PRERACE:1,%]	SOURCEPAGE:p.31
 ALIGN:CN
 RACE:Mockingfey	!PRERACE:1,%
 NAME:Mockingfey
@@ -448,7 +448,7 @@ FEAT:Flyby Attack
 FEAT:Weapon Finesse
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
-STARTPACK:Moxix	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Moxix],[!PRERACE:1,%]	SOURCEPAGE:p.32
+STARTPACK:Moxix	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Moxix],[!PRERACE:1,%]	SOURCEPAGE:p.32
 ALIGN:CE
 RACE:Moxix	!PRERACE:1,%
 GENDER:Neuter
@@ -476,7 +476,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Mind Fog)
 FEAT:Vital Strike
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Nightripper	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nightripper],[!PRERACE:1,%]	SOURCEPAGE:p.34
+STARTPACK:Nightripper	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nightripper],[!PRERACE:1,%]	SOURCEPAGE:p.34
 ALIGN:CE
 RACE:Nightripper	!PRERACE:1,%
 GENDER:Male
@@ -513,7 +513,7 @@ FEAT:Weapon Specialization (Sword (Bastard))			FREE:YES
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS5W.KEEN.VORPAL
 
-STARTPACK:Oronci Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oronci],[!PRERACE:1,%]	SOURCEPAGE:p.36
+STARTPACK:Oronci Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oronci],[!PRERACE:1,%]	SOURCEPAGE:p.36
 ALIGN:CE
 RACE:Oronci	!PRERACE:1,%
 GENDER:Male
@@ -531,7 +531,7 @@ STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 GEAR:Battleaxe			QTY:1	SIZE:M	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Shield (Heavy/Wooden)	QTY:1	SIZE:M	LOCATION:Secondary Hand
 
-STARTPACK:Petrified Maiden Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Petrified Maiden],[!PRERACE:1,%]	SOURCEPAGE:p.37
+STARTPACK:Petrified Maiden Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Petrified Maiden],[!PRERACE:1,%]	SOURCEPAGE:p.37
 ALIGN:NE
 RACE:Petrified Maiden	!PRERACE:1,%
 GENDER:Female
@@ -548,7 +548,7 @@ FEAT:Weapon Focus (Scimitar)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 GEAR:Scimitar	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 
-STARTPACK:Memitim Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Memitim)],[!PRERACE:1,%]	SOURCEPAGE:p.39
+STARTPACK:Memitim Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Memitim)],[!PRERACE:1,%]	SOURCEPAGE:p.39
 ALIGN:TN
 RACE:Psychopomp (Memitim)	!PRERACE:1,%
 GENDER:Female
@@ -573,7 +573,7 @@ FEAT:Weapon Focus (Scythe)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Scythe	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS3W
 
-STARTPACK:Shoki Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Shoki)],[!PRERACE:1,%]	SOURCEPAGE:p.40
+STARTPACK:Shoki Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Shoki)],[!PRERACE:1,%]	SOURCEPAGE:p.40
 ALIGN:TN
 RACE:Psychopomp (Shoki)	!PRERACE:1,%
 GENDER:Male
@@ -596,7 +596,7 @@ FEAT:Persuasive
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Quarterstaff	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:C_IRON.PLUS2W
 
-STARTPACK:Viduus Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Viduus)],[!PRERACE:1,%]	SOURCEPAGE:p.41
+STARTPACK:Viduus Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Viduus)],[!PRERACE:1,%]	SOURCEPAGE:p.41
 ALIGN:TN
 RACE:Psychopomp (Viduus)	!PRERACE:1,%
 GENDER:Male
@@ -614,7 +614,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 
-STARTPACK:Robot (Annihilator) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Annihilator)],[!PRERACE:1,%]	SOURCEPAGE:p.43
+STARTPACK:Robot (Annihilator) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Annihilator)],[!PRERACE:1,%]	SOURCEPAGE:p.43
 ALIGN:TN
 RACE:Robot (Annihilator)	!PRERACE:1,%
 GENDER:Neuter
@@ -635,7 +635,7 @@ FEAT:Skill Focus (Acrobatics)
 FEAT:Weapon Focus (Chain Guns)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Robot (Gearsman) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Gearsman)],[!PRERACE:1,%]	SOURCEPAGE:p.44
+STARTPACK:Robot (Gearsman) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Gearsman)],[!PRERACE:1,%]	SOURCEPAGE:p.44
 ALIGN:TN
 RACE:Robot (Gearsman)	!PRERACE:1,%
 GENDER:Neuter
@@ -650,7 +650,7 @@ FEAT:Power Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Spear	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW
 
-STARTPACK:Robot (Myrmidon) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Myrmidon)],[!PRERACE:1,%]	SOURCEPAGE:p.45
+STARTPACK:Robot (Myrmidon) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Myrmidon)],[!PRERACE:1,%]	SOURCEPAGE:p.45
 ALIGN:TN
 RACE:Robot (Myrmidon)	!PRERACE:1,%
 GENDER:Neuter
@@ -668,7 +668,7 @@ FEAT:Point-Blank Shot
 FEAT:Precise Shot
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Chemnosit	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chemnosit],[!PRERACE:1,%]	SOURCEPAGE:p.47
+STARTPACK:Chemnosit	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chemnosit],[!PRERACE:1,%]	SOURCEPAGE:p.47
 ALIGN:CE
 RACE:Chemnosit	!PRERACE:1,%
 GENDER:Neuter
@@ -692,7 +692,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Toothed Tentacle)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Volnagur	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Volnagur],[!PRERACE:1,%]	SOURCEPAGE:p.48
+STARTPACK:Volnagur	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Volnagur],[!PRERACE:1,%]	SOURCEPAGE:p.48
 ALIGN:CE
 RACE:Volnagur	!PRERACE:1,%
 GENDER:Neuter
@@ -714,7 +714,7 @@ FEAT:Snatch
 FEAT:Vital Strike
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
-STARTPACK:Spellscar Fext Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Spellscar Fext],[!PRERACE:1,%]	SOURCEPAGE:p.49
+STARTPACK:Spellscar Fext Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Spellscar Fext],[!PRERACE:1,%]	SOURCEPAGE:p.49
 ALIGN:CE
 RACE:Spellscar Fext	!PRERACE:1,%
 GENDER:Neuter
@@ -730,7 +730,7 @@ FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Star Monarch Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Star Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.50
+STARTPACK:Star Monarch Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Star Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.50
 ALIGN:CG
 RACE:Star Monarch	!PRERACE:1,%
 GENDER:Neuter
@@ -746,7 +746,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 
-STARTPACK:Syrinx Adept	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Syrinx],[!PRERACE:1,%]	SOURCEPAGE:p.51
+STARTPACK:Syrinx Adept	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Syrinx],[!PRERACE:1,%]	SOURCEPAGE:p.51
 ALIGN:LE
 RACE:Syrinx	!PRERACE:1,%
 GENDER:Male
@@ -764,7 +764,7 @@ GEAR:Quarterstaff	QTY:1	SIZE:PC	LOCATION:Both Hands
 SPELLS:SPELLBOOK=Known Spells|CLASS=Adept|Command|Detect Magic|Ghost Sound|Read Magic|Stabilize
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Adept|Command|Detect Magic|Ghost Sound|Read Magic|Stabilize
 
-STARTPACK:Thin Man Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thin Man],[!PRERACE:1,%]	SOURCEPAGE:p.52
+STARTPACK:Thin Man Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thin Man],[!PRERACE:1,%]	SOURCEPAGE:p.52
 ALIGN:CN
 RACE:Thin Man	!PRERACE:1,%
 GENDER:Male
@@ -780,7 +780,7 @@ FEAT:Iron Will
 FEAT:Weapon Focus (Claw)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
-STARTPACK:Umbral Shepherd Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Umbral Shepherd],[!PRERACE:1,%]	SOURCEPAGE:p.53
+STARTPACK:Umbral Shepherd Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Umbral Shepherd],[!PRERACE:1,%]	SOURCEPAGE:p.53
 ALIGN:LE
 RACE:Umbral Shepherd	!PRERACE:1,%
 GENDER:Neuter
@@ -799,7 +799,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Female Human Vetala Oracle	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.54
+STARTPACK:Female Human Vetala Oracle	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.54
 ALIGN:NE
 RACE:Human	!PRERACE:1,%
 GENDER:Female
@@ -836,7 +836,7 @@ GEAR:Cloak of Resistance +1	QTY:1	SIZE:PC	LOCATION:Equipped
 GEAR:Potion of Invisibility	QTY:2	SIZE:PC	LOCATION:Carried
 SPELLS:SPELLBOOK=Known Spells|CLASS=Oracle|Bleed|Detect Magic|Ghost Sound|Guidance|Light|Mage Hand|Read Magic|Resistance|Cause Fear|Command|Doom|Inflict Light Wounds|Obscuring Mist|Shield of Faith|Death Knell|False Life|Inflict Moderate Wounds|Levitate|Minor Image|Silence
 
-STARTPACK:Veiled Master Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Veiled Master],[!PRERACE:1,%]	SOURCEPAGE:p.56
+STARTPACK:Veiled Master Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Veiled Master],[!PRERACE:1,%]	SOURCEPAGE:p.56
 ALIGN:LE
 RACE:Veiled Master	!PRERACE:1,%
 GENDER:Neuter
@@ -862,7 +862,7 @@ FEAT:Quicken Spell-Like Ability ~ Spell (Dominate Person)	FREE:YES
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Dancing Lights|Daze|Detect Magic|Ghost Sound|Mage Hand|Message|Read Magic|Touch of Fatigue|Charm Person|Comprehend Languages|Erase|Ray of Enfeeblement|Silent Image|Blindness/Deafness|Invisibility|Levitate|Symbol of Mirroring|Touch of Idiocy|Clairaudience/Clairvoyance|Explosive Runes|Hold Person|Secret Page|Dimension Door|Phantasmal Killer|Symbol of Slowing|Symbol of Pain|Symbol of Persuasion
 
-STARTPACK:Vespergaunt Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vespergaunt],[!PRERACE:1,%]	SOURCEPAGE:p.58
+STARTPACK:Vespergaunt Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vespergaunt],[!PRERACE:1,%]	SOURCEPAGE:p.58
 ALIGN:NE
 RACE:Vespergaunt	!PRERACE:1,%
 GENDER:Neuter
@@ -885,7 +885,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Slam)
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 
-STARTPACK:Water Wraith Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Water Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.59
+STARTPACK:Water Wraith Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Water Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.59
 ALIGN:CN
 RACE:Water Wraith	!PRERACE:1,%
 GENDER:Neuter
@@ -897,7 +897,7 @@ FEAT:Dodge
 FEAT:Improved Initiative
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 
-STARTPACK:Whirlmaw Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Whirlmaw],[!PRERACE:1,%]	SOURCEPAGE:p.60
+STARTPACK:Whirlmaw Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Whirlmaw],[!PRERACE:1,%]	SOURCEPAGE:p.60
 ALIGN:TN
 RACE:Whirlmaw	!PRERACE:1,%
 GENDER:Neuter
@@ -913,7 +913,7 @@ FEAT:Weapon Focus (Bite)
 FEAT:Wingover
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Woundwyrm Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Woundwyrm],[!PRERACE:1,%]	SOURCEPAGE:p.61
+STARTPACK:Woundwyrm Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Woundwyrm],[!PRERACE:1,%]	SOURCEPAGE:p.61
 ALIGN:CE
 RACE:Woundwyrm	!PRERACE:1,%
 GENDER:Male
@@ -939,7 +939,7 @@ FEAT:Staggering Critical
 FEAT:Stunning Critical
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
-STARTPACK:Zelishkar	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zelishkar],[!PRERACE:1,%]	SOURCEPAGE:p.62
+STARTPACK:Zelishkar	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zelishkar],[!PRERACE:1,%]	SOURCEPAGE:p.62
 ALIGN:NE
 RACE:Zelishkar	!PRERACE:1,%
 GENDER:Male
