@@ -426,8 +426,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat);
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat2);
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat3);
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat4);
+		pc.addAbilityNeedCheck(cat, dummyFeat3);
+		pc.addAbilityNeedCheck(cat2, dummyFeat4);
 		
 		assertEquals("Unsigned output", "7", evaluateToken(
 			"VAR.NegLevels.INTVAL", pc));

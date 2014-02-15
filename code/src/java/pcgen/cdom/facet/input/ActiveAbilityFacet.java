@@ -20,6 +20,7 @@ package pcgen.cdom.facet.input;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -27,6 +28,7 @@ import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.base.AbstractDataFacet;
@@ -719,6 +721,28 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 			}
 		}
 		return Collections.emptySet();
+	}
+
+	public Collection<? extends CNAbility> getCNAbilities(CharID id)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		for (Map.Entry<Category<Ability>,  Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+		{
+			Category<Ability> cat = catME.getKey();
+			for (Entry<Nature, Set<Ability>> natME : catME.getValue().entrySet())
+			{
+				Nature nat = natME.getKey();
+				for (Ability a : natME.getValue())
+				{
+					if (!a.isInternal())
+					{
+						set.add(new CNAbility(cat, a, nat));
+					}
+				}
+			}
+		}
+		return set;
 	}
 
 }

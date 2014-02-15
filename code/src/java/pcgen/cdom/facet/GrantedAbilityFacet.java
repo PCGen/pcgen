@@ -31,6 +31,7 @@ import java.util.Set;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -869,6 +870,31 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	{
 		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
 		chooseInfo.getChoiceActor().removeChoice(pc, ability, obj);
+	}
+
+	public Collection<? extends CNAbility> getCNAbilities(CharID id)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap =
+				getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap
+			.entrySet())
+		{
+			Category<Ability> cat = catME.getKey();
+			for (Entry<Nature, Map<Ability, List<Object>>> natME : catME
+				.getValue().entrySet())
+			{
+				Nature nat = natME.getKey();
+				for (Ability a : natME.getValue().keySet())
+				{
+					if (!a.isInternal())
+					{
+						set.add(new CNAbility(cat, a, nat));
+					}
+				}
+			}
+		}
+		return set;
 	}
 
 }

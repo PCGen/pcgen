@@ -46,6 +46,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.AbstractCountCommand;
+import pcgen.util.JepCountType;
 import pcgen.util.Logging;
 import pcgen.util.ParameterTree;
 import pcgen.util.enumeration.Visibility;
@@ -599,8 +600,8 @@ public class CountDistinctCommand extends AbstractCountCommand
 				else
 				{
 					// Fall back to count
-					final AbstractCountCommand.JepCountEnum countEnum =
-							AbstractCountCommand.JepCountEnum.valueOf((String) toCount);
+					final JepCountType countEnum =
+							JepCountType.valueOf((String) toCount);
 					final Double result = (Double) countEnum.count(pc, params);
 					inStack.push(result);
 				}

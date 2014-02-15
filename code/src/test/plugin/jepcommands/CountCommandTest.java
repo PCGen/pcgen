@@ -499,17 +499,16 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(countByKey,""), eq(0.0, 0.1), countByKey + " no choices");
 		
-		Ability clone = character.addAbilityNeedCheck(gCat, ab);
-		AbilityUtilities.modAbility(character, clone, "munch", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ab, "munch", gCat);
 
 		is(character.getVariableValue(countByKey,""), eq(1.0, 0.1), countByKey + " one choice");
 
-		AbilityUtilities.modAbility(character, clone, "devour", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ab, "devour", gCat);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(countByKey,""), eq(2.0, 0.1), countByKey + " two choices");
 
-		AbilityUtilities.modAbility(character, clone, "nibble", AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(character, ab, "nibble", gCat);
 		character.setDirty(true);
 
 		is(character.getVariableValue(countByKey,""), eq(3.0, 0.1), countByKey + " three choices");

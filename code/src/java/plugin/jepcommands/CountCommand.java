@@ -29,6 +29,7 @@ import org.nfunk.jep.ParseException;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.util.AbstractCountCommand;
+import pcgen.util.JepCountType;
 
 
 /**
@@ -98,7 +99,7 @@ public class CountCommand extends AbstractCountCommand
 
 			if (toCount instanceof String)
 			{
-				final JepCountEnum CountEnum = JepCountEnum.valueOf((String) toCount);
+				final JepCountType CountEnum = JepCountType.valueOf((String) toCount);
 
 				// Count the requested object type.
 				final Double result = (Double) CountEnum.count(pc, params);
