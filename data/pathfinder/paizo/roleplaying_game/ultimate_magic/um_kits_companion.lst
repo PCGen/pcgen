@@ -3,7 +3,7 @@
 # ORIGINAL ENTRY DATE: unknown
 
 ###Block: Eidolon kits
-STARTPACK:Eidolon (Aquatic)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Aquatic)]
+STARTPACK:Eidolon (Aquatic)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Aquatic)]
 RACE:Eidolon (Aquatic)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Bite
