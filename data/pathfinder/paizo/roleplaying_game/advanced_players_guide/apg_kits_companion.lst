@@ -4,21 +4,21 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 
 # NO LONGER NEEDED - Placed new version in core to make this more seemless.
 
-STARTPACK:Eidolon (Quadruped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Quadruped)]
+STARTPACK:Eidolon (Quadruped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Quadruped)]
 RACE:Eidolon (Quadruped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
 ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
 ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Bite
 
-STARTPACK:Eidolon (Biped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Biped)]
+STARTPACK:Eidolon (Biped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Biped)]
 RACE:Eidolon (Biped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Arms
 ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Legs
 ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Clawed_Hands
 
-STARTPACK:Eidolon (Serpentine)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Serpentine)]
+STARTPACK:Eidolon (Serpentine)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Serpentine)]
 RACE:Eidolon (Serpentine)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
