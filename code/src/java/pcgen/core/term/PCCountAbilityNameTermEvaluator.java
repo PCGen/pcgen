@@ -28,7 +28,7 @@ package pcgen.core.term;
 
 import java.util.List;
 
-import pcgen.core.Ability;
+import pcgen.cdom.content.CNAbility;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
@@ -59,11 +59,11 @@ public class PCCountAbilityNameTermEvaluator
 	{
 		Float count = 0f;
 
-		List<Ability> abilityList = getAbilities(pc);
+		List<CNAbility> abilityList = getAbilities(pc);
 
-		for ( Ability anAbility : abilityList )
+		for (CNAbility anAbility : abilityList)
 		{
-			if (anAbility.getKeyName().equalsIgnoreCase(key))
+			if (anAbility.getAbilityKey().equalsIgnoreCase(key))
 			{
 				count += countVisibleAbility(
 						pc, anAbility, visible, hidden, false);
@@ -82,9 +82,9 @@ public class PCCountAbilityNameTermEvaluator
 	}
 
 	@Override
-	List<Ability> getAbilities(PlayerCharacter pc)
+	List<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getAggregateAbilityList(abCat);
+		return pc.getCNAbilities(abCat);
 	}
 
 	public boolean isStatic()

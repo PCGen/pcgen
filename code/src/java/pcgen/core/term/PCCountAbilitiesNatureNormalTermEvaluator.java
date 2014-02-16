@@ -26,11 +26,12 @@
 
 package pcgen.core.term;
 
-import java.util.List;
+import java.util.Collection;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Ability;
+import pcgen.core.PlayerCharacter;
 
 public class PCCountAbilitiesNatureNormalTermEvaluator 
 		extends BasePCCountAbilitiesNatureTermEvaluator implements TermEvaluator
@@ -48,9 +49,9 @@ public class PCCountAbilitiesNatureNormalTermEvaluator
 	}
 
 	@Override
-	List<Ability> getAbilities(PlayerCharacter pc)
+	Collection<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getRealAbilitiesListAnyCat(abCat);
+		return pc.getCNAbilities(abCat, Nature.NORMAL);
 	}
 
 	@Override

@@ -26,9 +26,6 @@
 
 package pcgen.core.term;
 
-import java.util.List;
-
-import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
 public abstract class BasePCCountAbilitiesNatureTermEvaluator
@@ -41,8 +38,6 @@ public abstract class BasePCCountAbilitiesNatureTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		List<Ability> lAb = getAbilities(pc);
-
-		return countVisibleAbilities(pc, lAb, visible, hidden);
+		return countVisibleAbilities(pc, getAbilities(pc), visible, hidden);
 	}
 }

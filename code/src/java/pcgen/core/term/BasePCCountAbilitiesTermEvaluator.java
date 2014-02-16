@@ -26,12 +26,13 @@
 
 package pcgen.core.term;
 
-import java.util.List;
+import java.util.Collection;
 
-import pcgen.core.Ability;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.AbilityCategory;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
 import pcgen.util.enumeration.Visibility;
 
 public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvaluator
@@ -40,7 +41,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	protected boolean visible;
 	protected boolean hidden;
 
-	abstract List<Ability> getAbilities(PlayerCharacter pc);
+	abstract Collection<CNAbility> getAbilities(PlayerCharacter pc);
 
 	/**
 	 * This function takes a list of feats and returns the number of visible,
@@ -56,13 +57,13 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 */
 	protected Float countVisibleAbilities(
 			PlayerCharacter pc,
-			final Iterable<Ability> aList,
+			final Iterable<CNAbility> aList,
 			final boolean visible,
 			final boolean hidden)
 	{
 		Float count = 0f;
 
-		for (Ability ability : aList)
+		for (CNAbility ability : aList)
 		{
 			count += countVisibleAbility(pc, ability, visible, hidden, true);
 		}
@@ -86,11 +87,12 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 */
 	protected Float countVisibleAbility(
 			PlayerCharacter pc,
-			final Ability ability,
+			final CNAbility cna,
 			final boolean visible,
 			final boolean hidden,
 			final boolean onceOnly)
 	{
+		Ability ability = cna.getAbility();
 		Visibility v = ability.getSafe(ObjectKey.VISIBILITY); 
 
 		boolean abilityInvisibile = Visibility.DISPLAY_ONLY == v ||

@@ -26,13 +26,12 @@
 
 package pcgen.core.term;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.core.Ability;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
 
 public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
 		extends BasePCCountAbilitiesTypeTermEvaluator implements TermEvaluator
@@ -52,9 +51,9 @@ public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
 	}
 
 	@Override
-	List<Ability> getAbilities(PlayerCharacter pc)
+	Collection<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return new ArrayList<Ability>(pc.getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
+		return pc.getCNAbilities(AbilityCategory.FEAT, Nature.VIRTUAL);
 	}
 
 	@Override
