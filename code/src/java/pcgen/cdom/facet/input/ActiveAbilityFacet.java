@@ -863,4 +863,30 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
+	public boolean hasAbilityKeyed(CharID id, AbilityCategory cat, String aKey)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Set<Ability> abils : catME.getValue().values())
+					{
+						for (Ability a : abils)
+						{
+							if (a.getKeyName().equals(aKey))
+							{
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 }

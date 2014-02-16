@@ -1016,4 +1016,30 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return set;
 	}
 
+	public boolean hasAbilityKeyed(CharID id, AbilityCategory cat, String aKey)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Map<Ability, List<Object>> aMap : catME.getValue().values())
+					{
+						for (Ability a : aMap.keySet())
+						{
+							if (a.getKeyName().equals(aKey))
+							{
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 }

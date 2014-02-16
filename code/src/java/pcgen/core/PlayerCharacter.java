@@ -8947,18 +8947,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return null;
 	}
 
-	public boolean hasAbilityKeyed(final AbilityCategory aCategory, final String aKey)
+	public boolean hasAbilityKeyed(final AbilityCategory cat, final String aKey)
 	{
-		final List<Ability> abilities = getAggregateAbilityList(aCategory);
-		for (final Ability ability : abilities)
-		{
-			if (ability.getKeyName().equals(aKey))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return abFacet.hasAbilityKeyed(id, cat, aKey)
+			|| grantedAbilityFacet.hasAbilityKeyed(id, cat, aKey);
 	}
 
 	/**
