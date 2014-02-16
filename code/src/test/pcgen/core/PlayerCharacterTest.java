@@ -1007,9 +1007,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		pc.setRace(human);
 		assertEquals("PC should now have a race of human", human, pc.getRace());
-		assertNotNull("Character should have the first feat", pc.getAbilityMatching(resToAcid));
-		assertNotNull("Character should have the second feat", pc.getAbilityMatching(resToAcidOutputVirt));
-		assertNotNull("Character should have the third feat", pc.getAbilityMatching(resToAcidOutputAuto));
+		assertFalse("Character should have the first feat", pc.getMatchingCNAbilities(resToAcid).isEmpty());
+		assertFalse("Character should have the second feat", pc.getMatchingCNAbilities(resToAcidOutputVirt).isEmpty());
+		assertFalse("Character should have the third feat", pc.getMatchingCNAbilities(resToAcidOutputAuto).isEmpty());
 		
 	}
 	

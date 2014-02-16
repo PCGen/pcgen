@@ -3603,34 +3603,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return null;
 	}
 
-	/**
-	 * Searches the characters feats for an Ability object which is a clone of
-	 * the same Base ability as the Ability passed in
-	 * 
-	 * @param anAbility
-	 * @return the Ability if found, otherwise null
-	 */
-	public Ability getAbilityMatching(final Ability anAbility)
-	{
-		List<Ability> abilityList = new ArrayList<Ability>();
-		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
-		{
-			abilityList.addAll(getAggregateAbilityListNoDuplicates(cat));
-		}
-		Nature nature = getAbilityNature(anAbility);
-		for (Ability ability : abilityList)
-		{
-			boolean nameCheck = (ability.getKeyName().compareToIgnoreCase(anAbility.getKeyName()) == 0);
-			boolean catCheck = ability.getCategory().compareToIgnoreCase(anAbility.getCategory()) == 0;
-			if (nameCheck && catCheck && ((nature == Nature.ANY) || (this.getAbilityNature(ability) == nature)))
-			{
-				return ability;
-			}
-		}
-
-		return null;
-	}
-
 	public void setHasMadeKitSelectionForAgeSet(final int index, final boolean arg)
 	{
 		if ((index >= 0) && (index < 10))
