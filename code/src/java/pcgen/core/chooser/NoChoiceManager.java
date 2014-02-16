@@ -32,7 +32,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	public void getChoices(PlayerCharacter pc, List<String> availableList,
 		List<String> selectedList)
 	{
-		availableList.add("NOCHOICE");
+		availableList.addAll(info.getSet(pc));
 		selectedList.addAll(pc.getAssociationList(owner));
 		preChooserChoices = selectedList.size();
 	}
