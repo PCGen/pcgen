@@ -34,6 +34,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 
 /**
  * An ActiveAbilityFacet is a DataFacet that contains information about Ability
@@ -833,6 +834,33 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 			}
 		}
 		return null;
+	}
+
+	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+		AbilityCategory cat)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Entry<Nature, Set<Ability>> natME : catME.getValue()
+						.entrySet())
+					{
+						Nature nat = natME.getKey();
+						for (Ability a : natME.getValue())
+						{
+							set.add(new CNAbility(cat, a, nat));
+						}
+					}
+				}
+			}
+		}
+		return set;
 	}
 
 }

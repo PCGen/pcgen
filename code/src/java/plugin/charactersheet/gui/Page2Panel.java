@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -32,6 +32,7 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.io.exporttoken.EqToken;
+import pcgen.util.enumeration.Visibility;
 import plugin.charactersheet.CharacterSheetUtils;
 
 /**
@@ -296,15 +297,18 @@ public class Page2Panel extends javax.swing.JPanel
 	//TODO: [DJ] remove when I add FeatToken
 	private Map<String, String> getFeatMap(PlayerCharacter aPC)
 	{
-		List feats = aPC.aggregateVisibleFeatList();
+		List<CNAbility> feats = aPC.getCNAbilities(AbilityCategory.FEAT);
 		Map<String, String> featMap = new HashMap<String, String>();
-		for (int i = 0; i < feats.size(); i++)
+		for (CNAbility cna : feats)
 		{
-			Ability feat = (Ability) feats.get(i);
-			List<CNAbility> wrappedFeat =
-					Collections.singletonList(pc.getMatchingCNAbility(
-						AbilityCategory.FEAT, Nature.NORMAL, feat));
-			featMap.put(QualifiedName.qualifiedName(aPC, wrappedFeat), aPC.getDescription(wrappedFeat));
+			Ability ability = cna.getAbility();
+			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
+					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			{
+				List<CNAbility> wrappedFeat = Collections.singletonList(cna);
+				featMap.put(QualifiedName.qualifiedName(aPC, wrappedFeat),
+					aPC.getDescription(wrappedFeat));
+			}
 		}
 		return featMap;
 	}

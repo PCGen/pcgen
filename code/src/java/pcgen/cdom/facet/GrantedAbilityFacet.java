@@ -40,6 +40,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 
@@ -986,6 +987,33 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 			}
 		}
 		return null;
+	}
+
+	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+		AbilityCategory cat)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Entry<Nature, Map<Ability, List<Object>>> natME : catME
+						.getValue().entrySet())
+					{
+						Nature nat = natME.getKey();
+						for (Ability a : natME.getValue().keySet())
+						{
+							set.add(new CNAbility(cat, a, nat));
+						}
+					}
+				}
+			}
+		}
+		return set;
 	}
 
 }

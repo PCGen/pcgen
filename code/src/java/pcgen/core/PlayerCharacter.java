@@ -9118,29 +9118,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 	}
 
-	public List<Ability> aggregateVisibleFeatList()
-	{
-		return getAggregateVisibleAbilityList(AbilityCategory.FEAT);
-	}
-
-	public List<Ability> getAggregateVisibleAbilityList(final AbilityCategory aCategory)
-	{
-		final List<Ability> abilities = new ArrayList<Ability>();
-		abilities.addAll(getRealAbilitiesListAnyCat(aCategory));
-		abilities.addAll(getAbilityList(aCategory, Nature.AUTOMATIC));
-		abilities.addAll(getAbilityList(aCategory, Nature.VIRTUAL));
-		final List<Ability> ret = new ArrayList<Ability>(abilities.size());
-		for (final Ability ability : abilities)
-		{
-			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
-					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
-			{
-				ret.add(ability);
-			}
-		}
-		return ret;
-	}
-
 	public boolean hasVisibleAbility(final AbilityCategory aCategory)
 	{
 		for (final Ability ability : getRealAbilitiesListAnyCat(aCategory))
@@ -11343,5 +11320,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			return cna;
 		}
 		return grantedAbilityFacet.getCNAbility(id, cat, nature, a);
+	}
+
+	public List<CNAbility> getCNAbilities(AbilityCategory cat)
+	{
+		List<CNAbility> list = new ArrayList<CNAbility>();
+		list.addAll(abFacet.getCNAbilities(id, cat));
+		list.addAll(grantedAbilityFacet.getCNAbilities(id, cat));
+		return list;
 	}
 }
