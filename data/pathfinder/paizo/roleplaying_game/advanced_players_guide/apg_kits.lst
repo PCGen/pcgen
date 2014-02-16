@@ -3,7 +3,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: W. Robert 'Mynex' Reed III
 
 
-STARTPACK:Classes Starting Gold ~ APG	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Summoner=1,Alchemist=1,Oracle=1,Witch=1,Inquisitor=1,Cavalier=1]
+STARTPACK:Classes Starting Gold ~ APG	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Summoner=1,Alchemist=1,Oracle=1,Witch=1,Inquisitor=1,Cavalier=1]
 TEMPLATE:Starting Gold ~ APG
 
 STARTPACK:Starting Gold APG ~ Random	VISIBLE:NO	APPLY:INSTANT
@@ -29,5 +29,5 @@ STARTPACK:Alchemist Formula Book	VISIBLE:NO	TOTALCOST:0
 GEAR:Formula Book	LOCATION:Carried
 
 
-STARTPACK:Rich Parents	TYPE:StartingKit	VISIBLE:NO
+STARTPACK:Rich Parents	TYPE:Character Trait	VISIBLE:NO
 FUNDS:gp	QTY:900

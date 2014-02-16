@@ -68,5 +68,5 @@ WEAPONPROF:b1_profs_weapon.lst
 
 #MOVE TO CORE_ESSENTIALS
 ABILITY:b1_abilities_companion.lst
-KIT:b1_kits_races_companion.lst
+KIT:b1_kits_companion.lst
 RACE:b1_races_companion.lst

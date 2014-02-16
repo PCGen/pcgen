@@ -4,7 +4,7 @@ SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/bt
 
 
 #Starting Gold
-STARTPACK:Classes Starting Gold ~ UC	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Samuri=1,Ninja=1,Gunslinger=1]
+STARTPACK:Classes Starting Gold ~ UC	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Samuri=1,Ninja=1,Gunslinger=1]
 TEMPLATE:Starting Gold ~ UC
 
 STARTPACK:Starting Gold UC ~ Random	VISIBLE:NO	APPLY:INSTANT

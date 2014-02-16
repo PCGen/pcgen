@@ -4,7 +4,7 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY DATE: 05/26/13
 
 # new familiar kits
-STARTPACK:Familiar ~ Parrot	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Parrot	TYPE:Familiar	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
 
 #STARTPACK:Familiar ~ Cacodaemon		TYPE:Companion		VISIBLE:NO
@@ -30,21 +30,21 @@ STARTPACK:Plant Companion ~ Sapling Treant	TYPE:Companion	VISIBLE:NO
 STAT:STR=15|DEX=10|CON=12|INT=2|WIS=12|CHA=7
 
 ###Block: Shaitan Binder Eidolon Kits
-STARTPACK:Shaitan Binder Eidolon (Quadruped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Quadruped)]
+STARTPACK:Shaitan Binder Eidolon (Quadruped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Quadruped)]
 RACE:Shaitan Binder Eidolon (Quadruped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
 ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
 ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Bite
 
-STARTPACK:Shaitan Binder Eidolon (Biped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Biped)]
+STARTPACK:Shaitan Binder Eidolon (Biped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Biped)]
 RACE:Shaitan Binder Eidolon (Biped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Arms
 ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Legs
 ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Clawed_Hands
 
-STARTPACK:Shaitan Binder Eidolon (Serpentine)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Serpentine)]
+STARTPACK:Shaitan Binder Eidolon (Serpentine)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Serpentine)]
 RACE:Shaitan Binder Eidolon (Serpentine)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
