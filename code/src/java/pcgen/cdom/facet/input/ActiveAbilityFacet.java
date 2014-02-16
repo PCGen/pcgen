@@ -809,4 +809,30 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
+	public CNAbility getCNAbility(CharID id, Category<Ability> cat,
+		Nature nature, Ability a)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			Map<Nature, Set<Ability>> natMap = catMap.get(cat);
+			if (natMap != null)
+			{
+				Set<Ability> aSet = natMap.get(nature);
+				if (aSet != null)
+				{
+					String key = a.getKeyName();
+					for (Ability ab : aSet)
+					{
+						if (ab.getKeyName().equals(key))
+						{
+							return new CNAbility(cat, ab, nature);
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
 }

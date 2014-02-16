@@ -276,9 +276,7 @@ public class Aspect extends ConcretePrereqObject
 					List<String> assocList = new ArrayList<String>();
 					for (CNAbility cna : abilities)
 					{
-						Ability a = aPC.getPCAbility(cna);
-						a = (a == null) ? cna.getAbility() : a;
-						assocList.addAll(aPC.getAssociationList(a));
+						assocList.addAll(aPC.getAssociationList(cna.getAbility()));
 					}
 					String joinString;
 					if (assocList.size() == 2)

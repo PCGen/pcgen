@@ -23,6 +23,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
@@ -301,8 +302,8 @@ public class Page2Panel extends javax.swing.JPanel
 		{
 			Ability feat = (Ability) feats.get(i);
 			List<CNAbility> wrappedFeat =
-					Collections.singletonList(new CNAbility(feat
-						.getCDOMCategory(), feat, Nature.NORMAL));
+					Collections.singletonList(pc.getMatchingCNAbility(
+						AbilityCategory.FEAT, Nature.NORMAL, feat));
 			featMap.put(QualifiedName.qualifiedName(aPC, wrappedFeat), aPC.getDescription(wrappedFeat));
 		}
 		return featMap;

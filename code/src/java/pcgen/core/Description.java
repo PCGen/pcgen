@@ -224,9 +224,7 @@ public class Description extends ConcretePrereqObject
 						}
 						else if (obj instanceof CNAbility)
 						{
-							CNAbility cna = (CNAbility) obj;
-							object = aPC.getPCAbility(cna);
-							object = (object == null) ? cna.getAbility() : object;
+							object = ((CNAbility) obj).getAbility();
 						}
 						else
 						{
@@ -253,9 +251,7 @@ public class Description extends ConcretePrereqObject
 							}
 							else if (obj instanceof CNAbility)
 							{
-								CNAbility cna = (CNAbility) obj;
-								object = aPC.getPCAbility(cna);
-								object = (object == null) ? cna.getAbility() : object;
+								object = ((CNAbility) obj).getAbility();
 							}
 							else
 							{

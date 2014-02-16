@@ -52,7 +52,6 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -499,12 +498,16 @@ public class Gui2InfoFactory implements InfoFactory
 				cString);
 		}
 
-		List<CNAbility> wrappedAbility =
-				Collections.singletonList(new CNAbility(ability
-					.getCDOMCategory(), ability, Nature.NORMAL));
 		infoText.appendLineBreak();
 		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-			DescriptionFormatting.piWrapDesc(ability, pc.getDescription(wrappedAbility), false));
+			getDescription(abilityFacade));
+
+		/*
+		 * TODO this is probably a problem in that it is doing a target (all
+		 * associations for an ability, not related to the current CNAbility
+		 * selected in the UI)
+		 */
+		List<CNAbility> wrappedAbility = pc.getMatchingCNAbilities(ability);
 
 		if (ability.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
@@ -1919,9 +1922,12 @@ public class Gui2InfoFactory implements InfoFactory
 		try
 		{
 			Ability a = (Ability) ability;
-			List<CNAbility> wrappedAbility =
-					Collections.singletonList(new CNAbility(
-						a.getCDOMCategory(), a, Nature.NORMAL));
+			/*
+			 * TODO this is probably a problem in that it is doing a target (all
+			 * associations for an ability, not related to the current CNAbility
+			 * selected in the UI)
+			 */
+			List<CNAbility> wrappedAbility = pc.getMatchingCNAbilities(a);
 			return DescriptionFormatting.piWrapDesc(a, pc.getDescription(wrappedAbility), false);
 		}
 		catch (Exception e)

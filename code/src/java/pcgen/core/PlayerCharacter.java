@@ -10278,19 +10278,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return newSet;
 	}
 
-	public Ability getPCAbility(Category<Ability> cat, Nature nature, Ability a)
-	{
-		Ability cab = abFacet.getContained(id, cat, nature, a);
-		Ability gab = grantedAbilityFacet.getContained(id, cat, nature, a);
-		return (cab == null) ? gab : cab;
-	}
-
-	public Ability getPCAbility(CNAbility cna)
-	{
-		return getPCAbility(cna.getAbilityCategory(), cna.getNature(),
-			cna.getAbility());
-	}
-
 	/**
 	 * Retrieve the first category in which the ability has been taken. 
 	 * @param nature The ability nature in which the ability is present. 
@@ -11362,11 +11349,22 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return chooseInfo.getChoiceActor().getCurrentlySelected(ab, this);
 	}
 
-	public Collection<CNAbility> getMatchingCNAbilities(Ability ability)
+	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		Set<CNAbility> set = new HashSet<CNAbility>();
-		set.addAll(abFacet.getCNAbilities(id, ability));
-		set.addAll(grantedAbilityFacet.getCNAbilities(id, ability));
-		return set;
+		List<CNAbility> list = new ArrayList<CNAbility>();
+		list.addAll(abFacet.getCNAbilities(id, ability));
+		list.addAll(grantedAbilityFacet.getCNAbilities(id, ability));
+		return list;
+	}
+
+	public CNAbility getMatchingCNAbility(Category<Ability> cat, Nature nature,
+		Ability a)
+	{
+		CNAbility cna = abFacet.getCNAbility(id, cat, nature, a);
+		if (cna != null)
+		{
+			return cna;
+		}
+		return grantedAbilityFacet.getCNAbility(id, cat, nature, a);
 	}
 }
