@@ -28,17 +28,10 @@ ABILITYCATEGORY:Graven Guardian Domain Selection	VISIBLE:QUALIFY	EDITABLE:YES		E
 
 ###Block: Base Races
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list						Plural description for UI		Display Location
-ABILITYCATEGORY:Changeling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ChangelingRacialTrait										PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Catfolk Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait											PLURAL:Catfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gillman Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GillmanRacialTrait											PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kitsune Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KitsuneRacialTrait											PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nagaji Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NagajiRacialTrait											PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Samsaran Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamsaranRacialTrait										PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Strix Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StrixRacialTrait											PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Suli Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliRacialTrait											PLURAL:Suli Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Vanara Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VanaraRacialTrait											PLURAL:Vanara Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Vishkanya Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaRacialTrait										PLURAL:Vishkanya Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wayang Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WayangRacialTrait											PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ratfolk Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait											PLURAL:Ratfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Suli Language Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage												PLURAL:Suli Language Choices		DISPLAYLOCATION:Racial Abilities

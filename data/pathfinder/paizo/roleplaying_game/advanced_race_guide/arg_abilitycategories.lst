@@ -64,5 +64,16 @@ ABILITYCATEGORY:Canine Ferocity Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPO
 ABILITYCATEGORY:Elven Arcana Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElvenArcanaSpellChoice		PLURAL:Elven Arcana Spell Choices		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Reincarnated Oracle Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReincarnatedOracleRevelation	PLURAL:Reincarnated Oracle Revelations	DISPLAYLOCATION:Class Abilities
 
+###Block:
+ABILITYCATEGORY:Changeling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ChangelingRacialTrait										PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gillman Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GillmanRacialTrait											PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kitsune Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KitsuneRacialTrait											PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Nagaji Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NagajiRacialTrait											PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Samsaran Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamsaranRacialTrait										PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Strix Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StrixRacialTrait											PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Wayang Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WayangRacialTrait											PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
+
+
+
 # End
 #
