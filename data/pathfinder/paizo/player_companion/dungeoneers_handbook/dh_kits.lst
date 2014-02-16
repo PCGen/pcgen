@@ -3,22 +3,22 @@ SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/produ
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Scott Meyer
 
-STARTPACK:Breaker's Kit	APPLY:INSTANT	EQUIPBUY:100
-GEAR:Alchemical Glue		QTY:1	SIZE:PC
-GEAR:Alchemist's Fire (Flask)	QTY:1	SIZE:PC
-GEAR:Crowbar			QTY:1	SIZE:PC
-GEAR:Drill				QTY:1	SIZE:PC
-GEAR:Fuse Grenade			QTY:1	SIZE:PC
-GEAR:Glass Cutter			QTY:1	SIZE:PC
-GEAR:Jetcaster			QTY:1	SIZE:PC
-GEAR:Phosphorescent Gel		QTY:1	SIZE:PC
-GEAR:Oil (1 Pint Flask)		QTY:4	SIZE:PC
-GEAR:Ram (Portable)		QTY:1	SIZE:PC
-GEAR:Rusting Powder		QTY:1	SIZE:PC
-GEAR:Tindertwig			QTY:5	SIZE:PC
-GEAR:Wire				QTY:1	SIZE:PC
+STARTPACK:Breaker's Kit			TYPE:Adventuring Kit	APPLY:INSTANT	EQUIPBUY:100
+GEAR:Alchemical Glue			QTY:1	SIZE:PC
+GEAR:Alchemist's Fire (Flask)		QTY:1	SIZE:PC
+GEAR:Crowbar				QTY:1	SIZE:PC
+GEAR:Drill					QTY:1	SIZE:PC
+GEAR:Fuse Grenade				QTY:1	SIZE:PC
+GEAR:Glass Cutter				QTY:1	SIZE:PC
+GEAR:Jetcaster				QTY:1	SIZE:PC
+GEAR:Phosphorescent Gel			QTY:1	SIZE:PC
+GEAR:Oil (1 Pint Flask)			QTY:4	SIZE:PC
+GEAR:Ram (Portable)			QTY:1	SIZE:PC
+GEAR:Rusting Powder			QTY:1	SIZE:PC
+GEAR:Tindertwig				QTY:5	SIZE:PC
+GEAR:Wire					QTY:1	SIZE:PC
 
-STARTPACK:Diver's Kit	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Diver's Kit			TYPE:Adventuring Kit	APPLY:INSTANT	EQUIPBUY:100
 GEAR:Air Bladder				QTY:1	SIZE:PC
 GEAR:Buoy (Common)			QTY:1	SIZE:PC
 GEAR:Chain (10 Ft)			QTY:3	SIZE:PC
@@ -30,14 +30,14 @@ GEAR:Waterproof Bag			QTY:1	SIZE:PC
 GEAR:Lantern (Bullseye/Waterproof)	QTY:1	SIZE:PC
 GEAR:Oil (1 Pint Flask)			QTY:3	SIZE:PC
 
-STARTPACK:Trapper's Kit	APPLY:INSTANT	EQUIPBUY:100
-GEAR:Lock (Average)		QTY:1	SIZE:PC
-GEAR:Bear Trap			QTY:1	SIZE:PC
-GEAR:Bone Paste (Container)	QTY:1	SIZE:PC
-GEAR:Cage (Small or Medium)	QTY:1	SIZE:PC
-GEAR:Manacles (Medium)		QTY:1	SIZE:PC
-GEAR:Marbles			QTY:1	SIZE:PC
-GEAR:Rope (Silk/50 ft)		QTY:1	SIZE:PC
-GEAR:Tanglefoot Bag		QTY:2	SIZE:PC
-GEAR:Twine (50 ft.)		QTY:1	SIZE:PC
-GEAR:Wire				QTY:1	SIZE:PC
+STARTPACK:Trapper's Kit			TYPE:Adventuring Kit	APPLY:INSTANT	EQUIPBUY:100
+GEAR:Lock (Average)			QTY:1	SIZE:PC
+GEAR:Bear Trap				QTY:1	SIZE:PC
+GEAR:Bone Paste (Container)		QTY:1	SIZE:PC
+GEAR:Cage (Small or Medium)		QTY:1	SIZE:PC
+GEAR:Manacles (Medium)			QTY:1	SIZE:PC
+GEAR:Marbles				QTY:1	SIZE:PC
+GEAR:Rope (Silk/50 ft)			QTY:1	SIZE:PC
+GEAR:Tanglefoot Bag			QTY:2	SIZE:PC
+GEAR:Twine (50 ft.)			QTY:1	SIZE:PC
+GEAR:Wire					QTY:1	SIZE:PC
