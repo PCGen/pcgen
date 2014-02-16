@@ -45,6 +45,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -53,7 +54,6 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -391,20 +391,19 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private List<InfoFacade> buildAvailableMetamagicFeatList(SpellNode spellNode)
 	{
-		List<Ability> characterMetaMagicFeats = new ArrayList<Ability>();;
-		List<Ability> feats =
-				AbilityUtilities.getAggregateAbilitiesListForKey(
-					AbilityCategory.FEAT.getKeyName(), pc);
-		Globals.sortPObjectListByName(feats);
+		List<Ability> characterMetaMagicFeats = new ArrayList<Ability>();
+		List<CNAbility> feats = pc.getCNAbilities(AbilityCategory.FEAT);
 
-		for (Ability aFeat : feats)
+		for (CNAbility cna : feats)
 		{
+			Ability aFeat = cna.getAbility();
 			if (aFeat.isType("Metamagic") &&  //$NON-NLS-1$
 					!Visibility.DISPLAY_ONLY.equals(aFeat.get(ObjectKey.VISIBILITY)))
 			{
 				characterMetaMagicFeats.add(aFeat);
 			}
 		}
+		Globals.sortPObjectListByName(characterMetaMagicFeats);
 
 		if (!(spellNode.getSpell() instanceof SpellFacadeImplem))
 		{
