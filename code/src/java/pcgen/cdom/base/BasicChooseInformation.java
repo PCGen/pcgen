@@ -59,7 +59,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * The PersistentChoiceActor (optional) which will act upon any choices made
 	 * from this PersistentTransitionChoice.
 	 */
-	private PersistentChoiceActor<T> choiceActor;
+	private Chooser<T> choiceActor;
 
 	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
@@ -100,9 +100,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
 	@Override
-	public void setChoiceActor(ChoiceActor<T> actor)
+	public void setChoiceActor(Chooser<T> actor)
 	{
-		choiceActor = (PersistentChoiceActor<T>) actor;
+		choiceActor = actor;
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	}
 
 	@Override
-	public PersistentChoiceActor<T> getChoiceActor()
+	public Chooser<T> getChoiceActor()
 	{
 		return choiceActor;
 	}

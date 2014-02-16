@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.Equipment;
 import plugin.lsttokens.choose.EquipmentToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class EquipmentTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<Equipment> getActor()
+	public Chooser<Equipment> getActor()
 	{
 		return pca;
 	}

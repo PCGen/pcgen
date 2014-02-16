@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.Race;
 import plugin.lsttokens.choose.RaceToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class RaceTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<Race> getActor()
+	public Chooser<Race> getActor()
 	{
 		return pca;
 	}

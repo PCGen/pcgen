@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import plugin.lsttokens.choose.NoChoiceToken;
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
 
@@ -36,7 +36,7 @@ public class NoChoiceTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<String> getActor()
+	public Chooser<String> getActor()
 	{
 		return pca;
 	}

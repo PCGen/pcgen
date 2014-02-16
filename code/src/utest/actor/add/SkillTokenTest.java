@@ -19,7 +19,7 @@ package actor.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Persistent;
 import pcgen.core.Skill;
 import plugin.lsttokens.add.SkillToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class SkillTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<Skill> getActor()
+	public Persistent<Skill> getActor()
 	{
 		return pca;
 	}

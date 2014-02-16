@@ -19,7 +19,7 @@ package actor.cdom.helper;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.helper.WeaponBonusListActor;
 import pcgen.core.WeaponProf;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class WeaponBonusListActorTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<WeaponProf> getActor()
+	public Chooser<WeaponProf> getActor()
 	{
 		return pca;
 	}

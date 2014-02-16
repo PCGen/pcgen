@@ -19,7 +19,7 @@ package actor.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Persistent;
 import pcgen.core.PCClass;
 import plugin.lsttokens.add.SpellCasterToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<PCClass> getActor()
+	public Persistent<PCClass> getActor()
 	{
 		return pca;
 	}

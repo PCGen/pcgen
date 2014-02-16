@@ -22,6 +22,7 @@ import java.util.Collection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -34,7 +35,7 @@ import pcgen.core.chooser.ChoiceManagerList;
  * 
  * @param <T>
  */
-public interface ChooseInformation<T> extends PersistentChoice<T>
+public interface ChooseInformation<T>
 {
 
 	String getName();
@@ -57,4 +58,16 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 
 	CharSequence composeDisplay(Collection<? extends T> collection);
 
+
+
+	public T decodeChoice(LoadContext context, String persistentFormat);
+
+	public String encodeChoice(T item);
+
+
+	public void setChoiceActor(Chooser<T> actor);
+
+	public Chooser<T> getChoiceActor();
+
 }
+

@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.identifier.SpellSchool;
 import plugin.lsttokens.choose.SchoolsToken;
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class SchoolsTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<SpellSchool> getActor()
+	public Chooser<SpellSchool> getActor()
 	{
 		return pca;
 	}

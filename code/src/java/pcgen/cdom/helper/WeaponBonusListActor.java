@@ -20,14 +20,13 @@ package pcgen.cdom.helper;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 
-public class WeaponBonusListActor implements
-		PersistentChoiceActor<WeaponProf>
+public class WeaponBonusListActor implements Chooser<WeaponProf>
 {
 
 	@Override

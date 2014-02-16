@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.PCAlignment;
 import plugin.lsttokens.choose.AlignmentToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class AlignmentTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<PCAlignment> getActor()
+	public Chooser<PCAlignment> getActor()
 	{
 		return pca;
 	}

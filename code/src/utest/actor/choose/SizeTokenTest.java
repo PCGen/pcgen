@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.SizeAdjustment;
 import plugin.lsttokens.choose.SizeToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class SizeTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<SizeAdjustment> getActor()
+	public Chooser<SizeAdjustment> getActor()
 	{
 		return pca;
 	}

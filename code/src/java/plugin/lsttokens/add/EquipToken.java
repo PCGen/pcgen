@@ -19,7 +19,6 @@ package plugin.lsttokens.add;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -226,12 +225,5 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			Equipment choice)
 	{
 		pc.removeEquipment(choice);
-	}
-
-	@Override
-	public List<Equipment> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

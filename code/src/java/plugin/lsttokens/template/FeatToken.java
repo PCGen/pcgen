@@ -18,7 +18,6 @@
 package plugin.lsttokens.template;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -251,12 +250,5 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			tc.setChoiceActor(this);
 		}
 		return true;
-	}
-
-	@Override
-	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

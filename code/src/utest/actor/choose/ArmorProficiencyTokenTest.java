@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.ArmorProf;
 import plugin.lsttokens.choose.ArmorProficiencyToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class ArmorProficiencyTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<ArmorProf> getActor()
+	public Chooser<ArmorProf> getActor()
 	{
 		return pca;
 	}

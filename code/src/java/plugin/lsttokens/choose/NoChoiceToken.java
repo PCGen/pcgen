@@ -23,11 +23,10 @@ import java.util.List;
 
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.ClassIdentity;
-import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
@@ -45,7 +44,7 @@ import pcgen.util.Logging;
  * New chooser plugin, handles no Choice.
  */
 public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
-		ChooseInformation<String>, PersistentChoiceActor<String>,
+		ChooseInformation<String>, Chooser<String>,
 		DeferredToken<CDOMObject>
 {
 
@@ -152,13 +151,13 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public PersistentChoiceActor<String> getChoiceActor()
+	public Chooser<String> getChoiceActor()
 	{
 		return this;
 	}
 
 	@Override
-	public void setChoiceActor(ChoiceActor<String> ca)
+	public void setChoiceActor(Chooser<String> ca)
 	{
 		// ignore
 	}

@@ -30,7 +30,7 @@ import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
 
 public class UserChooseInformation implements ChooseInformation<String>,
-		PersistentChoiceActor<String>
+		Chooser<String>
 {
 	
 	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
@@ -142,13 +142,13 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public PersistentChoiceActor<String> getChoiceActor()
+	public Chooser<String> getChoiceActor()
 	{
 		return this;
 	}
 
 	@Override
-	public void setChoiceActor(ChoiceActor<String> actor)
+	public void setChoiceActor(Chooser<String> actor)
 	{
 		// ignore
 	}

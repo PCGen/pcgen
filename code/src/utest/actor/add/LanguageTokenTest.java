@@ -19,7 +19,7 @@ package actor.add;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Persistent;
 import pcgen.core.Language;
 import plugin.lsttokens.add.LanguageToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class LanguageTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<Language> getActor()
+	public Persistent<Language> getActor()
 	{
 		return pca;
 	}

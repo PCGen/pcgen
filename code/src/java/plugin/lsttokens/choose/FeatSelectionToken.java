@@ -24,7 +24,7 @@ import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
@@ -47,7 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<AbilitySelection>
+		Chooser<AbilitySelection>
 {
 
 	@Override

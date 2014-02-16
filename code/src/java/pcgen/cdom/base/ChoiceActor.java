@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.base;
 
-import java.util.List;
-
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -65,19 +63,4 @@ public interface ChoiceActor<T>
 	 */
 	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
 	
-	/**
-	 * Returns a list of the items *for this ChoiceActor* that have been
-	 * previously selected. Note that this does not identify whether a PC
-	 * has previously taken an item through another means (that is resolved
-	 * by the allow method) This returns what has previously been selected
-	 * and what should be placed in the 'selected' section of a chooser that
-	 * is presented to the user.
-	 * 
-	 * @param owner
-	 *            The owning object for this choice.
-	 * @param pc
-	 *            The PlayerCharacter for which the currently selected items
-	 *            are being returned.
-	 */
-	public List<? extends T> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc);
 }

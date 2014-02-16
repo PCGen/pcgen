@@ -19,7 +19,6 @@ package plugin.lsttokens.add;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -366,12 +365,5 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	{
 		T sel = aMan.decodeChoice(choice);
 		aMan.removeChoice(pc, obj, sel);
-	}
-
-	@Override
-	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

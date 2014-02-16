@@ -24,8 +24,8 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.base.SpellLevelChooseInformation;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -45,8 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * New chooser plugin, handles Spell Level.
  */
 public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<SpellLevel>
+		implements CDOMSecondaryToken<CDOMObject>, Chooser<SpellLevel>
 {
 
 	@Override

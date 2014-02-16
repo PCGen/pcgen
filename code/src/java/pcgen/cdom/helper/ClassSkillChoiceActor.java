@@ -17,9 +17,6 @@
  */
 package pcgen.cdom.helper;
 
-import java.util.Collections;
-import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
@@ -278,26 +275,5 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 			SkillRankControl.modRanks(-applyRank, pcc, false, pc, choice);
 		}
 		pc.removeLocalCost(pcc, choice, SkillCost.CLASS, owner);
-	}
-
-	/**
-	 * Returns a list of the items *for this ChoiceActor* that have been
-	 * previously selected, which is an empty list, since this
-	 * ClassSkillChoiceActor supports ADD: Note that this does not identify
-	 * whether a PC has previously taken an item through another means (that is
-	 * resolved by the allow method) This returns what has previously been
-	 * selected and what should be placed in the 'selected' section of a chooser
-	 * that is presented to the user.
-	 * 
-	 * @param owner
-	 *            The owning object for this choice.
-	 * @param pc
-	 *            The PlayerCharacter for which the currently selected items are
-	 *            being returned.
-	 */
-	@Override
-	public List<Skill> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

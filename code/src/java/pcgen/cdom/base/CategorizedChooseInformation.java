@@ -63,7 +63,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	 * The PersistentChoiceActor (optional) which will act upon any choices made
 	 * from this PersistentTransitionChoice.
 	 */
-	private PersistentChoiceActor<T> choiceActor;
+	private Chooser<T> choiceActor;
 
 	private final Class<T> underlyingClass;
 
@@ -113,9 +113,9 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
 	@Override
-	public void setChoiceActor(ChoiceActor<T> actor)
+	public void setChoiceActor(Chooser<T> actor)
 	{
-		choiceActor = (PersistentChoiceActor<T>) actor;
+		choiceActor = actor;
 	}
 
 	/**
@@ -158,15 +158,15 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	public T decodeChoice(LoadContext context, String persistentFormat)
 	{
 		String choiceStr = persistentFormat;
-		if (choiceActor instanceof CategorizedPersistentChoiceActor)
+		if (choiceActor instanceof CategorizedChooser)
 		{
-			return ((CategorizedPersistentChoiceActor<T>)choiceActor).decodeChoice(choiceStr, category);
+			return ((CategorizedChooser<T>)choiceActor).decodeChoice(choiceStr, category);
 		}
 		return choiceActor.decodeChoice(context, choiceStr);
 	}
 
 	@Override
-	public PersistentChoiceActor<T> getChoiceActor()
+	public Chooser<T> getChoiceActor()
 	{
 		return choiceActor;
 	}

@@ -64,7 +64,7 @@ public class SpellLevelChooseInformation implements
 	 * The PersistentChoiceActor (optional) which will act upon any choices made
 	 * from this PersistentTransitionChoice.
 	 */
-	private PersistentChoiceActor<SpellLevel> choiceActor;
+	private Chooser<SpellLevel> choiceActor;
 
 	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
@@ -111,9 +111,9 @@ public class SpellLevelChooseInformation implements
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
 	@Override
-	public void setChoiceActor(ChoiceActor<SpellLevel> actor)
+	public void setChoiceActor(Chooser<SpellLevel> actor)
 	{
-		choiceActor = (PersistentChoiceActor<SpellLevel>) actor;
+		choiceActor = actor;
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public PersistentChoiceActor<SpellLevel> getChoiceActor()
+	public Chooser<SpellLevel> getChoiceActor()
 	{
 		return choiceActor;
 	}

@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import plugin.lsttokens.choose.FeatToken;
@@ -38,7 +38,7 @@ public class FeatTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<Ability> getActor()
+	public Chooser<Ability> getActor()
 	{
 		return pca;
 	}

@@ -29,7 +29,7 @@ import pcgen.cdom.base.CategorizedAbilitySelectionChooseInformation;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
@@ -54,7 +54,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
-		PersistentChoiceActor<AbilitySelection>
+		Chooser<AbilitySelection>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
 			AbilityCategory.class;

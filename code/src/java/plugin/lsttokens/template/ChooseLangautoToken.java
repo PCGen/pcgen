@@ -18,7 +18,6 @@
 package plugin.lsttokens.template;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -202,12 +201,5 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate> 
 			Language choice)
 	{
 		pc.removeFreeLanguage(choice, owner);
-	}
-
-	@Override
-	public List<Language> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

@@ -19,7 +19,6 @@ package plugin.lsttokens.add;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -399,12 +398,5 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		List<T> selected = new ArrayList<T>();
 		aMan.getChoices(pc, new ArrayList<T>(), selected);
 		return selected.isEmpty();
-	}
-
-	@Override
-	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

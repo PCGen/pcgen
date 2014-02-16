@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.core.PCClass;
 import plugin.lsttokens.choose.SpellLevelToken;
@@ -38,7 +38,7 @@ public class SpellLevelTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<SpellLevel> getActor()
+	public Chooser<SpellLevel> getActor()
 	{
 		return pca;
 	}

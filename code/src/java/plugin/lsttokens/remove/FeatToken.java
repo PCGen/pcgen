@@ -20,7 +20,6 @@ package plugin.lsttokens.remove;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -398,12 +397,5 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			pc.adjustMoveRates();
 		}
-	}
-
-	@Override
-	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
-			PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

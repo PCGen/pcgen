@@ -19,7 +19,7 @@ package actor.choose;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.core.PCTemplate;
 import plugin.lsttokens.choose.TemplateToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
@@ -37,7 +37,7 @@ public class TemplateTokenTest extends
 	}
 
 	@Override
-	public PersistentChoiceActor<PCTemplate> getActor()
+	public Chooser<PCTemplate> getActor()
 	{
 		return pca;
 	}

@@ -24,7 +24,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Persistent;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -48,7 +48,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 //					new ConsolidatedListCommitStrategy());
 	}
 
-	public abstract PersistentChoiceActor<T> getActor();
+	public abstract Persistent<T> getActor();
 
 	@Test
 	public void testEncodeChoice()

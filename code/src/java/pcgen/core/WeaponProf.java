@@ -21,7 +21,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.Chooser;
 import pcgen.cdom.helper.WeaponBonusListActor;
 import pcgen.cdom.list.WeaponProfList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -36,7 +36,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 {
 	public static final CDOMReference<WeaponProfList> STARTING_LIST;
 
-	public static final PersistentChoiceActor<WeaponProf> STARTING_ACTOR = new WeaponBonusListActor();
+	public static final Chooser<WeaponProf> STARTING_ACTOR = new WeaponBonusListActor();
 
 	static
 	{

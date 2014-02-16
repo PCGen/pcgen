@@ -22,7 +22,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedChooseInformation;
-import pcgen.cdom.base.CategorizedPersistentChoiceActor;
+import pcgen.cdom.base.CategorizedChooser;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -50,8 +50,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 
 public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMSecondaryToken<CDOMObject>,
-		CategorizedPersistentChoiceActor<Ability>
+		implements CDOMSecondaryToken<CDOMObject>, CategorizedChooser<Ability>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
 			AbilityCategory.class;

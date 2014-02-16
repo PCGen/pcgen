@@ -19,7 +19,6 @@ package plugin.lsttokens;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -175,11 +174,5 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 		}
 		return true;
-	}
-
-	@Override
-	public List<Kit> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }

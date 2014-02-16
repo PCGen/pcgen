@@ -19,7 +19,6 @@ package plugin.lsttokens.add;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -245,11 +244,5 @@ public class SkillToken extends AbstractToken implements
 	{
 		pc.addSkill(choice);
 		SkillRankControl.modRanks(-1.0, null, true, pc, choice);
-	}
-
-	@Override
-	public List<Skill> getCurrentlySelected(CDOMObject owner, PlayerCharacter pc)
-	{
-		return Collections.emptyList();
 	}
 }
