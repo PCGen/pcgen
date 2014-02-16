@@ -303,7 +303,7 @@ public class Page2Panel extends javax.swing.JPanel
 			List<CNAbility> wrappedFeat =
 					Collections.singletonList(new CNAbility(feat
 						.getCDOMCategory(), feat, Nature.NORMAL));
-			featMap.put(QualifiedName.qualifiedName(aPC, feat), aPC.getDescription(wrappedFeat));
+			featMap.put(QualifiedName.qualifiedName(aPC, wrappedFeat), aPC.getDescription(wrappedFeat));
 		}
 		return featMap;
 	}

@@ -372,18 +372,9 @@ public class Description extends ConcretePrereqObject
 		{
 			if (aCat.getParentCategory().equals(AbilityCategory.FEAT))
 			{
-				for (Ability a : pc.getAbilityList(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.add(new CNAbility(aCat, a, Nature.NORMAL));
-				}
-				for (Ability a : pc.getAbilityList(aCat, Nature.VIRTUAL))
-				{
-					listOfAbilities.add(new CNAbility(aCat, a, Nature.VIRTUAL));
-				}
-				for (Ability a : pc.getAbilityList(aCat, Nature.AUTOMATIC))
-				{
-					listOfAbilities.add(new CNAbility(aCat, a, Nature.AUTOMATIC));
-				}
+				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.NORMAL));
+				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.AUTOMATIC));
+				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.VIRTUAL));
 			}
 		}
 		return listOfAbilities;

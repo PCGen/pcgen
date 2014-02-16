@@ -1,13 +1,16 @@
 package plugin.exporttokens;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityListToken;
 
@@ -50,10 +53,23 @@ public class VFeatListToken extends AbilityListToken
 	 * @see pcgen.io.exporttoken.AbilityListToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
 	 */
 	@Override
-	protected List<Ability> getAbilityList(PlayerCharacter pc,
-										   AbilityCategory aCategory)
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
+										   final AbilityCategory aCategory)
 	{
-		return new ArrayList<Ability>(pc.getAbilityList(aCategory, Nature.VIRTUAL));
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
+		{
+			if (aCat.getParentCategory().equals(aCategory))
+			{
+				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.VIRTUAL))
+				{
+					listOfAbilities.addToListFor(cna.getAbility(), cna);
+				}
+			}
+		}
+		return listOfAbilities;
 	}
 
 }

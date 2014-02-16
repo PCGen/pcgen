@@ -670,7 +670,7 @@ public class AbilityToken extends Token
 			}
 			else
 			{
-				retString = QualifiedName.qualifiedName(pc, aAbility);
+				retString = QualifiedName.qualifiedName(pc, abilities);
 			}
 		}
 		// If the ability index is not in a valid range then tell the 
@@ -832,9 +832,9 @@ public class AbilityToken extends Token
 		{
 			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
 			{
-				for (Ability a : pc.getAbilityList(aCat, Nature.NORMAL))
+				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.NORMAL))
 				{
-					listOfAbilities.addToListFor(a, new CNAbility(aCat, a, Nature.NORMAL));
+					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}
 			}
 		}

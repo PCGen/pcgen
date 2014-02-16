@@ -32,6 +32,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -425,5 +426,28 @@ public class AbilityUtilities
 		}
 		return ability.getCDOMCategory() == AbilityCategory.FEAT
 			|| (ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
+	}
+
+	public static Ability validateCNAList(List<CNAbility> list)
+	{
+		Ability a = null;
+		for (CNAbility cna : list)
+		{
+			if (a == null)
+			{
+				a = cna.getAbility();
+			}
+			else
+			{
+				if (!cna.getAbility().getKeyName().equals(a.getKeyName())
+					|| !a.getCDOMCategory().equals(
+						cna.getAbilityCategory().getParentCategory()))
+				{
+					throw new IllegalArgumentException(
+						"CNAbility list must be a consistent list of Abilities (same object)");
+				}
+			}
+		}
+		return a;
 	}
 }

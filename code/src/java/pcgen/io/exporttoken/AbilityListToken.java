@@ -28,10 +28,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
@@ -56,7 +58,7 @@ public class AbilityListToken extends Token
 	private static final String DELIM = ", ";
 
 	//TODO: Should these be static to enable the caching?
-	private List<Ability> abilityList = null;
+	private MapToList<Ability, CNAbility> abilityMap = null;
 	private PlayerCharacter lastPC = null;
 	private int lastPCSerial;
 	private String lastType = "";
@@ -117,12 +119,7 @@ public class AbilityListToken extends Token
 		if (lastPC != pc || !aCategory.equals(lastCategory)
 			|| lastPCSerial != pc.getSerial() || !tokenString.equals(lastType))
 		{
-			Collection<AbilityCategory> cats = SettingsHandler.getGame().getAllAbilityCatsForKey(aCategory.getKeyName());
-			abilityList = new ArrayList<Ability>();
-			for (AbilityCategory abilityCategory : cats)
-			{
-				abilityList.addAll(getAbilityList(pc, abilityCategory));
-			}
+			abilityMap = getAbilityList(pc, aCategory);
 			lastPC = pc;
 			lastCategory = aCategory;
 			lastPCSerial = pc.getSerial();
@@ -158,12 +155,12 @@ public class AbilityListToken extends Token
 			}
 		}
 
-		List<Ability> aList =
-				buildAbilityList(types, negate, null,
-					AbilityToken.ABILITY_VISIBLE, aspect, abilityList);
+		MapToList<Ability, CNAbility> aList =
+				AbilityToken.buildAbilityList(types, negate, null,
+					AbilityToken.ABILITY_VISIBLE, aspect, abilityMap);
 
 		boolean needComma = false;
-		for (Ability ability : aList)
+		for (Ability ability : aList.getKeySet())
 		{
 			if (needComma)
 			{
@@ -171,54 +168,11 @@ public class AbilityListToken extends Token
 			}
 			needComma = true;
 
-			retString.append(QualifiedName.qualifiedName(pc, ability));
+			retString.append(QualifiedName.qualifiedName(pc, aList.getListFor(ability)));
 		}
 
 		return retString.toString();
 	}
-
-	/**
-	 * Build up the list of abilities of interest based on the type and visibility selection.
-	 * 
-	 * @param types
-	 *            The list of types which it must match at least one of.
-	 * @param negate
-	 *            The list of types it must not match any of.
-	 * @param abilityType
-	 *            The type definition it must match.
-	 * @param aspect
-	 *            The aspect which it must match.
-	 * @return List of abilities based on the type, visibility, and aspect selection.
-	 */
-	static List<Ability> buildAbilityList(List<String> types,
-		List<String> negate, String abilityType, int visibility,
-		String aspect, List<Ability> listOfAbilities)
-	{
-		// List to build up
-		List<Ability> aList = new ArrayList<Ability>();
-
-		// Sort the ability list passed in
-		Globals.sortPObjectListByName(listOfAbilities);
-
-		boolean matchTypeDef = false;
-		boolean matchVisibilityDef = false;
-		boolean matchAspectDef = false;
-
-		// For each ability figure out whether it should be displayed depending
-		// on its visibility filtering and its ability type filtering 
-		for (Ability aAbility : listOfAbilities)
-		{
-			matchTypeDef = AbilityToken.abilityMatchesType(abilityType, aAbility, types, negate);
-			matchVisibilityDef = AbilityToken.abilityMatchesVisibility(visibility, aAbility);
-			matchAspectDef = AbilityToken.abilityMatchesAspect(aspect, aAbility);
-			if (matchTypeDef && matchVisibilityDef && matchAspectDef)
-			{
-				aList.add(aAbility);
-			}
-		}
-		return aList;
-	}
-
 
 	/**
 	 * Returns the correct list of abilities of a particular category for the character.
@@ -229,13 +183,21 @@ public class AbilityListToken extends Token
 	 * @param aCategory The category of ability required.
 	 * @return List of feats.
 	 */
-	protected List<Ability> getAbilityList(PlayerCharacter pc,
-		AbilityCategory aCategory)
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
+		final AbilityCategory aCategory)
 	{
-		List<Ability> listOfAbilities = new ArrayList<Ability>();
-		for (Ability ability : pc.getAbilityList(aCategory, Nature.NORMAL))
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		Collection<AbilityCategory> allCats =
+				SettingsHandler.getGame().getAllAbilityCategories();
+		for (AbilityCategory aCat : allCats)
 		{
-			listOfAbilities.add(ability);
+			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+			{
+				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.NORMAL))
+				{
+					listOfAbilities.addToListFor(cna.getAbility(), cna);
+				}
+			}
 		}
 		return listOfAbilities;
 	}

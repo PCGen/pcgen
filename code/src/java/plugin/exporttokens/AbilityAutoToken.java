@@ -68,9 +68,9 @@ public class AbilityAutoToken extends AbilityToken
 		{
 			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
 			{
-				for (Ability a : pc.getAbilityList(aCat, Nature.AUTOMATIC))
+				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.AUTOMATIC))
 				{
-					listOfAbilities.addToListFor(a, new CNAbility(aCat, a, Nature.AUTOMATIC));
+					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}
 			}
 		}

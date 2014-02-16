@@ -748,4 +748,33 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
+	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+		Category<Ability> cat, Nature n)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			for (Map.Entry<Category<Ability>,  Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					Set<Ability> aset = catME.getValue().get(n);
+					if (aset != null)
+					{
+						for (Ability a : aset)
+						{
+							if (!a.isInternal())
+							{
+								set.add(new CNAbility(cat, a, n));
+							}
+						}
+					}
+				}
+			}
+		}
+		return set;
+	}
+
 }

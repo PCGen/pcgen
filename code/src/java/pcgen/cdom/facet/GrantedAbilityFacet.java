@@ -900,4 +900,34 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		return set;
 	}
 
+
+	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+		Category<Ability> cat, Nature n)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					Map<Ability, List<Object>> aMap = catME.getValue().get(n);
+					if (aMap != null)
+					{
+						for (Ability a : aMap.keySet())
+						{
+							if (!a.isInternal())
+							{
+								set.add(new CNAbility(cat, a, n));
+							}
+						}
+					}
+				}
+			}
+		}
+		return set;
+	}
+
 }

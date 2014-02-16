@@ -19,12 +19,15 @@
  */
 package pcgen.core.analysis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
@@ -44,8 +47,9 @@ public class QualifiedName
 	 *         the times the ability is applied e.g. " (3x)", or a list of the
 	 *         sub-choices e.g. " (Sub1, Sub2, ...)".
 	 */
-	public static String qualifiedName(PlayerCharacter pc, Ability a)
+	public static String qualifiedName(PlayerCharacter pc, List<CNAbility> list)
 	{
+		Ability a = AbilityUtilities.validateCNAList(list);
 		String outputName = OutputNameFormatting.getOutputName(a);
 		if ("[BASE]".equalsIgnoreCase(outputName))
 		{
@@ -54,25 +58,31 @@ public class QualifiedName
 		// start with the name of the ability
 		// don't do for Weapon Profs
 		final StringBuilder aStrBuf = new StringBuilder(outputName);
-
-		if (pc.hasAssociations(a))
+		
+		ChooseInformation<?> chooseInfo = a.get(ObjectKey.CHOOSE_INFO);
+		if (chooseInfo != null)
 		{
-			ChooseInformation<?> chooseInfo = a.get(ObjectKey.CHOOSE_INFO);
-			if (chooseInfo != null)
-			{
-				processChooseInfo(aStrBuf, pc, a, chooseInfo);
-			}
+			processChooseInfo(aStrBuf, pc, chooseInfo, list);
 		}
-
 		return aStrBuf.toString();
 	}
 
-	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, Ability a,
-		ChooseInformation<T> chooseInfo)
+	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, 
+		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
-		List<? extends T> selections =
-				chooseInfo.getChoiceActor().getCurrentlySelected(a, pc);
-		String choiceInfo = chooseInfo.composeDisplay(selections).toString();
+		List<T> allSelections = new ArrayList<T>();
+		for (CNAbility cna : list)
+		{
+			Ability ab = cna.getAbility();
+			if (pc.hasAssociations(ab))
+			{
+				List<? extends T> selections =
+						chooseInfo.getChoiceActor()
+							.getCurrentlySelected(ab, pc);
+				allSelections.addAll(selections);
+			}
+		}
+		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();
 		if (choiceInfo.length() > 0)
 		{
 			aStrBuf.append(" (");

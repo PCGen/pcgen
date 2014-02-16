@@ -11375,4 +11375,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		set.addAll(grantedAbilityFacet.getCNAbilities(id));
 		return set;
 	}
+
+	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
+	{
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		set.addAll(abFacet.getCNAbilities(id, cat, n));
+		set.addAll(grantedAbilityFacet.getCNAbilities(id, cat, n));
+		return set;
+	}
 }

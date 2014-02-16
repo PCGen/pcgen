@@ -26,13 +26,14 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang.math.Fraction;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -233,7 +234,8 @@ public class PlayerCharacterOutput
 
 		boolean firstLine = true;
 
-		for (Ability feat : pc.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+		for (CNAbility cna : pc.getCNAbilities(AbilityCategory.FEAT,
+			Nature.NORMAL))
 		{
 			if (!firstLine)
 			{
@@ -241,7 +243,8 @@ public class PlayerCharacterOutput
 			}
 
 			firstLine = false;
-			sb.append(QualifiedName.qualifiedName(pc, feat));
+			sb.append(QualifiedName.qualifiedName(pc,
+				Collections.singletonList(cna)));
 		}
 
 		return sb.toString();
