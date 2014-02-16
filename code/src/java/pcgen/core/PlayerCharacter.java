@@ -9305,29 +9305,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 //		}
 	}
 
-	/**
-	 * Gets a list of ability objects whose name is the same as that of the ability object
-	 * passed in, no matter what category they were added in.
-	 * 
-	 * @param ab the ability
-	 * 
-	 * @return the list of matching feats
-	 */
-	public List<Ability> getFeatNamedAnyCat(Ability ab)
-	{
-		List<Ability> feats = new ArrayList<Ability>();
-		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
-		{
-			Ability tempFeat = getMatchingAbility(cat, ab);
-			if (tempFeat != null)
-			{
-				feats.add(tempFeat);
-			}
-		}
-
-		return feats;
-	}
-
 	public boolean hasSpellInSpellbook(Spell spell, String spellbookname)
 	{
 		for (CDOMObject po : getCDOMObjectList())

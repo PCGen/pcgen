@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import pcgen.cdom.base.Converter;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -82,11 +83,11 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	{
 		// workaround for cloning issue
 		List<R> availableList = new ArrayList<R>();
-		List<Ability> theFeats = pc.getFeatNamedAnyCat(a);
-		for (Ability ability : theFeats)
+		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
+		for (CNAbility ability : theFeats)
 		{
 			List<? extends R> list =
-					(List<? extends R>) pc.getDetailedAssociations(ability);
+					(List<? extends R>) pc.getDetailedAssociations(ability.getAbility());
 			if (list != null)
 			{
 				availableList.addAll(list);
