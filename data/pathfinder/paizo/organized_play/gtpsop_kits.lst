@@ -3,7 +3,7 @@
 SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
 
 # TODO: if possible restrict that to PC
-STARTPACK:Pathfinder Society Starting Gold	TYPE:Starting Gear	VISIBLE:YES	APPLY:INSTANT
+STARTPACK:Pathfinder Society Starting Gold	TYPE:Starting.Gold	VISIBLE:YES	APPLY:INSTANT
 FUNDS:gp	QTY:150
 
 # No need for this because of the PFS start gold rule.

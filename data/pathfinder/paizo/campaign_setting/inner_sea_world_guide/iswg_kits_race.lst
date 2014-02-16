@@ -77,7 +77,7 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 ABILITY:CATEGORY=Region of Origin|Katapesh
 
-STARTPACK:Calikang Default	TYPE:Default Monster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Calikang]	SOURCEPAGE:p.307
+STARTPACK:Calikang Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Calikang]	SOURCEPAGE:p.307
 RACE:Calikang	!PRERACE:1,%
 NAME:Calikang
 ALIGN:LN
@@ -173,6 +173,7 @@ SKILL:Knowledge (Geography)	RANK:6
 SKILL:Perception			RANK:12
 SKILL:Stealth			RANK:12
 SKILL:Survival			RANK:12
+
 STARTPACK:Dragon (Spine) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Spine)]	SOURCEPAGE:p.312
 RACE:Dragon (Spine)	!PRERACE:1,%
 NAME:Spine Dragon
