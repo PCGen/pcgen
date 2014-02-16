@@ -777,4 +777,36 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
+	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+		Ability ability)
+	{
+		Category<Ability> cat = ability.getCDOMCategory();
+		String key = ability.getKeyName();
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Entry<Nature, Set<Ability>> natME : catME.getValue()
+						.entrySet())
+					{
+						Nature nat = natME.getKey();
+						for (Ability a : natME.getValue())
+						{
+							if (a.getKeyName().equals(key))
+							{
+								set.add(new CNAbility(cat, a, nat));
+							}
+						}
+					}
+				}
+			}
+		}
+		return set;
+	}
+
 }

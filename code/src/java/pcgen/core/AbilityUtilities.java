@@ -380,28 +380,29 @@ public class AbilityUtilities
 	public static boolean alreadySelected(PlayerCharacter pc, Ability ability,
 		String selection, boolean allowStack)
 	{
-		for (Ability a : pc.getAllAbilities(ability.getCDOMCategory().getParentCategory()))
+		Collection<CNAbility> cnAbilities = pc.getMatchingCNAbilities(ability);
+		if (!cnAbilities.isEmpty())
 		{
-			if (a.getKeyName().equals(ability.getKeyName()))
+			if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				if (!a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					//Based on key name / category match
-					return true;
-				}
-				if (allowStack && a.getSafe(ObjectKey.STACKS))
-				{
-					//Must allow it because it stacks
-					return false;
-				}
-				List<?> oldSelections = pc.getDetailedAssociations(a);
-				ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
-				Object decoded =
-						info.decodeChoice(Globals.getContext(), selection);
-				if ((oldSelections != null) && oldSelections.contains(decoded))
-				{
-					return true;
-				}
+				//Based on key name / category match
+				return true;
+			}
+			if (allowStack && ability.getSafe(ObjectKey.STACKS))
+			{
+				//Must allow it because it stacks
+				return false;
+			}
+		}
+		ChooseInformation<?> info = ability.get(ObjectKey.CHOOSE_INFO);
+		for (CNAbility cna : cnAbilities)
+		{
+			List<?> oldSelections = pc.getDetailedAssociations(cna.getAbility());
+			Object decoded =
+					info.decodeChoice(Globals.getContext(), selection);
+			if ((oldSelections != null) && oldSelections.contains(decoded))
+			{
+				return true;
 			}
 		}
 		return false;

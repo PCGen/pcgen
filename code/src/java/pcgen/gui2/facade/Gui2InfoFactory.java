@@ -27,6 +27,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -61,7 +62,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.BenefitFormatting;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
@@ -2006,19 +2006,8 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		final Ability ability = (Ability) abilityFacade;
 		final StringBuilder result = new StringBuilder();
-		AbilityCategory cat = (AbilityCategory) ability.getCDOMCategory();
-		
-		List<Ability> targetAbilities = new ArrayList<Ability>();
-		targetAbilities.add(ability);
-		final List<Ability> abilities = pc.getAggregateAbilityList(cat);
-		for (final Ability ab : abilities)
-		{
-			if (ability.equals(ab) && ability != ab)
-			{
-				targetAbilities.add(ab);
-			}
-		}
-		
+
+		Collection<CNAbility> targetAbilities = pc.getMatchingCNAbilities(ability);
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			ChooseInformation<?> chooseInfo =
@@ -2029,7 +2018,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	private <T> void processAbilities(final StringBuilder result,
-		List<Ability> targetAbilities, ChooseInformation<T> chooseInfo)
+		Collection<CNAbility> targetAbilities, ChooseInformation<T> chooseInfo)
 	{
 		if (chooseInfo == null)
 		{
@@ -2037,10 +2026,10 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		List<T> choices = new ArrayList<T>();
-		for (Ability ab : targetAbilities)
+		for (CNAbility ab : targetAbilities)
 		{
 			List<? extends T> sel =
-					(List<? extends T>) pc.getDetailedAssociations(ab);
+					(List<? extends T>) pc.getDetailedAssociations(ab.getAbility());
 			choices.addAll(sel);
 		}
 
