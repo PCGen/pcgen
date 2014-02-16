@@ -336,28 +336,16 @@ public class Description extends ConcretePrereqObject
 	
 	private List<CNAbility> getFeats(PlayerCharacter pc, Ability a)
 	{
-		List<CNAbility> listOfAbilities = new ArrayList<CNAbility>();
+		final List<CNAbility> listOfAbilities = new ArrayList<CNAbility>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
 			if (aCat.getParentCategory().equals(AbilityCategory.FEAT))
 			{
-				Ability pca = pc.getPCAbility(aCat, Nature.NORMAL, a);
-				if (pca != null)
-				{
-					listOfAbilities.add(new CNAbility(aCat, pca, Nature.NORMAL));
-				}
-				pca = pc.getPCAbility(aCat, Nature.VIRTUAL, a);
-				if (pca != null)
-				{
-					listOfAbilities.add(new CNAbility(aCat, pca, Nature.VIRTUAL));
-				}
-				pca = pc.getPCAbility(aCat, Nature.AUTOMATIC, a);
-				if (pca != null)
-				{
-					listOfAbilities.add(new CNAbility(aCat, pca, Nature.AUTOMATIC));
-				}
+				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.NORMAL));
+				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.AUTOMATIC));
+				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.VIRTUAL));
 			}
 		}
 		return listOfAbilities;
