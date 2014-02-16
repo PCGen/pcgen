@@ -77,8 +77,7 @@ public class QualifiedName
 			if (pc.hasAssociations(ab))
 			{
 				List<? extends T> selections =
-						chooseInfo.getChoiceActor()
-							.getCurrentlySelected(ab, pc);
+						(List<? extends T>) pc.getDetailedAssociations(ab);
 				allSelections.addAll(selections);
 			}
 		}

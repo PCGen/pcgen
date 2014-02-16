@@ -11383,4 +11383,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		set.addAll(grantedAbilityFacet.getCNAbilities(id, cat, n));
 		return set;
 	}
+
+	public List<?> getDetailedAssociations(Ability ab)
+	{
+		ChooseInformation<?> chooseInfo = ab.get(ObjectKey.CHOOSE_INFO);
+		return chooseInfo.getChoiceActor().getCurrentlySelected(ab, this);
+	}
 }

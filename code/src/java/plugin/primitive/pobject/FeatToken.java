@@ -23,10 +23,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -80,16 +78,15 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		return getTokenName() + "=" + ref.getLSTformat(useAny);
 	}
 
-	private <R> List<R> getList(PlayerCharacter pc, Ability a,
-			ChooseInformation<R> info)
+	private <R> List<R> getList(PlayerCharacter pc, Ability a)
 	{
 		// workaround for cloning issue
 		List<R> availableList = new ArrayList<R>();
 		List<Ability> theFeats = pc.getFeatNamedAnyCat(a);
 		for (Ability ability : theFeats)
 		{
-			List<? extends R> list = info.getChoiceActor().getCurrentlySelected(ability,
-					pc);
+			List<? extends R> list =
+					(List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)
 			{
 				availableList.addAll(list);
@@ -137,9 +134,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		 * In theory the converter can be ignored here, since an equivalent
 		 * would exist within the ChooseInformation below
 		 */
-		Ability a = ref.resolvesTo();
-		ChooseInformation info = a.get(ObjectKey.CHOOSE_INFO);
-		List<R> currentItems = getList(pc, a, info);
+		List<R> currentItems = getList(pc, ref.resolvesTo());
 		if (currentItems == null)
 		{
 			return Collections.emptySet();

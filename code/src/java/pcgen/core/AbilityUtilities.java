@@ -394,9 +394,8 @@ public class AbilityUtilities
 					//Must allow it because it stacks
 					return false;
 				}
+				List<?> oldSelections = pc.getDetailedAssociations(a);
 				ChooseInformation<?> info = a.get(ObjectKey.CHOOSE_INFO);
-				List<?> oldSelections =
-						info.getChoiceActor().getCurrentlySelected(a, pc);
 				Object decoded =
 						info.decodeChoice(Globals.getContext(), selection);
 				if ((oldSelections != null) && oldSelections.contains(decoded))

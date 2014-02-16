@@ -2031,26 +2031,23 @@ public class Gui2InfoFactory implements InfoFactory
 	private <T> void processAbilities(final StringBuilder result,
 		List<Ability> targetAbilities, ChooseInformation<T> chooseInfo)
 	{
+		if (chooseInfo == null)
+		{
+			return;
+		}
+
 		List<T> choices = new ArrayList<T>();
 		for (Ability ab : targetAbilities)
 		{
-			if (chooseInfo != null)
-			{
-				choices.addAll(chooseInfo.getChoiceActor()
-					.getCurrentlySelected(ab, pc));
-			}
+			List<? extends T> sel =
+					(List<? extends T>) pc.getDetailedAssociations(ab);
+			choices.addAll(sel);
 		}
 
-		processChooseInfo(result, choices, chooseInfo);
-	}
-
-	private static <T> void processChooseInfo(StringBuilder aStrBuf,
-		List<T> selections, ChooseInformation<T> chooseInfo)
-	{
-		String choiceInfo = chooseInfo.composeDisplay(selections).toString();
+		String choiceInfo = chooseInfo.composeDisplay(choices).toString();
 		if (choiceInfo.length() > 0)
 		{
-			aStrBuf.append(choiceInfo);
+			result.append(choiceInfo);
 		}
 	}
 
