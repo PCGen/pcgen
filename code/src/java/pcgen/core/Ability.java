@@ -106,59 +106,6 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		return txt.toString();
 	}
 
-	/**
-	 * Enhanced containsAssociated, which parses the input parameter for "=",
-	 * "+num" and "-num" to extract the value to look for.
-	 * @param   type  The type we're looking for
-	 *
-	 * @return  enhanced containsAssociated, which parses the input parameter
-	 *          for "=", "+num" and "-num" to extract the value to look for.
-	 */
-	@Override
-	public int numberInList(PlayerCharacter pc, final String type)
-	{
-        String aType = type;
-
-        if (aType.lastIndexOf('=') > -1)
-		{
-			aType = aType.substring(aType.lastIndexOf('=') + 1);
-		}
-
-		// truncate at + sign if following character is a number
-        final String numString = "0123456789";
-        if (aType.lastIndexOf('+') > -1)
-		{
-			final String aString = aType.substring(aType.lastIndexOf('+') + 1);
-
-			if (numString.lastIndexOf(aString.substring(0, 1)) > 0)
-			{
-				aType = aType.substring(0, aType.lastIndexOf('+'));
-			}
-		}
-
-		// truncate at - sign if following character is a number
-		if (aType.lastIndexOf('-') > -1)
-		{
-			final String aString = aType.substring(aType.lastIndexOf('-') + 1);
-
-			if (numString.lastIndexOf(aString.substring(0, 1)) > 0)
-			{
-				aType = aType.substring(0, aType.lastIndexOf('-'));
-			}
-		}
-
-        int iCount = 0;
-		for (String assoc : pc.getAssociationList(this))
-		{
-			if (assoc.equalsIgnoreCase(aType))
-			{
-				iCount += 1;
-			}
-		}
-
-		return iCount;
-	}
-
     /**
      * Compare an ability (category) to another one
      * Returns the compare value from String.compareToIgnoreCase

@@ -257,11 +257,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return txt.toString();
 	}
 
-	public int numberInList(PlayerCharacter pc, final String aType)
-	{
-		return 0;
-	}
-	
 	public String getSource()
 	{
 		return SourceFormat.getFormattedString(this,

@@ -201,9 +201,8 @@ public class BonusCalc
 	
 		String aString = aTok.nextToken();
 	
-		if ((!aString.equalsIgnoreCase(aType) && !aString.endsWith("%LIST"))
-			|| (aString.endsWith("%LIST") && (po.numberInList(aPC, aType) == 0))
-			|| (aName.equals("ALL")))
+		if (!aString.equalsIgnoreCase(aType) || aString.endsWith("%LIST")
+			|| aName.equals("ALL"))
 		{
 			return 0;
 		}
@@ -273,17 +272,7 @@ public class BonusCalc
 		}
 	
 		double bonus = 0;
-	
-		if ("LIST".equalsIgnoreCase(aList))
-		{
-			final int iCount = po.numberInList(aPC, aName);
-	
-			if (iCount != 0)
-			{
-				bonus += (iBonus * iCount);
-			}
-		}
-	
+
 		String bonusTypeString = null;
 	
 		final StringTokenizer bTok = new StringTokenizer(aList, ",");
