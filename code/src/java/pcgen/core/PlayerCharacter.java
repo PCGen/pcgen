@@ -3553,21 +3553,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return null;
 	}
 
-	public boolean hasFeatNamed(final String featName)
-	{
-		Ability ability = AbilityUtilities.retrieveAbilityKeyed(AbilityCategory.FEAT, featName);
-		Collection<AbilityCategory> cats = SettingsHandler.getGame().getAllAbilityCatsForKey(Constants.FEAT_CATEGORY);
-		for (AbilityCategory abilityCategory : cats)
-		{
-			Ability contained = getMatchingAbility(abilityCategory, ability);
-			if (contained != null)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public Ability getMatchingAbility(Category<Ability> abilityCategory, Ability ability, Nature nature)
 	{
 		Ability contained = abFacet.getContained(id, abilityCategory, nature, ability);

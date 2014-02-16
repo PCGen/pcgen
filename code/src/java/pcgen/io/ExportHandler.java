@@ -48,6 +48,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -701,7 +702,7 @@ public final class ExportHandler
 		if (expr1.startsWith("HASFEAT:"))
 		{
 			expr1 = expr1.substring(8).trim();
-			return (aPC.hasFeatNamed(expr1));
+			return (aPC.hasAbilityKeyed(AbilityCategory.FEAT, expr1));
 		}
 
 		// Deal with HASSA:

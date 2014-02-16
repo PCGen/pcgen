@@ -261,7 +261,7 @@ public class AbilityUtilities
 	static void modFeatsFromList(final PlayerCharacter aPC,
 			final CategorizedAbilitySelection as)
 	{
-		if (aPC.hasFeatNamed(as.getAbilityKey()))
+		if (aPC.hasAbilityKeyed(AbilityCategory.FEAT, as.getAbilityKey()))
 		{
 			return;
 		}
