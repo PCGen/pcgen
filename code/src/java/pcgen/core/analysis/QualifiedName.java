@@ -19,6 +19,8 @@
  */
 package pcgen.core.analysis;
 
+import java.util.List;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -55,22 +57,28 @@ public class QualifiedName
 
 		if (pc.hasAssociations(a))
 		{
-			ChooseInformation<?> chooseInfo =
-				a.get(ObjectKey.CHOOSE_INFO);
-
+			ChooseInformation<?> chooseInfo = a.get(ObjectKey.CHOOSE_INFO);
 			if (chooseInfo != null)
 			{
-				String choiceInfo = chooseInfo.getDisplay(pc, a).toString();
-				if (choiceInfo.length() > 0)
-				{
-					aStrBuf.append(" (");
-					aStrBuf.append(choiceInfo);
-					aStrBuf.append(")");
-				}
+				processChooseInfo(aStrBuf, pc, a, chooseInfo);
 			}
 		}
 
 		return aStrBuf.toString();
+	}
+
+	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, Ability a,
+		ChooseInformation<T> chooseInfo)
+	{
+		List<? extends T> selections =
+				chooseInfo.getChoiceActor().getCurrentlySelected(a, pc);
+		String choiceInfo = chooseInfo.composeDisplay(selections).toString();
+		if (choiceInfo.length() > 0)
+		{
+			aStrBuf.append(" (");
+			aStrBuf.append(choiceInfo);
+			aStrBuf.append(")");
+		}
 	}
 
 	public static String qualifiedName(PlayerCharacter pc, Skill s)

@@ -55,5 +55,6 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 
 	ChoiceManagerList<T> getChoiceManager(CDOMObject owner, int cost);
 
-	CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner);
+	CharSequence composeDisplay(Collection<? extends T> collection);
+
 }

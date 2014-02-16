@@ -2021,24 +2021,38 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			List<String> choices = new ArrayList<String>();
-			for (Ability ab : targetAbilities)
-			{
-				ChooseInformation<?> chooseInfo =
-						ab.get(ObjectKey.CHOOSE_INFO);
-
-				if (chooseInfo != null)
-				{
-					choices.add(chooseInfo.getDisplay(pc, ab)
-						.toString());
-				}
-			}
-
-			result.append(StringUtil.joinToStringBuilder(choices, ","));
+			ChooseInformation<?> chooseInfo =
+					ability.get(ObjectKey.CHOOSE_INFO);
+			processAbilities(result, targetAbilities, chooseInfo);
 		}
 		return result.toString();
 	}
 
+	private <T> void processAbilities(final StringBuilder result,
+		List<Ability> targetAbilities, ChooseInformation<T> chooseInfo)
+	{
+		List<T> choices = new ArrayList<T>();
+		for (Ability ab : targetAbilities)
+		{
+			if (chooseInfo != null)
+			{
+				choices.addAll(chooseInfo.getChoiceActor()
+					.getCurrentlySelected(ab, pc));
+			}
+		}
+
+		processChooseInfo(result, choices, chooseInfo);
+	}
+
+	private static <T> void processChooseInfo(StringBuilder aStrBuf,
+		List<T> selections, ChooseInformation<T> chooseInfo)
+	{
+		String choiceInfo = chooseInfo.composeDisplay(selections).toString();
+		if (choiceInfo.length() > 0)
+		{
+			aStrBuf.append(choiceInfo);
+		}
+	}
 
 	/**
 	 * {@inheritDoc}

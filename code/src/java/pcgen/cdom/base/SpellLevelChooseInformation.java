@@ -307,10 +307,9 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
+	public CharSequence composeDisplay(Collection<? extends SpellLevel> collection)
 	{
-		return StringUtil.joinToStringBuilder(pc.getAssociationList(owner),
-			", ");
+		return ChooseInformationUtilities.buildEncodedString(this, collection);
 	}
 
 	@Override

@@ -21,7 +21,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
@@ -87,10 +86,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
+	public CharSequence composeDisplay(Collection<? extends String> collection)
 	{
-		return StringUtil.joinToStringBuilder(pc.getAssociationList(owner),
-			", ");
+		return ChooseInformationUtilities.buildEncodedString(this, collection);
 	}
 
 	@Override

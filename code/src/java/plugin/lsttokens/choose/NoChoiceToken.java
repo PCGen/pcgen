@@ -225,12 +225,10 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
+	public CharSequence composeDisplay(Collection<? extends String> collection)
 	{
-		StringBuilder sb = new StringBuilder();
-		List<String> list =
-				pc.getAssocList(owner, getListKey());
-		int count = (list == null) ? 0 : list.size();
+		StringBuilder sb = new StringBuilder(5);
+		int count = (collection == null) ? 0 : collection.size();
 		if (count > 1)
 		{
 			sb.append(count);

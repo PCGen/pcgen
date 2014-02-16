@@ -19,7 +19,6 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
@@ -290,10 +289,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	}
 
 	@Override
-	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
+	public CharSequence composeDisplay(Collection<? extends T> collection)
 	{
-		return StringUtil.joinToStringBuilder(pc.getAssociationList(owner),
-			", ");
+		return ChooseInformationUtilities.buildEncodedString(this, collection);
 	}
 
 	@Override
