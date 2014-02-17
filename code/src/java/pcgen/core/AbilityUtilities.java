@@ -282,7 +282,7 @@ public class AbilityUtilities
 		}
 	}
 
-	static Ability retrieveAbilityKeyed(AbilityCategory aCat,
+	public static Ability retrieveAbilityKeyed(AbilityCategory aCat,
 			final String token)
 	{
 		Ability ability = Globals.getContext().ref

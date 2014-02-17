@@ -8560,21 +8560,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				|| grantedAbilityFacet.contains(id, aCategory, Nature.NORMAL, anAbility);
 	}
 
-	/**
-	 * Check if the characterFeat ArrayList contains the named Feat.
-	 * 
-	 * @param featName
-	 *            String name of the feat to check for.
-	 * @return <code>true</code> if the character has the feat,
-	 *         <code>false</code> otherwise.
-	 */
-
-	public boolean hasRealFeatNamed(final String featName)
-	{
-		Ability ability = AbilityUtilities.retrieveAbilityKeyed(AbilityCategory.FEAT, featName);
-		return hasRealAbility(AbilityCategory.FEAT, ability);
-	}
-
 	public boolean removeRealAbility(final Category<Ability> aCategory, final Ability anAbility)
 	{
 		return abFacet.remove(id, aCategory, Nature.NORMAL, anAbility);
