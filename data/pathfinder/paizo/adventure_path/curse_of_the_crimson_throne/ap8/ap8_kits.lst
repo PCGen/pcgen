@@ -2,7 +2,7 @@
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 
-STARTPACK:NPC (Vendra Loaggri)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25	NAMEISPI:YES
+STARTPACK:NPC (Vendra Loaggri)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 GENDER:Female
@@ -49,7 +49,7 @@ GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Bracers of Armor +2		LOCATION:Equipped
 
 
-STARTPACK:NPC (Lavender Thug)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25	NAMEISPI:YES
+STARTPACK:NPC (Lavender Thug)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 25	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Lavender Thug
@@ -74,7 +74,7 @@ GEAR:Coin (Gold Piece)			QTY:20	LOCATION:Equipped
 GEAR:Lavender's Luxuriant Liniment			LOCATION:Equipped
 
 
-STARTPACK:NPC (Girrigz)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 30	NAMEISPI:YES
+STARTPACK:NPC (Girrigz)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 30	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Girrigz
@@ -113,7 +113,7 @@ GEAR:Coin (Gold Piece)			QTY:30	LOCATION:Pouch (Belt)
 GEAR:Pouch (Belt)						LOCATION:Equipped
 
 
-STARTPACK:NPC (Yvicca)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Hag]	SOURCEPAGE:p. 33	NAMEISPI:YES
+STARTPACK:NPC (Yvicca)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Hag]	SOURCEPAGE:p. 33	NAMEISPI:YES
 RACE:Sea Hag	!PRERACE:1,%
 GENDER:Female
 NAME:Yvicca
@@ -147,7 +147,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Bull's Strength|Charm Anim
 TEMPLATE:Yvicca's Magic Buffs
 
 
-STARTPACK:NPC (Jolistina Susperio)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf]	SOURCEPAGE:p. 35	NAMEISPI:YES
+STARTPACK:NPC (Jolistina Susperio)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf]	SOURCEPAGE:p. 35	NAMEISPI:YES
 RACE:Elf	!PRERACE:1,%
 GENDER:Female
 NAME:Jolistina Susperio
@@ -200,7 +200,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Enfeeblement|Shield|Acid Spl
 TEMPLATE:Jolistina Susperio's Magic Buffs
 
 
-STARTPACK:NPC (Gray Maiden)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 42
+STARTPACK:NPC (Gray Maiden)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 42
 GENDER:Female
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
@@ -226,7 +226,7 @@ GEAR:Arrows (20)			LOCATION:Carried
 GEAR:Longbow (Composite +0)	LOCATION:Carried
 
 
-STARTPACK:NPC (Queen's Physician)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 42
+STARTPACK:NPC (Queen's Physician)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 42
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Queen's Physician
@@ -255,7 +255,7 @@ GEAR:Club				LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Plaguebringer's Mask	LOCATION:Equipped
 
 
-STARTPACK:NPC (Dr. Davaulus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 46	NAMEISPI:YES
+STARTPACK:NPC (Dr. Davaulus)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 46	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Dr. Davaulus
@@ -311,7 +311,7 @@ GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cause Fear|Charm Person|Dancing Lights|Detect Magic|Disguise Self|Ghost Sound|Hideous Laughter|Invisibility|Mage Hand|Mending|Misdirection|Prestidigitation
 
 
-STARTPACK:NPC (Rolth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 48	NAMEISPI:YES
+STARTPACK:NPC (Rolth)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 48	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Rolth
@@ -355,7 +355,7 @@ GEAR:Mortician's Tools				LOCATION:Equipped
 TEMPLATE:Rolth's Magic Buffs
 
 
-STARTPACK:NPC (Priest of Urgathoa)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 49	NAMEISPI:YES
+STARTPACK:NPC (Priest of Urgathoa)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 49	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 NAME:Priest of Urgathoa
@@ -382,7 +382,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Weapon
 TEMPLATE:Priest of Urgathoa's Magic Buffs
 
 
-STARTPACK:NPC (Lady Andaisin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 55	NAMEISPI:YES
+STARTPACK:NPC (Lady Andaisin)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p. 55	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Strength
 GENDER:Female
@@ -420,3 +420,51 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid|Air Walk|Bear's Endurance|Blin
 # Domain Spells, Note: PCGen does not currently Add Cleric Domain spells
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power|Magic Vestment|Magic Weapon|Slay Living|Spiritual Weapon
 TEMPLATE:Lady Andaisin's Magic Buffs
+
+
+
+STARTPACK:NPC (Ramoska Arkminos/Sample Nosferatu)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p. 89
+ALIGN:LE
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Ramoska Arkminos
+STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
+TEMPLATE:Nosferatu
+CLASS:Wizard	LEVEL:8	SUBCLASS:Wizard
+ABILITY:CATEGORY=Favored Class|Wizard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Wizard Bonus Feat|Silent Spell
+ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
+SKILL:Craft (Alchemy)		RANK:2
+SKILL:Diplomacy			RANK:4
+SKILL:Heal				RANK:8
+SKILL:Knowledge (Arcana)	RANK:8
+SKILL:Knowledge (History)	RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Knowledge (Religion)	RANK:2
+SKILL:Linguistics			RANK:4
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:4
+SKILL:Spellcraft			RANK:4
+SKILL:Stealth			RANK:8
+FEAT:Combat Casting
+FEAT:Iron Will
+FEAT:Persuasive
+FEAT:Spell Focus (Enchantment)
+FEAT:Greater Spell Focus (Enchantment)
+ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Craft (Alchemy))
+ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Heal)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
+GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
+GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:SPL_1USE|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
+GEAR:Ring of Protection +2			LOCATION:Equipped
+GEAR:Cape of the Mountebank			LOCATION:Equipped
+GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped

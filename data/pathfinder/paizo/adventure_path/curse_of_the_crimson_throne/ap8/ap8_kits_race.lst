@@ -1,7 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
-STARTPACK:Daemon (Leukodaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daemon (Leukodaemon)],[!PRERACE:1,%]
+STARTPACK:Daemon (Leukodaemon) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daemon (Leukodaemon)],[!PRERACE:1,%]
 ALIGN:NE
 RACE:Daemon (Leukodaemon)	!PRERACE:1,%
 NAME:Daemon (Leukodaemon)
@@ -22,21 +22,22 @@ FEAT:Weapon Focus(Shortbow)
 GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.BOWSTR|+4.WOOD
 
 
-STARTPACK:Giant Fly Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant Fly],[!PRERACE:1,%]
+STARTPACK:Giant Fly Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant Fly],[!PRERACE:1,%]
 ALIGN:TN
 RACE:Giant Fly	!PRERACE:1,%
 NAME:Giant Fly
 STAT:STR=10|DEX=11|CON=10|WIS=11|INT=10|CHA=10
 
+###MISSING VARIANT FLIES - HOUSEFLY, HOVERFLY, TSETSE FLY
 
-STARTPACK:Giant Maggot Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant Maggot],[!PRERACE:1,%]
+STARTPACK:Giant Maggot Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant Maggot],[!PRERACE:1,%]
 ALIGN:TN
 RACE:Giant Maggot	!PRERACE:1,%
 NAME:Giant Maggot
 STAT:STR=10|DEX=10|CON=10|WIS=11|INT=10|CHA=11
 
 
-STARTPACK:Daughter of Urgathoa Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daughter of Urgathoa],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+STARTPACK:Daughter of Urgathoa Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daughter of Urgathoa],[!PRERACE:1,%]	SOURCEPAGE:p. 82
 ALIGN:NE
 RACE:Daughter of Urgathoa	!PRERACE:1,%
 NAME:Daughter of Urgathoa
@@ -61,7 +62,7 @@ SPELLS:Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Wea
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Weapon|Cause Fear|Entropic Shield|Inflict Light Wounds|Protection from Good|Detect Magic|Guidance|Resistance|Virtue
 
 
-STARTPACK:Lawgiver Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+STARTPACK:Lawgiver Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p. 86
 ALIGN:LN
 RACE:Lawgiver	!PRERACE:1,%
 NAME:Lawgiver
@@ -84,48 +85,3 @@ STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
 GEAR:Gavel of Abadar	LOCATION:Both Hands
 
 
-STARTPACK:NPC (Ramoska Arkminos/Sample Nosferatu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p. 89
-ALIGN:LE
-RACE:Human	!PRERACE:1,%
-ABILITY:CATEGORY=Ability Bonus|+2 Strength
-NAME:Ramoska Arkminos
-STAT:STR=8|DEX=12|CON=10|WIS=14|INT=17|CHA=13
-TEMPLATE:Nosferatu
-CLASS:Wizard	LEVEL:8	SUBCLASS:Wizard
-ABILITY:CATEGORY=Favored Class|Wizard
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Wizard Bonus Feat|Silent Spell
-ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Bonded Object
-SKILL:Craft (Alchemy)		RANK:2
-SKILL:Diplomacy			RANK:4
-SKILL:Heal				RANK:8
-SKILL:Knowledge (Arcana)	RANK:8
-SKILL:Knowledge (History)	RANK:2
-SKILL:Knowledge (Planes)	RANK:2
-SKILL:Knowledge (Religion)	RANK:2
-SKILL:Linguistics			RANK:4
-SKILL:Perception			RANK:8
-SKILL:Sense Motive		RANK:4
-SKILL:Spellcraft			RANK:4
-SKILL:Stealth			RANK:8
-FEAT:Combat Casting
-FEAT:Iron Will
-FEAT:Persuasive
-FEAT:Spell Focus (Enchantment)
-FEAT:Greater Spell Focus (Enchantment)
-ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Craft (Alchemy))
-ABILITY:CATEGORY=Nosferatu Skill Focus|Skill Focus(Heal)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
-SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ghost Sound|Mage Hand|Message|Disguise Self|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Scorching Ray|Touch of Idiocy|Web|Dispel Magic|Hold Person|Lightning Bolt|Stinking Cloud|Crushing Despair|Dimension Door|Fire Shield
-GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[31]
-GEAR:Potion					QTY:2	LOCATION:Equipped	EQMOD:SPL_1USE|SPELLNAME[Inflict Moderate Wounds]CASTER[Cleric]SPELLTYPE[Divine]SPELLLEVEL[2]CASTERLEVEL[3]
-GEAR:Ring of Protection +2			LOCATION:Equipped
-GEAR:Cape of the Mountebank			LOCATION:Equipped
-GEAR:Spellbook (Wizard's/Blank)		LOCATION:Equipped
