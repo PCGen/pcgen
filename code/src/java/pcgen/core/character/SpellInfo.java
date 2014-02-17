@@ -236,7 +236,7 @@ public final class SpellInfo implements Comparable<SpellInfo>
 	 */
 	public void setFixedConcentration(final String fixedConcentration)
 	{
-		this.fixedConcentration = fixedDC;
+		this.fixedConcentration = fixedConcentration;
 	}
 
 	@Override
