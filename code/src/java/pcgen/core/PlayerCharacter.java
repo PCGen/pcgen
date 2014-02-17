@@ -6064,7 +6064,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * 
 	 * @return PC's AC bonus from equipment
 	 */
-	private int modToACFromEquipment()
+	public int modToACFromEquipment()
 	{
 		int bonus = 0;
 		for (Equipment eq : getEquippedEquipmentSet())
@@ -6082,7 +6082,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * 
 	 * @return PC's ACCHECK bonus from equipment
 	 */
-	private int modToACCHECKFromEquipment()
+	public int modToACCHECKFromEquipment()
 	{
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
@@ -6108,7 +6108,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * 
 	 * @return PC's SpellFailure bonus from equipment
 	 */
-	private int modToSpellFailureFromEquipment()
+	public int modToSpellFailureFromEquipment()
 	{
 		int bonus = 0;
 		for (Equipment eq : getEquippedEquipmentSet())
@@ -6125,7 +6125,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * 
 	 * @return MAXDEX bonus
 	 */
-	private int modToMaxDexFromEquipment()
+	public int modToMaxDexFromEquipment()
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
 		final Load load = getHouseRuledLoadType();
