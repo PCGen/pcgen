@@ -837,7 +837,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	}
 
 	public Collection<? extends CNAbility> getCNAbilities(CharID id,
-		AbilityCategory cat)
+		Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		Set<CNAbility> set = new HashSet<CNAbility>();

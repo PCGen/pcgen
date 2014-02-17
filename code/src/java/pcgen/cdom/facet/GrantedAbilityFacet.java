@@ -990,7 +990,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 	}
 
 	public Collection<? extends CNAbility> getCNAbilities(CharID id,
-		AbilityCategory cat)
+		Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
 		Set<CNAbility> set = new HashSet<CNAbility>();

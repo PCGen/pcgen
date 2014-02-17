@@ -32,6 +32,7 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -139,12 +140,10 @@ public class ChooserUtilities
 				cat = category;
 			}
 			aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));
-			for (Ability ab : aPC.getAllAbilities(cat.getParentCategory()))
+			List<CNAbility> abilities = aPC.getMatchingCNAbilities(a);
+			for (CNAbility cna : abilities)
 			{
-				if (ab.getKeyName().equals(a.getKeyName()))
-				{
-					reservedList.addAll(aPC.getAssociationList(ab));
-				}
+				reservedList.addAll(aPC.getAssociationList(cna.getAbility()));
 			}
 		}
 		else if (aPObject instanceof Skill)
