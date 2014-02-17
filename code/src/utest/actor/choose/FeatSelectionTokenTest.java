@@ -71,7 +71,7 @@ public class FeatSelectionTokenTest extends TestCase
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
 		as = new AbilitySelection(sel, "selection");
-		assertEquals("ChooseName(selection)", pca.encodeChoice(as));
+		assertEquals("ChooseName (selection)", pca.encodeChoice(as));
 	}
 
 	@Test
