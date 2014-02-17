@@ -2,7 +2,7 @@
 SOURCELONG:Council of Thieves Player's Guide	SOURCESHORT:COTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/councilOfThieves/v5748btpy89m7	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-STARTPACK:Child of Infamy	TYPE:StartingKit	VISIBLE:NO
+STARTPACK:Child of Infamy	TYPE:Character Trait	VISIBLE:NO
 FUNDS:gp	QTY:300
 
 #

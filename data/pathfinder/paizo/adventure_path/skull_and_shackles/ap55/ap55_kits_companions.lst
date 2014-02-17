@@ -5,56 +5,56 @@ SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	
 
 ###Block: Familiars --------------------------------------
 
-STARTPACK:Familiar ~ Osprey	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Osprey	TYPE:Familiar	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Snail kite	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Snail kite	TYPE:Familiar	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Toucan	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Toucan	TYPE:Familiar	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Parrot	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Parrot	TYPE:Familiar	VISIBLE:NO
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Sea krait	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Sea krait	TYPE:Familiar	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:1
 FEAT:Weapon Finesse
 
-STARTPACK:Familiar ~ Mongoose	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Mongoose	TYPE:Familiar	VISIBLE:NO
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 SKILL:Escape Artist	RANK:1
 FEAT:Weapon Finesse
 
 
-STARTPACK:Familiar ~ Dodo	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Dodo	TYPE:Familiar	VISIBLE:NO
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #Str 3, Dex 11, Con 14, Int 2, Wis 9, Cha 6 
 FEAT:Weapon Finesse
 #Skills Perception +3 
 
-STARTPACK:Familiar ~ Dwarf Caiman	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Dwarf Caiman	TYPE:Familiar	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #Str 10, Dex 11, Con 15, Int 2, Wis 11, Cha 2 
 FEAT:Skill Focus (Stealth) 
 #Skills Stealth +11 (+19 in water), Swim +8; Racial Traits +8 Stealth in water 
 
-STARTPACK:Familiar ~ Giant Isopod	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Giant Isopod	TYPE:Familiar	VISIBLE:NO
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 #Str 5, Dex 9, Con 14, Int -, Wis 10, Cha 2 
 #Skills Perception +4, Swim +5; Racial Modifiers +4 Perception 
 
 
-STARTPACK:Familiar ~ Seal	TYPE:Companion	VISIBLE:NO
+STARTPACK:Familiar ~ Seal	TYPE:Familiar	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #Str 10, Dex 13, Con 11, Int 2, Wis 13, Cha 6 
 #Skills Perception +5, Swim +8; Racial Modifiers +4 Perception 

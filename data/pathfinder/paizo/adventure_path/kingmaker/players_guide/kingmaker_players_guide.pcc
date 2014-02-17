@@ -40,5 +40,6 @@ ABILITY:kmpg_abilities_companion.lst
 ABILITY:kmpg_abilities.lst
 ABILITYCATEGORY:kmpg_abilitycategories.lst
 KIT:kmpg_kits.lst
+KIT:kmpg_kits_companion.lst
 RACE:kmpg_races_companion.lst
 SKILL:kmpg_skills.lst

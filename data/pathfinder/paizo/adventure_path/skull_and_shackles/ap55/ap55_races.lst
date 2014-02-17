@@ -1,3 +1,4 @@
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc	SOURCEDATE:2012-04
 
 
 Dodo			CR:1/4	STARTFEATS:1	KIT:2|TN|Dodo Default	SIZE:S	FACE:5	REACH:5	RACETYPE:Animal	BONUS:VAR|HasLowLightVision|1	MONSTERCLASS:Animal:1	MOVE:Walk,20	NATURALATTACKS:Bite,Melee.Natural.Weapon.Piercing,*1,1d3	BONUS:STAT|STR|-8	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|-2	BONUS:STAT|CHA|-4	ABILITY:Internal|AUTOMATIC|Default Traits ~ Dodo
