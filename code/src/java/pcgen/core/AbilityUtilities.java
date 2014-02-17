@@ -133,7 +133,6 @@ public class AbilityUtilities
 			ability,
 			new ArrayList(),
 			new ArrayList(),
-			true,
 			aPC,
 			true,
 			category);

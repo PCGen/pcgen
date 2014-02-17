@@ -41,11 +41,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.core.chooser.ChooserUtilities;
 
 /**
  * A AbilityRefChoiceSet contains references to AbilityRef Objects.
@@ -236,30 +234,11 @@ public class AbilityRefChoiceSet implements
 			}
 		}
 
-		final List<String> availableList = new ArrayList<String>();
-		final List<?> tempAvailList = new ArrayList<Object>();
-		final List<?> tempSelList = new ArrayList<Object>();
-		ChooserUtilities.modChoices(pcability, tempAvailList, tempSelList,
-				false, aPC, true, AbilityCategory.FEAT);
-		// Mod choices may have sent us back weaponprofs, abilities or
-		// strings,
-		// so we have to do a conversion here
-		for (Object o : tempAvailList)
-		{
-			String choice = o.toString();
-			if ("NOCHOICE".equals(choice))
-			{
-				availableList.add("");
-			}
-			else
-			{
-				availableList.add(choice);
-			}
-		}
+		ChooseInformation<?> chooseInfo = pcability.get(ObjectKey.CHOOSE_INFO);
+		final List<String> availableList = getAvailableList(aPC, chooseInfo);
 
 		// Remove any that don't match
 
-		ChooseInformation<?> chooseInfo = pcability.get(ObjectKey.CHOOSE_INFO);
 		/*
 		 * TODO Need a general solution for this special assignment in parens
 		 */
@@ -320,6 +299,20 @@ public class AbilityRefChoiceSet implements
 			returnList.add(new CategorizedAbilitySelection(category, pcability, nature, s));
 		}
 		return returnList;
+	}
+
+	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
+		ChooseInformation<T> chooseInfo)
+	{
+		final List<String> availableList = new ArrayList<String>();
+		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
+		// chooseInfo may have sent us back weaponprofs, abilities or
+		// strings, so we have to do a conversion here
+		for (T o : tempAvailList)
+		{
+			availableList.add(chooseInfo.encodeChoice(o));
+		}
+		return availableList;
 	}
 
 	/**

@@ -26,6 +26,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -39,10 +40,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.chooser.ChoiceManagerList;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -139,31 +137,34 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	@Override
 	public void applyChoice(CDOMObject owner, Ability choice, PlayerCharacter pc)
 	{
-		final List<String> availableList = new ArrayList<String>();
-		final List<String> selectedList = new ArrayList<String>();
-
 		// build a list of available choices and choices already made.
-		ChooserUtilities.modChoices(choice, availableList, selectedList, false,
-				pc, true, SettingsHandler.getGame().getAbilityCategory(
-						choice.getCategory()));
+		processApplication(pc, choice, choice.get(ObjectKey.CHOOSE_INFO));
+	}
 
-		final int currentSelections = selectedList.size();
-		final List<String> origSelections = new ArrayList<String>(selectedList);
+	private <T> void processApplication(PlayerCharacter pc, Ability choice,
+		ChooseInformation<T> chooseInfo)
+	{
+		List<T> available = new ArrayList<T>(chooseInfo.getSet(pc));
+		List<? extends T> selected =
+				chooseInfo.getChoiceActor().getCurrentlySelected(choice, pc);
+
+		final int currentSelections = selected.size();
+		final List<T> origSelections = new ArrayList<T>(selected);
 
 		//
 		// If nothing to choose, or nothing selected, then leave
 		//
-		if ((availableList.size() == 0) || (currentSelections == 0))
+		if ((available.size() == 0) || (currentSelections == 0))
 		{
 			return;
 		}
 
-		Globals.sortChooserLists(availableList, selectedList);
+		Globals.sortChooserLists(available, selected);
 
-		CDOMChooserFacadeImpl<String> chooserFacade =
-				new CDOMChooserFacadeImpl<String>(
-						"Modify selections for " + choice, availableList, 
-					selectedList, 0);
+		CDOMChooserFacadeImpl<T> chooserFacade =
+				new CDOMChooserFacadeImpl<T>(
+						"Modify selections for " + choice, available, 
+						selected, 0);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		final int selectedSize = chooserFacade.getFinalSelected().size();
@@ -174,34 +175,19 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			return;
 		}
 
-		List<String> add = new ArrayList<String>(chooserFacade.getFinalSelected());
+		List<T> add = new ArrayList<T>(chooserFacade.getFinalSelected());
 		add.removeAll(origSelections);
-		List<String> remove = new ArrayList<String>(origSelections);
+		List<T> remove = new ArrayList<T>(origSelections);
 		remove.removeAll(chooserFacade.getFinalSelected());
 
-		ChoiceManagerList cm = ChooserUtilities.getChoiceManager(choice, pc);
-		for (String selection : remove)
+		for (T selection : remove)
 		{
-			remove(cm, pc, choice, selection);
+			chooseInfo.removeChoice(pc, choice, selection);
 		}
-		for (String selection : add)
+		for (T selection : add)
 		{
-			add(cm, pc, choice, selection);
+			chooseInfo.removeChoice(pc, choice, selection);
 		}
-	}
-
-	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
-	{
-		T sel = aMan.decodeChoice(choice);
-		aMan.applyChoice(pc, obj, sel);
-	}
-
-	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
-	{
-		T sel = aMan.decodeChoice(choice);
-		aMan.removeChoice(pc, obj, sel);
 	}
 
 	@Override

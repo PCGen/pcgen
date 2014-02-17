@@ -1768,15 +1768,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 				if (ChooseActivation.hasNewChooseToken(newSkill))
 				{
-					final List<Language> selLangs = new ArrayList<Language>();
+					//TODO a bit reckless :P
+					ChooseInformation<Language> chooseInfo =
+							(ChooseInformation<Language>) newSkill
+								.get(ObjectKey.CHOOSE_INFO);
+					List<? extends Language> selected =
+							chooseInfo.getChoiceActor().getCurrentlySelected(
+								newSkill, mPC);
 
-					ChooserUtilities.modChoices(newSkill,
-						new ArrayList<Language>(), selLangs, false, mPC, false,
-						null);
 					ChoiceManagerList<Language> controller =
 							ChooserUtilities.getConfiguredController(newSkill,
 								this, null, new ArrayList<String>());
-					for (Language lang : selLangs)
+					for (Language lang : selected)
 					{
 						if (!controller.conditionallyApply(this, lang))
 						{

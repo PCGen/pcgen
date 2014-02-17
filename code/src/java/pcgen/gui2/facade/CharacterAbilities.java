@@ -527,8 +527,8 @@ public class CharacterAbilities
 					adjustedAbilityPool =
 							ChooserUtilities.modChoices(pcAbility,
 								new ArrayList<String>(),
-								new ArrayList<String>(), true, theCharacter,
-								false, theCategory);
+								new ArrayList<String>(), theCharacter, false,
+								theCategory);
 				}
 
 				// if no sub choices made (i.e. all of them removed in Chooser box),

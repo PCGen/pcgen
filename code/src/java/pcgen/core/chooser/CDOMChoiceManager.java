@@ -175,7 +175,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @return The number of choices that may be made 
 	 */
     @Override
-	public int getNumEffectiveChoices(final List<T> selectedList,
+	public int getNumEffectiveChoices(final List<? extends T> selectedList,
 		final List<String> reservedList, PlayerCharacter aPc)
 	{
 		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))

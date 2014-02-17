@@ -232,7 +232,7 @@ public class SkillRankControl
 						&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 				{
 					ChooserUtilities.modChoices(sk, new ArrayList<Language>(),
-							new ArrayList<Language>(), true, aPC, true, null);
+							new ArrayList<Language>(), aPC, true, null);
 					aPC.setDirty(true);
 					int selectedLanguages = aPC
 							.getSelectCorrectedAssociationCount(sk);

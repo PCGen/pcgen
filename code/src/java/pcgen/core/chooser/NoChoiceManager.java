@@ -120,7 +120,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public int getNumEffectiveChoices(List<String> selectedList,
+	public int getNumEffectiveChoices(List<? extends String> selectedList,
 		List<String> reservedList, PlayerCharacter aPc)
 	{
 		return 0;

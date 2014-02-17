@@ -301,7 +301,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		String selection = choice.getSelection();
 		if (selection != null && selection.length() > 0)
 		{
-			sb.append('(');
+			sb.append(" (");
 			sb.append(selection);
 			sb.append(')');
 		}

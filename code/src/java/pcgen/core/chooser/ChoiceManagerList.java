@@ -95,7 +95,7 @@ public interface ChoiceManagerList<T> {
 	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
-	public int getNumEffectiveChoices(final List<T> selectedList,
+	public int getNumEffectiveChoices(final List<? extends T> selectedList,
 		final List<String> reservedList, PlayerCharacter aPc);
 
 	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);

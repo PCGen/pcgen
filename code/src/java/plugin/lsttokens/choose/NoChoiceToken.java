@@ -129,7 +129,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	@Override
 	public Collection<String> getSet(PlayerCharacter pc)
 	{
-		return Collections.singletonList("NOCHOICE");
+		return Collections.singletonList("");
 	}
 
 	@Override

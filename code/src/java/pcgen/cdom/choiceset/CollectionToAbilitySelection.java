@@ -26,6 +26,7 @@ import java.util.Stack;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -34,9 +35,7 @@ import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.util.Logging;
 
 public class CollectionToAbilitySelection implements
@@ -156,26 +155,8 @@ public class CollectionToAbilitySelection implements
 			}
 		}
 
-		final List<String> availableList = new ArrayList<String>();
-		final List<?> tempAvailList = new ArrayList<Object>();
-		final List<?> tempSelList = new ArrayList<Object>();
-		ChooserUtilities.modChoices(pcability, tempAvailList, tempSelList,
-			false, aPC, true, AbilityCategory.FEAT);
-		// Mod choices may have sent us back weaponprofs, abilities or
-		// strings,
-		// so we have to do a conversion here
-		for (Object o : tempAvailList)
-		{
-			String choice = o.toString();
-			if ("NOCHOICE".equals(choice))
-			{
-				availableList.add("");
-			}
-			else
-			{
-				availableList.add(choice);
-			}
-		}
+		ChooseInformation<?> chooseInfo = pcability.get(ObjectKey.CHOOSE_INFO);
+		final List<String> availableList = getAvailableList(aPC, chooseInfo);
 
 		// Remove any that don't match
 
@@ -213,6 +194,20 @@ public class CollectionToAbilitySelection implements
 			returnList.add(new AbilitySelection(pcability, s));
 		}
 		return returnList;
+	}
+
+	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
+		ChooseInformation<T> chooseInfo)
+	{
+		final List<String> availableList = new ArrayList<String>();
+		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
+		// chooseInfo may have sent us back weaponprofs, abilities or
+		// strings, so we have to do a conversion here
+		for (T o : tempAvailList)
+		{
+			availableList.add(chooseInfo.encodeChoice(o));
+		}
+		return availableList;
 	}
 
 	private String reportCircularExpansion(Stack<Ability> s)

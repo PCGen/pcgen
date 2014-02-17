@@ -78,8 +78,7 @@ public class AbilityTargetSaveRestoreTest extends
 		if (ChooseActivation.hasNewChooseToken(abil))
 		{
 			ChooserUtilities.modChoices(abil, new ArrayList<String>(),
-				new ArrayList<String>(), true, reloadedPC, false,
-				AbilityCategory.FEAT);
+				new ArrayList<String>(), reloadedPC, false, AbilityCategory.FEAT);
 		}
 		//Have to do this check due to cloning...
 		abil = reloadedPC.getAbilityKeyed(AbilityCategory.FEAT, abil.getKeyName());

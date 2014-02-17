@@ -65,7 +65,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private final String name;
 	
 	private final List<T> origAvailable;
-	private final List<T> origSelected;
+	private final List<? extends T> origSelected;
 	private final int maxNewSelections;
 	private final List<T> finalSelected;
 	
@@ -107,7 +107,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
 	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
 	 */
-	public CDOMChooserFacadeImpl(String name, List<T> available, List<T> selected, int maxNewSelections)
+	public CDOMChooserFacadeImpl(String name, List<T> available, List<? extends T> selected, int maxNewSelections)
 	{
 		this(name, available, selected, maxNewSelections, 
 			LanguageBundle.getString("in_available"), //$NON-NLS-1$
@@ -130,7 +130,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param stringDelimiter A string used to split the user viewable part of a string option from the full string. 
 	 */
 	public CDOMChooserFacadeImpl(String name, List<T> available,
-		List<T> selected, int maxNewSelections, String stringDelimiter)
+		List<? extends T> selected, int maxNewSelections, String stringDelimiter)
 	{
 		this(name, available, selected, maxNewSelections, 
 			LanguageBundle.getString("in_available"), //$NON-NLS-1$
@@ -158,7 +158,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param stringDelimiter A string used to split the user viewable part of a string option from the full string. 
 	 */
 	public CDOMChooserFacadeImpl(String name, List<T> available,
-		List<T> selected, int maxNewSelections,
+		List<? extends T> selected, int maxNewSelections,
 		String availableTableTitle, String availableTableTypeNameTitle, 
 		String selectedTableTitle,
 		String selectionCountName, String addButtonName, String removeButtonName, 
@@ -183,7 +183,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		finalSelected = new ArrayList<T>(origSelected);
 	}
 
-	private List<InfoFacade> createInfoFacadeList(List<T> origAvailable2, String stringDelimiter)
+	private List<InfoFacade> createInfoFacadeList(List<? extends T> origAvailable2, String stringDelimiter)
 	{
 		List<InfoFacade> infoFacadeList = new ArrayList<InfoFacade>(origAvailable2.size());
 		for (T object : origAvailable2)
