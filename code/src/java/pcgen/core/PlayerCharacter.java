@@ -6873,8 +6873,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 
 		// Feats and abilities (virtual feats, auto feats)
-		List<Ability> abilities = getFullAbilityList();
-		list.addAll(abilities);
+		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
+		{
+			list.addAll(getAggregateAbilityListNoDuplicates(cat));
+		}
 
 		// Race
 		Race race = raceFacet.get(id);
@@ -8892,36 +8894,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			|| grantedAbilityFacet.hasAbilityKeyed(id, cat, aKey);
 	}
 
-	/**
-	 * Get an ability of any category that matches the key.
-	 * @param aKey The key to search for
-	 * @return An ability with the key, or null if none.
-	 */
-	private Ability getAbilityKeyed(final String aKey)
-	{
-		final List<Ability> abilities = getFullAbilityList();
-		for (final Ability ability : abilities)
-		{
-			if (ability.getKeyName().equals(aKey))
-			{
-				return ability;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Identify if the character has an ability, of any category, that
-	 * matches the key.
-	 * @param aKey The key to search for
-	 * @return True if an ability is found, false otherwise.
-	 */
-	public boolean hasAbilityKeyed(final String aKey)
-	{
-		return getAbilityKeyed(aKey) != null;
-	}
-
 	public List<Ability> aggregateFeatList()
 	{
 		return rebuildFeatAggreagateList();
@@ -9026,26 +8998,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			{
 				aHashMap.put(vFeat.getKeyName(), vFeat);
 			}
-			//			else if (vFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			//			{
-			//				Ability aggregateFeatOrig = aHashMap.get(vFeat.getKeyName());
-			//				Ability aggregateFeat = aggregateFeatOrig.clone();
-			//				for (String aString : getAssociationList(aggregateFeatOrig))
-			//				{
-			//					addAssociation(aggregateFeat, aString);
-			//				}
-			//
-			//				for (String aString : getAssociationList(vFeat))
-			//				{
-			//					if (aggregateFeat.getSafe(ObjectKey.STACKS)
-			//						|| !containsAssociated(aggregateFeat, aString))
-			//					{
-			//						addAssociation(aggregateFeat, aString);
-			//					}
-			//				}
-			//
-			//				aHashMap.put(vFeat.getKeyName(), aggregateFeat);
-			//			}
 		}
 	}
 
@@ -9085,38 +9037,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public Set<Ability> getFullAbilitySet()
 	{
-		GameMode gm = SettingsHandler.getGame();
-		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();
-		catSet.addAll(gm.getAllAbilityCategories());
 		Set<Ability> abilitySet = new HashSet<Ability>();
-
-		for (AbilityCategory cat : catSet)
+		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
 		{
 			abilitySet.addAll(this.getAggregateAbilityList(cat));
 		}
-
 		return abilitySet;
-	}
-
-	/**
-	 * Return a list of all abilities no matter what category or 
-	 * nature that the PC has. Note: This method allows duplicates,
-	 * such as when the same ability has been added by different 
-	 * categories.
-	 * @return List of all abilities.
-	 */
-	public List<Ability> getFullAbilityList()
-	{
-		GameMode gm = SettingsHandler.getGame();
-		Set<AbilityCategory> catSet = new HashSet<AbilityCategory>();
-		catSet.addAll(gm.getAllAbilityCategories());
-		List<Ability> abilityList = new ArrayList<Ability>();
-		for (AbilityCategory cat : catSet)
-		{
-			abilityList.addAll(this.getAggregateAbilityListNoDuplicates(cat));
-		}
-
-		return abilityList;
 	}
 
 	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
