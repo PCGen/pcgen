@@ -84,15 +84,16 @@ public class LevelToken extends Token
 			String tokName = aTok.nextToken();
 			if (tokName.equals("CLASSNAME"))
 			{
-				retString = getLevelClassName(pc, pcl);
+				retString = pcl.getClassKeyName();
 			}
 			if (tokName.equals("CLASSLEVEL"))
 			{
-				retString = getLevelClassLevel(pc, pcl);
+				retString = Integer.toString(pcl.getClassLevel());
 			}
 			if (tokName.equals("FEATLIST"))
 			{
-				retString = getLevelFeatList(pc, pcl);
+				//TODO This is likely a bug...
+				retString = "";
 			}
 			if (tokName.equals("HP"))
 			{
@@ -104,39 +105,6 @@ public class LevelToken extends Token
 			}
 		}
 		return retString;
-	}
-
-	/**
-	 * Get the level class name
-	 * @param pc
-	 * @param pcl
-	 * @return the level class name
-	 */
-	public static String getLevelClassName(PlayerCharacter pc, PCLevelInfo pcl)
-	{
-		return pcl.getClassKeyName();
-	}
-
-	/**
-	 * Get the level class level
-	 * @param pc
-	 * @param pcl
-	 * @return the level class level
-	 */
-	public static String getLevelClassLevel(PlayerCharacter pc, PCLevelInfo pcl)
-	{
-		return Integer.toString(pcl.getClassLevel());
-	}
-
-	/**
-	 * Get the list of feats for the level
-	 * @param pc
-	 * @param pcl
-	 * @return the list of feats for the level
-	 */
-	public static String getLevelFeatList(PlayerCharacter pc, PCLevelInfo pcl)
-	{
-		return "";
 	}
 
 	/**

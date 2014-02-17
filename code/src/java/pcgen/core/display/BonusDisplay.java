@@ -24,7 +24,6 @@ package pcgen.core.display;
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.bonus.BonusObj;
 
 public class BonusDisplay
 {
@@ -34,7 +33,7 @@ public class BonusDisplay
 	 * 
 	 * @return name
 	 */
-	public static String getBonusDisplayName(BonusObj bonus, BonusManager.TempBonusInfo ti)
+	public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
 	{
 		final StringBuilder buffer = new StringBuilder();
 	

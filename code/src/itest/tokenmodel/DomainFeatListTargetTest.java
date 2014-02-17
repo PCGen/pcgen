@@ -82,13 +82,13 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 		ClassSource classSource = new ClassSource(pcc);
 
 		domainInputFacet.directSet(id, source, sel, classSource);
-		assertTrue(containsExpected(granted));
+		assertTrue(containsExpected());
 		assertEquals(1, directAbilityFacet.getCount(id));
 		domainInputFacet.remove(id, source);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
-	private boolean containsExpected(Ability granted)
+	private boolean containsExpected()
 	{
 		Collection<CategorizedAbilitySelection> casSet =
 				directAbilityFacet.getSet(id);

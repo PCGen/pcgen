@@ -77,7 +77,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
-import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -106,7 +105,6 @@ import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
-import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
@@ -1206,14 +1204,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void buildAppliedTempBonusList()
 	{
 		Set<String> found = new HashSet<String>();
-		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : theCharacter
-				.getTempBonusMap().entrySet())
+		for (TempBonusInfo tbi : theCharacter.getTempBonusMap().values())
 		{
-			BonusObj aBonus = me.getKey();
-			TempBonusInfo tbi = me.getValue();
 			Object aC = tbi.source;
 			Object aT = tbi.target;
-			String name = BonusDisplay.getBonusDisplayName(aBonus, tbi);
+			String name = BonusDisplay.getBonusDisplayName(tbi);
 
 			if (!found.contains(name))
 			{

@@ -111,17 +111,6 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	}
 
 	/**
-	 * Sets the mPool attribute of the Chooser object.
-	 *
-	 * @param anInt  The new mPool value
-	 * author       Matt Woodard
-	 */
-	public void setPool(final int anInt)
-	{
-		//TODO REMOVE
-	}
-
-	/**
 	 * Returns the mPool attribute of the Chooser object.
 	 * author Dmitry Jemerov
 	 * @return mPool
@@ -208,16 +197,6 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 	 */
     @Override
 	public void setAvailableColumnNames(List<String> availableColumnNames)
-	{
-		//This is not used.
-	}
-
-	/**
-	 * Sets the selected column name list
-	 * @param selectedColumnNames  java.util.List
-	 * author                     Matt Woodard
-	 */
-	public void setSelectedColumnNames(List selectedColumnNames)
 	{
 		//This is not used.
 	}

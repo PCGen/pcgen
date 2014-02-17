@@ -66,48 +66,17 @@ public class ExportToken extends Token
 
 		if ("EXPORT.DATE".equals(tokenSource))
 		{
-			exportString = getDateToken(tokenSource);
+			exportString = DateFormat.getDateInstance().format(new Date());
 		}
 		else if ("EXPORT.TIME".equals(tokenSource))
 		{
-			exportString = getTimeToken(tokenSource);
+			exportString = DateFormat.getTimeInstance().format(new Date());
 		}
 		else if ("EXPORT.VERSION".equals(tokenSource))
 		{
-			exportString = getVersionToken(tokenSource);
+			exportString = PCGenPropBundle.getVersionNumber();
 		}
 
 		return exportString;
-	}
-
-	/**
-	 * Get Date Subtoken
-	 * @param tokenSource
-	 * @return Date Subtoken
-	 */
-	public static String getDateToken(String tokenSource)
-	{
-		return DateFormat.getDateInstance().format(new Date());
-	}
-
-	/**
-	 * Get Time Subtoken
-	 * @param tokenSource
-	 * @return Time Subtoken
-	 */
-	public static String getTimeToken(String tokenSource)
-	{
-		return DateFormat.getTimeInstance().format(new Date());
-	}
-
-	/**
-	 * Get Version Token
-	 * @param tokenSource
-	 * @return Version Token
-	 */
-	public static String getVersionToken(String tokenSource)
-	{
-		String retString = PCGenPropBundle.getVersionNumber();
-		return retString;
 	}
 }

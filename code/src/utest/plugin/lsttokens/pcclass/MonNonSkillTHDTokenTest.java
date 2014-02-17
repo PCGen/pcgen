@@ -54,7 +54,7 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("MONNONSKILLHD", MonNonSkillHD.class);
+		addBonus(MonNonSkillHD.class);
 		TokenRegistration.register(prerace);
 		TokenRegistration.register(preracewriter);
 	}
@@ -101,7 +101,7 @@ public class MonNonSkillTHDTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testOtherBonus() throws PersistenceLayerException
 	{
-		addBonus("MONSKILLPTS", MonSkillPts.class);
+		addBonus(MonSkillPts.class);
 		MonskillToken monskill = new MonskillToken();
 		TokenRegistration.register(new PreLevelMaxParser());
 		TokenRegistration.register(monskill);

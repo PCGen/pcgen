@@ -217,14 +217,14 @@ public class StringTokenTest extends AbstractTokenTestCase<CDOMObject>
 
 	private void assertGoodChoose(String value)
 	{
-		parseForUnparse(value, true);
+		parseForUnparse(value);
 		String[] unparse = getToken().unparse(primaryContext, primaryProf);
 		assertNotNull(unparse);
 		assertEquals(1, unparse.length);
 		assertEquals(unparse[0], getSubTokenName() + "|" + value);
 	}
 
-	private void parseForUnparse(String value, boolean valid)
+	private void parseForUnparse(String value)
 	{
 		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(Arrays
 				.asList(value.split("\\|")), Constants.PIPE);

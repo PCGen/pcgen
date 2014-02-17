@@ -192,22 +192,6 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 				+ getName();
 	}
 
-	/**
-	 * Return true if this CDOMReference contains the given object. The given
-	 * PlayerCharacter is ignored
-	 * 
-	 * @param pc
-	 *            The PlayerCharacter to be tested (ignored)
-	 * @param item
-	 *            The object to be tested to determine if this CDOMReference
-	 *            contains the given object.
-	 * @return if this CDOMReference contains the given object; false otherwise
-	 */
-	public boolean allow(PlayerCharacter pc, T item)
-	{
-		return contains(item);
-	}
-
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{

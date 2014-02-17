@@ -1480,7 +1480,6 @@ public class WeaponToken extends Token
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
-		int hitModeHands = 1;
 		int hitMode = HITMODE_TOTALHIT;
 
 		// First do unarmed.
@@ -1496,7 +1495,6 @@ public class WeaponToken extends Token
 		else if (!isDouble && isDoubleSplit)
 		{
 			hitMode = HITMODE_THHIT;
-			hitModeHands = 2;
 		}
 		// Both Primary and Secondary weapons
 		else if (display.hasPrimaryWeapons() && display.hasSecondaryWeapons())
@@ -1550,7 +1548,6 @@ public class WeaponToken extends Token
 			{
 				// both hands
 				hitMode = HITMODE_THHIT;
-				hitModeHands = 2;
 			}
 			else
 			{
@@ -1567,7 +1564,6 @@ public class WeaponToken extends Token
 			{
 				// Two Handed weapon
 				hitMode = HITMODE_THHIT;
-				hitModeHands = 2;
 			}
 			else
 			{
@@ -1576,8 +1572,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, true);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	/**
@@ -1604,10 +1599,8 @@ public class WeaponToken extends Token
 	public static String getBaseHitToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
-		int hitModeHands = 1;
 		int hitMode = HITMODE_BASEHIT;
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	/**
@@ -1634,10 +1627,8 @@ public class WeaponToken extends Token
 	public static String getTwpHitHToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
-		int hitModeHands = 1;
 		int hitMode = HITMODE_TWPHITH;
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	/**
@@ -1664,10 +1655,8 @@ public class WeaponToken extends Token
 	public static String getTwpHitLToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
-		int hitModeHands = 1;
 		int hitMode = HITMODE_TWPHITL;
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	/**
@@ -1694,10 +1683,8 @@ public class WeaponToken extends Token
 	public static String getTwoHitToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
-		int hitModeHands = 1;
 		int hitMode = HITMODE_TWOHIT;
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	/**
@@ -1724,10 +1711,8 @@ public class WeaponToken extends Token
 	public static String getOHHitToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
-		int hitModeHands = 1;
 		int hitMode = HITMODE_OHHIT;
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	/**
@@ -1754,15 +1739,13 @@ public class WeaponToken extends Token
 	public static String getTHHitToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
-		int hitModeHands = 2;
 		int hitMode = HITMODE_THHIT;
-		return getToHit(pc, eq, range, content, ammo,
-			hitModeHands, hitMode, attackNum, false);
+		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
 	}
 
 	private static String getToHit(PlayerCharacter pc, Equipment eq,
-		int range, int content, int ammo, int hands,
-		int hitMode, int attackNum, boolean totalHit)
+		int range, int content, int ammo, int hitMode,
+		int attackNum)
 	{
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));

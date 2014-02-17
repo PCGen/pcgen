@@ -235,7 +235,7 @@ public class BatchExporter
 			else
 			{
 				tempFile = File.createTempFile("currentPC_", ".fo");
-				printToFile(tempFile, true, templateFile, character);
+				printToFile(tempFile, templateFile, character);
 				handler.setInputFile(tempFile);
 			}
 			if (StringUtils.isNotEmpty(handler.getErrorMessage()))
@@ -482,7 +482,7 @@ public class BatchExporter
 		bw.close();
 	}
 
-	private static void printToFile(File outFile, boolean pdf,
+	private static void printToFile(File outFile, 
 		File templateFile, CharacterFacade character) throws IOException
 	{
 		final BufferedWriter bw =

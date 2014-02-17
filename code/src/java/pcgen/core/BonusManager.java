@@ -897,7 +897,7 @@ public class BonusManager
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
 		{
-			ret.add(BonusDisplay.getBonusDisplayName(me.getKey(), me.getValue()));
+			ret.add(BonusDisplay.getBonusDisplayName(me.getValue()));
 		}
 		return ret;
 	}
@@ -1021,7 +1021,7 @@ public class BonusManager
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo ti = me.getValue();
-			if (!tempBonusFilters.contains(BonusDisplay.getBonusDisplayName(bonus, ti)))
+			if (!tempBonusFilters.contains(BonusDisplay.getBonusDisplayName(ti)))
 			{
 				ret.put(bonus, ti);
 			}

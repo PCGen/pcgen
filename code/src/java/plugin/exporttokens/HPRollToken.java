@@ -91,7 +91,7 @@ public class HPRollToken extends Token
 		}
 		else if ("STAT".equals(bString))
 		{
-			retString = Integer.toString(getStatToken(pc.getDisplay(), levelOffset));
+			retString = Integer.toString(getStatToken(pc.getDisplay()));
 		}
 		else if ("TOTAL".equals(bString))
 		{
@@ -131,7 +131,7 @@ public class HPRollToken extends Token
 	 * @param level
 	 * @return the HPROLL.STAT token
 	 */
-	public static int getStatToken(CharacterDisplay display, int level)
+	public static int getStatToken(CharacterDisplay display)
 	{
 		return (int) display.getStatBonusTo("HP", "BONUS");
 	}
@@ -144,6 +144,6 @@ public class HPRollToken extends Token
 	 */
 	public static int getTotalToken(PlayerCharacter pc, int level)
 	{
-		return getRollToken(pc, level) + getStatToken(pc.getDisplay(), level);
+		return getRollToken(pc, level) + getStatToken(pc.getDisplay());
 	}
 }

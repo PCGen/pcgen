@@ -355,7 +355,7 @@ public class FacadeFactory
 		return campInfoFactory;
 	}
 
-	public static boolean passesPrereqs(GameModeFacade gameMode, List<CampaignFacade> campaigns)
+	public static boolean passesPrereqs(List<CampaignFacade> campaigns)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();

@@ -106,10 +106,10 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		throw new IllegalStateException("Can't do this yet");
 	}
 
-	public void loadLstFile(LoadContext context, URI uri)
-	{
-		throw new IllegalStateException("Can't do this yet");
-	}
+//	public void loadLstFile(LoadContext context, URI uri)
+//	{
+//		throw new IllegalStateException("Can't do this yet");
+//	}
 
 	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
 			CDOMSubLineLoader<CC> loader, String line, URI uri)

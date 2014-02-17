@@ -79,7 +79,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 		assertEquals(0, directAbilityFacet.getCount(id));
 		ClassSource classSource = new ClassSource(pcc);
 		domainFacet.add(id, source, classSource);
-		assertTrue(containsExpected(granted));
+		assertTrue(containsExpected());
 		assertEquals(1, directAbilityFacet.getCount(id));
 		domainFacet.remove(id, source);
 		assertEquals(0, directAbilityFacet.getCount(id));
@@ -132,7 +132,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 	}
 
-	protected boolean containsExpected(Ability granted)
+	protected boolean containsExpected()
 	{
 		Collection<CategorizedAbilitySelection> casSet =
 				getTargetFacet().getSet(id);

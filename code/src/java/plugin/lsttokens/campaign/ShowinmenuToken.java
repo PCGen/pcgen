@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
@@ -38,14 +36,6 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements
 	public String getTokenName()
 	{
 		return "SHOWINMENU";
-	}
-
-	public boolean parse(Campaign campaign, String value, URI sourceUri)
-	{
-		boolean show = value.startsWith("Y")
-				|| Boolean.valueOf(value).booleanValue();
-		campaign.put(ObjectKey.SHOW_IN_MENU, show);
-		return true;
 	}
 
 	@Override

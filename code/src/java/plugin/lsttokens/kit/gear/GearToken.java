@@ -33,7 +33,6 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * GEAR Token for KitGear
@@ -52,22 +51,6 @@ public class GearToken extends AbstractNonEmptyToken<KitGear> implements
 	public String getTokenName()
 	{
 		return "GEAR";
-	}
-
-	/**
-	 * parse
-	 * 
-	 * @param kitGear
-	 *            KitGear
-	 * @param value
-	 *            String
-	 * @return boolean
-	 */
-	public boolean parse(KitGear kitGear, String value)
-	{
-		Logging
-			.errorPrint("Ignoring second GEAR tag \"" + value + "\" in Kit.");
-		return false;
 	}
 
 	@Override

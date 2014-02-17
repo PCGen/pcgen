@@ -278,8 +278,7 @@ public class TempBonusHelper
 				if (appliedBonus == null)
 				{
 					String bonusName =
-							BonusDisplay.getBonusDisplayName(newB,
-								tempBonusInfo);
+							BonusDisplay.getBonusDisplayName(tempBonusInfo);
 					appliedBonus =
 							new TempBonusFacadeImpl(originObj, aEq,
 								bonusName);
@@ -339,8 +338,7 @@ public class TempBonusHelper
 				if (appliedBonus == null)
 				{
 					String bonusName =
-							BonusDisplay.getBonusDisplayName(newB,
-								tempBonusInfo);
+							BonusDisplay.getBonusDisplayName(tempBonusInfo);
 					appliedBonus =
 							new TempBonusFacadeImpl(originObj, theCharacter,
 								bonusName);

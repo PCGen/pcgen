@@ -112,11 +112,11 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		TokenLibrary.addToTokenMap(tok);
 	}
 
-	public static void addBonus(String name, Class<? extends BonusObj> clazz)
+	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
 		try
 		{
-			TokenLibrary.addBonusClass(clazz, name);
+			TokenLibrary.addBonusClass(clazz);
 		}
 		catch (InstantiationException e)
 		{

@@ -115,74 +115,74 @@ public class SkillCostDisplay
 		{
 			bonus = aPC.getStatModFor(stat);
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "STAT");
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "STAT");
 		}
 	
 		// The catch-all for non-bonusObj modifiers.
 		bonus = aPC.getTotalBonusTo("SKILL", keyName) - bonusObjTotal;
-		SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "OTHER");
+		SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "OTHER");
 	
 		// loop through all current skill types checking for boni
 		for (Type singleType : sk.getTrueTypeList(false))
 		{
 			bonus = aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "TYPE." + singleType);
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "TYPE." + singleType);
 		}
 	
 		// now check for any lists of skills, etc
 		bonus = aPC.getTotalBonusTo("SKILL", "LIST");
-		SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "LIST");
+		SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "LIST");
 	
 		// now check for ALL
 		bonus = aPC.getTotalBonusTo("SKILL", "ALL");
-		SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "ALL");
+		SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "ALL");
 	
 		// these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to
 		// function
 		if (aPC.isClassSkill(sk))
 		{
 			bonus = aPC.getTotalBonusTo("CSKILL", keyName);
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "CSKILL");
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CSKILL");
 	
 			// loop through all current skill types checking for boni
 			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus = aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
 				SkillCostDisplay
-						.appendBonusDesc(sk, bonusDetails, bonus, "CSKILL");
+						.appendBonusDesc(bonusDetails, bonus, "CSKILL");
 			}
 	
 			bonus = aPC.getTotalBonusTo("CSKILL", "LIST");
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "CSKILL");
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CSKILL");
 		}
 	
 		if (!aPC.isClassSkill(sk)
 				&& !sk.getSafe(ObjectKey.EXCLUSIVE))
 		{
 			bonus = aPC.getTotalBonusTo("CCSKILL", keyName);
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "CCSKILL");
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 	
 			// loop through all current skill types checking for boni
 			for (Type singleType : sk.getTrueTypeList(false))
 			{
 				bonus = aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
-				SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "CCSKILL");
+				SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 			}
 	
 			bonus = aPC.getTotalBonusTo("CCSKILL", "LIST");
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "CCSKILL");
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "CCSKILL");
 		}
 	
 		// Encumbrance
 		int aCheckMod = sk.getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
-		SkillCostDisplay.appendBonusDesc(sk, bonusDetails, aCheckMod, "ARMOR");
+		SkillCostDisplay.appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
 	
 		String aString = SettingsHandler.getGame().getRankModFormula();
 		if (aString.length() != 0)
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
 			bonus = aPC.getVariableValue(aString, "").intValue();
-			SkillCostDisplay.appendBonusDesc(sk, bonusDetails, bonus, "RANKS");
+			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "RANKS");
 		}
 	
 		return bonusDetails.toString();
@@ -199,8 +199,8 @@ public class SkillCostDisplay
 	 * @param description
 	 *            The description of the bonus.
 	 */
-	public static void appendBonusDesc(Skill sk, StringBuilder bonusDetails,
-			double bonus, String description)
+	public static void appendBonusDesc(StringBuilder bonusDetails,
+		double bonus, String description)
 	{
 		if (CoreUtility.doublesEqual(bonus, 0.0))
 		{

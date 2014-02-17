@@ -93,7 +93,7 @@ public class EqTypeToken extends EqToken
 		{
 			if ("NOT".equalsIgnoreCase(token))
 			{
-				eqList = listNotType(pc, eqList, aTok.nextToken());
+				eqList = listNotType(eqList, aTok.nextToken());
 			}
 			else if ("ADD".equalsIgnoreCase(token))
 			{
@@ -101,7 +101,7 @@ public class EqTypeToken extends EqToken
 			}
 			else if ("IS".equalsIgnoreCase(token))
 			{
-				eqList = listIsType(pc, eqList, aTok.nextToken());
+				eqList = listIsType(eqList, aTok.nextToken());
 			}
 			else
 			{

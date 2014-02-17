@@ -1149,7 +1149,7 @@ public class PCClass extends PObject implements ClassFacade
 		CDOMObjectUtilities.restoreRemovals(pcl, aPC);
 	}
 
-	void subLevel(final boolean bSilent, final PlayerCharacter aPC)
+	void subLevel(final PlayerCharacter aPC)
 	{
 
 		if (aPC != null)

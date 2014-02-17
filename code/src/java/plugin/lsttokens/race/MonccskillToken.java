@@ -98,7 +98,7 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 				}
 				else
 				{
-					skill = getSkillReference(context, race, clearText);
+					skill = getSkillReference(context, clearText);
 				}
 				if (skill == null)
 				{
@@ -128,7 +128,7 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 				else
 				{
 					foundOther = true;
-					skill = getSkillReference(context, race, tokText);
+					skill = getSkillReference(context, tokText);
 				}
 				if (skill == null)
 				{
@@ -151,8 +151,8 @@ public class MonccskillToken extends AbstractTokenWithSeparator<Race> implements
 		return ParseResult.SUCCESS;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context, Race r,
-			String tokText)
+	private CDOMReference<Skill> getSkillReference(LoadContext context,
+		String tokText)
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{

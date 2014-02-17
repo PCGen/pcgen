@@ -123,7 +123,7 @@ public class DataLoadTest implements PCGenTaskListener
 			String testName = ssf.toString().replaceAll("[\\(\\)]", "_");
 			if (!exclusions.contains(testName))
 			{
-				params.add(new Object[]{ssf, testName});
+				params.add(new Object[]{ssf});
 			}
 		}
 		return params;
@@ -134,7 +134,7 @@ public class DataLoadTest implements PCGenTaskListener
 	 * @param sourceSelection The basic source we will be testing.
 	 * @param testName The display name, needs to be sanitised for IDE display.
 	 */
-	public DataLoadTest(SourceSelectionFacade sourceSelection, String testName)
+	public DataLoadTest(SourceSelectionFacade sourceSelection)
 	{
 		this.sourceSelection = sourceSelection;
 	}

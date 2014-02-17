@@ -625,14 +625,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		}
 
 		/**
-		 * @return the obj
-		 */
-		public Object getObj()
-		{
-			return string;
-		}
-
-		/**
 		 * {@inheritDoc}
 		 */
 		@Override

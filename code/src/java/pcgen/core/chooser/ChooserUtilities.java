@@ -149,7 +149,7 @@ public class ChooserUtilities
 		else if (aPObject instanceof Skill)
 		{
 			Skill s = (Skill) aPObject;
-			aMan.setController(new SkillChooseController(s, aPC, aMan));
+			aMan.setController(new SkillChooseController(s, aPC));
 		}
 		return aMan;
 	}

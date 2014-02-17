@@ -410,11 +410,11 @@ public class ActiveAbilityFacetTest extends TestCase
 		return t;
 	}
 
-	public static void addBonus(String name, Class<? extends BonusObj> clazz)
+	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
 		try
 		{
-			TokenLibrary.addBonusClass(clazz, name);
+			TokenLibrary.addBonusClass(clazz);
 		}
 		catch (InstantiationException e)
 		{

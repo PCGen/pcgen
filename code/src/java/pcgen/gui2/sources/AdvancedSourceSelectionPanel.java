@@ -436,7 +436,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 							continue;
 						}
 						selectedCampaigns.addElement(camp);
-						if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
+						if (!FacadeFactory.passesPrereqs(selectedCampaigns.getContents()))
 						{
 							String prereqDesc =
 									FacadeFactory.getCampaignInfoFactory()
@@ -720,7 +720,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				CampaignFacade campaign = (CampaignFacade) campaignObj;
 				List<CampaignFacade> testCampaigns = selectedCampaigns.getContents();
 				testCampaigns.add(campaign);
-				if (!FacadeFactory.passesPrereqs(gameMode, testCampaigns))
+				if (!FacadeFactory.passesPrereqs(testCampaigns))
 				{
 					setForeground(UIPropertyContext.getNotQualifiedColor());
 				}

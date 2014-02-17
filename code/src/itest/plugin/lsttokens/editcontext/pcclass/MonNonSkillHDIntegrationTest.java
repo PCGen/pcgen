@@ -41,7 +41,7 @@ public class MonNonSkillHDIntegrationTest extends
 	{
 		super.setUp();
 		prefix = "CLASS:";
-		addBonus("MONNONSKILLHD", MonNonSkillHD.class);
+		addBonus(MonNonSkillHD.class);
 	}
 
 	@Override

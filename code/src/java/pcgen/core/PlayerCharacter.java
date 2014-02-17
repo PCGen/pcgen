@@ -819,14 +819,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	/**
 	 * Apply the bonus from a follower to the master pc.
-	 *
-	 * TODO Although it's not obvious from this code, the aPC parameter passed here IS
-	 * this pc, everywhere that this method is called. Refactor this to remove the aPC
-	 * parameter. 
-	 *
-	 * @param aPC the pc to apply the bonus to
 	 */
-	public void setCalcFollowerBonus(final PlayerCharacter aPC)
+	public void setCalcFollowerBonus()
 	{
 		setDirty(true);
 
@@ -3274,11 +3268,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return bonusManager.getBonusDueToType(mainType, subType, bonusType);
 	}
 
-	public void setCurrentHP(final int currentHP)
-	{
-		setDirty(true);
-	}
-
 	public void setDeity(final Deity aDeity)
 	{
 		if (canSelectDeity(aDeity) && deityFacet.set(id, aDeity))
@@ -3384,7 +3373,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public List<Equipment> getEquipmentOfTypeInOutputOrder(final String typeName, final String subtypeName,
 			final int status, final int merge)
 	{
-		return sortEquipmentList(getEquipmentOfType(typeName, subtypeName, status), Constants.MERGE_ALL);
+		return sortEquipmentList(getEquipmentOfType(typeName, subtypeName, status), merge);
 	}
 
 	/**
@@ -7493,7 +7482,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			for (int i = 0; i < -numberOfLevels; ++i)
 			{
 				int currentLevel = getLevel(pcClassClone);
-				pcClassClone.subLevel(bSilent, this);
+				pcClassClone.subLevel(this);
 				PCLevelInfo removedLI = removeLevelInfo(pcClassClone.getKeyName());
 				int pointsToRemove =
 						removedLI.getSkillPointsGained(this)

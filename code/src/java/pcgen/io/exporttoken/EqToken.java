@@ -194,7 +194,7 @@ public class EqToken extends Token
 			{
 				if ("NOT".equalsIgnoreCase(token))
 				{
-					eqList = listNotType(pc, eqList, aTok.nextToken());
+					eqList = listNotType(eqList, aTok.nextToken());
 				}
 				else if ("ADD".equalsIgnoreCase(token))
 				{
@@ -202,7 +202,7 @@ public class EqToken extends Token
 				}
 				else if ("IS".equalsIgnoreCase(token))
 				{
-					eqList = listIsType(pc, eqList, aTok.nextToken());
+					eqList = listIsType(eqList, aTok.nextToken());
 				}
 				else
 				{
@@ -982,12 +982,11 @@ public class EqToken extends Token
 
 	/**
 	 * Remove a type from a EQ List
-	 * @param pc
 	 * @param eqList
 	 * @param type
 	 * @return List
 	 */
-	public static List<Equipment> listNotType(PlayerCharacter pc,
+	public static List<Equipment> listNotType(
 		List<Equipment> eqList, String type)
 	{
 		return EquipmentUtilities.removeEqType(eqList, type);
@@ -1008,13 +1007,11 @@ public class EqToken extends Token
 
 	/**
 	 * Remove all other types from a EQ List
-	 * @param pc
 	 * @param eqList
 	 * @param type
 	 * @return List
 	 */
-	public static List<Equipment> listIsType(PlayerCharacter pc,
-		List<Equipment> eqList, String type)
+	public static List<Equipment> listIsType(List<Equipment> eqList, String type)
 	{
 		return EquipmentUtilities.removeNotEqType(eqList, type);
 	}

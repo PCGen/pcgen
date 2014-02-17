@@ -62,7 +62,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		PCClass pcc, String value)
 	{
-		SpellProhibitor sp = subParse(context, value);
+		SpellProhibitor sp = subParse(value);
 		if (sp == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
@@ -71,7 +71,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
-	public SpellProhibitor subParse(LoadContext context, String value)
+	public SpellProhibitor subParse(String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
@@ -103,8 +103,8 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			return null;
 		}
 
-		SpellProhibitor spellProb = typeSafeParse(context, type, token
-				.substring(dotLoc + 1));
+		SpellProhibitor spellProb =
+				typeSafeParse(type, token.substring(dotLoc + 1));
 		if (spellProb == null)
 		{
 			Logging.errorPrint("  entire token value was: " + value);
@@ -137,8 +137,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		return spellProb;
 	}
 
-	private SpellProhibitor typeSafeParse(LoadContext context,
-			ProhibitedSpellType type, String args)
+	private SpellProhibitor typeSafeParse(ProhibitedSpellType type, String args)
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);

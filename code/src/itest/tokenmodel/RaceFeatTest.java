@@ -53,7 +53,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 	public void testSimple() throws PersistenceLayerException
 	{
 		Race source = create(Race.class, "Source");
-		Ability granted = createGrantedObject();
+		createGrantedObject();
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -63,7 +63,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(containsExpected(granted, null));
+		assertTrue(containsExpected(null));
 		assertEquals(1, directAbilityFacet.getCount(id));
 		raceFacet.remove(id);
 		assertEquals(0, directAbilityFacet.getCount(id));
@@ -102,13 +102,13 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
 		raceInputFacet.set(id, source);
-		assertTrue(containsExpected(granted, "Longsword"));
+		assertTrue(containsExpected("Longsword"));
 		assertEquals(1, directAbilityFacet.getCount(id));
 		raceInputFacet.remove(id);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
-	protected boolean containsExpected(Ability granted, String selection)
+	protected boolean containsExpected(String selection)
 	{
 		Collection<CategorizedAbilitySelection> casSet =
 				getTargetFacet().getSet(id);

@@ -103,7 +103,7 @@ public class FollowerToken extends Token
 		if (i < followers.size())
 		{
 			result =
-					FollowerToken.getFollowerOutput(pc, eh, restString
+					FollowerToken.getFollowerOutput(eh, restString
 						.toString(), followers.get(i));
 		}
 
@@ -113,14 +113,13 @@ public class FollowerToken extends Token
 	/**
 	 * Process a token for a follower (must already be loaded) and return the output.
 	 *  
-	 * @param pc The character being processed.
 	 * @param eh The ExportHandler being used for output.
 	 * @param followerToken The token to be processed.
 	 * @param follower The follower to be reported upon.
 	 * @return The follower's token output
 	 */
-	public static String getFollowerOutput(PlayerCharacter pc,
-		ExportHandler eh, String followerToken, final Follower follower)
+	public static String getFollowerOutput(ExportHandler eh,
+		String followerToken, final Follower follower)
 	{
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);

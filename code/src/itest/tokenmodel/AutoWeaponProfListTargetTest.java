@@ -76,7 +76,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		assertEquals(0, directAbilityFacet.getCount(id));
 		Object sel = getAssoc();
 		templateInputFacet.directAdd(id, source, sel);
-		assertTrue(containsExpected(granted));
+		assertTrue(containsExpected());
 		assertEquals(1, directAbilityFacet.getCount(id));
 		templateInputFacet.remove(id, source);
 		assertEquals(0, directAbilityFacet.getCount(id));
@@ -126,7 +126,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
 					Nature.AUTOMATIC, "English");
 		directAbilityFacet.add(id, cas);
-		assertTrue(containsExpected(granted));
+		assertTrue(containsExpected());
 		assertEquals(2, directAbilityFacet.getCount(id));
 		directAbilityFacet.remove(id, cas);
 		assertEquals(0, directAbilityFacet.getCount(id));
@@ -139,7 +139,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 				"English");
 	}
 
-	private boolean containsExpected(Ability granted)
+	private boolean containsExpected()
 	{
 		Collection<CategorizedAbilitySelection> casSet =
 				directAbilityFacet.getSet(id);

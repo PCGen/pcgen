@@ -68,7 +68,6 @@ public class Aspect extends ConcretePrereqObject
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
-	private static final String VAR_CHOICE = "%CHOICE"; //$NON-NLS-1$
 	private static final String VAR_LIST = "%LIST"; //$NON-NLS-1$
 	
 	private static final String VAR_MARKER = "$$VAR:"; //$NON-NLS-1$

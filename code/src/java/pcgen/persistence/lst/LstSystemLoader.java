@@ -30,10 +30,8 @@ import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
@@ -158,7 +156,6 @@ public final class LstSystemLoader implements SystemLoader
 	private final Map<String, List<URI>> chosenCampaignSourcefiles =
 			new HashMap<String, List<URI>>();
 	private LocationLoader locationLoader = new LocationLoader();
-	private final Set<URI> loadedFiles = new HashSet<URI>();
 	private SimpleLoader<PaperInfo> paperLoader = new SimplePrefixLoader<PaperInfo>(PaperInfo.class, "NAME");
 	private PointBuyLoader pointBuyLoader = new PointBuyLoader();
 	private SimpleLoader<Sponsor> sponsorLoader = new SimplePrefixLoader<Sponsor>(Sponsor.class, "SPONSOR");
@@ -190,7 +187,6 @@ public final class LstSystemLoader implements SystemLoader
 		SettingsHandler.getOptions().setProperty(
 			"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
 			StringUtil.join(files, ", "));
-//		CoreUtility.join(chosenCampaignSourcefiles, ','));
 	}
 
 	/* (non-Javadoc)

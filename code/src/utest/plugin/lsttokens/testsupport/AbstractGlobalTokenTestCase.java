@@ -91,11 +91,11 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		TokenLibrary.addToTokenMap(tok);
 	}
 
-	public static void addBonus(String name, Class<? extends BonusObj> clazz)
+	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
 		try
 		{
-			TokenLibrary.addBonusClass(clazz, name);
+			TokenLibrary.addBonusClass(clazz);
 		}
 		catch (InstantiationException e)
 		{

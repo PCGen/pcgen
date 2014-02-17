@@ -23,7 +23,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,7 +30,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
@@ -281,7 +279,7 @@ public class Description extends ConcretePrereqObject
 						List<CNAbility> feats;
 						if (featName.startsWith("TYPE=") || featName.startsWith("TYPE."))
 						{
-							feats = getAllFeats(aPC);
+							feats = aPC.getCNAbilities(AbilityCategory.FEAT);
 						}
 						else
 						{
@@ -296,7 +294,7 @@ public class Description extends ConcretePrereqObject
 									.errorPrint("Found invalid Feat reference in Description: "
 										+ featName);
 							}
-							feats = getFeats(aPC, feat);
+							feats = aPC.getMatchingCNAbilities(feat);
 						}
 						boolean needSpace = false;
 						for ( final CNAbility cna : feats )
@@ -330,40 +328,6 @@ public class Description extends ConcretePrereqObject
 		return buf.toString();
 	}
 	
-	private List<CNAbility> getFeats(PlayerCharacter pc, Ability a)
-	{
-		final List<CNAbility> listOfAbilities = new ArrayList<CNAbility>();
-		Collection<AbilityCategory> allCats =
-				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (aCat.getParentCategory().equals(AbilityCategory.FEAT))
-			{
-				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.NORMAL));
-				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.AUTOMATIC));
-				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.VIRTUAL));
-			}
-		}
-		return listOfAbilities;
-	}
-
-	private List<CNAbility> getAllFeats(PlayerCharacter pc)
-	{
-		List<CNAbility> listOfAbilities = new ArrayList<CNAbility>();
-		Collection<AbilityCategory> allCats =
-				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (aCat.getParentCategory().equals(AbilityCategory.FEAT))
-			{
-				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.NORMAL));
-				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.AUTOMATIC));
-				listOfAbilities.addAll(pc.getCNAbilities(aCat, Nature.VIRTUAL));
-			}
-		}
-		return listOfAbilities;
-	}
-
 	/**
 	 * Gets the Description tag in PCC format.
 	 * 

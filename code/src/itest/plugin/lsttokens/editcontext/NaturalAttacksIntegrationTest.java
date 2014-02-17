@@ -45,7 +45,7 @@ public class NaturalAttacksIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("WEAPON", Weapon.class);
+		addBonus(Weapon.class);
 	}
 
 	@Override

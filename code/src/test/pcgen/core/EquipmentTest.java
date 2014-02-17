@@ -403,7 +403,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		aEquip.setBase(getCharacter());
+		aEquip.setBase();
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$

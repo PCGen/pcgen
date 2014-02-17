@@ -369,7 +369,7 @@ public final class PCGIOHandler extends IOHandler
 		currentPC.setCalcEquipmentList();
 
 		// make sure the bonuses from companions are applied
-		currentPC.setCalcFollowerBonus(currentPC);
+		currentPC.setCalcFollowerBonus();
 
 		// pre-calculate all the bonuses
 		currentPC.calcActiveBonuses();

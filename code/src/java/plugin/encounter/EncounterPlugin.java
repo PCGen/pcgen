@@ -1353,6 +1353,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			}
 		}
 
-		aPC.setCurrentHP(aPC.hitPoints());
+		aPC.setDirty(true);
 	}
 }

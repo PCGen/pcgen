@@ -382,9 +382,8 @@ public class SourceSelectionDialog extends JDialog
 		{
 			return;
 		}
-		GameModeFacade gameMode = selection.getGameMode().getReference();
 		List<CampaignFacade> campaigns = ListFacades.wrap(selection.getCampaigns());
-		if (FacadeFactory.passesPrereqs(gameMode, campaigns))
+		if (FacadeFactory.passesPrereqs(campaigns))
 		{
 			setVisible(false);
 			frame.loadSourceSelection(selection);

@@ -13,13 +13,12 @@ public class SkillChooseController extends ChooseController<Ability>
 	private final Skill skill;
 	private final PlayerCharacter pc;
 
-	public SkillChooseController(Skill sk, PlayerCharacter aPC,
-			ChoiceManagerList<?> cont)
+	public SkillChooseController(Skill sk, PlayerCharacter aPC)
 	{
 		if (sk == null)
 		{
 			throw new IllegalArgumentException(
-					"Ability cannot be null for AbilityChooseController");
+					"Skill cannot be null for SkillChooseController");
 		}
 		skill = sk;
 		pc = aPC;

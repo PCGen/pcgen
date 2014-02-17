@@ -48,7 +48,7 @@ public class MonSkillIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("MONSKILLPTS", MonSkillPts.class);
+		addBonus(MonSkillPts.class);
 		TokenRegistration.register(prerace);
 		TokenRegistration.register(preracewriter);
 		TokenRegistration.register(prelevelmax);

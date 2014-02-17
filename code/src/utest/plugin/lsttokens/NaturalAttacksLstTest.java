@@ -44,7 +44,7 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("WEAPON", Weapon.class);
+		addBonus(Weapon.class);
 	}
 
 	@Override

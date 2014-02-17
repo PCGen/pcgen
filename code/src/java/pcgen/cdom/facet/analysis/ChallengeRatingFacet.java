@@ -175,7 +175,7 @@ public class ChallengeRatingFacet
 		for (PCClass pcClass : classFacet.getClassSet(id))
 		{
 			CR += calcClassCR(id, pcClass);
-			int crmp = getClassCRModPriority(id, pcClass);
+			int crmp = getClassCRModPriority(pcClass);
 			if (crmp != 0 && (crmp < CRModPriority || CRModPriority == 0))
 			{
 				Float raceMod = getClassRaceCRMod(id, pcClass);
@@ -410,7 +410,7 @@ public class ChallengeRatingFacet
 		return crMod;
 	}
 
-	private int getClassCRModPriority(CharID id, PCClass cl)
+	private int getClassCRModPriority(PCClass cl)
 	{
 		int crModPriority = 0;
 		

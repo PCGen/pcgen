@@ -285,7 +285,7 @@ public class TokenLibrary implements PluginLoader
 	{
 		if (BonusObj.class.isAssignableFrom(clazz))
 		{
-			addBonusClass(clazz, clazz.getName());
+			addBonusClass(clazz);
 		}
 
 		Object token = clazz.newInstance();
@@ -523,8 +523,7 @@ public class TokenLibrary implements PluginLoader
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	public static boolean addBonusClass(Class bonusClass,
-	                                    String bonusName) throws InstantiationException, IllegalAccessException
+	public static boolean addBonusClass(Class bonusClass) throws InstantiationException, IllegalAccessException
 	{
 		if (BonusObj.class.isAssignableFrom(bonusClass))
 		{

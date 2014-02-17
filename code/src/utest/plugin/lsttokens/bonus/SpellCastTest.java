@@ -44,7 +44,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("SPELLCAST", SpellCast.class);
+		addBonus(SpellCast.class);
 	}
 
 	@Override

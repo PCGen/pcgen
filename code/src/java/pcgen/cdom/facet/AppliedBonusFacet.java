@@ -89,13 +89,12 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
-		processRemove(id, cdo, cdo.getSafeListFor(ListKey.BONUS));
-		processRemove(id, cdo, addedBonusFacet.getSet(id, cdo));
-		processRemove(id, cdo, saveableBonusFacet.getSet(id, cdo));
+		processRemove(id, cdo.getSafeListFor(ListKey.BONUS));
+		processRemove(id, addedBonusFacet.getSet(id, cdo));
+		processRemove(id, saveableBonusFacet.getSet(id, cdo));
 	}
 
-	private void processRemove(CharID id, CDOMObject cdo,
-			List<? extends BonusObj> bonusList)
+	private void processRemove(CharID id, List<? extends BonusObj> bonusList)
 	{
 		for (BonusObj bonus : bonusList)
 		{

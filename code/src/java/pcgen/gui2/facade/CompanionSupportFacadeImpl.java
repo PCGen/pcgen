@@ -318,7 +318,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 					.getReference(), compList);
 		follower.setRace(compRace);
 		theCharacter.addFollower(follower);
-		theCharacter.setCalcFollowerBonus(theCharacter);
+		theCharacter.setCalcFollowerBonus();
 		theCharacter.calcActiveBonuses();
 		pcFacade.postLevellingUpdates();
 

@@ -2669,7 +2669,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
-		setBase(aPC);
+		setBase();
 	}
 
 	/**
@@ -3111,11 +3111,6 @@ public final class Equipment extends PObject implements Serializable,
 				toString(false));
 		}
 
-		if (base == null)
-		{
-			return sbuf.toString();
-		}
-
 		// When you customise a piece of equipment using the customiser, it sets
 		// the keyName equal to the Name. The autoresizer doesn't do that, it
 		// makes a new key. This is to cope with the auto resizer.
@@ -3492,7 +3487,6 @@ public final class Equipment extends PObject implements Serializable,
 	{
 
 		final String itemName = getItemNameFromModifiers();
-		cleanTypes(pc);
 		setDefaultCrit(pc);
 		setName(itemName);
 		remove(StringKey.OUTPUT_NAME);
@@ -3718,7 +3712,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public void resizeItem(final PlayerCharacter pc, SizeAdjustment newSize)
 	{
-		setBase(pc);
+		setBase();
 
 		final int iOldSize = sizeInt();
 		int iNewSize = SizeUtilities.sizeInt(newSize);
@@ -4077,7 +4071,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param pc The PC carrying the item 
 	 * Todo remove the pc parameter, it is unused.
 	 */
-	public void setBase(final PlayerCharacter pc)
+	public void setBase()
 	{
 
 		if (get(ObjectKey.BASE_ITEM) == null)
@@ -4781,70 +4775,6 @@ public final class Equipment extends PObject implements Serializable,
 			commonList.add(0, eqMod);
 			extractList.remove(i);
 		}
-	}
-
-	/**
-	 * Strip sizes and "Standard" from type string.
-	 * 
-	 * @param aPC The PC That has the Equipment
-	 */
-	private void cleanTypes(final PlayerCharacter aPC)
-	{
-		//
-		//		final String aType = super.getType();
-		//		final StringTokenizer aTok = new StringTokenizer(aType, ".");
-		//		final StringBuilder aCleaned = new StringBuilder(aType.length());
-		//		aCleaned.append(".CLEAR");
-		//
-		//		while (aTok.hasMoreTokens()) {
-		//			final String aString = aTok.nextToken();
-		//			int i;
-		//
-		//			for (i = 0; i <= (SettingsHandler.getGame()
-		//					.getSizeAdjustmentListSize() - 1); ++i) {
-		//				if (aString.equalsIgnoreCase(SettingsHandler.getGame()
-		//						.getSizeAdjustmentAtIndex(i).getDisplayName())) {
-		//					break;
-		//				}
-		//			}
-		//
-		//			//
-		//			// Ignore size or "Standard" unless previous tag
-		//			// was "ARMOR" and this is "MEDIUM"
-		//			//
-		//			if ("Standard".equalsIgnoreCase(aString)) {
-		//				continue;
-		//			}
-		//
-		//			if (i < SettingsHandler.getGame().getSizeAdjustmentListSize()) {
-		//				final SizeAdjustment sa = SettingsHandler.getGame()
-		//						.getSizeAdjustmentAtIndex(i);
-		//
-		//				if ((!sa.isDefaultSize())
-		//						|| !aCleaned.toString().toUpperCase().endsWith("ARMOR")) {
-		//					continue;
-		//				}
-		//			}
-		//
-		//			//
-		//			// Make sure "Magic" is the first thing in the list
-		//			//
-		//			if ("Magic".equalsIgnoreCase(aString)) {
-		//				if (aCleaned.length() > 0) {
-		//					aCleaned.insert(0, '.');
-		//				}
-		//
-		//				aCleaned.insert(0, aString);
-		//			} else {
-		//				if (aCleaned.length() > 0) {
-		//					aCleaned.append('.');
-		//				}
-		//
-		//				aCleaned.append(aString);
-		//			}
-		//		}
-		//
-		//		setTypeInfo(aCleaned.toString());
 	}
 
 	private BigDecimal evaluateCost(final PJEP myParser, final String costExpr)

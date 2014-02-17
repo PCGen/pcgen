@@ -87,15 +87,4 @@ public class WeaponpToken extends WeaponToken
 		}
 		return "";
 	}
-
-	/**
-	 * Retrieve the first weapon equipped as a primary weapon.
-	 * 
-	 * @param pc The character
-	 * @return The weapon, if any is equipped.
-	 */
-	public static Equipment getWeaponEquipment(PlayerCharacter pc)
-	{
-		return null;
-	}
 }

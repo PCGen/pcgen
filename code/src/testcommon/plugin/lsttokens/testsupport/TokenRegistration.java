@@ -103,7 +103,7 @@ public class TokenRegistration
 	{
 		try
 		{
-			TokenLibrary.addBonusClass(cl, "Custom");
+			TokenLibrary.addBonusClass(cl);
 		}
 		catch (InstantiationException e)
 		{

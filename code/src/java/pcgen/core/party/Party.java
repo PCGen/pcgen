@@ -22,16 +22,12 @@
  */
 package pcgen.core.party;
 
-import java.io.*;
-import java.util.*;
-import pcgen.cdom.base.Constants;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.io.PCGIOHandler;
-import pcgen.persistence.PersistenceManager;
-import pcgen.util.Logging;
 
 /**
  * Class to encapsulate the functionality of loading and saving parties of characters.  Also used
@@ -110,73 +106,4 @@ public class Party
 		}
 	}
 
-	private File buildCharacterFile(final String fileName)
-	{
-		return new File(partyFile.getParentFile().getAbsolutePath() + fileName);
-	}
-
-	/**
-	 * Load all the characters in the party.
-	 * @return The last character loaded, or null if that load fails.
-	 */
-	private PlayerCharacter loadCharacterFiles()
-	{
-		PlayerCharacter pc = null;
-
-		for ( File file : characterFiles )
-		{
-			pc = loadPCFromFile(file);
-		}
-
-		return pc;
-	}
-
-	/**
-	 * Load the pc.
-	 * @param file the file to load the pc from
-	 * @return The character that was loaded.
-	 */
-	private static PlayerCharacter loadPCFromFile(final File file)
-	{
-		final PlayerCharacter newPC = new PlayerCharacter(false, PersistenceManager.getInstance().getLoadedCampaigns());
-		final PCGIOHandler ioHandler = new PCGIOHandler();
-		ioHandler.read(newPC, file.getAbsolutePath());
-		newPC.insertBonusLanguageAbility();
-
-		if (Globals.getUseGUI())
-		{
-			for ( String error : ioHandler.getErrors() )
-			{
-				ShowMessageDelegate.showMessageDialog(
-					"Error: " + error,  //$NON-NLS-2$
-					Constants.APPLICATION_NAME, MessageType.ERROR);
-			}
-
-			for ( String warning : ioHandler.getWarnings() )
-			{
-				ShowMessageDelegate.showMessageDialog(
-					"Warning: " + warning,  //$NON-NLS-2$
-					Constants.APPLICATION_NAME, MessageType.ERROR);
-			}
-		}
-		else
-		{
-			for ( String msg : ioHandler.getMessages() )
-			{
-				Logging.errorPrint(msg);
-			}
-		}
-
-		// if we've had errors, then abort trying to add the new PC, it's most likely "broken"
-		//  if it's not broken, then only warnings should have been generated, and we won't count those
-		if (ioHandler.getErrors().size() <= 0)
-		{
-			// Set the filename so that future checks to see if file already loaded will work
-			newPC.setFileName(file.getAbsolutePath());
-			Globals.getPCList().add(newPC);
-			return newPC;
-		}
-
-		return null;
-	}
 }

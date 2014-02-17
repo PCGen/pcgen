@@ -103,7 +103,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	private Domain luckDomain;
 	private Spell luckDomainLvl1Spell;
 	private Spell luckDomainLvl2Spell;
-	private Spell luckDomainLvl3Spell;
 	
 	/**
 	 * Run the tests.
@@ -262,7 +261,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		luckDomainLvl1Spell = TestHelper.makeSpell("true strike");
 		luckDomainLvl2Spell = TestHelper.makeSpell("aid");
-		luckDomainLvl3Spell = TestHelper.makeSpell("protection from energy");
+		TestHelper.makeSpell("protection from energy");
 		context
 			.unconditionallyProcess(
 				luckDomain,

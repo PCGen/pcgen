@@ -44,7 +44,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		addBonus("SPELLKNOWN", SpellKnown.class);
+		addBonus(SpellKnown.class);
 	}
 
 	@Override

@@ -30,7 +30,6 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -695,7 +694,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		 */
 		if (cache.containsKey(TAG_CAMPAIGN))
 		{
-			parseCampaignLines(cache.get(TAG_CAMPAIGN));
+			checkDisplayListsHappy();
 		}
 
 		/*
@@ -1021,14 +1020,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				parseDomainLine(line);
 			}
 		}
-
-		if (cache.containsKey(TAG_DOMAINSPELLS))
-		{
-			for (final String line : cache.get(TAG_DOMAINSPELLS))
-			{
-				parseDomainSpellsLine(line);
-			}
-		}
+		
+		//We ignore domain spells now
 
 		if (cache.containsKey(TAG_SPELLBOOK))
 		{
@@ -1159,7 +1152,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			// We process the bonuses loaded so far so that natural weapons from 
 			// conditional abilities can be found. 
 			thePC.setImporting(false);
-			thePC.setCalcFollowerBonus(thePC);
+			thePC.setCalcFollowerBonus();
 			thePC.calcActiveBonuses();
 			thePC.setImporting(true);
 
@@ -1439,11 +1432,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * System Information methods
 	 * ###############################################################
 	 */
-	private void parseCampaignLines(final List<String> lines)
-		throws PCGParseException
+	private void checkDisplayListsHappy() throws PCGParseException
 	{
-		// Note: Campaigns are processed in advance by parsePCGSourceOnly now.
-		
 		if (!Globals.displayListsHappy())
 		{
 			throw new PCGParseException("parseCampaignLines", "N/A", //$NON-NLS-1$ //$NON-NLS-2$
@@ -2333,12 +2323,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	private void parseDomainSpellsLine(@SuppressWarnings("unused")
-	String line)
-	{
-		// TODO
-	}
-
 	/**
 	 * ###############################################################
 	 * EquipSet Temp Bonuses
@@ -2768,7 +2752,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			Ability pcAbility =
 					thePC.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
-			parseFeatsHandleAppliedToAndSaveTags(it, pcAbility, line);
+			parseFeatsHandleAppliedToAndSaveTags(it, pcAbility);
 			featsPresent = (pcAbility != anAbility);
 		}
 	}
@@ -2840,7 +2824,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	private void parseFeatsHandleAppliedToAndSaveTags(
-		final Iterator<PCGElement> it, final Ability aFeat, final String line)
+		final Iterator<PCGElement> it, final Ability aFeat)
 	{
 		while (it.hasNext())
 		{
@@ -3716,58 +3700,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.addFavoredClass(cl, thePC);
 		}
-	}
-
-	/**
-	 * Translate the string of hitpoint values into a map.
-	 * @param race_name The name of the race, for error reporting.
-	 * @param hitDice The number of hitdice expected
-	 * @param aString The original string, for error reporting
-	 * @param aTok The hit point string already tokenized
-	 * @return A map of the levels and their hitpoint values.
-	 * @throws PCGParseException If the value cannot be parsed.
-	 */
-	private HashMap<String, Integer> processHitPoints(final String race_name,
-		int hitDice, final String aString, final StringTokenizer aTok)
-		throws PCGParseException
-	{
-		int i = 0;
-		final HashMap<String, Integer> hitPointMap =
-				new HashMap<String, Integer>();
-		while (aTok.hasMoreTokens())
-		{
-			if (i >= hitDice)
-			{
-				final String msg =
-						LanguageBundle.getFormattedString(
-							"Warnings.PCGenParser.RaceFewerHD", //$NON-NLS-1$
-							race_name);
-				warnings.add(msg);
-
-				break;
-			}
-
-			try
-			{
-				hitPointMap.put(Integer.toString(i++),
-					Integer.valueOf(aTok.nextToken()));
-			}
-			catch (NumberFormatException ex)
-			{
-				throw new PCGParseException(
-					"parseRaceLine", aString, ex.getMessage()); //$NON-NLS-1$
-			}
-		}
-
-		if (i < hitDice)
-		{
-			final String msg =
-					LanguageBundle.getFormattedString(
-						"Warnings.PCGenParser.RaceMoreHD", //$NON-NLS-1$
-						race_name);
-			warnings.add(msg);
-		}
-		return hitPointMap;
 	}
 
 	/*
@@ -4841,7 +4773,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			thePC.setDirty(true);
 		}
 
-		parseFeatsHandleAppliedToAndSaveTags(it, anAbility, line);
+		parseFeatsHandleAppliedToAndSaveTags(it, anAbility);
 
 		// TODO
 		// process all additional information
@@ -5083,32 +5015,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return wp;
 	}
 
-	private void checkWeaponProficiencies()
-	{
-		for (final Iterator<WeaponProf> it = weaponprofs.iterator(); it
-			.hasNext();)
-		{
-			if (thePC.hasWeaponProf(it.next()))
-			{
-				it.remove();
-			}
-		}
-
-		//
-		// For some reason, character had a proficiency that they should not have. Inform
-		// the user that they no longer have the proficiency.
-		//
-		if (weaponprofs.size() > 0)
-		{
-			String s = weaponprofs.toString();
-			s = s.substring(1, s.length() - 1);
-
-			final String message =
-					"No longer proficient with following weapon(s):" + s;
-			warnings.add(message);
-		}
-	}
-
 	/**
 	 * ###############################################################
 	 * Character EquipSet Stuff
@@ -5265,7 +5171,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								head.removeListFor(ListKey.EQMOD);
 								head.removeListFor(ListKey.EQMOD_INFO);
 							}
-							aEquip.setBase(thePC);
+							aEquip.setBase();
 							aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$ //$NON-NLS-2$
 						}
 						else
@@ -5295,7 +5201,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 										head.removeListFor(ListKey.EQMOD);
 										head.removeListFor(ListKey.EQMOD_INFO);
 									}
-									aEquip.setBase(thePC);
+									aEquip.setBase();
 									aEquip.load(customProperties,
 										"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 									aEquip.remove(StringKey.OUTPUT_NAME);
@@ -5742,7 +5648,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			
 			if (!active)
 			{
-				String bonusName = BonusDisplay.getBonusDisplayName(newB, tempBonusInfo);
+				String bonusName = BonusDisplay.getBonusDisplayName(tempBonusInfo);
 				thePC.setTempBonusFilter(bonusName);
 			}
 		}
