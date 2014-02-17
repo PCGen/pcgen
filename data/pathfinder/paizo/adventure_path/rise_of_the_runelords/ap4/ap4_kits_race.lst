@@ -2,7 +2,7 @@
 SOURCELONG:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants	SOURCESHORT:AP4	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy80hm	SOURCEDATE:2007-09
 
 
-STARTPACK:Deathweb Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathweb]	SOURCEPAGE:p.79
+STARTPACK:Deathweb Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathweb]	SOURCEPAGE:p.79
 RACE:Deathweb	!PRERACE:1,%
 NAME:Deathweb
 ALIGN:TN
@@ -17,7 +17,7 @@ FEAT:Combat Reflexes
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Redcap Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.80
+STARTPACK:Redcap Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Redcap]	SOURCEPAGE:p.80
 RACE:Redcap	!PRERACE:1,%
 NAME:Redcap
 ALIGN:NE
@@ -38,7 +38,7 @@ STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 GEAR:Scythe	SIZE:M	LOCATION:Both Hands	EQMOD:STEEL
 
 
-STARTPACK:Hound of Tindalos Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]	SOURCEPAGE:p.82
+STARTPACK:Hound of Tindalos Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hound of Tindalos]	SOURCEPAGE:p.82
 RACE:Hound of Tindalos	!PRERACE:1,%
 NAME:Hound of Tindalos
 ALIGN:NE
@@ -61,7 +61,7 @@ FEAT:Nimble Moves
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Giant (Taiga) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Taiga)]	SOURCEPAGE:p.84
+STARTPACK:Giant (Taiga) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Taiga)]	SOURCEPAGE:p.84
 RACE:Giant (Taiga)	!PRERACE:1,%
 NAME:Taiga Giant
 ALIGN:CN
@@ -84,7 +84,7 @@ GEAR:Studded Leather	SIZE:H	LOCATION:Equipped
 GEAR:Rock (Medium)	SIZE:H	LOCATION:Carried
 
 
-STARTPACK:Scanderig Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scanderig]	SOURCEPAGE:p.86
+STARTPACK:Scanderig Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scanderig]	SOURCEPAGE:p.86
 RACE:Scanderig	!PRERACE:1,%
 NAME:Scanderig
 ALIGN:LE
@@ -105,7 +105,7 @@ FEAT:Lightning Reflexes
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Shining Child of Thassilon Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining Child of Thassilon]	SOURCEPAGE:p.88
+STARTPACK:Shining Child of Thassilon Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shining Child of Thassilon]	SOURCEPAGE:p.88
 RACE:Shining Child of Thassilon	!PRERACE:1,%
 NAME:Shining Child of Thassilon
 ALIGN:CE

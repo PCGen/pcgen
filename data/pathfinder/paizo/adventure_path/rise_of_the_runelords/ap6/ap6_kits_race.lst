@@ -2,14 +2,14 @@
 SOURCELONG:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast	SOURCESHORT:AP6	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy817c	SOURCEDATE:2007-10
 
 
-STARTPACK:Crag Spider Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Craig Spider]
+STARTPACK:Crag Spider Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Craig Spider]
 RACE:Craig Spider	!PRERACE:1,%
 NAME:Craig Spider
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Denizen of Leng Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
+STARTPACK:Denizen of Leng Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
 RACE:Denizen of Leng	!PRERACE:1,%
 NAME:Denizen of Leng
 ALIGN:NE
@@ -35,7 +35,7 @@ GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Leather			LOCATION:Equipped
 
 
-STARTPACK:Kuchrima Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kuchrima]
+STARTPACK:Kuchrima Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kuchrima]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 RACE:Kuchrima	!PRERACE:1,%
 NAME:Kuchrima
@@ -51,7 +51,7 @@ GEAR:Dagger				SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:BOWSTR|+2
 
 
-STARTPACK:Harridan Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harridan]
+STARTPACK:Harridan Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harridan]
 RACE:Harridan	!PRERACE:1,%
 NAME:Harridan
 ALIGN:CE
@@ -75,7 +75,7 @@ GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA
 GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
-STARTPACK:Hungerer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hungerer]
+STARTPACK:Hungerer Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hungerer]
 RACE:Hungerer	!PRERACE:1,%
 NAME:Hungerer
 ALIGN:CE
@@ -98,7 +98,7 @@ FEAT:Improved Iron Will
 FEAT:Improved Initiative
 
 
-STARTPACK:Rune Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rune Giant]
+STARTPACK:Rune Giant Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rune Giant]
 RACE:Rune Giant	!PRERACE:1,%
 NAME:Rune Giant
 ALIGN:LE
@@ -121,7 +121,7 @@ GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand
 
 
-STARTPACK:Wendigo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
+STARTPACK:Wendigo Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
 RACE:Wendigo	!PRERACE:1,%
 NAME:Wendigo
 ALIGN:CE

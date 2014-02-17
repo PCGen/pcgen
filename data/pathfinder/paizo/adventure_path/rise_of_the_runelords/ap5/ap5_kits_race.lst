@@ -2,7 +2,7 @@
 SOURCELONG:Rise of the Runelords, Chapter 5 - Sins of the Saviors	SOURCESHORT:AP5	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy815o	SOURCEDATE:2007-10
 
 
-STARTPACK:Ercinee Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ercinee]
+STARTPACK:Ercinee Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ercinee]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Ercinee	!PRERACE:1,%
 NAME:Ercinee
@@ -14,7 +14,7 @@ FEAT:Flyby Attack
 FEAT:Wingover
 
 
-STARTPACK:Marsh Giant Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant]
+STARTPACK:Marsh Giant Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Marsh Giant	!PRERACE:1,%
 NAME:Marsh Giant
@@ -33,7 +33,7 @@ GEAR:Greatclub		SIZE:PC	LOCATION:Primary Hand
 GEAR:Rock (Medium)			LOCATION:Carried
 
 
-STARTPACK:Marsh Giant (Brineborn) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant (Brineborn)]
+STARTPACK:Marsh Giant (Brineborn) TYPE:Default Monster.Humanoid	Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant (Brineborn)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Marsh Giant (Brineborn)	!PRERACE:1,%
 NAME:Brineborn
@@ -52,7 +52,7 @@ GEAR:Greatclub		SIZE:PC	LOCATION:Primary Hand
 GEAR:Rock (Medium)			LOCATION:Carried
 
 
-STARTPACK:Witchfire Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]
+STARTPACK:Witchfire Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Witchfire]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 RACE:Witchfire	!PRERACE:1,%
 NAME:Witchfire
@@ -71,7 +71,7 @@ FEAT:Mobility
 FEAT:Flyby Attack
 
 
-STARTPACK:Demon (Shemhazian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
+STARTPACK:Demon (Shemhazian) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Shemhazian)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Demon (Shemhazian)	!PRERACE:1,%
 NAME:Shemhazian
@@ -91,7 +91,7 @@ FEAT:Power Attack
 FEAT:Great Fortitude
 
 
-STARTPACK:Night Monarch Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Monarch]
+STARTPACK:Night Monarch Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Monarch]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 RACE:Night Monarch	!PRERACE:1,%
 NAME:Night Monarch
@@ -117,7 +117,7 @@ FEAT:Snatch
 FEAT:Wingover
 
 
-STARTPACK:Star Monarch Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Monarch]
+STARTPACK:Star Monarch Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Star Monarch]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 RACE:Star Monarch	!PRERACE:1,%
 NAME:Star Monarch
@@ -136,7 +136,7 @@ FEAT:Snatch
 FEAT:Wingover
 
 
-STARTPACK:Yethazmari Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yethazmari]
+STARTPACK:Yethazmari Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yethazmari]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 RACE:Yethazmari	!PRERACE:1,%
 NAME:Yethazmari
