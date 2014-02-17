@@ -1,5 +1,0 @@
-Manifest-Version: 1.2
-Class-Path: lib/jdom.jar lib/xerces.jar lib/skinlf.jar lib/xalan.jar l
- ib/jaxp.jar
-Created-By: NetBeans IDE
-OpenIDE-Module-Class: Loader

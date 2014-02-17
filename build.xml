@@ -438,7 +438,6 @@ pcgen.filepaths=user
             <group title="PCGen XML Packages" packages="pcgen.xml" />
             <group title="GMGen Packages" packages="gmgen.*" />
             <group title="Network Plugin" packages="plugin.network,plugin.network.*" />
-            <group title="Character Sheet Plugin" packages="plugin.charactersheet,plugin.charactersheet.*" />
             <group title="Dicebag Plugin" packages="plugin.dicebag,plugin.dicebag.*" />
             <group title="Random Name Generator Plugin" packages="plugin.doomsdaybook,plugin.doomsdaybook.*" />
             <group title="Encounter Plugin" packages="plugin.encounter,plugin.encounter.*" />

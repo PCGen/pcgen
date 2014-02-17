@@ -42,14 +42,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${plugins.dir}/CharacterSheet.jar" manifest="${src.java.dir}/plugin/charactersheet/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/charactersheet/*.class" />
-					<include name="plugin/charactersheet/gui/*.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${plugins.dir}/Experience.jar" manifest="${src.java.dir}/plugin/experience/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
