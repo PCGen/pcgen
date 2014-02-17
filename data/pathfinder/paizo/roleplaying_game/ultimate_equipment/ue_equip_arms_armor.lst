@@ -263,10 +263,14 @@ Bullet (Firearm/Pitted)																						TYPE:FirearmGear.Ammo.Ammunition.Fi
 Metal Cartridge																							TYPE:FirearmGear.Ammo.Ammunition.FirearmCartridge					COST:15
 Pellets (Handful)																							TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet						COST:1
 Pellets (Handful/30)																						TYPE:FirearmGear.Ammo.Ammunition.FirearmPellet						COST:30	WT:0.5				BASEQTY:30
-Arrow.COPY=Arrow (Hushing)
-Arrow (Hushing).MOD								OUTPUTNAME:Hushing Arrow																																EQMOD:MAGIC_COST|545.PLUS1M												SOURCEPAGE:p.157					SPELLS:Magic Item|TIMES=1|Silence,13						SPROP:Creature struck affected by Silence.
-Arrow.COPY=Arrow (Hushing/Greater)
-Arrow (Hushing/Greater).MOD							OUTPUTNAME:Greater Hushing Arrow																															EQMOD:MAGIC_COST|1045.PLUS1M												SOURCEPAGE:p.157					SPELLS:Magic Item|TIMES=1|Silence,16						SPROP:Creature struck affected by Silence.
+#
+Arrow (Hushing)		TYPE:Ammunition.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1		COST:547	WT:0.05	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:NO			SOURCEPAGE:p.156	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Arrow (Hushing/Greater)	TYPE:Ammunition.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1		COST:1047	WT:0.05	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:NO			SOURCEPAGE:p.156	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+#
+#Arrow.COPY=Arrow (Hushing)
+#Arrow (Hushing).MOD	OUTPUTNAME:Hushing Arrow	EQMOD:MAGIC_COST|545.PLUS1M												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,13						SPROP:Creature struck affected by Silence.
+#Arrow.COPY=Arrow (Hushing/Greater)
+#Arrow (Hushing/Greater).MOD							OUTPUTNAME:Greater Hushing Arrow																															EQMOD:MAGIC_COST|1045.PLUS1M												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,16						SPROP:Creature struck affected by Silence.
 Arrow (Searing).MOD																																																													SOURCEPAGE:p.159
 Arrow (Sizzling).MOD																																																													SOURCEPAGE:p.160
 Arrow (Slaying).MOD																																																													SOURCEPAGE:p.160
