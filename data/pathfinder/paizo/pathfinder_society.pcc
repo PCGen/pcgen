@@ -311,7 +311,6 @@ ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg
 BIOSET:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_biosettings.lst
 DEITY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_deities.lst
 DOMAIN:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_domains.lst
-KIT:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_kits_race.lst
 LANGUAGE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_languages.lst
 RACE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_races.lst
 TEMPLATE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_templates.lst
