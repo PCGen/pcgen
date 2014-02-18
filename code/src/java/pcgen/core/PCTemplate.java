@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.facade.TemplateFacade;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>PCTemplate</code>.
@@ -76,8 +76,7 @@ public final class PCTemplate extends PObject implements TemplateFacade
 	{
 		boolean result = false;
 
-		if ((getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-				|| (getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY))
+		if (getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 		{
 			result = getSafe(ObjectKey.REMOVABLE);
 		}

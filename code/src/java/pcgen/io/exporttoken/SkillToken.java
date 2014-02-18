@@ -47,7 +47,7 @@ import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>SkillToken</code> is the base class for the SKILL
@@ -186,7 +186,7 @@ public class SkillToken extends Token
 		
 		final List<Skill> pcSkills =
 				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
-					.getPartialSkillList(Visibility.OUTPUT_ONLY));
+					.getPartialSkillList(View.VISIBLE_EXPORT));
 		cachedSkillList = pcSkills;
 		lastPC = pc;
 		lastPCSerial = pc.getSerial();

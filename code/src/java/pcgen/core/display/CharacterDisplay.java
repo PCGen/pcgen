@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -168,7 +167,7 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.VisionType;
 
 public class CharacterDisplay
@@ -550,8 +549,7 @@ public class CharacterDisplay
 	 */
 	public List<PCTemplate> getOutputVisibleTemplateList()
 	{
-		return getVisibleToTemplateList(EnumSet.of(Visibility.DEFAULT,
-			Visibility.OUTPUT_ONLY));
+		return getVisibleToTemplateList(View.VISIBLE_EXPORT);
 	}
 
 	/**
@@ -562,18 +560,17 @@ public class CharacterDisplay
 	 */
 	public List<PCTemplate> getDisplayVisibleTemplateList()
 	{
-		return getVisibleToTemplateList(EnumSet.of(Visibility.DEFAULT,
-			Visibility.DISPLAY_ONLY));
+		return getVisibleToTemplateList(View.VISIBLE_DISPLAY);
 	}
 
-	private List<PCTemplate> getVisibleToTemplateList(Set<Visibility> visiSet)
+	private List<PCTemplate> getVisibleToTemplateList(View v)
 	{
 		List<PCTemplate> tl = new ArrayList<PCTemplate>();
 
 		TreeSet<PCTemplate> treeSet = new TreeSet<PCTemplate>(CDOMObjectUtilities.CDOM_SORTER);
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			if (visiSet.contains(template.getSafe(ObjectKey.VISIBILITY)))
+			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
 			{
 				treeSet.add(template);
 			}
@@ -848,10 +845,18 @@ public class CharacterDisplay
 	 * @return A list of the character's skills matching the visibility
 	 *         criteria.
 	 */
-	public List<Skill> getPartialSkillList(Visibility vis)
+	public List<Skill> getPartialSkillList(View v)
 	{
 		// Now select the required set of skills, based on their visibility.
-		return Globals.getObjectsOfVisibility(skillFacet.getSet(id), vis);
+		ArrayList<Skill> aList = new ArrayList<Skill>();
+		for (Skill po : skillFacet.getSet(id))
+		{
+			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
+			{
+				aList.add(po);
+			}
+		}
+		return aList;
 	}
 
 	/**

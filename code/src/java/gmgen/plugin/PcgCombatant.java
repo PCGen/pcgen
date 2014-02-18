@@ -56,7 +56,7 @@ import pcgen.core.display.DescriptionFormatting;
 import pcgen.core.display.SkillDisplay;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 /**
  *@author     devon
@@ -786,7 +786,7 @@ public class PcgCombatant extends Combatant
 
 			List<Skill> skillList =
 					SkillDisplay.getSkillListInOutputOrder(pc, display
-						.getPartialSkillList(Visibility.OUTPUT_ONLY));
+						.getPartialSkillList(View.VISIBLE_EXPORT));
 			boolean firstLine = true;
 
 			for (Skill skill : skillList)

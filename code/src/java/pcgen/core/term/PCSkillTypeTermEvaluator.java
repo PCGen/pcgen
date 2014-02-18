@@ -31,6 +31,7 @@ import java.util.Collection;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 public class PCSkillTypeTermEvaluator
@@ -55,8 +56,8 @@ public class PCSkillTypeTermEvaluator
 		for(Skill sk : skills)
 		{
 			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);
-			if (!skVis.equals(Visibility.HIDDEN)
-				&& !skVis.equals(Visibility.DISPLAY_ONLY) && sk.isType(type)
+			//TODO This is a bug, it assumes export
+			if (!skVis.isVisibleTo(View.HIDDEN_EXPORT) && sk.isType(type)
 				&& sk.qualifies(pc, null))
 			{
 				count++;

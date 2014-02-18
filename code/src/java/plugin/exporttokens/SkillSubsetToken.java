@@ -32,7 +32,7 @@ import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>SkillSubsetToken</code> outputs the value of the Skill at
@@ -116,7 +116,7 @@ public class SkillSubsetToken extends SkillToken
 		List<Skill> skillSubset = new ArrayList<Skill>();
 		final List<Skill> skills =
 				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
-					.getPartialSkillList(Visibility.OUTPUT_ONLY));
+					.getPartialSkillList(View.VISIBLE_EXPORT));
 
 		for (Skill bSkill : skills)
 		{

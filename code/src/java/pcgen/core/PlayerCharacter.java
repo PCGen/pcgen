@@ -258,7 +258,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -8741,8 +8741,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			// hidden feats so the number
 			// displayed matches this number
 			//
-			if (aFeat.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN
-					|| aFeat.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			if (aFeat.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				continue;
 			}
@@ -9005,24 +9004,21 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		for (final Ability ability : getRealAbilitiesListAnyCat(aCategory))
 		{
-			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
-					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			if (ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				return true;
 			}
 		}
 		for (final Ability ability : getAbilityList(aCategory, Nature.AUTOMATIC))
 		{
-			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
-					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			if (ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				return true;
 			}
 		}
 		for (final Ability ability : getAbilityList(aCategory, Nature.VIRTUAL))
 		{
-			if (ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
-					|| ability.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
+			if (ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				return true;
 			}

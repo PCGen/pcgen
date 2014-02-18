@@ -73,6 +73,7 @@ import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -676,14 +677,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Full skill list should have all 3 skills", 3, skillList
 			.size());
 
-		skillList = pc.getDisplay().getPartialSkillList(Visibility.DISPLAY_ONLY);
+		skillList = pc.getDisplay().getPartialSkillList(View.VISIBLE_DISPLAY);
 		assertEquals("GUI skill list should have 2 skills", 2, skillList.size());
 
-		skillList = pc.getDisplay().getPartialSkillList(Visibility.OUTPUT_ONLY);
+		skillList = pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT);
 		assertEquals("Output skill list should have 2 skills", 2, skillList
 			.size());
 
-		skillList = pc.getDisplay().getPartialSkillList(Visibility.DEFAULT);
+		skillList = pc.getDisplay().getPartialSkillList(View.ALL);
 		assertEquals("Full skill list should have 3 skills", 3, skillList
 			.size());
 

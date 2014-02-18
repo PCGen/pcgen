@@ -29,6 +29,7 @@ package pcgen.core.term;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 public class PCCountVisibleTemplatesTermEvaluator 
@@ -48,8 +49,8 @@ public class PCCountVisibleTemplatesTermEvaluator
 		{
 			final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
 
-			if ((vis == Visibility.DEFAULT)
-			|| (vis == Visibility.OUTPUT_ONLY))
+			//TODO This is a bug, it assumes export
+			if (vis.isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				count++;
 			}

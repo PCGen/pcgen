@@ -338,7 +338,7 @@ public class SkillRankControl
 		// Remove a rank from each skill with max ranks at the old level (now above max ranks)
 		for (Skill skill : pc.getSkillSet())
 		{
-			if (!skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, false))
+			if (!skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 			{
 				continue;
 			}

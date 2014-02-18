@@ -179,6 +179,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
+import pcgen.util.enumeration.View;
 
 /**
  * The Class <code>CharacterFacadeImpl</code> is an implementation of 
@@ -4493,7 +4494,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				continue;
 			}
 
-			if (((Kit) obj).isVisible(theCharacter))
+			if (((Kit) obj).isVisible(theCharacter, View.VISIBLE_DISPLAY))
 			{
 				kits.add(obj);
 			}

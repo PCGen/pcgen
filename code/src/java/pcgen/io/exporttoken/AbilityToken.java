@@ -56,7 +56,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>AbilityToken</code> handles the output of ability information.
@@ -82,23 +82,11 @@ public class AbilityToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "ABILITY";
 
-	/** Filter Definition :: Default Ability = 0 */
-	public static final int ABILITY_DEFAULT = 0;
-
-	/** Filter Definition :: Visible Ability = 1 */
-	public static final int ABILITY_VISIBLE = 1;
-
-	/** Filter Definition :: Hidden Ability = 2 */
-	public static final int ABILITY_HIDDEN = 2;
-
-	/** Filter Definition :: All Abilities = 3 */
-	public static final int ABILITY_ALL = 3;
-
 	/** The list of abilities to get the ability from */
 	private MapToList<Ability, CNAbility> abilityList = new HashMapToList<Ability, CNAbility>();
 
 	/** The current visibility filtering to apply */
-	private int visibility = ABILITY_DEFAULT;
+	private View view = View.VISIBLE_EXPORT;
 
 	/** The cached PC */
 	private PlayerCharacter cachedPC = null;
@@ -221,17 +209,17 @@ public class AbilityToken extends Token
 			{
 				if (bString.equals("VISIBLE"))
 				{
-					visibility = ABILITY_VISIBLE;
+					view = View.VISIBLE_EXPORT;
 					continue;
 				}
 				else if (bString.equals("HIDDEN"))
 				{
-					visibility = ABILITY_HIDDEN;
+					view = View.HIDDEN_EXPORT;
 					continue;
 				}
 				else if (bString.equals("ALL"))
 				{
-					visibility = ABILITY_ALL;
+					view = View.ALL;
 					continue;
 				}
 				else
@@ -304,11 +292,11 @@ public class AbilityToken extends Token
 		if (key == null)
 		{
 			aList = AbilityToken.buildAbilityList(types, negate, abilityType,
-					visibility, aspect, abilityList);
+					view, aspect, abilityList);
 		}
 		else
 		{
-			aList = AbilityToken.buildAbilityList(key, visibility, abilityList);
+			aList = AbilityToken.buildAbilityList(key, view, abilityList);
 		}
 
 		// Build the return string to give to the OutputSheet
@@ -332,7 +320,7 @@ public class AbilityToken extends Token
 	 * @return List of abilities based on the type, visibility, and aspect selection.
 	 */
 	static MapToList<Ability, CNAbility> buildAbilityList(List<String> types,
-		List<String> negate, String abilityType, int visibility,
+		List<String> negate, String abilityType, View view,
 		String aspect, MapToList<Ability, CNAbility> listOfAbilities)
 	{
 		List<Ability> aList = new ArrayList<Ability>();
@@ -353,7 +341,7 @@ public class AbilityToken extends Token
 		for (Ability aAbility : aList)
 		{
 			matchTypeDef = abilityMatchesType(abilityType, aAbility, types, negate);
-			matchVisibilityDef = abilityMatchesVisibility(visibility, aAbility);
+			matchVisibilityDef = abilityVisibleTo(view, aAbility);
 			matchAspectDef = abilityMatchesAspect(aspect, aAbility);
 			if (matchTypeDef && matchVisibilityDef && matchAspectDef)
 			{
@@ -388,7 +376,7 @@ public class AbilityToken extends Token
 	 *            The key of the wanted ability.
 	 * @return List of abilities based on the type and visibility selection.
 	 */
-	static MapToList<Ability, CNAbility> buildAbilityList(String key, int visibility,
+	static MapToList<Ability, CNAbility> buildAbilityList(String key, View view,
 		MapToList<Ability, CNAbility> listOfAbilities)
 	{
 		List<Ability> aList = new ArrayList<Ability>();
@@ -408,7 +396,7 @@ public class AbilityToken extends Token
 		for (Ability aAbility : aList)
 		{
 			matchKeyDef = aAbility.getKeyName().equalsIgnoreCase(key);
-			matchVisibilityDef = abilityMatchesVisibility(visibility, aAbility);
+			matchVisibilityDef = abilityVisibleTo(view, aAbility);
 			if (matchKeyDef && matchVisibilityDef)
 			{
 				bList.add(aAbility);
@@ -497,32 +485,9 @@ public class AbilityToken extends Token
 	 * @param aAbility The ability
 	 * @return true if it meets the visibility requirements
 	 */
-	static boolean abilityMatchesVisibility(int visibility,
-		Ability aAbility)
+	static boolean abilityVisibleTo(View v, Ability aAbility)
 	{
-		boolean matchVisibilityDef = false;
-		switch (visibility)
-		{
-			case ABILITY_ALL:
-				matchVisibilityDef = true;
-				break;
-			case ABILITY_HIDDEN:
-				if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN
-					|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DISPLAY_ONLY)
-				{
-					matchVisibilityDef = true;
-				}
-				break;
-			case ABILITY_VISIBLE: // Fall through intentional
-			default:
-				if (aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT
-					|| aAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY)
-				{
-					matchVisibilityDef = true;
-				}
-				break;
-		}
-		return matchVisibilityDef;
+		return aAbility.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v);
 	}
 
 	/**
@@ -844,18 +809,18 @@ public class AbilityToken extends Token
 	/**
 	 * @return the visibility
 	 */
-	protected int getVisibility()
+	protected View getView()
 	{
-		return visibility;
+		return view;
 	}
 
 	/**
 	 * @param visibility
 	 *            the visibility to set
 	 */
-	protected void setVisibility(int visibility)
+	protected void setView(View v)
 	{
-		this.visibility = visibility;
+		this.view = v;
 	}
 
 }

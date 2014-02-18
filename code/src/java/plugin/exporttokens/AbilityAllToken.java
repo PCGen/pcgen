@@ -35,6 +35,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityToken;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>AbilityAllToken</code> deals with the ABILITYALL output 
@@ -65,7 +66,7 @@ public class AbilityAllToken extends AbilityToken
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		setVisibility(ABILITY_ALL);
+		setView(View.ALL);
 		return super.getToken(tokenSource, pc, eh);
 	}
 

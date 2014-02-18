@@ -92,6 +92,7 @@ import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
 import pcgen.util.enumeration.Load;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -2236,7 +2237,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The equipment modifier
 	 * @return The visible value
 	 */
-	public boolean isVisible(final EquipmentModifier eqMod)
+	public boolean isVisible(final EquipmentModifier eqMod, View v)
 	{
 		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
@@ -2261,7 +2262,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 
-		return Visibility.DEFAULT.equals(vis);
+		return vis.isVisibleTo(v);
 	}
 
 	/**
@@ -2273,8 +2274,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * 			  Is this for the main head (true), or the secondary one (false)?
 	 * @return The visible value
 	 */
-	public boolean isVisible(final EquipmentModifier eqMod, boolean primaryHead)
-	{
+	public boolean isVisible(final EquipmentModifier eqMod,
+			boolean primaryHead, View v)	{
 		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
 		if (Visibility.QUALIFY.equals(vis))
@@ -2284,7 +2285,7 @@ public final class Equipment extends PObject implements Serializable,
 				this, null);
 		}
 
-		return Visibility.DEFAULT.equals(vis);
+		return vis.isVisibleTo(v);
 	}
 
 	/**

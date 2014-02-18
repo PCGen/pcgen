@@ -13,6 +13,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityToken;
+import pcgen.util.enumeration.View;
 
 /**
  * @author karianna
@@ -37,7 +38,7 @@ public class FeatAllToken extends AbilityToken
 	public String getToken(String tokenSource, PlayerCharacter pc,
 						   ExportHandler eh)
 	{
-		setVisibility(ABILITY_ALL);
+		setView(View.ALL);
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String fString = aTok.nextToken();
 

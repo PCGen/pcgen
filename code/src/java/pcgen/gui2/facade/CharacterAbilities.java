@@ -228,22 +228,9 @@ public class CharacterAbilities
 			found |= theCharacter.getAvailableAbilityPool(cat).intValue() > 0;
 
 			// Finally  deal with visibility
-			switch (cat.getVisibility())
-			{
-				case HIDDEN:
-				case OUTPUT_ONLY:
-					found = false;
-					break;
-
-				case DEFAULT:
-				case DISPLAY_ONLY:
-					found = true;
-					break;
-
-				case QUALIFY:
-				default:
-					break;
-			}
+			Visibility vis = cat.getVisibility();
+			found &= !vis.isVisibleTo(View.HIDDEN_DISPLAY);
+			found |= vis.isVisibleTo(View.VISIBLE_DISPLAY);
 			
 			if (found && !workingActiveCategories.containsElement(cat))
 			{
@@ -307,8 +294,7 @@ public class CharacterAbilities
 		AbilityCategory category = (AbilityCategory) cat;
 		
 		int numSelections = theCharacter.getAvailableAbilityPool(category).intValue();
-		if (category.getVisibility() == Visibility.HIDDEN
-			|| category.getVisibility() == Visibility.OUTPUT_ONLY)
+		if (category.getVisibility().isVisibleTo(View.VISIBLE_EXPORT))
 		{
 			// Hide todos for categories that should not be displayed
 			numSelections = 0;
@@ -825,8 +811,7 @@ public class CharacterAbilities
 	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CategorizedAbilitySelection cas)
 	{
 		Ability ability = cas.getAbility();
-		if (!ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE,
-			false))
+		if (!ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 		{
 			// Filter out hidden abilities
 			return;

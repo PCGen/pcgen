@@ -84,7 +84,7 @@ import pcgen.io.freemarker.PCVarFunction;
 import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -2314,8 +2314,7 @@ public final class ExportHandler
 			}
 
 			final PCTemplate template = tList.get(index);
-			if (template.getSafe(ObjectKey.VISIBILITY) != Visibility.DEFAULT
-				&& template.getSafe(ObjectKey.VISIBILITY) != Visibility.OUTPUT_ONLY)
+			if (!template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				canWrite = false;
 			}

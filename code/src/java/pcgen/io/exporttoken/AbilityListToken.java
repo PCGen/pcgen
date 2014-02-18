@@ -38,6 +38,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
+import pcgen.util.enumeration.View;
 
 /**
  * <code>AbilityListToken</code> handles the output of a comma separated 
@@ -157,7 +158,7 @@ public class AbilityListToken extends Token
 
 		MapToList<Ability, CNAbility> aList =
 				AbilityToken.buildAbilityList(types, negate, null,
-					AbilityToken.ABILITY_VISIBLE, aspect, abilityMap);
+					View.VISIBLE_EXPORT, aspect, abilityMap);
 
 		boolean needComma = false;
 		for (Ability ability : aList.getKeySet())

@@ -13,9 +13,11 @@ package pcgen.util.enumeration;
 public enum View
 {
 	ALL("ALL"), // Show all visibility types
-	HIDDEN("HIDDEN"), // Show only those not visible
-	VISIBLE("VISIBLE"); // Shows types visible to the GUI/Export as appropriate
-
+	HIDDEN_DISPLAY("HIDDEN_DISPLAY"), // Show only those not visible
+	HIDDEN_EXPORT("HIDDEN_EXPORT"), // Show only those not visible
+	VISIBLE_DISPLAY("VISIBLE_DISPLAY"), // Shows types visible to the GUI
+	VISIBLE_EXPORT("VISIBLE_EXPORT"); // Shows types visible to the Export
+	
 	private final String text;
 
 	/**

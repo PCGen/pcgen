@@ -45,7 +45,8 @@ public class PCCountTemplatesTermEvaluator
 		Float count = new Float(0);
 		for (PCTemplate template : display.getTemplateSet())
 		{
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, true))
+			//TODO This is a bug, it assumes export
+			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
 			{
 				count++;
 			}

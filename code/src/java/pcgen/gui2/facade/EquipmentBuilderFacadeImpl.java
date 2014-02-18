@@ -57,6 +57,7 @@ import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.View;
 
 /**
  * EquipmentBuilderFacadeImpl is an implementation of the 
@@ -386,7 +387,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			for (EquipmentModifier aEqMod : Globals.getContext().ref
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
-				if (equip.isVisible(aEqMod, head.isPrimary()))
+				if (equip.isVisible(aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))
 				{
 					if (aEqMod.isType("ALL"))
 					{

@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvaluator
@@ -95,8 +96,9 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 		Ability ability = cna.getAbility();
 		Visibility v = ability.getSafe(ObjectKey.VISIBILITY); 
 
-		boolean abilityInvisibile = Visibility.DISPLAY_ONLY == v ||
-									Visibility.HIDDEN == v;
+		//TODO This is a bug, it assumes export
+		boolean abilityInvisibile = v.isVisibleTo(View.HIDDEN_EXPORT);
+
 		int count = 0;
 
 		if (abilityInvisibile)

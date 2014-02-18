@@ -49,7 +49,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -78,7 +77,6 @@ import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
 
 /**
@@ -1685,21 +1683,6 @@ public final class Globals
 		return hasSpellPPCost;
 	}
 	
-	public static <T extends CDOMObject> List<T> getObjectsOfVisibility(Collection<T> c, Visibility v)
-	{
-		ArrayList<T> aList = new ArrayList<T>();
-		for (T po : c)
-		{
-			Visibility poVis = po.getSafe(ObjectKey.VISIBILITY);
-			if (v == Visibility.DEFAULT || poVis == Visibility.DEFAULT
-					|| poVis == v)
-			{
-				aList.add(po);
-			}
-		}
-		return aList;
-	}
-
 	/**
 	 * Return the set of equipment type names as a sorted set of strings.
 	 * 

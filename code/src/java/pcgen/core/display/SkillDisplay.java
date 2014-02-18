@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 public class SkillDisplay
@@ -90,9 +91,9 @@ public class SkillDisplay
 	
 			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
 			Integer outputIndex = pc.getSkillOrder(bSkill);
-			if ((outputIndex != null && outputIndex == -1) || skVis.equals(Visibility.HIDDEN)
-					|| skVis.equals(Visibility.DISPLAY_ONLY) || !bSkill.qualifies(pc, null))
-			{
+			if ((outputIndex != null && outputIndex == -1)
+					|| skVis.isVisibleTo(View.HIDDEN_EXPORT)
+					|| !bSkill.qualifies(pc, null))			{
 				i.remove();
 			}
 		}

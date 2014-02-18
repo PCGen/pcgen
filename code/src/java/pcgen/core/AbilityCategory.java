@@ -377,9 +377,9 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return <tt>true</tt> if these abilities should be displayed.
 	 */
-	public boolean isVisible()
+	public boolean isVisibleTo(View v)
 	{
-		return isVisible(null);
+		return isVisibleTo(null, v);
 	}
 	
 	/**
@@ -389,7 +389,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param pc The character to be tested.
 	 * @return <tt>true</tt> if these abilities should be displayed.
 	 */
-	public boolean isVisible(PlayerCharacter pc)
+	public boolean isVisibleTo(PlayerCharacter pc, View v)
 	{
 		if (visibility.equals(Visibility.QUALIFY))
 		{
@@ -397,7 +397,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 					|| pc.getTotalAbilityPool(this).floatValue() != 0.0
 					|| pc.hasVisibleAbility(this);
 		}
-		return visibility.isVisibleTo(View.VISIBLE, false);
+		return visibility.isVisibleTo(v);
 	}
 	
 	/**

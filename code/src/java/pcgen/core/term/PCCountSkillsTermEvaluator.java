@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.system.PCGenSettings;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 
 public class PCCountSkillsTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -49,8 +49,9 @@ public class PCCountSkillsTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		int count = 0;
+		//TODO This is a bug, it assumes export
 		final List<Skill> skills =
-				pc.getDisplay().getPartialSkillList(Visibility.OUTPUT_ONLY);
+				pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT);
 		SkillFilter filter = SkillFilter.getByToken(filterToken);
 		if (filter == null || filter == SkillFilter.Selected)
 		{

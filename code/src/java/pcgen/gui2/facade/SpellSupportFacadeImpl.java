@@ -27,7 +27,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -99,7 +98,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
-import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.View;
 import pcgen.util.fop.FOPHandler;
 import pcgen.util.fop.FOPHandlerFactory;
 
@@ -398,9 +397,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		for (CNAbility cna : feats)
 		{
 			Ability aFeat = cna.getAbility();
-			if (aFeat.isType("Metamagic") &&  //$NON-NLS-1$
-					!EnumSet.of(Visibility.HIDDEN, Visibility.DISPLAY_ONLY)
-					.contains(aFeat.get(ObjectKey.VISIBILITY)))
+			if (aFeat.isType("Metamagic") //$NON-NLS-1$
+					&& !aFeat.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.HIDDEN_EXPORT))
 			{
 				characterMetaMagicFeats.add(aFeat);
 			}
