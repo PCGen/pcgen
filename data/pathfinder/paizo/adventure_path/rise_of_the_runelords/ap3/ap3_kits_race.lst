@@ -5,7 +5,7 @@ SOURCELONG:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre	SOURCES
 ###Missing: Defaults - Smoke Haunt, Totenmaske, Skull Ripper, Argorth, Mother of Oblivion
 ###Missing: NPC's - Maulgro, Lucky Graul
 
-STARTPACK:Kreeg Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:p.28
+STARTPACK:NPC (Kreeg Ogre)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:p.28
 RACE:Ogre	!PRERACE:1,%
 NAME:Kreeg Ogre
 ALIGN:CE
