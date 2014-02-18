@@ -46,7 +46,6 @@ ABILITYCATEGORY:deg_abilitycategories.lst
 BIOSET:deg_biosettings.lst
 DEITY:deg_deities.lst
 DOMAIN:deg_domains.lst
-KIT:deg_kits_race.lst
 LANGUAGE:deg_languages.lst
 RACE:deg_races.lst
 SPELL:deg_spells.lst
