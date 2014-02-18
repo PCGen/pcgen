@@ -3,70 +3,70 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Unknown
 
-STARTPACK:Astral Construct (1st Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (1st Level)]
+STARTPACK:Astral Construct (1st Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (1st Level)]
 RACE:Astral Construct (1st Level)	!PRERACE:1,%
 NAME:Astral Construct (1st Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (2nd Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (2nd Level)]
+STARTPACK:Astral Construct (2nd Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (2nd Level)]
 RACE:Astral Construct (2nd Level)	!PRERACE:1,%
 NAME:Astral Construct (2nd Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (3rd Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (3rd Level)]
+STARTPACK:Astral Construct (3rd Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (3rd Level)]
 RACE:Astral Construct (3rd Level)	!PRERACE:1,%
 NAME:Astral Construct (3rd Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (4th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (4th Level)]
+STARTPACK:Astral Construct (4th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (4th Level)]
 RACE:Astral Construct (4th Level)	!PRERACE:1,%
 NAME:Astral Construct (4th Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (5th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (5th Level)]
+STARTPACK:Astral Construct (5th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (5th Level)]
 RACE:Astral Construct (5th Level)	!PRERACE:1,%
 NAME:Astral Construct (5th Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (6th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (6th Level)]
+STARTPACK:Astral Construct (6th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (6th Level)]
 RACE:Astral Construct (6th Level)	!PRERACE:1,%
 NAME:Astral Construct (6th Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (7th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (7th Level)]
+STARTPACK:Astral Construct (7th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (7th Level)]
 RACE:Astral Construct (7th Level)	!PRERACE:1,%
 NAME:Astral Construct (7th Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (8th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (8th Level)]
+STARTPACK:Astral Construct (8th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (8th Level)]
 RACE:Astral Construct (8th Level)	!PRERACE:1,%
 NAME:Astral Construct (8th Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Astral Construct (9th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (9th Level)]
+STARTPACK:Astral Construct (9th Level) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (9th Level)]
 RACE:Astral Construct (9th Level)	!PRERACE:1,%
 NAME:Astral Construct (9th Level)
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Brain Mole Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brain Mole]
+STARTPACK:Brain Mole Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brain Mole]
 RACE:Brain Mole	!PRERACE:1,%
 NAME:Brain Mole
 ALIGN:TN
@@ -74,7 +74,7 @@ SKILL:Stealth	RANK:1
 FEAT:Alertness
 STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
 
-STARTPACK:Caller in Darkness Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller in Darkness]
+STARTPACK:Caller in Darkness Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller in Darkness]
 RACE:Caller in Darkness	!PRERACE:1,%
 NAME:Caller in Darkness
 ALIGN:CE
@@ -92,7 +92,7 @@ FEAT:Iron Will
 FEAT:Ability Focus (Unnatural Aura)
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Cerebrilith Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebrilith]
+STARTPACK:Cerebrilith Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebrilith]
 RACE:Cerebrilith	!PRERACE:1,%
 NAME:Cerebrilith
 ALIGN:CE
@@ -112,7 +112,7 @@ FEAT:Greater Psionic Fist
 FEAT:Unavoidable Strike
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
-STARTPACK:Crysmal Default ~ Psionic	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal ~ Psionic]
+STARTPACK:Crysmal Default ~ Psionic	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal ~ Psionic]
 RACE:Crysmal ~ Psionic	!PRERACE:1,%
 NAME:Crysmal
 ALIGN:LN
@@ -126,7 +126,7 @@ FEAT:Great Fortitude
 FEAT:Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Folugub Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Folugub]
+STARTPACK:Folugub Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Folugub]
 RACE:Folugub	!PRERACE:1,%
 NAME:Folugub
 ALIGN:TN
@@ -135,7 +135,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
 
-STARTPACK:Gray Glutton Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Glutton]
+STARTPACK:Gray Glutton Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Glutton]
 RACE:Gray Glutton	!PRERACE:1,%
 NAME:Gray Glutton
 ALIGN:TN
@@ -147,7 +147,7 @@ FEAT:Step Up
 FEAT:Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
-STARTPACK:Intellect Devourer ~ Psionic Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer ~ Psionic]
+STARTPACK:Intellect Devourer ~ Psionic Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer ~ Psionic]
 RACE:Intellect Devourer ~ Psionic	!PRERACE:1,%
 NAME:Intellect Devourer ~ Psionic
 ALIGN:CE
@@ -162,7 +162,7 @@ FEAT:Toughness
 FEAT:Up the Walls
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Phrenic Scourge Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phrenic Scourge]
+STARTPACK:Phrenic Scourge Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phrenic Scourge]
 RACE:Phrenic Scourge	!PRERACE:1,%
 NAME:Phrenic Scourge
 SKILL:Autohypnosis		RANK:3
@@ -182,7 +182,7 @@ FEAT:Alertness
 ALIGN:LE
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Phthisic Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
+STARTPACK:Phthisic Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
 RACE:Phthisic	!PRERACE:1,%
 NAME:Phthisic
 ALIGN:CE
@@ -195,14 +195,14 @@ FEAT:Great Fortitude
 FEAT:Improved Initiative
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Psion-Killer Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion-Killer]
+STARTPACK:Psion-Killer Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion-Killer]
 RACE:Psion-Killer	!PRERACE:1,%
 NAME:Psion-Killer
 ALIGN:TN
 GENDER:Neuter
 STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Puppeteer Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+STARTPACK:Puppeteer Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
 RACE:Puppeteer	!PRERACE:1,%
 NAME:Puppeteer
 ALIGN:LE
@@ -213,7 +213,7 @@ SKILL:Bluff			RANK:1
 FEAT:Iron Will
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Puppeteer (Flesh Harrower) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
+STARTPACK:Puppeteer (Flesh Harrower) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
 RACE:Puppeteer (Flesh Harrower)	!PRERACE:1,%
 NAME:Puppeteer (Flesh Harrower)
 ALIGN:TN
@@ -223,7 +223,7 @@ FEAT:Alertness
 FEAT:Iron Will
 STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
 
-STARTPACK:Temporal Filcher Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
+STARTPACK:Temporal Filcher Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
 RACE:Temporal Filcher	!PRERACE:1,%
 NAME:Temporal Filcher
 ALIGN:NE
@@ -235,7 +235,7 @@ FEAT:Improved Initiative
 FEAT:Mobility
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
-STARTPACK:Thought Eater Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+STARTPACK:Thought Eater Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
 RACE:Thought Eater	!PRERACE:1,%
 NAME:Thought Eater
 ALIGN:TN
@@ -245,7 +245,7 @@ FEAT:Alertness
 FEAT:Improved Initiative
 STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 
-STARTPACK:Thought Slayer Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
+STARTPACK:Thought Slayer Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
 RACE:Thought Slayer	!PRERACE:1,%
 NAME:Thought Slayer
 ALIGN:CN
@@ -260,7 +260,7 @@ FEAT:Great Cleave
 FEAT:Improved Initiative
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
-STARTPACK:Udoroot Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+STARTPACK:Udoroot Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
 RACE:Udoroot	!PRERACE:1,%
 NAME:Udoroot
 ALIGN:TN
@@ -270,7 +270,7 @@ FEAT:Lightning Reflexes
 FEAT:Great Fortitude
 STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Unbodied Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
+STARTPACK:Unbodied Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
 RACE:Unbodied	!PRERACE:1,%
 NAME:Unbodied
 ALIGN:TN
