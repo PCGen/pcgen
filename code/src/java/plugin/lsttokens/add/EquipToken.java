@@ -60,7 +60,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override

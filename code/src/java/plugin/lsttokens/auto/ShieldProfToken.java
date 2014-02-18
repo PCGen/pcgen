@@ -67,7 +67,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		{
 			String aProf = tok.nextToken();
 
-			if ("%LIST".equals(aProf))
+			if (Constants.LST_PERCENT_LIST.equals(aProf))
 			{
 				foundOther = true;
 				ChooseSelectionActor<ShieldProf> cra;
@@ -156,8 +156,8 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				shieldProfs.add(context.ref
 						.getCDOMAllReference(SHIELDPROF_CLASS));
 			}
-			else if (aProf.startsWith(Constants.LST_SHIELDTYPE_DOT)
-					|| aProf.startsWith(Constants.LST_SHIELDTYPE_EQUAL))
+			else if (aProf.startsWith("SHIELDTYPE.")
+					|| aProf.startsWith("SHIELDTYPE="))
 			{
 				foundOther = true;
 				CDOMReference<Equipment> ref = TokenUtilities.getTypeReference(
@@ -290,6 +290,6 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public String getLstFormat()
 	{
-		return "%LIST";
+		return Constants.LST_PERCENT_LIST;
 	}
 }

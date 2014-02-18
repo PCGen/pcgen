@@ -87,7 +87,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 					owner = context.ref.getCDOMTypeReference(PCCLASS_CLASS,
 							substring.split("\\."));
 				}
-				else if (lockPre.startsWith("CLASS="))
+				else if (lockPre.startsWith(Constants.LST_CLASS_EQUAL))
 				{
 					String substring = lock.substring(pipeLoc + 7);
 					if (substring.length() == 0)

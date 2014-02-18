@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
@@ -45,7 +46,7 @@ public class SkillToken implements CDOMSecondaryToken<EquipmentModifier>
 		if (value == null)
 		{
 			// Very strange, but legal
-			value = "ANY";
+			value = Constants.LST_ANY;
 		}
 		if (value.indexOf('[') != -1)
 		{

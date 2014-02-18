@@ -25,6 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.base.SpellLevelChooseInformation;
@@ -150,7 +151,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -177,7 +178,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+				+ " was used in: " + getParentToken() + Constants.COLON + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();

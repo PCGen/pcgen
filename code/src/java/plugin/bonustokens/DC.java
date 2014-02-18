@@ -67,12 +67,12 @@ public final class DC extends BonusObj
 		}
 
 		boolean valid = token.startsWith(Constants.LST_CLASS);
-		valid = valid || token.startsWith(Constants.LST_DESCRIPTOR);
-		valid = valid || token.startsWith(Constants.LST_DOMAIN);
-		valid = valid || token.startsWith(Constants.LST_SCHOOL);
-		valid = valid || token.startsWith(Constants.LST_SUBSCHOOL);
-		valid = valid || token.startsWith(Constants.LST_TYPE);
-		valid = valid || token.startsWith(Constants.LST_SPELL);
+		valid = valid || token.startsWith("DESCRIPTOR");
+		valid = valid || token.startsWith("DOMAIN");
+		valid = valid || token.startsWith("SCHOOL");
+		valid = valid || token.startsWith("SUBSCHOOL");
+		valid = valid || token.startsWith("TYPE");
+		valid = valid || token.startsWith("SPELL");
 
 		if (valid)
 		{

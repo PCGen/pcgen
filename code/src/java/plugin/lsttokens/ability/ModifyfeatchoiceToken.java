@@ -125,7 +125,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			return null;
 		}
 		return new String[] { StringUtil.replaceAll(mc.getChoices()
-				.getLSTformat(), ",", "|") };
+				.getLSTformat(), ",", Constants.PIPE) };
 	}
 
 	@Override

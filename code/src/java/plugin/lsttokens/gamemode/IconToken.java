@@ -25,6 +25,7 @@ package plugin.lsttokens.gamemode;
 import java.net.URI;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.EquipIconLstToken;
 import pcgen.util.Logging;
@@ -58,7 +59,7 @@ public class IconToken implements EquipIconLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
 		if (aTok.countTokens() < 2)
 		{

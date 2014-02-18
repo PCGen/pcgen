@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
@@ -70,7 +71,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 						+ " must be of the form: " + getTokenName()
 						+ ":<int> or " + getTokenName()
 						+ ":<int>|LEVELTYPE=<string>" + " Got "
-						+ getTokenName() + ":" + value, context);
+						+ getTokenName() + Constants.COLON + value, context);
 			}
 			numLevels = value.substring(0, pipeLoc);
 			String levelTypeTag = value.substring(pipeLoc + 1);
@@ -79,7 +80,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 				return new ParseResult.Fail("If " + getTokenName()
 						+ " has a | it must be of the form: " + getTokenName()
 						+ ":<int>|LEVELTYPE=<string>" + " Got "
-						+ getTokenName() + ":" + value, context);
+						+ getTokenName() + Constants.COLON + value, context);
 			}
 			String levelType = levelTypeTag.substring(10);
 			if (levelType == null || levelType.length() == 0)

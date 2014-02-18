@@ -67,7 +67,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -130,7 +130,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		while (tok.hasMoreTokens())
 		{
 			String aProf = tok.nextToken();
-			if ("%LIST".equals(aProf))
+			if (Constants.LST_PERCENT_LIST.equals(aProf))
 			{
 				ChooseSelectionActor<Equipment> cra;
 				if (prereq == null)
@@ -279,6 +279,6 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String getLstFormat()
 	{
-		return "%LIST";
+		return Constants.LST_PERCENT_LIST;
 	}
 }

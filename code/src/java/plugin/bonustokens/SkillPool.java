@@ -46,11 +46,11 @@ public final class SkillPool extends BonusObj
 		{
 			addBonusInfo(token.replace('=', '.'));
 		}
-		else if (token.startsWith(Constants.LST_LEVEL))
+		else if (token.startsWith("LEVEL"))
 		{
 			addBonusInfo(token.replace('=', '.'));
 		}
-		else if (Constants.LST_NUMBER.equals(token))
+		else if ("NUMBER".equals(token))
 		{
 			addBonusInfo(token);
 		}

@@ -33,14 +33,14 @@ public final class FormulaFactory
 	 * minimize memory usage in the many cases where a default Formula of ZERO
 	 * is required.
 	 */
-	public static final Formula ZERO = new IntegerFormula(0);
+	public static final Formula ZERO = new IntegerFormula(Integer.valueOf(0));
 
 	/**
 	 * A Formula for the integer constant ONE. This is done in order to minimize
 	 * memory usage in the many cases where a default Formula of ONE is
 	 * required.
 	 */
-	public static final Formula ONE = new IntegerFormula(1);
+	public static final Formula ONE = new IntegerFormula(Integer.valueOf(1));
 
 	private FormulaFactory()
 	{
@@ -214,7 +214,7 @@ public final class FormulaFactory
 		@Override
 		public int hashCode()
 		{
-			return integer;
+			return integer.intValue();
 		}
 
 		/**

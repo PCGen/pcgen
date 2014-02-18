@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.gamemode.abilitycategory;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
@@ -86,7 +87,7 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		{
 			Logging.log(Logging.LST_ERROR, "TYPE " + ac.getTypes()
 				+ " is not valid in 'parent' category " + ac.getKeyName()
-				+ " of " + ac.getSourceURI() + ".");
+				+ " of " + ac.getSourceURI() + Constants.DOT);
 			return false;
 		}
 		if (ac.isAllAbilityTypes()
@@ -95,7 +96,7 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 			Logging.log(Logging.LST_ERROR,
 					"TYPE '*' is not valid in 'parent' category "
 							+ ac.getKeyName() + " of " + ac.getSourceURI()
-							+ ".");
+							+ Constants.DOT);
 			return false;
 		}
 
@@ -105,7 +106,7 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 			Logging.log(Logging.LST_ERROR,
 					"ABILITYLIST is not valid in 'parent' category "
 							+ ac.getKeyName() + " of " + ac.getSourceURI()
-							+ ".");
+							+ Constants.DOT);
 			return false;
 		}
 		// Must be a universal set if no types

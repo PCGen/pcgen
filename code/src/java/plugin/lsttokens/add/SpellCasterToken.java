@@ -62,7 +62,7 @@ public class SpellCasterToken extends AbstractToken implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override

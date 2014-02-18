@@ -98,7 +98,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				}
 				kitSpell.setSpellBook(spellBook);
 			}
-			else if (field.startsWith("CLASS="))
+			else if (field.startsWith(Constants.LST_CLASS_EQUAL))
 			{
 				if (kitSpell.getCastingClass() != null)
 				{
@@ -125,7 +125,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 			else
 			{
 				int count = 1;
-				int equalLoc = field.indexOf("=");
+				int equalLoc = field.indexOf(Constants.EQUALS);
 				if (equalLoc != -1)
 				{
 					String countStr = field.substring(equalLoc + 1);
@@ -196,7 +196,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 			{
 				sb.append(Constants.PIPE);
 			}
-			sb.append("CLASS=").append(castingClass.getLSTformat(false));
+			sb.append(Constants.LST_CLASS_EQUAL).append(castingClass.getLSTformat(false));
 		}
 		Collection<KnownSpellIdentifier> spells = kitSpell.getSpells();
 		if (spells != null)

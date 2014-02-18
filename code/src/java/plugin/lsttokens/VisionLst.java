@@ -91,13 +91,13 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 		while (true)
 		{
-			if (".CLEAR".equals(visionString))
+			if (Constants.LST_DOT_CLEAR.equals(visionString))
 			{
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						Vision.VISIONLIST);
 				foundClear = true;
 			}
-			else if (visionString.startsWith(".CLEAR."))
+			else if (visionString.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				try
 				{

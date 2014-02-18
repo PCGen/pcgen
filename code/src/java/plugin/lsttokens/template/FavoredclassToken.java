@@ -157,7 +157,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				{
 					Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
 							.getCDOMCategory();
-					set.add(parent.toString() + "." + ref.getLSTformat(false));
+					set.add(parent.toString() + Constants.DOT + ref.getLSTformat(false));
 				}
 				else
 				{
@@ -208,7 +208,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String getLstFormat()
 	{
-		return "%LIST";
+		return Constants.LST_PERCENT_LIST;
 	}
 
 	@Override

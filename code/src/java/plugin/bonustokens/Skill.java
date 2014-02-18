@@ -54,7 +54,7 @@ public final class Skill extends BonusObj
 			}
 		}
 
-		if (token.startsWith(Constants.LST_STAT_EQUAL)
+		if (token.startsWith("STAT=")
 			|| token.startsWith(Constants.LST_TYPE_EQUAL))
 		{
 			addBonusInfo(token.replace('=', '.'));

@@ -76,7 +76,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -144,13 +144,14 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			CDOMReference<Ability> ab = null;
 			String token = tok.next();
-			if (Constants.LST_CHOICE.equals(token)
+			if ("CHOICE".equals(token)
 					|| Constants.LST_ANY.equals(token))
 			{
 				foundAny = true;
 				ab = rm.getAllReference();
 			}
-			else if (token.startsWith("CLASS.") || token.startsWith("CLASS="))
+			else if (token.startsWith(Constants.LST_CLASS_DOT)
+				|| token.startsWith(Constants.LST_CLASS_EQUAL))
 			{
 				String className = token.substring(6);
 				if (className.length() == 0)

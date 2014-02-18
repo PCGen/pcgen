@@ -71,8 +71,8 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 			weightCapacity = weightCapacity.substring(1);
 		}
 
-		int percentLoc = weightCapacity.indexOf(Constants.CHAR_PERCENT);
-		if (percentLoc != weightCapacity.lastIndexOf(Constants.CHAR_PERCENT))
+		int percentLoc = weightCapacity.indexOf(Constants.PERCENT);
+		if (percentLoc != weightCapacity.lastIndexOf(Constants.PERCENT))
 		{
 			return new ParseResult.Fail("Cannot have two weight reduction "
 							+ "characters (indicated by %): " + value, context);
@@ -225,7 +225,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 				IntegerKey.CONTAINER_REDUCE_WEIGHT);
 		if (reducePercent != null)
 		{
-			sb.append(reducePercent).append(Constants.CHAR_PERCENT);
+			sb.append(reducePercent).append(Constants.PERCENT);
 		}
 
 		BigDecimal cap = context.getObjectContext().getObject(eq,

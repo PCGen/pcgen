@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.statsandchecks.stat;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -46,7 +47,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		if (value.length() != 3)
 		{
 			return new ParseResult.Fail("Stat " + stat.getDisplayName() + " found with "
-					+ getTokenName() + ":" + value
+					+ getTokenName() + Constants.COLON + value
 					+ " should be 3 characters long!", context);
 		}
 		/*

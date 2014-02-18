@@ -24,6 +24,7 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
@@ -54,7 +55,7 @@ public class InfoSheetToken implements GameModeLstToken
 		if (tokens.length != 2)
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName()
-				+ ":" + value
+				+ Constants.COLON + value
 				+ ". Expected INFOSHEET:SUMMARY|x or INFOSHEET:SKILL|x "
 				+ " in " + source.toString());
 			return false;
@@ -70,7 +71,7 @@ public class InfoSheetToken implements GameModeLstToken
 		else
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName()
-				+ ":" + value
+				+ Constants.COLON + value
 				+ ". Expected INFOSHEET:SUMMARY|x or INFOSHEET:SKILL|x "
 				+ " in " + source.toString());
 			return false;

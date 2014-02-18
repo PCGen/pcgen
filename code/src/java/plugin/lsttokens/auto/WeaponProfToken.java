@@ -65,7 +65,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
-			if ("%LIST".equals(token))
+			if (Constants.LST_PERCENT_LIST.equals(token))
 			{
 				foundOther = true;
 				ChooseSelectionActor<WeaponProf> cra;
@@ -361,7 +361,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public String getLstFormat()
 	{
-		return "%LIST";
+		return Constants.LST_PERCENT_LIST;
 	}
 
 }

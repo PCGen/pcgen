@@ -92,7 +92,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 				activeValue = value.substring(0, pipeLoc);
 				if (title == null || title.length() == 0)
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
+					return new ParseResult.Fail(getParentToken() + Constants.COLON
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
@@ -153,7 +153,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+				+ " was used in: " + getParentToken() + Constants.COLON + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();

@@ -18,6 +18,7 @@
 package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.rules.context.LoadContext;
@@ -80,7 +81,7 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 			// No args - deprecated
 			Logging.deprecationPrint("CHOOSE:" + getTokenName()
 				+ " with no argument has been deprecated", context);
-			value = "ALL";
+			value = Constants.LST_ALL;
 		}
 		return super.parseToken(context, obj, value);
 	}

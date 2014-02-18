@@ -25,6 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
@@ -86,7 +87,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 				if (title == null || title.length() == 0)
 				{
 					return new ParseResult.Fail(
-						getParentToken() + ":" + getTokenName()
+						getParentToken() + Constants.COLON + getTokenName()
 							+ " had TITLE= but no title: " + value, context);
 				}
 				activeValue = value.substring(0, pipeLoc);
@@ -122,7 +123,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -149,7 +150,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+				+ " was used in: " + getParentToken() + Constants.COLON + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();

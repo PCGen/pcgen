@@ -55,7 +55,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			if (".CLEAR".equals(value))
+			if (Constants.LST_DOT_CLEAR.equals(value))
 			{
 				if (obj instanceof PCClassLevel)
 				{

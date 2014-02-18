@@ -42,7 +42,7 @@ public interface TransitionChoice<T> extends BasicChoice<T>
 
 	void setStackLimit(int limit);
 
-	int getStackLimit();
+	Integer getStackLimit();
 
 	Formula getCount();
 

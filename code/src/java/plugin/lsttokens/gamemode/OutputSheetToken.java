@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
@@ -73,7 +74,7 @@ public class OutputSheetToken implements GameModeLstToken
 						return true;
 					}
 					Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName()
-							+ ":" + value
+							+ Constants.COLON + value
 							+ ". Invalid DEFAULT.x subtoken"
 							+ " in " + source.toString());
 					return false;
@@ -81,7 +82,7 @@ public class OutputSheetToken implements GameModeLstToken
 			}
 		}
 		Logging.log(Logging.LST_ERROR, "Invalid token " + getTokenName()
-				+ ":" + value
+				+ Constants.COLON + value
 				+ ". Expected OUTPUTSHEET:DIRECTORY|x or OUTPUTSHEET:DEFAULT.x|y "
 				+ " in " + source.toString());
 			return false;

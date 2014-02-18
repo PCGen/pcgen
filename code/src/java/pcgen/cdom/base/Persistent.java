@@ -47,7 +47,7 @@ public interface Persistent<T>
 	 * the choice object.
 	 * 
 	 * @param context
-	 *            TODO
+	 *            The LoadContext used to decode the choice
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.

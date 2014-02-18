@@ -22,6 +22,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -54,7 +55,7 @@ public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		Campaign campaign, String value)
 	{
-		final StringTokenizer lstTok = new StringTokenizer(value, "|");
+		final StringTokenizer lstTok = new StringTokenizer(value, Constants.PIPE);
 
 		while (lstTok.hasMoreTokens())
 		{

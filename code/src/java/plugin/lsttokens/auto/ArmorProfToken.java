@@ -67,7 +67,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			String aProf = tok.nextToken();
 
-			if ("%LIST".equals(aProf))
+			if (Constants.LST_PERCENT_LIST.equals(aProf))
 			{
 				foundOther = true;
 				ChooseSelectionActor<ArmorProf> cra;
@@ -156,8 +156,8 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				armorProfs
 						.add(context.ref.getCDOMAllReference(ARMORPROF_CLASS));
 			}
-			else if (aProf.startsWith(Constants.LST_ARMORTYPE_DOT)
-					|| aProf.startsWith(Constants.LST_ARMORTYPE_EQUAL))
+			else if (aProf.startsWith("ARMORTYPE.")
+					|| aProf.startsWith("ARMORTYPE="))
 			{
 				foundOther = true;
 				CDOMReference<Equipment> ref = TokenUtilities.getTypeReference(
@@ -293,6 +293,6 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String getLstFormat()
 	{
-		return "%LIST";
+		return Constants.LST_PERCENT_LIST;
 	}
 }

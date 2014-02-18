@@ -68,10 +68,10 @@ public class TemplateLst extends AbstractToken implements
 			remaining = value.substring(Constants.LST_CHOOSE_COLON.length());
 			consolidate = true;
 		}
-		else if (value.startsWith(Constants.LST_ADD_CHOICE_COLON))
+		else if (value.startsWith("ADDCHOICE:"))
 		{
 			lk = ListKey.TEMPLATE_ADDCHOICE;
-			remaining = value.substring(Constants.LST_ADD_CHOICE_COLON.length());
+			remaining = value.substring("ADDCHOICE:".length());
 		}
 		else
 		{
@@ -188,7 +188,7 @@ public class TemplateLst extends AbstractToken implements
 				.getAdded();
 		if (addedItems != null && !addedItems.isEmpty())
 		{
-			list.add(Constants.LST_ADD_CHOICE_COLON
+			list.add("ADDCHOICE:"
 					+ ReferenceUtilities.joinLstFormat(addedItems,
 							Constants.PIPE));
 		}

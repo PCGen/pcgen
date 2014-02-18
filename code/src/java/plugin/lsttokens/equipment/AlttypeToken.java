@@ -50,7 +50,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 		Equipment eq, String value)
 	{
 		EquipmentHead head = eq.getEquipmentHead(2);
-		if (value.startsWith(".CLEAR"))
+		if (value.startsWith(Constants.LST_DOT_CLEAR))
 		{
 			context.getObjectContext().removeList(head, ListKey.TYPE);
 			if (value.length() == 6)

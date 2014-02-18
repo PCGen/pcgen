@@ -2,6 +2,7 @@ package plugin.lsttokens.eqslot;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSlot;
@@ -32,7 +33,7 @@ public class NumslotsToken implements EquipSlotLstToken
 		{
 			// parse the default number of each type
 			final String cString = token.nextToken().trim();
-			final StringTokenizer cTok = new StringTokenizer(cString, ":");
+			final StringTokenizer cTok = new StringTokenizer(cString, Constants.COLON);
 
 			if (cTok.countTokens() == 2)
 			{

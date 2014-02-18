@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -59,7 +60,7 @@ public class ResizableEquipTypeToken implements GameModeLstToken
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		List<String> typelist = new ArrayList<String>();
-		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
 		while (aTok.hasMoreTokens())
 		{

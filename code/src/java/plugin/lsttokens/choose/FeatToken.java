@@ -24,6 +24,7 @@ import pcgen.cdom.base.CategorizedChooseInformation;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToChoiceSet;
@@ -83,7 +84,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				activeValue = value.substring(0, pipeLoc);
 				if (title == null || title.length() == 0)
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
+					return new ParseResult.Fail(getParentToken() + Constants.COLON
 						+ getTokenName() + " had TITLE= but no title: " + value, context);
 				}
 			}
@@ -141,7 +142,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (!tc.getGroupingState().isValid())
 		{
 			context.addWriteMessage("Invalid combination of objects"
-					+ " was used in: " + getParentToken() + ":"
+					+ " was used in: " + getParentToken() + Constants.COLON
 					+ getTokenName());
 			return null;
 		}

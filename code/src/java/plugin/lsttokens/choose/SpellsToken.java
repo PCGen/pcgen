@@ -20,6 +20,7 @@ package plugin.lsttokens.choose;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
@@ -86,7 +87,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 
 	private String processMagicalWords(String value)
 	{
-		StringTokenizer st = new StringTokenizer(value, "|", true);
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE, true);
 		StringBuilder sb = new StringBuilder();
 		while (st.hasMoreTokens())
 		{
@@ -98,7 +99,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 					+ "has been changed to DOMAINLIST=");
 				tok = "DOMAINLIST=" + profKey;
 			}
-			if ("CLASS.".regionMatches(true, 0, tok, 0, 6))
+			if (Constants.LST_CLASS_DOT.regionMatches(true, 0, tok, 0, 6))
 			{
 				final String profKey = tok.substring(6);
 				Logging.errorPrint("CHOOSE:SPELLS|CLASS is deprecated, "
@@ -112,19 +113,19 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 					+ "has been changed to DOMAINLIST=");
 				tok = "DOMAINLIST=" + profKey;
 			}
-			if ("CLASS=".regionMatches(true, 0, tok, 0, 6))
+			if (Constants.LST_CLASS_EQUAL.regionMatches(true, 0, tok, 0, 6))
 			{
 				final String profKey = tok.substring(6);
 				Logging.errorPrint("CHOOSE:SPELLS|CLASS is deprecated, "
 					+ "has been changed to CLASSLIST=");
 				tok = "CLASSLIST=" + profKey;
 			}
-			if ("ANY".regionMatches(true, 0, tok, 0, 3))
+			if (Constants.LST_ANY.regionMatches(true, 0, tok, 0, 3))
 			{
 				final String remainder = tok.length()>3?tok.substring(3) :"";
 				Logging.errorPrint("CHOOSE:SPELLS|ANY is deprecated, "
 					+ "has been changed to ALL");
-				tok = "ALL" + remainder;
+				tok = Constants.LST_ALL + remainder;
 			}
 			sb.append(tok);
 		}

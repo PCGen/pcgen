@@ -73,7 +73,7 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 			throw new IllegalArgumentException(
 					"SubtractingFormula only has one back-reference");
 		}
-		return numbers[0].intValue() - sub;
+		return Integer.valueOf(numbers[0].intValue() - sub);
 	}
 
 	/**

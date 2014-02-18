@@ -113,7 +113,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 				cpr.addErrorMessage("  Tag was: " + value);
 				return cpr;
 			}
-			if (newType.indexOf(".") != -1)
+			if (newType.indexOf(Constants.DOT) != -1)
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("Improper "
@@ -195,9 +195,9 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 				needComma = true;
 				String sourceLst = source.getLSTformat(false);
-				if (sourceLst.startsWith("TYPE="))
+				if (sourceLst.startsWith(Constants.LST_TYPE_EQUAL))
 				{
-					sb.append("TYPE.");
+					sb.append(Constants.LST_TYPE_DOT);
 					sb.append(sourceLst.substring(5));
 				}
 				else

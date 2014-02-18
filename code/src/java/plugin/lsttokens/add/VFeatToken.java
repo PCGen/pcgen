@@ -73,7 +73,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -263,11 +263,17 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				if (container.allowsStacking())
 				{
 					sb.append("STACKS");
-					int stackLimit = container.getStackLimit();
-					if (stackLimit != 0)
+					Integer stackLimit = container.getStackLimit();
+					if (stackLimit != null)
 					{
+						if (stackLimit.intValue() <= 0)
+						{
+							context.addWriteMessage("Stack Limit in "
+								+ getFullName() + " must be > 0");
+							return null;
+						}
 						sb.append(Constants.EQUALS);
-						sb.append(container.getStackLimit());
+						sb.append(stackLimit.intValue());
 					}
 					sb.append(Constants.COMMA);
 				}

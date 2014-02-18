@@ -50,7 +50,7 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject cdo, String value)
 	{
-		if (value.startsWith(".CLEAR"))
+		if (value.startsWith(Constants.LST_DOT_CLEAR))
 		{
 			context.getObjectContext().removeList(cdo, ListKey.TYPE);
 			if (value.length() == 6)

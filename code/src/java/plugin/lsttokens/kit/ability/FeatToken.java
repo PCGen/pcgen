@@ -76,7 +76,7 @@ public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		KitAbilities kitAbil, String value)
 	{
-		StringTokenizer st = new StringTokenizer(value, "|");
+		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 
 		kitAbil.setCategory(AbilityCategory.FEAT);
 

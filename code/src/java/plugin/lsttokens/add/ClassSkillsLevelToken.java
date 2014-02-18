@@ -67,7 +67,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override

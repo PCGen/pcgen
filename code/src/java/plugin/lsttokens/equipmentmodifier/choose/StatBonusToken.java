@@ -72,7 +72,7 @@ public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value, context);
 		}
-		int pipeLoc = value.indexOf("|");
+		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()

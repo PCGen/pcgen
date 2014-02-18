@@ -178,19 +178,6 @@ public class TestHelper
 	}
 
 	/**
-	 * Load and initialise the properties, plugins and GameModes
-	 */
-	public static void loadAll()
-	{
-		SettingsHandler.readOptionsProperties();
-		SettingsHandler.getOptionsFromProperties(null);
-
-		loadPlugins();
-		SettingsHandler.initGameModes();
-		SettingsHandler.getGame().clearLoadContext();
-	}
-
-	/**
 	 * Get the field related to a name
 	 * @param aClass The class to search for the field
 	 * @param fieldName the field to search for

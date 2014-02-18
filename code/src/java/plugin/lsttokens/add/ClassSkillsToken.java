@@ -66,7 +66,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override

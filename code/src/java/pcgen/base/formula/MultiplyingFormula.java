@@ -74,8 +74,9 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 			throw new IllegalArgumentException(
 					"MultiplyingFormula only has one backreference");
 		}
-		// TODO May not be correct (order of rounding op)
-		return numbers[0].intValue() * multiplier;
+		//Must calculate before rounding, consider 1.4 * 3
+		double d = numbers[0].doubleValue() * multiplier;
+		return Integer.valueOf((int) d);
 	}
 
 	/**

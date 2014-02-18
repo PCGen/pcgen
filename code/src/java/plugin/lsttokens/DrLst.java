@@ -62,14 +62,14 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (".CLEAR".equals(value))
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 			context.getObjectContext()
 					.removeList(obj, ListKey.DAMAGE_REDUCTION);
 			return ParseResult.SUCCESS;
 		}
 
-		StringTokenizer tok = new StringTokenizer(value, "|");
+		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String drString = tok.nextToken();
 		ParseResult pr = checkForIllegalSeparator('/', drString);
 		if (!pr.passed())

@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.persistence.lst.MigrationLstToken;
@@ -75,7 +76,7 @@ public class NewKeyToken implements MigrationLstToken
 		if (validationPattern.matcher(value).matches())
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid characters in value '"
-				+ value + "' of " + getTokenName() + ":" + value);
+				+ value + "' of " + getTokenName() + Constants.COLON + value);
 			return false;
 		}
 		migrationRule.setNewKey(value);

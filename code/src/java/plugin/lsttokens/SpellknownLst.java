@@ -109,7 +109,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			}
 		}
 
-		StringTokenizer tok = new StringTokenizer(workingValue, "|");
+		StringTokenizer tok = new StringTokenizer(workingValue, Constants.PIPE);
 
 		if (tok.countTokens() < 3)
 		{

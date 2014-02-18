@@ -62,7 +62,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 							+ getTokenName() + ": When used, .CLEAR must be the first argument", context);
 				}
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
-			} else if ("%LIST".equals(token))
+			} else if (Constants.LST_PERCENT_LIST.equals(token))
 			{
 				ChooseSelectionActor<Language> cra;
 				if (prereq == null)
@@ -288,6 +288,6 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 	@Override
 	public String getLstFormat()
 	{
-		return "%LIST";
+		return Constants.LST_PERCENT_LIST;
 	}
 }

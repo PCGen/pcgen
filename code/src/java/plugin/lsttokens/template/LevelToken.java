@@ -58,7 +58,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public ParseResult parseToken(LoadContext context, PCTemplate template, String value)
 	{
-		if (".CLEAR".equals(value))
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 
 			context.getObjectContext().removeList(template,

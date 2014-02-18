@@ -87,7 +87,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 		 * rounding, and rounding first results in a faster & more accurate
 		 * calculation.
 		 */
-		return numbers[0].intValue() / denominator;
+		return Integer.valueOf(numbers[0].intValue() / denominator);
 	}
 
 	/**

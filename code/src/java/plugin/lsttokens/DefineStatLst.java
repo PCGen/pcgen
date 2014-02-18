@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
@@ -84,22 +85,22 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		catch (IllegalArgumentException e1)
 		{
 			return new ParseResult.Fail(
-				"Found unexpected sub tag " + firstItem + " in " + getTokenName() + ":" +value
+				"Found unexpected sub tag " + firstItem + " in " + getTokenName() + Constants.COLON +value
 				+ ". Must be one of "
-				+ StringUtils.join(DefineStatSubToken.values(), ", ") + ".",
+				+ StringUtils.join(DefineStatSubToken.values(), ", ") + Constants.DOT,
 				context);
 		}
 
 		if (!sep.hasNext())
 		{
 			return new ParseResult.Fail(getTokenName()
-				+ ":"+subToken+"| must be followed by a stat.", context);
+				+ Constants.COLON+subToken+"| must be followed by a stat.", context);
 		}
 		String statKey = sep.next();
 		PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, statKey);
 		if (stat == null)
 		{
-			return new ParseResult.Fail(getTokenName() + ":" + value
+			return new ParseResult.Fail(getTokenName() + Constants.COLON + value
 				+ " uses an invalid stat key.", context);
 		}
 		
@@ -111,7 +112,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(getTokenName()
-					+ ":"+subToken+"| must be followed by both a stat and a value.", context);
+					+ Constants.COLON+subToken+"| must be followed by both a stat and a value.", context);
 			}
 			String formula = sep.next();
 			f = FormulaFactory.getFormulaFor(formula);
@@ -124,7 +125,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + ":" + value
+			return new ParseResult.Fail(getTokenName() + Constants.COLON + value
 				+ " has too many pipe separated item.", context);
 		}
 
@@ -188,7 +189,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				for (StatLock sl : lockChanges.getAdded())
 				{
-					set.add("LOCK|" + sl.getLockedStat().getLSTformat() + "|"
+					set.add("LOCK|" + sl.getLockedStat().getLSTformat() + Constants.PIPE
 							+ sl.getLockValue());
 				}
 			}
@@ -235,7 +236,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				for (StatLock sl : minValueChanges.getAdded())
 				{
-					set.add("MINVALUE|" + sl.getLockedStat().getLSTformat() + "|"
+					set.add("MINVALUE|" + sl.getLockedStat().getLSTformat() + Constants.PIPE
 							+ sl.getLockValue());
 				}
 			}
@@ -246,7 +247,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				for (StatLock sl : maxValueChanges.getAdded())
 				{
-					set.add("MAXVALUE|" + sl.getLockedStat().getLSTformat() + "|"
+					set.add("MAXVALUE|" + sl.getLockedStat().getLSTformat() + Constants.PIPE
 							+ sl.getLockValue());
 				}
 			}

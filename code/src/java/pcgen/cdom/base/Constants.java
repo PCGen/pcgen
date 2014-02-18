@@ -79,12 +79,6 @@ public interface Constants
 	 * Game mode constants
 	 ********************************************************************/
 
-	/** Gamemode identification string - Third edition. */
-	String GAMEMODE_EDITION_THREE_POINT_ZERO = "3e"; //$NON-NLS-1$
-
-	/** Gamemode identification string - edition three point five. */
-	String GAMEMODE_EDITION_THREE_POINT_FIVE = "35e"; //$NON-NLS-1$
-
 	/** None selected, wrapped in html tags. */
 	String WRAPPED_NONE_SELECTED = "<html>none selected</html>"; //$NON-NLS-1$
 
@@ -415,9 +409,6 @@ public interface Constants
 	/** Asterisk '*' character as a constant. */
 	char CHAR_ASTERISK = '*';
 
-	/** Percent character as a constant. */
-	char CHAR_PERCENT = '%';
-
 	/** A snippet of List code as a constant. */
 	String LST_DOT_CLEAR = ".CLEAR";
 
@@ -434,34 +425,10 @@ public interface Constants
 	String LST_SEMI_LEVEL_EQUAL = ";LEVEL=";
 
 	/** A snippet of List code as a constant. */
-	String LST_ARMORTYPE_DOT = "ARMORTYPE.";
-
-	/** A snippet of List code as a constant. */
-	String LST_ARMORTYPE_EQUAL = "ARMORTYPE=";
-
-	/** A snippet of List code as a constant. */
-	String LST_BASE_DOT = "BASE.";
-
-	/** A snippet of List code as a constant. */
-	String LST_CAST_DOT = "CAST.";
-
-	/** A snippet of List code as a constant. */
-	String LST_CAST_EQUAL = "CAST=";
-
-	/** A snippet of List code as a constant. */
 	String LST_CLASS_DOT = "CLASS.";
 
 	/** A snippet of List code as a constant. */
 	String LST_CLASS_EQUAL = "CLASS=";
-
-	/** A snippet of List code as a constant. */
-	String LST_SHIELDTYPE_DOT = "SHIELDTYPE.";
-
-	/** A snippet of List code as a constant. */
-	String LST_SHIELDTYPE_EQUAL = "SHIELDTYPE=";
-
-	/** A snippet of List code as a constant. */
-	String LST_STAT_EQUAL = "STAT=";
 
 	/** A snippet of List code as a constant. */
 	String LST_TYPE_DOT = "TYPE.";
@@ -475,7 +442,6 @@ public interface Constants
 	/** A snippet of List code as a constant. */
 	String LST_NOT_TYPE_EQUAL = "!TYPE=";
 
-
 	/** A snippet of List code as a constant. */
 	String LST_PERCENT_CHOICE = "%CHOICE";
 
@@ -484,10 +450,6 @@ public interface Constants
 
 	/** A snippet of List code as a constant. */
 	String LST_CHOOSE_COLON = "CHOOSE:";
-
-	/** A snippet of List code as a constant. */
-	String LST_ADD_CHOICE_COLON = "ADDCHOICE:";
-
 
 	/** A snippet of List code as a constant. */
 	String LST_ALL = "ALL";
@@ -499,22 +461,10 @@ public interface Constants
 	String LST_CROSS_CLASS = "CROSSCLASSSKILLS";
 
 	/** A snippet of List code as a constant. */
-	String LST_CHOICE = "CHOICE";
-
-	/** A snippet of List code as a constant. */
 	String LST_CLASS = "CLASS";
 
 	/** A snippet of List code as a constant. */
-	String LST_DESCRIPTOR = "DESCRIPTOR";
-
-	/** A snippet of List code as a constant. */
-	String LST_DOMAIN = "DOMAIN";
-
-	/** A snippet of List code as a constant. */
 	String LST_EXCLUSIVE = "EXCLUSIVE";
-
-	/** A snippet of List code as a constant. */
-	String LST_LEVEL = "LEVEL";
 
 	/** A snippet of List code as a constant. */
 	String LST_LIST = "LIST";
@@ -526,22 +476,7 @@ public interface Constants
 	String LST_NONEXCLUSIVE = "NONEXCLUSIVE";
 
 	/** A snippet of List code as a constant. */
-	String LST_NUMBER = "NUMBER";
-
-	/** A snippet of List code as a constant. */
-	String LST_SCHOOL = "SCHOOL";
-
-	/** A snippet of List code as a constant. */
-	String LST_SUBSCHOOL = "SUBSCHOOL";
-
-	/** A snippet of List code as a constant. */
-	String LST_SPELL = "SPELL";
-
-	/** A snippet of List code as a constant. */
 	String LST_TRAINED = "TRAINED";
-
-	/** A snippet of List code as a constant. */
-	String LST_TYPE = "TYPE";
 
 	/** A snippet of List code as a constant. */
 	String LST_UNTRAINED = "UNTRAINED";

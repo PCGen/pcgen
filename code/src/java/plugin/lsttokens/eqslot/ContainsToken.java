@@ -2,6 +2,7 @@ package plugin.lsttokens.eqslot;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.character.EquipSlot;
 import pcgen.persistence.lst.EquipSlotLstToken;
 import pcgen.util.Logging;
@@ -27,18 +28,18 @@ public class ContainsToken implements EquipSlotLstToken
 			return false;
 		}
 		
-		final StringTokenizer token = new StringTokenizer(value, "=");
+		final StringTokenizer token = new StringTokenizer(value, Constants.EQUALS);
 
 		if (token.countTokens() < 2)
 		{
 			Logging.log(Logging.LST_ERROR, "Missing = in value '" + value
-				+ "' of " + getTokenName() + ":" + value);
+				+ "' of " + getTokenName() + Constants.COLON + value);
 			return false;
 		}
 		else if (token.countTokens() > 2)
 		{
 			Logging.log(Logging.LST_ERROR, "Too many = in value '" + value
-				+ "' of " + getTokenName() + ":" + value);
+				+ "' of " + getTokenName() + Constants.COLON + value);
 			return false;
 		}
 		

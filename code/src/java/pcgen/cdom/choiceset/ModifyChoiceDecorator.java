@@ -108,7 +108,8 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 		Set<Ability> returnSet = new HashSet<Ability>();
 		for (Ability a : pcfeats)
 		{
-			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && collection.contains(a))
+			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue()
+				&& collection.contains(a))
 			{
 				returnSet.add(a);
 			}

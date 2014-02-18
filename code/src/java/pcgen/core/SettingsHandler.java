@@ -53,7 +53,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -77,7 +76,7 @@ public final class SettingsHandler
 	private static boolean autogenMagic = false;
 	private static boolean autogenMasterwork = false;
 	private static boolean autogenRacial = false;
-	private static boolean validateBonuses = false;
+	public static boolean validateBonuses = false;
 
 	//
 	// For EqBuilder
@@ -103,7 +102,7 @@ public final class SettingsHandler
 	private static int customizerSplit2 = -1;
 	private static boolean enforceSpendingBeforeLevelUp = false;
 	private static final Properties FILTERSETTINGS = new Properties();
-	private static GameMode game = new GameMode("default");
+	public static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
 	private static boolean grittyACMode = false;
 	private static Dimension kitSelectorDimension = null;
@@ -1037,34 +1036,6 @@ public final class SettingsHandler
 			}
 		}
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
-	}
-
-	/**
-	 * Initialise the data and game modes - does the parsing of the data, so 
-	 * the plugins must be loaded before this method is called.
-	 * 
-	 * @deprecated This is calling Persistence Manager, so it should no longer be used
-	 * CODE-1888
-	 */
-	@Deprecated
-	public static void initGameModes()
-	{
-		try
-		{
-			PersistenceManager.getInstance().initialize();
-		}
-		catch (PersistenceLayerException e)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				e.getMessage(), Constants.APPLICATION_NAME, MessageType.INFORMATION);
-		}
-
-		setGame(getPCGenOption("game", Constants.GAMEMODE_EDITION_THREE_POINT_FIVE)); //$NON-NLS-1$
-		game.clearLoadContext();
-
-		Globals.createEmptyRace();
-
-		validateBonuses = getPCGenOption("validateBonuses", false); //$NON-NLS-1$
 	}
 
 	public static void setOptionsProperties(final PlayerCharacter aPC)

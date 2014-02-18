@@ -70,7 +70,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 	public ParseResult parseToken(LoadContext context, Campaign campaign,
 		String value)
 	{
-		final StringTokenizer tok = new StringTokenizer(value, "|");
+		final StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
 			return new ParseResult.Fail("URL token requires three arguments. Link kind, "

@@ -81,7 +81,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	/** A map of Lists for the object */
 	// TODO make this final once clone() is no longer required...
-	// TODO Make this private once PObject is cleaned up
 	private ListKeyMapToList listChar = null;
 
 	/** A map of Maps for the object */
@@ -92,7 +91,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	/*
 	 * CONSIDER This is currently order enforcing the reference fetching to
 	 * match the integration tests that we perform, and their current behavior.
-	 * Not sure if this is really tbe best solution?
+	 * Not sure if this is really the best solution?
 	 */
 	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = null;
 
@@ -109,7 +108,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final int getSafe(IntegerKey key)
 	{
 		Integer intValue = integerChar == null ? null : integerChar.get(key);
-		return intValue == null ? key.getDefault() : intValue;
+		return intValue == null ? key.getDefault() : intValue.intValue();
 	}
 
 	public final Integer put(IntegerKey key, Integer intValue)
@@ -508,7 +507,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public String getKeyName()
 	{
 		// FIXME TODO Patched for now to avoid NPEs, but this is wrong
-		// TODO Auto-generated method stub
 		String returnKey = this.get(StringKey.KEY_NAME);
 		if (returnKey == null)
 		{
@@ -952,6 +950,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public boolean isInternal()
 	{
-		return getSafe(ObjectKey.INTERNAL);
+		return getSafe(ObjectKey.INTERNAL).booleanValue();
 	}
 }

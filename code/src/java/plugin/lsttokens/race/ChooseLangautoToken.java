@@ -59,7 +59,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 
 	private String getFullName()
 	{
-		return getParentToken() + ":" + getTokenName();
+		return getParentToken() + Constants.COLON + getTokenName();
 	}
 
 	@Override

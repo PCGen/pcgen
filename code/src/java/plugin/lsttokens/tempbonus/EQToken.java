@@ -86,7 +86,7 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		for (EquipBonus eb : added)
 		{
 			String bonusText = eb.bonus.getLSTformat();
-			bonusSet.add(eb.conditions + "|" + bonusText);
+			bonusSet.add(eb.conditions + Constants.PIPE + bonusText);
 		}
 		return bonusSet.toArray(new String[bonusSet.size()]);
 	}

@@ -45,7 +45,7 @@ public final class Checks extends BonusObj
 		boolean isBase = false;
 		final String token;
 
-		if (argToken.startsWith(Constants.LST_BASE_DOT))
+		if (argToken.startsWith("BASE."))
 		{
 			token = argToken.substring(Constants.SUBSTRING_LENGTH_FIVE);
 			isBase = true;
@@ -98,7 +98,7 @@ public final class Checks extends BonusObj
 		}
 
 		String token = ((CheckInfo) obj).isBase()
-			? Constants.LST_BASE_DOT
+			? "BASE."
 			: Constants.EMPTY_STRING;
 
 		return token + ((CheckInfo) obj).getPobj().getLSTformat(false);

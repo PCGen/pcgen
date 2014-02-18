@@ -19,6 +19,7 @@ package plugin.lsttokens.statsandchecks.stat;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
@@ -40,7 +41,7 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 	@Override
 	public ParseResult parseToken(LoadContext context, PCStat stat, String value)
 	{
-		final StringTokenizer aTok = new StringTokenizer(value, "|", false);
+		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
 		if (aTok.countTokens() == 2)
 		{

@@ -127,7 +127,7 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 				Category<SubClass> parent =
 						((CategorizedCDOMReference<SubClass>) ref)
 							.getCDOMCategory();
-				set.add(parent.toString() + "." + ref.getLSTformat(false) + '='
+				set.add(parent.toString() + Constants.DOT + ref.getLSTformat(false) + '='
 					+ me.getValue());
 			}
 			else
