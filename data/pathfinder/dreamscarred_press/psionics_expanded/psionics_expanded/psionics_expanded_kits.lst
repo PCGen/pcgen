@@ -4,7 +4,7 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 # ORIGINAL ENTRY DATE: 2013/07/05
 
 ###Block: Astral Swarm
-STARTPACK:Astral Swarm Default	TYPE:DefaultMonster.AstralSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Swarm]	SOURCEPAGE:p.66
+STARTPACK:Astral Swarm Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Swarm]	SOURCEPAGE:p.66
 RACE:Astral Swarm	!PRERACE:1,%
 NAME:Astral Swarm
 ALIGN:TN
