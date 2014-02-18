@@ -1,14 +1,14 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight	SOURCESHORT:AP18	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86v1	SOURCEDATE:2009-01
 
-STARTPACK:Sample Black-Blooded Creature (The Moldering Emperor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Neothelid],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+STARTPACK:Sample Black-Blooded Creature (The Moldering Emperor)	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Neothelid],[!PRERACE:1,%]	SOURCEPAGE:p. 82
 KIT:Neothelid Default
 NAME:The Moldering Emperor
 ALIGN:CE
 TEMPLATE:Black-Blooded
 
 
-STARTPACK:Charda Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charda],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+STARTPACK:Charda Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Charda],[!PRERACE:1,%]	SOURCEPAGE:p. 84
 ALIGN:CN
 RACE:Charda	!PRERACE:1,%
 NAME:Charda
@@ -24,8 +24,9 @@ FEAT:Great Fortitude
 FEAT:Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
+###MISSING CHARDA BLACKTONGUE
 
-STARTPACK:Xacarba Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Xacarba],[!PRERACE:1,%]	SOURCEPAGE:p. 88
+STARTPACK:Xacarba Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Xacarba],[!PRERACE:1,%]	SOURCEPAGE:p. 88
 ALIGN:CE
 RACE:Xacarba	!PRERACE:1,%
 NAME:Xacarba
@@ -52,3 +53,7 @@ FEAT:Power Attack
 FEAT:Lightning Reflexes
 FEAT:Spring Attack
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+###MISSING SHAITAN
+###MISSING SHAITAN PASHA
