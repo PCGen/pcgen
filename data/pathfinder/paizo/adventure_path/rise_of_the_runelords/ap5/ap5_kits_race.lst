@@ -33,7 +33,7 @@ GEAR:Greatclub		SIZE:PC	LOCATION:Primary Hand
 GEAR:Rock (Medium)			LOCATION:Carried
 
 
-STARTPACK:Marsh Giant (Brineborn) TYPE:Default Monster.Humanoid	Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant (Brineborn)]
+STARTPACK:Marsh Giant (Brineborn) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marsh Giant (Brineborn)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 RACE:Marsh Giant (Brineborn)	!PRERACE:1,%
 NAME:Brineborn
