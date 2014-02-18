@@ -2,6 +2,8 @@
 SOURCELONG:Rise of the Runelords, Chapter 2 - The Skinsaw Murders	SOURCESHORT:AP2	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
+#Commented out until Lyrakien Familiar is properly implemented
+
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race		Apply Kit
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lyrakien	KIT:1|Lyrakien Familiar
+#FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Lyrakien	KIT:1|Lyrakien Familiar
