@@ -9017,21 +9017,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return false;
 	}
 
-	/**
-	 * Return a set of all abilities no matter what category or 
-	 * nature that the PC has. 
-	 * @return Set of all abilities.
-	 */
-	public Set<Ability> getFullAbilitySet()
-	{
-		Set<Ability> abilitySet = new HashSet<Ability>();
-		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
-		{
-			abilitySet.addAll(this.getAggregateAbilityList(cat));
-		}
-		return abilitySet;
-	}
-
 	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
 			CDOMReference<? extends CDOMList<A>> ref)
 	{
