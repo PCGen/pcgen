@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley
+
+
+# Equipment Name			Output Name				Type							Contains			Cost		Weight	Source Page		Innate Spells										Modify VAR						Special Property
+Charm of Aluum Control.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Goz Mask.MOD					TYPE:PFSLegal
+Mask of the Mantis.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Unguent of Revivification.MOD	TYPE:PFSLegal
+Wayfinder.MOD					TYPE:PFSLegal
+Zoic Fetish (Mammal).MOD		TYPE:PFSLegal
+Zoic Fetish (Bird).MOD			TYPE:PFSLegal
+Zoic Fetish (Reptile).MOD		TYPE:PFSLegal
+Zoic Fetish (Amphibian).MOD		TYPE:PFSLegal
+Zoic Fetish (Fish).MOD			TYPE:PFSLegal
+Final Blade.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Sun Orchid Elixir.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Wardstone.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1

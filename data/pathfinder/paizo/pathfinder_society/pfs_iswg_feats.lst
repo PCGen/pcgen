@@ -1,0 +1,51 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+#SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher & Paul Shipley
+
+# Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus; 
+
+# Feat Name					Product Identity?	Type			Visible	Required Ability								Required AL		Required Deity		Required Feat																			Multiple Requirements						Required Skill								Required Casting Type		Required Spell School		Required Stat	Required Text				Var. Must Be Grater		Req. Weapond Prof.					Define				Desc is PI?		Description																																					Stackable?	Multiple?	Choose								Virtual Feat																	Bonus to Ability Pool					Combat bonus																		Bonus to skill									Modify VAR					Weapon prof. bonus																																																					Class Skill				Source Page			Aspects														Description of the Benefits																																																																																																																																																					Temporary effect description																List of Known Class Spells by Level																																																											Temporary Bonus
+Aldori Dueling Mastery
+Altitude Affinity.MOD		TYPE:PFSLegal	
+Andoren Falconry.MOD		TYPE:PFSLegal	
+Arcane Vendetta.MOD			TYPE:PFSLegal	
+Careful Speaker.MOD			TYPE:PFSLegal	
+Cypher Magic.MOD			TYPE:PFSLegal		PREFEAT:1,Spell Focus
+Cypher Script.MOD			TYPE:PFSLegal	
+Demon Hunter.MOD			TYPE:PFSLegal	
+Dervish Dance.MOD			TYPE:PFSLegal	
+Desert Dweller.MOD			TYPE:PFSLegal	
+Desperate Battler.MOD		TYPE:PFSLegal	
+Eye of the Arclord.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Fey Foundling.MOD			TYPE:PFSLegal	
+Flagbearer.MOD				TYPE:PFSLegal	
+Focused Discipline.MOD		TYPE:PFSLegal	
+Fortune Teller.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Free Spirit.MOD				TYPE:PFSLegal	
+Godless Healing.MOD			TYPE:PFSLegal	
+Green Faith Acolyte.MOD		TYPE:PFSLegal	
+Hamatulatsu.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Harmonic Spell.MOD			TYPE:PFSLegal	
+Harrowed.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Hermean Blood.MOD			TYPE:PFSLegal	
+Necromantic Affinity.MOD	TYPE:PFSLegal	
+Noble Scion.MOD				TYPE:PFSLegal	
+Rugged Northerner.MOD		TYPE:PFSLegal	
+Scholar.MOD					TYPE:PFSLegal	
+Secret Signs.MOD			TYPE:PFSLegal	
+Shade of the Uskwood.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Shrewd Tactician.MOD		TYPE:PFSLegal	
+Stoic.MOD					TYPE:PFSLegal	
+Storm-Lashed.MOD			TYPE:PFSLegal	
+Survivor.MOD				TYPE:PFSLegal	
+Taldan Duelist.MOD			TYPE:PFSLegal	
+Totem Spirit.MOD			TYPE:PFSLegal	
+Varisian Tattoo.MOD			TYPE:PFSLegal	
+Wand Dancer.MOD				TYPE:PFSLegal	
+
+# .MOD to incorporate firearms
+Rapid Reload.MOD			TYPE:PFSLegal	
+
+# PREAPPLYs
+Aldori Dueling Mastery (One-Handed).MOD			TYPE:PFSLegal	
+Aldori Dueling Mastery (Two-Handed).MOD			TYPE:PFSLegal	

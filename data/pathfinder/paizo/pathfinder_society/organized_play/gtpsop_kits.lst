@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# SVN $Revision: 21684 $ $Author: spraynpray $
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
+
+# TODO: if possible restrict that to PC
+STARTPACK:Pathfinder Society Starting Gold	TYPE:Starting.Gold	VISIBLE:YES	APPLY:INSTANT
+FUNDS:gp	QTY:150
+
+# No need for this because of the PFS start gold rule.
+# Magical Key Change - .MOD is not a valid use in the current format.
+# 01:06:10.353 SEVERE Thread-6 AbstractReferenceManufacturer:883 Kit Magical Key Change: Classes Starting Gold ~ CRB.MOD to
+#STARTPACK:Classes Starting Gold ~ CRB.MOD	PRECLASS:1,NPC=1,Monster=1
