@@ -6295,48 +6295,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		removeExcessSkills();
 		addNewSkills(filter);
-
-		// Now regenerate the output order
-		final int sort;
-		final boolean sortOrder;
-
-		switch (getSkillsOutputOrder())
+		final List<Skill> localSkillList = new ArrayList<Skill>(getSkillSet());
+		SkillComparator comparator = getSkillsOutputOrder().getComparator(this);
+		if (comparator == null)
 		{
-		case NAME_ASC:
-			sort = SkillComparator.RESORT_NAME;
-			sortOrder = SkillComparator.RESORT_ASCENDING;
-
-			break;
-
-		case NAME_DSC:
-			sort = SkillComparator.RESORT_NAME;
-			sortOrder = SkillComparator.RESORT_DESCENDING;
-
-			break;
-
-		case TRAINED_ASC:
-			sort = SkillComparator.RESORT_TRAINED;
-			sortOrder = SkillComparator.RESORT_ASCENDING;
-
-			break;
-
-		case TRAINED_DSC:
-			sort = SkillComparator.RESORT_TRAINED;
-			sortOrder = SkillComparator.RESORT_DESCENDING;
-
-			break;
-
-		default:
-
-			// Manual sort, or unrecognised, so do no sorting.
 			return;
 		}
-
-		final List<Skill> localSkillList = new ArrayList<Skill>(getSkillSet());
-		final SkillComparator comparator = new SkillComparator(this, sort, sortOrder);
-		int nextOutputIndex = 1;
 		Collections.sort(localSkillList, comparator);
 
+		int nextOutputIndex = 1;
 		for (Skill skill : localSkillList)
 		{
 			Integer outputIndex = getSkillOrder(skill);

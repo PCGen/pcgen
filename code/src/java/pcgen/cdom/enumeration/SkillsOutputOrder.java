@@ -22,6 +22,9 @@
  */
 package pcgen.cdom.enumeration;
 
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SkillComparator;
+
 /**
  * SkillsOutputOrder defines the possible orders of skill in output sheets. 
  * 
@@ -30,7 +33,49 @@ package pcgen.cdom.enumeration;
  */
 public enum SkillsOutputOrder
 {
-	NAME_ASC, NAME_DSC, 
-	TRAINED_ASC, TRAINED_DSC,
-	MANUAL
+	NAME_ASC {
+		@Override
+		public SkillComparator getComparator(PlayerCharacter pc)
+		{
+			return new SkillComparator(pc, SkillComparator.RESORT_NAME,
+				SkillComparator.RESORT_ASCENDING);
+		}
+	},
+
+	NAME_DSC {
+		@Override
+		public SkillComparator getComparator(PlayerCharacter pc)
+		{
+			return new SkillComparator(pc, SkillComparator.RESORT_NAME,
+				SkillComparator.RESORT_DESCENDING);
+		}
+	},
+
+	TRAINED_ASC {
+		@Override
+		public SkillComparator getComparator(PlayerCharacter pc)
+		{
+			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED,
+				SkillComparator.RESORT_ASCENDING);
+		}
+	},
+
+	TRAINED_DSC {
+		@Override
+		public SkillComparator getComparator(PlayerCharacter pc)
+		{
+			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED,
+				SkillComparator.RESORT_DESCENDING);
+		}
+	},
+
+	MANUAL {
+		@Override
+		public SkillComparator getComparator(PlayerCharacter pc)
+		{
+			return null;
+		}
+	};
+
+	public abstract SkillComparator getComparator(PlayerCharacter pc);
 }
