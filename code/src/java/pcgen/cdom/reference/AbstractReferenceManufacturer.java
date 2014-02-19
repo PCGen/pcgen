@@ -546,9 +546,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		String oldKey = item.getKeyName();
 		if (oldKey.equalsIgnoreCase(key))
 		{
-			Logging.debugPrint("Worthless Key change encountered: "
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Worthless Key change encountered: "
 					+ item.getDisplayName() + " " + oldKey);
-			Logging.reportSource(Logging.DEBUG, item.getSourceURI());
+				Logging.reportSource(Logging.DEBUG, item.getSourceURI());
+			}
 		}
 		forgetObject(item);
 		addObject(item, key);
@@ -761,6 +764,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 
 	private boolean validateNames()
 	{
+		if (!Logging.isLoggable(Logging.LST_WARNING))
+		{
+			return true;
+		}
 		for (String key : active.getKeySet())
 		{
 			T value = active.get(key);

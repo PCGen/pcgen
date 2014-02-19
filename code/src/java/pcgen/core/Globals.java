@@ -932,21 +932,23 @@ public final class Globals
 		boolean listsHappy = checkListsHappy();
 
 		Level logLevel = listsHappy ? Logging.DEBUG : Logging.WARNING;
-		Logging.log(logLevel, "Number of objects loaded. The following should "
-			+ "all be greater than 0:");
-		Logging.log(logLevel, "Races=" + Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size());
-		Logging.log(logLevel, "Classes=" + getContext().ref.getConstructedCDOMObjects(PCClass.class).size());
-		Logging.log(logLevel, "Skills=" + Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size());
-		Logging.log(logLevel, "Feats="
-				+ Globals.getContext().ref.getManufacturer(Ability.class,
-						AbilityCategory.FEAT).getConstructedObjectCount());
-		Logging.log(logLevel, "Equipment=" + Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size());
-		Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ArmorProf.class).size());
-		Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ShieldProf.class).size());
-		Logging.log(logLevel, "WeaponProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size());
-		Logging.log(logLevel, "Kits=" + Globals.getContext().ref.getConstructedCDOMObjects(Kit.class).size());
-		Logging.log(logLevel, "Templates=" + Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class).size());
-
+		if (Logging.isLoggable(logLevel))
+		{
+			Logging.log(logLevel, "Number of objects loaded. The following should "
+				+ "all be greater than 0:");
+			Logging.log(logLevel, "Races=" + Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size());
+			Logging.log(logLevel, "Classes=" + getContext().ref.getConstructedCDOMObjects(PCClass.class).size());
+			Logging.log(logLevel, "Skills=" + Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size());
+			Logging.log(logLevel, "Feats="
+					+ Globals.getContext().ref.getManufacturer(Ability.class,
+					AbilityCategory.FEAT).getConstructedObjectCount());
+			Logging.log(logLevel, "Equipment=" + Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size());
+			Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ArmorProf.class).size());
+			Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ShieldProf.class).size());
+			Logging.log(logLevel, "WeaponProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size());
+			Logging.log(logLevel, "Kits=" + Globals.getContext().ref.getConstructedCDOMObjects(Kit.class).size());
+			Logging.log(logLevel, "Templates=" + Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class).size());
+		}
 		return listsHappy;
 	}
 

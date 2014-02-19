@@ -99,7 +99,10 @@ public class SpellReferenceChoiceSet implements
 				listRefCollection);
 		if (set.size() != listRefCollection.size())
 		{
-			Logging.log(Level.WARNING, "Found duplicate item in " + listRefCollection);
+			if (Logging.isLoggable(Level.WARNING))
+			{
+				Logging.log(Level.WARNING, "Found duplicate item in " + listRefCollection);
+			}
 			//TODO need to trigger a bad GroupingState...
 		}
 	}

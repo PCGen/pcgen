@@ -452,8 +452,11 @@ public class DataInstaller extends JFrame
 			{
 				ZipEntry entry = in.getEntry(filename);
 				corrFilename = correctFileName(destDir, filename);
-				Logging.debugPrint("Extracting file: " + filename + " to "
-					+ corrFilename);
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("Extracting file: " + filename + " to "
+						+ corrFilename);
+				}
 				copyInputStream(
 					in.getInputStream(entry),
 					new BufferedOutputStream(new FileOutputStream(corrFilename)));

@@ -80,7 +80,10 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 		pcsSet.addAll(pcsCollection);
 		if (pcsSet.size() != pcsCollection.size())
 		{
-			Logging.log(Level.WARNING, "Found duplicate item in " + pcsCollection);
+			if (Logging.isLoggable(Level.WARNING))
+			{
+				Logging.log(Level.WARNING, "Found duplicate item in " + pcsCollection);
+			}
 			pcsSet.add(PrimitiveChoiceSet.INVALID);
 		}
 	}

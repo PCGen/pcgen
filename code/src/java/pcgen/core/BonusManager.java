@@ -309,8 +309,11 @@ public class BonusManager
 
 			if (source == null)
 			{
-				Logging.debugPrint("BONUS: " + bonus
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("BONUS: " + bonus
 						+ " ignored due to no creator");
+				}
 				continue;
 			}
 
@@ -536,12 +539,18 @@ public class BonusManager
 		// coding or best guess dependancy mapping
 		if (prevProcessed.contains(aBonus))
 		{
-			Logging.log(Logging.DEBUG, "Ignoring bonus loop for " //$NON-NLS-1$
-				+ aBonus
-				+ " as it was already processed. Bonuses already processed: " //$NON-NLS-1$
-				+ prevProcessed);
-			Logging.log(Logging.DEBUG,
-				" Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$
+			if (Logging.isDebugMode())
+			{
+				Logging
+					.log(
+						Logging.DEBUG,
+						"Ignoring bonus loop for " //$NON-NLS-1$
+							+ aBonus
+							+ " as it was already processed. Bonuses already processed: " //$NON-NLS-1$
+							+ prevProcessed);
+				Logging.log(Logging.DEBUG,
+					" Depend map is " + aBonus.listDependsMap()); //$NON-NLS-1$
+			}
 			return;
 		}
 		prevProcessed.add(aBonus);

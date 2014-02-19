@@ -114,11 +114,17 @@ public class TipOfTheDayHandler
 			}
 			catch (FileNotFoundException e)
 			{
-				Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
+				}
 			}
 			catch (IOException e)
 			{
-				Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
+				}
 			}
 		}
 

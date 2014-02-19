@@ -348,7 +348,10 @@ public class SkillRankControl
 			double rankMod = maxRanks - getTotalRank(pc, skill);
 			if (rankMod < 0)
 			{
-				Logging.log(Logging.INFO, "Removing " + (rankMod*-1) + " ranks from " + skill);
+				if (Logging.isLoggable(Logging.INFO))
+				{
+					Logging.log(Logging.INFO, "Removing " + (rankMod*-1) + " ranks from " + skill);
+				}
 				String err = modRanks(rankMod, classBeingLevelledDown, true, pc, skill);
 				if (StringUtils.isBlank(err))
 				{

@@ -92,8 +92,11 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 			{
 				if (i == length - 1)
 				{
-					Logging.debugPrint("Hit Die: " + die
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint("Hit Die: " + die
 							+ " is Highest Hit Die in Die Sizes");
+					}
 					return this;
 				}
 				else
@@ -129,8 +132,11 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 			{
 				if (i == 0)
 				{
-					Logging.debugPrint("Hit Die: " + die
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint("Hit Die: " + die
 							+ " is Lowest Hit Die in Die Sizes");
+					}
 				}
 				else
 				{

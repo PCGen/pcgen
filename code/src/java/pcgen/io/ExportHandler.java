@@ -839,8 +839,12 @@ public final class ExportHandler
 		}
 		catch (IOException ignore)
 		{
-			Logging.debugPrint(
-				"Could not flush output buffer in evaluateExpression", ignore);
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(
+					"Could not flush output buffer in evaluateExpression",
+					ignore);
+			}
 		}
 
 		String leftString = sLeftWriter.toString();
@@ -3680,8 +3684,12 @@ public final class ExportHandler
 				}
 				catch (IOException ignore)
 				{
-					Logging.debugPrint(
-						"Couldn't close file in ExportHandler::write", ignore);
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint(
+							"Couldn't close file in ExportHandler::write",
+							ignore);
+					}
 				}
 			}
 		}

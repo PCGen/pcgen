@@ -148,7 +148,10 @@ public class EvaluatorFactory {
 			}
 			catch (TermEvaulatorException e)
 			{
-				Logging.log(Logging.DEBUG, e.toString());
+				if (Logging.isDebugMode())
+				{
+					Logging.log(Logging.DEBUG, e.toString());
+				}
 			}
 		}
 		

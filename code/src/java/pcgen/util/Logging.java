@@ -661,6 +661,7 @@ public class Logging
 	public static void setCurrentLoggingLevel(Level level)
 	{
 		retainRootLoggers();
+		debugMode = (level == Logging.DEBUG);
 		Logger.getLogger("pcgen").setLevel(level);
 		Logger.getLogger("plugin").setLevel(level);
 	}

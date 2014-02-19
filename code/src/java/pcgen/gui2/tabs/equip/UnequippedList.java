@@ -180,7 +180,12 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		{
 			if (equipment.equals(lastRemoved))
 			{
-				Logging.debugPrint("Ignoring unequip of item just removed: " + equipment);
+				if (Logging.isDebugMode())
+				{
+					Logging
+						.debugPrint("Ignoring unequip of item just removed: "
+							+ equipment);
+				}
 				return;
 			}
 			int quantity = purchasedList.getQuantity(equipment) -

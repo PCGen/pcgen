@@ -78,8 +78,11 @@ public class TokenSupport
 				{
 					return true;
 				}
-				Logging.addParseMessage(Logging.LST_INFO,
-					"Failed in parsing typeStr: " + typeStr + " " + argument);
+				if (Logging.isLoggable(Logging.LST_INFO))
+				{
+					Logging.addParseMessage(Logging.LST_INFO,
+						"Failed in parsing typeStr: " + typeStr + " " + argument);
+				}
 			}
 		}
 		if (typeStr.startsWith(" "))

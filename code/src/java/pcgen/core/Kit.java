@@ -427,14 +427,17 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		final List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
 		final List<String> warnings = new ArrayList<String>();
 		aKit.testApplyKit(aPC, thingsToAdd, warnings);
-		if (warnings.size() != 0)
+		if (Logging.isLoggable(Logging.WARNING))
 		{
-			Logging.log(Logging.WARNING,
-				"The following warnings were encountered when applying the kit "
-					+ aKit.getKeyName());
-			for (String string : warnings)
+			if (warnings.size() != 0)
 			{
-				Logging.log(Logging.WARNING, "  " + string);
+				Logging.log(Logging.WARNING,
+					"The following warnings were encountered when applying the kit "
+						+ aKit.getKeyName());
+				for (String string : warnings)
+				{
+					Logging.log(Logging.WARNING, "  " + string);
+				}
 			}
 		}
 		aKit.processKit(aPC, thingsToAdd, 0);

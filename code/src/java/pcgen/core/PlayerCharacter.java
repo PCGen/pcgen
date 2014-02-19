@@ -701,7 +701,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		if (eSet == null)
 		{
-			Logging.debugPrint("No EquipSet has been selected for calculations yet."); //$NON-NLS-1$
+			if (Logging.isDebugMode())
+			{
+				Logging
+					.debugPrint("No EquipSet has been selected for calculations yet."); //$NON-NLS-1$
+			}
 			return;
 		}
 
@@ -1259,15 +1263,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		double bonus = getTotalBonusTo("ABILITYPOOL", "FEAT");
 		double classLvlBonus = getNumFeatsFromLevels();
 
-		Logging.debugPrint(""); //$NON-NLS-1$
-		Logging.debugPrint("=============="); //$NON-NLS-1$
-		Logging.debugPrint("level " + this.totalNonMonsterLevels()); //$NON-NLS-1$
+		if (Logging.isDebugMode())
+		{
+			Logging.debugPrint(""); //$NON-NLS-1$
+			Logging.debugPrint("=============="); //$NON-NLS-1$
+			Logging.debugPrint("level " + this.totalNonMonsterLevels()); //$NON-NLS-1$
 
-		Logging.debugPrint("POOL:   " + pool); //$NON-NLS-1$
-		Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
-		Logging.debugPrint("MPOOL:  " + mpool); //$NON-NLS-1$
-		Logging.debugPrint("APOOL:  " + bonus); //$NON-NLS-1$
-		Logging.debugPrint("LVLBONUS:  " + classLvlBonus); //$NON-NLS-1$
+			Logging.debugPrint("POOL:   " + pool); //$NON-NLS-1$
+			Logging.debugPrint("PCPOOL: " + pcpool); //$NON-NLS-1$
+			Logging.debugPrint("MPOOL:  " + mpool); //$NON-NLS-1$
+			Logging.debugPrint("APOOL:  " + bonus); //$NON-NLS-1$
+			Logging.debugPrint("LVLBONUS:  " + classLvlBonus); //$NON-NLS-1$
+		}
 
 		double startAdjust = rangeLevel == 0 ? 0 : startLevel / rangeLevel;
 
@@ -1278,10 +1285,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		pool += CoreUtility.epsilonFloor(bonus);
 		pool += CoreUtility.epsilonFloor(classLvlBonus);
 
-		Logging.debugPrint(""); //$NON-NLS-1$
-		Logging.debugPrint("Total Bonus: " + pool); //$NON-NLS-1$
-		Logging.debugPrint("=============="); //$NON-NLS-1$
-		Logging.debugPrint(""); //$NON-NLS-1$
+		if (Logging.isDebugMode())
+		{
+			Logging.debugPrint(""); //$NON-NLS-1$
+			Logging.debugPrint("Total Bonus: " + pool); //$NON-NLS-1$
+			Logging.debugPrint("=============="); //$NON-NLS-1$
+			Logging.debugPrint(""); //$NON-NLS-1$
+		}
 
 		return pool;
 	}
@@ -2455,11 +2465,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			if (lastVariable.equals(variableString))
 			{
-				StringBuilder sb = new StringBuilder(Constants.ARBITRARY_INITIAL_StringBuilder_LENGTH);
-				sb.append("This is a deliberate warning message, not an error - ");
-				sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
-				sb.append("of \"").append(lastVariable).append("\" at ").append(value);
-				Logging.debugPrint(sb.toString());
+				if (Logging.isDebugMode())
+				{
+					StringBuilder sb =
+							new StringBuilder(
+								Constants.ARBITRARY_INITIAL_StringBuilder_LENGTH);
+					sb.append("This is a deliberate warning message, not an error - ");
+					sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
+					sb.append("of \"").append(lastVariable).append("\" at ")
+						.append(value);
+					Logging.debugPrint(sb.toString());
+				}
 				lastVariable = null;
 				return new Float(value);
 			}
@@ -2595,7 +2611,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		if (item.isAutomatic())
 		{
-			Logging.debugPrint("Caching " + item.getKeyName() + " - " + item.getOutputIndex() + " item");
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Caching " + item.getKeyName() + " - "
+					+ item.getOutputIndex() + " item");
+			}
 			autoEquipOutputOrderCache.put(item.getKeyName(), item.getOutputIndex());
 		}
 	}
@@ -5190,7 +5210,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		} while (!bonusManager.compareToCheckpoint());
 		// If the newly calculated bonus map is different to the old one
 		// loop again until they are the same.
-		Logging.log(Logging.DEBUG, "Ran " + count+" loops to calc bonuses");
+		if (Logging.isDebugMode())
+		{
+			Logging.log(Logging.DEBUG, "Ran " + count
+				+ " loops to calc bonuses");
+		}
 	}
 
 	/*

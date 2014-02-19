@@ -1953,7 +1953,11 @@ public final class SettingsHandler
 		catch (IOException e)
 		{
 			// Not an error, this file may not exist yet
-			Logging.debugPrint(LanguageBundle.getString("SettingsHandler.no.options.file")); //$NON-NLS-1$
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(LanguageBundle
+					.getString("SettingsHandler.no.options.file")); //$NON-NLS-1$
+			}
 		}
 		finally
 		{
@@ -2527,7 +2531,11 @@ public final class SettingsHandler
 		catch (IOException e)
 		{
 			// Not an error, this file may not exist yet
-			Logging.debugPrint(LanguageBundle.getString("SettingsHandler.will.create.filepaths.ini")); //$NON-NLS-1$
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(LanguageBundle
+					.getString("SettingsHandler.will.create.filepaths.ini")); //$NON-NLS-1$
+			}
 		}
 		finally
 		{
@@ -2566,7 +2574,11 @@ public final class SettingsHandler
 		catch (IOException e)
 		{
 			// Not an error, this file may not exist yet
-			Logging.debugPrint(LanguageBundle.getString("SettingsHandler.will.create.filter.ini")); //$NON-NLS-1$
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(LanguageBundle
+					.getString("SettingsHandler.will.create.filter.ini")); //$NON-NLS-1$
+			}
 		}
 		finally
 		{

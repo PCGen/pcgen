@@ -2628,7 +2628,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					Logging.debugPrint("Ignoring SAVE:" + saveKey);
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint("Ignoring SAVE:" + saveKey);
+					}
 				}
 			}
 		}
@@ -2877,7 +2880,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					Logging.debugPrint("Ignoring SAVE:" + saveKey);
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint("Ignoring SAVE:" + saveKey);
+					}
 				}
 			}
 			else if (tag.equals(TAG_LEVELABILITY))
@@ -5010,7 +5016,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final String message =
 					"Unable to find Weapon Proficiency in Rules Data:"
 						+ aString;
-			Logging.debugPrint(message);
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(message);
+			}
 		}
 		return wp;
 	}

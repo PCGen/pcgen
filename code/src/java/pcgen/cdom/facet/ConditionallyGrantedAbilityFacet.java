@@ -67,16 +67,22 @@ public class ConditionallyGrantedAbilityFacet extends
 		toAdd.removeAll(current);
 		if (!toAdd.isEmpty() || !toRemove.isEmpty())
 		{
-			Logging.debugPrint("CGAF at depth " + depth + " removing "
-					+ toRemove + " adding " + toAdd);
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("CGAF at depth " + depth + " removing "
+						+ toRemove + " adding " + toAdd);
+			}
 		}
 		for (CategorizedAbilitySelection cas : toRemove)
 		{
 			// Things could have changed, so we make sure
 			if (!conditionalAbilityFacet.isQualified(id, cas) && contains(id, cas))
 			{
-				Logging.debugPrint("CGAF at depth " + depth + " removing "
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("CGAF at depth " + depth + " removing "
 						+ cas);
+				}
 				remove(id, cas);
 			}
 		}
@@ -85,15 +91,21 @@ public class ConditionallyGrantedAbilityFacet extends
 			// Things could have changed, so we make sure
 			if (conditionalAbilityFacet.isQualified(id, cas) && !contains(id, cas))
 			{
-				Logging.debugPrint("CGAF at depth " + depth + " adding "
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("CGAF at depth " + depth + " adding "
 						+ cas);
+				}
 				add(id, cas);
 			}
 		}
 
 		if (!toAdd.isEmpty() || !toRemove.isEmpty())
 		{
-			Logging.debugPrint("CGAF at depth " + depth + " completed.");
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("CGAF at depth " + depth + " completed.");
+			}
 		}
 		depth--;
 	}

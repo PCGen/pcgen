@@ -662,8 +662,11 @@ public class PCClass extends PObject implements ClassFacade
 		{
 			return ss;
 		}
-		Logging.debugPrint("Found Class: " + getDisplayName()
+		if (Logging.isDebugMode())
+		{
+			Logging.debugPrint("Found Class: " + getDisplayName()
 				+ " that did not have any SPELLSTAT defined");
+		}
 		return null;
 	}
 

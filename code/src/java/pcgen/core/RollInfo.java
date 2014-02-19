@@ -258,8 +258,11 @@ public final class RollInfo
 
 		catch (NumberFormatException ex)
 		{
-			Logging.debugPrint(
-				"Bad roll string in '" + rollString + "': " + ex, ex);
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Bad roll string in '" + rollString + "': "
+					+ ex, ex);
+			}
 			return "Bad roll string in '" + rollString + "': " + ex;
 		}
 		return "";

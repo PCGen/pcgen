@@ -458,7 +458,10 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 								uri, i + 1, ple.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
-					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
+					}
 				}
 				catch (Throwable t)
 				{
@@ -496,7 +499,10 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					+ target.getClass().getSimpleName() + " "
 					+ target.getKeyName());
 				setChanged();
-				Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
+				}
 			}
 		}
 	}

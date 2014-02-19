@@ -185,11 +185,14 @@ public final class TokenFamily implements Comparable<TokenFamily>
 				}
 				catch (IllegalArgumentException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(
+						"Attempt to fetch field failed: " + e.getMessage());
 				}
 				catch (IllegalAccessException e)
 				{
-					throw new InternalError();
+					throw new UnreachableError(
+						"Attempt to fetch field failed for access: "
+							+ e.getMessage());
 				}
 			}
 		}

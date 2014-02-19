@@ -99,7 +99,10 @@ public class SubClassApplication
 		}
 		else if (availableList.size() == 0)
 		{
-			Logging.log(Logging.WARNING, "No subclass choices avaialble for " + cl);
+			if (Logging.isLoggable(Logging.WARNING))
+			{
+				Logging.log(Logging.WARNING, "No subclass choices avaialble for " + cl);
+			}
 			return;
 		}
 		else

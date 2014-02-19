@@ -149,7 +149,11 @@ public class CoreViewFrame extends JFrame
 			List<List<CoreViewNodeFacade>> abilityPaths = new ArrayList<List<CoreViewNodeFacade>>();
 			addPaths(abilityPaths, pobj.getGrantedByNodes(),
 					 new ArrayList<CoreViewNodeFacade>());
-			Logging.debugPrint("Converted " + pobj.getGrantedByNodes() + " into " + abilityPaths + " for " + pobj);
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Converted " + pobj.getGrantedByNodes()
+					+ " into " + abilityPaths + " for " + pobj);
+			}
 			if (abilityPaths.isEmpty())
 			{
 				return Collections.singletonList(new TreeViewPath<CoreViewNodeFacade>(pobj));

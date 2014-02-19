@@ -79,7 +79,7 @@ public abstract class VariableProcessor
 		if (d != null && !d.isNaN())
 		{
 			retVal = d;
-			if (Logging.isLoggable(Logging.DEBUG))
+			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint(new StringBuilder().append(jepIndent)
 					.append("export variable for: '").append(element)
@@ -580,7 +580,10 @@ public abstract class VariableProcessor
 	 */
 	private CachableResult processJepFormula(final CharacterSpell spell, final String formula, final String src)
 	{
-		Logging.debugPrint(jepIndent + "getJepVariable: " + formula);
+		if (Logging.isDebugMode())
+		{
+			Logging.debugPrint(jepIndent + "getJepVariable: " + formula);
+		}
 		jepIndent += "    ";
 		PJEP parser = null;
 
@@ -590,7 +593,11 @@ public abstract class VariableProcessor
 			parser.parseExpression(formula);
 			if (parser.hasError())
 			{
-				Logging.debugPrint(jepIndent + "not a JEP expression: " + formula);
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint(jepIndent + "not a JEP expression: "
+						+ formula);
+				}
 				return null;
 			}
 
@@ -622,7 +629,11 @@ public abstract class VariableProcessor
 			final Object result = parser.getValueAsObject();
 			if (result != null)
 			{
-				Logging.debugPrint(jepIndent + "Result '" + formula + "' = " + result);
+				if (Logging.isDebugMode())
+				{
+					Logging.debugPrint(jepIndent + "Result '" + formula
+						+ "' = " + result);
+				}
 				try
 				{
 					return new CachableResult(new Float(result.toString()),
@@ -630,11 +641,19 @@ public abstract class VariableProcessor
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.debugPrint(jepIndent + "Result '" + formula + "' = " + result + " was not a number...");
+					if (Logging.isDebugMode())
+					{
+						Logging.debugPrint(jepIndent + "Result '" + formula
+							+ "' = " + result + " was not a number...");
+					}
 					return null;
 				}
 			}
-			Logging.debugPrint(jepIndent + "Result '" + formula + "' was null...");
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(jepIndent + "Result '" + formula
+					+ "' was null...");
+			}
 			return null;
 		}
 		finally
@@ -673,7 +692,7 @@ public abstract class VariableProcessor
 		if (pc.hasVariable(term))
 		{
 			final Float value = pc.getVariable(term, true);
-			if (Logging.isLoggable(Logging.DEBUG))
+			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint(new StringBuilder().append(jepIndent)
 					.append("variable for: '").append(term).append("' = ")

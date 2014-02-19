@@ -80,11 +80,11 @@ public abstract class BasePCTermEvaluator
 		if (d != null && !d.isNaN())
 		{
 			retVal = d;
-			Logging.debugPrint(
-					new StringBuilder("Export variable for: '")
-							.append(element)
-							.append("' = ")
-							.append(d).toString());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint(new StringBuilder("Export variable for: '")
+					.append(element).append("' = ").append(d).toString());
+			}
 		}
 
 		return retVal;

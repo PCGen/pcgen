@@ -96,7 +96,13 @@ public class SortedProperties extends Properties
 			}
 			catch (IOException iox)
 			{
-				Logging.debugPrint("Caught exception trying to close writer in SortedProperties.mystore", iox);
+				if (Logging.isDebugMode())
+				{
+					Logging
+						.debugPrint(
+							"Caught exception trying to close writer in SortedProperties.mystore",
+							iox);
+				}
 
 				// ignore
 			}

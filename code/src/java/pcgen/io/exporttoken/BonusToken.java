@@ -104,8 +104,13 @@ public class BonusToken extends Token
 			}
 			if (PreParserFactory.isPreReqString(bucket))
 			{
-				Logging.debugPrint("Why is this not parsed in loading: "
-					+ bucket + " rather than in BonusToken.getBonusToken()");
+				if (Logging.isDebugMode())
+				{
+					Logging
+						.debugPrint("Why is this not parsed in loading: "
+							+ bucket
+							+ " rather than in BonusToken.getBonusToken()");
+				}
 				Prerequisite prereq = null;
 				try
 				{

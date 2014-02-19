@@ -862,9 +862,12 @@ public class CharacterAbilities
 				return;
 			}
 			CategorizedAbilitySelection cas = dfce.getCDOMObject();
-			Logging.debugPrint("Got direct ability added of " 
-				+ cas.getAbilityKey() + " for cat "
-				+ cas.getAbilityCategory());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Got direct ability added of "
+					+ cas.getAbilityKey() + " for cat "
+					+ cas.getAbilityCategory());
+			}
 			addElement(abilityListMap, cas);
 			updateAbilityCategoryLater(cas.getAbilityCategory());
 		}
@@ -880,9 +883,12 @@ public class CharacterAbilities
 				return;
 			}
 			CategorizedAbilitySelection cas = dfce.getCDOMObject();
-			Logging.debugPrint("Got direct ability removed of "
-				+ cas.getAbilityKey() + " for cat "
-				+ cas.getAbilityCategory());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Got direct ability removed of "
+					+ cas.getAbilityKey() + " for cat "
+					+ cas.getAbilityCategory());
+			}
 			removeElement(cas);
 			updateAbilityCategoryLater(cas.getAbilityCategory());
 		}
@@ -906,7 +912,11 @@ public class CharacterAbilities
 //						+ dfce.getCharID());
 				return;
 			}
-			Logging.debugPrint("Got granted ability added of " + dfce.getCDOMObject());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Got granted ability added of "
+					+ dfce.getCDOMObject());
+			}
 			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
 		}
@@ -924,7 +934,11 @@ public class CharacterAbilities
 							+ dfce.getCharID());
 				return;
 			}
-			Logging.debugPrint("Got granted ability removed of " + dfce.getCDOMObject());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Got granted ability removed of "
+					+ dfce.getCDOMObject());
+			}
 			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
 		}
@@ -948,7 +962,11 @@ public class CharacterAbilities
 //						+ dfce.getCharID());
 				return;
 			}
-			Logging.debugPrint("Got active ability added of " + dfce.getCDOMObject());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Got active ability added of "
+					+ dfce.getCDOMObject());
+			}
 			Ability ability = dfce.getCDOMObject();
 			if (dfce instanceof CategorizedDataFacetChangeEvent)
 			{
@@ -974,7 +992,11 @@ public class CharacterAbilities
 							+ dfce.getCharID());
 				return;
 			}
-			Logging.debugPrint("Got active ability removed of " + dfce.getCDOMObject());
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("Got active ability removed of "
+					+ dfce.getCDOMObject());
+			}
 			Ability ability = dfce.getCDOMObject();
 			if (dfce instanceof CategorizedDataFacetChangeEvent)
 			{

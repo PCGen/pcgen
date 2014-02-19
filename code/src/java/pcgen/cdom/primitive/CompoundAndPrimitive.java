@@ -53,8 +53,11 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 		primCollection.addAll(pcfCollection);
 		if (primCollection.size() != pcfCollection.size())
 		{
-			Logging.log(Level.WARNING, "Found duplicate item in "
-					+ pcfCollection);
+			if (Logging.isLoggable(Level.WARNING))
+			{
+				Logging.log(Level.WARNING, "Found duplicate item in "
+						+ pcfCollection);
+			}
 			primCollection.add(PrimitiveCollection.INVALID);
 		}
 		for (PrimitiveCollection<T> pcf : primCollection)

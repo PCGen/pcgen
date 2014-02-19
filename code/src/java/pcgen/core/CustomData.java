@@ -252,9 +252,12 @@ public final class CustomData
 		//check if custom equipment has been loaded.  If not, just return without erasing customequipment.lst file
 		if (!customItemsLoaded && new File(customEquipmentFilePath()).exists())
 		{
-			Logging
-				.log(Logging.WARNING,
-					"Custom items had not been loaded, so we won't save them this time."); //$NON-NLS-1$
+			if (Logging.isLoggable(Logging.WARNING))
+			{
+				Logging
+					.log(Logging.WARNING,
+						"Custom items had not been loaded, so we won't save them this time."); //$NON-NLS-1$
+			}
 			return;
 		}
 

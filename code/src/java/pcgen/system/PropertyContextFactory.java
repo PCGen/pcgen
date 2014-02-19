@@ -74,7 +74,11 @@ public class PropertyContextFactory
 		String name = file.getName();
 		if (!file.exists())
 		{
-			Logging.debugPrint("No " + name + " file found, will create one when exiting.");
+			if (Logging.isDebugMode())
+			{
+				Logging.debugPrint("No " + name
+					+ " file found, will create one when exiting.");
+			}
 			return;
 		}
 		else if (!file.canWrite())
