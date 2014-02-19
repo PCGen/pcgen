@@ -9,43 +9,40 @@ ALIGN:NE
 RACE:Adaro	!PRERACE:1,%
 NAME:Adaro
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Intimidate	RANK:8
-SKILL:Perception	RANK:8
-SKILL:Stealth	RANK:10
-SKILL:Swim		RANK:18
+SKILL:Intimidate	RANK:4
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+SKILL:Swim		RANK:4
 FEAT:Deadly Aim
 FEAT:Weapon Focus (Spear)
 GEAR:Spear	QTY:1	LOCATION:Equipped
 GEAR:Spear	QTY:2	LOCATION:Carried
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Adherer Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Adherer],[!PRERACE:1,%]	SOURCEPAGE:p.8
 ALIGN:LE
 RACE:Adherer	!PRERACE:1,%
 NAME:Adherer
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Climb			RANK:10
-SKILL:Craft (Cloth)	RANK:3
+SKILL:Craft (Cloth)	RANK:2
 SKILL:Craft (Traps)	RANK:1
-SKILL:Perception		RANK:5
-SKILL:Stealth		RANK:11
+SKILL:Stealth		RANK:1
 FEAT:Agile Maneuvers
 FEAT:Combat Reflexes
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Adlet Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Adlet],[!PRERACE:1,%]	SOURCEPAGE:p.9
 ALIGN:CN
 RACE:Adlet	!PRERACE:1,%
 NAME:Adlet
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Acrobatics		RANK:13
-SKILL:Climb			RANK:12
-SKILL:Handle Animal	RANK:9
-SKILL:Heal			RANK:5
-SKILL:Perception		RANK:13
-SKILL:Stealth		RANK:13
-SKILL:Survival		RANK:20
-SKILL:Swim			RANK:9
+SKILL:Acrobatics		RANK:5
+SKILL:Climb			RANK:5
+SKILL:Handle Animal	RANK:5
+SKILL:Perception		RANK:10
+SKILL:Stealth		RANK:5
+SKILL:Survival		RANK:10
+SKILL:Swim			RANK:5
 FEAT:Diehard
 FEAT:Dodge
 FEAT:Improved Initiative
@@ -55,22 +52,20 @@ FEAT:Run
 FEAT:Self-Sufficient
 FEAT:Weapon Focus(Spear)
 GEAR:Spear	LOCATION:Equipped	EQMOD:PLUS1W
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Ahuizotl Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ahuizotl],[!PRERACE:1,%]	SOURCEPAGE:p.10
 ALIGN:NE
 RACE:Ahuizotl	!PRERACE:1,%
 NAME:Ahuizotl
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Bluff		RANK:9
-SKILL:Stealth	RANK:9
-SKILL:Swim		RANK:20
+SKILL:Stealth	RANK:4
+SKILL:Swim		RANK:4
 FEAT:Blinding Critical
 FEAT:Combat Reflexes
 FEAT:Improved Critical (Claw)
 FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
-FEAT:Stand Still
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Akhlut Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,akhlut],[!PRERACE:1,%]	SOURCEPAGE:p.11
@@ -78,10 +73,9 @@ ALIGN:TN
 RACE:akhlut	!PRERACE:1,%
 NAME:akhlut
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Acrobatics	RANK:8
-SKILL:Perception	RANK:14
-SKILL:Stealth	RANK:16
-SKILL:Swim		RANK:18
+SKILL:Acrobatics	RANK:3
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:13
 FEAT:Dodge
 FEAT:Improved Critical (Bite)
 FEAT:Improved Initiative
@@ -91,32 +85,31 @@ FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 FEAT:Vital Strike
 FEAT:Weapon Focus (Bite)
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Allip Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Allip],[!PRERACE:1,%]	SOURCEPAGE:p.12
 ALIGN:CE
 RACE:Allip	!PRERACE:1,%
 NAME:Allip
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Fly		RANK:16
-SKILL:Intimidate	RANK:10
-SKILL:Perception	RANK:7
-SKILL:Stealth	RANK:8
+SKILL:Fly		RANK:4
+SKILL:Intimidate	RANK:4
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
 FEAT:Dodge
 FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Alraune Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Alraune],[!PRERACE:1,%]	SOURCEPAGE:p.13
 ALIGN:NE
 RACE:Alraune	!PRERACE:1,%
 NAME:Alraune
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Bluff				RANK:16
-SKILL:Disguise			RANK:9
+SKILL:Bluff				RANK:9
+SKILL:Disguise			RANK:2
 SKILL:Knowledge (Nature)	RANK:9
-SKILL:Perception			RANK:17
-SKILL:Sense Motive		RANK:14
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Deceitful
@@ -127,7 +120,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
 FEAT:Vital Strike
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Annis Hag Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Annis Hag],[!PRERACE:1,%]	SOURCEPAGE:p.16
 ALIGN:CE
@@ -136,111 +129,106 @@ NAME:Annis Hag
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Bluff			RANK:7
 SKILL:Diplomacy		RANK:7
-SKILL:Intimidate		RANK:17
-SKILL:Perception		RANK:13
-SKILL:Sense Motive	RANK:3
+SKILL:Intimidate		RANK:7
+SKILL:Perception		RANK:7
 SKILL:Stealth		RANK:7
 FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Great Fortitude
 FEAT:Intimidating Prowess
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Ant Lion (Giant Adult) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ant Lion (Giant Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:TN
 RACE:Ant Lion (Giant Adult)	!PRERACE:1,%
 NAME:Giant Adult Ant Lion
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Ant Lion (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ant Lion (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:TN
 RACE:Ant Lion (Giant)	!PRERACE:1,%
 NAME:Giant Ant Lion
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Fly	RANK:7
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Archon (Harbinger) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Harbinger)],[!PRERACE:1,%]	SOURCEPAGE:p.18
 ALIGN:LG
 RACE:Archon (Harbinger)	!PRERACE:1,%
 NAME:Harbinger Archon
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Diplomacy			RANK:7
-SKILL:Fly				RANK:7
-SKILL:Knowledge (Planes)	RANK:6
-SKILL:Knowledge (Religion)	RANK:6
-SKILL:Perception			RANK:7
-SKILL:Sense Motive		RANK:7
+SKILL:Diplomacy			RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Knowledge (Religion)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Sense Motive		RANK:3
 FEAT:Dodge
 FEAT:Improved Initiative
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Archon (Legion) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Legion)],[!PRERACE:1,%]	SOURCEPAGE:p.19
 ALIGN:LG
 RACE:Archon (Legion)	!PRERACE:1,%
 NAME:Legion Archon
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Diplomacy			RANK:14
-SKILL:Fly				RANK:12
-SKILL:Intimidate			RANK:14
-SKILL:Knowledge (Religion)	RANK:11
-SKILL:Perception			RANK:13
-SKILL:Sense Motive		RANK:9
-SKILL:Survival			RANK:9
+SKILL:Diplomacy			RANK:8
+SKILL:Fly				RANK:8
+SKILL:Intimidate			RANK:8
+SKILL:Knowledge (Religion)	RANK:8
+SKILL:Perception			RANK:8
+SKILL:Sense Motive		RANK:4
+SKILL:Survival			RANK:4
 FEAT:Improved Bull Rush
 FEAT:Improved Critical (Greatsword)
 FEAT:Power Attack
 FEAT:Vital Strike
-FEAT:Weapon Focus (Greatsword)
-FEAT:Whirlwind Attack
 GEAR:Greatsword	LOCATION:Primary Hand	EQMOD:PLUS1W.FLM_BRST
 GEAR:Javelin	LOCATION:Carried		EQMOD:PLUS1W.FLAME
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Ascomoid Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ascomoid],[!PRERACE:1,%]	SOURCEPAGE:p.20
 ALIGN:TN
 RACE:Ascomoid	!PRERACE:1,%
 NAME:Ascomoid
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-FEAT:Improved Overrun
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Asura (Adhukait) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Adhukait)],[!PRERACE:1,%]	SOURCEPAGE:p.22
 ALIGN:LE
 RACE:Asura (Adhukait)	!PRERACE:1,%
 NAME:Adhukait Asura
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Acrobatics			RANK:15
-SKILL:Bluff				RANK:15
-SKILL:Escape Artist		RANK:21
-SKILL:Intimidate			RANK:11
-SKILL:Knowledge (Planes)	RANK:9
-SKILL:Perception			RANK:19
-SKILL:Perform (Dance)		RANK:14
-SKILL:Stealth			RANK:15
+SKILL:Acrobatics			RANK:9
+SKILL:Bluff				RANK:9
+SKILL:Escape Artist		RANK:9
+SKILL:Intimidate			RANK:8
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:9
+SKILL:Perform (Dance)		RANK:9
+SKILL:Stealth			RANK:9
 FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Lightning Reflexes
 FEAT:Mobility
 FEAT:Nimble Moves
 GEAR:Kukri	QTY:2	LOCATION:Two Weapons	EQMOD:MWORKW
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Asura (Aghasura) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Aghasura)],[!PRERACE:1,%]	SOURCEPAGE:p.23
 ALIGN:LE
 RACE:Asura (Aghasura)	!PRERACE:1,%
 NAME:Aghasura Asura
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Acrobatics			RANK:17
-SKILL:Bluff				RANK:19
-SKILL:Escape Artist		RANK:6
-SKILL:Intimidate			RANK:17
-SKILL:Knowledge (Planes)	RANK:13
-SKILL:Perception			RANK:19
-SKILL:Sense Motive		RANK:19
-SKILL:Stealth			RANK:9
-SKILL:Swim				RANK:17
+SKILL:Acrobatics			RANK:13
+SKILL:Bluff				RANK:12
+SKILL:Escape Artist		RANK:7
+SKILL:Intimidate			RANK:13
+SKILL:Knowledge (Planes)	RANK:10
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Stealth			RANK:10
+SKILL:Swim				RANK:1
 FEAT:Cleave
 FEAT:Critical Focus
 FEAT:Great Cleave
@@ -250,31 +238,29 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Scimitar)
 GEAR:Scimitar	QTY:2	SIZE:H	LOCATION:Two Weapons	EQMOD:MWORKW
 GEAR:Breastplate		SIZE:H	LOCATION:Equipped		EQMOD:MWORKW
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Asura (Asurendra) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Asurendra)],[!PRERACE:1,%]	SOURCEPAGE:p.24-25
 ALIGN:LE
 RACE:Asura (Asurendra)	!PRERACE:1,%
 NAME:Asurendra Asura
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Acrobatics			RANK:31
-SKILL:Bluff				RANK:33
-SKILL:Climb				RANK:21
-SKILL:Diplomacy			RANK:30
-SKILL:Escape Artist		RANK:14
-SKILL:Fly				RANK:35
-SKILL:Intimidate			RANK:33
-SKILL:Knowledge (Arcana)	RANK:27
-SKILL:Knowledge (History)	RANK:13
-SKILL:Knowledge (Planes)	RANK:30
-SKILL:Knowledge (Religion)	RANK:27
-SKILL:Perception			RANK:34
-SKILL:Perform (Dance)		RANK:33
-SKILL:Sense Motive		RANK:30
-SKILL:Spellcraft			RANK:27
-SKILL:Stealth			RANK:23
-SKILL:Swim				RANK:21
-SKILL:Use Magic Device		RANK:30
+SKILL:Acrobatics			RANK:20
+SKILL:Bluff				RANK:20
+SKILL:Diplomacy			RANK:20
+SKILL:Escape Artist		RANK:6
+SKILL:Fly				RANK:20
+SKILL:Intimidate			RANK:20
+SKILL:Knowledge (Arcana)	RANK:20
+SKILL:Knowledge (History)	RANK:6
+SKILL:Knowledge (Planes)	RANK:20
+SKILL:Knowledge (Religion)	RANK:20
+SKILL:Perception			RANK:14
+SKILL:Perform (Dance)		RANK:20
+SKILL:Sense Motive		RANK:20
+SKILL:Spellcraft			RANK:20
+SKILL:Stealth			RANK:20
+SKILL:Use Magic Device		RANK:20
 FEAT:Awesome Blow
 FEAT:Cleave
 FEAT:Combat Reflexes
@@ -286,12 +272,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Mobility
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Baleful Polymorph)
-FEAT:Quicken Spell-Like Ability ~ Spell (Blade Barrier)
-FEAT:Quicken Spell-Like Ability ~ Spell (Death Knell)
-FEAT:Snatch Arrows
-FEAT:Spring Attack
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Asura (Tripurasura) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Tripurasura)],[!PRERACE:1,%]	SOURCEPAGE:p.26
@@ -299,19 +280,18 @@ ALIGN:LE
 RACE:Asura (Tripurasura)	!PRERACE:1,%
 NAME:Tripurasura Asura
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Acrobatics			RANK:8
-SKILL:Appraise			RANK:4
-SKILL:Bluff				RANK:7
-SKILL:Escape Artist		RANK:8
-SKILL:Knowledge (Arcana)	RANK:4
-SKILL:Knowledge (Planes)	RANK:7
-SKILL:Perception			RANK:10
-SKILL:Perform (Dance)		RANK:5
-SKILL:Spellcraft			RANK:4
-SKILL:Stealth			RANK:14
+SKILL:Acrobatics			RANK:2
+SKILL:Appraise			RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Escape Artist		RANK:2
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Spellcraft			RANK:1
+SKILL:Perform (Dance)		RANK:1
 FEAT:Dodge
 FEAT:Weapon Finesse
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Asura (Upasunda) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Upasunda)],[!PRERACE:1,%]	SOURCEPAGE:p.27
 ALIGN:LE
