@@ -6812,7 +6812,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return lvl;
 	}
 
-	private List<? extends CDOMObject> getCDOMObjectList()
+	public List<? extends CDOMObject> getCDOMObjectList()
 	{
 		List<CDOMObject> list = new ArrayList<CDOMObject>();
 

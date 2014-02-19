@@ -1059,11 +1059,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		List<TempBonusFacadeImpl> tempBonuses = new ArrayList<TempBonusFacadeImpl>();
 
-		//
-		// first do PC's feats and other abilities
-		for (Ability aFeat : theCharacter.getFullAbilitySet())
+		// first objects on the PC
+		for (CDOMObject cdo : theCharacter.getCDOMObjectList())
 		{
-			scanForTempBonuses(tempBonuses, aFeat);
+			scanForTempBonuses(tempBonuses, cdo);
 		}
 
 		//
@@ -1107,47 +1106,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			scanForNonPcTempBonuses(tempBonuses, spell);
 		}
 
-		//
-		// iterate thru all PC's equipment objects
-		for (Equipment aEq : charDisplay.getEquipmentSet())
-		{
-			scanForTempBonuses(tempBonuses, aEq);
-		}
-
-		//
-		// Do we also need to Iterate Globals.getAbilityKeyIterator(Constants.ALL_CATEGORIES); ?
-		// or will they be covered by getClassList()?
-		//
-		// iterate thru all PC's Classes
-		for (PCClass aClass : charDisplay.getClassSet())
-		{
-			int currentLevel = charDisplay.getLevel(aClass);
-			scanForTempBonuses(tempBonuses, aClass);
-			for (int i = 1; i < currentLevel; i++)
-			{
-				PCClassLevel pcl = charDisplay.getActiveClassLevel(aClass, i);
-				scanForTempBonuses(tempBonuses, pcl);
-			}
-		}
-
-		//
-		// Iterate through all the PC's Templates
-		for (PCTemplate aTemp : charDisplay.getTemplateSet())
-		{
-			scanForTempBonuses(tempBonuses, aTemp);
-		}
-
 		// do all Templates to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
 		for (PCTemplate aTemp : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
 			scanForNonPcTempBonuses(tempBonuses, aTemp);
-		}
-
-		//
-		// Iterate through all the PC's Skills
-		for (Skill aSkill : charDisplay.getSkillSet())
-		{
-			scanForTempBonuses(tempBonuses, aSkill);
 		}
 
 		Collections.sort(tempBonuses);
