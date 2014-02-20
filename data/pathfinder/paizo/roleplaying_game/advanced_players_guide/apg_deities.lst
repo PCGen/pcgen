@@ -66,4 +66,4 @@ Shelyn.MOD			BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainCloudSu
 Torag.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainCavesSubdomain,InquisitorDomainConstructSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainToilSubdomain|1|PREALIGN:LG,LN,NG		
 Urgathoa.MOD		BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainDaemonSubdomain,InquisitorDomainDivineSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:TN,LE,NE,CE							
 Zon-Kuthon.MOD		BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDevilSubdomainLaw,InquisitorDomainLossSubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainNightSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:LN,LE,NE		
-i
+
