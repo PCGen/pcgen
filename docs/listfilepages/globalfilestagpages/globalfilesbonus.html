@@ -315,7 +315,7 @@
 	<p class="indent3">Adds one to the base &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
 	<p class="indent2"><code>BONUS:CHECKS|ALL|1</code></p>
 	<p class="indent3">Adds one to the all saves.</p>
-	<p class="indent2"><code>BONUS:CHECKS|ALL|3|TYPE=Morale|PREAPPLY:ANYPC</code></p>
+	<p class="indent2"><code>TEMPBONUS:ANYPC|CHECKS|ALL|3|TYPE=Morale</code></p>
 	<p class="indent3">Adds three to all saves, due to morale, to all PC Characters.</p>
 	<p></p>
 
@@ -691,7 +691,7 @@
 		&lt;tab&gt; BONUS:HP|CURRENTMAX|%LIST-CON</code></p>
 	<p class="indent3">Character gains between 1 and CON Bonus additional hit points, can be used multiple
 		time, does not stack.</p>
-	<p class="indent2"><code>BONUS:HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary|PREAPPLY:PC</code></p>
+	<p class="indent2"><code>TEMPBONUS:PC|HP|CURRENTMAX|AidSoulHitPoints*%CHOICE|TYPE=Temporary</code></p>
 	<p class="indent3">Character gains additional hit points temporary based on the calculation.</p>
 	<p></p>
 
@@ -772,13 +772,13 @@
 <hr>
 
 	<p class="lststatus"><a name="MOVEADD">*** New 4.3.8</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:MOVEADD|TYPE.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> All</p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:MOVEADD|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Movement type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.All</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
-		<li>Adds to movement of the listed TYPE.</li>
+		<li>Adds to movement of the listed type.</li>
 		<li>Done before <code>MOVEMULT</code> and <code>POSTMOVEADD</code> calculations.</li>
 		<li>It only works on MOVE types that have been defined in a <code>MOVE</code> or <code>MOVECLONE</code> tag.</li>
 	</ul>
@@ -787,16 +787,16 @@
 	<p class="indent3">Adds 10 to Walk.</p>
 	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|5|PREVARLT:ENCUMBERANCE,1</code></p>
 	<p class="indent3">Adds 5 to Walk so long as the character is not at medium load.</p>
-	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10|TYPE=Enhancement|PREAPPLY:ANYPC</code></p>
+	<p class="indent2"><code>TEMPBONUS:ANYPC|MOVEADD|TYPE.Walk|10|TYPE=Enhancement</code></p>
 	<p class="indent3">Adds 5 to the character's Walk as an enhancement of some sort.</p>
 	<p></p>
 
 <hr>
 
 	<p class="lststatus"><a name="MOVEMULT">*** New 4.3.8</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> BONUS:MOVEMULT|TYPE.x|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> All</p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:MOVEMULT|x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Movement type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.All</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to multiply the movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
@@ -836,13 +836,13 @@
 <hr>
 
 	<p class="lststatus"><strong><a name="POSTMOVEADD">*** New 4.3.8</a></strong></p>
-	<p class="indent0">Tag Name: BONUS:POSTMOVEADD|TYPE.x|y</p>
+	<p class="indent0">Tag Name: BONUS:POSTMOVEADD|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Movement type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> All</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.All</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
-		<li>This tag will increase the movement of the listed TYPE(s).</li>
+		<li>This tag will increase the movement of the listed types.</li>
 		<li>Done after <code>MOVEMULT</code> and <code>MOVEADD</code> calculations.</li>
 		<li>It only works on MOVE types that have been defined in a <code>MOVE</code> or <code>MOVECLONE</code> tag.</li>
 	</ul>
@@ -851,7 +851,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk|10</code></p>
 	<p class="indent3">Adds 10 to Walk.</p>
-	<p class="indent2"><code>BONUS:POSTMOVEADD|TYPE.Walk,TYPE.Burrow,TYPE.Climb,TYPE.Fly,TYPE.Swim|30|TYPE=Enhancement|PREAPPLY:PC</code></p>
+	<p class="indent2"><code>TEMPBONUS:PC|POSTMOVEADD|TYPE.Walk,TYPE.Burrow,TYPE.Climb,TYPE.Fly,TYPE.Swim|30|TYPE=Enhancement</code></p>
 	<p class="indent3">Adds 30 to Walk, Burrow, Climb, Fly and Swim to any PC Character that has this enhancement.</p>
 	<p></p>
 
@@ -933,14 +933,14 @@
 	<p class="indent3">Reduces size by two. A &quot;Medium&quot; character would become &quot;Tiny&quot;.</p>
 	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T</code></p>
 	<p class="indent3">If size is greater than Tiny (T) add 1 to SIZEMOD.</p>
-	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PREAPPLY:PC</code></p>
-	<p class="indent3">Add 1 to SIZEMOD of any PC.</p>
 	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7</code></p>
 	<p class="indent3">If Total Levels (TL) are more than 3 and less than 7, and you are a Dire Wolf, reduce the SIZEMOD by 1.</p>
 	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|-1|PRERACE:Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7.CLEAR</code></p>
 	<p class="indent3">Removes the if Total Levels (TL) are more than 3 and less than 7, and you are a Dire Wolf, reduce the SIZEMOD by 1.</p>
 	<p class="indent2"><code>BONUS:SIZEMOD|NUMBER|1|PRESIZEGT:T.MOD &lt;tab&gt; BONUS:SIZEMOD|NUMBER|2|PRESIZEGT:T</code></p>
 	<p class="indent3">Changes the if size is greater than Tiny (T) add 1 to SIZEMOD to add 2 to the SIZEMOD.</p>
+	<p class="indent2"><code>TEMPBONUS:PC|SIZEMOD|NUMBER|1</code></p>
+	<p class="indent3">Add 1 to SIZEMOD of any PC.</p>
 	<p></p>
 
 <hr>
@@ -971,10 +971,6 @@
 	<p class="indent2"><code>BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1</code></p>
 	<p class="indent3">Adds 5 to Spot skill if you don't already have it. Otherwise adds one to get
 		you started.</p>
-	<p class="indent2"><code>BONUS:SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence|PREAPPLY:ANYPC
-		&lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
-	<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you
-		figure out the math.</p>
 	<p class="indent2"><code>BONUS:SKILL|Hide|1|TYPE=Talent.STACK</code></p>
 	<p class="indent3">Adds 1 to Hide skill due to Talent and does Stack with all other Talent type.</p>
 	<p class="indent2"><code>Balance.MOD &lt;tab&gt; BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK</code></p>
@@ -987,6 +983,10 @@
 	<p class="indent3">Adds six to the two selected Class Skills skill learned during Legendary Class.</p>
 	<p class="indent2"><code>BONUS:SKILL|ALL|1</code></p>
 	<p class="indent3">Adds one to all skills.</p>
+	<p class="indent2"><code>TEMPBONUS:ANYPC|SKILL|Hide|min(floor((%CHOICE+3)/4)*10,30)|TYPE=Competence
+		&lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Choose spell caster level</code></p>
+	<p class="indent3">A chooser that figures your hide % (I think) 1 to 20 points in Casterlevel, you
+		figure out the math.</p>
 	<p></p>
 
 <hr>
@@ -1282,10 +1282,10 @@
 	<p class="indent3">Adds 2 to character's SneakAttack variable.</p>
 	<p class="indent2"><code>BONUS:VAR|SneakAttack,TrapSense|1</code></p>
 	<p class="indent3">Adds 1 to character's SneakAttack and TrapSense variables.</p>
-	<p class="indent2"><code>BONUS:VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points</code></p>
-	<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if you're a Titan and a PC.</p>
 	<p class="indent2"><code>BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base</code></p>
 	<p class="indent3">Sets the character's base TurnTimesBase variable to three plus the Charisma Modifier.</p>
+	<p class="indent2"><code>TEMPBONUS:ANYPC|VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points</code></p>
+	<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if you're a Titan and a PC.</p>
 	<p></p>
 
 <hr>
@@ -1317,12 +1317,7 @@
 	<ul class="indent2">
 		<li>Modifies the indicated property of the weapon the tag is contained in.
 		<li>This tag only works in Equipment, Equipmod and temporary bonuses files.
-		<li>PRE tags have no baring on how the tags they are appended to can be used, they only effect when they are applied. See <a href="globalfilesprexxx.html#PREAPPLY">PREAPPLY</a>
-		and the Inventory Temporary Bonus Sub-Tab link that is there.</li>
-		<li>BONUS:WEAPON can be used in objects which can hold temporary bonuses as long as it have a PREAPPLY:Weapon tag on it. I
-		don't think PREAPPLY:PC or PREAPPLY:ANYPC will work since PCGen can't know what weapon to put it on.
-		<li>Temporary bonuses can be used in Class, Feat, Equipment, Skill, Spell and Template objects for sure, these all have a
-		tree in the temporary bonus subtab, possibly in Race and Ability
+		<li>PRE tags have no baring on how the tags they are appended to can be used, they only effect when they are applied.</li>
 		<li>Weapon properties defined are:
 		<ul>
 			<li>ATTACKS (Adds a number of additional attacks)</li>
@@ -1459,7 +1454,7 @@
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Provides a temporary bonus that can be applied to the applicable target.</li>
-		<li>Temporary bonuses provided by this tag are found only in, and applied through, the <strong>Temporary Bonus Tab</strong>.</li>
+		<li>Temporary bonuses are applied to characters/equipment on the <a href="../../tabpages/players/inventory/inventorytempbonus.html">Temporary Bonus Tab</a>.</li>
 		<li>The temporary bonus includes the following targets:
 			<ul>
 				<li><code>PC</code> - The temporary bonus can only be applied to a character that has been 'granted' the LST object that 
@@ -1485,6 +1480,8 @@
 		but is applied as a temporary bonus.</p>
 	<p class="indent1"><strong>Example Conversion from PREAPPLY to TEMPBONUS:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|2|PREAPPLY:PC</code> becomes <code>TEMPBONUS:PC|COMBAT|AC|2</code></p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Ability, Class, Feat, Equipment, Skill, Spell and Template objects.</p>
 
 <hr>
 
