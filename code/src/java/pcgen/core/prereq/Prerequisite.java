@@ -559,8 +559,16 @@ public class Prerequisite implements Cloneable
 	public Prerequisite specify(String assoc) throws CloneNotSupportedException
 	{
 		final Prerequisite copy = (Prerequisite) super.clone();
-		copy.key = copy.key.replaceAll(PERCENT_CHOICE_PATTERN, assoc);
-		copy.operand = copy.operand.replaceAll(PERCENT_CHOICE_PATTERN, assoc);
+		//PREMULT has no key or operand
+		if (copy.key != null)
+		{
+			copy.key = copy.key.replaceAll(PERCENT_CHOICE_PATTERN, assoc);
+		}
+		if (copy.operand != null)
+		{
+			copy.operand =
+					copy.operand.replaceAll(PERCENT_CHOICE_PATTERN, assoc);
+		}
 
 		if (prerequisites != null)
 		{
