@@ -298,30 +298,27 @@ ALIGN:LE
 RACE:Asura (Upasunda)	!PRERACE:1,%
 NAME:Upasunda Asura
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Acrobatics			RANK:19
-SKILL:Bluff				RANK:16
-SKILL:Diplomacy			RANK:13
-SKILL:Escape Artist		RANK:25
-SKILL:Intimidate			RANK:16
-SKILL:Knowledge (Arcana)	RANK:8
-SKILL:Knowledge (Planes)	RANK:14
-SKILL:Perception			RANK:23
-SKILL:Perform (Dance)		RANK:16
-SKILL:Sense Motive		RANK:19
-SKILL:Stealth			RANK:19
+SKILL:Acrobatics			RANK:12
+SKILL:Bluff				RANK:9
+SKILL:Diplomacy			RANK:9
+SKILL:Escape Artist		RANK:7
+SKILL:Intimidate			RANK:12
+SKILL:Knowledge (Arcana)	RANK:6
+SKILL:Knowledge (Planes)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Perform (Dance)		RANK:8
+SKILL:Sense Motive		RANK:9
+SKILL:Stealth			RANK:6
 FEAT:Awesome Blow
 FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Deflect Arrows
 FEAT:Dodge
 FEAT:Great Cleave
-FEAT:Improved Grapple
 FEAT:Mobility
 FEAT:Power Attack
-FEAT:Spring Attack
-GEAR:Kukri		QTY:1	LOCATION:EQUIPPED	EQMOD:MWORKW
-GEAR:Longsword	QTY:1	LOCATION:EQUIPPED	EQMOD:MWORKW
-GEAR:Spear		QTY:1	LOCATION:EQUIPPED	EQMOD:MWORKW
+GEAR:Kukri		QTY:1	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Longsword	QTY:1	LOCATION:Secondary Hand	EQMOD:MWORKW
+GEAR:Spear		QTY:1	LOCATION:Carried		EQMOD:MWORKW
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Atomie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Atomie],[!PRERACE:1,%]	SOURCEPAGE:p.28
@@ -329,16 +326,16 @@ ALIGN:CN
 RACE:Atomie	!PRERACE:1,%
 NAME:Atomie
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Acrobatics		RANK:8
-SKILL:Bluff			RANK:9
-SKILL:Escape Artist	RANK:7
-SKILL:Fly			RANK:18
-SKILL:Perception		RANK:7
-SKILL:Sense Motive	RANK:6
-SKILL:Stealth		RANK:20
-FEAT:Improved Initiative
+SKILL:Acrobatics		RANK:2
+SKILL:Bluff			RANK:2
+SKILL:Escape Artist	RANK:1
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sense Motive	RANK:1
+SKILL:Stealth		RANK:2
 FEAT:Weapon Finesse
 GEAR:Rapier	SIZE:D	LOCATION:Primary Hand
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Axe Beak Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Axe Beak],[!PRERACE:1,%]	SOURCEPAGE:p.29
@@ -346,9 +343,10 @@ ALIGN:TN
 RACE:Axe Beak	!PRERACE:1,%
 NAME:Axe Beak
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Perception	RANK:9
+SKILL:Perception	RANK:3
 FEAT:Run
 FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Axe Beak (Terror Bird) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Axe Beak (Terror Bird)],[!PRERACE:1,%]	SOURCEPAGE:p.29
@@ -356,10 +354,11 @@ ALIGN:TN
 RACE:Axe Beak (Terror Bird)	!PRERACE:1,%
 NAME:Terror Bird
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Perception	RANK:9
+SKILL:Perception	RANK:4
 FEAT:Run
 FEAT:Skill Focus (Perception)
 FEAT:Improved Critical (Bite)
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Azruverda Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azruverda],[!PRERACE:1,%]	SOURCEPAGE:p.30
@@ -367,15 +366,15 @@ ALIGN:CG
 RACE:Azruverda	!PRERACE:1,%
 NAME:Azruverda
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Climb					RANK:26
-SKILL:Handle Animal			RANK:17
-SKILL:Intimidate				RANK:26
-SKILL:Knowledge (Dungeoneering)	RANK:12
-SKILL:Knowledge (Nature)		RANK:12
-SKILL:Perception				RANK:22
-SKILL:Sense Motive			RANK:13
-SKILL:Spellcraft				RANK:15
-SKILL:Survival				RANK:16
+SKILL:Climb					RANK:4
+SKILL:Handle Animal			RANK:10
+SKILL:Intimidate				RANK:16
+SKILL:Knowledge (Dungeoneering)	RANK:7
+SKILL:Knowledge (Nature)		RANK:7
+SKILL:Perception				RANK:16
+SKILL:Sense Motive			RANK:10
+SKILL:Spellcraft				RANK:10
+SKILL:Survival				RANK:10
 FEAT:Awesome Blow
 FEAT:Combat Reflexes
 FEAT:Greater Bull Rush
@@ -384,6 +383,7 @@ FEAT:Iron Will
 FEAT:Point-Blank Shot
 FEAT:Power Attack
 FEAT:Weapon Focus (Acid Spit)
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 
 STARTPACK:Baku Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Baku],[!PRERACE:1,%]	SOURCEPAGE:p.31
@@ -391,18 +391,18 @@ ALIGN:TN
 RACE:Baku	!PRERACE:1,%
 NAME:Baku
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Diplomacy		RANK:15
-SKILL:Fly			RANK:18
-SKILL:Perception		RANK:16
-SKILL:Sense Motive	RANK:13
+SKILL:Diplomacy		RANK:7
+SKILL:Fly			RANK:5
+SKILL:Perception		RANK:7
+SKILL:Sense Motive	RANK:7
 SKILL:Spellcraft		RANK:8
-SKILL:Stealth		RANK:16
+SKILL:Stealth		RANK:5
 FEAT:Alertness
 FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Weapon Finesse
-
+ABILITY:CATEGORY=Traits|No Traits ~ Trait
 
 STARTPACK:Bandersnatch Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bandersnatch],[!PRERACE:1,%]	SOURCEPAGE:p.32-33
 ALIGN:TN
