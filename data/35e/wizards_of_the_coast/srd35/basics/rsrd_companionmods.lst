@@ -96,7 +96,7 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Ale
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells								DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2																		AUTO:FEAT|Multiattack|PREHANDSGTEQ:3									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1	BONUS:VAR|SecondAttack|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2																		AUTO:FEAT|Multiattack|PREHANDSGTEQ:3									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1	BONUS:VAR|CompanionSecondAttack|1|PREHANDSEQ:1	DEFINE:CompanionSecondAttack|0
 FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:2																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:2																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
@@ -146,7 +146,7 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wolverine			KIT:1|
 # These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
 # Class of the Master		Type				Adjust PC Size
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat),Animal Companion ~ Wolf|PREVARGT:TL,3
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5
