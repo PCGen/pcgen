@@ -1,0 +1,80 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+#SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+
+###Block: Human Ethnicities
+# Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Bonus to Ability Pool			Source Page
+CATEGORY=Background|Azlanti.MOD		TYPE:PFSLegal	AUTO:LANG|Azlanti	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1	
+CATEGORY=Background|Chelaxian.MOD	TYPE:PFSLegal	AUTO:LANG|Common	
+CATEGORY=Background|Garundi.MOD		TYPE:PFSLegal	AUTO:LANG|Osiriani	
+CATEGORY=Background|Keleshite.MOD	TYPE:PFSLegal	AUTO:LANG|Kelish	
+CATEGORY=Background|Kellid.MOD		TYPE:PFSLegal	AUTO:LANG|Hallit	
+CATEGORY=Background|Bekyar.MOD		TYPE:PFSLegal	AUTO:LANG|Polyglot	
+CATEGORY=Background|Bonuwat.MOD		TYPE:PFSLegal	AUTO:LANG|Polyglot	
+CATEGORY=Background|Mauxi.MOD		TYPE:PFSLegal	AUTO:LANG|Polyglot	
+CATEGORY=Background|Zenj.MOD		TYPE:PFSLegal	AUTO:LANG|Polyglot	
+CATEGORY=Background|Shoanti.MOD		TYPE:PFSLegal	AUTO:LANG|Shoanti	
+CATEGORY=Background|Taldan.MOD		TYPE:PFSLegal	AUTO:LANG|Common	
+CATEGORY=Background|Tian.MOD		TYPE:PFSLegal	AUTO:LANG|Tien		
+CATEGORY=Background|Ulfen.MOD		TYPE:PFSLegal	AUTO:LANG|Skald		
+CATEGORY=Background|Varisian.MOD	TYPE:PFSLegal	AUTO:LANG|Varisian	
+CATEGORY=Background|Vudrani.MOD		TYPE:PFSLegal	AUTO:LANG|Vudrani	
+
+
+###Block: Regional Affinities
+# Ability Name		Product Identity?	Category of Ability	Type		Visible		Description						Template								Source Page
+CATEGORY=Background|Absalom.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Andoran.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Belkzen.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Brevoy.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Cheliax.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Darklands.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Druma.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Five Kings Mountains.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Galt.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Geb.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Irrisen.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Isger.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Jalmeray.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Katapesh.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Kyonin.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Lastwall.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Linnorm Kings.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Mammoth Lords.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Mana Wastes.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Mediogalti Island.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Mendev.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Molthune.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Mwangi Expanse.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Nex.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Nidal.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Nirmathas.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Numeria.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Osirion.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Qadira.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Rahadoum.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Razmiran.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|River Kingdoms.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Sargava.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Shackles.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Sodden Lands.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Steaming Sea.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Taldor.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Thuvia.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Ustalav.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Varisia.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Worldwound.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+###Block: Shoanti Clans
+# Ability Name			Unique Key			Product Identity?	Category of Ability	Type			Visible		Description							Source Page
+CATEGORY=Background|Lyrune-Quah.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Shadde-Quah.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Shriikirri-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Shundar-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Sklar-Quah.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Skoan-Quah.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Tamiir-Quah.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
+# Ability Name	Category of Ability	Type
+CATEGORY=Background|None.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Background|Unknown.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1

@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+
+# Class Name	Product Identity?	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
+CLASS:Harrower.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CLASS:Hellknight.MOD			TYPE:PFSLegal
+CLASS:Low Templar.MOD			TYPE:PFSLegal
+CLASS:Red Mantis Assassin.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1

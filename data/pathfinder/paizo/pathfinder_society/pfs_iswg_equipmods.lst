@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Pathfinder RPG Entry by: Stefan Radermacher & Paul Shipley
+
+# Modifier Name	Unique Key		Naming Option	Type														Cost		Visible		Type granted				Keys to replace		Source Page		Required Type	Prohibited Type							Bonus Equipment Modifiers	Bonus Armor Modifiers							Modify the item cost															Weapon prop. bonus							Special Property			Apply to both heads
+LEAF.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+STONE.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+PAUELIEL.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+

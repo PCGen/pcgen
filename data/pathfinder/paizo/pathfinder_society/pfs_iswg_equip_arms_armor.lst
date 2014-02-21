@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Equipment Name		Product Identity?	Output Name					Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency		Type																Contains				Cost		Weight	Slot Needed	AC Penalty Check	Base Quantity	Critical Hit Multiplier	Critical Hit Range	Fumble Range	Damage	Modifier						Wield Category	Maximum DEX Bonus	Range		Reach Multiplier	Size		Source Page		% of Spell Failure	Ability								Innate Spells										Combat bonus			Modify VAR						Weapon prop. bonus																					Special Property
+Blackaxe				TYPE:PFSLegal
+Shield of Aroden		TYPE:PFSLegal
+Dogslicer				TYPE:PFSLegal
+War Razor				TYPE:PFSLegal
+Klar (as weapon)		TYPE:PFSLegal
+Earth Breaker			TYPE:PFSLegal
+Horsechopper			TYPE:PFSLegal
+Ogre Hook				TYPE:PFSLegal
+Aldori Dueling Sword	TYPE:PFSLegal
+Sawtooth Sabre			TYPE:PFSLegal
+Urumi					TYPE:PFSLegal
+Bladed Scarf			TYPE:PFSLegal
+Bolas (Shoanti)			TYPE:PFSLegal
+Leaf Armor				TYPE:PFSLegal
+Field Plate				TYPE:PFSLegal
+Hellknight Plate		TYPE:PFSLegal
+Stoneplate				TYPE:PFSLegal
+Klar (as Shield)		TYPE:PFSLegal
+Pepperbox				TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Pistol					TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Musket					TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Cannon					TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Black Powder (Dose)		TYPE:PFSLegal
+Black Powder (Keg)		TYPE:PFSLegal
+Cannon Ball				TYPE:PFSLegal
+Firearm Bullet			TYPE:PFSLegal

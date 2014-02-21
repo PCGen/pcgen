@@ -1,0 +1,747 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Pathfinder Society
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:MultiSet
+SETTING:Pathfinder|Golarion
+SHOWINMENU:YES
+!PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society],BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Society
+SOURCESHORT:PS
+SOURCEWEB:http://paizo.com/pathfinderSociety
+SOURCEDATE:2013-10
+ISOGL:YES
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
+
+COVER:pathfinder_society_logo.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255|Buy this publication from Paizo Publishing!
+DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+#######################
+# PFS Core Assumption #
+#######################
+PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/pathfinder_society/organized_play/guide_to_pathfinder_society_organized_play.pcc
+
+# PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
+
+##############################
+# Pathfinder Adventure Paths #
+##############################
+
+#
+# Rise of the Runelords
+#
+
+# Rise of the Runelords Player's Guide
+# Equipment: all equipment on pages 10-11 (except hide shirt and Varisian Idol)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_equip_arms_armor.lst|(EXCLUDE:Hide Shirt)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_equip_general.lst|(EXCLUDE:Varisian Idol)
+
+# Pathfinder Adventure Path: Rise of the Runelords Anniversary Edition
+# Equipment: boots of the mire, elixir of the peaks, fog-cutting lenses, medusa mask, robe of runes, sadist's lash, snakeskin tunic, staff of heaven and earth, staff of mithral might, talons of Leng are legal for play;
+# Spells: Blood money, covetous aura, deathwine, raiment of command, sign of wrath, swipe, and unconscious agenda are legal for play.
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide_ae/rotrpgae_equipment.lst
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap2/ap2_equip_magic_items.lst|(INCLUDE:Medusa Mask|Snakeskin Tunic)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap3/ap3_equip_magic_items.lst|(INCLUDE:Boots of the Mire)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap4/ap4_equip_magic_items.lst
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap5/ap5_equip_magic_items.lst|(INCLUDE:Staff of Mithral Might)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap6/ap6_equip_magic_items.lst|(INCLUDE:Elixir of the Peaks|Talons of Leng)
+SPELL:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap5/ap5_spells.lst|(EXCLUDE:Waters of Lamashtu|Vision of Lamashtu)
+
+#
+# Curse of the Crimson Throne
+#
+
+# Pathfinder Adventure Path #9: "Escape from Old Korvosa"
+# Equipment: all equipment on page 83
+EQUIPMENT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9_equip_arms_armor.lst
+WEAPONPROF:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9_profs_weapon.lst
+
+# Curse of the Crimson Throne Player's Guide
+# Equipment: all equipment on pages 12-13 (except hide shirt); Feats: Acadamae Graduate, Crossbow Mastery
+EQUIPMENT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_equip_arms_armor.lst|(EXCLUDE:Hide Shirt)
+WEAPONPROF:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_profs_weapon.lst
+FEAT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_feats.lst|(INCLUDE:CATEGORY=Special Ability,Acadamae Graduate)
+# Note: The Crossbow Mastery feat is included in APG
+
+#
+# Legacy of Fire
+#
+
+# Legacy of Fire Player's Guide
+# Equipment: all equipment on pages 22-23, all magic items on pages 26-27 (Note: Handstraps of Roofjumping applies to the Acrobatics skill);
+# Feat: Sandwalker;
+# Traits: all traits on pages 7-9 are allowed except Duskwalker Agent (Notes: Uwaga Highlander applies only to the Stealth skill and Eyes and Ears of the City applies only to the Perception skill; no campaign traits are allowed.)
+# Traits: all traits on pages 7-9 are allowed except Duskwalker Agent and any campaign traits.
+FEAT:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_feats.lst|(INCLUDE:CATEGORY=Special Ability,Sandwalker)
+EQUIPMENT:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_equip_general.lst
+WEAPONPROF:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_prof_weapon.lst
+SHIELDPROF:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_prof_shield.lst
+ABILITY:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_abilities.lst|(INCLUDE:CATEGORY=Special Ability,TYPE=RaceTrait.ReligionTrait,Desert Child,Freed Slave,Merchant's Child,Nightstall Urchin,Pesh Addict,Pesh Dealer,Savannah Child,Uwaga Highlander)
+# Missing: "all magic items on pages 26-27"
+
+#
+# Council of Thieves
+#
+
+# Pathfinder Adventure Path #26: "The Sixfold Trial"
+# Feat: Iomedaean Sword Oath;
+# Prestige Class: Inheritor's Crusader;
+# Spell: inheritor's smite;
+# Other: customized summon list on page 72
+
+# Pathfinder Adventure Path #27: "What Lies in Dust"
+# Magic Items: bones of Founder Raccona, clasp of the mind scream, entwined syrinx, felhart, golden dragon kite, hand of Abendego, dream journal of the pallid seer, Kybwa'ka war mask, skin of Klendar the Troll King, talisman of the orc mother's fury, Vudran ashak helmet (never an intelligent magic item)
+
+# Pathfinder Adventure Path #29: "Mother of Flies"
+# Spells: greater infernal healing, greater spellcasting contract, infernal healing, lesser spellcasting contract, spellcasting contract;
+# Other: customized summon list on page 67
+
+#
+# Kingmaker
+#
+
+# Pathfinder Adventure Path #31: "Stolen Land"
+# Animal Companions: elk, megaloceros, thylacine
+ABILITY:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_abilities_companion.lst
+RACE:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_races_companion.lst
+KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companion.lst|(INCLUDE:Companion ~ Elk|Companion ~ Thylacine)
+# Note: "Animal Companion: Megaloceros" is in CR
+
+# Pathfinder Adventure Path #32: "Rivers Run Red"
+# Spell: tracking mark; Other: customized summon list on page 71
+
+# Pathfinder Adventure Path #34: "Blood for Blood"
+# Equipment: crown of ash, staff of stoneweaving, emerald frog, goreclaw of Thercerrod, and plumed mantle
+
+# Pathfinder Adventure Path #35: "War of the River Kings"
+# Equipment: rod of razors; Spell: swallow your fear; Other: customized summon list on page 73
+
+#
+# Serpent's Skull
+#
+
+# Pathfinder Adventure Path #37: "Souls for Smuggler's Shiv"
+# Animal Companions: dimorphodon, quetzalcoatlus
+
+# Pathfinder Adventure Path #38: "Racing to Ruin"
+# Equipment: eloko bell, war mask of terror, Zenj spirit fetish; Spell: ice armor; Other: customized summon list on page 71
+
+# Pathfinder Adventure Path #39: "City of Seven Spears"
+# Equipment: spirit tear, all magic items on pages 55-57 except the mantis blade; Feat: Cry of Mercy
+
+# Pathfinder Adventure Path #41: "The Thousand Fangs Below"
+# Spell: fractions of heal and harm; Other: customized summon list on page 73
+
+#
+# Carrion Crown
+#
+
+# Pathfinder Adventure Path #43: "The Haunting of Harrowstone"
+# Magic Item: haunt siphon
+
+# Pathfinder Adventure Path #44: "Trial of the Beast"
+# Spell: smite abomination; 
+# Other: customized summon list on page 69. Note that both summonable monsters' stats appear in Pathfinder Adventure Path #47, not in Pathfinder Adventure Path #44 as indicated. The referenced yanakeion psychopomp has been replaced by the nosoi psychopomp and the amzranei psychopomp has been replaced by the vanth psychopom. The vanth psychopomp belongs on the summon monster VI list for priests of Pharasma.
+
+# Pathfinder Adventure Path #47: "Ashes at Dawn"
+# Magic Items: bloodbrew elixir, moribund key, witching gown; 
+# Other: customized summon list on page 71, nosoi familiars
+
+# Pathfinder Adventure Path #48: "Shadows of Gallowspire"
+# Equipment: bloodfeast shield, bone beads, coldfire wrappings
+
+#
+# Jade Regent
+#
+
+# Pathfinder Adventure Path #49: "The Brinewall Legacy"
+# Equipment:dancing wasp
+
+# Pathfinder Adventure Path #50: "Night of Frozen Shadows"
+# Equipment: deadly kiss, earthfire shuriken, fugitive's grenade, shozoku of the night wind; 
+# Spells: aspect of the nightengale; 
+# Other: customized summon list on page 75
+
+# Pathfinder Adventure Path #51: "The Hungry Storm"
+# Equipment: claws of the ice bear, ghost mirror armor, map of the high ice, sashimono of comfort, terra-cotta talisman
+
+# Pathfinder Adventure Path #52: "Forest of Spirits"
+# Equipment: do-maru of broken flesh, flask of endless sake, jingasa of the fortunate soldier, kikuya's sensu
+
+# Pathfinder Adventure Path #53: "Tide of Honor"
+# Equipment: armor of the tireless warrior, daikyu of commanding presence, dragonmaw nunchaku, karyukai tea set, samisen of oracular vision; 
+# Other: Customized summon list on page 73; Spell: replenish ki
+
+# Pathfinder Adventure Path #54: "The Empty Throne"
+# Equipment: Ikarikurusai, the raging cyclone, Karusetsu, the cutting light, o-yoroi of imperial rule, Seishhinru, spirit elixir, Tsuruhashi, the silent crane
+
+#
+# Skull & Shackles
+#
+
+# Pathfinder Adventure Path #55: "The Wormwood Mutiny"
+# Equipment: Besmara's tricorne, boarding pike of repelling, hospitality's hammock, shackles of compliance, steadfast grapple, tidewater cutlass, vindictive harpoon; 
+# Familiars: all familiars listed on pages 88-89; Misc: customized summon list are legal for Besmaran clerics and Besmaran familiars are legal for clerics and rangers of Besmara; 
+# Spells: advanced scurvy, cloud of seasickness
+
+# Pathfinder Adventure Path #56: "Raiders of the Fever Sea"
+# Equipment: brine's sting, captain's locker, farglass, svingli's eye, zul; 
+# Spells: submerge ship
+
+# Pathfinder Adventure Path #57: "Tempest Rising"
+# Equipment charts of the fair winds, ring of the iron skull, shackles ensign, sharpshooter's blade
+
+# Pathfinder Adventure Path #58: "Island of Empty Eyes"
+# Equipment: eel skin armor, horn of the tritons, impossible bottle, scoundrel's sword cane
+
+# Pathfinder Adventure Path #59: "The Price of Infamy"
+# Equipment: howling skull armor, mariner's eye patch, mutineer's bane earrring, skyrocket crossbow, wizard hook; Other: customized summon list on page 75 is legal; 
+# Spells: false alibi
+
+# Pathfinder Adventure Path #60: "From Hell's Heart"
+# Equipment: Crossbow of retribution, doubleshot pepperbox, enervating pistol, and hurricane crown are legal for play.
+
+#
+# Shattered Star
+#
+
+# Pathfinder Adventure Path #61: "Shards of Sin"
+# Equipment: burglar's boots, cytillesh extract, frostspore, paradox box, pendant of the souk, and second-story harness are legal for play.
+
+# Pathfinder Adventure Path #62: "Curse of the Lady's Light"
+# Equipment: deathbalm talisman, maiden's helm, wax of defiance, and whispering coin are legal for play; 
+# Misc.: The customized summon list on page 75 is legal for play for followers of Torag; Spells: firebelly and ironbloom sprouts are legal for play if you are a follower of Torag
+
+# Pathfinder Adventure Path #63: "The Asylum Stone"
+# Equipment: fortifying leeches, spy eyes, and wings of flying, lesser are legal for play
+
+# Pathfinder Adventure Path #64: "Beyond the Doomsday Door"
+# Equipment: crystalline starknife, flaying halberd, lashing aklys; 
+# Misc.: The customized summon list on page 73 is legal for play for followers of Groetus; 
+# Spells: curse item is legal for play if you are a follower of Groetus.
+
+# Pathfinder Adventure Path #65: "Into the Nightmare Rift"
+# See Chronicle sheet.
+
+# Pathfinder Adventure Path #66: "The Dead Heart of Xin"
+# See Chronicle sheet.
+
+#
+# Reign of Winter
+#
+
+# Pathfinder Adventure Path #67: "The Snows of Summer"
+# Equipment: all equipment except cauldron of overwhelming allies and spear of manhunting are legal for play; Spells: flurry of snowballs, ice spears, Irriseni mirror sight, and snowball
+
+# Pathfinder Adventure Path #68: "The Shackled Hut"
+# Misc.: The customized summon list on page 69 is legal for play for followers of Milani; 
+# Spells: martyr's last blessing and peasant armaments are legal for play if you are a follower of Milani
+
+# Pathfinder Adventure Path #69: "Maiden, Mother, Crone"
+# Equipment: all equipment on pages 60-61 except frost-thunder hammer is legal for play
+
+# Pathfinder Adventure Path #70: "The Frozen Stars"
+# Equipment: all equipment on pages 62-63 except hide of the dragonrider and rimeblade is legal for play
+
+# Pathfinder Adventure Path #71: "Rasputin Must Die!"
+# Equipment: all equipment on pages 60-61 except maxim of suppressive fire and spectral searchlight is legal for play; 
+# Mystery: the Occult mystery on page 68 is legal.
+
+# Pathfinder Adventure Path #72: "The Witch Queen's Revenge"
+# Equipment labrys of the stone idol is legal for play
+
+# # # These sources are in PCGen, but not listed in the additional resource guide. However, some of the items missing from the above sources might be in these
+# PCC:@/pathfinder/paizo/adventure_path/council_of_thieves/players_guide/council_of_thieves_players_guide.pcc
+# PCC:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kingmaker_players_guide.pcc
+# PCC:@/pathfinder/paizo/adventure_path/serpents_skull/players_guide/serpents_skull_players_guide.pcc
+# PCC:@/pathfinder/paizo/adventure_path/carrion_crown/players_guide/carrion_crown_players_guide.pcc
+# PCC:@/pathfinder/paizo/adventure_path/jade_regent/players_guide/jade_regent_players_guide.pcc
+# PCC:@/pathfinder/paizo/adventure_path/skull_and_shackles/players_guide/skull_and_shackles_players_guide.pcc
+
+################################
+# Pathfinder Campaign Settings #
+################################
+
+# Pathfinder Campaign Setting: Chronicles of the Righteous
+# Equipment: all equipment on pages 52-53 are legal except angel's clarion, chronicle of the righteous, starknife of the void, and sword of vengeance; 
+# Feats: all feats on pages 5; 
+# Misc: all empyreal lords on the inside front cover and pages 6-29 are legal except Irez; the mystery cultist on pages 48-49 is legal; Note that the following obedience boons are not permitted: Lymnieris' 2nd boon, Rite of Passage; Olheon's 3rd boon, Lordship
+# Spells: all spells on pages 50-51 are legal except blood of the martyr and elemental assessor
+
+# Pathfinder Campaign Setting: Cities of Golarion
+# Feats: Corsair of Taldor, Endure Pain, Indomitable Mount, Irrisen Ice Mage, Master Delver, Mounted Onslaught, Wheeling Charge; 
+# Equipment: heathensnuff; Spell: Irissen mirror sight
+
+# Pathfinder Campaign Setting: City of Strangers
+# Feat: Bloatmage Initiate; Prestige Class: Bloatmage
+
+# Pathfinder Campaign Setting: Classic Horrors Revisited
+# Equipment: aklys, crystal chakram, fauchard, injection spear
+
+# Pathfinder Campaign Setting: Classic Monsters Revisited
+# Equipment: minotaur double crossbow; Feat: Minotaur's Charge
+
+# Pathfinder Campaign Setting: Classic Treasures Revisited
+# Feat: Instrumental; Magic Items: aligned horn of Valhalla, corpse-ferrying bag, cube of varied force walls, discriminating cube, executioner's hand, frostkiss whip, helm of electric radiance, helm of reclamation, independent cube of force, Jorngarl's harm, lesser helm of brilliance, minor bag of holding, rechargeable cube of force, remote activation cube, twinned cube of force; Feat: Companion Figurine; Spell: retrieve item
+
+# Pathfinder Campaign Setting: Dark Markets, A Guide to Katapesh
+# Feats: Jackal Blood, Lucky Halfling; Prestige Class: Balanced Scale of Abadar
+FEAT:@/pathfinder/paizo/campaign_setting/dark_markets/dm_feats.lst|(INCLUDE:CATEGORY=Special Ability,Jackal Blood)
+CLASS:@/pathfinder/paizo/campaign_setting/dark_markets/dm_classes.lst
+ABILITY:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_class.lst
+# Note: Lucky Halfling is in APG
+
+# Pathfinder Campaign Setting: Demons Revisited
+# Spells: contact nalfeshnee
+
+# Pathfinder Campaign Setting: Distant Worlds
+# Spells: planetary adaptation, planetary adaptation, mass
+
+# Pathfinder Campaign Setting: Dragon Empires Gazetteer
+# Subdomains: Moon; Gods: All gods listed on pages 58-63;
+# Languages: all languages on pages 49-51 may be learned via the Linguistics skill;
+# Races: All human ethnicities are legal, humans begin play knowing all listed languages for their chosen ethnicity as racial languages.
+# To create a kitsune, nagaji, or wayang character, you must have a Chronicle sheet that opens the race as a legal option at character creation.
+ABILITY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_abilities_race.lst
+ABILITY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_abilities.lst
+ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_abilitycategories.lst
+BIOSET:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_biosettings.lst
+DEITY:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_deities.lst
+DOMAIN:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_domains.lst
+LANGUAGE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_languages.lst
+RACE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_races.lst
+TEMPLATE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_templates.lst
+# Note: It seems that only Spells are prohibted form this source. Is there a better way to exclude only the spells?
+# Note: Languages need to be modified to only allow learning via Linguistics skill.
+# Note: Needs popup for kitsune, nagaji, or wayang to alert that a Chronicle is needed to open the race as a legal option.
+
+# Pathfinder Campaign Setting: Dungeon Denizens Revisited
+# Equipment: alkali flask, alkali salt, bulette bulwark (shield), delving (armor quality); Feats: Indigestible, Ooze Whisperer; Spell: flesh to ooze
+
+# Pathfinder Campaign Setting: Dungeons of Golarion
+# Equipment: deadflesh waraxe, raven bracers; Spells: battering blast, undeath ward
+
+# Pathfinder Campaign Setting: Faction Guide
+# Feat: Fast Crawl; 
+# Spells: hibernate, tripvine; Traits: Beast of the Society, Berserker of the Society, Blade of the Society, Defender of the Society, Exalted of the Society, Greater Adept of the Society, Havoc of the Society, Honored Fist of the Society, Maestro of the Society, Stalwart of the Society, Tracker of the Society
+
+# Pathfinder Campaign Setting: Giants Revisited
+# Equipment: all-seeing eye, bloodstone impaler
+
+# Pathfinder Campaign Setting: Gods and Magic
+# Equipment: Azlant pendant, barbed pentacle of Asmodeus, belt of the snake king, broken chain of the beast, bronze dagger of Erastil, cloak of the crusader, cloak of the Dark Tapestry, dawnflower sash, deathlurker's cloak, gossamer amberstone, hag's shabble, holy mask of the living god, icon of the midwife, inheritor's gauntlet, key of the second vault, mask of cutting flesh, nightstone of sorrow, orb of the waybringer, pallid crystal, Preklikin's Book of Cults, rhombocrystal, robe of the master of masters, sacrificial dagger of the blood mother, Shad'Gorum nugget, spellsight bracer, stinging stiletto, tankard of the drunken hero, veil of veils, vurra of the maker, windwave kilt; Gods: all of the gods listed on the inside front cover are legal choices for clerics; Spells: Abadar's truthtelling, blessing of the watch, burst of glory, channel the gift, channel vigor, Deadeye's arrow, defending bone, fallback strategy, Gorum's armor, Gozreh's trident, greater infernal healing, infernal healing, pick your poison, poisoned egg, shield of the dawnflower, traveling dream, unbreakable heart, waters of Lamashtu
+
+# Pathfinder Campaign Setting: Guide to the River Kingdoms
+# Feat: Touvette Defender; 
+# Spell: silverlight; 
+# Other: focused performance bard alternate class ability
+PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
+
+# Pathfinder Campaign Setting: Heart of the Jungle
+# Animal Companion: pygmy hippopotamus
+PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
+
+# Pathfinder Campaign Setting: Horsemen of the Apocalypse
+# Spells: all spells on pages 38-39 are legal; Items: candle of abbadon, daemon seed
+
+# Pathfinder Campaign Setting: Inner Sea Magic
+# Equipment: riffle scrolls (any spell augmented by the Silent Spell metamagic feat; price equals the spell's effective level x the caster's level x 25 gp); 
+# Feats: all feats on pages 10 and 15; 
+# Prestige Classes: A cyphermage replaces any Spell Focus feat for Scribe Scroll as a prerequisite, and may not choose the swift scrivener ability from the list of available cypher lore; the divine scion functions as written; 
+# Spells: all spells in chapter 5 except impart mind, and spellscar Other: all magical tattoos on page 16, both the spellscar and outer rifts oracle mysteries on pages 30-31 (the spellscar oracle does not gain access to the eldritch scar, primal mastery, or trigger primal magic event revelations), 
+# all archetypes on pages 32-43 except the primalist wizard archetype, with the following restrictions: only elves may be spire defender magi, a tattooed sorcerer may only use her create spell tattoo power during days spent in play (ie. not between scenarios), a vampire hunter inquisitor does not gain the silversmith ability, instead replacing detect alignment with detect undead; the Varisian Pilgrim does not replace her 8th-level domain power with Blessing of the Harrow.
+
+# Pathfinder Campaign Setting: Inner Sea World Guide
+# Domains: Scalykind and Void domains; 
+# Equipment: all weapons, armor, and adventuring gear on pages 290-293 with the following restrictions: No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; 
+# Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus; 
+# Gods: All gods listed in the tables on pages 229, 231, and 234; 
+# Languages: all languages on page 251 may be learned via the Linguistics skill; 
+# Magic Items: goz mask, unguent of revivification, wayfinder, zoic fetish; 
+# Prestige Classes: Hellknight, Low Templar; 
+# Races: All human ethnicities are legal except Azlanti, humans begin play knowing all listed languages for their chosen ethnicity as racial languages; 
+# Spells: all spells on pages 294-297 except harrowing, extraplanetary teleport, and teleport trap
+PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
+ABILITY:pfs_iswg_abilities.lst
+ABILITY:pfs_iswg_abilities_class.lst
+ABILITY:pfs_iswg_abilities_race.lst
+ABILITYCATEGORY:pfs_iswg_abilitycategories.lst
+CLASS:pfs_iswg_classes.lst
+CLASS:pfs_iswg_classes_race.lst
+COMPANIONMOD:pfs_iswg_companionmods.lst
+DEITY:pfs_iswg_deities.lst
+DOMAIN:pfs_iswg_domains.lst
+EQUIPMENT:pfs_iswg_equip_arms_armor.lst
+EQUIPMENT:pfs_iswg_equip_general.lst
+EQUIPMENT:pfs_iswg_equip_magic_items.lst
+EQUIPMOD:pfs_iswg_equipmods.lst
+FEAT:pfs_iswg_feats.lst
+KIT:pfs_iswg_kits_race.lst
+LANGUAGE:pfs_iswg_languages.lst
+RACE:pfs_iswg_races.lst
+SKILL:pfs_iswg_skills.lst
+SPELL:pfs_iswg_spells.lst
+TEMPLATE:pfs_iswg_templates.lst
+ARMORPROF:pfs_iswg_profs_armor.lst
+WEAPONPROF:pfs_iswg_profs_weapon.lst
+
+
+
+# Pathfinder Campaign Setting: Lands of the Linnorm Kings
+# Reputation, effigies, and weregild sections are not legal for Pathfinder Society Organized Play; Magic Items: all items on pages 50-51 are legal
+
+# Pathfinder Campaign Setting: Book of the Damned Volume 2: Lords of Chaos
+# Spells: disfiguring touch, vermin shape I, vermin shape II
+
+# Pathfinder Campaign Setting: Lost Kingdoms
+# Magic Items: farwatcher, rotcarver, visage of the broodlord; Spells: embrace destiny
+
+# Pathfinder Campaign Setting: Magnimar, City of Monuments
+# Gods: All gods listed in the tables on page 25 are legal
+
+# Pathfinder Campaign Setting: Mystery Monsters Revisited
+# Equipment: mokele-mbembe tail whip, serpentseeker bow, vitreous goggles
+
+# Pathfinder Campaign Setting: Mythical Monsters Revisited
+# Equipment: harpy musk
+
+# Pathfinder Campaign Setting: Pathfinder Society Field Guide
+# All rules in this book are legal for play in Pathfinder Society Organized Play, and this book is considered part of the Core Assumption.
+#PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
+
+# Pathfinder Campaign Setting: Paths of Prestige
+# Presige Classes: Aldori Swordlord, Bellflower Tiller, Brother of the Seal, Champion of Irori, Dawnflower Dissident, Golden Legionnaire, Green Faith Acolyte, Hellknight Signifier, Knight of Ozem, Lantern Bearer, Magaambyan Arcanist, Mammoth Rider, Prophet of Kalistrade, Riftwarden, Shieldmarshal, Skyseeker, Sleepless Detective, Storm Kindler, Tattooed Mystic, Veiled Illusionist, and Winter Witch are legal for play.
+
+# Pathfinder Campaign Setting: Princes of Darkness
+# Prestige Class: Diabolist; Spells: agonize, hellfire ray, malediction, vision of hell
+PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
+
+# Pathfinder Campaign Setting: Rival Guide
+# Equipment: blackfingers paste, all poisons on page 53; 
+# Feats: Circling Offense, Footslasher, Greater Serpent Lash, Jackal Heritage, Serpent Lash, Topple Foe; 
+# Magic Items: aegis of recovery, bivouac banners, cockatrice grit, desiccating dust, firefoot powder, marionette crux, metamagic gem, pendant of the blood scarab; 
+# Spells: dazzling blade, greensight, mass dazzling blade, sheet lightning, staggering fall, summon accuser*, summon infernal host; 
+# Other: giant hunter and rock stepper alternate racial traits
+# *A player casting this spell must provide a legal copy of the source in which the summoned creature appears for GM review or the spell fails.
+
+# Pathfinder Campaign Setting: Seekers of Secrets
+# Everything in this book is legal for play with the following notes. 
+# Equipment: ioun stones use method 1 for resonance and never use method 2. Additionally, only normal ioun stones have resonance-inferior ioun stones never do. Advanced ioun stones are not legal for play. 
+# Prestige Class: Pathfinder Savants replace the item creation feat prerequisite with Spell Focus
+PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
+
+# Pathfinder Campaign Setting: Pathfinder Character Traits Web Enhancement
+# Feat: Additional Traits; 
+# Traits: all traits are legal except for the following: Hedge Magician, Natural-Born Leader, and Rich Parents
+
+# Pathfinder Campaign Setting: Pathfinder Chronicles Campaign Setting
+# As of 3/7/11, the Pathfinder Chronicles Campaign Setting has been replaced by the Pathfinder Campaign Setting: Inner Sea World Guide. Equipment, feats, and prestige classes already in play remain legal, but no further equipment may be purchased from this book, nor may a character take a feat or the first level in a prestige class from this source when gaining a new level. Any rules element which has been updated in the Inner Sea World Guide (as denoted with an asterisk below) MUST use the version in the World Guide. If the updated version of a feat has prerequisites you no longer meet, you may ignore those prerequisites.
+# Equipment: wayfinder, all weapons on page 209, all armor on page 211 (except the armored kilt), all gear on page 213*; Feats: Aldori Dueling Master*, Altitude Affinity*, Andoren Falconry*, Arcane Vendetta*, Berserker's Cry, Careful Speaker*, Cosmopolitan, Crossbow Mastery, Demon Hunter*, Desperate Battler*, Fey Foundling*, Focused Shot, Godless Healing*, Green Faith Acolyte*, Katheer Scholar, Massed Charge, Molthuni Discipline* (replaced with Focused Discipline), Necromantic Resistance, Parting Shot, Rugged, Sniper Shot, Stoic*, Storm-Lashed*, Teleport Sense, Twisted Flesh, Warped Mind, Veiled Vileness, Vermin Heart, and Wand Dancer*; Prestige Classes: Low Templar*, Shackles Pirate
+
+################################
+# Pathfinder Player Companions #
+################################
+
+# Pathfinder Player Companion: Adventurer's Armory
+# Only the 2nd printing of this book or the 1st printing augmented by the current errata (released 7/21/11) are legal for play in Pathfinder Society Organized Play.
+# Everything in this book is legal for play with the following exceptions: a pseudodragon is not legal for purchase unless you're a wizard with the Improved Familiar feat, elephants are never legal for play, and armored kilts are not legal.
+
+# Pathfinder Player Companion: Andoran, Spirit of Liberty
+# Magic Items: all feather tokens, figurine of wondrous power (serpentine eagle), golden eagle epaulets, talon sword, talonstrike sword; Prestige Class: Steel Falcon (you must be a member of the Andoran faction to join, as you'll receive the invite from Captain Colson Maldriss; in order to use the natural traps class feature your total character level must be equal to or exceed the CR of the trap, and all traps are subject to GM approval); Spells: detect charm, liberating command, suppress charms and compulsions, summon flight of eagles; Traits: Bellis Axe Master, Bellis Honey Harvester, Bellis Log Roller, Carpenden Lobber, Carpenden Roof Runner, Kobold's Neighbor, Oregent Desperation, Oregent Timing, Oregent Vandal, Prismati Player
+
+# Pathfinder Player Companion: Animal Archive
+# *Note: The Animal Magic Item Slots table found on the inside front cover of the book is not legal except under the following conditions. First, an animal companion, familiar, or bonded mount, may choose one slot listed under its body type when taking the Extra Item Slot feat (this feat may be taken multiple times, each time selecting a different available magic item slot based on the creature's anatomy). Second, access to specific magic item slots may be granted at a later date by another legal source.
+# Archetypes: all archetypes on pages 6-7 and 20-21 are legal. The Huntmaster may only have one animal companion in his hunting pack; Animals: all animal companions on pages 28-29 are legal for purchase. Animals on pages 14-15 are legal for purchase except dinosaurs and megafauna (unless already allowed in this document in Bestiary 1, Bestiary 2, Bestiary 3, or Ultimate Equipment) and dire animals. Additionally, only creatures of the animal type of size Large and smaller may be purchased. Goblin dog is restricted for purchase and only available to goblin PCs; Equipment: all equipment on pages 12-13 are legal except barding stitches, fury drops, and poison caps; Familiars: all familiars on pages 10-11 and 30-31 are legal. Approximating familiars in not legal for PFS play; Feats: all feats on pages 18-19 are legal except Familiar Spell; Magic items: all magic items on pages 26-27 are legal except circlet of speaking and familiar metamagic rod; Spells: all spells on pages 24-25 are legal; Tricks: All tricks on pages 8-9 are legal.
+
+# Pathfinder Player Companion: Blood of Angels
+# Bloodlines: martyred bloodline is legal for Pathfinder Society but the bonus feat Leadership remains unavailable; Heritages: all heritages, and associated traits, on pages 21-23 are legal; Feats: all feats on pages 24-25 are legal except Supernal Feast; Magic: bard masterpieces are legal; Other: variant assimar abilities are not legal for Pathfinder Society; Oracle Curses on page 26 are legal; Inquisitons on pages 26-27 are legal; Subdomains: all subdomains on page 27 are legal; Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
+
+# Pathfinder Player Companion: Blood of Fiends
+# *Note: Tieflings may only be half-human. Other races, including but not limited to dwarf, elf, gnome, halfling, half-orc, tengu, and any other race, are not legal in PFS.
+# Bloodlines: daemon bloodline is not legal for Pathfinder Society; Feats: all feats on pages 24-25 are legal; Heritages: all heritages, and associated traits, on pages 18-23 are legal; Magic: bard masterpieces are legal; Other: variant tiefling abilities are not legal for Pathfinder Society; oracle curses on page 26 are legal; Inquisitons on pages 26-27 are legal; Subdomains: all subdomains on page 15 are legal; Traits: all traits on pages 30-31 are legal
+PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.pcc
+
+# Pathfinder Player Companion: Blood of the Night
+# To create a dhampir, you must have a Chronicle sheet that opens the race as a legal option at character creation.
+# Note: Racial feats, racial traits, and racial spells are only available for characters of the dhampir race. Racial equipment and magic items can be purchased and used by any race as long as the specific item permits it.
+# The hunger, Jiang-shi, moroi, nosferatu, vetala, vampire characters, and vampire transformations sections of this book are not legal for Pathfinder Society play.
+# Equipment: force net, necklace of fangs, and stake of righteous; Feats: Conviction, Hymn Singer, Life-Dominant Soul, Potent Holy Symbol, and Schooled Resolve; Heritages: all heritages on pages 20-21 are legal; Roles: Ancestral slayer; Spells: display aversion, domination link; Traits: all traits on page 19 are legal for all dhampir characters. All traits on pages 20-21, except mind trapper, are legal for their associated heritages.
+
+# Pathfinder Player Companion: Champions of Purity
+# Deities: all deities on the inside front cover are legal for play; Discoveries: all discoveries on pages 24 and 27 are legal for play; Domains: all domains and subdomains on the inside cover and pages 20-21 are legal for play; Equipment: all magic items on pages 26-27 and 30-31 except phoenix armor and rythius, the kyton scourge are legal for play; Evolutions: all evolutions on page 26 are legal for play; Feats: all feats on page 23 and the inside back cover are legal for play; Hexes: all hexes on page 27 are legal for play; Inquisitons: all inquisitions on page 22 are legal for play; Masterpieces: all masterpieces on page 25 are legal for play; Misc.: all summoned monsters on the inside back cover are legal options for summon spells for characters with the Summon Good Monster feat; Rogue Talents: all rogue talents on page 25 are legal for play; Spells: all spells on pages 28-29 are legal for play; Traits: all traits on pages 7, 9, 11, 13 are legal for play
+
+# Pathfinder Player Companion: Cheliax, Empire of Devils
+# Equipment: all items on pages 20-21; Feats: all feats on pages 26-27; Spells: all spells on pages 22-23; Traits: all traits on pages 18-19
+PCC:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
+
+# Pathfinder Player Companion: Demon Hunter's Handbook
+# Archetypes all archetypes on page 15 are legal for play; Equipment: all equipment and kits on pages 7 and 18-19 are legal for play except angel quill arrowhead; Feats: all feats on pages 9 and 21 are legal for play; Magic items: all magic items on pages 28-29 are legal for play; Rage Powers: all rage powers on page 8 are legal for play except feast of blood; Ranger Traps: all ranger traps on page 11 are legal for play; Traits: all traits on pages 12-13, 23, and 25 are legal for play.
+
+# Pathfinder Player Companion: Dragon Empires Primer
+# Archetypes: all archetypes on pages 22-23; Feats: kitsune feats on page 5 are legal for kitsune characters; all feats on pages 24-25; Gods: All gods listed on pages 26-27; Other: Oni Bloodline, Void elemental school; Races: To create a kitsune, nagaji, or wayang character, you must have a Chronicle sheet that opens the race as a legal option at character creation. Spells: Call the Void; Subdomains: Moon; Traits: all traits on pages 8-21, except Chosen Child and Rebel Leader
+PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
+
+# Pathfinder Player Companion: Dragonslayer's Handbook
+# Equipment: all equipment and kits on pages 7 and 26-27 are legal for play except dragoncrafting kit, seige engine ammunition, spotlight, and wind platform; Feats: all feats on pages 21 and 24-25 are legal for play; Magic Items: all magic items on pages 30-31 are legal for play; Masterpieces: all masterpieces on page 11 are legal for play; Spells: all spells on pages 28-29 are legal for play; Traits: all traits on pages 12-13 are legal for play.
+
+# Pathfinder Player Companion: Dungeoneer's Handbook
+# Archetypes: all archetypes on pages 22-23 are legal for play; Discoveries: all discoveries on page 27 are legal for play; Equipment: all equipment on pages 6-7 and 24-29 except petrified ooze are legal for play; Feats: all feats on pages 8, 10, and 12 are legal for play; Spells: all spells on pages 30-31.; Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
+PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
+
+# Pathfinder Player Companion: Dwarves of Golarion
+# Equipment: dwarven dorn-dergar; Feats: Bounding Hammer, Darting Viper, Dorn-Dergar Master, Sliding Axe Throw, Stance of the Xorn; Gods: all gods listed on the inside front cover (note that all gods with favored weapons listed as "hammer" should read "warhammer"); Spells: ancestral communion, ancestral gift, bloodsworn retribution, dwarven veil, invigorating repose, mighty strength, oath of justice, peacemaker's parley, planned assault, rune of durability, rune of warding, see through stone, summon ancestral guardian, tactical formation, watchful eye; Traits: all traits except Coin Hoarder, Eldritch Smith, and Toilcrafter
+PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
+
+# Pathfinder Player Companion: Elves of Golarion
+# Equipment: clustershot, healer's sorrow, and sparkfly crystal arrow weapon qualities and alchemical archery items, except trip arrows, on pages 22-23 are legal for play; Gods: all gods on page 10; Traits: all traits on page 15 except Kyonin Gatekeeper and Lapsed Faith
+
+# Pathfinder Player Companion: Faiths & Philosophies
+# Archetypes: all archetypes on pages 10-11 and 13 are legal for play; Domains: all domains on pages 24-25 are legal for play. Note that Agent of Rebirth is replaced with, "At 8th level, the druid can cast an extended air walk spell as a spell-like ability once per day."Equipment: all items on pages 30-31 are legal for play except leshy mulch manual and tome of heretical revelation; Feats: all feats on pages 6-7, 11, 19, and 21 are legal for play; Inquisitions: all inquisitions on page 23 are legal for play; Mysteries: all mysteries on pages 14-15 are legal for play; Pantheons: all pantheons on page 21 are legal for play except demon lords; Spells: all spells on pages 28-29 are legal for play. Traits: all traits on the inside front cover except bound by honor are legal for play.
+
+# Pathfinder Player Companion: Faiths of Balance
+# Equipment: all channel foci on pages 24-25, all magic items on pages 26-27; Feats: All feats on page 24; Spells: all spells on pages 28-29; Traits: all traits on pages 4-21
+PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
+
+# Pathfinder Player Companion: Faiths of Corruption
+# Feats: all feats on pages 24-25; Spells: all spells on pages 28-29; Traits: all traits on pages 4-21
+PCC:@/pathfinder/paizo/player_companion/faiths_of_corruption/faiths_of_corruption.pcc
+
+# Pathfinder Player Companion: Faiths of Purity
+# Feats: all feats on pages 24-25 with the following errata: Glorious Heat grants a number of points of healing equal to the spell level, not the caster level (ie. flame strike grants 5 points, while spark grants 0); Spells: all spells on pages 28-29; Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
+PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
+
+# Pathfinder Player Companion: Gnomes of Golarion
+# Equipment: all equipment in the table on page 23; Feats: Arcane School Spirit, Bewildering Koan, Blood Ties, Caustic Slur, Effortless Trickery, Extra Gnome Magic, Helpless Prisoner, Invoke Primal Instinct, Tantrum, Threatening Illusion, Witty Feint; Gods: all gods on the inside front cover; Spell: illusory poison; Traits: Brastlewark Businessman, Charlatan, Collector, Excitable, Explorer, Etymologist, First Memories, Naturally Gifted, Rapscallion, Sprint, Trickster, and Zealot
+PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
+
+# Pathfinder Player Companion: Goblins of Golarion
+# To create a goblin character, you must have a Chronicle sheet that opens the race as a legal option at character creation. Only legal goblin PCs are allowed to choose anything from this book.
+# Equipment: all equipment in the table on page 12 except cobbled item are legal for play; Feats: all feats on pages 24-25 are legal for play; Magic Items: all magic items on page 29 are legal for play; Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play; Spells: all spells on pages 28-29 except limp lash are legal for play; Traits: all traits on pages 15-16 are legal for play
+PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.pcc
+
+# Pathfinder Player Companion: Halflings of Golarion
+# Alternate Racial Trait: Halfling Jinx; Equipment: halfling hooch on page 10, all equipment in the table on page 22; Feats: all feats on pages 23, and 26-27; Prestige Class: Halfling Opportunist; Traits: all traits on pages 30-31.
+PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+
+# Pathfinder Player Companion: Humans of Golarion
+# Spells: all spells on pages 28-29; Traits: all traits on pages 30-31
+
+# Pathfinder Player Companion: Inner Sea Primer
+# Traits: all traits on pages 4-22 with the following changes: Pesh Addict may only be taken at 1st level and Ustalavic Noble provides no additional starting gold; Other: Egorian Academy Infernal Binder and Mage of the Veil arcane schools on page 29, and all fighter archetypes on pages 24-25
+PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.pcc
+
+# Pathfinder Player Companion: Knights of the Inner Sea
+# Cavalier Orders: all cavalier orders on pages 24-25 are legal for play; Equipment: all equipment on pages 30-31 are legal for play except war lance; Spells: all spells on pages 28-29 are legal for play; Traits: all traits in the book, except on pages 26-27, are legal for play
+
+# Pathfinder Player Companion: Orcs of Golarion
+# Feats: all feats on pages 24-25 except Destroyer's Blessing and Fire God's Blessing; Spells: all spells on pages 28-29 except enemy's heart and shield the banner; Traits: all traits on pages 22-23 except Blessing of the Feast, Demented Inventor, and Tribal; Other: orc sorcerer bloodline on page 14
+PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
+
+# Pathfinder Player Companion: Osirion, Land of Pharaohs
+# Equipment: all items on page 25; Feats: all feats on pages 28-29 (reduce all skill rank requirements by -3 and remember that the Hide skill is now Stealth and that the Search skill is now Perception) except Serpent Lash, which has been replaced by the version in Pathfinder Campaign Setting: Rival Guide. You must convert to the current version of Serpent Lash or replace this feat. The versions of Thanatopic Spell and Threnodic Spell in this source are no longer legal. You must convert to the current versions in Ultimate Magic or replace these feats; Prestige Class: Living Monolith (reduce all skill rank requirements to 1); Spells: all spells on pages 26-27
+
+# Pathfinder Player Companion: Pathfinder Society Primer
+# Everything in this book is legal for play with the following note. Equipment: Only normal ioun stones have resonance-cracked and flawed ioun stones never do.
+
+# Pathfinder Player Companion: People of the North
+# The kellid, snowcaster elves, ulfen, erutaki, and jadwiga sections of the book are legal for play. The traits on pages 6-13 are only legal if your character is of the same ethnicity as the section with the trait.
+# Archetypes: all archetypes on pages 24-25 are legal ; Equipment: buoyant harpoon, cloak of the saga keeper, helm of the mammoth lord, hex nail, and mammoth lance are legal for play; Feats: all feats on page 24 are legal; Languages: ethnicities begin play with their preferred language for free. If there are more than one listed, the player may choose which one the character receives for free; Misc.: the oracle mystery on pages 26-27 is legal; Roles: all roles on pages 6-13 are legal; Spells: all spells on page 26 are legal; Traits: all traits are legal.
+
+# Pathfinder Player Companion: Pirates of the Inner Sea
+# Archetypes: all Equipment: all equipment, items, and weapons on pages 18-20; Prestige Class: Inner Sea Pirate; Spells: all spells on pages 28-29; Traits: all traits on pages 5, 7, 9, 11, 13, 15, and 27
+PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
+
+# Pathfinder Player Companion: Qadira, Gateway to the East
+# Equipment: all equipment, items, and materials on pages 19, 23, and 25; Feats: all feats on pages 9 and 23; Prestige Class: Daivrat; Traits: all traits on pages 9, 15, 19, 23, and 25
+PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
+
+# Pathfinder Player Companion: Quests & Campaigns
+# Equipment all magic items on pages 30-31 are legal except banner of tactical command, lesser banner of tactical command, diadem of inspiring rule, and horn of plenty; Feats: Expert Trainer is legal; Spells: detect relations is legal; Traits: all traits on pages 18-21 are legal.
+
+# Pathfinder Player Companion: Sargava, The Lost Colony
+# Equipment: Kaava Musk on page 24, all magic items on pages 228-29; Feats: all feats on pages 24-25; Spells: all spells on page 24; Traits: all traits on page 23 except Spirit Talker
+PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+
+# Pathfinder Player Companion: Second Darkness
+# Equipment: all magic items on page 25 and pages 28-29; Prestige Class: Liberator (reduce all skill rank requirements by -3)
+PCC:@/pathfinder/paizo/adventure_path/second_darkness/players_guide/second_darkness_players_guide.pcc
+
+# Pathfinder Player Companion: Taldor, Echoes of Glory
+# Equipment: all equipment on pages 26-27; Feats: all feats on pages 28-29 with the exceptions of Master of the Ledger and Taldan Knight (reduce all skill rank requirements by -3 to a minimum of 1); Spells: all spells on pages 24-25; Traits: all traits on pages 13-14 (note that Divine Warrior should read "Your damaging divine spells gain a +1 trait bonus to damage" and Militant Merchant applies to Perception checks and the Perception skill); Prestige Class: the Lion Blade (decrease all skill rank requirements by -3)
+# Taldor, Echoes of Glory
+
+# Pathfinder Player Companion: Varisia, Birthplace of Legends
+# Archetypes: Kapenia dancer and thundercaller are legal for play. Equipment: All equipment on pages 14-15 are legal for play except Varisian idol. Feats: Thunder and Fang is legal for play. Roles: Duskwarden, Frontier Defender, Magnimarian Warden, Professional Gambler, Sable Company Marine, Sczarni Tough, Shingles Dweller, Shoanti Outrider, Shoanti Totem Shaman, Sky Magistrate, Varisian Bravo, and Welcome Wanderer are legal for play. Traits: Coincunning, cypher resistance, emissary, empyreal cultist, humble beginnings, local know-it-all, regional influence (except Magnimar), regional recluse, roof racer, savage breaker, Shoanti steed, Shoanti tattoo, town gossip, underbridge dweller, Varisian tattoo, and winner's luck are legal for play.
+# Varisia, Birthplace of Legends
+
+################################
+# Pathfinder Role Playing Game #
+################################
+
+# Pathfinder Roleplaying Game: Advanced Player's Guide
+# All playtest versions of the six new base classes from this book are no longer legal for play as of 8/3/10. Anyone playing the playtest version of one of the six new base classes must have updated his or her character as of 8/3/10. Updating your character means adjusting only the things that have changed, but not rebuilding the character.
+# The following parts of the Advanced Player's Guide are NOT legal for play:
+#   craftsman alternate Dwarven racial trait
+#   practicality alternate Halfling racial trait
+#   heart of the fields alternate Human racial trait
+#   Alchemist's Brew Potion class ability (he receives Extra Bombs instead as a bonus feat)
+#   Cavalier's Expert Trainer class ability (he receives Skill Focus [Handle Animal] instead as a bonus feat)
+#   Witch's Cauldron hex
+#   Antipaladin alternate class
+#   Cooperative Crafting feat
+#   all cursed magic items and artifacts
+#   the Hero Point new rule and associated feats, spells, and magic items
+# Equipment: All staves in Chapter 7 are not legal for play from this source. If you purchased these prior to Aug. 16, 2012, they are grandfathered into the campaign.
+# Traits: hedge magician, natural born leader, and rich parents traits, and all of the Campaign Traits.
+# The Master Alchemist feat may only be selected by Alchemists and Poisoners.
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+
+# Pathfinder Roleplaying Game: Advanced Race Guide
+# To create an dhampir, fetchling, grippli, goblin, ifrit, kitsune, nagaji, oread, suli, sylph, undine, vishkanya or wayang character, you must have a Chronicle sheet that opens the race as a legal option at character creation.
+# Note: Alternate racial traits, racial archetypes, racial evolutions, racial feats, and racial spells are only available for characters of the associated race. Racial equipment and magic items can be purchased and used by any race as long as the specific item permits it (for example, only halflings can purchase and use solidsmoke pipeweed).
+# The new alchemist discovery on page 44 is legal for play for characters of all races.
+# Dwarves: all alternate racial traits, except craftsman and xenophobic, are legal for play; racial subtypes are legal for play; all favored class options except wizard are legal for play; all archetypes are legal for play. The Forgemaster's 3rd level Craft Magic Arms and Armor bonus feat is replaced with the Heavy Armor Proficiency feat. The Forgemaster's 5th level master smith ability is replaced with Skill Focus (Craft); all dwarven equipment, feats, magic items, and spells are legal for play.
+# Elves: all alternate racial traits, except darkvision; all racial subtypes except arctic and dusk elves, are legal for play; all racial subtypes, favored class options, racial archetypes, elven special materials except wyroot, feats, magic items, and spells are legal for play.
+# Gnomes: all alternate racial traits, racial subtypes, and favored class options are legal for play; all racial archetypes except experimental gunsmith are legal for play; all gnome equipment, feats, and spells are legal for play; all gnome magic items except amazing tools of manufacture are legal for play; Ring of craft magic may be used for Day Job checks.
+# Half-Elves: all alernate racial traits except drow-blooded and drow magic are legal for play; all racial subtypes except drow-descended are legal for play; all favored class options are legal for play; all racial archetypes except wild caller are legal for play. For the bonded witch archetype, energy siege shot is replaced with resounding shot (Advanced Player's Guide 238) at 10th level and arcane cannon is replaced with fire brand (Advanced Player's Guide 222) at 14th level under the bonded item weapon entry; all half-elven equipment, magic items, and spells are legal for play; all half-elven feats except Half-Drow Paragon are legal for play.
+# Half-Orcs: all alternate racial traits, racial subtypes, and favored class options are legal for play; all racial archetypes except blood god disciple and hateful rager are legal for play; all half-orc equipment is legal for play; all half-orc feats except Tenacious Survivor is legal for play; all half-orc magic items are legal for play; all half-orc spells except half-blood extraction are legal for play
+# # Halflings: all alternate racial traits except Practicality are legal for play; all racial subtypes, favored class options, racial archetypes, orders, equipment, feats, and magic items are legal for play.
+# Humans: all alternate racial traits except heart of the fields and heroic are legal for play; all racial subtypes, except trailblazer, are legal for play; all favored class options, feats, equipment, and spells are legal for play; all racial archetypes and bloodlines except buccaneer and feral child are legal for play.
+# In Chapter 2, nothing from the catfolk, drow, hobgoblins, kobolds, orcs, and ratfolk entries are currently legal for play.
+# Aasimars: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Dhampirs: all alternate racial traits, favored class options, racial archetypes, racial equipment except vampire slayer's kit, magic items, and spells are legal for play; all dhampir feats except Blood Drinker, Blood Feaster, Blood Salvage, and Diverse Palate are legal for play.
+# Fetchling: all alternate racial traits, favored class options, archetypes except shadow caller, evolutions, equipment, feats, magic items, and spells are legal for play.
+# Goblins: all alternate racial traits, goblin discoveries, favored class options, archetypes, equipment, feats, magic items, and spells except vomit twin are legal for play.
+# Ifrits: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Oreads: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Sylphs: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Tengus: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Tieflings: all alternate racial traits, favored class options, racial equipment, feats, magic items, and spells are legal for play; all racial archetypes except Fiendish Vessel are legal for play.
+# Undines: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# In Chapter 3, nothing from the changelings, duergar, gillmen, merfolk, samsarans, strix, svirfneblin, and vanaras entries are currently legal for play.
+# The rogue talents on page 193 are legal for play for characters of all races.
+# Gripplis: all alternate racial traits, favored class options, racial archetypes, racial equipment, racial discoveries, racial magic items, and racial feats are legal for play.
+# Kitsune: all alternate racial traits, favored class options, racial archetypes, racial feats, and magic items are legal for play.
+# Nagaji: all alternate racial traits, favored class options, racial archetypes, racial feats, and magic items are legal for play.
+# Sulis: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, and spells are legal for play.
+# Vishkanyas:all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Wayangs: all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spell are legal for play.
+# Nothing in Chapter 4 is legal for play.
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+
+# Pathfinder Roleplaying Game: Bestiary
+# Animal Companions: ankylosaurus, aurochs, brachiosaurus, dire bat, dire rat, dolphin, elasmosaurus, electric eel, elephant/mastodon, frog, goblin dog, hyena, monitor lizard, moray eel, octopus, orca, pteranodon, rhinoceros, roc, squid, stegosaurus, triceratops, and tyrannosaurus; Familiars: all familiars listed on pages 131-133; Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source. Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
+
+# Pathfinder Roleplaying Game: Bestiary 2
+# Animal Companions: allosaurus, arsinoitherium, baboon, compsognathus, gar, glyptodon, hippopotamus, manta ray, megaloceros, megatherium, parasaurolophus, ram, giant snapping turtle, stingray, tylosaurus; Familiars: brownie, compsognathus, lyraken azata, snapping turtle, voidworm protean; Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source; Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
+
+# Pathfinder Roleplaying Game: Bestiary 3
+# Animal Companions (p. 311): antelope, archelon, axe beak, baluchitherium, basilosaurus, dimetrodon, elk, giant chameleon, giant gecko, giant vulture, iguanodon, kangaroo, megalania, pachycephalosaurus, spinosaurus, thylacine; Familiars: all familiars listed on pages 112-113 and the carbuncle and sprite; Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source; Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
+
+# Pathfinder Roleplaying Game: NPC Codex
+# The 1st and 7th level iconic characters found on pages 274-297 may be used in place of the downloadable pregenerated characters found on Paizo.com. The 12th level iconics are not permitted for PFS play. The text in the box on page 275 should be noted before using the iconic characters. The animal companions on pages 298-307 may be used as long as the character meets all the prerequisites to obtain an animal companion.
+
+# Pathfinder Roleplaying Game: Ultimate Campaign
+# Refer to page 10 in the Guide to Pathfinder Society Organized Play for rules on utilizing character retraining.
+# Note: Race traits are only available for characters of the associated race. Religion traits are only available for characters of the associated religion.
+# Traits: all traits listed on pages 51-64 are legal for play except corpse cannibal, hedge magician, natural-born leader, rich parents, and unblemished barrel.
+
+# Pathfinder Roleplaying Game: Ultimate Combat
+# The playtest versions of the gunslinger, ninja, and samurai are no longer legal for play as of 8/4/11. Anyone playing the playtest version must have updated his or her character as of 8/4/11. Updating your character means adjusting only the things that have changed, but not rebuilding the character.
+# All material from this book is legal for play except as noted below. Some rules elements are legal but function differently in Pathfinder Society Organized Play, as described.
+# Gunslinger: A gunslinger's starting gun (granted by the gunsmith class feature) is worth 22 gp if sold (the average of 4d10).
+# A gunslinger begins each scenario with her Wisdom modifier in grit (or her maximum grit if she has the Extra Grit feat). Any additional grit earned above her starting grit does not carry over past the scenario's conclusion.
+# The Daring Act optional rule is not used in the Pathfinder Society Organized Play campaign.
+# Samurai: A samurai who changes his order must inform the GM of the change at the start of each scenario during the entire level in which he receives no benefits from his order, getting GM initials in the items purchased/ conditions removed section of each Chronicle until he has earned 3 XP as an orderless samurai. A samurai who adopts the way of the ronin must have his GM initial such a change on his Chronicle when the decision to change orders is made.
+# All samurais belonging to the Ronin order treat the three tenets of the Pathfinder Society (explore, report, and cooperate) as their edicts as outlined in Seekers of Secrets.
+# A samurai may only choose from the listed animals for his mount.
+# Alchemist: The poison conversion discovery and siege bombs discovery are not legal for use in Pathfinder Society Organized Play.
+# Barbarian: The wild rager archetype is not permitted in Pathfinder Society Organized Play
+# Cavalier: The musketeer archetype is not permitted in Pathfinder Society Organized Play.
+# Fighter: The gladiator archetype is not permitted in Pathfinder Society Organized Play.
+# Inquisitor: Inquisitions from Ultimate Combat are not legal for play.
+# Magus: A soul forger magus can add his magus level to Craft checks as part of a Day Job check, but may not craft magic or mundane items for use in scenarios or for resale.
+# Paladin: The knight of the sepulcher and holy gun archetypes are not legal for Pathfinder Society Organized Play.
+# Ranger: The trophy hunter archetype is not permitted in Pathfinder Society Organized Play.
+# Rogue: The black market connections rogue talent and the driver archetype are not legal for Pathfinder Society Organized Play.
+# Wizard: The siege mage and spellslinger archetypes are not permited in Pathfinder Society Organized Play.
+# Feats: The following feats are not allowed in Pathfinder Society Organized Play: Expert Driver, Field Repair, Master Combat Performer, Master Siege Engineer, Performance Weapon Master, Performing Combatant, Secret Stash Deed, Siege Commander, Siege Engineer, Siege Gunner, Skilled Driver,, and all performance feats.
+# The following two feats function differently in Pathfinder Society Organized Play than they do in regular games:
+# Gunsmithing does not grant the ability to craft firearms, ammunition, or black powder. Rather, it allows the purchase of bullets, pellets, black powder, and alchemical cartridges (with 1 rank in Craft [alchemy]) at the listed reduced price, but does not grant a discount on the purchase of any firearm. Resold items gained through this feat are worth half the actual cost paid, not half the regular market value for the item. No PC can purchase a gun without this feat, even if they possess the Amateur Gunslinger or Exotic Weapon Proficiency (firearm) feats.
+# A cavalier of 4th level or higher may take the Horse Master trait, ignoring the expert trainer class feature. A cavalier who trades this class feature for another as part of an archetype can not take the Horse Master feat.
+# Equipment: No firearm sized Large or larger is available for purchase. The double hackbut and culverin on Table 3-4 and advanced firearms on Table 3-5 and are not permitted in Pathfinder Society Organized Play. No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or granted by a class feature. All ammunition except metal cartridges may be purchased.
+# Spells: All spells in chapter 6 are legal for play except the following: arcane cannon, energy siege shot, greater energy siege shot, greater magic siege engine, and magic siege engine.
+# Other: Unless prompted in a scenario or granted by a Chronicle, the rules for duels, performance combat, and siege engines, and all variant rules in Chapter 5 are not used in Pathfinder Society Organized Play.
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
+WEAPONPROF:uc_mods_profs_weapon.lst
+FEAT:uc_mods_feats.lst
+
+# Pathfinder Roleplaying Game: Ultimate Equipment
+# All items from Chapter 1 are legal for play except as noted below. Some rules elements are legal but function differently in Pathfinder Society Organized Play, as described here.
+# Equipment: No Large or larger firearm is available for purchase. The double hackbut, culverin and any advanced firearms on Table 1-10 are not permitted in Pathfinder Society Organized Play. No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or granted by a class feature. All ammunition except metal cartridges may be purchased.
+# Special Materials: All special materials, except angel skin, living steel and wyroot, are legal for play.
+# All items from Chapter 2 are legal for play except as noted below.
+# Equipment: Only creatures of the animal type of size Large and smaller may be purchased. No eggs are legal for play. Animal-related gear on pages 80-86 is available for purchase. Transports on pages 86-87 are not available for purchase. All alchemical remedies, alchemical tools, alchemical weapons, clothing, entertainment items, and food and drink are legal for play.
+# Any character with the Poison Use class ability can purchase and use poisons. For now, they are the only classes that have a list of -always available poisons- (those noted below)-no other class may purchase poisons unless they appear on a Chronicle sheet or in another legal source. Alchemists, ninja, and poisoner rogues may only purchase the following poisons: black adder venom, bloodroot, giant wasp poison, greenblood oil, large scorpion venom, malyass root paste, Medium spider venom, nitharit, shadow essence, small centipede poison, terinav root.
+# All items from Chapter 3 are legal for play except as noted below.
+# All armor special abilities on pages 114-123, except dastard, are legal for play.
+# All specific magic armor on pages 124-129, except breastplate of vanishing, catskin leather, demon armor, enchanted eelskin, hamatula hide, mail of malevolence, morlock hide, otyugh hide, scarab breastplate, and warden of the woods are legal for play.
+# All specific magic shields on pages 130-133, except avalanche shield, belligerent shield, celestial shield, dragonslayer's shield, elysian shield, living steel heavy shield, tempest shield, volcanic shield, wyrmslayer's shield, and zombie skin shield are legal for play.
+# All weapon special abilities on pages 134-149, except unholy, are legal for play.
+# All specific magic weapons on pages 150-163, except bastard's sting, blade of the rising sun, blade of the sword-saint, cutthroat's apprentice, dagger of doubling, dragoncatch guisarme, earthenflail, hellscourge, lash of the howler, nine lives stealer, pistol of the infinite sky, polarity hammer, spider's fang, and ten-ring sword, are legal
+# All items from Chapter 4 are legal for play except as noted below.
+# All rings on pages 166-177 are legal for play.
+# All rods on pages 178-191, except rod of the viper, are legal for play.
+# All staves on pages 192-203, except unholy staff, are legal for play.
+# All items from Chapter 5 are legal for play except as noted below.
+# Equipment: All items on pages 208-325, except ampoule of false blood, beneficial bandolier, bone razor, bracer's of falcon's aim, cauldron of the undead, collar of the true companion, darkskull, horn of evil, otherworldly kimono, orb of foul abaddon, quick runner's shirt, robe of the archmagi (black), stalker's mask, and talons of Leng are legal for play.
+# Nothing from Chapter 6 is legal for play unless it appears on a Chronicle sheet.
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+
+# Pathfinder Roleplaying Game: Ultimate Magic
+# Anyone playing the magus playtest version must have updated his or her character as of 5/19/11. The following are NOT legal for play:
+# Alternate class abilities: alchemical simulacrum discovery, alchemical zombie discovery, doppelganger simulacrum discovery, and greater alchemical simulacrum discovery are not legal for play.
+# Archetypes: broodmaster summoner, clone master alchemist, gravewalker witch, pack lord druid, master summoner, reincarnated druid, synthesist summoner, undead lord cleric, vivisectionist alchemist archetypes are not legal for play.
+# Discoveries: arcane builder arcane discovery, golem constructor arcane discovery, true name arcane discovery, staff-like wand arcane discovery are not legal for play.
+# Feats: Blighted Critical, Create Reliquary Arms and Shield, Create Sanguine Elixir are not legal for play.
+# Hexes: child scent hex, poison steep hex, cook people major hex, and witch's brew major hex are not legal for play.
+# The following function differently than written in the sourcebook:
+# Bottled ooze discovery may only be used to bottle oozes which appear in the Pathfinder RPG Bestiary.
+# Geisha bard archetype grants Spell Focus instead of Scribe Scroll.
+# Geisha bard archetype grants Spell Focus instead of Scribe Scroll.
+# Clostered Cleric archetype grants Spell Focus at 4th level in place of Scribe Scroll.
+# An ex-Inquisitor may not replace existing class abilities with those granted by the Heretic inquisitor.
+# A broken monk vow only requires a casting of atonement to be renewed.
+# The Time oracle mystery grants hold monster at 10th level in place of permanency.
+# Evolutionist summoners may only mutate an eidolon between sessions.
+# Familiars: all familiars in Chapter 2 and all improved familiars on page 251 are legal;
+# Spells: all spells are legal for play except blood transcription and those which grant a spellblight (such as curse of magic negation or steal voice);
+# Other: No content from Chapter 2 is legal for play except new familiars; Words of Power are also forbidden.
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
+
+
+# consider using  |PRERULE:1,PFSRULES

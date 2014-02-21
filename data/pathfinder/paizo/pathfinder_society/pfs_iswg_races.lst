@@ -1,0 +1,22 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Race Name				Product Identity?	Output Name				Starting Feats	Size		Move					Face/Space	Reach		Vision									Bonus Languages										Bonus to Ability Pool				Combat bonus					Bonus to skill															Stat bonus																	Modify VAR													Weapon prof. bonus																																																									Racial HD Class Skills									Automatically Gained Language			Automatically Gained Weapon Prof.	Ability																																															Nb Legs	Nb Hands	Natural Attacks																																																																																																			Define				Spell Res.	Damage Reduction			Monster Class Name and Starting Level	Main Race Type			Race Subtype			Template						Challenge Rating	Source Page		Innate Spells																																																																	Apply Kit
+Rat (Donkey).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Spider (Drain).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Fennec (Firefoot).MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Gecko (Giant).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Shark (Jigsaw).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Boar (Sargavan).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Herd Animal (Storval Aurochs).MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Aluum.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Calikang.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Charau-ka.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Daughter of Urgathoa.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Sandpoint Devil.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Dragon (Spine).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Treerazer.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+Gillman.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Strix.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
