@@ -222,7 +222,7 @@
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Frugal, based on work by ROG, Arcady, Barak, Dimrill, Dekker &amp; Andrew Maitland (LegacyKing).</fo:block>
-						<fo:block text-align="center" font-size="5pt">Created using <fo:basic-link external-destination="http://pcgen.org/" show-destination="true" color="blue" text-decoration="underline">PCGen</fo:basic-link> <xsl:value-of select="/character/export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
+						<fo:block text-align="center" font-size="5pt">Created using <fo:basic-link external-destination="http://pcgen.org/" color="blue" text-decoration="underline">PCGen</fo:basic-link> v<xsl:value-of select="/character/export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="end" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
 						<fo:block font-size="5pt">
@@ -332,7 +332,7 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
-			<!--
+		<xsl:message>Start the Second page</xsl:message>			<!--
 				Start the Second page
 				-->
 			<fo:page-sequence>
@@ -515,7 +515,7 @@
 						<xsl:attribute name="column-width"><xsl:value-of select="0.15 * ($pagePrintableWidth - 12)" />mm</xsl:attribute>
 					</fo:table-column>
 					<!-- Vision -->
-				</xsl:otherwise>
+					<fo:table-column column-width="2mm"/>				</xsl:otherwise>
 			</xsl:choose>
 			<fo:table-body>
 				<fo:table-row>
@@ -534,7 +534,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
 						</xsl:call-template>
-						<fo:block font-size="8pt">
+						<fo:block font-size="10pt">
 							<xsl:value-of select="playername"/>
 							
 						</fo:block>
@@ -868,7 +868,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" padding-top="1pt"></fo:block>	
+						<fo:block font-size="6pt" padding-top="1pt">Points</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 				</fo:table-row>	
@@ -982,8 +982,8 @@
 		<xsl:value-of select="floor((140-$featureheight)div 28) "/>
 
 <!--		For now, just make it 3 weapons max.
-		
-		<xsl:value-of select="3"/>	-->
+			-->
+		<xsl:value-of select="3"/>
 	</xsl:template>
 	<!--
 ====================================
@@ -1145,7 +1145,8 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2pt"/>
-				</xsl:for-each>
+						<fo:table-cell/>
+					</fo:table-row>				</xsl:for-each>
 			
 			</fo:table-body>
 	</xsl:when>
@@ -1758,7 +1759,7 @@
 							<xsl:value-of select="morale"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell display-align="center">
+					<fo:table-cell					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">+</fo:block>
 					</fo:table-cell>
 					<fo:table-cell display-align="center">
@@ -1769,7 +1770,7 @@
 							<xsl:value-of select="insight"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell display-align="center">
+					<fo:table-cell/>					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">+</fo:block>
 					</fo:table-cell>
 					<fo:table-cell display-align="center">
@@ -1791,7 +1792,7 @@
 							<xsl:value-of select="profane"/>
 						</fo:block>
 					</fo:table-cell>
-					<fo:table-cell display-align="center">
+					<fo:table-cell/>					<fo:table-cell display-align="center">
 						<fo:block text-align="center" font-size="6pt">+</fo:block>
 					</fo:table-cell>
 					<fo:table-cell display-align="center">
@@ -1804,7 +1805,7 @@
 					</fo:table-cell>
 					<fo:table-cell/>
 				</fo:table-row>
-				<fo:table-row height="0.5pt"/>
+<!--				<fo:table-row height="0.5pt"/>	-->
 				<fo:table-row>
 					<fo:table-cell/>
 					<fo:table-cell/>
@@ -1929,7 +1930,8 @@
 			<!-- SR -->
 			<fo:table-body>
 				<fo:table-row height="2pt"/>
-				<fo:table-row>
+				<fo:table-cell/>
+				</fo:table-row>				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
@@ -2061,7 +2063,8 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row height="2pt"/>
-				<fo:table-row>
+				<fo:table-cell/>
+				</fo:table-row>				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bab.title'"/>
@@ -2108,7 +2111,8 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row height="2pt"/>
-				<fo:table-row>
+					<fo:table-cell/>
+				</fo:table-row>				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
@@ -2204,7 +2208,8 @@
 				<xsl:copy-of select="$columns"/>
 				<fo:table-body>
 					<fo:table-row height="2pt"/>
-					<fo:table-row>
+						<fo:table-cell/>
+					</fo:table-row>					<fo:table-row>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
 						<fo:table-cell></fo:table-cell>
 						<fo:table-cell number-columns-spanned="2" border-top-width="1pt" border-left-width="0pt" border-right-width="0pt" border-bottom-width="0pt">
@@ -2588,7 +2593,8 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2pt"/>
-				</xsl:for-each>
+						<fo:table-cell/>
+					</fo:table-row>				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
@@ -2639,11 +2645,13 @@
 					<xsl:with-param name="title" select="'MELEE'"/>
 				</xsl:apply-templates>
 				<fo:table-row height="2.5pt"/>
-				<xsl:apply-templates select="ranged" mode="to_hit">
+					<fo:table-cell />
+				</fo:table-row>				<xsl:apply-templates select="ranged" mode="to_hit">
 					<xsl:with-param name="title" select="'RANGED'"/>
 				</xsl:apply-templates>
 				<fo:table-row height="2.5pt"/>
-				<xsl:apply-templates select="grapple" mode="to_hit">
+					<fo:table-cell />
+				</fo:table-row>				<xsl:apply-templates select="grapple" mode="to_hit">
 					<xsl:with-param name="title" select="'GRAPPLE'"/>
 				</xsl:apply-templates>
 				<xsl:apply-templates select="cmb" mode="to_hit">
@@ -2744,7 +2752,7 @@
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="(0.55 * $pagePrintableWidth - 96) * 0.5" />mm</xsl:attribute>
 			</fo:table-column>
-
+			<fo:table-column column-width="1mm"/>
 			<fo:table-body>
 				<xsl:call-template name="cmb.moves_header" />
 				<fo:table-row>		
@@ -3153,8 +3161,8 @@
 ====================================-->
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
-<!-->		<xsl:choose>
-		<xsl:when test="(weapons/naturalattack) &lt; 1">	-->
+		<xsl:choose>
+		<xsl:when test="(weapons/naturalattack) &lt; 1">
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -3331,7 +3339,7 @@
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
 					<xsl:choose>
-					<xsl:when test="range &gt; 0">
+					<xsl:when test="(range) &gt; 0">
 						<fo:block font-size="6pt">RANGE</fo:block>
 					</xsl:when>
 					<xsl:otherwise>
@@ -3347,7 +3355,7 @@
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt">
-							<xsl:value-of select="tohit"/>
+						<xsl:if test="tohit &gt; 0">+</xsl:if>							<xsl:value-of select="tohit"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell number-rows-spanned="2">
@@ -3372,9 +3380,9 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt">
 					<xsl:choose>
-					<xsl:when test="range &gt; 0">
+					<xsl:when test="(range) &gt; 0">
 							<xsl:value-of select="range"/>
-					</xsl:when>
+								<xsl:value-of select="distance_unit"/>					</xsl:when>
 					<xsl:otherwise>
 							<xsl:value-of select="reach"/>
 					</xsl:otherwise>
