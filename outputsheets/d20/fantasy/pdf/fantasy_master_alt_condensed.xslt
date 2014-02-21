@@ -1894,41 +1894,41 @@ first page
 			<!-- 0.26 * $pagePrintableWidth - mm -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.49 * (0.26 * $pagePrintableWidth - 8)" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-column column-width="2mm"/>
+			</fo:table-column>		<!--	1	-->
+			<fo:table-column column-width="2mm"/>		<!--	2	-->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.17 * (0.26 * $pagePrintableWidth - 8)" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-column column-width="2mm"/>
+			</fo:table-column>		<!--	3	-->
+			<fo:table-column column-width="2mm"/>		<!--	4	-->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.17 * (0.26 * $pagePrintableWidth - 8)" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-column column-width="2mm"/>
+			</fo:table-column>		<!--	5	-->
+			<fo:table-column column-width="2mm"/>		<!--	6	-->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.17 * (0.26 * $pagePrintableWidth - 8)" />mm</xsl:attribute>
-			</fo:table-column>
-			<fo:table-column column-width="4mm"/>
+			</fo:table-column>		<!--	7	-->
+			<fo:table-column column-width="4mm"/>		<!--	8	-->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>
+			</fo:table-column>		<!--	9	-->
 			<!-- miss chance -->
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="2mm"/>		<!--	10	-->
 			<!-- space -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>
+			</fo:table-column>		<!--	11	-->
 			<!-- arcane spell failure -->
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="2mm"/>		<!--	12	-->
 			<!-- space -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>
+			</fo:table-column>		<!--	13	-->
 			<!-- armour check-->
-			<fo:table-column column-width="2mm"/>
+			<fo:table-column column-width="2mm"/>		<!--	14	-->
 			<!-- space -->
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
-			</fo:table-column>
+			</fo:table-column>		<!--	15	-->
 			<!-- SR -->
 			<fo:table-body>
 				<fo:table-row height="2pt">
@@ -1941,8 +1941,8 @@ first page
 						</xsl:call-template>
 						<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt">INITIATIVE</fo:block>
 						<fo:block line-height="4pt" font-size="4pt">modifier</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	1	-->
+					<fo:table-cell/>		<!--	2	-->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.total'"/>
@@ -1950,10 +1950,10 @@ first page
 						<fo:block space-before.optimum="2pt" font-size="10pt">
 							<xsl:value-of select="total"/>
 						</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	3	-->
 					<fo:table-cell>
 						<fo:block text-align="center" space-before.optimum="5pt" font-size="6pt">=</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	4	-->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.general'"/>
@@ -1961,10 +1961,10 @@ first page
 						<fo:block space-before.optimum="2pt" font-size="10pt">
 							<xsl:value-of select="dex_mod"/>
 						</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	5	-->
 					<fo:table-cell>
 						<fo:block text-align="center" space-before.optimum="5pt" font-size="6pt">+</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	6	-->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.general'"/>
@@ -1972,10 +1972,8 @@ first page
 						<fo:block space-before.optimum="2pt" font-size="10pt">
 							<xsl:value-of select="misc_mod"/>
 						</fo:block>
-					</fo:table-cell>
-				</fo:table-row>
-				<fo:table-row height="0.5pt">
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	7	-->
+					<fo:table-cell/>		<!--	8	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'miss_chance'"/>
@@ -1983,8 +1981,8 @@ first page
 						<fo:block font-size="10pt">
 							<!-- Miss chance -->
 						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	9	-->
+					<fo:table-cell/>		<!--	10	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'spell_failure'"/>
@@ -1992,8 +1990,8 @@ first page
 						<fo:block font-size="10pt">
 							<xsl:value-of select="spell_failure"/>
 						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	11	-->
+					<fo:table-cell/>		<!--	12	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac_check'"/>
@@ -2001,8 +1999,8 @@ first page
 						<fo:block font-size="10pt">
 							<xsl:value-of select="check_penalty"/>
 						</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	13	-->
+					<fo:table-cell/>		<!--	14	-->
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'spell_resistance'"/>
@@ -2010,40 +2008,40 @@ first page
 						<fo:block font-size="10pt">
 							<xsl:value-of select="spell_resistance"/>
 						</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	15	-->
 				</fo:table-row>
 <!--				<fo:table-row height="0.5pt"/>	-->
 				<fo:table-row>
-					<fo:table-cell/>
-					<fo:table-cell/>
+					<fo:table-cell/>		<!--	1	-->
+					<fo:table-cell/>		<!--	2	-->
 					<fo:table-cell>
 						<fo:block text-align="center" space-before.optimum="1pt" font-size="6pt">TOTAL</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	3	-->
+					<fo:table-cell/>		<!--	4	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">DEX MODIFIER</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	5	-->
+					<fo:table-cell/>		<!--	6	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">MISC MODIFIER</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	7	-->
 					<!-- New Stuff	-->
-					<fo:table-cell/>
+					<fo:table-cell/>		<!--	8	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">MISS CHANCE</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	9	-->
+					<fo:table-cell/>		<!--	10	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">Arcane Spell Failure</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	11	-->
+					<fo:table-cell/>		<!--	12	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">ARMOR CHECK PENALTY</fo:block>
-					</fo:table-cell>
-					<fo:table-cell/>
+					</fo:table-cell>		<!--	13	-->
+					<fo:table-cell/>		<!--	14	-->
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">SPELL RESIST</fo:block>
-					</fo:table-cell>
+					</fo:table-cell>		<!--	15	-->
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
