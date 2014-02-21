@@ -1,0 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+
+###Block: Modern Human Languages
+# Language		Product Identity?	Type					Source Page
+Azlanti.MOD			TYPE:PFSLegal
+Hallit.MOD			TYPE:PFSLegal
+Kelish.MOD			TYPE:PFSLegal
+Osiriani.MOD		TYPE:PFSLegal
+Polyglot.MOD		TYPE:PFSLegal
+Shadowtongue.MOD	TYPE:PFSLegal
+Shoanti.MOD			TYPE:PFSLegal
+Skald.MOD			TYPE:PFSLegal
+Tien.MOD			TYPE:PFSLegal
+Varisian.MOD		TYPE:PFSLegal
+Vudrani.MOD			TYPE:PFSLegal
+
+###Block: Ancient Languages
+# Language		Product Identity?	Type					Source Page
+Ancient Osiriani.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Jistka.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Tekritanin.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Thassilonian.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+###Block: Other Languages
+# Language	Product Identity?	Type					Source Page
+Necril.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Orvian.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1

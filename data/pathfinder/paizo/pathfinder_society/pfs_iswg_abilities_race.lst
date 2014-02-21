@@ -1,0 +1,65 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley
+
+#Aluum
+# Ability Name							Unique Key						Category of Ability		Type									Define																				Innate Spells										Clear Description	Description																																																																																																																																																			Virtual Feat		Save checks bonus									Combat bonus																								Bonus to HP								Modify VAR																																			Weapon prof. bonus									Source, Long Desc.		Source, Short Desc.	Source Page		Aspects
+CATEGORY=Special Ability|Immunity to Magic ~ Aluum.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Paralysis ~ Aluum.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Soul Shriek ~ Aluum.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Calikang
+CATEGORY=Special Ability|Fast Healing ~ Calikang.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Defensive Slam ~ Calikang.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Energy Absorption ~ Calikang.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Breath Weapon ~ Calikang.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Suspend Animation ~ Calikang.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Charau-ka
+CATEGORY=Special Ability|Shrieking Frenzy ~ Charau-ka.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Thrown-Weapon Mastery ~ Charau-ka.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Daughter of Urgathoa
+CATEGORY=Special Ability|Disease ~ Daughter of Urgathoa.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Great Claw ~ Daughter of Urgathoa.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Spells ~ Daughter of Urgathoa.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Gillman
+CATEGORY=Special Ability|Enchantment Resistance ~ Gillman.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Servitor ~ Gillman.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Water Dependent ~ Gillman.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Sandpoint Devil
+CATEGORY=Special Ability|Bay ~ Sandpoint Devil.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Hellfire Breath ~ Sandpoint Devil.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Kick ~ Sandpoint Devil.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Spine Dragon
+CATEGORY=Special Ability|Breath Weapon ~ Spine Dragon.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Ray Deflection ~ Spine Dragon.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Spines ~ Spine Dragon.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Strix
+CATEGORY=Special Ability|Hatred ~ Strix.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Nocturnal ~ Strix.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Suspicious ~ Strix.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Treerazer
+CATEGORY=Special Ability|Regeneration ~ Treerazer.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Aura of Corruption ~ Treerazer.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Defoliation ~ Treerazer.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Nascent Demon Lord abilities
+CATEGORY=Special Ability|Aligned Strike ~ NDL.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Grant Spells ~ NDL.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+#Constant Spell-like Abilities
+CATEGORY=Special Ability|Desecrate ~ Constant.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Magic Weapon ~ Constant.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Water Breathing ~ Constant.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+
+###Block: Clockwork template abilities
+# Ability Name		Unique Key					Category of Ability		Type						Description																																Virtual Feat						Combat bonus
+CATEGORY=Special Ability|Winding ~ Clockwork.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Swift Reactions ~ Clockwork.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Difficult to Create ~ Clockwork.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1

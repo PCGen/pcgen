@@ -1,0 +1,9 @@
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+# Spell Name	Required Class
+Awaken.MOD		PRECLASS:1,NPC=1,Monster=1
+Permanency.MOD	PRECLASS:1,NPC=1,Monster=1
+Reincarnate.MOD	PRECLASS:1,NPC=1,Monster=1

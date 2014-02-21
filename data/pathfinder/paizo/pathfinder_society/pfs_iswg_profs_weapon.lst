@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Stefan Radermacher
+
+# Weapon Name		Product Identity?	Type
+Dogslicer.MOD				TYPE:PFSLegal
+War Razor.MOD				TYPE:PFSLegal
+Klar.MOD					TYPE:PFSLegal
+Earth Breaker.MOD			TYPE:PFSLegal
+Horsechopper.MOD			TYPE:PFSLegal
+Ogre Hook.MOD				TYPE:PFSLegal
+Aldori Dueling Sword.MOD	TYPE:PFSLegal
+Sawtooth Sabre.MOD			TYPE:PFSLegal
+Urumi.MOD					TYPE:PFSLegal
+Bladed Scarf.MOD			TYPE:PFSLegal
+Firearms.MOD				TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Pepperbox.MOD				TYPE:PFSLegal
+Pistol.MOD					TYPE:PFSLegal
+Musket.MOD					TYPE:PFSLegal
+Cannon.MOD					TYPE:PFSLegal
