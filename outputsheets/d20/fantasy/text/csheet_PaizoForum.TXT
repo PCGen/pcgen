@@ -1,5 +1,5 @@
-﻿[b]|NAME|[/b]
-|MANUALWHITESPACE|
+﻿|MANUALWHITESPACE|
+[b]|NAME|[/b]|BR|
 |GENDER.LONG|
 |SPACE|
 |RACE|
@@ -12,6 +12,12 @@
 |TEXT.LOWER.CLASS.%class||SPACE|
 |CLASS.%class.LEVEL|
 |ENDFOR|
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|SPACE|[b]Archetypes[/b]|SPACE|
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|,|SPACE|
+|ENDFOR|
+|ENDIF|
 |BR|
 |ALIGNMENT.SHORT|
 |SPACE|
@@ -52,18 +58,10 @@
 |ENDIF|
 ,|SPACE|
 |ENDFOR|
-|IIF(GAMEMODE:Pathfinder)|
 Perception|SPACE|
 |SKILL.Perception.TOTAL.SIGN|
-|ELSE|
-[b]Listen[/b]|SPACE|
-|SKILL.Listen.TOTAL.SIGN|,|SPACE|[b]Spot[/b]|SPACE|
-|SKILL.Spot.TOTAL.SIGN|
-|ENDIF|
-|ENDMANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-|MANUALWHITESPACE|
-[b]Aura[/b]|SPACE|
+|BR|[b]Aura[/b]|SPACE|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
 |TEXT.LOWER.ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus||SPACE|
@@ -84,15 +82,7 @@ Perception|SPACE|
 |ENDIF|
 ,|SPACE|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
 |ENDIF|
-|MANUALWHITESPACE|
-|%COUNT[TEMPBONUSNAMES]|
-[b]Temporary|SPACE|Bonuses|SPACE|Applied[/b]|SPACE|
-|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|
-|TEXT.LOWER.TEMPBONUS.%temp|,|SPACE|
-|ENDFOR|
-|%|
 |ENDMANUALWHITESPACE|
 =================================================
 DEFENSE
@@ -159,18 +149,16 @@ DEFENSE
 |FOR,%ACfeats,0,count("ABILITIES","CATEGORY=Feat","TYPE=ModifyAC","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,|SPACE|
 |IIF(ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.HASASPECT.Ability Bonus:Y)|
-|ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Bonus||SPACE|
+|SPACE||ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Bonus||SPACE|,
 |ENDIF|
 |ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC|
 |IIF(ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.HASASPECT.Ability Benefit:Y)|
-|SPACE||ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Benefit|
+|SPACE||ABILITYALL.Feat.VISIBLE.%ACfeats.TYPE=ModifyAC.ASPECT.Ability Benefit||SPACE|
 |ENDIF|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
-|MANUALWHITESPACE|
-[b]hp[/b]|SPACE||HP||SPACE|
+|BR|[b]hp[/b]|SPACE||HP||SPACE|
 |ELSE|
-[b]vp[/b]|SPACE||HP||SPACE|[b]wp[/b]|SPACE||ALTHP||SPACE|
+|BR|[b]vp[/b]|SPACE||HP||SPACE|[b]wp[/b]|SPACE||ALTHP||SPACE|
 |ENDIF|
 (|HITDICE|)
 |FOR,%specialHitPoints,0,count("ABILITIES","CATEGORY=Feat","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
@@ -193,14 +181,11 @@ DEFENSE
 |SPACE||ABILITYALL.Special Ability.VISIBLE.%specialHitPoints.TYPE=ModifyHP.ASPECT.Ability Benefit|
 |ENDIF|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
-|MANUALWHITESPACE|
-[b]Fort[/b]|SPACE||CHECK.FORTITUDE.TOTAL|,|SPACE|[b]Ref[/b]|SPACE||CHECK.REFLEX.TOTAL|,|SPACE|[b]Will[/b]|SPACE||CHECK.2.TOTAL|
+|BR|[b]Fort[/b]|SPACE||CHECK.FORTITUDE.TOTAL|,|SPACE|[b]Ref[/b]|SPACE||CHECK.REFLEX.TOTAL|,|SPACE|[b]Will[/b]|SPACE||CHECK.2.TOTAL|
 |FOR,%savebonus,0,count("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,|SPACE||ABILITYALL.ANY.VISIBLE.%savebonus.ASPECT=SaveBonus.ASPECT.SaveBonus|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
-|MANUALWHITESPACE|
+|BR|
 |IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 [b]Defensive|SPACE|Abilities[/b]|SPACE|
 |FOR,%defensiveAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
@@ -224,16 +209,12 @@ DEFENSE
 ,|SPACE|
 |ENDFOR|
 |ENDIF|
-|ENDMANUALWHITESPACE|
 |FOR,%DRTest,STRLEN[DR],STRLEN[DR],1,0|
 |IIF(%DRTest:0)|
 |ELSE|
-|MANUALWHITESPACE|
-[b]DR[/b] |TEXT.LOWER.DR|
-|ENDMANUALWHITESPACE|
+[b]DR[/b]|TEXT.LOWER.DR|;|SPACE|
 |ENDIF|
 |ENDFOR|
-|MANUALWHITESPACE|
 |IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 [b]Immunities[/b]|SPACE|
 |FOR,%immunities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0||SPACE|
@@ -285,13 +266,13 @@ DEFENSE
 |ELSE|
 [b]SR[/b]|SPACE||SR|;|SPACE|
 |ENDIF|
-|ENDMANUALWHITESPACE|
 |IIF(VAR.IF(VAR("COUNT[EQTYPE.DefensiveGear]")>0;1;0):1)|
-[b]Defensive Gear [/b]
+[b]Defensive Gear[/b]|SPACE|
 |FOR,%defensiveGear,0,COUNT[EQTYPE.DefensiveGear]-1,1,1|
-[i]|TEXT.LOWER.EQ.IS.DefensiveGear.%defensiveGear.NAME|; [/i]
+[i]|TEXT.LOWER.EQ.IS.DefensiveGear.%defensiveGear.NAME|[/i];|SPACE|
 |ENDFOR|
 |ENDIF|
+|ENDMANUALWHITESPACE|
 =================================================
 OFFENSE
 =================================================
@@ -354,9 +335,6 @@ OFFENSE
 |ELSE|
 /x|WEAPON.%weap.MULT|
 |ENDIF|
-
-
-
 )
 |ELSE|
 |WEAPON.%weap.BASEHIT||SPACE|
@@ -375,10 +353,6 @@ OFFENSE
 |ELSE|
 /x|WEAPON.%weap.MULT|
 |ENDIF|
-
-
-
-
 )
 |IIF(WEAPON.%weap.ISTYPE.Ranged.AND.HASFEAT:Point-Blank Shot.OR.HASFEAT:Point Blank Shot)|
 ,|SPACE|within|SPACE|30|SPACE|ft.|SPACE||WEAPON.%weap.RANGELIST.0.BASEHIT||SPACE|(|WEAPON.%weap.RANGELIST.0.DAMAGE|)
@@ -386,15 +360,15 @@ OFFENSE
 |ENDIF|
 |ENDIF|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
-|IIF(SIZELONG:Medium)|
+|IIF(SIZE:M)|
 |ELSE|
-|MANUALWHITESPACE|
-[b]Space[/b]|SPACE||FACE||SPACE|[b]Reach[/b]|SPACE||REACH|
-|ENDMANUALWHITESPACE|
+|IIF(SIZE:S)|
+|ELSE|
+|BR|[b]Space[/b]|SPACE||FACE||SPACE|[b]Reach[/b]|SPACE||REACH|
 |ENDIF|
+|ENDIF|
+
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-|MANUALWHITESPACE|
 |BR|[b]Special|SPACE|Attacks[/b]|SPACE|
 |FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Bonus:Y)|
@@ -406,19 +380,17 @@ OFFENSE
 |ENDIF|
 ,|SPACE|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
 |ENDIF|
+
 |IIF(VAR.IF(VAR("COUNT[EQTYPE.OffensiveGear]")>0;1;0):1)|
-|MANUALWHITESPACE|
 |BR|[b]Offensive Gear [/b]
 |FOR,%offensiveGear,0,COUNT[EQTYPE.OffensiveGear]-1,1,1|
 [i]|TEXT.LOWER.EQ.IS.OffensiveGear.%offensiveGear.NAME|; [/i]
 |ENDFOR|
 |BR|
-|ENDMANUALWHITESPACE|
 |ENDIF|
+
 |IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
-|MANUALWHITESPACE|
 |BR|[b]Innate|SPACE|Spell-Like|SPACE|Abilities[/b]|SPACE|
 |FOR,%spellbook,1,1,1,0|
 |FOR,%class,0,0,1,0|
@@ -441,13 +413,13 @@ at|SPACE|will)
 |ENDFOR|
 |ENDFOR|
 |ENDFOR|
-|ENDMANUALWHITESPACE|
 |ENDIF|
+|ENDMANUALWHITESPACE|
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 |IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
 |MANUALWHITESPACE|
 |IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
-|BR|[b]|SPELLBOOK.%spellbook.NAME||SPACE|Spell-Like|SPACE|Abilities[/b]|SPACE|
+[b]|SPELLBOOK.%spellbook.NAME||SPACE|Spell-Like|SPACE|Abilities[/b]|SPACE|
 |FOR,%class,0,0,1,0|
 |FOR,%level,0,0,1,0|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
@@ -516,10 +488,10 @@ at|SPACE|will)
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 |IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
 |MANUALWHITESPACE|
-[b]|SPELLBOOKNAME.%spellbook|[/b]|BR|
+|BR|[b]|SPELLBOOKNAME.%spellbook|[/b]
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
 |IIF(SPELLLISTMEMORIZE.%class:true)|
-[b]|SPELLLISTCLASS.%class|[/b]|SPACE| (CL|SPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL|;|SPACE|concentration|SPACE||SPELLLISTCLASS.%class.CONCENTRATION|)
+|BR|[b]|SPELLLISTCLASS.%class|[/b]|SPACE| (CL|SPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL|;|SPACE|concentration|SPACE||SPELLLISTCLASS.%class.CONCENTRATION|)
 |FOR,%level,9,0,-1,1|
 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
 |IIF(%spelllevelcount:0)|
@@ -554,14 +526,27 @@ at|SPACE|will)
 |ENDIF|
 |ENDFOR|
 |ELSE|
+|ENDMANUALWHITESPACE|
 |ENDIF|
 |ENDFOR|
+|MANUALWHITESPACE|
 |%DOMAIN.1|
 |BR|*:Domain|SPACE|spell. 
 |BR|[b]Deity[/b]|SPACE||DEITY|;|SPACE|
 [b]Domains[/b]|SPACE| 
 |FOR,%domain,1,COUNT[DOMAINS],1,0|
 |DOMAIN.%domain|,|SPACE| 
+|ENDFOR|
+|%|
+|ENDMANUALWHITESPACE|
+=================================================
+TACTICS
+=================================================
+|MANUALWHITESPACE|
+|%COUNT[TEMPBONUSNAMES]|
+[b]Temporary|SPACE|Effects[/b]|SPACE|
+|FOR,%temp,0,COUNT[TEMPBONUSNAMES]-1,1,0|
+|TEXT.LOWER.TEMPBONUS.%temp|,|SPACE|
 |ENDFOR|
 |%|
 |ENDMANUALWHITESPACE|
@@ -642,6 +627,37 @@ STATISTICS
 |ENDFOR|
 |BR|
 
+|IIF(count("ABILITIES";"TYPE=CampaignTrait[or]TYPE=CombatTrait[or]TYPE=FaithTrait[or]TYPE=MagicTrait[or]TYPE=RaceTrait[or]TYPE=ReligionTrait[or]TYPE=SampleCampaignTrait[or]TYPE=SocialTrait";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+[b]Traits[/b]|SPACE|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:CampaignTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:CombatTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:FaithTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:MagicTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:RaceTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:ReligionTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SampleCampaignTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SocialTrait)|
+|ABILITYALL.Special Ability.VISIBLE.%allAbilities|,|SPACE|
+|ENDIF|
+|ENDFOR|
+|BR|
+|ENDIF|
+
 |FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
 |IIF(%LanguageTest:0)|
 |IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
@@ -696,15 +712,6 @@ STATISTICS
 |BR|
 |ENDIF|
 |ENDFOR|
-
-|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-[b]Archetypes[/b]|SPACE|
-|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|,
-|ENDFOR|
-|BR|
-|ENDIF|
-
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 [b]SQ[/b]|SPACE|
 |FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0||SPACE|
@@ -772,14 +779,14 @@ STATISTICS
 |ENDIF|
 |ENDFOR|
 |GOLD/1||SPACE|gp
-|BR|                                                                                                                                                            |ENDMANUALWHITESPACE|
+|ENDMANUALWHITESPACE|
 =================================================
 SPECIAL ABILITIES
 =================================================
-|MANUALWHITESPACE|
 |FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:AnimalTrick)|
 |ELSE|
+|MANUALWHITESPACE|
 [b]|ABILITYALL.Special Ability.VISIBLE.%allAbilities|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Extraordinary)|
 |SPACE|(Ex)
@@ -793,12 +800,10 @@ SPECIAL ABILITIES
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:PsiLike)|
 |SPACE|(Ps)
 |ENDIF|
-[/b]|SPACE||ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|
-|ENDIF|
-|BR|
-|ENDFOR|
+[/b]|SPACE||ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC||BR|
 |ENDMANUALWHITESPACE|
-
+|ENDIF|
+|ENDFOR|
 |FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
 |IIF(%animalTrick:0)|
 =================================================
@@ -807,7 +812,6 @@ ANIMAL TRICKS
 |ENDIF|
 [b]|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|[/b] |ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|
 |ENDFOR|
-
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 |IIF(SPELLBOOK.%spellbook.TYPE:Spell Book)|
 |MANUALWHITESPACE|
