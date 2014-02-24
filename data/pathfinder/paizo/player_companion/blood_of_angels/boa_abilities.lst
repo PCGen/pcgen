@@ -156,6 +156,7 @@ CATEGORY=Special Ability|Sacrifical Exchange ~ Martyred Bloodline.MOD	DESC:As a 
 CATEGORY=Special Ability|Eternal Martyr ~ Martyred Bloodline.MOD		DESC:Your ancestor's act of martyrdom infuses your spirit.	BENEFIT:Your ancestor's act of martyrdom infuses your spirit. You become immune to death effects. Material components for spells and effects to bring you back to life (such as raise dead or resurrection) cost half as much as normal. Your body cannot be turned into an undead creature, as though you were affected by a permanent hallow effect (caster level equal to your sorcerer level).
 
 
+
 ###Block: Cleric Subdomain Abilties
 # Ability Name				Unique Key								Category of Ability		Type								Description																																																																																																															Source Page		Aspects
 Powerful Bond				KEY:Powerful Bond ~ Friendship Subdomain			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.DomainPower	DESC:You can communicate telepathically with a single ally within 6o feet. The telepathic link lasts for 1 minute and requires a shared language.								SOURCEPAGE:p.27		ASPECT:Ability Benefit|(%1/day)|DomainGoodTimes		ASPECT:CheckCount|%1|DomainGoodTimes	ASPECT:CheckType|Uses per Day							BENEFIT:You can communicate telepathically with a single ally within 6o feet.  The telepathic link lasts for 1 minute and requires a shared language. You can use this ability %1 times per day.|DomainGoodTimes
