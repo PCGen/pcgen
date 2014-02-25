@@ -28,8 +28,10 @@ package pcgen.io;
 import java.awt.Rectangle;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1256,7 +1258,9 @@ public final class PCGVer2Creator implements IOConstants
 
 	private void appendEquipmentLines(StringBuilder buffer)
 	{
-		for (final Equipment eq : thePC.getEquipmentMasterList())
+		List<Equipment> eqsorted = thePC.getEquipmentMasterList();
+		Collections.sort(eqsorted);
+		for (final Equipment eq : eqsorted)
 		{
 			buffer.append(TAG_EQUIPNAME).append(':');
 			buffer.append(EntityEncoder.encode(eq.getName()));
@@ -1381,6 +1385,13 @@ public final class PCGVer2Creator implements IOConstants
 		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
 				getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
+		Collections.sort(categories, new Comparator<AbilityCategory>() {
+			@Override
+			public int compare(AbilityCategory  a, AbilityCategory  b)
+			{
+				return  a.getKeyName().compareTo(b.getKeyName());
+			}
+		});
 		
 		for (final AbilityCategory cat : categories)
 		{
@@ -1395,11 +1406,14 @@ public final class PCGVer2Creator implements IOConstants
 					virtualAbilitiesToSave.add(vability);
 				}
 			}
+			
 			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
+			Collections.sort(normalAbilitiesToSave);
 			for (final Ability ability : normalAbilitiesToSave)
 			{
 				writeAbilityToBuffer(buffer, cat, Nature.NORMAL, ability);
 			}
+			Collections.sort(virtualAbilitiesToSave);
 			for (final Ability ability : virtualAbilitiesToSave)
 			{
 				writeAbilityToBuffer(buffer, cat, Nature.VIRTUAL, ability);
@@ -1592,8 +1606,9 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendLanguageLine(StringBuilder buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-
-		for (final Language lang : charDisplay.getLanguageSet())
+		TreeSet<Language> sortedlangs = new TreeSet(charDisplay.getLanguageSet());
+		
+		for (final Language lang : sortedlangs)
 		{
 			buffer.append(del);
 			buffer.append(TAG_LANGUAGE).append(':');
@@ -2271,9 +2286,18 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendTempBonuses(StringBuilder buffer)
 	{
 		final List<String> trackList = new ArrayList<String>();
+		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>(
+			new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
+				@Override
+				public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo>  a, Map.Entry<BonusObj, BonusManager.TempBonusInfo>  b)
+				{
+					return  a.getKey().getBonusName().compareTo(b.getKey().getBonusName());
+				}
+		});
+		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
+		
 		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
-		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : thePC
-				.getTempBonusMap().entrySet())
+		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : sortedbonus)
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo tbi = me.getValue();
@@ -2300,8 +2324,7 @@ public final class PCGVer2Creator implements IOConstants
 			 * Template and Target object) are written, but that ALL of the
 			 * items are written on one line.
 			 */
-			for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> subme : thePC
-					.getTempBonusMap().entrySet())
+			for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> subme : sortedbonus)
 			{
 				BonusObj subBonus = subme.getKey();
 				TempBonusInfo subtbi = subme.getValue();
