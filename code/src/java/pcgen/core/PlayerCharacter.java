@@ -252,7 +252,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
-import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -511,7 +510,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * Constructor.
 	 */
 	public PlayerCharacter() {
-		this(true, PersistenceManager.getInstance().getLoadedCampaigns());
+		this(true, Collections.EMPTY_LIST);
 	}
 
 	/**

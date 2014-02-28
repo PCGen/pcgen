@@ -23,8 +23,6 @@
 package pcgen.persistence;
 
 import java.net.URI;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import pcgen.core.Campaign;
@@ -144,13 +142,6 @@ public final class PersistenceManager
 		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
 		//CODE-1891
 		return false;
-	}
-
-	public Collection<Campaign> getLoadedCampaigns()
-	{
-		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
-		//CODE-1891
-		return Collections.EMPTY_LIST;
 	}
 
 }

@@ -96,7 +96,6 @@ import pcgen.core.facade.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -484,24 +483,17 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendCampaignLine(StringBuilder buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-		Collection<? extends CampaignFacade> campList;
 		if (campaigns != null)
 		{
-			campList = campaigns;
+			for (CampaignFacade campaign : campaigns)
+			{
+				buffer.append(del);
+				buffer.append(TAG_CAMPAIGN).append(':');
+				buffer.append(campaign.getKeyName());
+				del = "|"; //$NON-NLS-1$
+			}
+			buffer.append(LINE_SEP);
 		}
-		else
-		{
-			campList = PersistenceManager.getInstance().getLoadedCampaigns();
-		}
-		for (CampaignFacade campaign : campList)
-		{
-			buffer.append(del);
-			buffer.append(TAG_CAMPAIGN).append(':');
-			buffer.append(campaign.getKeyName());
-			del = "|"; //$NON-NLS-1$
-		}
-
-		buffer.append(LINE_SEP);
 	}
 
 	/**
