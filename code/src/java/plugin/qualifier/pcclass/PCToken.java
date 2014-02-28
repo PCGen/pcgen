@@ -17,6 +17,7 @@
  */
 package plugin.qualifier.pcclass;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import pcgen.core.PCClass;
@@ -29,7 +30,7 @@ public class PCToken extends AbstractPCQualifierToken<PCClass>
 	@Override
 	protected Collection<PCClass> getPossessed(PlayerCharacter pc)
 	{
-		return pc.getDisplay().getClassSet();
+		return new ArrayList<PCClass>(pc.getDisplay().getClassSet());
 	}
 
 	@Override

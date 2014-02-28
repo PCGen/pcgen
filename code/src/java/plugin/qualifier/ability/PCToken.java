@@ -17,6 +17,7 @@
  */
 package plugin.qualifier.ability;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -56,7 +57,7 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 		hs.addAll(nl);
 		hs.addAll(vl);
 		hs.addAll(al);
-		return hs;
+		return new ArrayList<Ability>(hs);
 	}
 
 	@Override
