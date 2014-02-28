@@ -40,7 +40,6 @@ import pcgen.persistence.lst.LstSystemLoader;
 public final class PersistenceManager
 {
 	private static final SystemLoader instance = new LstSystemLoader();
-	private static boolean initialized;
 	private static final PersistenceManager managerInstance =
 			new PersistenceManager();
 
@@ -95,44 +94,4 @@ public final class PersistenceManager
 		return instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
 	}
 
-	/**
-	 * Empty the lists
-	 * 
-	 * CODE-1890 to remove use of this code
-	 */
-	public void emptyLists()
-	{
-		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
-	}
-
-	/////////////////////////////////////////////////////////////////////
-	// Static methods
-	////////////////////////////////////////////////////////////////////
-
-	/**
-	 * Initialize the SystemLoader with the appropriate loader classes
-	 * Right now this is hardcoded to LstSystemLoader, but the eventual
-	 * intention is to allow any system loader to be plugged in so that
-	 * the data can be loaded from .lst files or XML files,
-	 * or possibly even a database.
-	 * @throws PersistenceLayerException
-	 * 
-	 * CODE-1888 to remove the use of this method
-	 */
-	public void initialize() throws PersistenceLayerException
-	{
-		// Bug 638568 -- sage_sam, 18 Feb 2003
-		// Make sure the manager is only initialized once.
-		if (!initialized)
-		{
-			instance.initialize();
-			initialized = true;
-		}
-	}
-
-	public void clear()
-	{
-		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
-		//CODE-1891
-	}
 }

@@ -58,11 +58,4 @@ public interface SystemLoader
 	 * @return List containing the chosen campaign source files
 	 */
 	public List<URI> getChosenCampaignSourcefiles(GameMode game);
-
-	/**
-	 * This method initialize the SystemLoader with in whatever ways
-	 * are required prior to performing any actual loads.
-	 * @throws PersistenceLayerException
-	 */
-	public void initialize() throws PersistenceLayerException;
 }

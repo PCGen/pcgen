@@ -9,11 +9,9 @@ import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
+import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -12575,21 +12573,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	@Deprecated
 	public static void initGameModes()
 	{
-		try
-		{
-			PersistenceManager.getInstance().initialize();
-		}
-		catch (PersistenceLayerException e)
-		{
-			ShowMessageDelegate.showMessageDialog(
-				e.getMessage(), Constants.APPLICATION_NAME, MessageType.INFORMATION);
-		}
-	
 		SettingsHandler.setGame(SettingsHandler.getPCGenOption("game", "35e")); //$NON-NLS-1$
 		SettingsHandler.game.clearLoadContext();
 	
 		Globals.createEmptyRace();
 	
+		ReferenceContext rc = Globals.getContext().ref;
+		PCStat str = rc.constructCDOMObject(PCStat.class, "Strength");
+		rc.registerAbbreviation(str, "STR");
+		PCStat intel = rc.constructCDOMObject(PCStat.class, "Intelligence");
+		rc.registerAbbreviation(intel, "INT");
+		PCStat dex = rc.constructCDOMObject(PCStat.class, "Dexterity");
+		rc.registerAbbreviation(dex, "DEX");
+		PCStat wis = rc.constructCDOMObject(PCStat.class, "Wisdom");
+		rc.registerAbbreviation(wis, "WIS");
+		PCStat con = rc.constructCDOMObject(PCStat.class, "Constitution");
+		rc.registerAbbreviation(con, "CON");
+		PCStat cha = rc.constructCDOMObject(PCStat.class, "Charisma");
+		rc.registerAbbreviation(cha, "CHA");
 		SettingsHandler.validateBonuses = SettingsHandler.getPCGenOption("validateBonuses", false); //$NON-NLS-1$
 	}
 
@@ -12603,7 +12604,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	
 		TestHelper.loadPlugins();
 		EvaluatorFactoryTest.initGameModes();
-		SettingsHandler.getGame().clearLoadContext();
 	}
 
 }

@@ -47,9 +47,4 @@ public class DummySystemLoader implements SystemLoader
 		return chosenCamps;
 	}
 
-    @Override
-	public void initialize() throws PersistenceLayerException
-	{
-	}
-
 }
