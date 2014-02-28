@@ -25,7 +25,6 @@ package pcgen.persistence;
 import java.net.URI;
 import java.util.List;
 
-import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
@@ -136,12 +135,4 @@ public final class PersistenceManager
 		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
 		//CODE-1891
 	}
-
-	public boolean isLoaded(Campaign campaign)
-	{
-		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
-		//CODE-1891
-		return false;
-	}
-
 }

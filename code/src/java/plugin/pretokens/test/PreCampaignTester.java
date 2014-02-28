@@ -110,21 +110,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		boolean includeSubCampaigns)
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<Campaign>();
-		List<Campaign> campList = Globals.getCampaignList();
 		PersistenceManager pMan = PersistenceManager.getInstance();
-		for (Campaign campaign : campList)
-		{
-			for (String listType : campaign.getBookTypeList())
-			{
-				if (pMan.isLoaded(campaign) && bookType.equalsIgnoreCase(listType))
-				{
-					Logging.debugPrint("Adding campaign " + pMan.isLoaded(campaign) + " type:" + campaign.getBookTypes());
-					matchingCampaigns.add(campaign);
-					break;
-				}
-			}
-		}
-
 		List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
 		for (URI element : selCampaigns)
 		{
@@ -162,41 +148,34 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param includeSubCampaigns Should we count included sub campaigns that match
 	 * @return The number of matching campaigns
 	 */
-	private int countCampaignByName(final String key, CDOMObject source, boolean includeSubCampaigns)
+	private int countCampaignByName(final String key, CDOMObject source,
+		boolean includeSubCampaigns)
 	{
 		int total = 0;
 		Campaign campaignToFind = Globals.getCampaignKeyedSilently(key);
 		if (campaignToFind != null)
 		{
 			PersistenceManager pMan = PersistenceManager.getInstance();
-			if (campaignToFind.getKeyName().equals(key) && pMan.isLoaded(campaignToFind))
+			List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
+			for (URI element : selCampaigns)
 			{
-				++total;
-			}
-			else
-			{
-				List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
-				for (URI element : selCampaigns)
+				final Campaign aCampaign = Globals.getCampaignByURI(element);
+				if (includeSubCampaigns)
 				{
-					final Campaign aCampaign =
-							Globals.getCampaignByURI(element);
-					if (includeSubCampaigns)
+					List<Campaign> campList = getFullCampaignList(aCampaign);
+					for (Campaign camp : campList)
 					{
-						List<Campaign> campList = getFullCampaignList(aCampaign);
-						for (Campaign camp : campList)
-						{
-							if (camp.equals(campaignToFind))
-							{
-								++total;
-							}
-						}
-					}
-					else
-					{
-						if (aCampaign.equals(campaignToFind))
+						if (camp.equals(campaignToFind))
 						{
 							++total;
 						}
+					}
+				}
+				else
+				{
+					if (aCampaign.equals(campaignToFind))
+					{
+						++total;
 					}
 				}
 			}
