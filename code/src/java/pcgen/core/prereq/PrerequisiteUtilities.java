@@ -470,10 +470,7 @@ public final class PrerequisiteUtilities
 					{
 						for (Ability ab : ref.getContainedObjects())
 						{
-							if (categoryName.equals(ab.getCategory()))
-							{
 								abilityList.add(ab);
-							}
 						}
 					}
 				}
