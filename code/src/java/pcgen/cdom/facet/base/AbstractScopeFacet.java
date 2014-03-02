@@ -28,13 +28,14 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import pcgen.base.util.WrappedMapSet;
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 
-public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
+public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
+		AbstractStorageFacet<IDT>
 {
-	private Map<S, Map<T, Set<Object>>> getConstructingInfo(CharID id)
+	private Map<S, Map<T, Set<Object>>> getConstructingInfo(IDT id)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
@@ -45,18 +46,18 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		return map;
 	}
 
-	private Map<S, Map<T, Set<Object>>> getInfo(CharID id)
+	private Map<S, Map<T, Set<Object>>> getInfo(IDT id)
 	{
 		return (Map<S, Map<T, Set<Object>>>) getCache(id);
 	}
 
-	public void add(CharID id, S scope, T obj, Object source)
+	public void add(IDT id, S scope, T obj, Object source)
 	{
 		if (scope == null)
 		{
 			throw new IllegalArgumentException("Scope cannot be null");
 		}
-		if(obj == null)
+		if (obj == null)
 		{
 			throw new IllegalArgumentException("Object cannot be null");
 		}
@@ -82,13 +83,48 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		}
 	}
 
-	public void remove(CharID id, S scope, T obj, Object source)
+	public void addAll(IDT id, S scope, Collection<T> coll, Object source)
 	{
 		if (scope == null)
 		{
 			throw new IllegalArgumentException("Scope cannot be null");
 		}
-		if(obj == null)
+		if (coll == null)
+		{
+			throw new IllegalArgumentException("Collection cannot be null");
+		}
+		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
+		Map<T, Set<Object>> scopeMap = map.get(scope);
+		if (scopeMap == null)
+		{
+			scopeMap = new IdentityHashMap<T, Set<Object>>();
+			map.put(scope, scopeMap);
+		}
+		for (T obj : coll)
+		{
+			Set<Object> sources = scopeMap.get(obj);
+			boolean isNew = (sources == null);
+			if (isNew)
+			{
+				sources = new WrappedMapSet<Object>(IdentityHashMap.class);
+				scopeMap.put(obj, sources);
+			}
+			sources.add(source);
+			if (isNew)
+			{
+				fireScopeFacetChangeEvent(id, scope, obj,
+					ScopeFacetChangeEvent.DATA_ADDED);
+			}
+		}
+	}
+
+	public void remove(IDT id, S scope, T obj, Object source)
+	{
+		if (scope == null)
+		{
+			throw new IllegalArgumentException("Scope cannot be null");
+		}
+		if (obj == null)
 		{
 			throw new IllegalArgumentException("Object cannot be null");
 		}
@@ -123,7 +159,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		}
 	}
 
-	public Collection<T> getSet(CharID id, S scope)
+	public Collection<T> getSet(IDT id, S scope)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
@@ -138,7 +174,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		return new ArrayList<T>(scopeMap.keySet());
 	}
 
-	public Collection<S> getScopes(CharID id)
+	public Collection<S> getScopes(IDT id)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
@@ -148,7 +184,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		return new ArrayList<S>(map.keySet());
 	}
 
-	public boolean contains(CharID id, S scope, T obj)
+	public boolean contains(IDT id, S scope, T obj)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
@@ -159,7 +195,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		return (scopeMap != null) && scopeMap.containsKey(obj);
 	}
 
-	public void removeAllFromSource(CharID id, Object source)
+	public void removeAllFromSource(IDT id, Object source)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map != null)
@@ -196,9 +232,8 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	}
 
 	/**
-	 * Copies the contents of the AbstractScopeFacet from one Player Character
-	 * to another Player Character, based on the given CharIDs representing
-	 * those Player Characters.
+	 * Copies the contents of the AbstractScopeFacet from one resource to
+	 * another resource, based on the given IDTs representing those resources.
 	 * 
 	 * This is a method in AbstractScopeFacet in order to avoid exposing the
 	 * mutable Map object to other classes. This should not be inlined, as the
@@ -206,20 +241,19 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	 * exposed to other classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
-	 * between the Player Characters represented by the given CharIDs (meaning
-	 * once this copy takes place, any change to the AbstractScopeFacet of one
-	 * Player Character will only impact the Player Character where the
-	 * AbstractScopeFacet was changed).
+	 * between the resources represented by the given IDTs (meaning once this
+	 * copy takes place, any change to the AbstractScopeFacet of one resource
+	 * will only impact the resource where the AbstractScopeFacet was changed).
 	 * 
 	 * @param source
-	 *            The CharID representing the Player Character from which the
-	 *            information should be copied
+	 *            The IDT representing the resource from which the information
+	 *            should be copied
 	 * @param copy
-	 *            The CharID representing the Player Character to which the
-	 *            information should be copied
+	 *            The IDT representing the resource to which the information
+	 *            should be copied
 	 */
 	@Override
-	public void copyContents(CharID source, CharID copy)
+	public void copyContents(IDT source, IDT copy)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(source);
 		if (map != null)
@@ -239,8 +273,8 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 		}
 	}
 
-	private final Map<Integer, ScopeFacetChangeListener<? super S, ? super T>[]> listeners =
-			new TreeMap<Integer, ScopeFacetChangeListener<? super S, ? super T>[]>();
+	private final Map<Integer, ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[]> listeners =
+			new TreeMap<Integer, ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[]>();
 
 	/**
 	 * Adds a new ScopeFacetChangeListener to receive ScopeFacetChangeEvents
@@ -257,7 +291,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	 *            from this AbstractScopeFacet
 	 */
 	public void addScopeFacetChangeListener(
-		ScopeFacetChangeListener<? super S, ? super T> listener)
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
 		addScopeFacetChangeListener(0, listener);
 	}
@@ -278,12 +312,12 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	 *            from this AbstractScopeFacet
 	 */
 	public void addScopeFacetChangeListener(int priority,
-		ScopeFacetChangeListener<? super S, ? super T> listener)
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
-		ScopeFacetChangeListener<? super S, ? super T>[] dfcl =
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
 				listeners.get(priority);
 		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
-		ScopeFacetChangeListener<? super S, ? super T>[] newArray =
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] newArray =
 				new ScopeFacetChangeListener[newSize];
 		if (dfcl != null)
 		{
@@ -306,7 +340,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	 *            The ScopeFacetChangeListener to be removed
 	 */
 	public void removeScopeFacetChangeListener(
-		ScopeFacetChangeListener<? super S, ? super T> listener)
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
 		removeScopeFacetChangeListener(0, listener);
 	}
@@ -324,9 +358,9 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	 *            The ScopeFacetChangeListener to be removed
 	 */
 	public void removeScopeFacetChangeListener(int priority,
-		ScopeFacetChangeListener<? super S, ? super T> listener)
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T> listener)
 	{
-		ScopeFacetChangeListener<? super S, ? super T>[] dfcl =
+		ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfcl =
 				listeners.get(priority);
 		if (dfcl == null)
 		{
@@ -351,7 +385,7 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 			}
 			else
 			{
-				ScopeFacetChangeListener<? super S, ? super T>[] newArray =
+				ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] newArray =
 						new ScopeFacetChangeListener[newSize];
 				if (foundLoc != 0)
 				{
@@ -372,21 +406,21 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 	 * receiving ScopeFacetChangeEvents from this AbstractScopeFacet.
 	 * 
 	 * @param id
-	 *            The CharID identifying the Player Character to which the
+	 *            The PCGenIdentifier identifying the resource to which the
 	 *            NodeChangeEvent relates
 	 * @param scope
 	 *            The Scope through which this facet's contents are viewed
 	 * @param node
 	 *            The Node that has been added to or removed from this
-	 *            AbstractScopeFacet for the given CharID
+	 *            AbstractScopeFacet for the given PCGenIdentifier
 	 * @param type
 	 *            An identifier indicating whether the given CDOMObject was
 	 *            added to or removed from this AbstractScopeFacet
 	 */
 	@SuppressWarnings("rawtypes")
-	protected void fireScopeFacetChangeEvent(CharID id, S scope, T node, int type)
+	protected void fireScopeFacetChangeEvent(IDT id, S scope, T node, int type)
 	{
-		for (ScopeFacetChangeListener<? super S, ? super T>[] dfclArray : listeners
+		for (ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[] dfclArray : listeners
 			.values())
 		{
 			/*
@@ -395,15 +429,15 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet<CharID>
 			 * AWT and Swing listeners are notified of Events. This is obviously
 			 * subordinate to the priority (loop above).
 			 */
-			ScopeFacetChangeEvent<S, T> ccEvent = null;
+			ScopeFacetChangeEvent<IDT, S, T> ccEvent = null;
 			for (int i = dfclArray.length - 1; i >= 0; i--)
 			{
 				// Lazily create event
 				if (ccEvent == null)
 				{
 					ccEvent =
-							new ScopeFacetChangeEvent<S, T>(id, scope, node,
-								this, type);
+							new ScopeFacetChangeEvent<IDT, S, T>(id, scope,
+								node, this, type);
 				}
 				ScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())

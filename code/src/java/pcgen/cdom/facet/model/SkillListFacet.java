@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractScopeFacet;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
@@ -29,17 +30,17 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SkillListFacet extends AbstractScopeFacet<PCClass, ClassSkillList>
-		implements ScopeFacetChangeListener<PCClass, ClassSkillList>
+public class SkillListFacet extends AbstractScopeFacet<CharID, PCClass, ClassSkillList>
+		implements ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>
 {
 
-	public void dataAdded(ScopeFacetChangeEvent<PCClass, ClassSkillList> dfce)
+	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		add(dfce.getCharID(), dfce.getScope(), dfce.getCDOMObject(),
 			dfce.getSource());
 	}
 
-	public void dataRemoved(ScopeFacetChangeEvent<PCClass, ClassSkillList> dfce)
+	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getScope(), dfce.getCDOMObject(),
 			dfce.getSource());

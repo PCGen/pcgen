@@ -33,7 +33,7 @@ import pcgen.core.SpellProhibitor;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellProhibitorFacet extends
-		AbstractScopeFacet<PCClass, SpellProhibitor> implements
+		AbstractScopeFacet<CharID, PCClass, SpellProhibitor> implements
 		DataFacetChangeListener<PCClass>
 {
 	private ClassFacet classFacet;

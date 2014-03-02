@@ -37,20 +37,20 @@ import pcgen.core.Skill;
  */
 public class SkillListToCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		ScopeFacetChangeListener<PCClass, ClassSkillList>
+		ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>
 {
 
 	private SkillListFacet skillListFacet;
 
 	private MasterSkillFacet masterSkillFacet;
 
-	public void dataAdded(ScopeFacetChangeEvent<PCClass, ClassSkillList> dfce)
+	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
+		CharID id = dfce.getCharID();
 		ClassSkillList skilllist = dfce.getCDOMObject();
-		Collection<Skill> set = masterSkillFacet.getSet(skilllist);
+		Collection<Skill> set = masterSkillFacet.getSet(id.getDatasetID(), skilllist);
 		if (set != null)
 		{
-			CharID id = dfce.getCharID();
 			PCClass pcc = dfce.getScope();
 			for (Skill s : set)
 			{
@@ -59,7 +59,7 @@ public class SkillListToCostFacet extends
 		}
 	}
 
-	public void dataRemoved(ScopeFacetChangeEvent<PCClass, ClassSkillList> dfce)
+	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		removeAllFromSource(dfce.getCharID(), dfce.getCDOMObject());
 	}

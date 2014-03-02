@@ -35,7 +35,7 @@ import pcgen.core.Skill;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GlobalSkillCostFacet extends
-		AbstractScopeFacet<SkillCost, Skill> implements
+		AbstractScopeFacet<CharID, SkillCost, Skill> implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private CDOMObjectConsolidationFacet consolidationFacet;

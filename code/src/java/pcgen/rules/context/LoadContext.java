@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.DataSetInitializationFacet;
+import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -63,6 +64,11 @@ import pcgen.util.StringPClassUtil;
 
 public abstract class LoadContext
 {
+
+	static
+	{
+		FacetInitialization.initialize();
+	}
 
 	private static final Class<String> STRING_CLASS = String.class;
 

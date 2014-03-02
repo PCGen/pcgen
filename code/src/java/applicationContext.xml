@@ -219,6 +219,7 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="dataSetInitializationFacet" class="pcgen.cdom.facet.DataSetInitializationFacet" />
 	<bean id="defaultClassSkillListFacet" class="pcgen.cdom.facet.DefaultClassSkillListFacet">
 		<property name="skillListFacet" ref="skillListFacet"/>
 	</bean>
@@ -381,7 +382,9 @@
 	<bean id="masterFacet" class="pcgen.cdom.facet.MasterFacet">
 		<property name="companionModFacet" ref="companionModFacet"/>
 	</bean>
-	<bean id="masterSkillFacet" class="pcgen.cdom.facet.MasterSkillFacet"/>
+	<bean id="masterSkillFacet" class="pcgen.cdom.facet.MasterSkillFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">
 		<property name="levelFacet" ref="levelFacet"/>
 		<property name="classFacet" ref="classFacet"/>

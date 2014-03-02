@@ -19,7 +19,7 @@ package pcgen.cdom.facet.event;
 
 import java.util.EventObject;
 
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.base.PCGenIdentifier;
 
 /**
  * 
@@ -36,58 +36,58 @@ import pcgen.cdom.enumeration.CharID;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ScopeFacetChangeEvent<S, T> extends EventObject
+public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends
+		EventObject
 {
 	/**
 	 * The constant ID used by an ScopeFacetChangeEvent to indicate that a
 	 * ScopeFacetChangeEvent was the result of a CDOMObject being added to a
-	 * PlayerCharacter.
+	 * resource.
 	 */
 	public static final int DATA_ADDED = 0;
 
 	/**
 	 * The constant ID used by an ScopeFacetChangeEvent to indicate that a
 	 * ScopeFacetChangeEvent was the result of a CDOMObject being removed from a
-	 * PlayerCharacter.
+	 * resource.
 	 */
 	public static final int DATA_REMOVED = 1;
 
 	/**
 	 * The ID indicating the type of this ScopeFacetChangeEvent (addition to or
-	 * removal from a PlayerCharacter)
+	 * removal from a resource)
 	 */
 	private final int eventID;
 
 	/**
 	 * The ID indicating the owning character for this ScopeFacetChangeEvent
 	 */
-	private final CharID charID;
+	private final IDT charID;
 
 	private final S scope;
 
 	/**
-	 * The CDOMObject that was added to or removed from the PlayerCharacter.
+	 * The CDOMObject that was added to or removed from the resource.
 	 */
 	private final T node;
 
 	/**
-	 * Constructs a new ScopeFacetChangeEvent for the given CharID. The
+	 * Constructs a new ScopeFacetChangeEvent for the given PCGenIdentifier. The
 	 * CDOMObject which was added or removed and an indication of the action
 	 * (Addition or Removal) is also provided.
 	 * 
 	 * @param id
-	 *            The CharID identifying the PlayerCharacter in which the event
-	 *            took place
+	 *            The PCGenIdentifier identifying the resource in which the
+	 *            event took place
 	 * @param cdo
 	 *            The CDOMObject which was added to or removed from the Graph
 	 * @param source
 	 *            The base event object
 	 * @param type
 	 *            An integer identifying whether the given CDOMObject was added
-	 *            or removed from the PlayerCharacter
+	 *            or removed from the resource
 	 */
-	public ScopeFacetChangeEvent(CharID id, S scope, T cdo, Object source,
-		int type)
+	public ScopeFacetChangeEvent(IDT id, S scope, T cdo, Object source, int type)
 	{
 		super(source);
 		if (source == null)
@@ -96,7 +96,7 @@ public class ScopeFacetChangeEvent<S, T> extends EventObject
 		}
 		if (id == null)
 		{
-			throw new IllegalArgumentException("CharID cannot be null");
+			throw new IllegalArgumentException("PCGenIdentifier cannot be null");
 		}
 		if (scope == null)
 		{
@@ -113,11 +113,9 @@ public class ScopeFacetChangeEvent<S, T> extends EventObject
 	}
 
 	/**
-	 * Returns the CDOMObject which was added to or removed from the
-	 * PlayerCharacter.
+	 * Returns the CDOMObject which was added to or removed from the resource.
 	 * 
-	 * @return The CDOMObject which was added to or removed from the
-	 *         PlayerCharacter
+	 * @return The CDOMObject which was added to or removed from the resource
 	 */
 	public T getCDOMObject()
 	{
@@ -126,12 +124,12 @@ public class ScopeFacetChangeEvent<S, T> extends EventObject
 
 	/**
 	 * Returns an identifier indicating if the CDOMObject returned by
-	 * getCDOMObject() was added to or removed from the PlayerCharacter. This
+	 * getCDOMObject() was added to or removed from the resource. This
 	 * identifier is either ScopeFacetChangeEvent.NODE_ADDED or
 	 * ScopeFacetChangeEvent.NODE_REMOVED
 	 * 
 	 * @return A identifier indicating if the CDOMObject was added to or removed
-	 *         from the PlayerCharacter
+	 *         from the resource
 	 */
 	public int getEventType()
 	{
@@ -139,13 +137,13 @@ public class ScopeFacetChangeEvent<S, T> extends EventObject
 	}
 
 	/**
-	 * Returns an identifier indicating the PlayerCharacter on which this event
+	 * Returns an identifier indicating the resource on which this event
 	 * occurred.
 	 * 
-	 * @return A identifier indicating the PlayerCharacter on which this event
+	 * @return A identifier indicating the resource on which this event
 	 *         occurred.
 	 */
-	public CharID getCharID()
+	public IDT getCharID()
 	{
 		return charID;
 	}

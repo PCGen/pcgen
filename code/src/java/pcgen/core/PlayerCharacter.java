@@ -103,7 +103,6 @@ import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
-import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
@@ -270,11 +269,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	// Constants for use in getBonus
 	private static String lastVariable = null;
-
-	static
-	{
-		FacetInitialization.initialize();
-	}
 
 	private CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;

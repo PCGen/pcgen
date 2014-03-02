@@ -37,7 +37,7 @@ import pcgen.core.Skill;
  */
 public class ListToSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		ScopeFacetChangeListener<PCClass, ClassSkillList>,
+		ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>,
 		SubScopeFacetChangeListener<ClassSkillList, SkillCost, Skill>
 {
 
@@ -45,7 +45,7 @@ public class ListToSkillCostFacet extends
 
 	private ListSkillCostFacet listSkillCostFacet;
 
-	public void dataAdded(ScopeFacetChangeEvent<PCClass, ClassSkillList> dfce)
+	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCClass pcc = dfce.getScope();
@@ -62,7 +62,7 @@ public class ListToSkillCostFacet extends
 		}
 	}
 
-	public void dataRemoved(ScopeFacetChangeEvent<PCClass, ClassSkillList> dfce)
+	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		removeAllFromSource(dfce.getCharID(), dfce.getScope());
 	}

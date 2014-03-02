@@ -155,6 +155,10 @@ public class FacetInitialization {
 	private static void doBridges()
 	{
 		/*
+		 * Do dataset-level facets
+		 */
+		FacetLibrary.getFacet(MasterSkillFacet.class);
+		/*
 		 * TODO These are required because they are "bridges" - meaning they
 		 * refer to others, but no one refers to them. Need to consider if these
 		 * need to be redesigned...

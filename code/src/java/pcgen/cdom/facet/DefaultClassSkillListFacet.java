@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractScopeFacet;
 import pcgen.cdom.facet.model.SkillListFacet;
 import pcgen.cdom.list.ClassSkillList;
@@ -29,7 +30,7 @@ import pcgen.core.PCClass;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DefaultClassSkillListFacet extends
-		AbstractScopeFacet<PCClass, ClassSkillList>
+		AbstractScopeFacet<CharID, PCClass, ClassSkillList>
 {
 	private SkillListFacet skillListFacet;
 

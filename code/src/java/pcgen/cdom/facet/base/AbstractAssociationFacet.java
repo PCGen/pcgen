@@ -43,7 +43,8 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractAssociationFacet<S, A> extends AbstractScopeFacet<S, A>
+public abstract class AbstractAssociationFacet<S, A> extends
+		AbstractScopeFacet<CharID, S, A>
 {
 
 	/**
