@@ -259,20 +259,6 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests the category subtoken of VABILITY.
-	 */
-	public void testCategory()
-	{
-		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
-
-		assertEquals(
-			"Feat",
-			tok.getToken("VABILITY.FEAT.0.CATEGORY", character, eh));
-	}
-
-	/**
 	 * Tests the associated subtoken of VABILITY.
 	 */
 	public void testAssociated()

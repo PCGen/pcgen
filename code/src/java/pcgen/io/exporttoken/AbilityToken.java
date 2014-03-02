@@ -38,7 +38,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.GenericMapToList;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AspectName;
@@ -603,27 +602,6 @@ public class AbilityToken extends Token
 				retString =
 						getHasAspectString(pc, aAbility,
 							AspectName.getConstant(key));
-			}
-			else if (tokenSource.indexOf(".CATEGORY") > -1)
-			{
-				Nature[] searchOrder;
-				if (getTargetNature() != null)
-				{
-					searchOrder = new Nature[] {getTargetNature()};
-				}
-				else
-				{
-					searchOrder = new Nature[] {Nature.NORMAL, Nature.VIRTUAL, Nature.AUTOMATIC};
-				}
-				for (Nature nature : searchOrder)
-				{
-					Category<Ability> category = pc.getAbilityCategory(nature, aAbility);
-					if (category != null)
-					{
-						retString = String.valueOf(category);
-						break;
-					}
-				}
 			}
 			else if (tokenSource.indexOf(".NAME") > -1)
 			{

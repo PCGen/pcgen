@@ -257,20 +257,6 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests the category subtoken of ABILITY.
-	 */
-	public void testCategory()
-	{
-		AbilityToken tok = new AbilityToken();
-		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
-
-		assertEquals(
-			"Feat",
-			tok.getToken("ABILITY.FEAT.0.CATEGORY", character, eh));
-	}
-
-	/**
 	 * Tests the associated subtoken of ABILITY.
 	 */
 	public void testAssociated()
