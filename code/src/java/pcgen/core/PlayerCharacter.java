@@ -8488,23 +8488,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
 
-	public List<Ability> getAllAbilities()
-	{
-		Set<Category<Ability>> abCats = new HashSet<Category<Ability>>();
-		abCats.addAll(abFacet.getCategories(id));
-		abCats.addAll(grantedAbilityFacet.getCategories(id));
-
-		List<Ability> list = new ArrayList<Ability>();
-
-		for (Category<Ability> ac : abCats)
-		{
-			list.addAll(getAbilityList(ac, Nature.AUTOMATIC));
-			list.addAll(getAbilityList(ac, Nature.NORMAL));
-			list.addAll(getAbilityList(ac, Nature.VIRTUAL));
-		}
-		return list;
-	}
-
 	/**
 	 * Get a list of real abilities of a particular AbilityCategory
 	 * no matter which AbilityCategory list they reside in.

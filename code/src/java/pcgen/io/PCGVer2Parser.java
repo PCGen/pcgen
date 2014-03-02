@@ -62,6 +62,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
@@ -6151,10 +6152,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		HashMapToList<Language, Object> sources = new HashMapToList<Language, Object>();
 		Map<Object, Integer> actorLimit = new IdentityHashMap<Object, Integer>();
-		Map<PersistentTransitionChoice, Ability> ptcSources = new IdentityHashMap<PersistentTransitionChoice, Ability>();
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<PersistentTransitionChoice, CDOMObject>();
 
-		List<Ability> abilities = thePC.getAllAbilities();
-		for (Ability a : abilities)
+		List<? extends CDOMObject> abilities = thePC.getCDOMObjectList();
+		for (CDOMObject a : abilities)
 		{
 			List<PersistentTransitionChoice<?>> addList =
 					a.getListFor(ListKey.ADD);
@@ -6172,9 +6173,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						{
 							if (cachedLanguages.contains(l))
 							{
+								String source =
+										SourceFormat.getFormattedString(a,
+											Globals.getSourceDisplay(), true);
 								int choiceCount =
 										ptc.getCount()
-											.resolve(thePC, a.getSource())
+											.resolve(thePC, source)
 											.intValue();
 								if (choiceCount > 0)
 								{
@@ -6244,7 +6248,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	protected void processRemoval(Ability langbonus,
 		HashMapToList<Language, Object> sources,
 		Map<Object, Integer> actorLimit,
-		Map<PersistentTransitionChoice, Ability> ptcSources, Language l,
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
 		Object actor)
 	{
 		Integer limit = actorLimit.get(actor);
@@ -6270,7 +6274,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	protected void processActor(Ability langbonus,
-		Map<PersistentTransitionChoice, Ability> ptcSources, Language l,
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
 		Object actor)
 	{
 		if (actor instanceof ChoiceManagerList)
