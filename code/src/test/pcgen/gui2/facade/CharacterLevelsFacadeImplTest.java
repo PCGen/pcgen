@@ -111,6 +111,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		context.resolveDeferredTokens();
 		assertTrue(context.ref.resolveReferences(null));
 		context.resolvePostDeferredTokens();
+		context.loadCampaignFacets();
 	}
 
 	/**

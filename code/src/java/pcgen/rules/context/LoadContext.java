@@ -36,6 +36,8 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.CampaignInitializationFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -672,6 +674,11 @@ public abstract class LoadContext
 	public DataSetID getDataSetID()
 	{
 		return datasetID;
+	}
+
+	public void loadCampaignFacets()
+	{
+		FacetLibrary.getFacet(CampaignInitializationFacet.class).initialize(this);
 	}
 	
 }

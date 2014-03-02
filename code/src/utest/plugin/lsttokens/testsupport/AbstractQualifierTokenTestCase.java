@@ -1909,6 +1909,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		primaryContext.resolveDeferredTokens();
 		assertTrue(primaryContext.ref.resolveReferences(null));
 		primaryContext.resolvePostDeferredTokens();
+		primaryContext.loadCampaignFacets();
 	}
 
 	protected PCStat str;

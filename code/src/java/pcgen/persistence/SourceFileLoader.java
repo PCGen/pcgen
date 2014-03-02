@@ -647,6 +647,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		validateSingleDefaultSize();
 		context.buildTypeLists();
+		context.loadCampaignFacets();
 	}
 
 	private void validateSingleDefaultSize()
