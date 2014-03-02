@@ -78,8 +78,8 @@ public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
 		CharacterLevelsFacade, DataFacetChangeListener<Skill>, BonusChangeListener
 {
-	private final PlayerCharacter theCharacter;
-	private final CharacterDisplay charDisplay;
+	private PlayerCharacter theCharacter;
+	private CharacterDisplay charDisplay;
 
 	private UIDelegate delegate;
 
@@ -123,6 +123,9 @@ public class CharacterLevelsFacadeImpl extends
 			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade
 				.getKeyName().toUpperCase());
 		}
+		theCharacter = null;
+		charDisplay = null;
+		charID = null;
 	}
 
 	/**

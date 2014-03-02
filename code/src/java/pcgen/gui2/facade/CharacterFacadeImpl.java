@@ -217,8 +217,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
-	private final PlayerCharacter theCharacter;
-	private final CharacterDisplay charDisplay;
+	private PlayerCharacter theCharacter;
+	private CharacterDisplay charDisplay;
 	private DefaultReferenceFacade<EquipmentSetFacade> equipSet;
 	private DefaultListFacade<LanguageFacade> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
@@ -313,6 +313,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		charLevelsFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
 		Globals.getPCList().remove(theCharacter);
+		lastExportChar = null;
+		theCharacter = null;
+		charDisplay = null;
 	}
 	
 	/**

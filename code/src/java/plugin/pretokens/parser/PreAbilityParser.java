@@ -114,7 +114,6 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		throws PersistenceLayerException
 	{
 		String categoryName = "";
-		boolean foundAny = false;
 		if (prereq.getPrerequisiteCount() == 0)
 		{
 			String preKey = prereq.getKey();
@@ -124,7 +123,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 				String tempCat = preKey.substring((CATEGORY.length()));
 				if (tempCat.toUpperCase().trim().equals("ANY"))
 				{
-					foundAny = true;
+					Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
 				}
 				else
 				{
@@ -168,7 +167,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 					
 					if (tempCat.toUpperCase().trim().equals("ANY"))
 					{
-						foundAny = true;
+						Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
 					}
 					else
 					{
@@ -191,7 +190,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 				p.setCategoryName(categoryName);
 			}
 		}
-		else if (!foundAny)
+		else
 		{
 			String preKey;
 			if (prereq.getPrerequisiteCount() == 0)
