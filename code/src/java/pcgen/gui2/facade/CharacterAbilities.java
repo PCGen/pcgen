@@ -455,8 +455,6 @@ public class CharacterAbilities
 		// Recalc the innate spell list
 		theCharacter.getSpellList();
 
-		theCharacter.aggregateFeatList();
-
 		theCharacter.calcActiveBonuses();
 
 		// update the ability info
@@ -552,9 +550,6 @@ public class CharacterAbilities
 				+ ": " + exc.getMessage());
 			return;
 		}
-
-		// Called for side effects
-		theCharacter.aggregateFeatList();
 
 		theCharacter.calcActiveBonuses();
 
