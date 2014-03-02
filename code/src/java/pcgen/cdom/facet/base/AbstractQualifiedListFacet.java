@@ -74,7 +74,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
-		extends AbstractDataFacet<T>
+		extends AbstractDataFacet<CharID, T>
 {
 
 	private PrerequisiteFacet prereqFacet = FacetLibrary

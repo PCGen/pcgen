@@ -36,7 +36,7 @@ import pcgen.core.PCTemplate;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class RegionFacet extends AbstractDataFacet<String> implements
+public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		DataFacetChangeListener<PCTemplate>
 {
 

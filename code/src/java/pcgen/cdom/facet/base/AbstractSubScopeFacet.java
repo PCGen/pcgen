@@ -32,7 +32,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
 
-public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
+public class AbstractSubScopeFacet<S1, S2, T> extends
+		AbstractStorageFacet<CharID>
 {
 	private Map<S1, Map<S2, Map<T, Set<Object>>>> getConstructingInfo(CharID id)
 	{

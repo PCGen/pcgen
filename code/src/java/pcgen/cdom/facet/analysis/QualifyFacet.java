@@ -37,7 +37,7 @@ import pcgen.cdom.reference.Qualifier;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class QualifyFacet extends AbstractStorageFacet implements
+public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CDOMObject>
 {
 

@@ -46,7 +46,7 @@ import pcgen.core.analysis.SizeUtilities;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
+public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> implements
 		DataFacetChangeListener<CDOMObject>, LevelChangeListener,
 		BonusChangeListener
 {

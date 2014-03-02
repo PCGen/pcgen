@@ -39,7 +39,7 @@ import pcgen.core.Skill;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SkillRankFacet extends AbstractStorageFacet
+public class SkillRankFacet extends AbstractStorageFacet<CharID>
 {
 	private SkillRankChangeSupport support = new SkillRankChangeSupport();
 

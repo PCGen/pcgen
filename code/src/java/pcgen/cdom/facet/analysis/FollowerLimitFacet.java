@@ -43,7 +43,7 @@ import pcgen.cdom.list.CompanionList;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FollowerLimitFacet extends AbstractStorageFacet implements
+public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;

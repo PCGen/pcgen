@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2014 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -24,12 +24,12 @@ import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
- * 
- * This Class is a Type Safe Constant. It is designed to hold a unique Character
+ * This Class is a Type Safe Constant. It is designed to hold a unique Data Set
  * Identifier in a type-safe fashion
+ * 
+ * @author Tom Parker (thpr [at] yahoo.com)
  */
-public final class CharID implements TypeSafeConstant, PCGenIdentifier
+public final class DataSetID implements TypeSafeConstant, PCGenIdentifier
 {
 
 	/**
@@ -43,15 +43,15 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 	private final transient int ordinal;
 
 	/**
-	 * A view of the cache for this CharID. Generally useful for debuggers,
+	 * A view of the cache for this DataSetID. Generally useful for debuggers,
 	 * since this is a consolidated point for the cache for a single
-	 * CharID/PlayerCharacter (and useful to be here in CharID since there is
-	 * now code that no longer has any PlayerCharacter reference).
+	 * DataSetID/Loaded Campaigns (and useful to be here in DataSetID since
+	 * there is code that has no Loaded Campaign reference).
 	 */
 	@SuppressWarnings("unused")
 	private Map<Class<?>, Object> myFacetCache;
 
-	private CharID()
+	private DataSetID()
 	{
 		ordinal = ordinalCount++;
 	}
@@ -64,10 +64,10 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 	{
 		return ordinal;
 	}
-	
-	public static CharID getID()
+
+	public static DataSetID getID()
 	{
-		CharID id = new CharID();
+		DataSetID id = new DataSetID();
 		id.myFacetCache = AbstractStorageFacet.peekAtCache(id);
 		return id;
 	}

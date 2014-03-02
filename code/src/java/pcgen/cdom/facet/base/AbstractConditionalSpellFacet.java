@@ -43,7 +43,7 @@ import pcgen.core.spell.Spell;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractConditionalSpellFacet extends
-		AbstractStorageFacet
+		AbstractStorageFacet<CharID>
 {
 
 	private PrerequisiteFacet prerequisiteFacet;

@@ -53,7 +53,7 @@ import pcgen.util.enumeration.Load;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MovementResultFacet extends AbstractStorageFacet implements
+public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private MovementFacet movementFacet;

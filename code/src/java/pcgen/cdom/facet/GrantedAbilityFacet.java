@@ -50,7 +50,7 @@ import pcgen.core.PlayerCharacter;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
+public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> implements
 		DataFacetChangeListener<CategorizedAbilitySelection>
 {
 	private final PlayerCharacterTrackingFacet pcFacet = FacetLibrary

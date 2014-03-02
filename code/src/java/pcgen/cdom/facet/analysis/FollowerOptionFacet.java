@@ -44,7 +44,7 @@ import pcgen.core.FollowerOption;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FollowerOptionFacet extends AbstractStorageFacet implements
+public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private CDOMObjectConsolidationFacet consolidationFacet;

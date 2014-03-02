@@ -57,7 +57,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractItemConvertingFacet<S, D> extends
-		AbstractDataFacet<D>
+		AbstractDataFacet<CharID, D>
 {
 	/**
 	 * Add the converted version of the given object with the given source to

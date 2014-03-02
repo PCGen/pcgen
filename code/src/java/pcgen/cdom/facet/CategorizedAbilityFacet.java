@@ -39,7 +39,7 @@ import pcgen.core.Ability;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CategorizedAbilityFacet extends AbstractDataFacet<Ability>
+public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 {
 
 	/**

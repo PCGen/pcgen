@@ -40,7 +40,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class VariableFacet extends AbstractStorageFacet implements
+public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;

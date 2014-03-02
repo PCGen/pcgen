@@ -39,7 +39,7 @@ import pcgen.core.PlayerCharacter;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AgeSetKitFacet extends AbstractStorageFacet implements
+public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<Integer>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary

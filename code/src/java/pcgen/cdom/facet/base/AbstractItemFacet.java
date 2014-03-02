@@ -30,7 +30,7 @@ import pcgen.util.Logging;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
+public abstract class AbstractItemFacet<T> extends AbstractDataFacet<CharID, T>
 {
 	/**
 	 * Sets the item for this AbstractItemFacet and the Player Character

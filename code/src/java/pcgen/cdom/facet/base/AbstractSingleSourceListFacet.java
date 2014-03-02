@@ -48,7 +48,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractSingleSourceListFacet<T, ST> extends
-		AbstractDataFacet<T>
+		AbstractDataFacet<CharID, T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored

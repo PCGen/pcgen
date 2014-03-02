@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.CategorizedDataFacetChangeEvent;
@@ -48,9 +49,11 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractDataFacet<T> extends AbstractStorageFacet
+public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
+		AbstractStorageFacet<IDT>
 {
-	private final Map<Integer, DataFacetChangeListener<? super T>[]> listeners = new TreeMap<Integer, DataFacetChangeListener<? super T>[]>();
+	private final Map<Integer, DataFacetChangeListener<? super T>[]> listeners =
+			new TreeMap<Integer, DataFacetChangeListener<? super T>[]>();
 
 	/**
 	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents

@@ -36,7 +36,7 @@ import pcgen.core.character.SpellBook;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SpellBookFacet extends AbstractStorageFacet implements
+public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<Equipment>
 {
 	private EquipmentFacet equipmentFacet;

@@ -42,7 +42,7 @@ import pcgen.core.AbilityCategory;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
+public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 {
 	/**
 	 * Add the given Ability to the list of Abilities defined by the given
