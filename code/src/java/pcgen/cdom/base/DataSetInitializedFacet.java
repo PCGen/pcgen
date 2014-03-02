@@ -15,29 +15,11 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.base;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import pcgen.cdom.base.CampaignInitializedFacet;
 import pcgen.rules.context.LoadContext;
 
-public class CampaignInitializationFacet
+public interface DataSetInitializedFacet
 {
-
-	private List<CampaignInitializedFacet> facetList = new ArrayList<CampaignInitializedFacet>();
-	
-	public void addCampaignInitializedFacet(CampaignInitializedFacet cif)
-	{
-		facetList.add(cif);
-	}
-	
-	public void initialize(LoadContext context)
-	{
-		for (CampaignInitializedFacet cif : facetList)
-		{
-			cif.initialize(context);
-		}
-	}
+	public void initialize(LoadContext context);
 }
