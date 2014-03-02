@@ -76,8 +76,6 @@ public class DamageReductionFacetTest extends
 	 */
 	public void testGetDRString()
 	{
-		CharID id = CharID.getID();
-		
 		DamageReductionFacet drFacet = new DamageReductionFacet();
 		drFacet.setPrerequisiteFacet(new PrerequisiteFacet());
 		drFacet.setFormulaResolvingFacet(new FormulaResolvingFacet());
