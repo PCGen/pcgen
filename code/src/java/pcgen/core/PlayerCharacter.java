@@ -276,10 +276,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		FacetInitialization.initialize();
 	}
 
-	private CharID id = CharID.getID();
+	private CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
 	private final SAProcessor SA_PROC;
-	private final CharacterDisplay display = new CharacterDisplay(id);
+	private final CharacterDisplay display;
 
 	/*
 	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
@@ -519,7 +519,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * @param load true if loading the character
 	 * @param loadedCampaigns The currently loaded campaign objects.
 	 */
-	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns) {
+	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
+	{
+		id = CharID.getID(Globals.getContext().getDataSetID());
+		display = new CharacterDisplay(id);
 		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
 		SA_PROC = new SAProcessor(this);
 		trackingFacet.associatePlayerCharacter(id, this);

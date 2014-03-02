@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -35,8 +36,8 @@ import pcgen.core.Skill;
 
 public class LocalSkillCostFacetTest extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private LocalSkillCostFacet facet = new LocalSkillCostFacet();
 	private PCClass class1;
@@ -46,6 +47,9 @@ public class LocalSkillCostFacetTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		class1 = new PCClass();
 		class1.setName("Cl1");
 		class2 = new PCClass();

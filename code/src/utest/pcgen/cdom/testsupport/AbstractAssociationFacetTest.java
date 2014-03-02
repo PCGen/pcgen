@@ -27,15 +27,25 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 
 public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		TestCase
 {
-	private CharID id = CharID.getID();
-	private CharID altid = CharID.getID();
+	private CharID id;
+	private CharID altid;
 
 	ST oneSource = developSource(getTypeObj());
+
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
+	}
 
 	@Test
 	public void testObjUnsetZeroCount()

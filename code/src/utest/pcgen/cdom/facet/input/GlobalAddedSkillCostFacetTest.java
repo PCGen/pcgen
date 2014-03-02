@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -31,8 +32,8 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public class GlobalAddedSkillCostFacetTest extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private GlobalAddedSkillCostFacet facet = new GlobalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
@@ -40,6 +41,9 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 	@Override
 	public void setUp()
 	{
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		source1 = new PCTemplate();
 		source1.setName("T1");
 	}

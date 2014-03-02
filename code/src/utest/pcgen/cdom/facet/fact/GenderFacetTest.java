@@ -22,9 +22,9 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
@@ -47,8 +47,9 @@ public class GenderFacetTest extends TestCase
 		facet = new GenderFacet();
 		super.setUp();
 		facet.setTemplateFacet(tfacet);
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 	}
 
 	@Test

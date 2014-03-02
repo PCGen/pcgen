@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
@@ -29,8 +30,8 @@ import pcgen.core.Skill;
 
 public class SkillRankFacetTest extends TestCase
 {
-	private CharID id = CharID.getID();
-	private CharID altid = CharID.getID();
+	private CharID id;
+	private CharID altid;
 	private SkillRankFacet facet = new SkillRankFacet();
 	private Skill s1, s2, s3;
 	private PCClass cl1, cl2;
@@ -56,6 +57,9 @@ public class SkillRankFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		facet.addSkillRankChangeListener(listener);
 		s1 = new Skill();
 		s1.setName("S1");

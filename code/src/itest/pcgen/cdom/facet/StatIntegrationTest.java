@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
@@ -65,8 +66,9 @@ public class StatIntegrationTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		stat1 = new PCStat();
 		stat2 = new PCStat();
 		stat1.put(StringKey.ABB, "Stat1");

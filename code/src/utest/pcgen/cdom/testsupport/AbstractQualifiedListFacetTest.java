@@ -30,6 +30,7 @@ import org.junit.Test;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -39,8 +40,8 @@ import pcgen.rules.persistence.TokenLibrary;
 public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();
@@ -69,6 +70,9 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
 	}
 

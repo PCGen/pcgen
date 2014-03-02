@@ -26,6 +26,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -39,8 +40,8 @@ import pcgen.core.PCClass;
 
 public class ClassFacetTest extends TestCase
 {
-	private CharID id = CharID.getID();
-	private CharID altid = CharID.getID();
+	private CharID id;
+	private CharID altid;
 	private ClassFacet facet = new ClassFacet();
 
 	private ClassListener classListener = new ClassListener();
@@ -88,6 +89,9 @@ public class ClassFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		facet.addDataFacetChangeListener(classListener);
 		facet.addLevelChangeListener(classListener);
 	}

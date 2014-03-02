@@ -28,6 +28,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -36,8 +37,8 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();
@@ -66,6 +67,9 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
 	}
 

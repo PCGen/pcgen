@@ -26,6 +26,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -63,8 +64,9 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
 	}
 

@@ -20,6 +20,7 @@ package pcgen.cdom.facet.fact;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
@@ -32,7 +33,8 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
 	}
 
 	@Test

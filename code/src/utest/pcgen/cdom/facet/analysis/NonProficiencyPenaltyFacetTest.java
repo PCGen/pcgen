@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
@@ -47,8 +48,9 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 		facet = new NonProficiencyPenaltyFacet();
 		super.setUp();
 		facet.setTemplateFacet(tfacet);
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 	}
 
 	@Test
