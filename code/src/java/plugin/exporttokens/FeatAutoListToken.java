@@ -58,7 +58,7 @@ public class FeatAutoListToken extends AbilityListToken
 		{
 			if (aCat.getParentCategory().equals(aCategory))
 			{
-				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.AUTOMATIC))
+				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
 				{
 					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}

@@ -53,7 +53,7 @@ public class PCCountAbilitiesTypeNatureAutoTermEvaluator
 	@Override
 	Collection<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getCNAbilities(abCat, Nature.AUTOMATIC);
+		return pc.getPoolAbilities(abCat, Nature.AUTOMATIC);
 	}
 
 	@Override

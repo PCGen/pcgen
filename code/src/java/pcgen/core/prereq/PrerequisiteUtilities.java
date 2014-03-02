@@ -463,7 +463,7 @@ public final class PrerequisiteUtilities
 			// Now scan for relevant SERVESAS occurrences
 			for (AbilityCategory aCat : allCats)
 			{
-				for (CNAbility cna : character.getCNAbilities(aCat))
+				for (CNAbility cna : character.getPoolAbilities(aCat))
 				{
 					for(CDOMReference<Ability> ref
 						: cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))

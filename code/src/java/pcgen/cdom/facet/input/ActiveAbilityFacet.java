@@ -889,4 +889,53 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return false;
 	}
 
+	public Collection<? extends CNAbility> getPoolAbilities(CharID id,
+		Category<Ability> cat)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			Map<Nature, Set<Ability>> nmap = catMap.get(cat);
+			if (nmap != null)
+			{
+				for (Entry<Nature, Set<Ability>> natME : nmap.entrySet())
+				{
+					Nature nat = natME.getKey();
+					for (Ability a : natME.getValue())
+					{
+						set.add(new CNAbility(cat, a, nat));
+					}
+				}
+			}
+		}
+		return set;
+	}
+
+	public Collection<? extends CNAbility> getPoolAbilities(CharID id,
+		Category<Ability> cat, Nature n)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			Map<Nature, Set<Ability>> nmap = catMap.get(cat);
+			if (nmap != null)
+			{
+				Set<Ability> aset = nmap.get(n);
+				if (aset != null)
+				{
+					for (Ability a : aset)
+					{
+						if (!a.isInternal())
+						{
+							set.add(new CNAbility(cat, a, n));
+						}
+					}
+				}
+			}
+		}
+		return set;
+	}
+
 }

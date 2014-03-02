@@ -8625,11 +8625,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return BigDecimal.valueOf(basePool.floatValue() + bonus + userBonus);
 	}
 
-	private Set<Ability> getSelectedAbilities(final AbilityCategory aCategory)
-	{
-		return getAbilityList(aCategory, Nature.NORMAL);
-	}
-
 	/**
 	 * Get the remaining Feat Points (or Skill Points if the GameMode uses a Point Pool).  
 	 * 
@@ -8752,11 +8747,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		double spent = 0.0d;
 
-		final Set<Ability> abilities = getSelectedAbilities(aCategory);
+		List<CNAbility> abilities = getPoolAbilities(aCategory);
 		if (abilities != null)
 		{
-			for (final Ability ability : abilities)
+			for (final CNAbility cna : abilities)
 			{
+				Ability ability = cna.getAbility();
 				final int subfeatCount = getSelectCorrectedAssociationCount(ability);
 				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 				if (ChooseActivation.hasNewChooseToken(ability))
@@ -11092,6 +11088,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
 	{
+		if (!cat.getParentCategory().equals(cat))
+		{
+			throw new IllegalArgumentException(
+				"Category for getCNAbilities must be parent category");
+		}
 		Set<CNAbility> set = new HashSet<CNAbility>();
 		set.addAll(abFacet.getCNAbilities(id, cat, n));
 		set.addAll(grantedAbilityFacet.getCNAbilities(id, cat, n));
@@ -11112,7 +11113,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return list;
 	}
 
-	public CNAbility getMatchingCNAbility(Category<Ability> cat, Nature nature,
+	public CNAbility getMatchingPoolAbility(Category<Ability> cat, Nature nature,
 		Ability a)
 	{
 		CNAbility cna = abFacet.getCNAbility(id, cat, nature, a);
@@ -11125,9 +11126,31 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
 	{
+		if (!cat.getParentCategory().equals(cat))
+		{
+			throw new IllegalArgumentException(
+				"Category for getCNAbilities must be parent category, was: " + cat);
+		}
 		List<CNAbility> list = new ArrayList<CNAbility>();
 		list.addAll(abFacet.getCNAbilities(id, cat));
 		list.addAll(grantedAbilityFacet.getCNAbilities(id, cat));
 		return list;
 	}
+
+	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
+	{
+		List<CNAbility> list = new ArrayList<CNAbility>();
+		list.addAll(abFacet.getPoolAbilities(id, cat));
+		list.addAll(grantedAbilityFacet.getPoolAbilities(id, cat));
+		return list;
+	}
+
+	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
+	{
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		set.addAll(abFacet.getPoolAbilities(id, cat, n));
+		set.addAll(grantedAbilityFacet.getPoolAbilities(id, cat, n));
+		return set;
+	}
+
 }

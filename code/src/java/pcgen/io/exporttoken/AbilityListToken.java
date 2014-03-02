@@ -194,7 +194,7 @@ public class AbilityListToken extends Token
 		{
 			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
 			{
-				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.NORMAL))
+				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
 				{
 					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}

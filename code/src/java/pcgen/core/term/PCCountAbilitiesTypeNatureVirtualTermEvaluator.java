@@ -53,7 +53,7 @@ public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
 	@Override
 	Collection<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getCNAbilities(AbilityCategory.FEAT, Nature.VIRTUAL);
+		return pc.getPoolAbilities(AbilityCategory.FEAT, Nature.VIRTUAL);
 	}
 
 	@Override

@@ -51,7 +51,7 @@ public class PCCountAbilitiesNatureNormalTermEvaluator
 	@Override
 	Collection<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getCNAbilities(abCat, Nature.NORMAL);
+		return pc.getPoolAbilities(abCat, Nature.NORMAL);
 	}
 
 	@Override
