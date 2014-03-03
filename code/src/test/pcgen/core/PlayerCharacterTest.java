@@ -1112,7 +1112,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
 		
-		List<Ability> abList = pc.getAggregateAbilityList(AbilityCategory.FEAT);
+		List<Ability> abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(0, abList.size());
 
 		pc.setRace(human);

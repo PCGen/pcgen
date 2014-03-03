@@ -181,7 +181,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private final List<String> warnings = new ArrayList<String>();
 	private Cache cache;
-	private final List<WeaponProf> weaponprofs = new ArrayList<WeaponProf>();
 	private PlayerCharacter thePC;
 	private final Set<String> seenStats = new HashSet<String>();
 	private final Set<Language> cachedLanguages = new HashSet<Language>();
@@ -4856,11 +4855,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		CDOMObject source = null;
+		boolean hadSource = false;
 
 		for (PCGElement element : tokens.getElements())
 		{
 			if (TAG_SOURCE.equals(element.getName()))
 			{
+				hadSource = true;
 				String type = Constants.EMPTY_STRING;
 				String key = Constants.EMPTY_STRING;
 
@@ -4912,33 +4913,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					source = thePC.getClassKeyed(key);
 				}
-				else if (TAG_DOMAIN.equals(type))
-				{
-					Domain domain =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
-									key);
-					if (thePC.hasDomain(domain))
-					{
-						source = domain;
-					}
-					else
-					{
-						warnings.add("PC does not have Domain: " + key);
-					}
-				}
-				else if (TAG_FEAT.equals(type))
-				{
-					source = thePC.getAbilityKeyed(AbilityCategory.FEAT, key);
-				}
-				// Fix for bug 1185344
-				else if (TAG_ABILITY.equals(type))
-				{
-					source =
-							thePC.getAutomaticAbilityKeyed(
-								AbilityCategory.FEAT, key);
-				}
-				// End of Fix
 
 				if (source == null)
 				{
@@ -4976,12 +4950,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 			}
 		}
-		if (!processed)
+		if (hadSource && !processed)
 		{
-			for (PCGElement child : element.getChildren())
-			{
-				weaponprofs.add(getWeaponProf(child.getText()));
-			}
+			final String message = "Unable to apply WeaponProfs: " + line;
+			warnings.add(message);
 		}
 	}
 
