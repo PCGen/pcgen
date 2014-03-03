@@ -52,6 +52,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -723,7 +724,19 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return null;
 		}
-		return theCharacter.getAbilityNature((Ability) ability);
+		/*
+		 * TODO This is making a somewhat DRASTIC assumption that ANY Ability
+		 * Category is appropriate. Unfortunately, the point at which this
+		 * method is called from the UI it is unclear to the untrained eye how
+		 * to get the category.
+		 */
+		List<CNAbility> cnas = theCharacter.getMatchingCNAbilities((Ability) ability);
+		Nature nature = null;
+		for (CNAbility cna : cnas)
+		{
+			nature = Nature.getBestNature(nature, cna.getNature());
+		}
+		return nature;
 	}
 
 	/* (non-Javadoc)

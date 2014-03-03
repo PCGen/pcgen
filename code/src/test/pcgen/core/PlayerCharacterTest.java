@@ -46,7 +46,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -1119,17 +1118,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.AUTOMATIC, pc.getAbilityNature(abList.get(0)));
 		
 		pc.addTemplate(template);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.VIRTUAL, pc.getAbilityNature(abList.get(0)));
 		
 		pc.addTemplate(templateNorm);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.NORMAL, pc.getAbilityNature(abList.get(0)));
 	}
 
 	/**

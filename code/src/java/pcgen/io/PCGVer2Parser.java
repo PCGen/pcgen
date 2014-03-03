@@ -4927,7 +4927,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						warnings.add("PC does not have Domain: " + key);
 					}
 				}
-				else if (TAG_DOMAIN.equals(type))
+				else if (TAG_FEAT.equals(type))
 				{
 					source = thePC.getAbilityKeyed(AbilityCategory.FEAT, key);
 				}

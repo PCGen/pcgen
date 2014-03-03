@@ -10036,13 +10036,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return newSet;
 	}
 
-	public Nature getAbilityNature(Ability ability)
-	{
-		Nature n = abFacet.getNature(id, ability.getCDOMCategory(), ability);
-		Nature n2 = grantedAbilityFacet.getNature(id, ability.getCDOMCategory(), ability);
-		return Nature.getBestNature(n, n2);
-	}
-
 	public boolean containsKit(Kit kit)
 	{
 		return kitFacet.contains(id, kit);
