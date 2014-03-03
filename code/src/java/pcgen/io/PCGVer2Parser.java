@@ -30,6 +30,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -42,14 +43,11 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
-import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -121,7 +119,6 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.BonusDisplay;
@@ -4956,31 +4953,34 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final PCGElement element = tokens.getElements().get(0);
 
-		if (source == null)
+		boolean processed = false;
+		if (source != null)
+		{
+			List<PersistentTransitionChoice<?>> adds =
+					source.getListFor(ListKey.ADD);
+			if (adds != null)
+			{
+				for (PersistentTransitionChoice<?> ptc: adds)
+				{
+					if (ptc.getChoiceClass().equals(WeaponProf.class))
+					{
+						for (PCGElement child : element.getChildren())
+						{
+							WeaponProf wp = getWeaponProf(child.getText());
+							Set c = Collections.singleton(wp);
+							ptc.act(c, source, thePC);
+						}
+						processed = true;
+						break;
+					}
+				}
+			}
+		}
+		if (!processed)
 		{
 			for (PCGElement child : element.getChildren())
 			{
 				weaponprofs.add(getWeaponProf(child.getText()));
-			}
-		}
-		else
-		{
-			for (PCGElement child : element.getChildren())
-			{
-				Collection<CDOMReference<WeaponProf>> wpBonus =
-						source.getListMods(WeaponProf.STARTING_LIST);
-				if (wpBonus != null)
-				{
-					ChooseInformation<WeaponProf> tc =
-							new BasicChooseInformation<WeaponProf>(
-								"WEAPONBONUS",
-								new ReferenceChoiceSet<WeaponProf>(wpBonus));
-					tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
-					CDOMChoiceManager<WeaponProf> mgr =
-							new CDOMChoiceManager<WeaponProf>(source, tc, 1, 1);
-					mgr.conditionallyApply(thePC,
-						getWeaponProf(child.getText()));
-				}
 			}
 		}
 	}
