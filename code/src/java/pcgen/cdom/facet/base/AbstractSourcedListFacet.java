@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2009-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -30,24 +30,23 @@ import java.util.Set;
 import pcgen.base.util.ListSet;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * An AbstractSourcedListFacet is a DataFacet that contains information about
- * Objects that are contained in a PlayerCharacter when a PlayerCharacter may
- * have more than one of that type of Object (e.g. Language, PCTemplate) and the
- * source of that object should be tracked.
+ * Objects that are contained in a resource when a resource may have more than
+ * one of that type of Object (e.g. Language, PCTemplate) and the source of that
+ * object should be tracked.
  * 
  * This class is designed to assume that each Object may only be contained one
- * time by the PlayerCharacter, even if received from multiple sources. The
- * Object will only trigger one DATA_ADDED event (when added by the first
- * source) and if removed by some sources, will only trigger one DATA_REMOVED
- * event (when it is removed by the last remaining source). Sources do not need
- * to be removed in the order in which they are added, and the first source to
- * be added does not possess special status with respect to triggering a
- * DATA_REMOVED event (it will only trigger removal if it was the last source
- * when removed)
+ * time by the resource, even if received from multiple sources. The Object will
+ * only trigger one DATA_ADDED event (when added by the first source) and if
+ * removed by some sources, will only trigger one DATA_REMOVED event (when it is
+ * removed by the last remaining source). Sources do not need to be removed in
+ * the order in which they are added, and the first source to be added does not
+ * possess special status with respect to triggering a DATA_REMOVED event (it
+ * will only trigger removal if it was the last source when removed)
  * 
  * The sources stored in this AbstractSourcedListFacet are stored as a List,
  * meaning the list of sources may contain the same source multiple times. If
@@ -58,24 +57,25 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<CharID, T>
+public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
+		extends AbstractDataFacet<IDT, T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored
-	 * in this AbstractSourcedListFacet for the Player Character represented by
-	 * the given CharID
+	 * in this AbstractSourcedListFacet for the resource represented by the
+	 * given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
+	 *            The PCGenIdentifier representing the resource for which the
 	 *            given item should be added
 	 * @param obj
 	 *            The object to be added to the list of objects stored in this
-	 *            AbstractSourcedListFacet for the Player Character represented
-	 *            by the given CharID
+	 *            AbstractSourcedListFacet for the resource represented by the
+	 *            given PCGenIdentifier
 	 * @param source
 	 *            The source for the given object
 	 */
-	public void add(CharID id, T obj, Object source)
+	public void add(IDT id, T obj, Object source)
 	{
 		if (obj == null)
 		{
@@ -99,21 +99,21 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	/**
 	 * Adds all of the objects with the given source in the given Collection to
 	 * the list of objects stored in this AbstractSourcedListFacet for the
-	 * Player Character represented by the given CharID
+	 * resource represented by the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
+	 *            The PCGenIdentifier representing the resource for which the
 	 *            given items should be added
 	 * @param c
 	 *            The Collection of objects to be added to the list of objects
-	 *            stored in this AbstractSourcedListFacet for the Player
-	 *            Character represented by the given CharID
+	 *            stored in this AbstractSourcedListFacet for the resource
+	 *            represented by the given PCGenIdentifier
 	 * @param source
 	 *            The source for the given object
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAll(CharID id, Collection<? extends T> c, Object source)
+	public void addAll(IDT id, Collection<? extends T> c, Object source)
 	{
 		for (T obj : c)
 		{
@@ -123,14 +123,14 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Removes the given source entry from the list of sources for the given
-	 * object stored in this AbstractSourcedListFacet for the Player Character
-	 * represented by the given CharID. If the given source was the only source
-	 * for the given object, then the object is removed from the list of objects
-	 * stored in this AbstractSourcedListFacet for the Player Character
-	 * represented by the given CharID.
+	 * object stored in this AbstractSourcedListFacet for the resource
+	 * represented by the given PCGenIdentifier. If the given source was the
+	 * only source for the given object, then the object is removed from the
+	 * list of objects stored in this AbstractSourcedListFacet for the resource
+	 * represented by the given PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which the
+	 *            The PCGenIdentifier representing the resource from which the
 	 *            given item source should be removed
 	 * @param obj
 	 *            The object for which the source should be removed
@@ -138,35 +138,35 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 *            The source for the given object to be removed from the list of
 	 *            sources.
 	 */
-	public boolean remove(CharID id, T obj, Object source)
+	public boolean remove(IDT id, T obj, Object source)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		return (componentMap != null)
-				&& processRemoval(id, componentMap, obj, source);
+			&& processRemoval(id, componentMap, obj, source);
 	}
 
 	/**
 	 * Removes the given source entry from the list of sources for all of the
-	 * objects in the given Collection for the Player Character represented by
-	 * the given CharID. If the given source was the only source for any of the
+	 * objects in the given Collection for the resource represented by the given
+	 * PCGenIdentifier. If the given source was the only source for any of the
 	 * objects in the collection, then those objects are removed from the list
-	 * of objects stored in this AbstractSourcedListFacet for the Player
-	 * Character represented by the given CharID.
+	 * of objects stored in this AbstractSourcedListFacet for the resource
+	 * represented by the given PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which the
+	 *            The PCGenIdentifier representing the resource from which the
 	 *            given items should be removed
 	 * @param c
 	 *            The Collection of objects to be removed from the list of
-	 *            objects stored in this AbstractSourcedListFacet for the Player
-	 *            Character represented by the given CharID
+	 *            objects stored in this AbstractSourcedListFacet for the
+	 *            resource represented by the given PCGenIdentifier
 	 * @param source
 	 *            The source for the objects in the given Collection to be
 	 *            removed from the list of sources.
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void removeAll(CharID id, Collection<T> c, Object source)
+	public void removeAll(IDT id, Collection<T> c, Object source)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
@@ -180,8 +180,8 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Removes all objects (and all sources for those objects) from the list of
-	 * objects stored in this AbstractSourcedListFacet for the Player Character
-	 * represented by the given CharID
+	 * objects stored in this AbstractSourcedListFacet for the resource
+	 * represented by the given PCGenIdentifier
 	 * 
 	 * This method is value-semantic in that ownership of the returned Map is
 	 * transferred to the class calling this method. Since this is a remove all
@@ -195,13 +195,13 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * AbstractSourcedListFacet.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which all
+	 *            The PCGenIdentifier representing the resource from which all
 	 *            items should be removed
 	 * @return A non-null Set of objects removed from the list of objects stored
-	 *         in this AbstractSourcedListFacet for the Player Character
-	 *         represented by the given CharID
+	 *         in this AbstractSourcedListFacet for the resource represented by
+	 *         the given PCGenIdentifier
 	 */
-	public Map<T, Set<Object>> removeAll(CharID id)
+	public Map<T, Set<Object>> removeAll(IDT id)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -218,10 +218,10 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns a non-null copy of the Set of objects in this
-	 * AbstractSourcedListFacet for the Player Character represented by the
-	 * given CharID. This method returns an empty set if no objects are in this
-	 * AbstractSourcedListFacet for the Player Character identified by the given
-	 * CharID.
+	 * AbstractSourcedListFacet for the resource represented by the given
+	 * PCGenIdentifier. This method returns an empty set if no objects are in
+	 * this AbstractSourcedListFacet for the resource identified by the given
+	 * PCGenIdentifier.
 	 * 
 	 * This method is value-semantic in that ownership of the returned Set is
 	 * transferred to the class calling this method. Modification of the
@@ -234,13 +234,13 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * methods of AbstractSourcedListFacet.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
+	 *            The PCGenIdentifier representing the resource for which the
 	 *            items in this AbstractSourcedListFacet should be returned.
 	 * @return A non-null copy of the Set of objects in this
-	 *         AbstractSourcedListFacet for the Player Character represented by
-	 *         the given CharID
+	 *         AbstractSourcedListFacet for the resource represented by the
+	 *         given PCGenIdentifier
 	 */
-	public Set<T> getSet(CharID id)
+	public Set<T> getSet(IDT id)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -253,15 +253,15 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns the count of items in this AbstractSourcedListFacet for the
-	 * Player Character represented by the given CharID
+	 * resource represented by the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
+	 *            The PCGenIdentifier representing the resource for which the
 	 *            count of items should be returned
 	 * @return The count of items in this AbstractSourcedListFacet for the
-	 *         Player Character represented by the given CharID
+	 *         resource represented by the given PCGenIdentifier
 	 */
-	public int getCount(CharID id)
+	public int getCount(IDT id)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -273,16 +273,16 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns true if this AbstractSourcedListFacet does not contain any items
-	 * for the Player Character represented by the given CharID
+	 * for the resource represented by the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharId representing the PlayerCharacter to test if any
+	 *            The PCGenIdentifier representing the resource to test if any
 	 *            items are contained by this AbstractsSourcedListFacet
 	 * @return true if this AbstractSourcedListFacet does not contain any items
-	 *         for the Player Character represented by the given CharID; false
-	 *         otherwise (if it does contain items for the Player Character)
+	 *         for the resource represented by the given PCGenIdentifier; false
+	 *         otherwise (if it does contain items for the resource)
 	 */
-	public boolean isEmpty(CharID id)
+	public boolean isEmpty(IDT id)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		return componentMap == null || componentMap.isEmpty();
@@ -290,20 +290,20 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns true if this AbstractSourcedListFacet contains the given value in
-	 * the list of items for the Player Character represented by the given
-	 * CharID.
+	 * the list of items for the resource represented by the given
+	 * PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character used for testing
+	 *            The PCGenIdentifier representing the resource used for testing
 	 * @param obj
 	 *            The object to test if this AbstractSourcedListFacet contains
-	 *            that item for the Player Character represented by the given
-	 *            CharID
+	 *            that item for the resource represented by the given
+	 *            PCGenIdentifier
 	 * @return true if this AbstractSourcedListFacet contains the given value
-	 *         for the Player Character represented by the given CharID; false
+	 *         for the resource represented by the given PCGenIdentifier; false
 	 *         otherwise
 	 */
-	public boolean contains(CharID id, T obj)
+	public boolean contains(IDT id, T obj)
 	{
 		/*
 		 * TODO obj == null? - log an error?
@@ -315,12 +315,12 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	}
 
 	/**
-	 * Returns a Set of sources for this AbstractSourcedListFacet, the
-	 * PlayerCharacter represented by the given CharID, and the given object.
-	 * Will add the given object to the list of items for the PlayerCharacter
-	 * represented by the given CharID and will return a new, empty Set if no
-	 * information has been set in this AbstractSourcedListFacet for the given
-	 * CharID and given object. Will not return null.
+	 * Returns a Set of sources for this AbstractSourcedListFacet, the resource
+	 * represented by the given PCGenIdentifier, and the given object. Will add
+	 * the given object to the list of items for the resource represented by the
+	 * given PCGenIdentifier and will return a new, empty Set if no information
+	 * has been set in this AbstractSourcedListFacet for the given
+	 * PCGenIdentifier and given object. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set object is owned by
 	 * AbstractSourcedListFacet, and since it can be modified, a reference to
@@ -328,13 +328,13 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * AbstractSourcedListFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
+	 *            The PCGenIdentifier for which the Set should be returned
 	 * @param obj
 	 *            The object for which the Set of sources should be returned
-	 * @return The Set of sources for the given object and Player Character
-	 *         represented by the given CharID.
+	 * @return The Set of sources for the given object and resource represented
+	 *         by the given PCGenIdentifier.
 	 */
-	private Set<Object> getConstructingCachedSetFor(CharID id, T obj)
+	private Set<Object> getConstructingCachedSetFor(IDT id, T obj)
 	{
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);
@@ -348,8 +348,8 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. May return null if no information has been set in this
-	 * AbstractSourcedListFacet for the given CharID.
+	 * PCGenIdentifier. May return null if no information has been set in this
+	 * AbstractSourcedListFacet for the given PCGenIdentifier.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
 	 * AbstractSourcedListFacet, and since it can be modified, a reference to
@@ -357,20 +357,21 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * AbstractSourcedListFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
-	 * @return The Map for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this
-	 *         AbstractSourcedListFacet for the Player Character.
+	 *            The PCGenIdentifier for which the Set should be returned
+	 * @return The Map for the resource represented by the given
+	 *         PCGenIdentifier; null if no information has been set in this
+	 *         AbstractSourcedListFacet for the resource.
 	 */
-	protected Map<T, Set<Object>> getCachedMap(CharID id)
+	protected Map<T, Set<Object>> getCachedMap(IDT id)
 	{
 		return (Map<T, Set<Object>>) getCache(id);
 	}
 
 	/**
 	 * Returns the type-safe Map for this AbstractSourcedListFacet and the given
-	 * CharID. Will return a new, empty Map if no information has been set in
-	 * this AbstractSourcedListFacet for the given CharID. Will not return null.
+	 * PCGenIdentifier. Will return a new, empty Map if no information has been
+	 * set in this AbstractSourcedListFacet for the given PCGenIdentifier. Will
+	 * not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
 	 * AbstractSourcedListFacet, and since it can be modified, a reference to
@@ -378,10 +379,11 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * AbstractSourcedListFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Map should be returned
-	 * @return The Map for the Player Character represented by the given CharID.
+	 *            The PCGenIdentifier for which the Map should be returned
+	 * @return The Map for the resource represented by the given
+	 *         PCGenIdentifier.
 	 */
-	private Map<T, Set<Object>> getConstructingCachedMap(CharID id)
+	private Map<T, Set<Object>> getConstructingCachedMap(IDT id)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -405,7 +407,8 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * 
 	 * Note that this method should always be the only method used to construct
 	 * a Map for this AbstractSourcedListFacet. It is actually preferred to use
-	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
+	 * getConstructingCacheMap(PCGenIdentifier) in order to implicitly call this
+	 * method.
 	 * 
 	 * @return A new (empty) Map for use in this AbstractSourcedListFacet.
 	 */
@@ -415,9 +418,9 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	}
 
 	/**
-	 * Copies the contents of the AbstractSourcedListFacet from one Player
-	 * Character to another Player Character, based on the given CharIDs
-	 * representing those Player Characters.
+	 * Copies the contents of the AbstractSourcedListFacet from one resource to
+	 * another resource, based on the given PCGenIdentifiers representing those
+	 * resources.
 	 * 
 	 * This is a method in AbstractSourcedListFacet in order to avoid exposing
 	 * the mutable Map object to other classes. This should not be inlined, as
@@ -425,20 +428,20 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * not be exposed to other classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
-	 * between the Player Characters represented by the given CharIDs (meaning
+	 * between the resources represented by the given PCGenIdentifiers (meaning
 	 * once this copy takes place, any change to the AbstractSourcedListFacet of
-	 * one Player Character will only impact the Player Character where the
+	 * one resource will only impact the resource where the
 	 * AbstractSourcedListFacet was changed).
 	 * 
 	 * @param source
-	 *            The CharID representing the Player Character from which the
+	 *            The PCGenIdentifier representing the resource from which the
 	 *            information should be copied
 	 * @param destination
-	 *            The CharID representing the Player Character to which the
+	 *            The PCGenIdentifier representing the resource to which the
 	 *            information should be copied
 	 */
 	@Override
-	public void copyContents(CharID source, CharID destination)
+	public void copyContents(IDT source, IDT destination)
 	{
 		Map<T, Set<Object>> sourceMap = getCachedMap(source);
 		if (sourceMap != null)
@@ -447,8 +450,8 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 			{
 				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
-				Set<Object> targetSet = getConstructingCachedSetFor(
-						destination, obj);
+				Set<Object> targetSet =
+						getConstructingCachedSetFor(destination, obj);
 				targetSet.addAll(sourceSet);
 			}
 		}
@@ -459,11 +462,11 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * this AbstractSourcedListFacet. This implements the actual check that
 	 * determines if the given source was the only source for the given object.
 	 * If so, then that object is removed from the list of objects stored in
-	 * this AbstractQualifiedListFacet for the Player Character represented by
-	 * the given CharID.
+	 * this AbstractQualifiedListFacet for the resource represented by the given
+	 * PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character which may have
+	 *            The PCGenIdentifier representing the resource which may have
 	 *            the given item removed.
 	 * @param componentMap
 	 *            The (private) Map for this AbstractSourcedListFacet that will
@@ -471,18 +474,19 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 *            given object.
 	 * @param obj
 	 *            The object which may be removed if the given source is the
-	 *            only source for this object in the Player Character
-	 *            represented by the given CharID
+	 *            only source for this object in the resource represented by the
+	 *            given PCGenIdentifier
 	 * @param source
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private boolean processRemoval(CharID id, Map<T, Set<Object>> componentMap,
-			T obj, Object source)
+	private boolean processRemoval(IDT id, Map<T, Set<Object>> componentMap,
+		T obj, Object source)
 	{
 		if (obj == null)
 		{
-			throw new IllegalArgumentException("Object to remove may not be null");
+			throw new IllegalArgumentException(
+				"Object to remove may not be null");
 		}
 		Set<Object> set = componentMap.get(obj);
 		if (set == null)
@@ -504,25 +508,25 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Removes all information for the given source from this
-	 * AbstractSourcedListFacet for the PlayerCharacter represented by the given
-	 * CharID.
+	 * AbstractSourcedListFacet for the resource represented by the given
+	 * PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which items
+	 *            The PCGenIdentifier representing the resource for which items
 	 *            from the given source will be removed
 	 * @param source
 	 *            The source for the objects to be removed from the list of
-	 *            items stored for the Player Character identified by the given
-	 *            CharID
+	 *            items stored for the resource identified by the given
+	 *            PCGenIdentifier
 	 */
-	public void removeAll(CharID id, Object source)
+	public void removeAll(IDT id, Object source)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
 			List<T> removedKeys = new ArrayList<T>();
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it =
+					componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -540,17 +544,17 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 			for (T obj : removedKeys)
 			{
 				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+					DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
 
 	/**
 	 * Returns a non-null copy of the Set of objects in this
-	 * AbstractSourcedListFacet for the Player Character represented by the
-	 * given CharID and the given source. This method returns an empty set if no
-	 * objects are in this AbstractSourcedListFacet for the Player Character
-	 * identified by the given CharID and source.
+	 * AbstractSourcedListFacet for the resource represented by the given
+	 * PCGenIdentifier and the given source. This method returns an empty set if
+	 * no objects are in this AbstractSourcedListFacet for the resource
+	 * identified by the given PCGenIdentifier and source.
 	 * 
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
@@ -563,22 +567,22 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 	 * methods of AbstractSourcedListFacet.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
+	 *            The PCGenIdentifier representing the resource for which the
 	 *            items in this AbstractSourcedListFacet should be returned.
 	 * @param owner
 	 *            The source object for which a copy of the List of objects in
 	 *            this AbstractSourcedListFacet should be returned.
 	 * @return A non-null Set of objects in this AbstractSourcedListFacet for
-	 *         the Player Character represented by the given CharID
+	 *         the resource represented by the given PCGenIdentifier
 	 */
-	public List<? extends T> getSet(CharID id, Object owner)
+	public List<? extends T> getSet(IDT id, Object owner)
 	{
 		List<T> list = new ArrayList<T>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it =
+					componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -593,26 +597,26 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns true if this AbstractSourcedListFacet contains any item from the
-	 * given source in the list of items for the Player Character represented by
-	 * the given CharID.
+	 * given source in the list of items for the resource represented by the
+	 * given PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character used for testing
+	 *            The PCGenIdentifier representing the resource used for testing
 	 * @param owner
 	 *            The source object for which must have granted an object in
-	 *            this AbstractSourcedListFacet for the Player Character
-	 *            identified by the given CharID
+	 *            this AbstractSourcedListFacet for the resource identified by
+	 *            the given PCGenIdentifier
 	 * @return true if this AbstractSourcedListFacet contains any item from the
-	 *         given source for the Player Character represented by the given
-	 *         CharID; false otherwise
+	 *         given source for the resource represented by the given
+	 *         PCGenIdentifier; false otherwise
 	 */
-	public boolean containsFrom(CharID id, Object owner)
+	public boolean containsFrom(IDT id, Object owner)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it =
+					componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -627,21 +631,21 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns the count of items granted by the given source in this
-	 * AbstractSourcedListFacet for the Player Character represented by the
-	 * given CharID.
+	 * AbstractSourcedListFacet for the resource represented by the given
+	 * PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
+	 *            The PCGenIdentifier representing the resource for which the
 	 *            count of items should be returned
 	 * @param owner
 	 *            The source object used to determine the count of objects in
-	 *            this AbstractSourcedListFacet for the Player Character
-	 *            identified by the given CharID
+	 *            this AbstractSourcedListFacet for the resource identified by
+	 *            the given PCGenIdentifier
 	 * @return The count of items granted by the given source in this
-	 *         AbstractSourcedListFacet for the Player Character represented by
-	 *         the given CharID
+	 *         AbstractSourcedListFacet for the resource represented by the
+	 *         given PCGenIdentifier
 	 */
-	public int getCountFrom(CharID id, CDOMObject owner)
+	public int getCountFrom(IDT id, CDOMObject owner)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		int count = 0;
@@ -663,25 +667,25 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 
 	/**
 	 * Returns true if this AbstractSourcedListFacet contains the given value
-	 * (granted by the given source) in the list of items for the Player
-	 * Character represented by the given CharID.
+	 * (granted by the given source) in the list of items for the resource
+	 * represented by the given PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character used for testing
+	 *            The PCGenIdentifier representing the resource used for testing
 	 * @param owner
 	 *            The source object for which must have granted the object being
 	 *            tested to see if it is contained by this
-	 *            AbstractSourcedListFacet for the Player Character identified
-	 *            by the given CharID
+	 *            AbstractSourcedListFacet for the resource identified by the
+	 *            given PCGenIdentifier
 	 * @param obj
 	 *            The object to test if this AbstractSourcedListFacet contains
-	 *            that item for the Player Character represented by the given
-	 *            CharID
+	 *            that item for the resource represented by the given
+	 *            PCGenIdentifier
 	 * @return true if this AbstractSourcedListFacet contains the given value
-	 *         (granted by the given source) for the Player Character
-	 *         represented by the given CharID; false otherwise
+	 *         (granted by the given source) for the resource represented by the
+	 *         given PCGenIdentifier; false otherwise
 	 */
-	public boolean containsFrom(CharID id, T obj, CDOMObject owner)
+	public boolean containsFrom(IDT id, T obj, CDOMObject owner)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
@@ -692,7 +696,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<Char
 		return false;
 	}
 
-	public Collection<Object> getSources(CharID id, T obj)
+	public Collection<Object> getSources(IDT id, T obj)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)

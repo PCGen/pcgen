@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -54,7 +55,7 @@ public class UnarmedDamageFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<List<String>> getFacet()
+	protected AbstractSourcedListFacet<CharID, List<String>> getFacet()
 	{
 		return facet;
 	}
@@ -84,7 +85,7 @@ public class UnarmedDamageFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

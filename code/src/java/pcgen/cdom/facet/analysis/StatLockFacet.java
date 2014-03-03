@@ -40,8 +40,8 @@ import pcgen.core.PCStat;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
-		DataFacetChangeListener<CDOMObject>
+public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -62,7 +62,7 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<StatLock> locks = cdo.getListFor(ListKey.STAT_LOCKS);
@@ -87,7 +87,7 @@ public class StatLockFacet extends AbstractSourcedListFacet<StatLock> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

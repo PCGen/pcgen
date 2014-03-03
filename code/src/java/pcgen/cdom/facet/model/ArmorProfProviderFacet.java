@@ -43,7 +43,7 @@ import pcgen.core.Equipment;
  */
 public class ArmorProfProviderFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
-		DataFacetChangeListener<ProfProvider<ArmorProf>>, PerspectiveLocation
+		DataFacetChangeListener<CharID, ProfProvider<ArmorProf>>, PerspectiveLocation
 {
 
 	/**
@@ -61,7 +61,7 @@ public class ArmorProfProviderFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<ProfProvider<ArmorProf>> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, ProfProvider<ArmorProf>> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -81,7 +81,7 @@ public class ArmorProfProviderFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<ProfProvider<ArmorProf>> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, ProfProvider<ArmorProf>> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

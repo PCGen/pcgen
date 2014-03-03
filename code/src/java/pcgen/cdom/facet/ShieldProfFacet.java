@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -32,7 +33,7 @@ import pcgen.cdom.helper.ShieldProfProvider;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
+public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private ShieldProfProviderFacet shieldProfProviderFacet;
@@ -55,7 +56,7 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<ShieldProfProvider> ShieldProfs = cdo
@@ -82,7 +83,7 @@ public class ShieldProfFacet implements DataFacetChangeListener<CDOMObject>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		shieldProfProviderFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.inst.PCClassLevel;
@@ -29,7 +30,7 @@ public class ClassLevelFacetTest extends
 	private ClassLevelFacet facet = new ClassLevelFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<PCClassLevel> getFacet()
+	protected AbstractSourcedListFacet<CharID, PCClassLevel> getFacet()
 	{
 		return facet;
 	}

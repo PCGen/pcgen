@@ -31,8 +31,8 @@ import pcgen.core.EquipmentModifier;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ActiveEqModFacet extends
-		AbstractSourcedListFacet<EquipmentModifier> implements
-		DataFacetChangeListener<Equipment>
+		AbstractSourcedListFacet<CharID, EquipmentModifier> implements
+		DataFacetChangeListener<CharID, Equipment>
 {
 
 	/**
@@ -50,7 +50,7 @@ public class ActiveEqModFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		/*
 		 * In theory, this doesn't need to check for additions/removals from the
@@ -85,7 +85,7 @@ public class ActiveEqModFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		CharID id = dfce.getCharID();
 		Equipment eq = dfce.getCDOMObject();

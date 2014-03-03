@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -52,7 +53,7 @@ public class UnlockedStatFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<PCStat> getFacet()
+	protected AbstractSourcedListFacet<CharID, PCStat> getFacet()
 	{
 		return facet;
 	}
@@ -69,7 +70,7 @@ public class UnlockedStatFacetTest extends
 
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -28,17 +29,17 @@ import pcgen.core.Race;
  * the CHOOSE selection that was made
  */
 public class RaceSelectionFacet extends AbstractAssociationFacet<Race, Object>
-		implements DataFacetChangeListener<Race>
+		implements DataFacetChangeListener<CharID, Race>
 {
 
 	private RaceFacet raceFacet;
 
-	public void dataAdded(DataFacetChangeEvent<Race> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Race> dfce)
 	{
 		//ignore
 	}
 
-	public void dataRemoved(DataFacetChangeEvent<Race> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Race> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject());
 	}

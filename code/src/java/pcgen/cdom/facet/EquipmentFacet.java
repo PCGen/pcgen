@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -30,8 +31,8 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class EquipmentFacet extends AbstractSourcedListFacet<Equipment>
-		implements DataFacetChangeListener<Equipment>
+public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
+		implements DataFacetChangeListener<CharID, Equipment>
 {
 	/**
 	 * Adds all of the Equipment that is possessed by a Player Character.
@@ -47,7 +48,7 @@ public class EquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -67,7 +68,7 @@ public class EquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

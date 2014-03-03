@@ -21,6 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -30,8 +31,8 @@ import pcgen.core.PCTemplate;
  * TemplateFacet is a Facet that tracks all PCTemplates that have been granted
  * to a Player Character.
  */
-public class TemplateFacet extends AbstractSourcedListFacet<PCTemplate>
-		implements DataFacetChangeListener<PCTemplate>
+public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
+		implements DataFacetChangeListener<CharID, PCTemplate>
 {
 	/**
 	 * Adds the active PCTemplate to this facet.
@@ -47,7 +48,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -66,7 +67,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

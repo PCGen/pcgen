@@ -38,7 +38,7 @@ import pcgen.core.Race;
  * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
-		DataFacetChangeListener<Object>
+		DataFacetChangeListener<CharID, Object>
 {
 	private AgeFacet ageFacet;
 
@@ -63,7 +63,7 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Object> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Object> dfce)
 	{
 		update(dfce.getCharID());
 	}
@@ -115,7 +115,7 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Object> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Object> dfce)
 	{
 		update(dfce.getCharID());
 	}

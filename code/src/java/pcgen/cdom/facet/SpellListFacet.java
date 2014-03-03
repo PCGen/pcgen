@@ -27,7 +27,7 @@ import pcgen.core.spell.Spell;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SpellListFacet extends AbstractSourcedListFacet<CDOMList<Spell>>
+public class SpellListFacet extends AbstractSourcedListFacet<CharID, CDOMList<Spell>>
 {
 
 	/**

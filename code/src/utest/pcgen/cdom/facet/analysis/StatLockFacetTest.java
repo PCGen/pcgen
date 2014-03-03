@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
@@ -63,7 +64,7 @@ public class StatLockFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<StatLock> getFacet()
+	protected AbstractSourcedListFacet<CharID, StatLock> getFacet()
 	{
 		return facet;
 	}
@@ -85,7 +86,7 @@ public class StatLockFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

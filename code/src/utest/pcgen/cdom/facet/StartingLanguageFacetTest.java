@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -58,7 +59,7 @@ public class StartingLanguageFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Language> getFacet()
+	protected AbstractSourcedListFacet<CharID, Language> getFacet()
 	{
 		return facet;
 	}
@@ -81,7 +82,7 @@ public class StartingLanguageFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

@@ -20,6 +20,7 @@ package pcgen.cdom.facet.analysis;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -33,8 +34,8 @@ import pcgen.core.PCStat;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
-		implements DataFacetChangeListener<CDOMObject>
+public class UnlockedStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -54,7 +55,7 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<PCStat> unlocked = cdo.getListFor(ListKey.UNLOCKED_STATS);
@@ -79,7 +80,7 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<PCStat>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

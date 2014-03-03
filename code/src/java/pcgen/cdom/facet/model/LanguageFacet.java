@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -32,8 +33,8 @@ import pcgen.core.Language;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
-		DataFacetChangeListener<Language>, PerspectiveLocation
+public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language> implements
+		DataFacetChangeListener<CharID, Language>, PerspectiveLocation
 {
 
 	/**
@@ -52,7 +53,7 @@ public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Language> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -73,7 +74,7 @@ public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Language> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

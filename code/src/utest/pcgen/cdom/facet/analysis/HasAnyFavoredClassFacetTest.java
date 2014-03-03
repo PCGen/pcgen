@@ -20,6 +20,7 @@ package pcgen.cdom.facet.analysis;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -63,7 +64,7 @@ public class HasAnyFavoredClassFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}
@@ -75,7 +76,7 @@ public class HasAnyFavoredClassFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Boolean> getFacet()
+	protected AbstractSourcedListFacet<CharID, Boolean> getFacet()
 	{
 		return facet;
 	}

@@ -45,7 +45,7 @@ import pcgen.core.SettingsHandler;
  */
 public class HitPointFacet extends
 		AbstractAssociationFacet<PCClassLevel, Integer> implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
@@ -77,7 +77,7 @@ public class HitPointFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
@@ -111,7 +111,7 @@ public class HitPointFacet extends
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		/*
 		 * TODO This probably needs some form of symmetry - when a PCClassLevel

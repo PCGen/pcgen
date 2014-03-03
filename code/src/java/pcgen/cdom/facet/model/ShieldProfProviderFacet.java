@@ -43,7 +43,7 @@ import pcgen.core.ShieldProf;
  */
 public class ShieldProfProviderFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ShieldProf>> implements
-		DataFacetChangeListener<ProfProvider<ShieldProf>>, PerspectiveLocation
+		DataFacetChangeListener<CharID, ProfProvider<ShieldProf>>, PerspectiveLocation
 {
 
 	/**
@@ -61,7 +61,7 @@ public class ShieldProfProviderFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<ProfProvider<ShieldProf>> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, ProfProvider<ShieldProf>> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -81,7 +81,7 @@ public class ShieldProfProviderFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<ProfProvider<ShieldProf>> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, ProfProvider<ShieldProf>> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

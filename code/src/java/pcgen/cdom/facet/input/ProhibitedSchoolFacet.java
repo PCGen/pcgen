@@ -16,6 +16,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.SpellProhibitor;
 
@@ -26,6 +27,6 @@ import pcgen.core.SpellProhibitor;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ProhibitedSchoolFacet extends
-		AbstractSourcedListFacet<SpellProhibitor>
+		AbstractSourcedListFacet<CharID, SpellProhibitor>
 {
 }

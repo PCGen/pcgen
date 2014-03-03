@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Skill;
 
@@ -24,6 +25,6 @@ import pcgen.core.Skill;
  * MonsterCSkillFacet is a Facet that tracks the Cskills that a Player Character
  * has access to as class skills through MONCSKILL:LIST
  */
-public class MonsterCSkillFacet extends AbstractSourcedListFacet<Skill>
+public class MonsterCSkillFacet extends AbstractSourcedListFacet<CharID, Skill>
 {
 }

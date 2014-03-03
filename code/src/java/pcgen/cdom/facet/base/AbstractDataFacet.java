@@ -24,7 +24,6 @@ import java.util.TreeMap;
 
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.PCGenIdentifier;
-import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.CategorizedDataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -32,8 +31,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 
 /**
  * A AbstractDataFacet is a DataFacet that contains information about
- * CDOMObjects that are contained in a PlayerCharacter. This serves the basic
- * functions of managing the DataFacetChangeListeners for a DataFacet.
+ * CDOMObjects that are contained in a resource. This serves the basic functions
+ * of managing the DataFacetChangeListeners for a DataFacet.
  * 
  * Note that DataFacetChangeListeners registered with the AbstractDataFacet
  * through the methods in AbstractDataFacet will receive events from the
@@ -52,8 +51,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractStorageFacet<IDT>
 {
-	private final Map<Integer, DataFacetChangeListener<? super T>[]> listeners =
-			new TreeMap<Integer, DataFacetChangeListener<? super T>[]>();
+	private final Map<Integer, DataFacetChangeListener<IDT, ? super T>[]> listeners =
+			new TreeMap<Integer, DataFacetChangeListener<IDT, ? super T>[]>();
 
 	/**
 	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents
@@ -70,7 +69,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            from this AbstractDataFacet
 	 */
 	public void addDataFacetChangeListener(
-			DataFacetChangeListener<? super T> listener)
+		DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		addDataFacetChangeListener(0, listener);
 	}
@@ -86,18 +85,21 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * and if that occurs, it must be removed an equivalent number of times in
 	 * order to no longer receive events from this AbstractDataFacet.
 	 * 
-	 * @param priority The lower the priority the earlier in the list the new 
-	 * listener will get advised of the change.
+	 * @param priority
+	 *            The lower the priority the earlier in the list the new
+	 *            listener will get advised of the change.
 	 * @param listener
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
 	 */
 	public void addDataFacetChangeListener(int priority,
-			DataFacetChangeListener<? super T> listener)
+		DataFacetChangeListener<IDT, ? super T> listener)
 	{
-		DataFacetChangeListener<? super T>[] dfcl = listeners.get(priority);
+		DataFacetChangeListener<IDT, ? super T>[] dfcl =
+				listeners.get(priority);
 		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
-		DataFacetChangeListener<? super T>[] newArray = new DataFacetChangeListener[newSize];
+		DataFacetChangeListener<IDT, ? super T>[] newArray =
+				new DataFacetChangeListener[newSize];
 		if (dfcl != null)
 		{
 			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
@@ -119,7 +121,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The DataFacetChangeListener to be removed
 	 */
 	public void removeDataFacetChangeListener(
-			DataFacetChangeListener<? super T> listener)
+		DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		removeDataFacetChangeListener(0, listener);
 	}
@@ -137,9 +139,10 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The DataFacetChangeListener to be removed
 	 */
 	public void removeDataFacetChangeListener(int priority,
-			DataFacetChangeListener<? super T> listener)
+		DataFacetChangeListener<IDT, ? super T> listener)
 	{
-		DataFacetChangeListener<? super T>[] dfcl = listeners.get(priority);
+		DataFacetChangeListener<IDT, ? super T>[] dfcl =
+				listeners.get(priority);
 		if (dfcl == null)
 		{
 			// No worries
@@ -163,15 +166,16 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 			}
 			else
 			{
-				DataFacetChangeListener<? super T>[] newArray = new DataFacetChangeListener[newSize];
+				DataFacetChangeListener<IDT, ? super T>[] newArray =
+						new DataFacetChangeListener[newSize];
 				if (foundLoc != 0)
 				{
 					System.arraycopy(dfcl, 0, newArray, 0, foundLoc);
 				}
 				if (foundLoc != newSize)
 				{
-					System.arraycopy(dfcl, foundLoc + 1, newArray,
-							foundLoc, newSize - foundLoc);
+					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc,
+						newSize - foundLoc);
 				}
 				listeners.put(priority, newArray);
 			}
@@ -183,16 +187,16 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * receiving DataFacetChangeEvents from the source DataFacet.
 	 * 
 	 * @param id
-	 *            The CharID identifying the Player Character to which the
+	 *            The PCGenIdentifier identifying the resource to which the
 	 *            NodeChangeEvent relates.
 	 * @param node
 	 *            The Node that has been added to or removed from the source
-	 *            DataFacet for the given CharID
+	 *            DataFacet for the given PCGenIdentifier
 	 * @param type
 	 *            An identifier indicating whether the given CDOMObject was
 	 *            added to or removed from the source DataFacet
 	 */
-	protected void fireDataFacetChangeEvent(CharID id, T node, int type)
+	protected void fireDataFacetChangeEvent(IDT id, T node, int type)
 	{
 		fireDataFacetChangeEvent(id, node, type, null, null);
 	}
@@ -202,11 +206,11 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * receiving DataFacetChangeEvents from the source DataFacet.
 	 * 
 	 * @param id
-	 *            The CharID identifying the Player Character to which the
+	 *            The PCGenIdentifier identifying the resource to which the
 	 *            NodeChangeEvent relates.
 	 * @param node
 	 *            The Node that has been added to or removed from the source
-	 *            DataFacet for the given CharID
+	 *            DataFacet for the given PCGenIdentifier
 	 * @param type
 	 *            An identifier indicating whether the given CDOMObject was
 	 *            added to or removed from the source DataFacet
@@ -217,10 +221,11 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The optional nature in which the node has been changed.
 	 */
 	@SuppressWarnings("rawtypes")
-	protected void fireDataFacetChangeEvent(CharID id, T node, int type, Category category, Nature nature)
+	protected void fireDataFacetChangeEvent(IDT id, T node, int type,
+		Category category, Nature nature)
 	{
-		for (DataFacetChangeListener<? super T>[] dfclArray : listeners
-				.values())
+		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
+			.values())
 		{
 			/*
 			 * This list is decremented from the end of the list to the
@@ -229,7 +234,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 			 * reverse order to how they were added to the Event-owning object).
 			 * This is obviously subordinate to the priority (loop above).
 			 */
-			DataFacetChangeEvent<T> ccEvent = null;
+			DataFacetChangeEvent<IDT, T> ccEvent = null;
 			for (int i = dfclArray.length - 1; i >= 0; i--)
 			{
 				// Lazily create event
@@ -237,37 +242,41 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 				{
 					if (category == null)
 					{
-						ccEvent = new DataFacetChangeEvent<T>(id, node, this, type);
+						ccEvent =
+								new DataFacetChangeEvent<IDT, T>(id, node,
+									this, type);
 					}
 					else
 					{
-						ccEvent = new CategorizedDataFacetChangeEvent<T>(id, node, this, type, category, nature);
+						ccEvent =
+								new CategorizedDataFacetChangeEvent<IDT, T>(id,
+									node, this, type, category, nature);
 					}
 				}
 				DataFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())
 				{
-				case DataFacetChangeEvent.DATA_ADDED:
-					dfcl.dataAdded(ccEvent);
-					break;
-				case DataFacetChangeEvent.DATA_REMOVED:
-					dfcl.dataRemoved(ccEvent);
-					break;
-				default:
-					break;
+					case DataFacetChangeEvent.DATA_ADDED:
+						dfcl.dataAdded(ccEvent);
+						break;
+					case DataFacetChangeEvent.DATA_REMOVED:
+						dfcl.dataRemoved(ccEvent);
+						break;
+					default:
+						break;
 				}
 			}
 		}
 	}
 
-	public DataFacetChangeListener<? super T>[] getDataFacetChangeListeners()
+	public DataFacetChangeListener<IDT, ? super T>[] getDataFacetChangeListeners()
 	{
-		List<DataFacetChangeListener<? super T>> list =
-				new ArrayList<DataFacetChangeListener<? super T>>();
-		for (DataFacetChangeListener<? super T>[] dfclArray : listeners
+		List<DataFacetChangeListener<IDT, ? super T>> list =
+				new ArrayList<DataFacetChangeListener<IDT, ? super T>>();
+		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
 			.values())
 		{
-			for (DataFacetChangeListener<? super T> listener : dfclArray)
+			for (DataFacetChangeListener<IDT, ? super T> listener : dfclArray)
 			{
 				list.add(listener);
 			}

@@ -42,7 +42,7 @@ import pcgen.util.Logging;
  */
 public class LocalSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private DomainFacet domainFacet;
 	
@@ -65,7 +65,7 @@ public class LocalSkillCostFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
@@ -119,7 +119,7 @@ public class LocalSkillCostFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAllFromSource(dfce.getCharID(), dfce.getCDOMObject());
 	}

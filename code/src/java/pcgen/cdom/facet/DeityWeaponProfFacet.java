@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -35,8 +36,8 @@ import pcgen.core.WeaponProf;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
-		implements DataFacetChangeListener<Deity>
+public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
+		implements DataFacetChangeListener<CharID, Deity>
 {
 
 	private DeityFacet deityFacet;
@@ -56,7 +57,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Deity> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Deity> dfce)
 	{
 		Deity deity = dfce.getCDOMObject();
 		List<CDOMReference<WeaponProf>> weaponList = deity
@@ -95,7 +96,7 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Deity> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Deity> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

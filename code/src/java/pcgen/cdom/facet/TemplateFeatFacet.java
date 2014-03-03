@@ -37,8 +37,8 @@ import pcgen.core.PlayerCharacter;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TemplateFeatFacet extends
-		AbstractSourcedListFacet<CategorizedAbilitySelection> implements
-		DataFacetChangeListener<PCTemplate>
+		AbstractSourcedListFacet<CharID, CategorizedAbilitySelection> implements
+		DataFacetChangeListener<CharID, PCTemplate>
 {
 	private TemplateFacet templateFacet;
 
@@ -60,7 +60,7 @@ public class TemplateFeatFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCTemplate source = dfce.getCDOMObject();
@@ -96,7 +96,7 @@ public class TemplateFeatFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCTemplate source = dfce.getCDOMObject();

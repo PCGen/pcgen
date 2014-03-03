@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
@@ -29,7 +30,7 @@ public class ProhibitedSchoolFacetTest extends
 	private ProhibitedSchoolFacet facet = new ProhibitedSchoolFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<SpellProhibitor> getFacet()
+	protected AbstractSourcedListFacet<CharID, SpellProhibitor> getFacet()
 	{
 		return facet;
 	}

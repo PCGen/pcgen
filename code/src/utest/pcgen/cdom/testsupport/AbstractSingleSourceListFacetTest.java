@@ -42,20 +42,20 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	private Listener listener = new Listener();
 	ST oneSource = developSource(getTypeObj());
 
-	private class Listener implements DataFacetChangeListener<CT>
+	private class Listener implements DataFacetChangeListener<CharID, CT>
 	{
 
 		public int addEventCount;
 		public int removeEventCount;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent<CT> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, CT> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<CT> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, CT> dfce)
 		{
 			removeEventCount++;
 		}

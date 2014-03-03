@@ -841,12 +841,12 @@ public class CharacterAbilities
 	 * the character's list of direct abilities.
 	 */
 	private final class DirectAbilityChangeHandler implements
-			DataFacetChangeListener<CategorizedAbilitySelection>
+			DataFacetChangeListener<CharID, CategorizedAbilitySelection>
 	{
 		@SuppressWarnings("nls")
 		@Override
 		public void dataAdded(
-			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+			DataFacetChangeEvent<CharID, CategorizedAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -870,7 +870,7 @@ public class CharacterAbilities
 		@SuppressWarnings("nls")
 		@Override
 		public void dataRemoved(
-			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+			DataFacetChangeEvent<CharID, CategorizedAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -894,11 +894,11 @@ public class CharacterAbilities
 	 * the character's list of granted abilities.
 	 */
 	private final class GrantedAbilityChangeHandler implements
-			DataFacetChangeListener<Ability>
+			DataFacetChangeListener<CharID, Ability>
 	{
 		@SuppressWarnings("nls")
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, Ability> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -918,7 +918,7 @@ public class CharacterAbilities
 
 		@SuppressWarnings("nls")
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, Ability> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -944,11 +944,11 @@ public class CharacterAbilities
 	 * the character's list of active abilities.
 	 */
 	private final class ActiveAbilityChangeHandler implements
-			DataFacetChangeListener<Ability>
+			DataFacetChangeListener<CharID, Ability>
 	{
 		@SuppressWarnings("nls")
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, Ability> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -966,8 +966,8 @@ public class CharacterAbilities
 			if (dfce instanceof CategorizedDataFacetChangeEvent)
 			{
 				
-				CategorizedDataFacetChangeEvent<?> categorizedEvent =
-						(CategorizedDataFacetChangeEvent<?>) dfce;
+				CategorizedDataFacetChangeEvent<CharID, ?> categorizedEvent =
+						(CategorizedDataFacetChangeEvent<CharID, ?>) dfce;
 				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
 				Nature nature = categorizedEvent.getNature();
 				addAbilityToLists(cat, ability, nature);
@@ -976,7 +976,7 @@ public class CharacterAbilities
 
 		@SuppressWarnings("nls")
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, Ability> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -996,8 +996,8 @@ public class CharacterAbilities
 			if (dfce instanceof CategorizedDataFacetChangeEvent)
 			{
 				
-				CategorizedDataFacetChangeEvent<?> categorizedEvent =
-						(CategorizedDataFacetChangeEvent<?>) dfce;
+				CategorizedDataFacetChangeEvent<CharID, ?> categorizedEvent =
+						(CategorizedDataFacetChangeEvent<CharID, ?>) dfce;
 				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
 				Nature nature = categorizedEvent.getNature();
 				removeAbilityFromLists(cat, ability, nature);

@@ -54,6 +54,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
@@ -4613,13 +4614,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * The Class <code>LanguageListener</code> tracks adding and removal of 
 	 * languages to the character.
 	 */
-	public class LanguageListener implements DataFacetChangeListener<Language>
+	public class LanguageListener implements DataFacetChangeListener<CharID, Language>
 	{
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Language> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4632,7 +4633,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Language> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4647,13 +4648,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * The Class <code>TemplateListener</code> tracks adding and removal of 
 	 * templates to the character.
 	 */
-	public class TemplateListener implements DataFacetChangeListener<PCTemplate>
+	public class TemplateListener implements DataFacetChangeListener<CharID, PCTemplate>
 	{
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4666,7 +4667,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{

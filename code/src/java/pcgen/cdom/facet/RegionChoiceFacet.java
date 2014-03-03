@@ -36,7 +36,7 @@ import pcgen.core.PlayerCharacter;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
+public class RegionChoiceFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
@@ -66,7 +66,7 @@ public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PlayerCharacter aPC = trackingFacet.getPC(id);
@@ -82,7 +82,7 @@ public class RegionChoiceFacet implements DataFacetChangeListener<CDOMObject>
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		//Nothing for now?
 		/*

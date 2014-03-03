@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.inst.PCClassLevel;
 
@@ -26,6 +27,6 @@ import pcgen.cdom.inst.PCClassLevel;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
+public class ClassLevelFacet extends AbstractSourcedListFacet<CharID, PCClassLevel>
 {
 }

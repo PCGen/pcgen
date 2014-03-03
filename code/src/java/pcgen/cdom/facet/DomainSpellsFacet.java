@@ -38,8 +38,8 @@ import pcgen.core.spell.Spell;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DomainSpellsFacet extends
-		AbstractSourcedListFacet<CDOMList<Spell>> implements
-		DataFacetChangeListener<Domain>
+		AbstractSourcedListFacet<CharID, CDOMList<Spell>> implements
+		DataFacetChangeListener<CharID, Domain>
 {
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
@@ -64,7 +64,7 @@ public class DomainSpellsFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Domain> dfce)
 	{
 		Domain domain = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
@@ -112,7 +112,7 @@ public class DomainSpellsFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Domain> dfce)
 	{
 		/*
 		 * Nothing right now

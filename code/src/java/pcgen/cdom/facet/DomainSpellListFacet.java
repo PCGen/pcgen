@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -35,8 +36,8 @@ import pcgen.core.spell.Spell;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DomainSpellListFacet extends
-		AbstractSourcedListFacet<CDOMList<Spell>> implements
-		DataFacetChangeListener<Domain>
+		AbstractSourcedListFacet<CharID, CDOMList<Spell>> implements
+		DataFacetChangeListener<CharID, Domain>
 {
 
 	private SpellListFacet spellListFacet;
@@ -58,7 +59,7 @@ public class DomainSpellListFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Domain> dfce)
 	{
 		DomainSpellList list =
 				dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
@@ -81,7 +82,7 @@ public class DomainSpellListFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Domain> dfce)
 	{
 		spellListFacet.removeAll(dfce.getCharID(), dfce.getSource());
 	}

@@ -35,7 +35,7 @@ import pcgen.core.Skill;
 public class GlobalToSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
 		ScopeFacetChangeListener<CharID, SkillCost, Skill>,
-		DataFacetChangeListener<PCClass>
+		DataFacetChangeListener<CharID, PCClass>
 {
 
 	private ClassFacet classFacet;
@@ -68,7 +68,7 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
-	public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
@@ -88,7 +88,7 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
-	public void dataRemoved(DataFacetChangeEvent<PCClass> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();

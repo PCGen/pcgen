@@ -278,7 +278,7 @@ public class DamageReductionFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}
@@ -290,7 +290,7 @@ public class DamageReductionFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<DamageReduction> getFacet()
+	protected AbstractSourcedListFacet<CharID, DamageReduction> getFacet()
 	{
 		return facet;
 	}

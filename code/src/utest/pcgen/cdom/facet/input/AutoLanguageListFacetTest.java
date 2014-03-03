@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.input.AutoLanguageListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
@@ -33,7 +34,7 @@ public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Lang
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Language> getFacet()
+	protected AbstractSourcedListFacet<CharID, Language> getFacet()
 	{
 		return facet;
 	}

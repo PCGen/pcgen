@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
@@ -29,7 +30,7 @@ public class EquipmentFacetTest extends
 	private EquipmentFacet facet = new EquipmentFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<Equipment> getFacet()
+	protected AbstractSourcedListFacet<CharID, Equipment> getFacet()
 	{
 		return facet;
 	}
@@ -46,7 +47,7 @@ public class EquipmentFacetTest extends
 
 
 	@Override
-	protected DataFacetChangeListener<Equipment> getListener()
+	protected DataFacetChangeListener<CharID, Equipment> getListener()
 	{
 		return facet;
 	}

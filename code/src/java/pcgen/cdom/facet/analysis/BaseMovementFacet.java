@@ -20,6 +20,7 @@ package pcgen.cdom.facet.analysis;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -34,8 +35,8 @@ import pcgen.core.Movement;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BaseMovementFacet extends AbstractSourcedListFacet<Movement>
-		implements DataFacetChangeListener<CDOMObject>
+public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -55,7 +56,7 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<Movement>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<Movement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
@@ -80,7 +81,7 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<Movement>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

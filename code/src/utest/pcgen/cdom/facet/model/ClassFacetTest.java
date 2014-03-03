@@ -46,7 +46,7 @@ public class ClassFacetTest extends TestCase
 
 	private ClassListener classListener = new ClassListener();
 
-	private static class ClassListener implements DataFacetChangeListener<PCClass>,
+	private static class ClassListener implements DataFacetChangeListener<CharID, PCClass>,
 			ClassLevelChangeListener
 	{
 
@@ -58,13 +58,13 @@ public class ClassFacetTest extends TestCase
 		public ClassLevelObjectChangeEvent lastLevelObjectEvent;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<PCClass> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, PCClass> dfce)
 		{
 			removeEventCount++;
 		}

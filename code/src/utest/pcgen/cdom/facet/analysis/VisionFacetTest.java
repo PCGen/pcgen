@@ -20,6 +20,7 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -64,7 +65,7 @@ public class VisionFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<QualifiedObject<Vision>> getFacet()
+	protected AbstractSourcedListFacet<CharID, QualifiedObject<Vision>> getFacet()
 	{
 		return facet;
 	}
@@ -85,7 +86,7 @@ public class VisionFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

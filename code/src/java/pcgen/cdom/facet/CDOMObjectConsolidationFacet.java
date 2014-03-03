@@ -41,7 +41,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CDOMObjectConsolidationFacet implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectBridge bridgeFacet;
 
@@ -108,7 +108,7 @@ public class CDOMObjectConsolidationFacet implements
 	 *            from this CDOMObjectConsolidationFacet
 	 */
 	public void addDataFacetChangeListener(
-			DataFacetChangeListener<? super CDOMObject> listener)
+			DataFacetChangeListener<CharID, ? super CDOMObject> listener)
 	{
 		bridgeFacet.addDataFacetChangeListener(listener);
 	}
@@ -130,7 +130,7 @@ public class CDOMObjectConsolidationFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		add(dfce.getCharID(), cdo, dfce.getSource());
@@ -153,7 +153,7 @@ public class CDOMObjectConsolidationFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		remove(dfce.getCharID(), cdo, dfce.getSource());

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
@@ -29,7 +30,7 @@ public class AutoListWeaponProfFacetTest extends
 	private AutoListWeaponProfFacet facet = new AutoListWeaponProfFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<WeaponProf> getFacet()
+	protected AbstractSourcedListFacet<CharID, WeaponProf> getFacet()
 	{
 		return facet;
 	}

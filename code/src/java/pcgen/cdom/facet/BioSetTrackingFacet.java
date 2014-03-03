@@ -34,7 +34,7 @@ import pcgen.core.PlayerCharacter;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
@@ -57,7 +57,7 @@ public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PlayerCharacter pc = trackingFacet.getPC(id);
@@ -81,7 +81,7 @@ public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		/*
 		 * Nothing to do

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -53,7 +54,7 @@ public class NaturalWeaponFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Equipment> getFacet()
+	protected AbstractSourcedListFacet<CharID, Equipment> getFacet()
 	{
 		return facet;
 	}
@@ -75,7 +76,7 @@ public class NaturalWeaponFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

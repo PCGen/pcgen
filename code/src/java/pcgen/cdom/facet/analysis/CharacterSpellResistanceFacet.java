@@ -38,8 +38,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CharacterSpellResistanceFacet extends
-		AbstractSourcedListFacet<Formula> implements
-		DataFacetChangeListener<CDOMObject>
+		AbstractSourcedListFacet<CharID, Formula> implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -61,7 +61,7 @@ public class CharacterSpellResistanceFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		SpellResistance sr = cdo.get(ObjectKey.SR);
@@ -87,7 +87,7 @@ public class CharacterSpellResistanceFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

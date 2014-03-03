@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
@@ -30,7 +31,7 @@ public class ExpandedCampaignFacetTest extends
 	private ExpandedCampaignFacet facet = new ExpandedCampaignFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<Campaign> getFacet()
+	protected AbstractSourcedListFacet<CharID, Campaign> getFacet()
 	{
 		return facet;
 	}
@@ -46,7 +47,7 @@ public class ExpandedCampaignFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<Campaign> getListener()
+	protected DataFacetChangeListener<CharID, Campaign> getListener()
 	{
 		return facet;
 	}

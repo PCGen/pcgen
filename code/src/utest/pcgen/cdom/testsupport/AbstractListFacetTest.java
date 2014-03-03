@@ -40,20 +40,20 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 
 	private Listener listener = new Listener();
 
-	private class Listener implements DataFacetChangeListener<T>
+	private class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
 		public int addEventCount;
 		public int removeEventCount;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent<T> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<T> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, T> dfce)
 		{
 			removeEventCount++;
 		}

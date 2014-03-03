@@ -39,8 +39,8 @@ import pcgen.core.WeaponProf;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
-		implements DataFacetChangeListener<WeaponProf>
+public class WeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
+		implements DataFacetChangeListener<CharID, WeaponProf>
 {
 
 	private AutoWeaponProfFacet autoWeaponProfFacet;
@@ -62,7 +62,7 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<WeaponProf> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, WeaponProf> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -82,7 +82,7 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<WeaponProf> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, WeaponProf> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

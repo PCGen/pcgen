@@ -16,6 +16,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.bonus.BonusObj;
 
@@ -27,6 +28,6 @@ import pcgen.core.bonus.BonusObj;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AddedBonusFacet extends AbstractSourcedListFacet<BonusObj>
+public class AddedBonusFacet extends AbstractSourcedListFacet<CharID, BonusObj>
 {
 }

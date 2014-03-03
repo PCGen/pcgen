@@ -51,7 +51,7 @@ import pcgen.core.PlayerCharacter;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> implements
-		DataFacetChangeListener<CategorizedAbilitySelection>
+		DataFacetChangeListener<CharID, CategorizedAbilitySelection>
 {
 	private final PlayerCharacterTrackingFacet pcFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
@@ -805,7 +805,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CategorizedAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CategorizedAbilitySelection cas = dfce.getCDOMObject();
@@ -847,7 +847,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 	 */
 	@Override
 	public void dataRemoved(
-			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+			DataFacetChangeEvent<CharID, CategorizedAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CategorizedAbilitySelection cas = dfce.getCDOMObject();

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -34,8 +35,8 @@ import pcgen.core.Campaign;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
-		implements DataFacetChangeListener<Campaign>
+public class ExpandedCampaignFacet extends AbstractSourcedListFacet<CharID, Campaign>
+		implements DataFacetChangeListener<CharID, Campaign>
 {
 
 	/**
@@ -54,7 +55,7 @@ public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Campaign> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Campaign> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 		addAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(), dfce
@@ -76,7 +77,7 @@ public class ExpandedCampaignFacet extends AbstractSourcedListFacet<Campaign>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Campaign> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Campaign> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 		removeAll(dfce.getCharID(), dfce.getCDOMObject().getSubCampaigns(),

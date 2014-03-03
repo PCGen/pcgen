@@ -45,8 +45,8 @@ import pcgen.core.analysis.SizeUtilities;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
-		implements DataFacetChangeListener<CDOMObject>
+public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<String>>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private RaceFacet raceFacet;
 
@@ -69,7 +69,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		if (cdo instanceof PCClass || cdo instanceof PCClassLevel)
@@ -98,7 +98,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<List<String>>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
