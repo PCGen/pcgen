@@ -15,20 +15,20 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package actor.cdom.helper;
+package actor.pcclass;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.Chooser;
-import pcgen.cdom.helper.WeaponBonusListActor;
+import pcgen.cdom.base.Persistent;
 import pcgen.core.WeaponProf;
+import plugin.lsttokens.pcclass.WeaponbonusToken;
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class WeaponBonusListActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>
 {
 
-	static WeaponBonusListActor pca = new WeaponBonusListActor();
+	static WeaponbonusToken pca = new WeaponbonusToken();
 
 	@Test
 	public void testEmpty()
@@ -37,7 +37,7 @@ public class WeaponBonusListActorTest extends
 	}
 
 	@Override
-	public Chooser<WeaponProf> getActor()
+	public Persistent<WeaponProf> getActor()
 	{
 		return pca;
 	}

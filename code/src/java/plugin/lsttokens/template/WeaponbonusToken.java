@@ -18,25 +18,38 @@
 package plugin.lsttokens.template;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceUtilities;
+import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
-import pcgen.rules.context.AssociatedChanges;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with WEAPONBONUS Token
  */
 public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+		implements CDOMPrimaryToken<PCTemplate>, DeferredToken<PCTemplate>,
+		PersistentChoiceActor<WeaponProf>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -69,8 +82,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 				foundAny = true;
 				CDOMReference<WeaponProf> ref = context.ref
 						.getCDOMAllReference(WEAPONPROF_CLASS);
-				context.getListContext().addToList(getTokenName(), template,
-						WeaponProf.STARTING_LIST, ref);
+				context.obj.addToList(template, ListKey.WEAPONBONUS, ref);
 			}
 			else
 			{
@@ -82,8 +94,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 					return new ParseResult.Fail("  Error was encountered while parsing "
 							+ getTokenName(), context);
 				}
-				context.getListContext().addToList(getTokenName(), template,
-						WeaponProf.STARTING_LIST, ref);
+				context.obj.addToList(template, ListKey.WEAPONBONUS, ref);
 			}
 		}
 		if (foundAny && foundOther)
@@ -97,9 +108,8 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		AssociatedChanges<CDOMReference<WeaponProf>> changes = context
-				.getListContext().getChangesInList(getTokenName(), pct,
-						WeaponProf.STARTING_LIST);
+		Changes<CDOMReference<WeaponProf>> changes = context.getObjectContext()
+				.getListChanges(pct, ListKey.WEAPONBONUS);
 		Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
@@ -114,5 +124,74 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
+	}
+
+
+	@Override
+	public boolean process(LoadContext context, PCTemplate obj)
+	{
+		List<CDOMReference<WeaponProf>> weaponbonus =
+				obj.getListFor(ListKey.WEAPONBONUS);
+		if (weaponbonus != null)
+		{
+			ReferenceChoiceSet<WeaponProf> rcs =
+					new ReferenceChoiceSet<WeaponProf>(weaponbonus);
+			ChoiceSet<WeaponProf> cs =
+					new ChoiceSet<WeaponProf>(getTokenName(), rcs);
+			cs.setTitle("Bonus WeaponProf Choice");
+			PersistentTransitionChoice<WeaponProf> tc =
+					new ConcretePersistentTransitionChoice<WeaponProf>(cs,
+						FormulaFactory.ONE);
+			context.getObjectContext().addToList(obj, ListKey.ADD, tc);
+			tc.setChoiceActor(this);
+		}
+		return true;
+	}
+
+	@Override
+	public Class<PCTemplate> getDeferredTokenClass()
+	{
+		return PCTemplate.class;
+	}
+
+	@Override
+	public void applyChoice(CDOMObject owner, WeaponProf choice,
+			PlayerCharacter pc)
+	{
+		pc.addWeaponBonus(owner, choice);
+	}
+
+	@Override
+	public boolean allow(WeaponProf item, PlayerCharacter pc, boolean allowStack)
+	{
+		return true;
+	}
+
+
+	@Override
+	public String encodeChoice(WeaponProf choice)
+	{
+		return choice.getKeyName();
+	}
+
+	@Override
+	public WeaponProf decodeChoice(LoadContext context, String s)
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				WeaponProf.class, s);
+	}
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+		WeaponProf choice)
+	{
+		pc.addWeaponBonus(owner, choice);
+	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+		WeaponProf choice)
+	{
+		pc.removeWeaponBonus(owner, choice);
 	}
 }

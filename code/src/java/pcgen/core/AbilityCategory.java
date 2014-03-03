@@ -98,7 +98,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/** A constant used to refer to the &quot;Feat&quot; category. */
 	public static final AbilityCategory FEAT = new AbilityCategory("FEAT", "in_feat"); //$NON-NLS-1$ //$NON-NLS-2$
 	public static final AbilityCategory LANGBONUS = new AbilityCategory("*LANGBONUS"); //$NON-NLS-1$
-	public static final AbilityCategory WEAPONBONUS = new AbilityCategory("*WEAPONBONUS"); //$NON-NLS-1$
 	public static final AbilityCategory ANY = new AbilityCategory("ANY"); //$NON-NLS-1$
 	
 	static
@@ -108,7 +107,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		FEAT.setInternal(true);
 		LANGBONUS.setPoolFormula(FormulaFactory.getFormulaFor("BONUSLANG"));
 		LANGBONUS.setInternal(true);
-		WEAPONBONUS.setInternal(true);
 	}
 
 	/**

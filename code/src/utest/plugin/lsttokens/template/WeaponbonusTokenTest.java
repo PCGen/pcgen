@@ -19,22 +19,20 @@ package plugin.lsttokens.template;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PCTemplate;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class WeaponbonusTokenTest extends
-		AbstractListContextTokenTestCase<PCTemplate, WeaponProf>
+		AbstractListTokenTestCase<PCTemplate, WeaponProf>
 {
 
 	static WeaponbonusToken token = new WeaponbonusToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader =
+			new CDOMTokenLoader<PCTemplate>(PCTemplate.class);
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -100,11 +98,5 @@ public class WeaponbonusTokenTest extends
 	public boolean allowDups()
 	{
 		return false;
-	}
-
-	@Override
-	protected CDOMReference<? extends CDOMList<?>> getListReference()
-	{
-		return WeaponProf.STARTING_LIST;
 	}
 }

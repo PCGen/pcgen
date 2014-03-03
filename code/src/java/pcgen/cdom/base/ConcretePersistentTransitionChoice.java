@@ -171,4 +171,10 @@ public class ConcretePersistentTransitionChoice<T> extends
 	{
 		return choiceActor;
 	}
+
+	@Override
+	public Class<?> getChoiceClass()
+	{
+		return getChoices().getChoiceClass();
+	}
 }
