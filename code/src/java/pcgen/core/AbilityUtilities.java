@@ -36,7 +36,6 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -250,36 +249,6 @@ public class AbilityUtilities
 
 		Ability pcAbility = aPC.addAbilityNeedCheck(category, argAbility);
 		finaliseAbility(pcAbility, choice, aPC, category);
-	}
-
-	/**
-	 * Add multiple feats from a String list separated by commas.
-	 * @param aPC
-	 * @param as
-	 */
-	static void modFeatsFromList(final PlayerCharacter aPC,
-			final CategorizedAbilitySelection as)
-	{
-		if (aPC.hasAbilityKeyed(AbilityCategory.FEAT, as.getAbilityKey()))
-		{
-			return;
-		}
-
-		// Get ability from global storage by Name
-		Ability anAbility = as.getAbility().clone();
-		aPC.addFeat(anAbility);
-
-		String choice = as.getSelection();
-		if (choice == null)
-		{
-			if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST)
-						.doubleValue());
-			}
-
-			modAbility(aPC, anAbility, null, AbilityCategory.FEAT);
-		}
 	}
 
 	public static Ability retrieveAbilityKeyed(AbilityCategory aCat,
