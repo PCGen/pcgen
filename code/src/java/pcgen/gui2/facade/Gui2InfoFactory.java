@@ -2036,7 +2036,10 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			List<? extends T> sel =
 					(List<? extends T>) pc.getDetailedAssociations(ab.getAbility());
-			choices.addAll(sel);
+			if (sel != null)
+			{
+				choices.addAll(sel);
+			}
 		}
 
 		String choiceInfo = chooseInfo.composeDisplay(choices).toString();
