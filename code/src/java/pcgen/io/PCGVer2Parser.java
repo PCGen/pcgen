@@ -2664,8 +2664,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else
 					{
-						thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING,
-							Boolean.TRUE);
+						thePC.addSavedAbility(ability);
 					}
 				}
 			}
@@ -4771,8 +4770,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			anAbility =
 					AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(
 						thePC, anAbility, null, AbilityCategory.FEAT);
-			thePC
-				.setAssoc(anAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			thePC.addSavedAbility(anAbility);
 			thePC.setDirty(true);
 		}
 

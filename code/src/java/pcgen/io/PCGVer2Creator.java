@@ -30,6 +30,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -39,6 +40,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -1373,7 +1375,9 @@ public final class PCGVer2Creator implements IOConstants
 		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
 				getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
-		
+		Collection<Ability> virtSave = new WrappedMapSet<Ability>(IdentityHashMap.class);
+		virtSave.addAll(thePC.getSaveAbilities());
+
 		for (final AbilityCategory cat : categories)
 		{
 			final List<Ability> normalAbilitiesToSave =
@@ -1381,8 +1385,7 @@ public final class PCGVer2Creator implements IOConstants
 			final List<Ability> virtualAbilitiesToSave = new ArrayList<Ability>();
 			for (final Ability vability : thePC.getAbilityList(cat, Nature.VIRTUAL))
 			{
-				Boolean needsSaving = thePC.getAssoc(vability, AssociationKey.NEEDS_SAVING);
-				if (needsSaving != null && needsSaving)
+				if (virtSave.contains(vability))
 				{
 					virtualAbilitiesToSave.add(vability);
 				}

@@ -94,11 +94,6 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<String> DC_FORMULA = new AssociationKey<String>();
 
-	/**
-	 * controls whether a "virtual Ability" will be saved with the character
-	 */
-	public static final AssociationKey<Boolean> NEEDS_SAVING = new AssociationKey<Boolean>();
-
 	/*
 	 * End token items
 	 */

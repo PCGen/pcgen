@@ -34,7 +34,6 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -311,7 +310,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 		if (aFeat != null)
 		{
-			pc.setAssoc(aFeat, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			pc.addSavedAbility(aFeat);
 		}
 		else
 		{

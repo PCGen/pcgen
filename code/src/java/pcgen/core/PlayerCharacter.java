@@ -115,6 +115,7 @@ import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SaveableBonusFacet;
+import pcgen.cdom.facet.SavedAbilitiesFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
@@ -326,6 +327,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private NonStatStatFacet nonStatStatFacet = FacetLibrary.getFacet(NonStatStatFacet.class);
 	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary.getFacet(NonStatToStatFacet.class);
 	private TemplateFeatFacet templateFeatFacet = FacetLibrary.getFacet(TemplateFeatFacet.class);
+	private SavedAbilitiesFacet svAbilityFacet = FacetLibrary.getFacet(SavedAbilitiesFacet.class);
 
 	/*
 	 * Note "minimal" here means getDirty is allowed on a set, it may be used in
@@ -573,7 +575,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
 				"*LANGBONUS");
-		setAssoc(a, AssociationKey.NEEDS_SAVING, true);
+		addSavedAbility(a);
 		grantedAbilityFacet.add(id, AbilityCategory.LANGBONUS, Nature.VIRTUAL, a, a);
 	}
 
@@ -11100,6 +11102,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		set.addAll(abFacet.getPoolAbilities(id, cat, n));
 		set.addAll(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 		return set;
+	}
+
+	public void addSavedAbility(Ability a)
+	{
+		svAbilityFacet.add(id, a);
+	}
+
+	public Collection<Ability> getSaveAbilities()
+	{
+		return svAbilityFacet.getSet(id);
 	}
 
 }

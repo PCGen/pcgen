@@ -498,6 +498,7 @@
 	</bean>
 	<!-- S -->
 	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
+	<bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet" />
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>

@@ -43,7 +43,6 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -404,7 +403,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				a = pc.getUserVirtualAbility(cat, ab);
 			}
 			pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, a);
-			pc.setAssoc(a, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			pc.addSavedAbility(a);
 			AbilityUtilities.finaliseAbility(a, association, pc, cat);
 		}
 		else
