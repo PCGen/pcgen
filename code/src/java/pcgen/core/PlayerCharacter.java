@@ -8741,7 +8741,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		double spent = 0.0d;
 
-		List<CNAbility> abilities = getPoolAbilities(aCategory);
+		Collection<CNAbility> abilities = getPoolAbilities(aCategory, Nature.NORMAL);
 		if (abilities != null)
 		{
 			for (final CNAbility cna : abilities)
