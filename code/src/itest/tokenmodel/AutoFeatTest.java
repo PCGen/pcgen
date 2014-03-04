@@ -19,32 +19,58 @@ package tokenmodel;
 
 import java.util.Collection;
 
+import org.junit.Test;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.auto.FeatToken;
+import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import tokenmodel.testsupport.CASAssocCheck;
+import tokenmodel.testsupport.NoAssociations;
 
 public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 {
 
 	private static final FeatToken AUTO_FEAT_TOKEN = new FeatToken();
+	private CASAssocCheck assocCheck;
+
+	@Override
+	protected void finishLoad()
+	{
+		super.finishLoad();
+		assocCheck = new NoAssociations(pc);
+	}
+
 	
 	@Override
 	public void processToken(CDOMObject source)
 	{
-		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, source, "Granted");
+		ParseResult result = runToken(source);
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+	}
+
+	private ParseResult runToken(CDOMObject source)
+	{
+		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, source, "Granted");
+		return result;
 	}
 
 	@Override
@@ -85,7 +111,7 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 						context.ref.silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
-			boolean selectionExpected = cas.getSelection() == null;
+			boolean selectionExpected = assocCheck.check(cas);
 			if (featExpected && abilityExpected && natureExpected
 				&& selectionExpected)
 			{
@@ -102,4 +128,34 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
+
+	@Test
+	public void testMult() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new NoChoiceToken());
+		TokenRegistration.register(new StackToken());
+		Domain source = create(Domain.class, "Source");
+		PCClass pcc = create(PCClass.class, "Class");
+		Ability a = createGrantedObject();
+		context.unconditionallyProcess(a, "MULT", "YES");
+		context.unconditionallyProcess(a, "STACK", "YES");
+		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
+		runToken(source);
+		processToken(source);
+		assocCheck = new CASAssocCheck()
+		{
+			public boolean check(CategorizedAbilitySelection cas)
+			{
+				return "".equals(cas.getSelection());
+			}
+		};
+		assertEquals(0, getCount());
+		ClassSource classSource = new ClassSource(pcc);
+		domainFacet.add(id, source, classSource);
+		assertTrue(containsExpected(a));
+		assertEquals(2, getCount());
+		domainFacet.remove(id, source);
+		assertEquals(0, getCount());
+	}
+
 }

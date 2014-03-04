@@ -36,6 +36,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
+import plugin.lsttokens.ability.StackToken;
+import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.race.FeatToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -65,6 +67,33 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(containsExpected(null));
 		assertEquals(1, directAbilityFacet.getCount(id));
+		raceFacet.remove(id);
+		assertEquals(0, directAbilityFacet.getCount(id));
+	}
+
+	@Test
+	public void testMult() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new NoChoiceToken());
+		TokenRegistration.register(new StackToken());
+		Race source = create(Race.class, "Source");
+		Ability a = createGrantedObject();
+		context.unconditionallyProcess(a, "MULT", "YES");
+		context.unconditionallyProcess(a, "STACK", "YES");
+		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
+		ParseResult result = token.parseToken(context, source, "Granted");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		//Do a second time!
+		token.parseToken(context, source, "Granted");
+		finishLoad();
+		assertEquals(0, directAbilityFacet.getCount(id));
+		raceFacet.directSet(id, source, getAssoc());
+		assertTrue(containsExpected(""));
+		assertEquals(2, directAbilityFacet.getCount(id));
 		raceFacet.remove(id);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}

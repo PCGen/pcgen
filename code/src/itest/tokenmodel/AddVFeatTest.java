@@ -30,6 +30,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.VFeatToken;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
+import tokenmodel.testsupport.AssocCheck;
+import tokenmodel.testsupport.NoAssociations;
 
 public class AddVFeatTest extends AbstractAddListTokenTest<Ability>
 {
@@ -37,18 +39,33 @@ public class AddVFeatTest extends AbstractAddListTokenTest<Ability>
 	private static final VFeatToken ADD_VFEAT_TOKEN = new VFeatToken();
 	private ActiveAbilityFacet activeAbilityFacet = FacetLibrary
 		.getFacet(ActiveAbilityFacet.class);
+	private AssocCheck assocCheck;
+
+	@Override
+	protected void finishLoad()
+	{
+		super.finishLoad();
+		assocCheck = new NoAssociations(pc);
+	}
+
 
 	@Override
 	public void processToken(CDOMObject source)
 	{
-		ParseResult result =
-				ADD_VFEAT_TOKEN.parseToken(context, source, "Granted");
+		ParseResult result = runToken(source);
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+	}
+
+	private ParseResult runToken(CDOMObject source)
+	{
+		ParseResult result =
+				ADD_VFEAT_TOKEN.parseToken(context, source, "Granted");
+		return result;
 	}
 
 	@Override
@@ -89,10 +106,12 @@ public class AddVFeatTest extends AbstractAddListTokenTest<Ability>
 			if (abilityExpected)
 			{
 				Ability g = pc.getAbilityKeyed(AbilityCategory.FEAT, "Granted");
-				if (pc.getDetailedAssociationCount(g) == 0)
+				boolean c = assocCheck.check(g);
+				if (!c)
 				{
-					return true;
+					System.err.println("Incorrect Associations");
 				}
+				return c;
 			}
 		}
 		return false;
@@ -119,4 +138,45 @@ public class AddVFeatTest extends AbstractAddListTokenTest<Ability>
 	{
 		//Not supported equivalent to other methods
 	}
+
+	//TODO this appears to be a bug - is only applied once?
+//	@Test
+//	public void testMult() throws PersistenceLayerException
+//	{
+//		TokenRegistration.register(new NoChoiceToken());
+//		TokenRegistration.register(new StackToken());
+//		Domain source = create(Domain.class, "Source");
+//		PCClass pcc = create(PCClass.class, "Class");
+//		Ability a = createGrantedObject();
+//		context.unconditionallyProcess(a, "MULT", "YES");
+//		context.unconditionallyProcess(a, "STACK", "YES");
+//		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
+//		runToken(source);
+//		processToken(source);
+//		assocCheck = new AssocCheck()
+//		{
+//			
+//			public boolean check(Ability g)
+//			{
+//				if (pc.getDetailedAssociationCount(g) == 1)
+//				{
+//					return true;
+//				}
+//				else
+//				{
+//					System.err.println("Incorrect Association Count");
+//					return false;
+//				}
+//			}
+//			
+//		};
+//		assertEquals(0, getCount());
+//		ClassSource classSource = new ClassSource(pcc);
+//		domainFacet.add(id, source, classSource);
+//		assertTrue(containsExpected(a));
+//		assertEquals(2, getCount());
+//		domainFacet.remove(id, source);
+//		assertEquals(0, getCount());
+//	}
+
 }
