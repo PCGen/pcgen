@@ -43,6 +43,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.enumeration.View;
 
 /**
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
@@ -1031,6 +1032,32 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 						for (Ability a : aMap.keySet())
 						{
 							if (a.getKeyName().equals(aKey))
+							{
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean hasAbilityVisibleTo(CharID id, AbilityCategory cat, View view)
+	{
+		Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Map<Ability, List<Object>> map : catME.getValue().values())
+					{
+						for (Ability a : map.keySet())
+						{
+							if (a.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
 							{
 								return true;
 							}

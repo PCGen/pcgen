@@ -393,7 +393,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		{
 			return (pc == null)
 					|| pc.getTotalAbilityPool(this).floatValue() != 0.0
-					|| pc.hasVisibleAbility(this);
+					|| pc.hasAbilityVisibleTo(this, v);
 		}
 		return visibility.isVisibleTo(v);
 	}

@@ -31,10 +31,12 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.util.enumeration.View;
 
 /**
  * An ActiveAbilityFacet is a DataFacet that contains information about Ability
@@ -878,6 +880,32 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 						for (Ability a : abils)
 						{
 							if (a.getKeyName().equals(aKey))
+							{
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean hasAbilityVisibleTo(CharID id, AbilityCategory cat, View view)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.getParentCategory().equals(cat))
+				{
+					for (Set<Ability> set : catME.getValue().values())
+					{
+						for (Ability a : set)
+						{
+							if (a.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
 							{
 								return true;
 							}

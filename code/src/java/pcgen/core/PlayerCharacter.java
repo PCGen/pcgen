@@ -8947,30 +8947,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 	}
 
-	public boolean hasVisibleAbility(final AbilityCategory aCategory)
+	public boolean hasAbilityVisibleTo(final AbilityCategory aCategory,
+		View view)
 	{
-		for (final Ability ability : getRealAbilitiesListAnyCat(aCategory))
-		{
-			if (ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
-			{
-				return true;
-			}
-		}
-		for (final Ability ability : getAbilityList(aCategory, Nature.AUTOMATIC))
-		{
-			if (ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
-			{
-				return true;
-			}
-		}
-		for (final Ability ability : getAbilityList(aCategory, Nature.VIRTUAL))
-		{
-			if (ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
-			{
-				return true;
-			}
-		}
-		return false;
+		return abFacet.hasAbilityVisibleTo(id, aCategory, view)
+			|| grantedAbilityFacet.hasAbilityVisibleTo(id, aCategory, view);
 	}
 
 	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
