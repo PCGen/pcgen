@@ -1051,7 +1051,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 			for (Entry<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>> catME : catMap.entrySet())
 			{
 				Category<Ability> c = catME.getKey();
-				if (c.getParentCategory().equals(cat))
+				if (c.equals(cat))
 				{
 					for (Map<Ability, List<Object>> map : catME.getValue().values())
 					{

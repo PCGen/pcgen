@@ -899,7 +899,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
 			{
 				Category<Ability> c = catME.getKey();
-				if (c.getParentCategory().equals(cat))
+				if (c.equals(cat))
 				{
 					for (Set<Ability> set : catME.getValue().values())
 					{
