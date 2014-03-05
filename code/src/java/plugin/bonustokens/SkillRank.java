@@ -28,12 +28,15 @@ package plugin.bonustokens;
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
 
 /**
  * Handles the BONUS:SKILLRANK token.
  */
 public final class SkillRank extends BonusObj
 {
+	private static final Class<pcgen.core.Skill> SKILL_CLASS = pcgen.core.Skill.class;
+
 	/**
 	 * Parse the bonus token.
 	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
@@ -49,6 +52,13 @@ public final class SkillRank extends BonusObj
 		else
 		{
 			addBonusInfo(token);
+		}
+
+		if (!token.equals("LIST") && !token.equals("%LIST")
+			&& !token.equals("%VAR"))
+		{
+			//This is done entirely for the side effects
+			TokenUtilities.getReference(context, SKILL_CLASS, token);
 		}
 
 		return true;
