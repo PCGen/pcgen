@@ -136,7 +136,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/** A default return value for an invalid request. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
 	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
-	private static NumberFormat COST_FMT = new DecimalFormat("#,##0.#"); //$NON-NLS-1$
+	private static NumberFormat COST_FMT = new DecimalFormat("#,##0.##"); //$NON-NLS-1$
 
 	/** Constant for 2 spaces in HTML */
 	public static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
