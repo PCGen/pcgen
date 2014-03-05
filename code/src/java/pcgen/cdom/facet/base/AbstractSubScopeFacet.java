@@ -478,4 +478,9 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		}
 	}
 
+	public boolean containsFor(CharID id, S1 scope1)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		return (map != null) && map.containsKey(scope1);
+	}
 }

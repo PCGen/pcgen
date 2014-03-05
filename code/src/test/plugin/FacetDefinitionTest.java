@@ -56,6 +56,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Java source file name and JAR file name. 
 	 */
 	private final List<String> exceptions = Arrays.asList(new String[] {
+		"AssociationChangeEvent", "AssociationChangeListener", 
 		"DataFacetChangeEvent", "DataFacetChangeListener", 
 		"ScopeFacetChangeEvent", "ScopeFacetChangeListener",
 		"SubScopeFacetChangeEvent", "SubScopeFacetChangeListener",

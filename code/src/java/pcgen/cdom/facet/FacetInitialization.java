@@ -21,6 +21,7 @@ import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
+import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
@@ -158,6 +159,7 @@ public class FacetInitialization {
 		 * Do dataset-level facets
 		 */
 		FacetLibrary.getFacet(MasterSkillFacet.class);
+		FacetLibrary.getFacet(MasterUsableSkillFacet.class);
 		/*
 		 * TODO These are required because they are "bridges" - meaning they
 		 * refer to others, but no one refers to them. Need to consider if these

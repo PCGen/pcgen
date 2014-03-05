@@ -117,6 +117,9 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="bonusCheckingFacet" class="pcgen.cdom.facet.BonusCheckingFacet" />
+	<bean id="bonusSkillRankChangeFacet" class="pcgen.cdom.facet.BonusSkillRankChangeFacet">
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+	</bean>
 	<bean id="bonusWeaponProfFacet" class="pcgen.cdom.facet.input.BonusWeaponProfFacet">
 		<property name="weaponProfFacet" ref="weaponProfFacet"/>
 	</bean>
@@ -289,6 +292,7 @@
 		<property name="classFacet" ref="classFacet"/>
 		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
+		<property name="masterUsableSkillFacet" ref="masterUsableSkillFacet"/>
 	</bean>
 	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
@@ -383,6 +387,9 @@
 		<property name="companionModFacet" ref="companionModFacet"/>
 	</bean>
 	<bean id="masterSkillFacet" class="pcgen.cdom.facet.MasterSkillFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
+	<bean id="masterUsableSkillFacet" class="pcgen.cdom.facet.input.MasterUsableSkillFacet">
 		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
 	</bean>
 	<bean id="monsterClassFacet" class="pcgen.cdom.facet.MonsterClassFacet">
@@ -587,6 +594,10 @@
 		<property name="unconditionalTemplateFacet" ref="unconditionalTemplateFacet"/>
 	</bean>
 	<bean id="templateSelectionFacet" class="pcgen.cdom.facet.TemplateSelectionFacet"/>
+	<bean id="totalSkillRankFacet" class="pcgen.cdom.facet.TotalSkillRankFacet">
+		<property name="skillRankFacet" ref="skillRankFacet"/>
+		<property name="bonusSkillRankChangeFacet" ref="bonusSkillRankChangeFacet"/>
+	</bean>
 	<bean id="totalWeightFacet" class="pcgen.cdom.facet.analysis.TotalWeightFacet">
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
@@ -607,6 +618,9 @@
 	</bean>
 	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.analysis.UnlockedStatFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
+	<bean id="usableSkillsFacet" class="pcgen.cdom.facet.UsableSkillsFacet">
+		<property name="skillCostFacet" ref="skillCostFacet"/>
 	</bean>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<bean id="userSpecialAbilityFacet" class="pcgen.cdom.facet.input.UserSpecialAbilityFacet"/>

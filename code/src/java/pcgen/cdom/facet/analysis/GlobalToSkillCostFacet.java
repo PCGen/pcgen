@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.base.AbstractSubScopeFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -25,6 +26,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
+import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
@@ -43,6 +45,8 @@ public class GlobalToSkillCostFacet extends
 	private GlobalSkillCostFacet globalSkillCostFacet;
 
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
+
+	private MasterUsableSkillFacet masterUsableSkillFacet;
 
 	public void dataAdded(ScopeFacetChangeEvent<CharID, SkillCost, Skill> dfce)
 	{
@@ -72,6 +76,14 @@ public class GlobalToSkillCostFacet extends
 	{
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
+		DataSetID dsID = id.getDatasetID();
+		for (SkillCost cost : masterUsableSkillFacet.getScopes(dsID))
+		{
+			for (Skill sk : masterUsableSkillFacet.getSet(dsID, cost))
+			{
+				add(id, cl, cost, sk, masterUsableSkillFacet);
+			}
+		}
 		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
 		{
 			for (Skill sk : globalSkillCostFacet.getSet(id, cost))
@@ -92,6 +104,14 @@ public class GlobalToSkillCostFacet extends
 	{
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
+		DataSetID dsID = id.getDatasetID();
+		for (SkillCost cost : masterUsableSkillFacet.getScopes(dsID))
+		{
+			for (Skill sk : masterUsableSkillFacet.getSet(dsID, cost))
+			{
+				remove(id, cl, cost, sk, masterUsableSkillFacet);
+			}
+		}
 		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
 		{
 			for (Skill sk : globalSkillCostFacet.getSet(id, cost))
@@ -123,6 +143,12 @@ public class GlobalToSkillCostFacet extends
 	public void setClassFacet(ClassFacet classFacet)
 	{
 		this.classFacet = classFacet;
+	}
+
+	public void setMasterUsableSkillFacet(
+		MasterUsableSkillFacet masterUsableSkillFacet)
+	{
+		this.masterUsableSkillFacet = masterUsableSkillFacet;
 	}
 
 	public void init()
