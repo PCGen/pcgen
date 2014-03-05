@@ -217,13 +217,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
     @Override
 	public boolean isMult()
 	{
-		Boolean mult = get(ObjectKey.MULTIPLE_ALLOWED);
-		//Why is a null a valid return value?
-		if (mult != null && mult)
-		{
-			return true;
-		}
-		return false;
+		return getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
 
 	/* (non-Javadoc)
@@ -232,17 +226,10 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
     @Override
 	public boolean isStackable()
 	{
-		Boolean mult = get(ObjectKey.STACKS);
-		//Why is a null a valid return value?
-		if (mult != null && mult)
-		{
-			return true;
-		}
-		return false;
+		return getSafe(ObjectKey.STACKS);
 	}
 
 	public double getCost() {
-		// TODO Auto-generated method stub
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();
 	}
 }
