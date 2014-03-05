@@ -428,15 +428,17 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character to which the
-	 *            NodeChangeEvent relates
-	 * @param lens
-	 *            The Scope through which this facet's contents are viewed
+	 *            NodeChangeEvent relates.
+	 * @param scope1
+	 *            A Scope through which this facet's contents are viewed.
+	 * @param scope2
+	 *            Another Scope passed on to the listener.
 	 * @param node
 	 *            The Node that has been added to or removed from this
-	 *            AbstractScopeFacet for the given CharID
+	 *            AbstractScopeFacet for the given CharID.
 	 * @param type
 	 *            An identifier indicating whether the given CDOMObject was
-	 *            added to or removed from this AbstractScopeFacet
+	 *            added to or removed from this AbstractScopeFacet.
 	 */
 	@SuppressWarnings("rawtypes")
 	protected void fireSubScopeFacetChangeEvent(CharID id, S1 scope1,

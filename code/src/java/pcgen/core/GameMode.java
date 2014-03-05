@@ -2514,7 +2514,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * Set the list of known monster roles.
 	 *
-	 * @param monsterRoleList the monsterRoleList to set
+	 * @param monsterRoleDefault the monsterRoleDefault to set.
 	 */
 	public void setMonsterRoleDefault(String monsterRoleDefault)
 	{

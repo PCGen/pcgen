@@ -98,8 +98,8 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Set the CR Mod priority
-	 * @param crModPrio
+	 * Set the CR Mod priority.
+	 * @param crModPriority
 	 */
 	public void setCRModPriority(final int crModPriority)
 	{
