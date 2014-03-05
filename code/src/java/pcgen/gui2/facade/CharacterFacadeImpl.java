@@ -2501,8 +2501,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int bonusLangMax = theCharacter.getBonusLanguageCount();
 		
 		currBonusLangs = new ArrayList<Language>();
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-				"*LANGBONUS");
+		Ability a = theCharacter.getBonusLanguageAbility();
 		List<String> currBonusLangNameList = theCharacter.getAssociationList(a);
 		for (LanguageFacade langFacade : languages)
 		{
@@ -2591,8 +2590,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-				"*LANGBONUS");
+		Ability a = theCharacter.getBonusLanguageAbility();
 		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<LanguageChooserFacade>();
 		chooserList.addElement(new LanguageChooserFacadeImpl(this,
 			LanguageBundle.getString("in_sumLangBonus"), a)); //$NON-NLS-1$
@@ -2637,8 +2635,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (currBonusLangs.contains(lang))
 		{
-			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-					"*LANGBONUS");
+			return theCharacter.getBonusLanguageAbility();
 		} else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
 			return (Skill) dataSet.getSpeakLanguageSkill();

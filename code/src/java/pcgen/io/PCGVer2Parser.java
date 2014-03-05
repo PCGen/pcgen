@@ -6109,9 +6109,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void resolveLanguages()
 	{
-		Ability langbonus =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability langbonus = thePC.getBonusLanguageAbility();
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 

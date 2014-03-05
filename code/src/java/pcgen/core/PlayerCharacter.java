@@ -573,8 +573,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void insertBonusLanguageAbility()
 	{
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-				"*LANGBONUS");
+		Ability a = getBonusLanguageAbility();
 		addSavedAbility(a);
 		grantedAbilityFacet.add(id, AbilityCategory.LANGBONUS, Nature.VIRTUAL, a, a);
 	}
@@ -11112,6 +11111,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public Collection<Ability> getSaveAbilities()
 	{
 		return svAbilityFacet.getSet(id);
+	}
+
+	public Ability getBonusLanguageAbility()
+	{
+		return Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(Ability.class,
+						AbilityCategory.LANGBONUS, "*LANGBONUS");
 	}
 
 }

@@ -28,7 +28,6 @@ import java.util.List;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
@@ -61,8 +60,7 @@ public class KitLangBonus extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability a = aPC.getBonusLanguageAbility();
 		ChoiceManagerList<Language> controller = ChooserUtilities
 				.getConfiguredController(a, aPC, AbilityCategory.LANGBONUS,
 						new ArrayList<String>());
@@ -87,8 +85,7 @@ public class KitLangBonus extends BaseKit
 	{
 		theLanguages = new ArrayList<Language>();
 
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability a = aPC.getBonusLanguageAbility();
 
 		List<String> reservedList = new ArrayList<String>();
 

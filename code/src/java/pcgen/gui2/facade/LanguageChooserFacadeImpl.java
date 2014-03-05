@@ -31,7 +31,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PObject;
@@ -116,9 +115,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildBonusLangList()
 	{
-		Ability a = Globals.getContext().ref
-			.silentlyGetConstructedCDOMObject(Ability.class,
-					AbilityCategory.LANGBONUS, "*LANGBONUS");
+		Ability a = theCharacter.getBonusLanguageAbility();
 
 		List<Language> availLangs = new ArrayList<Language>();
 		ChooseInformation<Language> chooseInfo =
