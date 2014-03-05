@@ -23,6 +23,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -146,6 +147,11 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 		ability = abil;
 		nature = nat;
 		selection = choice;
+	}
+
+	public CategorizedAbilitySelection(CNAbility cna, String langKey)
+	{
+		this(null, cna.getAbilityCategory(), cna.getAbility(), cna.getNature(), langKey);
 	}
 
 	/**

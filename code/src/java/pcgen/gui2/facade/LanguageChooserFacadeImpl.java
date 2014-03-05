@@ -115,7 +115,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildBonusLangList()
 	{
-		Ability a = theCharacter.getBonusLanguageAbility();
+		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
 
 		List<Language> availLangs = new ArrayList<Language>();
 		ChooseInformation<Language> chooseInfo =
@@ -125,7 +125,11 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		List<? extends Language> selLangs =
 				chooseInfo.getChoiceActor().getCurrentlySelected(a,
 					theCharacter);
-	
+		if (selLangs == null)
+		{
+			selLangs = Collections.emptyList();
+		}
+
 		availLangs.removeAll(charDisplay.getLanguageSet());
 		refreshLangListContents(availLangs, availableList);
 		refreshLangListContents(selLangs, selectedList);

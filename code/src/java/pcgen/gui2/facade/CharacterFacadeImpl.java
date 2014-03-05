@@ -2501,7 +2501,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int bonusLangMax = theCharacter.getBonusLanguageCount();
 		
 		currBonusLangs = new ArrayList<Language>();
-		Ability a = theCharacter.getBonusLanguageAbility();
+		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
 		List<String> currBonusLangNameList = theCharacter.getAssociationList(a);
 		for (LanguageFacade langFacade : languages)
 		{
@@ -2590,7 +2590,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		Ability a = theCharacter.getBonusLanguageAbility();
+		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
 		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<LanguageChooserFacade>();
 		chooserList.addElement(new LanguageChooserFacadeImpl(this,
 			LanguageBundle.getString("in_sumLangBonus"), a)); //$NON-NLS-1$
@@ -2635,7 +2635,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (currBonusLangs.contains(lang))
 		{
-			return theCharacter.getBonusLanguageAbility();
+			return theCharacter.getBonusLanguageAbility().getAbility();
 		} else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
 			return (Skill) dataSet.getSpeakLanguageSkill();

@@ -502,6 +502,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
+	private CNAbility bonusLanguageAbility = new CNAbility(
+		AbilityCategory.LANGBONUS,
+		Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"),
+		Nature.VIRTUAL);
+
 	/**
 	 * Constructor.
 	 */
@@ -573,9 +579,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void insertBonusLanguageAbility()
 	{
-		Ability a = getBonusLanguageAbility();
-		addSavedAbility(a);
-		grantedAbilityFacet.add(id, AbilityCategory.LANGBONUS, Nature.VIRTUAL, a, a);
+		addSavedAbility(getBonusLanguageAbility().getAbility());
 	}
 
 	/**
@@ -11113,11 +11117,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return svAbilityFacet.getSet(id);
 	}
 
-	public Ability getBonusLanguageAbility()
+	public CNAbility getBonusLanguageAbility()
 	{
-		return Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.LANGBONUS, "*LANGBONUS");
+		return bonusLanguageAbility;
 	}
 
 }

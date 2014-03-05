@@ -48,6 +48,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -6109,8 +6110,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void resolveLanguages()
 	{
-		Ability langbonus = thePC.getBonusLanguageAbility();
-		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
+		CNAbility langbonus = thePC.getBonusLanguageAbility();
+		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus.getAbility());
 		boolean foundLang = currentBonusLang > 0;
 
 		Set<Language> foundLanguages = new HashSet<Language>();
@@ -6118,7 +6119,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
-		HashMapToList<Language, Object> sources = new HashMapToList<Language, Object>();
+		HashMapToList<Language, Object> langSources = new HashMapToList<Language, Object>();
 		Map<Object, Integer> actorLimit = new IdentityHashMap<Object, Integer>();
 		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<PersistentTransitionChoice, CDOMObject>();
 
@@ -6150,7 +6151,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 											.intValue();
 								if (choiceCount > 0)
 								{
-									sources.addToListFor(l, ptc);
+									langSources.addToListFor(l, ptc);
 									ptcSources.put(ptc, a);
 									actorLimit.put(ptc, choiceCount);
 								}
@@ -6163,9 +6164,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (!foundLang)
 		{
 			Set<Language> bonusAllowed = thePC.getLanguageBonusSelectionList();
-			ChoiceManagerList<Object> controller =
-					ChooserUtilities.getConfiguredController(langbonus, thePC,
-						AbilityCategory.LANGBONUS, new ArrayList<String>());
 			int count = thePC.getBonusLanguageCount();
 			int choiceCount = count - currentBonusLang;
 			if (choiceCount > 0)
@@ -6174,8 +6172,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					if (cachedLanguages.contains(l))
 					{
-						sources.addToListFor(l, controller);
-						actorLimit.put(controller, choiceCount);
+						langSources.addToListFor(l, langbonus);
+						actorLimit.put(langbonus, choiceCount);
 					}
 				}
 			}
@@ -6185,23 +6183,23 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		while (acted)
 		{
 			acted = false;
-			for (Language l : sources.getKeySet())
+			for (Language l : langSources.getKeySet())
 			{
-				List<Object> actors = sources.getListFor(l);
+				List<Object> actors = langSources.getListFor(l);
 				if ((actors != null) && (actors.size() == 1))
 				{
 					Object actor = actors.get(0);
 					acted = true;
-					processRemoval(langbonus, sources, actorLimit, ptcSources,
+					processRemoval(langbonus, langSources, actorLimit, ptcSources,
 						l, actor);
 				}
 			}
-			if (!acted && !sources.isEmpty() && !actorLimit.isEmpty())
+			if (!acted && !langSources.isEmpty() && !actorLimit.isEmpty())
 			{
 				//pick one
-				Language l = sources.getKeySet().iterator().next();
-				Object source = sources.getListFor(l).get(0);
-				processRemoval(langbonus, sources, actorLimit, ptcSources, l, source);
+				Language l = langSources.getKeySet().iterator().next();
+				Object source = langSources.getListFor(l).get(0);
+				processRemoval(langbonus, langSources, actorLimit, ptcSources, l, source);
 				acted = true;
 			}
 		}
@@ -6213,7 +6211,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processRemoval(Ability langbonus,
+	protected void processRemoval(CNAbility langbonus,
 		HashMapToList<Language, Object> sources,
 		Map<Object, Integer> actorLimit,
 		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
@@ -6241,22 +6239,25 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processActor(Ability langbonus,
+	protected void processActor(CNAbility langbonus,
 		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
 		Object actor)
 	{
-		if (actor instanceof ChoiceManagerList)
+		if (actor instanceof CNAbility)
 		{
-			ChoiceManagerList<Object> controller =
-					(ChoiceManagerList<Object>) actor;
-			controller.restoreChoice(thePC, langbonus,
-				l.getKeyName());
+			thePC.addAppliedAbility(new CategorizedAbilitySelection(langbonus,
+				l.getKeyName()));
 		}
 		else if (actor instanceof PersistentTransitionChoice)
 		{
 			PersistentTransitionChoice<Language> ptc =
 					(PersistentTransitionChoice<Language>) actor;
 			ptc.restoreChoice(thePC, ptcSources.get(ptc), l);
+		}
+		else
+		{
+			warnings.add("Internal Error: Language actor of "
+				+ actor.getClass() + " is not understood");
 		}
 	}
 

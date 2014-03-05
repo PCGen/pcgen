@@ -51,7 +51,7 @@ public class PCBonusLangTermEvaluator
 			}
 		}
 		int count = pc.getBonusLanguageCount();
-		Ability a = pc.getBonusLanguageAbility();
+		Ability a = pc.getBonusLanguageAbility().getAbility();
 		int currentLangCount = pc.getDetailedAssociationCount(a);
 		int result = count - currentLangCount;
 		return (float) result;
