@@ -41,11 +41,12 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
@@ -387,12 +388,12 @@ public final class PCGIOHandler extends IOHandler
 			currentPC.setFeats(baseFeatPool);
 		}
 
-		for (Ability aFeat : currentPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+		for (CNAbility aFeat : currentPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
 		{
-			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
+			if (aFeat.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{
 				warnings.add("Multiple selection feat found with no selections ("
-						+ aFeat.getDisplayName() + "). Correct on Feat tab.");
+						+ aFeat.getAbility().getDisplayName() + "). Correct on Feat tab.");
 			}
 		}
 

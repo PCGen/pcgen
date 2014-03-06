@@ -73,11 +73,10 @@ public class QualifiedName
 		List<T> allSelections = new ArrayList<T>();
 		for (CNAbility cna : list)
 		{
-			Ability ab = cna.getAbility();
-			if (pc.hasAssociations(ab))
+			if (pc.hasAssociations(cna))
 			{
 				List<? extends T> selections =
-						(List<? extends T>) pc.getDetailedAssociations(ab);
+						(List<? extends T>) pc.getDetailedAssociations(cna);
 				allSelections.addAll(selections);
 			}
 		}

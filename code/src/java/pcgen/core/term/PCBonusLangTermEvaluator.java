@@ -26,7 +26,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.Ability;
+import pcgen.cdom.content.CNAbility;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
@@ -51,7 +51,7 @@ public class PCBonusLangTermEvaluator
 			}
 		}
 		int count = pc.getBonusLanguageCount();
-		Ability a = pc.getBonusLanguageAbility().getAbility();
+		CNAbility a = pc.getBonusLanguageAbility();
 		int currentLangCount = pc.getDetailedAssociationCount(a);
 		int result = count - currentLangCount;
 		return (float) result;

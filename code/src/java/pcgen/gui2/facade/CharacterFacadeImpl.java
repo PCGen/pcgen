@@ -2501,7 +2501,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int bonusLangMax = theCharacter.getBonusLanguageCount();
 		
 		currBonusLangs = new ArrayList<Language>();
-		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
+		CNAbility a = theCharacter.getBonusLanguageAbility();
 		List<String> currBonusLangNameList = theCharacter.getAssociationList(a);
 		for (LanguageFacade langFacade : languages)
 		{

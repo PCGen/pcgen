@@ -213,11 +213,11 @@ public class AbilityUtilities
 		{
 			int listSize = aPC.getSelectCorrectedAssociationCount(ability);
 
-			for (Ability myAbility : aPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+			for (CNAbility cna : aPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
 			{
-				if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
+				if (cna.getAbilityKey().equalsIgnoreCase(ability.getKeyName()))
 				{
-					listSize = aPC.getSelectCorrectedAssociationCount(myAbility);
+					listSize = aPC.getSelectCorrectedAssociationCount(cna);
 				}
 			}
 
@@ -343,7 +343,7 @@ public class AbilityUtilities
 		ChooseInformation<?> info = ability.get(ObjectKey.CHOOSE_INFO);
 		for (CNAbility cna : cnAbilities)
 		{
-			List<?> oldSelections = pc.getDetailedAssociations(cna.getAbility());
+			List<?> oldSelections = pc.getDetailedAssociations(cna);
 			Object decoded =
 					info.decodeChoice(Globals.getContext(), selection);
 			if ((oldSelections != null) && oldSelections.contains(decoded))

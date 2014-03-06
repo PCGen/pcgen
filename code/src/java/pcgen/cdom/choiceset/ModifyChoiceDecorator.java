@@ -23,9 +23,11 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -104,12 +106,13 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	public Set<Ability> getSet(PlayerCharacter pc)
 	{
 		Collection<Ability> collection = pcs.getSet(pc);
-		List<Ability> pcfeats = pc.aggregateFeatList();
+		List<CNAbility> pcfeats = pc.getPoolAbilities(AbilityCategory.FEAT);
 		Set<Ability> returnSet = new HashSet<Ability>();
-		for (Ability a : pcfeats)
+		for (CNAbility cna : pcfeats)
 		{
+			Ability a = cna.getAbility();
 			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue()
-				&& collection.contains(a))
+				&& collection.contains(a) && !returnSet.contains(a))
 			{
 				returnSet.add(a);
 			}

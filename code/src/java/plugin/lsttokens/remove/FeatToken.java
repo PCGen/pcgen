@@ -38,6 +38,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityFromClassChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.choiceset.CompoundOrChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -322,13 +323,13 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			boolean allowStack)
 	{
 		// Only allow those already selected
-		for (Ability a : pc.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+		for (CNAbility cna : pc.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
 		{
-			if (a.getKeyName().equals(choice.getAbilityKey()))
+			if (cna.getAbilityKey().equals(choice.getAbilityKey()))
 			{
-				Boolean multYes = a.getSafe(ObjectKey.MULTIPLE_ALLOWED);
+				Boolean multYes = cna.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED);
 				if (!multYes || multYes
-						&& hasAssoc(pc.getAssociationList(a), choice))
+						&& hasAssoc(pc.getAssociationList(cna), choice))
 				{
 					return true;
 				}

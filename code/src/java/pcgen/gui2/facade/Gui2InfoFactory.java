@@ -2035,7 +2035,7 @@ public class Gui2InfoFactory implements InfoFactory
 		for (CNAbility ab : targetAbilities)
 		{
 			List<? extends T> sel =
-					(List<? extends T>) pc.getDetailedAssociations(ab.getAbility());
+					(List<? extends T>) pc.getDetailedAssociations(ab);
 			if (sel != null)
 			{
 				choices.addAll(sel);

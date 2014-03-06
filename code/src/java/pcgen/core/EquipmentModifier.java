@@ -103,12 +103,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public List<BonusObj> getBonusList(PlayerCharacter pc)
 	{
+		//TODO There is an issue here - associations are either on PC or equipment (see below) but not both
 		return getBonusList(super.getBonusList(pc), pc.getAssociationList(this));
 	}
 	
 	@Override
 	public List<BonusObj> getBonusList(Equipment e)
 	{
+		//TODO see above
 		return getBonusList(super.getBonusList(e), e.getAssociationList(this));
 	}
 	

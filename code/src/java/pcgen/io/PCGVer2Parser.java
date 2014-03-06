@@ -358,6 +358,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (sourceStr.startsWith(TAG_FEAT + '='))
 		{
 			sourceStr = sourceStr.substring(5);
+			oSource =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, AbilityCategory.FEAT, sourceStr);
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
@@ -6111,7 +6114,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	private void resolveLanguages()
 	{
 		CNAbility langbonus = thePC.getBonusLanguageAbility();
-		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus.getAbility());
+		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
 		Set<Language> foundLanguages = new HashSet<Language>();

@@ -45,10 +45,12 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -1380,24 +1382,24 @@ public final class PCGVer2Creator implements IOConstants
 
 		for (final AbilityCategory cat : categories)
 		{
-			final List<Ability> normalAbilitiesToSave =
-					new ArrayList<Ability>(thePC.getAbilityList(cat, Nature.NORMAL));
-			final List<Ability> virtualAbilitiesToSave = new ArrayList<Ability>();
-			for (final Ability vability : thePC.getAbilityList(cat, Nature.VIRTUAL))
+			final List<CNAbility> normalAbilitiesToSave =
+					new ArrayList<CNAbility>(thePC.getPoolAbilities(cat, Nature.NORMAL));
+			final List<CNAbility> virtualAbilitiesToSave = new ArrayList<CNAbility>();
+			for (final CNAbility vability : thePC.getPoolAbilities(cat, Nature.VIRTUAL))
 			{
-				if (virtSave.contains(vability))
+				if (virtSave.contains(vability.getAbility()))
 				{
 					virtualAbilitiesToSave.add(vability);
 				}
 			}
 			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
-			for (final Ability ability : normalAbilitiesToSave)
+			for (final CNAbility ability : normalAbilitiesToSave)
 			{
-				writeAbilityToBuffer(buffer, cat, Nature.NORMAL, ability);
+				writeAbilityToBuffer(buffer, ability);
 			}
-			for (final Ability ability : virtualAbilitiesToSave)
+			for (final CNAbility ability : virtualAbilitiesToSave)
 			{
-				writeAbilityToBuffer(buffer, cat, Nature.VIRTUAL, ability);
+				writeAbilityToBuffer(buffer, ability);
 			}
 			if (!normalAbilitiesToSave.isEmpty() || !virtualAbilitiesToSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
 			{
@@ -1411,8 +1413,11 @@ public final class PCGVer2Creator implements IOConstants
 		}
 	}
 
-	private void writeAbilityToBuffer(StringBuilder buffer,
-			final AbilityCategory cat, Nature nature, Ability ability) {
+	private void writeAbilityToBuffer(StringBuilder buffer, CNAbility cna)
+	{
+		Category<Ability> cat = cna.getAbilityCategory();
+		Nature nature = cna.getNature();
+		Ability ability = cna.getAbility();
 		buffer.append(TAG_ABILITY).append(TAG_END);
 		buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
 			TAG_SEPARATOR);
@@ -1428,7 +1433,7 @@ public final class PCGVer2Creator implements IOConstants
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			buffer.append(TAG_APPLIEDTO).append(TAG_END);
-			List<String> assocList = thePC.getAssociationList(ability);
+			List<String> assocList = thePC.getAssociationList(cna);
 			boolean first = true;
 			for (String assoc : assocList)
 			{
@@ -2457,22 +2462,6 @@ public final class PCGVer2Creator implements IOConstants
 		for (final PCClass pcClass : charDisplay.getClassSet())
 		{
 			appendWeaponProficiencyLines(buffer, pcClass);
-		}
-
-		//
-		// Save any selected domain bonus weapons
-		//
-		for (final Domain d : charDisplay.getDomainSet())
-		{
-			appendWeaponProficiencyLines(buffer, d);
-		}
-
-		//
-		// Save any selected feat bonus weapons
-		//
-		for (final Ability feat : thePC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
-		{
-			appendWeaponProficiencyLines(buffer, feat);
 		}
 	}
 

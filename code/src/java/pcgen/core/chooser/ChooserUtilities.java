@@ -143,7 +143,7 @@ public class ChooserUtilities
 			List<CNAbility> abilities = aPC.getMatchingCNAbilities(a);
 			for (CNAbility cna : abilities)
 			{
-				reservedList.addAll(aPC.getAssociationList(cna.getAbility()));
+				reservedList.addAll(aPC.getAssociationList(cna));
 			}
 		}
 		else if (aPObject instanceof Skill)

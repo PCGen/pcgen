@@ -30,7 +30,6 @@ import java.util.Collection;
 
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.enumeration.View;
@@ -93,8 +92,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 			final boolean hidden,
 			final boolean onceOnly)
 	{
-		Ability ability = cna.getAbility();
-		Visibility v = ability.getSafe(ObjectKey.VISIBILITY); 
+		Visibility v = cna.getAbility().getSafe(ObjectKey.VISIBILITY); 
 
 		//TODO This is a bug, it assumes export
 		boolean abilityInvisibile = v.isVisibleTo(View.HIDDEN_EXPORT);
@@ -105,14 +103,14 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 		{
 			if (hidden)
 			{
-				count += onceOnly ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(ability));
+				count += onceOnly ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(cna));
 			}
 		}
 		else
 		{
 			if (visible)
 			{
-				count += onceOnly ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(ability));
+				count += onceOnly ? 1 : Math.max(1, pc.getSelectCorrectedAssociationCount(cna));
 			}
 		}
 

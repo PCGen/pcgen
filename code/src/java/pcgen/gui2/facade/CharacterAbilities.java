@@ -35,6 +35,7 @@ import javax.swing.SwingUtilities;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -176,11 +177,7 @@ public class CharacterAbilities
 	{
 		removeCategorisedAbility(cat, ability, nature);
 		
-		boolean stillActive =
-				!theCharacter.getAbilityList(cat, Nature.AUTOMATIC).isEmpty()
-					|| !theCharacter.getAbilityList(cat, Nature.NORMAL).isEmpty()
-					|| !theCharacter.getAbilityList(cat, Nature.VIRTUAL).isEmpty()
-					|| theCharacter.getAvailableAbilityPool(cat).intValue() > 0;
+		boolean stillActive = cat.isVisibleTo(View.VISIBLE_DISPLAY);
 		if (!stillActive && activeCategories.containsElement(cat))
 		{
 			activeCategories.removeElement(cat);
@@ -207,17 +204,9 @@ public class CharacterAbilities
 		{
 			AbilityCategory cat = (AbilityCategory) category;
 
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.NORMAL))
+			for (CNAbility cna : theCharacter.getPoolAbilities(cat))
 			{
-				addCategorisedAbility(cat, ability, Nature.NORMAL, workingAbilityListMap);
-			}
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.AUTOMATIC))
-			{
-				addCategorisedAbility(cat, ability, Nature.AUTOMATIC, workingAbilityListMap);
-			}
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.VIRTUAL))
-			{
-				addCategorisedAbility(cat, ability, Nature.VIRTUAL, workingAbilityListMap);
+				addCategorisedAbility(cat, cna.getAbility(), cna.getNature(), workingAbilityListMap);
 			}
 
 			// deal with visibility

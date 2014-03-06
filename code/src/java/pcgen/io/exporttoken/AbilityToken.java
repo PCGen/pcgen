@@ -555,21 +555,28 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
-				retString =
-						StringUtil.join(pc.getAssociationList(aAbility), ",");
+				List<String> assocs = new ArrayList<String>();
+				for (CNAbility cna : abilities)
+				{
+					assocs.addAll(pc.getAssociationList(cna));
+				}
+				retString = StringUtil.join(assocs, ",");
 			}
 			else if (tokenSource.indexOf(".ASSOCIATED.") > -1)
 			{
 				final String key =
 						tokenSource
 							.substring(tokenSource.indexOf(".ASSOCIATED.") + 12);
-				retString = getAssociationString(pc, aAbility, key);
+				retString = getAssociationString(pc, abilities, key);
 			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
-				retString =
-						Integer.toString(pc
-							.getDetailedAssociationCount(aAbility));
+				int count = 0;
+				for (CNAbility cna : abilities)
+				{
+					count += pc.getDetailedAssociationCount(cna);
+				}
+				retString = Integer.toString(count);
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
 			{
@@ -634,22 +641,29 @@ public class AbilityToken extends Token
 		return Nature.NORMAL;
 	}
 
-	/**
-	 * @param pc
-	 * @param aAbility
-	 * @param key
-	 * @return
-	 */
-	private String getAssociationString(PlayerCharacter pc, Ability aAbility,
-		String key)
+	private String getAssociationString(PlayerCharacter pc,
+		List<CNAbility> abilities, String key)
 	{
-		List<String> associationList = pc.getAssociationList(aAbility);
 		int index = Integer.parseInt(key);
-		if (index >=0 && index < associationList.size())
+		if (index < 0)
 		{
-			return associationList.get(index);
+			return Constants.EMPTY_STRING;
 		}
-		return "";
+		for (CNAbility cna : abilities)
+		{
+			List<String> assocs = pc.getAssociationList(cna);
+			int count = assocs.size();
+			if (index < count)
+			{
+				return assocs.get(index);
+			}
+			else
+			{
+				index -= count;
+			}
+		}
+		//index was too large
+		return Constants.EMPTY_STRING;
 	}
 
 	/**

@@ -3540,7 +3540,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public double getFeatBonusTo(String aType, String aName)
 	{
-		return getPObjectWithCostBonusTo(aggregateFeatList(), aType.toUpperCase(), aName.toUpperCase());
+		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
+		
+		for (Ability aFeat : getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+		{
+			if (aFeat != null)
+			{
+				aHashMap.put(aFeat.getKeyName(), aFeat);
+			}
+		}
+		
+		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
+		List<Ability> aggregateFeatList = new ArrayList<Ability>();
+		aggregateFeatList.addAll(aHashMap.values());
+		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
+		//TODO Is this a bug?
+		aggregateFeatList = new ArrayList<Ability>();
+		aggregateFeatList.addAll(aHashMap.values());
+		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(), aName.toUpperCase());
 	}
 
 	/**
@@ -8488,29 +8505,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private double numberOfRemainingFeats = 0;
 
 	/**
-	 * Get a list of real abilities of a particular AbilityCategory
-	 * no matter which AbilityCategory list they reside in.
-	 * 
-	 * @param aCategory The AbilityCategory of the desired abilities.
-	 * @return List of abilities
-	 */
-	private List<Ability> getRealAbilitiesListAnyCat(final AbilityCategory aCategory)
-	{
-		List<Ability> abilities = new ArrayList<Ability>();
-		for (AbilityCategory cat : SettingsHandler.getGame().getAllAbilityCategories())
-		{
-			for (Ability ability : getAbilityList(cat, Nature.NORMAL))
-			{
-				if (aCategory.getKeyName().equals(ability.getCategory()))
-				{
-					abilities.add(ability);
-				}
-			}
-		}
-		return abilities;
-	}
-
-	/**
 	 * Does the character have this ability (not virtual or auto).
 	 * 
 	 * @param aCategory
@@ -8699,13 +8693,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		double iCount = 0;
 
-		Collection<Ability> abilities = abFacet.get(id, AbilityCategory.FEAT, Nature.NORMAL);
+		Collection<? extends CNAbility> abilities =
+				abFacet.getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
 		if (abilities == null)
 		{
 			return 0;
 		}
-		for (Ability aFeat : abilities)
+		for (CNAbility cna : abilities)
 		{
+			Ability aFeat = cna.getAbility();
 			//
 			// Don't increment the count for
 			// hidden feats so the number
@@ -8715,7 +8711,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			{
 				continue;
 			}
-			final int subfeatCount = getSelectCorrectedAssociationCount(aFeat);
+			final int subfeatCount = getSelectCorrectedAssociationCount(cna);
 			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 			if (ChooseActivation.hasNewChooseToken(aFeat))
 			{
@@ -8752,7 +8748,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			for (final CNAbility cna : abilities)
 			{
 				Ability ability = cna.getAbility();
-				final int subfeatCount = getSelectCorrectedAssociationCount(ability);
+				final int subfeatCount = getSelectCorrectedAssociationCount(cna);
 				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 				if (ChooseActivation.hasNewChooseToken(ability))
 				{
@@ -8832,18 +8828,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return pcAbility;
 	}
 
-	public Ability getAutomaticAbilityKeyed(final AbilityCategory aCategory, final String anAbilityKey)
-	{
-		for (final Ability ability : getAbilityList(aCategory, Nature.AUTOMATIC))
-		{
-			if (ability.getKeyName().equals(anAbilityKey))
-			{
-				return ability;
-			}
-		}
-		return null;
-	}
-
 	public Ability getAbilityKeyed(AbilityCategory aCategory, String aKey)
 	{
 		for (Ability ability : getAbilityList(aCategory, Nature.NORMAL))
@@ -8876,11 +8860,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			|| grantedAbilityFacet.hasAbilityKeyed(id, cat, aKey);
 	}
 
-	public List<Ability> aggregateFeatList()
-	{
-		return rebuildFeatAggreagateList();
-	}
-
 	/**
 	 * Retrieve a list of all abilities held by the character in the specified 
 	 * category. <br>
@@ -8911,28 +8890,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.VIRTUAL));
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.AUTOMATIC));
 
-		aggregate.addAll(aHashMap.values());
-		return aggregate;
-	}
-
-	private List<Ability> rebuildFeatAggreagateList()
-	{
-		final Map<String, Ability> aHashMap = new HashMap<String, Ability>();
-
-		for (Ability aFeat : getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
-		{
-			if (aFeat != null)
-			{
-				aHashMap.put(aFeat.getKeyName(), aFeat);
-			}
-		}
-
-		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
-		List<Ability> aggregate = new ArrayList<Ability>();
-		aggregate.addAll(aHashMap.values());
-		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
-		//TODO Is this a bug?
-		aggregate = new ArrayList<Ability>();
 		aggregate.addAll(aHashMap.values());
 		return aggregate;
 	}
@@ -9152,6 +9109,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return skillCostFacet.skillCostForPCClass(id, sk, cl);
 	}
 
+	public boolean containsAssociated(CNAbility obj, String o)
+	{
+		return containsAssociated(obj.getAbility(), o);
+	}
+
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
@@ -9177,10 +9139,20 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return false;
 	}
 
+	public int getSelectCorrectedAssociationCount(CNAbility cna)
+	{
+		return getSelectCorrectedAssociationCount(cna.getAbility());
+	}
+
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		return getDetailedAssociationCount(obj)
 				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
+	}
+
+	public List<String> getAssociationList(CNAbility cna)
+	{
+		return getAssociationList(cna.getAbility());
 	}
 
 	public List<String> getAssociationList(CDOMObject obj)
@@ -9193,6 +9165,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return getExpandedAssociations(obj, info);
 	}
 
+	public boolean hasAssociations(CNAbility cna)
+	{
+		return hasAssociations(cna.getAbility());
+	}
+
 	public boolean hasAssociations(CDOMObject obj)
 	{
 		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
@@ -9203,6 +9180,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		List<?> selections =
 				info.getChoiceActor().getCurrentlySelected(obj, this);
 		return (selections != null) && !selections.isEmpty();
+	}
+
+	public int getDetailedAssociationCount(CNAbility cna)
+	{
+		return getDetailedAssociationCount(cna.getAbility());
 	}
 
 	public int getDetailedAssociationCount(CDOMObject obj)
@@ -9995,7 +9977,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return abFacet.contains(id, cat, Nature.VIRTUAL, abilityInfo);
 	}
 
-	public Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
+	private Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
 		Set<Ability> newSet = new HashSet<Ability>();
 		newSet.addAll(abFacet.get(id, cat, nature));
@@ -11053,8 +11035,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return set;
 	}
 
-	public List<?> getDetailedAssociations(Ability ab)
+	public List<?> getDetailedAssociations(CNAbility cna)
 	{
+		Ability ab = cna.getAbility();
 		ChooseInformation<?> chooseInfo = ab.get(ObjectKey.CHOOSE_INFO);
 		return chooseInfo.getChoiceActor().getCurrentlySelected(ab, this);
 	}
