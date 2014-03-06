@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -416,9 +417,8 @@ public class DataSet implements DataSetFacade
 		for (SkillFacade aSkillFacade : skills)
 		{
 			Skill aSkill = (Skill) aSkillFacade;
-			if (aSkill.getSafe(StringKey.CHOICE_STRING).indexOf("Language") >= 0
-				|| (aSkill.get(ObjectKey.CHOOSE_INFO) != null && "LANG"
-					.equals(aSkill.get(ObjectKey.CHOOSE_INFO).getName())))
+			ChooseInformation<?> chooseInfo = aSkill.get(ObjectKey.CHOOSE_INFO);
+			if ((chooseInfo != null) && "LANG".equals(chooseInfo.getName()))
 			{
 				speakLanguageSkill = aSkillFacade;
 			}
