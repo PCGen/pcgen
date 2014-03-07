@@ -6385,13 +6385,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-PENALTYVAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/statsandchecks/stat/PenaltyvarToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-ROLLED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6964,6 +6957,13 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 	
 	<target name="jar-deprecated-plugin" depends="manifest" description="Build (Link) plugin jar files">
+		<jar jarfile="${systemlstplugins.dir}/StatsAndChecks-StatLstToken-DEPRECATED-PENALTYVAR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/deprecated/PenaltyvarToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<target name="manifest" description="Write the Java manifest">
