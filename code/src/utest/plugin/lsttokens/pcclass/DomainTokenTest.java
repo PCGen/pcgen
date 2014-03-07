@@ -112,44 +112,27 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 		return '|';
 	}
 
+	@Override
+	public boolean allowDups()
+	{
+		return false;
+	}
+
 	@Test
 	public void testInvalidEmptyPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[]"));
+		assertFalse(parse("TestWP1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1["));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1]"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[PRERACE:Dwarf"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTrailingAfterBracket()
+	public void testInvalidTrailingAfterPre()
 		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
+		construct(primaryContext, "TestWP2");
+		assertFalse(parse("TestWP1|PRERACE:Dwarf|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -157,10 +140,8 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 	public void testRoundRobinOnePre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP2");
-		runRoundRobin("TestWP1[PRERACE:1,Dwarf]");
+		runRoundRobin("TestWP1|PRERACE:1,Dwarf");
 	}
 
 	@Test
@@ -172,8 +153,8 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		runRoundRobin("TestWP1[PRERACE:1,Dwarf]" + getJoinCharacter()
-			+ "TestWP2[PRERACE:1,Human]" + getJoinCharacter() + "TestWP3");
+		runRoundRobin("TestWP1|PRERACE:1,Dwarf", "TestWP2|PRERACE:1,Human",
+			"TestWP3");
 	}
 
 	@Test
@@ -182,14 +163,8 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[PREFOO:1,Human]"));
+		assertFalse(parse("TestWP1|PREFOO:1,Human"));
 		assertNoSideEffects();
-	}
-
-	@Override
-	public boolean allowDups()
-	{
-		return false;
 	}
 
 	@Test
@@ -206,12 +181,6 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getLegalValue());
-	}
-
-	private QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
-	{
-		return new QualifiedObject<CDOMSingleRef<Domain>>(CDOMDirectSingleRef
-				.getRef(wp1));
 	}
 
 	@Test
@@ -270,7 +239,13 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 				ref, prereq);
 		primaryProf.addToListFor(ListKey.DOMAIN, qo);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		expectSingle(unparsed, getLegalValue() + "[PRERACE:1,Dwarf]");
+		expectSingle(unparsed, getLegalValue() + "|PRERACE:1,Dwarf");
+	}
+
+	private QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
+	{
+		return new QualifiedObject<CDOMSingleRef<Domain>>(CDOMDirectSingleRef
+				.getRef(wp1));
 	}
 
 }

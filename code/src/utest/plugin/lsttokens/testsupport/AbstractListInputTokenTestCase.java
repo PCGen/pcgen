@@ -510,11 +510,6 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		}
 	}
 
-	protected String getAllString()
-	{
-		return "ALL";
-	}
-
 	@Test
 	public void testRoundRobinTestEquals() throws PersistenceLayerException
 	{
@@ -778,4 +773,10 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	{
 		return false;
 	}
+
+	protected String getAllString()
+	{
+		return "ALL";
+	}
+
 }

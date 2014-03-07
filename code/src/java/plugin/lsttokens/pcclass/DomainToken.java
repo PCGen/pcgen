@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2008 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2014 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,22 +17,23 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
-import pcgen.base.lang.StringUtil;
+import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -67,9 +68,19 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
 		boolean first = true;
-		while (pipeTok.hasMoreTokens())
+		String tok = pipeTok.nextToken();
+
+		if (looksLikeAPrerequisite(tok))
 		{
-			String tok = pipeTok.nextToken();
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
+				+ getTokenName() + ": " + value, context);
+		}
+
+		List<QualifiedObject<CDOMSingleRef<Domain>>> toAdd =
+				new ArrayList<QualifiedObject<CDOMSingleRef<Domain>>>();
+		boolean foundClear = false;
+		while (true)
+		{
 			if (Constants.LST_DOT_CLEAR.equals(tok))
 			{
 				if (!first)
@@ -78,56 +89,55 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 							+ ": .CLEAR was not the first list item", context);
 				}
 				context.getObjectContext().removeList(pcc, ListKey.DOMAIN);
-				continue;
-			}
-			// Note: May contain PRExxx
-			String domainKey;
-			Prerequisite prereq = null;
-
-			int openBracketLoc = tok.indexOf('[');
-			if (openBracketLoc == -1)
-			{
-				if (tok.indexOf(']') != -1)
-				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must have '[' if it contains a PREREQ tag", context);
-				}
-				domainKey = tok;
+				foundClear = true;
 			}
 			else
 			{
-				if (tok.indexOf(']') != tok.length() - 1)
-				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must end with ']' if it contains a PREREQ tag", context);
-				}
-				domainKey = tok.substring(0, openBracketLoc);
-				String prereqString = tok.substring(openBracketLoc + 1, tok
-						.length() - 1);
-				if (prereqString.length() == 0)
-				{
-					return new ParseResult.Fail(getTokenName()
-							+ " cannot have empty prerequisite : " + value, context);
-				}
-				prereq = getPrerequisite(prereqString);
-				if (prereq == null)
-				{
-					return new ParseResult.Fail(getTokenName()
-							+ " had invalid prerequisite : " + prereqString, context);
-				}
+				CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
+					DOMAIN_CLASS, tok);
+				QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
+						domain);
+				toAdd.add(qo);
+				context.getObjectContext().addToList(pcc, ListKey.DOMAIN, qo);
 			}
-			CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
-					DOMAIN_CLASS, domainKey);
-
-			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
-					domain);
-			if (prereq != null)
-			{
-				qo.addPrerequisite(prereq);
-			}
-			context.getObjectContext().addToList(pcc, ListKey.DOMAIN, qo);
 			first = false;
+			if (!pipeTok.hasMoreTokens())
+			{
+				// No prereqs, so we're done
+				return ParseResult.SUCCESS;
+			}
+			tok = pipeTok.nextToken();
+			if (looksLikeAPrerequisite(tok))
+			{
+				break;
+			}
 		}
+		if (foundClear)
+		{
+			return new ParseResult.Fail(
+					"Cannot use PREREQs when using .CLEAR in "
+							+ getTokenName(), context);
+		}
+
+		while (true)
+		{
+			Prerequisite prereq = getPrerequisite(tok);
+			if (prereq == null)
+			{
+				return new ParseResult.Fail("   (Did you put feats after the "
+						+ "PRExxx tags in " + getTokenName() + ":?)", context);
+			}
+			for (PrereqObject pro : toAdd)
+			{
+				pro.addPrerequisite(prereq);
+			}
+			if (!pipeTok.hasMoreTokens())
+			{
+				break;
+			}
+			tok = pipeTok.nextToken();
+		}
+
 		return ParseResult.SUCCESS;
 	}
 
@@ -136,10 +146,10 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		Changes<QualifiedObject<CDOMSingleRef<Domain>>> changes = context
 				.getObjectContext().getListChanges(pcc, ListKey.DOMAIN);
-		List<String> list = new ArrayList<String>();
+		List<String> returnList = new ArrayList<String>();
 		if (changes.includesGlobalClear())
 		{
-			list.add(Constants.LST_DOT_CLEAR);
+			returnList.add(Constants.LST_DOT_CLEAR);
 		}
 		Collection<QualifiedObject<CDOMSingleRef<Domain>>> removedItems = changes
 				.getRemoved();
@@ -149,48 +159,34 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 					+ " does not support .CLEAR.");
 			return null;
 		}
-		Collection<QualifiedObject<CDOMSingleRef<Domain>>> added = changes
-				.getAdded();
+		Collection<QualifiedObject<CDOMSingleRef<Domain>>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
+			HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>> m = new HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>>();
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
 			{
-				StringBuilder sb = new StringBuilder();
-				sb.append(qo.getRawObject().getLSTformat(false));
-				if (qo.hasPrerequisites())
-				{
-					List<Prerequisite> prereqs = qo.getPrerequisiteList();
-					if (prereqs.size() > 1)
-					{
-						context.addWriteMessage("Incoming Edge to "
-								+ pcc.getKeyName() + " had more than one "
-								+ "Prerequisite: " + prereqs.size());
-						return null;
-					}
-					sb.append('[');
-					StringWriter swriter = new StringWriter();
-					try
-					{
-						prereqWriter.write(swriter, prereqs.get(0));
-					}
-					catch (PersistenceLayerException e)
-					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
-						return null;
-					}
-					sb.append(swriter.toString());
-					sb.append(']');
-				}
-				list.add(sb.toString());
+				m.addToListFor(qo.getPrerequisiteList(), qo.getRawObject());
 			}
+
+			Set<String> returnSet = new TreeSet<String>();
+			for (List<Prerequisite> prereqs : m.getKeySet())
+			{
+				StringBuilder sb = new StringBuilder();
+				sb.append(ReferenceUtilities.joinLstFormat(m.getListFor(prereqs), Constants.PIPE));
+				if (prereqs != null && !prereqs.isEmpty())
+				{
+					sb.append(Constants.PIPE);
+					sb.append(getPrerequisiteString(context, prereqs));
+				}
+				returnSet.add(sb.toString());
+			}
+			returnList.addAll(returnSet);
 		}
-		if (list.isEmpty())
+		if (returnList.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(list, Constants.PIPE) };
+		return returnList.toArray(new String[returnList.size()]);
 	}
 
 	@Override
