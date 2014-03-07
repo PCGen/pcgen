@@ -17,7 +17,11 @@
  */
 package plugin.lsttokens.spell;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
@@ -41,14 +45,23 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 	{
 		if (value == null || value.length() == 0)
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
+			return new ParseResult.Fail(getTokenName()
+				+ " arguments may not be empty", context);
 		}
-		if (!StringUtil.hasBalancedParens(value))
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			return new ParseResult.Fail("Unbalanced parentheses in " + getTokenName() + " '" + value
-					+ "' used in spell " + spell, context);
+			context.getObjectContext().remove(spell, StringKey.TARGET_AREA);
 		}
-		context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
+		else
+		{
+			if (!StringUtil.hasBalancedParens(value))
+			{
+				return new ParseResult.Fail("Unbalanced parentheses in "
+					+ getTokenName() + " '" + value + "' used in spell "
+					+ spell, context);
+			}
+			context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
+		}
 		return ParseResult.SUCCESS;
 	}
 
@@ -56,12 +69,24 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 	public String[] unparse(LoadContext context, Spell spell)
 	{
 		String target = context.getObjectContext().getString(spell,
-				StringKey.TARGET_AREA);
-		if (target == null)
+			StringKey.TARGET_AREA);
+		boolean globalClear =
+				context.getObjectContext().wasRemoved(spell,
+					StringKey.TARGET_AREA);
+		List<String> list = new ArrayList<String>();
+		if (globalClear)
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		if (target != null)
+		{
+			list.add(target);
+		}
+		if (list.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { target };
+		return list.toArray(new String[list.size()]);
 	}
 
 	@Override
