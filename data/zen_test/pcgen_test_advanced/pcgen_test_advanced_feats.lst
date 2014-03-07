@@ -5,7 +5,25 @@ Test91			TYPE:Test.Test91	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silen
 Test92			TYPE:Test.Test92	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim	DESC:Look at all the Things (%1)|%LIST
 Test93			TYPE:Test.Test93	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim	ASPECT:DisplaySomething|Look at all the Things (%1)|%LIST
 Test94			TYPE:Test.Test94	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim	BONUS:SKILLRANK|%LIST|1
+# 97 - Test of Check Bonuses
+#Create a MULT:YES Feat with:
+#BONUS:CHECKS|x|1
+#x is the name of a Check (willpower, etc) as per the docs.
+#You are testing to see if the output tokens:
+#SAVE.x.TOTAL
+#SAVE.x.FEATS
+#produce the correct answers.
+#This is used in the following permutations (different characters for each)
+#(1) Assign the feat twice in NORMAL, once VIRTUAL all from the Feat Pool
+#(2) Assign the feat twice in the Feat Pool, once in a subcategory pool, both of the same nature.
+#(3) Assign the feat twice in NORMAL (Feat Pool), once in AUTOMATIC (subcategory pool)
 
+Test97			TYPE:Test.Test97	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	BONUS:CHECKS|Will|1
+
+Test97 ~ Virtual	VFEAT:Test97
+
+Test97 ~ Auto Pool	ABILITY:Feat Test Subcategory|AUTOMATIC|Test97
+Test97 ~ Auto Normal	AUTO:FEAT|Test97				CHOOSE:NOCHOICE	STACK:YES	MULT:YES
 
 
 
@@ -113,7 +131,8 @@ Test-57 Apply A9 ToBeAdded										TYPE:TEST-57																																
 
 
 Test-57-Ability-1																				VISIBLE:EXPORT																											MULT:NO
-Test-57-Ability-2																				VISIBLE:EXPORT																							STACK:NO			MULT:YES	CHOOSE:NOCHOICE
+# Was STACK:NO changed to YES to prevent Error
+Test-57-Ability-2																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
 Test-57-Ability-3																				VISIBLE:EXPORT																							STACK:NO			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-2a|Ability-57-2b
 Test-57-Ability-4																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:NOCHOICE
 Test-57-Ability-5																				VISIBLE:EXPORT																							STACK:YES			MULT:YES	CHOOSE:ABILITY|Special Ability|Ability-57-3a|Ability-57-3b
