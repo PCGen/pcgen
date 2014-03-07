@@ -58,7 +58,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 
 		try
 		{
-			if (requiredRaceType.equals(display.getRaceType()))
+			if (requiredRaceType.equalsIgnoreCase(display.getRaceType()))
 			{
 				runningTotal++;
 			}
