@@ -84,7 +84,7 @@ public class PantheonTokenTest extends AbstractTypeSafeListTestCase<Deity, Panth
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
