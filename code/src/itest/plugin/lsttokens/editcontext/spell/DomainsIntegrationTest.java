@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -182,7 +183,7 @@ public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ALL=2");
-		commit(modCampaign, tc, ".CLEARALL");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
 		completeRoundRobin(tc);
 	}
 
@@ -203,7 +204,7 @@ public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEARALL");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
@@ -214,7 +215,7 @@ public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEARALL");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
 		completeRoundRobin(tc);
 	}
 

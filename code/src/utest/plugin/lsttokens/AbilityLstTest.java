@@ -555,6 +555,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	protected String getClearString()
 	{
-		return ".CLEAR";
+		return Constants.LST_DOT_CLEAR;
 	}
 }

@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -66,7 +67,7 @@ public class SrIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		commit(modCampaign, tc, "2");
 		completeRoundRobin(tc);
 	}
@@ -77,7 +78,7 @@ public class SrIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "1");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -86,8 +87,8 @@ public class SrIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -97,7 +98,7 @@ public class SrIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -106,7 +107,7 @@ public class SrIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}

@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
@@ -231,7 +232,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -241,7 +242,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		assertEquals("Expected item to be equal", "WEAPON|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -365,7 +366,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -375,7 +376,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		assertEquals("Expected item to be equal", "ARMOR|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -499,7 +500,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -509,7 +510,7 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 		assertEquals("Expected item to be equal", "SHIELD|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}

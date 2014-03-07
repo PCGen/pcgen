@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -106,7 +107,7 @@ public class HDIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		commit(modCampaign, tc, "3+:CR:-4");
 		completeRoundRobin(tc);
 	}
@@ -117,7 +118,7 @@ public class HDIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -126,7 +127,7 @@ public class HDIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}

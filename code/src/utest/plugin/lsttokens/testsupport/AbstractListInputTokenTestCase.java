@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -52,7 +53,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 	
 	public String getClearString()
 	{
-		return ".CLEAR";
+		return Constants.LST_DOT_CLEAR;
 	}
 
 	@Test

@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.spell;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -99,7 +100,7 @@ public class SpellPointCostIntegrationTest extends AbstractIntegrationTestCase<S
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "2");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -118,7 +119,7 @@ public class SpellPointCostIntegrationTest extends AbstractIntegrationTestCase<S
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
@@ -129,7 +130,7 @@ public class SpellPointCostIntegrationTest extends AbstractIntegrationTestCase<S
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 

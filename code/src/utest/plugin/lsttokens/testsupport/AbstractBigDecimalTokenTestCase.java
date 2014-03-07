@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -280,7 +281,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -289,7 +290,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		assertEquals("Expected item to be equal", "3.14", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}

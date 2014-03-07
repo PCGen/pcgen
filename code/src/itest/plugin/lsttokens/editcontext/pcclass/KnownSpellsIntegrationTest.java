@@ -153,7 +153,7 @@ public class KnownSpellsIntegrationTest extends
 	// verifyCleanStart();
 	// TestContext tc = new TestContext();
 	// commit(testCampaign, tc, "LEVEL=1");
-	// commit(modCampaign, tc, ".CLEAR");
+	// commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 	// completeRoundRobin(tc);
 	// }
 	// }

@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.persistence.PersistenceLayerException;
@@ -151,7 +152,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -161,7 +162,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}

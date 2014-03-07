@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -48,7 +49,7 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 
 	public String getClearString()
 	{
-		return isClearAll() ? ".CLEARALL" : ".CLEAR";
+		return isClearAll() ? Constants.LST_DOT_CLEAR_ALL : Constants.LST_DOT_CLEAR;
 	}
 
 	public boolean isClearAll()

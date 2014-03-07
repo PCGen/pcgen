@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -80,7 +81,7 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testValidTypeBarOnly() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEAR"));
+		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 
 	@Override

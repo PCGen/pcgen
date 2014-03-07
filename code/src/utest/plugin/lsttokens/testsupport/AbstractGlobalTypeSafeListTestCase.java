@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
@@ -209,7 +210,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be null", unparsed);
 		}
@@ -226,7 +227,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be null", unparsed);
 		}
@@ -254,7 +255,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	{
 		if (isClearLegal())
 		{
-			assertFalse(parse("TestWP1" + getJoinCharacter() + ".CLEAR"));
+			assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
 			assertNoSideEffects();
 		}
 	}
@@ -307,7 +308,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(parse(".CLEAR" + getJoinCharacter() + "TestWP3"
+			assertFalse(parse(Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP3"
 					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}

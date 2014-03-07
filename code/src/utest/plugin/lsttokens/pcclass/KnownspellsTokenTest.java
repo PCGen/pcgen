@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -259,7 +260,7 @@ public class KnownspellsTokenTest extends
 	@Override
 	public String getClearString()
 	{
-		return ".CLEARALL";
+		return Constants.LST_DOT_CLEAR_ALL;
 	}
 
 	@Override

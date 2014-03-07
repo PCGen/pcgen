@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -100,7 +101,7 @@ public class VisionIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Normal (30')");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -109,7 +110,7 @@ public class VisionIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		commit(modCampaign, tc, "Normal (30')");
 		completeRoundRobin(tc);
 	}
@@ -119,8 +120,8 @@ public class VisionIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -130,7 +131,7 @@ public class VisionIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -139,7 +140,7 @@ public class VisionIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}

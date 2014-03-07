@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -248,7 +249,7 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	@Test
 	public void testValidInputClearAll() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEARALL"));
+		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 		assertCleanConstruction();
 	}
 

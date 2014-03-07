@@ -33,6 +33,7 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -146,7 +147,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 		List<Prerequisite> list = object.getPrerequisiteList();
 		assertEquals(2, list.size());
 
-		context.unconditionallyProcess(object, "PRE", ".CLEAR");
+		context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
 		list = object.getPrerequisiteList();
 		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
 		assertTrue("Prereqlist should be empty after the clear", list.isEmpty());

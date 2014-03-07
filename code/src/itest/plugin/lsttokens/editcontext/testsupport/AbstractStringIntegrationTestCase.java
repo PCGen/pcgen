@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractStringIntegrationTestCase<T extends CDOMObject>
@@ -66,7 +67,19 @@ public abstract class AbstractStringIntegrationTestCase<T extends CDOMObject>
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "Finger Lakes");
-			commit(modCampaign, tc, ".CLEAR");
+			commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
+	public void testRoundRobinDotClearSet() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR, "Finger Lakes");
 			completeRoundRobin(tc);
 		}
 	}
