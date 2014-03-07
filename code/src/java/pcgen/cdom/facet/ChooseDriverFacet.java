@@ -51,11 +51,15 @@ public class ChooseDriverFacet
 	{
 		public void dataAdded(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
+			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			if (!pc.isAllowInteraction())
+			{
+				return;
+			}
 			CDOMObject obj = dfce.getScope();
 			Object sel = dfce.getCDOMObject();
 			if (ChooseActivation.hasNewChooseToken(obj))
 			{
-				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 				addAssoc(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
 			}
 		}
@@ -82,11 +86,15 @@ public class ChooseDriverFacet
 
 		public void dataRemoved(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
+			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			if (!pc.isAllowInteraction())
+			{
+				return;
+			}
 			Object assoc = dfce.getCDOMObject();
 			CDOMObject cdo = dfce.getScope();
 			if (ChooseActivation.hasNewChooseToken(cdo))
 			{
-				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 				removeAssoc(ChooserUtilities.getChoiceManager(cdo, pc), pc, cdo, assoc);
 			}
 		}

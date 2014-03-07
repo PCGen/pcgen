@@ -85,13 +85,14 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<CharID, T>
 	 *            The CharID representing the Player Character for which the
 	 *            item value should be removed
 	 */
-	public void remove(CharID id)
+	public T remove(CharID id)
 	{
 		T old = (T) removeCache(id);
 		if (old != null)
 		{
 			fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
+		return old;
 	}
 
 	/**

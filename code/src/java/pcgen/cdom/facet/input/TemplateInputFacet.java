@@ -47,9 +47,9 @@ public class TemplateInputFacet
 
 	public boolean add(CharID id, PCTemplate obj)
 	{
-		if (ChooseActivation.hasNewChooseToken(obj))
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(obj))
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(obj, pc);
 			return processChoice(id, pc, obj, aMan);
@@ -124,7 +124,11 @@ public class TemplateInputFacet
 	public void remove(CharID id, PCTemplate obj)
 	{
 		unconditionalTemplateFacet.remove(id, obj);
-		templateSelectionFacet.remove(id, obj);
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (pc.isAllowInteraction())
+		{
+			templateSelectionFacet.remove(id, obj);
+		}
 	}
 
 	public void setTemplateSelectionFacet(

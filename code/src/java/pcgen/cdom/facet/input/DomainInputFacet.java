@@ -48,9 +48,9 @@ public class DomainInputFacet
 
 	public boolean add(CharID id, Domain obj, ClassSource source)
 	{
-		if (ChooseActivation.hasNewChooseToken(obj))
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(obj))
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(obj, pc);
 			return processChoice(id, pc, obj, aMan, source);
@@ -136,7 +136,17 @@ public class DomainInputFacet
 
 	public void remove(CharID id, Domain obj)
 	{
-		domainSelectionFacet.remove(id, obj);
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		/*
+		 * TODO This order of operations differs from Race and Template - is
+		 * there a reason selection is first here and second there? Arguably
+		 * this is correct since directSet is doing the selection last, so
+		 * first-in first-out implies avoiding that issue
+		 */
+		if (pc.isAllowInteraction())
+		{
+			domainSelectionFacet.remove(id, obj);
+		}
 		domainFacet.remove(id, obj);
 	}
 

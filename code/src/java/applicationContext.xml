@@ -469,9 +469,7 @@
 		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="raceSelectionFacet" class="pcgen.cdom.facet.RaceSelectionFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-	</bean>
+	<bean id="raceSelectionFacet" class="pcgen.cdom.facet.RaceSelectionFacet"/>
 	<bean id="raceTypeFacet" class="pcgen.cdom.facet.analysis.RaceTypeFacet">
 		<property name="companionModFacet" ref="companionModFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>

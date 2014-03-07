@@ -893,6 +893,7 @@ public class PCClass extends PObject implements ClassFacade
 		final int newLevel = aPC.getLevel(this) + 1;
 		boolean levelMax = argLevelMax;
 
+		aPC.setAllowInteraction(false);
 		aPC.setLevelWithoutConsequence(this, newLevel);
 		if (!ignorePrereqs)
 		{
@@ -915,6 +916,7 @@ public class PCClass extends PObject implements ClassFacade
 				return false;
 			}
 		}
+		aPC.setAllowInteraction(true);
 
 		if (isMonster())
 		{

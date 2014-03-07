@@ -488,6 +488,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private int pointBuyPoints = -1;
 
 	private boolean processLevelAbilities = true;
+	private boolean allowInteraction = true;
 
 	/**
 	 * This map stores any user bonuses (entered through the GUI) to the
@@ -3216,6 +3217,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				totalLvlMap = getTotalLevelHashMap();
 				classLvlMap = getCharacterLevelHashMap(SettingsHandler.getGame().getChecksMaxLvl());
 				getVariableProcessor().pauseCache();
+				setAllowInteraction(false);
 				setClassLevelsBrazenlyTo(classLvlMap); // insure class-levels
 				// total is below some
 				// value (e.g. 20)
@@ -3253,6 +3255,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		if (totalLvlMap != null)
 		{
 			setClassLevelsBrazenlyTo(totalLvlMap);
+			setAllowInteraction(true);
 			getVariableProcessor().restartCache();
 		}
 		return (int) bonus;
@@ -5162,6 +5165,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 				// ensure total class-levels below some value (e.g. 20)
 				getVariableProcessor().pauseCache();
+				setAllowInteraction(false);
 				setClassLevelsBrazenlyTo(classLvlMap);
 			} else
 			{
@@ -5179,6 +5183,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		if (totalLvlMap != null)
 		{
 			setClassLevelsBrazenlyTo(totalLvlMap);
+			setAllowInteraction(true);
 			getVariableProcessor().restartCache();
 		}
 
@@ -11105,4 +11110,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return bonusLanguageAbility;
 	}
 
+	public void setAllowInteraction(boolean b)
+	{
+		if (!b && !allowInteraction)
+		{
+			Logging
+				.errorPrint("Internal Error: Re-entrant prohibition of interaction");
+		}
+		allowInteraction = b;
+	}
+	
+	public boolean isAllowInteraction()
+	{
+		return allowInteraction;
+	}
 }

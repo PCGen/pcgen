@@ -139,6 +139,10 @@ public final class CDOMObjectUtilities
 
 	public static void addAdds(CDOMObject cdo, PlayerCharacter pc)
 	{
+		if (!pc.isAllowInteraction())
+		{
+			return;
+		}
 		List<PersistentTransitionChoice<?>> addList = cdo
 				.getListFor(ListKey.ADD);
 		if (addList != null)
@@ -152,6 +156,10 @@ public final class CDOMObjectUtilities
 
 	public static void removeAdds(CDOMObject cdo, PlayerCharacter pc)
 	{
+		if (!pc.isAllowInteraction())
+		{
+			return;
+		}
 		List<PersistentTransitionChoice<?>> addList = cdo
 				.getListFor(ListKey.ADD);
 		if (addList != null)
@@ -165,6 +173,10 @@ public final class CDOMObjectUtilities
 
 	public static void checkRemovals(CDOMObject cdo, PlayerCharacter pc)
 	{
+		if (!pc.isAllowInteraction())
+		{
+			return;
+		}
 		List<PersistentTransitionChoice<?>> removeList = cdo
 				.getListFor(ListKey.REMOVE);
 		if (removeList != null)
@@ -178,6 +190,10 @@ public final class CDOMObjectUtilities
 
 	public static void restoreRemovals(CDOMObject cdo, PlayerCharacter pc)
 	{
+		if (!pc.isAllowInteraction())
+		{
+			return;
+		}
 		List<PersistentTransitionChoice<?>> removeList = cdo
 				.getListFor(ListKey.REMOVE);
 		if (removeList != null)
