@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -72,28 +75,26 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 				IntegerKey.UMULT);
 		boolean b = context.getObjectContext()
 				.wasRemoved(obj, IntegerKey.UMULT);
-		String returnVal;
+		List<String> list = new ArrayList<String>();
 		if (b)
 		{
-			returnVal = Constants.LST_DOT_CLEAR;
+			list.add(Constants.LST_DOT_CLEAR);
 		}
-		else
+		if (mult != null)
 		{
-			if (mult == null)
+			if (mult.intValue() <= 0)
 			{
+				context.addWriteMessage(getTokenName()
+					+ " must be an integer > 0");
 				return null;
 			}
-			else
-			{
-				if (mult.intValue() <= 0)
-				{
-					context.addWriteMessage(getTokenName() + " must be an integer > 0");
-					return null;
-				}
-				returnVal = mult.toString();
-			}
+			list.add(mult.toString());
 		}
-		return new String[] { returnVal };
+		if (list.isEmpty())
+		{
+			return null;
+		}
+		return list.toArray(new String[list.size()]);
 	}
 
 	@Override
