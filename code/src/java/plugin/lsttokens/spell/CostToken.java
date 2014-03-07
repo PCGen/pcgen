@@ -18,7 +18,10 @@
 package plugin.lsttokens.spell;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
@@ -43,41 +46,59 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Spell spell,
 		String value)
 	{
-		try
+		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			BigDecimal cost = new BigDecimal(value);
-			if (cost.compareTo(BigDecimal.ZERO) <= 0)
+			context.getObjectContext().remove(spell, ObjectKey.COST);
+		}
+		else
+		{
+			try
+			{
+				BigDecimal cost = new BigDecimal(value);
+				if (cost.compareTo(BigDecimal.ZERO) <= 0)
+				{
+					return new ParseResult.Fail(getTokenName()
+						+ " requires a positive Integer", context);
+				}
+				context.getObjectContext().put(spell, ObjectKey.COST, cost);
+			}
+			catch (NumberFormatException nfe)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " requires a positive Integer", context);
-			}
-			context.getObjectContext().put(spell, ObjectKey.COST, cost);
-			return ParseResult.SUCCESS;
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(getTokenName()
 					+ " expected an integer.  Tag must be of the form: "
 					+ getTokenName() + ":<int>", context);
+			}
 		}
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		BigDecimal i = context.getObjectContext().getObject(spell,
-				ObjectKey.COST);
-		if (i == null)
+		BigDecimal i =
+				context.getObjectContext().getObject(spell, ObjectKey.COST);
+		boolean globalClear =
+				context.getObjectContext().wasRemoved(spell, ObjectKey.COST);
+		List<String> list = new ArrayList<String>();
+		if (globalClear)
+ 		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		if (i != null)
+		{
+			if (i.compareTo(BigDecimal.ZERO) <= 00)
+			{
+				context.addWriteMessage(getTokenName()
+						+ " requires a positive Integer");
+				return null;
+			}
+			list.add(i.toString());
+		}
+		if (list.isEmpty())
 		{
 			return null;
-		}
-		if (i.compareTo(BigDecimal.ZERO) <= 00)
-		{
-			context.addWriteMessage(getTokenName()
-					+ " requires a positive Integer");
-			return null;
-		}
-		return new String[] { i.toString() };
+ 		}
+		return list.toArray(new String[list.size()]);
 	}
 
 	@Override

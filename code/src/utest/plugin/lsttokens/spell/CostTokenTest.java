@@ -73,4 +73,10 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Spell>
 	{
 		return false;
 	}
+
+	@Override
+	public boolean isClearLegal()
+	{
+		return true;
+	}
 }

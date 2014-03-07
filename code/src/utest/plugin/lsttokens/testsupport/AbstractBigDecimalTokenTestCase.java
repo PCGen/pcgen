@@ -36,6 +36,8 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	public abstract boolean isNegativeAllowed();
 
 	public abstract boolean isPositiveAllowed();
+	
+	public abstract boolean isClearLegal();
 
 	@Test
 	public void testInvalidInputUnset() throws PersistenceLayerException
@@ -269,6 +271,27 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		catch (ClassCastException e)
 		{
 			// Yep!
+		}
+	}
+
+	@Test
+	public void testReplacementInputs() throws PersistenceLayerException
+	{
+		String[] unparsed;
+		if (isClearLegal())
+		{
+			assertTrue(parse(".CLEAR"));
+			unparsed = getToken().unparse(primaryContext, primaryProf);
+			assertNull("Expected item to be equal", unparsed);
+		}
+		assertTrue(parse("3.14"));
+		unparsed = getToken().unparse(primaryContext, primaryProf);
+		assertEquals("Expected item to be equal", "3.14", unparsed[0]);
+		if (isClearLegal())
+		{
+			assertTrue(parse(".CLEAR"));
+			unparsed = getToken().unparse(primaryContext, primaryProf);
+			assertNull("Expected item to be equal", unparsed);
 		}
 	}
 

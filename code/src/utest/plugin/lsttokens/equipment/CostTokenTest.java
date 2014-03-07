@@ -80,4 +80,10 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 	{
 		return true;
 	}
+
+	@Override
+	public boolean isClearLegal()
+	{
+		return false;
+	}
 }

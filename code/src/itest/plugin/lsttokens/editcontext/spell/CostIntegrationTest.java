@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.spell;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -99,6 +100,25 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "2");
 		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinDotClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "3.14");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinDotClearSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR, "2.718");
 		completeRoundRobin(tc);
 	}
 }

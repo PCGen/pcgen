@@ -80,4 +80,10 @@ public class WtTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 	{
 		return true;
 	}
+
+	@Override
+	public boolean isClearLegal()
+	{
+		return false;
+	}
 }
