@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.equipment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
@@ -57,23 +60,24 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		String range = context.getObjectContext().getString(eq,
-				StringKey.FUMBLE_RANGE);
-		boolean removed = context.getObjectContext().wasRemoved(eq,
-				StringKey.FUMBLE_RANGE);
-		String returnVal;
+			StringKey.FUMBLE_RANGE);
+		boolean removed =
+				context.getObjectContext().wasRemoved(eq,
+					StringKey.FUMBLE_RANGE);
+		List<String> list = new ArrayList<String>();
 		if (removed)
 		{
-			returnVal = Constants.LST_DOT_CLEAR;
+			list.add(Constants.LST_DOT_CLEAR);
 		}
-		else if (range == null)
+		if (range != null)
+		{
+			list.add(range);
+		}
+		if (list.isEmpty())
 		{
 			return null;
 		}
-		else
-		{
-			returnVal = range;
-		}
-		return new String[] { returnVal };
+		return list.toArray(new String[list.size()]);
 	}
 
 	@Override
