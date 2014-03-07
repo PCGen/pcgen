@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.deity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
@@ -55,6 +58,7 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context, Deity deity, String value)
 	{
+		boolean first = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
 
@@ -64,19 +68,33 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 		{
 			String token = tok.nextToken();
 			CDOMReference<WeaponProf> ref;
-			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				foundAny = true;
-				ref = context.ref.getCDOMAllReference(WEAPONPROF_CLASS);
+				if (!first)
+				{
+					return new ParseResult.Fail("  Non-sensical "
+							+ getTokenName()
+							+ ": .CLEAR was not the first list item", context);
+				}
+				context.getObjectContext().removeList(deity, ListKey.DEITYWEAPON);
 			}
 			else
 			{
-				foundOther = true;
-				ref = context.ref.getCDOMReference(WEAPONPROF_CLASS, token);
+				if (Constants.LST_ALL.equalsIgnoreCase(token)
+					|| Constants.LST_ANY.equalsIgnoreCase(token))
+				{
+					foundAny = true;
+					ref = context.ref.getCDOMAllReference(WEAPONPROF_CLASS);
+				}
+				else
+				{
+					foundOther = true;
+					ref = context.ref.getCDOMReference(WEAPONPROF_CLASS, token);
+				}
+				context.getObjectContext().addToList(deity,
+					ListKey.DEITYWEAPON, ref);
 			}
-			context.getObjectContext().addToList(deity, ListKey.DEITYWEAPON,
-					ref);
+			first = false;
 		}
 		if (foundAny && foundOther)
 		{
@@ -91,12 +109,29 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 	{
 		Changes<CDOMReference<WeaponProf>> changes = context
 				.getObjectContext().getListChanges(deity, ListKey.DEITYWEAPON);
-		if (changes == null || changes.isEmpty())
+		Collection<CDOMReference<WeaponProf>> removedItems = changes.getRemoved();
+		List<String> list = new ArrayList<String>();
+		if (removedItems != null && !removedItems.isEmpty())
+		{
+			context.addWriteMessage(Constants.LST_DOT_CLEAR_DOT
+				+ " not supported in " + getTokenName());
+			return null;
+		}
+		if (changes.includesGlobalClear())
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
+		if (added != null && !added.isEmpty())
+		{
+			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE,
+				true));
+		}
+		if (list.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { ReferenceUtilities.joinLstFormat(changes
-				.getAdded(), Constants.PIPE, true) };
+		return list.toArray(new String[list.size()]);
 	}
 
 	@Override
