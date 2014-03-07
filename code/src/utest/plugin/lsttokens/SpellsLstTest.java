@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -385,6 +386,19 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	{
 		runRoundRobin("SpellBook|TIMES=1|CASTERLEVEL=12|Fireball",
 				"SpellBook|TIMES=1|CASTERLEVEL=15|Lightning Bolt");
+	}
+
+	@Test
+	public void testValidClear() throws PersistenceLayerException
+	{
+		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
+	}
+
+	@Test
+	public void testInvalidChainedClear() throws PersistenceLayerException
+	{
+		assertFalse(parse(Constants.LST_DOT_CLEAR_ALL + "|" + getLegalValue()));
+		assertNoSideEffects();
 	}
 
 	@Override
