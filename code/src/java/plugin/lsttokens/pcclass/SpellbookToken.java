@@ -19,15 +19,13 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SPELLBOOK Token
  */
-public class SpellbookToken extends AbstractNonEmptyToken<PCClass> implements
+public class SpellbookToken extends AbstractYesNoToken<PCClass> implements
 		CDOMPrimaryToken<PCClass>
 {
 
@@ -38,47 +36,9 @@ public class SpellbookToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(pcc, ObjectKey.SPELLBOOK, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, PCClass pcc)
-	{
-		Boolean sb = context.getObjectContext().getObject(pcc,
-				ObjectKey.SPELLBOOK);
-		if (sb == null)
-		{
-			return null;
-		}
-		return new String[] { sb.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.SPELLBOOK;
 	}
 
 	@Override

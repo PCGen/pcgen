@@ -20,16 +20,15 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
 /**
  * Deals with the MULT token
  */
-public class MultToken extends AbstractNonEmptyToken<Ability> implements
+public class MultToken extends AbstractYesNoToken<Ability> implements
 		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
 
@@ -40,48 +39,9 @@ public class MultToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext()
-				.put(ability, ObjectKey.MULTIPLE_ALLOWED, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Ability ability)
-	{
-		Boolean mult = context.getObjectContext().getObject(ability,
-				ObjectKey.MULTIPLE_ALLOWED);
-		if (mult == null)
-		{
-			return null;
-		}
-		return new String[] { mult.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.MULTIPLE_ALLOWED;
 	}
 
 	@Override

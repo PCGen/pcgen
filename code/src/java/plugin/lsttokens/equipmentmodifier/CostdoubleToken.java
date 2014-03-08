@@ -19,15 +19,13 @@ package plugin.lsttokens.equipmentmodifier;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with COSTDOUBLE token
  */
-public class CostdoubleToken extends AbstractNonEmptyToken<EquipmentModifier>
+public class CostdoubleToken extends AbstractYesNoToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
@@ -38,48 +36,9 @@ public class CostdoubleToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(mod, ObjectKey.COST_DOUBLE, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		Boolean stacks = context.getObjectContext().getObject(mod,
-				ObjectKey.COST_DOUBLE);
-		if (stacks == null)
-		{
-			return null;
-		}
-		return new String[] { stacks.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.COST_DOUBLE;
 	}
 
 	@Override

@@ -19,15 +19,13 @@ package plugin.lsttokens.statsandchecks.stat;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCStat;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with PENALTYVAR Token
  */
-public class RolledToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryToken<PCStat>
+public class RolledToken extends AbstractYesNoToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	@Override
@@ -37,48 +35,9 @@ public class RolledToken extends AbstractNonEmptyToken<PCStat> implements CDOMPr
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCStat stat,
-		String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(stat, ObjectKey.ROLLED, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, PCStat stat)
-	{
-		Boolean b = context.getObjectContext()
-				.getObject(stat, ObjectKey.ROLLED);
-		if (b == null)
-		{
-			return null;
-		}
-		return new String[] { b.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.ROLLED;
 	}
 
 	@Override
