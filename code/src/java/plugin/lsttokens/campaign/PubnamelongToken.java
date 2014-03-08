@@ -22,15 +22,13 @@ import java.net.URI;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.InstallLstToken;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with PUBNAMELONG Token
  */
-public class PubnamelongToken extends AbstractNonEmptyToken<Campaign> implements
+public class PubnamelongToken extends AbstractStringToken<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
@@ -47,30 +45,15 @@ public class PubnamelongToken extends AbstractNonEmptyToken<Campaign> implements
 		return true;
 	}
 
-	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
-		String value)
-	{
-		context.getObjectContext()
-				.put(campaign, StringKey.PUB_NAME_LONG, value);
-		return ParseResult.SUCCESS;
-	}
-
-    @Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		String title = context.getObjectContext().getString(campaign,
-				StringKey.PUB_NAME_LONG);
-		if (title == null)
-		{
-			return null;
-		}
-		return new String[] { title };
-	}
-
     @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.PUB_NAME_LONG;
 	}
 }

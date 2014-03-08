@@ -19,14 +19,13 @@ package plugin.lsttokens.campaign;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SETTING Token
  */
-public class SettingToken implements CDOMPrimaryToken<Campaign>
+public class SettingToken extends AbstractStringToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
     @Override
@@ -36,32 +35,14 @@ public class SettingToken implements CDOMPrimaryToken<Campaign>
 	}
 
     @Override
-	public ParseResult parseToken(LoadContext context, Campaign campaign,
-		String value)
-	{
-		if (value == null || value.length() == 0)
-		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
-		}
-		context.getObjectContext().put(campaign, StringKey.SETTING, value);
-		return ParseResult.SUCCESS;
-	}
-
-    @Override
-	public String[] unparse(LoadContext context, Campaign camp)
-	{
-		String setting =
-				context.getObjectContext().getString(camp, StringKey.SETTING);
-		if (setting == null)
-		{
-			return null;
-		}
-		return new String[]{setting};
-	}
-
-    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.SETTING;
 	}
 }

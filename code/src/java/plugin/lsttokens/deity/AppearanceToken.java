@@ -19,15 +19,13 @@ package plugin.lsttokens.deity;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with APPEARANCE Token
  */
-public class AppearanceToken extends AbstractNonEmptyToken<Deity> implements
+public class AppearanceToken extends AbstractStringToken<Deity> implements
 		CDOMPrimaryToken<Deity>
 {
 
@@ -38,28 +36,14 @@ public class AppearanceToken extends AbstractNonEmptyToken<Deity> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Deity deity,
-		String value)
-	{
-		context.getObjectContext().put(deity, StringKey.APPEARANCE, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Deity deity)
-	{
-		String appearance = context.getObjectContext().getString(deity,
-				StringKey.APPEARANCE);
-		if (appearance == null)
-		{
-			return null;
-		}
-		return new String[] { appearance };
-	}
-
-	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.APPEARANCE;
 	}
 }

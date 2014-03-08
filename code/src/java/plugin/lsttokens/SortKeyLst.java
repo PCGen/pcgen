@@ -24,10 +24,8 @@ package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The Class <code>SortKeyLst</code> implements the global SORTKEY tag, which 
@@ -40,7 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class SortKeyLst extends AbstractNonEmptyToken<CDOMObject> implements
+public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
 
@@ -51,28 +49,14 @@ public class SortKeyLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
-	{
-		context.obj.put(obj, StringKey.SORT_KEY, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		String sortKey =
-				context.getObjectContext().getString(obj, StringKey.SORT_KEY);
-		if (sortKey == null)
-		{
-			return null;
-		}
-		return new String[]{sortKey};
-	}
-
-	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.SORT_KEY;
 	}
 }

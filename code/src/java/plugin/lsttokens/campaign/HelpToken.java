@@ -19,14 +19,13 @@ package plugin.lsttokens.campaign;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with HELP Token
  */
-public class HelpToken implements CDOMPrimaryToken<Campaign>
+public class HelpToken extends AbstractStringToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
     @Override
@@ -36,32 +35,14 @@ public class HelpToken implements CDOMPrimaryToken<Campaign>
 	}
 
     @Override
-	public ParseResult parseToken(LoadContext context, Campaign campaign,
-		String value)
-	{
-		if (value == null || value.length() == 0)
-		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
-		}
-		context.getObjectContext().put(campaign, StringKey.HELP, value);
-		return ParseResult.SUCCESS;
-	}
-
-    @Override
-	public String[] unparse(LoadContext context, Campaign camp)
-	{
-		String help =
-				context.getObjectContext().getString(camp, StringKey.HELP);
-		if (help == null)
-		{
-			return null;
-		}
-		return new String[]{help};
-	}
-
-    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.HELP;
 	}
 }

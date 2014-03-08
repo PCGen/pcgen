@@ -19,15 +19,13 @@ package plugin.lsttokens.equipmentmodifier;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.EquipmentModifier;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with FUMBLERANGE token
  */
-public class FumblerangeToken extends AbstractNonEmptyToken<EquipmentModifier>
+public class FumblerangeToken extends AbstractStringToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
@@ -38,28 +36,14 @@ public class FumblerangeToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
-	{
-		context.getObjectContext().put(mod, StringKey.FUMBLE_RANGE, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, EquipmentModifier mod)
-	{
-		String range = context.getObjectContext().getString(mod,
-				StringKey.FUMBLE_RANGE);
-		if (range == null)
-		{
-			return null;
-		}
-		return new String[] { range };
-	}
-
-	@Override
 	public Class<EquipmentModifier> getTokenClass()
 	{
 		return EquipmentModifier.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.FUMBLE_RANGE;
 	}
 }

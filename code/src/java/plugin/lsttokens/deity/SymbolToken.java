@@ -19,14 +19,13 @@ package plugin.lsttokens.deity;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SYMBOL Token
  */
-public class SymbolToken implements CDOMPrimaryToken<Deity>
+public class SymbolToken extends AbstractStringToken<Deity> implements CDOMPrimaryToken<Deity>
 {
 
 	@Override
@@ -36,32 +35,14 @@ public class SymbolToken implements CDOMPrimaryToken<Deity>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Deity deity, String value)
-	{
-		if (value == null || value.length() == 0)
-		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
-		}
-		context.getObjectContext().put(deity, StringKey.HOLY_ITEM, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Deity deity)
-	{
-		String holyItem =
-				context.getObjectContext()
-					.getString(deity, StringKey.HOLY_ITEM);
-		if (holyItem == null)
-		{
-			return null;
-		}
-		return new String[]{holyItem};
-	}
-
-	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.HOLY_ITEM;
 	}
 }

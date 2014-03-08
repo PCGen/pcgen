@@ -19,15 +19,13 @@ package plugin.lsttokens.deity;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with WORSHIPPERS Token
  */
-public class WorshippersToken extends AbstractNonEmptyToken<Deity> implements
+public class WorshippersToken extends AbstractStringToken<Deity> implements
 		CDOMPrimaryToken<Deity>
 {
 
@@ -43,28 +41,14 @@ public class WorshippersToken extends AbstractNonEmptyToken<Deity> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Deity deity,
-		String value)
-	{
-		context.getObjectContext().put(deity, StringKey.WORSHIPPERS, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Deity deity)
-	{
-		String worshippers = context.getObjectContext().getString(deity,
-				StringKey.WORSHIPPERS);
-		if (worshippers == null)
-		{
-			return null;
-		}
-		return new String[] { worshippers };
-	}
-
-	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.WORSHIPPERS;
 	}
 }

@@ -19,15 +19,13 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ABB Token for PCC files
  */
-public class ClasstypeToken extends AbstractNonEmptyToken<PCClass> implements
+public class ClasstypeToken extends AbstractStringToken<PCClass> implements
 		CDOMPrimaryToken<PCClass>
 {
 
@@ -43,27 +41,14 @@ public class ClasstypeToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
-	{
-		context.obj.put(pcc, StringKey.CLASSTYPE, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, PCClass pcc)
-	{
-		String classType = context.obj.getString(pcc, StringKey.CLASSTYPE);
-		if (classType == null)
-		{
-			return null;
-		}
-		return new String[] { classType };
-	}
-
-	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.CLASSTYPE;
 	}
 }
