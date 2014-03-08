@@ -560,6 +560,7 @@ public class AbilityToken extends Token
 				{
 					assocs.addAll(pc.getAssociationList(cna));
 				}
+				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
 			else if (tokenSource.indexOf(".ASSOCIATED.") > -1)
@@ -649,18 +650,16 @@ public class AbilityToken extends Token
 		{
 			return Constants.EMPTY_STRING;
 		}
+		List<String> assocs  = new ArrayList<String>();
 		for (CNAbility cna : abilities)
 		{
-			List<String> assocs = pc.getAssociationList(cna);
-			int count = assocs.size();
-			if (index < count)
-			{
-				return assocs.get(index);
-			}
-			else
-			{
-				index -= count;
-			}
+			assocs.addAll(pc.getAssociationList(cna));
+		}
+		Collections.sort(assocs);
+		int count = assocs.size();
+		if (index < count)
+		{
+			return assocs.get(index);
 		}
 		//index was too large
 		return Constants.EMPTY_STRING;

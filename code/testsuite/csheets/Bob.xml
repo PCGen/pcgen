@@ -1181,10 +1181,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Uber Sword, Suns Weapon Of Choice)</name>
+			<name>Weapon Focus (Suns Weapon Of Choice, Uber Sword)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
-			<associated>Uber Sword,Suns Weapon Of Choice</associated>
+			<associated>Suns Weapon Of Choice,Uber Sword</associated>
 			<count>2</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
@@ -1262,10 +1262,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Longsword, Fine Wine Blade)</name>
+			<name>Weapon Focus (Fine Wine Blade, Longsword)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
-			<associated>Longsword,Fine Wine Blade</associated>
+			<associated>Fine Wine Blade,Longsword</associated>
 			<count>2</count>
 			<auto>T</auto>
 			<hidden>F</hidden>

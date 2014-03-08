@@ -23,6 +23,7 @@
 package pcgen.cdom.helper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -286,6 +287,7 @@ public class Aspect extends ConcretePrereqObject
 					{
 						joinString = ", ";
 					}
+					Collections.sort(assocList);
 					buf.append(StringUtil.joinToStringBuilder(assocList,
 						joinString));
 				}

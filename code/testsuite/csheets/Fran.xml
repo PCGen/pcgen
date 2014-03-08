@@ -1232,30 +1232,30 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>GivingThingy (StackNoChoiceFeatAuto, StackNoChoiceFeat, StackNoChoiceFeat, StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble))</name>
+			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackNoChoiceFeat, StackNoChoiceFeat, StackNoChoiceFeatAuto)</name>
 			<description></description>
 			<type>TEST47</type>
-			<associated>StackNoChoiceFeatAuto,StackNoChoiceFeat,StackNoChoiceFeat,StackChoiceFeat (Ride),StackChoiceFeat (Ride),StackChoiceFeat (Tumble)</associated>
+			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackNoChoiceFeat,StackNoChoiceFeat,StackNoChoiceFeatAuto</associated>
 			<count>6</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>GivingThingyAuto (StackNoChoiceFeatAuto, StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackChoiceFeatAuto (Ride))</name>
+			<name>GivingThingyAuto (StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackChoiceFeatAuto (Ride), StackNoChoiceFeatAuto)</name>
 			<description></description>
 			<type>TEST46</type>
-			<associated>StackNoChoiceFeatAuto,StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackChoiceFeatAuto (Ride)</associated>
+			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackChoiceFeatAuto (Ride),StackNoChoiceFeatAuto</associated>
 			<count>4</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>StackChoiceFeat (Ride, Tumble, Ride, Ride, Tumble)</name>
+			<name>StackChoiceFeat (Ride, Ride, Ride, Tumble, Tumble)</name>
 			<description></description>
 			<type>TEST47.TESTTHING</type>
-			<associated>Ride,Tumble,Ride,Ride,Tumble</associated>
+			<associated>Ride,Ride,Ride,Tumble,Tumble</associated>
 			<count>5</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
@@ -1293,10 +1293,10 @@ BIO
 		</feat>
 		<!-- Virtual Feats -->
 		<feat>
-			<name>GivingThingy (StackNoChoiceFeatAuto, StackNoChoiceFeat, StackNoChoiceFeat, StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble))</name>
+			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackNoChoiceFeat, StackNoChoiceFeat, StackNoChoiceFeatAuto)</name>
 			<description></description>
 			<type>TEST47</type>
-			<associated>StackNoChoiceFeatAuto,StackNoChoiceFeat,StackNoChoiceFeat,StackChoiceFeat (Ride),StackChoiceFeat (Ride),StackChoiceFeat (Tumble)</associated>
+			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackNoChoiceFeat,StackNoChoiceFeat,StackNoChoiceFeatAuto</associated>
 			<count>6</count>
 			<auto>F</auto>
 			<hidden>F</hidden>

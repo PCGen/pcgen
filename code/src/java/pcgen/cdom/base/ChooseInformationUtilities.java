@@ -17,7 +17,12 @@
  */
 package pcgen.cdom.base;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import pcgen.base.lang.StringUtil;
 
 public class ChooseInformationUtilities
 {
@@ -25,25 +30,17 @@ public class ChooseInformationUtilities
 	static  <T> CharSequence buildEncodedString(ChooseInformation<T> info,
 		Collection<? extends T> collection)
 	{
-		StringBuilder sb = new StringBuilder(100);
 		if (collection == null)
 		{
-			return sb;
+			return Constants.EMPTY_STRING;
 		}
-		
-		boolean needjoin = false;
-		
+		List<String> list = new ArrayList<String>(collection.size());
 		for (T sl : collection)
 		{
-			if (needjoin)
-			{
-				sb.append(", ");
-			}
-			needjoin = true;
-			sb.append(info.encodeChoice(sl));
+			list.add(info.encodeChoice(sl));
 		}
-		
-		return sb;
+		Collections.sort(list);
+		return StringUtil.joinToStringBuilder(list, ", ");
 	}
 
 }
