@@ -24,6 +24,7 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -172,9 +173,9 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
-		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
-				obj, category, ability.resolvesTo(), nature, string);
-		pc.addAppliedAbility(appliedSelection);
+		CNAbilitySelection appliedSelection = new CNAbilitySelection(
+				new CNAbility(category, ability.resolvesTo(), nature), string);
+		pc.addAppliedAbility(appliedSelection, obj);
 	}
 
 	@Override
@@ -201,9 +202,9 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
-		CategorizedAbilitySelection appliedSelection = new CategorizedAbilitySelection(
-				obj, category, ability.resolvesTo(), nature, string);
-		pc.removeAppliedAbility(appliedSelection);
+		CNAbilitySelection appliedSelection = new CNAbilitySelection(
+				new CNAbility(category, ability.resolvesTo(), nature), string);
+		pc.removeAppliedAbility(appliedSelection, obj);
 	}
 
 	@Override

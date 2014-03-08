@@ -20,10 +20,11 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 
 /**
@@ -34,7 +35,7 @@ import pcgen.core.Ability;
  */
 public class DirectAbilityInputFacet
 		extends
-		AbstractSingleSourceListFacet<CategorizedAbilitySelection, DirectAbilityInputFacet.DAIFSource>
+		AbstractSingleSourceListFacet<CNAbilitySelection, DirectAbilityInputFacet.DAIFSource>
 {
 	public void add(CharID id, CDOMObject owner, Category<Ability> category,
 		Nature nature, AbilitySelection as)
@@ -57,9 +58,9 @@ public class DirectAbilityInputFacet
 				"AbilitySelection to add may not be null");
 		}
 		DAIFSource source = new DAIFSource(owner, category, nature, as);
-		CategorizedAbilitySelection cas =
-				new CategorizedAbilitySelection(owner, category,
-					as.getObject(), nature, as.getSelection());
+		CNAbilitySelection cas =
+				new CNAbilitySelection(new CNAbility(category,
+					as.getObject(), nature), as.getSelection());
 		add(id, cas, source);
 	}
 

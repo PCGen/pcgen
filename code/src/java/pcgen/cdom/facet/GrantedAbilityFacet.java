@@ -38,7 +38,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -52,7 +52,7 @@ import pcgen.util.enumeration.View;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> implements
-		DataFacetChangeListener<CharID, CategorizedAbilitySelection>
+		DataFacetChangeListener<CharID, CNAbilitySelection>
 {
 	private final PlayerCharacterTrackingFacet pcFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
@@ -792,11 +792,11 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 	}
 
 	/**
-	 * Adds the CategorizedAbilitySelection objects in the DataFacetChangeEvent
+	 * Adds the CNAbilitySelection objects in the DataFacetChangeEvent
 	 * to the Player Character.
 	 * 
 	 * Triggered when one of the Facets to which GrantedAbilityFacet listens
-	 * fires a DataFacetChangeEvent to indicate a CategorizedAbilitySelection
+	 * fires a DataFacetChangeEvent to indicate a CNAbilitySelection
 	 * was added to a Player Character.
 	 * 
 	 * @param dfce
@@ -806,15 +806,16 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, CategorizedAbilitySelection> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CategorizedAbilitySelection cas = dfce.getCDOMObject();
+		CNAbilitySelection cnas = dfce.getCDOMObject();
+		CNAbility cas = cnas.getCNAbility();
 		Ability ability = cas.getAbility();
 		add(id, cas.getAbilityCategory(), cas.getNature(), ability, dfce
 				.getSource());
 		PlayerCharacter pc = pcFacet.getPC(id);
-		String selection = cas.getSelection();
+		String selection = cnas.getSelection();
 		if (selection != null)
 		{
 			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
@@ -833,11 +834,11 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 	}
 
 	/**
-	 * Removes the CategorizedAbilitySelection objects in the
+	 * Removes the CNAbilitySelection objects in the
 	 * DataFacetChangeEvent from the Player Character.
 	 * 
 	 * Triggered when one of the Facets to which GrantedAbilityFacet listens
-	 * fires a DataFacetChangeEvent to indicate a CategorizedAbilitySelection
+	 * fires a DataFacetChangeEvent to indicate a CNAbilitySelection
 	 * was removed from a Player Character.
 	 * 
 	 * @param dfce
@@ -848,13 +849,14 @@ public class GrantedAbilityFacet extends AbstractDataFacet<CharID, Ability> impl
 	 */
 	@Override
 	public void dataRemoved(
-			DataFacetChangeEvent<CharID, CategorizedAbilitySelection> dfce)
+			DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CategorizedAbilitySelection cas = dfce.getCDOMObject();
+		CNAbilitySelection cnas = dfce.getCDOMObject();
 		PlayerCharacter pc = pcFacet.getPC(id);
+		CNAbility cas = cnas.getCNAbility();
 		Ability ability = cas.getAbility();
-		String selection = cas.getSelection();
+		String selection = cnas.getSelection();
 		if (selection != null)
 		{
 			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);

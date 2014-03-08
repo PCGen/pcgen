@@ -34,11 +34,12 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.Deity;
@@ -53,7 +54,7 @@ import pcgen.core.WeaponProf;
  * not vary by the PlayerCharacter used to resolve the AbilityRefChoiceSet.
  */
 public class AbilityRefChoiceSet implements
-		PrimitiveChoiceSet<CategorizedAbilitySelection>
+		PrimitiveChoiceSet<CNAbilitySelection>
 {
 
 	/**
@@ -157,9 +158,9 @@ public class AbilityRefChoiceSet implements
 	 * @return The class of object this AbilityRefChoiceSet contains.
 	 */
 	@Override
-	public Class<CategorizedAbilitySelection> getChoiceClass()
+	public Class<CNAbilitySelection> getChoiceClass()
 	{
-		return CategorizedAbilitySelection.class;
+		return CNAbilitySelection.class;
 	}
 
 	/**
@@ -183,9 +184,9 @@ public class AbilityRefChoiceSet implements
 	 *         contains.
 	 */
 	@Override
-	public Set<CategorizedAbilitySelection> getSet(PlayerCharacter pc)
+	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
-		Set<CategorizedAbilitySelection> returnSet = new HashSet<CategorizedAbilitySelection>();
+		Set<CNAbilitySelection> returnSet = new HashSet<CNAbilitySelection>();
 		for (CDOMReference<Ability> ref : abilityRefSet)
 		{
 			for (Ability a : ref.getContainedObjects())
@@ -197,14 +198,15 @@ public class AbilityRefChoiceSet implements
 				}
 				else
 				{
-					returnSet.add(new CategorizedAbilitySelection(category, a, nature));
+					returnSet.add(new CNAbilitySelection(new CNAbility(
+						category, a, nature)));
 				}
 			}
 		}
 		return returnSet;
 	}
 
-	private Collection<CategorizedAbilitySelection> addMultiplySelectableAbility(
+	private Collection<CNAbilitySelection> addMultiplySelectableAbility(
 			final PlayerCharacter aPC, Ability ability, String subName)
 	{
 		// If already have taken the feat, use it so we can remove
@@ -292,11 +294,12 @@ public class AbilityRefChoiceSet implements
 			}
 		}
 
-		List<CategorizedAbilitySelection> returnList = new ArrayList<CategorizedAbilitySelection>(
+		List<CNAbilitySelection> returnList = new ArrayList<CNAbilitySelection>(
 				availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new CategorizedAbilitySelection(category, pcability, nature, s));
+			returnList.add(new CNAbilitySelection(new CNAbility(category,
+				pcability, nature), s));
 		}
 		return returnList;
 	}

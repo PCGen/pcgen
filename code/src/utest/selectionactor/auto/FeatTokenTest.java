@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.helper.AbilitySelector;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -40,6 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 import plugin.lsttokens.auto.FeatToken;
 import plugin.lsttokens.choose.StringToken;
+
 import compare.InequalityTesterInst;
 
 public class FeatTokenTest extends AbstractCharacterUsingTestCase
@@ -60,9 +61,9 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 			Nature.AUTOMATIC);
 	}
 
-	public Class<CategorizedAbilitySelection> getCDOMClass()
+	public Class<CNAbilitySelection> getCDOMClass()
 	{
-		return CategorizedAbilitySelection.class;
+		return CNAbilitySelection.class;
 	}
 
 	public boolean isGranted()

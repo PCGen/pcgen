@@ -15,11 +15,20 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package tokenmodel.testsupport;
+package pcgen.cdom.base;
 
-import pcgen.cdom.helper.CNAbilitySelection;
-
-public interface CASAssocCheck
+public class UserSelection
 {
-	boolean check(CNAbilitySelection cas);
+
+	private static final UserSelection instance = new UserSelection();
+	
+	private UserSelection()
+	{
+		//Private
+	}
+	
+	public static UserSelection getInstance()
+	{
+		return instance;
+	}
 }

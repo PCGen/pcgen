@@ -207,7 +207,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.SAProcessor;
@@ -8961,19 +8961,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 						if (choices == null)
 						{
 						    //CHOOSE:NOCHOICE can be unconditionally applied (must be STACK:YES)
-							CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab, nature, "");
+							CNAbilitySelection cas = new CNAbilitySelection(new CNAbility(cat, ab, nature), "");
 							cas.addAllPrerequisites(apo.getPrerequisiteList());
-							applyAbility(cas);
+							applyAbility(cas, cdo);
 						} else
 						{
 							for (final String choice : choices)
 							{
 								if (!AbilityUtilities.alreadySelected(this, ab, choice, true))
 								{
-									CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab,
-											nature, choice);
+									CNAbilitySelection cas = new CNAbilitySelection(new CNAbility(cat, ab,
+											nature), choice);
 									cas.addAllPrerequisites(apo.getPrerequisiteList());
-									applyAbility(cas);
+									applyAbility(cas, cdo);
 								}
 							}
 						}
@@ -8981,9 +8981,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 					{
 						if (!AbilityUtilities.alreadySelected(this, ab, null, true))
 						{
-							CategorizedAbilitySelection cas = new CategorizedAbilitySelection(cdo, cat, ab, nature);
+							CNAbilitySelection cas = new CNAbilitySelection(new CNAbility(cat, ab, nature));
 							cas.addAllPrerequisites(apo.getPrerequisiteList());
-							applyAbility(cas);
+							applyAbility(cas, cdo);
 						}
 					}
 				}
@@ -8993,14 +8993,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	//WARNING: This is public only for testing, do NOT use without understanding what you are shortcutting!!
-	public void applyAbility(CategorizedAbilitySelection cas)
+	public void applyAbility(CNAbilitySelection cas, Object source)
 	{
 		if (cas.hasPrerequisites())
 		{
-			conditionalFacet.add(id, cas);
+			conditionalFacet.add(id, cas, source);
 		} else
 		{
-			directAbilityFacet.add(id, cas);
+			directAbilityFacet.add(id, cas, source);
 		}
 	}
 
@@ -10024,8 +10024,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public void processRemoval(CDOMObject cdo)
 	{
-		conditionalFacet.removeAllFromSource(id, cdo);
-		directAbilityFacet.removeAllFromSource(id, cdo);
+		conditionalFacet.removeAll(id, cdo);
+		directAbilityFacet.removeAll(id, cdo);
 		//setDirty(true);
 	}
 
@@ -10126,14 +10126,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return !followerFacet.isEmpty(id);
 	}
 
-	public void addAppliedAbility(CategorizedAbilitySelection cas)
+	public void addAppliedAbility(CNAbilitySelection cas, Object source)
 	{
-		directAbilityFacet.add(id, cas);
+		directAbilityFacet.add(id, cas, source);
 	}
 
-	public void removeAppliedAbility(CategorizedAbilitySelection cas)
+	public void removeAppliedAbility(CNAbilitySelection cas, Object source)
 	{
-		directAbilityFacet.remove(id, cas);
+		directAbilityFacet.remove(id, cas, source);
 	}
 
 	public void addAutoEquipment(Equipment e, CDOMObject obj)
@@ -10992,12 +10992,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 	}
 
-	public void addTemplateFeat(CDOMObject template, CategorizedAbilitySelection as)
+	public void addTemplateFeat(CDOMObject template, CNAbilitySelection as)
 	{
 		templateFeatFacet.add(id, as, template);
 	}
 
-	public List<? extends CategorizedAbilitySelection> getTemplateFeatList(CDOMObject template)
+	public List<? extends CNAbilitySelection> getTemplateFeatList(CDOMObject template)
 	{
 		return templateFeatFacet.getSet(id, template);
 	}

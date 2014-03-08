@@ -48,6 +48,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -68,7 +69,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.input.DomainInputFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
@@ -4656,8 +4657,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 										EntityEncoder.decode(mapKey), feat);
 							if (subt != null)
 							{
-								CategorizedAbilitySelection as =
-										CategorizedAbilitySelection
+								CNAbilitySelection as =
+										CNAbilitySelection
 											.getAbilitySelectionFromPersistentFormat(feat);
 								thePC.addTemplateFeat(subt, as);
 							}
@@ -6248,8 +6249,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		if (actor instanceof CNAbility)
 		{
-			thePC.addAppliedAbility(new CategorizedAbilitySelection(langbonus,
-				l.getKeyName()));
+			thePC.addAppliedAbility(new CNAbilitySelection(langbonus,
+				l.getKeyName()), UserSelection.getInstance());
 		}
 		else if (actor instanceof PersistentTransitionChoice)
 		{

@@ -34,7 +34,7 @@ import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -55,7 +55,7 @@ import pcgen.util.enumeration.Visibility;
  * Class deals with FEAT Token
  */
 public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CategorizedAbilitySelection>,
+		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CNAbilitySelection>,
 		DeferredToken<PCTemplate>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -152,25 +152,25 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection choice,
+	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		double cost = choice.getAbility().getSafe(ObjectKey.SELECTION_COST)
+		double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST)
 				.doubleValue();
 		if (cost > 0.0001)
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modAbility(pc, choice.getAbility(), choice
+		AbilityUtilities.modAbility(pc, choice.getCNAbility().getAbility(), choice
 		.getSelection(), AbilityCategory.FEAT);
 		pc.addTemplateFeat(owner, choice);
 	}
 
 	@Override
-	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc,
 			boolean allowStack)
 	{
-		Ability ability = choice.getAbility();
+		Ability ability = choice.getCNAbility().getAbility();
 		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
 		{
 			return false;
@@ -185,20 +185,20 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	}
 
 	@Override
-	public CategorizedAbilitySelection decodeChoice(LoadContext context, String s)
+	public CNAbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
 	@Override
-	public String encodeChoice(CategorizedAbilitySelection choice)
+	public String encodeChoice(CNAbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		CNAbilitySelection choice)
 	{
 		// No action required
 	}
@@ -211,7 +211,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		CNAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{
@@ -219,7 +219,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		}
 		
 		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice
+		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
 				.getAbility(), Nature.NORMAL);
 
 		if (anAbility != null)
@@ -240,11 +240,11 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		{
 			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
 					AbilityCategory.FEAT, list, Nature.AUTOMATIC);
-			ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
+			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
 					getTokenName(), rcs);
 			cs.setTitle("Feat Choice");
-			PersistentTransitionChoice<CategorizedAbilitySelection> tc =
-					new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+			PersistentTransitionChoice<CNAbilitySelection> tc =
+					new ConcretePersistentTransitionChoice<CNAbilitySelection>(
 						cs, FormulaFactory.ONE);
 			context.getObjectContext().put(pct, ObjectKey.TEMPLATE_FEAT, tc);
 			tc.setChoiceActor(this);

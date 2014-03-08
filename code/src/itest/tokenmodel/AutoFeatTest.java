@@ -22,9 +22,10 @@ import java.util.Collection;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -100,10 +101,11 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 	@Override
 	protected boolean containsExpected(Ability granted)
 	{
-		Collection<CategorizedAbilitySelection> casSet =
+		Collection<CNAbilitySelection> casSet =
 				getTargetFacet().getSet(id);
-		for (CategorizedAbilitySelection cas : casSet)
+		for (CNAbilitySelection cnas : casSet)
 		{
+			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			boolean abilityExpected =
@@ -111,7 +113,7 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 						context.ref.silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
-			boolean selectionExpected = assocCheck.check(cas);
+			boolean selectionExpected = assocCheck.check(cnas);
 			if (featExpected && abilityExpected && natureExpected
 				&& selectionExpected)
 			{
@@ -144,7 +146,7 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 		processToken(source);
 		assocCheck = new CASAssocCheck()
 		{
-			public boolean check(CategorizedAbilitySelection cas)
+			public boolean check(CNAbilitySelection cas)
 			{
 				return "".equals(cas.getSelection());
 			}

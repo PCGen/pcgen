@@ -25,8 +25,9 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -65,8 +66,8 @@ public class KitLangBonus extends BaseKit
 		CNAbility cna = aPC.getBonusLanguageAbility();
 		for (Language l : theLanguages)
 		{
-			aPC.addAppliedAbility(new CategorizedAbilitySelection(cna, l
-				.getKeyName()));
+			aPC.addAppliedAbility(new CNAbilitySelection(cna, l
+				.getKeyName()), UserSelection.getInstance());
 		}
 	}
 

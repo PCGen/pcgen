@@ -43,11 +43,12 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -92,11 +93,11 @@ import pcgen.util.enumeration.Visibility;
  * @version $Rev$
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CategorizedAbilitySelection>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>
 {
 
-	private static final Class<CategorizedAbilitySelection> CAT_ABILITY_SELECTION_CLASS =
-			CategorizedAbilitySelection.class;
+	private static final Class<CNAbilitySelection> CAT_ABILITY_SELECTION_CLASS =
+			CNAbilitySelection.class;
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
@@ -293,8 +294,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		title.append(category.getDisplayName());
 		title.append(" Choice");
 		cs.setTitle(title.toString());
-		PersistentTransitionChoice<CategorizedAbilitySelection> tc =
-				new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+		PersistentTransitionChoice<CNAbilitySelection> tc =
+				new ConcretePersistentTransitionChoice<CNAbilitySelection>(
 					cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
@@ -387,12 +388,13 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void applyChoice(CDOMObject owner,
-		CategorizedAbilitySelection choice, PlayerCharacter pc)
+		CNAbilitySelection choice, PlayerCharacter pc)
 	{
-		Ability ab = choice.getAbility();
+		CNAbility cna = choice.getCNAbility();
+		Ability ab = cna.getAbility();
 		String association = choice.getSelection();
-		AbilityCategory cat = (AbilityCategory) choice.getAbilityCategory();
-		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
+		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();
+		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());
 		if (isVirtual)
 		{
 			Ability a = AbilityUtilities
@@ -414,15 +416,16 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(CategorizedAbilitySelection choice,
+	public boolean allow(CNAbilitySelection choice,
 		PlayerCharacter pc, boolean allowStack)
 	{
-		Ability ability = choice.getAbility();
+		CNAbility cna = choice.getCNAbility();
+		Ability ability = cna.getAbility();
 		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
 		{
 			return false;
 		}
-		boolean isVirtual = Nature.VIRTUAL.equals(choice.getNature());
+		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());
 		if (!pc.canSelectAbility(ability, isVirtual))
 		{
 			return false;
@@ -433,20 +436,20 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public CategorizedAbilitySelection decodeChoice(LoadContext context, String s)
+	public CNAbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}
 
 	@Override
-	public String encodeChoice(CategorizedAbilitySelection choice)
+	public String encodeChoice(CNAbilitySelection choice)
 	{
 		return choice.getPersistentFormat();
 	}
 
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		CNAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -456,15 +459,16 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CategorizedAbilitySelection choice)
+		CNAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{
 			pc.getSpellList();
 		}
 
-		Ability pcAbility = pc.getMatchingAbility(choice.getAbilityCategory(),
-				choice.getAbility(), choice.getNature());
+		CNAbility cna = choice.getCNAbility();
+		Ability pcAbility = pc.getMatchingAbility(cna.getAbilityCategory(),
+				cna.getAbility(), cna.getNature());
 
 		if (pcAbility != null)
 		{
@@ -486,14 +490,14 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			
 			if (!result)
 			{
-				if (choice.getNature().equals(Nature.NORMAL))
+				if (cna.getNature().equals(Nature.NORMAL))
 				{
-					removed = pc.removeRealAbility(choice.getAbilityCategory(),
+					removed = pc.removeRealAbility(cna.getAbilityCategory(),
 						pcAbility);
 				}
 				else
 				{
-					pc.removeUserVirtualAbility(choice.getAbilityCategory(),
+					pc.removeUserVirtualAbility(cna.getAbilityCategory(),
 						pcAbility);
 					removed = true;
 				}
@@ -501,8 +505,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				CDOMObjectUtilities.restoreRemovals(pcAbility, pc);
 			}
 			
-			if ((choice.getNature() == Nature.NORMAL)
-				&& (choice.getAbilityCategory() == AbilityCategory.FEAT))
+			if ((cna.getNature() == Nature.NORMAL)
+				&& (cna.getAbilityCategory() == AbilityCategory.FEAT))
 			{
 				AbilityUtilities.adjustPool(pcAbility, pc, false, abilityCount,
 						removed);

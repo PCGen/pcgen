@@ -24,8 +24,9 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -56,9 +57,9 @@ public class FeatTokenTest extends TestCase
 	public void testEncodeChoice()
 	{
 		Ability item = construct("ItemName");
-		CategorizedAbilitySelection as =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
-					Nature.NORMAL);
+		CNAbilitySelection as =
+				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
+					Nature.NORMAL));
 		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
 			.encodeChoice(as));
 	}
@@ -76,9 +77,9 @@ public class FeatTokenTest extends TestCase
 			// OK
 		}
 		Ability item = construct("ItemName");
-		CategorizedAbilitySelection as =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
-					Nature.NORMAL);
+		CNAbilitySelection as =
+				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
+					Nature.NORMAL));
 		assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}

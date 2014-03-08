@@ -48,8 +48,8 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.content.Modifier;
 import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.Capacity;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -295,7 +295,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<GameMode> GAME_MODE = new ObjectKey<GameMode>(null);
 
-	public static final ObjectKey<PersistentTransitionChoice<CategorizedAbilitySelection>> TEMPLATE_FEAT = new ObjectKey<PersistentTransitionChoice<CategorizedAbilitySelection>>(null);
+	public static final ObjectKey<PersistentTransitionChoice<CNAbilitySelection>> TEMPLATE_FEAT = new ObjectKey<PersistentTransitionChoice<CNAbilitySelection>>(null);
 
 	public static final ObjectKey<Boolean> VALID_FOR_DEITY = new ObjectKey<Boolean>(Boolean.TRUE);
 

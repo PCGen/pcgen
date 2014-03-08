@@ -20,8 +20,10 @@ package tokenmodel.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
@@ -44,14 +46,14 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		CategorizedAbilitySelection cas =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
-					Nature.AUTOMATIC);
-		directAbilityFacet.add(id, cas);
+		CNAbilitySelection cas =
+				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, source,
+					Nature.AUTOMATIC));
+		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected(granted));
 		assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,
 			getCount());
-		directAbilityFacet.remove(id, cas);
+		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
 		assertEquals(0, getCount());
 		assertTrue(cleanedSideEffects());
 	}

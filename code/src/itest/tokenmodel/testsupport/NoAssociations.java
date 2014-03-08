@@ -17,7 +17,7 @@
  */
 package tokenmodel.testsupport;
 
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
@@ -44,7 +44,7 @@ public class NoAssociations implements AssocCheck, CASAssocCheck
 		}
 	}
 
-	public boolean check(CategorizedAbilitySelection cas)
+	public boolean check(CNAbilitySelection cas)
 	{
 		return cas.getSelection() == null;
 	}

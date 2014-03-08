@@ -21,14 +21,15 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.input.DomainInputFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -166,10 +167,11 @@ public class DomainFeatTest extends AbstractTokenModelTest
 
 	protected boolean containsExpected(String selection)
 	{
-		Collection<CategorizedAbilitySelection> casSet =
+		Collection<CNAbilitySelection> casSet =
 				getTargetFacet().getSet(id);
-		for (CategorizedAbilitySelection cas : casSet)
+		for (CNAbilitySelection cnas : casSet)
 		{
+			CNAbility cas = cnas.getCNAbility();
 			boolean categoryExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			if (!categoryExpected)
@@ -194,7 +196,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 			}
 			if (selection == null)
 			{
-				if (cas.getSelection() != null)
+				if (cnas.getSelection() != null)
 				{
 					System.err.println("Selection Mismatch");
 					return false;
@@ -202,7 +204,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 			}
 			else
 			{
-				boolean selectionExpected = cas.getSelection().equals(selection);
+				boolean selectionExpected = cnas.getSelection().equals(selection);
 				if (!selectionExpected)
 				{
 					System.err.println("Selection Mismatch");
@@ -214,7 +216,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 		return false;
 	}
 
-	private AbstractListFacet<CategorizedAbilitySelection> getTargetFacet()
+	private AbstractSingleSourceListFacet<CNAbilitySelection, Object> getTargetFacet()
 	{
 		return directAbilityFacet;
 	}

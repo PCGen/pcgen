@@ -26,7 +26,7 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 
@@ -37,7 +37,7 @@ import pcgen.core.PlayerCharacter;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TemplateFeatFacet extends
-		AbstractSourcedListFacet<CharID, CategorizedAbilitySelection> implements
+		AbstractSourcedListFacet<CharID, CNAbilitySelection> implements
 		DataFacetChangeListener<CharID, PCTemplate>
 {
 	private TemplateFacet templateFacet;
@@ -66,15 +66,15 @@ public class TemplateFeatFacet extends
 		PCTemplate source = dfce.getCDOMObject();
 		if (!containsFrom(id, source))
 		{
-			PersistentTransitionChoice<CategorizedAbilitySelection> choice =
+			PersistentTransitionChoice<CNAbilitySelection> choice =
 					source.get(ObjectKey.TEMPLATE_FEAT);
 			if (choice != null)
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
-				Collection<? extends CategorizedAbilitySelection> result =
+				Collection<? extends CNAbilitySelection> result =
 						choice.driveChoice(pc);
 				choice.act(result, source, pc);
-				for (CategorizedAbilitySelection cas : result)
+				for (CNAbilitySelection cas : result)
 				{
 					add(id, cas, source);
 				}
@@ -100,7 +100,7 @@ public class TemplateFeatFacet extends
 	{
 		CharID id = dfce.getCharID();
 		PCTemplate source = dfce.getCDOMObject();
-		PersistentTransitionChoice<CategorizedAbilitySelection> choice =
+		PersistentTransitionChoice<CNAbilitySelection> choice =
 				source.get(ObjectKey.TEMPLATE_FEAT);
 		if (choice != null)
 		{

@@ -22,11 +22,13 @@ import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.KnownSpellFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -140,10 +142,10 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		CategorizedAbilitySelection cas =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
-					Nature.AUTOMATIC);
-		directAbilityFacet.add(id, cas);
+		CNAbilitySelection cas =
+				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, source,
+					Nature.AUTOMATIC));
+		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");
 		varsource.put(VariableKey.getConstant("MyCasterLevel"), FormulaFactory.getFormulaFor(4.0));
@@ -151,7 +153,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		pc.calcActiveBonuses();
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		directAbilityFacet.remove(id, cas);
+		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
 		pc.calcActiveBonuses();
 		assertEquals(baseCount(), targetFacetCount());
 	}
