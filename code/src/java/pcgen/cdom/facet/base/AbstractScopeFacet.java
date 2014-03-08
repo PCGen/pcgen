@@ -27,6 +27,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pcgen.base.util.GenericMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
@@ -198,6 +200,11 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	public void removeAllFromSource(IDT id, Object source)
 	{
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
+		/*
+		 * This list exists primarily to eliminate the possibility of a
+		 * concurrent modification exception on a recursive remove
+		 */
+		MapToList<S, T> removed = GenericMapToList.getMapToList(IdentityHashMap.class);
 		if (map != null)
 		{
 			for (Iterator<Map.Entry<S, Map<T, Set<Object>>>> it =
@@ -215,8 +222,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 					{
 						T obj = lme.getKey();
 						lmit.remove();
-						fireScopeFacetChangeEvent(id, scope, obj,
-							ScopeFacetChangeEvent.DATA_REMOVED);
+						removed.addToListFor(scope, obj);
 					}
 				}
 				if (scopeMap.isEmpty())
@@ -227,6 +233,14 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			if (map.isEmpty())
 			{
 				removeCache(id);
+			}
+			for (S scope : removed.getKeySet())
+			{
+				for (T obj : removed.getListFor(scope))
+				{
+					fireScopeFacetChangeEvent(id, scope, obj,
+						ScopeFacetChangeEvent.DATA_REMOVED);
+				}
 			}
 		}
 	}
