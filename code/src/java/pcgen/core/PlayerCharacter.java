@@ -8781,23 +8781,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return BigDecimal.valueOf(spent);
 	}
 
-	public void addFeat(final Ability aFeat)
-	{
-		if (hasRealAbility(AbilityCategory.FEAT, aFeat))
-		{
-			Logging.errorPrint("Adding duplicate feat: " + aFeat.getDisplayName());
-		}
-
-		if (aFeat == null)
-		{
-			Logging.errorPrint("Cannot add null feat");
-		} else
-		{
-			abFacet.add(id, AbilityCategory.FEAT, Nature.NORMAL, aFeat);
-			calcActiveBonuses();
-		}
-	}
-
 	public void addAbility(final Category<Ability> aCategory, final Ability anAbility)
 	{
 		if (hasRealAbility(aCategory, anAbility))
