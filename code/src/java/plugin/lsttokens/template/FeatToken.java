@@ -175,7 +175,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		{
 			return false;
 		}
-		if (!pc.canSelectAbility(ability, false))
+		if (!ability.qualifies(pc, ability))
 		{
 			return false;
 		}

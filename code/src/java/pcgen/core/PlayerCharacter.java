@@ -5701,38 +5701,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 	}
 
-	/**
-	 * Does the character have this ability as an auto ability.
-	 * 
-	 * @param aCategory
-	 *            The ability category to check.
-	 * @param anAbility
-	 *            The Ability object to check
-	 * 
-	 * @return <tt>true</tt> if the character has the ability
-	 */
-	public boolean hasAutomaticAbility(final AbilityCategory aCategory, final Ability anAbility)
-	{
-		return abFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility)
-				|| grantedAbilityFacet.contains(id, aCategory, Nature.AUTOMATIC, anAbility);
-	}
-
-	/**
-	 * Does the character have this ability as a virtual ability.
-	 * 
-	 * @param aCategory
-	 *            The ability category to check.
-	 * @param anAbility
-	 *            The Ability object to check
-	 * 
-	 * @return <tt>true</tt> if the character has the ability
-	 */
-	public boolean hasVirtualAbility(final AbilityCategory aCategory, final Ability anAbility)
-	{
-		return abFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility)
-				|| grantedAbilityFacet.contains(id, aCategory, Nature.VIRTUAL, anAbility);
-	}
-
 	public boolean hasMadeKitSelectionForAgeSet(final int index)
 	{
 		return ((index >= 0) && (index < 10) && ageSetKitSelections[index]);
@@ -8662,33 +8630,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			retVal += getBonusFeatPool();
 		}
 		return retVal;
-	}
-
-	/**
-	 * Query whether this PC should be able to select the ability passed in.
-	 * That is, does the PC meet the prerequisites and is the feat not one the
-	 * PC already has, or if the PC has the feat already, is it one that can be
-	 * taken multiple times. TODO: When the PlayerCharacter Object can have
-	 * abilities of category other than "FEAT" it will likely have methods to
-	 * test "hasRealAbility" and "hasVirtualAbility", change this (or add
-	 * another) to deal with them
-	 * 
-	 * @param anAbility
-	 *            the ability to test
-	 * @param autoQualify
-	 *            if true, the PC automatically meets the prerequisites
-	 * @return true if the PC can take, false otherwise
-	 */
-	public boolean canSelectAbility(final Ability anAbility, final boolean autoQualify)
-	{
-		final boolean qualify = anAbility.qualifies(this, anAbility);
-		final boolean canTakeMult = anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED);
-		final boolean hasOrdinary = hasRealAbility(AbilityCategory.FEAT, anAbility);
-		final boolean hasAuto = hasAutomaticAbility(AbilityCategory.FEAT, anAbility);
-
-		final boolean notAlreadyHas = !(hasOrdinary || hasAuto);
-
-		return (autoQualify || qualify) && (canTakeMult || notAlreadyHas);
 	}
 
 	/**

@@ -308,7 +308,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return false;
 		}
-		if (!pc.canSelectAbility(ability, false))
+		if (!ability.qualifies(pc, ability))
 		{
 			return false;
 		}

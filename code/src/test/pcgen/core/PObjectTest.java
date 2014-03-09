@@ -399,7 +399,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(race);
-		assertTrue("Character should have ability1.", hasAbility(pc, null,
+		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));

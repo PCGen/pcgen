@@ -773,13 +773,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Add the class to the character
 		PlayerCharacter pc = getCharacter();
 		pc.incrementClassLevel(1, pcclass, true);
-		assertTrue("Character should have ability1.", hasAbility(pc, null,
+		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 		assertFalse("Character should not have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 
 		pc.incrementClassLevel(1, pcclass, true);
-		assertTrue("Character should have ability1.", hasAbility(pc, null,
+		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));

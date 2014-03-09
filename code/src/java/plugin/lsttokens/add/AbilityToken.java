@@ -426,7 +426,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return false;
 		}
 		boolean isVirtual = Nature.VIRTUAL.equals(cna.getNature());
-		if (!pc.canSelectAbility(ability, isVirtual))
+		if (!isVirtual && !ability.qualifies(pc, ability))
 		{
 			return false;
 		}

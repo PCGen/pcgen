@@ -328,10 +328,6 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return false;
 		}
-		if (!pc.canSelectAbility(ability, false))
-		{
-			return false;
-		}
 		String selection = choice.getSelection();
 		// Avoid any already selected
 		return !AbilityUtilities.alreadySelected(pc, ability, selection, allowStack);
