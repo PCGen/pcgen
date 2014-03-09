@@ -132,6 +132,7 @@ import pcgen.cdom.facet.StatCalcFacet;
 import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubstitutionClassFacet;
+import pcgen.cdom.facet.TargetTrackingFacet;
 import pcgen.cdom.facet.TemplateFeatFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
 import pcgen.cdom.facet.XPTableFacet;
@@ -425,7 +426,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
-
+	private TargetTrackingFacet astocnasFacet = FacetLibrary.getFacet(TargetTrackingFacet.class);
+	
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
@@ -11002,16 +11004,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return templateFeatFacet.getSet(id, template);
 	}
 
-	public void addAppliedAbility(CDOMObject owner, Category<Ability> category,
-		Nature nature, AbilitySelection cas)
+	public void addAppliedAbility(CDOMObject owner, CNAbilitySelection cnas)
 	{
-		directAbilityInputFacet.add(id, owner, category, nature, cas);
+		directAbilityInputFacet.add(id, owner, cnas);
 	}
 
-	public void removeAppliedAbility(CDOMObject owner,
-		Category<Ability> category, Nature nature, AbilitySelection cas)
+	public void removeAppliedAbility(CDOMObject owner, CNAbilitySelection cnas)
 	{
-		directAbilityInputFacet.remove(id, owner, category, nature, cas);
+		directAbilityInputFacet.remove(id, owner, cnas);
 	}
 
 	public Ability getUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
@@ -11123,5 +11123,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public boolean isAllowInteraction()
 	{
 		return allowInteraction;
+	}
+
+	public void associateSelection(AbilitySelection as, CNAbilitySelection cnas)
+	{
+		astocnasFacet.set(id, as, cnas);
+	}
+
+	public CNAbilitySelection getAssociatedSelection(AbilitySelection as)
+	{
+		return astocnasFacet.get(id, as);
 	}
 }

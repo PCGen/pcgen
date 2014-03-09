@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2009-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,14 +18,9 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Category;
-import pcgen.cdom.content.AbilitySelection;
-import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
-import pcgen.core.Ability;
 
 /**
  * DirectAbilityInputFacet is a Facet that tracks the Abilities that are added
@@ -35,94 +30,33 @@ import pcgen.core.Ability;
  */
 public class DirectAbilityInputFacet
 		extends
-		AbstractSingleSourceListFacet<CNAbilitySelection, DirectAbilityInputFacet.DAIFSource>
+		AbstractSingleSourceListFacet<CNAbilitySelection, CDOMObject>
 {
-	public void add(CharID id, CDOMObject owner, Category<Ability> category,
-		Nature nature, AbilitySelection as)
+	public void add(CharID id, CDOMObject owner, CNAbilitySelection as)
 	{
 		if (owner == null)
 		{
 			throw new IllegalArgumentException("Owner Object may not be null");
 		}
-		if (category == null)
-		{
-			throw new IllegalArgumentException("Category may not be null");
-		}
-		if (nature == null)
-		{
-			throw new IllegalArgumentException("Nature may not be null");
-		}
 		if (as == null)
 		{
 			throw new IllegalArgumentException(
-				"AbilitySelection to add may not be null");
+				"CNAbilitySelection to add may not be null");
 		}
-		DAIFSource source = new DAIFSource(owner, category, nature, as);
-		CNAbilitySelection cas =
-				new CNAbilitySelection(new CNAbility(category,
-					as.getObject(), nature), as.getSelection());
-		add(id, cas, source);
+		add(id, as, owner);
 	}
 
-	public void remove(CharID id, CDOMObject owner, Category<Ability> category,
-		Nature nature, AbilitySelection as)
+	public void remove(CharID id, CDOMObject owner, CNAbilitySelection as)
 	{
 		if (owner == null)
 		{
 			throw new IllegalArgumentException("Owner Object may not be null");
 		}
-		if (category == null)
-		{
-			throw new IllegalArgumentException("Category may not be null");
-		}
-		if (nature == null)
-		{
-			throw new IllegalArgumentException("Nature may not be null");
-		}
 		if (as == null)
 		{
 			throw new IllegalArgumentException(
-				"AbilitySelection to add may not be null");
+				"CNAbilitySelection to add may not be null");
 		}
-		removeOne(id, new DAIFSource(owner, category, nature, as));
-	}
-
-	protected class DAIFSource
-	{
-
-		private final CDOMObject owner;
-		private final Category<Ability> category;
-		private final Nature nature;
-		private final AbilitySelection abSelection;
-
-		public DAIFSource(CDOMObject owner, Category<Ability> category,
-			Nature nature, AbilitySelection as)
-		{
-			this.owner = owner;
-			this.category = category;
-			this.nature = nature;
-			this.abSelection = as;
-		}
-
-		@Override
-		public int hashCode()
-		{
-			return System.identityHashCode(abSelection);
-		}
-
-		@Override
-		public boolean equals(Object o)
-		{
-			if (o instanceof DAIFSource)
-			{
-				DAIFSource other = (DAIFSource) o;
-				//Yes, instance identity on abSelection
-				return (other.abSelection == abSelection)
-					&& owner.equals(other.owner)
-					&& category.equals(other.category)
-					&& nature.equals(other.nature);
-			}
-			return false;
-		}
+		remove(id, as, owner);
 	}
 }
