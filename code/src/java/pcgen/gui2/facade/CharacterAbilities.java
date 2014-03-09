@@ -879,11 +879,11 @@ public class CharacterAbilities
 	 * the character's list of granted abilities.
 	 */
 	private final class GrantedAbilityChangeHandler implements
-			DataFacetChangeListener<CharID, Ability>
+			DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 		@SuppressWarnings("nls")
 		@Override
-		public void dataAdded(DataFacetChangeEvent<CharID, Ability> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -903,7 +903,7 @@ public class CharacterAbilities
 
 		@SuppressWarnings("nls")
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<CharID, Ability> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{

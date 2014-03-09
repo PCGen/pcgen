@@ -33,6 +33,7 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.SimpleAbilityFacet;
 import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
@@ -98,6 +99,8 @@ public class FacetInitialization {
 		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
+		SimpleAbilityFacet simpleAbilityFacet = FacetLibrary.getFacet(SimpleAbilityFacet.class);
+		AbilitySelectionApplication abilitySelectionApplication = FacetLibrary.getFacet(AbilitySelectionApplication.class);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
@@ -115,6 +118,8 @@ public class FacetInitialization {
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
 		levelFacet.addLevelChangeListener(sizeFacet);
 
+		grantedAbilityFacet.addDataFacetChangeListener(abilitySelectionApplication);
+		grantedAbilityFacet.addDataFacetChangeListener(simpleAbilityFacet);
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		directAbilityInputFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
@@ -140,7 +145,7 @@ public class FacetInitialization {
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
 		classLevelFacet.addDataFacetChangeListener(charObjectFacet); //model done
-		grantedAbilityFacet.addDataFacetChangeListener(charObjectFacet);
+		simpleAbilityFacet.addDataFacetChangeListener(charObjectFacet);
 		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
 		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);

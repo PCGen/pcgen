@@ -327,25 +327,27 @@ public class AbilityUtilities
 		String selection, boolean allowStack)
 	{
 		Collection<CNAbility> cnAbilities = pc.getMatchingCNAbilities(ability);
-		if (!cnAbilities.isEmpty())
+		if (cnAbilities.isEmpty())
 		{
-			if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				//Based on key name / category match
-				return true;
-			}
-			if (allowStack && ability.getSafe(ObjectKey.STACKS))
-			{
-				//Must allow it because it stacks
-				return false;
-			}
+			//Don't have any form of it
+			return false;
+		}
+		if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			//Based on key name / category match
+			return true;
+		}
+		if (allowStack && ability.getSafe(ObjectKey.STACKS))
+		{
+			//Must allow it because it stacks
+			return false;
 		}
 		ChooseInformation<?> info = ability.get(ObjectKey.CHOOSE_INFO);
+		Object decoded =
+				info.decodeChoice(Globals.getContext(), selection);
 		for (CNAbility cna : cnAbilities)
 		{
 			List<?> oldSelections = pc.getDetailedAssociations(cna);
-			Object decoded =
-					info.decodeChoice(Globals.getContext(), selection);
 			if ((oldSelections != null) && oldSelections.contains(decoded))
 			{
 				return true;

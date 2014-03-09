@@ -3595,10 +3595,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			return contained;
 		}
-		contained = grantedAbilityFacet.getContained(id, abilityCategory, nature, ability);
-		if (contained != null)
+		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, abilityCategory, nature);
+		for (CNAbility cna : cnas)
 		{
-			return contained;
+			if (cna.getAbilityKey().equals(ability.getKeyName()))
+			{
+				return cna.getAbility();
+			}
 		}
 		return null;
 	}
@@ -8479,22 +8482,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
 
-	/**
-	 * Does the character have this ability (not virtual or auto).
-	 * 
-	 * @param aCategory
-	 *            The ability category to check.
-	 * @param anAbility
-	 *            The Ability object (of category FEAT) to check
-	 * 
-	 * @return True if the character has the feat
-	 */
-	public boolean hasRealAbility(final Category<Ability> aCategory, final Ability anAbility)
-	{
-		return abFacet.contains(id, aCategory, Nature.NORMAL, anAbility)
-				|| grantedAbilityFacet.contains(id, aCategory, Nature.NORMAL, anAbility);
-	}
-
 	public boolean removeRealAbility(final Category<Ability> aCategory, final Ability anAbility)
 	{
 		return abFacet.remove(id, aCategory, Nature.NORMAL, anAbility);
@@ -8724,7 +8711,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public void addAbility(final Category<Ability> aCategory, final Ability anAbility)
 	{
-		if (hasRealAbility(aCategory, anAbility))
+		if (hasAbilityKeyed(aCategory, anAbility.getKeyName()))
 		{
 			Logging.errorPrint("Adding duplicate ability: " + anAbility.getDisplayName());
 		}
@@ -8785,7 +8772,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return null;
 	}
 
-	public boolean hasAbilityKeyed(final AbilityCategory cat, final String aKey)
+	public boolean hasAbilityKeyed(final Category<Ability> cat, final String aKey)
 	{
 		return abFacet.hasAbilityKeyed(id, cat, aKey)
 			|| grantedAbilityFacet.hasAbilityKeyed(id, cat, aKey);
@@ -9912,7 +9899,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		Set<Ability> newSet = new HashSet<Ability>();
 		newSet.addAll(abFacet.get(id, cat, nature));
-		newSet.addAll(grantedAbilityFacet.get(id, cat, nature));
+		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, cat, nature);
+		for (CNAbility cna : cnas)
+		{
+			newSet.add(cna.getAbility());
+		}
 		return newSet;
 	}
 
@@ -10977,17 +10968,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		list.addAll(abFacet.getCNAbilities(id, ability));
 		list.addAll(grantedAbilityFacet.getCNAbilities(id, ability));
 		return list;
-	}
-
-	public CNAbility getMatchingPoolAbility(Category<Ability> cat, Nature nature,
-		Ability a)
-	{
-		CNAbility cna = abFacet.getCNAbility(id, cat, nature, a);
-		if (cna != null)
-		{
-			return cna;
-		}
-		return grantedAbilityFacet.getCNAbility(id, cat, nature, a);
 	}
 
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)

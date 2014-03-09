@@ -7,6 +7,7 @@
 	
 	<!--  Facet Definitions -->
 	<!-- A -->
+	<bean id="abilitySelectionApplication" class="pcgen.cdom.facet.AbilitySelectionApplication" />
 	<bean id="activeAbilityFacet" class="pcgen.cdom.facet.input.ActiveAbilityFacet" />
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.model.ActiveEqModFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
@@ -510,6 +511,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.model.ShieldProfProviderFacet"/>
+	<bean id="simpleAbilityFacet" class="pcgen.cdom.facet.model.SimpleAbilityFacet"/>
 	<bean id="sizeFacet" class="pcgen.cdom.facet.model.SizeFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>

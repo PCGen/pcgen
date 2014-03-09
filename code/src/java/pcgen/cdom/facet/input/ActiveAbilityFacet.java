@@ -865,7 +865,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return set;
 	}
 
-	public boolean hasAbilityKeyed(CharID id, AbilityCategory cat, String aKey)
+	public boolean hasAbilityKeyed(CharID id, Category<Ability> cat, String aKey)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap != null)
