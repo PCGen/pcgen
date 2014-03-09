@@ -17,9 +17,9 @@
  */
 package tokenmodel;
 
-import java.util.Set;
-
+import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
@@ -73,19 +73,19 @@ public class AddTargetedAbilityNormalTest extends AbstractAddListTokenTest<Abili
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().get(id, AbilityCategory.FEAT, Nature.NORMAL)
+		return getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL)
 			.size();
 	}
 
 	@Override
 	protected boolean containsExpected(Ability granted)
 	{
-		Set<Ability> abilities =
-				getTargetFacet().get(id, AbilityCategory.FEAT, Nature.NORMAL);
-		for (Ability a : abilities)
+		Collection<CNAbility> abilities =
+				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
+		for (CNAbility a : abilities)
 		{
 			boolean abilityExpected =
-					a.equals(context.ref.silentlyGetConstructedCDOMObject(
+					a.getAbility().equals(context.ref.silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{

@@ -726,7 +726,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return Collections.emptySet();
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id)
+	public Collection<CNAbility> getCNAbilities(CharID id)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		Set<CNAbility> set = new HashSet<CNAbility>();
@@ -751,7 +751,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return set;
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+	public Collection<CNAbility> getCNAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -780,7 +780,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return set;
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+	public Collection<CNAbility> getCNAbilities(CharID id,
 		Ability ability)
 	{
 		Category<Ability> cat = ability.getCDOMCategory();
@@ -838,7 +838,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return null;
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+	public Collection<CNAbility> getCNAbilities(CharID id,
 		Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -917,7 +917,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return false;
 	}
 
-	public Collection<? extends CNAbility> getPoolAbilities(CharID id,
+	public Collection<CNAbility> getPoolAbilities(CharID id,
 		Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -940,7 +940,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		return set;
 	}
 
-	public Collection<? extends CNAbility> getPoolAbilities(CharID id,
+	public Collection<CNAbility> getPoolAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);

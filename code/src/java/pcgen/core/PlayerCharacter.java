@@ -8628,7 +8628,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		double iCount = 0;
 
-		Collection<? extends CNAbility> abilities =
+		Collection<CNAbility> abilities =
 				abFacet.getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
 		if (abilities == null)
 		{
