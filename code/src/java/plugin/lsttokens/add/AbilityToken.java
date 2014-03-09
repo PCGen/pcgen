@@ -406,12 +406,13 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, a);
 			pc.addSavedAbility(a);
-			AbilityUtilities.finaliseAbility(a, association, pc, cat);
+			cna.doMagicalAndEvilThings(a);
+			AbilityUtilities.finaliseAbility(pc, choice);
 		}
 		else
 		{
 			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST));
-			AbilityUtilities.modAbility(pc, ab, association, cat);
+			AbilityUtilities.modAbility(pc, choice);
 		}
 	}
 

@@ -34,6 +34,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -293,7 +294,8 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		Ability ab = choice.getCNAbility().getAbility();
+		CNAbility cna = choice.getCNAbility();
+		Ability ab = cna.getAbility();
 		String selection = choice.getSelection();
 		AbilityCategory cat = AbilityCategory.FEAT;
 		Ability aFeat =
@@ -303,7 +305,8 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			aFeat = pc.getUserVirtualAbility(cat, ab);
 		}
-		AbilityUtilities.finaliseAbility(aFeat, selection, pc, cat);
+		cna.doMagicalAndEvilThings(aFeat);
+		AbilityUtilities.finaliseAbility(pc, choice);
 		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
 		// TODO: Why is this here? Normally this is only used in the UI layer.
 		pc.setDirty(true);

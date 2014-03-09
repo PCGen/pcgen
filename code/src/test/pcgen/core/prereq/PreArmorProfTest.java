@@ -35,7 +35,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.ArmorProf;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
@@ -103,7 +102,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
 		assertTrue("Character has the Chainmail proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -143,7 +142,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
 		assertTrue("Character has one of Chainmail or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -181,7 +180,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
 		assertTrue("Character has Medium Armor Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -211,7 +210,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Breastplate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
 		assertFalse("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -251,7 +250,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
 		assertTrue("Character has the Breastplate proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -311,7 +310,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
 		Ability foo = new Ability();
 		final String fooStr =

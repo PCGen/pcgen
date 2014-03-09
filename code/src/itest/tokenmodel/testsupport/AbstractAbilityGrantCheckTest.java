@@ -17,6 +17,9 @@
  */
 package tokenmodel.testsupport;
 
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -236,7 +239,9 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	private void applyParent(Ability parent)
 	{
-		AbilityUtilities.modAbility(pc, parent, null, AbilityCategory.FEAT);
+		CNAbility cna = new CNAbility(AbilityCategory.FEAT, parent, Nature.NORMAL);
+		CNAbilitySelection cnas = new CNAbilitySelection(cna);
+		AbilityUtilities.modAbility(pc, cnas);
 //		pc.addAppliedAbility(new CategorizedAbilitySelection(
 //			AbilityCategory.FEAT, parent, Nature.NORMAL));
 	}

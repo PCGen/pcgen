@@ -186,7 +186,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 
-		AbilityUtilities.modAbility(pc, pobj, "Foo", AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, pobj, "Foo");
 		assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 

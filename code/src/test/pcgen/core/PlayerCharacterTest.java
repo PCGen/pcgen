@@ -503,7 +503,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
 		{
-			AbilityUtilities.modAbility(character, toughness, null, AbilityCategory.FEAT);
+			AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, toughness, "");
 			is((int) character.getRemainingFeatPoints(true), eq(1), "Only 1 feat used");
 		}
 		catch (HeadlessException e)
@@ -954,17 +954,17 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		try
 		{
-			AbilityUtilities.modAbility(pc, toughness, null, AbilityCategory.FEAT);
+			AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, toughness, "");
 			//pc.calcActiveBonuses();
 			assertEquals("Check application of single bonus", base+3, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
-			AbilityUtilities.modAbility(pc, toughness, null, AbilityCategory.FEAT);
+			AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, toughness, "");
 			pc.calcActiveBonuses();
 			assertEquals("Check application of second bonus", base+6, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
 
-			AbilityUtilities.modAbility(pc, toughness, "Toughness",
-					specialFeatCat);
+			AbstractCharacterTestCase.applyAbility(pc, specialFeatCat, toughness,
+					"Toughness");
 			pc.calcActiveBonuses();
 			assertEquals(
 				"Check application of third bonus in different catgeory",
@@ -1029,7 +1029,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));
 		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor(str, true, false));
 
-		AbilityUtilities.modAbility(pc, strBonusAbility, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, strBonusAbility, null);
 		pc.calcActiveBonuses();
 
 		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor(str, false, false));

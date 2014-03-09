@@ -161,8 +161,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modAbility(pc, choice.getCNAbility().getAbility(), choice
-		.getSelection(), AbilityCategory.FEAT);
+		AbilityUtilities.modAbility(pc, choice);
 		pc.addTemplateFeat(owner, choice);
 	}
 

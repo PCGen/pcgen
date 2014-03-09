@@ -558,7 +558,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		casterFeat.setCDOMCategory(AbilityCategory.FEAT);
 		context.ref.importObject(casterFeat);
 
-		AbilityUtilities.modAbility(character, casterFeat, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, casterFeat, null);
 		cast =
 				character.getSpellSupport(charClass).getCastForLevel(11, sbook, true, false, character)
 					+ character.getSpellSupport(charClass).getBonusCastForLevelString(11, sbook, character);

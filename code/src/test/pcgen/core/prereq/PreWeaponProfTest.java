@@ -34,7 +34,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -247,7 +246,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 				"WEAPONPROF|TYPE.Martial");
 		assertTrue(Globals.getContext().ref.resolveReferences(null));
 		
-		AbilityUtilities.modAbility(character, martialProf, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
 		assertTrue("Character has the Longsword proficiency.", 
 					PrereqHandler.passes(prereq, character, null));

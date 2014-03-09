@@ -21,7 +21,10 @@ import java.util.ArrayList;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -62,7 +65,9 @@ public class AbilityTargetSaveRestoreTest extends
 		{
 			assoc = "Granted";
 		}
-		AbilityUtilities.modAbility(pc, obj, assoc, AbilityCategory.FEAT);
+		CNAbility cna = new CNAbility(AbilityCategory.FEAT, obj, Nature.NORMAL);
+		CNAbilitySelection cnas = new CNAbilitySelection(cna, assoc);
+		AbilityUtilities.modAbility(pc, cnas);
 	}
 
 	@Override

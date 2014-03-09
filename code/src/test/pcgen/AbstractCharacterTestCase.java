@@ -15,8 +15,10 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -314,6 +316,13 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			}
 		}
 		return false;
+	}
+
+	public static void applyAbility(PlayerCharacter character,
+		AbilityCategory cat, Ability a, String assoc)
+	{
+		CNAbility cna = new CNAbility(cat, a, Nature.NORMAL);
+		AbilityUtilities.modAbility(character, new CNAbilitySelection(cna, assoc));
 	}
 
 }

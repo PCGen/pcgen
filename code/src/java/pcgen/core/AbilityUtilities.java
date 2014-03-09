@@ -36,6 +36,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -189,6 +190,58 @@ public class AbilityUtilities
 		}
 	}
 
+	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
+	{
+		CNAbility cna = cnas.getCNAbility();
+		Ability ability = cna.getAbility();
+		// how many sub-choices to make
+		double abilityCount =
+				(aPC.getSelectCorrectedAssociationCount(ability) * ability
+					.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+
+		ChoiceManagerList cm =
+				ChooserUtilities.getChoiceManager(ability, aPC);
+		if (cm != null)
+		{
+			add(cm, aPC, ability, cnas.getSelection());
+		}
+
+		/*
+		 * This modifyChoice method is a bit like mod choices, but it uses a
+		 * different tag to set the chooser string.
+		 */
+		TransitionChoice<Ability> mc = ability.get(ObjectKey.MODIFY_CHOICE);
+		if (mc != null)
+		{
+			mc.act(mc.driveChoice(aPC), ability, aPC);
+		}
+
+		for (TransitionChoice<Kit> kit : ability
+			.getSafeListFor(ListKey.KIT_CHOICE))
+		{
+			kit.act(kit.driveChoice(aPC), ability, aPC);
+		}
+
+		if (cna.getAbilityCategory() == AbilityCategory.FEAT)
+		{
+			adjustPool(ability, aPC, true, abilityCount, false);
+		}
+
+		aPC.adjustMoveRates();
+
+		if (!aPC.isImporting())
+		{
+			AddObjectActions.globalChecks(ability, aPC);
+			/*
+			 * Protection for CODE-1240. Note the better solution is when facets
+			 * are association aware and thus trigger a change when an
+			 * association is added. - thpr
+			 */
+			aPC.calcActiveBonuses();
+			aPC.refreshSkillList();
+		}
+	}
+
 	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
 		CDOMObject obj, String choice)
 	{
@@ -236,19 +289,19 @@ public class AbilityUtilities
 	 * @param   choice                    For an isMultiples() Ability
 	 * @param   category The AbilityCategory to add or remove the ability from.
 	 */
-	public static void modAbility(
-		final PlayerCharacter aPC,
-		final Ability         argAbility,
-		final String          choice,
-		final AbilityCategory category)
+	public static void modAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
 	{
 		if (!aPC.isImporting())
 		{
 			aPC.getSpellList();
 		}
 
-		Ability pcAbility = aPC.addAbilityNeedCheck(category, argAbility);
-		finaliseAbility(pcAbility, choice, aPC, category);
+		CNAbility cna = cnas.getCNAbility();
+		Ability pcAbility =
+				aPC.addAbilityNeedCheck(cna.getAbilityCategory(),
+					cna.getAbility());
+		cna.doMagicalAndEvilThings(pcAbility);
+		finaliseAbility(aPC, cnas);
 	}
 
 	public static Ability retrieveAbilityKeyed(AbilityCategory aCat,

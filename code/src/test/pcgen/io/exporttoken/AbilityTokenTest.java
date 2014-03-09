@@ -36,7 +36,6 @@ import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AlignmentConverter;
@@ -124,8 +123,8 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
 		Ability ability = character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
-		AbilityUtilities.modAbility(character, ability, "KEY_Bluff", AbilityCategory.FEAT);
-		AbilityUtilities.modAbility(character, ability, "KEY_Listen", AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ability, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ability, "KEY_Listen");
 		character.calcActiveBonuses();
 	}
 
