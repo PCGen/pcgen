@@ -209,16 +209,6 @@ public class AbilityRefChoiceSet implements
 	private Collection<CNAbilitySelection> addMultiplySelectableAbility(
 			final PlayerCharacter aPC, Ability ability, String subName)
 	{
-		// If already have taken the feat, use it so we can remove
-		// any choices already selected
-		final Ability pcFeat = aPC.getFeatNamed(ability.getKeyName());
-
-		Ability pcability = ability;
-		if (pcFeat != null)
-		{
-			pcability = pcFeat;
-		}
-
 		boolean isPattern = false;
 		String nameRoot = null;
 		if (subName != null)
@@ -236,7 +226,7 @@ public class AbilityRefChoiceSet implements
 			}
 		}
 
-		ChooseInformation<?> chooseInfo = pcability.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
 		final List<String> availableList = getAvailableList(aPC, chooseInfo);
 
 		// Remove any that don't match
@@ -299,7 +289,7 @@ public class AbilityRefChoiceSet implements
 		for (String s : availableList)
 		{
 			returnList.add(new CNAbilitySelection(new CNAbility(category,
-				pcability, nature), s));
+				ability, nature), s));
 		}
 		return returnList;
 	}

@@ -3565,29 +3565,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(), aName.toUpperCase());
 	}
 
-	/**
-	 * Returns the Feat definition of a feat possessed by the character.
-	 * 
-	 * @param featName
-	 *            String name of the feat to check for.
-	 * @return the Feat (not the CharacterFeat) searched for, <code>null</code>
-	 *         if not found.
-	 */
-	public Ability getFeatNamed(final String featName)
-	{
-		Ability ability = AbilityUtilities.retrieveAbilityKeyed(AbilityCategory.FEAT, featName);
-		Collection<AbilityCategory> cats = SettingsHandler.getGame().getAllAbilityCatsForKey(Constants.FEAT_CATEGORY);
-		for (AbilityCategory abilityCategory : cats)
-		{
-			Ability contained = getMatchingAbility(abilityCategory, ability);
-			if (contained != null)
-			{
-				return contained;
-			}
-		}
-		return null;
-	}
-
 	public Ability getMatchingAbility(Category<Ability> abilityCategory, Ability ability, Nature nature)
 	{
 		Ability contained = abFacet.getContained(id, abilityCategory, nature, ability);
@@ -3602,26 +3579,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			{
 				return cna.getAbility();
 			}
-		}
-		return null;
-	}
-
-	private Ability getMatchingAbility(AbilityCategory abilityCategory, Ability ability)
-	{
-		Ability contained = getMatchingAbility(abilityCategory, ability, Nature.NORMAL);
-		if (contained != null)
-		{
-			return contained;
-		}
-		contained = getMatchingAbility(abilityCategory, ability, Nature.VIRTUAL);
-		if (contained != null)
-		{
-			return contained;
-		}
-		contained = getMatchingAbility(abilityCategory, ability, Nature.AUTOMATIC);
-		if (contained != null)
-		{
-			return contained;
 		}
 		return null;
 	}
