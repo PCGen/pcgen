@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!-- $Id$ -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -6,7 +8,7 @@
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
 	xmlns:Psionics="my:Psionics"
 	xmlns:myAttribs="my:Attribs"
-	exclude-result-prefixes="myAttribs">
+	exclude-result-prefixes="myAttribs Psionics">
 
 	<xsl:import href="fantasy_common.xsl"/>
 	<xsl:import href="leadership.xsl"/>
@@ -414,17 +416,9 @@
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
-<!-->	ADITIONAL PAGES for Spells 
-			<fo:page-sequence>
-				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
-				<xsl:call-template name="page.footer"/>
-				<fo:flow flow-name="body"font-size="8pt">
-					<fo:block span="all" space-after.optimum="3pt">
-						<xsl:apply-templates select="spells"/>
-					</fo:block> -->
+<!-->	ADITIONAL PAGES for Spells	-->
 <xsl:message>Additional Pages</xsl:message>
 
-<!--		ADDITIONAL PAGES	-->
 			<xsl:apply-templates select="spells"/>	
 			<xsl:apply-templates select="basics" mode="bio"/>
 			<xsl:apply-templates select="basics/notes" mode="bio"/>
@@ -5280,7 +5274,9 @@ first page
 							<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>
 						</xsl:call-template>
-						<fo:block font-size="8pt" text-align="center"><xsl:value-of select="check_type"/></fo:block>
+						<fo:block font-size="8pt" text-align="center">
+							<xsl:value-of select="check_type"/>
+						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell padding-top="1pt" padding-left="9pt">
 						<xsl:call-template name="attrib">
@@ -7103,7 +7099,7 @@ first page
 						<xsl:with-param name="title" select="'Innate Racial Spells'"/>
 					</xsl:call-template>
 					<fo:table-body>
-						<xsl:apply-templates select="spell" mode="innate_details">
+						<xsl:apply-templates select="spell" mode="details">	<!-- > was <xsl:apply-templates select="spell" mode="innate_details">	-->
 							<xsl:with-param name="columnOne" select="'Times'"/>
 						</xsl:apply-templates>
 					</fo:table-body>
@@ -7126,7 +7122,7 @@ first page
 						<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 					</xsl:call-template>
 					<fo:table-body>
-						<xsl:apply-templates select="spell" mode="innate_details">
+						<xsl:apply-templates select="spell" mode="details"><!-- > was <xsl:apply-templates select="spell" mode="innate_details">	-->
 							<xsl:with-param name="columnOne" select="'Times'"/>
 						</xsl:apply-templates>
 					</fo:table-body>
@@ -7401,7 +7397,9 @@ first page
 				<xsl:with-param name="columnOne" select="$columnOne"/>
 				<xsl:sort select="name"/>
 			</xsl:apply-templates>
-			<fo:table-row height="1mm"/>
+			<fo:table-row height="1mm">
+				<fo:table-cell />
+			</fo:table-row>
 		</xsl:if>
 	</xsl:template>
 
@@ -7629,7 +7627,9 @@ first page
 
 <!-- Second Row = For Spell Descriptions -->
 		<fo:table-row><xsl:message>message</xsl:message>
-			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/>
+			</xsl:call-template>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 <!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
 				<fo:block text-align="start" font-size="5pt"><xsl:message>message</xsl:message>
@@ -7668,8 +7668,7 @@ first page
 							<fo:inline>; </fo:inline>
 							<fo:inline font-style="italic" font-weight="bold">CONCENTRATION:</fo:inline>
 							<xsl:value-of select="concentration"/>
-					</xsl:if>
-					
+						</xsl:if>
 				</fo:block>
 			</fo:table-cell><xsl:message>message</xsl:message>
 		</fo:table-row>
@@ -7781,7 +7780,9 @@ first page
 		</fo:table-row>
 <!-- Third Row = For Spell Descriptions -->
 		<fo:table-row><xsl:message>message</xsl:message>
-			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+			<xsl:call-template name="attrib">
+				<xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/>
+			</xsl:call-template>
 			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 				<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
 					<fo:block text-align="start" font-size="5pt"><xsl:message>message</xsl:message>
