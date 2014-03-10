@@ -4634,7 +4634,7 @@ first page
 	TEMPLATE - RAGE
 ====================================
 ====================================-->
-	<xsl:template match="rage">
+	<xsl:template match="rage"><xsl:message>rage</xsl:message>
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'rage'"/>
 			<xsl:with-param name="name" select="'BARBARIAN RAGE'"/>
@@ -4650,7 +4650,7 @@ first page
 	TEMPLATE - WILDSHAPE
 ====================================
 ====================================-->
-	<xsl:template match="wildshape">
+	<xsl:template match="wildshape"><xsl:message>ws</xsl:message>
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'wildshape'"/>
 			<xsl:with-param name="name" select="'DRUID WILDSHAPE'"/>
@@ -4664,7 +4664,7 @@ first page
 	TEMPLATE - PERFORM
 ====================================
 ====================================-->
-	<xsl:template match="bardic_music">
+	<xsl:template match="bardic_music"><xsl:message>message</xsl:message>
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'bard'"/>
 			<xsl:with-param name="name" select="'BARDIC MUSIC'"/>
@@ -4711,7 +4711,7 @@ first page
 		<xsl:param name="info"/>
 		<xsl:param name="info2"/>
 		<xsl:param name="info3"/>
-		<fo:table-row>
+		<fo:table-row><xsl:message>message</xsl:message>
 			<fo:table-cell padding-top="1pt" text-align="end">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
 				<fo:block font-size="8pt">
@@ -4738,7 +4738,7 @@ first page
 			<xsl:value-of select="/channel_intensity"/>
 		</xsl:variable>
 		<!-- BEGIN Channeling Table -->
-		<fo:table table-layout="fixed" space-before="1mm" keep-together="always" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" space-before="1mm" keep-together="always" border-collapse="collapse" padding="0.5pt"><xsl:message>message</xsl:message>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
 			<fo:table-column>
@@ -4921,7 +4921,7 @@ first page
 	<xsl:template name="eclipse_channeling.per.day">
 		<xsl:param name="title" />
 		<xsl:param name="value"/>
-		<fo:table-row>
+		<fo:table-row><xsl:message>message</xsl:message>
 			<fo:table-cell  padding-top="2pt" padding-right="2pt">
 				<fo:block text-align="end" display-align="center" font-size="9pt"><xsl:value-of select="$title"/></fo:block>
 			</fo:table-cell>
@@ -4951,7 +4951,7 @@ first page
 				<xsl:otherwise>lightline</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<fo:table-row>
+		<fo:table-row><xsl:message>message</xsl:message>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('turning.', $shade)"/></xsl:call-template>
 			<fo:table-cell>
 				<fo:block font-size="7pt"><xsl:value-of select="$die"/></fo:block>
@@ -5641,7 +5641,7 @@ first page
 	TEMPLATE - TEMPLATES
 ====================================
 ====================================-->
-	<xsl:template match="templates">
+	<xsl:template match="templates"><xsl:message>message</xsl:message>
 		<!-- BEGIN Templates Table -->
 		<xsl:call-template name="stripped.list">
 			<xsl:with-param name="attribute" select="'templates'" />
@@ -5657,7 +5657,7 @@ first page
 	TEMPLATE - PROHIBITED
 ====================================
 ====================================-->
-	<xsl:template match="prohibited_schools">
+	<xsl:template match="prohibited_schools"><xsl:message>message</xsl:message>
 		<xsl:if test=". != ''">
 			<xsl:call-template name="list">
 				<xsl:with-param name="attribute" select="'prohibited'"/>
@@ -5672,7 +5672,7 @@ first page
 	TEMPLATE - COMPANIONS
 ====================================
 ====================================-->
-	<xsl:template match="companions">
+	<xsl:template match="companions"><xsl:message>message</xsl:message>
 		<!-- BEGIN Companions Table -->
 		<xsl:apply-templates select="familiar"/>
 		<xsl:apply-templates select="psicrystal"/>
@@ -5954,7 +5954,7 @@ first page
 	TEMPLATE - Equipment
 ====================================
 ====================================-->
-	<xsl:template match="equipment">
+	<xsl:template match="equipment"><xsl:message>message</xsl:message>
 		<fo:block>
 			<fo:table table-layout="fixed" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
@@ -6143,7 +6143,7 @@ first page
 		<xsl:param name="title"/>
 		<xsl:param name="value"/>
 
-		<fo:table-cell padding-top="1pt" padding-right="1mm">
+		<fo:table-cell padding-top="1pt" padding-right="1mm"><xsl:message>message</xsl:message>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weight.darkline'"/></xsl:call-template>
 			<fo:block font-size="7pt" text-align="end"><xsl:value-of select="$title"/></fo:block>
 		</fo:table-cell>
@@ -6226,7 +6226,7 @@ first page
 	TEMPLATE - Money
 ====================================
 ====================================-->
-	<xsl:template name="money">
+	<xsl:template name="money"><xsl:message>message</xsl:message>
 
 
 		<xsl:if test="count (misc/funds/fund|equipment/item[contains(type, 'COIN') or contains(type, 'GEM')]) or (misc/gold) &gt; 0">	
@@ -6354,7 +6354,7 @@ first page
 	TEMPLATE - Misc Magic
 ====================================
 ====================================-->
-	<xsl:template match="magics">
+	<xsl:template match="magics"><xsl:message>message</xsl:message>
 		<xsl:if test="count(magic) &gt; 0">
 			<fo:table table-layout="fixed" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
@@ -6398,7 +6398,7 @@ first page
 	TEMPLATE - Other Companions
 ====================================
 ====================================-->
-	<xsl:template match="misc/companions">
+	<xsl:template match="misc/companions"><xsl:message>message</xsl:message>
 		<xsl:if test="count(companion) &gt; 0">
 			<fo:table table-layout="fixed" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
@@ -6440,7 +6440,7 @@ first page
 	TEMPLATE - Temporary Bonuses
 ====================================
 ====================================-->
-	<xsl:template match="tempbonuses">
+	<xsl:template match="tempbonuses"><xsl:message>message</xsl:message>
 		<xsl:if test="count(tempbonus) &gt; 0">
 			<xsl:call-template name="stripped.list">
 				<xsl:with-param name="attribute" select="'tempbonuses'" />
@@ -6457,7 +6457,7 @@ first page
 	TEMPLATE - Special Abilities
 ====================================
 ====================================-->
-	<xsl:template match="special_abilities">
+	<xsl:template match="special_abilities"><xsl:message>message</xsl:message>
 		<xsl:if test="count(ability) &gt; 0">
 			<xsl:call-template name="stripped.list">
 				<xsl:with-param name="attribute" select="'special_abilities'" />
@@ -6474,7 +6474,7 @@ first page
 	TEMPLATE - SPECIAL ATTACKS
 ====================================
 ====================================-->
-	<xsl:template match="special_attacks">
+	<xsl:template match="special_attacks"><xsl:message>message</xsl:message>
 		<xsl:if test="count(special_attack) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'special_attacks'" />
@@ -6491,7 +6491,7 @@ first page
 	TEMPLATE - SPECIAL QUALITIES
 ====================================
 ====================================-->
-	<xsl:template match="special_qualities">
+	<xsl:template match="special_qualities"><xsl:message>message</xsl:message>
 		<xsl:if test="count(special_quality) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'special_qualities'" />
@@ -6508,7 +6508,7 @@ first page
 	TEMPLATE - ARCHETYPES
 ====================================
 ====================================-->
-	<xsl:template match="archetypes">
+	<xsl:template match="archetypes"><xsl:message>message</xsl:message>
 		<xsl:if test="count(archetype) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'archetypes'" />
@@ -6526,7 +6526,7 @@ first page
 	TEMPLATE - AFFLICTIONS
 ====================================
 ====================================-->
-	<xsl:template match="afflictions">
+	<xsl:template match="afflictions"><xsl:message>message</xsl:message>
 		<xsl:if test="count(affliction) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'afflictions'" />
@@ -6544,7 +6544,7 @@ first page
 	TEMPLATE - ANIMAL TRICKS
 ====================================
 ====================================-->
-	<xsl:template match="animal_tricks">
+	<xsl:template match="animal_tricks"><xsl:message>message</xsl:message>
 		<xsl:if test="count(animal_trick) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'animal_tricks'" />
@@ -6561,7 +6561,7 @@ first page
 	TEMPLATE - Intelligent Magic Item
 ====================================
 ====================================-->
-	<xsl:template match="intelligent_items">
+	<xsl:template match="intelligent_items"><xsl:message>message</xsl:message>
 		<xsl:if test="count(intelligent_item) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'intelligent_items'"/>
@@ -6580,7 +6580,7 @@ first page
 	TEMPLATE - Disadvantages
 ====================================
 ====================================-->
-	<xsl:template match="disadvantages">
+	<xsl:template match="disadvantages"><xsl:message>message</xsl:message>
 		<xsl:if test="count(disadvantage) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'disadvantages'"/>
@@ -6597,7 +6597,7 @@ first page
 	TEMPLATE - Martial Arts
 ====================================
 ====================================-->
-	<xsl:template match="martial_arts">
+	<xsl:template match="martial_arts"><xsl:message>message</xsl:message>
 		<xsl:if test="count(martial_art) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'martial_arts'"/>
@@ -6614,7 +6614,7 @@ first page
 	TEMPLATE - Mystic Artist
 ====================================
 ====================================-->
-	<xsl:template match="mystic_artists">
+	<xsl:template match="mystic_artists"><xsl:message>message</xsl:message>
 		<xsl:if test="count(mystic_artist) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'mystic_artists'"/>
@@ -6631,7 +6631,7 @@ first page
 	TEMPLATE - Witchcraft
 ====================================
 ====================================-->
-	<xsl:template match="witchcrafts">
+	<xsl:template match="witchcrafts"><xsl:message>message</xsl:message>
 		<xsl:if test="count(witchcraft) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'witchcrafts'"/>
@@ -6648,7 +6648,7 @@ first page
 	TEMPLATE - Channeling
 ====================================
 ====================================-->
-	<xsl:template match="channelings">
+	<xsl:template match="channelings"><xsl:message>message</xsl:message>
 		<xsl:if test="count(channeling) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'channelings'"/>
@@ -6665,7 +6665,7 @@ first page
 	TEMPLATE - Dominion
 ====================================
 ====================================-->
-	<xsl:template match="dominions">
+	<xsl:template match="dominions"><xsl:message>message</xsl:message>
 		<xsl:if test="count(dominion) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'dominions'"/>
@@ -6682,7 +6682,7 @@ first page
 	TEMPLATE - The Path of the Dragon
 ====================================
 ====================================-->
-	<xsl:template match="path_dragons">
+	<xsl:template match="path_dragons"><xsl:message>message</xsl:message>
 		<xsl:if test="count(path_dragon) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'path_dragons'"/>
@@ -6699,7 +6699,7 @@ first page
 	TEMPLATE - Recurring Bonuses
 ====================================
 ====================================-->
-	<xsl:template match="charcreations">
+	<xsl:template match="charcreations"><xsl:message>message</xsl:message>
 		<xsl:if test="count(charcreation) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'charcreations'"/>
@@ -6717,7 +6717,7 @@ first page
 	TEMPLATE - Caster Level Outputs
 ====================================
 ====================================-->
-	<xsl:template match="spellcasteroutputs">
+	<xsl:template match="spellcasteroutputs"><xsl:message>message</xsl:message>
 		<xsl:if test="count(spellcasteroutput) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'spellcasteroutputs'"/>
@@ -6734,7 +6734,7 @@ first page
 	TEMPLATE - Eclipse Abilities
 ====================================
 ====================================-->
-	<xsl:template match="eclipse_abilities">
+	<xsl:template match="eclipse_abilities"><xsl:message>message</xsl:message>
 		<xsl:if test="count(eclipse_ability) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'eclipse_abilities'" />
@@ -6751,7 +6751,7 @@ first page
 	TEMPLATE - TALENTS
 ====================================
 ====================================-->
-	<xsl:template match="talents">
+	<xsl:template match="talents"><xsl:message>message</xsl:message>
 		<xsl:if test="count(talent) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'talents'"/>
@@ -6768,7 +6768,7 @@ first page
 	TEMPLATE - Demon Cants
 ====================================
 ====================================-->
-	<xsl:template match="demon_cants">
+	<xsl:template match="demon_cants"><xsl:message>message</xsl:message>
 		<xsl:if test="count(demon_cant) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'demon_cants'" />
@@ -6785,7 +6785,7 @@ first page
 	TEMPLATE - Mage Gnosis
 ====================================
 ====================================-->
-	<xsl:template match="mage_gnosises">
+	<xsl:template match="mage_gnosises"><xsl:message>message</xsl:message>
 		<xsl:if test="count(mage_gnosis) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'mage_gnosises'" />
@@ -6802,7 +6802,7 @@ first page
 	TEMPLATE - Vampire Disciplines
 ====================================
 ====================================-->
-	<xsl:template match="vampire_disciplines">
+	<xsl:template match="vampire_disciplines"><xsl:message>message</xsl:message>
 		<xsl:if test="count(vampire_discipline) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'vampire_disciplines'" />
@@ -6819,7 +6819,7 @@ first page
 	TEMPLATE - Werewolf Rites
 ====================================
 ====================================-->
-	<xsl:template match="werewolf_rites">
+	<xsl:template match="werewolf_rites"><xsl:message>message</xsl:message>
 		<xsl:if test="count(werewolf_rite) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'werewolf_rites'" />
@@ -6838,7 +6838,7 @@ first page
 	TEMPLATE - Force Powers
 ====================================
 ====================================-->
-	<xsl:template match="force_powers">
+	<xsl:template match="force_powers"><xsl:message>message</xsl:message>
 		<xsl:if test="count(force_power) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'force_powers'"/>
@@ -6855,7 +6855,7 @@ first page
 	TEMPLATE - Force Techniques
 ====================================
 ====================================-->
-	<xsl:template match="force_techniques">
+	<xsl:template match="force_techniques"><xsl:message>message</xsl:message>
 		<xsl:if test="count(force_technique) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'force_techniques'"/>
@@ -6872,7 +6872,7 @@ first page
 	TEMPLATE - Force Secrets
 ====================================
 ====================================-->
-	<xsl:template match="force_secrets">
+	<xsl:template match="force_secrets"><xsl:message>message</xsl:message>
 		<xsl:if test="count(force_secret) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'force_secrets'"/>
@@ -6892,7 +6892,7 @@ first page
 	TEMPLATE - CLASSFEATURE POWERS
 ====================================
 ====================================-->
-	<xsl:template match="powers_classfeatures">
+	<xsl:template match="powers_classfeatures"><xsl:message>message</xsl:message>
 		<xsl:if test="count(power_classfeature) &gt; 0">
 			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_classfeatures'" />
@@ -6920,7 +6920,7 @@ first page
 	TEMPLATE - FEATPOWERS POWERS
 ====================================
 ====================================-->
-	<xsl:template match="powers_featpowers">
+	<xsl:template match="powers_featpowers"><xsl:message>message</xsl:message>
 		<xsl:if test="count(power_featpower) &gt; 0">
 			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_featpowers'" />
@@ -6949,7 +6949,7 @@ first page
 	TEMPLATE - AT-WILL POWERS
 ====================================
 ====================================-->
-	<xsl:template match="powers_atwills">
+	<xsl:template match="powers_atwills"><xsl:message>message</xsl:message>
 		<xsl:if test="count(powers_atwill) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_atwills'" />
@@ -6966,7 +6966,7 @@ first page
 	TEMPLATE - ENCOUNTER POWERS
 ====================================
 ====================================-->
-	<xsl:template match="powers_encounters">
+	<xsl:template match="powers_encounters"><xsl:message>message</xsl:message>
 		<xsl:if test="count(powers_encounter) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_encounters'" />
@@ -6983,7 +6983,7 @@ first page
 	TEMPLATE - DAILY POWERS
 ====================================
 ====================================-->
-	<xsl:template match="powers_dailies">
+	<xsl:template match="powers_dailies"><xsl:message>message</xsl:message>
 		<xsl:if test="count(powers_daily) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_dailies'" />
@@ -7000,7 +7000,7 @@ first page
 	TEMPLATE - UTILITY POWERS
 ====================================
 ====================================-->
-	<xsl:template match="powers_utilities">
+	<xsl:template match="powers_utilities"><xsl:message>message</xsl:message>
 		<xsl:if test="count(powers_utility) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'powers_utilities'" />
@@ -7017,7 +7017,7 @@ first page
 	TEMPLATE - TRAITS
 ====================================
 ====================================-->
-	<xsl:template match="traits">
+	<xsl:template match="traits"><xsl:message>message</xsl:message>
 		<xsl:if test="count(trait) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'traits'" />
@@ -7037,7 +7037,7 @@ first page
 	TEMPLATE - SALIENT DIVINE ABILITIES
 ====================================
 ====================================-->
-	<xsl:template match="salient_divine_abilities">
+	<xsl:template match="salient_divine_abilities"><xsl:message>message</xsl:message>
 		<xsl:if test="count(salient_divine_ability) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'salient_divine_abilities'" />
@@ -7054,7 +7054,7 @@ first page
 	TEMPLATE - FEATS
 ====================================
 ====================================-->
-	<xsl:template match="feats">
+	<xsl:template match="feats"><xsl:message>message</xsl:message>
 		<xsl:if test="count(feat[hidden != 'T' and name != '']) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'feats'" />
@@ -7073,17 +7073,17 @@ first page
 	TEMPLATE - SPELLS
 ====================================
 ====================================-->
-	<xsl:template match="spells">
+	<xsl:template match="spells"><xsl:message>message</xsl:message>
 		<!-- BEGIN Spells Pages -->
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:page-sequence>	
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
 				<xsl:call-template name="page.footer"/>
-				<fo:flow flow-name="body" font-size="8pt">
-					<xsl:apply-templates select="spells_innate/racial_innate"/>
-					<xsl:apply-templates select="spells_innate/class_innate"/>
-					<xsl:apply-templates select="known_spells"/>
-					<xsl:apply-templates select="memorized_spells"/>
+				<fo:flow flow-name="body"  font-size="8pt">
+						<xsl:apply-templates select="spells_innate/racial_innate"/>	
+						<xsl:apply-templates select="spells_innate/class_innate"/>	
+						<xsl:apply-templates select="known_spells"/>	
+					<xsl:apply-templates select="memorized_spells"/>	
 				</fo:flow>
 			</fo:page-sequence>	
 		</xsl:if>
@@ -7095,7 +7095,7 @@ first page
 	TEMPLATE - Racial Innate
 ====================================
 ====================================-->
-	<xsl:template match="racial_innate">
+	<xsl:template match="racial_innate"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:block>
 				<fo:table table-layout="fixed">
@@ -7104,7 +7104,7 @@ first page
 						<xsl:with-param name="title" select="'Innate Racial Spells'"/>
 					</xsl:call-template>
 					<fo:table-body>
-						<xsl:apply-templates select="spell" mode="details">
+						<xsl:apply-templates select="spell" mode="innate_details">
 							<xsl:with-param name="columnOne" select="'Times'"/>
 						</xsl:apply-templates>
 					</fo:table-body>
@@ -7118,7 +7118,7 @@ first page
 	TEMPLATE - INNATE CLASS SPELLS
 ====================================
 ====================================-->
-	<xsl:template match="class_innate">
+	<xsl:template match="class_innate"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:for-each select="spellbook">
 				<fo:table table-layout="fixed" space-before="5mm">
@@ -7127,7 +7127,7 @@ first page
 						<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
 					</xsl:call-template>
 					<fo:table-body>
-						<xsl:apply-templates select="spell" mode="details">
+						<xsl:apply-templates select="spell" mode="innate_details">
 							<xsl:with-param name="columnOne" select="'Times'"/>
 						</xsl:apply-templates>
 					</fo:table-body>
@@ -7141,7 +7141,7 @@ first page
 	TEMPLATE - KNOWN SPELLS
 ====================================
 ====================================-->
-	<xsl:template match="known_spells">
+	<xsl:template match="known_spells"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:apply-templates select="class" mode="spells.known"/>
 		</xsl:if>
@@ -7152,10 +7152,10 @@ first page
 	TEMPLATE - KNOWN SPELLS - SINGLE CLASS
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spells.known">
+	<xsl:template match="class" mode="spells.known"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 	<!--> This is causing the new page creation		<fo:block break-before="page"/>	-->
-			<fo:table table-layout="fixed">
+			<fo:table table-layout="fixed"><xsl:message>message</xsl:message>
 				<xsl:variable name="titletext">
 					<xsl:choose>
 						<xsl:when test="@spellcastertype = 'Psionic'">
@@ -7187,17 +7187,13 @@ first page
 					<xsl:with-param name="details" select="'false'"/>
 				</xsl:call-template>
 				<fo:table-body>
-					<fo:table-row height="2mm">
-						<fo:table-cell />
-					</fo:table-row>
+					<fo:table-row height="2mm"/>
 					<fo:table-row>
 						<fo:table-cell number-columns-spanned="9">
 							<xsl:apply-templates select="." mode="spell.level.table"/>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2mm">
-						<fo:table-cell />
-					</fo:table-row>
+					<fo:table-row height="2mm"/>
 					<xsl:apply-templates select="level" mode="known.spells">
 						<xsl:with-param name="columnOne" select="$columnOne"/>
 						<xsl:with-param name="columnOneTitle" select="$columnOneTitle"/>
@@ -7212,7 +7208,7 @@ first page
 	TEMPLATE - CLASS (SPELL.LEVEL.TABLE)
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spell.level.table">
+	<xsl:template match="class" mode="spell.level.table"><xsl:message>message</xsl:message>
 		<fo:table table-layout="fixed" border-collapse="collapse">
 			<fo:table-column column-width="proportional-column-width(2)"/>
 			<fo:table-column column-width="proportional-column-width(2)"/>
@@ -7239,7 +7235,7 @@ first page
 	TEMPLATE - CLASS (SPELL.LEVEL.COUNT)
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spell.level.count">
+	<xsl:template match="class" mode="spell.level.count"><xsl:message>message</xsl:message>
 		<fo:table-row keep-with-next.within-column="always">
 			<fo:table-cell/>
 			<fo:table-cell>
@@ -7267,7 +7263,7 @@ first page
 	TEMPLATE - CLASS (SPELL.LEVEL.KNOWN)
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spell.level.known">
+	<xsl:template match="class" mode="spell.level.known"><xsl:message>message</xsl:message>
 		<fo:table-row keep-with-next.within-column="always">
 			<fo:table-cell/>
 			<fo:table-cell>
@@ -7302,7 +7298,7 @@ first page
 	TEMPLATE - CLASS (SPELL.LEVEL.CAST)
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spell.level.cast">
+	<xsl:template match="class" mode="spell.level.cast"><xsl:message>message</xsl:message>
 		<fo:table-row padding-bottom="2mm">
 			<fo:table-cell/>
 			<fo:table-cell>
@@ -7346,7 +7342,7 @@ first page
 	TEMPLATE - SPELL CONCENTRATION
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spell.concentration">
+	<xsl:template match="class" mode="spell.concentration"><xsl:message>message</xsl:message>
 		<fo:table-row keep-with-next.within-column="always">
 			<fo:table-cell/>
 			<fo:table-cell>	
@@ -7376,9 +7372,9 @@ first page
 	<xsl:template match="level" mode="known.spells">
 		<xsl:param name="columnOne" select="'Boxes'"/>
 		<xsl:param name="columnOneTitle" select="''"/>
-		<xsl:if test="count(.//spell) &gt; 0">
+		<xsl:if test="count(.//spell) &gt; 0"><xsl:message>message</xsl:message>
 			<fo:table-row keep-with-next.within-column="always">
-				<fo:table-cell number-columns-spanned="11" padding-top="1pt">
+				<fo:table-cell number-columns-spanned="7" padding-top="1pt">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.header'"/>
 					</xsl:call-template>
@@ -7403,11 +7399,12 @@ first page
 				<xsl:with-param name="columnOne" select="$columnOne"/>
 				<xsl:sort select="name"/>
 			</xsl:apply-templates>
-			<fo:table-row height="1mm">
-				<fo:table-cell />
-			</fo:table-row>
+			<fo:table-row height="1mm"/>
 		</xsl:if>
 	</xsl:template>
+
+
+
 	<!-- This is the INFORMATION right above the Spells Output
 ====================================
 ====================================
@@ -7419,7 +7416,7 @@ first page
 		<xsl:param name="columnOne" select="''"/>
 		<xsl:param name="details" select="'true'"/>
 <!--	THIS BEGINS THE SECTION		-->
-		<fo:table-column column-width="11mm"/>
+		<fo:table-column column-width="11mm"/><xsl:message>message</xsl:message>
 		<!--	Check Boxes =5 total displayed in 11mm	-->
 		<fo:table-column>
 			<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth - 134" />mm</xsl:attribute>	<!-- was -153 now moved 6 over so it's 147 minus 13 equal 134-->
@@ -7437,16 +7434,16 @@ first page
 		<!-- range -->
 		<fo:table-column column-width="18mm"/>	<!-- Source -->
 		<!-- comp -->
-<!--		<fo:table-column column-width="13mm"/>	-->	<!---->
+<!--		<fo:table-column column-width="13mm"/>	-->	<!--  -->
 		<!-- SR 		<fo:table-column column-width="15mm"/>	-->
 		<!-- school -->
-<!--		<fo:table-column column-width="6mm"/>	-->
-		<!-- source -->
+<!--		<fo:table-column column-width="6mm"/>	  -->
+		<!-- source		TOTAL 7 Columns -->
 
 		<!-- Titles Columns Goes Here -->
-		<fo:table-header>
+		<fo:table-header><xsl:message>message</xsl:message>
 			<fo:table-row>
-				<fo:table-cell number-columns-spanned="8" padding-top="1pt">
+				<fo:table-cell number-columns-spanned="7" padding-top="1pt">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.header'"/>
 					</xsl:call-template>
@@ -7463,7 +7460,7 @@ first page
 		</fo:table-header>
 		<fo:table-footer>
 			<fo:table-row>
-				<fo:table-cell number-columns-spanned="12" padding-top="1pt">
+				<fo:table-cell number-columns-spanned="7" padding-top="1pt"><xsl:message>message</xsl:message>
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spelllist.footer'"/>
 					</xsl:call-template>
@@ -7474,7 +7471,7 @@ first page
 		</fo:table-footer>
 	</xsl:template>
 	<!--
-====================================
+====================================	
 ====================================
 	TEMPLATE - KNOWN SPELL HEADER COLUMN TITLES
 ====================================
@@ -7485,7 +7482,7 @@ first page
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="'spelllist.levelheader'"/>
 			</xsl:call-template>
-			<fo:table-cell padding-top="1pt">
+			<fo:table-cell padding-top="1pt"><xsl:message>message</xsl:message>
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">
 					<xsl:value-of select="$columnOne"/>
 				</fo:block>
@@ -7496,9 +7493,6 @@ first page
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">School</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Saving Throw</fo:block>
-			</fo:table-cell> -->
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Time</fo:block>
 			</fo:table-cell>
@@ -7508,15 +7502,6 @@ first page
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt" font-weight="bold">Range</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Target</fo:block>		Caster Level	
-			</fo:table-cell>	<-->
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">Spell Resistance</fo:block>
-			</fo:table-cell>	-->
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt" font-weight="bold">School</fo:block>
-			</fo:table-cell>	<-->
 			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 				<fo:block text-align="right" font-size="5pt" font-weight="bold">Source</fo:block>		<!--> Source / Now target is taking both blocks-->
 			</fo:table-cell>
@@ -7540,7 +7525,8 @@ first page
 		</xsl:variable>
 		<xsl:variable name="baseconcentration" select="../../@concentration">
 		</xsl:variable>
-		<fo:table-row keep-with-next.within-column="always">
+
+		<fo:table-row keep-with-next.within-column="always"	 keep-together="always"><xsl:message>message</xsl:message>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
 				
 			<xsl:choose>
@@ -7612,10 +7598,7 @@ first page
 							<xsl:value-of select="school/fullschool"/>
 						</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">
-				</fo:block>
-			</fo:table-cell>	-->
+
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:value-of select="castingtime"/>
@@ -7631,12 +7614,7 @@ first page
 					<xsl:value-of select="range"/>
 				</fo:block>
 			</fo:table-cell>
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Target: </fo:inline>	
-					<xsl:value-of select="target"/>
-				</fo:block>	
-			</fo:table-cell>	-->
+
 			<fo:table-cell padding-top="1pt">
 				<fo:block text-align="right" font-size="5pt" number-columns-spanned="1">
 					<xsl:value-of select="source/sourceshort"/>
@@ -7644,80 +7622,28 @@ first page
 					<xsl:value-of select="source/sourcepage"/>
 				</fo:block>
 			</fo:table-cell>	
-<!-->			<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">
-					<xsl:value-of select="school/fullschool"/>
-				</fo:block>
-			</fo:table-cell>	 number-columns-spanned="1"	<!-->
-	<!-->		<fo:table-cell padding-top="1pt">
-				<fo:block text-align="start" font-size="5pt">	-->
-	<!-->				<fo:inline font-style="italic">Target: </fo:inline>	-->
-						
-	<!-->				<xsl:value-of select="source/sourceshort"/>
-					<xsl:text>: </xsl:text>
-					<xsl:value-of select="source/sourcepage"/>	-->
-	<!-->			</fo:block>
-			</fo:table-cell>				-->
 		</fo:table-row>
-<!-- Second Row -->
-<!-->		<fo:table-row>
-			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>	-->
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Effect: </fo:inline>
-					<fo:block text-align="justify" text-indent="5pt">
-						<xsl:call-template name="paragraghlist">
-							<xsl:with-param name="tag" select="'effect'"/>
-						</xsl:call-template>
-					</fo:block>
-				</fo:block>
-			</fo:table-cell>	-->
-<!-->			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">School: </fo:inline>
-					<xsl:value-of select="school/fullschool"/>
-				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">SR: </fo:inline>
-					<xsl:value-of select="spell_resistance"/>
-				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="3">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Target: </fo:inline>
-					<xsl:value-of select="target"/>
-				</fo:block>
-			</fo:table-cell>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
-				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-style="italic">Caster Level: </fo:inline>
-					<xsl:value-of select="casterlevel"/>
-				</fo:block>
-			</fo:table-cell>	-->
-			<!-- Placeholder for future concentration for spells -->
-<!--			<fo:table-cell padding-top="1pt" number-columns-spanned="2">
-				<fo:block text-align="start" font-size="5pt">
-					<xsl:if test="concentration != ''">
-						<fo:inline font-style="italic">Concentration: </fo:inline>
-						<xsl:value-of select="concentration"/>
-					</xsl:if>
-				</fo:block>
-			</fo:table-cell>	
-		</fo:table-row>		-->
-<!-- Third Row = For Spell Descriptions -->
+
+<!-- Second Row = For Spell Descriptions -->
 		<fo:table-row>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="10">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
+<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
+	
 				<fo:block text-align="start" font-size="5pt">
-					<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
-					<fo:inline> </fo:inline>
+					<xsl:if test="string-length(components) &gt; 0">
+						<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
+						<fo:inline> </fo:inline>
+					</xsl:if>
 					<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
 					<fo:inline>; </fo:inline>
-					<fo:inline font-style="italic" font-weight="bold">EFFECT: </fo:inline>
-
-					<xsl:value-of select="effect"/>
+					<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
+						<xsl:if test="string-length(effect) &gt; 150">
+							<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
+						</xsl:if>
+						<xsl:if test="string-length(effect) &lt; 151">
+							<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
+						</xsl:if>
 						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
 							<xsl:if test="string-length(spell_resistance) &gt; 0">
 								<fo:inline font-weight="bold">SR:</fo:inline>
@@ -7734,27 +7660,186 @@ first page
 								<xsl:otherwise>
 								</xsl:otherwise>
 							</xsl:choose>
-						<fo:inline>] </fo:inline>
+							<fo:inline>] </fo:inline>
 						</xsl:if>
+						<xsl:if test="concentration != $baseconcentration">
+							<fo:inline>; </fo:inline>
+							<fo:inline font-style="italic" font-weight="bold">CONCENTRATION:</fo:inline>
+							<xsl:value-of select="concentration"/>
+					</xsl:if>
+					
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+
+<!--
+====================================
+====================================
+	TEMPLATE - SPELL INNATE DETAILS
+====================================
+====================================-->
+<!--	This is to display the Racial and Class Innate and make use of the x/y format	-->
+	<xsl:template match="spell" mode="innate_details">
+		<xsl:param name="columnOne" select="'Times'"/>
+		<xsl:variable name="shade">
+			<xsl:choose>
+				<xsl:when test="position() mod 2 = 0">darkline</xsl:when>
+				<xsl:otherwise>lightline</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:variable name="basecasterlevel" select="../../@spellcasterlevel">
+		</xsl:variable>
+		<xsl:variable name="baseconcentration" select="../../@concentration">
+		</xsl:variable>
+
+		<fo:table-row keep-with-next.within-column="always"	 keep-together="always"><xsl:message>message</xsl:message>
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+				
+			<xsl:choose>
+				<xsl:when test="$columnOne = 'Times'">
+					<xsl:choose>
+						<xsl:when test="times_memorized &gt;= 0">
+							<fo:table-cell padding-top="0pt">
+								<fo:block text-align="start" font-size="8pt" font-family="ZapfDingbats">
+									<xsl:call-template name="for.loop">
+										<xsl:with-param name="count" select="times_memorized"/>
+									</xsl:call-template>
+								</fo:block>
+							</fo:table-cell>
+						</xsl:when>
+						<xsl:otherwise>
+							<fo:table-cell padding-top="1pt" text-align="start">
+								<fo:block text-align="start" font-size="7pt">At Will</fo:block>
+							</fo:table-cell>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:when test="$columnOne = 'Boxes'">
+					<fo:table-cell padding-top="0pt">
+						<fo:block text-align="start" font-size="8pt" font-family="ZapfDingbats">
+							<xsl:call-template name="for.loop">
+								<xsl:with-param name="count" select="5"/>
+							</xsl:call-template>
+						</fo:block>
+					</fo:table-cell>
+				</xsl:when>
+				<xsl:when test="$columnOne = 'PowerPoints'">
+					<fo:table-cell padding-top="0pt">
+						<fo:block text-align="start" font-size="8pt">
+							<xsl:variable name="ppcount" select="((../@number)*2)-1"/>
+							<xsl:choose>
+								<xsl:when test="number($ppcount) &gt; 0">
+									<xsl:value-of select="$ppcount"/>
+								</xsl:when>
+								<xsl:otherwise>0/1</xsl:otherwise>
+							</xsl:choose>
+						</fo:block>
+					</fo:table-cell>
+				</xsl:when>
+			</xsl:choose>
+			<fo:table-cell padding-top="1pt" number-columns-spanned="1">
+				<fo:block text-align="start" font-size="7pt" font-weight="bold">
+				<fo:inline font-style="italic">	<xsl:value-of select="bonusspell"/>	</fo:inline>
+						<xsl:choose>
+						<xsl:when test="times_memorized &gt;= 1">
+						(<xsl:value-of select="times_memorized"/>/<xsl:value-of select="times_unit"/>) 
+						</xsl:when>
+						</xsl:choose>
+						<xsl:value-of select="name"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+						<fo:block text-align="start" font-size="5pt" font-weight="bold">
+							<xsl:value-of select="school/fullschool"/>
+						</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:value-of select="castingtime"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:value-of select="duration"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:value-of select="range"/>
+				</fo:block>
+			</fo:table-cell>
+
+			<fo:table-cell padding-top="1pt">
+				<fo:block text-align="right" font-size="5pt" number-columns-spanned="1">
+					<xsl:value-of select="source/sourceshort"/>
+					<xsl:text>:</xsl:text>
+					<xsl:value-of select="source/sourcepage"/>
+				</fo:block>
+			</fo:table-cell>	
+
+		</fo:table-row>
+
+<!-- Third Row = For Spell Descriptions -->
+		<fo:table-row>
+			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/></xsl:call-template>
+			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
+				<!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
+	
+				<fo:block text-align="start" font-size="5pt">
+					<xsl:if test="string-length(components) &gt; 0">
+						<fo:inline font-weight="bold">[<xsl:value-of select="components"/>]</fo:inline>
+						<fo:inline> </fo:inline>
+					</xsl:if>
+						<fo:inline font-weight="bold"> TARGET: </fo:inline><xsl:value-of select="target"/>
+						<fo:inline>; </fo:inline>
+						<fo:inline font-style="italic" font-weight="bold" font-size="5pt">EFFECT: </fo:inline>
+						<xsl:if test="string-length(effect) &gt; 150">
+							<fo:inline font-size="7pt"><xsl:value-of select="effect"/></fo:inline>
+						</xsl:if>
+						<xsl:if test="string-length(effect) &lt; 151">
+							<fo:inline font-size="5pt"><xsl:value-of select="effect"/></fo:inline>
+						</xsl:if>
+						<xsl:if test="string-length(spell_resistance) &gt; 0 or dc &gt; 0"><fo:inline> [</fo:inline>
+							<xsl:if test="string-length(spell_resistance) &gt; 0">
+								<fo:inline font-weight="bold">SR:</fo:inline>
+								<xsl:value-of select="spell_resistance"/>
+							</xsl:if>
+							<xsl:choose>
+								<xsl:when test="dc &gt; 0">
+									<fo:inline>; </fo:inline><fo:inline font-weight="bold">DC:</fo:inline> <xsl:value-of select="dc"/> 
+									<fo:inline>, </fo:inline> <xsl:value-of select="saveinfo"/>
+								</xsl:when>
+								<xsl:when test="/character/house_var/spelldisplaydc &gt; 0">
+									<fo:inline>; </fo:inline><fo:inline font-weight="bold">DC: N/A</fo:inline>
+								</xsl:when>
+								<xsl:otherwise>
+								</xsl:otherwise>
+							</xsl:choose>
+							<fo:inline>] </fo:inline>
+						</xsl:if>
+						(<fo:inline font-weight="bold">Caster Level:</fo:inline>
+						<xsl:value-of select="casterlevel"/>)
 		<!-->			<xsl:if test="concentration != ''">	-->
 					<xsl:if test="concentration != $baseconcentration">
 						<fo:inline>; </fo:inline>
-						<fo:inline font-style="italic" font-weight="bold">CONCENTRATION:</fo:inline>
+						<fo:inline font-style="italic" font-weight="bold">Concentration:</fo:inline>
 						<xsl:value-of select="concentration"/>
 					</xsl:if>
 					
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
-
+<!-->		</fo:table-body>	-->
 	</xsl:template>
+
 	<!--
 ====================================
 ====================================
 	TEMPLATE - MEMORIZED SPELLS
 ====================================
 ====================================-->
-	<xsl:template match="memorized_spells">
+	<xsl:template match="memorized_spells"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 	<!-->		<fo:block break-before="page">	-->
 			<fo:block>
@@ -7770,7 +7855,7 @@ first page
 ====================================-->
 	<xsl:template name="spells.memorized.header">
 		<xsl:param name="title" select="'Unknown'"/>
-		<fo:table table-layout="fixed">
+		<fo:table table-layout="fixed"><xsl:message>message</xsl:message>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
@@ -7794,7 +7879,7 @@ first page
 	TEMPLATE - RACIAL_INNATE_MEMORIZED (SPELLS.MEMORIZED)
 ====================================
 ====================================-->
-	<xsl:template match="racial_innate_memorized" mode="spells.memorized">
+	<xsl:template match="racial_innate_memorized" mode="spells.memorized"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:call-template name="spells.memorized.header">
 				<xsl:with-param name="title" select="'Innate'"/>
@@ -7818,7 +7903,7 @@ first page
 	TEMPLATE - CLASS_INNATE_MEMORIZED (SPELLS.MEMORIZED)
 ====================================
 ====================================-->
-	<xsl:template match="class_innate_memorized" mode="spells.memorized">
+	<xsl:template match="class_innate_memorized" mode="spells.memorized"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:apply-templates mode="spells.memorized.innate"/>
 		</xsl:if>
@@ -7829,7 +7914,7 @@ first page
 	TEMPLATE - SPELLBOOK (SPELLS.MEMORIZED.INNATE)
 ====================================
 ====================================-->
-	<xsl:template match="spellbook" mode="spells.memorized.innate">
+	<xsl:template match="spellbook" mode="spells.memorized.innate"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<xsl:call-template name="spells.memorized.header">
 				<xsl:with-param name="title" select="concat(@name, ' Spell-like Abilities')"/>
@@ -7853,7 +7938,7 @@ first page
 	TEMPLATE - SPELLBOOK (SPELLS.MEMORIZED)
 ====================================
 ====================================-->
-	<xsl:template match="spellbook" mode="spells.memorized">
+	<xsl:template match="spellbook" mode="spells.memorized"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:table table-layout="fixed" space-before="4mm">
 				<fo:table-column>
@@ -7893,7 +7978,7 @@ first page
 	TEMPLATE - CLASS (SPELLS.MEMORIZED)
 ====================================
 ====================================-->
-	<xsl:template match="class" mode="spells.memorized">
+	<xsl:template match="class" mode="spells.memorized"><xsl:message>message</xsl:message>
 		<xsl:if test="count(.//spell) &gt; 0">
 			<fo:table-row>
 				<fo:table-cell padding-top="1pt" number-columns-spanned="5">
@@ -7919,7 +8004,7 @@ first page
 	TEMPLATE - LEVEL (SPELLS.MEMORIZED)
 ====================================
 ====================================-->
-	<xsl:template match="level" mode="spells.memorized">
+	<xsl:template match="level" mode="spells.memorized"><xsl:message>message</xsl:message>
 		<fo:table-cell padding-top="1pt">
 			<fo:block font-size="5pt">
 				<xsl:if test="count(.//spell) &gt; 0">
@@ -7954,7 +8039,7 @@ first page
 	TEMPLATE - SPELLS (SPELLS.MEMORIZED)
 ====================================
 ====================================-->
-	<xsl:template match="spell" mode="spells.memorized">
+	<xsl:template match="spell" mode="spells.memorized"><xsl:message>message</xsl:message>
 		<fo:table-row>
 			<xsl:choose>
 				<xsl:when test="times_memorized &gt;= 0">
@@ -8000,7 +8085,7 @@ first page
 	<xsl:template name="bio.entry">
 		<xsl:param name="title"/>
 		<xsl:param name="value"/>
-		<fo:table-row>
+		<fo:table-row><xsl:message>message</xsl:message>
 			<fo:table-cell padding-top="1pt" height="9pt">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'bio'"/>
@@ -8025,7 +8110,7 @@ first page
 	TEMPLATE - BIO
 ====================================
 ====================================-->
-	<xsl:template match="basics" mode="bio">
+	<xsl:template match="basics" mode="bio"><xsl:message>message</xsl:message>
 		<!-- BEGIN BIO Pages -->
 <!-->		<xsl:if test="string-length(translate(normalize-space(concat(description,bio)), ' ', '')) &gt; 0">	-->
 			<fo:page-sequence>
@@ -8245,7 +8330,7 @@ first page
 	TEMPLATE - CHARACTER NOTES
 ====================================
 ====================================-->
-	<xsl:template match="notes" mode="bio">
+	<xsl:template match="notes" mode="bio"><xsl:message>message</xsl:message>
 		<!-- BEGIN CHARACTER NOTES Pages -->
 		<xsl:if test="count(.//note) &gt; 0">
 			<fo:page-sequence master-reference="Portrait 2 Column">
