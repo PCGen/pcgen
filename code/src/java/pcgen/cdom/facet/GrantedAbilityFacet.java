@@ -32,7 +32,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.util.enumeration.View;
 
 /**
@@ -46,15 +45,17 @@ public class GrantedAbilityFacet extends
 		DataFacetChangeListener<CharID, CNAbilitySelection>
 {
 
-	public boolean hasAbilityVisibleTo(CharID id, AbilityCategory cat, View view)
+	public boolean hasAbilityVisibleTo(CharID id, Category<Ability> cat, View view)
 	{
 		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
 		if (map != null)
 		{
 			for (CNAbilitySelection cnas : map.keySet())
 			{
-				Ability a = cnas.getCNAbility().getAbility();
-				if (a.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
+				CNAbility cna = cnas.getCNAbility();
+				Ability a = cna.getAbility();
+				if (cna.getAbilityCategory().equals(cat)
+					&& a.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
 				{
 					return true;
 				}
