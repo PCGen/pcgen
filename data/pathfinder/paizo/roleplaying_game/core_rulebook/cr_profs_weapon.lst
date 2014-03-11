@@ -6,16 +6,14 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # SIMPLE WEAPONS
 # -- unarmed
 # Weapon Name			Type																			Nb Hands
-Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
-Spells (Ray)			TYPE:Simple.RangedTouch.Spell
-Spells (Touch)			TYPE:Simple
-Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
-Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
+Grapple				TYPE:Auto.Simple.Melee.Unarmed.Bludgeoning
+Spells (Ray)			TYPE:Auto.Simple.RangedTouch.Spell
+Spells (Touch)			TYPE:Auto.Simple.RangedTouch.Spell
+Splash Weapon			TYPE:Auto.Simple.Ranged.Splash
+Unarmed Strike			TYPE:Auto.Simple.Light.Melee.Unarmed.Bludgeoning
 # Other
 Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded
-###Block: new weapon proficiency to properly implement the splash weapons
-# Weapon Name	Type
-Splash Weapon	TYPE:Simple.Ranged.Splash
+Gauntlet				TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
