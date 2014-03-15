@@ -93,8 +93,8 @@ public final class InequalityTesterInst implements InequalityTester
 		}
 		else
 		{
-			reasons.add("@IT=" + location + "/" + c1.getClass()
-				+ " not same class as " + c2.getClass());
+			reasons.add("@IT=" + location + "/" + c1 + " not same class as "
+				+ c2);
 		}
 		Set<Class<?>> ifs1 = getInterfaces(c1);
 		Set<Class<?>> ifs2 = getInterfaces(c2);
