@@ -3686,7 +3686,7 @@
 	
 	<xsl:template match="common" mode="special_properties">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:table table-layout="fixed" keep-with-next="always" keep-together.within-column="always">
 			<fo:table-column column-width="20mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="$column_width - 20" />mm</xsl:attribute>
