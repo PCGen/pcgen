@@ -140,6 +140,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int babMinVal = 1;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
+	private final List<String> schoolsList = new ArrayList<String>(20);
 
 	private int skillCosts_Class     = 1;
 	private int skillCost_CrossClass = 2;
