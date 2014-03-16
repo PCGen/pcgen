@@ -12,7 +12,7 @@ Wyroot(3 Life Points)	KEY:WROOT_3			TYPE:BaseMaterial.Weapon						COST:BASECOST+
 
 ###Block: Aasimar Purifier Archetype Celestial Armor
 # Modifier Name		Unique Key				Type		Cost		Visible		Type granted			Source Page		Bonus Equipment Modifiers											Special Property
-Purifier Celestial	KEY:AAPURIFIER_CELESTIAL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
+Purifier Celestial	KEY:AAPURIFIER_CELESTIAL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	PREABILITY:1,CATEGORY=Archetype,Oracle Archetype ~ Purifier
 
 ###Block: Hobgoblin weapon abilities
 # Modifier Name	Unique Key	Type				Plus		Visible		Source Page		Special Property
