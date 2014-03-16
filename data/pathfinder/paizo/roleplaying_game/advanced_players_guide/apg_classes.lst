@@ -7,7 +7,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ##
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:AlchemistLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
@@ -33,10 +33,7 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 2	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
 2	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
 3	ABILITY:Alchemist Class Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
-5	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Resistance 4 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance4
 6	ABILITY:Alchemist Class Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
-8	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Resistance 6 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance6
-10	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Immunity ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonImmunity
 14	ABILITY:Alchemist Class Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
 18	ABILITY:Alchemist Class Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
 20	ABILITY:Alchemist Class Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
