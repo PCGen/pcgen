@@ -20,43 +20,43 @@ The start up main class for the application is
 <pre>
      VIEW (pcgen.gui)                    MODEL (pcgen.core)
 
-                     +----------+
+                     +--------------------+
             +--------| {@link pcgen.gui.pcGenGUI} |-----+
-            |        +----------+     |
-            V                         V
-     +--------------+            +---------+
+            |        +--------------------+     |
+            V                                   V
+     +------------------------+            +---------+
      | {@link pcgen.gui.PCGen_Frame1} |            | {@link pcgen.core.Globals} |----- Lists of various
-     +--------------+            +---------+      game element
-       |       1|                    1|           definitions
-       |        |                     |
-       |        V*                    V*
-       |    +---------------+    +-----------------+
+     +------------------------+            +---------+      game element
+       |       1|                              1|           definitions
+       |        |                               |
+       |        V*                              V*
+       |    +-------------------------+    +-----------------+
        |    | {@link pcgen.gui.CharacterInfo} |    | {@link pcgen.core.PlayerCharacter} |
-       |    +---------------+    +-----------------+
-       |     Agg                  Agg
-       |      |                    |     +---------+ 1   +-------+
-       |      |                    +----&gt;| {@link pcgen.core.PCClass} |-----| {@link pcgen.core.spell.Spell} |
-       |      +-&gt; Various          |   * +---------+   * +-------+
-       |          Info* classes    |
-       |          (JPanel tabs)    |     +-------+
-       |                           +----&gt;| {@link pcgen.core.Skill} |
-       |   +--------------+        |   * +-------+
-       +--&gt;| {@link pcgen.gui.MainSource}   |        |
-       |   +--------------+        |
-       |                           |
-       +---&gt; Various Tools*     |
-       |                           |
-    +------------------------+     |     +-----------+
+       |    +-------------------------+    +-----------------+
+       |     Agg                            Agg
+       |      |                              |     +---------+ 1   +-------+
+       |      |                              +----&gt;| {@link pcgen.core.PCClass} |-----| {@link pcgen.core.spell.Spell} |
+       |      +-&gt; Various                    |   * +---------+   * +-------+
+       |          Info* classes              |
+       |          (JPanel tabs)              |     +-------+
+       |                                     +----&gt;| {@link pcgen.core.Skill} |
+       |   +----------------------+          |   * +-------+
+       +--&gt;| {@link pcgen.gui.MainSource} |          |
+       |   +----------------------+          |
+       |                                     |
+       +---&gt; Various Tools*                  |
+       |                                     |
+    +----------------------------------+     |     +-----------+
     | {@link pcgen.gui.PCGen_Frame1.MenuItems} |     +----&gt;| {@link pcgen.core.Equipment} |
-    +------------------------+     |   * +-----------+
-                                   |
-                                   |     +--------+
-                                   +----&gt;| {@link pcgen.core.Domain} |
-                                   |   * +--------+
-                                   |
-                                   +----&gt; String lists representing
-                                          special abilities, languages,
-                                          weapons, etc.
+    +----------------------------------+     |   * +-----------+
+                                             |
+                                             |     +--------+
+                                             +----&gt;| {@link pcgen.core.Domain} |
+                                             |   * +--------+
+                                             |
+                                             +----&gt; String lists representing
+                                                    special abilities, languages,
+                                                    weapons, etc.
 </pre>
 
 

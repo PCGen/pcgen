@@ -30,6 +30,7 @@ import pcgen.base.lang.UnreachableError;
 
 /**
  * <code>Campaign</code>.
+ * A simple structure.
  *
  * @author Felipe Diniz <fdiniz@users.sourceforge.net>
  * @version $Revision$
@@ -44,7 +45,7 @@ public final class ClassType implements Cloneable
 	private boolean isMonster = false;
 
 	/**
-     * Get the name of the class type 
+     * Get the name of the class type.
      * @return name of the class type
 	 */
     public String getName()
@@ -53,7 +54,7 @@ public final class ClassType implements Cloneable
 	}
 
     /**
-     * Set the name of the class type
+     * Set the name of the class type.
      * @param aName
      */
 	public void setName( final String aName )
@@ -62,7 +63,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Set the CR Formula
+	 * Set the CR Formula.
 	 * @param crFormula
 	 */
 	public void setCRFormula(final String crFormula)
@@ -71,7 +72,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Get the CR formula
+	 * Get the CR formula.
 	 * @return CR Formula
 	 */
 	public String getCRFormula()
@@ -80,7 +81,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Set the CR Mod
+	 * Set the CR Mod.
 	 * @param crMod
 	 */
 	public void setCRMod(final String crMod)
@@ -89,7 +90,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Get the CR Mod
+	 * Get the CR Mod.
 	 * @return CR Mod
 	 */
 	public String getCRMod()
@@ -98,8 +99,8 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Set the CR Mod priority
-	 * @param crModPrio
+	 * Set the CR Mod priority.
+	 * @param crModPriority
 	 */
 	public void setCRModPriority(final int crModPriority)
 	{
@@ -107,7 +108,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Get the CR Mod priority
+	 * Get the CR Mod priority.
 	 * @return CR Mod priority
 	 */
 	public int getCRModPriority()
@@ -116,7 +117,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Set the monster
+	 * Set the monster.
 	 * @param monster
 	 */
 	public void setMonster(final boolean monster)
@@ -125,7 +126,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * is monster
+	 * Answer if this is a monster.
 	 * @return TRUE if it is a monster
 	 */
 	public boolean isMonster()
@@ -134,7 +135,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Set the XP penalty
+	 * Set the XP penalty.
 	 * @param xpPenalty
 	 */
 	public void setXPPenalty(final boolean xpPenalty)
@@ -143,7 +144,7 @@ public final class ClassType implements Cloneable
 	}
 
 	/**
-	 * Get the XP penalty
+	 * Get the XP penalty.
 	 * @return true if there is a penalty
 	 */
 	public boolean getXPPenalty()
