@@ -8,16 +8,16 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEW
 Spell Focus.MOD				TYPE:FocusReplacement
 
 # Crafting and Leadership are not usable
-Brew Potion.MOD								PRECLASS:1,NPC=1,Monster=1
-Craft Magic Arms and Armor.MOD					PRECLASS:1,NPC=1,Monster=1
-Craft Rod.MOD								PRECLASS:1,NPC=1,Monster=1
-Craft Staff.MOD								PRECLASS:1,NPC=1,Monster=1
-Craft Wand.MOD								PRECLASS:1,NPC=1,Monster=1
-Forge Ring.MOD								PRECLASS:1,NPC=1,Monster=1
-Leadership.MOD								PRECLASS:1,NPC=1,Monster=1
-Scribe Scroll.MOD								PRECLASS:1,NPC=1,Monster=1
+Brew Potion.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Craft Magic Arms and Armor.MOD					DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Craft Rod.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Craft Staff.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Craft Wand.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Forge Ring.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Leadership.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
+Scribe Scroll.MOD								DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
 # TODO: move to additional resources file if not from core
-Cooperative Crafting.MOD						PRECLASS:1,NPC=1,Monster=1
+Cooperative Crafting.MOD						DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8
 
 
 #
