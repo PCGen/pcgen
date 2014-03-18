@@ -233,7 +233,7 @@ Rod (Rulership).MOD											TYPE:GreaterMajor			COST:60000	WT:8		SOURCEPAGE:p.
 Rod (Sapling)					OUTPUTNAME:Sapling Rod				TYPE:Magic.Rod.GreaterMedium	COST:16650	WT:5		SOURCEPAGE:p.186	ABILITY:Special Ability|AUTOMATIC|Woodland Stride																				BONUS:SKILL|Survival|5|TYPE=Competence
 Rod (Security).MOD											TYPE:GreaterMajor			COST:61000	WT:5		SOURCEPAGE:p.183
 Rod (Shadows)					OUTPUTNAME:Rod of Shadows			TYPE:Magic.Rod.GreaterMajor	COST:64305	WT:5		SOURCEPAGE:p.184	ABILITY:Special Ability|AUTOMATIC|See in Darkness	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=8|Deeper Darkness
-Rod (Splendor).MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.184																																								BONUS:STAT|CHA|4
+Rod (Splendor).MOD											TYPE:LesserMajor			COST:25000	WT:5		SOURCEPAGE:p.184
 Rod (Steadfast Resolve)				OUTPUTNAME:Rod of Steadfast Resolve		TYPE:Magic.Rod.LesserMajor	COST:38305	WT:5		SOURCEPAGE:p.184
 Rod (Aboleth)					OUTPUTNAME:Rod of the Aboleth			TYPE:Magic.Rod.LesserMajor	COST:29000	WT:5		SOURCEPAGE:p.184
 Rod (Python).MOD												TYPE:GreaterMedium		COST:13000	WT:10		SOURCEPAGE:p.184
@@ -523,7 +523,7 @@ Voidfrost Robes															TYPE:Magic.Wondrous.LesserMedium.Robe													
 Xorn Robe																TYPE:Magic.Wondrous.GreaterMedium.Robe																								COST:20000	WT:1																								SOURCEPAGE:p.219																																																																																																															BONUS:SKILL|Perception|5																																																																															SPROP:Wearer can use Earth Glide up to 20 ft/day.
 All Tools Vest.MOD														TYPE:LesserMinor																												COST:1800	WT:5																								SOURCEPAGE:p.220
 Bandages of Rapid Recovery.MOD												TYPE:LesserMinor																												COST:200	WT:1																								SOURCEPAGE:p.220
-Bane Baldric															TYPE:Magic.Wondrous.LesserMedium.Shirt																								COST:10000	WT:1																								SOURCEPAGE:p.220
+Bane Baldric															TYPE:Magic.Wondrous.LesserMedium.Shirt																								COST:10000	WT:1																								SOURCEPAGE:p.220	BONUS:VAR|InquisitorBanePool|4	ABILITY:Inquisitor Class Ability|AUTOMATIC|Greater Bane ~ Inquisitor|PREVARGTEQ:InquisitorBanePool,12
 Cackling Hag's Blouse														TYPE:Magic.Wondrous.GreaterMinor.Shirt																								COST:6000	WT:2																								SOURCEPAGE:p.220																																																																																																															BONUS:SKILL|Intimidate|2|TYPE=Competence
 Deadshot Vest															TYPE:Magic.Wondrous.GreaterMinor.Shirt																								COST:6000	WT:1																								SOURCEPAGE:p.220
 Endless Bandolier															TYPE:Magic.Wondrous.LesserMinor.Shirt.Container			CONTAINS:*UNLIM|Any																	COST:1500	WT:2																								SOURCEPAGE:p.220
