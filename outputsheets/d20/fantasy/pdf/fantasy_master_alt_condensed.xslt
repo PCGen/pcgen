@@ -4723,7 +4723,7 @@ first page
 			<xsl:value-of select="/channel_intensity"/>
 		</xsl:variable>
 		<!-- BEGIN Channeling Table -->
-		<fo:table table-layout="fixed" space-before="1mm" keep-together="always" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" space-before="1mm" keep-together.within-column="always" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
 			<fo:table-column>
@@ -4979,7 +4979,7 @@ first page
 	<xsl:template match="turning">
 		<xsl:param name="column_width" select="0.45 * $pagePrintableWidth"/>
 		<!-- BEGIN Turning Table -->
-		<fo:table table-layout="fixed" space-before="1mm" keep-together="always" border-collapse="collapse" padding="0.5pt">
+		<fo:table table-layout="fixed" space-before="1mm" keep-together.within-column="always" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.border'"/></xsl:call-template>
 			<fo:table-column>
@@ -5110,7 +5110,7 @@ first page
 									<xsl:with-param name="title" select="'Turn damage'"/>
 									<xsl:with-param name="info" select="damage" />
 								</xsl:call-template>
-								<fo:table-row>
+								<fo:table-row  keep-with-next.within-column="always">
 									<fo:table-cell number-columns-spanned="2" padding-top="1pt" text-align="end">
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
 										<fo:block font-size="8pt" padding-top="2pt">
