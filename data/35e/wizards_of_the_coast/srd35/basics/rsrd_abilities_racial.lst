@@ -134,7 +134,8 @@ Favored Class ~ Any	CATEGORY:Special Ability	TYPE:RacialTraits.HumanRacialTrait.
 ###Block: Racial Abilities - Core races and variants
 ###Block: Human
 # Ability Name												Unique Key			Category of Ability		Type							Description														Bonus to skill point/L
-4 extra skill points at 1st level and 1 extra skill point at each additional level.	KEY:Human Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.	BONUS:SKILLPOINTS|NUMBER|1
+4 extra skill points at 1st level and 1 extra skill point at each additional level.	KEY:Human Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.	
+#BONUS:SKILLPOINTS|NUMBER|1
 1 extra feat at 1st level.										KEY:Human Bonus Feat	CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait	DESC:1 extra feat at 1st level.
 
 ###Block: Dwarf

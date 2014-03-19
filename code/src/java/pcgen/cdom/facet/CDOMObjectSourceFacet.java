@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
 /**
@@ -61,7 +62,7 @@ public class CDOMObjectSourceFacet
 	 *            from this CDOMObjectSourceFacet
 	 */
 	public void addDataFacetChangeListener(
-			DataFacetChangeListener<? super CDOMObject> listener)
+			DataFacetChangeListener<CharID, ? super CDOMObject> listener)
 	{
 		bridgeFacet.addDataFacetChangeListener(listener);
 	}

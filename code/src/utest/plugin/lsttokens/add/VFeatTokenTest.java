@@ -32,7 +32,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Ability;
@@ -290,10 +290,10 @@ public class VFeatTokenTest extends
 				refs, NATURE);
 		// TODO: Should this be present for the unit tests?
 		//assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());
-		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
+		ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<CNAbilitySelection>(
 				cs, count);
 		tc.allowStack(false);
 		// if (dupChoices != 0)
@@ -391,10 +391,10 @@ public class VFeatTokenTest extends
 		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
 				refs, NATURE);
 		assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());
-		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
+		ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
 				getSubToken().getTokenName(), rcs);
 		cs.setTitle("Virtual Feat Selection");
-		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
+		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<CNAbilitySelection>(
 				cs, FormulaFactory.getFormulaFor(3));
 		tc.allowStack(true);
 		tc.setStackLimit(2);

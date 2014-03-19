@@ -19,15 +19,13 @@ package plugin.lsttokens.equipment;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deals with RATEOFFIRE token
  */
-public class RateoffireToken extends AbstractNonEmptyToken<Equipment> implements
+public class RateoffireToken extends AbstractStringToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 
@@ -38,27 +36,14 @@ public class RateoffireToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
-	{
-		context.getObjectContext().put(eq, StringKey.RATE_OF_FIRE, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Equipment eq)
-	{
-		String rof = context.getObjectContext().getString(eq,
-				StringKey.RATE_OF_FIRE);
-		if (rof == null)
-		{
-			return null;
-		}
-		return new String[] { rof };
-	}
-
-	@Override
 	public Class<Equipment> getTokenClass()
 	{
 		return Equipment.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.RATE_OF_FIRE;
 	}
 }

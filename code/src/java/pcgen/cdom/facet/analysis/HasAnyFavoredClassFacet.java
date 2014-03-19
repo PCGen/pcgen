@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -31,8 +32,8 @@ import pcgen.cdom.facet.model.TemplateFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
-		implements DataFacetChangeListener<CDOMObject>
+public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Boolean>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private RaceFacet raceFacet;
@@ -54,7 +55,7 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		Boolean hdw = cdo.get(ObjectKey.ANY_FAVORED_CLASS);
@@ -79,7 +80,7 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

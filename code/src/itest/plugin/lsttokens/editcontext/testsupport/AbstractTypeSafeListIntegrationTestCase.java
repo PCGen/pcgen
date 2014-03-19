@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObject>
@@ -81,7 +82,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "Languedoc-Roussillon");
-			commit(testCampaign, tc, ".CLEAR");
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 			tc = new TestContext();
 			tc.putText(testCampaign.getURI(), null);
 			completeRoundRobin(tc);
@@ -143,7 +144,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			}
 			verifyCleanStart();
 			TestContext tc = new TestContext();
-			commit(testCampaign, tc, ".CLEAR" + getJoinCharacter() + "TestWP2");
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP2");
 			commit(modCampaign, tc, "TestWP1");
 			completeRoundRobin(tc);
 		}
@@ -163,7 +164,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "TestWP1");
-			commit(modCampaign, tc, ".CLEAR" + getJoinCharacter() + "TestWP2");
+			commit(modCampaign, tc, Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP2");
 			completeRoundRobin(tc);
 		}
 	}
@@ -180,7 +181,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "TestWP2");
-			commit(modCampaign, tc, ".CLEAR");
+			commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 			completeRoundRobin(tc);
 		}
 	}
@@ -196,7 +197,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			}
 			verifyCleanStart();
 			TestContext tc = new TestContext();
-			commit(testCampaign, tc, ".CLEAR");
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 			commit(modCampaign, tc, "TestWP2");
 			completeRoundRobin(tc);
 		}
@@ -209,8 +210,8 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 		{
 			verifyCleanStart();
 			TestContext tc = new TestContext();
-			commit(testCampaign, tc, ".CLEAR");
-			commit(modCampaign, tc, ".CLEAR");
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
+			commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 			completeRoundRobin(tc);
 		}
 	}
@@ -224,7 +225,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			emptyCommit(testCampaign, tc);
-			commit(modCampaign, tc, ".CLEAR");
+			commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 			completeRoundRobin(tc);
 		}
 	}

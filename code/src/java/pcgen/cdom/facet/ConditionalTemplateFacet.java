@@ -40,7 +40,7 @@ import pcgen.core.PCTemplate;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
-		implements DataFacetChangeListener<PCTemplate>, LevelChangeListener
+		implements DataFacetChangeListener<CharID, PCTemplate>, LevelChangeListener
 {
 	private TemplateFacet templateFacet;
 	private LevelFacet levelFacet;
@@ -60,7 +60,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
 		int totalLevels = levelFacet.getTotalLevels(id);
@@ -84,7 +84,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
 		int totalLevels = levelFacet.getTotalLevels(id);

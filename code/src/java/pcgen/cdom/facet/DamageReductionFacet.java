@@ -41,8 +41,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DamageReductionFacet extends
-		AbstractSourcedListFacet<DamageReduction> implements
-		DataFacetChangeListener<CDOMObject>
+		AbstractSourcedListFacet<CharID, DamageReduction> implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private static final Pattern OR_PATTERN = Pattern.compile(" [oO][rR] ");
@@ -72,7 +72,7 @@ public class DamageReductionFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<DamageReduction> drs = cdo.getListFor(ListKey.DAMAGE_REDUCTION);
@@ -98,7 +98,7 @@ public class DamageReductionFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

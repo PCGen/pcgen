@@ -114,17 +114,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 						+ getFullName() + ": " + value, context);
 			}
 			String minLevelString = sep.next();
-			int minLevel;
-			try
-			{
-				minLevel = Integer.parseInt(minLevelString);
-			}
-			catch (NumberFormatException e)
-			{
-				return new ParseResult.Fail("Badly formed minimum level: "
-					+ minLevelString + " in " + getFullName() + " value: "
-					+ value, context);
-			}
+			Formula minLevel = FormulaFactory.getFormulaFor(minLevelString);
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(

@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
@@ -44,7 +45,8 @@ public class HandedFacetTest extends TestCase
 	{
 		facet = new HandedFacet();
 		super.setUp();
-		id = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
 	}
 
 	@Test

@@ -19,15 +19,13 @@ package plugin.lsttokens.template;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with REMOVABLE Token
  */
-public class RemovableToken extends AbstractNonEmptyToken<PCTemplate> implements
+public class RemovableToken extends AbstractYesNoToken<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>
 {
 
@@ -38,48 +36,9 @@ public class RemovableToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(template, ObjectKey.REMOVABLE, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, PCTemplate pct)
-	{
-		Boolean b = context.getObjectContext().getObject(pct,
-				ObjectKey.REMOVABLE);
-		if (b == null)
-		{
-			return null;
-		}
-		return new String[] { b.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.REMOVABLE;
 	}
 
 	@Override

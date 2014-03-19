@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -29,8 +30,8 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
-		implements DataFacetChangeListener<Equipment>
+public class UserEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
+		implements DataFacetChangeListener<CharID, Equipment>
 {
 	/**
 	 * Consolidates Equipment into this facet when that Equipment has been added
@@ -47,7 +48,7 @@ public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
@@ -67,7 +68,7 @@ public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}

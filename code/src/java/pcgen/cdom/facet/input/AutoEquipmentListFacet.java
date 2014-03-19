@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Equipment;
 
@@ -26,6 +27,6 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoEquipmentListFacet extends AbstractSourcedListFacet<Equipment>
+public class AutoEquipmentListFacet extends AbstractSourcedListFacet<CharID, Equipment>
 {
 }

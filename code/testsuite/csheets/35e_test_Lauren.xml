@@ -1082,10 +1082,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Simple Weapon Three, Simple Weapon Four, Simple Weapon Four, Simple Weapon One, Simple Weapon Two)</name>
+			<name>Weapon Focus (Simple Weapon Four, Simple Weapon Four, Simple Weapon One, Simple Weapon Three, Simple Weapon Two)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
-			<associated>Simple Weapon Three,Simple Weapon Four,Simple Weapon Four,Simple Weapon One,Simple Weapon Two</associated>
+			<associated>Simple Weapon Four,Simple Weapon Four,Simple Weapon One,Simple Weapon Three,Simple Weapon Two</associated>
 			<count>5</count>
 			<auto>F</auto>
 			<hidden>F</hidden>

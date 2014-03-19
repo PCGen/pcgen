@@ -20,6 +20,7 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -73,11 +74,10 @@ public class QualifiedName
 		List<T> allSelections = new ArrayList<T>();
 		for (CNAbility cna : list)
 		{
-			Ability ab = cna.getAbility();
-			if (pc.hasAssociations(ab))
+			if (pc.hasAssociations(cna))
 			{
 				List<? extends T> selections =
-						(List<? extends T>) pc.getDetailedAssociations(ab);
+						(List<? extends T>) pc.getDetailedAssociations(cna);
 				allSelections.addAll(selections);
 			}
 		}
@@ -100,8 +100,9 @@ public class QualifiedName
 
 		final StringBuilder buffer = new StringBuilder();
 		buffer.append(outputName).append("(");
-		buffer.append(StringUtil.joinToStringBuilder(pc.getAssociationList(s),
-				", "));
+		List<String> associationList = pc.getAssociationList(s);
+		Collections.sort(associationList);
+		buffer.append(StringUtil.joinToStringBuilder(associationList, ", "));
 		buffer.append(")");
 
 		return buffer.toString();

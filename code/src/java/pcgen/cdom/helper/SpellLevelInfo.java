@@ -29,16 +29,17 @@ import pcgen.cdom.converter.AddFilterConverter;
 import pcgen.cdom.converter.DereferencingConverter;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 {
 
 	private final PrimitiveCollection<PCClass> filter;
-	private final int minimumLevel;
+	private final Formula minimumLevel;
 	private final Formula maximumLevel;
 
 	public SpellLevelInfo(PrimitiveCollection<PCClass> classFilter,
-			int minLevel, Formula maxLevel)
+		Formula minLevel, Formula maxLevel)
 	{
 		filter = classFilter;
 		minimumLevel = minLevel;
@@ -64,8 +65,15 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 				new DereferencingConverter<PCClass>(pc), this);
 		for (PCClass cl : filter.getCollection(pc, conv))
 		{
+			int min = minimumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
 			int max = maximumLevel.resolve(pc, cl.getQualifiedKey()).intValue();
-			for (int i = minimumLevel; i <= max; ++i)
+			if (min > max)
+			{
+				Logging.errorPrint("Resolved Minimum: " + min + " (from "
+					+ minimumLevel + ") was greater than resolved Maximum: "
+					+ max + " (from " + maximumLevel + ")");
+			}
+			for (int i = min; i <= max; ++i)
 			{
 				list.add(new SpellLevel(cl, i));
 			}

@@ -17,9 +17,10 @@
  */
 package tokenmodel;
 
-import java.util.Set;
+import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
@@ -30,6 +31,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.AbilityToken;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
+import tokenmodel.testsupport.AssocCheck;
+import tokenmodel.testsupport.NoAssociations;
 
 public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 {
@@ -37,18 +40,32 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
 	private ActiveAbilityFacet activeAbilityFacet = FacetLibrary
 		.getFacet(ActiveAbilityFacet.class);
+	private AssocCheck assocCheck;
+
+	@Override
+	protected void finishLoad()
+	{
+		super.finishLoad();
+		assocCheck = new NoAssociations(pc);
+	}
 
 	@Override
 	public void processToken(CDOMObject source)
 	{
-		ParseResult result =
-				ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|NORMAL|Granted");
+		ParseResult result = runToken(source);
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+	}
+
+	private ParseResult runToken(CDOMObject source)
+	{
+		ParseResult result =
+				ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|NORMAL|Granted");
+		return result;
 	}
 
 	@Override
@@ -72,29 +89,37 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().get(id, AbilityCategory.FEAT, Nature.NORMAL)
+		return getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL)
 			.size();
 	}
 
 	@Override
 	protected boolean containsExpected(Ability granted)
 	{
-		Set<Ability> abilities =
-				getTargetFacet().get(id, AbilityCategory.FEAT, Nature.NORMAL);
-		for (Ability a : abilities)
+		Collection<CNAbility> abilities =
+				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
+		if (abilities.isEmpty())
+		{
+			System.err.println("No Abilities");
+			return false;
+		}
+		for (CNAbility a : abilities)
 		{
 			boolean abilityExpected =
-					a.equals(context.ref.silentlyGetConstructedCDOMObject(
+					a.getAbility().equals(context.ref.silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{
 				Ability g = pc.getAbilityKeyed(AbilityCategory.FEAT, "Granted");
-				if (pc.getDetailedAssociationCount(g) == 0)
+				boolean c = assocCheck.check(g);
+				if (!c)
 				{
-					return true;
+					System.err.println("Incorrect Associations");
 				}
+				return c;
 			}
 		}
+		System.err.println("Did not find Ability: Granted");
 		return false;
 	}
 
@@ -119,4 +144,44 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	{
 		//Not supported equivalent to other methods
 	}
+
+	//TODO this appears to be a bug - is only applied once?
+//	@Test
+//	public void testMult() throws PersistenceLayerException
+//	{
+//		TokenRegistration.register(new NoChoiceToken());
+//		TokenRegistration.register(new StackToken());
+//		Domain source = create(Domain.class, "Source");
+//		PCClass pcc = create(PCClass.class, "Class");
+//		Ability a = createGrantedObject();
+//		context.unconditionallyProcess(a, "MULT", "YES");
+//		context.unconditionallyProcess(a, "STACK", "YES");
+//		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
+//		runToken(source);
+//		processToken(source);
+//		assocCheck = new AssocCheck()
+//		{
+//			
+//			public boolean check(Ability g)
+//			{
+//				if (pc.getDetailedAssociationCount(g) == 1)
+//				{
+//					return true;
+//				}
+//				else
+//				{
+//					System.err.println("Incorrect Association Count");
+//					return false;
+//				}
+//			}
+//			
+//		};
+//		assertEquals(0, getCount());
+//		ClassSource classSource = new ClassSource(pcc);
+//		domainFacet.add(id, source, classSource);
+//		assertTrue(containsExpected(a));
+//		assertEquals(2, getCount());
+//		domainFacet.remove(id, source);
+//		assertEquals(0, getCount());
+//	}
 }

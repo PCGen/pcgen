@@ -20,8 +20,8 @@ package pcgen.cdom.facet.analysis;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -55,7 +55,7 @@ public class UnencumberedLoadFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Load> getFacet()
+	protected AbstractSourcedListFacet<CharID, Load> getFacet()
 	{
 		return facet;
 	}
@@ -85,7 +85,7 @@ public class UnencumberedLoadFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}
@@ -101,13 +101,13 @@ public class UnencumberedLoadFacetTest extends
 	{
 		assertEquals(Load.LIGHT, facet.getBestLoad(id));
 		Object source1 = new Object();
-		DataFacetChangeEvent<CDOMObject> dfce =
-				new DataFacetChangeEvent<CDOMObject>(id, source[1], source1,
+		DataFacetChangeEvent<CharID, CDOMObject> dfce =
+				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[1], source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(Load.MEDIUM, facet.getBestLoad(id));
 		dfce =
-				new DataFacetChangeEvent<CDOMObject>(id, source[0], source1,
+				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[0], source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(Load.HEAVY, facet.getBestLoad(id));
@@ -119,15 +119,15 @@ public class UnencumberedLoadFacetTest extends
 		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
 		assertEquals(false, facet.ignoreLoad(id, Load.MEDIUM));
 		Object source1 = new Object();
-		DataFacetChangeEvent<CDOMObject> dfce =
-				new DataFacetChangeEvent<CDOMObject>(id, source[1], source1,
+		DataFacetChangeEvent<CharID, CDOMObject> dfce =
+				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[1], source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
 		assertEquals(true, facet.ignoreLoad(id, Load.MEDIUM));
 		assertEquals(false, facet.ignoreLoad(id, Load.HEAVY));
 		dfce =
-				new DataFacetChangeEvent<CDOMObject>(id, source[0], source1,
+				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[0], source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));

@@ -28,6 +28,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -35,26 +36,26 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		TestCase
 {
-	private CharID id = CharID.getID();
-	private CharID altid = CharID.getID();
+	private CharID id;
+	private CharID altid;
 
 	private Listener listener = new Listener();
 	ST oneSource = developSource(getTypeObj());
 
-	private class Listener implements DataFacetChangeListener<CT>
+	private class Listener implements DataFacetChangeListener<CharID, CT>
 	{
 
 		public int addEventCount;
 		public int removeEventCount;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent<CT> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, CT> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<CT> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, CT> dfce)
 		{
 			removeEventCount++;
 		}
@@ -65,6 +66,9 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
 	}
 

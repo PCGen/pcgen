@@ -17,12 +17,12 @@
  */
 package plugin.qualifier.ability;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import pcgen.cdom.base.Category;
-import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.reference.CategorizedCreator;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
@@ -49,14 +49,12 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 	@Override
 	protected Collection<Ability> getPossessed(PlayerCharacter pc)
 	{
-		Set<Ability> nl = pc.getAbilityList(category, Nature.NORMAL);
-		Set<Ability> vl = pc.getAbilityList(category, Nature.VIRTUAL);
-		Set<Ability> al = pc.getAbilityList(category, Nature.AUTOMATIC);
 		HashSet<Ability> hs = new HashSet<Ability>();
-		hs.addAll(nl);
-		hs.addAll(vl);
-		hs.addAll(al);
-		return hs;
+		for (CNAbility cna : pc.getCNAbilities(category))
+		{
+			hs.add(cna.getAbility());
+		}
+		return new ArrayList<Ability>(hs);
 	}
 
 	@Override

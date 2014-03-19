@@ -2267,10 +2267,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bonus Skill Rank (Knowledge (Religion), Knowledge (Planes))</name>
+			<name>Bonus Skill Rank (Knowledge (Planes), Knowledge (Religion))</name>
 			<description></description>
 			<type>FAVOREDCLASSBONUS</type>
-			<associated>Knowledge (Religion),Knowledge (Planes)</associated>
+			<associated>Knowledge (Planes),Knowledge (Religion)</associated>
 			<count>2</count>
 			<auto>F</auto>
 			<hidden>T</hidden>

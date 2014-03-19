@@ -86,7 +86,7 @@ public class DeityWeapIntegrationTest extends
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

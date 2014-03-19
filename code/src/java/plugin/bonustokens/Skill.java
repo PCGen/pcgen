@@ -28,6 +28,7 @@ package plugin.bonustokens;
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
 
 /**
  * Handles the BONUS:SKILL token.
@@ -35,6 +36,8 @@ import pcgen.rules.context.LoadContext;
 public final class Skill extends BonusObj
 {
 	private static final String[] BONUS_TAGS = {"LIST", "ALL"};
+
+	private static final Class<pcgen.core.Skill> SKILL_CLASS = pcgen.core.Skill.class;
 
 	/**
 	 * Parse the bonus token.
@@ -62,6 +65,14 @@ public final class Skill extends BonusObj
 		else
 		{
 			addBonusInfo(token);
+		}
+
+		if (!token.equals("LIST") && !token.startsWith("STAT.")
+			&& !token.startsWith("STAT=") && !token.equals("%LIST")
+			&& !token.equals("%VAR"))
+		{
+			//This is done entirely for the side effects
+			TokenUtilities.getReference(context, SKILL_CLASS, token);
 		}
 
 		return true;

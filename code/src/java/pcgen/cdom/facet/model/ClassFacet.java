@@ -41,7 +41,7 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassFacet extends AbstractDataFacet<PCClass>
+public class ClassFacet extends AbstractDataFacet<CharID, PCClass>
 {
 	private final ClassLevelChangeSupport support =
 			new ClassLevelChangeSupport();

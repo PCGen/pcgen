@@ -110,8 +110,8 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
         abArray[1].put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
         Globals.getContext().unconditionallyProcess(abArray[1], "CHOOSE", "STRING|one|two|three");
-        AbilityUtilities.modAbility(character, abArray[1], "one", AbilityCategory.FEAT);
-        AbilityUtilities.modAbility(character, abArray[1], "two", AbilityCategory.FEAT);
+        AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "one");
+        AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "two");
 
 		for (int i = 0;6 > i;i++) {
             Ability anAbility = abArray[i];
@@ -514,16 +514,16 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		AbilityUtilities.modAbility(character, ab, "munch", AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ab, "munch");
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		AbilityUtilities.modAbility(character, ab, "devour", AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ab, "devour");
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 
-		AbilityUtilities.modAbility(character, ab, "nibble", AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ab, "nibble");
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");

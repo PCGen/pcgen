@@ -26,7 +26,7 @@ import java.util.Set;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.util.Logging;
 
 /**
@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionallyGrantedAbilityFacet extends
-		AbstractListFacet<CategorizedAbilitySelection>
+		AbstractListFacet<CNAbilitySelection>
 {
 
 	private ConditionalAbilityFacet conditionalAbilityFacet;
@@ -56,13 +56,13 @@ public class ConditionallyGrantedAbilityFacet extends
 	public void update(CharID id)
 	{
 		depth++;
-		Collection<CategorizedAbilitySelection> current = getSet(id);
-		Collection<CategorizedAbilitySelection> qualified = conditionalAbilityFacet
+		Collection<CNAbilitySelection> current = getSet(id);
+		Collection<CNAbilitySelection> qualified = conditionalAbilityFacet
 				.getQualifiedSet(id);
-		List<CategorizedAbilitySelection> toRemove = new ArrayList<CategorizedAbilitySelection>(
+		List<CNAbilitySelection> toRemove = new ArrayList<CNAbilitySelection>(
 				current);
 		toRemove.removeAll(qualified);
-		List<CategorizedAbilitySelection> toAdd = new ArrayList<CategorizedAbilitySelection>(
+		List<CNAbilitySelection> toAdd = new ArrayList<CNAbilitySelection>(
 				qualified);
 		toAdd.removeAll(current);
 		if (!toAdd.isEmpty() || !toRemove.isEmpty())
@@ -73,7 +73,7 @@ public class ConditionallyGrantedAbilityFacet extends
 						+ toRemove + " adding " + toAdd);
 			}
 		}
-		for (CategorizedAbilitySelection cas : toRemove)
+		for (CNAbilitySelection cas : toRemove)
 		{
 			// Things could have changed, so we make sure
 			if (!conditionalAbilityFacet.isQualified(id, cas) && contains(id, cas))
@@ -86,7 +86,7 @@ public class ConditionallyGrantedAbilityFacet extends
 				remove(id, cas);
 			}
 		}
-		for (CategorizedAbilitySelection cas : toAdd)
+		for (CNAbilitySelection cas : toAdd)
 		{
 			// Things could have changed, so we make sure
 			if (conditionalAbilityFacet.isQualified(id, cas) && !contains(id, cas))
@@ -119,9 +119,9 @@ public class ConditionallyGrantedAbilityFacet extends
 	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
-	protected Set<CategorizedAbilitySelection> getComponentSet()
+	protected Set<CNAbilitySelection> getComponentSet()
 	{
-		return new WrappedMapSet<CategorizedAbilitySelection>(
+		return new WrappedMapSet<CNAbilitySelection>(
 				IdentityHashMap.class);
 	}
 

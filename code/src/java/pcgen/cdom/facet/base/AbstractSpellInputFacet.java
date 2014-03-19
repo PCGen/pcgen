@@ -41,7 +41,7 @@ import pcgen.core.spell.Spell;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractSpellInputFacet implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -58,7 +58,7 @@ public abstract class AbstractSpellInputFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> listrefs =
@@ -130,7 +130,7 @@ public abstract class AbstractSpellInputFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject source = dfce.getCDOMObject();

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
@@ -29,7 +30,7 @@ public class TemplateFacetTest extends
 	private TemplateFacet facet = new TemplateFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getFacet()
+	protected AbstractSourcedListFacet<CharID, PCTemplate> getFacet()
 	{
 		return facet;
 	}
@@ -45,7 +46,7 @@ public class TemplateFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<PCTemplate> getListener()
+	protected DataFacetChangeListener<CharID, PCTemplate> getListener()
 	{
 		return facet;
 	}

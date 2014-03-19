@@ -42,7 +42,7 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * @version $Revision$
  */
 
-public class SuppressBioFieldFacet extends AbstractStorageFacet
+public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>
 {
 
 	/*

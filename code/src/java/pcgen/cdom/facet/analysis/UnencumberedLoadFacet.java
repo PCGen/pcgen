@@ -36,8 +36,8 @@ import pcgen.util.enumeration.Load;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class UnencumberedLoadFacet extends AbstractSourcedListFacet<Load>
-		implements DataFacetChangeListener<CDOMObject>
+public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectSourceFacet cdomSourceFacet;
 
@@ -56,7 +56,7 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<Load>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		Load load = cdo.get(ObjectKey.UNENCUMBERED_LOAD);
@@ -81,7 +81,7 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<Load>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

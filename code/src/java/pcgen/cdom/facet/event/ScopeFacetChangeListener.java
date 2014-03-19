@@ -19,33 +19,36 @@ package pcgen.cdom.facet.event;
 
 import java.util.EventListener;
 
+import pcgen.cdom.base.PCGenIdentifier;
+
 /**
  * The listener interface for receiving ScopeFacetChangeEvents. When a
- * CDOMObject has been added to or removed from a PlayerCharacter, the
- * respective method in the listener object is invoked, and the
- * ScopeFacetChangeEvent is passed to it.
+ * CDOMObject has been added to or removed from a resource, the respective
+ * method in the listener object is invoked, and the ScopeFacetChangeEvent is
+ * passed to it.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public interface ScopeFacetChangeListener<S, T> extends EventListener
+public interface ScopeFacetChangeListener<IDT extends PCGenIdentifier, S, T>
+		extends EventListener
 {
 	/**
-	 * Method called when a CDOMObject has been added to a PlayerCharacter and
-	 * this ScopeFacetChangeListener has been added as a
-	 * ScopeFacetChangeListener to the source ScopeFacet.
+	 * Method called when a CDOMObject has been added to a resource and this
+	 * ScopeFacetChangeListener has been added as a ScopeFacetChangeListener to
+	 * the source ScopeFacet.
 	 * 
 	 * @param dfce
 	 *            The ScopeFacetChangeEvent that occurred.
 	 */
-	public void dataAdded(ScopeFacetChangeEvent<S, T> dfce);
+	public void dataAdded(ScopeFacetChangeEvent<IDT, S, T> dfce);
 
 	/**
-	 * Method called when a CDOMObject has been removed from a PlayerCharacter
-	 * and this ScopeFacetChangeListener has been added as a
-	 * ScopeFacetChangeListener to the source ScopeFacet.
+	 * Method called when a CDOMObject has been removed from a resource and this
+	 * ScopeFacetChangeListener has been added as a ScopeFacetChangeListener to
+	 * the source ScopeFacet.
 	 * 
 	 * @param dfce
 	 *            The ScopeFacetChangeEvent that occurred.
 	 */
-	public void dataRemoved(ScopeFacetChangeEvent<S, T> dfce);
+	public void dataRemoved(ScopeFacetChangeEvent<IDT, S, T> dfce);
 }

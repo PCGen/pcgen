@@ -32,6 +32,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -41,14 +42,17 @@ import java.util.TreeSet;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -57,7 +61,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
@@ -98,7 +102,6 @@ import pcgen.core.facade.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -486,24 +489,17 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendCampaignLine(StringBuilder buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-		Collection<? extends CampaignFacade> campList;
 		if (campaigns != null)
 		{
-			campList = campaigns;
+			for (CampaignFacade campaign : campaigns)
+			{
+				buffer.append(del);
+				buffer.append(TAG_CAMPAIGN).append(':');
+				buffer.append(campaign.getKeyName());
+				del = "|"; //$NON-NLS-1$
+			}
+			buffer.append(LINE_SEP);
 		}
-		else
-		{
-			campList = PersistenceManager.getInstance().getLoadedCampaigns();
-		}
-		for (CampaignFacade campaign : campList)
-		{
-			buffer.append(del);
-			buffer.append(TAG_CAMPAIGN).append(':');
-			buffer.append(campaign.getKeyName());
-			del = "|"; //$NON-NLS-1$
-		}
-
-		buffer.append(LINE_SEP);
 	}
 
 	/**
@@ -1385,6 +1381,7 @@ public final class PCGVer2Creator implements IOConstants
 		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
 				getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
+		
 		Collections.sort(categories, new Comparator<AbilityCategory>() {
 			@Override
 			public int compare(AbilityCategory  a, AbilityCategory  b)
@@ -1393,15 +1390,17 @@ public final class PCGVer2Creator implements IOConstants
 			}
 		});
 		
+		Collection<Ability> virtSave = new WrappedMapSet<Ability>(IdentityHashMap.class);
+		virtSave.addAll(thePC.getSaveAbilities());
+
 		for (final AbilityCategory cat : categories)
 		{
-			final List<Ability> normalAbilitiesToSave =
-					new ArrayList<Ability>(thePC.getAbilityList(cat, Nature.NORMAL));
-			final List<Ability> virtualAbilitiesToSave = new ArrayList<Ability>();
-			for (final Ability vability : thePC.getAbilityList(cat, Nature.VIRTUAL))
+			final List<CNAbility> normalAbilitiesToSave =
+					new ArrayList<CNAbility>(thePC.getPoolAbilities(cat, Nature.NORMAL));
+			final List<CNAbility> virtualAbilitiesToSave = new ArrayList<CNAbility>();
+			for (final CNAbility vability : thePC.getPoolAbilities(cat, Nature.VIRTUAL))
 			{
-				Boolean needsSaving = thePC.getAssoc(vability, AssociationKey.NEEDS_SAVING);
-				if (needsSaving != null && needsSaving)
+				if (virtSave.contains(vability.getAbility()))
 				{
 					virtualAbilitiesToSave.add(vability);
 				}
@@ -1409,14 +1408,14 @@ public final class PCGVer2Creator implements IOConstants
 			
 			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
 			Collections.sort(normalAbilitiesToSave);
-			for (final Ability ability : normalAbilitiesToSave)
+			for (final CNAbility ability : normalAbilitiesToSave)
 			{
-				writeAbilityToBuffer(buffer, cat, Nature.NORMAL, ability);
+				writeAbilityToBuffer(buffer, ability);
 			}
 			Collections.sort(virtualAbilitiesToSave);
-			for (final Ability ability : virtualAbilitiesToSave)
+			for (final CNAbility ability : virtualAbilitiesToSave)
 			{
-				writeAbilityToBuffer(buffer, cat, Nature.VIRTUAL, ability);
+				writeAbilityToBuffer(buffer, ability);
 			}
 			if (!normalAbilitiesToSave.isEmpty() || !virtualAbilitiesToSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
 			{
@@ -1430,8 +1429,11 @@ public final class PCGVer2Creator implements IOConstants
 		}
 	}
 
-	private void writeAbilityToBuffer(StringBuilder buffer,
-			final AbilityCategory cat, Nature nature, Ability ability) {
+	private void writeAbilityToBuffer(StringBuilder buffer, CNAbility cna)
+	{
+		Category<Ability> cat = cna.getAbilityCategory();
+		Nature nature = cna.getNature();
+		Ability ability = cna.getAbility();
 		buffer.append(TAG_ABILITY).append(TAG_END);
 		buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
 			TAG_SEPARATOR);
@@ -1447,7 +1449,7 @@ public final class PCGVer2Creator implements IOConstants
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			buffer.append(TAG_APPLIEDTO).append(TAG_END);
-			List<String> assocList = thePC.getAssociationList(ability);
+			List<String> assocList = thePC.getAssociationList(cna);
 			boolean first = true;
 			for (String assoc : assocList)
 			{
@@ -2486,22 +2488,6 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			appendWeaponProficiencyLines(buffer, pcClass);
 		}
-
-		//
-		// Save any selected domain bonus weapons
-		//
-		for (final Domain d : charDisplay.getDomainSet())
-		{
-			appendWeaponProficiencyLines(buffer, d);
-		}
-
-		//
-		// Save any selected feat bonus weapons
-		//
-		for (final Ability feat : thePC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
-		{
-			appendWeaponProficiencyLines(buffer, feat);
-		}
 	}
 
 	private void appendWeaponProficiencyLines(StringBuilder buffer,
@@ -2572,7 +2558,7 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 			{
-				List<? extends CategorizedAbilitySelection> featList = thePC
+				List<? extends CNAbilitySelection> featList = thePC
 						.getTemplateFeatList(lt);
 				if (featList != null)
 				{
@@ -2582,7 +2568,7 @@ public final class PCGVer2Creator implements IOConstants
 		}
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.LEVEL_TEMPLATES))
 		{
-			List<? extends CategorizedAbilitySelection> featList = thePC
+			List<? extends CNAbilitySelection> featList = thePC
 					.getTemplateFeatList(lt);
 			if (featList != null)
 			{
@@ -2592,7 +2578,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		for (PCTemplate lt : pct.getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			List<? extends CategorizedAbilitySelection> featList = thePC
+			List<? extends CNAbilitySelection> featList = thePC
 					.getTemplateFeatList(lt);
 			if (featList != null)
 			{
@@ -2603,9 +2589,9 @@ public final class PCGVer2Creator implements IOConstants
 	}
 
 	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
-		List<? extends CategorizedAbilitySelection> featList)
+		List<? extends CNAbilitySelection> featList)
 	{
-		for (CategorizedAbilitySelection s : featList)
+		for (CNAbilitySelection s : featList)
 		{
 			if (aString.length() != 0)
 			{

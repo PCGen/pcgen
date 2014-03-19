@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Equipment;
@@ -28,7 +29,7 @@ import pcgen.core.character.EquipSet;
  * NaturalEquipSetFacet is a Facet that tracks the the Natural EquipSet for a
  * Player Character, and automatically adds Natural Equipment to that EquipSet.
  */
-public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
+public class NaturalEquipSetFacet implements DataFacetChangeListener<CharID, Equipment>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet =
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
@@ -50,7 +51,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 		EquipSet eSet = pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
@@ -77,7 +78,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		// Ignore for now
 		/*

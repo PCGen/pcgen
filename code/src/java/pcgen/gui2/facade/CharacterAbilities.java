@@ -35,6 +35,7 @@ import javax.swing.SwingUtilities;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -45,7 +46,7 @@ import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -68,7 +69,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
-import pcgen.util.enumeration.Visibility;
 
 /**
  * The Class <code>CharacterAbilities</code> manages the interaction between 
@@ -157,7 +157,7 @@ public class CharacterAbilities
 		directAbilityFacet.addDataFacetChangeListener(directAbilityChangeHandler);
 	}
 
-	void addAbilityToLists(AbilityCategory cat, Ability ability, Nature nature)
+	private void addAbilityToLists(AbilityCategory cat, Ability ability, Nature nature)
 	{
 		addCategorisedAbility(cat, ability, nature, abilityListMap);
 		if (!activeCategories.containsElement(cat))
@@ -177,11 +177,7 @@ public class CharacterAbilities
 	{
 		removeCategorisedAbility(cat, ability, nature);
 		
-		boolean stillActive =
-				!theCharacter.getAbilityList(cat, Nature.AUTOMATIC).isEmpty()
-					|| !theCharacter.getAbilityList(cat, Nature.NORMAL).isEmpty()
-					|| !theCharacter.getAbilityList(cat, Nature.VIRTUAL).isEmpty()
-					|| theCharacter.getAvailableAbilityPool(cat).intValue() > 0;
+		boolean stillActive = cat.isVisibleTo(View.VISIBLE_DISPLAY);
 		if (!stillActive && activeCategories.containsElement(cat))
 		{
 			activeCategories.removeElement(cat);
@@ -207,43 +203,27 @@ public class CharacterAbilities
 		for (AbilityCategoryFacade category : categories)
 		{
 			AbilityCategory cat = (AbilityCategory) category;
-			boolean found = false;
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.NORMAL))
-			{
-				addCategorisedAbility(cat, ability, Nature.NORMAL, workingAbilityListMap);
-				found = true;
-			}
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.AUTOMATIC))
-			{
-				addCategorisedAbility(cat, ability, Nature.AUTOMATIC, workingAbilityListMap);
-				found = true;
-			}
-			for (Ability ability : theCharacter.getAbilityList(cat, Nature.VIRTUAL))
-			{
-				addCategorisedAbility(cat, ability, Nature.VIRTUAL, workingAbilityListMap);
-				found = true;
-			}
-			
-			// Show the category if the character has pool points left
-			found |= theCharacter.getAvailableAbilityPool(cat).intValue() > 0;
 
-			// Finally  deal with visibility
-			Visibility vis = cat.getVisibility();
-			found &= !vis.isVisibleTo(View.HIDDEN_DISPLAY);
-			found |= vis.isVisibleTo(View.VISIBLE_DISPLAY);
-			
-			if (found && !workingActiveCategories.containsElement(cat))
+			for (CNAbility cna : theCharacter.getPoolAbilities(cat))
+			{
+				addCategorisedAbility(cat, cna.getAbility(), cna.getNature(), workingAbilityListMap);
+			}
+
+			// deal with visibility
+			boolean visible = cat.isVisibleTo(theCharacter, View.VISIBLE_DISPLAY);
+
+			if (visible && !workingActiveCategories.containsElement(cat))
 			{
 				int index = getCatIndex(cat, workingActiveCategories);
 				workingActiveCategories.addElement(index, cat);
 			}
-			if (!found && workingActiveCategories.containsElement(cat))
+			if (!visible && workingActiveCategories.containsElement(cat))
 			{
 				workingActiveCategories.removeElement(cat);
 //				updateAbilityCategoryTodo(cat);
 			}
 			
-			if (found)
+			if (visible)
 			{
 				adviseSelectionChangeLater(cat);
 			}
@@ -360,30 +340,31 @@ public class CharacterAbilities
 	private void addCategorisedAbility(AbilityCategory cat,
 		Ability ability, Nature nature, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
 	{
-		List<CategorizedAbilitySelection> cas = new ArrayList<CategorizedAbilitySelection>();
+		List<CNAbilitySelection> cas = new ArrayList<CNAbilitySelection>();
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			List<String> choices = theCharacter.getAssociationList(ability);
 			if (choices == null || choices.isEmpty())
 			{
-				cas.add(new CategorizedAbilitySelection(cat, ability, nature,
+				//TODO shouldn't this be a warning - the core should not let this happen?
+				cas.add(new CNAbilitySelection(new CNAbility(cat, ability, nature),
 					""));
 			}
 			else
 			{
 				for (String choice : choices)
 				{
-					cas.add(new CategorizedAbilitySelection(cat, ability,
-						nature, choice));
+					cas.add(new CNAbilitySelection(new CNAbility(cat, ability,
+						nature), choice));
 				}
 			}
 			
 		}
 		else
 		{
-			cas.add(new CategorizedAbilitySelection(cat, ability, nature));
+			cas.add(new CNAbilitySelection(new CNAbility(cat, ability, nature)));
 		}
-		for (CategorizedAbilitySelection sel : cas)
+		for (CNAbilitySelection sel : cas)
 		{
 			addElement(workingAbilityListMap, sel);
 		}
@@ -392,14 +373,14 @@ public class CharacterAbilities
 	private void removeCategorisedAbility(AbilityCategory cat,
 		Ability ability, Nature nature)
 	{
-		CategorizedAbilitySelection cas;
+		CNAbilitySelection cas;
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			cas = new CategorizedAbilitySelection(cat, ability, nature, "");
+			cas = new CNAbilitySelection(new CNAbility(cat, ability, nature), "");
 		}
 		else
 		{
-			cas = new CategorizedAbilitySelection(cat, ability, nature);
+			cas = new CNAbilitySelection(new CNAbility(cat, ability, nature));
 		}
 		removeElement(cas);
 	}
@@ -454,8 +435,6 @@ public class CharacterAbilities
 
 		// Recalc the innate spell list
 		theCharacter.getSpellList();
-
-		theCharacter.aggregateFeatList();
 
 		theCharacter.calcActiveBonuses();
 
@@ -552,9 +531,6 @@ public class CharacterAbilities
 				+ ": " + exc.getMessage());
 			return;
 		}
-
-		// Called for side effects
-		theCharacter.aggregateFeatList();
 
 		theCharacter.calcActiveBonuses();
 
@@ -808,8 +784,9 @@ public class CharacterAbilities
 		return true;
 	}
 
-	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CategorizedAbilitySelection cas)
+	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CNAbilitySelection cnas)
 	{
+		CNAbility cas = cnas.getCNAbility();
 		Ability ability = cas.getAbility();
 		if (!ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 		{
@@ -829,8 +806,9 @@ public class CharacterAbilities
 		}
 	}
 
-	private void removeElement(CategorizedAbilitySelection cas)
+	private void removeElement(CNAbilitySelection cnas)
 	{
+		CNAbility cas = cnas.getCNAbility();
 		Ability ability = cas.getAbility();
 		AbilityCategoryFacade cat = (AbilityCategoryFacade) cas.getAbilityCategory();
 		DefaultListFacade<AbilityFacade> listFacade = abilityListMap.get(cat);
@@ -846,12 +824,12 @@ public class CharacterAbilities
 	 * the character's list of direct abilities.
 	 */
 	private final class DirectAbilityChangeHandler implements
-			DataFacetChangeListener<CategorizedAbilitySelection>
+			DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 		@SuppressWarnings("nls")
 		@Override
 		public void dataAdded(
-			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+			DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -861,35 +839,37 @@ public class CharacterAbilities
 //					+ dfce.getCharID());
 				return;
 			}
-			CategorizedAbilitySelection cas = dfce.getCDOMObject();
+			CNAbilitySelection cnas = dfce.getCDOMObject();
+			CNAbility cas = cnas.getCNAbility();
 			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint("Got direct ability added of "
 					+ cas.getAbilityKey() + " for cat "
 					+ cas.getAbilityCategory());
 			}
-			addElement(abilityListMap, cas);
+			addElement(abilityListMap, cnas);
 			updateAbilityCategoryLater(cas.getAbilityCategory());
 		}
 
 		@SuppressWarnings("nls")
 		@Override
 		public void dataRemoved(
-			DataFacetChangeEvent<CategorizedAbilitySelection> dfce)
+			DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
 				// The change notification is not for this character, so ignore it.
 				return;
 			}
-			CategorizedAbilitySelection cas = dfce.getCDOMObject();
+			CNAbilitySelection cnas = dfce.getCDOMObject();
+			CNAbility cas = cnas.getCNAbility();
 			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint("Got direct ability removed of "
 					+ cas.getAbilityKey() + " for cat "
 					+ cas.getAbilityCategory());
 			}
-			removeElement(cas);
+			removeElement(cnas);
 			updateAbilityCategoryLater(cas.getAbilityCategory());
 		}
 	}
@@ -899,11 +879,11 @@ public class CharacterAbilities
 	 * the character's list of granted abilities.
 	 */
 	private final class GrantedAbilityChangeHandler implements
-			DataFacetChangeListener<Ability>
+			DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 		@SuppressWarnings("nls")
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -923,7 +903,7 @@ public class CharacterAbilities
 
 		@SuppressWarnings("nls")
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -949,11 +929,11 @@ public class CharacterAbilities
 	 * the character's list of active abilities.
 	 */
 	private final class ActiveAbilityChangeHandler implements
-			DataFacetChangeListener<Ability>
+			DataFacetChangeListener<CharID, Ability>
 	{
 		@SuppressWarnings("nls")
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Ability> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, Ability> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -971,8 +951,8 @@ public class CharacterAbilities
 			if (dfce instanceof CategorizedDataFacetChangeEvent)
 			{
 				
-				CategorizedDataFacetChangeEvent<?> categorizedEvent =
-						(CategorizedDataFacetChangeEvent<?>) dfce;
+				CategorizedDataFacetChangeEvent<CharID, ?> categorizedEvent =
+						(CategorizedDataFacetChangeEvent<CharID, ?>) dfce;
 				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
 				Nature nature = categorizedEvent.getNature();
 				addAbilityToLists(cat, ability, nature);
@@ -981,7 +961,7 @@ public class CharacterAbilities
 
 		@SuppressWarnings("nls")
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Ability> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, Ability> dfce)
 		{
 			if (dfce.getCharID() != charID)
 			{
@@ -1001,8 +981,8 @@ public class CharacterAbilities
 			if (dfce instanceof CategorizedDataFacetChangeEvent)
 			{
 				
-				CategorizedDataFacetChangeEvent<?> categorizedEvent =
-						(CategorizedDataFacetChangeEvent<?>) dfce;
+				CategorizedDataFacetChangeEvent<CharID, ?> categorizedEvent =
+						(CategorizedDataFacetChangeEvent<CharID, ?>) dfce;
 				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
 				Nature nature = categorizedEvent.getNature();
 				removeAbilityFromLists(cat, ability, nature);

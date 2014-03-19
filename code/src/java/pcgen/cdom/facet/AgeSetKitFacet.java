@@ -39,8 +39,8 @@ import pcgen.core.PlayerCharacter;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AgeSetKitFacet extends AbstractStorageFacet implements
-		DataFacetChangeListener<Integer>
+public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
+		DataFacetChangeListener<CharID, Integer>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
@@ -66,7 +66,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Integer> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
 	{
 		CharID id = dfce.getCharID();
 		AgeSet ageSet = ageSetFacet.get(id);
@@ -118,7 +118,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Integer> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
 	{
 		/*
 		 * CONSIDER Kits seem to be fire & forget - so nothing? Probably not, as

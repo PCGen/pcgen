@@ -37,7 +37,7 @@ import pcgen.core.Skill;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
+		AbstractSubScopeFacet<Skill, SkillCost, PCClass> implements
 		SubScopeFacetChangeListener<PCClass, SkillCost, Skill>
 {
 	private ListToSkillCostFacet listToSkillCostFacet;
@@ -76,7 +76,7 @@ public class SkillCostFacet extends
 			throw new IllegalArgumentException(
 				"Skill in isClassSkill cannot be null");
 		}
-		return contains(id, pcc, SkillCost.CLASS, skill);
+		return contains(id, skill, SkillCost.CLASS, pcc);
 	}
 
 	public boolean isCrossClassSkill(CharID id, PCClass pcc, Skill skill)
@@ -91,22 +91,22 @@ public class SkillCostFacet extends
 			throw new IllegalArgumentException(
 				"Skill in isCrossClassSkill cannot be null");
 		}
-		return !contains(id, pcc, SkillCost.CLASS, skill)
-			&& contains(id, pcc, SkillCost.CROSS_CLASS, skill);
+		return !contains(id, skill, SkillCost.CLASS, pcc)
+			&& contains(id, skill, SkillCost.CROSS_CLASS, pcc);
 	}
 
 	public void dataAdded(
 		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{
-		add(dfce.getCharID(), dfce.getScope1(), dfce.getScope2(),
-			dfce.getCDOMObject(), dfce.getSource());
+		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getScope2(),
+			dfce.getScope1(), dfce.getSource());
 	}
 
 	public void dataRemoved(
 		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{
-		remove(dfce.getCharID(), dfce.getScope1(), dfce.getScope2(),
-			dfce.getCDOMObject(), dfce.getSource());
+		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getScope2(),
+			dfce.getScope1(), dfce.getSource());
 	}
 
 	public void setGlobalToSkillCostFacet(

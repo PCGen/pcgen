@@ -35,7 +35,8 @@ public class CNAbility extends ConcretePrereqObject implements
 	/**
 	 * The Ability that this CNAbility represents
 	 */
-	private final Ability ability;
+	private Ability ability;
+//	private final Ability ability;
 
 	/**
 	 * The Nature of the Ability
@@ -153,6 +154,11 @@ public class CNAbility extends ConcretePrereqObject implements
 		}
 		compare = this.nature.compareTo(other.nature);
 		return compare;
+	}
+
+	public void doMagicalAndEvilThings(Ability clone)
+	{
+		ability = clone;
 	}
 
 }

@@ -89,6 +89,19 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	/**
+	 * This is prohibited since the associations are stored on the Equipment.
+	 * Thankfully, bonuses are usually exported through the Equipment, via
+	 * getBonusList(Equipment) or via getActiveBonuses(Equipment, PC), not
+	 * as a stand-alone behavior.
+	 */
+	@Override
+	public List<BonusObj> getBonusList(PlayerCharacter pc)
+	{
+		throw new UnsupportedOperationException(
+			"Cannot resolve bonuses on EqMod via PlayerCharacter - requires Equipment");
+	}
+	
+	/**
 	 * This method assumes that there can only be one bonus in any given
 	 * Equipment modifier that uses %CHOICE.  It retrieves the list of bonuses
 	 * using the super classes getBonusList() and then examines each of them in
@@ -100,12 +113,6 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @return  a complete list of bonus objects with %CHOICE expanded to
 	 *          include one entry for each associated choice.
 	 */
-	@Override
-	public List<BonusObj> getBonusList(PlayerCharacter pc)
-	{
-		return getBonusList(super.getBonusList(pc), pc.getAssociationList(this));
-	}
-	
 	@Override
 	public List<BonusObj> getBonusList(Equipment e)
 	{

@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2012 Tom Parker <thpr@users.sourceforge.net>
+ * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -25,7 +26,7 @@ import java.util.WeakHashMap;
 
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.util.Logging;
 
 /**
@@ -35,15 +36,15 @@ import pcgen.util.Logging;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractStorageFacet
+public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 {
-	
+
 	public final Class<?> thisClass = getClass();
 
 	/**
-	 * Copies the contents of the AbstractStorageFacet from one Player Character
-	 * to another Player Character, based on the given CharIDs representing
-	 * those Player Characters.
+	 * Copies the contents of the AbstractStorageFacet from one resource to
+	 * another resource, based on the given PCGenIdentifiers representing those
+	 * resources.
 	 * 
 	 * This is a method each AbstractStorageFacet must implement in order to do
 	 * 2 things: First, it must avoid exposing the mutable storage information
@@ -52,27 +53,28 @@ public abstract class AbstractStorageFacet
 	 * copies (if Lists need to be cloned, etc.) is done appropriately.
 	 * 
 	 * Note also the copy is a one-time event and no references should be
-	 * maintained between the Player Characters represented by the given CharIDs
-	 * (meaning once this copy takes place, any change to the
-	 * AbstractStorageFacet of one Player Character will only impact the Player
-	 * Character where the AbstractStorageFacet was changed).
+	 * maintained between the resources represented by the given
+	 * PCGenIdentifiers (meaning once this copy takes place, any change to the
+	 * AbstractStorageFacet of one resource will only impact the resource where
+	 * the AbstractStorageFacet was changed).
 	 * 
 	 * @param source
-	 *            The CharID representing the Player Character from which the
+	 *            The PCGenIdentifier representing the resource from which the
 	 *            information should be copied
 	 * @param copy
-	 *            The CharID representing the Player Character to which the
+	 *            The PCGenIdentifier representing the resource to which the
 	 *            information should be copied
 	 */
-	public abstract void copyContents(CharID source, CharID copy);
+	public abstract void copyContents(T source, T copy);
 
 	/**
 	 * The actual cache that stores the CDOM information, as stored by the
-	 * identifying CharID of a PlayerCharacter and the class of the facet
+	 * identifying PCGenIdentifier of a resource and the class of the facet
 	 * storing the information
 	 */
-	private static final DoubleKeyMap<CharID, Class<?>, Object> CACHE =
-			new DoubleKeyMap<CharID, Class<?>, Object>(WeakHashMap.class, HashMap.class);
+	private static final DoubleKeyMap<PCGenIdentifier, Class<?>, Object> CACHE =
+			new DoubleKeyMap<PCGenIdentifier, Class<?>, Object>(
+				WeakHashMap.class, HashMap.class);
 
 	/*
 	 * Note: the use of CACHE.getReadOnlyMapFor(K1) in peekAtCache makes calling
@@ -82,100 +84,102 @@ public abstract class AbstractStorageFacet
 	 * detailed consideration is made of the consequences so that debugging
 	 * information is not destroyed in the process. - thpr Dec 15, 2012.
 	 */
-	
+
 	/**
-	 * Removes the information from the cache for a given Player Character and
-	 * facet (as identified by the Class)
+	 * Removes the information from the cache for a given resource and facet (as
+	 * identified by the Class)
 	 * 
 	 * @param id
-	 *            The CharID for which information from the cache should be
-	 *            removed
-	 * @return The information which was removed from the Cache for the Player
-	 *         Character identified by the given CharID and the facet identified
+	 *            The PCGenIdentifier for which information from the cache
+	 *            should be removed
+	 * @return The information which was removed from the Cache for the resource
+	 *         identified by the given PCGenIdentifier and the facet identified
 	 *         by the given Class.
 	 */
-	public Object removeCache(CharID id)
+	public Object removeCache(T id)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
-				"CharID cannot be null in removeCache");
+				"PCGenIdentifier cannot be null in removeCache");
 		}
 		return CACHE.remove(id, thisClass);
 	}
 
 	/**
-	 * Sets the information from the cache for a given Player Character and
-	 * facet (as identified by the Class)
+	 * Sets the information from the cache for a given resource and facet (as
+	 * identified by the Class)
 	 * 
 	 * @param id
-	 *            The CharID for which information from the cache should be
-	 *            removed
+	 *            The PCGenIdentifier for which information from the cache
+	 *            should be removed
 	 * @param o
 	 *            The object to be stored in the cache.
 	 * @return The previous information which was removed from the Cache for the
-	 *         Player Character identified by the given CharID and the facet
+	 *         resource identified by the given PCGenIdentifier and the facet
 	 *         identified by the given Class.
 	 */
-	public Object setCache(CharID id, Object o)
+	public Object setCache(T id, Object o)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
-				"CharID cannot be null in setCache");
+				"PCGenIdentifier cannot be null in setCache");
 		}
 		return CACHE.put(id, thisClass, o);
 	}
 
 	/**
-	 * Retrieves the information from the cache for a given Player Character and
-	 * facet (as identified by the Class)
+	 * Retrieves the information from the cache for a given resource and facet
+	 * (as identified by the Class)
 	 * 
 	 * @param id
-	 *            The CharID for which information from the cache should be
-	 *            removed
-	 * @return The information in the Cache for the Player Character identified
-	 *         by the given CharID and the facet identified by the given Class.
+	 *            The PCGenIdentifier for which information from the cache
+	 *            should be removed
+	 * @return The information in the Cache for the resource identified by the
+	 *         given PCGenIdentifier and the facet identified by the given
+	 *         Class.
 	 */
-	public Object getCache(CharID id)
+	public Object getCache(T id)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
-				"CharID cannot be null in getCache");
+				"PCGenIdentifier cannot be null in getCache");
 		}
 		return CACHE.get(id, thisClass);
 	}
 
 	/**
-	 * Tests whether the contents of the cache are equal for two Player
-	 * Characters, as identified by the CharID objects. The given
-	 * InequalityTester is used to compare the cache contents.
+	 * Tests whether the contents of the cache are equal for two resources, as
+	 * identified by the PCGenIdentifier objects. The given InequalityTester is
+	 * used to compare the cache contents.
 	 * 
 	 * @param id1
-	 *            The CharID of the first PlayerCharacter that is to be compared
+	 *            The PCGenIdentifier of the first resource that is to be
+	 *            compared
 	 * @param id2
-	 *            The CharID of the second PlayerCharacter that is to be
+	 *            The PCGenIdentifier of the second resource that is to be
 	 *            compared
 	 * @param t
 	 *            The InequalityTester used to establish equality between
 	 *            contents of the cache.
 	 * @return true if the contents of the cache are equal (as identified by the
-	 *         given InequalityTester) for the Player Characters identified by
-	 *         the given CharIDs; false otherwise
+	 *         given InequalityTester) for the resources identified by the given
+	 *         PCGenIdentifiers; false otherwise
 	 */
-	public static boolean areEqualCache(CharID id1, CharID id2,
-		InequalityTester t)
+	public static boolean areEqualCache(PCGenIdentifier id1,
+		PCGenIdentifier id2, InequalityTester t)
 	{
 		if (id1 == null)
 		{
 			throw new IllegalArgumentException(
-				"CharID #1 cannot be null in areEqualCache");
+				"PCGenIdentifier #1 cannot be null in areEqualCache");
 		}
 		if (id2 == null)
 		{
 			throw new IllegalArgumentException(
-				"CharID #2 cannot be null in areEqualCache");
+				"PCGenIdentifier #2 cannot be null in areEqualCache");
 		}
 		Set<Class<?>> set1 = CACHE.getSecondaryKeySet(id1);
 		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
@@ -203,12 +207,12 @@ public abstract class AbstractStorageFacet
 	}
 
 	/**
-	 * Returns a read-only view into the cache for a given CharID.
+	 * Returns a read-only view into the cache for a given PCGenIdentifier.
 	 * 
 	 * Since the returned Map is read-only, the value here is in that it is a
-	 * direct reference to the contents of cache for a given CharID, and is
-	 * therefore reference-semantic (the contents of the returned map will
-	 * change as the contents of the cache are changed). Ownership of the
+	 * direct reference to the contents of cache for a given PCGenIdentifier,
+	 * and is therefore reference-semantic (the contents of the returned map
+	 * will change as the contents of the cache are changed). Ownership of the
 	 * returned Map is transferred to the caller, although since it is
 	 * read-only, that is perhaps only relevant for determining the garbage
 	 * collection time of the decorator that makes the returned Map an
@@ -218,16 +222,16 @@ public abstract class AbstractStorageFacet
 	 * returned map is thread-safe. Use in threaded situations with caution.
 	 * 
 	 * @param id
-	 *            The CharID for which a read-only view of the cache should be
-	 *            returned.
-	 * @return A read-only view of the cache for the given CharID
+	 *            The PCGenIdentifier for which a read-only view of the cache
+	 *            should be returned.
+	 * @return A read-only view of the cache for the given PCGenIdentifier
 	 */
-	public static Map<Class<?>, Object> peekAtCache(CharID id)
+	public static Map<Class<?>, Object> peekAtCache(PCGenIdentifier id)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
-				"CharID cannot be null in peekAtCache");
+				"PCGenIdentifier cannot be null in peekAtCache");
 		}
 		return CACHE.getReadOnlyMapFor(id);
 	}

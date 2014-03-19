@@ -36,7 +36,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -190,6 +190,58 @@ public class AbilityUtilities
 		}
 	}
 
+	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
+	{
+		CNAbility cna = cnas.getCNAbility();
+		Ability ability = cna.getAbility();
+		// how many sub-choices to make
+		double abilityCount =
+				(aPC.getSelectCorrectedAssociationCount(ability) * ability
+					.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+
+		ChoiceManagerList cm =
+				ChooserUtilities.getChoiceManager(ability, aPC);
+		if (cm != null)
+		{
+			add(cm, aPC, ability, cnas.getSelection());
+		}
+
+		/*
+		 * This modifyChoice method is a bit like mod choices, but it uses a
+		 * different tag to set the chooser string.
+		 */
+		TransitionChoice<Ability> mc = ability.get(ObjectKey.MODIFY_CHOICE);
+		if (mc != null)
+		{
+			mc.act(mc.driveChoice(aPC), ability, aPC);
+		}
+
+		for (TransitionChoice<Kit> kit : ability
+			.getSafeListFor(ListKey.KIT_CHOICE))
+		{
+			kit.act(kit.driveChoice(aPC), ability, aPC);
+		}
+
+		if (cna.getAbilityCategory() == AbilityCategory.FEAT)
+		{
+			adjustPool(ability, aPC, true, abilityCount, false);
+		}
+
+		aPC.adjustMoveRates();
+
+		if (!aPC.isImporting())
+		{
+			AddObjectActions.globalChecks(ability, aPC);
+			/*
+			 * Protection for CODE-1240. Note the better solution is when facets
+			 * are association aware and thus trigger a change when an
+			 * association is added. - thpr
+			 */
+			aPC.calcActiveBonuses();
+			aPC.refreshSkillList();
+		}
+	}
+
 	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
 		CDOMObject obj, String choice)
 	{
@@ -214,11 +266,11 @@ public class AbilityUtilities
 		{
 			int listSize = aPC.getSelectCorrectedAssociationCount(ability);
 
-			for (Ability myAbility : aPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+			for (CNAbility cna : aPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
 			{
-				if (myAbility.getKeyName().equalsIgnoreCase(ability.getKeyName()))
+				if (cna.getAbilityKey().equalsIgnoreCase(ability.getKeyName()))
 				{
-					listSize = aPC.getSelectCorrectedAssociationCount(myAbility);
+					listSize = aPC.getSelectCorrectedAssociationCount(cna);
 				}
 			}
 
@@ -237,49 +289,19 @@ public class AbilityUtilities
 	 * @param   choice                    For an isMultiples() Ability
 	 * @param   category The AbilityCategory to add or remove the ability from.
 	 */
-	public static void modAbility(
-		final PlayerCharacter aPC,
-		final Ability         argAbility,
-		final String          choice,
-		final AbilityCategory category)
+	public static void modAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
 	{
 		if (!aPC.isImporting())
 		{
 			aPC.getSpellList();
 		}
 
-		Ability pcAbility = aPC.addAbilityNeedCheck(category, argAbility);
-		finaliseAbility(pcAbility, choice, aPC, category);
-	}
-
-	/**
-	 * Add multiple feats from a String list separated by commas.
-	 * @param aPC
-	 * @param as
-	 */
-	static void modFeatsFromList(final PlayerCharacter aPC,
-			final CategorizedAbilitySelection as)
-	{
-		if (aPC.hasAbilityKeyed(AbilityCategory.FEAT, as.getAbilityKey()))
-		{
-			return;
-		}
-
-		// Get ability from global storage by Name
-		Ability anAbility = as.getAbility().clone();
-		aPC.addFeat(anAbility);
-
-		String choice = as.getSelection();
-		if (choice == null)
-		{
-			if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				aPC.adjustFeats(anAbility.getSafe(ObjectKey.SELECTION_COST)
-						.doubleValue());
-			}
-
-			modAbility(aPC, anAbility, null, AbilityCategory.FEAT);
-		}
+		CNAbility cna = cnas.getCNAbility();
+		Ability pcAbility =
+				aPC.addAbilityNeedCheck(cna.getAbilityCategory(),
+					cna.getAbility());
+		cna.doMagicalAndEvilThings(pcAbility);
+		finaliseAbility(aPC, cnas);
 	}
 
 	public static Ability retrieveAbilityKeyed(AbilityCategory aCat,
@@ -358,25 +380,27 @@ public class AbilityUtilities
 		String selection, boolean allowStack)
 	{
 		Collection<CNAbility> cnAbilities = pc.getMatchingCNAbilities(ability);
-		if (!cnAbilities.isEmpty())
+		if (cnAbilities.isEmpty())
 		{
-			if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				//Based on key name / category match
-				return true;
-			}
-			if (allowStack && ability.getSafe(ObjectKey.STACKS))
-			{
-				//Must allow it because it stacks
-				return false;
-			}
+			//Don't have any form of it
+			return false;
+		}
+		if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			//Based on key name / category match
+			return true;
+		}
+		if (allowStack && ability.getSafe(ObjectKey.STACKS))
+		{
+			//Must allow it because it stacks
+			return false;
 		}
 		ChooseInformation<?> info = ability.get(ObjectKey.CHOOSE_INFO);
+		Object decoded =
+				info.decodeChoice(Globals.getContext(), selection);
 		for (CNAbility cna : cnAbilities)
 		{
-			List<?> oldSelections = pc.getDetailedAssociations(cna.getAbility());
-			Object decoded =
-					info.decodeChoice(Globals.getContext(), selection);
+			List<?> oldSelections = pc.getDetailedAssociations(cna);
 			if ((oldSelections != null) && oldSelections.contains(decoded))
 			{
 				return true;

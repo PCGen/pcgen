@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2010-14 Tom Parker <thpr@users.sourceforge.net>
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -18,12 +19,15 @@ package pcgen.cdom.facet;
 
 import java.util.Collection;
 
-import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.DataSetID;
+import pcgen.cdom.facet.base.AbstractScopeFacet;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Globals;
 import pcgen.core.Skill;
+import pcgen.rules.context.LoadContext;
 
 /**
  * The Class <code>MasterSkillFacet</code> caches a copy of all class skill
@@ -33,86 +37,41 @@ import pcgen.core.Skill;
  * 
  * @author Tom Parker <thpr@users.sourceforge.net>
  */
-public class MasterSkillFacet
+public class MasterSkillFacet extends
+		AbstractScopeFacet<DataSetID, ClassSkillList, Skill> implements
+		DataSetInitializedFacet
 {
 
-	private HashMapToList<ClassSkillList, Skill> hml;
+	private DataSetInitializationFacet datasetInitializationFacet;
 
-	/**
-	 * Initializes the global lists of ClassSkillLists. This method only needs
-	 * to be called once for each set of sources that are loaded.
-	 */
-	private synchronized void initialize()
+	public synchronized void initialize(LoadContext context)
 	{
-		if (hml != null)
+		DataSetID dsID = context.getDataSetID();
+		if (getCache(dsID) == null)
 		{
-			return;
-		}
-		
-		hml = new HashMapToList<ClassSkillList, Skill>();
-		MasterListInterface masterLists = Globals.getMasterLists();
-		for (CDOMReference ref : masterLists.getActiveLists())
-		{
-			Collection objects = masterLists.getObjects(ref);
-			for (Object cl : ref.getContainedObjects())
+			MasterListInterface masterLists = Globals.getMasterLists();
+			for (CDOMReference ref : masterLists.getActiveLists())
 			{
-				if (cl instanceof ClassSkillList)
+				Collection objects = masterLists.getObjects(ref);
+				for (Object cl : ref.getContainedObjects())
 				{
-					hml.addAllToListFor((ClassSkillList) cl, objects);
+					if (cl instanceof ClassSkillList)
+					{
+						addAll(dsID, (ClassSkillList) cl, objects, cl);
+					}
 				}
 			}
 		}
 	}
 
-	/**
-	 * Returns true if the given Skill is available on the global list of skills
-	 * in the given ClassSkillList. (The global list of skills are by definition
-	 * class skills)
-	 * 
-	 * @param csl
-	 *            The ClassSkillList which should be checked to determine if the
-	 *            given Skill is on the ClassSkillList.
-	 * @param sk
-	 *            The Skill to determine if it is on the global list of skills
-	 *            for the given ClassSkillList
-	 * @return true if the given Skill is available on the global list of skills
-	 *         in the given ClassSkillList; false otherwise
-	 */
-	public boolean hasMasterSkill(ClassSkillList csl, Skill sk)
+	public void setDataSetInitializationFacet(
+		DataSetInitializationFacet datasetInitializationFacet)
 	{
-		if (hml == null)
-		{
-			initialize();
-		}
-		return hml.containsInList(csl, sk);
+		this.datasetInitializationFacet = datasetInitializationFacet;
 	}
 
-	/**
-	 * Returns a Collection of the Skill objects available on the global list of
-	 * skills in the given ClassSkillList. (Note: The global list of skills are
-	 * by definition class skills)
-	 * 
-	 * @param csl
-	 *            The ClassSkillList which should be checked to return the Skill
-	 *            objects available on the global list of skills
-	 * @return A Collection of the Skill objects available on the global list of
-	 *         skills in the given ClassSkillList; null if there are no skills
-	 *         on the global list for the given ClassSkillList
-	 */
-	public Collection<Skill> getSet(ClassSkillList csl)
+	public void init()
 	{
-		if (hml == null)
-		{
-			initialize();
-		}
-		return hml.getListFor(csl);
-	}
-
-	/**
-	 * Empty the stored master data. Used when reloading sources. 
-	 */
-	public void emptyLists()
-	{
-		hml = null;
+		datasetInitializationFacet.addDataSetInitializedFacet(this);
 	}
 }

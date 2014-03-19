@@ -26,7 +26,6 @@
 
 package pcgen.core.term;
 
-import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
@@ -45,8 +44,9 @@ public class PCHasFeatTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Ability ability = AbilityUtilities.retrieveAbilityKeyed(AbilityCategory.FEAT, feat);
-		boolean hasFeat = pc.hasRealAbility(AbilityCategory.FEAT, ability);
+		boolean hasFeat =
+				pc.hasAbilityKeyed(AbilityCategory.FEAT, feat)
+					|| pc.hasAbilityKeyed(AbilityCategory.FEAT, AbilityUtilities.removeChoicesFromName(feat));
 		return hasFeat ? 1f : 0f;
 	}
 

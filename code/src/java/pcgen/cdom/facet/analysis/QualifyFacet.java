@@ -37,8 +37,8 @@ import pcgen.cdom.reference.Qualifier;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class QualifyFacet extends AbstractStorageFacet implements
-		DataFacetChangeListener<CDOMObject>
+public class QualifyFacet extends AbstractStorageFacet<CharID> implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -59,7 +59,7 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<Qualifier> qualList = cdo.getListFor(ListKey.QUALIFY);
@@ -90,7 +90,7 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CacheInfo ci = (CacheInfo) getCache(id);

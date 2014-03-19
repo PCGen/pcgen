@@ -75,7 +75,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 
 		AbilityUtilities.finaliseAbility(pcAbility, "Acrobatics", pc,
 			AbilityCategory.FEAT);
-		assertEquals("Incorrect multiple choice", "Perception, Acrobatics",
+		assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
 			ca.getChoices(pcAbility));
 	}
 	

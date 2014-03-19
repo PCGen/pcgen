@@ -20,6 +20,7 @@ package pcgen.cdom.enumeration;
 import java.util.Map;
 
 import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
@@ -28,7 +29,7 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * This Class is a Type Safe Constant. It is designed to hold a unique Character
  * Identifier in a type-safe fashion
  */
-public final class CharID implements TypeSafeConstant
+public final class CharID implements TypeSafeConstant, PCGenIdentifier
 {
 
 	/**
@@ -40,6 +41,11 @@ public final class CharID implements TypeSafeConstant
 	 * The ordinal of this Constant
 	 */
 	private final transient int ordinal;
+	
+	/**
+	 * The DataSet under which the Character was created
+	 */
+	private final DataSetID datasetID;
 
 	/**
 	 * A view of the cache for this CharID. Generally useful for debuggers,
@@ -50,9 +56,14 @@ public final class CharID implements TypeSafeConstant
 	@SuppressWarnings("unused")
 	private Map<Class<?>, Object> myFacetCache;
 
-	private CharID()
+	private CharID(DataSetID dsid)
 	{
+		if (dsid == null)
+		{
+			throw new IllegalArgumentException("DataSetID cannot be null");
+		}
 		ordinal = ordinalCount++;
+		datasetID = dsid;
 	}
 
 	/**
@@ -63,10 +74,15 @@ public final class CharID implements TypeSafeConstant
 	{
 		return ordinal;
 	}
-	
-	public static CharID getID()
+
+	public DataSetID getDatasetID()
 	{
-		CharID id = new CharID();
+		return datasetID;
+	}
+
+	public static CharID getID(DataSetID dsid)
+	{
+		CharID id = new CharID(dsid);
 		id.myFacetCache = AbstractStorageFacet.peekAtCache(id);
 		return id;
 	}

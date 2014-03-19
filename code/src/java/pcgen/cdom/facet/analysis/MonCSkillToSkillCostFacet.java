@@ -32,14 +32,14 @@ import pcgen.core.Skill;
  */
 public class MonCSkillToSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		DataFacetChangeListener<PCClass>
+		DataFacetChangeListener<CharID, PCClass>
 {
 
 	private ClassFacet classFacet;
 
 	private MonsterCSkillFacet monsterCSkillFacet;
 
-	public void skillAdded(DataFacetChangeEvent<Skill> dfce)
+	public void skillAdded(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		SkillCost cost = SkillCost.CLASS;
@@ -54,7 +54,7 @@ public class MonCSkillToSkillCostFacet extends
 		}
 	}
 
-	public void skillRemoved(DataFacetChangeEvent<Skill> dfce)
+	public void skillRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		SkillCost cost = SkillCost.CLASS;
@@ -69,7 +69,7 @@ public class MonCSkillToSkillCostFacet extends
 		}
 	}
 
-	public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		PCClass cl = dfce.getCDOMObject();
 		if (cl.isMonster())
@@ -83,7 +83,7 @@ public class MonCSkillToSkillCostFacet extends
 		}
 	}
 
-	public void dataRemoved(DataFacetChangeEvent<PCClass> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		PCClass cl = dfce.getCDOMObject();
 		if (cl.isMonster())
@@ -113,15 +113,15 @@ public class MonCSkillToSkillCostFacet extends
 		monsterCSkillFacet.addDataFacetChangeListener(new SkillListener());
 	}
 
-	private class SkillListener implements DataFacetChangeListener<Skill>
+	private class SkillListener implements DataFacetChangeListener<CharID, Skill>
 	{
 
-		public void dataAdded(DataFacetChangeEvent<Skill> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
 		{
 			skillAdded(dfce);
 		}
 
-		public void dataRemoved(DataFacetChangeEvent<Skill> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
 		{
 			skillRemoved(dfce);
 		}

@@ -19,15 +19,15 @@ package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * @author djones4
  *
  */
-public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
+public class DescispiLst extends AbstractYesNoToken<CDOMObject> implements
+		CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -37,48 +37,9 @@ public class DescispiLst implements CDOMPrimaryToken<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.obj.put(obj, ObjectKey.DESC_PI, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
-	{
-		Boolean descPI = context.getObjectContext().getObject(obj,
-				ObjectKey.DESC_PI);
-		if (descPI == null)
-		{
-			return null;
-		}
-		return new String[] { descPI.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.DESC_PI;
 	}
 
 	@Override

@@ -33,7 +33,7 @@ import pcgen.core.bonus.BonusObj;
  * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private AddedBonusFacet addedBonusFacet;
 
@@ -58,7 +58,7 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
@@ -85,7 +85,7 @@ public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();

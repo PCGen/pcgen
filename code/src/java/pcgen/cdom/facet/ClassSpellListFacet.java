@@ -35,7 +35,7 @@ import pcgen.core.spell.Spell;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassSpellListFacet extends
-		AbstractSourcedListFacet<CDOMList<Spell>>
+		AbstractSourcedListFacet<CharID, CDOMList<Spell>>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);

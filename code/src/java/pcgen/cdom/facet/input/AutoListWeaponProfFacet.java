@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.core.WeaponProf;
@@ -28,7 +29,7 @@ import pcgen.core.WeaponProf;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoListWeaponProfFacet extends
-		AbstractSourcedListFacet<WeaponProf>
+		AbstractSourcedListFacet<CharID, WeaponProf>
 {
 	private WeaponProfFacet weaponProfFacet;
 

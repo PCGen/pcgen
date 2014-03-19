@@ -36,8 +36,8 @@ import pcgen.core.Language;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
-		implements DataFacetChangeListener<CDOMObject>
+public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Language>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private ClassFacet classFacet;
@@ -61,7 +61,7 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		Collection<CDOMReference<Language>> list = cdo
@@ -92,7 +92,7 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

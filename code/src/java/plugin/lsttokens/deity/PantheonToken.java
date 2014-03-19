@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.deity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -53,10 +56,26 @@ public class PantheonToken extends AbstractTokenWithSeparator<Deity> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context, Deity deity, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
+		boolean first = true;
 		while (tok.hasMoreTokens())
 		{
-			context.getObjectContext().addToList(deity, ListKey.PANTHEON,
-					Pantheon.getConstant(tok.nextToken()));
+			String tokText = tok.nextToken();
+			if (Constants.LST_DOT_CLEAR.equals(tokText))
+			{
+				if (!first)
+				{
+					return new ParseResult.Fail("  Non-sensical "
+							+ getTokenName()
+							+ ": .CLEAR was not the first list item", context);
+				}
+				context.getObjectContext().removeList(deity, ListKey.PANTHEON);
+			}
+			else
+			{
+				context.getObjectContext().addToList(deity, ListKey.PANTHEON,
+					Pantheon.getConstant(tokText));
+			}
+			first = false;
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -67,11 +86,28 @@ public class PantheonToken extends AbstractTokenWithSeparator<Deity> implements
 		Changes<Pantheon> changes =
 				context.getObjectContext().getListChanges(deity,
 					ListKey.PANTHEON);
-		if (changes == null || changes.isEmpty())
+		Collection<Pantheon> removedItems = changes.getRemoved();
+		List<String> list = new ArrayList<String>();
+		if (removedItems != null && !removedItems.isEmpty())
+		{
+			context.addWriteMessage(getTokenName()
+				+ " does not support .CLEAR.");
+			return null;
+		}
+		if (changes.includesGlobalClear())
+		{
+			list.add(Constants.LST_DOT_CLEAR);
+		}
+		Collection<Pantheon> added = changes.getAdded();
+		if (added != null && !added.isEmpty())
+		{
+			list.add(StringUtil.join(changes.getAdded(), Constants.PIPE));
+		}
+		if (list.isEmpty())
 		{
 			return null;
 		}
-		return new String[]{StringUtil.join(changes.getAdded(), Constants.PIPE)};
+		return list.toArray(new String[list.size()]);
 	}
 
 	@Override

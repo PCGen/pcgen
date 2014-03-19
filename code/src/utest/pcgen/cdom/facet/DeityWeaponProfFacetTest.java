@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -52,7 +53,7 @@ public class DeityWeaponProfFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<WeaponProf> getFacet()
+	protected AbstractSourcedListFacet<CharID, WeaponProf> getFacet()
 	{
 		return facet;
 	}
@@ -74,7 +75,7 @@ public class DeityWeaponProfFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<Deity> getListener()
+	protected DataFacetChangeListener<CharID, Deity> getListener()
 	{
 		return facet;
 	}

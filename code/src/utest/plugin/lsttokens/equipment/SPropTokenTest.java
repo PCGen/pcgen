@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -68,6 +69,6 @@ public class SPropTokenTest extends
 	@Test
 	public void testValidClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEAR"));
+		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 }

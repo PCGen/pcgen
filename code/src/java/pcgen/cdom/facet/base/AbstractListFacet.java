@@ -40,7 +40,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
+public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 {
 	/**
 	 * Add the given object to the list of objects stored in this

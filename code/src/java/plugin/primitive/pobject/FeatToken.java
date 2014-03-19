@@ -87,7 +87,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		for (CNAbility ability : theFeats)
 		{
 			List<? extends R> list =
-					(List<? extends R>) pc.getDetailedAssociations(ability.getAbility());
+					(List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)
 			{
 				availableList.addAll(list);

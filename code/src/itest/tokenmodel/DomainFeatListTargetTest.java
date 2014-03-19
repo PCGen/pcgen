@@ -21,10 +21,11 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.input.DomainInputFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -90,10 +91,11 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 
 	private boolean containsExpected()
 	{
-		Collection<CategorizedAbilitySelection> casSet =
+		Collection<CNAbilitySelection> casSet =
 				directAbilityFacet.getSet(id);
-		for (CategorizedAbilitySelection cas : casSet)
+		for (CNAbilitySelection cnas : casSet)
 		{
+			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			boolean abilityExpected =
@@ -101,7 +103,7 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 						context.ref.silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
-			boolean selectionExpected = "English".equals(cas.getSelection());
+			boolean selectionExpected = "English".equals(cnas.getSelection());
 			if (featExpected && abilityExpected && natureExpected
 				&& selectionExpected)
 			{

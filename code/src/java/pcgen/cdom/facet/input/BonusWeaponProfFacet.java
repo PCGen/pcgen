@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.core.WeaponProf;
@@ -25,7 +26,7 @@ import pcgen.core.WeaponProf;
  * BonusWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character via WEAPONBONUS
  */
-public class BonusWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
+public class BonusWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
 {
 	private WeaponProfFacet weaponProfFacet;
 

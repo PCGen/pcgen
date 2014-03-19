@@ -23,17 +23,18 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.content.AbilitySelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
- * An AbilitySelection represents a "resolved" Ability, Nature and any choice
- * associated with that Ability.
+ * An AbilitySelector represents an Ability to be applied from an
+ * AbilitySelection.
  * 
- * This is generally used as the storage container when a selection has been
- * made from a token like ADD:FEAT
+ * This is for use in a case like AUTO:FEAT|%LIST where the Category and Nature
+ * are known by the token, and the Ability and Selection are known by CHOOSE
  */
 public class AbilitySelector extends ConcretePrereqObject implements
 		QualifyingObject, ChooseSelectionActor<AbilitySelection>
@@ -90,10 +91,13 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, AbilitySelection cas,
+	public void applyChoice(CDOMObject obj, AbilitySelection as,
 		PlayerCharacter pc)
 	{
-		pc.addAppliedAbility(obj, category, nature, cas);
+		CNAbility cna = new CNAbility(category, as.getObject(), nature);
+		CNAbilitySelection cnas = new CNAbilitySelection(cna, as.getSelection());
+		pc.associateSelection(as, cnas);
+		pc.addAppliedAbility(obj, cnas);
 	}
 
 	@Override
@@ -103,10 +107,18 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, AbilitySelection cas,
+	public void removeChoice(CDOMObject obj, AbilitySelection as,
 		PlayerCharacter pc)
 	{
-		pc.removeAppliedAbility(obj, category, nature, cas);
+		CNAbilitySelection cnas = pc.getAssociatedSelection(as);
+		if (cnas == null)
+		{
+			//error??
+		}
+		else
+		{
+			pc.removeAppliedAbility(obj, cnas);
+		}
 	}
 
 	@Override

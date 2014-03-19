@@ -33,7 +33,7 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
+public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 

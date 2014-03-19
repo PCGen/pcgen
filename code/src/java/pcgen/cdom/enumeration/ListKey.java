@@ -275,6 +275,7 @@ public final class ListKey<T> {
 	public static final ListKey<BonusObj> BONUS_ANYPC = new ListKey<BonusObj>();
 	public static final ListKey<BonusObj> BONUS_PC = new ListKey<BonusObj>();
 	public static final ListKey<EquipBonus> BONUS_EQUIP = new ListKey<EquipBonus>();
+	public static final ListKey<CDOMReference<WeaponProf>> WEAPONBONUS = new ListKey<CDOMReference<WeaponProf>>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

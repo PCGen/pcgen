@@ -38,7 +38,7 @@ import pcgen.core.spell.Spell;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
-		implements DataFacetChangeListener<CDOMObject>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectSourceFacet cdomSourceFacet;
@@ -58,7 +58,7 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
@@ -117,7 +117,7 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

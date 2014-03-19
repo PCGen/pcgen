@@ -15,7 +15,6 @@ import org.custommonkey.xmlunit.XMLUnit;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
-import pcgen.persistence.PersistenceManager;
 import pcgen.system.Main;
 import pcgen.util.TestHelper;
 
@@ -159,7 +158,6 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			{
 				new File(outputFile).delete();
 				Globals.emptyLists();
-				PersistenceManager.getInstance().clear();
 				Main.loadCharacterAndExport(characterFile,
 					getSheetName(), outputFile, TEST_CONFIG_FILE);
 			}

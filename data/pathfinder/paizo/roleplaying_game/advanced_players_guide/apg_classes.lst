@@ -7,7 +7,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ##
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:AlchemistLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
@@ -33,10 +33,7 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 2	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
 2	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
 3	ABILITY:Alchemist Class Ability|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
-5	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Resistance 4 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance4
 6	ABILITY:Alchemist Class Ability|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
-8	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Resistance 6 ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance6
-10	ABILITY:Alchemist Class Ability|AUTOMATIC|Poison Immunity ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonImmunity
 14	ABILITY:Alchemist Class Ability|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
 18	ABILITY:Alchemist Class Ability|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
 20	ABILITY:Alchemist Class Ability|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
@@ -96,7 +93,7 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus
-CLASS:Inquisitor	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Inquisitor	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:InquisitorLVL|CL
 # Class Name	Var. Must Be Lower
 CLASS:Inquisitor	PREVARLT:ExInquisitor,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -113,12 +110,9 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]
-###Block: Vars
-1	BONUS:VAR|DomainLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
-1	BONUS:VAR|TrackLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
 ###Block: Level progression
 1	BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1
-3	BONUS:ABILITYPOOL|Teamwork Feat|CL/3|PREMULT:1,[!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat],[!PREABILITY:1,CATEGORY=Special Ability,Determination ~ Preacher]
+3	BONUS:ABILITYPOOL|Teamwork Feat|InquisitorLVL/3|PREMULT:1,[!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat],[!PREABILITY:1,CATEGORY=Special Ability,Determination ~ Preacher]
 ###Block: Class Abilities
 1									ABILITY:Inquisitor Class Ability|AUTOMATIC|Inquisitor Domains|Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
 1									ABILITY:Inquisitor Class Ability|AUTOMATIC|Monster Lore ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
@@ -654,15 +648,18 @@ CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Per
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
-1	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
-2							ABILITY:Special Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy
-3							ABILITY:Special Ability|AUTOMATIC|Nonmagical Aura ~ Master Spy|Superficial Knowledge ~ Master Spy
-4							ABILITY:Special Ability|AUTOMATIC|Concealed Thoughts ~ Master Spy|Quick Change ~ Master Spy
-5							ABILITY:Special Ability|AUTOMATIC|Elude Detection ~ Master Spy|Slippery Mind ~ Master Spy
-6							ABILITY:Special Ability|AUTOMATIC|Shift Alignment ~ Master Spy
-8							ABILITY:Special Ability|AUTOMATIC|Death Attack ~ Master Spy|Fool Casting ~ Master Spy
-9							ABILITY:Special Ability|AUTOMATIC|Hidden Mind ~ Master Spy
-10							ABILITY:Special Ability|AUTOMATIC|Assumption ~ Master Spy
+1	ABILITY:Special Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
+2	ABILITY:Special Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy
+3	ABILITY:Special Ability|AUTOMATIC|Nonmagical Aura ~ Master Spy|Superficial Knowledge ~ Master Spy
+4	ABILITY:Special Ability|AUTOMATIC|Concealed Thoughts ~ Master Spy|Quick Change ~ Master Spy
+5	ABILITY:Special Ability|AUTOMATIC|Elude Detection ~ Master Spy|Slippery Mind ~ Master Spy
+6	ABILITY:Special Ability|AUTOMATIC|Shift Alignment ~ Master Spy
+8	ABILITY:Special Ability|AUTOMATIC|Death Attack ~ Master Spy|Fool Casting ~ Master Spy
+9	ABILITY:Special Ability|AUTOMATIC|Hidden Mind ~ Master Spy
+10	ABILITY:Special Ability|AUTOMATIC|Assumption ~ Master Spy
+###Block:
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2
+1	BONUS:VAR|MasterSpyArtOfDeceptionBonus|CL
 
 ###Block: Nature Warden --------------------------------------------------------------------------------------------------------------------------------------------
 

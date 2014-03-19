@@ -33,8 +33,8 @@ import pcgen.core.SpellProhibitor;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellProhibitorFacet extends
-		AbstractScopeFacet<PCClass, SpellProhibitor> implements
-		DataFacetChangeListener<PCClass>
+		AbstractScopeFacet<CharID, PCClass, SpellProhibitor> implements
+		DataFacetChangeListener<CharID, PCClass>
 {
 	private ClassFacet classFacet;
 
@@ -53,7 +53,7 @@ public class SpellProhibitorFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		PCClass pcc = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
@@ -72,7 +72,7 @@ public class SpellProhibitorFacet extends
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<PCClass> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		removeAllFromSource(dfce.getCharID(), dfce.getCDOMObject());
 	}

@@ -19,15 +19,13 @@ package plugin.lsttokens.companionmod;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.character.CompanionMod;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with USEMASTERSKILL Token
  */
-public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
+public class UsemasterskillToken extends AbstractYesNoToken<CompanionMod>
 		implements CDOMPrimaryToken<CompanionMod>
 {
 
@@ -38,45 +36,9 @@ public class UsemasterskillToken extends AbstractNonEmptyToken<CompanionMod>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CompanionMod cMod, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-					+ getTokenName(), context);
-			}
-			set = true;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n'
-				&& !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-					+ getTokenName(), context);
-			}
-			set = false;
-		}
-		context.getObjectContext().put(cMod, ObjectKey.USE_MASTER_SKILL, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, CompanionMod cMod)
-	{
-		Boolean ums =
-				context.getObjectContext().getObject(cMod,
-					ObjectKey.USE_MASTER_SKILL);
-		if (ums == null)
-		{
-			return null;
-		}
-		return new String[]{ums.booleanValue() ? "YES" : "NO"};
+		return ObjectKey.USE_MASTER_SKILL;
 	}
 
 	@Override

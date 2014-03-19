@@ -22,6 +22,7 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
@@ -278,7 +279,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be null", unparsed);
 		}
@@ -295,7 +296,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be null", unparsed);
 		}
@@ -323,7 +324,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		if (isClearLegal())
 		{
-			assertFalse(parse("TestWP1" + getJoinCharacter() + ".CLEAR"));
+			assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
 			assertNull(getUnparseTarget().getListFor(getListKey()));
 			assertNoSideEffects();
 		}
@@ -384,7 +385,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	// assertFalse(getToken().parse(
 	// primaryContext,
 	// primaryProf,
-	// ".CLEAR" + getJoinCharacter() + "TestWP3" + getJoinCharacter()
+	// Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP3" + getJoinCharacter()
 	// + "ALL"));
 	// assertEquals("Bad Clear had Side Effects", primaryGraph,
 	// secondaryGraph);

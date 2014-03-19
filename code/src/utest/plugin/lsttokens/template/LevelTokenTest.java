@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -336,7 +337,7 @@ public class LevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	@Test
 	public void testParseClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEAR"));
+		assertTrue(parse(Constants.LST_DOT_CLEAR));
 		assertCleanConstruction();
 	}
 

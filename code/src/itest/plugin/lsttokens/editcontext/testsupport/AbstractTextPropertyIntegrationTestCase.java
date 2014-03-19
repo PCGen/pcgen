@@ -24,6 +24,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
@@ -146,6 +147,18 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 		}
 	}
 
+	@Test
+	public void testRoundRobinDotClearSet() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			commit(testCampaign, tc, getClearString(), "Rheinhessen");
+			completeRoundRobin(tc);
+		}
+	}
+
 	protected abstract boolean isClearLegal();
 
 	@Test
@@ -176,6 +189,6 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 
 	protected String getClearString()
 	{
-		return ".CLEAR";
+		return Constants.LST_DOT_CLEAR;
 	}
 }

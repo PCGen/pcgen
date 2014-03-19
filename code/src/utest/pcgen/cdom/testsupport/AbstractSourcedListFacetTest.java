@@ -28,6 +28,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -36,26 +37,26 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();
 
-	private class Listener implements DataFacetChangeListener<T>
+	private class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
 		public int addEventCount;
 		public int removeEventCount;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent<T> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<T> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, T> dfce)
 		{
 			removeEventCount++;
 		}
@@ -66,6 +67,9 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
 	}
 
@@ -945,7 +949,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		assertFalse(getFacet().containsFrom(id, source2));
 	}
 
-	abstract protected AbstractSourcedListFacet<T> getFacet();
+	abstract protected AbstractSourcedListFacet<CharID, T> getFacet();
 
 	abstract protected T getObject();
 

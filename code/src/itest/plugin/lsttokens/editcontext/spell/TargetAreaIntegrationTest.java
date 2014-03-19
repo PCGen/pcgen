@@ -53,6 +53,6 @@ public class TargetAreaIntegrationTest extends
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 }

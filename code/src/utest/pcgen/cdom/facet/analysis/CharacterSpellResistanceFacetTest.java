@@ -21,6 +21,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -60,7 +61,7 @@ public class CharacterSpellResistanceFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Formula> getFacet()
+	protected AbstractSourcedListFacet<CharID, Formula> getFacet()
 	{
 		return facet;
 	}
@@ -80,7 +81,7 @@ public class CharacterSpellResistanceFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
@@ -27,7 +28,7 @@ public class TemplateFacetTest extends AbstractSourcedListFacetTest<PCTemplate>
 	private TemplateFacet facet = new TemplateFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getFacet()
+	protected AbstractSourcedListFacet<CharID, PCTemplate> getFacet()
 	{
 		return facet;
 	}

@@ -21,6 +21,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
@@ -28,7 +29,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		AbstractSourcedListFacetTest<T>
 {
 
-	protected abstract DataFacetChangeListener<ST> getListener();
+	protected abstract DataFacetChangeListener<CharID, ST> getListener();
 
 	protected abstract ST getSourceObject();
 
@@ -44,8 +45,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -66,8 +67,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -88,8 +89,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -100,7 +101,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -116,8 +117,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -129,7 +130,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		// Add same, still only once in set (and only one event)
 		Object source2 = new Object();
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source2,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source2,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -145,8 +146,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -158,7 +159,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		ST t2 = getSourceObject();
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t2, source,
+				new DataFacetChangeEvent<CharID, ST>(id, t2, source,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(2, getFacet().getCount(id));
@@ -176,15 +177,15 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source1 = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		T obj1 = getConverted(t1);
 		assertFalse(getFacet().contains(id, obj1));
 		getListener().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, obj1));
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertFalse(getFacet().contains(id, obj1));
@@ -195,8 +196,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source1 = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -207,7 +208,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		Object source2 = new Object();
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source2,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source2,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		if (sourcedFromEvent())
@@ -235,8 +236,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source1 = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -247,7 +248,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		// Remove
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertEquals(0, getFacet().getCount(id));
@@ -262,8 +263,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source1 = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -274,7 +275,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		// Useless Remove
 		dfce =
-				new DataFacetChangeEvent<ST>(id, getSourceObject(), source1,
+				new DataFacetChangeEvent<CharID, ST>(id, getSourceObject(), source1,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -290,8 +291,8 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source1 = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -302,7 +303,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		// Add same, still only once in set (but twice on that source)
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(1, getFacet().getCount(id));
@@ -313,7 +314,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 0);
 		// Only one Remove required to clear (source Set not source List)
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		testTypeUnsetZeroCount();
@@ -322,7 +323,7 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		assertEventCount(1, 1);
 		// Second remove useless
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		testTypeUnsetZeroCount();
@@ -336,17 +337,17 @@ public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 	{
 		Object source1 = new Object();
 		ST t1 = getSourceObject();
-		DataFacetChangeEvent<ST> dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+		DataFacetChangeEvent<CharID, ST> dfce =
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		ST t2 = getSourceObject();
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t2, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t2, source1,
 					DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		dfce =
-				new DataFacetChangeEvent<ST>(id, t1, source1,
+				new DataFacetChangeEvent<CharID, ST>(id, t1, source1,
 					DataFacetChangeEvent.DATA_REMOVED);
 		getListener().dataRemoved(dfce);
 		assertEquals(1, getFacet().getCount(id));

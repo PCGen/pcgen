@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
@@ -62,8 +63,9 @@ public class RaceTypeFacetTest extends TestCase
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
 		facet.setCompanionModFacet(cfacet);
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 	}
 
 	@Test

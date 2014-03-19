@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.meta.CorePerspective;
@@ -32,7 +33,7 @@ import pcgen.core.Language;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoLanguageUnconditionalFacet extends
-		AbstractSourcedListFacet<Language> implements PerspectiveLocation
+		AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
 {
 
 	private LanguageFacet languageFacet;

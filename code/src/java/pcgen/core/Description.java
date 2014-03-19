@@ -238,6 +238,7 @@ public class Description extends ConcretePrereqObject
 						}
 						if (aPC.hasAssociations(object))
 						{
+							//TODO This is ill defined
 							buf.append(aPC.getAssociationList(object).get(0));
 						}
 					}
@@ -274,6 +275,7 @@ public class Description extends ConcretePrereqObject
 						{
 							joinString = ", ";
 						}
+						Collections.sort(assocList);
 						buf.append(StringUtil.joinToStringBuilder(assocList,
 							joinString));
 					}

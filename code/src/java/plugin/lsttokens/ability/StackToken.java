@@ -19,15 +19,13 @@ package plugin.lsttokens.ability;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deal with STACK token
  */
-public class StackToken extends AbstractNonEmptyToken<Ability> implements
+public class StackToken extends AbstractYesNoToken<Ability> implements
 		CDOMPrimaryToken<Ability>
 {
 
@@ -38,47 +36,9 @@ public class StackToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		Boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(ability, ObjectKey.STACKS, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Ability ability)
-	{
-		Boolean stacks = context.getObjectContext().getObject(ability,
-				ObjectKey.STACKS);
-		if (stacks == null)
-		{
-			return null;
-		}
-		return new String[] { stacks.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.STACKS;
 	}
 
 	@Override

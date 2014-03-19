@@ -26,6 +26,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.analysis.ReachFacet;
@@ -54,8 +55,9 @@ public class ReachFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		facet = getMockFacet();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);

@@ -22,10 +22,11 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -43,7 +44,7 @@ import pcgen.core.PlayerCharacter;
  * REMOVE:FEAT|Class.???
  */
 public class AbilityFromClassChoiceSet implements
-		PrimitiveChoiceSet<CategorizedAbilitySelection>
+		PrimitiveChoiceSet<CNAbilitySelection>
 {
 
 	/**
@@ -118,9 +119,9 @@ public class AbilityFromClassChoiceSet implements
 	 * @return the Class contained within this AbilityFromClassChoiceSet
 	 */
 	@Override
-	public Class<? super CategorizedAbilitySelection> getChoiceClass()
+	public Class<? super CNAbilitySelection> getChoiceClass()
 	{
-		return CategorizedAbilitySelection.class;
+		return CNAbilitySelection.class;
 	}
 
 	/**
@@ -140,10 +141,10 @@ public class AbilityFromClassChoiceSet implements
 	 *         contains.
 	 */
 	@Override
-	public Set<CategorizedAbilitySelection> getSet(PlayerCharacter pc)
+	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
 		PCClass aClass = pc.getClassKeyed(classRef.resolvesTo().getKeyName());
-		Set<CategorizedAbilitySelection> set = new HashSet<CategorizedAbilitySelection>();
+		Set<CNAbilitySelection> set = new HashSet<CNAbilitySelection>();
 		if (aClass != null)
 		{
 			List<Ability> abilityList = pc.getAssocList(aClass,
@@ -152,8 +153,8 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new CategorizedAbilitySelection(
-						AbilityCategory.FEAT, aFeat, Nature.VIRTUAL));
+					set.add(new CNAbilitySelection(
+						new CNAbility(AbilityCategory.FEAT, aFeat, Nature.VIRTUAL)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -165,8 +166,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new CategorizedAbilitySelection(
-							AbilityCategory.FEAT, aFeat, Nature.VIRTUAL));
+						set.add(new CNAbilitySelection(
+							new CNAbility(AbilityCategory.FEAT, aFeat, Nature.VIRTUAL)));
 					}
 				}
 			}

@@ -109,7 +109,6 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui2.util.SwingWorker;
 import pcgen.io.PCGFile;
-import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
@@ -599,8 +598,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			currentSourceSelection.setReference(null);
 			Globals.emptyLists();
-			PersistenceManager pManager = PersistenceManager.getInstance();
-			pManager.clear();
 			updateTitle();
 		}
 	}

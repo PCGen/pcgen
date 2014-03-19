@@ -28,8 +28,6 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.display.CharacterDisplay;
@@ -60,8 +58,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 
 		try
 		{
-			RaceType preRaceType = RaceType.valueOf(requiredRaceType);
-			if (preRaceType.equals(display.getRace().get(ObjectKey.RACETYPE)))
+			if (requiredRaceType.equalsIgnoreCase(display.getRaceType()))
 			{
 				runningTotal++;
 			}

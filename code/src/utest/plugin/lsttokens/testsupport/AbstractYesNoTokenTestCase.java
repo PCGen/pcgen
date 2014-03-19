@@ -30,9 +30,16 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 	public abstract ObjectKey<Boolean> getObjectKey();
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
 		internalTestInvalidInputString(null);
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	{
+		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 

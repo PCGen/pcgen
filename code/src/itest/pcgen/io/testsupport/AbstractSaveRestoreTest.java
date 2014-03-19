@@ -21,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
+import java.util.Collections;
 
 import junit.framework.TestCase;
 import pcgen.base.test.InequalityTester;
@@ -70,7 +71,6 @@ import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.LoadContext;
@@ -79,6 +79,7 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
 import compare.InequalityTesterInst;
 
 public abstract class AbstractSaveRestoreTest extends TestCase
@@ -166,11 +167,10 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.resolveDeferredTokens();
 		assertTrue(context.ref.resolveReferences(null));
 		context.resolvePostDeferredTokens();
+		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		setBoilerplate();
-		reloadedPC =
-				new PlayerCharacter(true, PersistenceManager.getInstance()
-					.getLoadedCampaigns());
+		reloadedPC = new PlayerCharacter(true, Collections.EMPTY_LIST);
 		id = pc.getCharID();
 	}
 

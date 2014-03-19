@@ -19,15 +19,13 @@ package plugin.lsttokens.ability;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with APPLIEDNAME Token
  */
-public class AppliedNameToken extends AbstractNonEmptyToken<Ability>
+public class AppliedNameToken extends AbstractStringToken<Ability>
 		implements CDOMPrimaryToken<Ability>
 {
 
@@ -38,28 +36,14 @@ public class AppliedNameToken extends AbstractNonEmptyToken<Ability>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
-		String value)
-	{
-		context.getObjectContext().put(ability, StringKey.APPLIED_NAME, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Ability ability)
-	{
-		String name = context.getObjectContext().getString(ability,
-				StringKey.APPLIED_NAME);
-		if (name == null)
-		{
-			return null;
-		}
-		return new String[] { name };
-	}
-
-	@Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.APPLIED_NAME;
 	}
 }

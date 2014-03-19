@@ -21,12 +21,13 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Race;
@@ -36,6 +37,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
+import plugin.lsttokens.ability.StackToken;
+import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.race.FeatToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -65,6 +68,33 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(containsExpected(null));
 		assertEquals(1, directAbilityFacet.getCount(id));
+		raceFacet.remove(id);
+		assertEquals(0, directAbilityFacet.getCount(id));
+	}
+
+	@Test
+	public void testMult() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new NoChoiceToken());
+		TokenRegistration.register(new StackToken());
+		Race source = create(Race.class, "Source");
+		Ability a = createGrantedObject();
+		context.unconditionallyProcess(a, "MULT", "YES");
+		context.unconditionallyProcess(a, "STACK", "YES");
+		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
+		ParseResult result = token.parseToken(context, source, "Granted");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		//Do a second time!
+		token.parseToken(context, source, "Granted");
+		finishLoad();
+		assertEquals(0, directAbilityFacet.getCount(id));
+		raceFacet.directSet(id, source, getAssoc());
+		assertTrue(containsExpected(""));
+		assertEquals(2, directAbilityFacet.getCount(id));
 		raceFacet.remove(id);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}
@@ -110,10 +140,11 @@ public class RaceFeatTest extends AbstractTokenModelTest
 
 	protected boolean containsExpected(String selection)
 	{
-		Collection<CategorizedAbilitySelection> casSet =
+		Collection<CNAbilitySelection> casSet =
 				getTargetFacet().getSet(id);
-		for (CategorizedAbilitySelection cas : casSet)
+		for (CNAbilitySelection cnas : casSet)
 		{
+			CNAbility cas = cnas.getCNAbility();
 			boolean categoryExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			if (!categoryExpected)
@@ -138,7 +169,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 			}
 			if (selection == null)
 			{
-				if (cas.getSelection() != null)
+				if (cnas.getSelection() != null)
 				{
 					System.err.println("Selection Mismatch");
 					return false;
@@ -146,7 +177,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 			}
 			else
 			{
-				boolean selectionExpected = cas.getSelection().equals(selection);
+				boolean selectionExpected = cnas.getSelection().equals(selection);
 				if (!selectionExpected)
 				{
 					System.err.println("Selection Mismatch");
@@ -158,7 +189,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		return false;
 	}
 
-	private AbstractListFacet<CategorizedAbilitySelection> getTargetFacet()
+	private AbstractSingleSourceListFacet<CNAbilitySelection, Object> getTargetFacet()
 	{
 		return directAbilityFacet;
 	}

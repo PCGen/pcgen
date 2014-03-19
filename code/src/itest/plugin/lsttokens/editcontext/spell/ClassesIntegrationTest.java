@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -191,7 +192,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ALL=2");
-		commit(modCampaign, tc, ".CLEARALL");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
 		completeRoundRobin(tc);
 	}
 
@@ -214,7 +215,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEARALL");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}
@@ -225,7 +226,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEARALL");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
 		completeRoundRobin(tc);
 	}
 

@@ -127,7 +127,7 @@ Name                                            QTY	LBS
 |ENDFOR|
 |ENDFOR|
 
-Total weight carried: |TOTAL.WEIGHT.INTVAL|
+Total weight carried: |TOTAL.WEIGHT|
 Current load:         |TOTAL.LOAD|
 
 Encumbrance

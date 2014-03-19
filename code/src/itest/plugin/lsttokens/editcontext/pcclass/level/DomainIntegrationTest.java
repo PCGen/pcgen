@@ -27,7 +27,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
-import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.pcclass.level.DomainToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -103,39 +102,13 @@ public class DomainIntegrationTest extends
 	@Override
 	public boolean isPrereqLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAllLegal()
 	{
 		return false;
-	}
-
-	@Test
-	public void testRoundRobinAddBracketPrereq()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		verifyCleanStart();
-		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "TestWP1");
-		commit(modCampaign, tc, "TestWP1[PRERACE:1,Human]");
-		completeRoundRobin(tc);
-	}
-
-	@Test
-	public void testRoundRobinRemoveBracketPrereq()
-			throws PersistenceLayerException
-	{
-		construct(primaryContext, "TestWP1");
-		construct(secondaryContext, "TestWP1");
-		verifyCleanStart();
-		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "TestWP1[PRERACE:1,Human]");
-		commit(modCampaign, tc, "TestWP1");
-		completeRoundRobin(tc);
 	}
 
 }

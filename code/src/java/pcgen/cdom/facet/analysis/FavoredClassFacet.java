@@ -38,8 +38,8 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
-		implements DataFacetChangeListener<CDOMObject>
+public class FavoredClassFacet extends AbstractSourcedListFacet<CharID, PCClass>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private HasAnyFavoredClassFacet hasAnyFavoredClassFacet;
@@ -65,7 +65,7 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		List<CDOMReference<? extends PCClass>> list = cdo
@@ -94,7 +94,7 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -55,7 +56,7 @@ public class FavoredClassFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<PCClass> getFacet()
+	protected AbstractSourcedListFacet<CharID, PCClass> getFacet()
 	{
 		return facet;
 	}
@@ -77,7 +78,7 @@ public class FavoredClassFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

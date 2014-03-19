@@ -46,9 +46,9 @@ public class RaceInputFacet
 
 	public boolean set(CharID id, Race race)
 	{
-		if (ChooseActivation.hasNewChooseToken(race))
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(race))
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
 			ChoiceManagerList<?> aMan =
 					ChooserUtilities.getChoiceManager(race, pc);
 			return processChoice(id, pc, race, aMan);
@@ -112,7 +112,15 @@ public class RaceInputFacet
 
 	public <T> boolean directSet(CharID id, Race race, T sel)
 	{
-		raceFacet.set(id, race);
+		Race old = raceFacet.get(id);
+		if (raceFacet.set(id, race) && (old != null))
+		{
+			PlayerCharacter pc = trackingFacet.getPC(id);
+			if (pc.isAllowInteraction())
+			{
+				raceSelectionFacet.remove(id, old);
+			}
+		}
 		if (sel != null)
 		{
 			raceSelectionFacet.set(id, race, sel);
@@ -122,13 +130,12 @@ public class RaceInputFacet
 
 	public void remove(CharID id)
 	{
-		raceFacet.remove(id);
-		/*
-		 * No need to deal with raceSelectionFacet here. It must listen to
-		 * RaceFacet as a set also can implicitly unset the previous race.
-		 * Therefore, listening is easier than trying to write
-		 * raceSelectionFacet here and in directSet above
-		 */
+		Race r = raceFacet.remove(id);
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		if (pc.isAllowInteraction() && (r != null))
+		{
+			raceSelectionFacet.remove(id, r);
+		}
 	}
 
 	public void setRaceSelectionFacet(RaceSelectionFacet raceSelectionFacet)

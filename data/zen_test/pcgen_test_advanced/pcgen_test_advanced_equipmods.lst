@@ -16,3 +16,7 @@ Flaming Burst			KEY:FLM_BRST	TYPE:Ammunition.Weapon		PLUS:2	VISIBLE:QUALIFY	SOUR
 
 Dancing				KEY:DANCE		TYPE:Weapon.Melee			PLUS:4	VISIBLE:QUALIFY	SOURCEPAGE:p.346	PRETYPE:3,Enhancement,Weapon,Melee		SPROP:can be loosed to attack on its own																																																					ASSIGNTOALL:YES
 Defending				KEY:DEFEND		TYPE:Weapon.Melee			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.347	PRETYPE:3,Enhancement,Weapon,Melee		SPROP:can transfer some or all of its enhancement bonus to AC																																																	ASSIGNTOALL:YES
+
+
+TEST-98			KEY:TEST98	TYPE:Item.Weapon	VISIBLE:YES	BONUS:SKILLRANK|Athletics|2
+

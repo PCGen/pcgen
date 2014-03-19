@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -116,4 +117,63 @@ public class SpellsIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Test
+	public void testRoundRobinClearSet() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR_ALL,
+			"SpellBook|TIMES=3|Fireball");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearBase() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
+		commit(modCampaign, tc, "SpellBook|TIMES=1|Fireball,CL+5");
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearMod() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, "SpellBook|TIMES=1|Fireball,CL+5");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinClearBoth() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoSetClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		emptyCommit(testCampaign, tc);
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
+		completeRoundRobin(tc);
+	}
+
+	@Test
+	public void testRoundRobinNoResetClear() throws PersistenceLayerException
+	{
+		verifyCleanStart();
+		TestContext tc = new TestContext();
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR_ALL);
+		emptyCommit(modCampaign, tc);
+		completeRoundRobin(tc);
+	}
 }

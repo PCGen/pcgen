@@ -34,7 +34,7 @@ import pcgen.core.character.EquipSet;
  * EquipSetFacet is a Facet that tracks the EquipSets for a Player Character.
  */
 public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
-		DataFacetChangeListener<Equipment>
+		DataFacetChangeListener<CharID, Equipment>
 {
 
 	/**
@@ -240,7 +240,7 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 	 * @param dfce The data facet change event.
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		//Ignore
 	}
@@ -250,7 +250,7 @@ public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
 	 * @param dfce The data facet change event.
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		delEquipSetItem(dfce.getCharID(), dfce.getCDOMObject());
 	}

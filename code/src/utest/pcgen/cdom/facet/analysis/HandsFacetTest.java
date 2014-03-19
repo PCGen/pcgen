@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.facet.model.RaceFacet;
@@ -49,10 +50,11 @@ public class HandsFacetTest extends TestCase
 	{
 		facet = new HandsFacet();
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
-		id = CharID.getID();
-		altid = CharID.getID();
 	}
 
 	@Test

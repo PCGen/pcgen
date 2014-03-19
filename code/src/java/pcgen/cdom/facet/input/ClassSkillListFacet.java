@@ -44,8 +44,8 @@ import pcgen.core.SubClass;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassSkillListFacet extends
-		AbstractScopeFacet<PCClass, ClassSkillList> implements
-		ClassLevelChangeListener, ScopeFacetChangeListener<PCClass, String>
+		AbstractScopeFacet<CharID, PCClass, ClassSkillList> implements
+		ClassLevelChangeListener, ScopeFacetChangeListener<CharID, PCClass, String>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
@@ -96,7 +96,7 @@ public class ClassSkillListFacet extends
 		//ignore
 	}
 
-	public void dataAdded(ScopeFacetChangeEvent<PCClass, String> dfce)
+	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
 	{
 		PCClass cl = dfce.getScope();
 		String subClassKey = dfce.getCDOMObject();
@@ -108,7 +108,7 @@ public class ClassSkillListFacet extends
 		}
 	}
 
-	public void dataRemoved(ScopeFacetChangeEvent<PCClass, String> dfce)
+	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
 	{
 		PCClass cl = dfce.getScope();
 		String subClassKey = dfce.getCDOMObject();

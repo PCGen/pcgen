@@ -53,8 +53,8 @@ import pcgen.util.enumeration.Load;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MovementResultFacet extends AbstractStorageFacet implements
-		DataFacetChangeListener<CDOMObject>
+public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 	private MovementFacet movementFacet;
 	private BaseMovementFacet baseMovementFacet;
@@ -815,7 +815,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		reset(dfce.getCharID());
 	}
@@ -835,7 +835,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		reset(dfce.getCharID());
 	}

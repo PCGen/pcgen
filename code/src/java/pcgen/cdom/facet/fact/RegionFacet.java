@@ -36,8 +36,8 @@ import pcgen.core.PCTemplate;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class RegionFacet extends AbstractDataFacet<String> implements
-		DataFacetChangeListener<PCTemplate>
+public class RegionFacet extends AbstractDataFacet<CharID, String> implements
+		DataFacetChangeListener<CharID, PCTemplate>
 {
 
 	/*
@@ -434,7 +434,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		updateRegion(dfce.getCharID());
 	}
@@ -472,7 +472,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		updateRegion(dfce.getCharID());
 	}

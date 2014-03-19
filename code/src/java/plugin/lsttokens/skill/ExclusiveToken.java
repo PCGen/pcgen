@@ -19,15 +19,13 @@ package plugin.lsttokens.skill;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with EXCLUSIVE Token
  */
-public class ExclusiveToken extends AbstractNonEmptyToken<Skill> implements
+public class ExclusiveToken extends AbstractYesNoToken<Skill> implements
 		CDOMPrimaryToken<Skill>
 {
 
@@ -38,47 +36,9 @@ public class ExclusiveToken extends AbstractNonEmptyToken<Skill> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Skill skill, String value)
+	protected ObjectKey<Boolean> getObjectKey()
 	{
-		boolean set;
-		char firstChar = value.charAt(0);
-		if (firstChar == 'y' || firstChar == 'Y')
-		{
-			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
-			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.TRUE;
-		}
-		else
-		{
-			if (firstChar != 'N' && firstChar != 'n')
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
-			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
-			}
-			set = Boolean.FALSE;
-		}
-		context.getObjectContext().put(skill, ObjectKey.EXCLUSIVE, set);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, Skill skill)
-	{
-		Boolean exclusive = context.getObjectContext().getObject(skill,
-				ObjectKey.EXCLUSIVE);
-		if (exclusive == null)
-		{
-			return null;
-		}
-		return new String[] { exclusive.booleanValue() ? "YES" : "NO" };
+		return ObjectKey.EXCLUSIVE;
 	}
 
 	@Override

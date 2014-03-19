@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.base.AbstractSubScopeFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -25,6 +26,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
+import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
@@ -34,8 +36,8 @@ import pcgen.core.Skill;
  */
 public class GlobalToSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		ScopeFacetChangeListener<SkillCost, Skill>,
-		DataFacetChangeListener<PCClass>
+		ScopeFacetChangeListener<CharID, SkillCost, Skill>,
+		DataFacetChangeListener<CharID, PCClass>
 {
 
 	private ClassFacet classFacet;
@@ -44,7 +46,9 @@ public class GlobalToSkillCostFacet extends
 
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
 
-	public void dataAdded(ScopeFacetChangeEvent<SkillCost, Skill> dfce)
+	private MasterUsableSkillFacet masterUsableSkillFacet;
+
+	public void dataAdded(ScopeFacetChangeEvent<CharID, SkillCost, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		SkillCost cost = dfce.getScope();
@@ -56,7 +60,7 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
-	public void dataRemoved(ScopeFacetChangeEvent<SkillCost, Skill> dfce)
+	public void dataRemoved(ScopeFacetChangeEvent<CharID, SkillCost, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		SkillCost cost = dfce.getScope();
@@ -68,10 +72,18 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
-	public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
+		DataSetID dsID = id.getDatasetID();
+		for (SkillCost cost : masterUsableSkillFacet.getScopes(dsID))
+		{
+			for (Skill sk : masterUsableSkillFacet.getSet(dsID, cost))
+			{
+				add(id, cl, cost, sk, masterUsableSkillFacet);
+			}
+		}
 		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
 		{
 			for (Skill sk : globalSkillCostFacet.getSet(id, cost))
@@ -88,10 +100,18 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
-	public void dataRemoved(DataFacetChangeEvent<PCClass> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
+		DataSetID dsID = id.getDatasetID();
+		for (SkillCost cost : masterUsableSkillFacet.getScopes(dsID))
+		{
+			for (Skill sk : masterUsableSkillFacet.getSet(dsID, cost))
+			{
+				remove(id, cl, cost, sk, masterUsableSkillFacet);
+			}
+		}
 		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
 		{
 			for (Skill sk : globalSkillCostFacet.getSet(id, cost))
@@ -123,6 +143,12 @@ public class GlobalToSkillCostFacet extends
 	public void setClassFacet(ClassFacet classFacet)
 	{
 		this.classFacet = classFacet;
+	}
+
+	public void setMasterUsableSkillFacet(
+		MasterUsableSkillFacet masterUsableSkillFacet)
+	{
+		this.masterUsableSkillFacet = masterUsableSkillFacet;
 	}
 
 	public void init()

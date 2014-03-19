@@ -41,7 +41,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
+public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private LevelFacet levelFacet;
@@ -73,7 +73,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
@@ -167,7 +167,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		LevelCommandFactory lcf = cdo.get(ObjectKey.MONSTER_CLASS);

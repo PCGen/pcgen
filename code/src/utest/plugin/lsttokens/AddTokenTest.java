@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCTemplate;
@@ -82,7 +83,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testValidClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEAR"));
+		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 
 	@Test
@@ -93,7 +94,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 		primaryProf.put(IntegerKey.LEVEL, 1);
 		secondaryProf = new PCClassLevel();
 		secondaryProf.put(IntegerKey.LEVEL, 1);
-		assertFalse(parse(".CLEAR"));
+		assertFalse(parse(Constants.LST_DOT_CLEAR));
 		assertNoSideEffects();
 	}
 

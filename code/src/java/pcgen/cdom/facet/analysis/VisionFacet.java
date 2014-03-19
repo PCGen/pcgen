@@ -50,8 +50,8 @@ import pcgen.util.enumeration.VisionType;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VisionFacet extends
-		AbstractSourcedListFacet<QualifiedObject<Vision>> implements
-		DataFacetChangeListener<CDOMObject>
+		AbstractSourcedListFacet<CharID, QualifiedObject<Vision>> implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private FormulaResolvingFacet formulaResolvingFacet;
@@ -77,7 +77,7 @@ public class VisionFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		Collection<CDOMReference<Vision>> mods = cdo
@@ -116,7 +116,7 @@ public class VisionFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}

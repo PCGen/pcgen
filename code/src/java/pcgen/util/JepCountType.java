@@ -83,7 +83,7 @@ public abstract class JepCountType
 			double accum = 0;
 			for (final CNAbility ab : filtered)
 			{
-				for (String assoc : pc.getAssociationList(ab.getAbility()))
+				for (String assoc : pc.getAssociationList(ab))
 				{
 					if (assocList.contains(assoc))
 					{
@@ -108,12 +108,12 @@ public abstract class JepCountType
 			{
 				if (assocList.isEmpty())
 				{
-					final double ac = pc.getSelectCorrectedAssociationCount(ab.getAbility());
+					final double ac = pc.getSelectCorrectedAssociationCount(ab);
 					accum += 1.01 >= ac ? 1 : ac;
 				}
 				else
 				{
-					for (String assoc : pc.getAssociationList(ab.getAbility()))
+					for (String assoc : pc.getAssociationList(ab))
 					{
 						if (assocList.contains(assoc))
 						{

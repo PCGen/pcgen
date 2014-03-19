@@ -42,7 +42,7 @@ import pcgen.core.Race;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LevelFacet extends AbstractStorageFacet implements
+public class LevelFacet extends AbstractStorageFacet<CharID> implements
 		ClassLevelChangeListener
 {
 	private TemplateFacet templateFacet;

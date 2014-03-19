@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -31,8 +32,8 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public class LocalAddedSkillCostFacetTest extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private LocalAddedSkillCostFacet facet = new LocalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
@@ -44,6 +45,9 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		class1 = new PCClass();
 		class1.setName("Cl1");
 		class2 = new PCClass();

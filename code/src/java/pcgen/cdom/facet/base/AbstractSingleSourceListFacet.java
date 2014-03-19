@@ -48,7 +48,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractSingleSourceListFacet<T, ST> extends
-		AbstractDataFacet<T>
+		AbstractDataFacet<CharID, T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -481,6 +481,11 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		Map<T, ST> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
+			/*
+			 * This list exists primarily to eliminate the possibility of a
+			 * concurrent modification exception on a recursive remove
+			 */
+			List<T> removedKeys = new ArrayList<T>();
 			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
 					.iterator(); it.hasNext();)
 			{
@@ -490,9 +495,17 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 				{
 					T obj = me.getKey();
 					it.remove();
-					fireDataFacetChangeEvent(id, obj,
-							DataFacetChangeEvent.DATA_REMOVED);
+					removedKeys.add(obj);
 				}
+			}
+			if (componentMap.isEmpty())
+			{
+				removeCache(id);
+			}
+			for (T obj : removedKeys)
+			{
+				fireDataFacetChangeEvent(id, obj,
+					DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -586,47 +599,6 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			{
 				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
-			}
-		}
-	}
-
-	/**
-	 * Removes one item from the given source from this AbstractSourcedListFacet
-	 * for the PlayerCharacter represented by the given CharID.
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character for which an item
-	 *            from the given source will be removed
-	 * @param source
-	 *            The source for the object to be removed from the list of items
-	 *            stored for the Player Character identified by the given CharID
-	 */
-	public void removeOne(CharID id, Object source)
-	{
-		Map<T, ST> componentMap = getCachedMap(id);
-		if (componentMap != null)
-		{
-			T removed = null;
-			for (Iterator<Entry<T, ST>> it = componentMap.entrySet().iterator(); it
-				.hasNext();)
-			{
-				Entry<T, ST> me = it.next();
-				ST src = me.getValue();
-				if (source.equals(src))
-				{
-					removed = me.getKey();
-					it.remove();
-					break;
-				}
-			}
-			if (componentMap.isEmpty())
-			{
-				removeCache(id);
-			}
-			if (removed != null)
-			{
-				fireDataFacetChangeEvent(id, removed,
-					DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}

@@ -26,6 +26,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -39,20 +40,20 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 
 	private Listener listener = new Listener();
 
-	private class Listener implements DataFacetChangeListener<T>
+	private class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
 		public int addEventCount;
 		public int removeEventCount;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent<T> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent<T> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, T> dfce)
 		{
 			removeEventCount++;
 		}
@@ -63,8 +64,9 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = CharID.getID();
-		altid = CharID.getID();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
 	}
 

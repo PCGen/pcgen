@@ -31,7 +31,7 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BonusChangeFacet extends AbstractStorageFacet
+public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 {
 	/**
 	 * The BonusChangeSupport object that manages the listeners that receive

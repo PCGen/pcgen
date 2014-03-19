@@ -46,7 +46,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -504,7 +503,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
 		{
-			AbilityUtilities.modAbility(character, toughness, null, AbilityCategory.FEAT);
+			AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, toughness, "");
 			is((int) character.getRemainingFeatPoints(true), eq(1), "Only 1 feat used");
 		}
 		catch (HeadlessException e)
@@ -955,17 +954,17 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		try
 		{
-			AbilityUtilities.modAbility(pc, toughness, null, AbilityCategory.FEAT);
+			AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, toughness, "");
 			//pc.calcActiveBonuses();
 			assertEquals("Check application of single bonus", base+3, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
-			AbilityUtilities.modAbility(pc, toughness, null, AbilityCategory.FEAT);
+			AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, toughness, "");
 			pc.calcActiveBonuses();
 			assertEquals("Check application of second bonus", base+6, pc.getTotalBonusTo(
 				"HP", "CURRENTMAX"));
 
-			AbilityUtilities.modAbility(pc, toughness, "Toughness",
-					specialFeatCat);
+			AbstractCharacterTestCase.applyAbility(pc, specialFeatCat, toughness,
+					"Toughness");
 			pc.calcActiveBonuses();
 			assertEquals(
 				"Check application of third bonus in different catgeory",
@@ -1030,7 +1029,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Before bonus, no temp no equip", 0, pc.getPartialStatBonusFor(str, false, false));
 		assertEquals("Before bonus, temp no equip", 0, pc.getPartialStatBonusFor(str, true, false));
 
-		AbilityUtilities.modAbility(pc, strBonusAbility, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, strBonusAbility, null);
 		pc.calcActiveBonuses();
 
 		assertEquals("After bonus, no temp no equip", 2, pc.getPartialStatBonusFor(str, false, false));
@@ -1113,23 +1112,20 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
 		
-		List<Ability> abList = pc.getAggregateAbilityList(AbilityCategory.FEAT);
+		List<Ability> abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(0, abList.size());
 
 		pc.setRace(human);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.AUTOMATIC, pc.getAbilityNature(abList.get(0)));
 		
 		pc.addTemplate(template);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.VIRTUAL, pc.getAbilityNature(abList.get(0)));
 		
 		pc.addTemplate(templateNorm);
 		abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(1, abList.size());
-		assertEquals(Nature.NORMAL, pc.getAbilityNature(abList.get(0)));
 	}
 
 	/**

@@ -19,14 +19,13 @@ package plugin.lsttokens.campaign;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with GENRE Token
  */
-public class GenreToken implements CDOMPrimaryToken<Campaign>
+public class GenreToken extends AbstractStringToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
     @Override
@@ -36,31 +35,14 @@ public class GenreToken implements CDOMPrimaryToken<Campaign>
 	}
 
     @Override
-	public ParseResult parseToken(LoadContext context, Campaign campaign,
-		String value)
-	{
-		if (value == null || value.length() == 0)
-		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
-		}
-		context.getObjectContext().put(campaign, StringKey.GENRE, value);
-		return ParseResult.SUCCESS;
-	}
-
-    @Override
-	public String[] unparse(LoadContext context, Campaign camp)
-	{
-		String genre =
-				context.getObjectContext().getString(camp, StringKey.GENRE);
-		if (genre == null)
-		{
-			return null;
-		}
-		return new String[]{genre};
-	}
-
-    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;
-	}}
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.GENRE;
+	}
+}

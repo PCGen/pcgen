@@ -31,10 +31,12 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.util.enumeration.View;
 
 /**
  * An ActiveAbilityFacet is a DataFacet that contains information about Ability
@@ -42,7 +44,7 @@ import pcgen.core.AbilityCategory;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
+public class ActiveAbilityFacet extends AbstractDataFacet<CharID, Ability>
 {
 	/**
 	 * Add the given Ability to the list of Abilities defined by the given
@@ -724,7 +726,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return Collections.emptySet();
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id)
+	public Collection<CNAbility> getCNAbilities(CharID id)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		Set<CNAbility> set = new HashSet<CNAbility>();
@@ -749,7 +751,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+	public Collection<CNAbility> getCNAbilities(CharID id,
 		Category<Ability> cat, Nature n)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -778,7 +780,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+	public Collection<CNAbility> getCNAbilities(CharID id,
 		Ability ability)
 	{
 		Category<Ability> cat = ability.getCDOMCategory();
@@ -836,7 +838,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return null;
 	}
 
-	public Collection<? extends CNAbility> getCNAbilities(CharID id,
+	public Collection<CNAbility> getCNAbilities(CharID id,
 		Category<Ability> cat)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
@@ -863,7 +865,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		return set;
 	}
 
-	public boolean hasAbilityKeyed(CharID id, AbilityCategory cat, String aKey)
+	public boolean hasAbilityKeyed(CharID id, Category<Ability> cat, String aKey)
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap != null)
@@ -887,6 +889,81 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 			}
 		}
 		return false;
+	}
+
+	public boolean hasAbilityVisibleTo(CharID id, AbilityCategory cat, View view)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		if (catMap != null)
+		{
+			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap.entrySet())
+			{
+				Category<Ability> c = catME.getKey();
+				if (c.equals(cat))
+				{
+					for (Set<Ability> set : catME.getValue().values())
+					{
+						for (Ability a : set)
+						{
+							if (a.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
+							{
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public Collection<CNAbility> getPoolAbilities(CharID id,
+		Category<Ability> cat)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			Map<Nature, Set<Ability>> nmap = catMap.get(cat);
+			if (nmap != null)
+			{
+				for (Entry<Nature, Set<Ability>> natME : nmap.entrySet())
+				{
+					Nature nat = natME.getKey();
+					for (Ability a : natME.getValue())
+					{
+						set.add(new CNAbility(cat, a, nat));
+					}
+				}
+			}
+		}
+		return set;
+	}
+
+	public Collection<CNAbility> getPoolAbilities(CharID id,
+		Category<Ability> cat, Nature n)
+	{
+		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
+		Set<CNAbility> set = new HashSet<CNAbility>();
+		if (catMap != null)
+		{
+			Map<Nature, Set<Ability>> nmap = catMap.get(cat);
+			if (nmap != null)
+			{
+				Set<Ability> aset = nmap.get(n);
+				if (aset != null)
+				{
+					for (Ability a : aset)
+					{
+						if (!a.isInternal())
+						{
+							set.add(new CNAbility(cat, a, n));
+						}
+					}
+				}
+			}
+		}
+		return set;
 	}
 
 }

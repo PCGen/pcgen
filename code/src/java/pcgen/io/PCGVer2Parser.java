@@ -30,6 +30,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -42,14 +43,13 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
-import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -62,13 +62,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
+import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.input.DomainInputFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.PCClassLevel;
@@ -120,7 +121,6 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.BonusDisplay;
@@ -183,7 +183,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private final List<String> warnings = new ArrayList<String>();
 	private Cache cache;
-	private final List<WeaponProf> weaponprofs = new ArrayList<WeaponProf>();
 	private PlayerCharacter thePC;
 	private final Set<String> seenStats = new HashSet<String>();
 	private final Set<Language> cachedLanguages = new HashSet<Language>();
@@ -360,6 +359,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (sourceStr.startsWith(TAG_FEAT + '='))
 		{
 			sourceStr = sourceStr.substring(5);
+			oSource =
+					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Ability.class, AbilityCategory.FEAT, sourceStr);
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
 			{
@@ -2667,8 +2669,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else
 					{
-						thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING,
-							Boolean.TRUE);
+						thePC.addSavedAbility(ability);
 					}
 				}
 			}
@@ -4656,8 +4657,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 										EntityEncoder.decode(mapKey), feat);
 							if (subt != null)
 							{
-								CategorizedAbilitySelection as =
-										CategorizedAbilitySelection
+								CNAbilitySelection as =
+										CNAbilitySelection
 											.getAbilitySelectionFromPersistentFormat(feat);
 								thePC.addTemplateFeat(subt, as);
 							}
@@ -4774,8 +4775,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			anAbility =
 					AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(
 						thePC, anAbility, null, AbilityCategory.FEAT);
-			thePC
-				.setAssoc(anAbility, AssociationKey.NEEDS_SAVING, Boolean.TRUE);
+			thePC.addSavedAbility(anAbility);
 			thePC.setDirty(true);
 		}
 
@@ -4858,11 +4858,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		CDOMObject source = null;
+		boolean hadSource = false;
 
 		for (PCGElement element : tokens.getElements())
 		{
 			if (TAG_SOURCE.equals(element.getName()))
 			{
+				hadSource = true;
 				String type = Constants.EMPTY_STRING;
 				String key = Constants.EMPTY_STRING;
 
@@ -4914,33 +4916,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					source = thePC.getClassKeyed(key);
 				}
-				else if (TAG_DOMAIN.equals(type))
-				{
-					Domain domain =
-							Globals.getContext().ref
-								.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
-									key);
-					if (thePC.hasDomain(domain))
-					{
-						source = domain;
-					}
-					else
-					{
-						warnings.add("PC does not have Domain: " + key);
-					}
-				}
-				else if (TAG_DOMAIN.equals(type))
-				{
-					source = thePC.getAbilityKeyed(AbilityCategory.FEAT, key);
-				}
-				// Fix for bug 1185344
-				else if (TAG_ABILITY.equals(type))
-				{
-					source =
-							thePC.getAutomaticAbilityKeyed(
-								AbilityCategory.FEAT, key);
-				}
-				// End of Fix
 
 				if (source == null)
 				{
@@ -4955,32 +4930,33 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final PCGElement element = tokens.getElements().get(0);
 
-		if (source == null)
+		boolean processed = false;
+		if (source != null)
 		{
-			for (PCGElement child : element.getChildren())
+			List<PersistentTransitionChoice<?>> adds =
+					source.getListFor(ListKey.ADD);
+			if (adds != null)
 			{
-				weaponprofs.add(getWeaponProf(child.getText()));
-			}
-		}
-		else
-		{
-			for (PCGElement child : element.getChildren())
-			{
-				Collection<CDOMReference<WeaponProf>> wpBonus =
-						source.getListMods(WeaponProf.STARTING_LIST);
-				if (wpBonus != null)
+				for (PersistentTransitionChoice<?> ptc: adds)
 				{
-					ChooseInformation<WeaponProf> tc =
-							new BasicChooseInformation<WeaponProf>(
-								"WEAPONBONUS",
-								new ReferenceChoiceSet<WeaponProf>(wpBonus));
-					tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
-					CDOMChoiceManager<WeaponProf> mgr =
-							new CDOMChoiceManager<WeaponProf>(source, tc, 1, 1);
-					mgr.conditionallyApply(thePC,
-						getWeaponProf(child.getText()));
+					if (ptc.getChoiceClass().equals(WeaponProf.class))
+					{
+						for (PCGElement child : element.getChildren())
+						{
+							WeaponProf wp = getWeaponProf(child.getText());
+							Set c = Collections.singleton(wp);
+							ptc.act(c, source, thePC);
+						}
+						processed = true;
+						break;
+					}
 				}
 			}
+		}
+		if (hadSource && !processed)
+		{
+			final String message = "Unable to apply WeaponProfs: " + line;
+			warnings.add(message);
 		}
 	}
 
@@ -6138,9 +6114,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void resolveLanguages()
 	{
-		Ability langbonus =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
+		CNAbility langbonus = thePC.getBonusLanguageAbility();
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
@@ -6149,12 +6123,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
-		HashMapToList<Language, Object> sources = new HashMapToList<Language, Object>();
+		HashMapToList<Language, Object> langSources = new HashMapToList<Language, Object>();
 		Map<Object, Integer> actorLimit = new IdentityHashMap<Object, Integer>();
-		Map<PersistentTransitionChoice, Ability> ptcSources = new IdentityHashMap<PersistentTransitionChoice, Ability>();
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<PersistentTransitionChoice, CDOMObject>();
 
-		List<Ability> abilities = thePC.getAllAbilities();
-		for (Ability a : abilities)
+		List<? extends CDOMObject> abilities = thePC.getCDOMObjectList();
+		for (CDOMObject a : abilities)
 		{
 			List<PersistentTransitionChoice<?>> addList =
 					a.getListFor(ListKey.ADD);
@@ -6172,13 +6146,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						{
 							if (cachedLanguages.contains(l))
 							{
+								String source =
+										SourceFormat.getFormattedString(a,
+											Globals.getSourceDisplay(), true);
 								int choiceCount =
 										ptc.getCount()
-											.resolve(thePC, a.getSource())
+											.resolve(thePC, source)
 											.intValue();
 								if (choiceCount > 0)
 								{
-									sources.addToListFor(l, ptc);
+									langSources.addToListFor(l, ptc);
 									ptcSources.put(ptc, a);
 									actorLimit.put(ptc, choiceCount);
 								}
@@ -6191,9 +6168,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (!foundLang)
 		{
 			Set<Language> bonusAllowed = thePC.getLanguageBonusSelectionList();
-			ChoiceManagerList<Object> controller =
-					ChooserUtilities.getConfiguredController(langbonus, thePC,
-						AbilityCategory.LANGBONUS, new ArrayList<String>());
 			int count = thePC.getBonusLanguageCount();
 			int choiceCount = count - currentBonusLang;
 			if (choiceCount > 0)
@@ -6202,8 +6176,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					if (cachedLanguages.contains(l))
 					{
-						sources.addToListFor(l, controller);
-						actorLimit.put(controller, choiceCount);
+						langSources.addToListFor(l, langbonus);
+						actorLimit.put(langbonus, choiceCount);
 					}
 				}
 			}
@@ -6213,23 +6187,23 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		while (acted)
 		{
 			acted = false;
-			for (Language l : sources.getKeySet())
+			for (Language l : langSources.getKeySet())
 			{
-				List<Object> actors = sources.getListFor(l);
+				List<Object> actors = langSources.getListFor(l);
 				if ((actors != null) && (actors.size() == 1))
 				{
 					Object actor = actors.get(0);
 					acted = true;
-					processRemoval(langbonus, sources, actorLimit, ptcSources,
+					processRemoval(langbonus, langSources, actorLimit, ptcSources,
 						l, actor);
 				}
 			}
-			if (!acted && !sources.isEmpty() && !actorLimit.isEmpty())
+			if (!acted && !langSources.isEmpty() && !actorLimit.isEmpty())
 			{
 				//pick one
-				Language l = sources.getKeySet().iterator().next();
-				Object source = sources.getListFor(l).get(0);
-				processRemoval(langbonus, sources, actorLimit, ptcSources, l, source);
+				Language l = langSources.getKeySet().iterator().next();
+				Object source = langSources.getListFor(l).get(0);
+				processRemoval(langbonus, langSources, actorLimit, ptcSources, l, source);
 				acted = true;
 			}
 		}
@@ -6241,10 +6215,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processRemoval(Ability langbonus,
+	protected void processRemoval(CNAbility langbonus,
 		HashMapToList<Language, Object> sources,
 		Map<Object, Integer> actorLimit,
-		Map<PersistentTransitionChoice, Ability> ptcSources, Language l,
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
 		Object actor)
 	{
 		Integer limit = actorLimit.get(actor);
@@ -6269,22 +6243,25 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processActor(Ability langbonus,
-		Map<PersistentTransitionChoice, Ability> ptcSources, Language l,
+	protected void processActor(CNAbility langbonus,
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
 		Object actor)
 	{
-		if (actor instanceof ChoiceManagerList)
+		if (actor instanceof CNAbility)
 		{
-			ChoiceManagerList<Object> controller =
-					(ChoiceManagerList<Object>) actor;
-			controller.restoreChoice(thePC, langbonus,
-				l.getKeyName());
+			thePC.addAppliedAbility(new CNAbilitySelection(langbonus,
+				l.getKeyName()), UserSelection.getInstance());
 		}
 		else if (actor instanceof PersistentTransitionChoice)
 		{
 			PersistentTransitionChoice<Language> ptc =
 					(PersistentTransitionChoice<Language>) actor;
 			ptc.restoreChoice(thePC, ptcSources.get(ptc), l);
+		}
+		else
+		{
+			warnings.add("Internal Error: Language actor of "
+				+ actor.getClass() + " is not understood");
 		}
 	}
 

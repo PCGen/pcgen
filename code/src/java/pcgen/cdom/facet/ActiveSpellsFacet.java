@@ -43,8 +43,8 @@ import pcgen.core.character.SpellInfo;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
-		implements DataFacetChangeListener<CDOMObject>
+public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, CharacterSpell>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private RaceFacet raceFacet;
 
@@ -96,7 +96,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		process(dfce.getCharID());
 	}
@@ -156,7 +156,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		process(dfce.getCharID());
 	}

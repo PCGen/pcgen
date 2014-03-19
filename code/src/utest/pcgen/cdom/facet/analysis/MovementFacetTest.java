@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.MovementFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -57,7 +58,7 @@ public class MovementFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Movement> getFacet()
+	protected AbstractSourcedListFacet<CharID, Movement> getFacet()
 	{
 		return facet;
 	}
@@ -75,7 +76,7 @@ public class MovementFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

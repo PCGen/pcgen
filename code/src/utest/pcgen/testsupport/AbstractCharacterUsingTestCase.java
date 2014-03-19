@@ -98,6 +98,7 @@ public class AbstractCharacterUsingTestCase extends TestCase {
 		context.resolveDeferredTokens();
 		assertTrue(context.ref.resolveReferences(null));
 		context.resolvePostDeferredTokens();
+		context.loadCampaignFacets();
 	}
 
 	protected void setUpPC() throws PersistenceLayerException

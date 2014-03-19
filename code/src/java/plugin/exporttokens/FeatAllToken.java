@@ -60,15 +60,15 @@ public class FeatAllToken extends AbilityToken
 		{
 			if (aCat.getParentCategory().equals(aCategory))
 			{
-				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.NORMAL))
+				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
 				{
 					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}
-				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.AUTOMATIC))
+				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.AUTOMATIC))
 				{
 					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}
-				for (CNAbility cna : pc.getCNAbilities(aCat, Nature.VIRTUAL))
+				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.VIRTUAL))
 				{
 					listOfAbilities.addToListFor(cna.getAbility(), cna);
 				}

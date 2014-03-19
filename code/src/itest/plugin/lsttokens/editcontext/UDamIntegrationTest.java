@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -89,7 +90,7 @@ public class UDamIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		commit(modCampaign, tc, "1,2,3,4*form,5*form,6,7*form,8,9");
 		completeRoundRobin(tc);
 	}
@@ -100,7 +101,7 @@ public class UDamIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "1,2,3,4,5,6,7,8,9");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -109,8 +110,8 @@ public class UDamIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
-		commit(modCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -120,7 +121,7 @@ public class UDamIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, ".CLEAR");
+		commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 		completeRoundRobin(tc);
 	}
 
@@ -129,7 +130,7 @@ public class UDamIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".CLEAR");
+		commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}

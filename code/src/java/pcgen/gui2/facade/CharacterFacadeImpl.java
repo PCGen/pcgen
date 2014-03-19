@@ -52,7 +52,9 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
@@ -217,8 +219,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
-	private final PlayerCharacter theCharacter;
-	private final CharacterDisplay charDisplay;
+	private PlayerCharacter theCharacter;
+	private CharacterDisplay charDisplay;
 	private DefaultReferenceFacade<EquipmentSetFacade> equipSet;
 	private DefaultListFacade<LanguageFacade> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
@@ -313,6 +315,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		charLevelsFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
 		Globals.getPCList().remove(theCharacter);
+		lastExportChar = null;
+		theCharacter = null;
+		charDisplay = null;
 	}
 	
 	/**
@@ -720,7 +725,19 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return null;
 		}
-		return theCharacter.getAbilityNature((Ability) ability);
+		/*
+		 * TODO This is making a somewhat DRASTIC assumption that ANY Ability
+		 * Category is appropriate. Unfortunately, the point at which this
+		 * method is called from the UI it is unclear to the untrained eye how
+		 * to get the category.
+		 */
+		List<CNAbility> cnas = theCharacter.getMatchingCNAbilities((Ability) ability);
+		Nature nature = null;
+		for (CNAbility cna : cnas)
+		{
+			nature = Nature.getBestNature(nature, cna.getNature());
+		}
+		return nature;
 	}
 
 	/* (non-Javadoc)
@@ -2484,8 +2501,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int bonusLangMax = theCharacter.getBonusLanguageCount();
 		
 		currBonusLangs = new ArrayList<Language>();
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-				"*LANGBONUS");
+		CNAbility a = theCharacter.getBonusLanguageAbility();
 		List<String> currBonusLangNameList = theCharacter.getAssociationList(a);
 		for (LanguageFacade langFacade : languages)
 		{
@@ -2574,8 +2590,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		Ability a = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-				"*LANGBONUS");
+		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
 		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<LanguageChooserFacade>();
 		chooserList.addElement(new LanguageChooserFacadeImpl(this,
 			LanguageBundle.getString("in_sumLangBonus"), a)); //$NON-NLS-1$
@@ -2620,8 +2635,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (currBonusLangs.contains(lang))
 		{
-			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(Ability.class, AbilityCategory.LANGBONUS,
-					"*LANGBONUS");
+			return theCharacter.getBonusLanguageAbility().getAbility();
 		} else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
 			return (Skill) dataSet.getSpeakLanguageSkill();
@@ -4597,13 +4611,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * The Class <code>LanguageListener</code> tracks adding and removal of 
 	 * languages to the character.
 	 */
-	public class LanguageListener implements DataFacetChangeListener<Language>
+	public class LanguageListener implements DataFacetChangeListener<CharID, Language>
 	{
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataAdded(DataFacetChangeEvent<Language> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4616,7 +4630,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<Language> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4631,13 +4645,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * The Class <code>TemplateListener</code> tracks adding and removal of 
 	 * templates to the character.
 	 */
-	public class TemplateListener implements DataFacetChangeListener<PCTemplate>
+	public class TemplateListener implements DataFacetChangeListener<CharID, PCTemplate>
 	{
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+		public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{
@@ -4650,7 +4664,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 * {@inheritDoc}
 		 */
 		@Override
-		public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+		public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
 			if (dfce.getCharID() != theCharacter.getCharID())
 			{

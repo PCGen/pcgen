@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
+ABILITYCATEGORY:Feat Test Subcategory	TYPE:Test97	VISIBLE:YES	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO	DISPLAYLOCATION:Feats	CATEGORY:FEAT
 
 ABILITYCATEGORY:Atest		POOL:5		VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability				TYPE:Test777																																												PLURAL:Any Feat Choices				DISPLAYLOCATION:Yes
 

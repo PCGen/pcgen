@@ -17,6 +17,9 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Collections;
+import java.util.List;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifiedActor;
@@ -45,8 +48,10 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 
 			if (pc.hasAssociations((CDOMObject) source))
 			{
-				sb.append(StringUtil.joinToStringBuilder(
-					pc.getAssociationList((CDOMObject) source), ", "));
+				List<String> associationList =
+						pc.getAssociationList((CDOMObject) source);
+				Collections.sort(associationList);
+				sb.append(StringUtil.joinToStringBuilder(associationList, ", "));
 			}
 			else
 			{

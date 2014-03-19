@@ -76,10 +76,10 @@ import pcgen.util.enumeration.Tab;
  */
 public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
-		CharacterLevelsFacade, DataFacetChangeListener<Skill>, BonusChangeListener
+		CharacterLevelsFacade, DataFacetChangeListener<CharID, Skill>, BonusChangeListener
 {
-	private final PlayerCharacter theCharacter;
-	private final CharacterDisplay charDisplay;
+	private PlayerCharacter theCharacter;
+	private CharacterDisplay charDisplay;
 
 	private UIDelegate delegate;
 
@@ -123,6 +123,9 @@ public class CharacterLevelsFacadeImpl extends
 			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade
 				.getKeyName().toUpperCase());
 		}
+		theCharacter = null;
+		charDisplay = null;
+		charID = null;
 	}
 
 	/**
@@ -1030,7 +1033,7 @@ public class CharacterLevelsFacadeImpl extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Skill> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
 		if (dfce.getCharID() != charID)
 		{
@@ -1047,7 +1050,7 @@ public class CharacterLevelsFacadeImpl extends
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Skill> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
 		if (dfce.getCharID() != charID)
 		{

@@ -19,15 +19,13 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ITEMCREATE Token
  */
-public class ItemcreateToken extends AbstractNonEmptyToken<PCClass> implements
+public class ItemcreateToken extends AbstractStringToken<PCClass> implements
 		CDOMPrimaryToken<PCClass>
 {
 
@@ -38,28 +36,14 @@ public class ItemcreateToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
-	{
-		context.getObjectContext().put(pcc, StringKey.ITEMCREATE, value);
-		return ParseResult.SUCCESS;
-	}
-
-	@Override
-	public String[] unparse(LoadContext context, PCClass pcc)
-	{
-		String title = context.getObjectContext().getString(pcc,
-				StringKey.ITEMCREATE);
-		if (title == null)
-		{
-			return null;
-		}
-		return new String[] { title };
-	}
-
-	@Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;
+	}
+
+	@Override
+	protected StringKey stringKey()
+	{
+		return StringKey.ITEMCREATE;
 	}
 }

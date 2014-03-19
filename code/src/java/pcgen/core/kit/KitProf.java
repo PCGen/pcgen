@@ -24,15 +24,14 @@ package pcgen.core.kit;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -40,7 +39,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
-import pcgen.core.chooser.CDOMChoiceManager;
 
 /**
  * <code>KitFeat</code>.
@@ -102,7 +100,7 @@ public final class KitProf extends BaseKit
 		thePObject = null;
 		weaponProfs = null;
 
-		Collection<CDOMReference<WeaponProf>> wpBonus = null;
+		PersistentTransitionChoice<WeaponProf> wpPTC = null;
 		if (isRacial())
 		{
 			final Race pcRace = aPC.getRace();
@@ -121,7 +119,13 @@ public final class KitProf extends BaseKit
 				return false;
 			}
 			thePObject = pcRace;
-			wpBonus = pcRace.getListMods(WeaponProf.STARTING_LIST);
+			wpPTC = getPTC(pcRace);
+			if (wpPTC == null)
+			{
+				warnings.add("PROF: PC race has no WEAPONBONUS");
+
+				return false;
+			}
 		}
 		else
 		{
@@ -138,11 +142,17 @@ public final class KitProf extends BaseKit
 			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext();)
 			{
 				pcClass = i.next();
-				wpBonus = pcClass.getListMods(WeaponProf.STARTING_LIST);
-				if (wpBonus != null && wpBonus.size() > 0)
+				wpPTC = getPTC(pcClass);
+				if (wpPTC != null)
 				{
 					break;
 				}
+			}
+			if (wpPTC == null)
+			{
+				warnings.add("PROF: PC classes have no WEAPONBONUS");
+
+				return false;
 			}
 			thePObject = pcClass;
 			if (!aPC.hasBonusWeaponProfs(pcClass))
@@ -153,37 +163,22 @@ public final class KitProf extends BaseKit
 				return false;
 			}
 		}
-		if ((wpBonus == null) || (wpBonus.size() == 0))
-		{
-			warnings.add("PROF: No optional weapon proficiencies");
-
-			return false;
-		}
 
 		final List<WeaponProf> aProfList = new ArrayList<WeaponProf>();
 
-		ChooseInformation<WeaponProf> tc = new BasicChooseInformation<WeaponProf>(
-				"WEAPONBONUS", new ReferenceChoiceSet<WeaponProf>(wpBonus));
-		tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
-		CDOMChoiceManager<WeaponProf> mgr = new CDOMChoiceManager<WeaponProf>(
-				thePObject, tc, 1, 1);
-
+		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
 		for (CDOMSingleRef<WeaponProf> profKey : profList)
 		{
 			WeaponProf wp = profKey.resolvesTo();
-			boolean found = false;
-			if (mgr.conditionallyApply(aPC, wp))
+			if (choices.contains(wp))
 			{
-				found = true;
-				aProfList.add(wp);
-				break;
+				wpPTC.act(Collections.singleton(wp), thePObject, aPC);
 			}
-			if (!found)
+			else
 			{
 				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName()
 					+ "\" is not in list of choices");
 			}
-
 		}
 
 		int numberOfChoices = getSafeCount();
@@ -241,19 +236,32 @@ public final class KitProf extends BaseKit
 		return false;
 	}
 
+	private PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
+	{
+		List<PersistentTransitionChoice<?>> adds =
+				cdo.getListFor(ListKey.ADD);
+		for (PersistentTransitionChoice<?> ptc: adds)
+		{
+			if (ptc.getChoiceClass().equals(WeaponProf.class))
+			{
+				return (PersistentTransitionChoice<WeaponProf>) ptc;
+			}
+		}
+		return null;
+	}
+
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		Collection<CDOMReference<WeaponProf>> wpBonus = thePObject
-				.getListMods(WeaponProf.STARTING_LIST);
-		ChooseInformation<WeaponProf> tc = new BasicChooseInformation<WeaponProf>(
-				"WEAPONBONUS", new ReferenceChoiceSet<WeaponProf>(wpBonus));
-		tc.setChoiceActor(WeaponProf.STARTING_ACTOR);
-		for (WeaponProf prof : weaponProfs)
+		PersistentTransitionChoice<WeaponProf> wpPTC = getPTC(thePObject);
+		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
+		for (CDOMSingleRef<WeaponProf> profKey : profList)
 		{
-			CDOMChoiceManager<WeaponProf> mgr = new CDOMChoiceManager<WeaponProf>(
-					thePObject, tc, 1, 1);
-			mgr.conditionallyApply(aPC, prof);
+			WeaponProf wp = profKey.resolvesTo();
+			if (choices.contains(wp))
+			{
+				wpPTC.act(Collections.singleton(wp), thePObject, aPC);
+			}
 		}
 	}
 

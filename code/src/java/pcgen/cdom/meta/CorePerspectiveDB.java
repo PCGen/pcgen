@@ -23,6 +23,7 @@ import java.util.HashMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
@@ -51,7 +52,7 @@ public class CorePerspectiveDB
 	}
 
 	public static <T> Object register(CorePerspective perspective,
-		FacetBehavior behavior, AbstractSourcedListFacet<T> facet)
+		FacetBehavior behavior, AbstractSourcedListFacet<CharID, T> facet)
 	{
 		FacetView<T> view = new ListFacetView<T>(facet);
 		finishRegistration(perspective, behavior, view, facet);

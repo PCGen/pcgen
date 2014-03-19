@@ -43,7 +43,8 @@ import pcgen.core.spell.Spell;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
+public abstract class AbstractSpellStorageFacet extends
+		AbstractStorageFacet<CharID>
 {
 
 	private SpellChangeSupport support = new SpellChangeSupport();

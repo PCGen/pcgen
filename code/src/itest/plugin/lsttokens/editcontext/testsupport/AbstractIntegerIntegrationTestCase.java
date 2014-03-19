@@ -23,6 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -222,7 +223,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		{
 			verifyCleanStart();
 			TestContext tc = new TestContext();
-			commit(testCampaign, tc, ".CLEAR");
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 			if (isPositiveAllowed())
 			{
 				commit(modCampaign, tc, "3");
@@ -236,6 +237,25 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	}
 
 	@Test
+	public void testRoundRobinClearSet() throws PersistenceLayerException
+	{
+		if (isClearAllowed())
+		{
+			verifyCleanStart();
+			TestContext tc = new TestContext();
+			if (isPositiveAllowed())
+			{
+				commit(testCampaign, tc, Constants.LST_DOT_CLEAR, "3");
+			}
+			else if (isNegativeAllowed())
+			{
+				commit(testCampaign, tc, Constants.LST_DOT_CLEAR, "-2");
+			}
+			completeRoundRobin(tc);
+		}
+	}
+
+	@Test
 	public void testRoundRobinClearNoSet() throws PersistenceLayerException
 	{
 		if (isClearAllowed())
@@ -243,7 +263,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			verifyCleanStart();
 			TestContext tc = new TestContext();
 			emptyCommit(testCampaign, tc);
-			commit(modCampaign, tc, ".CLEAR");
+			commit(modCampaign, tc, Constants.LST_DOT_CLEAR);
 			completeRoundRobin(tc);
 		}
 	}
@@ -255,7 +275,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		{
 			verifyCleanStart();
 			TestContext tc = new TestContext();
-			commit(testCampaign, tc, ".CLEAR");
+			commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 			emptyCommit(modCampaign, tc);
 			completeRoundRobin(tc);
 		}

@@ -140,6 +140,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int babMinVal = 1;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
+	private final List<String> schoolsList = new ArrayList<String>(20);
 
 	private int skillCosts_Class     = 1;
 	private int skillCost_CrossClass = 2;
@@ -251,7 +252,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the AC Abbreviation
+	 * Set the AC Abbreviation.
 	 * @param aString
 	 */
 	public void setACAbbrev(final String aString)
@@ -260,7 +261,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the AC Text
+	 * Set the AC Text.
 	 * @param aString
 	 */
 	public void setACText(final String aString)
@@ -269,7 +270,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add the AC Type as a string to the List
+	 * Add the AC Type as a string to the List.
 	 * @param ACType
 	 * @return List of AC Types
 	 */
@@ -279,7 +280,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Remove the AC Type as a string to the List
+	 * Remove the AC Type as a string to the List.
 	 * @param ACType
 	 * @return List of AC Types
 	 */
@@ -289,7 +290,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set Alignment Text
+	 * Set Alignment Text.
 	 * @param aString
 	 */
 	public void setAlignmentText(final String aString)
@@ -298,7 +299,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set Allowed Game modes
+	 * Set Allowed Game modes.
 	 * @param argAllowedModes
 	 */
 	public void setAllowedModes(final String argAllowedModes)
@@ -319,7 +320,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the alternative HP Abbreviation
+	 * Set the alternative HP Abbreviation.
 	 * @param aString
 	 */
 	public void setAltHPAbbrev(final String aString)
@@ -328,7 +329,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the alternative HP Text
+	 * Set the alternative HP Text.
 	 * @param aString
 	 */
 	public void setAltHPText(final String aString)
@@ -337,7 +338,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set flag to allow auto resizing or not
+	 * Set flag to allow auto resizing or not.
 	 * @param allow
 	 */
 	public void setAllowAutoResize(final boolean allow)
@@ -346,7 +347,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the allow auto resize flag
+	 * Get the allow auto resize flag.
 	 * @return true if allowed to auto resize
 	 */
 	public boolean getAllowAutoResize()
@@ -355,7 +356,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set BAB Abbreviation
+	 * Set BAB Abbreviation.
 	 * @param aString
 	 */
 	public void setBabAbbrev(final String aString)
@@ -364,7 +365,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get BAB Abbreviation
+	 * Get BAB Abbreviation.
 	 * @return BAB Abbreviation
 	 */
 	public String getBabAbbrev()
@@ -382,7 +383,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get BAB Minimum value
+	 * Get BAB Minimum value.
 	 * @return BAB Minimum value
 	 */
 	public int getBabMinVal()
@@ -391,7 +392,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set Level at which you gain a bonus stat
+	 * Set Level at which you gain a bonus stat.
 	 * @param aString
 	 */
 	public void setBonusStatLevels(final String aString)
@@ -400,7 +401,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set Max Level check
+	 * Set Max Level check.
 	 * @param arg
 	 */
 	public void setChecksMaxLvl(final int arg)
@@ -409,7 +410,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get max level check
+	 * Get max level check.
 	 * @return max level check
 	 */
 	public int getChecksMaxLvl()
@@ -418,7 +419,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the class type by name
+	 * Get the class type by name.
 	 * @param aClassKey
 	 * @return ClassType
 	 */
@@ -436,7 +437,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the Currency Unit
+	 * Set the Currency Unit.
 	 * @param aString
 	 */
 	public void setCurrencyUnit(final String aString)
@@ -445,7 +446,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the currency Unit abbreviation
+	 * Set the currency Unit abbreviation.
 	 * @param aString
 	 */
 	public void setCurrencyUnitAbbrev(final String aString)
@@ -454,7 +455,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set DR text
+	 * Set DR text.
 	 * @param aString
 	 */
 	public void setDamageResistanceText(final String aString)
@@ -463,7 +464,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the default spell book
+	 * Set the default spell book.
 	 * @param aString
 	 */
 	public void setDefaultSpellBook(final String aString)
@@ -472,16 +473,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Define the default unit set for a game mode
+	 * Define the default unit set for a game mode.
 	 * @param aString
-	 **/
+	 */
 	public void setDefaultUnitSet(final String aString)
 	{
 		defaultUnitSet = aString;
 	}
 
 	/**
-	 * Get the display name of the game mode
+	 * Get the display name of the game mode.
 	 * @return displayName
 	 */
     @Override
@@ -491,9 +492,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Used for Output sheets and GUI to order items in a list
+	 * Used for Output sheets and GUI to order items in a list.
 	 * @param aString
-	 **/
+	 */
 	public void setDisplayOrder(final String aString)
 	{
 		try
@@ -507,7 +508,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the levels at which you gain bonus feats
+	 * Set the levels at which you gain bonus feats.
 	 * @param aString
 	 */
 	public void setBonusFeatLevels(final String aString)
@@ -516,7 +517,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * @return the folderName
+	 * @return the folderName.
 	 */
 	public String getFolderName()
 	{
@@ -524,7 +525,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the HP Abbreviation
+	 * Set the HP Abbreviation.
 	 * @param aString
 	 */
 	public void setHPAbbrev(final String aString)
@@ -533,7 +534,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the HP Text
+	 * Set the HP Text.
 	 * @param aString
 	 */
 	public void setHPText(final String aString)
@@ -542,7 +543,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the Rank Modifier Formula
+	 * Set the Rank Modifier Formula.
 	 * @param aString
 	 */
 	public void setRankModFormula(final String aString)
@@ -551,7 +552,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * map of LevelInfo objects.
+	 * Obtain a map of LevelInfo objects.
 	 *
 	 * @param xpTableName the name of the XP table to be used
 	 *
@@ -563,8 +564,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add new level info to an XP table
-	 * *
+	 * Add new level info to an XP table.
+	 *
 	 * @param levInfo
 	 */
 	public void addLevelInfo(final String xpTableName, final LevelInfo levInfo)
@@ -579,7 +580,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the level up message
+	 * Set the level up message.
 	 * @param aString
 	 */
 	public void setLevelUpMessage(final String aString)
@@ -588,7 +589,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the level up message
+	 * Get the level up message.
 	 * @return the level up message
 	 */
 	public String getLevelUpMessage()
@@ -597,7 +598,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the menu tool tip
+	 * Get the menu tool tip.
 	 * @return menu tool tip
 	 */
 	public String getMenuToolTip()
@@ -611,7 +612,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the game mode name
+	 * Set the game mode name.
 	 * @param modeName The MENUENTRY value.
 	 */
 	public void setModeName(final String modeName)
@@ -620,7 +621,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the game mode tool tip
+	 * Set the game mode tool tip.
 	 * @param aString
 	 */
 	public void setModeToolTip(final String aString)
@@ -629,7 +630,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the game mode name
+	 * Get the game mode name.
 	 * @return game mode name
 	 */
     @Override
@@ -649,7 +650,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get Plus calculation
+	 * Get Plus calculation.
 	 * @param type
 	 * @return plus calculation
 	 */
@@ -666,7 +667,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the Short Range distance
+	 * Set the Short Range distance.
 	 * @param aShortRange
 	 */
 	public void setShortRangeDistance(final int aShortRange)
@@ -675,7 +676,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the shortrange distance
+	 * Get the shortrange distance.
 	 * @return the shortrange distance
 	 */
 	public int getShortRangeDistance()
@@ -684,7 +685,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the show class defense parameter
+	 * Set the show class defense parameter.
 	 * @param argShowDef
 	 */
 	public void setShowClassDefense(final boolean argShowDef)
@@ -693,7 +694,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the skill multiplier levels
+	 * Set the skill multiplier levels.
 	 * @param pipeList
 	 */
 	public void setSkillMultiplierLevels(final String pipeList)
@@ -708,7 +709,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the base DC for spells
+	 * Set the base DC for spells.
 	 * @param arg
 	 */
 	public void setSpellBaseDC(final String arg)
@@ -717,7 +718,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the base DC for Spells
+	 * Get the base DC for Spells.
 	 * @return the base DC for Spells
 	 */
 	public String getSpellBaseDC()
@@ -726,7 +727,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the base concentration bonus for spells
+	 * Set the base concentration bonus for spells.
 	 * @param arg
 	 */
 	public void setSpellBaseConcentration(final String arg)
@@ -735,7 +736,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the base concentration bonus for Spells
+	 * Get the base concentration bonus for Spells.
 	 * @return the base concentration bonus for Spells
 	 */
 	public String getSpellBaseConcentration()
@@ -744,7 +745,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * The formula used to compute spell ranges
+	 * The formula used to compute spell ranges.
 	 * @param aString
 	 */
 	public void setSpellRangeFormula(final String aString)
@@ -762,7 +763,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Returns the formula used for calculate the range of a spell
+	 * Returns the formula used for calculate the range of a spell.
 	 * @param aRange
 	 * @return spell range formula
 	 */
@@ -779,7 +780,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the BAB Attack Bonus cycle
+	 * Set the BAB Attack Bonus cycle.
 	 * @param arg
 	 */
 	public void setBabAttCyc(final int arg)
@@ -788,7 +789,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the BAB Attack Bonus cycle
+	 * Get the BAB Attack Bonus cycle.
 	 * @return the BAB Attack Bonus cycle
 	 */
 	public int getBabAttCyc()
@@ -797,7 +798,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the maximum BAB attacks allowed
+	 * Set the maximum BAB attacks allowed.
 	 * @param arg
 	 */
 	public void setBabMaxAtt(final int arg)
@@ -806,7 +807,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the max BAB attacks allowed
+	 * Get the max BAB attacks allowed.
 	 * @return the max BAB attacks allowed
 	 */
 	public int getBabMaxAtt()
@@ -815,7 +816,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the max BAB level
+	 * Set the max BAB level.
 	 * @param arg
 	 */
 	public void setBabMaxLvl(final int arg)
@@ -824,7 +825,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the max BAB level
+	 * Get the max BAB level.
 	 * @return the max BAB level
 	 */
 	public int getBabMaxLvl()
@@ -833,7 +834,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a 2nd variable display name
+	 * Set a 2nd variable display name.
 	 * @param aString
 	 */
 	public void setVariableDisplay2Name(final String aString)
@@ -842,7 +843,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a 2nd variable display text
+	 * Set a 2nd variable display text.
 	 * @param aString
 	 */
 	public void setVariableDisplay2Text(final String aString)
@@ -851,7 +852,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a 3rd variable display name
+	 * Set a 3rd variable display name.
 	 * @param aString
 	 */
 	public void setVariableDisplay3Name(final String aString)
@@ -860,7 +861,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a 3rd variable display text
+	 * Set a 3rd variable display text.
 	 * @param aString
 	 */
 	public void setVariableDisplay3Text(final String aString)
@@ -869,7 +870,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a variable display name
+	 * Set a variable display name.
 	 * @param aString
 	 */
 	public void setVariableDisplayName(final String aString)
@@ -878,7 +879,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a 2nd variable display text
+	 * Set a 2nd variable display text.
 	 * @param aString
 	 */
 	public void setVariableDisplayText(final String aString)
@@ -887,16 +888,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Formula used to compute Wield Category steps
+	 * Formula used to compute Wield Category steps.
 	 * @param aString
-	 **/
+	 */
 	public void setWCStepsFormula(final String aString)
 	{
 		wcStepsFormula = aString;
 	}
 
 	/**
-	 * Get the formula used to compute Wield Category steps
+	 * Get the formula used to compute Wield Category steps.
 	 * @return formula used to compute Wield Category steps
 	 */
 	public String getWCStepsFormula()
@@ -905,7 +906,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the weapon categories
+	 * Get the weapon categories.
 	 * @return the weapon categories
 	 */
 	public String getWeaponCategories()
@@ -914,7 +915,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the weapon types
+	 * Get the weapon types.
 	 * @return the weapon types
 	 */
 	public String getWeaponTypes()
@@ -923,7 +924,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the weapon reach formula
+	 * Get the weapon reach formula.
 	 * @return String the weaopn reach formula
 	 */
 	public String getWeaponReachFormula ()
@@ -932,7 +933,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the XP awards
+	 * Get the XP awards.
 	 * @return the XP awards
 	 */
 	public Map<String, Integer> getXPAwards()
@@ -941,7 +942,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the CR steps for CRs lower than CR 1
+	 * Get the CR steps for CRs lower than CR 1.
 	 * @return the CR steps
 	 */
 	public Map<Integer, Float> getCRSteps()
@@ -950,7 +951,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the CR steps for CRs lower than CR 1
+	 * Get the CR steps for CRs lower than CR 1.
 	 * @return the CR steps
 	 */
 	public String getCRThreshold()
@@ -959,7 +960,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Return true if the AC Type is Valid
+	 * Return true if the AC Type is Valid.
 	 * @param ACType
 	 * @return true if the AC Type is Valid
 	 */
@@ -969,25 +970,35 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				|| ACTypeRemoveMap.containsListFor(ACType);
 	}
 
+	/**
+	 * Appends to the ACTypeRemoveMap.
+	 * @param ACType
+	 * @param controls
+	 */
 	public void addACRemoves(final String ACType,
 			Collection<ACControl> controls)
 	{
 		ACTypeRemoveMap.addAllToListFor(ACType, controls);
 	}
 
+	/**
+	 * Appends to the ACTypeAddMap.
+	 * @param ACType
+	 * @param controls
+	 */
 	public void addACAdds(final String ACType, Collection<ACControl> controls)
 	{
 		ACTypeAddMap.addAllToListFor(ACType, controls);
 	}
 
 	/**
-	 * Add Class Type
+	 * Add Class Type.
 	 * 
 	 * @param aString
 	 */
 	public void addClassType(final String aString)
 	{
-		if (".CLEAR".equals(aString))
+		if (Constants.LST_DOT_CLEAR.equals(aString))
 		{
 			classTypeList = null;
 
@@ -1044,7 +1055,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add a data set to the list of Default Data Sets
+	 * Add a data set to the list of Default Data Sets.
 	 * @param dataSetKey The key of the data set to add.
 	 */
 	public void addDefaultDataSet(final String dataSetKey)
@@ -1066,12 +1077,13 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add Diety List
+	 * Add a row to the Deity List. The list will be created if necessary.
+	 * The special value ".CLEAR" disposes of the list.
 	 * @param argDeityLine
 	 */
 	public void addDeityList(final String argDeityLine)
 	{
-		if (".CLEAR".equals(argDeityLine))
+		if (Constants.LST_DOT_CLEAR.equals(argDeityLine))
 		{
 			defaultDeityList = null;
 
@@ -1087,7 +1099,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add Load String
+	 * Add Load String.
 	 * @param aString
 	 */
 	public void addLoadString(final String aString)
@@ -1096,7 +1108,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add Plus calculation
+	 * Add Plus calculation.
 	 * @param aString
 	 */
 	public void addPlusCalculation(final String aString)
@@ -1115,7 +1127,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add a Weapon Category
+	 * Add a Weapon Category.
 	 * @param aString
 	 */
 	public void addWeaponCategory(final String aString)
@@ -1124,7 +1136,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add a Weapon Type
+	 * Add a Weapon Type.
 	 * @param aString
 	 */
 	public void addWeaponType(final String aString)
@@ -1133,7 +1145,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Wield Categories
+	 * Wield Categories.
 	 * @param wCat
 	 */
 	public void addWieldCategory(final WieldCategory wCat)
@@ -1142,7 +1154,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the XP Awards
+	 * Set the XP Awards.
 	 * @param aString
 	 */
 	public void setXPAwards(final String aString)
@@ -1170,7 +1182,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the CR steps for CRs lower than CR 1
+	 * Set the CR steps for CRs lower than CR 1.
 	 * @param aString
 	 */
 	public void setCRSteps(final String aString)
@@ -1184,7 +1196,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the CR key class threshold
+	 * Set the CR key class threshold.
 	 * @param aString
 	 */
 	public void setCRThreshold(final String aString)
@@ -1192,6 +1204,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			crThreshold = aString;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
     @Override
 	public int compareTo(final Object obj)
 	{
@@ -1219,7 +1234,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the weapobn reach forumla
+	 * Set the weapon reach forumla.
 	 * @param aString	the new weapon reach formula
 	 */
 	public void setWeaponReachFormula (String aString)
@@ -1227,13 +1242,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		this.weaponReachFormula = aString;
 	}
 
+	/**
+	 * Answer the acAbbrev field.
+	 */
 	String getACAbbrev()
 	{
 		return acAbbrev;
 	}
 
 	/**
-	 * AC Info
+	 * Answer the information about AC.
 	 * @return AC text
 	 */
 	public String getACText()
@@ -1242,7 +1260,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Alignment
+	 * Answer with the alignment.
 	 * @return alignment name
 	 */
 	String getAlignmentText()
@@ -1250,6 +1268,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return alignmentName;
 	}
 
+	/**
+	 * 
+	 */
 	public List<String> getAllowedModes()
 	{
 		if (allowedModes == null)
@@ -1263,13 +1284,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return allowedModes;
 	}
 
+	/**
+	 * 
+	 */
 	String getAltHPAbbrev()
 	{
 		return althpAbbrev;
 	}
 
 	/**
-	 * Wound Points
+	 * Wound Points.
 	 * @return alt hp name
 	 */
 	String getAltHPText()
@@ -1278,7 +1302,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Levels at which all characters get bonus feats
+	 * Levels at which all characters get bonus feats.
 	 * @return List
 	 */
 	List<String> getBonusFeatLevels()
@@ -1287,7 +1311,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Levels at which all characters get bonus to stats
+	 * Levels at which all characters get bonus to stats.
 	 * @return List
 	 */
 	List<String> getBonusStatLevels()
@@ -1296,7 +1320,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Currency abbreviation
+	 * Currency abbreviation.
 	 * @return currency unit abbreviation
 	 */
     @Override
@@ -1306,7 +1330,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get Damage Resistance Text
+	 * Get Damage Resistance Text.
 	 * @return Get Damage Resistance Text
 	 */
 	public String getDamageResistanceText()
@@ -1315,7 +1339,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Default spell book name
+	 * Default spell book name.
 	 * @return default spell book
 	 */
 	String getDefaultSpellBook()
@@ -1324,7 +1348,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Default unit set
+	 * Default unit set.
 	 * @return default unit set
 	 */
 	String getDefaultUnitSet()
@@ -1332,6 +1356,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return defaultUnitSet;
 	}
 
+	/**
+	 * Answer the deity list. May be null.
+	 * @return default unit set
+	 */
 	List<String> getDeityList()
 	{
 		return defaultDeityList;
@@ -1348,13 +1376,17 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return defaultDataSetList;
 	}
 
+	/**
+	 * Answer the preferred display order.
+	 * @return default unit set
+	 */
 	int getDisplayOrder()
 	{
 		return displayOrder;
 	}
 
 	/**
-	 * HP
+	 * HP.
 	 * @return HP abbreviation
 	 */
 	String getHPAbbrev()
@@ -1362,18 +1394,24 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return hpAbbrev;
 	}
 
+	/**
+	 * 
+	 */
 	String getHPText()
 	{
 		return hpName;
 	}
 
+	/**
+	 * 
+	 */
 	List<String> getLoadStrings()
 	{
 		return loadStrings;
 	}
 
 	/**
-	 * Currency unit
+	 * Answer the unit of currency.
 	 * @return currency unit
 	 */
 	String getLongCurrencyDisplay()
@@ -1381,6 +1419,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return currencyUnit;
 	}
 
+	/**
+	 * 
+	 */
 	public String getRankModFormula()
 	{
 		return rankModFormula;
@@ -1422,7 +1463,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Variable Display
+	 * Variable Display.
 	 * @return variable display text
 	 */
 	String getVariableDisplayText()
@@ -1443,7 +1484,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the range penalty
+	 * Get the range penalty.
 	 * @return range penalty
 	 */
 	public int getRangePenalty() {
@@ -1461,7 +1502,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the cost for cross class skills
+	 * Set the cost for cross class skills.
 	 * @param value
 	 */
 	public void setSkillCost_CrossClass(int value)
@@ -1470,7 +1511,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the cost for exclusive skills
+	 * Set the cost for exclusive skills.
 	 * @param value
 	 */
 	public void setSkillCost_Exclusive(int value)
@@ -1479,7 +1520,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the cost for class skills
+	 * Get the cost for class skills.
 	 * @return cost for class skills
 	 */
 	public int getSkillCost_Class()
@@ -1488,7 +1529,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the cost for cross class skills
+	 * Get the cost for cross class skills.
 	 * @return cost for cross class skills
 	 */
 
@@ -1498,7 +1539,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the cost for exclusive skills
+	 * Get the cost for exclusive skills.
 	 * @return cost for exclusive skills
 	 */
 	public int getSkillCost_Exclusive()
@@ -1507,7 +1548,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the point pool name
+	 * Set the point pool name.
 	 * @param argPoolName
 	 */
 	public void setPointPoolName(final String argPoolName)
@@ -1516,7 +1557,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the point pool name
+	 * Get the point pool name.
 	 * @return point pool name
 	 */
 	public String getPointPoolName()
@@ -1525,7 +1566,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the penalty for non proficiency
+	 * Set the penalty for non proficiency.
 	 * @param argPenalty
 	 */
 	public void setNonProfPenalty(final int argPenalty)
@@ -1534,7 +1575,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the penalty for non proficiency
+	 * Get the penalty for non proficiency.
 	 * @return the penalty for non proficiency
 	 */
 	public int getNonProfPenalty()
@@ -1543,7 +1584,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the HP Formula
+	 * Set the HP Formula.
 	 * @param argFormula
 	 */
 	public void setHPFormula(final String argFormula)
@@ -1552,7 +1593,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the HP Formula
+	 * Get the HP Formula.
 	 * @return HP Formula
 	 */
 	public String getHPFormula()
@@ -1561,7 +1602,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set Add with meta magic message
+	 * Set Add with meta magic message.
 	 * @param argMsg
 	 */
 	public void setAddWithMetamagicMessage(final String argMsg)
@@ -1570,7 +1611,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get add with meta magic message
+	 * Get add with meta magic message.
 	 * @return add with meta magic message
 	 */
     @Override
@@ -1580,7 +1621,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set square size
+	 * Set square size.
 	 * @param argSize
 	 */
 	public void setSquareSize(final double argSize)
@@ -1589,7 +1630,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get square size
+	 * Get square size.
 	 * @return square size
 	 */
 	public double getSquareSize()
@@ -1598,7 +1639,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the set unit
+	 * Get the set unit.
 	 * @return the unti that is set
 	 */
 	public UnitSet getUnitSet()
@@ -1607,7 +1648,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Return true if the unit has been set
+	 * Return true if the unit has been set.
 	 * @param unitSetName
 	 * @return true if the unit has been set
 	 */
@@ -1624,7 +1665,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Return true if the default unit has been set
+	 * Return true if the default unit has been set.
 	 * @return true if the unit has been set
 	 */
 	public boolean selectDefaultUnitSet()
@@ -1665,7 +1706,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the point buy by stat mapping
+	 * Get the point buy by stat mapping.
 	 * @return the point buy by stat mapping
 	 */
 	public SortedMap<Integer, PointBuyCost> getPointBuyStatCostMap()
@@ -1685,7 +1726,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the purchase mode method name
+	 * Set the purchase mode method name.
 	 * @param argMethodName
 	 */
 	public void setPurchaseMethodName(final String argMethodName)
@@ -1735,7 +1776,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the purchase mode method name
+	 * Get the purchase mode method name.
 	 * @return the purchase mode method name
 	 */
 	public String getPurchaseModeMethodName()
@@ -1749,7 +1790,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the purchase mode method pool formula
+	 * Get the purchase mode method pool formula.
 	 * @return the purchase mode method pool formula
 	 */
 	public String getPurchaseModeMethodPoolFormula()
@@ -1777,7 +1818,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the maximum score you can purchase
+	 * Get the maximum score you can purchase.
 	 * @param pc
 	 * @return the maximum score you can purchase
 	 */
@@ -1818,7 +1859,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the minimum score you can purchase
+	 * Get the minimum score you can purchase.
 	 * @param pc
 	 * @return the minimum score you can purchase
 	 */
@@ -1846,7 +1887,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Returns true if we are in a stat purchase mode
+	 * Returns true if we are in a stat purchase mode.
 	 * @return true if we are in a stat purchase mode
 	 */
 	public boolean isPurchaseStatMode()
@@ -1863,6 +1904,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @param argRollMethod
 	 */
 	public void setRollMethod(final int argRollMethod)
@@ -1877,6 +1919,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @return roll method
 	 */
 	public int getRollMethod()
@@ -1885,7 +1928,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the cost for an ability score
+	 * Get the cost for an ability score.
 	 * @return the cost for an ability score
 	 */
 	public int[] getAbilityScoreCost()
@@ -1929,7 +1972,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the cost for an ability score
+	 * Get the cost for an ability score.
 	 * @param abilityScoreIndex
 	 * @return the cost for an ability score
 	 */
@@ -1946,7 +1989,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the roll method expression by name
+	 * Set the roll method expression by name.
 	 * @param aString
 	 */
 	public void setRollMethodExpressionByName(final String aString)
@@ -1964,7 +2007,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the cost for an ability score
+	 * Get the cost for an ability score.
 	 * @return the cost for an ability score
 	 */
 	public String getRollMethodExpression()
@@ -1977,7 +2020,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get roll method expression name
+	 * Get roll method expression name.
 	 * @return roll method expression name
 	 */
 	public String getRollMethodExpressionName()
@@ -1990,7 +2033,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Return true if the purchasing of stats mode is allowed
+	 * Return true if the purchasing of stats mode is allowed.
 	 * @return true if the purchasing of stats mode is allowed
 	 */
 	public boolean isPurchaseStatModeAllowed()
@@ -2004,7 +2047,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the value for all stats
+	 * Set the value for all stats.
 	 * @param argAllStatsValue
 	 */
 	public void setAllStatsValue(final int argAllStatsValue)
@@ -2014,7 +2057,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the value of all stats
+	 * Get the value of all stats.
 	 * @return the value of all stats
 	 */
 	public int getAllStatsValue()
@@ -2033,7 +2076,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the minimum stat
+	 * Set the minimum stat.
 	 * @param argMin
 	 */
 	public void setStatMin(final int argMin)
@@ -2042,7 +2085,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the minimum stat
+	 * Get the minimum stat.
 	 * @return minimum stat
 	 */
 	public int getStatMin()
@@ -2051,7 +2094,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the maximum stat
+	 * Set the maximum stat.
 	 * @param argMax
 	 */
 	public void setStatMax(final int argMax)
@@ -2060,7 +2103,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the maximum stat
+	 * Get the maximum stat.
 	 * @return maximum stat
 	 */
 	public int getStatMax()
@@ -2069,7 +2112,28 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add the dispaly text for a stat
+	 * Return an <b>unmodifiable</b> version of the schools list.
+	 * @return an <b>unmodifiable</b> version of the schools list.
+	 */
+	public List<String> getUnmodifiableSchoolsList()
+	{
+		return Collections.unmodifiableList(schoolsList);
+	}
+
+	/**
+	 * Add the school to the list.
+	 * @param school
+	 */
+	public void addToSchoolList(final String school)
+	{
+		if (!schoolsList.contains(school))
+		{
+			schoolsList.add(school);
+		}
+	}
+
+	/**
+	 * Add the display text for a stat.
 	 * @param statValue
 	 * @param statText
 	 */
@@ -2085,7 +2149,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the display text of a stat
+	 * Get the display text of a stat.
 	 * @param statValue
 	 * @return the display text of a stat
 	 */
@@ -2121,7 +2185,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Return true if the skill rank display text is there
+	 * Return true if the skill rank display text is there.
 	 * @return true if the skill rank display text is there
 	 */
 	public boolean hasSkillRankDisplayText()
@@ -2130,7 +2194,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Add display text for a skill rank
+	 * Add display text for a skill rank.
 	 * @param rankValue
 	 * @param rankText
 	 */
@@ -2146,7 +2210,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get display text for a skill rank
+	 * Get display text for a skill rank.
 	 * @param rankValue
 	 * @return display text for a skill rank
 	 */
@@ -2197,7 +2261,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Clears the bonus stacking list..
+	 * Clears the bonus stacking list.
 	 */
 	public void clearBonusStacksList()
 	{
@@ -2235,6 +2299,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ac;
 	}
 
+	/**
+	 *
+	 */
 	public AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
 		AbilityCategory cat = getContext().ref
@@ -2287,28 +2354,41 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return Collections.unmodifiableCollection(catList);
 	}
 
+	/**
+	 *
+	 */
 	public void setPreviewDir(final String aDir)
 	{
 		thePreviewDir = aDir;
 	}
 
+	/**
+	 *
+	 */
 	public String getPreviewDir()
 	{
 		return thePreviewDir;
 	}
 
+	/**
+	 *
+	 */
 	public void setDefaultPreviewSheet(final String aSheet)
 	{
 		theDefaultPreviewSheet = aSheet;
 	}
 
+	/**
+	 *
+	 */
 	public String getDefaultPreviewSheet()
 	{
 		return theDefaultPreviewSheet;
 	}
+
 	/**
 	 * Parses the DIESIZE tag's values to create
-	 * the dieSizes array
+	 * the dieSizes array.
 	 *
 	 * @param value
 	 */
@@ -2370,7 +2450,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get's current gamemodes MaxDieSize
+	 * Get's current gamemodes MaxDieSize.
 	 * @return maxDieSize
 	 */
 	public int getMaxDieSize()
@@ -2378,7 +2458,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return maxDieSize;
 	}
 	/**
-	 * Sets's current gamemodes MaxDieSize
+	 * Sets's current gamemodes MaxDieSize.
 	 * @param dice
 	 */
 	public void setMaxDieSize(final int dice)
@@ -2387,7 +2467,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get's current gamemodes MinDieSize
+	 * Get's current gamemodes MinDieSize.
 	 * @return minDieSize
 	 */
 	public int getMinDieSize()
@@ -2395,7 +2475,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return minDieSize;
 	}
 	/**
-	 * Sets's current gamemodes MinDieSize
+	 * Sets's current gamemodes MinDieSize.
 	 * @param dice
 	 */
 	public void setMinDieSize(final int dice)
@@ -2405,15 +2485,16 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 
 	/**
-	 * Get's current gamemodes DieSizes
+	 * Get's current gamemodes DieSizes.
 	 * @return dieSizes array
 	 */
 	public int[] getDieSizes()
 	{
 		return dieSizes;
 	}
+
 	/**
-	 * Set's DieSizes available for the gamemode
+	 * Set's DieSizes available for the gamemode.
 	 * @param die The parsed integer diesizes
 	 */
 	public void setDieSizes(int[] die)
@@ -2462,7 +2543,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Retrieve the list of monster roles
+	 * Retrieve the list of monster roles.
 	 * @return the monsterRoleList
 	 */
 	public List<String> getMonsterRoleList()
@@ -2481,7 +2562,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Retrieve the default monster role
+	 * Retrieve the default monster role.
 	 * @return the monsterRoleDefault
 	 */
 	public List<String> getMonsterRoleDefaultList()
@@ -2492,7 +2573,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * Set the list of known monster roles.
 	 *
-	 * @param monsterRoleList the monsterRoleList to set
+	 * @param monsterRoleDefault the monsterRoleDefault to set.
 	 */
 	public void setMonsterRoleDefault(String monsterRoleDefault)
 	{
@@ -2505,6 +2586,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 	private String defaultSourceTitle;
 
+	/**
+	 *
+	 */
 	public void clearLoadContext()
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
@@ -2543,6 +2627,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 	}
 
+	/**
+	 *
+	 */
 	public static <T extends Loadable> void resolveReferenceManufacturer(
 			ReferenceContext rc, ReferenceManufacturer<T> rm)
 	{
@@ -2566,21 +2653,33 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		rm.injectConstructed(mfg);
 	}
 
+	/**
+	 *
+	 */
 	public LoadContext getContext()
 	{
 		return context;
 	}
 
+	/**
+	 *
+	 */
 	public LoadContext getModeContext()
 	{
 		return modeContext;
 	}
 
+	/**
+	 *
+	 */
 	public MasterListInterface getMasterLists()
 	{
 		return masterLCS;
 	}
 
+	/**
+	 *
+	 */
 	public void addHiddenType(Class<?> cl, String s)
 	{
 		Set<String> set = hiddenTypes.get(cl);
@@ -2592,6 +2691,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		set.add(s);
 	}
 
+	/**
+	 *
+	 */
 	public boolean isTypeHidden(Class<?> cl, String type)
 	{
 		Set<String> set = hiddenTypes.get(cl);
@@ -2604,7 +2706,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Gets the name of the currently selected default XP table
+	 * Gets the name of the currently selected default XP table.
 	 *
 	 * @return the XP table name
 	 */
@@ -2622,7 +2724,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Sets the default experience table by name
+	 * Sets the default experience table by name.
 	 *
 	 * @param xpTableName the new XP table name
 	 */
@@ -2652,7 +2754,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Gets the name of the currently selected default character type
+	 * Gets the name of the currently selected default character type.
 	 *
 	 * @return the character type
 	 */
@@ -2670,7 +2772,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Sets the default character type
+	 * Sets the default character type.
 	 *
 	 * @param characterType the new character type
 	 */
@@ -2680,7 +2782,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Checks if bonus stat stacking is allowed
+	 * Checks if bonus stat stacking is allowed.
 	 *
 	 * @return true, if is bonus stat stacking allowed
 	 */
@@ -2700,6 +2802,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @return the bioSet
 	 */
 	public BioSet getBioSet()
@@ -2708,6 +2811,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @param bioSet the bioSet to set
 	 */
 	public void setBioSet(BioSet bioSet)
@@ -2715,6 +2819,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		this.bioSet = bioSet;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public String toString()
 	{
@@ -2742,6 +2849,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return defaultSourceTitle;
 	}
 
+	/**
+	 *
+	 */
 	public String getTabName(Tab tab)
 	{
 		TabInfo ti = getContext().ref.silentlyGetConstructedCDOMObject(
@@ -2749,6 +2859,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ti.getResolvedName();
 	}
 
+	/**
+	 *
+	 */
 	public boolean getTabShown(Tab tab)
 	{
 		TabInfo ti = getContext().ref.silentlyGetConstructedCDOMObject(
@@ -2756,6 +2869,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ti.isVisible();
 	}
 
+	/**
+	 *
+	 */
 	public void setTabVisible(CDOMSingleRef<TabInfo> ref, Boolean set)
 	{
 		if (visibleTabs == null)
@@ -2765,6 +2881,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		visibleTabs.put(ref, set);
 	}
 
+	/**
+	 *
+	 */
 	public Boolean getTabVisibility(TabInfo ti)
 	{
 		if (visibleTabs == null)
@@ -2780,10 +2899,14 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 		return null;
 	}
+
 	/*
 	 * End SHOWTAB compatibility
 	 */
 
+	/**
+	 *
+	 */
 	public LoadInfo getLoadInfo()
 	{
 		return getModeContext().ref.silentlyGetConstructedCDOMObject(
@@ -2791,6 +2914,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @return the file name of the InfoSheet relative to the base pcgen directory
 	 */
     @Override
@@ -2800,6 +2924,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @param theInfoSheet the file name of the InfoSheet relative to the base pcgen directory
 	 */
 	public void setInfoSheet(String theInfoSheet)
@@ -2808,6 +2933,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @return the file name of the skill InfoSheet relative to the base pcgen directory
 	 */
     @Override
@@ -2817,6 +2943,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @param theInfoSheetSkill the file name of the skill InfoSheet relative to the base pcgen directory
 	 */
 	public void setInfoSheetSkill(String theInfoSheetSkill)
@@ -2825,6 +2952,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 	
 	/**
+	 *
 	 * @param theOutputSheetDirectory the directory for output sheets for the current game mode
 	 */
 	public void setOutputSheetDirectory(String theOutputSheetDirectory)
@@ -2833,6 +2961,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @return the directory for output sheets for the current game mode
 	 */
     @Override
@@ -2842,6 +2971,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 *
 	 * @param theInfoSheet the file name of the InfoSheet relative to the base pcgen directory
 	 */
 	public void setOutputSheetDefault(String type, String sheet)
@@ -2850,6 +2980,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 	
 	/**
+	 *
 	 * @return the directory for output sheets for the current game mode
 	 */
     @Override
@@ -2893,12 +3024,18 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return priority == null ? 0 : priority;
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
     @Override
 	public String getCharSheetDir()
 	{
 		return getPreviewDir();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
     @Override
 	public String getDefaultCharSheet()
 	{
@@ -2930,11 +3067,17 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return getUnitSet().getWeightUnit();
 	}
 
+	/**
+	 *
+	 */
 	public AbilityCategory getFeatTemplate()
 	{
 		return featTemplate;
 	}
 
+	/**
+	 *
+	 */
 	public void setFeatTemplate(AbilityCategory featTemplate)
 	{
 		this.featTemplate = featTemplate;

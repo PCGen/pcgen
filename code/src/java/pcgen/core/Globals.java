@@ -54,8 +54,6 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
@@ -64,7 +62,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.gui2.facade.Gui2InfoFactory;
-import pcgen.persistence.PersistenceManager;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
@@ -1008,11 +1005,8 @@ public final class Globals
 
 		// Perform other special cleanup
 		Equipment.clearEquipmentTypes();
-		PersistenceManager.getInstance().emptyLists();
 		SettingsHandler.getGame().clearLoadContext();
-		FacetLibrary.getFacet(MasterSkillFacet.class).emptyLists();
 
-		
 		Pantheon.clearConstants();
 		RaceType.clearConstants();
 		createEmptyRace();

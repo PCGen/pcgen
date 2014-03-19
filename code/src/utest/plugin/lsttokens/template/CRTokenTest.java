@@ -93,4 +93,10 @@ public class CRTokenTest extends AbstractBigDecimalTokenTestCase<PCTemplate>
 	{
 		return true;
 	}
+
+	@Override
+	public boolean isClearLegal()
+	{
+		return false;
+	}
 }

@@ -29,7 +29,7 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FactFacet extends AbstractStorageFacet
+public class FactFacet extends AbstractStorageFacet<CharID>
 {
 
 	/**

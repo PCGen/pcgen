@@ -32,7 +32,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
 
-public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
+public class AbstractSubScopeFacet<S1, S2, T> extends
+		AbstractStorageFacet<CharID>
 {
 	private Map<S1, Map<S2, Map<T, Set<Object>>>> getConstructingInfo(CharID id)
 	{
@@ -428,15 +429,17 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character to which the
-	 *            NodeChangeEvent relates
-	 * @param lens
-	 *            The Scope through which this facet's contents are viewed
+	 *            NodeChangeEvent relates.
+	 * @param scope1
+	 *            A Scope through which this facet's contents are viewed.
+	 * @param scope2
+	 *            Another Scope passed on to the listener.
 	 * @param node
 	 *            The Node that has been added to or removed from this
-	 *            AbstractScopeFacet for the given CharID
+	 *            AbstractScopeFacet for the given CharID.
 	 * @param type
 	 *            An identifier indicating whether the given CDOMObject was
-	 *            added to or removed from this AbstractScopeFacet
+	 *            added to or removed from this AbstractScopeFacet.
 	 */
 	@SuppressWarnings("rawtypes")
 	protected void fireSubScopeFacetChangeEvent(CharID id, S1 scope1,
@@ -477,4 +480,9 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 		}
 	}
 
+	public boolean containsFor(CharID id, S1 scope1)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		return (map != null) && map.containsKey(scope1);
+	}
 }

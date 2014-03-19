@@ -8,6 +8,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -17,7 +18,6 @@ import javax.swing.UIManager;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
-import pcgen.persistence.PersistenceManager;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -102,7 +102,7 @@ public class ImagePreview
 
 		if (PCGFile.isPCGenCharacterFile(file))
 		{
-			aPC = new PlayerCharacter(false, PersistenceManager.getInstance().getLoadedCampaigns());
+			aPC = new PlayerCharacter(false, Collections.EMPTY_LIST);
 
 			new PCGIOHandler().readForPreview(aPC, file.getAbsolutePath());
 

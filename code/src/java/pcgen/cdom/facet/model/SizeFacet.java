@@ -46,8 +46,8 @@ import pcgen.core.analysis.SizeUtilities;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
-		DataFacetChangeListener<CDOMObject>, LevelChangeListener,
+public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> implements
+		DataFacetChangeListener<CharID, CDOMObject>, LevelChangeListener,
 		BonusChangeListener
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
@@ -324,7 +324,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		update(dfce.getCharID());
 	}
@@ -344,7 +344,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		update(dfce.getCharID());
 	}

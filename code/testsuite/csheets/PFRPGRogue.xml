@@ -703,7 +703,7 @@ BIO
 			<exclusive_total>9</exclusive_total>
 		</skill>
 		<skill>
-			<name>Linguistics(Sylvan, Skald)</name>
+			<name>Linguistics(Skald, Sylvan)</name>
 			<ranks>1.0</ranks>
 			<mod>5<!-- Mods from abilities, equipment, etc -->
 			</mod>
@@ -713,7 +713,7 @@ BIO
 			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>INT</ability>
-			<synergy>Linguistics(Sylvan, Skald)</synergy>
+			<synergy>Linguistics(Skald, Sylvan)</synergy>
 			<untrained>NO</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>6</trained_total>
@@ -3785,10 +3785,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Guileful Polyglot (Aklo, Hallit, Giant, Varisian)</name>
+			<name>Guileful Polyglot (Aklo, Giant, Hallit, Varisian)</name>
 			<description>A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself.</description>
 			<type>GUILEFULPOLYGOTLANG.SPECIALQUALITY.EXTRAORDINARY</type>
-			<associated>Aklo,Hallit,Giant,Varisian</associated>
+			<associated>Aklo,Giant,Hallit,Varisian</associated>
 			<count>4</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
@@ -3963,10 +3963,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Bonus Skill Rank (Handle Animal, Knowledge (Geography), Sense Motive, Knowledge (Local), Knowledge (Dungeoneering), Knowledge (Engineering))</name>
+			<name>Bonus Skill Rank (Handle Animal, Knowledge (Dungeoneering), Knowledge (Engineering), Knowledge (Geography), Knowledge (Local), Sense Motive)</name>
 			<description></description>
 			<type>FAVOREDCLASSBONUS</type>
-			<associated>Handle Animal,Knowledge (Geography),Sense Motive,Knowledge (Local),Knowledge (Dungeoneering),Knowledge (Engineering)</associated>
+			<associated>Handle Animal,Knowledge (Dungeoneering),Knowledge (Engineering),Knowledge (Geography),Knowledge (Local),Sense Motive</associated>
 			<count>6</count>
 			<auto>F</auto>
 			<hidden>T</hidden>

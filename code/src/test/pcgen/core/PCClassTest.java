@@ -558,7 +558,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		casterFeat.setCDOMCategory(AbilityCategory.FEAT);
 		context.ref.importObject(casterFeat);
 
-		AbilityUtilities.modAbility(character, casterFeat, null, AbilityCategory.FEAT);
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, casterFeat, null);
 		cast =
 				character.getSpellSupport(charClass).getCastForLevel(11, sbook, true, false, character)
 					+ character.getSpellSupport(charClass).getBonusCastForLevelString(11, sbook, character);
@@ -773,16 +773,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Add the class to the character
 		PlayerCharacter pc = getCharacter();
 		pc.incrementClassLevel(1, pcclass, true);
-		// Need to do this to populate the ability list
-		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertTrue("Character should have ability1.", hasAbility(pc, null,
+		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 		assertFalse("Character should not have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 
 		pc.incrementClassLevel(1, pcclass, true);
-		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertTrue("Character should have ability1.", hasAbility(pc, null,
+		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));

@@ -21,10 +21,12 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
@@ -122,10 +124,10 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		CategorizedAbilitySelection cas =
-				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
-					Nature.AUTOMATIC, "English");
-		directAbilityFacet.add(id, cas);
+		CNAbilitySelection cas =
+				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, source,
+					Nature.AUTOMATIC), "English");
+		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(2, directAbilityFacet.getCount(id));
 		directAbilityFacet.remove(id, cas);
@@ -141,10 +143,11 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 
 	private boolean containsExpected()
 	{
-		Collection<CategorizedAbilitySelection> casSet =
+		Collection<CNAbilitySelection> casSet =
 				directAbilityFacet.getSet(id);
-		for (CategorizedAbilitySelection cas : casSet)
+		for (CNAbilitySelection cnas : casSet)
 		{
+			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			boolean abilityExpected =
@@ -152,7 +155,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 						context.ref.silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
-			boolean selectionExpected = "English".equals(cas.getSelection());
+			boolean selectionExpected = "English".equals(cnas.getSelection());
 			if (featExpected && abilityExpected && natureExpected
 				&& selectionExpected)
 			{

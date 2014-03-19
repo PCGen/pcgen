@@ -61,7 +61,7 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 	@Override
 	protected boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Test

@@ -20,6 +20,7 @@ package pcgen.cdom.facet.fact;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
@@ -29,7 +30,7 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 
 	private final AgeFacet facet = new AgeFacet();
 
-	private final CharID id = CharID.getID();
+	private final CharID id = CharID.getID(DataSetID.getID());
 
 	@Override
 	protected AbstractItemFacet<Integer> getFacet()

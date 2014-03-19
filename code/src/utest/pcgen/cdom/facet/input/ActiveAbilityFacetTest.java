@@ -22,6 +22,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -30,8 +31,8 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public class ActiveAbilityFacetTest extends TestCase
 {
-	protected CharID id = CharID.getID();
-	protected CharID altid = CharID.getID();
+	protected CharID id;
+	protected CharID altid;
 
 	private ActiveAbilityFacet facet = new ActiveAbilityFacet();
 	private AbilityCategory class1;
@@ -42,6 +43,9 @@ public class ActiveAbilityFacetTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		DataSetID cid = DataSetID.getID();
+		id = CharID.getID(cid);
+		altid = CharID.getID(cid);
 		class1 = new AbilityCategory();
 		class1.setName("Cl1");
 		class2 = new AbilityCategory();

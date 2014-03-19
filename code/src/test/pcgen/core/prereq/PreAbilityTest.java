@@ -63,18 +63,19 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testAnyMatch() throws PersistenceLayerException
 	{
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", "BARDIC",
+						"General.Bardic");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+
 		PlayerCharacter character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,ANY",
+				parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
 					false, false);
 		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
 			prereq, character, null));
 
-		Ability ab2 =
-				TestHelper.makeAbility("Dancer", "BARDIC",
-					"General.Bardic");
-		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -88,13 +89,13 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testCategoryMatch() throws PersistenceLayerException
 	{
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", "BARDIC",
+						"General.Bardic");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+
 		PlayerCharacter character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
-		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,ANY",
-					false, false);
-		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
-			prereq, character, null));
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
 				false, false);
@@ -106,14 +107,8 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		Ability ab2 =
-				TestHelper.makeAbility("Dancer", "BARDIC",
-					"General.Bardic");
-		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test any match with an ability.", PrereqHandler.passes(
-			prereq, character, null));
 		assertTrue("Test bardic match with an ability.", PrereqHandler.passes(
 			prereq2, character, null));
 		assertFalse("Test feat match with an ability.", PrereqHandler.passes(
@@ -127,15 +122,20 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testKeyMatch() throws PersistenceLayerException
 	{
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", "BARDIC",
+						"General.Bardic");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+
 		PlayerCharacter character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,KEY_Dancer",
+				parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Dancer",
 					false, false);
 		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
 			prereq, character, null));
 		Prerequisite prereq2 =
-			parser.parse("ability", "1,KEY_Alertness",
+			parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Alertness",
 				false, false);
 		assertFalse("Test bardic match with no abilities.", PrereqHandler.passes(
 				prereq2, character, null));
@@ -145,10 +145,6 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		Ability ab2 =
-				TestHelper.makeAbility("Dancer", "BARDIC",
-					"General.Bardic");
-		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -166,26 +162,27 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testTypeMatch() throws PersistenceLayerException
 	{
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+
 		PlayerCharacter character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,TYPE.General", false,
+				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.General", false,
 					false);
 		assertFalse("Test general type match with no abilities.", PrereqHandler
 			.passes(prereq, character, null));
 		Prerequisite prereq2 =
-				parser.parse("ability", "1,CATEGORY.ANY,TYPE.Bardic", false,
+				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Bardic", false,
 					false);
 		assertFalse("Test bardic type match with no abilities.", PrereqHandler
 			.passes(prereq2, character, null));
 		Prerequisite prereq3 =
-				parser.parse("ability", "1,TYPE.Fighter", false, false);
+				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Fighter", false, false);
 		assertFalse("Test fighter type match with no abilities.", PrereqHandler
 			.passes(prereq3, character, null));
 
-		Ability ab2 =
-				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
-		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
@@ -202,15 +199,26 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testKeyMatchWithServesAs() throws PersistenceLayerException
 	{
+		Ability fd = TestHelper.makeAbility("Dancer", AbilityCategory.FEAT, "General");
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", "BARDIC",
+						"General.Bardic");
+		Ability strangeness =
+				TestHelper.makeAbility("Strangeness", "BARDIC",
+						"General");
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fd));
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(strangeness));
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+
 		PlayerCharacter character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,KEY_Dancer",
+				parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Dancer",
 					false, false);
 		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
 			prereq, character, null));
 		Prerequisite prereq2 =
-			parser.parse("ability", "1,KEY_Alertness",
+			parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Alertness",
 				false, false);
 		assertFalse("Test bardic match with no abilities.", PrereqHandler.passes(
 				prereq2, character, null));
@@ -220,16 +228,6 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		Ability fd = TestHelper.makeAbility("Dancer", AbilityCategory.FEAT, "General");
-		Ability ab2 =
-			TestHelper.makeAbility("Dancer", "BARDIC",
-				"General.Bardic");
-		Ability strangeness =
-			TestHelper.makeAbility("Strangeness", "BARDIC",
-				"General");
-		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fd));
-		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(strangeness));
-		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
@@ -247,28 +245,29 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testTypeMatchWithServesAs() throws PersistenceLayerException
 	{
-		PlayerCharacter character = getCharacter();
-		PreAbilityParser parser = new PreAbilityParser();
-		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,TYPE.General", false,
-					false);
-		assertFalse("Test general type match with no abilities.", PrereqHandler
-			.passes(prereq, character, null));
-		Prerequisite prereq2 =
-				parser.parse("ability", "1,CATEGORY.ANY,TYPE.Bardic", false,
-					false);
-		assertFalse("Test bardic type match with no abilities.", PrereqHandler
-			.passes(prereq2, character, null));
-		Prerequisite prereq3 =
-				parser.parse("ability", "1,TYPE.Fighter", false, false);
-		assertFalse("Test fighter type match with no abilities.", PrereqHandler
-			.passes(prereq3, character, null));
-
 		Ability pa = TestHelper.makeAbility("Power Attack", AbilityCategory.FEAT, "Fighter");
 		Ability ab2 =
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(pa));
+
+		PlayerCharacter character = getCharacter();
+		PreAbilityParser parser = new PreAbilityParser();
+		Prerequisite prereq =
+				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.General", false,
+					false);
+		assertFalse("Test general type match with no abilities.", PrereqHandler
+			.passes(prereq, character, null));
+		Prerequisite prereq2 =
+				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Bardic", false,
+					false);
+		assertFalse("Test bardic type match with no abilities.", PrereqHandler
+			.passes(prereq2, character, null));
+		Prerequisite prereq3 =
+				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Fighter", false, false);
+		assertFalse("Test fighter type match with no abilities.", PrereqHandler
+			.passes(prereq3, character, null));
+
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
@@ -285,13 +284,15 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 	 */
 	public void testCategoryMatchWithServesAs() throws PersistenceLayerException
 	{
+		Ability fas = TestHelper.makeAbility("Fascinate", "BARDIC", "Normal");
+		Ability ab2 =
+				TestHelper.makeAbility("Dancer", AbilityCategory.FEAT,
+						"General.Bardic");
+		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
+		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
+
 		PlayerCharacter character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
-		Prerequisite prereq =
-				parser.parse("ability", "1,CATEGORY.ANY,ANY",
-					false, false);
-		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
-			prereq, character, null));
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
 				false, false);
@@ -303,16 +304,8 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		Ability fas = TestHelper.makeAbility("Fascinate", "BARDIC", "Normal");
-		Ability ab2 =
-				TestHelper.makeAbility("Dancer", AbilityCategory.FEAT,
-					"General.Bardic");
-		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
-		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test any match with an ability.", PrereqHandler.passes(
-			prereq, character, null));
 		assertTrue("Test bardic match with an ability.", PrereqHandler.passes(
 			prereq2, character, null));
 		assertTrue("Test feat match with an ability.", PrereqHandler.passes(

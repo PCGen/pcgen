@@ -86,7 +86,7 @@ public class PantheonIntegrationTest extends
 	@Override
 	public boolean isClearLegal()
 	{
-		return false;
+		return true;
 	}
 
 }

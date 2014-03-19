@@ -758,12 +758,13 @@ ParentThingyType7																					CATEGORY:FEAT			TYPE:Test47															
 
 GivingThingy																					CATEGORY:FEAT			TYPE:Test47																								STACK:YES	MULT:YES	CHOOSE:FEATSELECTION|TYPE=TestThing							AUTO:FEAT|%LIST
 NoChooseFeat																					CATEGORY:FEAT			TYPE:Test47.TestThing
-NoStackFeat																						CATEGORY:FEAT			TYPE:Test47.TestThing																								MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+NoStackFeat																						CATEGORY:FEAT			TYPE:Test47.TestThing																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 NoStackChoiceFeat																					CATEGORY:FEAT			TYPE:Test47.TestThing																								MULT:YES	CHOOSE:SKILL|ANY
 StackNoChoiceFeat																					CATEGORY:FEAT			TYPE:Test47.TestThing																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 StackChoiceFeat																					CATEGORY:FEAT			TYPE:Test47.TestThing																						STACK:YES	MULT:YES	CHOOSE:SKILL|ANY
-
-NoStackNoChoiceFeat																				CATEGORY:FEAT			TYPE:Test47.TestThing																						STACK:NO	MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+NoStackNoChoiceFeat																				CATEGORY:FEAT			TYPE:Test47.TestThing																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Naturally Something (comment)																			CATEGORY:FEAT			TYPE:Test47.TestThing
 
 
@@ -812,12 +813,13 @@ Test Weapon Proficiency																				CATEGORY:FEAT			TYPE:General									
 
 GivingThingyAuto																					CATEGORY:FEAT			TYPE:Test46																								STACK:YES	MULT:YES	CHOOSE:FEATSELECTION|TYPE=TestThing46						AUTO:FEAT|%LIST
 NoChooseFeatAuto																					CATEGORY:FEAT			TYPE:Test46.TestThing46
-NoStackFeatAuto																					CATEGORY:FEAT			TYPE:Test46.TestThing46																								MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+NoStackFeatAuto																					CATEGORY:FEAT			TYPE:Test46.TestThing46																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 NoStackChoiceFeatAuto																				CATEGORY:FEAT			TYPE:Test46.TestThing46																								MULT:YES	CHOOSE:SKILL|ANY
 StackNoChoiceFeatAuto																				CATEGORY:FEAT			TYPE:Test46.TestThing46																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 StackChoiceFeatAuto																				CATEGORY:FEAT			TYPE:Test46.TestThing46																						STACK:YES	MULT:YES	CHOOSE:SKILL|ANY
-
-NoStackNoChoiceFeatAuto																				CATEGORY:FEAT			TYPE:Test46.TestThing46																						STACK:NO	MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+NoStackNoChoiceFeatAuto																				CATEGORY:FEAT			TYPE:Test46.TestThing46																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Naturally Something Auto (comment)																		CATEGORY:FEAT			TYPE:Test46.TestThing46
 
 #Test47
@@ -835,26 +837,29 @@ AutoFeat_ParentThingyType7																			CATEGORY:FEAT			TYPE:Test48.C						
 
 AutoFeat_GivingThingy																				CATEGORY:FEAT			TYPE:Test48																								STACK:YES	MULT:YES	CHOOSE:FEATSELECTION|TYPE=AutoFeat_TestThing					AUTO:FEAT|%LIST
 AutoFeat_NoChooseFeat																				CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing
-AutoFeat_NoStackFeat																				CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																						MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+AutoFeat_NoStackFeat																				CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 AutoFeat_NoStackChoiceFeat																			CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																				STACK:NO	MULT:YES	CHOOSE:SKILL|ANY
 AutoFeat_StackNoChoiceFeat																			CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 AutoFeat_StackChoiceFeat																			CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																				STACK:YES	MULT:YES	CHOOSE:SKILL|ANY
-
-AutoFeat_NoStackNoChoiceFeat																			CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																				STACK:NO	MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+AutoFeat_NoStackNoChoiceFeat																			CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 AutoFeat_Naturally Something (comment)																	CATEGORY:FEAT			TYPE:Test48.AutoFeat_TestThing
 
 
 
 #TEST45
 Choose Feat Selection																				CATEGORY:FEAT			TYPE:Test45																								STACK:YES	MULT:YES	CHOOSE:FEATSELECTION|TYPE=ChooseSelection_TestThing				AUTO:FEAT|%LIST
-#
+# Changed to STACK:YES
 ChooseSelection_NoChooseFeat																			CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing
-ChooseSelection_NoStackFeat																			CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																					MULT:YES	CHOOSE:NOCHOICE
+#
+ChooseSelection_NoStackFeat																			CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 ChooseSelection_NoStackChoiceFeat																		CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																			STACK:NO	MULT:YES	CHOOSE:SKILL|ANY
 ChooseSelection_StackNoChoiceFeat																		CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 ChooseSelection_StackChoiceFeat																		CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																			STACK:YES	MULT:YES	CHOOSE:SKILL|ANY
 
-ChooseSelection_NoStackNoChoiceFeat																		CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																			STACK:NO	MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+ChooseSelection_NoStackNoChoiceFeat																		CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 ChooseSelection_Naturally Something (comment)																CATEGORY:FEAT			TYPE:Test45.ChooseSelection_TestThing
 
 #Request 7 instances of CHOOSE:FEATSELECTION used in the test PCs (Alice, Bob, Charlie)
@@ -887,12 +892,14 @@ ChooseSelection_Naturally Something (comment)																CATEGORY:FEAT			TYP
 
 # Ability Name														Unique Key						SORTKEY									Output Name								Category of Ability		Type										Restricted Ability									Var. Min. Value											Define																																	Innate Spells													Desc is PI?		Description																																																																																																																																							Stackable?	Multiple?	Choose											Selections	Automatically Added to Inventory	Automatically Gained Feat	Ability																			Add 																				Bonus to Ability Pool																																																																																																																																																																																												Combat bonus								Bonus to skill				Bonus to skill rank			Stat bonus						Modify VAR																																																	Class Skill	Vision				Spell Res.				Cost		Source Page		Aspects																									Description of the Benefits																																	More language
 DirectApplication_NoChooseFeat																																					CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing
-DirectApplication_NoStackFeat																																						CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																											MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+DirectApplication_NoStackFeat																																						CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 DirectApplication_NoStackChoiceFeat																																					CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																											MULT:YES	CHOOSE:SKILL|ANY
 DirectApplication_StackNoChoiceFeat																																					CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 DirectApplication_StackChoiceFeat																																					CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:SKILL|ANY
 
-DirectApplication_NoStackNoChoiceFeat																																				CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+DirectApplication_NoStackNoChoiceFeat																																				CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 DirectApplication_Naturally Something (comment)																																			CATEGORY:FEAT			TYPE:Test45.DirectApplication_TestThing
 
 
@@ -920,12 +927,14 @@ ADDVFEAT_ParentThingyType7																																						CATEGORY:FEAT			
 
 ADDVFEAT_GivingThingy																																							CATEGORY:FEAT			TYPE:Test57																																																																																																																																																																																																																														STACK:YES	MULT:YES	CHOOSE:FEATSELECTION|TYPE=ADDVFEAT_TestThing													AUTO:FEAT|%LIST
 ADDVFEAT_NoChooseFeat																																							CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing
-ADDVFEAT_NoStackFeat																																							CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																												MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+ADDVFEAT_NoStackFeat																																							CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 ADDVFEAT_NoStackChoiceFeat																																						CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																												MULT:YES	CHOOSE:SKILL|ANY
 ADDVFEAT_StackNoChoiceFeat																																						CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 ADDVFEAT_StackChoiceFeat																																						CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																										STACK:YES	MULT:YES	CHOOSE:SKILL|ANY
 
-ADDVFEAT_NoStackNoChoiceFeat																																						CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																										STACK:NO	MULT:YES	CHOOSE:NOCHOICE
+# Changed to STACK:YES
+ADDVFEAT_NoStackNoChoiceFeat																																						CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing																																																																																																																																																																																																																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 ADDVFEAT_Naturally Something (comment)																																				CATEGORY:FEAT			TYPE:Test57.ADDVFEAT_TestThing
 
 # TEST 61

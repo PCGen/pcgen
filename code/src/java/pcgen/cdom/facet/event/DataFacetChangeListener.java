@@ -19,32 +19,35 @@ package pcgen.cdom.facet.event;
 
 import java.util.EventListener;
 
+import pcgen.cdom.base.PCGenIdentifier;
+
 /**
  * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * The listener interface for receiving DataFacetChangeEvents. When a CDOMObject
- * has been added to or removed from a PlayerCharacter, the respective method in
+ * has been added to or removed from a resource, the respective method in
  * the listener object is invoked, and the DataFacetChangeEvent is passed to it.
  */
-public interface DataFacetChangeListener<T> extends EventListener
+public interface DataFacetChangeListener<IDT extends PCGenIdentifier, T>
+		extends EventListener
 {
 	/**
-	 * Method called when a CDOMObject has been added to a PlayerCharacter and
+	 * Method called when a CDOMObject has been added to a resource and
 	 * this DataFacetChangeListener has been added as a DataFacetChangeListener
 	 * to the source DataFacet.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent that occurred.
 	 */
-	public void dataAdded(DataFacetChangeEvent<T> dfce);
+	public void dataAdded(DataFacetChangeEvent<IDT, T> dfce);
 
 	/**
-	 * Method called when a CDOMObject has been removed from a PlayerCharacter
+	 * Method called when a CDOMObject has been removed from a resource
 	 * and this DataFacetChangeListener has been added as a
 	 * DataFacetChangeListener to the source DataFacet.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent that occurred.
 	 */
-	public void dataRemoved(DataFacetChangeEvent<T> dfce);
+	public void dataRemoved(DataFacetChangeEvent<IDT, T> dfce);
 }

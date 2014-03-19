@@ -37,7 +37,7 @@ import pcgen.core.Language;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoLanguageGrantedFacet extends
-		AbstractSourcedListFacet<Language> implements PerspectiveLocation
+		AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
 {
 
 	private AutoLanguageFacet autoLanguageFacet;

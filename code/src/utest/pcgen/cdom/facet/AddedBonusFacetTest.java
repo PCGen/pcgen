@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.bonus.Bonus;
@@ -33,7 +34,7 @@ public class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
 	private AddedBonusFacet facet = new AddedBonusFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<BonusObj> getFacet()
+	protected AbstractSourcedListFacet<CharID, BonusObj> getFacet()
 	{
 		return facet;
 	}

@@ -43,7 +43,7 @@ import pcgen.core.QualifiedObject;
  */
 public class AutoLanguageFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>>
-		implements DataFacetChangeListener<CDOMObject>, PerspectiveLocation
+		implements DataFacetChangeListener<CharID, CDOMObject>, PerspectiveLocation
 {
 
 	private AutoLanguageUnconditionalFacet autoLanguageUnconditionalFacet;
@@ -64,7 +64,7 @@ public class AutoLanguageFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
@@ -117,7 +117,7 @@ public class AutoLanguageFacet extends
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();

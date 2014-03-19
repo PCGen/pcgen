@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.core.PlayerCharacter;
@@ -46,15 +47,19 @@ public class ChooseDriverFacet
 	private Adder adder = new Adder();
 	private Remover remover = new Remover();
 
-	private class Adder implements ScopeFacetChangeListener<CDOMObject, Object>
+	private class Adder implements ScopeFacetChangeListener<CharID, CDOMObject, Object>
 	{
-		public void dataAdded(ScopeFacetChangeEvent<CDOMObject, Object> dfce)
+		public void dataAdded(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
+			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			if (!pc.isAllowInteraction())
+			{
+				return;
+			}
 			CDOMObject obj = dfce.getScope();
 			Object sel = dfce.getCDOMObject();
 			if (ChooseActivation.hasNewChooseToken(obj))
 			{
-				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 				addAssoc(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
 			}
 		}
@@ -65,27 +70,31 @@ public class ChooseDriverFacet
 			aMan.applyChoice(pc, obj, sel);
 		}
 
-		public void dataRemoved(ScopeFacetChangeEvent<CDOMObject, Object> dfce)
+		public void dataRemoved(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
 			//ignore
 		}
 	}
 
 	private class Remover implements
-			ScopeFacetChangeListener<CDOMObject, Object>
+			ScopeFacetChangeListener<CharID, CDOMObject, Object>
 	{
-		public void dataAdded(ScopeFacetChangeEvent<CDOMObject, Object> dfce)
+		public void dataAdded(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
 			//ignore
 		}
 
-		public void dataRemoved(ScopeFacetChangeEvent<CDOMObject, Object> dfce)
+		public void dataRemoved(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
+			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			if (!pc.isAllowInteraction())
+			{
+				return;
+			}
 			Object assoc = dfce.getCDOMObject();
 			CDOMObject cdo = dfce.getScope();
 			if (ChooseActivation.hasNewChooseToken(cdo))
 			{
-				PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
 				removeAssoc(ChooserUtilities.getChoiceManager(cdo, pc), pc, cdo, assoc);
 			}
 		}

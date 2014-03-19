@@ -39,7 +39,7 @@ import pcgen.gui2.UIPropertyContext;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
+public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate>
 {
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
@@ -62,7 +62,7 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		PCTemplate template = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
@@ -96,7 +96,7 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		PCTemplate template = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();

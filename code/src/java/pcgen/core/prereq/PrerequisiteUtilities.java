@@ -33,6 +33,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -45,6 +46,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 
 /**
  * @author Tom Parker <thpr@sourceforge.net>
@@ -446,40 +448,29 @@ public final class PrerequisiteUtilities
 		final List<Ability> abilityList = new ArrayList<Ability>();
 		if (character != null)
 		{
-			Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
-			if (categoryName == null)
+			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
+			if (!cat.getParentCategory().equals(cat))
 			{
-				for (AbilityCategory aCat : allCats)
-				{
-					abilityList.addAll(character.getAggregateAbilityList(aCat));
-				}
+				Logging.errorPrint("Invalid use of child category in PREABILITY");
 			}
-			else
+			for (CNAbility cna : character.getCNAbilities(cat))
 			{
-				for (AbilityCategory aCat : allCats)
-				{
-					if (aCat.getParentCategory().getKeyName().equalsIgnoreCase(categoryName))
-					{
-						abilityList.addAll(character.getAggregateAbilityList(aCat));
-					}
-				}
+				abilityList.add(cna.getAbility());
 			}
 
+			Collection<AbilityCategory> allCats =
+					SettingsHandler.getGame().getAllAbilityCategories();
 			// Now scan for relevant SERVESAS occurrences
 			for (AbilityCategory aCat : allCats)
 			{
-				for (Ability ability : character.getAggregateAbilityList(aCat))
+				for (CNAbility cna : character.getPoolAbilities(aCat))
 				{
 					for(CDOMReference<Ability> ref
-						: ability.getSafeListFor(ListKey.SERVES_AS_ABILITY))
+						: cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
 					{
 						for (Ability ab : ref.getContainedObjects())
 						{
-							if (categoryName == null
-								|| categoryName.equals(ab.getCategory()))
-							{
 								abilityList.add(ab);
-							}
 						}
 					}
 				}

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -30,7 +31,7 @@ public class LanguageFacetTest extends
 	private LanguageFacet facet = new LanguageFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<Language> getFacet()
+	protected AbstractSourcedListFacet<CharID, Language> getFacet()
 	{
 		return facet;
 	}
@@ -46,7 +47,7 @@ public class LanguageFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<Language> getListener()
+	protected DataFacetChangeListener<CharID, Language> getListener()
 	{
 		return facet;
 	}

@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.WeaponProf;
 
@@ -45,7 +45,7 @@ public class WeaponProfFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<WeaponProf> getListener()
+	protected DataFacetChangeListener<CharID, WeaponProf> getListener()
 	{
 		return facet;
 	}

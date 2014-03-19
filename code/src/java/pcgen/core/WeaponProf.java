@@ -20,11 +20,6 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Chooser;
-import pcgen.cdom.helper.WeaponBonusListActor;
-import pcgen.cdom.list.WeaponProfList;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 
 /**
  * <code>WeaponProf</code>.
@@ -34,17 +29,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
  */
 public final class WeaponProf extends PObject implements Comparable<Object>
 {
-	public static final CDOMReference<WeaponProfList> STARTING_LIST;
-
-	public static final Chooser<WeaponProf> STARTING_ACTOR = new WeaponBonusListActor();
-
-	static
-	{
-		WeaponProfList wpl = new WeaponProfList();
-		wpl.setName("*Starting");
-		STARTING_LIST = CDOMDirectSingleRef.getRef(wpl);
-	}
-
 	/**
 	 * Compares keyName only.
 	 * 

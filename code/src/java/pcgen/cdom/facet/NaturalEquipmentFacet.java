@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -28,8 +29,8 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
-		implements DataFacetChangeListener<Equipment>
+public class NaturalEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
+		implements DataFacetChangeListener<CharID, Equipment>
 {
 	/**
 	 * If the Equipment is TYPE=Natural, adds a piece of Equipment to this facet
@@ -47,7 +48,7 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		Equipment eq = dfce.getCDOMObject();
 		if (eq.isNatural())
@@ -71,7 +72,7 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		/*
 		 * Note that no check is made here to validate that the Equipment

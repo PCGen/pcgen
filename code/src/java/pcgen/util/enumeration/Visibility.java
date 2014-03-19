@@ -31,7 +31,7 @@ public enum Visibility
 	 * Determine if this visibility can be seen in the supplied view level.
 	 * 
 	 * @param view The view level.
-	 * @param isExporting Is the visibility being detemerined for an export function
+	 * @param isExporting Is the visibility being determined for an export function
 	 * @return true if the visibility can be viewed, false if not.
 	 */
 	public boolean isVisibleTo(View view)

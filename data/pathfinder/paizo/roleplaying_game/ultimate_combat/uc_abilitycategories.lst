@@ -17,11 +17,11 @@ ABILITYCATEGORY:Gladiator Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 
 # Gunslinger
 ABILITYCATEGORY:Gun Training Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Gun Training Choice ~ Gunslinger															PLURAL:Gun Training Choices			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Gunslinger Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GunslingerFeat.Combat.Grit																									PLURAL:Gunslinger Feats				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Gunslinger Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GunslingerFeat.Combat.Grit																									PLURAL:Gunslinger Feats				DISPLAYLOCATION:Feats
 
 # Samurai
 ABILITYCATEGORY:Samurai Order						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SamuraiOrder.CavalierOrder																									PLURAL:Samurai Orders				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Samurai Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SamuraiFeat.Combat																											PLURAL:Samurai Feats				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Samurai Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SamuraiFeat.Combat																											PLURAL:Samurai Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Samurai Expertise					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Samurai Expertise Selection																							DISPLAYLOCATION:Class Abilities
 
 
@@ -36,11 +36,11 @@ ABILITYCATEGORY:Ninja Archetype					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		F
 
 ABILITYCATEGORY:Crusader Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CrusaderBonusFeat																											PLURAL:Crusader Feats				DISPLAYLOCATION:Feats
 # Monk
-ABILITYCATEGORY:Flowing Monk Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat																																	DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Maneuver Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat																														DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Master Of Many Styles Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat																																DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Sohei Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoheiBonusFeat																																		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Tetori Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TetoriBonusFeat																																		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Flowing Monk Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat																																	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Maneuver Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat																														DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Master Of Many Styles Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat																																DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Sohei Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoheiBonusFeat																																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tetori Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TetoriBonusFeat																																		DISPLAYLOCATION:Feats
 
 
 ABILITYCATEGORY:Emissary Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat							ABILITYLIST:Endurance|Fleet|Run																								DISPLAYLOCATION:Feats

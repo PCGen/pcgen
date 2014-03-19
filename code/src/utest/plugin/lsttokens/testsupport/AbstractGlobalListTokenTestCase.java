@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
@@ -415,7 +416,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
-			assertFalse(parse("TestWP1" + getJoinCharacter() + ".CLEAR"));
+			assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
 			assertNoSideEffects();
 		}
 	}
@@ -526,7 +527,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 				+ "TestWP2"));
-			assertFalse(parse(".CLEAR" + getJoinCharacter() + "TestWP3"
+			assertFalse(parse(Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP3"
 				+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
@@ -621,7 +622,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	protected String getClearString()
 	{
-		return ".CLEAR";
+		return Constants.LST_DOT_CLEAR;
 	}
 
 }

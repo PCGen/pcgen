@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ChangeProf;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -62,7 +63,7 @@ public class ChangeProfFacetTest extends
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<ChangeProf> getFacet()
+	protected AbstractSourcedListFacet<CharID, ChangeProf> getFacet()
 	{
 		return facet;
 	}
@@ -84,7 +85,7 @@ public class ChangeProfFacetTest extends
 	}
 
 	@Override
-	protected DataFacetChangeListener<CDOMObject> getListener()
+	protected DataFacetChangeListener<CharID, CDOMObject> getListener()
 	{
 		return facet;
 	}

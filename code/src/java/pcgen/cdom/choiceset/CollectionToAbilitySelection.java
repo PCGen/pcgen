@@ -128,16 +128,6 @@ public class CollectionToAbilitySelection implements
 	private Collection<AbilitySelection> addMultiplySelectableAbility(
 		final PlayerCharacter aPC, Ability ability, String subName)
 	{
-		// If already have taken the feat, use it so we can remove
-		// any choices already selected
-		final Ability pcFeat = aPC.getFeatNamed(ability.getKeyName());
-
-		Ability pcability = ability;
-		if (pcFeat != null)
-		{
-			pcability = pcFeat;
-		}
-
 		boolean isPattern = false;
 		String nameRoot = null;
 		if (subName != null)
@@ -155,7 +145,7 @@ public class CollectionToAbilitySelection implements
 			}
 		}
 
-		ChooseInformation<?> chooseInfo = pcability.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
 		final List<String> availableList = getAvailableList(aPC, chooseInfo);
 
 		// Remove any that don't match
@@ -191,7 +181,7 @@ public class CollectionToAbilitySelection implements
 				new ArrayList<AbilitySelection>(availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new AbilitySelection(pcability, s));
+			returnList.add(new AbilitySelection(ability, s));
 		}
 		return returnList;
 	}

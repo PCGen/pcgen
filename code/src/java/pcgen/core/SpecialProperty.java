@@ -104,7 +104,7 @@ public final class SpecialProperty extends TextProperty
 				sb.append(cString);
 			}
 
-			if (".CLEAR".equals(cString))
+			if (Constants.LST_DOT_CLEAR.equals(cString))
 			{
 				Logging.errorPrint("Invalid/Embedded .CLEAR found in SPROP: "
 					+ input);

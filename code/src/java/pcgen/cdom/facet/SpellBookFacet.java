@@ -36,8 +36,8 @@ import pcgen.core.character.SpellBook;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SpellBookFacet extends AbstractStorageFacet implements
-		DataFacetChangeListener<Equipment>
+public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
+		DataFacetChangeListener<CharID, Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
@@ -56,7 +56,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		Equipment eq = dfce.getCDOMObject();
 		if (eq.isType(Constants.TYPE_SPELLBOOK))
@@ -97,7 +97,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<Equipment> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
 		//Ignore - for now this is one in PlayerCharacter...
 		/*

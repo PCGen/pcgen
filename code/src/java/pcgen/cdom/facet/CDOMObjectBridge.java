@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
 /**
@@ -34,6 +35,6 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public final class CDOMObjectBridge extends AbstractSourcedListFacet<CDOMObject>
+public final class CDOMObjectBridge extends AbstractSourcedListFacet<CharID, CDOMObject>
 {
 }

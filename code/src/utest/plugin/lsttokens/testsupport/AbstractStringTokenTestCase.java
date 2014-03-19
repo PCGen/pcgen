@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -42,7 +43,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	{
 		try
 		{
-			assertEquals(isClearLegal(), parse(".CLEAR"));
+			assertEquals(isClearLegal(), parse(Constants.LST_DOT_CLEAR));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -76,7 +77,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
@@ -86,7 +87,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(".CLEAR"));
+			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
 			assertNull("Expected item to be equal", unparsed);
 		}
