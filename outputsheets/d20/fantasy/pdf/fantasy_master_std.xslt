@@ -4699,7 +4699,7 @@
 									<xsl:with-param name="title" select="'Range'"/>
 									<xsl:with-param name="info" select="range" />
 								</xsl:call-template>
-								<fo:table-row>
+								<fo:table-row  keep-with-next.within-column="always">
 									<fo:table-cell number-columns-spanned="2" padding-top="1pt" text-align="end">
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
 										<fo:block font-size="8pt" padding-top="2pt">
@@ -4946,7 +4946,7 @@
 									<xsl:with-param name="title" select="'Turn damage'"/>
 									<xsl:with-param name="info" select="damage" />
 								</xsl:call-template>
-								<fo:table-row>
+								<fo:table-row  keep-with-next.within-column="always">
 									<fo:table-cell number-columns-spanned="2" padding-top="1pt" text-align="end">
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
 										<fo:block font-size="8pt" padding-top="2pt">
