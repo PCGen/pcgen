@@ -7621,7 +7621,7 @@ first page
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="concat('spelllist.', $shade)"/>
 			</xsl:call-template>
-			<fo:table-cell padding-top="1pt" number-columns-spanned="6">
+			<fo:table-cell padding-top="1pt" number-columns-spanned="7">
 <!-- Set Up Alternate FONT SIZE		<xsl:if test="string-length(effect) &gt; 100">-->
 				<fo:block text-align="start" font-size="5pt">
 					<xsl:if test="string-length(components) &gt; 0">
