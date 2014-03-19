@@ -5086,7 +5086,7 @@
 	
 	<xsl:for-each select="checklist">
 		<!-- BEGIN Use Per Day Ability table -->
-		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
+		<fo:table table-layout="fixed" space-before="2mm" keep-together.within-column="always" border-collapse="collapse" >
 		<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'checklist.border'"/></xsl:call-template>
 			<fo:table-column column-width="23mm"/>
 			<fo:table-column column-width="63mm"/>

@@ -3827,7 +3827,7 @@ first page
 							<xsl:with-param name="attribute" select="'weapon'"/>
 						</xsl:call-template>
 						<fo:block font-size="7pt">
-						<xsl:choose>
+						<xsl:choose>	
 						<xsl:when test="string-length(range/distance) &gt; 1">
 							<xsl:value-of select="range"/> 
 						</xsl:when>
@@ -3858,12 +3858,17 @@ first page
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
+				<xsl:if test="special_properties != ''">
 					<fo:table-cell  number-columns-spanned="2" >
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.border'"/>
 						</xsl:call-template>
 						<fo:block font-size="6pt" font-weight="bold">Special Properties: <xsl:value-of select="special_properties"/></fo:block>
 					</fo:table-cell>
+				</xsl:if>
+				<xsl:if test="special_properties = ''">
+					<fo:table-cell number-columns-spanned="2" />
+				</xsl:if>
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
@@ -5240,7 +5245,7 @@ first page
 	<xsl:template match="checklists">
 	<xsl:for-each select="checklist">
 		<!-- BEGIN Use Per Day Ability table -->
-		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
+		<fo:table table-layout="fixed" space-before="2mm" keep-together.within-column="always" border-collapse="collapse" >
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'checklist.border'"/></xsl:call-template>
 			<fo:table-column column-width="23mm"/>
 			<fo:table-column column-width="63mm"/>
