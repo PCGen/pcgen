@@ -26,6 +26,7 @@
  */
 package pcgen.core.prereq;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -54,7 +55,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 
 		if (character.hasEquipment())
 		{
-			final String aString = prereq.getKey();
+			String aString = prereq.getKey();
 			for ( Equipment eq : character.getDisplay().getEquippedEquipmentSet() )
 			{
 				//
@@ -81,7 +82,16 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 				}
 				else	 //not a TYPE string
 				{
-					final String eqName = eq.getName();
+					String eqName;
+					if (aString.startsWith("BASEITEM="))	//$NON-NLS-1$ //$NON-NLS-2$
+					{
+						eqName = eq.getBaseItemName();
+						aString = aString.substring(aString.indexOf(Constants.EQUALS) + 1);
+					}
+					else
+					{
+						eqName = eq.getName();
+					}
 					if (aString.indexOf('%') >= 0)
 					{
 						//handle wildcards (always assume they

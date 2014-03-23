@@ -29,6 +29,7 @@ package plugin.pretokens.test;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
@@ -72,7 +73,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 		if (display.hasEquipment())
 		{
 
-			final String targetEquip = prereq.getKey();
+			String targetEquip = prereq.getKey();
 			for (Equipment eq : display.getEquippedEquipmentSet())
 			{
 				if (targetEquip.startsWith("WIELDCATEGORY=")
@@ -119,7 +120,16 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 				else
 				//not a TYPE string
 				{
-					final String eqName = eq.getName().toUpperCase();
+					String eqName;
+					if (targetEquip.startsWith("BASEITEM="))	//$NON-NLS-1$ //$NON-NLS-2$
+					{
+						eqName = eq.getBaseItemName().toUpperCase();
+						targetEquip = targetEquip.substring(targetEquip.indexOf(Constants.EQUALS) + 1);
+					}
+					else
+					{
+						eqName = eq.getName().toUpperCase();
+					}
 
 					if (targetEquip.indexOf('%') >= 0)
 					{
