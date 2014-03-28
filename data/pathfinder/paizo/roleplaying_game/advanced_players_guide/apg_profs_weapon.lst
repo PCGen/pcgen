@@ -26,7 +26,7 @@ Bardiche				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
 Bec de Corbin			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
 Bill					TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
 Glaive-Guisarme			TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
-Lucern Hammer			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
+Lucerne Hammer			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
 
 # --ranged
 #Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
@@ -67,7 +67,7 @@ Cestus.MOD				TYPE:Monk
 Bec De Corbin.MOD			TYPE:Polearm
 Bill.MOD				TYPE:Polearm
 Glaive-Guisarme.MOD		TYPE:Polearm
-Lucern Hammer.MOD			TYPE:Polearm
+Lucerne Hammer.MOD			TYPE:Polearm
 Mancatcher.MOD			TYPE:Polearm
 Boomerang.MOD			TYPE:Thrown
 Lasso.MOD				TYPE:Thrown
