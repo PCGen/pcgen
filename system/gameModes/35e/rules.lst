@@ -30,6 +30,9 @@ NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE	DEFAULT:Yes					DESC:Display 
 
 NAME:Outsider0HDGainMartialWeapons	VAR:OutsiderZeroHDGainMartialWeapons	DEFAULT:No					DESC:Grant Martial Weapons to all 0 HD outsiders as House Rule.
 NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell	DEFAULT:No					DESC:Use Full Spell Descriptions from the Core Books
+# Homebrew Support
+NAME:UseFullEquipmentDescriptions	VAR:DisplayFullEquip	DEFAULT:No					DESC:Use Full Equipment Descriptions (Homebrew Support)
+NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility	DEFAULT:No					DESC:Use Full Ability Descriptions (Homebrew Support)
 
 
 NAME:HitPointDamage			VAR:DAMAGE_HP		DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
