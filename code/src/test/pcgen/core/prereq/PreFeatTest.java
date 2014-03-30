@@ -68,10 +68,12 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability powerAttack = new Ability();
 		powerAttack.setName("Power Attack");
+		powerAttack.setCDOMCategory(AbilityCategory.FEAT);
 		character.addAbilityNeedCheck(AbilityCategory.FEAT, powerAttack);
 		
 		final Ability cleave = new Ability();
 		cleave.setName("Cleave");
+		cleave.setCDOMCategory(AbilityCategory.FEAT);
 		character.addAbilityNeedCheck(AbilityCategory.FEAT, cleave);
 		
 		final Prerequisite prePA = new Prerequisite();
@@ -165,6 +167,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
+		armourProf.setCDOMCategory(AbilityCategory.FEAT);
 		character.addAbilityNeedCheck(AbilityCategory.FEAT, armourProf);
 
 		final Prerequisite preArmour = new Prerequisite();
@@ -187,6 +190,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
+		spellFocus.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.getContext().unconditionallyProcess(spellFocus, "CHOOSE", "SCHOOLS|ALL");
 		Globals.getContext().ref.constructCDOMObject(SpellSchool.class, "Conjuration");
 		Globals.getContext().unconditionallyProcess(spellFocus, "MULT", "YES");
@@ -281,6 +285,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
+		armourProf.setCDOMCategory(AbilityCategory.FEAT);
 		armourProf.addToListFor(ListKey.TYPE, Type.getConstant("WPNPROF"));
 		character.addAbilityNeedCheck(AbilityCategory.FEAT, armourProf);
 
@@ -332,6 +337,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	{
 		final Ability skillFocusKnow = new Ability();
 		skillFocusKnow.setName("Skill Focus");
+		skillFocusKnow.setCDOMCategory(AbilityCategory.FEAT);
 		skillFocusKnow.put(StringKey.KEY_NAME, "Skill Focus");
 		Globals.getContext().unconditionallyProcess(skillFocusKnow, "CHOOSE", "SKILL|ALL");
 		Globals.getContext().unconditionallyProcess(skillFocusKnow, "MULT", "YES");
@@ -362,6 +368,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	{
 		final Ability spellFocus = new Ability();
 		spellFocus.setName("Spell Focus");
+		spellFocus.setCDOMCategory(AbilityCategory.FEAT);
 		spellFocus.put(StringKey.KEY_NAME, "Spell Focus");
 		spellFocus.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		Globals.getContext().unconditionallyProcess(spellFocus, "CHOOSE", "SCHOOLS|ALL");

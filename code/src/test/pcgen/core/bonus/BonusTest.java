@@ -257,6 +257,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		Ability testBonus = new Ability();
 		testBonus.setName("TB1Assoc");
+		testBonus.setCDOMCategory(AbilityCategory.FEAT);
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
@@ -284,6 +285,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
 		testBonus.setName("TB2Assoc");
+		testBonus.setCDOMCategory(AbilityCategory.FEAT);
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
@@ -317,6 +319,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		final Ability testBonus = new Ability();
 		testBonus.setName("TB2AssocList");
+		testBonus.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
@@ -356,6 +359,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonusList.add(bonus);
 		Ability testBonus = new Ability();
 		testBonus.setName("TB1Assoc");
+		testBonus.setCDOMCategory(AbilityCategory.FEAT);
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "SPELLLEVEL|Wizard|1|5");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");

@@ -40,6 +40,7 @@ public class GrantedAbilityFacetTest extends
 	protected CNAbilitySelection getObject()
 	{
 		Ability a1 = new Ability();
+		a1.setCDOMCategory(AbilityCategory.FEAT);
 		return new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, a1, Nature.VIRTUAL));
 	}
 

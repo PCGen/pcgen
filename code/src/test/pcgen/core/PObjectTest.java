@@ -202,6 +202,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	{
 		Ability pObj = new Ability();
 		pObj.setName("My PObject");
+		pObj.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.getContext().unconditionallyProcess(pObj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pObj, "MULT", "YES");
 		Globals.getContext().ref.constructCDOMObject(Language.class, "TestPsion 1");

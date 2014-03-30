@@ -53,6 +53,34 @@ public class CNAbility extends ConcretePrereqObject implements
 	 */
 	public CNAbility(Category<Ability> cat, Ability abil, Nature nat)
 	{
+		if (cat == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility with null Category");
+		}
+		if (abil == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility with null Ability");
+		}
+		if (nat == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility with null Nature");
+		}
+		Category<Ability> origCategory = abil.getCDOMCategory();
+		if (origCategory == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility when Ability has null original Category");
+		}
+		if (!cat.getParentCategory().equals(origCategory))
+		{
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility with incompatible Category: " + cat
+					+ " is not compatible with Ability's Category: "
+					+ origCategory);
+		}
 		category = cat;
 		ability = abil;
 		nature = nat;

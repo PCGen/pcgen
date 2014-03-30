@@ -469,21 +469,15 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		AbilityCategory category = AbilityCategory.FEAT;
-		
-		Ability pcAbility = character.addAbilityNeedCheck(category, ab);
-		AbilityUtilities.finaliseAbility(pcAbility, "munch", character, category);
+		Ability pcAbility = character.addAbilityNeedCheck(gCat, ab);
+		AbilityUtilities.finaliseAbility(pcAbility, "munch", character, gCat);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
-		AbilityCategory category1 = AbilityCategory.FEAT;
-
-		AbilityUtilities.finaliseAbility(pcAbility, "devour", character, category1);
+		AbilityUtilities.finaliseAbility(pcAbility, "devour", character, gCat);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
-		AbilityCategory category2 = AbilityCategory.FEAT;
-
-		AbilityUtilities.finaliseAbility(pcAbility, "nibble", character, category2);
+		AbilityUtilities.finaliseAbility(pcAbility, "nibble", character, gCat);
 		assertEquals(3, character.getDetailedAssociationCount(pcAbility));
 		character.setDirty(true);
 
@@ -514,16 +508,16 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ab, "munch");
+		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "munch");
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ab, "devour");
+		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "devour");
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ab, "nibble");
+		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "nibble");
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");

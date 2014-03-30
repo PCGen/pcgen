@@ -111,6 +111,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	{
 		final Ability pobj = new Ability();
 		pobj.setName("PObject");
+		pobj.setCDOMCategory(AbilityCategory.FEAT);
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%NAME");
