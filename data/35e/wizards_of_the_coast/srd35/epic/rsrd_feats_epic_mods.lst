@@ -160,7 +160,7 @@ Spellcasting Harrier.MOD			TYPE:EpicFighter
 Storm of Throws.MOD				TYPE:EpicFighter
 Superior Initiative.MOD				TYPE:EpicFighter
 Swarm of Arrows.MOD				TYPE:EpicFighter
-Two Weapon Rend.MOD				TYPE:EpicFighter
+Two-Weapon Rend.MOD				TYPE:EpicFighter
 Uncanny Accuracy.MOD				TYPE:EpicFighter
 
 #Monk
@@ -240,7 +240,7 @@ Permanent Emanation.MOD				TYPE:EpicRanger
 Spontaneous Spell.MOD				TYPE:EpicRanger
 Storm of Throws.MOD				TYPE:EpicRanger
 Swarm of Arrows.MOD				TYPE:EpicRanger
-Two Weapon Rend.MOD				TYPE:EpicRanger
+Two-Weapon Rend.MOD				TYPE:EpicRanger
 Uncanny Accuracy.MOD				TYPE:EpicRanger
 
 #Rogue
@@ -339,7 +339,7 @@ Epic Toughness.MOD				TYPE:EpicArcaneArcher
 Epic Weapon Focus.MOD				TYPE:EpicArcaneArcher
 Improved Arrow of Death.MOD			TYPE:EpicArcaneArcher
 Improved Combat Casting.MOD			TYPE:EpicArcaneArcher
-Improved Low light Vision.MOD			TYPE:EpicArcaneArcher
+Improved Low-Light Vision.MOD			TYPE:EpicArcaneArcher
 Improved Manyshot.MOD				TYPE:EpicArcaneArcher
 Swarm of Arrows.MOD				TYPE:EpicArcaneArcher
 Uncanny Accuracy.MOD				TYPE:EpicArcaneArcher
@@ -435,7 +435,7 @@ Improved Whirlwind Attack.MOD			TYPE:EpicDuelist
 Infinite Deflection.MOD				TYPE:EpicDuelist
 Perfect Two-Weapon Fighting.MOD		TYPE:EpicDuelist
 Superior Initiative.MOD				TYPE:EpicDuelist
-Two Weapon Rend.MOD				TYPE:EpicDuelist
+Two-Weapon Rend.MOD				TYPE:EpicDuelist
 
 #Dwarven Defender
 Armor Skin.MOD					TYPE:EpicDwarvenDefender
@@ -496,7 +496,7 @@ Storm of Throws.MOD				TYPE:EpicEldritchKnight
 Superior Initiative.MOD				TYPE:EpicEldritchKnight
 Swarm of Arrows.MOD				TYPE:EpicEldritchKnight
 Tenacious Magic.MOD				TYPE:EpicEldritchKnight
-Two Weapon Rend.MOD				TYPE:EpicEldritchKnight
+Two-Weapon Rend.MOD				TYPE:EpicEldritchKnight
 Uncanny Accuracy.MOD				TYPE:EpicEldritchKnight
 
 #Horizon Walker
