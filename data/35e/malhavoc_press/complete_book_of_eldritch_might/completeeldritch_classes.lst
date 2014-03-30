@@ -12,9 +12,9 @@ CLASS:Bard (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Co
 CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
 1																			AUTO:FEAT|Simple Weapon Proficiency
 ###Block:
-1	BONUS:SPELLKNOWN|CLASS=Bard (Monte Cook's);LEVEL=1|BonusSpellSongNotes
-6	BONUS:SPELLKNOWN|CLASS=Bard (Monte Cook's);LEVEL=3|BonusSpellSongChords
-13	BONUS:SPELLKNOWN|CLASS=Bard (Monte Cook's);LEVEL=5|BonusSpellSongMelodies
+1	BONUS:SPELLCAST|CLASS=Bard (Monte Cook's);LEVEL=1|BonusSpellSongNotes
+6	BONUS:SPELLCAST|CLASS=Bard (Monte Cook's);LEVEL=3|BonusSpellSongChords
+13	BONUS:SPELLCAST|CLASS=Bard (Monte Cook's);LEVEL=5|BonusSpellSongMelodies
 ###Block:
 1	DEFINE:BonusSpellSongNotes|0	DEFINE:BonusSpellSongChords|0	DEFINE:BonusSpellSongMelodies|0
 ###Block:
