@@ -68,6 +68,11 @@ public class CNAbility extends ConcretePrereqObject implements
 			throw new IllegalArgumentException(
 				"Cannot build CNAbility with null Nature");
 		}
+		if (abil.getKeyName() == null || abil.getKeyName().length() == 0)
+		{
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility when Ability has no key");
+		}
 		Category<Ability> origCategory = abil.getCDOMCategory();
 		if (origCategory == null)
 		{

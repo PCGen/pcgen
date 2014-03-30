@@ -38,6 +38,6 @@ public class pcGenGUIJangoTest extends pcGenGUITestCase
 	 */
 	public void testJango() throws Exception
 	{
-		runTest("35e_test_Jango", "35e", true);
+		runTest("35e_test_Jango", "35e");
 	}
 }

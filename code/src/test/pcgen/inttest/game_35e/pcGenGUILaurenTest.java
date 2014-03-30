@@ -38,6 +38,6 @@ public class pcGenGUILaurenTest extends pcGenGUITestCase
 	 */
 	public void testLauren() throws Exception
 	{
-		runTest("35e_test_Lauren", "35e", true);
+		runTest("35e_test_Lauren", "35e");
 	}
 }

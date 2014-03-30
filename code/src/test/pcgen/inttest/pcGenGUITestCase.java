@@ -14,7 +14,6 @@ import org.custommonkey.xmlunit.XMLUnit;
 
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
-import pcgen.core.Globals;
 import pcgen.system.Main;
 import pcgen.util.TestHelper;
 
@@ -94,18 +93,6 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	 */
 	public void runTest(String character, String mode) throws Exception
 	{
-		runTest(character, mode, false);
-	}
-
-	/**
-	 * Run the test.
-	 * @param character The PC
-	 * @param mode The game mode
-	 * @param runTwice Should we rerun the test after unloading sources
-	 * @throws Exception If there is an error while exporting the data
-	 */
-	public void runTest(String character, String mode, boolean runTwice) throws Exception
-	{
 		System.out.println("RUNTEST with the character: " + character
 			+ " and the game mode: " + mode);
 		// Delete the old generated output for this test 
@@ -153,15 +140,6 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			Main.loadCharacterAndExport(characterFile,
 				getSheetName(), outputFile, TEST_CONFIG_FILE);
 
-			// Optionally do a second run
-			if (runTwice)
-			{
-				new File(outputFile).delete();
-				Globals.emptyLists();
-				Main.loadCharacterAndExport(characterFile,
-					getSheetName(), outputFile, TEST_CONFIG_FILE);
-			}
-			
 			// Read in the actual XML produced by PCGen
 			actual = readFile(new File(outputFile));
 			// Read in the expected XML

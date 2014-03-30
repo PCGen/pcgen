@@ -38,6 +38,6 @@ public class pcGenGUIMalloryTest extends pcGenGUITestCase
 	 */
 	public void testMallory() throws Exception
 	{
-		runTest("35e_test_Mallory", "35e", true);
+		runTest("35e_test_Mallory", "35e");
 	}
 }
