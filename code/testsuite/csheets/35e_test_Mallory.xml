@@ -1123,6 +1123,16 @@ BIO
 		<!-- Auto feats -->
 		<!-- Virtual Feats -->
 		<feat>
+			<name>Dodge</name>
+			<description></description>
+			<type>TESTMONKEY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
 			<name>Test-57-Ability-1</name>
 			<description></description>
 			<type></type>
