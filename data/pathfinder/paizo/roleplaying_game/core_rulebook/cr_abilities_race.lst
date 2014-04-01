@@ -33,7 +33,7 @@ CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTO
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elven Immunities ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elven Magic ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Weapon Familiarity ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
-CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Keen Senses ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses
+CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Keen Senses ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses,TYPE.ElfKeenSenses
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
 #
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Defensive Training ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
