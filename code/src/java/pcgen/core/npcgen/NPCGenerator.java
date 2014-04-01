@@ -29,9 +29,11 @@ import java.util.List;
 import pcgen.base.util.RandomUtil;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.ClassSource;
@@ -366,10 +368,8 @@ public class NPCGenerator
 				// We will leave the feat because we may qualify later.
 				continue;
 			}
-			Ability pcAbility =
-					aPC.addAbilityNeedCheck(AbilityCategory.FEAT,
-						ability);
-			AbilityUtilities.finaliseAbility(pcAbility, null, aPC, AbilityCategory.FEAT);
+			AbilityUtilities.driveChooseAndAdd(new CNAbility(
+				AbilityCategory.FEAT, ability, Nature.NORMAL), aPC, true);
 		}
 	}
 

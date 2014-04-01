@@ -69,8 +69,9 @@ public interface ChoiceManagerList<T> {
 	 * @param aPc
 	 * @param availableList
 	 * @param selectedList
+	 * @return 
 	 */
-	public abstract void doChooserRemove (
+	public abstract List<T> doChooserRemove (
 			PlayerCharacter aPc,
 			final List<T> availableList,
 			final List<T> selectedList,
@@ -113,5 +114,7 @@ public interface ChoiceManagerList<T> {
 	public void applyChoice(PlayerCharacter pc, CDOMObject owner, T selection);
 
 	public abstract T decodeChoice(String choice);
+
+	public abstract String encodeChoice(T obj);
 
 }

@@ -706,12 +706,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Now apply weapon finess and check dex is used rather than str
 		Ability wpnFinesse = new Ability();
 		wpnFinesse.setName("Weapon Finesse");
+		wpnFinesse.setCDOMCategory(AbilityCategory.FEAT);
 		wpnFinesse.put(StringKey.KEY_NAME, "Weapon Finesse");
 		final BonusObj wfBonus =
 				Bonus
 					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, wpnFinesse);
+		addAbility(AbilityCategory.FEAT, wpnFinesse);
 		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 

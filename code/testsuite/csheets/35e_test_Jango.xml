@@ -1226,7 +1226,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat></feat>
+			<feat>Test63b(One)</feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>
@@ -1256,7 +1256,7 @@ BIO
 			<chamod>0</chamod>
 			<cr>0</cr>
 			<dr></dr>
-			<feat></feat>
+			<feat>Test63c</feat>
 			<sa></sa>
 			<sr>0</sr>
 			<bonuslist></bonuslist>

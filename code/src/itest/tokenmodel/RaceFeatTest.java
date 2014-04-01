@@ -24,8 +24,8 @@ import org.junit.Test;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
@@ -64,12 +64,12 @@ public class RaceFeatTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(containsExpected(null));
-		assertEquals(1, directAbilityFacet.getCount(id));
+		assertEquals(1, directAbilityFacet.size(id));
 		raceFacet.remove(id);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 	}
 
 	@Test
@@ -91,12 +91,12 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		//Do a second time!
 		token.parseToken(context, source, "Granted");
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 		raceFacet.directSet(id, source, getAssoc());
 		assertTrue(containsExpected(""));
-		assertEquals(2, directAbilityFacet.getCount(id));
+		assertEquals(2, directAbilityFacet.size(id));
 		raceFacet.remove(id);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 	}
 
 	@Test
@@ -130,12 +130,12 @@ public class RaceFeatTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 		raceInputFacet.set(id, source);
 		assertTrue(containsExpected("Longsword"));
-		assertEquals(1, directAbilityFacet.getCount(id));
+		assertEquals(1, directAbilityFacet.size(id));
 		raceInputFacet.remove(id);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 	}
 
 	protected boolean containsExpected(String selection)
@@ -189,7 +189,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		return false;
 	}
 
-	private AbstractSingleSourceListFacet<CNAbilitySelection, Object> getTargetFacet()
+	private DirectAbilityFacet getTargetFacet()
 	{
 		return directAbilityFacet;
 	}

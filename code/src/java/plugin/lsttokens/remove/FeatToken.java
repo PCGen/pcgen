@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.remove;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -35,6 +34,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.choiceset.AbilityFromClassChoiceSet;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.choiceset.CompoundOrChoiceSet;
@@ -47,7 +47,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -269,46 +268,34 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		if (!pc.isImporting())
-		{
-			pc.getSpellList();
-		}
-		
-		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
-				.getAbility(), Nature.NORMAL);
-		
-		if (anAbility != null)
-		{
-			// how many sub-choices to make
-			double abilityCount = (pc.getSelectCorrectedAssociationCount(anAbility) * anAbility.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-			
-			boolean result = false;
-			// adjust the associated List
-			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-			{
-				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
-				remove(cm, pc, anAbility, choice.getSelection());
-				result = pc.hasAssociations(anAbility); 
-			}
-			
-			boolean removed = false;
+		CNAbility cna = choice.getCNAbility();
+		Ability anAbility = cna.getAbility();
 
-			// if no sub choices made (i.e. all of them removed in Chooser box),
-			// then remove the Feat
-			if (!result)
-			{
-				removed = pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
-				CDOMObjectUtilities.removeAdds(anAbility, pc);
-				CDOMObjectUtilities.restoreRemovals(anAbility, pc);
-			}
-			
-			AbilityUtilities.adjustPool(anAbility, pc, false, abilityCount, removed);
-			pc.adjustMoveRates();
+		boolean result = false;
+		// adjust the associated List
+		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
+			remove(cm, pc, anAbility, choice.getSelection());
+			result = pc.hasAssociations(cna);
 		}
-		double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST)
-				.doubleValue();
-		pc.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(-cost));
+
+		// if no sub choices made (i.e. all of them removed in Chooser box),
+		// then remove the Feat
+		if (!result)
+		{
+			pc.removeAbility(choice, UserSelection.getInstance(),
+				UserSelection.getInstance());
+			CDOMObjectUtilities.removeAdds(anAbility, pc);
+			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
+		}
+
+		pc.adjustMoveRates();
+
+		double cost =
+				cna.getAbility().getSafe(ObjectKey.SELECTION_COST)
+					.doubleValue();
+		pc.adjustFeats(-cost);
 	}
 
 	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
@@ -394,7 +381,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		
 		if (anAbility != null)
 		{
-			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
+			pc.removeAbility(choice, owner, this);
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			pc.adjustMoveRates();

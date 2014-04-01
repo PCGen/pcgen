@@ -34,6 +34,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.StringKey;
@@ -67,7 +68,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Description desc = new Description(Constants.EMPTY_STRING);
-		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(new CNAbility(AbilityCategory.FEAT, dummy, Nature.NORMAL))).equals(""));
+		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(""));
 	}
 
 	/**
@@ -80,7 +81,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final String simpleDesc = "This is a test";
 		final Description desc = new Description(simpleDesc);
-		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(new CNAbility(AbilityCategory.FEAT, dummy, Nature.NORMAL))).equals(simpleDesc));
+		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(simpleDesc));
 	}
 
 	/**
@@ -98,14 +99,14 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		final Prerequisite prereqNE = factory.parse("PRETEMPLATE:1,KEY_Natural Lycanthrope");
 		desc.addPrerequisite(prereqNE);
-		is(desc.getDescription(getCharacter(), Collections.singletonList(new CNAbility(AbilityCategory.FEAT, dummy, Nature.NORMAL))), strEq(""));
+		is(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))), strEq(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
 		Globals.getContext().ref.importObject(template);
 		getCharacter().addTemplate(template);
-		is(desc.getDescription(getCharacter(), Collections.singletonList(new CNAbility(AbilityCategory.FEAT, dummy, Nature.NORMAL))), strEq(simpleDesc));
+		is(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))), strEq(simpleDesc));
 	}
 
 	/**
@@ -117,7 +118,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Description desc = new Description("%1");
 		desc.addVariable("\"Variable\"");
-		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(new CNAbility(AbilityCategory.FEAT, dummy, Nature.NORMAL))).equals("Variable"));
+		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals("Variable"));
 	}
 
 	/**
@@ -241,19 +242,18 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
 		dummy.addToListFor(ListKey.DESCRIPTION, desc);
-		List<CNAbility> wrappedDummy = Collections.singletonList(new CNAbility(AbilityCategory.FEAT, dummy, Nature.NORMAL));
+		List<CNAbility> wrappedDummy = Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy));
 		assertEquals("0 test  ", desc.getDescription(pc, wrappedDummy));
 
 		AbilityCategory category = AbilityCategory.FEAT;
 
-		Ability pcAbility = pc.addAbilityNeedCheck(category, dummy);
-		AbilityUtilities.finaliseAbility(pcAbility, "Associated 1", pc, category);
-		AbilityUtilities.finaliseAbility(pcAbility, "Associated 2", pc, category);
+		CNAbility cna = finalize(dummy, "Associated 1", pc, category);
+		finalize(dummy, "Associated 2", pc, category);
 		assertEquals("2 test  ", desc.getDescription(pc, wrappedDummy));
 
 		desc.addVariable("%CHOICE");
-		pcAbility.addToListFor(ListKey.DESCRIPTION, desc);
-		List<CNAbility> wrappedPCA = Collections.singletonList(new CNAbility(AbilityCategory.FEAT, pcAbility, Nature.NORMAL));
+		dummy.addToListFor(ListKey.DESCRIPTION, desc);
+		List<CNAbility> wrappedPCA = Collections.singletonList(cna);
 		assertEquals("2 test  Associated 1",
 			desc.getDescription(pc, wrappedPCA));
 

@@ -79,14 +79,14 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 		ClassSource classSource = new ClassSource(pcc);
 
 		domainInputFacet.directSet(id, source, sel, classSource);
 		assertTrue(containsExpected());
-		assertEquals(1, directAbilityFacet.getCount(id));
+		assertEquals(1, directAbilityFacet.size(id));
 		domainInputFacet.remove(id, source);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 	}
 
 	private boolean containsExpected()

@@ -33,9 +33,9 @@ import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -54,7 +54,6 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
 
 public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
@@ -294,32 +293,8 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		CNAbility cna = choice.getCNAbility();
-		Ability ab = cna.getAbility();
-		String selection = choice.getSelection();
-		AbilityCategory cat = AbilityCategory.FEAT;
-		Ability aFeat =
-				AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(pc,
-					ab, selection, cat);
-		if (aFeat == null)
-		{
-			aFeat = pc.getUserVirtualAbility(cat, ab);
-		}
-		cna.doMagicalAndEvilThings(aFeat);
-		AbilityUtilities.finaliseAbility(pc, choice);
-		pc.addAssoc(owner, AssociationListKey.ADDED_FEAT, aFeat);
-		// TODO: Why is this here? Normally this is only used in the UI layer.
-		pc.setDirty(true);
-
-		if (aFeat != null)
-		{
-			pc.addSavedAbility(aFeat);
-		}
-		else
-		{
-			Logging.errorPrint("Error:" + choice.getFullAbilityKey()
-					+ " not added, aPC.getFeatNamedInList() == NULL");
-		}
+		pc.addSavedAbility(choice, UserSelection.getInstance(),
+			UserSelection.getInstance());
 	}
 
 	@Override
@@ -362,29 +337,25 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		CNAbilitySelection choice)
 	{
-		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
-				.getAbility(), Nature.VIRTUAL);
-		
-		if (anAbility != null)
+		CNAbility cna = choice.getCNAbility();
+		Ability anAbility = cna.getAbility();
+		boolean required = false;
+		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			boolean required = false;
-			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			required = true;
+			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
+			if (remove(cm, pc, anAbility, choice.getSelection()))
 			{
-				required = true;
-				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
-				if (remove(cm, pc, anAbility, choice.getSelection()))
-				{
-					required = false;
-				}
+				required = false;
 			}
-			if (!required)
-			{
-				CDOMObjectUtilities.removeAdds(anAbility, pc);
-				CDOMObjectUtilities.restoreRemovals(anAbility, pc);
-				pc.adjustMoveRates();
-				pc.removeUserVirtualAbility(AbilityCategory.FEAT, anAbility);
-			}
+		}
+		if (!required)
+		{
+			CDOMObjectUtilities.removeAdds(anAbility, pc);
+			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
+			pc.removeSavedAbility(choice, UserSelection.getInstance(),
+				UserSelection.getInstance());
+			pc.adjustMoveRates();
 		}
 
 		//TODO Need to reverse this action:

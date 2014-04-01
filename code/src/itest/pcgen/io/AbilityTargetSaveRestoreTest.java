@@ -17,19 +17,17 @@
  */
 package pcgen.io;
 
-import java.util.ArrayList;
-
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.analysis.ChooseActivation;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
 
 public class AbilityTargetSaveRestoreTest extends
@@ -65,9 +63,9 @@ public class AbilityTargetSaveRestoreTest extends
 		{
 			assoc = "Granted";
 		}
-		CNAbility cna = new CNAbility(AbilityCategory.FEAT, obj, Nature.NORMAL);
+		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, obj);
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, assoc);
-		AbilityUtilities.modAbility(pc, cnas);
+		pc.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 	}
 
 	@Override
@@ -80,14 +78,14 @@ public class AbilityTargetSaveRestoreTest extends
 	protected void remove(Object o)
 	{
 		Ability abil = (Ability) o;
+		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, abil);
+		String assoc = null;
 		if (ChooseActivation.hasNewChooseToken(abil))
 		{
-			ChooserUtilities.modChoices(abil, new ArrayList<String>(),
-				new ArrayList<String>(), reloadedPC, false, AbilityCategory.FEAT);
+			assoc = "Granted";
 		}
-		//Have to do this check due to cloning...
-		abil = reloadedPC.getAbilityKeyed(AbilityCategory.FEAT, abil.getKeyName());
-		reloadedPC.removeRealAbility(AbilityCategory.FEAT, abil);
+		CNAbilitySelection cnas = new CNAbilitySelection(cna, assoc);
+		reloadedPC.removeAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 		//TODO These need to be moved into being core behaviors somehow
 		CDOMObjectUtilities.removeAdds(abil, reloadedPC);
 		CDOMObjectUtilities.restoreRemovals(abil, reloadedPC);

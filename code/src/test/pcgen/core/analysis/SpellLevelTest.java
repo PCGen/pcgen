@@ -108,7 +108,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		Map<Integer, Collection<Spell>> spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Initial number of spell levels incorrect", 0, spellsMap.size());
 		
-		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, ab1);
+		addAbility(AbilityCategory.FEAT, ab1);
 
 		// Now for the tests
 		spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));

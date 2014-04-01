@@ -30,13 +30,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
@@ -231,7 +231,7 @@ public final class KitAbilities extends BaseKit
 				CNAbility cna = new CNAbility(category, ability, Nature.NORMAL);
 				CNAbilitySelection cnas = new CNAbilitySelection(cna, as.selection);
 				abilitiesToAdd.add(cnas);
-				AbilityUtilities.modAbility(aPC, cnas);
+				aPC.addAbility(cnas, UserSelection.getInstance(), this);
 			}
 		}
 
@@ -250,7 +250,7 @@ public final class KitAbilities extends BaseKit
 	{
 		for (CNAbilitySelection cnas : abilitiesToAdd)
 		{
-			AbilityUtilities.modAbility(aPC, cnas);
+			aPC.addAbility(cnas, UserSelection.getInstance(), this);
 			
 			if (isFree())
 			{

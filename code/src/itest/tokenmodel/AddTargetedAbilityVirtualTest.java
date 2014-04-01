@@ -89,10 +89,9 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{
-				Ability g = pc.getAbilityKeyed(AbilityCategory.FEAT, "Granted");
-				if (pc.getDetailedAssociationCount(g) == 1)
+				if (pc.getDetailedAssociationCount(a) == 1)
 				{
-					if (!pc.getAssociationList(g).get(0).equals("English"))
+					if (!pc.getAssociationList(a).get(0).equals("English"))
 					{
 						continue;
 					}

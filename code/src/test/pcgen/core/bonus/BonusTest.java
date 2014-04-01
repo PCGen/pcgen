@@ -28,6 +28,7 @@ import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -128,6 +129,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
+		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
 		final PlayerCharacter pc = getCharacter();
 
 		// Create a variable
@@ -136,6 +138,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		// Create a bonus to it
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("DummyFeat2");
+		dummyFeat2.setCDOMCategory(AbilityCategory.FEAT);
 		BonusObj aBonus = Bonus.newBonus(context, "VAR|NegLevels|7");
 		
 		if (aBonus != null)
@@ -154,14 +157,14 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat);
+		addAbility(AbilityCategory.FEAT, dummyFeat);
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		assertEquals("Variable value", -0.0, pc.getVariableValue(
 			"-1*NegLevels", "").doubleValue(), 0.05);
 
 		// Add a bonus to it
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, dummyFeat2);
+		addAbility(AbilityCategory.FEAT, dummyFeat2);
 		assertEquals("Variable value", 7.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		assertEquals("Variable value", -7.0, pc.getVariableValue(
@@ -261,8 +264,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
-		testBonus = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "INT");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "INT");
+		testBonus = cna.getAbility();
 		character.calcActiveBonuses();
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
@@ -283,17 +286,17 @@ public class BonusTest extends AbstractCharacterTestCase
 				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
-		final Ability testBonus = new Ability();
+		Ability testBonus = new Ability();
 		testBonus.setName("TB2Assoc");
 		testBonus.setCDOMCategory(AbilityCategory.FEAT);
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
-		Ability tb = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, tb, "INT");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, tb, "STR");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "INT");
+		testBonus = cna.getAbility();
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "STR");
 		character.calcActiveBonuses();
-		bonus = tb.getSafeListFor(ListKey.BONUS).get(0);
+		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
@@ -317,17 +320,17 @@ public class BonusTest extends AbstractCharacterTestCase
 		BonusObj bonus = Bonus.newBonus(context, "STAT|%LIST|%LIST+1");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
 		bonusList.add(bonus);
-		final Ability testBonus = new Ability();
+		Ability testBonus = new Ability();
 		testBonus.setName("TB2AssocList");
 		testBonus.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "PCSTAT|ALL");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
 		testBonus.addToListFor(ListKey.BONUS, bonus);
-		Ability tb = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, tb, "INT");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, tb, "STR");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "INT");
+		testBonus = cna.getAbility();
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "STR");
 		character.calcActiveBonuses();
-		bonus = tb.getSafeListFor(ListKey.BONUS).get(0);
+		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
@@ -363,8 +366,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		testBonus.addToListFor(ListKey.BONUS, bonus);
 		Globals.getContext().unconditionallyProcess(testBonus, "CHOOSE", "SPELLLEVEL|Wizard|1|5");
 		Globals.getContext().unconditionallyProcess(testBonus, "MULT", "YES");
-		testBonus = character.addAbilityNeedCheck(AbilityCategory.FEAT, testBonus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "CLASS.Wizard;LEVEL.1");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, testBonus, "CLASS.Wizard;LEVEL.1");
+		testBonus = cna.getAbility();
 		character.calcActiveBonuses();
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);

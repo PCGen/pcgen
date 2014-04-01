@@ -215,12 +215,10 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param selectedList
 	 */
     @Override
-	public void doChooserRemove(PlayerCharacter pc, List<T> availableList,
+	public List<T> doChooserRemove(PlayerCharacter pc, List<T> availableList,
 			List<T> selectedList, List<String> reservedList)
 	{
-		final List<T> newSelections =
-				doChooser(pc, availableList, selectedList, reservedList);
-		applyChoices(pc, newSelections);
+		return doChooser(pc, availableList, selectedList, reservedList);
 	}
 
 	protected void adjustPool(List<? extends T> selected)
@@ -287,6 +285,11 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	public void applyChoice(PlayerCharacter pc, CDOMObject cdo, T selection)
 	{
 		info.getChoiceActor().applyChoice(cdo, selection, pc);
+	}
+
+	public String encodeChoice(T obj)
+	{
+		return info.encodeChoice(obj);
 	}
 
 }

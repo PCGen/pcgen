@@ -28,15 +28,19 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.helper.Aspect;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AlignmentConverter;
@@ -107,8 +111,9 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		List<Aspect> ageList = new ArrayList<Aspect>();
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
-		AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(character,
-			ab1, null, AbilityCategory.FEAT);
+		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, ab1);
+		character.addAbility(new CNAbilitySelection(cna),
+			UserSelection.getInstance(), UserSelection.getInstance());
 
 		TestHelper.makeSkill("Bluff", "Charisma", cha, true,
 			SkillArmorCheck.NONE);
@@ -124,10 +129,11 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
-		Ability ability = AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(character,
-			skillFocus, null, AbilityCategory.FEAT);
-		AbilityUtilities.finaliseAbility(ability, "KEY_Bluff", character, AbilityCategory.FEAT);
-		AbilityUtilities.finaliseAbility(ability, "KEY_Listen", character, AbilityCategory.FEAT);
+		cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, skillFocus);
+		character.addAbility(new CNAbilitySelection(cna, "KEY_Bluff"),
+			UserSelection.getInstance(), UserSelection.getInstance());
+		character.addAbility(new CNAbilitySelection(cna, "KEY_Listen"),
+			UserSelection.getInstance(), UserSelection.getInstance());
 		character.calcActiveBonuses();
 	}
 

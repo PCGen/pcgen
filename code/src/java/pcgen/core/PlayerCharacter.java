@@ -225,6 +225,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.BonusManager.TempBonusInfo;
+import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
@@ -8439,11 +8440,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// pool of feats remaining to distribute
 	private double numberOfRemainingFeats = 0;
 
-	public boolean removeRealAbility(final Category<Ability> aCategory, final Ability anAbility)
-	{
-		return abFacet.remove(id, aCategory, Nature.NORMAL, anAbility);
-	}
-
 	public void adjustFeats(final double arg)
 	{
 		if (allowFeatPoolAdjustment)
@@ -8664,43 +8660,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			return BigDecimal.valueOf((int) Math.ceil(spent));
 		}
 		return BigDecimal.valueOf(spent);
-	}
-
-	public void addAbility(final Category<Ability> aCategory, final Ability anAbility)
-	{
-		if (hasAbilityKeyed(aCategory, anAbility.getKeyName()))
-		{
-			Logging.errorPrint("Adding duplicate ability: " + anAbility.getDisplayName());
-		}
-
-		if (anAbility == null)
-		{
-			Logging.errorPrint("Cannot add null Ability");
-		} else
-		{
-			abFacet.add(id, aCategory, Nature.NORMAL, anAbility);
-			calcActiveBonuses();
-		}
-	}
-
-	public Ability addAbilityNeedCheck(final Category<Ability> aCategory, final Ability anAbility)
-	{
-		// See if our choice is not auto or virtual
-		/*
-		 * TODO Should this check parent/peer categories??
-		 */
-		Ability pcAbility = getMatchingAbility(aCategory, anAbility, Nature.NORMAL);
-
-		// (pcAbility == null) means we don't have this feat, so we need to add it
-		if (pcAbility == null)
-		{
-			// Adding feat for first time
-			pcAbility = anAbility.clone();
-			abFacet.add(id, aCategory, Nature.NORMAL, pcAbility);
-			calcActiveBonuses();
-		}
-
-		return pcAbility;
 	}
 
 	public Ability getAbilityKeyed(AbilityCategory aCategory, String aKey)
@@ -9847,11 +9806,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return !equipmentFacet.isEmpty(id);
 	}
 
-	public boolean hasUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
-	{
-		return abFacet.contains(id, cat, Nature.VIRTUAL, abilityInfo);
-	}
-
 	private Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
 		Set<Ability> newSet = new HashSet<Ability>();
@@ -10224,16 +10178,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public void addUserVirtualAbility(AbilityCategory cat, Ability newAbility)
-	{
-		abFacet.add(id, cat, Nature.VIRTUAL, newAbility);
-	}
-
-	public void removeUserVirtualAbility(Category<Ability> cat, Ability newAbility)
-	{
-		abFacet.remove(id, cat, Nature.VIRTUAL, newAbility);
 	}
 
 	public void checkSkillModChange()
@@ -10886,11 +10830,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		directAbilityInputFacet.remove(id, owner, cnas);
 	}
 
-	public Ability getUserVirtualAbility(AbilityCategory cat, Ability abilityInfo)
-	{
-		return abFacet.getContained(id, cat, Nature.VIRTUAL, abilityInfo);
-	}
-
 	public Collection<CNAbility> getCNAbilities()
 	{
 		Set<CNAbility> set = new HashSet<CNAbility>();
@@ -10961,6 +10900,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		svAbilityFacet.add(id, a);
 	}
 
+	public void removeSavedAbility(Ability a)
+	{
+		svAbilityFacet.remove(id, a);
+	}
+
 	public Collection<Ability> getSaveAbilities()
 	{
 		return svAbilityFacet.getSet(id);
@@ -10994,5 +10938,141 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public CNAbilitySelection getAssociatedSelection(AbilitySelection as)
 	{
 		return astocnasFacet.get(id, as);
+	}
+
+	public void addSavedAbility(CNAbilitySelection cnas, Object owner,
+		Object location)
+	{
+		addAbility(cnas, owner, location);
+		addSavedAbility(cnas.getCNAbility().getAbility());
+	}
+
+	public void addAbility(CNAbilitySelection cnas, Object owner,
+		Object location)
+	{
+		CNAbility cna = cnas.getCNAbility();
+		Category<Ability> category = cna.getAbilityCategory();
+
+		boolean newAdd = imposePCAbility(cna);
+		Ability ability = cna.getAbility();
+		abFacet.add(id, category, cna.getNature(), ability);
+		ChoiceManagerList<Object> controller =
+				ChooserUtilities.getConfiguredController(ability,
+					this, (AbilityCategory) category, new ArrayList<String>());
+		if (controller != null)
+		{
+			controller.restoreChoice(this, ability, cnas.getSelection());
+		}
+		if ((category == AbilityCategory.FEAT) && !isImporting())
+		{
+			double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+			adjustFeats(-cost);
+		}
+		if (newAdd && !isImporting())
+		{
+			AddObjectActions.globalChecks(ability, this);
+			/*
+			 * Protection for CODE-1240. Note the better solution is when facets
+			 * are association aware and thus trigger a change when an
+			 * association is added. - thpr
+			 */
+			calcActiveBonuses();
+		}
+	}
+
+	public void removeAbility(CNAbilitySelection cnas, Object owner,
+		Object location)
+	{
+		CNAbility cna = cnas.getCNAbility();
+		Ability ability = cna.getAbility();
+		Category<Ability> category = cna.getAbilityCategory();
+		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			ChoiceManagerList<?> controller =
+					ChooserUtilities.getConfiguredController(ability,
+						this, (AbilityCategory) category, new ArrayList<String>());
+			if (controller != null)
+			{
+				remove(cnas, cna, controller);
+				if ((category == AbilityCategory.FEAT) && !isImporting())
+				{
+					double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+					adjustFeats(cost);
+				}
+			}
+		}
+		else
+		{
+			Ability contained =
+					abFacet.getContained(id, category, cna.getNature(),
+						cna.getAbility());
+			abFacet.remove(id, category, cna.getNature(), contained);
+			if ((category == AbilityCategory.FEAT) && !isImporting())
+			{
+				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+				adjustFeats(cost);
+			}
+			CDOMObjectUtilities.removeAdds(contained, this);
+			CDOMObjectUtilities.restoreRemovals(contained, this);
+		}
+	}
+
+	private <T> void remove(CNAbilitySelection cnas, CNAbility cna,
+		ChoiceManagerList<T> controller)
+	{
+		Category<Ability> category = cna.getAbilityCategory();
+		T obj = controller.decodeChoice(cnas.getSelection());
+		imposePCAbility(cna);
+		Ability contained = cna.getAbility();
+		controller.removeChoice(this, contained, obj);
+		if (getAssociationList(cna).isEmpty())
+		{
+			abFacet.remove(id, category, cna.getNature(), contained);
+			CDOMObjectUtilities.removeAdds(contained, this);
+			CDOMObjectUtilities.restoreRemovals(contained, this);
+		}
+	}
+
+	public void removeSavedAbility(CNAbilitySelection cnas, Object owner,
+		Object location)
+	{
+		removeSavedAbility(cnas.getCNAbility().getAbility());
+		removeAbility(cnas, owner, location);
+	}
+
+	public List<String> getConsolidatedAssociationList(CDOMObject cdo)
+	{
+		if (cdo instanceof Ability)
+		{
+			List<String> list = new ArrayList<String>();
+			List<CNAbility> cnabilities = getMatchingCNAbilities((Ability) cdo);
+			for (CNAbility cna : cnabilities)
+			{
+				list.addAll(getAssociationList(cna));
+			}
+			return list;
+		}
+		return getAssociationList(cdo);
+	}
+
+	public boolean imposePCAbility(CNAbility cna)
+	{
+		Category<Ability> category = cna.getAbilityCategory();
+		Ability contained =
+				abFacet.getContained(id, category, cna.getNature(),
+					cna.getAbility());
+		String abilityKey = cna.getAbilityKey();
+		boolean doesNotHave = contained == null;
+		boolean needClone = doesNotHave && (abilityKey.charAt(0) != '*');
+		if (needClone)
+		{
+			contained = cna.getAbility().clone();
+		}
+		else if (doesNotHave)
+		{
+			return false;
+		}
+		cna.doMagicalAndEvilThings(contained);
+		return needClone;
 	}
 }

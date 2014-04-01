@@ -34,8 +34,8 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -61,7 +61,7 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 	 */
 	public void test001()
 	{
-		PObject pObj = new PObject();
+		Race pObj = new Race();
 		pObj.setName("My PObject");
 		LoadContext context = Globals.getContext();
 		Domain foo = context.ref.constructCDOMObject(Domain.class, "KEY_Foo");

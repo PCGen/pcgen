@@ -29,15 +29,12 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
-import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
@@ -55,191 +52,6 @@ public class AbilityUtilities
 	private AbilityUtilities ()
 	{
 		// private constructor, do nothing
-	}
-
-	/**
-	 * Clone anAbility, apply choices and add it to the addList, provided the
-	 * Ability allows it (if not isMultiples check if it's already there before
-	 * adding it).
-	 * @param pc TODO
-	 * @param   anAbility
-	 * @param   choice
-	 * @param   cat
-	 *
-	 * @return the Ability added, or null if Ability was not added to the list.
-	 */
-	public static Ability addCloneOfAbilityToVirtualListwithChoices(
-		PlayerCharacter pc, 
-		final Ability anAbility,
-		final String    choice, AbilityCategory cat)
-	{
-		Ability newAbility = null;
-
-		if (needToAddVirtualAbility(pc, cat, anAbility))
-		{
-			newAbility = anAbility.clone();
-			pc.addUserVirtualAbility(cat, newAbility);
-			newAbility.clearPrerequisiteList();
-		}
-		return newAbility;
-	}
-
-	private static boolean needToAddVirtualAbility(PlayerCharacter pc, AbilityCategory cat, Ability anAbility)
-	{
-		if(anAbility == null)
-		{
-			return false;
-		}
-		/*
-		 * TODO I believe this is a bug, but need to check.  This implies that anything
-		 * that is MULT:YES and is added virtually is added without cause for whether it stacks
-		 * - thpr Jul 24 08
-		 */
-		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			return true;
-		}
-		return !pc.hasUserVirtualAbility(cat, anAbility);
-	}
-
-	/**
-	 * Finishes off the processing necessary to add or remove an Ability to/from
-	 * a PC.  modFeat or modAbility have identified the Ability (either one
-	 * already owned by the PC, or a clone of the Globals copy.  They have added
-	 * the Ability to the character, this method ensures that all necessary
-	 * adjustments (choices to add etc.) are made.
-	 *
-	 * @param   ability
-	 * @param   choice
-	 * @param   aPC
-	 * @param   category The AbilityCategory to add or remove the ability from.
-	 */
-	public static void finaliseAbility(
-			final Ability         ability,
-			final String          choice,
-			final PlayerCharacter aPC,
-			final AbilityCategory category)
-	{
-		// how many sub-choices to make
-		double abilityCount = (aPC.getSelectCorrectedAssociationCount(ability) * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-
-		boolean adjustedAbilityPool = false;
-
-		// adjust the associated List
-		if ("".equals(choice) || choice == null)
-		{
-			// Get modChoices to adjust the associated list and Feat Pool
-			adjustedAbilityPool = ChooserUtilities.modChoices(
-			ability,
-			new ArrayList(),
-			new ArrayList(),
-			aPC,
-			true,
-			category);
-		}
-		else
-		{
-			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(ability, aPC);
-			add(cm, aPC, ability, choice);
-		}
-
-		/* 
-		 * This modifyChoice method is a bit like mod choices, but it uses a
-		 * different tag to set the chooser string.
-		 */
-		TransitionChoice<Ability> mc = ability.get(ObjectKey.MODIFY_CHOICE);
-		if (mc != null)
-		{
-			mc.act(mc.driveChoice(aPC), ability, aPC);
-		}
-
-		for (TransitionChoice<Kit> kit : ability.getSafeListFor(ListKey.KIT_CHOICE))
-		{
-			kit.act(kit.driveChoice(aPC), ability, aPC);
-		}
-
-		// if no sub choices made (i.e. all of them removed in Chooser box),
-		// then remove the Feat
-		boolean removed = false;
-		boolean result  = ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) ? aPC.hasAssociations(ability) : true ; 
-
-		if (! result)
-		{
-			removed = aPC.removeRealAbility(category, ability);
-			CDOMObjectUtilities.removeAdds(ability, aPC);
-			CDOMObjectUtilities.restoreRemovals(ability, aPC);
-		}
-
-		if (!adjustedAbilityPool && (category == AbilityCategory.FEAT))
-		{
-			adjustPool(ability, aPC, true, abilityCount, removed);
-		}
-
-		aPC.adjustMoveRates();
-
-		if (!aPC.isImporting())
-		{
-			AddObjectActions.globalChecks(ability, aPC);
-			/*
-			 * Protection for CODE-1240. Note the better solution is when facets
-			 * are association aware and thus trigger a change when an
-			 * association is added. - thpr
-			 */
-			aPC.calcActiveBonuses();
-			aPC.refreshSkillList();
-		}
-	}
-
-	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
-	{
-		CNAbility cna = cnas.getCNAbility();
-		Ability ability = cna.getAbility();
-		// how many sub-choices to make
-		double abilityCount =
-				(aPC.getSelectCorrectedAssociationCount(ability) * ability
-					.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-
-		ChoiceManagerList cm =
-				ChooserUtilities.getChoiceManager(ability, aPC);
-		if (cm != null)
-		{
-			add(cm, aPC, ability, cnas.getSelection());
-		}
-
-		/*
-		 * This modifyChoice method is a bit like mod choices, but it uses a
-		 * different tag to set the chooser string.
-		 */
-		TransitionChoice<Ability> mc = ability.get(ObjectKey.MODIFY_CHOICE);
-		if (mc != null)
-		{
-			mc.act(mc.driveChoice(aPC), ability, aPC);
-		}
-
-		for (TransitionChoice<Kit> kit : ability
-			.getSafeListFor(ListKey.KIT_CHOICE))
-		{
-			kit.act(kit.driveChoice(aPC), ability, aPC);
-		}
-
-		if (cna.getAbilityCategory() == AbilityCategory.FEAT)
-		{
-			adjustPool(ability, aPC, true, abilityCount, false);
-		}
-
-		aPC.adjustMoveRates();
-
-		if (!aPC.isImporting())
-		{
-			AddObjectActions.globalChecks(ability, aPC);
-			/*
-			 * Protection for CODE-1240. Note the better solution is when facets
-			 * are association aware and thus trigger a change when an
-			 * association is added. - thpr
-			 */
-			aPC.calcActiveBonuses();
-			aPC.refreshSkillList();
-		}
 	}
 
 	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
@@ -276,32 +88,7 @@ public class AbilityUtilities
 
 			abilityCount -= (listSize * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
 		}
-
 		aPC.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(abilityCount));
-	}
-
-	/**
-	 * Add an Ability to a character, allowing sub-choices if necessary. Always adds
-	 * weapon proficiencies, either a single choice if addAll is false, or all
-	 * possible choices if addAll is true.
-	 * @param   aPC                       the PC to add or remove the Feat from
-	 * @param   argAbility                The ability to process
-	 * @param   choice                    For an isMultiples() Ability
-	 * @param   category The AbilityCategory to add or remove the ability from.
-	 */
-	public static void modAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
-	{
-		if (!aPC.isImporting())
-		{
-			aPC.getSpellList();
-		}
-
-		CNAbility cna = cnas.getCNAbility();
-		Ability pcAbility =
-				aPC.addAbilityNeedCheck(cna.getAbilityCategory(),
-					cna.getAbility());
-		cna.doMagicalAndEvilThings(pcAbility);
-		finaliseAbility(aPC, cnas);
 	}
 
 	public static Ability retrieveAbilityKeyed(AbilityCategory aCat,
@@ -450,5 +237,89 @@ public class AbilityUtilities
 			}
 		}
 		return a;
+	}
+
+	public static void driveChooseAndAdd(CNAbility cna, PlayerCharacter pc,
+		boolean toAdd)
+	{
+		Ability ability = cna.getAbility();
+		if (!ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			CNAbilitySelection cnas = new CNAbilitySelection(cna);
+			if (toAdd)
+			{
+				pc.addAbility(cnas, UserSelection.getInstance(),
+					UserSelection.getInstance());
+			}
+			else
+			{
+				pc.removeAbility(cnas, UserSelection.getInstance(),
+					UserSelection.getInstance());
+			}
+		}
+		AbilityCategory category = (AbilityCategory) cna.getAbilityCategory();
+		// how many sub-choices to make
+		ArrayList<String> reservedList = new ArrayList<String>();
+
+		ChoiceManagerList<?> aMan =
+				ChooserUtilities.getConfiguredController(ability, pc, category,
+					reservedList);
+		if (aMan != null)
+		{
+			processSelection(pc, cna, aMan, toAdd);
+			return;
+		}
+		//TODO Log error? (or MULT:NO?)
+	}
+
+	private static <T> void processSelection(
+		PlayerCharacter pc, CNAbility cna, ChoiceManagerList<T> aMan, boolean toAdd)
+	{
+		ArrayList<T> availableList = new ArrayList<T>();
+		ArrayList<T> selectedList = new ArrayList<T>();
+		aMan.getChoices(pc, availableList, selectedList);
+
+		if (availableList.size() == 0 && selectedList.size() == 0)
+		{
+			//TODO Log error? (ignored choice?)
+			return;
+		}
+
+		List<T> origSelections = new ArrayList<T>(selectedList);
+		List<T> removedSelections = new ArrayList<T>(selectedList);
+		ArrayList<String> reservedList = new ArrayList<String>();
+
+		List<T> newSelections;
+		if (toAdd)
+		{
+			newSelections =
+					aMan.doChooser(pc, availableList, selectedList,
+						reservedList);
+		}
+		else
+		{
+			newSelections =
+					aMan.doChooserRemove(pc, availableList, selectedList,
+						reservedList);
+		}
+
+		//Need to use only the new ones
+		removedSelections.removeAll(newSelections);
+		newSelections.removeAll(origSelections);
+
+		for (T sel : newSelections)
+		{
+			String selection = aMan.encodeChoice(sel);
+			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
+			pc.addAbility(cnas, UserSelection.getInstance(),
+				UserSelection.getInstance());
+		}
+		for (T sel : removedSelections)
+		{
+			String selection = aMan.encodeChoice(sel);
+			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
+			pc.removeAbility(cnas, UserSelection.getInstance(),
+				UserSelection.getInstance());
+		}
 	}
 }

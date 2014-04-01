@@ -93,14 +93,14 @@ public class StatListTest extends AbstractCharacterTestCase
 		assertEquals("Starting STR should be 6", 6, pc.getBaseStatFor(str));
 
 		// Bonus should not affect base stat
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, bonus);
+		addAbility(AbilityCategory.FEAT, bonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should still be base", 6, pc.getBaseStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getBaseStatFor(str));
 
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, lockedBonus);
+		addAbility(AbilityCategory.FEAT, lockedBonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should still be locked", 12, pc.getBaseStatFor(str));
 		
@@ -118,14 +118,14 @@ public class StatListTest extends AbstractCharacterTestCase
 		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
 
 		// Bonus should affect total stat
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, bonus);
+		addAbility(AbilityCategory.FEAT, bonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should have bonus", 13, pc.getTotalStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getTotalStatFor(str));
 
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, lockedBonus);
+		addAbility(AbilityCategory.FEAT, lockedBonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should be locked but bonused", 15, pc.getTotalStatFor(str));
 

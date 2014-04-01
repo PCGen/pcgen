@@ -95,7 +95,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		PCTemplate template = create(PCTemplate.class, "MyTemplate");
 		finishLoad();
-		runWriteRead();
+		runWriteRead(false);
 		pc.addTemplate(template);
 		pc.removeTemplate(template);
 		checkEquality();
@@ -113,7 +113,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testSpellBookAddRemove()
 	{
 		finishLoad();
-		runWriteRead();
+		runWriteRead(false);
 		pc.addSpellBook("MyBook");
 		pc.delSpellBook("MyBook");
 		checkEquality();
@@ -184,7 +184,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		pc.addClass(cl);
 		pc.incrementClassLevel(1, cl);
 		pc.setHP(pc.getActiveClassLevel(cl, 0), 4);
-		runWriteRead();
+		runWriteRead(false);
 		//TODO need this to create the spell support :/
 		reloadedPC.getSpellSupport(cl);
 		checkEquality();

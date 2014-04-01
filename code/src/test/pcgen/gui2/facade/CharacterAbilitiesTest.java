@@ -28,7 +28,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -75,7 +74,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		
 		// Add an entry - note rebuild is implicit
 		Ability fencing = TestHelper.makeAbility("fencing", AbilityCategory.FEAT, "sport");
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, fencing);
+		addAbility(AbilityCategory.FEAT, fencing);
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
@@ -105,14 +104,14 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		ParseResult pr = st.parseToken(Globals.getContext(), reading, "STRING|Magazines|Books");
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, reading);
+		applyAbility(pc, AbilityCategory.FEAT, reading, "Books");
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
 		assertEquals("Should have found reading", reading, abilityFromList);
 
 		// Now add the choice
-		AbilityUtilities.finaliseAbility(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
+		finalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
 		ca.rebuildAbilityLists();
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
 		assertEquals("Feat list should have one entry", 1, abilities.getSize());

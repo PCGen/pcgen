@@ -106,7 +106,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		List<Aspect> ageList = new ArrayList<Aspect>();
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, ab1);
+		addAbility(AbilityCategory.FEAT, ab1);
 
 		TestHelper.makeSkill("Bluff", "Charisma", cha, true,
 			SkillArmorCheck.NONE);
@@ -122,9 +122,8 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
-		Ability ability = character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ability, "KEY_Bluff");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, ability, "KEY_Listen");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocus, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocus, "KEY_Listen");
 		character.calcActiveBonuses();
 	}
 

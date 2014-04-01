@@ -110,8 +110,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{
-				Ability g = pc.getAbilityKeyed(AbilityCategory.FEAT, "Granted");
-				boolean c = assocCheck.check(g);
+				boolean c = assocCheck.check(a);
 				if (!c)
 				{
 					System.err.println("Incorrect Associations");

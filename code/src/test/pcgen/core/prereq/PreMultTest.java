@@ -199,35 +199,35 @@ public class PreMultTest extends AbstractCharacterTestCase
 		int passes = test.passes(prereq, character, null);
 		assertEquals("No feats should not pass", 0, passes);
 
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, metamagic1);
+		addAbility(AbilityCategory.FEAT, metamagic1);
 		passes = test.passes(prereq, character, null);
 		assertEquals("One feat should not pass", 0, passes);
 
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, metamagic2);
+		addAbility(AbilityCategory.FEAT, metamagic2);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Two feats should not pass", 0, passes);
 
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, metamagic3);
+		addAbility(AbilityCategory.FEAT, metamagic3);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
-		character.removeRealAbility(AbilityCategory.FEAT, metamagic3);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, item1);
+		removeAbility(AbilityCategory.FEAT, metamagic3);
+		addAbility(AbilityCategory.FEAT, item1);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Three feats should pass", 1, passes);
 
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, item2);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, item3);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, metamagic3);
+		addAbility(AbilityCategory.FEAT, item2);
+		addAbility(AbilityCategory.FEAT, item3);
+		addAbility(AbilityCategory.FEAT, metamagic3);
 		passes = test.passes(prereq, character, null);
 		assertEquals("Six feats should pass", 1, passes);
 
-		character.removeRealAbility(AbilityCategory.FEAT, metamagic3);
-		character.removeRealAbility(AbilityCategory.FEAT, item3);
-		character.removeRealAbility(AbilityCategory.FEAT, item2);
-		character.removeRealAbility(AbilityCategory.FEAT, item1);
-		character.removeRealAbility(AbilityCategory.FEAT, metamagic2);
-		character.removeRealAbility(AbilityCategory.FEAT, metamagic1);
+		removeAbility(AbilityCategory.FEAT, metamagic3);
+		removeAbility(AbilityCategory.FEAT, item3);
+		removeAbility(AbilityCategory.FEAT, item2);
+		removeAbility(AbilityCategory.FEAT, item1);
+		removeAbility(AbilityCategory.FEAT, metamagic2);
+		removeAbility(AbilityCategory.FEAT, metamagic1);
 	}
 
 	/**

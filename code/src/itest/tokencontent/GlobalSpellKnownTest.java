@@ -23,7 +23,7 @@ import java.util.Map;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
-import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -143,8 +143,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, source,
-					Nature.AUTOMATIC));
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");

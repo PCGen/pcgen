@@ -66,8 +66,6 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
-
 		// Make some ability categories and add them to the game mode
 		AbilityCategory bardCategory = Globals.getContext().ref
 				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
@@ -75,19 +73,19 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, ab1);
+		addAbility(AbilityCategory.FEAT, ab1);
 
 		Ability ab2 = TestHelper.makeAbility("Perform (Dance)", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbilityNeedCheck(bardCategory, ab2);
+		addAbility(bardCategory, ab2);
 
 		Ability ab3 = TestHelper.makeAbility("Perform (Oratory)", AbilityCategory.FEAT, "General.Fighter");
 		ab3.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, ab3);
+		addAbility(AbilityCategory.FEAT, ab3);
 
 		Ability ab4 = TestHelper.makeAbility("Silent Step", AbilityCategory.FEAT, "General");
 		ab4.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, ab4);
+		addAbility(AbilityCategory.FEAT, ab4);
 	}
 
 	/**
@@ -137,11 +135,11 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		Ability ab5 = TestHelper.makeAbility("Silent Step (Greater)", AbilityCategory.FEAT, "General");
 		ab5.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab5.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
-		character.addAbilityNeedCheck(featCategory, ab5);
+		addAbility(featCategory, ab5);
 
         Ability ab6 = TestHelper.makeAbility("Perform (Fiddle)", AbilityCategory.FEAT, "Bardic");
         ab6.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
-        character.addAbilityNeedCheck(featCategory, ab6);
+        addAbility(featCategory, ab6);
 
 
         is(character

@@ -21,7 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
-import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -51,8 +51,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, source,
-					Nature.AUTOMATIC));
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());

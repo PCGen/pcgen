@@ -29,7 +29,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -111,19 +110,20 @@ public class CountCommandTest extends AbstractCharacterTestCase
         AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "one");
         AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "two");
 
-		for (int i = 0;6 > i;i++) {
+        addAbility(AbilityCategory.FEAT, abArray[0]);
+		for (int i = 2;6 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
+            addAbility(AbilityCategory.FEAT, anAbility);
         }
 
         for (int i = 6;12 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbilityNeedCheck(bardCategory, anAbility);
+            addAbility(bardCategory, anAbility);
         }
 
         for (int i = 12;14 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbilityNeedCheck(clericalCategory, anAbility);
+            addAbility(clericalCategory, anAbility);
         }
 
 
@@ -457,19 +457,18 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
-		Ability clone = character.addAbilityNeedCheck(gCat, ab);
-		AbilityCategory category = AbilityCategory.FEAT;
-		AbilityUtilities.finaliseAbility(clone, "munch", character, category);
+		AbilityCategory category = gCat;
+		finalize(ab, "munch", character, category);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
 
-		AbilityUtilities.finaliseAbility(clone, "devour", character, category);
+		finalize(ab, "devour", character, category);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
 
-		AbilityUtilities.finaliseAbility(clone, "nibble", character, category);
-		assertEquals(3, character.getDetailedAssociationCount(clone));
+		finalize(ab, "nibble", character, category);
+		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");

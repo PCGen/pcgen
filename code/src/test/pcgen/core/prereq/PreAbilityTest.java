@@ -76,7 +76,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -107,7 +107,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test bardic match with an ability.", PrereqHandler.passes(
 			prereq2, character, null));
@@ -145,7 +145,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -183,7 +183,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test fighter type match with no abilities.", PrereqHandler
 			.passes(prereq3, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
 			.passes(prereq, character, null));
@@ -228,7 +228,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test any match with an ability.", PrereqHandler.passes(
 			prereq, character, null));
@@ -268,7 +268,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test fighter type match with no abilities.", PrereqHandler
 			.passes(prereq3, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test general type  match with an ability.", PrereqHandler
 			.passes(prereq, character, null));
@@ -304,7 +304,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
 			prereq3, character, null));
 
-		character.addAbilityNeedCheck(TestHelper.getAbilityCategory(ab2), ab2);
+		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
 		assertTrue("Test bardic match with an ability.", PrereqHandler.passes(
 			prereq2, character, null));

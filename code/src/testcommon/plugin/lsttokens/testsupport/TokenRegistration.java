@@ -23,6 +23,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import pcgen.core.bonus.BonusObj;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.persistence.lst.TokenStore;
@@ -74,6 +76,18 @@ public class TokenRegistration
 			{
 				TokenLibrary.addToPrimitiveMap((PrimitiveToken<?>) token);
 			}
+		}
+	}
+
+	public static Set<Token> exportSet = new HashSet<Token>();
+
+	public static void register(Token token)
+		throws PersistenceLayerException
+	{
+		if (!exportSet.contains(token))
+		{
+			exportSet.add(token);
+			ExportHandler.addToTokenMap(token);
 		}
 	}
 

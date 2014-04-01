@@ -17,10 +17,10 @@
  */
 package tokenmodel.testsupport;
 
-import pcgen.core.Ability;
+import pcgen.cdom.content.CNAbility;
 
 public interface AssocCheck
 {
 
-	boolean check(Ability g);
+	boolean check(CNAbility g);
 }

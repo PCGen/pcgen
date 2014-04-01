@@ -367,7 +367,12 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 
 	protected void runRoundRobin(Runnable preEqualityCleanup)
 	{
-		runWriteRead();
+		runRoundRobin(preEqualityCleanup, false);
+	}
+
+	protected void runRoundRobin(Runnable preEqualityCleanup, boolean dump)
+	{
+		runWriteRead(dump);
 		if (preEqualityCleanup != null)
 		{
 			preEqualityCleanup.run();
@@ -382,11 +387,12 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 			reloadedPC.getCharID(), it));
 	}
 
-	protected void runWriteRead()
+	protected void runWriteRead(boolean dump)
 	{
 		GameMode mode = SettingsHandler.getGame();
 		String pcgString =
 				(new PCGVer2Creator(pc, mode, null)).createPCGString();
+		if (dump) System.err.println(pcgString);
 		InputStream is = new ByteArrayInputStream(pcgString.getBytes());
 		PCGIOHandler ioh = new PCGIOHandler();
 		ioh.read(reloadedPC, is, true);

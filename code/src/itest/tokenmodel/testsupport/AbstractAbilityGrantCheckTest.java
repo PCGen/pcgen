@@ -17,12 +17,13 @@
  */
 package tokenmodel.testsupport;
 
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
@@ -239,11 +240,9 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	private void applyParent(Ability parent)
 	{
-		CNAbility cna = new CNAbility(AbilityCategory.FEAT, parent, Nature.NORMAL);
+		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, parent);
 		CNAbilitySelection cnas = new CNAbilitySelection(cna);
-		AbilityUtilities.modAbility(pc, cnas);
-//		pc.addAppliedAbility(new CategorizedAbilitySelection(
-//			AbilityCategory.FEAT, parent, Nature.NORMAL));
+		pc.addAbility(cnas, UserSelection.getInstance(), this);
 	}
 
 	public void generic()

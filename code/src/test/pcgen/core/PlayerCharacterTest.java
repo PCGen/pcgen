@@ -1058,7 +1058,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		CharacterDisplay display = pc.getDisplay();
 		
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, ab);
+		addAbility(AbilityCategory.FEAT, ab);
 		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
 				CompanionList.class, "Mount");
 		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
@@ -1075,7 +1075,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
 		assertTrue("Initially mount list should be empty", fo.isEmpty());
 		
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, mab);
+		addAbility(AbilityCategory.FEAT, mab);
 		fo = display.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Familiar list should still be empty", fo.isEmpty());
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
@@ -1083,7 +1083,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 		
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, fab);
+		addAbility(AbilityCategory.FEAT, fab);
 		fo = display.getAvailableFollowers("Familiar", null).keySet();
 		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
 		assertEquals("Familiar should be the human race", human.getKeyName(), fo.iterator().next().getRace().getKeyName());
@@ -1167,7 +1167,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(0.0, display.movementOfType("Swim"), 0.1);
 		assertEquals(0.0, display.movementOfType("Fly"), 0.1);
 
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, quickFlySlowSwim);
+		addAbility(AbilityCategory.FEAT, quickFlySlowSwim);
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();
 		assertEquals(10.0, display.movementOfType("Swim"), 0.1);

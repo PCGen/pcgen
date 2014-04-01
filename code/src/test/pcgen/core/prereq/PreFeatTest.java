@@ -69,12 +69,12 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final Ability powerAttack = new Ability();
 		powerAttack.setName("Power Attack");
 		powerAttack.setCDOMCategory(AbilityCategory.FEAT);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, powerAttack);
+		addAbility(AbilityCategory.FEAT, powerAttack);
 		
 		final Ability cleave = new Ability();
 		cleave.setName("Cleave");
 		cleave.setCDOMCategory(AbilityCategory.FEAT);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, cleave);
+		addAbility(AbilityCategory.FEAT, cleave);
 		
 		final Prerequisite prePA = new Prerequisite();
 		prePA.setKind("FEAT");
@@ -126,8 +126,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		focusFeat.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.getContext().unconditionallyProcess(focusFeat, "CHOOSE", "WEAPONPROFICIENCY|ALL");
 		Globals.getContext().unconditionallyProcess(focusFeat, "MULT", "YES");
-		Ability pcFocusFeat = character.addAbilityNeedCheck(AbilityCategory.FEAT, focusFeat);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, pcFocusFeat, "Rapier");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, focusFeat, "Rapier");
 
 		final Prerequisite preFeat = new Prerequisite();
 		preFeat.setKind("FEAT");
@@ -168,7 +167,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
 		armourProf.setCDOMCategory(AbilityCategory.FEAT);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, armourProf);
+		addAbility(AbilityCategory.FEAT, armourProf);
 
 		final Prerequisite preArmour = new Prerequisite();
 		preArmour.setKind("FEAT");
@@ -194,8 +193,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(spellFocus, "CHOOSE", "SCHOOLS|ALL");
 		Globals.getContext().ref.constructCDOMObject(SpellSchool.class, "Conjuration");
 		Globals.getContext().unconditionallyProcess(spellFocus, "MULT", "YES");
-		Ability pcSpellFocus = character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, pcSpellFocus, "Conjuration");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, spellFocus, "Conjuration");
 
 		final Prerequisite preSpellFocus = new Prerequisite();
 		preSpellFocus.setKind("FEAT");
@@ -237,7 +235,6 @@ public class PreFeatTest extends AbstractCharacterTestCase
 				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, spellFocus, "Evocation");
 
 		final Prerequisite preSpellFocus = new Prerequisite();
@@ -280,14 +277,13 @@ public class PreFeatTest extends AbstractCharacterTestCase
 				"Spell Focus	TYPE:FeatTest	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
 		final FeatLoader featLoader = new FeatLoader();
 		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, spellFocus, "Evocation");
 
 		final Ability armourProf = new Ability();
 		armourProf.setName("Armor Proficiency (Light)");
 		armourProf.setCDOMCategory(AbilityCategory.FEAT);
 		armourProf.addToListFor(ListKey.TYPE, Type.getConstant("WPNPROF"));
-		character.addAbilityNeedCheck(AbilityCategory.FEAT, armourProf);
+		addAbility(AbilityCategory.FEAT, armourProf);
 
 		PreFeatParser parser = new PreFeatParser();
 
@@ -352,8 +348,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass without skill focus", passes);
 
-		Ability pcFeat = character.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocusKnow);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, pcFeat, "Knowledge (Arcana)");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocusKnow, "Knowledge (Arcana)");
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with skill focus", passes);
 
@@ -383,13 +378,12 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass without spell focus", passes);
 
-		Ability pcFeat = character.addAbilityNeedCheck(AbilityCategory.FEAT, spellFocus);
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, pcFeat, "Evocation");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, spellFocus, "Evocation");
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass with only one spell focus", passes);
 
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, pcFeat, "Enchantment");
+		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, spellFocus, "Enchantment");
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass with spell focus", passes);

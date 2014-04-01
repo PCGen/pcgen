@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
@@ -75,13 +76,13 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 		Object sel = getAssoc();
 		templateInputFacet.directAdd(id, source, sel);
 		assertTrue(containsExpected());
-		assertEquals(1, directAbilityFacet.getCount(id));
+		assertEquals(1, directAbilityFacet.size(id));
 		templateInputFacet.remove(id, source);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 	}
 
 	@Test
@@ -123,15 +124,14 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(0, directAbilityFacet.size(id));
 		CNAbilitySelection cas =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, source,
-					Nature.AUTOMATIC), "English");
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "English");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
-		assertEquals(2, directAbilityFacet.getCount(id));
-		directAbilityFacet.remove(id, cas);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		assertEquals(2, directAbilityFacet.size(id));
+		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
+		assertEquals(0, directAbilityFacet.size(id));
 	}
 
 	@Override

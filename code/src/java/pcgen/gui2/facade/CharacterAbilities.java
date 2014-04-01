@@ -32,7 +32,6 @@ import java.util.Set;
 
 import javax.swing.SwingUtilities;
 
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -53,7 +52,6 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
@@ -418,11 +416,8 @@ public class CharacterAbilities
 
 			theCharacter.getSpellList();
 
-			Ability pcAbility =
-					theCharacter.addAbilityNeedCheck(category, ability);
-				
-			AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
-					theCharacter, category);
+			AbilityUtilities.driveChooseAndAdd(new CNAbility(category, ability,
+				Nature.NORMAL), theCharacter, true);
 		}
 		catch (Exception exc)
 		{
@@ -477,49 +472,8 @@ public class CharacterAbilities
 
 			if (pcAbility != null)
 			{
-				// how many sub-choices to make
-				double abilityCount =
-						(theCharacter
-							.getSelectCorrectedAssociationCount(pcAbility) * pcAbility
-							.getSafe(ObjectKey.SELECTION_COST).doubleValue());
-
-				boolean adjustedAbilityPool = false;
-
-				// adjust the associated List
-				if (pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-				{
-					// Get modChoices to adjust the associated list and Feat Pool
-					adjustedAbilityPool =
-							ChooserUtilities.modChoices(pcAbility,
-								new ArrayList<String>(),
-								new ArrayList<String>(), theCharacter, false,
-								theCategory);
-				}
-
-				// if no sub choices made (i.e. all of them removed in Chooser box),
-				// then remove the Feat
-				boolean removed = false;
-				boolean result =
-						pcAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED)
-							? theCharacter.hasAssociations(pcAbility) : false;
-
-				if (!result)
-				{
-					removed =
-							theCharacter.removeRealAbility(theCategory,
-								pcAbility);
-					CDOMObjectUtilities.removeAdds(pcAbility, theCharacter);
-					CDOMObjectUtilities
-						.restoreRemovals(pcAbility, theCharacter);
-				}
-
-				if (!adjustedAbilityPool
-					&& (theCategory == AbilityCategory.FEAT))
-				{
-					AbilityUtilities.adjustPool(pcAbility, theCharacter, false,
-						abilityCount, removed);
-				}
-
+				CNAbility cna = new CNAbility(theCategory, pcAbility, Nature.NORMAL);
+				AbilityUtilities.driveChooseAndAdd(cna, theCharacter, false);
 				theCharacter.adjustMoveRates();
 			}
 		}

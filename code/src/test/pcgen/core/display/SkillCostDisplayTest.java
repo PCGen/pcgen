@@ -138,13 +138,12 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		assertEquals("Initial state", "", SkillCostDisplay.getModifierExplanation(
 			bluff, pc, false));
 
-		Ability sf = pc.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
-		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, sf, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, skillFocus, "KEY_Bluff");
 		pc.calcActiveBonuses();
 		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
 			SkillCostDisplay.getModifierExplanation(bluff, pc, false));
 
-		pc.addAbilityNeedCheck(AbilityCategory.FEAT, persuasive);
+		addAbility(AbilityCategory.FEAT, persuasive);
 		String modifierExplanation = SkillCostDisplay
 			.getModifierExplanation(bluff, pc, false);
 		// Have to account for random order of the bonuses. 

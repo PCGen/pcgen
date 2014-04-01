@@ -93,7 +93,7 @@ public class AddTargetedVFeatTest extends AbstractAddListTokenTest<Ability>
 				Ability g = pc.getAbilityKeyed(AbilityCategory.FEAT, "Granted");
 				if (pc.getDetailedAssociationCount(g) == 1)
 				{
-					if (!pc.getAssociationList(g).get(0).equals("English"))
+					if (!pc.getAssociationList(a).get(0).equals("English"))
 					{
 						continue;
 					}

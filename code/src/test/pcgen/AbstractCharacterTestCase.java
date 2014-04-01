@@ -9,7 +9,9 @@ package pcgen;
 import java.util.Collection;
 
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -18,7 +20,6 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -318,11 +319,49 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		return false;
 	}
 
-	public static void applyAbility(PlayerCharacter character,
+	public static CNAbility applyAbility(PlayerCharacter character,
 		AbilityCategory cat, Ability a, String assoc)
 	{
-		CNAbility cna = new CNAbility(cat, a, Nature.NORMAL);
-		AbilityUtilities.modAbility(character, new CNAbilitySelection(cna, assoc));
+		if (a.getCDOMCategory() == null)
+		{
+			fail("Attempt to apply an Ability " + a.getKeyName()
+				+ " that never received a Category");
+		}
+		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
+		CNAbilitySelection cnas = new CNAbilitySelection(cna, assoc);
+		character.addAbility(cnas, UserSelection.getInstance(),
+			UserSelection.getInstance());
+		return cna;
 	}
 
+	protected void addAbility(AbilityCategory cat, Ability a)
+	{
+		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			fail("addAbility takes Mult:NO Abilities");
+		}
+		applyAbility(character, cat, a, null);
+	}
+
+	protected void removeAbility(AbilityCategory cat, Ability a)
+	{
+		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			fail("addAbility takes Mult:NO Abilities");
+		}
+		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
+		character.removeAbility(new CNAbilitySelection(cna, null),
+			UserSelection.getInstance(), UserSelection.getInstance());
+	}
+
+	protected Ability addMultYesAbility(AbilityCategory cat, Ability a)
+	{
+		return a;
+	}
+	
+	protected CNAbility finalize(Ability a, String string,
+		PlayerCharacter pc, AbilityCategory cat)
+	{
+		return applyAbility(pc, cat, a, string);
+	}
 }

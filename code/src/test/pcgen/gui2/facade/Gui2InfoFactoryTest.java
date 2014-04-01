@@ -26,7 +26,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -66,17 +65,15 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
-		Ability pcAbility =
-				pc.addAbilityNeedCheck(AbilityCategory.FEAT, choiceAbility);
-		AbilityUtilities.finaliseAbility(pcAbility, "Perception", pc,
+		finalize(choiceAbility, "Perception", pc,
 			AbilityCategory.FEAT);
 		assertEquals("Incorrect single choice", "Perception",
-			ca.getChoices(pcAbility));
+			ca.getChoices(choiceAbility));
 
-		AbilityUtilities.finaliseAbility(pcAbility, "Acrobatics", pc,
+		finalize(choiceAbility, "Acrobatics", pc,
 			AbilityCategory.FEAT);
 		assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
-			ca.getChoices(pcAbility));
+			ca.getChoices(choiceAbility));
 	}
 	
 	/* (non-Javadoc)

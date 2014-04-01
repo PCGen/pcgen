@@ -69,7 +69,7 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().getCount(id);
+		return getTargetFacet().size(id);
 	}
 
 	@Override

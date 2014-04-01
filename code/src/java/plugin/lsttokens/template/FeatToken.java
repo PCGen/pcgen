@@ -155,13 +155,16 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
 			PlayerCharacter pc)
 	{
-		double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST)
-				.doubleValue();
-		if (cost > 0.0001)
+		if (!pc.isImporting())
 		{
-			pc.adjustFeats(cost);
+			double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST)
+					.doubleValue();
+			if (cost > 0.0001)
+			{
+				pc.adjustFeats(cost);
+			}
+			pc.addAbility(choice, owner, this);
 		}
-		AbilityUtilities.modAbility(pc, choice);
 		pc.addTemplateFeat(owner, choice);
 	}
 
@@ -199,6 +202,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		CNAbilitySelection choice)
 	{
+		Thread.dumpStack();
 		// No action required
 	}
 
@@ -220,10 +224,9 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		// See if our choice is not auto or virtual
 		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
 				.getAbility(), Nature.NORMAL);
-
 		if (anAbility != null)
 		{
-			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
+			pc.removeAbility(choice, owner, this);
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			pc.adjustMoveRates();
@@ -238,7 +241,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		if (list != null && !list.isEmpty())
 		{
 			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
-					AbilityCategory.FEAT, list, Nature.AUTOMATIC);
+					AbilityCategory.FEAT, list, Nature.NORMAL);
 			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
 					getTokenName(), rcs);
 			cs.setTitle("Feat Choice");

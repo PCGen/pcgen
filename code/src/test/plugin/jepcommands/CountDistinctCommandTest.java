@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -113,19 +112,20 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
         AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "one");
         AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, abArray[1], "two");
 
-		for (int i = 0;6 > i;i++) {
+        addAbility(AbilityCategory.FEAT, abArray[0]);
+		for (int i = 2;6 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
+            addAbility(AbilityCategory.FEAT, anAbility);
         }
 
         for (int i = 6;12 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbilityNeedCheck(bardCategory, anAbility);
+            addAbility(bardCategory, anAbility);
         }
 
         for (int i = 12;14 > i;i++) {
             Ability anAbility = abArray[i];
-			character.addAbilityNeedCheck(clericalCategory, anAbility);
+            addAbility(clericalCategory, anAbility);
         }
 
 
@@ -469,16 +469,15 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
 		
 		Globals.getContext().unconditionallyProcess(ab, "CHOOSE", "STRING|munch|devour|nibble|ignore");
-		Ability pcAbility = character.addAbilityNeedCheck(gCat, ab);
-		AbilityUtilities.finaliseAbility(pcAbility, "munch", character, gCat);
+		finalize(ab, "munch", character, gCat);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
-		AbilityUtilities.finaliseAbility(pcAbility, "devour", character, gCat);
+		finalize(ab, "devour", character, gCat);
 		character.setDirty(true);
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
-		AbilityUtilities.finaliseAbility(pcAbility, "nibble", character, gCat);
-		assertEquals(3, character.getDetailedAssociationCount(pcAbility));
+		finalize(ab, "nibble", character, gCat);
+		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");

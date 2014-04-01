@@ -78,7 +78,6 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.AbilityUtilities;
 import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Campaign;
@@ -2596,13 +2595,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add("Unable to Find Ability: " + abilityKey);
 				return;
 			}
-			else if (abilityKey.charAt(0) != '*')
-			{
-				ability = ability.clone();
-			}
 		}
 
 		List<String> associations = new ArrayList<String>();
+		List<BonusObj> bonuses = new ArrayList<BonusObj>();
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -2625,7 +2621,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 					if (aBonus != null)
 					{
-						thePC.addSaveableBonus(aBonus, ability);
+						bonuses.add(aBonus);
 					}
 				}
 				else
@@ -2639,64 +2635,70 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		if (ability != null && category != null && nature != null)
 		{
+			CNAbility cna = null;
 			if (nature == Nature.NORMAL)
 			{
 				// If we weren't loading an old character who had feats stored as seperate
 				// lines, save the feat now.
 				if (!featsPresent || category != AbilityCategory.FEAT)
 				{
-					thePC.addAbility(category, ability);
+					cna = new CNAbility(category, ability, nature);
 				}
 			}
 			else if (nature == Nature.VIRTUAL)
 			{
-				if (!category.equals(AbilityCategory.LANGBONUS))
-				{
-					ability =
-							AbilityUtilities
-								.addCloneOfAbilityToVirtualListwithChoices(
-									thePC, ability, null, category);
-					if (ability == null)
-					{
-						Logging
-							.errorPrint("Failed to create virtual ability from line "
-								+ line);
-						final String msg =
-								LanguageBundle.getFormattedString(
-									"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
-									abilityKey);
-						warnings.add(msg);
-					}
-					else
-					{
-						thePC.addSavedAbility(ability);
-					}
-				}
+				cna = new CNAbility(category, ability, nature);
 			}
-			for (String appliedToKey : associations)
+			if (cna != null)
 			{
-				if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
-					.getSafe(ObjectKey.STACKS))
-					|| !thePC.containsAssociated(ability, appliedToKey))
+				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+ 				{
+					for (String appliedToKey : associations)
+ 					{
+						if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
+							.getSafe(ObjectKey.STACKS))
+							|| !thePC.containsAssociated(cna, appliedToKey))
+ 						{
+							String[] assoc =
+									appliedToKey.split(Constants.COMMA, -1);
+							for (String string : assoc)
+							{
+								CNAbilitySelection cnas =
+										new CNAbilitySelection(cna, string);
+								if (nature == Nature.VIRTUAL)
+								{
+									thePC.addSavedAbility(cnas,
+										UserSelection.getInstance(),
+										UserSelection.getInstance());
+								}
+								else
+								{
+									thePC.addAbility(cnas,
+										UserSelection.getInstance(),
+										UserSelection.getInstance());
+								}
+							}
+ 						}
+ 					}
+				}
+				else
 				{
-					ChoiceManagerList<Object> controller =
-							ChooserUtilities.getConfiguredController(ability,
-								thePC, category, new ArrayList<String>());
-					if (controller != null)
+					CNAbilitySelection cnas = new CNAbilitySelection(cna);
+					if (nature == Nature.VIRTUAL)
 					{
-						String[] assoc =
-								appliedToKey.split(Constants.COMMA, -1);
-						for (String string : assoc)
-						{
-							controller.restoreChoice(thePC, ability, string);
-						}
+						thePC.addSavedAbility(cnas,
+							UserSelection.getInstance(),
+							UserSelection.getInstance());
 					}
-					else
-					{
-						warnings
-							.add("Failed to find choose controller for ability "
-								+ ability);
-					}
+ 					else
+ 					{
+						thePC.addAbility(cnas, UserSelection.getInstance(),
+							UserSelection.getInstance());
+ 					}
+				}
+				for (BonusObj b : bonuses)
+				{
+					thePC.addSaveableBonus(b, cna.getAbility());
 				}
 			}
 		}
@@ -2754,10 +2756,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			Ability pcAbility =
-					thePC.addAbilityNeedCheck(AbilityCategory.FEAT, anAbility);
-			parseFeatsHandleAppliedToAndSaveTags(it, pcAbility);
-			featsPresent = (pcAbility != anAbility);
+			CNAbility pcAbility = new CNAbility(AbilityCategory.FEAT, anAbility, Nature.NORMAL);
+			if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			{
+				thePC.addAbility(new CNAbilitySelection(pcAbility),
+					UserSelection.getInstance(), UserSelection.getInstance());
+			}
+ 			parseFeatsHandleAppliedToAndSaveTags(it, pcAbility);
+ 			featsPresent = true;
 		}
 	}
 
@@ -2828,8 +2834,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	}
 
 	private void parseFeatsHandleAppliedToAndSaveTags(
-		final Iterator<PCGElement> it, final Ability aFeat)
+		final Iterator<PCGElement> it, final CNAbility cna)
 	{
+		Ability aFeat = cna.getAbility();
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -2842,25 +2849,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat
 					.getSafe(ObjectKey.STACKS))
-					|| !thePC.containsAssociated(aFeat, appliedToKey))
+					|| !thePC.containsAssociated(cna, appliedToKey))
 				{
-					ChoiceManagerList<Object> controller =
-							ChooserUtilities.getConfiguredController(aFeat,
-								thePC, AbilityCategory.FEAT, new ArrayList<String>());
-					if (controller != null)
+					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
+					for (String string : assoc)
 					{
-						String[] assoc =
-								appliedToKey.split(Constants.COMMA, -1);
-						for (String string : assoc)
+						CNAbilitySelection cnas =
+								new CNAbilitySelection(cna, string);
+						if (cna.getNature() == Nature.VIRTUAL)
 						{
-							controller.restoreChoice(thePC, aFeat, string);
+							thePC.addSavedAbility(cnas,
+								UserSelection.getInstance(),
+								UserSelection.getInstance());
 						}
-					}
-					else
-					{
-						warnings
-							.add("Failed to find choose controller for Feat "
-								+ aFeat);
+						else
+						{
+							thePC.addAbility(cnas, UserSelection.getInstance(),
+								UserSelection.getInstance());
+						}
 					}
 				}
 			}
@@ -4772,17 +4778,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				return;
 			}
-			anAbility =
-					AbilityUtilities.addCloneOfAbilityToVirtualListwithChoices(
-						thePC, anAbility, null, AbilityCategory.FEAT);
-			thePC.addSavedAbility(anAbility);
+			CNAbility cna = new CNAbility(AbilityCategory.FEAT, anAbility, Nature.VIRTUAL);
+			parseFeatsHandleAppliedToAndSaveTags(it, cna);
 			thePC.setDirty(true);
 		}
-
-		parseFeatsHandleAppliedToAndSaveTags(it, anAbility);
-
-		// TODO
-		// process all additional information
 	}
 
 	/**
@@ -6249,8 +6248,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		if (actor instanceof CNAbility)
 		{
-			thePC.addAppliedAbility(new CNAbilitySelection(langbonus,
-				l.getKeyName()), UserSelection.getInstance());
+			thePC.addSavedAbility(
+				new CNAbilitySelection(langbonus, l.getKeyName()),
+				UserSelection.getInstance(), UserSelection.getInstance());
 		}
 		else if (actor instanceof PersistentTransitionChoice)
 		{

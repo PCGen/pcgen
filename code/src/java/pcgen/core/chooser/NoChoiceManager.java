@@ -81,12 +81,12 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public void doChooserRemove(PlayerCharacter aPC,
+	public List<String> doChooserRemove(PlayerCharacter aPC,
 		List<String> availableList, List<String> selectedList,
 		List<String> reservedList)
 	{
 		selectedList.remove(0);
-		applyChoices(aPC, selectedList);
+		return selectedList;
 	}
 
 	protected void adjustPool(List<String> selected)
@@ -143,5 +143,10 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		String selection)
 	{
 		info.getChoiceActor().applyChoice(cdo, Constants.EMPTY_STRING, pc);
+	}
+
+	public String encodeChoice(String obj)
+	{
+		return info.encodeChoice(obj);
 	}
 }

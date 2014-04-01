@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 
@@ -29,4 +30,9 @@ import pcgen.cdom.helper.CNAbilitySelection;
 public class DirectAbilityFacet extends
 		AbstractSingleSourceListFacet<CNAbilitySelection, Object>
 {
+
+	public int size(CharID id)
+	{
+		return getCount(id);
+	}
 }

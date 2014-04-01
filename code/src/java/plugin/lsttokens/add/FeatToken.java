@@ -33,7 +33,9 @@ import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -295,7 +297,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			pc.adjustFeats(cost);
 		}
-		AbilityUtilities.modAbility(pc, choice);
+		pc.addAbility(choice, UserSelection.getInstance(),
+			UserSelection.getInstance());
 	}
 
 	@Override
@@ -342,33 +345,36 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		CNAbilitySelection choice)
 	{
-		if (!pc.isImporting())
+		CNAbility cna = choice.getCNAbility();
+		Ability anAbility = cna.getAbility();
+
+		boolean required = false;
+		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			pc.getSpellList();
-		}
-		
-		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
-				.getAbility(), Nature.NORMAL);
-		
-		if (anAbility != null)
-		{
-			if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+			required = true;
+			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
+			if (remove(cm, pc, anAbility, choice.getSelection()))
 			{
-				ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
-				remove(cm, pc, anAbility, choice.getSelection());
+				required = false;
 			}
-			pc.removeRealAbility(AbilityCategory.FEAT, anAbility);
+		}
+		if (!required)
+		{
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
+			pc.removeAbility(choice, UserSelection.getInstance(),
+				UserSelection.getInstance());
 			pc.adjustMoveRates();
 		}
 	}
 
-	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+	private static <T> boolean remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
 		CDOMObject obj, String choice)
 	{
 		T sel = aMan.decodeChoice(choice);
 		aMan.removeChoice(pc, obj, sel);
+		List<T> selected = new ArrayList<T>();
+		aMan.getChoices(pc, new ArrayList<T>(), selected);
+		return selected.isEmpty();
 	}
 }

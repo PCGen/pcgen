@@ -17,8 +17,8 @@
  */
 package tokenmodel.testsupport;
 
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.helper.CNAbilitySelection;
-import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 
 public class NoAssociations implements AssocCheck, CASAssocCheck
@@ -31,7 +31,7 @@ public class NoAssociations implements AssocCheck, CASAssocCheck
 		this.pc = pc;
 	}
 
-	public boolean check(Ability g)
+	public boolean check(CNAbility g)
 	{
 		if (pc.getDetailedAssociationCount(g) == 0)
 		{
