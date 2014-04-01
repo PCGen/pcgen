@@ -202,7 +202,6 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		CNAbilitySelection choice)
 	{
-		Thread.dumpStack();
 		// No action required
 	}
 
