@@ -32,6 +32,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.util.enumeration.View;
 
 /**
@@ -209,5 +210,22 @@ public class GrantedAbilityFacet extends
 		DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	public boolean hasAbilityInPool(CharID id, AbilityCategory cat)
+	{
+		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
+		if (map != null)
+		{
+			for (CNAbilitySelection cnas : map.keySet())
+			{
+				CNAbility cna = cnas.getCNAbility();
+				if (cna.getAbilityCategory().equals(cat))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

@@ -10958,4 +10958,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		cna.doMagicalAndEvilThings(contained);
 		return needClone;
 	}
+
+	public boolean hasAbilityInPool(AbilityCategory aCategory)
+	{
+		return abFacet.hasAbilityInPool(id, aCategory)
+				|| grantedAbilityFacet.hasAbilityInPool(id, aCategory);
+	}
 }

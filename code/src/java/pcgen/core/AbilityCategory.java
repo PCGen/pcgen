@@ -391,9 +391,20 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	{
 		if (visibility.equals(Visibility.QUALIFY))
 		{
+			/*
+			 * Note that hasAbilityVisibleTo is apparently not how data is
+			 * designed - the problem (in my opinion) being that either an
+			 * undocumented design change was made or a bug was being taken
+			 * advantage of and the data is now dependent upon that bug. This
+			 * reintroduces a wider behavior, but - again in my opinion -
+			 * decreases clarity over the definition of QUALIFIED and whether
+			 * the actual behavior aligns with the dictionary definition of the
+			 * word. - thpr Apr 5 '14
+			 */
 			return (pc == null)
 					|| pc.getTotalAbilityPool(this).floatValue() != 0.0
-					|| pc.hasAbilityVisibleTo(this, v);
+					|| pc.hasAbilityInPool(this);
+					//|| pc.hasAbilityVisibleTo(this, v);
 		}
 		return visibility.isVisibleTo(v);
 	}
