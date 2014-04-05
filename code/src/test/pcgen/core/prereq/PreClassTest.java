@@ -189,17 +189,17 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testCharWithMultipleSpellClasses() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
+		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
-		final PCClass pcClass2 = new PCClass();
-		pcClass2.setName("Other Class");
+		final PCClass pcClass2 = context.ref.constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 		setPCStat(character, cha, 12);
@@ -228,17 +228,17 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testFromParserCharWithMultipleSpellClasses() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = new PCClass();
-		pcClass.setName("MyClass");
+		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
-		final PCClass pcClass2 = new PCClass();
-		pcClass2.setName("Other Class");
+		final PCClass pcClass2 = context.ref.constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 		setPCStat(character, cha, 12);
@@ -374,10 +374,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcaster() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = new PCClass();
+		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 		setPCStat(character, cha, 12);
@@ -427,10 +429,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypePass() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = new PCClass();
+		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 		setPCStat(character, cha, 12);
@@ -454,10 +458,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypeWrongCasePass() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = new PCClass();
+		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);

@@ -2221,7 +2221,7 @@ BIO
 						<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Clr1, Community1, Pld1</sourcelevel>
+						<sourcelevel>Clr1</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.249</source>
 						<sourcepage>p.249</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -2250,7 +2250,7 @@ BIO
 						<fullschool>Evocation [Light]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd3, Clr3, Drd3, Pld3, Sor3, Wiz3</sourcelevel>
+						<sourcelevel>Clr3, Sor3</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.264</source>
 						<sourcepage>p.264</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -2308,7 +2308,7 @@ BIO
 						<fullschool>Divination</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Drd9, Knowledge9, Sor9, Wiz9</sourcelevel>
+						<sourcelevel>Sor9</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.285</source>
 						<sourcepage>p.285</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -2337,7 +2337,7 @@ BIO
 						<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd6, Charm6, Clr6, Nobility6, Sor6, Wiz6</sourcelevel>
+						<sourcelevel>Clr6, Sor6</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.288</source>
 						<sourcepage>p.288</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -2366,7 +2366,7 @@ BIO
 						<fullschool>Evocation [Light]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Drd8, Sor8, Sun8, Wiz8</sourcelevel>
+						<sourcelevel>Sor8</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.355</source>
 						<sourcepage>p.355</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -2406,7 +2406,7 @@ BIO
 							<fullschool>Conjuration (Creation) [Acid]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.239</source>
 							<sourcepage>p.239</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2435,7 +2435,7 @@ BIO
 							<fullschool>Conjuration (Creation) [Water]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp1, Clr0, Drd0, Pld1</sourcelevel>
+							<sourcelevel>Clr0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.262</source>
 							<sourcepage>p.262</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2464,7 +2464,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Clr0, Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2493,7 +2493,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Clr0, Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.268</source>
 							<sourcepage>p.268</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2522,7 +2522,7 @@ BIO
 							<fullschool>Evocation [Light]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.284</source>
 							<sourcepage>p.284</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2551,7 +2551,7 @@ BIO
 							<fullschool>Illusion (Figment)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.289</source>
 							<sourcepage>p.289</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2580,7 +2580,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.306</source>
 							<sourcepage>p.306</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2609,7 +2609,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Clr0, Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.312</source>
 							<sourcepage>p.312</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2638,7 +2638,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Sor0</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.317</source>
 							<sourcepage>p.317</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2669,7 +2669,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Rgr1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Sor1</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.240</source>
 							<sourcepage>p.240</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2698,7 +2698,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Artifice1, Brd1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Sor1</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.242</source>
 							<sourcepage>p.242</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2727,7 +2727,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Knowledge1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Clr1, Sor1</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2756,7 +2756,7 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Clr1, Drd1, Healing1, Pld1, Rgr2</sourcelevel>
+							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2816,7 +2816,7 @@ BIO
 							<fullschool>Conjuration (Creation) [Acid]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Sor2</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.239</source>
 							<sourcepage>p.239</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2845,7 +2845,7 @@ BIO
 							<fullschool>Transmutation (Polymorph)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Sor2</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.240</source>
 							<sourcepage>p.240</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2874,7 +2874,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Drd2, Rgr2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Sor2</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2903,7 +2903,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Clr2, Pld2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Clr2, Sor2</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.275</source>
 							<sourcepage>p.275</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2932,7 +2932,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd2, Sor2, Wiz2</sourcelevel>
+							<sourcelevel>Sor2</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.286</source>
 							<sourcepage>p.286</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2963,7 +2963,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor3, Wiz3</sourcelevel>
+							<sourcelevel>Sor3</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.244</source>
 							<sourcepage>p.244</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -2992,7 +2992,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd3, Sor3, Wiz3</sourcelevel>
+							<sourcelevel>Sor3</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.250</source>
 							<sourcepage>p.250</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3021,7 +3021,7 @@ BIO
 							<fullschool>Evocation [Fire]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Fire3, Sor3, Wiz3</sourcelevel>
+							<sourcelevel>Sor3</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.283</source>
 							<sourcepage>p.283</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3054,7 +3054,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor6, Wiz6</sourcelevel>
+							<sourcelevel>Sor6</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.290</source>
 							<sourcepage>p.290</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3083,7 +3083,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor6, Wiz6</sourcelevel>
+							<sourcelevel>Sor6</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.292</source>
 							<sourcepage>p.292</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3112,7 +3112,7 @@ BIO
 							<fullschool>Conjuration (Healing)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr6, Drd7, Healing6</sourcelevel>
+							<sourcelevel>Clr6</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.294</source>
 							<sourcepage>p.294</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3143,7 +3143,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor7, Wiz7</sourcelevel>
+							<sourcelevel>Sor7</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.244</source>
 							<sourcepage>p.244</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3172,7 +3172,7 @@ BIO
 							<fullschool>Conjuration (Teleportation)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor7, Travel7, Wiz7</sourcelevel>
+							<sourcelevel>Sor7</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.359</source>
 							<sourcepage>p.359</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3201,7 +3201,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor7, Wiz7</sourcelevel>
+							<sourcelevel>Sor7</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.365</source>
 							<sourcepage>p.365</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3232,7 +3232,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr8, Magic6, Protection6, Sor6, Wiz6</sourcelevel>
+							<sourcelevel>Clr8, Sor6</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.242</source>
 							<sourcepage>p.242</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3261,7 +3261,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Clr8, Sor8, Wiz8</sourcelevel>
+							<sourcelevel>Clr8, Sor8</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.270</source>
 							<sourcepage>p.270</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3290,7 +3290,7 @@ BIO
 							<fullschool>Evocation [Sonic]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd6, Sor8, Wiz8</sourcelevel>
+							<sourcelevel>Sor8</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.343</source>
 							<sourcepage>p.343</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3321,7 +3321,7 @@ BIO
 							<fullschool>Conjuration (Teleportation)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Rune9, Sor9, Wiz9</sourcelevel>
+							<sourcelevel>Sor9</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.359</source>
 							<sourcepage>p.359</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3350,7 +3350,7 @@ BIO
 							<fullschool>Universal</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor9, Wiz9</sourcelevel>
+							<sourcelevel>Sor9</sourcelevel>
 							<source>Paizo Inc. - Core Rulebook, p.370</source>
 							<sourcepage>p.370</sourcepage>
 							<sourceshort>CR</sourceshort>
@@ -3391,7 +3391,7 @@ BIO
 						<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Clr1, Community1, Pld1</sourcelevel>
+						<sourcelevel>Clr1</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.249</source>
 						<sourcepage>p.249</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -3420,7 +3420,7 @@ BIO
 						<fullschool>Evocation [Light]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd3, Clr3, Drd3, Pld3, Sor3, Wiz3</sourcelevel>
+						<sourcelevel>Clr3, Sor3</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.264</source>
 						<sourcepage>p.264</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -3478,7 +3478,7 @@ BIO
 						<fullschool>Divination</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Drd9, Knowledge9, Sor9, Wiz9</sourcelevel>
+						<sourcelevel>Sor9</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.285</source>
 						<sourcepage>p.285</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -3507,7 +3507,7 @@ BIO
 						<fullschool>Enchantment (Compulsion) [Language-Dependent, Mind-Affecting]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd6, Charm6, Clr6, Nobility6, Sor6, Wiz6</sourcelevel>
+						<sourcelevel>Clr6, Sor6</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.288</source>
 						<sourcepage>p.288</sourcepage>
 						<sourceshort>CR</sourceshort>
@@ -3536,7 +3536,7 @@ BIO
 						<fullschool>Evocation [Light]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Drd8, Sor8, Sun8, Wiz8</sourcelevel>
+						<sourcelevel>Sor8</sourcelevel>
 						<source>Paizo Inc. - Core Rulebook, p.355</source>
 						<sourcepage>p.355</sourcepage>
 						<sourceshort>CR</sourceshort>

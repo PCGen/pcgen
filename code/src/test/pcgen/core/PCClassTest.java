@@ -582,6 +582,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().ref.importObject(megaCasterClass);
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 
@@ -656,6 +658,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().ref.importObject(megaCasterClass);
+		context.ref.buildDerivedObjects();
+		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
 

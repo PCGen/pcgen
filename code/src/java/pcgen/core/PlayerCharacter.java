@@ -110,7 +110,6 @@ import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
-import pcgen.cdom.facet.MasterAvailableSpellInitializationFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
@@ -561,9 +560,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
-		// XXX do not set it, as for gender. Remark: not working, value is not set.
-//		setStringFor(StringKey.HANDED, Handed.getDefaultValue().toString());
-		FacetLibrary.getFacet(MasterAvailableSpellInitializationFacet.class).initialize(id);
 		if (load)
 		{
 			insertBonusLanguageAbility();
@@ -10235,11 +10231,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		ClassSpellList classSpellList =
 				((PCClass) aClass).get(ObjectKey.CLASS_SPELLLIST);
-		Map<Integer, Collection<Spell>> spellsMap =
-				knownSpellFacet.getKnownSpells(id, classSpellList);
-		for (Integer spellLevel : spellsMap.keySet())
+		for (Integer spellLevel : knownSpellFacet.getScopes2(id, classSpellList))
 		{
-			for (Spell spell : spellsMap.get(spellLevel))
+			for (Spell spell : knownSpellFacet.getSet(id, classSpellList, spellLevel))
 			{
 				CharacterSpell acs = null;
 				Collection<? extends CharacterSpell> characterSpells =
@@ -10546,24 +10540,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
 	{
-		return knownSpellFacet.getKnownSpellCountForLevel(id, list, level);
+		return knownSpellFacet.getSize(id, list, level);
 	}
 
 	public Collection<Spell> getSpellsIn(CDOMList<Spell> list, final int level)
 	{
-		return availSpellFacet.getSpellsInListLevel(id, list, level);
+		return availSpellFacet.getSet(id, list, level);
 	}
 
 	public List<Spell> getAllSpellsInLists(List<? extends CDOMList<Spell>> spellLists)
 	{
 		List<Spell> spellList = new ArrayList<Spell>();
-		for (CDOMList<Spell> list : availSpellFacet.getSpellLists(id))
+		for (CDOMList<Spell> list : availSpellFacet.getScopes1(id))
 		{
 			if (spellLists.contains(list))
 			{
-				for (int lvl : availSpellFacet.getLevelsInList(id, list))
+				for (int lvl : availSpellFacet.getScopes2(id, list))
 				{
-					for (Spell spell : availSpellFacet.getSpellsInListLevel(id, list, lvl))
+					for (Spell spell : availSpellFacet.getSet(id, list, lvl))
 					{
 						spellList.add(spell);
 					}
@@ -10595,12 +10589,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		for (CDOMList<Spell> list : spellLists)
 		{
-			for (int spellLevel : availSpellFacet.getLevelsInList(id, list))
+			for (int spellLevel : availSpellFacet.getScopes2(id, list))
 			{
 				if (spellLevel <= maxCastableLevel)
 				{
-					for (Spell spell : availSpellFacet.getSpellsInListLevel(id,
-						list, spellLevel))
+					for (Spell spell : availSpellFacet.getSet(id, list,
+						spellLevel))
 					{
 						if (spellSupport.isAutoKnownSpell(spell, spellLevel,
 							true, this))

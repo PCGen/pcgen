@@ -1166,7 +1166,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel>Sor1</sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1195,7 +1195,7 @@ BIO
 							<fullschool>Evocation [Force]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Mon1, Sor1</sourcelevel>
+							<sourcelevel>Sor1</sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
 							<sourcepage>SpellsM-O.rtf</sourcepage>
 							<sourceshort>PTS</sourceshort>

@@ -120,6 +120,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 
 		context.ref.buildDerivedObjects();
 		assertTrue(context.ref.resolveReferences(null));
+		context.loadCampaignFacets();
 	}
 
 	public void testSimpleSchool() throws Exception

@@ -1402,7 +1402,7 @@ BIO
 						<fullschool>Divination</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsD-E.rtf</source>
 						<sourcepage>SpellsD-E.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1431,7 +1431,7 @@ BIO
 						<fullschool>Evocation [Light]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsH-L.rtf</source>
 						<sourcepage>SpellsH-L.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1460,7 +1460,7 @@ BIO
 						<fullschool>Evocation [Force]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Mon1, Sor1</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
 						<sourcepage>SpellsM-O.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1489,7 +1489,7 @@ BIO
 						<fullschool>Evocation [Force]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Mon1, Sor1</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
 						<sourcepage>SpellsM-O.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1523,7 +1523,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1552,7 +1552,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1581,7 +1581,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1610,7 +1610,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1657,7 +1657,7 @@ BIO
 						<fullschool>Divination</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsD-E.rtf</source>
 						<sourcepage>SpellsD-E.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1686,7 +1686,7 @@ BIO
 						<fullschool>Evocation [Light]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsH-L.rtf</source>
 						<sourcepage>SpellsH-L.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1715,7 +1715,7 @@ BIO
 						<fullschool>Evocation [Force]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Mon1, Sor1</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
 						<sourcepage>SpellsM-O.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1744,7 +1744,7 @@ BIO
 						<fullschool>Evocation [Force]</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Mon1, Sor1</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
 						<sourcepage>SpellsM-O.rtf</sourcepage>
 						<sourceshort>PTS</sourceshort>
@@ -1780,7 +1780,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1809,7 +1809,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1838,7 +1838,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>
@@ -1867,7 +1867,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel></sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>

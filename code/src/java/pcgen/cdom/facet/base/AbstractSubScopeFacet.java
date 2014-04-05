@@ -175,6 +175,34 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		return new ArrayList<T>(scope2Map.keySet());
 	}
 
+	public int getSize(CharID id, S1 scope1, S2 scope2)
+	{
+		if (scope1 == null)
+		{
+			throw new IllegalArgumentException("Scope 1 cannot be null");
+		}
+		if (scope2 == null)
+		{
+			throw new IllegalArgumentException("Scope 2 cannot be null");
+		}
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return 0;
+		}
+		Map<S2, Map<T, Set<Object>>> scope1Map = map.get(scope1);
+		if (scope1Map == null)
+		{
+			return 0;
+		}
+		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
+		if (scope2Map == null)
+		{
+			return 0;
+		}
+		return scope2Map.size();
+	}
+
 	public boolean contains(CharID id, S1 scope1, S2 scope2, T obj)
 	{
 		if (scope1 == null)
@@ -197,6 +225,31 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		}
 		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
 		return (scope2Map != null) && scope2Map.containsKey(obj);
+	}
+
+	public Collection<S1> getScopes1(CharID id)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return Collections.emptyList();
+		}
+		return new ArrayList<S1>(map.keySet());
+	}
+
+	public Collection<S2> getScopes2(CharID id, S1 scope1)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return Collections.emptyList();
+		}
+		Map<S2, Map<T, Set<Object>>> submap = map.get(scope1);
+		if (submap == null)
+		{
+			return Collections.emptyList();
+		}
+		return new ArrayList<S2>(submap.keySet());
 	}
 
 	public void removeAllFromSource(CharID id, Object source)

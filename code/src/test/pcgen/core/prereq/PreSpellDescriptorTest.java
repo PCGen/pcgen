@@ -120,6 +120,7 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 
 		context.ref.buildDerivedObjects();
 		assertTrue(context.ref.resolveReferences(null));
+		context.loadCampaignFacets();
 	}
 
 	public void testSimpleDescriptor() throws Exception

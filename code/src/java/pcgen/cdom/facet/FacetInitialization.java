@@ -164,6 +164,7 @@ public class FacetInitialization {
 		 * Do dataset-level facets
 		 */
 		FacetLibrary.getFacet(MasterSkillFacet.class);
+		FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		FacetLibrary.getFacet(MasterUsableSkillFacet.class);
 		/*
 		 * TODO These are required because they are "bridges" - meaning they
@@ -188,6 +189,7 @@ public class FacetInitialization {
 		FacetLibrary.getFacet(AvailableSpellInputFacet.class);
 		FacetLibrary.getFacet(KnownSpellInputFacet.class);
 		FacetLibrary.getFacet(ClassSkillListFacet.class);
+		FacetLibrary.getFacet(SpellListToAvailableSpellFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
 		//and others just in case...

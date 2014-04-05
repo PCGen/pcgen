@@ -2190,7 +2190,7 @@ BIO
 							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Bar Ball1, Brd1, Mon1, Sor1</sourcelevel>
+							<sourcelevel>Bar Ball1, Mon1</sourcelevel>
 							<source>PCGen Team - PCGen Testing Set, test</source>
 							<sourcepage>test</sourcepage>
 							<sourceshort>PTS</sourceshort>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2012.
+ * Copyright (c) Thomas Parker, 2014.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,15 +17,11 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractConditionalSpellFacet;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.helper.AvailableSpell;
 
-/**
- * ConditionallyAvailableSpellFacet is a Facet that tracks the Available Spells
- * (and target objects) that are contained in a Player Character.
- * 
- * @author Thomas Parker (thpr [at] yahoo.com)
- */
 public class ConditionallyAvailableSpellFacet extends
-		AbstractConditionalSpellFacet
+		AbstractQualifiedListFacet<AvailableSpell>
 {
+
 }

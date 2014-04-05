@@ -93,6 +93,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		context.ref.buildDerivedObjects();
 		context.resolveDeferredTokens();
 		assertTrue(context.ref.resolveReferences(null));
+		context.loadCampaignFacets();
 	}
 
 	/**

@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.AvailableSpellFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.SpellListFacet;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.facade.MockUIDelegate;
@@ -67,6 +68,8 @@ public class SpellClassesTest extends AbstractTokenModelTest
 		finishLoad();
 		classFacet.addClass(id, dragon);
 		classFacet.setLevel(id, dragon, 1);
+		//Right now this is done in PCClass
+		FacetLibrary.getFacet(SpellListFacet.class).add(id, dragon.get(ObjectKey.CLASS_SPELLLIST), dragon);
 		pc.setDirty(true);
 		HashMapToList<CDOMList<Spell>, Integer> map = availableSpellFacet.getSpellLevelInfo(id, sp);
 		assertTrue(map.containsListFor(dragon.get(ObjectKey.CLASS_SPELLLIST)));

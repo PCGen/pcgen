@@ -1201,7 +1201,7 @@ BIO
 							<fullschool>Universal</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsa.rtf</source>
 							<sourcepage>srdspellsa.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1230,7 +1230,7 @@ BIO
 							<fullschool>Evocation (Light)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1259,7 +1259,7 @@ BIO
 							<fullschool>Enchantment (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1288,7 +1288,7 @@ BIO
 							<fullschool>Universal</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1317,7 +1317,7 @@ BIO
 							<fullschool>Divination</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Asn1, Clr0, Drd0, Pal1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1346,7 +1346,7 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 							<sourcepage>srdspellsd.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1375,7 +1375,7 @@ BIO
 							<fullschool>Evocation [Light]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsf.rtf</source>
 							<sourcepage>srdspellsf.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1404,7 +1404,7 @@ BIO
 							<fullschool>Illusion (Figment)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp0, Asn1, Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
 							<sourcepage>srdspellsg.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1433,7 +1433,7 @@ BIO
 							<fullschool>Evocation [Light]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsjkl.rtf</source>
 							<sourcepage>srdspellsjkl.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1462,7 +1462,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
 							<sourcepage>srdspellsm.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1491,7 +1491,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
 							<sourcepage>srdspellsm.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1520,7 +1520,7 @@ BIO
 							<fullschool>Transmutation</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsno.rtf</source>
 							<sourcepage>srdspellsno.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1549,7 +1549,7 @@ BIO
 							<fullschool>Universal</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
 							<sourcepage>srdspellsp.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1578,7 +1578,7 @@ BIO
 							<fullschool>Conjuration (Creation) [Cold]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1607,7 +1607,7 @@ BIO
 							<fullschool>Universal</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Adp0, Brd0, Clr0, Drd0, Pal1, Rgr1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1636,7 +1636,7 @@ BIO
 							<fullschool>Abjuration</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd0, Clr0, Drd0, Pal1, Sor0, Wiz0</sourcelevel>
+							<sourcelevel>Wiz0</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
 							<sourcepage>srdspellsqr.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1667,7 +1667,7 @@ BIO
 							<fullschool>Illusion (Glamer)</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Asn1, Sor1, Trickery1, Wiz1</sourcelevel>
+							<sourcelevel>Wiz1</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1696,7 +1696,7 @@ BIO
 							<fullschool>Enchantment (Charm) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Brd1, Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Wiz1</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>
@@ -1725,7 +1725,7 @@ BIO
 							<fullschool>Necromancy</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Sor1, Wiz1</sourcelevel>
+							<sourcelevel>Wiz1</sourcelevel>
 							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
 							<sourcepage>srdspellsc.rtf</sourcepage>
 							<sourceshort>SRD</sourceshort>

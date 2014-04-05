@@ -1547,7 +1547,7 @@ BIO
 						<fullschool>Evocation (Light)</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 						<sourcepage>srdspellsd.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
@@ -1576,7 +1576,7 @@ BIO
 						<fullschool>Illusion (Figment)</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Adp0, Asn1, Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
 						<sourcepage>srdspellsg.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
@@ -1605,7 +1605,7 @@ BIO
 						<fullschool>Universal</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
 						<sourcepage>srdspellsp.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
@@ -1680,7 +1680,7 @@ BIO
 						<fullschool>Evocation (Light)</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
 						<sourcepage>srdspellsd.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
@@ -1709,7 +1709,7 @@ BIO
 						<fullschool>Illusion (Figment)</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Adp0, Asn1, Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
 						<sourcepage>srdspellsg.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
@@ -1738,7 +1738,7 @@ BIO
 						<fullschool>Universal</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Brd0, Sor0, Wiz0</sourcelevel>
+						<sourcelevel></sourcelevel>
 						<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
 						<sourcepage>srdspellsp.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>

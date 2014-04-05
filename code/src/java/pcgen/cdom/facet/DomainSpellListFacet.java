@@ -17,16 +17,13 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
-import pcgen.core.spell.Spell;
 
 /**
  * DomainSpellListFacet tracks the Domain Spell Lists granted to a Player
@@ -35,8 +32,7 @@ import pcgen.core.spell.Spell;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DomainSpellListFacet extends
-		AbstractSourcedListFacet<CharID, CDOMList<Spell>> implements
+public class DomainSpellListFacet implements
 		DataFacetChangeListener<CharID, Domain>
 {
 

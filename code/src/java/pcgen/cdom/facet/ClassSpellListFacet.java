@@ -17,12 +17,10 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
@@ -34,8 +32,7 @@ import pcgen.core.spell.Spell;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassSpellListFacet extends
-		AbstractSourcedListFacet<CharID, CDOMList<Spell>>
+public class ClassSpellListFacet
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);

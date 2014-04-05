@@ -24,8 +24,7 @@ import java.util.Set;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.base.AbstractSpellStorageFacet;
-import pcgen.cdom.facet.base.AbstractSpellStorageFacet.SpellChangeListener;
+import pcgen.cdom.facet.base.AbstractSubScopeFacet;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
@@ -36,8 +35,8 @@ import pcgen.core.spell.Spell;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
-		SpellChangeListener
+public class AvailableSpellFacet extends
+		AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>
 {
 
 	/**
@@ -77,7 +76,7 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
 				new HashMapToList<CDOMList<Spell>, Integer>();
 		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> listMap =
-				getCachedMap(id);
+				(Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>>) getCache(id);
 		if (listMap == null)
 		{
 			return levelInfo;
@@ -106,19 +105,4 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 		}
 		return levelInfo;
 	}
-
-	@Override
-	public void spellAdded(SpellChangeEvent sce)
-	{
-		add(sce.getCharID(), sce.getSpellList(), sce.getLevel(),
-			sce.getSpell(), sce.getSource());
-	}
-
-	@Override
-	public void spellRemoved(SpellChangeEvent sce)
-	{
-		remove(sce.getCharID(), sce.getSpellList(), sce.getLevel(),
-			sce.getSpell(), sce.getSource());
-	}
-
 }

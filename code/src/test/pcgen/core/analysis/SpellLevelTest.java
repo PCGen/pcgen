@@ -26,7 +26,6 @@ package pcgen.core.analysis;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
-import java.util.Map;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
@@ -105,16 +104,16 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 
-		Map<Integer, Collection<Spell>> spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
-		assertEquals("Initial number of spell levels incorrect", 0, spellsMap.size());
+		Collection<Integer> levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
+		assertEquals("Initial number of spell levels incorrect", 0, levels.size());
 		
 		addAbility(AbilityCategory.FEAT, ab1);
 
 		// Now for the tests
-		spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
-		assertEquals("Incorrect number of spell levels returned", 1, spellsMap.size());
-		assertEquals("Incorrect spell level returned", new Integer(3), spellsMap.keySet().iterator().next());
-		Collection<Spell> result = spellsMap.values().iterator().next();
+		levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
+		assertEquals("Incorrect number of spell levels returned", 1, levels.size());
+		assertEquals("Incorrect spell level returned", new Integer(3), levels.iterator().next());
+		Collection<Spell> result = listManagerFacet.getSet(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST), 3);
 		assertEquals("Incorrect number of spells returned", 1, result.size());
 		assertEquals("Incorrect spell returned", spell, result.iterator().next());
 		

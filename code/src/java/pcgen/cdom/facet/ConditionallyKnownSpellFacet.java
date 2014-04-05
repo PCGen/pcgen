@@ -17,7 +17,8 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractConditionalSpellFacet;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
+import pcgen.cdom.helper.AvailableSpell;
 
 /**
  * ConditionallyKnownSpellFacet is a Facet that tracks the Known Spells (and
@@ -25,6 +26,7 @@ import pcgen.cdom.facet.base.AbstractConditionalSpellFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ConditionallyKnownSpellFacet extends AbstractConditionalSpellFacet
+public class ConditionallyKnownSpellFacet extends
+		AbstractQualifiedListFacet<AvailableSpell>
 {
 }

@@ -17,20 +17,31 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractConditionalSpellFacet;
-import pcgen.cdom.facet.base.AbstractConditionalSpellStorageFacet;
+import java.util.Collection;
 
-public class ConditionallyGrantedKnownSpellFacet extends
-		AbstractConditionalSpellStorageFacet
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.helper.AvailableSpell;
+
+public class ConditionallyGrantedKnownSpellFacet
 {
 	private ConditionallyKnownSpellFacet conditionallyKnownSpellFacet;
 
 	private KnownSpellFacet knownSpellFacet;
 
-	@Override
-	protected AbstractConditionalSpellFacet getConditionalFacet()
+	public void update(CharID id)
 	{
-		return conditionallyKnownSpellFacet;
+		Collection<AvailableSpell> set =
+				conditionallyKnownSpellFacet.getQualifiedSet(id);
+		for (AvailableSpell as : set)
+		{
+			Collection<Object> sources =
+					conditionallyKnownSpellFacet.getSources(id, as);
+			for (Object source : sources)
+			{
+				knownSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
+					as.getSpell(), source);
+			}
+		}
 	}
 
 	public void setConditionallyKnownSpellFacet(
@@ -43,9 +54,5 @@ public class ConditionallyGrantedKnownSpellFacet extends
 	{
 		this.knownSpellFacet = knownSpellFacet;
 	}
-
-	public void init()
-	{
-		addSpellChangeListener(knownSpellFacet);
-	}
+	
 }

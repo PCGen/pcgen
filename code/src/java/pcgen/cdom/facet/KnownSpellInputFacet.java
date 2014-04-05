@@ -17,36 +17,148 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.facet.base.AbstractConditionalSpellFacet;
-import pcgen.cdom.facet.base.AbstractSpellInputFacet;
-import pcgen.cdom.facet.base.AbstractSpellStorageFacet;
+import java.util.Collection;
+import java.util.List;
 
-public class KnownSpellInputFacet extends AbstractSpellInputFacet
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.PrereqObject;
+import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.helper.AvailableSpell;
+import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
+
+public class KnownSpellInputFacet implements
+		DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private ConditionallyKnownSpellFacet conditionallyKnownSpellFacet;
 
 	private KnownSpellFacet knownSpellFacet;
 
+	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	/**
+	 * Triggered when one of the Facets to which ConditionallyKnownSpellFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
+	 * to a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 */
 	@Override
-	protected AbstractConditionalSpellFacet getConditionalFacet()
+	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
-		return conditionallyKnownSpellFacet;
+		CDOMObject cdo = dfce.getCDOMObject();
+		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> listrefs =
+				cdo.getModifiedLists();
+		CharID id = dfce.getCharID();
+		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : listrefs)
+		{
+			processListRef(id, cdo, ref);
+		}
 	}
 
-	@Override
-	protected boolean meetsAddConditions(AssociatedPrereqObject apo)
+	private void processListRef(CharID id, CDOMObject cdo,
+		CDOMReference<? extends CDOMList<? extends PrereqObject>> listref)
 	{
-		Boolean known = apo.getAssociation(AssociationKey.KNOWN);
-		return (known != null) && known;
+		for (CDOMList<? extends PrereqObject> list : listref
+			.getContainedObjects())
+		{
+			if (!(list instanceof ClassSpellList)
+				&& !(list instanceof DomainSpellList))
+			{
+				continue;
+			}
+			CDOMList<Spell> spelllist = (CDOMList<Spell>) list;
+			processList(id, spelllist, listref, cdo);
+		}
 	}
 
-	@Override
-	protected AbstractSpellStorageFacet getUnconditionalFacet()
+	private void processList(CharID id, CDOMList<Spell> spelllist,
+		CDOMReference<? extends CDOMList<? extends PrereqObject>> listref,
+		CDOMObject cdo)
 	{
-		return knownSpellFacet;
+		for (CDOMReference<Spell> objref : cdo
+			.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))
+		{
+			for (AssociatedPrereqObject apo : cdo.getListAssociations(listref,
+				objref))
+			{
+				Boolean known = apo.getAssociation(AssociationKey.KNOWN);
+				if ((known == null) || !known)
+				{
+					continue;
+				}
+				Collection<Spell> spells = objref.getContainedObjects();
+				Integer lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
+				if (apo.hasPrerequisites())
+				{
+					List<Prerequisite> prereqs = apo.getPrerequisiteList();
+					for (Spell spell : spells)
+					{
+						AvailableSpell as =
+								new AvailableSpell(spelllist, spell, lvl);
+						as.addAllPrerequisites(prereqs);
+						conditionallyKnownSpellFacet.add(id, as, cdo);
+					}
+				}
+				else
+				{
+					for (Spell spell : spells)
+					{
+						knownSpellFacet.add(id, spelllist, lvl, spell, cdo);
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Triggered when one of the Facets to which ConditionallyKnownSpellFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
+	 * from a Player Character.
+	 * 
+	 * @param dfce
+	 *            The DataFacetChangeEvent containing the information about the
+	 *            change
+	 * 
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 */
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
+	{
+		CharID id = dfce.getCharID();
+		CDOMObject source = dfce.getCDOMObject();
+		conditionallyKnownSpellFacet.removeAll(id, source);
+		knownSpellFacet.removeAllFromSource(id, source);
+	}
+
+	/**
+	 * Initializes the connections for KnwonSpellFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the KnwonSpellFacet.
+	 */
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
+	}
+
+	public void setConsolidationFacet(
+		CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
 	}
 
 	public void setConditionallyKnownSpellFacet(
@@ -59,4 +171,5 @@ public class KnownSpellInputFacet extends AbstractSpellInputFacet
 	{
 		this.knownSpellFacet = knownSpellFacet;
 	}
+
 }
