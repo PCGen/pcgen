@@ -2,7 +2,7 @@
 #SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
 # Original Entry by:Swiftbrook
 
-###Block: Class Ability Categories
+###Block: Class Feature Categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Elemental Opposition School	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalOppositionSchool	PLURAL:Elemental Opposition Schools		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Favored Yokai				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredYokai				PLURAL:Favored Yokai				DISPLAYLOCATION:Class Abilities

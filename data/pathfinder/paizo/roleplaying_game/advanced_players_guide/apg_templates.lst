@@ -57,7 +57,7 @@ Oracle Tongues Choice ~ Terran	AUTO:LANG|Terran
 # 7 Tentacles																																																							BONUS:VAR|EidUsedAttacks|7											BONUS:WEAPONPROF=7 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=7 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=7 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:7 Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*7,1d4
 
 ##
-##Block:Class Ability Templates
+##Block:Class Feature Templates
 ##
 # Oracle Templates
 # Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks

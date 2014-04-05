@@ -3,7 +3,7 @@
 # Original Entry by: Terry Milnes
 
 
-# Deivrat Prestige Class Ability Categories
+# Deivrat Prestige Class Feature Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Display Location
 ABILITYCATEGORY:Elemental Focus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Elemental Focus	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Elemental Attunement	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Elemental Attunement	DISPLAYLOCATION:Class Abilities
