@@ -22,10 +22,17 @@ BIO
 		<birthplace></birthplace>
 		<catchphrase></catchphrase>
 		<classes>
-			<levels_total>0</levels_total>
-			<levels_ecl>0</levels_ecl>
+			<class>
+				<name>Companion (Psicrystal)</name>
+				<abbreviation>Com</abbreviation>
+				<level>1</level>
+				<bonuslist>Companion (Psicrystal)</bonuslist>
+				<sequence>0</sequence>
+			</class>
+			<levels_total>1</levels_total>
+			<levels_ecl>1</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform>                    </shortform>
+			<shortform> Com1                   </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -46,7 +53,7 @@ BIO
 		<description></description>
 		<experience>
 			<current>0</current>
-			<next_level>0</next_level>
+			<next_level>1000</next_level>
 			<factor>100%</factor>
 			<penalty>0%</penalty>
 		</experience>
@@ -60,7 +67,7 @@ BIO
 		<skin>
 			<color></color>
 		</skin>
-		<cr>0</cr>
+		<cr>1/2</cr>
 		<face>
 		<face>5 ft.</face>
 			<short>5 ft.</short>
@@ -246,6 +253,12 @@ BIO
 		<damage_reduction></damage_reduction>
 		<damage_threshold>0</damage_threshold>
 		<history>
+			<roll>
+				<level>1</level>
+				<roll>0</roll>
+				<stat>0</stat>
+				<total>0</total>
+			</roll>
 		</history>
 	</hit_points>
 	<!--
@@ -293,13 +306,13 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>96</total>
-			<used>96</used>
+			<total>0</total>
+			<used>0</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Bluff +8, Climb +10, Concentration +8, Diplomacy +12, Disguise (Act in character) +2, Gather Information +8, Hide +14, Intimidate +2, Listen +2, Psicraft +6, Sense Motive +8, Spot +2</list_mods>
-		<max_class_skill_level>0</max_class_skill_level>
-		<max_cross_class_skill_level>0</max_cross_class_skill_level>
+		<list_mods>Climb +10, Hide +14, Listen +2, Spot +2</list_mods>
+		<max_class_skill_level>4</max_class_skill_level>
+		<max_cross_class_skill_level>2</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>
@@ -336,10 +349,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Bluff</name>
-			<ranks>8.0</ranks>
+			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>8</skill_mod>
+			<skill_mod>0</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -348,8 +361,8 @@ BIO
 			<synergy>Bluff</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>8</trained_total>
-			<exclusive_total>8</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Climb</name>
@@ -370,10 +383,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Concentration</name>
-			<ranks>8.0</ranks>
+			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>8</skill_mod>
+			<skill_mod>0</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -382,8 +395,8 @@ BIO
 			<synergy>Concentration</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>8</trained_total>
-			<exclusive_total>8</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Craft (Untrained)</name>
@@ -404,20 +417,20 @@ BIO
 		</skill>
 		<skill>
 			<name>Diplomacy</name>
-			<ranks>8.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>12</skill_mod>
+			<skill_mod>0</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>4<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Diplomacy</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Disguise</name>
@@ -435,23 +448,6 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Disguise (Act in character)</name>
-			<ranks>0.0</ranks>
-			<mod>2<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Disguise (Act in character)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
@@ -489,10 +485,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Gather Information</name>
-			<ranks>8.0</ranks>
+			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>8</skill_mod>
+			<skill_mod>0</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -501,8 +497,8 @@ BIO
 			<synergy>Gather Information</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>8</trained_total>
-			<exclusive_total>8</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Heal</name>
@@ -541,19 +537,19 @@ BIO
 		<skill>
 			<name>Intimidate</name>
 			<ranks>0.0</ranks>
-			<mod>2<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>2</skill_mod>
+			<skill_mod>0</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Intimidate</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Jump</name>
@@ -624,23 +620,6 @@ BIO
 			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
-			<name>Psicraft</name>
-			<ranks>8.0</ranks>
-			<mod>-2<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>6</skill_mod>
-			<ability_mod>-2<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Psicraft</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>6</trained_total>
-			<exclusive_total>6</exclusive_total>
-		</skill>
-		<skill>
 			<name>Ride</name>
 			<ranks>0.0</ranks>
 			<mod>2<!-- Mods from abilities, equipment, etc -->
@@ -676,10 +655,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Sense Motive</name>
-			<ranks>8.0</ranks>
+			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>8</skill_mod>
+			<skill_mod>0</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -688,8 +667,8 @@ BIO
 			<synergy>Sense Motive</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>8</trained_total>
-			<exclusive_total>8</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Spot</name>
@@ -937,6 +916,10 @@ BIO
 	  ====================================-->
 	<special_abilities>
 		<race></race>
+		<class>
+			<class>Companion (Psicrystal)</class>
+			<ability></ability>
+		</class>
 	</special_abilities>
 	<!--
 	  ====================================
@@ -1143,6 +1126,7 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
+
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
