@@ -339,8 +339,17 @@ public abstract class AbstractPrerequisiteListParser
 						{
 							if (tokens[1].equals("ANY"))
 							{
-								subreq.setOperand(tokens[1]);
-								subreq.setKey(tokens[0]);
+								if (isAnyLegal())
+								{
+									subreq.setOperand(tokens[1]);
+									subreq.setKey(tokens[0]);
+								}
+								else
+								{
+									throw new PersistenceLayerException(
+										"Prerequisites of kind " + kind
+											+ " do not support 'ANY'");
+								}
 							}
 							else
 							{
@@ -384,6 +393,11 @@ public abstract class AbstractPrerequisiteListParser
 			subreq.setKind(kind.toLowerCase());
 			subreq.setOperator(PrerequisiteOperator.GTEQ);
 		}
+	}
+
+	protected boolean isAnyLegal()
+	{
+		return true;
 	}
 
 	protected String getAssumedValue()

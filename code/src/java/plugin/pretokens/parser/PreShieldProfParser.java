@@ -47,4 +47,10 @@ public class PreShieldProfParser extends AbstractPrerequisiteListParser
 	{
 		return new String[]{"PROFWITHSHIELD"};
 	}
+
+	@Override
+	protected boolean isAnyLegal()
+	{
+		return false;
+	}
 }

@@ -48,4 +48,12 @@ public class PreArmorProfParser extends AbstractPrerequisiteListParser
 	{
 		return new String[]{"PROFWITHARMOR"};
 	}
+
+	@Override
+	protected boolean isAnyLegal()
+	{
+		return false;
+	}
+    
+    
 }
