@@ -520,7 +520,10 @@
 		<property name="levelFacet" ref="levelFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet" />
 	</bean>
-	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
+	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet">
+		<property name="usableSkillsFacet" ref="usableSkillsFacet"/>
+		<property name="totalSkillRankFacet" ref="totalSkillRankFacet"/>
+	</bean>
 	<bean id="skillFilterFacet" class="pcgen.cdom.facet.fact.SkillFilterFacet"/>
 	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
 		<property name="globalToSkillCostFacet" ref="globalToSkillCostFacet"/>

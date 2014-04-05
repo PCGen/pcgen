@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -52,13 +51,6 @@ public class AbilityUtilities
 	private AbilityUtilities ()
 	{
 		// private constructor, do nothing
-	}
-
-	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
-	{
-		T sel = aMan.decodeChoice(choice);
-		aMan.applyChoice(pc, obj, sel);
 	}
 
 	public static void adjustPool(final Ability ability,

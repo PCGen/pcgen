@@ -655,21 +655,18 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		guiSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		guiSkill.put(ObjectKey.VISIBILITY, Visibility.DISPLAY_ONLY);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, guiSkill);
-		pc.addSkill(guiSkill);
 
 		context.unconditionallyProcess(outputSkill, "CLASSES", "MyClass");
 		outputSkill.setName("Output");
 		outputSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		outputSkill.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, outputSkill);
-		pc.addSkill(outputSkill);
 
 		context.unconditionallyProcess(defaultSkill, "CLASSES", "MyClass");
 		defaultSkill.setName("Default");
 		defaultSkill.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		defaultSkill.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		SkillRankControl.modRanks(1.0, pcClass, true, pc, defaultSkill);
-		pc.addSkill(defaultSkill);
 
 		// Test retrieved list
 		Collection<Skill> skillList = pc.getSkillSet();

@@ -20,9 +20,8 @@ package pcgen.cdom.facet.input;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.DataSetInitializationFacet;
-import pcgen.cdom.facet.base.AbstractScopeFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
@@ -30,7 +29,7 @@ import pcgen.rules.context.LoadContext;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MasterUsableSkillFacet extends
-		AbstractScopeFacet<DataSetID, SkillCost, Skill> implements
+		AbstractSourcedListFacet<DataSetID, Skill> implements
 		DataSetInitializedFacet
 {
 
@@ -46,7 +45,7 @@ public class MasterUsableSkillFacet extends
 				if (!sk.getSafe(ObjectKey.EXCLUSIVE)
 					&& sk.getSafe(ObjectKey.USE_UNTRAINED))
 				{
-					add(id, SkillCost.CROSS_CLASS, sk, sk);
+					add(id, sk, sk);
 				}
 			}
 		}

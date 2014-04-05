@@ -129,7 +129,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
 		context.ref.importObject(knowledge[0]);
-		character.addSkill(knowledge[0]);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
@@ -138,7 +137,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intel);
 		context.ref.importObject(knowledge[1]);
-		character.addSkill(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
@@ -147,7 +145,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		tumble.put(ObjectKey.KEY_STAT, dex);
 		context.ref.importObject(tumble);
-		character.addSkill(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
@@ -162,7 +159,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		context.ref.importObject(balance);
-		character.addSkill(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
 		context.ref.buildDerivedObjects();

@@ -94,7 +94,6 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
-		pc.addSkill(choice);
 		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
 		{
@@ -212,7 +211,6 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
-		pc.addSkill(choice);
 		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
 		{
@@ -268,7 +266,6 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
-		pc.addSkill(choice);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
 		if (applyRank != null)
 		{

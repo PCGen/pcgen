@@ -1244,11 +1244,7 @@ public class PCClass extends PObject implements ClassFacade
 
 			aPC.setLevelWithoutConsequence(this, newLevel);
 
-			if (!isMonster() && (total == 0))
-			{
-				aPC.removeAllSkills();
-			}
-			else
+			if (isMonster() || (total != 0))
 			{
 				Integer currentPool = aPC.getSkillPool(this);
 				int newSkillPool = (currentPool == null ? 0 : currentPool) - spMod;

@@ -311,7 +311,6 @@ public abstract class JepCountType
 		@Override
 		protected Collection<Skill> getData(PlayerCharacter pc)
 		{
-			pc.refreshSkillList();
 			return pc.getDisplay().getSkillSet();
 		}
 	};

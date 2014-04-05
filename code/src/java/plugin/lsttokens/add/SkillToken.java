@@ -211,7 +211,6 @@ public class SkillToken extends AbstractToken implements
 	@Override
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
-		pc.addSkill(choice);
 		SkillRankControl.modRanks(1.0, null, true, pc, choice);
 	}
 
@@ -242,7 +241,6 @@ public class SkillToken extends AbstractToken implements
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
-		pc.addSkill(choice);
 		SkillRankControl.modRanks(-1.0, null, true, pc, choice);
 	}
 }

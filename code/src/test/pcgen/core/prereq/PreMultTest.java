@@ -89,7 +89,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(knowledge, "CLASSES", "My Class");
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
-		character.addSkill(knowledge);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge);
 
 	}
@@ -252,13 +251,9 @@ public class PreMultTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(extraKnow, "CLASSES", "MyClass");
 		extraKnow.setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(extraKnow, "KNOWLEDGE.INT");
-		character.addSkill(extraKnow);
 		SkillRankControl.modRanks(5.0, myClass, true, character, extraKnow);
 
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);
-
-		character.removeSkill(knowledge);
-		character.calcActiveBonuses();
 	}
 }

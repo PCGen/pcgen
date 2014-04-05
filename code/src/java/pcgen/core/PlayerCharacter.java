@@ -91,6 +91,7 @@ import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AvailableSpellFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
+import pcgen.cdom.facet.BonusSkillRankChangeFacet;
 import pcgen.cdom.facet.CheckBonusFacet;
 import pcgen.cdom.facet.ClassSpellListFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
@@ -248,6 +249,7 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.display.SkillDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -432,6 +434,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
+	private BonusSkillRankChangeFacet bonusSkillRankChangeFacet = FacetLibrary.getFacet(BonusSkillRankChangeFacet.class);
 
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 
@@ -558,7 +561,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
-		populateSkills(getSkillFilter());
 		// XXX do not set it, as for gender. Remark: not working, value is not set.
 //		setStringFor(StringKey.HANDED, Handed.getDefaultValue().toString());
 		FacetLibrary.getFacet(MasterAvailableSpellInitializationFacet.class).initialize(id);
@@ -984,6 +986,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			cAvSpellFacet.update(id);
 			cKnSpellFacet.update(id);
 			condLangFacet.update(id);
+			bonusSkillRankChangeFacet.reset(id);
 		}
 
 		dirtyFlag = dirtyState;
@@ -1730,7 +1733,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 			// now we have to merge the two lists together and
 			// take the higher rank of each skill for the Familiar
-			refreshSkillList();
 			for (Skill fSkill : getSkillSet())
 			{
 				for (Skill mSkill : mList)
@@ -1773,7 +1775,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				// We don't pass in a class here so that the real skills can be
 				// distinguished from the ones form the master.
 				SkillRankControl.modRanks(sr, null, true, this, newSkill);
-				skillFacet.add(id, newSkill);
 
 				if (ChooseActivation.hasNewChooseToken(newSkill))
 				{
@@ -4603,19 +4604,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		setDirty(true);
 	}
 
-	public void addSkill(final Skill addSkill)
-	{
-		boolean added = skillFacet.add(id, addSkill);
-		if (added)
-		{
-			setDirty(true);
-			if (!isImporting())
-			{
-				calcActiveBonuses();
-			}
-		}
-	}
-
 	/**
 	 * @param acs
 	 *            is the CharacterSpell object containing the spell which is to
@@ -6240,35 +6228,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Populate the characters skills list according to the requested 
-	 * SkillFilter. 
-	 * 
-	 * @param filter
-	 */
-	public void populateSkills(final SkillFilter filter)
-	{
-		removeExcessSkills();
-		addNewSkills(filter);
-		final List<Skill> localSkillList = new ArrayList<Skill>(getSkillSet());
-		SkillComparator comparator = getSkillsOutputOrder().getComparator(this);
-		if (comparator == null)
-		{
-			return;
-		}
-		Collections.sort(localSkillList, comparator);
-
-		int nextOutputIndex = 1;
-		for (Skill skill : localSkillList)
-		{
-			Integer outputIndex = getSkillOrder(skill);
-			if (outputIndex == null || outputIndex >= 0)
-			{
-				setSkillOrder(skill, nextOutputIndex++);
-			}
-		}
-	}
-
-	/**
 	 * Removes a "temporary" bonus
 	 * 
 	 * @param aBonus
@@ -6858,26 +6817,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * @param filter
-	 */
-	private void addNewSkills(final SkillFilter filter)
-	{
-		final List<Skill> addItems = new ArrayList<Skill>();
-		final List<Skill> skillList = new ArrayList<Skill>(getSkillSet());
-
-		for (Skill aSkill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-		{
-			if (includeSkill(aSkill, filter) && !skillList.contains(aSkill))
-			{
-				addItems.add(aSkill);
-			}
-		}
-
-		skillFacet.addAll(id, addItems);
-		// setDirty(true);
-	}
-
-	/**
 	 * availableSpells sk4p 13 Dec 2002
 	 * 
 	 * For learning or preparing a spell: Are there slots available at this
@@ -7442,25 +7381,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		calcActiveBonuses();
 	}
 
-	private void removeExcessSkills()
-	{
-		boolean modified = false;
-		// Wrap to avoid a ConcurrentModificationException
-		for (Skill skill : new ArrayList<Skill>(skillFacet.getSet(id)))
-		{
-			if (!qualifySkill(skill))
-			{
-				skillFacet.remove(id, skill);
-				modified = true;
-			}
-		}
-
-		if (modified)
-		{
-			setDirty(true);
-		}
-	}
-
 	/**
 	 * Remove from the character the PCLevelInfo representing the highest level 
 	 * of the supplied class.
@@ -7633,8 +7553,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		getSpellList();
 
 		// Force refresh of skills
-		refreshSkillList();
-
 		SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
 				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
 
@@ -7647,7 +7565,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// Calculate any active bonuses
 		calcActiveBonuses();
 
-		populateSkills(filter);
+		//Sort Skills
+		SkillDisplay.resortSelected(this, getSkillsOutputOrder());
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();
@@ -9714,36 +9633,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		} else
 		{
 			appliedBonusFacet.remove(id, bonusObj);
-		}
-	}
-
-	public void removeSkill(Skill sk)
-	{
-		if (skillFacet.remove(id, sk))
-		{
-			setDirty(true);
-		}
-	}
-
-	public void removeAllSkills()
-	{
-		if (skillFacet.removeAll(id).size() > 0)
-		{
-			setDirty(true);
-		}
-	}
-
-	public void refreshSkillList()
-	{
-		for (final Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
-		{
-			if (!hasSkill(skill))
-			{
-				if (!CoreUtility.doublesEqual(SkillRankControl.getSkillRankBonusTo(this, skill), 0.0))
-				{
-					addSkill(skill);
-				}
-			}
 		}
 	}
 

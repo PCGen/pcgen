@@ -238,8 +238,6 @@ public final class KitSkill extends BaseKit
 		final Skill aSkill, final int aRank, final double aCost,
 		List<Language> langList, final PCClass pcClass)
 	{
-		pc.addSkill(aSkill);
-
 		boolean oldImporting = pc.isImporting();
 		pc.setImporting(true);
 		final String aString =
@@ -396,7 +394,6 @@ public final class KitSkill extends BaseKit
 			ranksToAdd = ranksAdded;
 			ptsToSpend = (int) (ranksToAdd * skillCost);
 		}
-		pc.addSkill(aSkill);
 
 		String ret =
 				SkillRankControl

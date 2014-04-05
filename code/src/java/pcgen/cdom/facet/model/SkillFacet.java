@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2009-14.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,13 +17,84 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent;
+import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
+import pcgen.cdom.facet.TotalSkillRankFacet;
+import pcgen.cdom.facet.UsableSkillsFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.AssociationChangeEvent;
+import pcgen.cdom.facet.event.AssociationChangeListener;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Skill;
 
 /**
  * SkillFacet is a Facet that tracks the Skills possessed by a Player Character.
  */
-public class SkillFacet extends AbstractListFacet<Skill>
+public class SkillFacet extends AbstractSourcedListFacet<CharID, Skill> implements
+		SkillRankChangeListener, DataFacetChangeListener<CharID, Skill>,
+		AssociationChangeListener
 {
+
+	private TotalSkillRankFacet totalSkillRankFacet;
+
+	private UsableSkillsFacet usableSkillsFacet;
+
+	public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
+	{
+		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
+	{
+		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	public void rankChanged(SkillRankChangeEvent lce)
+	{
+		CharID id = lce.getCharID();
+		Skill skill = lce.getSkill();
+		if (lce.getNewRank() == 0.0f)
+		{
+			remove(id, skill, lce.getSource());
+		}
+		else
+		{
+			add(id, skill, lce.getSource());
+		}
+	}
+
+	public void setTotalSkillRankFacet(TotalSkillRankFacet totalSkillRankFacet)
+	{
+		this.totalSkillRankFacet = totalSkillRankFacet;
+	}
+
+	public void setUsableSkillsFacet(UsableSkillsFacet usableSkillsFacet)
+	{
+		this.usableSkillsFacet = usableSkillsFacet;
+	}
+
+	public void init()
+	{
+		totalSkillRankFacet.addAssociationChangeListener(this);
+		usableSkillsFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void bonusChange(AssociationChangeEvent dfce)
+	{
+		CharID id = dfce.getCharID();
+		Skill sk = dfce.getSkill();
+		Number ranks = dfce.getNewVal();
+		if (ranks.doubleValue() > 0)
+		{
+			add(id, sk, dfce.getSource());
+		}
+		else
+		{
+			remove(id, sk, dfce.getSource());
+		}
+	}
 
 }

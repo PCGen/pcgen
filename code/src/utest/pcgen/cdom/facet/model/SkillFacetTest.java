@@ -17,17 +17,17 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.cdom.facet.model.SkillFacet;
-import pcgen.cdom.testsupport.AbstractListFacetTest;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.Skill;
 
-public class SkillFacetTest extends AbstractListFacetTest<Skill>
+public class SkillFacetTest extends AbstractSourcedListFacetTest<Skill>
 {
 	private SkillFacet facet = new SkillFacet();
 
 	@Override
-	protected AbstractListFacet<Skill> getFacet()
+	protected AbstractSourcedListFacet<CharID, Skill> getFacet()
 	{
 		return facet;
 	}

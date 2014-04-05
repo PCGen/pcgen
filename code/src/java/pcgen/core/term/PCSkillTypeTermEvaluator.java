@@ -47,10 +47,8 @@ public class PCSkillTypeTermEvaluator
 	}
 	
 	@Override
-	public Float resolve(PlayerCharacter pc) {
-
-		pc.refreshSkillList();
-		
+	public Float resolve(PlayerCharacter pc)
+	{
 		int count = 0;
 		Collection<Skill> skills = pc.getDisplay().getSkillSet();
 		for(Skill sk : skills)

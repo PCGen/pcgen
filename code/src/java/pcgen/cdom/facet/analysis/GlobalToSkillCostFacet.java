@@ -77,12 +77,9 @@ public class GlobalToSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
 		DataSetID dsID = id.getDatasetID();
-		for (SkillCost cost : masterUsableSkillFacet.getScopes(dsID))
+		for (Skill sk : masterUsableSkillFacet.getSet(dsID))
 		{
-			for (Skill sk : masterUsableSkillFacet.getSet(dsID, cost))
-			{
-				add(id, cl, cost, sk, masterUsableSkillFacet);
-			}
+			add(id, cl, SkillCost.CROSS_CLASS, sk, masterUsableSkillFacet);
 		}
 		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
 		{
@@ -105,12 +102,9 @@ public class GlobalToSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
 		DataSetID dsID = id.getDatasetID();
-		for (SkillCost cost : masterUsableSkillFacet.getScopes(dsID))
+		for (Skill sk : masterUsableSkillFacet.getSet(dsID))
 		{
-			for (Skill sk : masterUsableSkillFacet.getSet(dsID, cost))
-			{
-				remove(id, cl, cost, sk, masterUsableSkillFacet);
-			}
+			remove(id, cl, SkillCost.CROSS_CLASS, sk, masterUsableSkillFacet);
 		}
 		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
 		{

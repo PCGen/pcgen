@@ -88,7 +88,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
 		context.ref.importObject(knowledge);
-		character.addSkill(knowledge);
 		SkillRankControl.modRanks(6.0, myClass, true, character, knowledge);
 		
 		knowledge2 = new Skill();
@@ -96,7 +95,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		knowledge2.setName("KNOWLEDGE (NATURE)");
 		TestHelper.addType(knowledge2, "KNOWLEDGE.INT");
 		context.ref.importObject(knowledge2);
-		character.addSkill(knowledge2);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge2);
 
 		tumble = new Skill();
@@ -104,7 +102,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		context.ref.importObject(tumble);
-		character.addSkill(tumble);
 		SkillRankControl.modRanks(8.0, myClass, true, character, tumble);
 
 		balance = new Skill();
@@ -112,7 +109,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		context.ref.importObject(balance);
-		character.addSkill(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 		
 		target = new Skill();
@@ -134,7 +130,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
 		context.ref.importObject(fake);
-		character.addSkill(fake);
 		SkillRankControl.modRanks(6.0, myClass, true, character, fake);
 		
 		fake2 = new Skill();
@@ -142,7 +137,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake2.setName("Fake 2");
 		fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
 		context.ref.importObject(fake2);
-		character.addSkill(fake2);
 		SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
 		
 		context.ref.buildDerivedObjects();

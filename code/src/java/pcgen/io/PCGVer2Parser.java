@@ -3773,11 +3773,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			aSkill =
 					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 						Skill.class, skillKey);
-
-			if (aSkill != null && !thePC.hasSkill(aSkill))
-			{
-				thePC.addSkill(aSkill);
-			}
 		}
 
 		while (it.hasNext())

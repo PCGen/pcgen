@@ -29,7 +29,6 @@ import java.util.Map;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
@@ -57,7 +56,6 @@ import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.AbstractListFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
-import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -578,7 +576,6 @@ public class CharacterLevelsFacadeImpl extends
 		boolean hasSkill = charDisplay.hasSkill(aSkill);
 		if (!hasSkill)
 		{
-			theCharacter.addSkill(aSkill);
 			SkillDisplay.updateSkillsOutputOrder(theCharacter, aSkill);
 		}
 		
@@ -589,16 +586,6 @@ public class CharacterLevelsFacadeImpl extends
 		if ("".equals(errMessage)) //$NON-NLS-1$
 		{
 			classLevel.setSkillPointsRemaining(skillPool - points);
-		}
-
-		//
-		// Remove the skill from the skill list if we've
-		// just set the rank to zero and it is not untrained
-		//
-		if (CoreUtility.doublesEqual(theCharacter.getRank(aSkill).doubleValue(), 0.0)
-			&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
-		{
-			theCharacter.removeSkill(aSkill);
 		}
 		
 		if (ChooseActivation.hasNewChooseToken(aSkill)

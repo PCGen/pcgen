@@ -58,7 +58,6 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -2018,10 +2017,6 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSkillLines(StringBuilder buffer)
 	{
-		SkillFilter filter = thePC.getSkillFilter();
-
-		thePC.populateSkills(filter);
-
 		Collection<Skill> skillSet = charDisplay.getSkillSet();
 		for (Skill skill : skillSet)
 		{
@@ -2032,10 +2027,14 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_SKILL).append(':');
 				buffer.append(EntityEncoder.encode(skill.getKeyName()));
 
+
 				buffer.append('|');
-				buffer.append(TAG_OUTPUTORDER).append(':');
-				buffer.append(outputIndex == null ? 0 : outputIndex);
-				buffer.append('|');
+				if (outputIndex != null && outputIndex != 0)
+				{
+					buffer.append(TAG_OUTPUTORDER).append(':');
+					buffer.append(outputIndex == null ? 0 : outputIndex);
+					buffer.append('|');
+				}
 
 				for (PCClass pcc : thePC.getSkillRankClasses(skill))
 				{

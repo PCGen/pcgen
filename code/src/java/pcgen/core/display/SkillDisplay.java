@@ -138,8 +138,7 @@ public class SkillDisplay
 		}
 	}
 
-
-	private static void resortSelected(PlayerCharacter pc, SkillsOutputOrder sortSelection)
+	public static void resortSelected(PlayerCharacter pc, SkillsOutputOrder sortSelection)
 	{
 		int sort = -1;
 		boolean sortOrder = false;

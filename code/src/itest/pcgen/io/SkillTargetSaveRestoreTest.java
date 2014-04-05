@@ -50,7 +50,6 @@ public class SkillTargetSaveRestoreTest extends
 		pc.addClass(cl);
 		pc.incrementClassLevel(1, cl);
 		pc.setHP(pc.getActiveClassLevel(cl, 0), 4);
-		pc.addSkill(obj);
 		SkillRankControl.modRanks(1.0, cl, true, pc, obj);
 		SkillRankControl.getSkillRankBonusTo(pc, obj);
 	}
@@ -74,7 +73,6 @@ public class SkillTargetSaveRestoreTest extends
 		SkillRankControl.modRanks(-1.0, cl, true, reloadedPC, sk);
 		assertTrue(reloadedPC.getRank(sk).equals(0.0f));
 		SkillRankControl.getSkillRankBonusTo(reloadedPC, sk);
-		reloadedPC.removeSkill(sk);
 		assertFalse(reloadedPC.hasSkill(sk));
 	}
 
