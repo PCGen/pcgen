@@ -12,70 +12,70 @@ ABILITYCATEGORY:Oracle Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRA
 ABILITYCATEGORY:Summoner Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:SummonerArchetype		PLURAL:Summoner Archetypes	DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Witch Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:WitchArchetype		PLURAL:Witch Archetypes		DISPLAYLOCATION:Archetype
 
-###Block: Base Class Ability Display
+###Block: Base Class Feature Display
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Alchemist Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassAbility	PLURAL:Alchemist Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Cavalier Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassAbility	PLURAL:Cavalier Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Inquisitor Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassAbility	PLURAL:Inquisitor Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassAbility		PLURAL:Oracle Class Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Summoner Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassAbility	PLURAL:Summoner Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Witch Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassAbility		PLURAL:Witch Class Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Antipaladin Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassAbility	PLURAL:Antipaladin Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Alchemist Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassFeatures	PLURAL:Alchemist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cavalier Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassFeatures	PLURAL:Cavalier Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassFeatures	PLURAL:Inquisitor Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures		PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassFeatures	PLURAL:Summoner Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures		PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Antipaladin Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassFeatures	PLURAL:Antipaladin Class Features	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Wizard Focused School		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Archetype		TYPE:WizardFocusedSchool							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard Focused School		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Archetype		TYPE:WizardFocusedSchool							DISPLAYLOCATION:Class Features
 
 
 # Alchemist
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Alchemist Discovery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery		PLURAL:Alchemist Discoveries		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Alchemist Grand Discovery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistGrandDiscovery	PLURAL:Alchemist Grand Discoveries	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Alchemist Discovery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery		PLURAL:Alchemist Discoveries		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Alchemist Grand Discovery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistGrandDiscovery	PLURAL:Alchemist Grand Discoveries	DISPLAYLOCATION:Class Features
 
 # Cavalier
 ABILITYCATEGORY:Tactician Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Cavalier Order			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CavalierOrder		PLURAL:Cavalier Orders			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cavalier Order			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CavalierOrder		PLURAL:Cavalier Orders			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Cavalier Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:CavalierFeat.Combat	PLURAL:Cavalier Feats			DISPLAYLOCATION:Feats
 
 # Inquisitor Categories
-ABILITYCATEGORY:Inquisitor Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain		PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgment		PLURAL:Inquisitor Judgment Effects	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Inquisitor Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain		PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgment		PLURAL:Inquisitor Judgment Effects	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
 
 ###Block: Oracular Ability Categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
-ABILITYCATEGORY:Oracle Curse				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleCurse					PLURAL:Oracle's Curses			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Mystery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleMystery				PLURAL:Oracle Mysteries			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Battle Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BattleRevelation.GeneralRevelation	PLURAL:Battle Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Bone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BoneRevelation.GeneralRevelation	PLURAL:Bone Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Flame Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlameRevelation.GeneralRevelation	PLURAL:Flame Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Heavens Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavensRevelation.GeneralRevelation	PLURAL:Heavens Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Life Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LifeRevelation.GeneralRevelation	PLURAL:Life Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Lore Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoreRevelation.GeneralRevelation	PLURAL:Lore Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Nature Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NatureRevelation.GeneralRevelation	PLURAL:Nature Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Stone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoneRevelation.GeneralRevelation	PLURAL:Stoone Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Waves Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WavesRevelation.GeneralRevelation	PLURAL:Waves Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Wind Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WindRevelation.GeneralRevelation	PLURAL:Wind Mystery Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Curse				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleCurse					PLURAL:Oracle's Curses			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Mystery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleMystery				PLURAL:Oracle Mysteries			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Battle Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BattleRevelation.GeneralRevelation	PLURAL:Battle Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BoneRevelation.GeneralRevelation	PLURAL:Bone Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Flame Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlameRevelation.GeneralRevelation	PLURAL:Flame Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Heavens Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavensRevelation.GeneralRevelation	PLURAL:Heavens Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Life Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LifeRevelation.GeneralRevelation	PLURAL:Life Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Lore Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoreRevelation.GeneralRevelation	PLURAL:Lore Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Nature Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NatureRevelation.GeneralRevelation	PLURAL:Nature Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Stone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoneRevelation.GeneralRevelation	PLURAL:Stoone Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Waves Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WavesRevelation.GeneralRevelation	PLURAL:Waves Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wind Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WindRevelation.GeneralRevelation	PLURAL:Wind Mystery Revelations	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Soothsayer Revelation		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoothsayerRevelation			PLURAL:Soothsayer Revelations
-ABILITYCATEGORY:Oracle Maneuver Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleManeuverMastery			PLURAL:Oracle Maneuver Masteries	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OracleWeaponMastery			PLURAL:Oracle Weapon Masteries	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSpellChoice				PLURAL:Oracle Spell Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Maneuver Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleManeuverMastery			PLURAL:Oracle Maneuver Masteries	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OracleWeaponMastery			PLURAL:Oracle Weapon Masteries	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSpellChoice				PLURAL:Oracle Spell Choices		DISPLAYLOCATION:Class Features
 
 # Summoner Aspect Choices
-ABILITYCATEGORY:Summoner Aspect			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SummonerAspect		PLURAL:Summoner Aspects			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Summoner Greater Aspect		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SummonerGreaterAspect	PLURAL:Summoner Greater Aspects	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Summoner Aspect			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SummonerAspect		PLURAL:Summoner Aspects			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Summoner Greater Aspect		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SummonerGreaterAspect	PLURAL:Summoner Greater Aspects	DISPLAYLOCATION:Class Features
 
 ###Block: Witch Ability Categories
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Witch Hex	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WitchHex	PLURAL:Witch Hexes		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Witch Patron	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WitchPatron	PLURAL:Witch Patrons		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Witch Hex	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WitchHex	PLURAL:Witch Hexes		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Patron	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WitchPatron	PLURAL:Witch Patrons		DISPLAYLOCATION:Class Features
 
 
 # These have been moved to the CORE.
 ###Block: Alternate Racial Traits categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Eidolon Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Eidolon Skill				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillChoice			PLURAL:Eidolon Skills				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Eidolon Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassSkillBonus	PLURAL:Eidolon Bonus Skills			DISPLAYLOCATION:Racial Abilities
 
@@ -84,12 +84,12 @@ ABILITYCATEGORY:Eidolon Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES
 ABILITYCATEGORY:Swashbuckler Weapon Proficiency				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MartialWeaponProficiency													PLURAL:Swashbuckler Weapon Proficiencies				DISPLAYLOCATION:Feats
 
 # Antipaladin
-ABILITYCATEGORY:Fiendish Boon							VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FiendishBoon															PLURAL:Fiendish Boons							DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Cruelty								VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Cruelty															PLURAL:Cruelties								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fiendish Boon							VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FiendishBoon															PLURAL:Fiendish Boons							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cruelty								VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Cruelty															PLURAL:Cruelties								DISPLAYLOCATION:Class Features
 
 
 #
-ABILITYCATEGORY:Aspect Master Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AspectMasterSelection													PLURAL:Aspect Master Selections					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Aspect Master Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AspectMasterSelection													PLURAL:Aspect Master Selections					DISPLAYLOCATION:Class Features
 
 # Sorcerer Bloodline Feats
 ABILITYCATEGORY:Aquatic Bloodline Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AquaticBloodline			ABILITYLIST:Skill Focus(Swim)							PLURAL:Aquatic Bloodline Feats					DISPLAYLOCATION:Feats
@@ -117,52 +117,52 @@ ABILITYCATEGORY:Expanded Arcana Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 # Racial Abilities
 ABILITYCATEGORY:Gnome Racial Knowledge					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Gnome Knowledge Selection					PLURAL:Gnome Knowledge Selections					DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Half-Elf Bonus Weapon					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT									ABILITYLIST:Exotic Weapon Proficiency|Martial Weapon Proficiency	PLURAL:Half-Elf Bonus Weapon						DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Alignment Selection						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Alignment Selection			PLURAL:Alignment Selections						DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Saving Throw Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Bonus to Saving Throw		PLURAL:Saving Throw Selections					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Alignment Selection						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Alignment Selection			PLURAL:Alignment Selections						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Saving Throw Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Order of the Sword ~ Bonus to Saving Throw		PLURAL:Saving Throw Selections					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Bonus CMD Choice						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FighterBonusCMDChoice													PLURAL:Bonus CMD Choices						DISPLAYLOCATION:Racial Abilities
 
 #
 
-ABILITYCATEGORY:Extreme Endurance Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IRagerEndurance														PLURAL:Extreme Endurance Selections					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Extreme Endurance Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IRagerEndurance														PLURAL:Extreme Endurance Selections					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Mounted Mastery Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MountedMastery			ABILITYLIST:Skill Focus(Ride)							PLURAL:Mounted Mastery Selections					DISPLAYLOCATION:Feats
 
 #
 
-ABILITYCATEGORY:Adaptation Creature Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptationCreature														PLURAL:Adaptation Creature Selections				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Shifter's Blessing Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShifterBlessing														PLURAL:Shifter's Blessing Selections				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Master Shifter Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterShifter														PLURAL:Master Shifter Selections					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Adaptation Creature Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptationCreature														PLURAL:Adaptation Creature Selections				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Shifter's Blessing Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShifterBlessing														PLURAL:Shifter's Blessing Selections				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Master Shifter Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterShifter														PLURAL:Master Shifter Selections					DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Inspiring Command Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InspiringCommand														PLURAL:Inspiring Command Selections					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Inspiring Command Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InspiringCommand														PLURAL:Inspiring Command Selections					DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Terrain Mastery Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TerrainMastery														PLURAL:Terrain Mastery Selections					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Terrain Dominance Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TerrainDominance														PLURAL:Terrain Dominance Selections					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Terrain Mastery Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TerrainMastery														PLURAL:Terrain Mastery Selections					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Terrain Dominance Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TerrainDominance														PLURAL:Terrain Dominance Selections					DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Adaptation Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptationSelection													PLURAL:Adaptation Ability Selections				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Adaptation Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptationSelection													PLURAL:Adaptation Ability Selections				DISPLAYLOCATION:Class Features
 
 
 ### Monk Archetypes
 
 # Weapon Adept
-ABILITYCATEGORY:Weapon Adept Monk Weapon Focus Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Focus ~ Weapon Adept					PLURAL:Weapon Adept Monk Weapon Focus Choices			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Weapon Adept Monk Weapon Specialization Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Specialization ~ Weapon Adept			PLURAL:Weapon Adept Monk Weapon Specialization Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Weapon Adept Monk Weapon Focus Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Focus ~ Weapon Adept					PLURAL:Weapon Adept Monk Weapon Focus Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Weapon Adept Monk Weapon Specialization Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Specialization ~ Weapon Adept			PLURAL:Weapon Adept Monk Weapon Specialization Choices	DISPLAYLOCATION:Class Features
 
 # Zen Archer
 ABILITYCATEGORY:Zen Archer Feat						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ZenArcherFeat														PLURAL:Zen Archer Feats							DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Zen Archer Weapon Focus Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Focus ~ Zen Archer					PLURAL:Zen Archer Weapon Focus Choices				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Zen Archer Weapon Specialization Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Specialization ~ Zen Archer				PLURAL:Zen Archer Weapon Specialization Choices			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Zen Archer Weapon Focus Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Focus ~ Zen Archer					PLURAL:Zen Archer Weapon Focus Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Zen Archer Weapon Specialization Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Weapon Specialization ~ Zen Archer				PLURAL:Zen Archer Weapon Specialization Choices			DISPLAYLOCATION:Class Features
 
 # Ranger Archetypes
-ABILITYCATEGORY:Hunter's Trick Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntersTrickChoice														PLURAL:Hunter's Trick Selections					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Community						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunity														PLURAL:Favored Community						DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Favored Community Bonus					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunityBonus													PLURAL:Favored Community Bonuses					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hunter's Trick Selection					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntersTrickChoice														PLURAL:Hunter's Trick Selections					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Favored Community						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunity														PLURAL:Favored Community						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Favored Community Bonus					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredCommunityBonus													PLURAL:Favored Community Bonuses					DISPLAYLOCATION:Class Features
 
 # Fighter Archetypes
-ABILITYCATEGORY:Weapon Master Chosen Weapon				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponMasterChosenWeapon													PLURAL:Weapon Master Chosen Weapon					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Archer Trick Shot Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcherTrickShot														PLURAL:Archer Trick Shot Selections					DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Expanded Repertoire Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedRepertoire														PLURAL:Expanded Repertoire Selections				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Weapon Master Chosen Weapon				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponMasterChosenWeapon													PLURAL:Weapon Master Chosen Weapon					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Archer Trick Shot Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcherTrickShot														PLURAL:Archer Trick Shot Selections					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Expanded Repertoire Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpandedRepertoire														PLURAL:Expanded Repertoire Selections				DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Beastmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BeastmasterCompanionChoice												PLURAL:Beastmaster Companion Choices				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Beastmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BeastmasterCompanionChoice												PLURAL:Beastmaster Companion Choices				DISPLAYLOCATION:Class Features
 
 # Favored Bonus Spells:
 ABILITYCATEGORY:Bard Favored Bonus Spell					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownBard													PLURAL:Bard Favored Bonus Spells					DISPLAYLOCATION:Racial Abilities
@@ -184,10 +184,10 @@ ABILITYCATEGORY:Human Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES
 
 ###Block: Elemental Wizard Opposition School choices
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI				Display Location
-ABILITYCATEGORY:Air Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirOpposedSchool	PLURAL:Oracle Air Opposition School Choice	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Earth Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EarthOpposedSchool	PLURAL:Oracle Earth Opposition School Choice	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Fire Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FireOpposedSchool	PLURAL:Oracle Fire Opposition School Choice	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaterOpposedSchool	PLURAL:Oracle Water Opposition School Choice	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Air Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AirOpposedSchool	PLURAL:Oracle Air Opposition School Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Earth Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EarthOpposedSchool	PLURAL:Oracle Earth Opposition School Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Fire Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FireOpposedSchool	PLURAL:Oracle Fire Opposition School Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaterOpposedSchool	PLURAL:Oracle Water Opposition School Choice	DISPLAYLOCATION:Class Features
 
 
 #COMMENT: The following are in the Core Set and shouldn't be required any longer.
@@ -219,22 +219,22 @@ ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 #ABILITYCATEGORY:Giant Spider Type				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType										PLURAL:Giant Spider Types				DISPLAYLOCATION:Racial Abilities
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list						Plural description for UI				Display Location
-ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Companion Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Companion Bonus Skill
 
-ABILITYCATEGORY:Defensive Stance Power			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DefensiveStancePower																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Defensive Stance Power			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DefensiveStancePower																		DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Cavalier Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:CavalierMountSelection																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cavalier Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:CavalierMountSelection																		DISPLAYLOCATION:Class Features
 
 
 ABILITYCATEGORY:Elemental Fist Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:ElementalFistChoice																		DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Additional Language				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Additional Language Selection			PLURAL:Additional Languages				DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Two-Handed Fighter Weapon Training I		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining1		PLURAL:Two-Handed Fighter Weapon Training I		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Two-Handed Fighter Weapon Training II		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining2		PLURAL:Two-Handed Fighter Weapon Training II		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Two-Handed Fighter Weapon Training III	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining3		PLURAL:Two-Handed Fighter Weapon Training III		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Two-Handed Fighter Weapon Training IV		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining4		PLURAL:Two-Handed Fighter Weapon Training IV		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Two-Handed Fighter Weapon Training I		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining1		PLURAL:Two-Handed Fighter Weapon Training I		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Two-Handed Fighter Weapon Training II		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining2		PLURAL:Two-Handed Fighter Weapon Training II		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Two-Handed Fighter Weapon Training III	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining3		PLURAL:Two-Handed Fighter Weapon Training III		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Two-Handed Fighter Weapon Training IV		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TwoHandedWeaponTraining4		PLURAL:Two-Handed Fighter Weapon Training IV		DISPLAYLOCATION:Class Features
 
 

@@ -9,10 +9,10 @@
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI	Display Location
 ABILITYCATEGORY:Magus Archetype				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:MagusArchetype										PLURAL:Magus Archetypes		DISPLAYLOCATION:Archetype
 
-ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Animal Friend Choice ~ Animal Speaker						DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Geisha Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal							ABILITYLIST:Geisha Weapon Proficiency Choice							DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Geisha Knowledge Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Geisha Knowledge Choice									DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Secrets of the Grave Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Secrets of the Grave Spell Choice							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Animal Friend Choice ~ Animal Speaker						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Geisha Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal							ABILITYLIST:Geisha Weapon Proficiency Choice							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Geisha Knowledge Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Geisha Knowledge Choice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Secrets of the Grave Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Secrets of the Grave Spell Choice							DISPLAYLOCATION:Class Features
 
 
 ###Block: Bonus Feats
@@ -24,46 +24,46 @@ ABILITYCATEGORY:Shark Shaman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 
 ###Block: Magus ability categories
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
-ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana				PLURAL:Magus Arcana		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana				PLURAL:Magus Arcana		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.ItemCreation.Metamagic	PLURAL:Magus Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Summoner/Eidolon ability categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
-ABILITYCATEGORY:Eidolon Aquatic Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic	PLURAL:Eidolon Aquatic Evolutions		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Aquatic Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic	PLURAL:Eidolon Aquatic Evolutions		DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Eidolon Basic Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidBasicMagic	PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Minor Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMinorMagic	PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Major Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMajorMagic	PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Ultimate Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidUltimateMagic	PLURAL:Eidolon Ultimate Magic Choices	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMagicUpgrade	PLURAL:Eidolon Magic Upgrades			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Basic Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidBasicMagic	PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Minor Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMinorMagic	PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Major Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMajorMagic	PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Ultimate Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidUltimateMagic	PLURAL:Eidolon Ultimate Magic Choices	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMagicUpgrade	PLURAL:Eidolon Magic Upgrades			DISPLAYLOCATION:Class Features
 
 
 ###Block: Cleric Archetype ability categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
 ABILITYCATEGORY:Undead Lord Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:UndeadLordBonus	PLURAL:Undead Lord Bonus Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Domain Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DomainSecret		PLURAL:Domain Secrets			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Domain Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DomainSecret		PLURAL:Domain Secrets			DISPLAYLOCATION:Class Features
 
 ###Block: Variant Channeling ability category
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Variant Channeling	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VariantChanneling	PLURAL:Variant Channeling	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Variant Channeling	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VariantChanneling	PLURAL:Variant Channeling	DISPLAYLOCATION:Class Features
 
 ###Block: Druid Archetype ability categories
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Night Sight		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NightSight	PLURAL:Night Sight		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Pack Member Level	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PackMembers	PLURAL:Pack Member Levels	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Night Sight		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NightSight	PLURAL:Night Sight		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pack Member Level	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PackMembers	PLURAL:Pack Member Levels	DISPLAYLOCATION:Class Features
 
 ###Block: Inquisitor Archetype ability categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Determination Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeterminationChoice	PLURAL:Determination Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Determination Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeterminationChoice	PLURAL:Determination Choices	DISPLAYLOCATION:Class Features
 
 ###Block: Magus Archetype ability categories
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Hex Arcana	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana.WitchHex	PLURAL:Hex Arcana			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hex Arcana	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana.WitchHex	PLURAL:Hex Arcana			DISPLAYLOCATION:Class Features
 
 ###Block: Monk Archetype ability categories
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Vow		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonkVow	PLURAL:Vows				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Ki Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KiPower	PLURAL:Ki Powers			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Vow		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonkVow	PLURAL:Vows				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ki Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KiPower	PLURAL:Ki Powers			DISPLAYLOCATION:Class Features
 
 ###Block: Sorcerer Bloodline Bonus Feat Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list																																																																Plural description for UI		Display Location
@@ -77,50 +77,50 @@ ABILITYCATEGORY:Shaitan Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 
 ###Block: Oracle Revelations ability categories
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI			Display Location
-ABILITYCATEGORY:Ancestor Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AncestorRevelation.GeneralRevelation		PLURAL:Ancestor Mystery Revelations		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Dark Tapestry Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DarkTapestryRevelation.GeneralRevelation	PLURAL:Dark Tapestry Mystery Revelations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Metal Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalRevelation.GeneralRevelation		PLURAL:Metal Mystery Revelations		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Time Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TimeRevelation.GeneralRevelation		PLURAL:Time Mystery Revelations		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Wood Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodRevelation.GeneralRevelation		PLURAL:Wood Mystery Revelations		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ancestor Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AncestorRevelation.GeneralRevelation		PLURAL:Ancestor Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dark Tapestry Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DarkTapestryRevelation.GeneralRevelation	PLURAL:Dark Tapestry Mystery Revelations	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Metal Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalRevelation.GeneralRevelation		PLURAL:Metal Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Time Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TimeRevelation.GeneralRevelation		PLURAL:Time Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wood Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodRevelation.GeneralRevelation		PLURAL:Wood Mystery Revelations		DISPLAYLOCATION:Class Features
 
 ###Block: Oracle Archetype ability categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Oracle Second Curse			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSecondCurse		PLURAL:Second Oracle's Curse			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Planar Resistance Energy Type	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PlanarResistanceEnergy	PLURAL:Planar Resistance Energy Type	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Second Curse			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSecondCurse		PLURAL:Second Oracle's Curse			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Planar Resistance Energy Type	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PlanarResistanceEnergy	PLURAL:Planar Resistance Energy Type	DISPLAYLOCATION:Class Features
 
 ###Block: Ranger Archetype ability categories
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Ranger Trap	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap	PLURAL:Ranger Traps		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ranger Trap	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap	PLURAL:Ranger Traps		DISPLAYLOCATION:Class Features
 
 ###Block: Wizard Split Spell Discovery ability categories
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Split Slot	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SplitSlotChoice	PLURAL:Split Slots		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Split Slot	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SplitSlotChoice	PLURAL:Split Slots		DISPLAYLOCATION:Class Features
 
 ###Block: Wizard Flexible Enhancement ability categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlexibleEnhancementBonus	PLURAL:Flexible Enhancement Bonuses	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlexibleEnhancementBonus	PLURAL:Flexible Enhancement Bonuses	DISPLAYLOCATION:Class Features
 
 ###Block: Wizard Elemental School Opposition Choice ability categories
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool			PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool			PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool			PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool			PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection								DISPLAYLOCATION:Feats
 
 #
-ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice										DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice										DISPLAYLOCATION:Class Features
 
 ###Block: Crossblooded Sorcerer ability categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline	PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Crossblooded Sorcerer		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Crossblooded Bloodline		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline	PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Sorcerer		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer													DISPLAYLOCATION:Class Features
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility	PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Crossblooded Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Crossblooded Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility	PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Magus Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassAbility		PLURAL:Magus Class Abilities			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Magus Class Feature			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures		PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
 #
 # End
 #
