@@ -204,6 +204,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		HitPointListener 
 {
 
+	private static PlayerCharacter DUMMY_PC = new PlayerCharacter();
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
@@ -316,7 +317,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		GMBus.send(new PCClosedMessage(null, theCharacter));
 		Globals.getPCList().remove(theCharacter);
 		lastExportChar = null;
-		theCharacter = null;
+		/*
+		 * Unfortunately, a dummy rather than null is necessary because the UI
+		 * does model swaps and such that do not pause events in the UI so that
+		 * it is trying to update things that do not exist
+		 */
+		theCharacter = DUMMY_PC;
 		charDisplay = null;
 	}
 	
