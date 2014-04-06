@@ -23,22 +23,20 @@
  */
 package gmgen.util;
 
-import pcgen.core.Globals;
-import pcgen.system.LanguageBundle;
-
-import javax.swing.JOptionPane;
-
-import org.apache.commons.lang.SystemUtils;
-
 import java.awt.Color;
 import java.awt.Cursor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.MessageFormat;
 import java.util.Properties;
 import java.util.StringTokenizer;
+
+import javax.swing.JOptionPane;
+
+import org.apache.commons.lang.SystemUtils;
+
+import pcgen.core.Globals;
 
 /**
  *  Misc Utilities, all static.  Will create and store a private static instance
@@ -105,36 +103,6 @@ public final class MiscUtilities
 		}
 
 		return false;
-	}
-
-	/**
-	 *  Returns the localization property with the specified name, formatting it
-	 *  with the <code>java.text.MessageFormat.format()</code> method.
-	 *
-	 *@param  name  The localization property
-	 *@param  args  The positional parameters
-	 *@return       The localization value
-	 *@since        GMGen 3.3
-	 * @deprecated Use {@link LanguageBundle#getFormattedString(String, Object...)}
-	 */
-	@Deprecated
-	public static final String getLocalization(String name, Object[] args)
-	{
-		if (name == null)
-		{
-			return null;
-		}
-
-		if (args == null)
-		{
-			return localization.getProperty(name);
-		}
-		String value = localization.getProperty(name);
-		if (value == null)
-		{
-			return null;
-		}
-		return MessageFormat.format(value, args);
 	}
 
 	/**

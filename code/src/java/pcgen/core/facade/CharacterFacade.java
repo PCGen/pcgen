@@ -30,7 +30,6 @@ import javax.swing.undo.UndoManager;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.PlayerCharacter;
@@ -152,13 +151,6 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories();
 
-	/**
-	 *
-	 * @return a list of levels
-	 * @deprecated
-	 */
-	public ListFacade<CharacterLevelFacade> getLevels();
-
 	public void addCharacterLevels(ClassFacade[] classes);
 
 	public void removeCharacterLevels(int levels);
@@ -176,27 +168,6 @@ public interface CharacterFacade extends CompanionFacade
 
 	public void setRemainingSelection(AbilityCategoryFacade category,
 									  int remaining);
-
-	/**
-	 *
-	 * @return the skill modifer for the specified level and skill
-	 * @deprecated
-	 */
-	public int getSkillModifier(SkillFacade skill, CharacterLevelFacade level);
-
-	/**
-	 *
-	 * @return the number of skill ranks for the specified skill and level
-	 * @deprecated
-	 */
-	public float getSkillRanks(SkillFacade skill, CharacterLevelFacade level);
-
-	/**
-	 *
-	 * @return the maximum number of ranks that can be allocated for the specified skill and level
-	 * @deprecated
-	 */
-	public float getMaxRanks(SkillCost cost, CharacterLevelFacade level);
 
 	/**
 	 * Adjust the cash held by the character.

@@ -7548,16 +7548,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// Make sure spell lists are setup
 		getSpellList();
 
-		// Force refresh of skills
-		SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
-
-		// Include the skills from the skills tab if that preference is set
-		if (filter == SkillFilter.SkillsTab)
-		{
-			filter = getSkillFilter();
-		}
-
 		// Calculate any active bonuses
 		calcActiveBonuses();
 

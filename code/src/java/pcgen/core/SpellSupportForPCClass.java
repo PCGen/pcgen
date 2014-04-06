@@ -128,45 +128,6 @@ public class SpellSupportForPCClass
 	}
 
 	/**
-	 * @Deprecated canCastSpells should be used to get an accurate answer for a character.
-	 */
-	@Deprecated
-	public boolean zeroCastSpells()
-	{
-		if (!updateSpellCache(false) || !spellCache.hasCastProgression())
-		{
-			return true;
-		}
-		/*
-		 * CONSIDER This is just blatently wrong because it is not considering
-		 * formulas, and not considering bonuses... - thpr 11/8/06
-		 * 
-		 * May not be a big issue other than a poorly named method, but need to
-		 * check what is really required here
-		 */
-		for (List<Formula> l : spellCache.getCastProgression().values())
-		{
-			for (Formula st : l)
-			{
-				try
-				{
-					if (Integer.parseInt(st.toString()) > 0)
-					{
-						return false;
-					}
-				}
-				catch (NumberFormatException nfe)
-				{
-					// ignore
-				}
-			}
-		}
-
-		return true;
-	}
-
-
-	/**
 	 * Identify if the character can cast spells for this class. This will take 
 	 * into account the class casting progression as well as the character's 
 	 * bonuses. 
