@@ -9,6 +9,130 @@
 # Examples
 # SOURCE:JDTEST	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXDEVVER:6.1.1
 # EQUIPMENT:JDTEST	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXDEVVER:6.1.2
+
+# APG Rage Powers
+ABILITY:Special Ability|Beast Totem ~ Barbarian				NEWKEY:Rage Power ~ Beast Totem				MAXVER:6.4.00
+ABILITY:Special Ability|Beast Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Beast Totem (Greater)				MAXVER:6.4.00
+ABILITY:Special Ability|Beast Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Beast Totem (Lesser)				MAXVER:6.4.00
+ABILITY:Special Ability|Boasting Taunt ~ Barbarian			NEWKEY:Rage Power ~ Boasting Taunt				MAXVER:6.4.00
+ABILITY:Special Ability|Brawler ~ Barbarian				NEWKEY:Rage Power ~ Brawler						MAXVER:6.4.00
+ABILITY:Special Ability|Brawler_Greater ~ Barbarian			NEWKEY:Rage Power ~ Brawler (Greater)				MAXVER:6.4.00
+ABILITY:Special Ability|Chaos Totem ~ Barbarian				NEWKEY:Rage Power ~ Chaos Totem					MAXVER:6.4.00
+ABILITY:Special Ability|Chaos Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Chaos Totem (Greater)				MAXVER:6.4.00
+ABILITY:Special Ability|Chaos Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Chaos Totem (Lesser)				MAXVER:6.4.00
+ABILITY:Special Ability|Come and Get Me ~ Barbarian			NEWKEY:Rage Power ~ Come and Get Me				MAXVER:6.4.00
+ABILITY:Special Ability|Disruptive ~ Barbarian				NEWKEY:Rage Power ~ Disruptive					MAXVER:6.4.00
+ABILITY:Special Ability|Elemental Rage ~ Barbarian			NEWKEY:Rage Power ~ Elemental Rage				MAXVER:6.4.00
+ABILITY:Special Ability|Elemental Rage Greater ~ Barbarian		NEWKEY:Rage Power ~ Elemental Rage (Greater)			MAXVER:6.4.00
+ABILITY:Special Ability|Elemental Rage Lesser ~ Barbarian		NEWKEY:Rage Power ~ Elemental Rage (Lesser)			MAXVER:6.4.00
+ABILITY:Special Ability|Energy Absorption ~ Barbarian			NEWKEY:Rage Power ~ Energy Absorption				MAXVER:6.4.00
+ABILITY:Special Ability|Energy Eruption ~ Barbarian			NEWKEY:Rage Power ~ Energy Eruption				MAXVER:6.4.00
+ABILITY:Special Ability|Energy Resistance ~ Barbarian			NEWKEY:Rage Power ~ Energy Resistance				MAXVER:6.4.00
+ABILITY:Special Ability|Energy Resistance Greater ~ Barbarian	NEWKEY:Rage Power ~ Energy Resistance (Greater)			MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Mount ~ Barbarian			NEWKEY:Rage Power ~ Ferocious Mount				MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Mount Greater ~ Barbarian		NEWKEY:Rage Power ~ Ferocious Mount (Greater)		MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Trample ~ Barbarian			NEWKEY:Rage Power ~ Ferocious Trample				MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Trample Greater ~ Barbarian	NEWKEY:Rage Power ~ Ferocious Trample (Greater)		MAXVER:6.4.00
+ABILITY:Special Ability|Fiend Totem ~ Barbarian				NEWKEY:Rage Power ~ Fiend Totem					MAXVER:6.4.00
+ABILITY:Special Ability|Fiend Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Fiend Totem (Greater)				MAXVER:6.4.00
+ABILITY:Special Ability|Fiend Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Fiend Totem (Lesser)				MAXVER:6.4.00
+ABILITY:Special Ability|Flesh Wound ~ Barbarian				NEWKEY:Rage Power ~ Flesh Wound					MAXVER:6.4.00
+ABILITY:Special Ability|Good for What Ails You ~ Barbarian		NEWKEY:Rage Power ~ Good for What Ails You			MAXVER:6.4.00
+ABILITY:Special Ability|Ground Breaker ~ Barbarian			NEWKEY:Rage Power ~ Ground Breaker				MAXVER:6.4.00
+ABILITY:Special Ability|Guarded Life ~ Barbarian			NEWKEY:Rage Power ~ Guarded Life						MAXVER:6.4.00
+ABILITY:Special Ability|Hurling ~ Barbarian				NEWKEY:Rage Power ~ Hurling						MAXVER:6.4.00
+ABILITY:Special Ability|Hurling Greater ~ Barbarian			NEWKEY:Rage Power ~ Hurling (Greater)				MAXVER:6.4.00
+ABILITY:Special Ability|Hurling Lesser ~ Barbarian			NEWKEY:Rage Power ~ Hurling (Lesser)				MAXVER:6.4.00
+ABILITY:Special Ability|Hurling Charge ~ Barbarian			NEWKEY:Rage Power ~ Hurling Charge				MAXVER:6.4.00
+ABILITY:Special Ability|Inspire Ferocity ~ Barbarian			NEWKEY:Rage Power ~ Inspire Ferocity				MAXVER:6.4.00
+ABILITY:Special Ability|Knockdown ~ Barbarian				NEWKEY:Rage Power ~ Knockdown					MAXVER:6.4.00
+ABILITY:Special Ability|Liquid Courage ~ Barbarian			NEWKEY:Rage Power ~ Liquid Courage				MAXVER:6.4.00
+ABILITY:Special Ability|Overbearing Advance ~ Barbarian		NEWKEY:Rage Power ~ Overbearing Advance				MAXVER:6.4.00
+ABILITY:Special Ability|Overbearing Onslaught ~ Barbarian		NEWKEY:Rage Power ~ Overbearing Onslaught			MAXVER:6.4.00
+ABILITY:Special Ability|Reckless Abandon ~ Barbarian			NEWKEY:Rage Power ~ Reckless Abandon				MAXVER:6.4.00
+ABILITY:Special Ability|Roaring Drunk ~ Barbarian			NEWKEY:Rage Power ~ Roaring Drunk					MAXVER:6.4.00
+ABILITY:Special Ability|Smasher ~ Barbarian				NEWKEY:Rage Power ~ Smasher						MAXVER:6.4.00
+ABILITY:Special Ability|Spellbreaker ~ Barbarian			NEWKEY:Rage Power ~ Spellbreaker						MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Steed ~ Barbarian			NEWKEY:Rage Power ~ Spirit Steed						MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Totem ~ Barbarian			NEWKEY:Rage Power ~ Spirit Totem						MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Spirit Totem (Greater)			MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Spirit Totem (Lesser)				MAXVER:6.4.00
+ABILITY:Special Ability|Staggering Drunk ~ Barbarian			NEWKEY:Rage Power ~ Staggering Drunk				MAXVER:6.4.00
+ABILITY:Special Ability|Witch Hunter ~ Barbarian			NEWKEY:Rage Power ~ Witch Hunter						MAXVER:6.4.00
+
+# CR Rage Powers
+ABILITY:Special Ability|Animal Fury ~ Rage Power				NEWKEY:Rage Power ~ Animal Fury					MAXVER:6.4.00
+ABILITY:Special Ability|Clear Mind ~ Rage Power					NEWKEY:Rage Power ~ Clear Mind					MAXVER:6.4.00
+ABILITY:Special Ability|Fearless Rage ~ Rage Power				NEWKEY:Rage Power ~ Fearless Rage				MAXVER:6.4.00
+ABILITY:Special Ability|Increased Damage Reduction ~ Rage Power		NEWKEY:Rage Power ~ Increased Damage Reduction		MAXVER:6.4.00
+ABILITY:Special Ability|Guarded Stance ~ Rage Power				NEWKEY:Rage Power ~ Guarded Stance				MAXVER:6.4.00
+ABILITY:Special Ability|Internal Fortitude ~ Rage Power			NEWKEY:Rage Power ~ Internal Fortitude				MAXVER:6.4.00
+ABILITY:Special Ability|Intimidating Glare ~ Rage Power			NEWKEY:Rage Power ~ Intimidating Glare				MAXVER:6.4.00
+ABILITY:Special Ability|Knockback ~ Rage Power					NEWKEY:Rage Power ~ Knockback					MAXVER:6.4.00
+ABILITY:Special Ability|Low-Light Vision ~ Rage Power				NEWKEY:Rage Power ~ Low-Light Vision				MAXVER:6.4.00
+ABILITY:Special Ability|Mighty Swing ~ Rage Power				NEWKEY:Rage Power ~ Mighty Swing					MAXVER:6.4.00
+ABILITY:Special Ability|Moment of Clarity ~ Rage Power			NEWKEY:Rage Power ~ Moment of Clarity				MAXVER:6.4.00
+ABILITY:Special Ability|Night Vision ~ Rage Power				NEWKEY:Rage Power ~ Night Vision					MAXVER:6.4.00
+ABILITY:Special Ability|No Escape ~ Rage Power					NEWKEY:Rage Power ~ No Escape					MAXVER:6.4.00
+ABILITY:Special Ability|Powerful Blow ~ Rage Power				NEWKEY:Rage Power ~ Powerful Blow				MAXVER:6.4.00
+ABILITY:Special Ability|Quick Reflexes ~ Rage Power				NEWKEY:Rage Power ~ Quick Reflexes				MAXVER:6.4.00
+ABILITY:Special Ability|Raging Climber ~ Rage Power				NEWKEY:Rage Power ~ Raging Climber				MAXVER:6.4.00
+ABILITY:Special Ability|Raging Leaper ~ Rage Power				NEWKEY:Rage Power ~ Raging Leaper				MAXVER:6.4.00
+ABILITY:Special Ability|Raging Swimmer ~ Rage Power				NEWKEY:Rage Power ~ Raging Swimmer				MAXVER:6.4.00
+ABILITY:Special Ability|Renewed Vigor ~ Rage Power				NEWKEY:Rage Power ~ Renewed Vigor				MAXVER:6.4.00
+ABILITY:Special Ability|Rolling Dodge ~ Rage Power				NEWKEY:Rage Power ~ Rolling Dodge				MAXVER:6.4.00
+ABILITY:Special Ability|Roused Anger ~ Rage Power				NEWKEY:Rage Power ~ Roused Anger					MAXVER:6.4.00
+ABILITY:Special Ability|Scent ~ Rage Power					NEWKEY:Rage Power ~ Scent						MAXVER:6.4.00
+ABILITY:Special Ability|Strength Surge ~ Rage Power				NEWKEY:Rage Power ~ Strength Surge				MAXVER:6.4.00
+ABILITY:Special Ability|Superstition ~ Rage Power				NEWKEY:Rage Power ~ Superstition					MAXVER:6.4.00
+ABILITY:Special Ability|Surprise Accuracy ~ Rage Power			NEWKEY:Rage Power ~ Surprise Accuracy				MAXVER:6.4.00
+ABILITY:Special Ability|Swift Foot ~ Rage Power					NEWKEY:Rage Power ~ Swift Foot					MAXVER:6.4.00
+ABILITY:Special Ability|Terrifying Howl ~ Rage Power				NEWKEY:Rage Power ~ Terrifying Howl				MAXVER:6.4.00
+ABILITY:Special Ability|Unexpected Strike ~ Rage Power			NEWKEY:Rage Power ~ Unexpected Strike				MAXVER:6.4.00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###Block: Old 6.2
+
+
 EQUIPMENT:Kasari Gusoku		NEWKEY:Kusari Gusoku	MAXVER:6.1.8
 
 ABILITY:Special Ability|Low light Vision		NEWKEY:Low-Light Vision	MAXVER:6.00.01
