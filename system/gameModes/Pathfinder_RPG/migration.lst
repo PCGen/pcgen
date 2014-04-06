@@ -90,38 +90,39 @@ ABILITY:Special Ability|Swift Foot ~ Rage Power					NEWKEY:Rage Power ~ Swift Fo
 ABILITY:Special Ability|Terrifying Howl ~ Rage Power				NEWKEY:Rage Power ~ Terrifying Howl				MAXVER:6.4.00
 ABILITY:Special Ability|Unexpected Strike ~ Rage Power			NEWKEY:Rage Power ~ Unexpected Strike				MAXVER:6.4.00
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# UC
+ABILITY:Special Ability|Auspicious Mark ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Auspicious Mark		
+ABILITY:Special Ability|Bestial Climber ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Climber		
+ABILITY:Special Ability|Bestial Leaper ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Leaper		
+ABILITY:Special Ability|Bestial Swimmer ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Swimmer		
+ABILITY:Special Ability|Bleeding Blow ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bleeding Blow		
+ABILITY:Special Ability|Body Bludgeon ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Body Bludgeon		
+ABILITY:Special Ability|Crippling Blow ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Crippling Blow		
+ABILITY:Special Ability|Deadly Accuracy ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Deadly Accuracy		
+ABILITY:Special Ability|Dragon Totem ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Dragon Totem			
+ABILITY:Special Ability|Dragon Totem Resilience ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Dragon Totem Resilience	
+ABILITY:Special Ability|Dragon Totem Wings ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Dragon Totem Wings		
+ABILITY:Special Ability|Eater of Magic ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Eater of Magic		
+ABILITY:Special Ability|Ghost Rager ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Ghost Rager			
+ABILITY:Special Ability|Ground Breaker Greater ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Ground Breaker (Greater)	
+ABILITY:Special Ability|Guarded Life Greater ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Guarded Life (Greater)	
+ABILITY:Special Ability|Hive Totem ~ Rage Power				MAXVER:6.4.00	NEWKEY:Rage Power ~ Hive Totem			
+ABILITY:Special Ability|Hive Totem Resilience ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Hive Totem Resilience	
+ABILITY:Special Ability|Hive Totem Toxicity ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Hive Totem Toxicity	
+ABILITY:Special Ability|Lethal Accuracy ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Lethal Accuracy		
+ABILITY:Special Ability|Perfect Clarity ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Perfect Clarity		
+ABILITY:Special Ability|Primal Scent ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Primal Scent			
+ABILITY:Special Ability|Reflexive Dodge ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Reflexive Dodge		
+ABILITY:Special Ability|Regenerative Vigor ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Regenerative Vigor		
+ABILITY:Special Ability|Renewed Life ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Renewed Life			
+ABILITY:Special Ability|Renewed Vitality ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Renewed Vitality		
+ABILITY:Special Ability|Sharpened Accuracy ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Sharpened Accuracy		
+ABILITY:Special Ability|Spell Sunder ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Spell Sunder			
+ABILITY:Special Ability|Sprint ~ Rage Power				MAXVER:6.4.00	NEWKEY:Rage Power ~ Sprint				
+ABILITY:Special Ability|Sunder Enchantment ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Sunder Enchantment		
+ABILITY:Special Ability|World Serpent Totem ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Totem	
+ABILITY:Special Ability|World Serpent Spirit ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Spirit	
+ABILITY:Special Ability|World Serpent Totem Unity ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Totem Unity
 
 
 
