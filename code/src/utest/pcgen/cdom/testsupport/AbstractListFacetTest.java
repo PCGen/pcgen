@@ -33,7 +33,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public abstract class AbstractListFacetTest<T> extends TestCase
+public abstract class AbstractListFacetTest<T>
+		extends TestCase
 {
 	protected CharID id;
 	protected CharID altid;
@@ -709,7 +710,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 
 	protected abstract T getObject();
 
-	protected abstract AbstractListFacet<T> getFacet();
+	protected abstract AbstractListFacet<CharID, T> getFacet();
 
 
 	public static void addBonus(Class<? extends BonusObj> clazz)

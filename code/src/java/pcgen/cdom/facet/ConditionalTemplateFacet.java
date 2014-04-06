@@ -39,7 +39,7 @@ import pcgen.core.PCTemplate;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
+public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, PCTemplate>, LevelChangeListener
 {
 	private TemplateFacet templateFacet;

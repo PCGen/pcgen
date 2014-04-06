@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.Set;
+import java.util.Collection;
 
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
@@ -64,7 +64,7 @@ public class SpellListToAvailableSpellFacet implements
 	{
 		CharID id = dfce.getCharID();
 		CDOMList<Spell> list = dfce.getCDOMObject();
-		Set<AvailableSpell> spells =
+		Collection<AvailableSpell> spells =
 				masterAvailableSpellFacet.getSet(id.getDatasetID());
 		for (AvailableSpell as : spells)
 		{
@@ -79,7 +79,7 @@ public class SpellListToAvailableSpellFacet implements
 	{
 		CharID id = dfce.getCharID();
 		CDOMList<Spell> list = dfce.getCDOMObject();
-		Set<AvailableSpell> spells =
+		Collection<AvailableSpell> spells =
 				masterAvailableSpellFacet.getSet(id.getDatasetID());
 		for (AvailableSpell as : spells)
 		{

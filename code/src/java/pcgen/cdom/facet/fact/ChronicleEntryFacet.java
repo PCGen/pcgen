@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.ChronicleEntry;
 import pcgen.util.Logging;
@@ -36,7 +37,8 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class ChronicleEntryFacet extends AbstractListFacet<ChronicleEntry> 
+public class ChronicleEntryFacet extends
+		AbstractListFacet<CharID, ChronicleEntry>
 {
 
     @Override

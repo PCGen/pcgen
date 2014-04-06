@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
@@ -28,7 +29,7 @@ public class CompanionModFacetTest extends AbstractListFacetTest<CompanionMod>
 	private CompanionModFacet facet = new CompanionModFacet();
 
 	@Override
-	protected AbstractListFacet<CompanionMod> getFacet()
+	protected AbstractListFacet<CharID, CompanionMod> getFacet()
 	{
 		return facet;
 	}

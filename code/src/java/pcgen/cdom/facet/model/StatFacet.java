@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.PCStat;
 
@@ -26,6 +27,6 @@ import pcgen.core.PCStat;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatFacet extends AbstractListFacet<PCStat>
+public class StatFacet extends AbstractListFacet<CharID, PCStat>
 {
 }

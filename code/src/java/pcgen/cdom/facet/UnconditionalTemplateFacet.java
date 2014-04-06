@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
@@ -25,7 +26,8 @@ import pcgen.core.PCTemplate;
  * UnconditionalTemplateFacet is a Facet that tracks the PCTemplates that have
  * been granted to a Player Character.
  */
-public class UnconditionalTemplateFacet extends AbstractListFacet<PCTemplate>
+public class UnconditionalTemplateFacet extends
+		AbstractListFacet<CharID, PCTemplate>
 {
 	private TemplateFacet templateFacet;
 

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.core.Campaign;
@@ -29,7 +30,7 @@ import pcgen.core.Campaign;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CampaignFacet extends AbstractListFacet<Campaign>
+public class CampaignFacet extends AbstractListFacet<CharID, Campaign>
 {
 	private ExpandedCampaignFacet expandedCampaignFacet;
 

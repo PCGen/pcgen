@@ -32,8 +32,8 @@ import pcgen.core.bonus.BonusObj;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AppliedBonusFacet extends AbstractListFacet<BonusObj> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private AddedBonusFacet addedBonusFacet;
 

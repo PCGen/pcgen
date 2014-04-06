@@ -33,8 +33,8 @@ import pcgen.core.character.EquipSet;
 /**
  * EquipSetFacet is a Facet that tracks the EquipSets for a Player Character.
  */
-public class EquipSetFacet extends AbstractListFacet<EquipSet> implements
-		DataFacetChangeListener<CharID, Equipment>
+public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
+		implements DataFacetChangeListener<CharID, Equipment>
 {
 
 	/**

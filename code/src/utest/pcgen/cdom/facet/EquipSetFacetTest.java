@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.character.EquipSet;
@@ -26,7 +27,7 @@ public class EquipSetFacetTest extends AbstractListFacetTest<EquipSet>
 	private EquipSetFacet facet = new EquipSetFacet();
 
 	@Override
-	protected AbstractListFacet<EquipSet> getFacet()
+	protected AbstractListFacet<CharID, EquipSet> getFacet()
 	{
 		return facet;
 	}

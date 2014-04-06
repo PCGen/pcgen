@@ -27,7 +27,7 @@ import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.DataSetID;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.AvailableSpell;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -44,7 +44,7 @@ import pcgen.rules.context.LoadContext;
  * @author Tom Parker <thpr@users.sourceforge.net>
  */
 public class MasterAvailableSpellFacet extends
-		AbstractSourcedListFacet<DataSetID, AvailableSpell> implements
+		AbstractListFacet<DataSetID, AvailableSpell> implements
 		DataSetInitializedFacet
 {
 	private DataSetInitializationFacet datasetInitializationFacet;
@@ -88,7 +88,7 @@ public class MasterAvailableSpellFacet extends
 						{
 							as.addAllPrerequisites(apo.getPrerequisiteList());
 						}
-						add(dsID, as, lc);
+						add(dsID, as);
 					}
 				}
 			}

@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionallyGrantedAbilityFacet extends
-		AbstractListFacet<CNAbilitySelection>
+		AbstractListFacet<CharID, CNAbilitySelection>
 {
 
 	private ConditionalAbilityFacet conditionalAbilityFacet;

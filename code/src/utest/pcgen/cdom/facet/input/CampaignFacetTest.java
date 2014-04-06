@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.input;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.cdom.facet.input.CampaignFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.Campaign;
 
@@ -27,7 +27,7 @@ public class CampaignFacetTest extends AbstractListFacetTest<Campaign>
 	private CampaignFacet facet = new CampaignFacet();
 
 	@Override
-	protected AbstractListFacet<Campaign> getFacet()
+	protected AbstractListFacet<CharID, Campaign> getFacet()
 	{
 		return facet;
 	}

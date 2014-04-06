@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
@@ -27,7 +28,7 @@ public class CheckFacetTest extends AbstractListFacetTest<PCCheck>
 	private CheckFacet facet = new CheckFacet();
 
 	@Override
-	protected AbstractListFacet<PCCheck> getFacet()
+	protected AbstractListFacet<CharID, PCCheck> getFacet()
 	{
 		return facet;
 	}

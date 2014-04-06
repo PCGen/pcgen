@@ -17,10 +17,11 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.Ability;
 
-public class SavedAbilitiesFacet extends AbstractListFacet<Ability>
+public class SavedAbilitiesFacet extends AbstractListFacet<CharID, Ability>
 {
 
 }

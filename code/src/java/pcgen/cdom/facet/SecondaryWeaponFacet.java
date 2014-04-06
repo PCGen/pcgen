@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.Equipment;
 
@@ -33,7 +34,7 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SecondaryWeaponFacet extends AbstractListFacet<Equipment>
+public class SecondaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 {
 	
 	/**

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
@@ -27,7 +28,7 @@ public class StatFacetTest extends AbstractListFacetTest<PCStat>
 	private StatFacet facet = new StatFacet();
 
 	@Override
-	protected AbstractListFacet<PCStat> getFacet()
+	protected AbstractListFacet<CharID, PCStat> getFacet()
 	{
 		return facet;
 	}

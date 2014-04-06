@@ -32,7 +32,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LevelInfoFacet extends AbstractListFacet<PCLevelInfo>
+public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 {
 
 	/**

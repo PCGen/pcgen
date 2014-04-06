@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.PCTemplate;
@@ -27,7 +28,7 @@ public class ConditionalTemplateFacetTest extends
 	private ConditionalTemplateFacet facet = new ConditionalTemplateFacet();
 
 	@Override
-	protected AbstractListFacet<PCTemplate> getFacet()
+	protected AbstractListFacet<CharID, PCTemplate> getFacet()
 	{
 		return facet;
 	}

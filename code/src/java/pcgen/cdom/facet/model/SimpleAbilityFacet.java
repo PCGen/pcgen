@@ -7,8 +7,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 
-public class SimpleAbilityFacet extends AbstractListFacet<Ability> implements
-		DataFacetChangeListener<CharID, CNAbilitySelection>
+public class SimpleAbilityFacet extends AbstractListFacet<CharID, Ability>
+		implements DataFacetChangeListener<CharID, CNAbilitySelection>
 {
 
 	@Override

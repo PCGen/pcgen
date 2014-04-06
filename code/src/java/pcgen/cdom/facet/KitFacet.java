@@ -17,13 +17,14 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.Kit;
 
 /**
  * KitFacet is a Facet that tracks the Kits possessed by a Player Character.
  */
-public class KitFacet extends AbstractListFacet<Kit>
+public class KitFacet extends AbstractListFacet<CharID, Kit>
 {
 
 }

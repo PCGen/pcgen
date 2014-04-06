@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.ChronicleEntry;
@@ -28,7 +29,7 @@ public class ChronicleEntryFacetTest extends
 	private final ChronicleEntryFacet facet = new ChronicleEntryFacet();
 
 	@Override
-	protected AbstractListFacet<ChronicleEntry> getFacet()
+	protected AbstractListFacet<CharID, ChronicleEntry> getFacet()
 	{
 		return facet;
 	}

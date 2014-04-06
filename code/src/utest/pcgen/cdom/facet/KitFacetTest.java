@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.Kit;
@@ -26,7 +27,7 @@ public class KitFacetTest extends AbstractListFacetTest<Kit>
 	private KitFacet facet = new KitFacet();
 
 	@Override
-	protected AbstractListFacet<Kit> getFacet()
+	protected AbstractListFacet<CharID, Kit> getFacet()
 	{
 		return facet;
 	}

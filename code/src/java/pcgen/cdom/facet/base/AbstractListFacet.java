@@ -22,7 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 
-import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
@@ -40,30 +40,30 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
+public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
+		AbstractDataFacet<IDT, T>
 {
 	/**
 	 * Add the given object to the list of objects stored in this
 	 * AbstractListFacet for the Player Character represented by the given
-	 * CharID
+	 * PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            given item should be added
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the given item should be added
 	 * @param obj
 	 *            The object to be added to the list of objects stored in this
 	 *            AbstractListFacet for the Player Character represented by the
-	 *            given CharID
-	 * @return
-	 * 			  true if the object was added; false otherwise
+	 *            given PCGenIdentifier
+	 * @return true if the object was added; false otherwise
 	 */
-	public boolean add(CharID id, T obj)
+	public boolean add(IDT id, T obj)
 	{
 		if (obj == null)
 		{
 			throw new IllegalArgumentException("Object to add may not be null");
 		}
-		
+
 		if (getConstructingCachedSet(id).add(obj))
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -78,19 +78,19 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	/**
 	 * Adds all of the objects in the given Collection to the list of objects
 	 * stored in this AbstractListFacet for the Player Character represented by
-	 * the given CharID
+	 * the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            given items should be added
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the given items should be added
 	 * @param c
 	 *            The Collection of objects to be added to the list of objects
 	 *            stored in this AbstractListFacet for the Player Character
-	 *            represented by the given CharID
+	 *            represented by the given PCGenIdentifier
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAll(CharID id, Collection<T> c)
+	public void addAll(IDT id, Collection<T> c)
 	{
 		if (c.isEmpty())
 		{
@@ -101,11 +101,13 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 		{
 			if (obj == null)
 			{
-				throw new IllegalArgumentException("Object to add may not be null");
+				throw new IllegalArgumentException(
+					"Object to add may not be null");
 			}
 			if (set.add(obj))
 			{
-				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
+				fireDataFacetChangeEvent(id, obj,
+					DataFacetChangeEvent.DATA_ADDED);
 			}
 		}
 	}
@@ -113,19 +115,19 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	/**
 	 * Removes the given object from the list of objects stored in this
 	 * AbstractListFacet for the Player Character represented by the given
-	 * CharID
+	 * PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which the
-	 *            given item should be removed
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the given item should be removed
 	 * @param obj
 	 *            The object to be removed from the list of objects stored in
 	 *            this AbstractListFacet for the Player Character represented by
-	 *            the given CharID
-	 * @return
-	 * 			  true if an element was removed as a result of this call; false otherwise
+	 *            the given PCGenIdentifier
+	 * @return true if an element was removed as a result of this call; false
+	 *         otherwise
 	 */
-	public boolean remove(CharID id, T obj)
+	public boolean remove(IDT id, T obj)
 	{
 		if (obj == null)
 		{
@@ -136,35 +138,36 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 		{
 			if (componentSet.remove(obj))
 			{
-				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj,
+					DataFacetChangeEvent.DATA_REMOVED);
 				if (componentSet.isEmpty())
 				{
 					removeCache(id);
 				}
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
 	/**
 	 * Removes all of the objects in the given Collection from the list of
 	 * objects stored in this AbstractListFacet for the Player Character
-	 * represented by the given CharID
+	 * represented by the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which the
-	 *            given items should be removed
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the given items should be removed
 	 * @param c
 	 *            The Collection of objects to be removed from the list of
 	 *            objects stored in this AbstractListFacet for the Player
-	 *            Character represented by the given CharID
+	 *            Character represented by the given PCGenIdentifier
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void removeAll(CharID id, Collection<T> c)
+	public void removeAll(IDT id, Collection<T> c)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
@@ -173,12 +176,13 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 			{
 				if (obj == null)
 				{
-					throw new IllegalArgumentException("Object to add may not be null");
+					throw new IllegalArgumentException(
+						"Object to add may not be null");
 				}
 				if (componentSet.remove(obj))
 				{
 					fireDataFacetChangeEvent(id, obj,
-							DataFacetChangeEvent.DATA_REMOVED);
+						DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -187,7 +191,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	/**
 	 * Removes all objects from the list of objects stored in this
 	 * AbstractListFacet for the Player Character represented by the given
-	 * CharID
+	 * PCGenIdentifier
 	 * 
 	 * This method is value-semantic in that ownership of the returned
 	 * Collection is transferred to the class calling this method. Since this is
@@ -200,13 +204,13 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * and remove*() methods of AbstractListFacet.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which all
-	 *            items should be removed
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which all items should be removed
 	 * @return A non-null Set of objects removed from the list of objects stored
 	 *         in this AbstractListFacet for the Player Character represented by
-	 *         the given CharID
+	 *         the given PCGenIdentifier
 	 */
-	public Collection<T> removeAll(CharID id)
+	public Collection<T> removeAll(IDT id)
 	{
 		Collection<T> componentSet = (Collection<T>) removeCache(id);
 		if (componentSet == null)
@@ -222,9 +226,9 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 
 	/**
 	 * Returns a non-null copy of the Set of objects in this AbstractListFacet
-	 * for the Player Character represented by the given CharID. This method
-	 * returns an empty Set if no objects are in this AbstractListFacet for the
-	 * Player Character identified by the given CharID.
+	 * for the Player Character represented by the given PCGenIdentifier. This
+	 * method returns an empty Set if no objects are in this AbstractListFacet
+	 * for the Player Character identified by the given PCGenIdentifier.
 	 * 
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
@@ -236,12 +240,13 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * add*() and remove*() methods of AbstractListFacet.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which a copy
-	 *            of the items in this AbstractListFacet should be returned.
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which a copy of the items in this AbstractListFacet should be
+	 *            returned.
 	 * @return A non-null Collection of objects in this AbstractListFacet for
-	 *         the Player Character represented by the given CharID
+	 *         the Player Character represented by the given PCGenIdentifier
 	 */
-	public Collection<T> getSet(CharID id)
+	public Collection<T> getSet(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
@@ -253,15 +258,15 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 
 	/**
 	 * Returns the count of items in this AbstractListFacet for the Player
-	 * Character represented by the given CharID
+	 * Character represented by the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            count of items should be returned
+	 *            The PCGenIdentifier representing the Player Character for
+	 *            which the count of items should be returned
 	 * @return The count of items in this AbstractListFacet for the Player
-	 *         Character represented by the given CharID
+	 *         Character represented by the given PCGenIdentifier
 	 */
-	public int getCount(CharID id)
+	public int getCount(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
@@ -273,16 +278,16 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 
 	/**
 	 * Returns true if this AbstractListFacet does not contain any items for the
-	 * Player Character represented by the given CharID
+	 * Player Character represented by the given PCGenIdentifier
 	 * 
 	 * @param id
-	 *            The CharId representing the PlayerCharacter to test if any
-	 *            items are contained by this AbstractListFacet
+	 *            The PCGenIdentifier representing the PlayerCharacter to test
+	 *            if any items are contained by this AbstractListFacet
 	 * @return true if this AbstractListFacet does not contain any items for the
-	 *         Player Character represented by the given CharID; false otherwise
-	 *         (if it does contain items for the Player Character)
+	 *         Player Character represented by the given PCGenIdentifier; false
+	 *         otherwise (if it does contain items for the Player Character)
 	 */
-	public boolean isEmpty(CharID id)
+	public boolean isEmpty(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		return componentSet == null || componentSet.isEmpty();
@@ -290,17 +295,21 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 
 	/**
 	 * Returns true if this AbstractListFacet contains the given value in the
-	 * list of items for the Player Character represented by the given CharID.
+	 * list of items for the Player Character represented by the given
+	 * PCGenIdentifier.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character used for testing
+	 *            The PCGenIdentifier representing the Player Character used for
+	 *            testing
 	 * @param obj
 	 *            The object to test if this AbstractListFacet contains that
-	 *            item for the Player Character represented by the given CharID
+	 *            item for the Player Character represented by the given
+	 *            PCGenIdentifier
 	 * @return true if this AbstractListFacet contains the given value for the
-	 *         Player Character represented by the given CharID; false otherwise
+	 *         Player Character represented by the given PCGenIdentifier; false
+	 *         otherwise
 	 */
-	public boolean contains(CharID id, T obj)
+	public boolean contains(IDT id, T obj)
 	{
 		/*
 		 * TODO obj == null? - log an error?
@@ -311,38 +320,40 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 
 	/**
 	 * Returns the type-safe Set for this AbstractListFacet and the given
-	 * CharID. May return null if no information has been set in this
-	 * AbstractListFacet for the given CharID.
+	 * PCGenIdentifier. May return null if no information has been set in this
+	 * AbstractListFacet for the given PCGenIdentifier.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set is owned by
 	 * AbstractListFacet, and since it can be modified, a reference to that
 	 * object should not be exposed to any object other than AbstractListFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
-	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this AbstractListFacet for
-	 *         the Player Character.
+	 *            The PCGenIdentifier for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given
+	 *         PCGenIdentifier; null if no information has been set in this
+	 *         AbstractListFacet for the Player Character.
 	 */
-	protected Collection<T> getCachedSet(CharID id)
+	protected Collection<T> getCachedSet(IDT id)
 	{
 		return (Collection<T>) getCache(id);
 	}
 
 	/**
-	 * Returns a type-safe Set for this AbstractListFacet and the given CharID.
-	 * Will return a new, empty Set if no information has been set in this
-	 * AbstractListFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Set for this AbstractListFacet and the given
+	 * PCGenIdentifier. Will return a new, empty Set if no information has been
+	 * set in this AbstractListFacet for the given PCGenIdentifier. Will not
+	 * return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Set object is owned by
 	 * AbstractListFacet, and since it can be modified, a reference to that
 	 * object should not be exposed to any object other than AbstractListFacet.
 	 * 
 	 * @param id
-	 *            The CharID for which the Set should be returned
-	 * @return The Set for the Player Character represented by the given CharID.
+	 *            The PCGenIdentifier for which the Set should be returned
+	 * @return The Set for the Player Character represented by the given
+	 *         PCGenIdentifier.
 	 */
-	private Collection<T> getConstructingCachedSet(CharID id)
+	private Collection<T> getConstructingCachedSet(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
@@ -366,7 +377,8 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * 
 	 * Note that this method should always be the only method used to construct
 	 * a Collection for this AbstractListFacet. It is actually preferred to use
-	 * getConstructingCacheSet(CharID) in order to implicitly call this method.
+	 * getConstructingCacheSet(PCGenIdentifier) in order to implicitly call this
+	 * method.
 	 * 
 	 * @return A new (empty) Collection for use in this AbstractListFacet.
 	 */
@@ -377,8 +389,8 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 
 	/**
 	 * Copies the contents of the AbstractListFacet from one Player Character to
-	 * another Player Character, based on the given CharIDs representing those
-	 * Player Characters.
+	 * another Player Character, based on the given PCGenIdentifiers
+	 * representing those Player Characters.
 	 * 
 	 * This is a method in AbstractListFacet in order to avoid exposing the
 	 * mutable Collection object to other classes. This should not be inlined,
@@ -386,40 +398,45 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * not be exposed to other classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
-	 * between the Player Characters represented by the given CharIDs (meaning
-	 * once this copy takes place, any change to the AbstractListFacet of one
-	 * Player Character will only impact the Player Character where the
+	 * between the Player Characters represented by the given PCGenIdentifiers
+	 * (meaning once this copy takes place, any change to the AbstractListFacet
+	 * of one Player Character will only impact the Player Character where the
 	 * AbstractListFacet was changed).
 	 * 
 	 * @param source
-	 *            The CharID representing the Player Character from which the
-	 *            information should be copied
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which the information should be copied
 	 * @param copy
-	 *            The CharID representing the Player Character to which the
-	 *            information should be copied
+	 *            The PCGenIdentifier representing the Player Character to which
+	 *            the information should be copied
 	 */
 	@Override
-	public void copyContents(CharID source, CharID copy)
+	public void copyContents(IDT source, IDT copy)
 	{
 		Collection<T> componentSet = getCachedSet(source);
 		if (componentSet != null)
 		{
-			getConstructingCachedSet(copy).addAll(getCopyForNewOwner(componentSet));
+			getConstructingCachedSet(copy).addAll(
+				getCopyForNewOwner(componentSet));
 		}
 	}
 
 	/**
-	 * Create a new copy of this list facet's data. This defaults to a return of the 
-	 * same set, but subclasses may need to do deep cloning of their objects as part 
-	 * of the copy. Note: The returned collection is directly saved, only its contents.
-	 * @param componentSet The collection of data held by the facet for a character.
-	 * @return The data ready to be saved to a new collection for a new character.
+	 * Create a new copy of this list facet's data. This defaults to a return of
+	 * the same set, but subclasses may need to do deep cloning of their objects
+	 * as part of the copy. Note: The returned collection is directly saved,
+	 * only its contents.
+	 * 
+	 * @param componentSet
+	 *            The collection of data held by the facet for a character.
+	 * @return The data ready to be saved to a new collection for a new
+	 *         character.
 	 */
 	protected Collection<T> getCopyForNewOwner(Collection<T> componentSet)
 	{
 		return componentSet;
 	}
-	
+
 	/**
 	 * Replaces an item in this AbstractListFacet with another object.
 	 * 
@@ -436,20 +453,21 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * an old object in the List, not just the first instance.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which data
-	 *            will be replaced
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which data will be replaced
 	 * @param old
 	 *            The old object to be replaced in the Collection for the Player
-	 *            Character represented by the given CharID
+	 *            Character represented by the given PCGenIdentifier
 	 * @param replacement
 	 *            The replacement object to replace the given source object in
 	 *            the Collection for the Player Character represented by the
-	 *            given CharID
+	 *            given PCGenIdentifier
 	 * @return true if the given old object was found in the Collection for the
-	 *         Player Character represented by the given CharID (and thus true
-	 *         if a replacement was successfully made); false otherwise
+	 *         Player Character represented by the given PCGenIdentifier (and
+	 *         thus true if a replacement was successfully made); false
+	 *         otherwise
 	 */
-	public boolean replace(CharID id, T old, T replacement)
+	public boolean replace(IDT id, T old, T replacement)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null || !componentSet.contains(old))
@@ -482,7 +500,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * 
 	 * If the underlying Collection for this AbstractListFacet is not an ordered
 	 * Collection (e.g. HashSet), then this method is a MUCH slower way of
-	 * calling add(CharID, T).
+	 * calling add(PCGenIdentifier, T).
 	 * 
 	 * NOTE: Use of this method is HIGHLY DISCOURAGED. Please consider another
 	 * way of achieving the same results as this method. In other words, this
@@ -492,18 +510,18 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<CharID, T>
 	 * implies order dependency) is discouraged.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character from which data
-	 *            will be replaced
+	 *            The PCGenIdentifier representing the Player Character from
+	 *            which data will be replaced
 	 * @param trigger
 	 *            The trigger object to be used as the identifier to indicate
 	 *            which object precedes the location where the given added
 	 *            object is to be placed in the Collection for the Player
-	 *            Character represented by the given CharID
+	 *            Character represented by the given PCGenIdentifier
 	 * @param added
 	 *            The object to be added to the the Collection for the Player
-	 *            Character represented by the given CharID
+	 *            Character represented by the given PCGenIdentifier
 	 */
-	public void addAfter(CharID id, T trigger, T added)
+	public void addAfter(IDT id, T trigger, T added)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null && componentSet.contains(trigger))

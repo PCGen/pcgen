@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.character.Follower;
 
@@ -25,7 +26,7 @@ import pcgen.core.character.Follower;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FollowerFacet extends AbstractListFacet<Follower>
+public class FollowerFacet extends AbstractListFacet<CharID, Follower>
 {
 
 }
