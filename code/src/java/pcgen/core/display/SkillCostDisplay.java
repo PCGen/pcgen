@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2012-14 (C) Tom Parker <thpr@users.sourceforge.net>
  * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
@@ -186,6 +186,56 @@ public class SkillCostDisplay
 		}
 	
 		return bonusDetails.toString();
+	}
+
+	public static String getSituationModifierExplanation(Skill sk,
+		String situation, PlayerCharacter aPC, boolean shortForm)
+	{
+		List<String> explanation = new ArrayList<String>();
+		String keyName = sk.getKeyName();
+		String bonusKey = ("SITUATION." + keyName + "=" + situation).toUpperCase();
+		for (BonusObj bonus : aPC.getActiveBonusList())
+		{
+			// calculate bonus and add to activeBonusMap
+			if (aPC.isApplied(bonus) && "SITUATION".equals(bonus.getBonusName()))
+			{
+				boolean include =
+						bonus.getBonusInfoList()
+							.contains(keyName.toUpperCase());
+				if (!include)
+				{
+					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
+					{
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
+						if (bpKey.equals(bonusKey))
+						{
+							include = true;
+							break;
+						}
+					}
+				}
+
+				if (include)
+				{
+					double iBonus = 0;
+					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
+					{
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
+						if (bpKey.startsWith(bonusKey))
+						{
+							iBonus += bp.resolve(aPC).doubleValue();
+						}
+					}
+					if (!CoreUtility.doublesEqual(iBonus, 0.0))
+					{
+						explanation.add(Delta.toString((int) iBonus)
+							+ aPC.getBonusContext(bonus, shortForm));
+					}
+				}
+			}
+		}
+
+		return StringUtil.join(explanation, " ");
 	}
 
 	/**

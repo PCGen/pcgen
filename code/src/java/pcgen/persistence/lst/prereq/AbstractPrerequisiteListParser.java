@@ -209,19 +209,21 @@ public abstract class AbstractPrerequisiteListParser
 			int min = -99;
 			for (int i = 1; i < elements.length; i++)
 			{
-				if ("CHECKMULT".equals(elements[i]))
+				String thisElement = elements[i];
+				if ("CHECKMULT".equals(thisElement))
 				{
 					continue;
 				}
+				boolean warnIgnored = isNoWarnElement(thisElement);
 				Prerequisite subreq = new Prerequisite();
 				subreq.setKind(kind.toLowerCase());
 				subreq.setCountMultiples(true);
-				if (elements[i].indexOf('=') >= 0)
+				if (thisElement.indexOf('=') >= 0)
 				{
 					// The element is either of the form "TYPE=foo" or "DEX=9"
 					// if it is the later, we need to extract the '9'
 					subreq.setOperator(PrerequisiteOperator.GTEQ);
-					String[] tokens = elements[i].split("=");
+					String[] tokens = thisElement.split("=");
 					try
 					{
 						min = Integer.parseInt(tokens[1]);
@@ -240,12 +242,18 @@ public abstract class AbstractPrerequisiteListParser
 								}
 							}
 						}
-						hasKeyValue = true;
+						if (!warnIgnored)
+						{
+							hasKeyValue = true;
+						}
 					}
 					catch (NumberFormatException nfe)
 					{
-						subreq.setKey(elements[i]);
-						hasKeyOnly = true;
+						subreq.setKey(thisElement);
+						if (!warnIgnored)
+						{
+							hasKeyOnly = true;
+						}
 					}
 				}
 				else
@@ -270,8 +278,11 @@ public abstract class AbstractPrerequisiteListParser
 								+ "e.g. Key=Value.  Assuming Value=" + assumed);
 						subreq.setOperand(assumed);
 					}
-					hasKeyOnly = true;
-					subreq.setKey(elements[i]);
+					if (!warnIgnored)
+					{
+						hasKeyOnly = true;
+					}
+					subreq.setKey(thisElement);
 					subreq.setOperator(PrerequisiteOperator.GTEQ);
 				}
 				subreq.setOperand(Integer.toString(min));
@@ -393,6 +404,11 @@ public abstract class AbstractPrerequisiteListParser
 			subreq.setKind(kind.toLowerCase());
 			subreq.setOperator(PrerequisiteOperator.GTEQ);
 		}
+	}
+
+	protected boolean isNoWarnElement(String thisElement)
+	{
+		return false;
 	}
 
 	protected boolean isAnyLegal()

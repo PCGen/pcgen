@@ -31,63 +31,75 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 
 	public abstract boolean isAnyAllowed();
 
+	protected String getPrefix()
+	{
+		return "";
+	}
+
 	public void testBasic()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":1,Foo=1");
+		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix() + "Foo=1");
 	}
 
 	public void testMultiple()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":1,Foo=1,Bar=2");
+		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+			+ "Foo=1,Bar=2");
 	}
 
 	public void testNoCombineSub()
 	{
-		runRoundRobin("PREMULT:1,[PRE" + getBaseString()
-				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString() + ":2,Goo=3,Hot=4]");
+		runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1," + getPrefix()
+			+ "Foo=1,Bar=2],[PRE" + getBaseString() + ":2," + getPrefix()
+			+ "Goo=3,Hot=4]");
 	}
 
 	public void testCombineSub()
 	{
-		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
-				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Goo=2]", "!PRE"
-				+ getBaseString() + ":1,Foo=1,Goo=2");
+		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1,"
+			+ getPrefix() + "Foo=1],[!PRE" + getBaseString() + ":1,"
+			+ getPrefix() + "Goo=2]", "!PRE" + getBaseString() + ":1,"
+			+ getPrefix() + "Foo=1,Goo=2");
 	}
 
 	public void testCombineSubNegative()
 	{
-		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
-				+ ":1,Foo=1],[!PRE" + getBaseString() + ":1,Goo=2]", "PRE"
-				+ getBaseString() + ":1,Foo=1,Goo=2");
+		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString() + ":1,"
+			+ getPrefix() + "Foo=1],[!PRE" + getBaseString() + ":1,"
+			+ getPrefix() + "Goo=2]", "PRE" + getBaseString() + ":1,"
+			+ getPrefix() + "Foo=1,Goo=2");
 	}
 
 	public void testNoCombineSubNegative()
 	{
-		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,Foo=1],[!PRE"
-				+ getBaseString() + ":1,Goo=3]");
+		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1," + getPrefix()
+			+ "Foo=1],[!PRE" + getBaseString() + ":1," + getPrefix() + "Goo=3]");
 	}
 
 	public void testNoCombineMult()
 	{
-		runRoundRobin("PREMULT:2,[PRE" + getBaseString()
-				+ ":1,Foo=1,Bar=2],[PRE" + getBaseString() + ":1,Goo=3,Hot=4]");
+		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1," + getPrefix()
+			+ "Foo=1,Bar=2],[PRE" + getBaseString() + ":1," + getPrefix()
+			+ "Goo=3,Hot=4]");
 	}
 
 	public void testHigher()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":1,Foo=3");
+		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix() + "Foo=3");
 	}
 
 	public void testBothMultiple()
 	{
-		runRoundRobin("PRE" + getBaseString() + ":2,Foo=3,Bar=5,Goo=6");
+		runRoundRobin("PRE" + getBaseString() + ":2," + getPrefix()
+			+ "Foo=3,Bar=5,Goo=6");
 	}
 
 	public void testType()
 	{
 		if (isTypeAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":1,TYPE.Foo=3");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "TYPE.Foo=3");
 		}
 	}
 
@@ -95,7 +107,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isTypeAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":2,TYPE.Foo=3");
+			runRoundRobin("PRE" + getBaseString() + ":2," + getPrefix()
+				+ "TYPE.Foo=3");
 		}
 	}
 
@@ -103,7 +116,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isAnyAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":1,ANY=3");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "ANY=3");
 		}
 	}
 
@@ -111,7 +125,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isTypeAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":1,TYPE.Bar=3,TYPE.Foo=2");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "TYPE.Bar=3,TYPE.Foo=2");
 		}
 	}
 
@@ -119,7 +134,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isTypeAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":1,TYPE.Foo.Bar=3");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "TYPE.Foo.Bar=3");
 		}
 	}
 
@@ -127,7 +143,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isTypeAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":3,Foo=3,TYPE.Bar=4");
+			runRoundRobin("PRE" + getBaseString() + ":3," + getPrefix()
+				+ "Foo=3,TYPE.Bar=4");
 		}
 	}
 
@@ -135,7 +152,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":1,Foo (Bar)=1");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar)=1");
 		}
 	}
 
@@ -143,8 +161,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1,Bar (Goo)=2");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar)=1,Bar (Goo)=2");
 		}
 	}
 
@@ -152,9 +170,10 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PREMULT:1,[PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1,Bar (Har)=2],[PRE" + getBaseString()
-					+ ":2,Goo (gle)=3,Hot (Cakes)=4]");
+			runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)=1,Bar (Har)=2],[PRE"
+				+ getBaseString() + ":2," + getPrefix()
+				+ "Goo (gle)=3,Hot (Cakes)=4]");
 		}
 	}
 
@@ -162,10 +181,10 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1],[!PRE" + getBaseString()
-					+ ":1,Goo (gle)=2]", "!PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1,Goo (gle)=2");
+			runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)=1],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Goo (gle)=2]", "!PRE" + getBaseString()
+				+ ":1," + getPrefix() + "Foo (Bar)=1,Goo (gle)=2");
 		}
 	}
 
@@ -173,10 +192,10 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1],[!PRE" + getBaseString()
-					+ ":1,Goo (gle)=2]", "PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1,Goo (gle)=2");
+			runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)=1],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Goo (gle)=2]", "PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)=1,Goo (gle)=2");
 		}
 	}
 
@@ -184,9 +203,9 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PREMULT:1,[!PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1],[!PRE" + getBaseString()
-					+ ":1,Goo (gle)=3]");
+			runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)=1],[!PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Goo (gle)=3]");
 		}
 	}
 
@@ -194,9 +213,9 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PREMULT:2,[PRE" + getBaseString()
-					+ ":1,Foo (Bar)=1,Bar (Hoo)=2],[PRE" + getBaseString()
-					+ ":1,Goo (gle)=3,Hot=4]");
+			runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1,"
+				+ getPrefix() + "Foo (Bar)=1,Bar (Hoo)=2],[PRE"
+				+ getBaseString() + ":1," + getPrefix() + "Goo (gle)=3,Hot=4]");
 		}
 	}
 
@@ -204,7 +223,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":1,Foo (Bar)=3");
+			runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
+				+ "Foo (Bar)=3");
 		}
 	}
 
@@ -212,8 +232,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isSubAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString()
-					+ ":2,Foo (Har)=3,Bar (Hoo)=5,Goo (gle)=6");
+			runRoundRobin("PRE" + getBaseString() + ":2," + getPrefix()
+				+ "Foo (Har)=3,Bar (Hoo)=5,Goo (gle)=6");
 		}
 	}
 
@@ -221,7 +241,8 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 	{
 		if (isTypeAllowed() && isSubAllowed())
 		{
-			runRoundRobin("PRE" + getBaseString() + ":3,Foo (Bar)=3,TYPE.Bar=4");
+			runRoundRobin("PRE" + getBaseString() + ":3," + getPrefix()
+				+ "Foo (Bar)=3,TYPE.Bar=4");
 		}
 	}
 

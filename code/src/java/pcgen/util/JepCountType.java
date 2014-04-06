@@ -1,7 +1,7 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net> Derived from
- * AbstractCountCommand.java Copyright 2013 (C) James Dempsey
- * <jdempsey@users.sourceforge.net>
+ * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Derived from AbstractCountCommand.java
+ * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -314,6 +314,8 @@ public abstract class JepCountType
 			return pc.getDisplay().getSkillSet();
 		}
 	};
+
+	public static final JepCountType SKILLSIT = new JepCountSkillSit();
 
 	public static final JepCountType SPELLBOOKS = new JepCountType()
 	{
@@ -818,5 +820,26 @@ public abstract class JepCountType
 		return Collections.unmodifiableCollection(typeMap.values());
 	}
 
+	private static class JepCountSkillSit extends JepCountType
+	{
 
+		@Override
+		public Number count(PlayerCharacter pc, Object[] params)
+			throws ParseException
+		{
+			if (params.length != 0)
+			{
+				Logging.errorPrint("count(\"SKILLSIT\") does not take parameters");
+			}
+			int count = 0;
+			Collection<Skill> skills = pc.getSkillSet();
+			for (Skill sk : skills)
+			{
+				count++; //For the skill
+				count += sk.getSizeOfListFor(ListKey.SITUATION);
+			}
+			return Integer.valueOf(count);
+		}
+		
+	}
 }

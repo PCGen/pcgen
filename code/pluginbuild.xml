@@ -806,6 +806,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-SKILLSIT.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/SkillSitToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-SKILLSUBSET.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -1341,6 +1348,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/RangeMult.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-SITUATION.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/Situation.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -1912,6 +1926,15 @@ jar-all-plugins - Generate the plugin jar files
 					<include name="plugin/pretokens/test/PreSkillMultTester.class" />
 					<include name="plugin/pretokens/writer/PreSkillWriter.class" />
 					<include name="plugin/pretokens/writer/PreSkillMultWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRESKILLSIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreSkillSitParser.class" />
+					<include name="plugin/pretokens/test/PreSkillSitTester.class" />
+					<include name="plugin/pretokens/writer/PreSkillSitWriter.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4317,6 +4340,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/skill/KeystatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/SkillLstToken-SITUATION.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/skill/SituationToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
