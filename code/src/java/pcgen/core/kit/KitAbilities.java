@@ -33,6 +33,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -143,7 +144,7 @@ public final class KitAbilities extends BaseKit
 				{
 					minCost = a.getCost();
 				}
-				if (choice == null)
+				if ((choice == null) && a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					available.add(new AbilitySelection(a, ""));
 				}
