@@ -3921,7 +3921,7 @@ SKILL:Perception			RANK:2
 SKILL:Profession (Farmer)	RANK:2
 FEAT:Power Attack
 FEAT:Toughness
-ABILITY:CATEGORY=Rage Power|Animal Fury ~ Rage Power
+ABILITY:CATEGORY=Rage Power|Rage Power ~ Animal Fury
 TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Wereboar
