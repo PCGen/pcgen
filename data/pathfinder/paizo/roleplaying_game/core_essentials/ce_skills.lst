@@ -30,6 +30,9 @@ Diplomacy (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:Sk
 Diplomacy (Perform (Wind))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
 Handle Animal (Perform (Wind))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
 
+Ride (Samurai Mount)				KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai			PRERULE:1,DISPLAYSKILLUSE
+
+###Block:
 Perform (Act).MOD																																					BONUS:SKILL|Bluff (Perform (Act))|var("SKILL.Perform (Act).MISC")									BONUS:SKILLRANK|Bluff (Perform (Act))|skillinfo("TOTALRANK", "Perform (Act)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Act
 Perform (Act).MOD																																					BONUS:SKILL|Disguise (Perform (Act))|var("SKILL.Perform (Act).MISC")								BONUS:SKILLRANK|Disguise (Perform (Act))|skillinfo("TOTALRANK", "Perform (Act)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Act
 Perform (Comedy).MOD																																				BONUS:SKILL|Bluff (Perform (Comedy))|var("SKILL.Perform (Comedy).MISC")								BONUS:SKILLRANK|Bluff (Perform (Comedy))|skillinfo("TOTALRANK", "Perform (Comedy)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Comedy
@@ -48,6 +51,9 @@ Perform (String Instruments).MOD																																		BONUS:SKILL|Bl
 Perform (String Instruments).MOD																																		BONUS:SKILL|Diplomacy (Perform (String Instruments))|var("SKILL.Perform (String Instruments).MISC")			BONUS:SKILLRANK|Diplomacy (Perform (String Instruments))|skillinfo("TOTALRANK", "Perform (String Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,String Instruments
 Perform (Wind Instruments).MOD																																		BONUS:SKILL|Diplomacy (Perform (Wind Instruments))|var("SKILL.Perform (Wind Instruments).MISC")				BONUS:SKILLRANK|Diplomacy (Perform (Wind Instruments))|skillinfo("TOTALRANK", "Perform (Wind Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Wind Instruments
 Perform (Wind Instruments).MOD																																		BONUS:SKILL|Handle Animal (Perform (Wind Instruments))|var("SKILL.Perform (Wind Instruments).MISC")			BONUS:SKILLRANK|Handle Animal (Perform (Wind Instruments))|skillinfo("TOTALRANK", "Perform (Wind Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Wind Instruments
+#
+Acrobatics.MOD	BONUS:SITUATION|SKILL=Acrobatics,Acrobatics (Jump)|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+Ride.MOD		DEFINE:RideACP|var(ARMOR.0.ACCHECK)	DEFINE:SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SKILL|Ride (Samurai Mount)|var("SKILL.Ride.MISC")	BONUS:SKILL|Ride (Samurai Mount)|SamuraiMountACP		BONUS:SKILLRANK|Ride (Samurai Mount)|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai
 
 
 ###Block: (NEW) Situation skills
@@ -185,3 +191,5 @@ Stealth.MOD				SITUATION:Stealth (Stationary for at least one round)
 Ride.MOD				SITUATION:Ride (Samurai Mount)
 Acrobatics.MOD			SITUATION:Acrobatics (Move through threatened squares)
 Heal.MOD				SITUATION:Heal (Treat disease and poison)
+
+###Block:
