@@ -1,19 +1,21 @@
+# CVS $Revision$ $Author$ -- Sun Apr  6 22:25:03 2014 -- reformated by prettylst.pl v1.51 (build 23616)
 
 ###SPells Temp Spot - Move these to the originating book or set up control list
 ###Block: Spell Like Abilities - Make it easier to manage spells individually
 
 #L0
+# Ability Name	Category of Ability		Type								Visible	Define									Innate Spells
 Detect Magic	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DetectMagicTimes|0	DEFINE:DetectMagicLVL|0		SPELLS:Innate|TIMES=DetectMagicTimes|TIMEUNIT=Day|CASTERLEVEL=DetectMagicLVL|Detect Magic|PREVARGTEQ:DetectMagicTimes,1|PREVAREQ:DisableSpellDetectMagic,0	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=DetectMagicLVL|Detect Magic|PREVARLTEQ:DetectMagicTimes,0|PREVAREQ:DisableSpellDetectMagic,0
 
 #L1
 Feather Fall	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:FeatherFallTimes|0	DEFINE:FeatherFallLVL|0		SPELLS:Innate|TIMES=FeatherFallTimes|TIMEUNIT=Day|CASTERLEVEL=FeatherFallLVL|Feather Fall|PREVARGTEQ:FeatherFallTimes,1|PREVAREQ:DisableSpellFeatherFall,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=FeatherFallLVL|Feather Fall|PREVARLTEQ:FeatherFallTimes,0|PREVAREQ:DisableSpellFeatherFall,0
 
 #L2
-Levitate		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:LevitateTimes|0		DEFINE:LevitateLVL|0		SPELLS:Innate|TIMES=LevitateTimes|TIMEUNIT=Day|CASTERLEVEL=LevitateLVL|Levitate|PREVARGTEQ:LevitateTimes,1|PREVAREQ:DisableSpellLevitate,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=LevitateLVL|Levitate|PREVARLTEQ:LevitateTimes,0|PREVAREQ:DisableSpellLevitate,0
+Levitate		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:LevitateTimes|0	DEFINE:LevitateLVL|0			SPELLS:Innate|TIMES=LevitateTimes|TIMEUNIT=Day|CASTERLEVEL=LevitateLVL|Levitate|PREVARGTEQ:LevitateTimes,1|PREVAREQ:DisableSpellLevitate,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=LevitateLVL|Levitate|PREVARLTEQ:LevitateTimes,0|PREVAREQ:DisableSpellLevitate,0
 
 #UNSORTED
 Faerie Fire		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:FaerieFireTimes|0	DEFINE:FaerieFireLVL|0		SPELLS:Innate|TIMES=FaerieFireTimes|TIMEUNIT=Day|CASTERLEVEL=FaerieFireLVL|Faerie Fire|PREVARGTEQ:FaerieFireTimes,1|PREVAREQ:DisableSpellFaerieFire,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=FaerieFireLVL|Faerie Fire|PREVARLTEQ:FaerieFireTimes,0|PREVAREQ:DisableSpellFaerieFire,0
-Darkness		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DarknessTimes|0		DEFINE:DarknessLVL|0		SPELLS:Innate|TIMES=DarknessTimes|TIMEUNIT=Day|CASTERLEVEL=DarknessLVL|Darkness|PREVARGTEQ:DarknessTimes,1|PREVAREQ:DisableSpellDarkness,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DarknessLVL|Darkness|PREVARLTEQ:DarknessTimes,0|PREVAREQ:DisableSpellDarkness,0
+Darkness		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DarknessTimes|0	DEFINE:DarknessLVL|0			SPELLS:Innate|TIMES=DarknessTimes|TIMEUNIT=Day|CASTERLEVEL=DarknessLVL|Darkness|PREVARGTEQ:DarknessTimes,1|PREVAREQ:DisableSpellDarkness,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DarknessLVL|Darkness|PREVARLTEQ:DarknessTimes,0|PREVAREQ:DisableSpellDarkness,0
 Deeper Darkness	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DeeperDarknessTimes|0	DEFINE:DeeperDarknessLVL|0	SPELLS:Innate|TIMES=DeeperDarknessTimes|TIMEUNIT=Day|CASTERLEVEL=DeeperDarknessLVL|Deeper Darkness|PREVARGTEQ:DeeperDarknessTimes,1|PREVAREQ:DisableSpellDeeperDarkness,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DeeperDarknessLVL|Deeper Darkness|PREVARLTEQ:DeeperDarknessTimes,0|PREVAREQ:DisableSpellDeeperDarkness,0
 Dancing Lights	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DancingLightsTimes|0	DEFINE:DancingLightsLVL|0	SPELLS:Innate|TIMES=DancingLightsTimes|TIMEUNIT=Day|CASTERLEVEL=DancingLightsLVL|Dancing Lights|PREVARGTEQ:DancingLightsTimes,1|PREVAREQ:DisableSpellDancingLights,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DancingLightsLVL|Dancing Lights|PREVARLTEQ:DancingLightsTimes,0|PREVAREQ:DisableSpellDancingLights,0
 Spider Climb	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:SpiderClimbTimes|0	DEFINE:SpiderClimbLVL|0		SPELLS:Innate|TIMES=SpiderClimbTimes|TIMEUNIT=Day|CASTERLEVEL=SpiderClimbLVL|Spider Climb|PREVARGTEQ:SpiderClimbTimes,1|PREVAREQ:DisableSpellSpiderClimb,0	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SpiderClimbLVL|Spider Climb|PREVARLTEQ:SpiderClimbTimes,0|PREVAREQ:DisableSpellSpiderClimb,0
@@ -23,230 +25,229 @@ Suggestion		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQual
 
 
 ###Block: Common
-Ability Drain	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Acid			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Aura			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Breath Weapon	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Confusion		CATEGORY:Ability Focus	TYPE:Ability Focus	
+# Ability Name	Category of Ability	Type
+Ability Drain	CATEGORY:Ability Focus	TYPE:Ability Focus
+Acid			CATEGORY:Ability Focus	TYPE:Ability Focus
+Aura			CATEGORY:Ability Focus	TYPE:Ability Focus
+Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
+Breath Weapon	CATEGORY:Ability Focus	TYPE:Ability Focus
+Confusion		CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
 ###Block: Specific
-Acidic Cloud		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Alchemy			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Allergic Reaction		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Animated Hair		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Aura of Madness		CATEGORY:Ability Focus	TYPE:Ability Focus.Aura	
-Aura of Misfortune	CATEGORY:Ability Focus	TYPE:Ability Focus.Aura	
-Baleful Shriek		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Barbed Hairs		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Bay				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Beard				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Beguiling Aura		CATEGORY:Ability Focus	TYPE:Ability Focus.Aura	
-Black Bile			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Black Flame Knives	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Blackest Depths		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Blightfire			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Blinding Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Blinding Light		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Bristles			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Burble			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Burn				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Calm Emotions Aura	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Captivating Cloud		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Captivating Lure		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Captivating Song		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Change Size			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Charisma Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Cling				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Constitution Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Consumptive Aura		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Corporeal Instability		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Corrosive Blood		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Crush				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Crushing Coils		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Daemonic Pact		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Dance of Ruin		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Dance of Death		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Dancing Chains		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Dazzling Brightness		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Death Burst			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Death Curse			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Death Throes		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Death's Calling		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Death-Stealing Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Despair			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Destructive Harmonics		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Detect Thoughts		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Devour Memories		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Devour Soul			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Dexterity Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Disease			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Dismantle Armor		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Distraction			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Drowning Kiss		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Electrical Burst		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Electricity			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Energy Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Engulf		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Enslave Soul		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Entangle		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Entangling Chains		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Entrap		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Entropic Beams		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Evil Eye		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Explosive Rebirth		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Eye Rays		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Fascinating Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Fear		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Fear Aura		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Feeblemind Aura		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Fiddle					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Final Embrace Horror			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Final Embrace Master			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Fists of Lightning and Thunder	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Fleshdrink					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Foul Stench					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Frightener					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Gibbering					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Godslayer					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Hallucination Cloud			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Hallucinatory Spores			CATEGORY:Ability Focus	TYPE:Ability Focus.Spores	
-Heat						CATEGORY:Ability Focus	TYPE:Ability Focus	
-Horrific Appearance			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Horrific Critical				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Howl						CATEGORY:Ability Focus	TYPE:Ability Focus	
-Ichor						CATEGORY:Ability Focus	TYPE:Ability Focus	
-Icy Destruction				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Inflict Warpwave				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Ink Cloud					CATEGORY:Ability Focus	TYPE:Ability Focus.Cloud	
-Intimidating Charge			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Kiss						CATEGORY:Ability Focus	TYPE:Ability Focus	
-Lava Body					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Light Pulse					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Lure						CATEGORY:Ability Focus	TYPE:Ability Focus	
-Maddening Cacophony			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Madness					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Magic Drain					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Mass Laughter				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Mind Thrust					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Mind-Warping Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Moan						CATEGORY:Ability Focus	TYPE:Ability Focus	
-Molten Body					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Mucus Cloud					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Mummy Rot					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Nausea					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Negative Level				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Nightmare Curse				CATEGORY:Ability Focus	TYPE:Ability Focus.Curse	
-Numbing Cold				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Otherworldly Mind				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Pain						CATEGORY:Ability Focus	TYPE:Ability Focus	
+# Ability Name				Category of Ability	Type
+Acidic Cloud				CATEGORY:Ability Focus	TYPE:Ability Focus
+Alchemy					CATEGORY:Ability Focus	TYPE:Ability Focus
+Allergic Reaction				CATEGORY:Ability Focus	TYPE:Ability Focus
+Animated Hair				CATEGORY:Ability Focus	TYPE:Ability Focus
+Aura of Madness				CATEGORY:Ability Focus	TYPE:Ability Focus.Aura
+Aura of Misfortune			CATEGORY:Ability Focus	TYPE:Ability Focus.Aura
+Baleful Shriek				CATEGORY:Ability Focus	TYPE:Ability Focus
+Barbed Hairs				CATEGORY:Ability Focus	TYPE:Ability Focus
+Bay						CATEGORY:Ability Focus	TYPE:Ability Focus
+Beard						CATEGORY:Ability Focus	TYPE:Ability Focus
+Beguiling Aura				CATEGORY:Ability Focus	TYPE:Ability Focus.Aura
+Black Bile					CATEGORY:Ability Focus	TYPE:Ability Focus
+Black Flame Knives			CATEGORY:Ability Focus	TYPE:Ability Focus
+Blackest Depths				CATEGORY:Ability Focus	TYPE:Ability Focus
+Blightfire					CATEGORY:Ability Focus	TYPE:Ability Focus
+Blinding Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Blinding Light				CATEGORY:Ability Focus	TYPE:Ability Focus
+Bristles					CATEGORY:Ability Focus	TYPE:Ability Focus
+Burble					CATEGORY:Ability Focus	TYPE:Ability Focus
+Burn						CATEGORY:Ability Focus	TYPE:Ability Focus
+Calm Emotions Aura			CATEGORY:Ability Focus	TYPE:Ability Focus
+Captivating Cloud				CATEGORY:Ability Focus	TYPE:Ability Focus
+Captivating Lure				CATEGORY:Ability Focus	TYPE:Ability Focus
+Captivating Song				CATEGORY:Ability Focus	TYPE:Ability Focus
+Change Size					CATEGORY:Ability Focus	TYPE:Ability Focus
+Charisma Drain				CATEGORY:Ability Focus	TYPE:Ability Focus
+Cling						CATEGORY:Ability Focus	TYPE:Ability Focus
+Constitution Drain			CATEGORY:Ability Focus	TYPE:Ability Focus
+Consumptive Aura				CATEGORY:Ability Focus	TYPE:Ability Focus
+Corporeal Instability			CATEGORY:Ability Focus	TYPE:Ability Focus
+Corrosive Blood				CATEGORY:Ability Focus	TYPE:Ability Focus
+Crush						CATEGORY:Ability Focus	TYPE:Ability Focus
+Crushing Coils				CATEGORY:Ability Focus	TYPE:Ability Focus
+Daemonic Pact				CATEGORY:Ability Focus	TYPE:Ability Focus
+Dance of Ruin				CATEGORY:Ability Focus	TYPE:Ability Focus
+Dance of Death				CATEGORY:Ability Focus	TYPE:Ability Focus
+Dancing Chains				CATEGORY:Ability Focus	TYPE:Ability Focus
+Dazzling Brightness			CATEGORY:Ability Focus	TYPE:Ability Focus
+Death Burst					CATEGORY:Ability Focus	TYPE:Ability Focus
+Death Curse					CATEGORY:Ability Focus	TYPE:Ability Focus
+Death Throes				CATEGORY:Ability Focus	TYPE:Ability Focus
+Death's Calling				CATEGORY:Ability Focus	TYPE:Ability Focus
+Death-Stealing Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
+Despair					CATEGORY:Ability Focus	TYPE:Ability Focus
+Destructive Harmonics			CATEGORY:Ability Focus	TYPE:Ability Focus
+Detect Thoughts				CATEGORY:Ability Focus	TYPE:Ability Focus
+Devour Memories				CATEGORY:Ability Focus	TYPE:Ability Focus
+Devour Soul					CATEGORY:Ability Focus	TYPE:Ability Focus
+Dexterity Drain				CATEGORY:Ability Focus	TYPE:Ability Focus
+Disease					CATEGORY:Ability Focus	TYPE:Ability Focus
+Dismantle Armor				CATEGORY:Ability Focus	TYPE:Ability Focus
+Distraction					CATEGORY:Ability Focus	TYPE:Ability Focus
+Drowning Kiss				CATEGORY:Ability Focus	TYPE:Ability Focus
+Electrical Burst				CATEGORY:Ability Focus	TYPE:Ability Focus
+Electricity					CATEGORY:Ability Focus	TYPE:Ability Focus
+Energy Drain				CATEGORY:Ability Focus	TYPE:Ability Focus
+Engulf					CATEGORY:Ability Focus	TYPE:Ability Focus
+Enslave Soul				CATEGORY:Ability Focus	TYPE:Ability Focus
+Entangle					CATEGORY:Ability Focus	TYPE:Ability Focus
+Entangling Chains				CATEGORY:Ability Focus	TYPE:Ability Focus
+Entrap					CATEGORY:Ability Focus	TYPE:Ability Focus
+Entropic Beams				CATEGORY:Ability Focus	TYPE:Ability Focus
+Evil Eye					CATEGORY:Ability Focus	TYPE:Ability Focus
+Explosive Rebirth				CATEGORY:Ability Focus	TYPE:Ability Focus
+Eye Rays					CATEGORY:Ability Focus	TYPE:Ability Focus
+Fascinating Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Fear						CATEGORY:Ability Focus	TYPE:Ability Focus
+Fear Aura					CATEGORY:Ability Focus	TYPE:Ability Focus
+Feeblemind Aura				CATEGORY:Ability Focus	TYPE:Ability Focus
+Fiddle					CATEGORY:Ability Focus	TYPE:Ability Focus
+Final Embrace Horror			CATEGORY:Ability Focus	TYPE:Ability Focus
+Final Embrace Master			CATEGORY:Ability Focus	TYPE:Ability Focus
+Fists of Lightning and Thunder	CATEGORY:Ability Focus	TYPE:Ability Focus
+Fleshdrink					CATEGORY:Ability Focus	TYPE:Ability Focus
+Foul Stench					CATEGORY:Ability Focus	TYPE:Ability Focus
+Frightener					CATEGORY:Ability Focus	TYPE:Ability Focus
+Gibbering					CATEGORY:Ability Focus	TYPE:Ability Focus
+Godslayer					CATEGORY:Ability Focus	TYPE:Ability Focus
+Hallucination Cloud			CATEGORY:Ability Focus	TYPE:Ability Focus
+Hallucinatory Spores			CATEGORY:Ability Focus	TYPE:Ability Focus.Spores
+Heat						CATEGORY:Ability Focus	TYPE:Ability Focus
+Horrific Appearance			CATEGORY:Ability Focus	TYPE:Ability Focus
+Horrific Critical				CATEGORY:Ability Focus	TYPE:Ability Focus
+Howl						CATEGORY:Ability Focus	TYPE:Ability Focus
+Ichor						CATEGORY:Ability Focus	TYPE:Ability Focus
+Icy Destruction				CATEGORY:Ability Focus	TYPE:Ability Focus
+Inflict Warpwave				CATEGORY:Ability Focus	TYPE:Ability Focus
+Ink Cloud					CATEGORY:Ability Focus	TYPE:Ability Focus.Cloud
+Intimidating Charge			CATEGORY:Ability Focus	TYPE:Ability Focus
+Kiss						CATEGORY:Ability Focus	TYPE:Ability Focus
+Lava Body					CATEGORY:Ability Focus	TYPE:Ability Focus
+Light Pulse					CATEGORY:Ability Focus	TYPE:Ability Focus
+Lure						CATEGORY:Ability Focus	TYPE:Ability Focus
+Maddening Cacophony			CATEGORY:Ability Focus	TYPE:Ability Focus
+Madness					CATEGORY:Ability Focus	TYPE:Ability Focus
+Magic Drain					CATEGORY:Ability Focus	TYPE:Ability Focus
+Mass Laughter				CATEGORY:Ability Focus	TYPE:Ability Focus
+Mind Thrust					CATEGORY:Ability Focus	TYPE:Ability Focus
+Mind-Warping Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Moan						CATEGORY:Ability Focus	TYPE:Ability Focus
+Molten Body					CATEGORY:Ability Focus	TYPE:Ability Focus
+Mucus Cloud					CATEGORY:Ability Focus	TYPE:Ability Focus
+Mummy Rot					CATEGORY:Ability Focus	TYPE:Ability Focus
+Nausea					CATEGORY:Ability Focus	TYPE:Ability Focus
+Negative Level				CATEGORY:Ability Focus	TYPE:Ability Focus
+Nightmare Curse				CATEGORY:Ability Focus	TYPE:Ability Focus.Curse
+Numbing Cold				CATEGORY:Ability Focus	TYPE:Ability Focus
+Otherworldly Mind				CATEGORY:Ability Focus	TYPE:Ability Focus
+Pain						CATEGORY:Ability Focus	TYPE:Ability Focus
 Paralysis					CATEGORY:Ability Focus	TYPE:Ability Focus.Paralysis
 Paralytic Tentacles			CATEGORY:Ability Focus	TYPE:Ability Focus.Paralysis
 Paralytic Toxin				CATEGORY:Ability Focus	TYPE:Ability Focus.Paralysis
-Petrification				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Petrifying Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Pheremones					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Pipes						CATEGORY:Ability Focus	TYPE:Ability Focus		
-Plague Carrier				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Poison					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Poison Skin					CATEGORY:Ability Focus	TYPE:Ability Focus.Poison	
-Pollen Spray				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Psychic Crush				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Pus Burst					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Regurgitate					CATEGORY:Ability Focus	TYPE:Ability Focus	
-Repulsion Breath				CATEGORY:Ability Focus	TYPE:Ability Focus	
-Ripping Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Roar		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Rot		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Rust		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Savage Stingers		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Screech		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Shaow Mark		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Shape Flesh		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Shock		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Shockwave		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Shriek		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Sinful Bite		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Sinister Bite		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Sinkhole		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Skullface		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Sleep		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Sleep Aura		CATEGORY:Ability Focus	TYPE:Ability Focus.Aura	
-Slime		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Slow		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Smashing Breath		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Smoke		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Smoke Claws			CATEGORY:Ability Focus	TYPE:Ability Focus.Claws	
-Soporific Pollen		CATEGORY:Ability Focus	TYPE:Ability Focus.Spores	
-Soul Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Spatial Riptide		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Spit		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Spit Acid		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Spittle		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Splinterspray		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Spore Cough		CATEGORY:Ability Focus	TYPE:Ability Focus.Spores	
-Spores		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Squirming Embrace		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Starlight Blast		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Steal Breath		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Steal Voice		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Stench		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Stone Curse		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Storm Aura		CATEGORY:Ability Focus	TYPE:Ability Focus.Aura	
-Strands		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Strength Damage		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Strength Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Stun		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Stunning Glance		CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Stunning Laugh		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Stunning Screech		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Tail Sweep		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Telekinesis		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Teleporting Burst		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Terrifying Croak		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Terror		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Thunderbolt		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Toxic Skin		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Trample		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Trill		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Trumpet		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Unholy Blood		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Unholy Nimbus		CATEGORY:Ability Focus	TYPE:Ability Focus.Aura	
-Unnatural Aura		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Unnerving Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze	
-Void Bite			CATEGORY:Ability Focus	TYPE:Ability Focus.Bite	
-Vortex		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Wail		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Wall of Gears		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Warpwave		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Water Jet		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Water's Fury		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Weakness		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Web		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Whirlwind		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Whirlwind Blast		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Wind Walk		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Wisdom Drain		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Witchflame		CATEGORY:Ability Focus	TYPE:Ability Focus	
+Petrification				CATEGORY:Ability Focus	TYPE:Ability Focus
+Petrifying Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Pheremones					CATEGORY:Ability Focus	TYPE:Ability Focus
+Pipes						CATEGORY:Ability Focus	TYPE:Ability Focus
+Plague Carrier				CATEGORY:Ability Focus	TYPE:Ability Focus
+Poison					CATEGORY:Ability Focus	TYPE:Ability Focus
+Poison Skin					CATEGORY:Ability Focus	TYPE:Ability Focus.Poison
+Pollen Spray				CATEGORY:Ability Focus	TYPE:Ability Focus
+Psychic Crush				CATEGORY:Ability Focus	TYPE:Ability Focus
+Pus Burst					CATEGORY:Ability Focus	TYPE:Ability Focus
+Regurgitate					CATEGORY:Ability Focus	TYPE:Ability Focus
+Repulsion Breath				CATEGORY:Ability Focus	TYPE:Ability Focus
+Ripping Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Roar						CATEGORY:Ability Focus	TYPE:Ability Focus
+Rot						CATEGORY:Ability Focus	TYPE:Ability Focus
+Rust						CATEGORY:Ability Focus	TYPE:Ability Focus
+Savage Stingers				CATEGORY:Ability Focus	TYPE:Ability Focus
+Screech					CATEGORY:Ability Focus	TYPE:Ability Focus
+Shaow Mark					CATEGORY:Ability Focus	TYPE:Ability Focus
+Shape Flesh					CATEGORY:Ability Focus	TYPE:Ability Focus
+Shock						CATEGORY:Ability Focus	TYPE:Ability Focus
+Shockwave					CATEGORY:Ability Focus	TYPE:Ability Focus
+Shriek					CATEGORY:Ability Focus	TYPE:Ability Focus
+Sinful Bite					CATEGORY:Ability Focus	TYPE:Ability Focus
+Sinister Bite				CATEGORY:Ability Focus	TYPE:Ability Focus
+Sinkhole					CATEGORY:Ability Focus	TYPE:Ability Focus
+Skullface					CATEGORY:Ability Focus	TYPE:Ability Focus
+Sleep						CATEGORY:Ability Focus	TYPE:Ability Focus
+Sleep Aura					CATEGORY:Ability Focus	TYPE:Ability Focus.Aura
+Slime						CATEGORY:Ability Focus	TYPE:Ability Focus
+Slow						CATEGORY:Ability Focus	TYPE:Ability Focus
+Smashing Breath				CATEGORY:Ability Focus	TYPE:Ability Focus
+Smoke						CATEGORY:Ability Focus	TYPE:Ability Focus
+Smoke Claws					CATEGORY:Ability Focus	TYPE:Ability Focus.Claws
+Soporific Pollen				CATEGORY:Ability Focus	TYPE:Ability Focus.Spores
+Soul Drain					CATEGORY:Ability Focus	TYPE:Ability Focus
+Spatial Riptide				CATEGORY:Ability Focus	TYPE:Ability Focus
+Spit						CATEGORY:Ability Focus	TYPE:Ability Focus
+Spit Acid					CATEGORY:Ability Focus	TYPE:Ability Focus
+Spittle					CATEGORY:Ability Focus	TYPE:Ability Focus
+Splinterspray				CATEGORY:Ability Focus	TYPE:Ability Focus
+Spore Cough					CATEGORY:Ability Focus	TYPE:Ability Focus.Spores
+Spores					CATEGORY:Ability Focus	TYPE:Ability Focus
+Squirming Embrace				CATEGORY:Ability Focus	TYPE:Ability Focus
+Starlight Blast				CATEGORY:Ability Focus	TYPE:Ability Focus
+Steal Breath				CATEGORY:Ability Focus	TYPE:Ability Focus
+Steal Voice					CATEGORY:Ability Focus	TYPE:Ability Focus
+Stench					CATEGORY:Ability Focus	TYPE:Ability Focus
+Stone Curse					CATEGORY:Ability Focus	TYPE:Ability Focus
+Storm Aura					CATEGORY:Ability Focus	TYPE:Ability Focus.Aura
+Strands					CATEGORY:Ability Focus	TYPE:Ability Focus
+Strength Damage				CATEGORY:Ability Focus	TYPE:Ability Focus
+Strength Drain				CATEGORY:Ability Focus	TYPE:Ability Focus
+Stun						CATEGORY:Ability Focus	TYPE:Ability Focus
+Stunning Glance				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Stunning Laugh				CATEGORY:Ability Focus	TYPE:Ability Focus
+Stunning Screech				CATEGORY:Ability Focus	TYPE:Ability Focus
+Tail Sweep					CATEGORY:Ability Focus	TYPE:Ability Focus
+Telekinesis					CATEGORY:Ability Focus	TYPE:Ability Focus
+Teleporting Burst				CATEGORY:Ability Focus	TYPE:Ability Focus
+Terrifying Croak				CATEGORY:Ability Focus	TYPE:Ability Focus
+Terror					CATEGORY:Ability Focus	TYPE:Ability Focus
+Thunderbolt					CATEGORY:Ability Focus	TYPE:Ability Focus
+Toxic Skin					CATEGORY:Ability Focus	TYPE:Ability Focus
+Trample					CATEGORY:Ability Focus	TYPE:Ability Focus
+Trill						CATEGORY:Ability Focus	TYPE:Ability Focus
+Trumpet					CATEGORY:Ability Focus	TYPE:Ability Focus
+Unholy Blood				CATEGORY:Ability Focus	TYPE:Ability Focus
+Unholy Nimbus				CATEGORY:Ability Focus	TYPE:Ability Focus.Aura
+Unnatural Aura				CATEGORY:Ability Focus	TYPE:Ability Focus
+Unnerving Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus.Gaze
+Void Bite					CATEGORY:Ability Focus	TYPE:Ability Focus.Bite
+Vortex					CATEGORY:Ability Focus	TYPE:Ability Focus
+Wail						CATEGORY:Ability Focus	TYPE:Ability Focus
+Wall of Gears				CATEGORY:Ability Focus	TYPE:Ability Focus
+Warpwave					CATEGORY:Ability Focus	TYPE:Ability Focus
+Water Jet					CATEGORY:Ability Focus	TYPE:Ability Focus
+Water's Fury				CATEGORY:Ability Focus	TYPE:Ability Focus
+Weakness					CATEGORY:Ability Focus	TYPE:Ability Focus
+Web						CATEGORY:Ability Focus	TYPE:Ability Focus
+Whirlwind					CATEGORY:Ability Focus	TYPE:Ability Focus
+Whirlwind Blast				CATEGORY:Ability Focus	TYPE:Ability Focus
+Wind Walk					CATEGORY:Ability Focus	TYPE:Ability Focus
+Wisdom Drain				CATEGORY:Ability Focus	TYPE:Ability Focus
+Witchflame					CATEGORY:Ability Focus	TYPE:Ability Focus
 
 # Domain Powers
-Swaying Word		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Word of Anathema		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Caging Strike		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Divine Prison		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Chains of Justice		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Stare of Oblivion		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Commanding Order		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Grasp of Honesty		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Divine Retribution	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Shrapnel Burst		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Incite Violence		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Righteous Cause		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Weird Words			CATEGORY:Ability Focus	TYPE:Ability Focus	
-Cast into the Void	CATEGORY:Ability Focus	TYPE:Ability Focus	
-Anchoring Aura		CATEGORY:Ability Focus	TYPE:Ability Focus	
-Freezing Bolt		CATEGORY:Ability Focus	TYPE:Ability Focus	
-
-
-
+Swaying Word				CATEGORY:Ability Focus	TYPE:Ability Focus
+Word of Anathema				CATEGORY:Ability Focus	TYPE:Ability Focus
+Caging Strike				CATEGORY:Ability Focus	TYPE:Ability Focus
+Divine Prison				CATEGORY:Ability Focus	TYPE:Ability Focus
+Chains of Justice				CATEGORY:Ability Focus	TYPE:Ability Focus
+Stare of Oblivion				CATEGORY:Ability Focus	TYPE:Ability Focus
+Commanding Order				CATEGORY:Ability Focus	TYPE:Ability Focus
+Grasp of Honesty				CATEGORY:Ability Focus	TYPE:Ability Focus
+Divine Retribution			CATEGORY:Ability Focus	TYPE:Ability Focus
+Shrapnel Burst				CATEGORY:Ability Focus	TYPE:Ability Focus
+Incite Violence				CATEGORY:Ability Focus	TYPE:Ability Focus
+Righteous Cause				CATEGORY:Ability Focus	TYPE:Ability Focus
+Weird Words					CATEGORY:Ability Focus	TYPE:Ability Focus
+Cast into the Void			CATEGORY:Ability Focus	TYPE:Ability Focus
+Anchoring Aura				CATEGORY:Ability Focus	TYPE:Ability Focus
+Freezing Bolt				CATEGORY:Ability Focus	TYPE:Ability Focus
