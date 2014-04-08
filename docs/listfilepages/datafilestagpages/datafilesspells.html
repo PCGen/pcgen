@@ -237,14 +237,17 @@
 
 <hr>
 
-	<p class="lststatus"><a name="COST">*** Updated before 5.12.0</a></p>
+	<p class="lstnew"><a name="COST">*** Updated 6.3.0</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> COST:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Component Cost)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is the cost of the spell's components.</p>
+	<ul class="indent2">
+		<li>This tag identifies the cost of the spell's components.</li>
+		<li><code>.CLEAR</code> is used to clear the cost of a spell's components.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>COST:300</code></p>
-	<p class="indent3">This spell's components cost 300 gold.</p>
 	<p class="indent1"><strong>.MOD Example (Overwriting):</strong></p>
 	<p class="indent2">Initial Spell: <code>&lt;spell name&gt; &lt;tab&gt; COST:300</code>
 	<p class="indent2">Modified By: <code>&lt;spell name&gt;.MOD &lt;tab&gt; COST:150</code></p>
@@ -258,9 +261,10 @@
 	<p class="indent0"><strong>Tag Name:</strong> CT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Casting Threshold)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This roll is applied/accumulated toward the Casting Threshold of the spell that the
-		mage is casting.</p>
-	<p class="indent2">CT must be in integer &gt;= 0</p>
+	<ul class="indent2">
+		<li>This roll is applied/accumulated toward the Casting Threshold of the spell that the mage is casting.</li>
+		<li><code>CT</code> must be in integer &gt;= 0</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CT:41</code></p>
 	<p class="indent3">This spell takes 41+ points to cast.</p>
@@ -276,10 +280,12 @@
 	<p class="lststatus"><a name="DESCRIPTOR">*** Updated 5.11.13</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> DESCRIPTOR:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEAR</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Reports what types the spell is and is used for specialist wizards
-		to determine their favored school's bonus spells.</p>
-	<p class="indent2">.CLEAR - this CAN be chained, e.g. DESCRIPTOR:.CLEAR|x|x|.</p>
+	<ul class="indent2">
+		<li>Reports what types the spell is and is used for specialist wizards to determine their favored school's bonus spells.</li>
+		<li><code>.CLEAR</code> is used to clear all descriptors from a spell and can be followed by new descriptors to replace those cleared.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DESCRIPTOR:Sonic|Acid|Evil</code></p>
 	<p class="indent3">This spell is of the &quot;Sonic&quot;, &quot;Acid&quot; &amp; &quot;Evil&quot;
