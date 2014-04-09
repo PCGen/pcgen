@@ -376,7 +376,7 @@ BIO
 			<used>108</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Acrobatics +28, Acrobatics (Jump) +24, Appraise +6, Bluff +14, Climb +9, Craft (Traps) +6, Diplomacy +7, Disable Device +29, Disguise +16, Escape Artist +21, Fly +8, Handle Animal +4, Intimidate +6, Knowledge (Dungeoneering) +6, Knowledge (Engineering) +3, Knowledge (Geography) +14, Knowledge (Local) +9, Linguistics +6, Perception +18, Perception (Trapfinding) +28, Profession (Cook) +5, Sense Motive +7, Sleight of Hand +11, Stealth +25, Swim +11, Use Magic Device +13</list_mods>
+		<list_mods>Acrobatics +28, Appraise +6, Bluff +14, Climb +9, Craft (Traps) +6, Diplomacy +7, Disable Device +29, Disguise +16, Escape Artist +21, Fly +8, Handle Animal +4, Intimidate +6, Knowledge (Dungeoneering) +6, Knowledge (Engineering) +3, Knowledge (Geography) +14, Knowledge (Local) +9, Linguistics +6, Perception +18, Profession (Cook) +5, Sense Motive +7, Sleight of Hand +11, Stealth +25, Swim +11, Use Magic Device +13</list_mods>
 		<max_class_skill_level>12</max_class_skill_level>
 		<max_cross_class_skill_level>12</max_cross_class_skill_level>
 		<skill>
@@ -395,23 +395,6 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>28</trained_total>
 			<exclusive_total>28</exclusive_total>
-		</skill>
-		<skill>
-			<name>Acrobatics (Jump)</name>
-			<ranks>12.0</ranks>
-			<mod>12<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>24</skill_mod>
-			<ability_mod>6<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Acrobatics (Jump)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>24</trained_total>
-			<exclusive_total>24</exclusive_total>
 		</skill>
 		<skill>
 			<name>Appraise</name>
@@ -735,23 +718,6 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>18</trained_total>
 			<exclusive_total>18</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perception (Trapfinding)</name>
-			<ranks>12.0</ranks>
-			<mod>16<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>28</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>15<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Perception (Trapfinding)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>28</trained_total>
-			<exclusive_total>28</exclusive_total>
 		</skill>
 		<skill>
 			<name>Perform (Untrained)</name>
@@ -3876,7 +3842,7 @@ BIO
 		<ability_object>
 			<name>Sneak Attack</name>
 			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. Your attack deals 6d6 points of extra damage anytime your target would be denied a Dexterity bonus to AC, or when you flank your target. Should you score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage, you can make a sneak attack that deals nonlethal damage instead of lethal damage. You cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. You must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. You cannot sneak attack while striking a creature with concealment.</description>
-			<type>ROGUECLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ATTACKOPTION</type>
+			<type>ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3898,7 +3864,7 @@ BIO
 		<ability_object>
 			<name>Trapfinding</name>
 			<description>You add +6 to Perception skill checks made to locate traps and to Disable Device skill checks. You can use the Disable Device skill to disarm magical traps.</description>
-			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>ROGUECLASSFEATURES.RANGERCLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -4065,7 +4031,7 @@ BIO
 		<ability_object>
 			<name>Sneak Attack ~ Rogue</name>
 			<description></description>
-			<type>INTERNAL.ROGUECLASSFEATURES</type>
+			<type>INTERNAL.ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

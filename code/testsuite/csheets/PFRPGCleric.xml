@@ -332,23 +332,6 @@ BIO
 			<exclusive_total>-5</exclusive_total>
 		</skill>
 		<skill>
-			<name>Acrobatics (Jump)</name>
-			<ranks>0.0</ranks>
-			<mod>-9<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>-9</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>-9<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Acrobatics (Jump)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>-9</trained_total>
-			<exclusive_total>-9</exclusive_total>
-		</skill>
-		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
