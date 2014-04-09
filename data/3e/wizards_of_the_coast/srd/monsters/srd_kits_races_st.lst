@@ -473,8 +473,8 @@ SKILL:Listen		RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Spot			RANK:7
 SKILL:Wilderness Lore	RANK:7
-FEAT:Iron Will
-FEAT:Power Attack
+#FEAT:Iron Will
+#FEAT:Power Attack
 
 STARTPACK:Triton Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Triton]
 RACE:Triton	!PRERACE:1,%
