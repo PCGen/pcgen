@@ -451,24 +451,26 @@
 
 <hr>
 
-	<p class="status"><a name="DOMAIN">*** Updated 5.14.1</a></p>
+	<p class="lstnew"><a name="DOMAIN">*** Updated 6.3.0</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> DOMAIN:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This grants additional domains, as listed, directly to the character.</li>
-		<li>It is a pipe-delimited (|) list of domain names and can contain PRExxx tags, within square brackets (e.g. [PRExxx]), 
-			immediately after the domain name.</li>
-		<li>This forces choices, ie. it forces one or more of the user's choices to the listed domain(s).</li>
+		<li>It is a pipe-delimited (|) list of domain names.</li>
 		<li>If a domain is added on top of the character's other normal domains, it will need to be paired with a 
 			<code>BONUS:DOMAIN|NUMBER|x</code>.</li>
+		<li>This tag can use trailing PRExxx tags to provide prerequisites for the domains included in the 
+			associated <code>DOMAIN</code> tag.</li>
+		<li>Multiple <code>DOMAIN</code> tags may be used in the same deity line, allowing access to some 
+			domains without prerequisites and some with.</li>
 	</ul>
 	<p class="indent1"><strong>Example:s</strong></p>
 	<p class="indent2"><code>7 &lt;tab&gt DOMAIN:Sun</code></p>
 	<p class="indent3">At the seventh level class gets the Sun domain added.</p>
 	<p class="indent2"><code>15 &lt;tab&gt DOMAIN:Sun|Law</code></p>
 	<p class="indent3">At fifteenth level class gets the Sun or law domain added.</p>
-	<p class="indent2"><code>11 &lt;tab&gt DOMAIN:Sun[PREDEITY:Ra]|Law</code></p>
+	<p class="indent2"><code>11 &lt;tab&gt; DOMAIN:Sun|PREDEITY:Ra &lt;tab&gt; DOMAIN:Law</code></p>
 	<p class="indent3">At eleventh level class gets the Sun or Law domain added if their deity
 		is &quot;Ra&quot; or only Law if the deity is not &quot;Ra&quot;.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
