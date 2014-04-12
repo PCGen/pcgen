@@ -41,22 +41,22 @@ Resist Yokai					KEY:Ranger Yokai Hunter ~ Resist Yokai			CATEGORY:Special Abili
 
 ###Block White-Haired Witch Rogue Talents
 # Ability Name										Type						Var. Min. Value
-CATEGORY=Special Ability|Assault Leader ~ Rogue Talent.MOD			TYPE:WhiteHairedWitchRogueTalent
+CATEGORY=Special Ability|Rogue Talent ~ Assault Leader.MOD			TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Combat Trick.MOD						TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Finesse Rogue.MOD					TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Major Magic.MOD						TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Minor Magic.MOD						TYPE:WhiteHairedWitchRogueTalent
-CATEGORY=Special Ability|Positioning Attack ~ Rogue Talent.MOD		TYPE:WhiteHairedWitchRogueTalent
+CATEGORY=Special Ability|Rogue Talent ~ Positioning Attack.MOD		TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Resiliency.MOD						TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Surprise Attack.MOD					TYPE:WhiteHairedWitchRogueTalent
 CATEGORY=Special Ability|Weapon Training.MOD					TYPE:WhiteHairedWitchRogueTalent
-CATEGORY=Special Ability|Another Day ~ Rogue Talent.MOD			TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
+CATEGORY=Special Ability|Rogue Talent ~ Another Day.MOD			TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
 CATEGORY=Special Ability|Defensive Roll.MOD					TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
 CATEGORY=Special Ability|Improved Evasion.MOD					TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
 CATEGORY=Special Ability|Opportunist.MOD						TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
-CATEGORY=Special Ability|Redirect Attack ~ Rogue Talent.MOD			TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
+CATEGORY=Special Ability|Rogue Talent ~ Redirect Attack.MOD			TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
 CATEGORY=Special Ability|Slippery Mind.MOD					TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
-CATEGORY=Special Ability|Thoughtful Reexamining ~ Rogue Talent.MOD	TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
+CATEGORY=Special Ability|Rogue Talent ~ Thoughtful Reexamining.MOD	TYPE:WhiteHairedWitchRogueTalent	PREVARGTEQ:RogueTalentLVL,18
 
 ###Block: Cleric subdomain abilities
 # Ability Name	Unique Key				Category of Ability		Type								Define			Description																			Modify VAR							Aspects																		Description of the Benefits

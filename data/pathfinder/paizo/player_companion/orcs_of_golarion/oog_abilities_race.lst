@@ -6,7 +6,7 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 
 ### Race Traits
 # Ability Name						Unique Key						Category of Ability		Type					Required Deity		Multiple Requirements																																																						Required Region					Description																																																							Bonus to Ability Pool													Bonus to skill					Class Skill			Source Page		Natural Attacks																	Aspects													Bonus
-CATEGORY=Special Ability|Adopted ~ Trait.MOD																																																																																																																																														BONUS:ABILITYPOOL|Orc Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Orc
+CATEGORY=Special Ability|Trait ~ Adopted.MOD																																																																																																																																														BONUS:ABILITYPOOL|Orc Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Orc
 Orc								KEY:Adoptive Race ~ Orc				CATEGORY:Special Ability	TYPE:AdoptiveRace
 
 # Ability Name						Unique Key						Category of Ability		Type					Required Deity		Multiple Requirements																																																						Required Region					Description																																																							Bonus to Ability Pool													Bonus to skill					Class Skill			Source Page		Natural Attacks																	Aspects													Bonus

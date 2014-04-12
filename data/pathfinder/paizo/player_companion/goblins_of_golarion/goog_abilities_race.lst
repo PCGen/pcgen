@@ -6,7 +6,7 @@ SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Mod for Adopted Social Trait
 # Ability Name						Unique Key				Category of Ability		Type			Bonus to Ability Pool
-CATEGORY=Special Ability|Adopted ~ Trait.MOD														BONUS:ABILITYPOOL|Goblin Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Goblin
+CATEGORY=Special Ability|Trait ~ Adopted.MOD														BONUS:ABILITYPOOL|Goblin Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Goblin
 Goblin							KEY:Adoptive Race ~ Goblin	CATEGORY:Special Ability	TYPE:AdoptiveRace
 
 ###Block: Race Traits

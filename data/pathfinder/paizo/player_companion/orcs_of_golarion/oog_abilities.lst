@@ -3,7 +3,7 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 # Author: Henk Slaaf
 
 # Ability Name							Clear Description	Description
-CATEGORY=Special Ability|Weapon Familiarity ~ Orc.MOD	DESC:.CLEAR		DESC:Orcs and half-orcs are proficient with greataxes and falchions, and treat any weapon with the word "orc" in its name as a martial weapon.
+CATEGORY=Special Ability|Orc ~ Weapon Familiarity.MOD	DESC:.CLEAR		DESC:Orcs and half-orcs are proficient with greataxes and falchions, and treat any weapon with the word "orc" in its name as a martial weapon.
 
 ###Block: Regional Affinities
 # Ability Name			Product Identity?	Category of Ability	Type		Visible		Template									Source Page
