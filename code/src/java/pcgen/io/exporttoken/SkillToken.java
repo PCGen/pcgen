@@ -69,24 +69,24 @@ public class SkillToken extends Token
 	public static final String TOKENNAME = "SKILL";
 
 	// Constants for the property to be output.
-	private static final int SKILL_NAME = 0;
-	private static final int SKILL_TOTAL = 1;
-	private static final int SKILL_RANK = 2;
-	private static final int SKILL_MOD = 3;
-	private static final int SKILL_ABILITY = 4;
-	private static final int SKILL_ABMOD = 5;
-	private static final int SKILL_MISC = 6;
-	private static final int SKILL_UNTRAINED = 7;
-	private static final int SKILL_EXCLUSIVE = 8;
-	private static final int SKILL_UNTRAINED_EXTENDED = 9;
-	private static final int SKILL_ACP = 10;
-	private static final int SKILL_EXCLUSIVE_TOTAL = 11;
-	private static final int SKILL_TRAINED_TOTAL = 12;
-	private static final int SKILL_EXPLANATION = 13;
-	private static final int SKILL_TYPE = 14;
-	private static final int SKILL_COST = 15;
-	private static final int SKILL_SIZE= 16;
-	private static final int SKILL_CLASSES= 17;
+	public static final int SKILL_NAME = 0;
+	public static final int SKILL_TOTAL = 1;
+	public static final int SKILL_RANK = 2;
+	public static final int SKILL_MOD = 3;
+	public static final int SKILL_ABILITY = 4;
+	public static final int SKILL_ABMOD = 5;
+	public static final int SKILL_MISC = 6;
+	public static final int SKILL_UNTRAINED = 7;
+	public static final int SKILL_EXCLUSIVE = 8;
+	public static final int SKILL_UNTRAINED_EXTENDED = 9;
+	public static final int SKILL_ACP = 10;
+	public static final int SKILL_EXCLUSIVE_TOTAL = 11;
+	public static final int SKILL_TRAINED_TOTAL = 12;
+	public static final int SKILL_EXPLANATION = 13;
+	public static final int SKILL_TYPE = 14;
+	public static final int SKILL_COST = 15;
+	public static final int SKILL_SIZE= 16;
+	public static final int SKILL_CLASSES= 17;
 
 	// Cache the skill list as it is expensive to build
 	private List<Skill> cachedSkillList = null;
@@ -201,7 +201,7 @@ public class SkillToken extends Token
 	 * @param tokenSource The source of the token.
 	 * @return A SkillDetails containing the details of the token.
 	 */
-	protected SkillDetails buildSkillDetails(String tokenSource)
+	public static SkillDetails buildSkillDetails(String tokenSource)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 
@@ -270,7 +270,7 @@ public class SkillToken extends Token
 	 * @param property The property name.
 	 * @return The id of the property.
 	 */
-	private int getPropertyId(String property)
+	public static int getPropertyId(String property)
 	{
 		int propId = 0;
 
@@ -535,7 +535,7 @@ public class SkillToken extends Token
 	 * @param property The property
 	 * @return The string to be output.
 	 */
-	private String getUntrainedOutput(Skill aSkill, String property)
+	public static String getUntrainedOutput(Skill aSkill, String property)
 	{
 		StringTokenizer aTok = new StringTokenizer(property.substring(9), ",");
 		String untrained_tok;
@@ -582,7 +582,7 @@ public class SkillToken extends Token
 	 * @param property The output property supplied.
 	 * @return The ACP tag output.
 	 */
-	private String getAcpOutput(Skill aSkill, String property)
+	public static String getAcpOutput(Skill aSkill, String property)
 	{
 		final StringTokenizer aTok =
 				new StringTokenizer(property.substring(3), ",");
@@ -603,7 +603,7 @@ public class SkillToken extends Token
 	 * instances of this class are immutable.
 	 *
 	 */
-	final protected static class SkillDetails
+	public final static class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
 		final protected String skillId;
