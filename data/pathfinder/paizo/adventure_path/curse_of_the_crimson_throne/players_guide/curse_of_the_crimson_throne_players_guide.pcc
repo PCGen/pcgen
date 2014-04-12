@@ -38,6 +38,7 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne Player's Gui
 LANGUAGE:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_languages.lst|(EXCLUDE:Boggard)
 
 ABILITY:cotctpg_abilities.lst
+ABILITYCATEGORY:cotctpg_abilitycategories.lst
 EQUIPMENT:cotctpg_equip_arms_armor.lst
 EQUIPMENT:cotctpg_equip_general.lst
 FEAT:cotctpg_feats.lst
