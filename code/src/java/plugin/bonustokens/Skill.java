@@ -72,7 +72,7 @@ public final class Skill extends BonusObj
 			&& !token.equals("%VAR"))
 		{
 			//This is done entirely for the side effects
-			TokenUtilities.getReference(context, SKILL_CLASS, token);
+			context.forgetMeNot(TokenUtilities.getReference(context, SKILL_CLASS, token));
 		}
 
 		return true;

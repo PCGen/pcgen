@@ -27,6 +27,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ClassIdentity;
@@ -685,6 +686,13 @@ public abstract class LoadContext
 	public void loadCampaignFacets()
 	{
 		FacetLibrary.getFacet(DataSetInitializationFacet.class).initialize(this);
+	}
+
+	private List<Object> dontForget = new ArrayList<Object>();
+
+	public void forgetMeNot(CDOMReference<?> cdr)
+	{
+		dontForget.add(cdr);
 	}
 	
 }
