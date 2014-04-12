@@ -325,7 +325,7 @@ Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3		SOURCEP
 Climber's Kit.MOD																																						SOURCEPAGE:p.76
 Disguise Kit.MOD																																						SOURCEPAGE:p.76
 Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:3		SOURCEPAGE:p.76
-Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6		SOURCEPAGE:p.77	BONUS:SITUATION|SKILL=Linguistics,Linguistics (Forgery)|2|TYPE=Circumstance
+Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6		SOURCEPAGE:p.77	BONUS:SKILLSIT|SKILL=Linguistics,Linguistics (Forgery)|2|TYPE=Circumstance
 Spellbook (Wizard's/Blank).COPY=Formula Book (Alchemist's/Blank)
 Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5	SOURCEPAGE:p.77
 Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1		SOURCEPAGE:p.77	BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
@@ -400,13 +400,13 @@ Thieves' Tools (Masterwork).MOD																													COST:100	WT:2		SOURC
 Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
 Traveling Formula Book (Blank).MOD
 Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.79
-Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		SOURCEPAGE:p.79	BONUS:SKILL|Heal|1|TYPE=Circumstance	BONUS:SITUATION|SKILL=Heal,Heal (Animal)|3|TYPE=Circumstance
+Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		SOURCEPAGE:p.79	BONUS:SKILL|Heal|1|TYPE=Circumstance	BONUS:SKILLSIT|SKILL=Heal,Heal (Animal)|3|TYPE=Circumstance
 
 ###Block: Adventuring Gear
 # Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to skill													Modify VAR			Quality and value																			Special Property
 Air Bladder																	TYPE:Goods.General															COST:0.1	WT:0.5				SOURCEPAGE:p.58																																									SPROP:If inflated, it holds enough air to sustain a Medium creature for 1 round or a Small creature for 2 rounds.
 Animal Glue																	TYPE:Goods.General.Consumable														COST:0.5	WT:0.5				SOURCEPAGE:p.58																																									SPROP:Before you use animal glue, you must heat it until it liquefies. You normally apply it with a brush and hold the pieces together for a minute, at which point it is cooled and hardened. The glue is sufficient to coat 1 square foot of surface, or up to 40 smaller applications of approximately 2 square inches each.
-Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURCEPAGE:p.58	BONUS:SITUATION|SKILL=Survival,Survival (Navigate)|1|TYPE=Circumstance	BONUS:SITUATION|SKILL=Knowledge (Dungeoneering),Knowledge (Dungeoneering (Navigate))|1|TYPE=Circumstance																									SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
+Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURCEPAGE:p.58	BONUS:SKILLSIT|SKILL=Survival,Survival (Navigate)|1|TYPE=Circumstance	BONUS:SKILLSIT|SKILL=Knowledge (Dungeoneering),Knowledge (Dungeoneering (Navigate))|1|TYPE=Circumstance																									SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
 Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																									SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
 Backpack.MOD									OUTPUTNAME:Backpack, Common																												SOURCEPAGE:p.58
 Backpack (Masterwork).MOD	SOURCEPAGE:p.58
@@ -424,7 +424,7 @@ Pouch (Belt).MOD									OUTPUTNAME:Belt Pouch																													SOURC
 Blanket.MOD																	TYPE:Goods.General.Resizable														COST:0.5	WT:3					SOURCEPAGE:p.59
 Block and Tackle.MOD																																								SOURCEPAGE:p.60
 Blue Book																	TYPE:Goods.Tools.Book															COST:5	WT:1					SOURCEPAGE:p.60																																									SPROP:By consulting the book for 1 hour, for the next 24 hours you gain a +2 circumstance bonus on Knowledge (local), Bluff, and Diplomacy checks to gather or use information in that city. At the GM's discretion, you can use it in settlements near that city for a +1 bonus.
-Book of Letters																TYPE:Goods.Tools.Book															COST:50	WT:3					SOURCEPAGE:p.60	BONUS:SITUATION|SKILL=Diplomacy,Diplomacy (City Officials)|2|TYPE=Circumstance		BONUS:SITUATION|SKILL=Linguistics,Linguistics (Forgery)|2|TYPE=Circumstance																									SPROP:It provides a +2 circumstance bonus on Diplomacy checks when dealing with city officials and a +2 circumstance bonus on Linguistics checks when creating forgeries.
+Book of Letters																TYPE:Goods.Tools.Book															COST:50	WT:3					SOURCEPAGE:p.60	BONUS:SKILLSIT|SKILL=Diplomacy,Diplomacy (City Officials)|2|TYPE=Circumstance		BONUS:SKILLSIT|SKILL=Linguistics,Linguistics (Forgery)|2|TYPE=Circumstance																									SPROP:It provides a +2 circumstance bonus on Diplomacy checks when dealing with city officials and a +2 circumstance bonus on Linguistics checks when creating forgeries.
 Bottle (Glass).MOD																																								SOURCEPAGE:p.60
 Breakaway Chains																TYPE:Goods.Tools.Masterwork														COST:65	WT:2					SOURCEPAGE:p.60																																									SPROP:These masterwork chains are easy to break, even though they look like normal chains (Perception DC 25 to notice the difference). A DC 10 Strength check breaks them instantly.
 Bucket.MOD																																										SOURCEPAGE:p.60
@@ -456,7 +456,7 @@ Coffin (Common)																TYPE:Goods.General.Resizable														COST:10
 Coffin (Ornate)																TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.62
 Collapsible Bathtub															TYPE:Goods.General.Resizable														COST:15	WT:20					SOURCEPAGE:p.62
 Collapsible Plank																TYPE:Goods.General															COST:0.4	WT:10					SOURCEPAGE:p.62
-Compass.MOD																	TYPE:Goods.General															COST:10	WT:0.5				SOURCEPAGE:p.62	BONUS:SITUATION|SKILL=Survival,Survival (Navigate)|1|TYPE=Circumstance	BONUS:SITUATION|SKILL=Knowledge (Dungeoneering),Knowledge (Dungeoneering (Navigate))|1|TYPE=Circumstance
+Compass.MOD																	TYPE:Goods.General															COST:10	WT:0.5				SOURCEPAGE:p.62	BONUS:SKILLSIT|SKILL=Survival,Survival (Navigate)|1|TYPE=Circumstance	BONUS:SKILLSIT|SKILL=Knowledge (Dungeoneering),Knowledge (Dungeoneering (Navigate))|1|TYPE=Circumstance
 Copy of a Key																TYPE:Goods.Tools																COST:1						SOURCEPAGE:p.63																																									SPROP:An artisan can make a working copy of a key in an hour.
 Cot																		TYPE:Goods.General.Resizable														COST:1	WT:30					SOURCEPAGE:p.63
 Crowbar.MOD																																										SOURCEPAGE:p.63
@@ -563,7 +563,7 @@ Marbles.MOD																	TYPE:Goods.General															COST:0.1	WT:2					S
 Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOURCEPAGE:p.68
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
-Mock Armor																	TYPE:Goods.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|SKILL=Bluff,Bluff (Conceal Identity)|4|TYPE=Circumstance
+Mock Armor																	TYPE:Goods.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SKILLSIT|SKILL=Bluff,Bluff (Conceal Identity)|4|TYPE=Circumstance
 Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69

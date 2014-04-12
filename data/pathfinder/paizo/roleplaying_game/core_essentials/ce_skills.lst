@@ -52,7 +52,7 @@ Perform (String Instruments).MOD																																		BONUS:SKILL|Di
 Perform (Wind Instruments).MOD																																		BONUS:SKILL|Diplomacy (Perform (Wind Instruments))|var("SKILL.Perform (Wind Instruments).MISC")				BONUS:SKILLRANK|Diplomacy (Perform (Wind Instruments))|skillinfo("TOTALRANK", "Perform (Wind Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Wind Instruments
 Perform (Wind Instruments).MOD																																		BONUS:SKILL|Handle Animal (Perform (Wind Instruments))|var("SKILL.Perform (Wind Instruments).MISC")			BONUS:SKILLRANK|Handle Animal (Perform (Wind Instruments))|skillinfo("TOTALRANK", "Perform (Wind Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Wind Instruments
 #
-Acrobatics.MOD	BONUS:SITUATION|SKILL=Acrobatics,Acrobatics (Jump)|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+Acrobatics.MOD	BONUS:SKILLSIT|SKILL=Acrobatics,Acrobatics (Jump)|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
 Ride.MOD		DEFINE:RideACP|var(ARMOR.0.ACCHECK)	DEFINE:SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SKILL|Ride (Samurai Mount)|var("SKILL.Ride.MISC")	BONUS:SKILL|Ride (Samurai Mount)|SamuraiMountACP		BONUS:SKILLRANK|Ride (Samurai Mount)|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai
 ###Block: New Skill
 # Skill Name			Key Stat	Untrained?		Type				Source Page		Bonus to skill

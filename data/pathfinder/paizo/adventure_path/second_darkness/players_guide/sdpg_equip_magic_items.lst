@@ -3,7 +3,7 @@ SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paiz
 
 
 # Equipment Name			Output Name				Type					Contains		Cost		Weight	Slot Needed	Source Page		Bonus to skill
-Boots (Trackless)			OUTPUTNAME:Trackless Boots	TYPE:Magic.Wondrous.Boot				COST:3500	WT:2		SLOTS:2	SOURCEPAGE:p. 29	BONUS:SKILL|Move Silently|5|TYPE=Competence
+Boots (Trackless)			OUTPUTNAME:Trackless Boots	TYPE:Magic.Wondrous.Boot				COST:3500	WT:2		SLOTS:2	SOURCEPAGE:p. 29	BONUS:SKILL|Stealth|5|TYPE=Competence
 Caver's Hammock								TYPE:Magic.Wondrous.Container	CONTAINS:500	COST:1200	WT:1				SOURCEPAGE:p. 28
 Mushroom Vest								TYPE:Magic.Wondrous.Shirt				COST:500	WT:3				SOURCEPAGE:p. 28
 Portable Stalactite							TYPE:Magic.Wondrous					COST:800	WT:1				SOURCEPAGE:p. 28
