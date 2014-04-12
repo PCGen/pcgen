@@ -17,7 +17,7 @@ FEAT:Deadly Aim
 FEAT:Weapon Focus (Spear)
 GEAR:Spear	QTY:1	LOCATION:Equipped
 GEAR:Spear	QTY:2	LOCATION:Carried
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Adherer Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Adherer],[!PRERACE:1,%]	SOURCEPAGE:p.8
 ALIGN:LE
@@ -29,7 +29,7 @@ SKILL:Craft (Traps)	RANK:1
 SKILL:Stealth		RANK:1
 FEAT:Agile Maneuvers
 FEAT:Combat Reflexes
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Adlet Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Adlet],[!PRERACE:1,%]	SOURCEPAGE:p.9
 ALIGN:CN
@@ -52,7 +52,7 @@ FEAT:Run
 FEAT:Self-Sufficient
 FEAT:Weapon Focus(Spear)
 GEAR:Spear	LOCATION:Equipped	EQMOD:PLUS1W
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ahuizotl Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ahuizotl],[!PRERACE:1,%]	SOURCEPAGE:p.10
 ALIGN:NE
@@ -65,7 +65,7 @@ FEAT:Blinding Critical
 FEAT:Combat Reflexes
 FEAT:Improved Critical (Claw)
 FEAT:Improved Initiative
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Akhlut Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,akhlut],[!PRERACE:1,%]	SOURCEPAGE:p.11
@@ -85,7 +85,7 @@ FEAT:Power Attack
 FEAT:Skill Focus (Stealth)
 FEAT:Vital Strike
 FEAT:Weapon Focus (Bite)
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Allip Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Allip],[!PRERACE:1,%]	SOURCEPAGE:p.12
 ALIGN:CE
@@ -98,7 +98,7 @@ SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:4
 FEAT:Dodge
 FEAT:Improved Initiative
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Alraune Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Alraune],[!PRERACE:1,%]	SOURCEPAGE:p.13
 ALIGN:NE
@@ -120,7 +120,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
 FEAT:Vital Strike
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Annis Hag Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Annis Hag],[!PRERACE:1,%]	SOURCEPAGE:p.16
 ALIGN:CE
@@ -136,21 +136,21 @@ FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Great Fortitude
 FEAT:Intimidating Prowess
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ant Lion (Giant Adult) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ant Lion (Giant Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:TN
 RACE:Ant Lion (Giant Adult)	!PRERACE:1,%
 NAME:Giant Adult Ant Lion
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ant Lion (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ant Lion (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:TN
 RACE:Ant Lion (Giant)	!PRERACE:1,%
 NAME:Giant Ant Lion
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Archon (Harbinger) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Harbinger)],[!PRERACE:1,%]	SOURCEPAGE:p.18
 ALIGN:LG
@@ -165,7 +165,7 @@ SKILL:Perception			RANK:3
 SKILL:Sense Motive		RANK:3
 FEAT:Dodge
 FEAT:Improved Initiative
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Archon (Legion) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Legion)],[!PRERACE:1,%]	SOURCEPAGE:p.19
 ALIGN:LG
@@ -185,14 +185,14 @@ FEAT:Power Attack
 FEAT:Vital Strike
 GEAR:Greatsword	LOCATION:Primary Hand	EQMOD:PLUS1W.FLM_BRST
 GEAR:Javelin	LOCATION:Carried		EQMOD:PLUS1W.FLAME
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ascomoid Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ascomoid],[!PRERACE:1,%]	SOURCEPAGE:p.20
 ALIGN:TN
 RACE:Ascomoid	!PRERACE:1,%
 NAME:Ascomoid
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Asura (Adhukait) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Adhukait)],[!PRERACE:1,%]	SOURCEPAGE:p.22
 ALIGN:LE
@@ -213,7 +213,7 @@ FEAT:Lightning Reflexes
 FEAT:Mobility
 FEAT:Nimble Moves
 GEAR:Kukri	QTY:2	LOCATION:Two Weapons	EQMOD:MWORKW
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Asura (Aghasura) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Aghasura)],[!PRERACE:1,%]	SOURCEPAGE:p.23
 ALIGN:LE
@@ -238,7 +238,7 @@ FEAT:Power Attack
 FEAT:Weapon Focus (Scimitar)
 GEAR:Scimitar	QTY:2	SIZE:H	LOCATION:Two Weapons	EQMOD:MWORKW
 GEAR:Breastplate		SIZE:H	LOCATION:Equipped		EQMOD:MWORKW
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Asura (Asurendra) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Asurendra)],[!PRERACE:1,%]	SOURCEPAGE:p.24-25
 ALIGN:LE
@@ -272,7 +272,7 @@ FEAT:Improved Bull Rush
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 FEAT:Mobility
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Asura (Tripurasura) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Tripurasura)],[!PRERACE:1,%]	SOURCEPAGE:p.26
@@ -291,7 +291,7 @@ SKILL:Spellcraft			RANK:1
 SKILL:Perform (Dance)		RANK:1
 FEAT:Dodge
 FEAT:Weapon Finesse
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Asura (Upasunda) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Upasunda)],[!PRERACE:1,%]	SOURCEPAGE:p.27
 ALIGN:LE
@@ -318,7 +318,7 @@ FEAT:Power Attack
 GEAR:Kukri		QTY:1	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Longsword	QTY:1	LOCATION:Secondary Hand	EQMOD:MWORKW
 GEAR:Spear		QTY:1	LOCATION:Carried		EQMOD:MWORKW
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Atomie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Atomie],[!PRERACE:1,%]	SOURCEPAGE:p.28
@@ -335,7 +335,7 @@ SKILL:Sense Motive	RANK:1
 SKILL:Stealth		RANK:2
 FEAT:Weapon Finesse
 GEAR:Rapier	SIZE:D	LOCATION:Primary Hand
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Axe Beak Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Axe Beak],[!PRERACE:1,%]	SOURCEPAGE:p.29
@@ -346,7 +346,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:3
 FEAT:Run
 FEAT:Skill Focus (Perception)
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Axe Beak (Terror Bird) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Axe Beak (Terror Bird)],[!PRERACE:1,%]	SOURCEPAGE:p.29
@@ -358,7 +358,7 @@ SKILL:Perception	RANK:4
 FEAT:Run
 FEAT:Skill Focus (Perception)
 FEAT:Improved Critical (Bite)
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Azruverda Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azruverda],[!PRERACE:1,%]	SOURCEPAGE:p.30
@@ -383,7 +383,7 @@ FEAT:Iron Will
 FEAT:Point-Blank Shot
 FEAT:Power Attack
 FEAT:Weapon Focus (Acid Spit)
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
 STARTPACK:Baku Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Baku],[!PRERACE:1,%]	SOURCEPAGE:p.31
@@ -402,7 +402,7 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Iron Will
 FEAT:Weapon Finesse
-ABILITY:CATEGORY=Traits|No Traits ~ Trait
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Bandersnatch Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bandersnatch],[!PRERACE:1,%]	SOURCEPAGE:p.32-33
 ALIGN:TN

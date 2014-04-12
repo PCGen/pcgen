@@ -244,7 +244,21 @@ Stunned		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:A stunned creature drops everythin
 # Template Name	Visible	Template		Choose
 Wild Shape		VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=WildshapeTemplate]
 #TEMPLATE:CHOOSE:Wild Shape (Medium Animal)|Wild Shape (Small Animal)|Wild Shape (Tiny Animal)|Wild Shape (Large Animal)|Wild Shape (Diminutive Animal)|Wild Shape (Small Magical Beast)|Wild Shape (Tiny Magical Beast)|Wild Shape (Large Magical Beast)	TEMPLATE:CHOOSE:Wild Shape (Badger)|Wild Shape (Dire Rat)|Wild Shape (Eagle)|Wild Shape (Electric Eel)|Wild Shape (Octopus)|Wild Shape (Baboon)|Wild Shape (Boar)|Wild Shape (Cheetah)|Wild Shape (Constrictor Snake)|Wild Shape (Deinonychus)|Wild Shape (Dire Badger)|Wild Shape (Dolphin)|Wild Shape (Gar)|Wild Shape (Giant Frog)|Wild Shape (Goblin Dog)|Wild Shape (Hyena)|Wild Shape (Leopard)|Wild Shape (Monitor Lizard)|Wild Shape (Pony)|Wild Shape (Ram)|Wild Shape (Riding Dog)|Wild Shape (Squid)|Wild Shape (Stingray)
-
+#At 4th level,
+#	functions like the beast shape I spell.
+#At 6th level,
+#	functions as beast shape II
+#	functions as elemental body I.
+#At 8th level,
+#	functions as beast shape III.
+#	functions as elemental body II.
+#	functions as plant shape I.
+#At 10th level,
+#	now functions as elemental body III.
+#	now functions as plant shape II.
+#At 12th level, a druid can also use wild shape to change into a Huge elemental or a Huge plant creature. 
+#	now functions as elemental body IV. 
+#	now functions as plant shape III.
 ###Block: Shape/Size
 # Template Name				Size		Face/Space	Reach		Visible		Var. Min. Value				Combat bonus				Stat bonus
 Wild Shape (Medium Animal)		SIZE:M	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|STR|2

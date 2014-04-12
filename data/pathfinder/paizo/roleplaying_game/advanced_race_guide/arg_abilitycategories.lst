@@ -5,7 +5,7 @@
 
 ###Block: Racial Traits ability categories
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list	Plural description for UI				Display Location
-ABILITYCATEGORY:Half Elf Elven Magic Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfMagic							PLURAL:Half Elf Elven Magic Traits			DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Elven Magic ~ Elf
+ABILITYCATEGORY:Half Elf Elven Magic Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfMagic							PLURAL:Half Elf Elven Magic Traits			DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Elf ~ Elven Magic
 ABILITYCATEGORY:Focused Study Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Skill Focus	PLURAL:Focused Study Bonus Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Hag Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait						PLURAL:Hag Racial Traits				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Shards of the Past Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge					PLURAL:Shards of the Past Knowledge Skills	DISPLAYLOCATION:Racial Abilities
