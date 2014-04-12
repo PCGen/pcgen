@@ -12,23 +12,23 @@ Intimidate (Perform (Comedy))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:Sk
 Acrobatics (Perform (Dance))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.87
 Fly (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.96
 #
-Diplomacy (Perform (Keyboards))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Sense Motive (Perform (Keyboards))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Sense Motive (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
 Diplomacy (Perform (Oratory))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
 Sense Motive (Perform (Oratory))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Handle Animal (Perform (Percussion))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
-Intimidate (Perform (Percussion))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
 #
 Bluff (Perform (Sing))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
 Sense Motive (Perform (Sing))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Bluff (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Diplomacy (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Bluff (Perform (String Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Diplomacy (Perform (String Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
 #
-Diplomacy (Perform (Wind))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Handle Animal (Perform (Wind))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
 
 Ride (Samurai Mount)				KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai			PRERULE:1,DISPLAYSKILLUSE
 
@@ -54,6 +54,13 @@ Perform (Wind Instruments).MOD																																		BONUS:SKILL|Hand
 #
 Acrobatics.MOD	BONUS:SITUATION|SKILL=Acrobatics,Acrobatics (Jump)|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
 Ride.MOD		DEFINE:RideACP|var(ARMOR.0.ACCHECK)	DEFINE:SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SKILL|Ride (Samurai Mount)|var("SKILL.Ride.MISC")	BONUS:SKILL|Ride (Samurai Mount)|SamuraiMountACP		BONUS:SKILLRANK|Ride (Samurai Mount)|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai
+###Block: New Skill
+# Skill Name			Key Stat	Untrained?		Type				Source Page		Bonus to skill
+Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.103	SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=ClassSkill|PRECSKILL:1,Profession (Fortune-teller)|PRESKILL:1,Profession (Fortune-teller)=1
+
+###Block: Skill Focus implementation
+# Skill Name				Bonus to skill
+Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
 
 
 ###Block: (NEW) Situation skills
@@ -111,10 +118,10 @@ Stealth.MOD				SITUATION:Stealth (When submerged)
 Stealth.MOD				SITUATION:Stealth (In shallow water)
 Stealth.MOD				SITUATION:Stealth (In ambush)
 Bluff.MOD				SITUATION:Bluff (Potentially Sexually Attracted)
-Bluff.MOD				SITUATION:Bluff (Secret Messages)
+Bluff.MOD				SITUATION:Bluff (Secret Messages)|Bluff (Conceal Identity)
 Craft (Alchemy).MOD		SITUATION:Craft (Alchemy/Create item)
 Diplomacy.MOD			SITUATION:Diplomacy (Potentially Sexually Attracted)
-Knowledge (Arcana).MOD		SITUATION:Knowledge (Arcana/ID monster)
+Knowledge (Arcana).MOD		SITUATION:Knowledge (Arcana/ID monster)|Knowledge (Arcana/Identify Dragons)
 Knowledge (Dungeoneering).MOD	SITUATION:Knowledge (Dungeoneering/ID monster)
 Knowledge (Local).MOD		SITUATION:Knowledge (Local/Art & music)
 Knowledge (Local).MOD		SITUATION:Knowledge (Local/ID monster)

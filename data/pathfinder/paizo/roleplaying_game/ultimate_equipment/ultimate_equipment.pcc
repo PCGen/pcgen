@@ -52,6 +52,7 @@ EQUIPMOD:ue_equipmods.lst
 KIT:ue_kits.lst
 # ue_spells.lst only required if UC is not loaded - it avoids a dependency there
 SPELL:ue_spells.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+SKILL:ue_skills.lst
 TEMPLATE:ue_templates.lst
 
 ARMORPROF:ue_profs_armor.lst
@@ -59,4 +60,4 @@ WEAPONPROF:ue_profs_weapon.lst
 
 
 # We have some data from other sets which we need to include if they aren't loaded
-#EQUIPMENT:../ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Haramaki|Silken Ceremonial Armor|Lamellar Cuirass|Lamellar (Leather)|Do-maru|Kikko Armor|Lamellar (Horn)|Four-mirror Armor|Lamellar (Steel)|Mountain Pattern Armor|Kusari Gusoku|Lamellar (Iron)|Tatami-do|O-yoroi)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+#EQUIPMENT:../ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Haramaki|Silken Ceremonial Armor|Lamellar Cuirass|Lamellar (Leather)|Do-maru|Kikko Armor|Lamellar (Horn)|Four-mirror Armor|Lamellar (Steel)|Mountain Pattern Armor|Kusari Gusoku|Lamellar (Iron)|Tatami-do|O-yoroi)
