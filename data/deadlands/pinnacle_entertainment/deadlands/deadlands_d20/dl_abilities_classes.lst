@@ -151,5 +151,5 @@ Turn Undead		CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQua
 Rebuke Undead	CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Rebuke Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 
 
-Rowdy Language Selection	TYPE:RowdyLanguageSelection	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|6	MULT:YES
+Rowdy Language Selection	CATEGORY:Special Ability	TYPE:RowdyLanguageSelection	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|6	MULT:YES
 
