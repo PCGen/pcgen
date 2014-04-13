@@ -16,7 +16,7 @@ Unhappy Childhood (Tortured)			CATEGORY:Special Ability	TYPE:Trait.CampaignTrait
 
 ###Block: Addicted Friend Choice
 Knowledge (Local)				KEY:Drug Addict Addicted Friend ~ Knowledge (Local)			TYPE:AddictedFriendSkill	CATEGORY:Special Ability	BONUS:SKILL|Knowledge (Local)|2|TYPE=Trait	
-Diplomacy (Gather Information)	KEY:Drug Addict Addicted Friend ~ Diplomacy (Gather Information)	TYPE:AddictedFriendSkill	CATEGORY:Special Ability	BONUS:SKILLSIT|SKILL=Diplomacy,Diplomacy (Gather Information)|2|TYPE=Trait					
+Gather Information	KEY:Drug Addict Addicted Friend ~ Gather Information	TYPE:AddictedFriendSkill	CATEGORY:Special Ability	BONUS:SKILLSIT|SKILL=Diplomacy,Gather Information|2|TYPE=Trait					
 
 ###Block: Ranger abilities
 # Ability Name						Category of Ability		Type				Visible		Required Ability						Restricted Ability								Prohibited Feat					Required Race				Var. Min. Value			Special ABility			Description																	Virtual Feat																																																							Ability							Combat bonus						Stat bonus			Source Page		Natural Attacks
