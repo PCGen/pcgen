@@ -153,3 +153,5 @@ Rebuke Undead	CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQu
 
 Rowdy Language Selection	CATEGORY:Special Ability	TYPE:RowdyLanguageSelection	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|6	MULT:YES
 
+Scout Language Bonus +4	CATEGORY:Special Ability	TYPE:ScoutLanguageSelection4	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|4	STACK:YES
+Scout Language Bonus +2	CATEGORY:Special Ability	TYPE:ScoutLanguageSelection2	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|2	STACK:YES
