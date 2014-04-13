@@ -84,10 +84,10 @@ First Aid Kit										TYPE:Goods.Tools			COST:5	WT:3		SOURCEPAGE:msrdequipmentg
 Forgery Kit											TYPE:Goods.Tools			COST:12	WT:3		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
 Handcuffs (Steel)			OUTPUTNAME:Handcuffs, [NAME]			TYPE:Goods.General		COST:7	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Handcuffs (Zip-Tie/25)		OUTPUTNAME:Handcuffs, Zip-Tie (25)		TYPE:Goods.General.Consumable	COST:6	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
-Instrument (Keyboard)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:12	WT:12		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (keyboards)|CircumstanceAdjustment|TYPE=Circumstance
-Instrument (Percussion)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:14	WT:50		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (percussion)|CircumstanceAdjustment|TYPE=Circumstance
-Instrument (Stringed)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:13	WT:7		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (stringed)|CircumstanceAdjustment|TYPE=Circumstance
-Instrument (Wind)			OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:8	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (wind)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Keyboard)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:12	WT:12		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (Keyboards)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Percussion)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:14	WT:50		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (Percussion Instruments)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Stringed)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:13	WT:7		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (Stringed Instruments)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Wind)			OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:8	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Perform (Wind Instruments)|CircumstanceAdjustment|TYPE=Circumstance
 Lockpick Set										TYPE:Goods.Tools			COST:9	WT:1		SOURCEPAGE:msrdequipmentgeneral.rtf
 Lock Release Gun										TYPE:Goods.Tools			COST:12	WT:0.5	SOURCEPAGE:msrdequipmentgeneral.rtf
 Mechanical Tool Kit (Basic)	OUTPUTNAME:Mechanical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:13	WT:22		SOURCEPAGE:msrdequipmentgeneral.rtf	BONUS:SKILL|Craft (mechanical)|CircumstanceAdjustment|TYPE=Circumstance
