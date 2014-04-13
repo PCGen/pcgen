@@ -110,3 +110,5 @@ Knowledge (Minerals)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge
 Knowledge (Plane of Air)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base	SOURCEPAGE:srdmonstersa.rtf
 Knowledge (Plane of Water)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base	SOURCEPAGE:srdmonsterst.rtf
 Profession (Hunt)			KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession.Base		SOURCEPAGE:srdmonsterss.rtf
+
+Search.MOD	SITUATION:Notice unusual stonework

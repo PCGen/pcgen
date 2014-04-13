@@ -118,7 +118,7 @@ CATEGORY=Special Ability|Rebuke Plant.MOD		ASPECT:TurnType|Rebuke	ASPECT:TurnKin
 
 ###Block: Druid abilities
 # Ability Name		Category of Ability		Type						Visible	Bonus to skill					Source Page
-Nature Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BONUS:SKILL|Knowledge (Nature),Survival|2	SOURCEPAGE:ClassesI.rtf
+Nature Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BONUS:SKILL|Knowledge (Nature),Wilderness Lore|2	SOURCEPAGE:ClassesI.rtf
 Trackless Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
 Woodland Stride		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
 Resist Nature's Lure	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
