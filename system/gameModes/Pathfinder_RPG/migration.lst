@@ -7,126 +7,321 @@
 #
 
 # Examples
-# SOURCE:JDTEST	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXDEVVER:6.1.1
-# EQUIPMENT:JDTEST	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXDEVVER:6.1.2
+# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.4.00	NEWKEY:MAXVER:6.0.0	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:NEWKEY:Outfit (Explorer's)	MAXVER:6.4.00	NEWKEY:MAXVER:6.0.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.2
 
 # APG Rage Powers
-ABILITY:Special Ability|Beast Totem ~ Barbarian				NEWKEY:Rage Power ~ Beast Totem				MAXVER:6.4.00
-ABILITY:Special Ability|Beast Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Beast Totem (Greater)				MAXVER:6.4.00
-ABILITY:Special Ability|Beast Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Beast Totem (Lesser)				MAXVER:6.4.00
-ABILITY:Special Ability|Boasting Taunt ~ Barbarian			NEWKEY:Rage Power ~ Boasting Taunt				MAXVER:6.4.00
-ABILITY:Special Ability|Brawler ~ Barbarian				NEWKEY:Rage Power ~ Brawler						MAXVER:6.4.00
-ABILITY:Special Ability|Brawler_Greater ~ Barbarian			NEWKEY:Rage Power ~ Brawler (Greater)				MAXVER:6.4.00
-ABILITY:Special Ability|Chaos Totem ~ Barbarian				NEWKEY:Rage Power ~ Chaos Totem					MAXVER:6.4.00
-ABILITY:Special Ability|Chaos Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Chaos Totem (Greater)				MAXVER:6.4.00
-ABILITY:Special Ability|Chaos Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Chaos Totem (Lesser)				MAXVER:6.4.00
-ABILITY:Special Ability|Come and Get Me ~ Barbarian			NEWKEY:Rage Power ~ Come and Get Me				MAXVER:6.4.00
-ABILITY:Special Ability|Disruptive ~ Barbarian				NEWKEY:Rage Power ~ Disruptive					MAXVER:6.4.00
-ABILITY:Special Ability|Elemental Rage ~ Barbarian			NEWKEY:Rage Power ~ Elemental Rage				MAXVER:6.4.00
-ABILITY:Special Ability|Elemental Rage Greater ~ Barbarian		NEWKEY:Rage Power ~ Elemental Rage (Greater)			MAXVER:6.4.00
-ABILITY:Special Ability|Elemental Rage Lesser ~ Barbarian		NEWKEY:Rage Power ~ Elemental Rage (Lesser)			MAXVER:6.4.00
-ABILITY:Special Ability|Energy Absorption ~ Barbarian			NEWKEY:Rage Power ~ Energy Absorption				MAXVER:6.4.00
-ABILITY:Special Ability|Energy Eruption ~ Barbarian			NEWKEY:Rage Power ~ Energy Eruption				MAXVER:6.4.00
-ABILITY:Special Ability|Energy Resistance ~ Barbarian			NEWKEY:Rage Power ~ Energy Resistance				MAXVER:6.4.00
-ABILITY:Special Ability|Energy Resistance Greater ~ Barbarian	NEWKEY:Rage Power ~ Energy Resistance (Greater)			MAXVER:6.4.00
-ABILITY:Special Ability|Ferocious Mount ~ Barbarian			NEWKEY:Rage Power ~ Ferocious Mount				MAXVER:6.4.00
-ABILITY:Special Ability|Ferocious Mount Greater ~ Barbarian		NEWKEY:Rage Power ~ Ferocious Mount (Greater)		MAXVER:6.4.00
-ABILITY:Special Ability|Ferocious Trample ~ Barbarian			NEWKEY:Rage Power ~ Ferocious Trample				MAXVER:6.4.00
-ABILITY:Special Ability|Ferocious Trample Greater ~ Barbarian	NEWKEY:Rage Power ~ Ferocious Trample (Greater)		MAXVER:6.4.00
-ABILITY:Special Ability|Fiend Totem ~ Barbarian				NEWKEY:Rage Power ~ Fiend Totem					MAXVER:6.4.00
-ABILITY:Special Ability|Fiend Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Fiend Totem (Greater)				MAXVER:6.4.00
-ABILITY:Special Ability|Fiend Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Fiend Totem (Lesser)				MAXVER:6.4.00
-ABILITY:Special Ability|Flesh Wound ~ Barbarian				NEWKEY:Rage Power ~ Flesh Wound					MAXVER:6.4.00
-ABILITY:Special Ability|Good for What Ails You ~ Barbarian		NEWKEY:Rage Power ~ Good for What Ails You			MAXVER:6.4.00
-ABILITY:Special Ability|Ground Breaker ~ Barbarian			NEWKEY:Rage Power ~ Ground Breaker				MAXVER:6.4.00
-ABILITY:Special Ability|Guarded Life ~ Barbarian			NEWKEY:Rage Power ~ Guarded Life						MAXVER:6.4.00
-ABILITY:Special Ability|Hurling ~ Barbarian				NEWKEY:Rage Power ~ Hurling						MAXVER:6.4.00
-ABILITY:Special Ability|Hurling Greater ~ Barbarian			NEWKEY:Rage Power ~ Hurling (Greater)				MAXVER:6.4.00
-ABILITY:Special Ability|Hurling Lesser ~ Barbarian			NEWKEY:Rage Power ~ Hurling (Lesser)				MAXVER:6.4.00
-ABILITY:Special Ability|Hurling Charge ~ Barbarian			NEWKEY:Rage Power ~ Hurling Charge				MAXVER:6.4.00
-ABILITY:Special Ability|Inspire Ferocity ~ Barbarian			NEWKEY:Rage Power ~ Inspire Ferocity				MAXVER:6.4.00
-ABILITY:Special Ability|Knockdown ~ Barbarian				NEWKEY:Rage Power ~ Knockdown					MAXVER:6.4.00
-ABILITY:Special Ability|Liquid Courage ~ Barbarian			NEWKEY:Rage Power ~ Liquid Courage				MAXVER:6.4.00
-ABILITY:Special Ability|Overbearing Advance ~ Barbarian		NEWKEY:Rage Power ~ Overbearing Advance				MAXVER:6.4.00
-ABILITY:Special Ability|Overbearing Onslaught ~ Barbarian		NEWKEY:Rage Power ~ Overbearing Onslaught			MAXVER:6.4.00
-ABILITY:Special Ability|Reckless Abandon ~ Barbarian			NEWKEY:Rage Power ~ Reckless Abandon				MAXVER:6.4.00
-ABILITY:Special Ability|Roaring Drunk ~ Barbarian			NEWKEY:Rage Power ~ Roaring Drunk					MAXVER:6.4.00
-ABILITY:Special Ability|Smasher ~ Barbarian				NEWKEY:Rage Power ~ Smasher						MAXVER:6.4.00
-ABILITY:Special Ability|Spellbreaker ~ Barbarian			NEWKEY:Rage Power ~ Spellbreaker						MAXVER:6.4.00
-ABILITY:Special Ability|Spirit Steed ~ Barbarian			NEWKEY:Rage Power ~ Spirit Steed						MAXVER:6.4.00
-ABILITY:Special Ability|Spirit Totem ~ Barbarian			NEWKEY:Rage Power ~ Spirit Totem						MAXVER:6.4.00
-ABILITY:Special Ability|Spirit Totem Greater ~ Barbarian		NEWKEY:Rage Power ~ Spirit Totem (Greater)			MAXVER:6.4.00
-ABILITY:Special Ability|Spirit Totem Lesser ~ Barbarian		NEWKEY:Rage Power ~ Spirit Totem (Lesser)				MAXVER:6.4.00
-ABILITY:Special Ability|Staggering Drunk ~ Barbarian			NEWKEY:Rage Power ~ Staggering Drunk				MAXVER:6.4.00
-ABILITY:Special Ability|Witch Hunter ~ Barbarian			NEWKEY:Rage Power ~ Witch Hunter						MAXVER:6.4.00
+ABILITY:Special Ability|Beast Totem ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Beast Totem	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Beast Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Beast Totem (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Beast Totem Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Beast Totem (Lesser)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Boasting Taunt ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Boasting Taunt	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Brawler ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Brawler	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Brawler_Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Brawler (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Chaos Totem ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Chaos Totem	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Chaos Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Chaos Totem (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Chaos Totem Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Chaos Totem (Lesser)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Come and Get Me ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Come and Get Me	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Disruptive ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Disruptive	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Elemental Rage ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Elemental Rage	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Elemental Rage Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Elemental Rage (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Elemental Rage Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Elemental Rage (Lesser)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Energy Absorption ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Energy Absorption	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Energy Eruption ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Energy Eruption	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Energy Resistance ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Energy Resistance	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Energy Resistance Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Energy Resistance (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Mount ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ferocious Mount	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Mount Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ferocious Mount (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Trample ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ferocious Trample	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Ferocious Trample Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ferocious Trample (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Fiend Totem ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Fiend Totem	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Fiend Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Fiend Totem (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Fiend Totem Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Fiend Totem (Lesser)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Flesh Wound ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Flesh Wound	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Good for What Ails You ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Good for What Ails You	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Ground Breaker ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ground Breaker	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Guarded Life ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Guarded Life	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Hurling ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hurling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Hurling Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hurling (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Hurling Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hurling (Lesser)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Hurling Charge ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hurling Charge	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Inspire Ferocity ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Inspire Ferocity	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Knockdown ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Knockdown	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Liquid Courage ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Liquid Courage	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Overbearing Advance ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Overbearing Advance	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Overbearing Onslaught ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Overbearing Onslaught	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Reckless Abandon ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Reckless Abandon	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Roaring Drunk ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Roaring Drunk	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Smasher ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Smasher	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Spellbreaker ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Spellbreaker	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Steed ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Spirit Steed	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Totem ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Spirit Totem	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Spirit Totem (Greater)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Spirit Totem Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Spirit Totem (Lesser)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Staggering Drunk ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Staggering Drunk	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Witch Hunter ~ Barbarian	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Witch Hunter	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
 
 # CR Rage Powers
-ABILITY:Special Ability|Animal Fury ~ Rage Power				NEWKEY:Rage Power ~ Animal Fury					MAXVER:6.4.00
-ABILITY:Special Ability|Clear Mind ~ Rage Power					NEWKEY:Rage Power ~ Clear Mind					MAXVER:6.4.00
-ABILITY:Special Ability|Fearless Rage ~ Rage Power				NEWKEY:Rage Power ~ Fearless Rage				MAXVER:6.4.00
-ABILITY:Special Ability|Increased Damage Reduction ~ Rage Power		NEWKEY:Rage Power ~ Increased Damage Reduction		MAXVER:6.4.00
-ABILITY:Special Ability|Guarded Stance ~ Rage Power				NEWKEY:Rage Power ~ Guarded Stance				MAXVER:6.4.00
-ABILITY:Special Ability|Internal Fortitude ~ Rage Power			NEWKEY:Rage Power ~ Internal Fortitude				MAXVER:6.4.00
-ABILITY:Special Ability|Intimidating Glare ~ Rage Power			NEWKEY:Rage Power ~ Intimidating Glare				MAXVER:6.4.00
-ABILITY:Special Ability|Knockback ~ Rage Power					NEWKEY:Rage Power ~ Knockback					MAXVER:6.4.00
-ABILITY:Special Ability|Low-Light Vision ~ Rage Power				NEWKEY:Rage Power ~ Low-Light Vision				MAXVER:6.4.00
-ABILITY:Special Ability|Mighty Swing ~ Rage Power				NEWKEY:Rage Power ~ Mighty Swing					MAXVER:6.4.00
-ABILITY:Special Ability|Moment of Clarity ~ Rage Power			NEWKEY:Rage Power ~ Moment of Clarity				MAXVER:6.4.00
-ABILITY:Special Ability|Night Vision ~ Rage Power				NEWKEY:Rage Power ~ Night Vision					MAXVER:6.4.00
-ABILITY:Special Ability|No Escape ~ Rage Power					NEWKEY:Rage Power ~ No Escape					MAXVER:6.4.00
-ABILITY:Special Ability|Powerful Blow ~ Rage Power				NEWKEY:Rage Power ~ Powerful Blow				MAXVER:6.4.00
-ABILITY:Special Ability|Quick Reflexes ~ Rage Power				NEWKEY:Rage Power ~ Quick Reflexes				MAXVER:6.4.00
-ABILITY:Special Ability|Raging Climber ~ Rage Power				NEWKEY:Rage Power ~ Raging Climber				MAXVER:6.4.00
-ABILITY:Special Ability|Raging Leaper ~ Rage Power				NEWKEY:Rage Power ~ Raging Leaper				MAXVER:6.4.00
-ABILITY:Special Ability|Raging Swimmer ~ Rage Power				NEWKEY:Rage Power ~ Raging Swimmer				MAXVER:6.4.00
-ABILITY:Special Ability|Renewed Vigor ~ Rage Power				NEWKEY:Rage Power ~ Renewed Vigor				MAXVER:6.4.00
-ABILITY:Special Ability|Rolling Dodge ~ Rage Power				NEWKEY:Rage Power ~ Rolling Dodge				MAXVER:6.4.00
-ABILITY:Special Ability|Roused Anger ~ Rage Power				NEWKEY:Rage Power ~ Roused Anger					MAXVER:6.4.00
-ABILITY:Special Ability|Scent ~ Rage Power					NEWKEY:Rage Power ~ Scent						MAXVER:6.4.00
-ABILITY:Special Ability|Strength Surge ~ Rage Power				NEWKEY:Rage Power ~ Strength Surge				MAXVER:6.4.00
-ABILITY:Special Ability|Superstition ~ Rage Power				NEWKEY:Rage Power ~ Superstition					MAXVER:6.4.00
-ABILITY:Special Ability|Surprise Accuracy ~ Rage Power			NEWKEY:Rage Power ~ Surprise Accuracy				MAXVER:6.4.00
-ABILITY:Special Ability|Swift Foot ~ Rage Power					NEWKEY:Rage Power ~ Swift Foot					MAXVER:6.4.00
-ABILITY:Special Ability|Terrifying Howl ~ Rage Power				NEWKEY:Rage Power ~ Terrifying Howl				MAXVER:6.4.00
-ABILITY:Special Ability|Unexpected Strike ~ Rage Power			NEWKEY:Rage Power ~ Unexpected Strike				MAXVER:6.4.00
+ABILITY:Special Ability|Animal Fury ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Animal Fury	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Clear Mind ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Clear Mind	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Fearless Rage ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Fearless Rage	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Increased Damage Reduction ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Increased Damage Reduction	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Guarded Stance ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Guarded Stance	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Internal Fortitude ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Internal Fortitude	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Intimidating Glare ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Intimidating Glare	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Knockback ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Knockback	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Low-Light Vision ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Low-Light Vision	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Mighty Swing ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Mighty Swing	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Moment of Clarity ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Moment of Clarity	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Night Vision ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Night Vision	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|No Escape ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ No Escape	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Powerful Blow ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Powerful Blow	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Quick Reflexes ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Quick Reflexes	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Raging Climber ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Raging Climber	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Raging Leaper ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Raging Leaper	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Raging Swimmer ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Raging Swimmer	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Renewed Vigor ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Renewed Vigor	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Rolling Dodge ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Rolling Dodge	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Roused Anger ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Roused Anger	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Scent ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Scent	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Strength Surge ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Strength Surge	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Superstition ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Superstition	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Surprise Accuracy ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Surprise Accuracy	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Swift Foot ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Swift Foot	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Terrifying Howl ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Terrifying Howl	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
+ABILITY:Special Ability|Unexpected Strike ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Unexpected Strike	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00
 
 # UC
-ABILITY:Special Ability|Auspicious Mark ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Auspicious Mark		
-ABILITY:Special Ability|Bestial Climber ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Climber		
-ABILITY:Special Ability|Bestial Leaper ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Leaper		
-ABILITY:Special Ability|Bestial Swimmer ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Swimmer		
-ABILITY:Special Ability|Bleeding Blow ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Bleeding Blow		
-ABILITY:Special Ability|Body Bludgeon ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Body Bludgeon		
-ABILITY:Special Ability|Crippling Blow ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Crippling Blow		
-ABILITY:Special Ability|Deadly Accuracy ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Deadly Accuracy		
-ABILITY:Special Ability|Dragon Totem ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Dragon Totem			
-ABILITY:Special Ability|Dragon Totem Resilience ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Dragon Totem Resilience	
-ABILITY:Special Ability|Dragon Totem Wings ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Dragon Totem Wings		
-ABILITY:Special Ability|Eater of Magic ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Eater of Magic		
-ABILITY:Special Ability|Ghost Rager ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Ghost Rager			
-ABILITY:Special Ability|Ground Breaker Greater ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Ground Breaker (Greater)	
-ABILITY:Special Ability|Guarded Life Greater ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Guarded Life (Greater)	
-ABILITY:Special Ability|Hive Totem ~ Rage Power				MAXVER:6.4.00	NEWKEY:Rage Power ~ Hive Totem			
-ABILITY:Special Ability|Hive Totem Resilience ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Hive Totem Resilience	
-ABILITY:Special Ability|Hive Totem Toxicity ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Hive Totem Toxicity	
-ABILITY:Special Ability|Lethal Accuracy ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Lethal Accuracy		
-ABILITY:Special Ability|Perfect Clarity ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Perfect Clarity		
-ABILITY:Special Ability|Primal Scent ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Primal Scent			
-ABILITY:Special Ability|Reflexive Dodge ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Reflexive Dodge		
-ABILITY:Special Ability|Regenerative Vigor ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Regenerative Vigor		
-ABILITY:Special Ability|Renewed Life ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Renewed Life			
-ABILITY:Special Ability|Renewed Vitality ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Renewed Vitality		
-ABILITY:Special Ability|Sharpened Accuracy ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Sharpened Accuracy		
-ABILITY:Special Ability|Spell Sunder ~ Rage Power			MAXVER:6.4.00	NEWKEY:Rage Power ~ Spell Sunder			
-ABILITY:Special Ability|Sprint ~ Rage Power				MAXVER:6.4.00	NEWKEY:Rage Power ~ Sprint				
-ABILITY:Special Ability|Sunder Enchantment ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ Sunder Enchantment		
-ABILITY:Special Ability|World Serpent Totem ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Totem	
-ABILITY:Special Ability|World Serpent Spirit ~ Rage Power		MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Spirit	
-ABILITY:Special Ability|World Serpent Totem Unity ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Totem Unity
+ABILITY:Special Ability|Auspicious Mark ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Auspicious Mark
+ABILITY:Special Ability|Bestial Climber ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Bestial Climber
+ABILITY:Special Ability|Bestial Leaper ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Bestial Leaper
+ABILITY:Special Ability|Bestial Swimmer ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Bestial Swimmer
+ABILITY:Special Ability|Bleeding Blow ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Bleeding Blow
+ABILITY:Special Ability|Body Bludgeon ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Body Bludgeon
+ABILITY:Special Ability|Crippling Blow ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Crippling Blow
+ABILITY:Special Ability|Deadly Accuracy ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Deadly Accuracy
+ABILITY:Special Ability|Dragon Totem ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Dragon Totem
+ABILITY:Special Ability|Dragon Totem Resilience ~ Rage Power	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Dragon Totem Resilience
+ABILITY:Special Ability|Dragon Totem Wings ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Dragon Totem Wings
+ABILITY:Special Ability|Eater of Magic ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Eater of Magic
+ABILITY:Special Ability|Ghost Rager ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ghost Rager
+ABILITY:Special Ability|Ground Breaker Greater ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Ground Breaker (Greater)
+ABILITY:Special Ability|Guarded Life Greater ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Guarded Life (Greater)
+ABILITY:Special Ability|Hive Totem ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hive Totem
+ABILITY:Special Ability|Hive Totem Resilience ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hive Totem Resilience
+ABILITY:Special Ability|Hive Totem Toxicity ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Hive Totem Toxicity
+ABILITY:Special Ability|Lethal Accuracy ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Lethal Accuracy
+ABILITY:Special Ability|Perfect Clarity ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Perfect Clarity
+ABILITY:Special Ability|Primal Scent ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Primal Scent
+ABILITY:Special Ability|Reflexive Dodge ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Reflexive Dodge
+ABILITY:Special Ability|Regenerative Vigor ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Regenerative Vigor
+ABILITY:Special Ability|Renewed Life ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Renewed Life
+ABILITY:Special Ability|Renewed Vitality ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Renewed Vitality
+ABILITY:Special Ability|Sharpened Accuracy ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Sharpened Accuracy
+ABILITY:Special Ability|Spell Sunder ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Spell Sunder
+ABILITY:Special Ability|Sprint ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Sprint
+ABILITY:Special Ability|Sunder Enchantment ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ Sunder Enchantment
+ABILITY:Special Ability|World Serpent Totem ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ World Serpent Totem
+ABILITY:Special Ability|World Serpent Spirit ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ World Serpent Spirit
+ABILITY:Special Ability|World Serpent Totem Unity ~ Rage Power	MAXVER:6.4.00	NEWKEY:MAXVER:6.4.00	MAXVER:6.4.00	NEWKEY:NEWKEY:Rage Power ~ World Serpent Totem Unity
 
 
-
-
+ABILITY:Special Ability|Ancient Enmity ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Ancient Enmity
+ABILITY:Special Ability|Craftsman ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Craftsman
+ABILITY:Special Ability|Deep Warrior ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Deep Warrior
+ABILITY:Special Ability|Lorekeeper ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Lorekeeper
+ABILITY:Special Ability|Magic Resistant ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Magic Resistant
+ABILITY:Special Ability|Relentless ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Relentless
+ABILITY:Special Ability|Stonesinger ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Stonesinger
+ABILITY:Special Ability|Stubborn ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Stubborn
+ABILITY:Special Ability|Desert Runner ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Desert Runner
+ABILITY:Special Ability|Dreamspeaker ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Dreamspeaker
+ABILITY:Special Ability|Eternal Grudge ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:Elf ~ Eternal Grudge
+ABILITY:Special Ability|Lightbringer ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Lightbringer
+ABILITY:Special Ability|Silent Hunter ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Silent Hunter
+ABILITY:Special Ability|Spirit of the Waters ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Spirit of the Waters
+ABILITY:Special Ability|Woodcraft ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:Elf ~ Woodcraft
+ABILITY:Special Ability|Academician ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Academician
+ABILITY:Special Ability|Eternal Hope ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Eternal Hope
+ABILITY:Special Ability|Gift of Tongues ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Gift of Tongues
+ABILITY:Special Ability|Magical Linguist ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Magical Linguist
+ABILITY:Special Ability|Master Tinker ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Master Tinker
+ABILITY:Special Ability|Pyromaniac ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Pyromaniac
+ABILITY:Special Ability|Warden of Nature ~ Gnome	MAXVER:6.4.00	NEWKEY:Gnome ~ Warden of Nature
+ABILITY:Special Ability|Ancestral Arms ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Ancestral Arms
+ABILITY:Special Ability|Arcane Training ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Arcane Training
+ABILITY:Special Ability|Dual Minded ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Dual Minded
+ABILITY:Special Ability|Integrated ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Integrated
+ABILITY:Special Ability|Sociable ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Sociable
+ABILITY:Special Ability|Water Child ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Water Child
+ABILITY:Special Ability|Beastmaster ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Beastmaster
+ABILITY:Special Ability|Bestial ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Bestial
+ABILITY:Special Ability|Cavewight ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Cavewight
+ABILITY:Special Ability|Chain Fighter ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Chain Fighter
+ABILITY:Special Ability|Gatecrasher ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Gatecrasher
+ABILITY:Special Ability|Plagueborn ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Plagueborn
+ABILITY:Special Ability|Rock Climber ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Rock Climber
+ABILITY:Special Ability|Sacred Tattoo ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Sacred Tattoo
+ABILITY:Special Ability|Scavenger ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Scavenger
+ABILITY:Special Ability|Toothy ~ Half-Orc	MAXVER:6.4.00	NEWKEY:Half-Orc ~ Toothy
+ABILITY:Special Ability|Craven ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Craven
+ABILITY:Special Ability|Low Blow ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Low Blow
+ABILITY:Special Ability|Outrider ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Outrider
+ABILITY:Special Ability|Practicality ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Practicality
+ABILITY:Special Ability|Swift as Shadows ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Swift as Shadows
+ABILITY:Special Ability|Underfoot ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Underfoot
+ABILITY:Special Ability|Wanderlust ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Wanderlust
+ABILITY:Special Ability|Warslinger ~ Halfling	MAXVER:6.4.00	NEWKEY:Halfling ~ Warslinger
+ABILITY:Special Ability|Eye for Talent ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Eye for Talent
+ABILITY:Special Ability|Heart of the Fields ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Heart of the Fields
+ABILITY:Special Ability|Heart of the Streets~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Heart of the Streets
+ABILITY:Special Ability|Heart of the Wilderness ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Heart of the Wilderness
+ABILITY:Special Ability|Anatomist ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Anatomist
+ABILITY:Special Ability|Armor Expert ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Armor Expert
+ABILITY:Special Ability|Bullied ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Bullied
+ABILITY:Special Ability|Courageous ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Courageous
+ABILITY:Special Ability|Deft Dodger ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Deft Dodger
+ABILITY:Special Ability|Dirty Fighter ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Dirty Fighter
+ABILITY:Special Ability|Fencer ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Fencer
+ABILITY:Special Ability|Killer ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Killer
+ABILITY:Special Ability|Reactionary ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Reactionary
+ABILITY:Special Ability|Resilient ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Resilient
+ABILITY:Special Ability|Birthmark ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Birthmark
+ABILITY:Special Ability|Caretaker ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Caretaker
+ABILITY:Special Ability|Child of the Temple ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Child of the Temple
+ABILITY:Special Ability|Devotee of the Green ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Devotee of the Green
+ABILITY:Special Ability|Ease of Faith ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Ease of Faith
+ABILITY:Special Ability|History of Heresy ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ History of Heresy
+ABILITY:Special Ability|Indomitable Faith ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Indomitable Faith
+ABILITY:Special Ability|Sacred Conduit ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Sacred Conduit
+ABILITY:Special Ability|Sacred Touch ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Sacred Touch
+ABILITY:Special Ability|Scholar of the Great Beyond ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Scholar of the Great Beyond
+ABILITY:Special Ability|Classically Schooled ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Classically Schooled
+ABILITY:Special Ability|Dangerously Curious ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Dangerously Curious
+ABILITY:Special Ability|Focused Mind ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Focused Mind
+ABILITY:Special Ability|Gifted Adept ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Gifted Adept
+ABILITY:Special Ability|Hedge Magician ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Hedge Magician
+ABILITY:Special Ability|Magical Knack ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Magical Knack
+ABILITY:Special Ability|Magical Lineage ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Magical Lineage
+ABILITY:Special Ability|Magical Talent ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Magical Talent
+ABILITY:Special Ability|Mathematical Prodigy ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Mathematical Prodigy
+ABILITY:Special Ability|Skeptic ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Skeptic
+ABILITY:Special Ability|Adopted ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Adopted
+ABILITY:Special Ability|Bully ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Bully
+ABILITY:Special Ability|Canter ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Canter
+ABILITY:Special Ability|Charming ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Charming
+ABILITY:Special Ability|Child of the Streets ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Child of the Streets
+ABILITY:Special Ability|Fast-Talker ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Fast-Talker
+ABILITY:Special Ability|Natural-Born Leader ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Natural-Born Leader
+ABILITY:Special Ability|Poverty-Stricken ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Poverty-Stricken
+ABILITY:Special Ability|Rich Parents ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Rich Parents
+ABILITY:Special Ability|Suspicious ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Suspicious
+ABILITY:Special Ability|Favored Person ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Favored Person
+ABILITY:Special Ability|Favored Person ~ Ameiko ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Favored Person ~ Ameiko
+ABILITY:Special Ability|Favored Person ~ Belor ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Favored Person ~ Belor
+ABILITY:Special Ability|Black Sheep ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Black Sheep
+ABILITY:Special Ability|Black Sheep ~ Aliver ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Black Sheep ~ Aliver
+ABILITY:Special Ability|Black Sheep ~ Titus ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Black Sheep ~ Titus
+ABILITY:Special Ability|Outlander ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Outlander
+ABILITY:Special Ability|Outlander ~ Lore Seeker ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Outlander ~ Lore Seeker
+ABILITY:Special Ability|Outlander ~ Exile ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Outlander ~ Exile
+ABILITY:Special Ability|Outlander ~ Missionary ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Outlander ~ Missionary
+ABILITY:Special Ability|Goldsniffer ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Goldsniffer
+ABILITY:Special Ability|Tunnel-Fighter ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Tunnel-Fighter
+ABILITY:Special Ability|Forlorn ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Forlorn
+ABILITY:Special Ability|Warrior of Old ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Warrior of Old
+ABILITY:Special Ability|Animal Friend ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Animal Friend
+ABILITY:Special Ability|Rapscallion ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Rapscallion
+ABILITY:Special Ability|Elven Reflexes ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Elven Reflexes
+ABILITY:Special Ability|Failed Apprentice ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Failed Apprentice
+ABILITY:Special Ability|Brute ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Brute
+ABILITY:Special Ability|Outcast ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Outcast
+ABILITY:Special Ability|Freedom Fighter ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Freedom Fighter
+ABILITY:Special Ability|Well Informed ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Well Informed
+ABILITY:Special Ability|Scholar of Ruins ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Scholar of Ruins
+ABILITY:Special Ability|World Traveler ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ World Traveler
+ABILITY:Special Ability|Desert Child ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Desert Child
+ABILITY:Special Ability|Highlander ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Highlander
+ABILITY:Special Ability|Log Roller ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Log Roller
+ABILITY:Special Ability|Militia Veteran ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Militia Veteran
+ABILITY:Special Ability|River Rat ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ River Rat
+ABILITY:Special Ability|Savanna Child ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Savanna Child
+ABILITY:Special Ability|Vagabond Child ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Vagabond Child
+ABILITY:Special Ability|Asmodean Demon Hunter ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Asmodean Demon Hunter
+ABILITY:Special Ability|Calistrian Prostitute ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Calistrian Prostitute
+ABILITY:Special Ability|Child of Nature ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Child of Nature
+ABILITY:Special Ability|Divine Warrior ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Divine Warrior
+ABILITY:Special Ability|Ear for Music ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Ear for Music
+ABILITY:Special Ability|Eyes and Ears of the City ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Eyes and Ears of the City
+ABILITY:Special Ability|Flame of the Dawnflower ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Flame of the Dawnflower
+ABILITY:Special Ability|Fortified Drinker ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Fortified Drinker
+ABILITY:Special Ability|Guardian of the Forge ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Guardian of the Forge
+ABILITY:Special Ability|Magic is Life ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Magic is Life
+ABILITY:Special Ability|Patient Optimist ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Patient Optimist
+ABILITY:Special Ability|Starchild ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Starchild
+ABILITY:Special Ability|Undead Slayer ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Undead Slayer
+ABILITY:Special Ability|Veteran of Battle ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Veteran of Battle
+ABILITY:Special Ability|Wisdom in the Flesh ~ Trait ~ Str	MAXVER:6.4.00	NEWKEY:Trait ~ Wisdom in the Flesh ~ Str
+ABILITY:Special Ability|Wisdom in the Flesh ~ Trait ~ Dex	MAXVER:6.4.00	NEWKEY:Trait ~ Wisdom in the Flesh ~ Dex
+ABILITY:Special Ability|No Traits ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ No Traits
+ABILITY:Special Ability|Favored Terrain Cold ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Cold)
+ABILITY:Special Ability|Favored Terrain Desert ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Desert)
+ABILITY:Special Ability|Favored Terrain Forest ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Forest)
+ABILITY:Special Ability|Favored Terrain Jungle ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Jungle)
+ABILITY:Special Ability|Favored Terrain Mountain ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Mountain)
+ABILITY:Special Ability|Favored Terrain Plains ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Plains)
+ABILITY:Special Ability|Favored Terrain Plane ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Plane)
+ABILITY:Special Ability|Favored Terrain Swamp ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Swamp)
+ABILITY:Special Ability|Favored Terrain Underground ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Underground)
+ABILITY:Special Ability|Favored Terrain Urban ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Urban)
+ABILITY:Special Ability|Favored Terrain Water ~ Equipment	MAXVER:6.4.00	NEWKEY:Equipment ~ Favored Terrain (Water)
+ABILITY:Special Ability|Assault Leader ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Assault Leader
+ABILITY:Special Ability|Befuddling Strike ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Befuddling Strike
+ABILITY:Special Ability|Camouflage ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Camouflage
+ABILITY:Special Ability|Canny Observer ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Canny Observer
+ABILITY:Special Ability|Charmer ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Charmer
+ABILITY:Special Ability|Coax Information ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Coax Information
+ABILITY:Special Ability|Combat Swipe ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Combat Swipe
+ABILITY:Special Ability|Cunning Trigger ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Cunning Trigger
+ABILITY:Special Ability|Distracting Attack ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Distracting Attack
+ABILITY:Special Ability|Expert Leaper ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Expert Leaper
+ABILITY:Special Ability|Fast Fingers ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Fast Fingers
+ABILITY:Special Ability|Fast Getaway ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Fast Getaway
+ABILITY:Special Ability|Fast Picks ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Fast Picks
+ABILITY:Special Ability|Follow Clues ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Follow Clues
+ABILITY:Special Ability|Guileful Polyglot ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Guileful Polyglot
+ABILITY:Special Ability|Hard to Fool ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Hard to Fool
+ABILITY:Special Ability|Honeyed Words ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Honeyed Words
+ABILITY:Special Ability|Lasting Poison ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Lasting Poison
+ABILITY:Special Ability|Nimble Climber ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Nimble Climber
+ABILITY:Special Ability|Offensive Defense ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Offensive Defense
+ABILITY:Special Ability|Peerless Maneuver ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Peerless Maneuver
+ABILITY:Special Ability|Positioning Attack ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Positioning Attack
+ABILITY:Special Ability|Powerful Sneak ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Powerful Sneak
+ABILITY:Special Ability|Quick Disguise ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Quick Disguise
+ABILITY:Special Ability|Quick Trapsmith ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Quick Trapsmith
+ABILITY:Special Ability|Snap Shot ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Snap Shot
+ABILITY:Special Ability|Sniper's Eye ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Sniper's Eye
+ABILITY:Special Ability|Strong Impression ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Strong Impression
+ABILITY:Special Ability|Survivalist ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Survivalist
+ABILITY:Special Ability|Swift Poison ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Swift Poison
+ABILITY:Special Ability|Another Day ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Another Day
+ABILITY:Special Ability|Deadly Cocktail ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Deadly Cocktail
+ABILITY:Special Ability|Deadly Sneak ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Deadly Sneak
+ABILITY:Special Ability|Entanglement of Blades ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Entanglement of Blades
+ABILITY:Special Ability|Fast Tumble ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Fast Tumble
+ABILITY:Special Ability|Frugal Trapsmith ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Frugal Trapsmith
+ABILITY:Special Ability|Hunter's Surprise ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Hunter's Surprise
+ABILITY:Special Ability|Knock-Out Blow ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Knock-Out Blow
+ABILITY:Special Ability|Master of Disguise ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Master of Disguise
+ABILITY:Special Ability|Redirect Attack ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Redirect Attack
+ABILITY:Special Ability|Stealthy Sniper ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Stealthy Sniper
+ABILITY:Special Ability|Thoughtful Reexamining ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Thoughtful Reexamining
+ABILITY:Special Ability|Fools for Friends_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Fools for Friends
+ABILITY:Special Ability|Into Enemy Territory_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Into Enemy Territory
+ABILITY:Special Ability|Looking for Work_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Looking for Work
+ABILITY:Special Ability|Optimistic Gambler_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Optimistic Gambler
+ABILITY:Special Ability|Researching the Blot_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Researching the Blot
+ABILITY:Special Ability|Scouting for Fiends_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Scouting for Fiends
 
 
 
@@ -134,366 +329,366 @@ ABILITY:Special Ability|World Serpent Totem Unity ~ Rage Power	MAXVER:6.4.00	NEW
 ###Block: Old 6.2
 
 
-EQUIPMENT:Kasari Gusoku		NEWKEY:Kusari Gusoku	MAXVER:6.1.8
+EQUIPMENT:Kasari Gusoku	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Kusari Gusoku	MAXVER:6.4.00	NEWKEY:MAXVER:6.1.8
 
-ABILITY:Special Ability|Low light Vision		NEWKEY:Low-Light Vision	MAXVER:6.00.01
-ABILITY:Special Ability|Darkvision	NEWKEY:Low-Light Vision	MAXVER:6.00.01
-ABILITY:Special Ability|Vision ~ Darkvision	NEWKEY:Darkvision		MAXVER:6.00.01
+ABILITY:Special Ability|Low light Vision	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Low-Light Vision	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01
+ABILITY:Special Ability|Darkvision	MAXVER:6.4.00	NEWKEY:NEWKEY:Low-Light Vision	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01
+ABILITY:Special Ability|Vision ~ Darkvision	MAXVER:6.4.00	NEWKEY:NEWKEY:Darkvision	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01
 
 
-ABILITY:Archetype|Fighter Archetype ~ Aldori Sworldlord	NEWKEY:Fighter Archetype ~ Aldori Swordlord	MAXVER:6.00.01	MAXDEVVER:6.01.08
+ABILITY:Archetype|Fighter Archetype ~ Aldori Sworldlord	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Archetype ~ Aldori Swordlord	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.08
 
 # Barbarian rage powers - key corrections from DATA-1058
-ABILITY:Special Ability|Animal Fury				NEWKEY:Animal Fury ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Clear Mind				NEWKEY:Clear Mind ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Fearless Rage			NEWKEY:Fearless Rage ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Increased Damage Reduction	NEWKEY:Increased Damage Reduction ~ Rage Power	MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Guarded Stance			NEWKEY:Guarded Stance ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Internal Fortitude		NEWKEY:Internal Fortitude ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Intimidating Glare		NEWKEY:Intimidating Glare ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Knockback				NEWKEY:Knockback ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Low-Light Vision			NEWKEY:Low-Light Vision ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Mighty Swing			NEWKEY:Mighty Swing ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Moment of Clarity			NEWKEY:Moment of Clarity ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Night Vision			NEWKEY:Night Vision ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|No Escape				NEWKEY:No Escape ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Powerful Blow			NEWKEY:Powerful Blow ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Quick Reflexes			NEWKEY:Quick Reflexes ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Raging Climber			NEWKEY:Raging Climber ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Raging Leaper			NEWKEY:Raging Leaper ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Raging Swimmer			NEWKEY:Raging Swimmer ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Renewed Vigor			NEWKEY:Renewed Vigor ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Rolling Dodge			NEWKEY:Rolling Dodge ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Roused Anger			NEWKEY:Roused Anger ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Scent					NEWKEY:Scent ~ Rage Power					MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Strength Surge			NEWKEY:Strength Surge ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Superstition			NEWKEY:Superstition ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Surprise Accuracy			NEWKEY:Surprise Accuracy ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Swift Foot				NEWKEY:Swift Foot ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Terrifying Howl			NEWKEY:Terrifying Howl ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
-ABILITY:Special Ability|Unexpected Strike			NEWKEY:Unexpected Strike ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Animal Fury	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Animal Fury ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Clear Mind	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Clear Mind ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Fearless Rage	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Fearless Rage ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Increased Damage Reduction	MAXVER:6.4.00	NEWKEY:NEWKEY:Increased Damage Reduction ~ Rage Power	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Guarded Stance	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Guarded Stance ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Internal Fortitude	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Internal Fortitude ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Intimidating Glare	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Intimidating Glare ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Knockback	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Knockback ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Low-Light Vision	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Low-Light Vision ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Mighty Swing	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Mighty Swing ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Moment of Clarity	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Moment of Clarity ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Night Vision	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Night Vision ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|No Escape	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:No Escape ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Powerful Blow	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Powerful Blow ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Quick Reflexes	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Quick Reflexes ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Raging Climber	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Raging Climber ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Raging Leaper	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Raging Leaper ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Raging Swimmer	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Raging Swimmer ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Renewed Vigor	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Renewed Vigor ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Rolling Dodge	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Rolling Dodge ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Roused Anger	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Roused Anger ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Scent	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Scent ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Strength Surge	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Strength Surge ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Superstition	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Superstition ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Surprise Accuracy	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Surprise Accuracy ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Swift Foot	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Swift Foot ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Terrifying Howl	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Terrifying Howl ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
+ABILITY:Special Ability|Unexpected Strike	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Unexpected Strike ~ Rage Power	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.00.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.01.02
 
 ###Block: Favored Class Bonus Ability changes
 # Core Rulebook
-ABILITY:Special Ability|Bonus Hit Point					NEWKEY:Favored Class Bonus ~ Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Skill Point					NEWKEY:Favored Class Bonus ~ Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Hit Point	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Skill Point	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
 # Advanced Player's Guide
-ABILITY:Special Ability|APGRT ~ CMD-2					NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-2 ~ Bull Rush			NEWKEY:Favored Class Bonus ~ Bonus CMD Bull Rush	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-2 ~ Disarm				NEWKEY:Favored Class Bonus ~ Bonus CMD Disarm	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-2 ~ Grapple				NEWKEY:Favored Class Bonus ~ Bonus CMD Grapple	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-2 ~ Overrun				NEWKEY:Favored Class Bonus ~ Bonus CMD Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-2 ~ Sunder				NEWKEY:Favored Class Bonus ~ Bonus CMD Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-2 ~ Trip				NEWKEY:Favored Class Bonus ~ Bonus CMD Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-BT					NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-DO					NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-DS					NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-G-S					NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ CMD-GT					NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ DomCl					NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|APGRT ~ DomDr					NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Banner Ability				NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Bard Spell					NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Bloodline Power Use			NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Bomb Damage					NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Bombs Per Day				NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Companion DR				NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Companion Hit Point			NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Companion Skill				NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Concentration				NEWKEY:Favored Class Bonus ~ Paladin Spell Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Creature Attitude				NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Critical Confirm (Elf)			NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Critical Confirm (Halfling)		NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Curse Level					NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Disable Device & Trap Sense (Stone)	NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Disable Device & UMD (Writings)	NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Druid Companion Skill			NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Druid Energy Resistance			NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Eidolon Evolution				NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Eidolon Hit Point				NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Eidolon Skill				NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Energy Resistance				NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Extract Formula				NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Familiar Skill				NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Familiar Spell				NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Fast Movement				NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Favored Enemy Dodge			NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Feint & Gather Information		NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Fire Damage					NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Inquisitor Spell				NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Intimidate & Creature Identify	NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Ki						NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Lay On Hands				NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Mount Hit Point				NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Oracle Spell				NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Performance Round				NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Proficient Weapon				NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Rage Round					NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Rogue Talent				NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus School Power Use				NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Social Skills				NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Sorcerer Spell				NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Spell Penetration Vs Outsiders	NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Stabilisation				NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Trap Sense or Supersititous Rage	NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Wild Empathy (Underground)		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Bonus Wizard Spell				NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Bull Rush	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bonus CMD Bull Rush	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Disarm	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bonus CMD Disarm	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Grapple	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bonus CMD Grapple	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Overrun	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bonus CMD Overrun	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Sunder	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bonus CMD Sunder	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-2 ~ Trip	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bonus CMD Trip	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-BT	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-DO	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-DS	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-G-S	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ CMD-GT	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ DomCl	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|APGRT ~ DomDr	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Banner Ability	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bard Spell	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bloodline Power Use	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bomb Damage	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Bombs Per Day	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Companion DR	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Companion Hit Point	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Companion Skill	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Concentration	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Paladin Spell Concentration	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Creature Attitude	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Critical Confirm (Elf)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Critical Confirm (Halfling)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Curse Level	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Disable Device & Trap Sense (Stone)	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Disable Device & UMD (Writings)	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Druid Companion Skill	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Druid Energy Resistance	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Eidolon Evolution	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Eidolon Hit Point	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Eidolon Skill	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Energy Resistance	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Extract Formula	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Familiar Skill	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Familiar Spell	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Fast Movement	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Favored Enemy Dodge	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Feint & Gather Information	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Fire Damage	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Inquisitor Spell	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Intimidate & Creature Identify	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Ki	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Lay On Hands	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Mount Hit Point	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Oracle Spell	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Performance Round	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Proficient Weapon	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Rage Round	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Rogue Talent	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus School Power Use	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Social Skills	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Sorcerer Spell	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Spell Penetration Vs Outsiders	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Stabilisation	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Trap Sense or Supersititous Rage	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Wild Empathy (Underground)	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Bonus Wizard Spell	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
 # Advanced Race Guide
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Dwarf		NEWKEY:Favored Class Bonus ~ Mutagen Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Elf		NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Gnome		NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Splash Weapon Range Increment	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Halfling	NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Human		NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Dwarf		NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Elf		NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Gnome		NEWKEY:Favored Class Bonus ~ Trap Sense	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Trap Sense Half-Elf	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Halfling	NEWKEY:Favored Class Bonus ~ Surprise Accuracy	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Halfling	NEWKEY:Favored Class Bonus ~ Trap Sense	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Human		NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Dwarf			NEWKEY:Favored Class Bonus ~ Arcane Spell Failure Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Gnome			NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Halfling		NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Human			NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Dwarf		NEWKEY:Favored Class Bonus ~ Challenge Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Elf		NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Gnome		NEWKEY:Favored Class Bonus ~ Mount Base Speed	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Mount Base Speed	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Halfling		NEWKEY:Favored Class Bonus ~ Challenge Attack of Opportunity Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Human		NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Dwarf		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Elf			NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Gnome		NEWKEY:Favored Class Bonus ~ Channeled Energy Animals Fey Plants	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Channeled Energy	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Halfling		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Human		NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Dwarf			NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Elf			NEWKEY:Favored Class Bonus ~ Wild Shape Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Gnome			NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Halfling		NEWKEY:Favored Class Bonus ~ Animal Companion Saving Throws	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Wild Shape Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Human			NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Dwarf		NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Elf			NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Gnome		NEWKEY:Favored Class Bonus ~ CMD DirtyTrick Steal	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Elf		NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Halfling		NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Human		NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Dwarf		NEWKEY:Favored Class Bonus ~ Misfire Chance Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Elf		NEWKEY:Favored Class Bonus ~ Critical Confirmation Firearms	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Gnome		NEWKEY:Favored Class Bonus ~ Firearm Restore Time Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Grit	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Halfling	NEWKEY:Favored Class Bonus ~ Armor Class Dodge Deed	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Halfling	NEWKEY:Favored Class Bonus ~ Armor Class Nimble	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Pistol Whip Deed Attack	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Human		NEWKEY:Favored Class Bonus ~ Grit	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Dwarf		NEWKEY:Favored Class Bonus ~ Judgement Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Elf		NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Gnome		NEWKEY:Favored Class Bonus ~ Inquisitor Spell Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Elf	NEWKEY:Favored Class Bonus ~ Teamwork Feat Change	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Halfling	NEWKEY:Favored Class Bonus ~ Teamwork Feat Change	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Orc	NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Human		NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Dwarf			NEWKEY:Favored Class Bonus ~ Magus Arcana Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Elf			NEWKEY:Favored Class Bonus ~ Magus Arcana	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Gnome			NEWKEY:Favored Class Bonus ~ Weapon Special Ability	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Arcane Pool	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Halfling		NEWKEY:Favored Class Bonus ~ Magus Arcana	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Human			NEWKEY:Favored Class Bonus ~ Arcane Pool	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Dwarf			NEWKEY:Favored Class Bonus ~ Object Hardness Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Elf			NEWKEY:Favored Class Bonus ~ Base Speed	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Gnome			NEWKEY:Favored Class Bonus ~ Ki Acrobatics	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Skills Escape Artist Acrobatics	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Halfling		NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Half-Orc		NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Human			NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Dwarf		NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Elf			NEWKEY:Favored Class Bonus ~ Revelation Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Gnome		NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Halfling		NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Human		NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Dwarf		NEWKEY:Favored Class Bonus ~ Concentration	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Elf			NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Aura Size	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Halfling		NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Critical Confirmation Smite Evil	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Human		NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Dwarf		NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Elf			NEWKEY:Favored Class Bonus ~ Critical Confirmation Elf Weapons	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Gnome		NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling		NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human		NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human		NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Dwarf			NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Elf			NEWKEY:Favored Class Bonus ~ Magic Rogue Talent Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Gnome			NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Halfling		NEWKEY:Favored Class Bonus ~ Critical Confirmation Halfling Weapons	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Critical Confirmation Sneak Attack	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Human			NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Dwarf		NEWKEY:Favored Class Bonus ~ Acid and Earth Spell Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Elf		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Gnome		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Halfling		NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Human		NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Dwarf		NEWKEY:Favored Class Bonus ~ Eidolon Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Elf		NEWKEY:Favored Class Bonus ~ Eidolon Summoning Time Reduction	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Gnome		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Halfling		NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Human		NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Human		NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Dwarf			NEWKEY:Favored Class Bonus ~ Witch Familiar Natural Armor	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Elf			NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Gnome			NEWKEY:Favored Class Bonus ~ Hex	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Halfling		NEWKEY:Favored Class Bonus ~ Caster Level Witch Patron Spells	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Human			NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Dwarf		NEWKEY:Favored Class Bonus ~ Item Creation Feat Progress	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Elf			NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Gnome		NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Half-Elf		NEWKEY:Favored Class Bonus ~ Caster Level Enchantment	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Halfling		NEWKEY:Favored Class Bonus ~ Familiar Level	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Half-Orc		NEWKEY:Favored Class Bonus ~ Wizard Concentration Damaged	MAXVER:6.2.0 MAXDEVVER:6.1.8
-ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Human		NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Mutagen Natural Armor	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bombs	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Elf	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Splash Weapon Range Increment	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Halfling	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Half-Orc	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bomb Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Alchemist ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Extract Formula	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Fast Movement	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Trap Sense	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Elf	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Trap Sense Half-Elf	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Halfling	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Surprise Accuracy	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Halfling	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Trap Sense	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Half-Orc	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Rage Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Barbarian ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Trap Sense Superstitious Rage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Arcane Spell Failure Reduction	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Social	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bardic Performance Round	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Bard ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bard Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Challenge Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Mount Base Speed	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Mount Base Speed	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Challenge Attack of Opportunity Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Mount Hit Points	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cavalier ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Banner Ability	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Channeled Energy Animals Fey Plants	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Channeled Energy	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Cleric Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Cleric ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Spell Penetration Outsiders	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wild Shape Natural Armor	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Energy Resistance Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Druid Domain Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Saving Throws	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wild Shape Natural Armor	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Druid ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Creature Attitude	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD BullRush Trip	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Disarm Sunder	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD DirtyTrick Steal	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Disarm Overrun	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Grapple Trip	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Stabilization	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Fighter ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Misfire Chance Reduction	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation Firearms	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Firearm Restore Time Reduction	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Half-Elf	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Grit	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Halfling	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Armor Class Dodge Deed	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Halfling	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Armor Class Nimble	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Half-Orc	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Pistol Whip Deed Attack	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Gunslinger ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Grit	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Judgement Level	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Inquisitor Spell Concentration	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Elf	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Teamwork Feat Change	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Halfling	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Teamwork Feat Change	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Half-Orc	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Intimidate Identify Creatures	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Inquisitor ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Inquisitor Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Magus Arcana Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Magus Arcana	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Weapon Special Ability	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Arcane Pool	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Magus Arcana	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Magus ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Arcane Pool	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Object Hardness Reduction	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Base Speed	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Ki Acrobatics	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Escape Artist Acrobatics	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ CMD Grapple Stunning Fist	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Monk ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Ki	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Proficient Weapon	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Revelation Level	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle's Curse Level	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Oracle ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Oracle Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Concentration	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Aura Size	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Lay On Hands Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation Smite Evil	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Paladin ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Energy Resistance Paladin	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wild Empathy Underground	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation Elf Weapons	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Damage Resistance	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Favored Enemy Armor Class	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Ranger ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Animal Companion Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Stone Traps	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Magic Rogue Talent Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Magical Writings	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Skills Feint Gather Information	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation Halfling Weapons	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Critical Confirmation Sneak Attack	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Rogue ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Rogue Talent	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Acid and Earth Spell Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Bloodline Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Fire Damage	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Sorcerer ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Sorcerer Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Natural Armor	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Summoning Time Reduction	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Evolution	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Hit Point	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#ABILITY:Special Ability|Favored Class Bonus ~ Summoner ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Eidolon Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Familiar Natural Armor	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Hex	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Caster Level Witch Patron Spells	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Familiar Skill Rank	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Witch ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Witch Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Dwarf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Item Creation Feat Progress	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Gnome	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Arcane School Power Use	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Half-Elf	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Caster Level Enchantment	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Halfling	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Familiar Level	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Half-Orc	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wizard Concentration Damaged	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+ABILITY:Special Ability|Favored Class Bonus ~ Wizard ~ Human	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:NEWKEY:Favored Class Bonus ~ Wizard Spell	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
 
 
 # Ultimate Combat
-EQUIPMENT:Bukler Gun	NEWKEY:Buckler Gun		MAXVER:6.0.02	MAXDEVVER:6.1.4
+EQUIPMENT:Bukler Gun	MAXVER:6.4.00	NEWKEY:NEWKEY:Buckler Gun	MAXVER:6.4.00	NEWKEY:	MAXVER:6.4.00	NEWKEY:MAXVER:6.0.02	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.4
 
 ###Block: Migration to be sources
-SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide	NEWKEY:Advanced Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Race Guide	NEWKEY:Advanced Race Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Bestiary	NEWKEY:Bestiary	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Bestiary 2	NEWKEY:Bestiary 2	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#SOURCE:Bestiary 3	NEWKEY:Bestiary 3	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Blood of Fiends	NEWKEY:Blood of Fiends	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Bonus Bestiary	NEWKEY:Bonus Bestiary	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Carrion Crown Player's Guide	NEWKEY:Carrion Crown Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Cheliax, Empire of Devils	NEWKEY:Cheliax, Empire of Devils	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Core Rulebook	NEWKEY:Core Rulebook	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Pathfinder Roleplaying Game Bestiary (Core Data)	NEWKEY:Core Essentials	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Council of Thieves Player's Guide	NEWKEY:Council of Thieves Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Critical Fumble Deck	NEWKEY:Critical Fumble Deck	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne Player's Guide	NEWKEY:Curse of the Crimson Throne Player's Guide (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne, Chapter 1: Edge of Anarchy	NEWKEY:Curse of the Crimson Throne, Chapter 1 - Edge of Anarchy (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne, Chapter 2: Seven Days to the Grave	NEWKEY:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne, Chapter 3: Escape from Old Korvosa	NEWKEY:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne, Chapter 4: A History of Ashes	NEWKEY:Curse of the Crimson Throne, Chapter 4 - A History of Ashes (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne, Chapter 5: Skeletons of Scarwall	NEWKEY:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Curse of the Crimson Throne, Chapter 6: Crown of Fangs	NEWKEY:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Dark Markets: A Guide to Katapesh (Conversion)	NEWKEY:Dark Markets - A Guide to Katapesh (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Dragon Empires Gazetteer	NEWKEY:Dragon Empires Gazetteer	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Dragon Empires Primer	NEWKEY:Dragon Empires Primer	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Dungeoneer's Handbook	NEWKEY:Dungeoneer's Handbook	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Dwarves of Golarion	NEWKEY:Dwarves of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Faiths of Purity	NEWKEY:Faiths of Purity	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Gnomes of Golarion	NEWKEY:Gnomes of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Goblins of Golarion	NEWKEY:Goblins of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pathfinder Society Organized Play	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Guide To Pathfinder Society Organized Play 4.0	NEWKEY:Guide To Pathfinder Society Organised Play	MAXVER:6.2.0 MAXDEVVER:6.1.9
-SOURCE:Paizo - Guide to the River Kingdoms	NEWKEY:Guide to the River Kingdoms	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Halflings of Golarion	NEWKEY:Halflings of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Heart of the Jungle	NEWKEY:Heart of the Jungle	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#SOURCE:Inner Sea Bestiary	NEWKEY:Inner Sea Bestiary	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Inner Sea Primer	NEWKEY:Inner Sea Primer	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Inner Sea World Guide	NEWKEY:Inner Sea World Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Jade Regent Player's Guide	NEWKEY:Jade Regent Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Kingmaker Player's Guide	NEWKEY:Kingmaker Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Legacy of Fire Player's Guide (Conversion)	NEWKEY:Legacy of Fire Player's Guide (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Orcs of Golarion	NEWKEY:Orcs of Golarion	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pirates of the Inner Sea	NEWKEY:Pirates of the Inner Sea	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Princes of Darkness, Book of the Damned Vol. I	NEWKEY:Princes of Darkness - Book of the Damned, Volume 1 	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Qadira, Gateway to the East	NEWKEY:Qadira, Gateway to the East	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords Player's Guide	NEWKEY:Rise of the Runelords Player's Guide (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords Anniversary Edition Player's Guide	NEWKEY:Rise of the Runelords Player's Guide Anniversary Edition	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords, Chapter 1: Burnt Offerings	NEWKEY:Rise of the Runelords, Chapter 1 - Burnt Offerings (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords, Chapter 2: The Skinsaw Murders	NEWKEY:Rise of the Runelords, Chapter 2 - The Skinsaw Murders (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords, Chapter 3: The Hook Mountain Massacre	NEWKEY:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords, Chapter 4: Fortress of the Stone Giants	NEWKEY:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords, Chapter 5: Sins of the Saviors	NEWKEY:Rise of the Runelords, Chapter 5 - Sins of the Saviors (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Rise of the Runelords, Chapter 6: Spires of Xin-Shalast	NEWKEY:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Sargava, the Lost Colony	NEWKEY:Sargava, the Lost Colony	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness Player's Guide	NEWKEY:Second Darkness Player's Guide (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness, Chapter 1: Shadow in the Sky	NEWKEY:Second Darkness, Chapter 1 - Shadow in the Sky (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness, Chapter 2: Children of the Void	NEWKEY:Second Darkness, Chapter 2 - Children of the Void (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness, Chapter 3: The Armageddon Echo	NEWKEY:Second Darkness, Chapter 3 - The Armageddon Echo (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness, Chapter 4: Endless Night	NEWKEY:Second Darkness, Chapter 4 - Endless Night (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness, Chapter 5: A Memory of Darkness	NEWKEY:Second Darkness, Chapter 5 - A Memory of Darkness (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Second Darkness, Chapter 6: Descent into Midnight	NEWKEY:Second Darkness, Chapter 6 - Descent into Midnight (Conversion)	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Seekers of Secrets	NEWKEY:Seekers of Secrets - A Guide to the Pathfinder Society	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Serpent's Skull Player's Guide	NEWKEY:Serpent's Skull Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Skull & Shackles Player's Guide	NEWKEY:Skull and Shackles Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Ultimate Combat	NEWKEY:Ultimate Combat	MAXVER:6.2.0 MAXDEVVER:6.1.8
-#SOURCE:Ultimate Equipment	NEWKEY:Ultimate Equipment	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Ultimate Magic	NEWKEY:Ultimate Magic	MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Advanced Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Advanced Race Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Advanced Race Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Bestiary	MAXVER:6.4.00	NEWKEY:NEWKEY:Bestiary	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Bestiary 2	MAXVER:6.4.00	NEWKEY:NEWKEY:Bestiary 2	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#SOURCE:Bestiary 3	MAXVER:6.4.00	NEWKEY:NEWKEY:Bestiary 3	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Blood of Fiends	MAXVER:6.4.00	NEWKEY:NEWKEY:Blood of Fiends	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Bonus Bestiary	MAXVER:6.4.00	NEWKEY:NEWKEY:Bonus Bestiary	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Carrion Crown Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Carrion Crown Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Cheliax, Empire of Devils	MAXVER:6.4.00	NEWKEY:NEWKEY:Cheliax, Empire of Devils	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.4.00	NEWKEY:NEWKEY:Core Rulebook	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Pathfinder Roleplaying Game Bestiary (Core Data)	MAXVER:6.4.00	NEWKEY:NEWKEY:Core Essentials	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Council of Thieves Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Council of Thieves Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Critical Fumble Deck	MAXVER:6.4.00	NEWKEY:NEWKEY:Critical Fumble Deck	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne Player's Guide (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne, Chapter 1: Edge of Anarchy	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne, Chapter 1 - Edge of Anarchy (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne, Chapter 2: Seven Days to the Grave	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne, Chapter 3: Escape from Old Korvosa	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne, Chapter 4: A History of Ashes	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne, Chapter 4 - A History of Ashes (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne, Chapter 5: Skeletons of Scarwall	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Curse of the Crimson Throne, Chapter 6: Crown of Fangs	MAXVER:6.4.00	NEWKEY:NEWKEY:Curse of the Crimson Throne, Chapter 6 - Crown of Fangs (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Dark Markets: A Guide to Katapesh (Conversion)	MAXVER:6.4.00	NEWKEY:NEWKEY:Dark Markets - A Guide to Katapesh (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Dragon Empires Gazetteer	MAXVER:6.4.00	NEWKEY:NEWKEY:Dragon Empires Gazetteer	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Dragon Empires Primer	MAXVER:6.4.00	NEWKEY:NEWKEY:Dragon Empires Primer	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Dungeoneer's Handbook	MAXVER:6.4.00	NEWKEY:NEWKEY:Dungeoneer's Handbook	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Dwarves of Golarion	MAXVER:6.4.00	NEWKEY:NEWKEY:Dwarves of Golarion	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Faiths of Purity	MAXVER:6.4.00	NEWKEY:NEWKEY:Faiths of Purity	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Gnomes of Golarion	MAXVER:6.4.00	NEWKEY:NEWKEY:Gnomes of Golarion	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Goblins of Golarion	MAXVER:6.4.00	NEWKEY:NEWKEY:Goblins of Golarion	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	MAXVER:6.4.00	NEWKEY:NEWKEY:Guide To Pathfinder Society Organized Play	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Guide To Pathfinder Society Organized Play 4.0	MAXVER:6.4.00	NEWKEY:NEWKEY:Guide To Pathfinder Society Organised Play	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.9
+SOURCE:Paizo - Guide to the River Kingdoms	MAXVER:6.4.00	NEWKEY:NEWKEY:Guide to the River Kingdoms	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Halflings of Golarion	MAXVER:6.4.00	NEWKEY:NEWKEY:Halflings of Golarion	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Heart of the Jungle	MAXVER:6.4.00	NEWKEY:NEWKEY:Heart of the Jungle	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#SOURCE:Inner Sea Bestiary	MAXVER:6.4.00	NEWKEY:NEWKEY:Inner Sea Bestiary	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Inner Sea Primer	MAXVER:6.4.00	NEWKEY:NEWKEY:Inner Sea Primer	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Inner Sea World Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Inner Sea World Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Jade Regent Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Jade Regent Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Kingmaker Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Kingmaker Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Legacy of Fire Player's Guide (Conversion)	MAXVER:6.4.00	NEWKEY:NEWKEY:Legacy of Fire Player's Guide (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Orcs of Golarion	MAXVER:6.4.00	NEWKEY:NEWKEY:Orcs of Golarion	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pirates of the Inner Sea	MAXVER:6.4.00	NEWKEY:NEWKEY:Pirates of the Inner Sea	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Princes of Darkness, Book of the Damned Vol. I	MAXVER:6.4.00	NEWKEY:NEWKEY:Princes of Darkness - Book of the Damned, Volume 1	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Qadira, Gateway to the East	MAXVER:6.4.00	NEWKEY:NEWKEY:Qadira, Gateway to the East	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords Player's Guide (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords Anniversary Edition Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords Player's Guide Anniversary Edition	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords, Chapter 1: Burnt Offerings	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords, Chapter 1 - Burnt Offerings (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords, Chapter 2: The Skinsaw Murders	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords, Chapter 2 - The Skinsaw Murders (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords, Chapter 3: The Hook Mountain Massacre	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords, Chapter 3 - The Hook Mountain Massacre (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords, Chapter 4: Fortress of the Stone Giants	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords, Chapter 4 - Fortress of the Stone Giants (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords, Chapter 5: Sins of the Saviors	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords, Chapter 5 - Sins of the Saviors (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Rise of the Runelords, Chapter 6: Spires of Xin-Shalast	MAXVER:6.4.00	NEWKEY:NEWKEY:Rise of the Runelords, Chapter 6 - Spires of Xin-Shalast (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Sargava, the Lost Colony	MAXVER:6.4.00	NEWKEY:NEWKEY:Sargava, the Lost Colony	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness Player's Guide (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness, Chapter 1: Shadow in the Sky	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness, Chapter 1 - Shadow in the Sky (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness, Chapter 2: Children of the Void	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness, Chapter 2 - Children of the Void (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness, Chapter 3: The Armageddon Echo	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness, Chapter 3 - The Armageddon Echo (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness, Chapter 4: Endless Night	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness, Chapter 4 - Endless Night (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness, Chapter 5: A Memory of Darkness	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness, Chapter 5 - A Memory of Darkness (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Second Darkness, Chapter 6: Descent into Midnight	MAXVER:6.4.00	NEWKEY:NEWKEY:Second Darkness, Chapter 6 - Descent into Midnight (Conversion)	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Seekers of Secrets	MAXVER:6.4.00	NEWKEY:NEWKEY:Seekers of Secrets - A Guide to the Pathfinder Society	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Serpent's Skull Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Serpent's Skull Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Skull & Shackles Player's Guide	MAXVER:6.4.00	NEWKEY:NEWKEY:Skull and Shackles Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Ultimate Combat	MAXVER:6.4.00	NEWKEY:NEWKEY:Ultimate Combat	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+#SOURCE:Ultimate Equipment	MAXVER:6.4.00	NEWKEY:NEWKEY:Ultimate Equipment	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Ultimate Magic	MAXVER:6.4.00	NEWKEY:NEWKEY:Ultimate Magic	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
 
-SOURCE:Pathfinder RPG (Includes all currently released Supplements)	NEWKEY:Pathfinder RPG Core Supplements	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Pathfinder RPG for Game Masters (includes Monsters)	NEWKEY:Pathfinder RPG for Game Masters	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Pathfinder RPG for Players - Advanced	NEWKEY:Pathfinder RPG for Players	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Pathfinder RPG for PFS	NEWKEY:Pathfinder Society	MAXVER:6.2.0 MAXDEVVER:6.1.8
-SOURCE:Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement	NEWKEY:Advanced Player's Guide	MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Pathfinder RPG (Includes all currently released Supplements)	MAXVER:6.4.00	NEWKEY:NEWKEY:Pathfinder RPG Core Supplements	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Pathfinder RPG for Game Masters (includes Monsters)	MAXVER:6.4.00	NEWKEY:NEWKEY:Pathfinder RPG for Game Masters	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Pathfinder RPG for Players - Advanced	MAXVER:6.4.00	NEWKEY:NEWKEY:Pathfinder RPG for Players	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Pathfinder RPG for PFS	MAXVER:6.4.00	NEWKEY:NEWKEY:Pathfinder Society	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
+SOURCE:Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement	MAXVER:6.4.00	NEWKEY:NEWKEY:Advanced Player's Guide	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0 MAXDEVVER:6.1.8
 
 ### Block DATA-1579 typos
-ABILITY:Special Ability|Brastewark Businessman ~ Trait	NEWKEY:Brastlewark Businessman ~ Trait	MAXVER:6.2.0
-ABILITY:Special Ability|Spell-Like Abilities ~ Charnal Colossus	NEWKEY:Spell-Like Abilities ~ Charnel Colossus	MAXVER:6.2.0
-ABILITY:Special Ability|Corporate Will ~ Charnal Colossus	NEWKEY:Corporate Will ~ Charnel Colossus	MAXVER:6.2.0
-ABILITY:Special Ability|Mind Feed ~ Charnal Colossus	NEWKEY:Mind Feed ~ Charnel Colossus	MAXVER:6.2.0
-ABILITY:Special Ability|Voice of the Ancients ~ Charnal Colossus	NEWKEY:Voice of the Ancients ~ Charnel Colossus	MAXVER:6.2.0
-RACE:Charnal Colossus	NEWKEY:Charnel Colossus	MAXVER:6.2.0
-ABILITY:Special Ability|Arctic Native ~ Artic Druid	NEWKEY:Arctic Native ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Icewalking  ~ Artic Druid	NEWKEY:Icewalking ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Arctic Endurance ~ Artic Druid	NEWKEY:Arctic Endurance ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Wild Shape ~ Artic Druid	NEWKEY:Wild Shape ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Snowcaster ~ Artic Druid	NEWKEY:Snowcaster ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Flurry Form ~ Artic Druid	NEWKEY:Flurry Form ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Stand Firm	NEWKEY:Fighter Phalanx Soldier ~ Stand Firm	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Phalanx Fighting	NEWKEY:Fighter Phalanx Soldier ~ Phalanx Fighting	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Ready Pike	NEWKEY:Fighter Phalanx Soldier ~ Ready Pike	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Deft Shield	NEWKEY:Fighter Phalanx Soldier ~ Deft Shield	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Shield Ally	NEWKEY:Fighter Phalanx Soldier ~ Shield Ally	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Irresistible Advance	NEWKEY:Fighter Phalanx Soldier ~ Irresistible Advance	MAXVER:6.2.0
-ABILITY:Special Ability|Fighter Phlanx Soldier ~ Shielded Fortress	NEWKEY:Fighter Phalanx Soldier ~ Shielded Fortress	MAXVER:6.2.0
+ABILITY:Special Ability|Brastewark Businessman ~ Trait	MAXVER:6.4.00	NEWKEY:NEWKEY:Brastlewark Businessman ~ Trait	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Spell-Like Abilities ~ Charnal Colossus	MAXVER:6.4.00	NEWKEY:NEWKEY:Spell-Like Abilities ~ Charnel Colossus	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Corporate Will ~ Charnal Colossus	MAXVER:6.4.00	NEWKEY:NEWKEY:Corporate Will ~ Charnel Colossus	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Mind Feed ~ Charnal Colossus	MAXVER:6.4.00	NEWKEY:NEWKEY:Mind Feed ~ Charnel Colossus	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Voice of the Ancients ~ Charnal Colossus	MAXVER:6.4.00	NEWKEY:NEWKEY:Voice of the Ancients ~ Charnel Colossus	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+RACE:Charnal Colossus	MAXVER:6.4.00	NEWKEY:NEWKEY:Charnel Colossus	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Arctic Native ~ Artic Druid	MAXVER:6.4.00	NEWKEY:NEWKEY:Arctic Native ~ Arctic Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Icewalking  ~ Artic Druid	MAXVER:6.4.00	NEWKEY:NEWKEY:Icewalking ~ Arctic Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Arctic Endurance ~ Artic Druid	MAXVER:6.4.00	NEWKEY:NEWKEY:Arctic Endurance ~ Arctic Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Wild Shape ~ Artic Druid	MAXVER:6.4.00	NEWKEY:NEWKEY:Wild Shape ~ Arctic Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Snowcaster ~ Artic Druid	MAXVER:6.4.00	NEWKEY:NEWKEY:Snowcaster ~ Arctic Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Flurry Form ~ Artic Druid	MAXVER:6.4.00	NEWKEY:NEWKEY:Flurry Form ~ Arctic Druid	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Stand Firm	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Stand Firm	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Phalanx Fighting	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Phalanx Fighting	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Ready Pike	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Ready Pike	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Deft Shield	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Deft Shield	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Shield Ally	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Shield Ally	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Irresistible Advance	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Irresistible Advance	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Fighter Phlanx Soldier ~ Shielded Fortress	MAXVER:6.4.00	NEWKEY:NEWKEY:Fighter Phalanx Soldier ~ Shielded Fortress	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
 
 ### Block DATA-1596 typos
-ABILITY:Special Ability|Wealthy Dabler	NEWKEY:Wealthy Dabbler	MAXVER:6.2.0
-ABILITY:FEAT|Thoughtful Descernment	NEWKEY:Thoughtful Discernment	MAXVER:6.2.0
-ABILITY:Special Ability|Dog-Sniff_Hate ~ Trait	NEWKEY:Dog-Sniff-Hate ~ Trait	MAXVER:6.2.0
-ABILITY:Special Ability|Eldrich Surge ~ Quantium Golem	NEWKEY:Eldritch Surge ~ Quantium Golem	MAXVER:6.2.0
-EQUIPMENT:Elixer of Darksight	NEWKEY:Elixir of Darksight	MAXVER:6.2.0
-EQUIPMENT:Elixer of Forceful Exhalation	NEWKEY:Elixir of Forceful Exhalation	MAXVER:6.2.0
-ABILITY:Special Ability|Irreligeous ~ Redcap	NEWKEY:Irreligious ~ Redcap	MAXVER:6.2.0
+ABILITY:Special Ability|Wealthy Dabler	MAXVER:6.4.00	NEWKEY:NEWKEY:Wealthy Dabbler	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:FEAT|Thoughtful Descernment	MAXVER:6.4.00	NEWKEY:NEWKEY:Thoughtful Discernment	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Dog-Sniff_Hate ~ Trait	MAXVER:6.4.00	NEWKEY:NEWKEY:Dog-Sniff-Hate ~ Trait	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Eldrich Surge ~ Quantium Golem	MAXVER:6.4.00	NEWKEY:NEWKEY:Eldritch Surge ~ Quantium Golem	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+EQUIPMENT:Elixer of Darksight	MAXVER:6.4.00	NEWKEY:NEWKEY:Elixir of Darksight	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+EQUIPMENT:Elixer of Forceful Exhalation	MAXVER:6.4.00	NEWKEY:NEWKEY:Elixir of Forceful Exhalation	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Special Ability|Irreligeous ~ Redcap	MAXVER:6.4.00	NEWKEY:NEWKEY:Irreligious ~ Redcap	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
 
 ### Block DATA-1579 typos only caught with this update
-ABILITY:Archetype|Rogue Arcehtype ~ BANDIT	NEWKEY:Rogue Archetype ~ BANDIT	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ CHAMELEON	NEWKEY:Rogue Archetype ~ CHAMELEON	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ CHARLATAN	NEWKEY:Rogue Archetype ~ CHARLATAN	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ DRIVER	NEWKEY:Rogue Archetype ~ DRIVER	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ KNIFE MASTER	NEWKEY:Rogue Archetype ~ KNIFE MASTER	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ PIRATE	NEWKEY:Rogue Archetype ~ PIRATE	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ ROOF RUNNER	NEWKEY:Rogue Archetype ~ ROOF RUNNER	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ SANCTIFIED ROGUE	NEWKEY:Rogue Archetype ~ SANCTIFIED ROGUE	MAXVER:6.2.0
-ABILITY:Archetype|Rogue Arcehtype ~ SURVIVALIST	NEWKEY:Rogue Archetype ~ SURVIVALIST	MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ BANDIT	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ BANDIT	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ CHAMELEON	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ CHAMELEON	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ CHARLATAN	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ CHARLATAN	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ DRIVER	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ DRIVER	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ KNIFE MASTER	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ KNIFE MASTER	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ PIRATE	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ PIRATE	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ ROOF RUNNER	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ ROOF RUNNER	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ SANCTIFIED ROGUE	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ SANCTIFIED ROGUE	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
+ABILITY:Archetype|Rogue Arcehtype ~ SURVIVALIST	MAXVER:6.4.00	NEWKEY:NEWKEY:Rogue Archetype ~ SURVIVALIST	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
 
 ###Block DATA-1603 - Ultimate Combat 2nd printing errata
-ABILITY:Archetype|Hard to Fool ~ Advanced Rogue Talent	NEWKEY:Hard Minded ~ Advanced Rogue Talent	MAXVER:6.2.0
+ABILITY:Archetype|Hard to Fool ~ Advanced Rogue Talent	MAXVER:6.4.00	NEWKEY:NEWKEY:Hard Minded ~ Advanced Rogue Talent	MAXVER:6.4.00	NEWKEY:MAXVER:6.2.0
