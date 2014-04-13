@@ -3303,7 +3303,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Human Racial Trait Default</name>
+			<name>Paladin Core Class Skills</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -3314,7 +3314,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Paladin Core Class Skills</name>
+			<name>Race Traits ~ Human</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
