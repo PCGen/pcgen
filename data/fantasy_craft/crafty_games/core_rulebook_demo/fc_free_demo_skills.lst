@@ -27,6 +27,8 @@ Tactics		KEYSTAT:INT	USEUNTRAINED:YES								TYPE:Intelligence.BaseSkill	PREVARL
 #
 Spellcasting	KEYSTAT:INT	USEUNTRAINED:YES					EXCLUSIVE:YES	TYPE:Intelligence			PREVARLTEQ:skillinfo("TOTALRANK","Spellcasting"),MaxRankSpellcasting		SOURCEPAGE:p.111	DEFINE:MaxRankSpellcasting|var("MaxRank")-10
 
+Knowledge Check	KEYSTAT:INT	USEUNTRAINED:YES								CLASSES:ALL				VISIBLE:EXPORT																															SORTKEY:z
+
 #
 # END
 #
