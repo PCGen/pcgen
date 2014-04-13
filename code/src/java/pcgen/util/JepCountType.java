@@ -838,7 +838,7 @@ public abstract class JepCountType
 				count++; //For the skill
 				count += sk.getSizeOfListFor(ListKey.SITUATION);
 			}
-			return Integer.valueOf(count);
+			return Double.valueOf(count);
 		}
 		
 	}
