@@ -10,6 +10,105 @@
 # SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.1
 # EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.2
 
+ABILITY:Special Ability|Defensive Training ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Defensive Training	
+ABILITY:Special Ability|Greed ~ Dwarf					MAXVER:6.4.00	NEWKEY:Dwarf ~ Greed				
+ABILITY:Special Ability|Hatred ~ Dwarf				MAXVER:6.4.00	NEWKEY:Dwarf ~ Hatred			
+ABILITY:Special Ability|Hardy ~ Dwarf					MAXVER:6.4.00	NEWKEY:Dwarf ~ Hardy				
+ABILITY:Special Ability|Stability ~ Dwarf				MAXVER:6.4.00	NEWKEY:Dwarf ~ Stability			
+ABILITY:Special Ability|Stonecunning ~ Dwarf			MAXVER:6.4.00	NEWKEY:Dwarf ~ Stonecunning		
+ABILITY:Special Ability|Steady ~ Dwarf				MAXVER:6.4.00	NEWKEY:Dwarf ~ Steady			
+ABILITY:Special Ability|Weapon Familiarity ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Weapon Familiarity	
+ABILITY:Special Ability|Darkvision ~ Dwarf				MAXVER:6.4.00	NEWKEY:Dwarf ~ Darkvision			
+ABILITY:Special Ability|Language ~ Dwarf				MAXVER:6.4.00	NEWKEY:Dwarf ~ Language			
+ABILITY:Special Ability|Elven Immunities ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Elven Immunities
+ABILITY:Special Ability|Elven Magic ~ Elf		MAXVER:6.4.00	NEWKEY:Elf ~ Elven Magic	
+ABILITY:Special Ability|Weapon Familiarity ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Weapon Familiarity
+ABILITY:Special Ability|Keen Senses ~ Elf		MAXVER:6.4.00	NEWKEY:Elf ~ Keen Senses	
+ABILITY:Special Ability|Low-Light Vision ~ Elf	MAXVER:6.4.00	NEWKEY:Elf ~ Low-Light Vision
+ABILITY:Special Ability|Defensive Training ~ Gnome		MAXVER:6.4.00	NEWKEY:Gnome ~ Defensive Training	
+ABILITY:Special Ability|Gnome Magic ~ Gnome				MAXVER:6.4.00	NEWKEY:Gnome ~ Gnome Magic			
+ABILITY:Special Ability|Hatred ~ Gnome				MAXVER:6.4.00	NEWKEY:Gnome ~ Hatred			
+ABILITY:Special Ability|Illusion Resistance ~ Gnome		MAXVER:6.4.00	NEWKEY:Gnome ~ Illusion Resistance	
+ABILITY:Special Ability|Obsessive ~ Gnome				MAXVER:6.4.00	NEWKEY:Gnome ~ Obsessive			
+ABILITY:Special Ability|Keen Senses ~ Gnome				MAXVER:6.4.00	NEWKEY:Gnome ~ Keen Senses			
+ABILITY:Special Ability|Weapon Familiarity ~ Gnome		MAXVER:6.4.00	NEWKEY:Gnome ~ Weapon Familiarity	
+ABILITY:Special Ability|Low-Light Vision ~ Gnome			MAXVER:6.4.00	NEWKEY:Gnome ~ Low-Light Vision		
+ABILITY:Special Ability|Adaptability ~ Half-Elf		MAXVER:6.4.00	NEWKEY:Half-Elf ~ Adaptability	
+ABILITY:Special Ability|Multitalented ~ Half-Elf		MAXVER:6.4.00	NEWKEY:Half-Elf ~ Multitalented	
+ABILITY:Special Ability|Elven Immunities ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Elven Immunities
+ABILITY:Special Ability|Keen Senses ~ Half-Elf		MAXVER:6.4.00	NEWKEY:Half-Elf ~ Keen Senses	
+ABILITY:Special Ability|Elf Blood ~ Half-Elf		MAXVER:6.4.00	NEWKEY:Half-Elf ~ Elf Blood	
+ABILITY:Special Ability|Low-Light Vision ~ Half-Elf	MAXVER:6.4.00	NEWKEY:Half-Elf ~ Low-Light Vision
+ABILITY:Special Ability|Intimidating ~ Half-Orc			MAXVER:6.4.00	NEWKEY:Half-Orc ~ Intimidating		
+ABILITY:Special Ability|Orc Ferocity ~ Half-Orc			MAXVER:6.4.00	NEWKEY:Half-Orc ~ Orc Ferocity		
+ABILITY:Special Ability|Weapon Familiarity ~ Half-Orc		MAXVER:6.4.00	NEWKEY:Half-Orc ~ Weapon Familiarity	
+ABILITY:Special Ability|Orc Blood ~ Half-Orc			MAXVER:6.4.00	NEWKEY:Half-Orc ~ Orc Blood		
+ABILITY:Special Ability|Darkvision ~ Half-Orc			MAXVER:6.4.00	NEWKEY:Half-Orc ~ Darkvision		
+ABILITY:Special Ability|Fearless ~ Halfling				MAXVER:6.4.00	NEWKEY:Halfling ~ Fearless			
+ABILITY:Special Ability|Halfling Luck ~ Halfling			MAXVER:6.4.00	NEWKEY:Halfling ~ Halfling Luck		
+ABILITY:Special Ability|Keen Senses ~ Halfling			MAXVER:6.4.00	NEWKEY:Halfling ~ Keen Senses		
+ABILITY:Special Ability|Sure-Footed ~ Halfling			MAXVER:6.4.00	NEWKEY:Halfling ~ Sure-Footed		
+ABILITY:Special Ability|Weapon Familiarity ~ Halfling		MAXVER:6.4.00	NEWKEY:Halfling ~ Weapon Familiarity	
+ABILITY:Special Ability|Bonus Feat ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Bonus Feat
+ABILITY:Special Ability|Skilled ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Skilled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # APG Rage Powers
 ABILITY:Special Ability|Beast Totem ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Beast Totem
 ABILITY:Special Ability|Beast Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Beast Totem (Greater)
@@ -657,7 +756,7 @@ ABILITY:Special Ability|Mind Feed ~ Charnal Colossus		NEWKEY:Mind Feed ~ Charnel
 ABILITY:Special Ability|Voice of the Ancients ~ Charnal Colossus		NEWKEY:Voice of the Ancients ~ Charnel Colossus	MAXVER:6.2.0
 RACE:Charnal Colossus		NEWKEY:Charnel Colossus	MAXVER:6.2.0
 ABILITY:Special Ability|Arctic Native ~ Artic Druid		NEWKEY:Arctic Native ~ Arctic Druid	MAXVER:6.2.0
-ABILITY:Special Ability|Icewalking  ~ Artic Druid		NEWKEY:Icewalking ~ Arctic Druid	MAXVER:6.2.0
+ABILITY:Special Ability|Icewalking~ Artic Druid		NEWKEY:Icewalking ~ Arctic Druid	MAXVER:6.2.0
 ABILITY:Special Ability|Arctic Endurance ~ Artic Druid		NEWKEY:Arctic Endurance ~ Arctic Druid	MAXVER:6.2.0
 ABILITY:Special Ability|Wild Shape ~ Artic Druid		NEWKEY:Wild Shape ~ Arctic Druid	MAXVER:6.2.0
 ABILITY:Special Ability|Snowcaster ~ Artic Druid		NEWKEY:Snowcaster ~ Arctic Druid	MAXVER:6.2.0
