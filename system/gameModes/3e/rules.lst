@@ -21,6 +21,13 @@ NAME:WeightPenaltyToSkill		VAR:SYS_WTPSK		DEFAULT:Yes					DESC:Apply Weight Pena
 NAME:ClericDomainBonus			VAR:SYS_DOMAIN		DEFAULT:Yes					DESC:Apply Casterlevel Bonuses from Domains to Spells
 NAME:DruidWildShapeRacialBonus	VAR:SYS_DWS_RACIAL	DEFAULT:No					DESC:Apply Racial Skill Bonuses for Animal Wild Shapes
 NAME:DruidWildShapeExtraAbilities	VAR:SYS_DWS_EXTRA		DEFAULT:No					DESC:Apply Extraordinary Abilities for Animal Wild Shapes
+
+# Homebrew Support
+NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell	DEFAULT:No					DESC:Use Full Spell Descriptions from the Core Books
+NAME:UseFullEquipmentDescriptions	VAR:DisplayFullEquip	DEFAULT:No					DESC:Use Full Equipment Descriptions (Homebrew Support)
+NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility	DEFAULT:No					DESC:Use Full Ability Descriptions (Homebrew Support)
+
+
 #
 # The following are all hardcoded in the java code
 #
