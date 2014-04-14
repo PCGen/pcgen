@@ -27,13 +27,13 @@ Mwangi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEM
 ###Block: Mwangi Tribes
 # Ability Name	Product Identity?	Category of Ability	Type			Visible		Required Race		Template
 No Tribe					CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY
-Bandu			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human		TEMPLATE:Mwangi Tribe (Bandu)
-Bas'o			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human		TEMPLATE:Mwangi Tribe (Bas'o)
-Ijo			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human		TEMPLATE:Mwangi Tribe (Ijo)
-Kalabuta		NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human		TEMPLATE:Mwangi Tribe (Kalabuta)
-Mulaa			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human		TEMPLATE:Mwangi Tribe (Mulaa)
-Ombo			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human		TEMPLATE:Mwangi Tribe (Ombo)
-Song'o		NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Halfling	TEMPLATE:Mwangi Tribe (Song'o)
+Bandu			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human,RACESUBTYPE=Human		TEMPLATE:Mwangi Tribe (Bandu)
+Bas'o			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human,RACESUBTYPE=Human		TEMPLATE:Mwangi Tribe (Bas'o)
+Ijo			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human,RACESUBTYPE=Human		TEMPLATE:Mwangi Tribe (Ijo)
+Kalabuta		NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human,RACESUBTYPE=Human		TEMPLATE:Mwangi Tribe (Kalabuta)
+Mulaa			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human,RACESUBTYPE=Human		TEMPLATE:Mwangi Tribe (Mulaa)
+Ombo			NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Human,RACESUBTYPE=Human		TEMPLATE:Mwangi Tribe (Ombo)
+Song'o		NAMEISPI:YES	CATEGORY:Background	TYPE:MwangiTribe	VISIBLE:DISPLAY	PRERACE:1,Halfling,RACESUBTYPE=Halfling	TEMPLATE:Mwangi Tribe (Song'o)
 
 ###Block: Regional Affinities
 # Ability Name			Product Identity?	Category of Ability	Type		Visible		Description				Template
@@ -55,7 +55,7 @@ Two-World Magic	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait	PREMUL
 
 ###Block: Race Traits
 # Ability Name		Category of Ability		Type				Required Ability									Multiple Requirements																																						Description																																																			Stackable?	Multiple?	Choose									Bonus to skill								Class Skill	Source Page
-Adventurous Explorer	CATEGORY:Special Ability	TYPE:Trait.RaceTrait	PREABILITY:1,CATEGORY=Background,Song'o					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adventurous Explorer],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Halfling],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Halfling]				DESC:You are one of the few Song'o halflings to brave the world outside the Laughing Jungle. When frightened or shaken, you only take a -1 penalty on your rolls instead of -2.																																																	SOURCEPAGE:p.23
+Adventurous Explorer	CATEGORY:Special Ability	TYPE:Trait.RaceTrait	PREABILITY:1,CATEGORY=Background,Song'o					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adventurous Explorer],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Halfling,RACESUBTYPE=Halfling],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Halfling]				DESC:You are one of the few Song'o halflings to brave the world outside the Laughing Jungle. When frightened or shaken, you only take a -1 penalty on your rolls instead of -2.																																																	SOURCEPAGE:p.23
 Born to the Water		CATEGORY:Special Ability	TYPE:Trait.RaceTrait	PREABILITY:1,CATEGORY=Background,Ijo					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Born on the Water],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Human%,RACESUBTYPE=Human],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Human]		DESC:You were born on the shore, and you easily live on and under the water. You gain a +1 bonus on Swim checks and only need to make Swim checks once every 2 hours to avoid fatigue, instead of once each hour.																																BONUS:SKILL|Swim|1|TYPE=Trait								SOURCEPAGE:p.23
 Colonial Entitlement	CATEGORY:Special Ability	TYPE:Trait.RaceTrait	PREABILITY:1,CATEGORY=Background,Chelaxian,Colonial Sargavan	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Colonial Entitlement],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Human%,RACESUBTYPE=Human],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Human]	DESC:You are a firm believer in the superiority of your Chelish heritage, and you cling to your racial and cultural pride. You gain a +2 trait bonus on Intimidate checks against Mwangi.																																																SOURCEPAGE:p.23
 Colonial Sympathizer	CATEGORY:Special Ability	TYPE:Trait.RaceTrait	PREABILITY:1,CATEGORY=Background,Mwangi					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Colonial Sympathizer],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Human%,RACESUBTYPE=Human],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Human]	DESC:Your behavior is heavily influenced by the Sargavan colonials. You gain a +1 trait bonus on Bluff and Diplomacy checks involving Sargavan colonials and others with this trait.																																																SOURCEPAGE:p.23
