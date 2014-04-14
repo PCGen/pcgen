@@ -24,19 +24,19 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 2	BONUS:VAR|AlchemistDiscoveryLVL|CL
 14	BONUS:VAR|AlchemistPersistentMutagenLVL|CL
 ###Block: Class Abilities
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Bomb ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBomb
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Brew Potion ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBrewPotion
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Throw Anything ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
-2	ABILITY:Alchemist Class Feature|AUTOMATIC|Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
-2	ABILITY:Alchemist Class Feature|AUTOMATIC|Poison Resistance ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
-2	ABILITY:Alchemist Class Feature|AUTOMATIC|Poison Use ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
-3	ABILITY:Alchemist Class Feature|AUTOMATIC|Swift Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
-6	ABILITY:Alchemist Class Feature|AUTOMATIC|Swift Poisoning ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
-14	ABILITY:Alchemist Class Feature|AUTOMATIC|Persistent Mutagen ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
-18	ABILITY:Alchemist Class Feature|AUTOMATIC|Instant Alchemy ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
-20	ABILITY:Alchemist Class Feature|AUTOMATIC|Grand Discovery ~ Alchemist|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
+1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Alchemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistAlchemy
+1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Bomb|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBomb
+1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Brew Potion|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistBrewPotion
+1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Mutagen|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistMutagen
+1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Throw Anything|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistThrowAnything
+2	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Discovery|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistDiscovery
+2	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Poison Resistance|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonResistance
+2	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Poison Use|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPoisonUse
+3	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Swift Alchemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftAlchemy
+6	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Swift Poisoning|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistSwiftPoisoning
+14	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Persistent Mutagen|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistPersistentMutagen
+18	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Instant Alchemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistInstantAlchemy
+20	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Grand Discovery|!PREABILITY:1,CATEGORY=Archetype,TYPE.AlchemistGrandDiscovery
 ###Block: Spellcasting
 1	CAST:0,1
 2	CAST:0,2
@@ -626,7 +626,7 @@ CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowle
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MC		MAXLEVEL:10	SOURCEPAGE:p.267	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:MasterChymistLVL|CL
 # Class Name		Multiple Requirements																									Req. Spell Type
-CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Mutagen ~ Alchemist],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=1
+CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Alchemist ~ Mutagen],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
 ##Block: Normal Level Progression
