@@ -297,7 +297,7 @@ Poison		KEY:Poison ~ Amphisbaena	CATEGORY:Special Ability	TYPE:SpecialAttack.Ext
 ###Block: Angel (Monadic Deva) abilities
 # Ability Name							Unique Key				Category of Ability		Type						Description																						Source Page		Aspects
 Solid Blow								KEY:Solid Blow ~ Monadic Deva	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:If a monadic deva strikes an opponent twice in 1 round with its mace, that creature takes an extra 1d8+%1 points of damage.|2*STR	SOURCEPAGE:p.27	ASPECT:Ability Benefit|(morningstar)
-CATEGORY=Special Ability|Protective Aura ~ Angel.MOD											TYPE:ModifyAC																														ASPECT:ModifyAC|+4 deflection vs. evil	ASPECT:SaveBonus|+4 resistance vs. evil
+CATEGORY=Special Ability|Angel ~ Protective Aura.MOD											TYPE:ModifyAC																														ASPECT:ModifyAC|+4 deflection vs. evil	ASPECT:SaveBonus|+4 resistance vs. evil
 
 ###Block: Angel (Movanic Deva) abilities
 # Ability Name		Unique Key						Category of Ability		Type					Description																																	Source Page
