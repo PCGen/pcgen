@@ -826,7 +826,7 @@ font-family: Arial, sans-serif; font-size:10pt;
      <td align="center" width="13%" colspan="2" class="border8">RANKS</td>
      <td align="center" width="13%" colspan="2" class="border8">MISC MODIFIER</td>
     </tr>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,COUNT[SKILLSIT]-1,1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
       <td align="left" class="font10">&nbsp;&nbsp;<font face="Wingdings" style="font-size: 7pt">|OIF(SKILL%skill.UNTRAINED,&#9670;,&nbsp;&nbsp;)|</font>&nbsp;&nbsp;|SKILL.%skill|</td>
      <td align="center" class="font10">|SKILL.%skill.ABILITY|</td>

@@ -184,6 +184,10 @@ $Date$
 <b>Conditionals:</b>
 |ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus|
 |ENDFOR|
+<br>
+|SAVE.2.TOTAL|[Total]
+|SAVE.2.FEATS|[Feat]
+
 
 </blockquote>
 
@@ -260,14 +264,14 @@ To Hit:
 <b>Skills</b>
 
 <blockquote>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
-|IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
-|IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
+|IIF(VAR.IF(var("SKILLSIT.%skill.RANK")==0;1;0):1)|
+|IIF(VAR.IF(var("SKILLSIT.%skill.TOTAL")==0;1;0):1)|
 |ELSE|
-<font color="#999999"><b>|SKILL.%skill|</b> |SKILL.%skill.TOTAL.INTVAL.SIGN| = |SKILL.%skill.EXPLAIN_LONG| </font><br>
+<font color="#999999"><b>|SKILLSIT.%skill|</b> |SKILLSIT.%skill.TOTAL.INTVAL.SIGN| = |SKILLSIT.%skill.EXPLAIN_LONG| </font><br>
 |ENDIF|
 |ELSE|
-<b>|SKILL.%skill|</b> |SKILL.%skill.TOTAL.INTVAL.SIGN| = |SKILL.%skill.RANK.INTVAL.SIGN|[RANK] |SKILL.%skill.EXPLAIN_LONG| <br>
+<b>|SKILLSIT.%skill|</b> |SKILLSIT.%skill.TOTAL.INTVAL.SIGN| = |SKILLSIT.%skill.RANK.INTVAL.SIGN|[RANK] |SKILLSIT.%skill.EXPLAIN_LONG| <br>
 |ENDIF|
 |ENDFOR|
 </blockquote>

@@ -374,9 +374,9 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
     	<td width="75%">
 
 <!--   Trouble-shooting stuff   
-|FOR.0,COUNT[SKILLS],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
+|FOR.0,COUNT[SKILLSIT],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
 -->
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,COUNT[SKILLSIT]-1,1,0|
 |IIF(SKILL.%skill.TYPE:SkillUse)|
 |ELSE|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|

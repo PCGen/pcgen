@@ -28,18 +28,18 @@
 		 <td align="center" width="5%" colspan="1" class="border7"></td>
 		 <td align="center" width="5%" colspan="1" class="border7">MISC<br>MOD</td>
     </tr>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
-		 <td align="left" class="skill">|SKILL.%skill|</td>
-		 <td align="center" class="skill">|SKILL.%skill.ABILITY|</td>
-		 <td align="center" class="skillValue"><b>|SKILL.%skill.TOTAL|</b></td>
+		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILLSIT.%skill.UNTRAINED,&#9670;,)|</td>
+		 <td align="left" class="skill">|SKILLSIT.%skill|</td>
+		 <td align="center" class="skill">|SKILLSIT.%skill.ABILITY|</td>
+		 <td align="center" class="skillValue"><b>|SKILLSIT.%skill.TOTAL|</b></td>
 		 <td align="center" class="sign">=</td>
-		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|<br></td>
+		 <td align="center" class="skillValue">|SKILLSIT.%skill.ABMOD|<br></td>
 		 <td align="center" class="sign">+</td>
-		 <td align="center" class="skillValue" >|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK|<br></td>
+		 <td align="center" class="skillValue" >|TEXT.REPLACEFIRST{\.0,}.SKILLSIT.%skill.RANK|<br></td>
 		 <td align="center" class="sign">+</td>
-		 <td align="center" class="skillValue">|SKILL.%skill.MISC|<br></td>
+		 <td align="center" class="skillValue">|SKILLSIT.%skill.MISC|<br></td>
     </tr>
 |ENDFOR|
 </table>
