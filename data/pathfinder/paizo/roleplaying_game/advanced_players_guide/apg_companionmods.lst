@@ -135,7 +135,7 @@ FOLLOWER:EidolonLVL=2		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|
 FOLLOWER:EidolonLVL=3		TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=4		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:EidolonLVL=5		TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=6		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																						BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLVL=6		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																				BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=7		TYPE:Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=8		TYPE:Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=9		TYPE:Eidolon		HD:1																	AUTO:FEAT|Multiattack														BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
