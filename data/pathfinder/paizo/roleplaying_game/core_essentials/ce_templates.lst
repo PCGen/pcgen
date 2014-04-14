@@ -331,24 +331,24 @@ Chaotic		VISIBLE:NO
 Cold			VISIBLE:NO
 Demon			VISIBLE:NO
 Devil			VISIBLE:NO
-Dwarf			VISIBLE:NO
+Dwarf			VISIBLE:NO	RACESUBTYPE:Dwarf		TYPE:Racial Heritage
 Earth			VISIBLE:NO
 Elemental		VISIBLE:NO
-Elf			VISIBLE:NO
+Elf			VISIBLE:NO	RACESUBTYPE:Elf		TYPE:Racial Heritage
 Evil			VISIBLE:NO
 Extraplanar		VISIBLE:NO
 Fire			VISIBLE:NO	RACESUBTYPE:Fire
 Giant			VISIBLE:NO
-Gnome			VISIBLE:NO
+Gnome			VISIBLE:NO	RACESUBTYPE:Gnome		TYPE:Racial Heritage
 Gnoll			VISIBLE:NO
 Goblinoid		VISIBLE:NO
 Good			VISIBLE:NO
-Halfling		VISIBLE:NO
+Halfling		VISIBLE:NO	RACESUBTYPE:Halfling	TYPE:Racial Heritage
 Human			VISIBLE:NO	RACESUBTYPE:Human
 Lawful		VISIBLE:NO
 Native		VISIBLE:NO
 Oni			VISIBLE:NO
-Orc			VISIBLE:NO
+Orc			VISIBLE:NO	RACESUBTYPE:Orc		TYPE:Racial Heritage
 Reptilian		VISIBLE:NO
 Shapechanger	VISIBLE:NO
 Swarm			VISIBLE:NO

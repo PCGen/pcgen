@@ -84,3 +84,10 @@ Formula Book			VISIBLE:NO																																											KIT:1|Alchem
 #
 # End
 #
+
+
+
+#STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|RACETYPE=Humanoid
+Racial Heritage		CHOOSE:TEMPLATE|TYPE=Racial Heritage	TEMPLATE:%LIST
+
+
