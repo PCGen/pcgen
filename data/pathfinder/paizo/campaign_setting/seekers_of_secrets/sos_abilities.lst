@@ -8,9 +8,5 @@ Flawed Gamboge Nodule Ability								CATEGORY:Special Ability	TYPE:Internal					
 Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGT:AnimalCompanionLVL,0	BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1
 Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGT:FamiliarLVL,0		BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
 
+
 Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal								MULT:YES	STACK:NO	CHOOSE:WEAPONPROFICIENCY|!PC	AUTO:WEAPONPROF|%LIST
-Exotic Weapon Familiarity Selection	KEY:Exotic Weapon Familiarity Selection		CATEGORY:Internal								MULT:YES	STACK:NO	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]	CHANGEPROF:%LIST=Martial
-
-Opalescent White Pyramid ~ Exotic Weapon Familiarity	CATEGORY:Internal		BONUS:ABILITYPOOL|Exotic Weapon Proficiency Granted|1
-
-Opalescent White Pyramid ~ Proficiency	CATEGORY:Internal		
