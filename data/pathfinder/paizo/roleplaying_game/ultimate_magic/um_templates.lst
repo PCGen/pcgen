@@ -26,7 +26,7 @@ Planar Oracle Final Revelation	VISIBLE:NO	DR:10/magic		RACETYPE:Outsider	RACESUB
 
 ###Block: Familiar template
 # Template Name			Visible	Template															Add 					Ability								Apply Kit
-Thrush Familiar Language	VISIBLE:NO																	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
+Thrush Familiar Language	VISIBLE:NO																	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language
 
 
 Starting Gold ~ UM		VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold UM ~ Random|Starting Gold UM ~ Maximum|Starting Gold UM ~ Average
