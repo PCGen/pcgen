@@ -39,7 +39,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL
 3	BONUS:VAR|NinjaNoTraceLVL|CL
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-4	BONUS:VAR|UncannyDodgeLevel|CL/4
+4	BONUS:VAR|UncannyDodgeLVL|CL/4
 8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 ###Block: Level progression
 1	ABILITY:Ninja Class Feature|AUTOMATIC|Poison Use ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison

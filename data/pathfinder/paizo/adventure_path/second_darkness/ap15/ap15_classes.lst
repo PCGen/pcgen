@@ -11,7 +11,7 @@ CLASS:Pain Taster	PREALIGN:LN,TN,CN,LE,NE,CE	PREFEAT:3,Diehard,Endurance,Great F
 CLASS:Pain Taster	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Heal|Intimidate|Sense Motive|Survival
 1																											ABILITY:Special Ability|AUTOMATIC|Disciple of Pain|Masochism		AUTO:WEAPONPROF|Whip|TYPE=Martial|TYPE=Simple
 2	DR:1/-				BONUS:VAR|SneakAttackDice|1																	ABILITY:Special Ability|AUTOMATIC|Cruelty
-3						BONUS:VAR|BloodControlBonus|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|Blood Control|Uncanny Dodge ~ Base
+3						BONUS:VAR|BloodControlBonus|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLVL|1	ABILITY:Special Ability|AUTOMATIC|Blood Control|Uncanny Dodge ~ Base
 4			BONUS:DR|-|1	BONUS:VAR|SneakAttackDice|1
 5																											ABILITY:Special Ability|AUTOMATIC|Pain Mastery
 

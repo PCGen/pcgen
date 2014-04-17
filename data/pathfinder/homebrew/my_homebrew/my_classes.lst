@@ -26,7 +26,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #1											BONUS:VAR|RogueSneakAttackLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trapfinding|Sneak Attack|Rogue Sneak Attack
 #2																												ABILITY:Special Ability|AUTOMATIC|Evasion
 #3											BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|Rogue Trap Sense
-#4											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+#4											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLVL|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 #10	BONUS:ABILITYPOOL|Rogue Special Ability|min(4,(CL-7)/3)
 
 #####
