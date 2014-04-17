@@ -9,6 +9,709 @@
 # Examples
 # SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.1
 # EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.2
+	
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Barbarian	MAXVER:6.4.00	NEWKEY:Barbarian ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Fast Movement ~ Barbarian			MAXVER:6.4.00	NEWKEY:Barbarian ~ Fast Movement			
+ABILITY:Special Ability|Rage							MAXVER:6.4.00	NEWKEY:Barbarian ~ Rage							
+ABILITY:Special Ability|Rage Powers						MAXVER:6.4.00	NEWKEY:Barbarian ~ Rage Powers						
+ABILITY:Special Ability|Trap Sense ~ Barbarian				MAXVER:6.4.00	NEWKEY:Barbarian ~ Trap Sense						
+ABILITY:Special Ability|Damage Reduction ~ Barbarian			MAXVER:6.4.00	NEWKEY:Barbarian ~ Damage Reduction	
+ABILITY:Special Ability|Greater Rage					MAXVER:6.4.00	NEWKEY:Barbarian ~ Greater Rage		
+ABILITY:Special Ability|Tireless Rage					MAXVER:6.4.00	NEWKEY:Barbarian ~ Tireless Rage		
+ABILITY:Special Ability|Mighty Rage						MAXVER:6.4.00	NEWKEY:Barbarian ~ Mighty Rage		
+ABILITY:Special Ability|Indomitable Will					MAXVER:6.4.00	NEWKEY:Barbarian ~ Indomitable Will	
+ABILITY:Special Ability|Armored Casting				MAXVER:6.4.00	NEWKEY:Bard ~ Armored Casting		
+ABILITY:Special Ability|Bardic Knowledge				MAXVER:6.4.00	NEWKEY:Bard ~ Bardic Knowledge		
+ABILITY:Special Ability|Bardic Countersong			MAXVER:6.4.00	NEWKEY:Bard ~ Bardic Countersong		
+ABILITY:Special Ability|Bardic Performance			MAXVER:6.4.00	NEWKEY:Bard ~ Bardic Performance		
+ABILITY:Special Ability|Cantrips ~ Bard				MAXVER:6.4.00	NEWKEY:Bard ~ Cantrips			
+ABILITY:Special Ability|Versatile Performance			MAXVER:6.4.00	NEWKEY:Bard ~ Versatile Performance	
+ABILITY:Special Ability|Well-Versed					MAXVER:6.4.00	NEWKEY:Bard ~ Well-Versed			
+ABILITY:Special Ability|Lore Master					MAXVER:6.4.00	NEWKEY:Bard ~ Lore Master			
+ABILITY:Special Ability|Jack of All Trades			MAXVER:6.4.00	NEWKEY:Bard ~ Jack of All Trades		
+ABILITY:Special Ability|Jack of All Trades Class Skills	MAXVER:6.4.00	NEWKEY:Jack of All Trades ~ Class Skills
+ABILITY:Special Ability|Countersong			MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Countersong		
+ABILITY:Special Ability|Distraction			MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Distraction		
+ABILITY:Special Ability|Fascinate			MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Fascinate			
+ABILITY:Special Ability|Inspire Courage		MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Inspire Courage		
+ABILITY:Special Ability|Inspire Competence	MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Inspire Competence	
+ABILITY:Special Ability|Suggestion			MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Suggestion			
+ABILITY:Special Ability|Dirge of Doom		MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Dirge of Doom		
+ABILITY:Special Ability|Inspire Greatness		MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Inspire Greatness	
+ABILITY:Special Ability|Soothing Performance	MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Soothing Performance	
+ABILITY:Special Ability|Frightening Tune		MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Frightening Tune		
+ABILITY:Special Ability|Inspire Heroics		MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Inspire Heroics		
+ABILITY:Special Ability|Mass Suggestion		MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Mass Suggestion		
+ABILITY:Special Ability|Deadly Performance	MAXVER:6.4.00	NEWKEY:Bardic Performance ~ Deadly Performance	
+ABILITY:Special Ability|Act				MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Act				
+ABILITY:Special Ability|Comedy			MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Comedy				
+ABILITY:Special Ability|Dance				MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Dance				
+ABILITY:Special Ability|Keyboard Instruments	MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Keyboard Instruments	
+ABILITY:Special Ability|Oratory			MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Oratory				
+ABILITY:Special Ability|Percussion Instruments	MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Percussion Instruments	
+ABILITY:Special Ability|Sing				MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Sing				
+ABILITY:Special Ability|String Instruments	MAXVER:6.4.00	NEWKEY:Versatile Performance ~ String Instruments		
+ABILITY:Special Ability|Wind Instruments		MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Wind Instruments		
+
+
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Cleric	MAXVER:6.4.00	NEWKEY:Cleric ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Channel Energy				MAXVER:6.4.00	NEWKEY:Cleric ~ Channel Energy		
+ABILITY:Special Ability|Channel Positive Energy ~ Cleric	MAXVER:6.4.00	NEWKEY:Cleric ~ Channel Positive Energy
+ABILITY:Special Ability|Channel Negative Energy ~ Cleric	MAXVER:6.4.00	NEWKEY:Cleric ~ Channel Negative Energy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABILITY:Special Ability|Lightning Arc ~ Air Domain			MAXVER:6.4.00	NEWKEY:Air Domain ~ Lightning Arc
+ABILITY:Special Ability|Electricity Resistance ~ Air Domain		MAXVER:6.4.00	NEWKEY:Air Domain ~ Electricity Resistance
+ABILITY:Special Ability|Speak with Animals ~ Animal Domain		MAXVER:6.4.00	NEWKEY:Animal Domain ~ Speak with Animals
+ABILITY:Special Ability|Animal Companion ~ Animal Domain		MAXVER:6.4.00	NEWKEY:Animal Domain ~ Animal Companion
+ABILITY:Special Ability|Artificer's Touch ~ Artifice Domain		MAXVER:6.4.00	NEWKEY:Artifice Domain ~ Artificer's Touch
+ABILITY:Special Ability|Dancing Weapons ~ Artifice Domain		MAXVER:6.4.00	NEWKEY:Artifice Domain ~ Dancing Weapons
+ABILITY:Special Ability|Touch of Chaos ~ Chaos Domain			MAXVER:6.4.00	NEWKEY:Chaos Domain ~ Touch of Chaos
+ABILITY:Special Ability|Chaos Blade ~ Chaos Domain			MAXVER:6.4.00	NEWKEY:Chaos Domain ~ Chaos Blade			
+ABILITY:Special Ability|Dazing Touch ~ Charm Domain			MAXVER:6.4.00	NEWKEY:Charm Domain ~ Dazing Touch			
+ABILITY:Special Ability|Charming Smile ~ Charm Domain			MAXVER:6.4.00	NEWKEY:Charm Domain ~ Charming Smile			
+ABILITY:Special Ability|Calming Touch ~ Community Domain		MAXVER:6.4.00	NEWKEY:Community Domain ~ Calming Touch		
+ABILITY:Special Ability|Unity ~ Community Domain			MAXVER:6.4.00	NEWKEY:Community Domain ~ Unity					
+ABILITY:Special Ability|Touch of Darkness ~ Darkness Domain		MAXVER:6.4.00	NEWKEY:Darkness Domain ~ Touch of Darkness		
+ABILITY:Special Ability|Eyes of Darkness ~ Darkness Domain		MAXVER:6.4.00	NEWKEY:Darkness Domain ~ Eyes of Darkness		
+ABILITY:Special Ability|Bleeding Touch ~ Death Domain			MAXVER:6.4.00	NEWKEY:Death Domain ~ Bleeding Touch			
+ABILITY:Special Ability|Death's Embrace ~ Death Domain		MAXVER:6.4.00	NEWKEY:Death Domain ~ Death's Embrace				
+ABILITY:Special Ability|Destructive Smite ~ Destruction Domain	MAXVER:6.4.00	NEWKEY:Destruction Domain ~ Destructive Smite	
+ABILITY:Special Ability|Destructive Aura ~ Destruction Domain	MAXVER:6.4.00	NEWKEY:Destruction Domain ~ Destructive Aura			
+ABILITY:Special Ability|Acid Dart ~ Earth Domain			MAXVER:6.4.00	NEWKEY:Earth Domain ~ Acid Dart					
+ABILITY:Special Ability|Acid Resistance ~ Earth Domain		MAXVER:6.4.00	NEWKEY:Earth Domain ~ Acid Resistance				
+ABILITY:Special Ability|Touch of Evil ~ Evil Domain			MAXVER:6.4.00	NEWKEY:Evil Domain ~ Touch of Evil			
+ABILITY:Special Ability|Scythe of Evil ~ Evil Domain			MAXVER:6.4.00	NEWKEY:Evil Domain ~ Scythe of Evil			
+ABILITY:Special Ability|Fire Bolt ~ Fire Domain				MAXVER:6.4.00	NEWKEY:Fire Domain ~ Fire Bolt				
+ABILITY:Special Ability|Fire Resistance ~ Fire Domain			MAXVER:6.4.00	NEWKEY:Fire Domain ~ Fire Resistance			
+ABILITY:Special Ability|Touch of Glory ~ Glory Domain			MAXVER:6.4.00	NEWKEY:Glory Domain ~ Touch of Glory			
+ABILITY:Special Ability|Divine Presence ~ Glory Domain		MAXVER:6.4.00	NEWKEY:Glory Domain ~ Divine Presence			
+ABILITY:Special Ability|Touch of Good ~ Good Domain			MAXVER:6.4.00	NEWKEY:Good Domain ~ Touch of Good			
+ABILITY:Special Ability|Holy Lance ~ Good Domain			MAXVER:6.4.00	NEWKEY:Good Domain ~ Holy Lance				
+ABILITY:Special Ability|Rebuke Death ~ Healing Domain			MAXVER:6.4.00	NEWKEY:Healing Domain ~ Rebuke Death			
+ABILITY:Special Ability|Healer's Blessing ~ Healing Domain		MAXVER:6.4.00	NEWKEY:Healing Domain ~ Healer's Blessing		
+ABILITY:Special Ability|Lore Keeper ~ Knowledge Domain		MAXVER:6.4.00	NEWKEY:Knowledge Domain ~ Lore Keeper			
+ABILITY:Special Ability|Remote Viewing ~ Knowledge Domain		MAXVER:6.4.00	NEWKEY:Knowledge Domain ~ Remote Viewing		
+ABILITY:Special Ability|Touch of Law ~ Law Domain			MAXVER:6.4.00	NEWKEY:Law Domain ~ Touch of Law				
+ABILITY:Special Ability|Staff of Order ~ Law Domain			MAXVER:6.4.00	NEWKEY:Law Domain ~ Staff of Order			
+ABILITY:Special Ability|Liberation ~ Liberation Domain		MAXVER:6.4.00	NEWKEY:Liberation Domain ~ Liberation			
+ABILITY:Special Ability|Freedom's Call ~ Liberation Domain		MAXVER:6.4.00	NEWKEY:Liberation Domain ~ Freedom's Call		
+ABILITY:Special Ability|Bit of Luck ~ Luck Domain			MAXVER:6.4.00	NEWKEY:Luck Domain ~ Bit of Luck				
+ABILITY:Special Ability|Good Fortune ~ Luck Domain			MAXVER:6.4.00	NEWKEY:Luck Domain ~ Good Fortune			
+ABILITY:Special Ability|Vision of Madness ~ Madness Domain		MAXVER:6.4.00	NEWKEY:Madness Domain ~ Vision of Madness		
+ABILITY:Special Ability|Aura of Madness ~ Madness Domain		MAXVER:6.4.00	NEWKEY:Madness Domain ~ Aura of Madness		
+ABILITY:Special Ability|Hand of the Acolyte ~ Magic Domain		MAXVER:6.4.00	NEWKEY:Magic Domain ~ Hand of the Acolyte		
+ABILITY:Special Ability|Dispelling Touch ~ Magic Domain		MAXVER:6.4.00	NEWKEY:Magic Domain ~ Dispelling Touch			
+ABILITY:Special Ability|Inspiring Word ~ Nobility Domain		MAXVER:6.4.00	NEWKEY:Nobility Domain ~ Inspiring Word		
+ABILITY:Special Ability|Leadership ~ Nobility Domain			MAXVER:6.4.00	NEWKEY:Nobility Domain ~ Leadership			
+ABILITY:Special Ability|Wooden Fist ~ Plant Domain			MAXVER:6.4.00	NEWKEY:Plant Domain ~ Wooden Fist			
+ABILITY:Special Ability|Bramble Armor ~ Plant Domain			MAXVER:6.4.00	NEWKEY:Plant Domain ~ Bramble Armor			
+ABILITY:Special Ability|Resistant Touch ~ Protection Domain		MAXVER:6.4.00	NEWKEY:Protection Domain ~ Resistant Touch		
+ABILITY:Special Ability|Aura of Protection ~ Protection Domain	MAXVER:6.4.00	NEWKEY:Protection Domain ~ Aura of Protection	
+ABILITY:Special Ability|Gentle Rest ~ Repose Domain			MAXVER:6.4.00	NEWKEY:Repose Domain ~ Gentle Rest			
+ABILITY:Special Ability|Ward Against Death ~ Repose Domain		MAXVER:6.4.00	NEWKEY:Repose Domain ~ Ward Against Death		
+ABILITY:Special Ability|Blast Rune ~ Rune Domain			MAXVER:6.4.00	NEWKEY:Rune Domain ~ Blast Rune				
+ABILITY:Special Ability|Spell Rune ~ Rune Domain			MAXVER:6.4.00	NEWKEY:Rune Domain ~ Spell Rune				
+ABILITY:Special Ability|Strength Surge ~ Strength Domain		MAXVER:6.4.00	NEWKEY:Strength Domain ~ Strength Surge		
+ABILITY:Special Ability|Might of the Gods ~ Strength Domain		MAXVER:6.4.00	NEWKEY:Strength Domain ~ Might of the Gods		
+ABILITY:Special Ability|Sun's Blessing ~ Sun Domain			MAXVER:6.4.00	NEWKEY:Sun Domain ~ Sun's Blessing			
+ABILITY:Special Ability|Nimbus of Light ~ Sun Domain			MAXVER:6.4.00	NEWKEY:Sun Domain ~ Nimbus of Light			
+ABILITY:Special Ability|Agile Feet ~ Travel Domain			MAXVER:6.4.00	NEWKEY:Travel Domain ~ Agile Feet			
+ABILITY:Special Ability|Dimensional Hop ~ Travel Domain		MAXVER:6.4.00	NEWKEY:Travel Domain ~ Dimensional Hop			
+ABILITY:Special Ability|Copycat ~ Trickery Domain			MAXVER:6.4.00	NEWKEY:Trickery Domain ~ Copycat				
+ABILITY:Special Ability|Master's Illusion ~ Trickery Domain		MAXVER:6.4.00	NEWKEY:Trickery Domain ~ Master's Illusion		
+ABILITY:Special Ability|Battle Rage ~ War Domain			MAXVER:6.4.00	NEWKEY:War Domain ~ Battle Rage				
+ABILITY:Special Ability|Weapon Master ~ War Domain			MAXVER:6.4.00	NEWKEY:War Domain ~ Weapon Master			
+ABILITY:Special Ability|Icicle ~ Water Domain				MAXVER:6.4.00	NEWKEY:Water Domain ~ Icicle				
+ABILITY:Special Ability|Cold Resistance ~ Water Domain		MAXVER:6.4.00	NEWKEY:Water Domain ~ Cold Resistance			
+ABILITY:Special Ability|Storm Burst ~ Weather Domain			MAXVER:6.4.00	NEWKEY:Weather Domain ~ Storm Burst			
+ABILITY:Special Ability|Lightning Lord ~ Weather Domain		MAXVER:6.4.00	NEWKEY:Weather Domain ~ Lightning Lord			
+
+ABILITY:Special Ability|Spontaneous Casting ~ Druid	MAXVER:6.4.00	NEWKEY:Druid ~ Spontaneous Casting	
+ABILITY:Special Ability|Orisons ~ Druid			MAXVER:6.4.00	NEWKEY:Druid ~ Orisons			
+ABILITY:Special Ability|Nature Sense			MAXVER:6.4.00	NEWKEY:Druid ~ Nature Sense		
+ABILITY:Special Ability|Trackless Step			MAXVER:6.4.00	NEWKEY:Druid ~ Trackless Step		
+ABILITY:Special Ability|Resist Nature's Lure		MAXVER:6.4.00	NEWKEY:Druid ~ Resist Nature's Lure	
+ABILITY:Special Ability|Venom Immunity			MAXVER:6.4.00	NEWKEY:Druid ~ Venom Immunity		
+ABILITY:Special Ability|A Thousand Faces			MAXVER:6.4.00	NEWKEY:Druid ~ A Thousand Faces		
+ABILITY:Special Ability|Bravery				MAXVER:6.4.00	NEWKEY:Fighter ~ Bravery		
+ABILITY:Special Ability|Armor Training			MAXVER:6.4.00	NEWKEY:Fighter ~ Armor Training	
+ABILITY:Special Ability|Armor Mastery			MAXVER:6.4.00	NEWKEY:Fighter ~ Armor Mastery	
+ABILITY:Special Ability|Weapon Mastery			MAXVER:6.4.00	NEWKEY:Fighter ~ Weapon Mastery	
+ABILITY:Special Ability|Bonus Feats ~ Fighter		MAXVER:6.4.00	NEWKEY:Fighter ~ Bonus Feats	
+
+ABILITY:Special Ability|Weapon Training		MAXVER:6.4.00	NEWKEY:Fighter ~ Weapon Training
+ABILITY:Special Ability|Monk Bonus Feat			MAXVER:6.4.00	NEWKEY:Monk ~ Monk Bonus Feat			
+ABILITY:Special Ability|AC Bonus ~ Monk			MAXVER:6.4.00	NEWKEY:Monk ~ AC Bonus					
+ABILITY:Special Ability|Flurry of Blows			MAXVER:6.4.00	NEWKEY:Monk ~ Flurry of Blows			
+ABILITY:Special Ability|Stunning Fist			MAXVER:6.4.00	NEWKEY:Monk ~ Stunning Fist			
+ABILITY:Special Ability|Fast Movement ~ Monk		MAXVER:6.4.00	NEWKEY:Monk ~ Fast Movement				
+ABILITY:Special Ability|Maneuver Training			MAXVER:6.4.00	NEWKEY:Monk ~ Maneuver Training			
+ABILITY:Special Ability|Still Mind				MAXVER:6.4.00	NEWKEY:Monk ~ Still Mind				
+ABILITY:Special Ability|Ki Pool				MAXVER:6.4.00	NEWKEY:Monk ~ Ki Pool				
+ABILITY:Special Ability|Slow Fall				MAXVER:6.4.00	NEWKEY:Monk ~ Slow Fall				
+ABILITY:Special Ability|High Jump				MAXVER:6.4.00	NEWKEY:Monk ~ High Jump				
+ABILITY:Special Ability|Purity of Body			MAXVER:6.4.00	NEWKEY:Monk ~ Purity of Body			
+ABILITY:Special Ability|Wholeness of Body			MAXVER:6.4.00	NEWKEY:Monk ~ Wholeness of Body			
+ABILITY:Special Ability|Diamond Body			MAXVER:6.4.00	NEWKEY:Monk ~ Diamond Body				
+ABILITY:Special Ability|Abundant Step			MAXVER:6.4.00	NEWKEY:Monk ~ Abundant Step			
+ABILITY:Special Ability|Diamond Soul			MAXVER:6.4.00	NEWKEY:Monk ~ Diamond Soul				
+ABILITY:Special Ability|Quivering Palm			MAXVER:6.4.00	NEWKEY:Monk ~ Quivering Palm			
+ABILITY:Special Ability|Tongue of the Sun and Moon	MAXVER:6.4.00	NEWKEY:Monk ~ Tongue of the Sun and Moon	
+ABILITY:Special Ability|Empty Body				MAXVER:6.4.00	NEWKEY:Monk ~ Empty Body				
+ABILITY:Special Ability|Perfect Self			MAXVER:6.4.00	NEWKEY:Monk ~ Perfect Self				
+ABILITY:Special Ability|Catch Off-Guard			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Catch Off-Guard	
+ABILITY:Special Ability|Combat Reflexes			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Combat Reflexes	
+ABILITY:Special Ability|Deflect Arrows			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Deflect Arrows	
+ABILITY:Special Ability|Dodge					MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Dodge			
+ABILITY:Special Ability|Improved Grapple			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Improved Grapple	
+ABILITY:Special Ability|Scorpion Style			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Scorpion Style	
+ABILITY:Special Ability|Throw Anything			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Throw Anything	
+ABILITY:Special Ability|Gorgon's Fist			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Gorgon's Fist		
+ABILITY:Special Ability|Improved Bull Rush		MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Improved Bull Rush	
+ABILITY:Special Ability|Improved Disarm			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Improved Disarm	
+ABILITY:Special Ability|Improved Feint			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Improved Feint	
+ABILITY:Special Ability|Improved Trip			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Improved Trip		
+ABILITY:Special Ability|Mobility				MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Mobility		
+ABILITY:Special Ability|Improved Critical			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Improved Critical	
+ABILITY:Special Ability|Medusa's Wrath			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Medusa's Wrath	
+ABILITY:Special Ability|Snatch Arrows			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Snatch Arrows		
+ABILITY:Special Ability|Spring Attack			MAXVER:6.4.00	NEWKEY:Monk Bonus Feat ~ Spring Attack		
+ABILITY:Special Ability|Detect Evil					MAXVER:6.4.00	NEWKEY:Paladin ~ Detect Evil			
+ABILITY:Special Ability|Smite Evil					MAXVER:6.4.00	NEWKEY:Paladin ~ Smite Evil			
+ABILITY:Special Ability|Divine Grace				MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Grace			
+ABILITY:Special Ability|Lay on Hands				MAXVER:6.4.00	NEWKEY:Paladin ~ Lay on Hands				
+ABILITY:Special Ability|Divine Health				MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Health			
+ABILITY:Special Ability|Mercy						MAXVER:6.4.00	NEWKEY:Paladin ~ Mercy				
+ABILITY:Special Ability|Channel Positive Energy ~ Paladin	MAXVER:6.4.00	NEWKEY:Paladin ~ Channel Positive Energy	
+ABILITY:Special Ability|Holy Champion				MAXVER:6.4.00	NEWKEY:Paladin ~ Holy Champion			
+ABILITY:Special Ability|Aura of Courage			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Courage		
+ABILITY:Special Ability|Aura of Resolve			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Resolve		
+ABILITY:Special Ability|Aura of Justice			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Justice		
+ABILITY:Special Ability|Aura of Faith			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Faith		
+ABILITY:Special Ability|Aura of Righteousness		MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Righteousness	
+ABILITY:Special Ability|Divine Bond		MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Bond		
+ABILITY:Special Ability|Celestial Spirit	MAXVER:6.4.00	NEWKEY:Divine Bond ~ Celestial Spirit	
+ABILITY:Special Ability|Special Mount	MAXVER:6.4.00	NEWKEY:Divine Bond ~ Special Mount	
+ABILITY:Special Ability|Fatigued Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Fatigued	
+ABILITY:Special Ability|Shaken Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Shaken		
+ABILITY:Special Ability|Sickened Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Sickened	
+ABILITY:Special Ability|Dazed Mercy		MAXVER:6.4.00	NEWKEY:Mercy ~ Dazed		
+ABILITY:Special Ability|Diseased Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Diseased	
+ABILITY:Special Ability|Staggered Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Staggered	
+ABILITY:Special Ability|Cursed Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Cursed		
+ABILITY:Special Ability|Exhausted Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Exhausted	
+ABILITY:Special Ability|Frightened Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Frightened	
+ABILITY:Special Ability|Nauseated Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Nauseated	
+ABILITY:Special Ability|Poisoned Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Poisoned	
+ABILITY:Special Ability|Blinded Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Blinded		
+ABILITY:Special Ability|Deafened Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Deafened	
+ABILITY:Special Ability|Paralyzed Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Paralyzed	
+ABILITY:Special Ability|Stunned Mercy	MAXVER:6.4.00	NEWKEY:Mercy ~ Stunned		
+ABILITY:Special Ability|Track				MAXVER:6.4.00	NEWKEY:Ranger ~ Track			
+ABILITY:Special Ability|Swift Tracker		MAXVER:6.4.00	NEWKEY:Ranger ~ Swift Tracker		
+ABILITY:Special Ability|Quarry			MAXVER:6.4.00	NEWKEY:Ranger ~ Quarry			
+ABILITY:Special Ability|Quarry Output		MAXVER:6.4.00	NEWKEY:Ranger ~ Quarry Output		
+ABILITY:Special Ability|Camouflage			MAXVER:6.4.00	NEWKEY:Ranger ~ Camouflage			
+ABILITY:Special Ability|Hide in Plain Sight	MAXVER:6.4.00	NEWKEY:Ranger ~ Hide in Plain Sight	
+ABILITY:Special Ability|Improved Quarry		MAXVER:6.4.00	NEWKEY:Ranger ~ Improved Quarry		
+ABILITY:Special Ability|Master Hunter		MAXVER:6.4.00	NEWKEY:Ranger ~ Master Hunter		
+ABILITY:Special Ability|Hunter's Bond			MAXVER:6.4.00	NEWKEY:Ranger ~ Hunter's Bond			
+ABILITY:Special Ability|Hunting Companions		MAXVER:6.4.00	NEWKEY:Hunter's Bond ~ Hunting Companions	
+ABILITY:Special Ability|Companion ~ Hunter's Bond	MAXVER:6.4.00	NEWKEY:Hunter's Bond ~ Animal Companion	
+ABILITY:Special Ability|Combat Style			MAXVER:6.4.00	NEWKEY:Ranger ~ Combat Style	
+ABILITY:Special Ability|Ranger Favored Enemy		MAXVER:6.4.00	NEWKEY:Ranger ~ Favored Enemy	
+ABILITY:Special Ability|Ranger Favored Terrain		MAXVER:6.4.00	NEWKEY:Ranger ~ Favored Terrain	
+ABILITY:Special Ability|Archery				MAXVER:6.4.00	NEWKEY:Combat Style ~ Archery		
+ABILITY:Special Ability|Two-Weapon Combat			MAXVER:6.4.00	NEWKEY:Combat Style ~ Two-Weapon Combat
+ABILITY:Special Ability|Far Shot				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Far Shot				
+ABILITY:Special Ability|Point-Blank Shot			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Point-Blank Shot			
+ABILITY:Special Ability|Precise Shot			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Precise Shot			
+ABILITY:Special Ability|Rapid Shot				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Rapid Shot				
+ABILITY:Special Ability|Improved Precise Shot		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Improved Precise Shot		
+ABILITY:Special Ability|Manyshot				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Manyshot				
+ABILITY:Special Ability|Pinpoint Targeting		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Pinpoint Targeting		
+ABILITY:Special Ability|Shot on the Run			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shot on the Run			
+ABILITY:Special Ability|Double Slice			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Double Slice			
+ABILITY:Special Ability|Improved Shield Bash		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Improved Shield Bash		
+ABILITY:Special Ability|Quick Draw				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Quick Draw				
+ABILITY:Special Ability|Two-Weapon Fighting		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Two-Weapon Fighting		
+ABILITY:Special Ability|Improved Two-Weapon Fighting	MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Improved Two-Weapon Fighting	
+ABILITY:Special Ability|Two-Weapon Defense		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Two-Weapon Defense		
+ABILITY:Special Ability|Greater Two-Weapon Fighting	MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Greater Two-Weapon Fighting	
+ABILITY:Special Ability|Two-Weapon Rend			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Two-Weapon Rend			
+ABILITY:Special Ability|Favored Enemy (Aberration)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Aberration		
+ABILITY:Special Ability|Favored Enemy (Animal)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Animal			
+ABILITY:Special Ability|Favored Enemy (Construct)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Construct			
+ABILITY:Special Ability|Favored Enemy (Dragon)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Dragon			
+ABILITY:Special Ability|Favored Enemy (Fey)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Fey				
+ABILITY:Special Ability|Favored Enemy (Humanoid (Aquatic))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Aquatic)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Dwarf))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Dwarf)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Elf))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Elf)		
+ABILITY:Special Ability|Favored Enemy (Humanoid (Giant))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Giant)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Goblinoid))	MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Goblinoid)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Gnoll))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Gnoll)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Gnome))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Gnome)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Halfling))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Halfling)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Human))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Human)	
+ABILITY:Special Ability|Favored Enemy (Humanoid (Orc))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Orc)		
+ABILITY:Special Ability|Favored Enemy (Humanoid (Reptilian))	MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Reptilian)	
+ABILITY:Special Ability|Favored Enemy (Magical Beast)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Magical Beast		
+ABILITY:Special Ability|Favored Enemy (Monstrous Humanoid)		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Monstrous Humanoid	
+ABILITY:Special Ability|Favored Enemy (Ooze)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Ooze			
+ABILITY:Special Ability|Favored Enemy (Outsider (Air))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Air)		
+ABILITY:Special Ability|Favored Enemy (Outsider (Chaotic))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Chaotic)	
+ABILITY:Special Ability|Favored Enemy (Outsider (Earth))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Earth)	
+ABILITY:Special Ability|Favored Enemy (Outsider (Evil))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Evil)		
+ABILITY:Special Ability|Favored Enemy (Outsider (Fire))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Fire)		
+ABILITY:Special Ability|Favored Enemy (Outsider (Good))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Good)		
+ABILITY:Special Ability|Favored Enemy (Outsider (Lawful))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Lawful)	
+ABILITY:Special Ability|Favored Enemy (Outsider (Native))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Native)	
+ABILITY:Special Ability|Favored Enemy (Outsider (Water))		MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Water)	
+ABILITY:Special Ability|Favored Enemy (Plant)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Plant			
+ABILITY:Special Ability|Favored Enemy (Undead)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Undead			
+ABILITY:Special Ability|Favored Enemy (Vermin)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Vermin			
+ABILITY:Special Ability|Favored Enemy Bonus (Aberration)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Aberration		
+ABILITY:Special Ability|Favored Enemy Bonus (Animal)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Animal			
+ABILITY:Special Ability|Favored Enemy Bonus (Construct)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Construct			
+ABILITY:Special Ability|Favored Enemy Bonus (Dragon)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Dragon			
+ABILITY:Special Ability|Favored Enemy Bonus (Fey)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Fey				
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Aquatic))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Aquatic)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Dwarf))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Dwarf)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Elf))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Elf)		
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Giant))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Giant)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Gnoll))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnoll)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Gnome))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnome)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Goblinoid))	MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Goblinoid)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Halfling))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Halfling)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Human))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Human)	
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Orc))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Orc)		
+ABILITY:Special Ability|Favored Enemy Bonus (Humanoid (Reptilian))	MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Reptilian)	
+ABILITY:Special Ability|Favored Enemy Bonus (Magical Beast)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Magical Beast		
+ABILITY:Special Ability|Favored Enemy Bonus (Monstrous Humanoid)		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Monstrous Humanoid	
+ABILITY:Special Ability|Favored Enemy Bonus (Ooze)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Ooze			
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Air))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Air)		
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Earth))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Earth)	
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Fire))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Fire)		
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Water))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Water)	
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Lawful))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Lawful)	
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Chaotic))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Chaotic)	
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Good))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Good)		
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Evil))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Evil)		
+ABILITY:Special Ability|Favored Enemy Bonus (Outsider (Native))		MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Native)	
+ABILITY:Special Ability|Favored Enemy Bonus (Plant)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Plant			
+ABILITY:Special Ability|Favored Enemy Bonus (Undead)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Undead			
+ABILITY:Special Ability|Favored Enemy Bonus (Vermin)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Vermin			
+ABILITY:Special Ability|Favored Terrain (Cold)		MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Cold		
+ABILITY:Special Ability|Favored Terrain (Desert)	MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Desert		
+ABILITY:Special Ability|Favored Terrain (Forest)	MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Forest		
+ABILITY:Special Ability|Favored Terrain (Jungle)	MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Jungle		
+ABILITY:Special Ability|Favored Terrain (Mountain)	MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Mountain	
+ABILITY:Special Ability|Favored Terrain (Plains)	MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plains		
+ABILITY:Special Ability|Favored Terrain (Plane)		MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane		
+ABILITY:Special Ability|Favored Terrain (Swamp)		MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Swamp		
+ABILITY:Special Ability|Favored Terrain (Underground)	MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Underground	
+ABILITY:Special Ability|Favored Terrain (Urban)		MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Urban		
+ABILITY:Special Ability|Favored Terrain (Water)		MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Water		
+ABILITY:Special Ability|Favored Terrain Bonus (Cold)		MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Cold		
+ABILITY:Special Ability|Favored Terrain Bonus (Desert)	MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Desert		
+ABILITY:Special Ability|Favored Terrain Bonus (Forest)	MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Forest		
+ABILITY:Special Ability|Favored Terrain Bonus (Jungle)	MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Jungle		
+ABILITY:Special Ability|Favored Terrain Bonus (Mountain)	MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Mountain	
+ABILITY:Special Ability|Favored Terrain Bonus (Plains)	MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Plains		
+ABILITY:Special Ability|Favored Terrain Bonus (Plane)		MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Plane		
+ABILITY:Special Ability|Favored Terrain Bonus (Swamp)		MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Swamp		
+ABILITY:Special Ability|Favored Terrain Bonus (Underground)	MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Underground	
+ABILITY:Special Ability|Favored Terrain Bonus (Urban)		MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Urban		
+ABILITY:Special Ability|Favored Terrain Bonus (Water)		MAXVER:6.4.00	NEWKEY:Favored Terrain Bonus ~ Water		
+ABILITY:Special Ability|Sneak Attack ~ Rogue	MAXVER:6.4.00	NEWKEY:Rogue ~ Sneak Attack	
+ABILITY:Special Ability|Rogue Talents		MAXVER:6.4.00	NEWKEY:Rogue ~ Rogue Talents	
+ABILITY:Special Ability|Trapfinding			MAXVER:6.4.00	NEWKEY:Rogue ~ Trapfinding		
+ABILITY:Special Ability|Trap Sense ~ Rogue	MAXVER:6.4.00	NEWKEY:Rogue ~ Trap Sense		
+ABILITY:Special Ability|Master Strike		MAXVER:6.4.00	NEWKEY:Rogue ~ Master Strike	
+ABILITY:Special Ability|Bleeding Attack		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Bleeding Attack
+ABILITY:Special Ability|Combat Trick		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Combat Trick	
+ABILITY:Special Ability|Fast Stealth		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Fast Stealth	
+ABILITY:Special Ability|Finesse Rogue		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Finesse Rogue	
+ABILITY:Special Ability|Ledge Walker		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Ledge Walker	
+ABILITY:Special Ability|Major Magic			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Major Magic	
+ABILITY:Special Ability|Minor Magic			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Minor Magic	
+ABILITY:Special Ability|Quick Disable		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Quick Disable	
+ABILITY:Special Ability|Resiliency			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Resiliency		
+ABILITY:Special Ability|Rogue Crawl			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Rogue Crawl	
+ABILITY:Special Ability|Slow Reactions		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Slow Reactions	
+ABILITY:Special Ability|Stand Up			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Stand Up		
+ABILITY:Special Ability|Surprise Attack		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Surprise Attack
+ABILITY:Special Ability|Trap Spotter		MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Trap Spotter	
+ABILITY:Special Ability|Weapon Training ~ Rogue	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Weapon Training
+ABILITY:Special Ability|Crippling Strike			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Crippling Strike	
+ABILITY:Special Ability|Defensive Roll			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Defensive Roll	
+ABILITY:Special Ability|Dispelling Attack			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Dispelling Attack	
+ABILITY:Special Ability|Improved Evasion ~ Rogue	MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Improved Evasion	
+ABILITY:Special Ability|Opportunist				MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Opportunist		
+ABILITY:Special Ability|Skill Mastery			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Skill Mastery		
+ABILITY:Special Ability|Slippery Mind			MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Slippery Mind		
+ABILITY:Special Ability|Feat					MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Feat			
+ABILITY:Special Ability|Cantrips ~ Sorcerer		MAXVER:6.4.00	NEWKEY:Sorcerer ~ Cantrips				
+ABILITY:Special Ability|Sorcerer Bloodline		MAXVER:6.4.00	NEWKEY:Sorcerer ~ Sorcerer Bloodline		
+ABILITY:Special Ability|Eschew Materials ~ Sorcerer	MAXVER:6.4.00	NEWKEY:Sorcerer ~ Eschew Materials	
+
+ABILITY:Special Ability|Arcane Bond			MAXVER:6.4.00	NEWKEY:Wizard ~ Arcane Bond
+ABILITY:Special Ability|Cantrips ~ Wizard		MAXVER:6.4.00	NEWKEY:Wizard ~ Cantrips
+ABILITY:Special Ability|Bonus Feats ~ Wizard	MAXVER:6.4.00	NEWKEY:Wizard ~ Bonus Feats
+
+ABILITY:Special Ability|Deadly Aim				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Deadly Aim			
+ABILITY:Special Ability|Focused Shot			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Focused Shot		
+ABILITY:Special Ability|Point Blank Mastery		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Point Blank Mastery	
+ABILITY:Special Ability|Rapid Reload			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Rapid Reload		
+ABILITY:Special Ability|Crossbow Mastery			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Crossbow Mastery		
+ABILITY:Special Ability|Mounted Combat			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Mounted Combat		
+ABILITY:Special Ability|Mounted Archery			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Mounted Archery		
+ABILITY:Special Ability|Ride-By Attack			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Ride-By Attack		
+ABILITY:Special Ability|Trick Riding			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Trick Riding		
+ABILITY:Special Ability|Mounted Shield			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Mounted Shield		
+ABILITY:Special Ability|Spirited Charge			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Spirited Charge		
+ABILITY:Special Ability|Mounted Skirmisher		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Mounted Skirmisher	
+ABILITY:Special Ability|Unseat				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Unseat			
+ABILITY:Special Ability|Aspect of the Beast		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Aspect of the Beast	
+ABILITY:Special Ability|Improved Natural Attack		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Improved Natural Attack	
+ABILITY:Special Ability|Rending Claws			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Rending Claws		
+ABILITY:Special Ability|Weapon Focus			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Weapon Focus		
+ABILITY:Special Ability|Eldritch Claws			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Eldritch Claws		
+ABILITY:Special Ability|Vital Strike			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Vital Strike		
+ABILITY:Special Ability|Multiattack				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Multiattack			
+ABILITY:Special Ability|Improved Vital Strike		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Improved Vital Strike	
+ABILITY:Special Ability|Cleave				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Cleave			
+ABILITY:Special Ability|Power Attack			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Power Attack		
+ABILITY:Special Ability|Pushing Assault			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Pushing Assault		
+ABILITY:Special Ability|Shield of Swings			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shield of Swings		
+ABILITY:Special Ability|Furious Focus			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Furious Focus		
+ABILITY:Special Ability|Great Cleave			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Great Cleave		
+ABILITY:Special Ability|Dreadful Carnage			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Dreadful Carnage		
+ABILITY:Special Ability|Improved Sunder			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Improved Sunder		
+ABILITY:Special Ability|Shield Focus			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shield Focus		
+ABILITY:Special Ability|Shield Proficiency		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shield Proficiency	
+ABILITY:Special Ability|Shield Slam				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shield Slam			
+ABILITY:Special Ability|Saving Shield			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Saving Shield		
+ABILITY:Special Ability|Shield Master			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shield Master		
+ABILITY:Special Ability|Bashing Finish			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Bashing Finish		
+ABILITY:Special Ability|Greater Shield Focus		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Greater Shield Focus	
+
+
+
+
+
+ABILITY:Special Ability|Ranged Legerdemain	MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Ranged Legerdemain		
+ABILITY:Special Ability|Impromptu Sneak Attack	MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Impromptu Sneak Attack	
+ABILITY:Special Ability|Tricky Spells		MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Tricky Spells		
+ABILITY:Special Ability|Invisible Thief		MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Invisible Thief		
+ABILITY:Special Ability|Surprise Spells		MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Surprise Spells		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABILITY:Special Ability|Improved Leadership ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Improved Leadership	
+ABILITY:Special Ability|Voice of Authority ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Voice of Authority	
+ABILITY:Special Ability|Easy March ~ Battle Herald				MAXVER:6.4.00	NEWKEY:Battle Herald ~ Easy March		
+ABILITY:Special Ability|Inspire Greatness ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Inspire Greatness	
+ABILITY:Special Ability|Banner ~ Battle Herald					MAXVER:6.4.00	NEWKEY:Battle Herald ~ Banner			
+ABILITY:Special Ability|Teamwork Feat ~ Battle Herald				MAXVER:6.4.00	NEWKEY:Battle Herald ~ Teamwork Feat		
+ABILITY:Special Ability|Demanding Challenge ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Demanding Challenge	
+ABILITY:Special Ability|Persistent Commands ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Persistent Commands	
+ABILITY:Special Ability|Inspire Last Stand ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Inspire Last Stand	
+ABILITY:Special Ability|Complex Commands ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Complex Commands	
+ABILITY:Special Ability|Vindicator's Shield ~ Holy Vindicator		MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Vindicator's Shield		
+ABILITY:Special Ability|Stigmata ~ Holy Vindicator				MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Stigmata		
+ABILITY:Special Ability|Faith Healing ~ Holy Vindicator			MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Faith Healing			
+ABILITY:Special Ability|Divine Wrath ~ Holy Vindicator			MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Divine Wrath			
+ABILITY:Special Ability|Bloodfire ~ Holy Vindicator				MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Bloodfire		
+ABILITY:Special Ability|Channel Smite ~ Holy Vindicator			MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Channel Smite			
+ABILITY:Special Ability|Versatile Channel ~ Holy Vindicator			MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Versatile Channel	
+ABILITY:Special Ability|Divine Judgment ~ Holy Vindicator			MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Divine Judgment	
+ABILITY:Special Ability|Bloodrain ~ Holy Vindicator				MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Bloodrain		
+ABILITY:Special Ability|Divine Retribution ~ Holy Vindicator		MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Divine Retribution		
+ABILITY:Special Ability|Horizon Walker Favored Terrain	MAXVER:6.4.00	NEWKEY:Horizon Walker ~ Favored Terrain
+ABILITY:Special Ability|Horizon Walker Terrain Mastery	MAXVER:6.4.00	NEWKEY:Horizon Walker ~ Terrain Mastery
+ABILITY:Special Ability|Horizon Walker Terrain Dominance	MAXVER:6.4.00	NEWKEY:Horizon Walker ~ Terrain Dominance
+ABILITY:Special Ability|Master Of All Lands			MAXVER:6.4.00	NEWKEY:Horizon Walker ~ Master Of All Lands
+ABILITY:Special Ability|FavoredTerrainPlaneAligned			MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Aligned)		
+ABILITY:Special Ability|FavoredTerrainPlaneAstral			MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Astral)			
+ABILITY:Special Ability|FavoredTerrainPlaneEthereal			MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Ethereal)		
+ABILITY:Special Ability|FavoredTerrainPlaneAir				MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Air)			
+ABILITY:Special Ability|FavoredTerrainPlaneEarth			MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Earth)				
+ABILITY:Special Ability|FavoredTerrainPlaneFire				MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Fire)			
+ABILITY:Special Ability|FavoredTerrainPlaneWater			MAXVER:6.4.00	NEWKEY:Favored Terrain ~ Plane (Water)				
+ABILITY:Special Ability|TerrainMasteryCold				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Cold					
+ABILITY:Special Ability|TerrainMasteryDesert				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Desert				
+ABILITY:Special Ability|TerrainMasteryForest				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Forest				
+ABILITY:Special Ability|TerrainMasteryJungle				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Jungle				
+ABILITY:Special Ability|TerrainMasteryMountain				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Mountain			
+ABILITY:Special Ability|TerrainMasteryPlains				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plains				
+ABILITY:Special Ability|TerrainMasteryPlaneAligned			MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Aligned)		
+ABILITY:Special Ability|TerrainMasteryPlaneAstral			MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Astral)			
+ABILITY:Special Ability|TerrainMasteryPlaneEthereal			MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Ethereal)		
+ABILITY:Special Ability|TerrainMasteryPlaneAir				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Air)			
+ABILITY:Special Ability|TerrainMasteryPlaneEarth			MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Earth)				
+ABILITY:Special Ability|TerrainMasteryPlaneFire				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Fire)			
+ABILITY:Special Ability|TerrainMasteryPlaneWater			MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Plane (Water)				
+ABILITY:Special Ability|TerrainMasterySwamp				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Swamp					
+ABILITY:Special Ability|TerrainMasteryUnderground			MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Underground				
+ABILITY:Special Ability|TerrainMasteryUrban				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Urban					
+ABILITY:Special Ability|TerrainMasteryWater				MAXVER:6.4.00	NEWKEY:Terrain Mastery ~ Water					
+ABILITY:Special Ability|TerrainDominanceCold				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Cold				
+ABILITY:Special Ability|TerrainDominanceDesert				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Desert			
+ABILITY:Special Ability|TerrainDominanceForest				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Forest			
+ABILITY:Special Ability|TerrainDominanceJungle				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Jungle			
+ABILITY:Special Ability|TerrainDominanceMountain			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Mountain				
+ABILITY:Special Ability|TerrainDominancePlains				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plains			
+ABILITY:Special Ability|TerrainDominancePlaneAligned			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Aligned)		
+ABILITY:Special Ability|TerrainDominancePlaneAstral			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Astral)		
+ABILITY:Special Ability|TerrainDominancePlaneEthereal			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Ethereal)		
+ABILITY:Special Ability|TerrainDominancePlaneAir			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Air)				
+ABILITY:Special Ability|TerrainDominancePlaneEarth			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Earth)		
+ABILITY:Special Ability|TerrainDominancePlaneFire			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Fire)			
+ABILITY:Special Ability|TerrainDominancePlaneWater			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Plane (Water)		
+ABILITY:Special Ability|TerrainDominanceSwamp				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Swamp				
+ABILITY:Special Ability|TerrainDominanceUnderground			MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Underground			
+ABILITY:Special Ability|TerrainDominanceUrban				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Urban				
+ABILITY:Special Ability|TerrainDominanceWater				MAXVER:6.4.00	NEWKEY:Terrain Dominance ~ Water				
+ABILITY:Special Ability|Extracts per Day ~ Master Chymist		MAXVER:6.4.00	NEWKEY:Master Chymist ~ Extracts per Day		
+ABILITY:Special Ability|Bomb-Thrower ~ Master Chymist			MAXVER:6.4.00	NEWKEY:Master Chymist ~ Bomb-Thrower			
+ABILITY:Special Ability|Mutagenic Form ~ Master Chymist		MAXVER:6.4.00	NEWKEY:Master Chymist ~ Mutagenic Form				
+ABILITY:Special Ability|Mutate ~ Master Chymist				MAXVER:6.4.00	NEWKEY:Master Chymist ~ Mutate				
+ABILITY:Special Ability|Advanced Mutagen ~ Master Chymist		MAXVER:6.4.00	NEWKEY:Master Chymist ~ Advanced Mutagen		
+ABILITY:Special Ability|Brutality ~ Master Chymist			MAXVER:6.4.00	NEWKEY:Master Chymist ~ Brutality			
+ABILITY:Special Ability|Art of Deception ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Art of Deception			
+ABILITY:Special Ability|Master of Disguise ~ Master Spy		MAXVER:6.4.00	NEWKEY:Master Spy ~ Master of Disguise				
+ABILITY:Special Ability|Sneak Attack ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Sneak Attack					
+ABILITY:Special Ability|Glib Lie ~ Master Spy				MAXVER:6.4.00	NEWKEY:Master Spy ~ Glib Lie				
+ABILITY:Special Ability|Mask Alignment ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Mask Alignment			
+ABILITY:Special Ability|Nonmagical Aura ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Nonmagical Aura			
+ABILITY:Special Ability|Superficial Knowledge ~ Master Spy		MAXVER:6.4.00	NEWKEY:Master Spy ~ Superficial Knowledge		
+ABILITY:Special Ability|Concealed Thoughts ~ Master Spy		MAXVER:6.4.00	NEWKEY:Master Spy ~ Concealed Thoughts				
+ABILITY:Special Ability|Quick Change ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Quick Change					
+ABILITY:Special Ability|Elude Detection ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Elude Detection			
+ABILITY:Special Ability|Slippery Mind ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Slippery Mind			
+ABILITY:Special Ability|Shift Alignment ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Shift Alignment			
+ABILITY:Special Ability|Death Attack ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Death Attack					
+ABILITY:Special Ability|Fool Casting ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Fool Casting					
+ABILITY:Special Ability|Hidden Mind ~ Master Spy			MAXVER:6.4.00	NEWKEY:Master Spy ~ Hidden Mind					
+ABILITY:Special Ability|Assumption ~ Master Spy				MAXVER:6.4.00	NEWKEY:Master Spy ~ Assumption				
+ABILITY:Special Ability|Companion Bond ~ Nature Warden		MAXVER:6.4.00	NEWKEY:Nature Warden ~ Companion Bond				
+ABILITY:Special Ability|Natural Empathy ~ Nature Warden		MAXVER:6.4.00	NEWKEY:Nature Warden ~ Natural Empathy				
+ABILITY:Special Ability|Mystic Harmony ~ Nature Warden		MAXVER:6.4.00	NEWKEY:Nature Warden ~ Mystic Harmony				
+ABILITY:Special Ability|Wild Stride ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Wild Stride			
+ABILITY:Special Ability|Animal Speech ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Animal Speech			
+ABILITY:Special Ability|Silverclaw ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Silverclaw			
+ABILITY:Special Ability|Favored Terrain ~ Nature Warden		MAXVER:6.4.00	NEWKEY:Nature Warden ~ Favored Terrain				
+ABILITY:Special Ability|Survivalist ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Survivalist			
+ABILITY:Special Ability|Woodforging ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Woodforging			
+ABILITY:Special Ability|Companion Walk ~ Nature Warden		MAXVER:6.4.00	NEWKEY:Nature Warden ~ Companion Walk				
+ABILITY:Special Ability|Plant Speech ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Plant Speech			
+ABILITY:Special Ability|Ironpaw ~ Nature Warden				MAXVER:6.4.00	NEWKEY:Nature Warden ~ Ironpaw				
+ABILITY:Special Ability|Guarded Lands ~ Nature Warden			MAXVER:6.4.00	NEWKEY:Nature Warden ~ Guarded Lands			
+ABILITY:Special Ability|Companion Soul ~ Nature Warden		MAXVER:6.4.00	NEWKEY:Nature Warden ~ Companion Soul				
+ABILITY:Special Ability|Savage Seer ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Savage Seer			
+ABILITY:Special Ability|Spirit Guide ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Spirit Guide			
+ABILITY:Special Ability|Rage Prophet Mystery ~ Rage Prophet		MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Rage Prophet Mystery		
+ABILITY:Special Ability|Raging Healer ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Raging Healer			
+ABILITY:Special Ability|Indomitable Caster ~ Rage Prophet		MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Indomitable Caster		
+ABILITY:Special Ability|Ragecaster ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Ragecaster					
+ABILITY:Special Ability|Spirit Guardian ~ Rage Prophet		MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Spirit Guardian				
+ABILITY:Special Ability|Enduring Rage ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Enduring Rage			
+ABILITY:Special Ability|Raging Spellstrength ~ Rage Prophet		MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Raging Spellstrength		
+ABILITY:Special Ability|Spirit Warrior ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Spirit Warrior			
+ABILITY:Special Ability|Greater Rage ~ Rage Prophet			MAXVER:6.4.00	NEWKEY:Rage Prophet ~ Greater Rage			
+ABILITY:Special Ability|AC Bonus ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ AC Bonus				
+ABILITY:Special Ability|Defensive Stance ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Defensive Stance				
+ABILITY:Special Ability|Defensive Powers ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Defensive Powers				
+ABILITY:Special Ability|Bulwark ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Bulwark				
+ABILITY:Special Ability|Clear Mind ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Clear Mind					
+ABILITY:Special Ability|Fearless Defense ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Fearless Defense				
+ABILITY:Special Ability|Halting Blow ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Halting Blow			
+ABILITY:Special Ability|Immobile ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Immobile				
+ABILITY:Special Ability|Increased Damage Reduction ~ Stalwart Defender	MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Increased Damage Reduction	
+ABILITY:Special Ability|Intercept ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Intercept				
+ABILITY:Special Ability|Internal Fortitude ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Internal Fortitude		
+ABILITY:Special Ability|Mighty Resilience ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Mighty Resilience				
+ABILITY:Special Ability|Renewed Defense ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Renewed Defense			
+ABILITY:Special Ability|Roused Defense ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Roused Defense			
+ABILITY:Special Ability|Smash ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Smash						
+ABILITY:Special Ability|Unexpected Strike ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Unexpected Strike				
+ABILITY:Special Ability|Uncanny Dodge ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Uncanny Dodge			
+ABILITY:Special Ability|Damage Reduction ~ Stalwart Defender		MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Damage Reduction				
+ABILITY:Special Ability|Improved Uncanny Dodge ~ Stalwart Defender	MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Improved Uncanny Dodge			
+ABILITY:Special Ability|Mobile Defense ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Mobile Defense			
+ABILITY:Special Ability|Last Word ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Last Word				
+ABILITY:Special Ability|Inspiring Command ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Inspiring Command
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABILITY:Special Ability|Bonus Tricks		MAXVER:6.4.00	NEWKEY:Companion ~ Bonus Tricks			
+ABILITY:Special Ability|Link				MAXVER:6.4.00	NEWKEY:Companion ~ Link				
+ABILITY:Special Ability|Share Spells		MAXVER:6.4.00	NEWKEY:Companion ~ Share Spells			
+ABILITY:Special Ability|Ability Score Increase	MAXVER:6.4.00	NEWKEY:Companion ~ Ability Score Increase	
+ABILITY:Special Ability|Devotion			MAXVER:6.4.00	NEWKEY:Companion ~ Devotion			
+ABILITY:Special Ability|Multiattack ~ Companion	MAXVER:6.4.00	NEWKEY:Companion ~ Multiattack					
+
+ABILITY:Special Ability|Deliver Touch Spells			MAXVER:6.4.00	NEWKEY:Familiar ~ Deliver Touch Spells			
+ABILITY:Special Ability|Empathic Link				MAXVER:6.4.00	NEWKEY:Familiar ~ Empathic Link				
+ABILITY:Special Ability|Scry on Familiar				MAXVER:6.4.00	NEWKEY:Familiar ~ Scry on Familiar			
+ABILITY:Special Ability|Speak with Master				MAXVER:6.4.00	NEWKEY:Familiar ~ Speak with Master			
+ABILITY:Special Ability|Speak with Animals of Its Kind	MAXVER:6.4.00	NEWKEY:Familiar ~ Speak with Animals of Its Kind	
+ABILITY:Special Ability|Speak One Language			MAXVER:6.4.00	NEWKEY:Familiar ~ Speak One Language			
+ABILITY:Special Ability|Spell Resistance ~ Familiar		MAXVER:6.4.00	NEWKEY:Familiar ~ Spell Resistance			
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABILITY:Special Ability|None ~ HumanEthnicity		MAXVER:6.4.00	NEWKEY:Human Ethnicity ~ None	
+ABILITY:Special Ability|Unknown ~ HumanEthnicity	MAXVER:6.4.00	NEWKEY:Human Ethnicity ~ Unknown	
+ABILITY:Special Ability|None ~ Region			MAXVER:6.4.00	NEWKEY:Region ~ None			
+ABILITY:Special Ability|Unknown ~ Region			MAXVER:6.4.00	NEWKEY:Region ~ Unknown		
+ABILITY:Special Ability|Protective Aura ~ Angel	MAXVER:6.4.00	NEWKEY:Angel ~ Protective Aura	
+ABILITY:Special Ability|Truespeech ~ Angel	MAXVER:6.4.00	NEWKEY:Angel ~ Truespeech			
+ABILITY:Special Ability|Aura of Menace ~ Archon	MAXVER:6.4.00	NEWKEY:Archon ~ Aura of Menace	
+ABILITY:Special Ability|Teleport ~ Archon		MAXVER:6.4.00	NEWKEY:Archon ~ Teleport		
+ABILITY:Special Ability|Truespeech ~ Archon	MAXVER:6.4.00	NEWKEY:Archon ~ Truespeech	
+ABILITY:Special Ability|Truespeech ~ Azata	MAXVER:6.4.00	NEWKEY:Azata ~ Truespeech	
+ABILITY:Special Ability|See in Darkness ~ Devil	MAXVER:6.4.00	NEWKEY:Devil ~ See in Darkness	
+ABILITY:Special Ability|Change Shape ~ Oni	MAXVER:6.4.00	NEWKEY:Oni ~ Change Shape	
+
+
 
 ABILITY:Special Ability|Defensive Training ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Defensive Training	
 ABILITY:Special Ability|Greed ~ Dwarf					MAXVER:6.4.00	NEWKEY:Dwarf ~ Greed				
