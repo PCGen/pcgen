@@ -37,6 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 ABILITY:haog_abilities.lst
 ABILITY:haog_abilities_classes.lst
 ABILITY:haog_abilities_racial.lst
+ABILITYCATEGORY:haog_abilitycategories.lst
 CLASS:haog_classes.lst
 DEITY:haog_deities.lst
 EQUIPMENT:haog_equip_arms_armor.lst
