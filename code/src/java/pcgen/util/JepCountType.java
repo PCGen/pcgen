@@ -835,8 +835,12 @@ public abstract class JepCountType
 			Collection<Skill> skills = pc.getSkillSet();
 			for (Skill sk : skills)
 			{
-				count++; //For the skill
-				count += sk.getSizeOfListFor(ListKey.SITUATION);
+				if (pc.includeSkill(sk, null)
+						&& sk.qualifies(pc, null))
+				{
+					count++; //For the skill
+					count += sk.getSizeOfListFor(ListKey.SITUATION);
+				}
 			}
 			return Double.valueOf(count);
 		}
