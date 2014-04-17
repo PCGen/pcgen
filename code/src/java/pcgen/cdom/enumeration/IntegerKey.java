@@ -111,7 +111,7 @@ public class IntegerKey
 
 	public static final IntegerKey REACH_MULT = getConstant("REACH_MULT", 1);
 
-	public static final IntegerKey SKILL_POINTS_PER_LEVEL = getConstant("AC_CHECK");
+	public static final IntegerKey SKILL_POINTS_PER_LEVEL = getConstant("SKILL_POINTS_PER_LEVEL");
 
 	public static final IntegerKey SLOTS = getConstant("SLOTS", 1);
 
