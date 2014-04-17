@@ -8,8 +8,8 @@ CLASS:Pathfinder Delver	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PaD		MAXLEVEL:10
 CLASS:Pathfinder Delver	PRESKILL:4,Acrobatics=5,Disable Device=4,Knowledge (History)=4,Perception=5	PRETEXT:Must have recovered an object of historical significance from an ancient ruin or similar location
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pathfinder Delver	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Survival|Swim|Use Magic Device
-1	BONUS:VAR|BardicKnowledgeLVL|CL	BONUS:VAR|PaDSkillBonus|max(1,CL/2)	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Master Explorer ~ PaD
-2	BONUS:VAR|RogueTrapSenseLVL|CL+1							ABILITY:Special Ability|AUTOMATIC|Surefooted ~ PaD|Trap Sense ~ Rogue
+1	BONUS:VAR|BardicKnowledgeLVL|CL	BONUS:VAR|PaDSkillBonus|max(1,CL/2)	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Master Explorer ~ PaD
+2	BONUS:VAR|RogueTrapSenseLVL|CL+1							ABILITY:Special Ability|AUTOMATIC|Surefooted ~ PaD|Rogue ~ Trap Sense
 3	BONUS:VAR|PaDEscapeTimes|1								ABILITY:Special Ability|AUTOMATIC|Guardbreaker ~ PaD|Thrilling Escape ~ PaD
 4	BONUS:VAR|PaDInitiative|CL/2								ABILITY:Special Ability|AUTOMATIC|Resourceful Disabler ~ PaD|Vigilant Combatant ~ PaD
 5													ABILITY:Special Ability|AUTOMATIC|Left for Dead ~ PaD

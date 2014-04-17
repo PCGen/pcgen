@@ -81,7 +81,7 @@ CLASS:Bard.MOD
 
 # Class Name
 CLASS:Cleric.MOD
-1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy
 
 #COMMENT: Variant Channeling should be available to some (but not all) other
 #COMMENT:   classes with a channel energy ability.  This is tricky to

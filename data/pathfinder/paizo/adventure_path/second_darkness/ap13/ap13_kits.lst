@@ -347,10 +347,10 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Human))
-ABILITY:CATEGORY=Combat Style|Archery
-ABILITY:CATEGORY=Favored Terrain|Favored Terrain (Forest)
-ABILITY:CATEGORY=Hunter's Bond|Companion ~ Hunter's Bond
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Human)
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Archery
+ABILITY:CATEGORY=Favored Terrain|Favored Terrain ~ Forest
+ABILITY:CATEGORY=Hunter's Bond|Hunter's Bond ~ Animal Companion
 SKILL:Handle Animal		RANK:4
 SKILL:Knowledge (Geography)	RANK:4
 SKILL:Knowledge (Nature)	RANK:4
@@ -416,8 +416,8 @@ CLASS:Ranger	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Ranger
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
-ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Two-Weapon Combat
 SKILL:Handle Animal		RANK:2
 SKILL:Knowledge (Nature)	RANK:2
 SKILL:Perception			RANK:2

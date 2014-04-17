@@ -3,41 +3,41 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																		Define			Save checks bonus											Combat bonus					Monster Role
-CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
+CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill	DEFINE:BarbarianLVL|CL
 # Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
 CLASS:Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 ###Block: Variable Progression
-1	BONUS:VAR|RageLVL|CL
-2	BONUS:VAR|RagePowersLVL|CL
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+1	BONUS:VAR|RageLVL|BarbarianLVL
+2	BONUS:VAR|RagePowersLVL|BarbarianLVL
+2	BONUS:VAR|UncannyDodgeFlankingLevel|BarbarianLVL|TYPE=EachClass.REPLACE
 2	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge
-3	BONUS:VAR|BarbarianTrapSenseLVL|CL
+3	BONUS:VAR|BarbarianTrapSenseLVL|BarbarianLVL
 5	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge
-7	BONUS:VAR|BarbarianDRLVL|CL
+7	BONUS:VAR|BarbarianDRLVL|BarbarianLVL
 ###Block: Level Progression
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
-2	ABILITY:Barbarian Class Feature|AUTOMATIC|Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers
 2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Trap Sense ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Damage Reduction ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
-11	ABILITY:Barbarian Class Feature|AUTOMATIC|Greater Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
-17	ABILITY:Barbarian Class Feature|AUTOMATIC|Tireless Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage
-20	ABILITY:Barbarian Class Feature|AUTOMATIC|Mighty Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
+17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Ability																		Visible	Define			Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	VISIBLE:NO	DEFINE:BarbarianLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	VISIBLE:NO	DEFINE:BarbarianLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill	DEFINE:BarbarianLVL|CL
 # Class Name		Skill Pts/Lvl
 CLASS:Ex-Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 ###Block: Level Progression
@@ -47,15 +47,15 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4
 5	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge
 7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Level Progression
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
 2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Trap Sense ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Damage Reduction ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Save checks bonus											Combat bonus					Monster Role
-CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLVL|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
+CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLVL|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill	DEFINE:BardLVL|CL
 # Class Name	Skill Pts/Lvl
 CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -65,16 +65,16 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
 ###Block: Level progression
-1	CAST:0,1			KNOWN:4,2			BONUS:VAR|BardicKnowledgeLVL,BardicPerformanceLVL|CL	ABILITY:Bard Class Feature|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge	ABILITY:Bard Class Feature|AUTOMATIC|Bardic Countersong|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong	ABILITY:Bard Class Feature|AUTOMATIC|Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	ABILITY:Bard Class Feature|AUTOMATIC|Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting	ABILITY:Bard Class Feature|AUTOMATIC|Cantrips ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
-2	CAST:0,2			KNOWN:5,3			BONUS:VAR|VersatilePerformanceLVL|CL			ABILITY:Bard Class Feature|AUTOMATIC|Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance	ABILITY:Bard Class Feature|AUTOMATIC|Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
+1	CAST:0,1			KNOWN:4,2			
+2	CAST:0,2			KNOWN:5,3						
 3	CAST:0,3			KNOWN:6,4
 4	CAST:0,3,1			KNOWN:6,4,2
-5	CAST:0,4,2			KNOWN:6,4,3			BONUS:VAR|LoreMasterLVL|CL					ABILITY:Bard Class Feature|AUTOMATIC|Lore Master|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardLoreMaster
+5	CAST:0,4,2			KNOWN:6,4,3		
 6	CAST:0,4,3			KNOWN:6,4,4
 7	CAST:0,4,3,1		KNOWN:6,5,4,2
 8	CAST:0,4,4,2		KNOWN:6,5,4,3
 9	CAST:0,5,4,3		KNOWN:6,5,4,4
-10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2		BONUS:VAR|JackOfAllTradesLVL|CL				ABILITY:Bard Class Feature|AUTOMATIC|Jack of All Trades|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2	
 11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
 12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
 13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
@@ -85,34 +85,37 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
 19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+###Block:
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge	
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong	
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting	
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
+5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardLoreMaster
+10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages					Ability																	Define			Save checks bonus											Combat bonus					Monster Role
-CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Cleric
+CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Cleric	DEFINE:ClericLVL|CL
 # Class Name	Skill Pts/Lvl
 CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
+CLASS:Cleric	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+CLASS:Cleric	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|ClericLVL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
-1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Channel Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericChannelEnergy
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Orisons|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericOrisons
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericSpontaneousCasting
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Domains
 ###Block:
 1:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|ClericSkillPts	DEFINE:ClericSkillPts|0
-###Block: Aura strength
-1	BONUS:VAR|AlignmentAuraLVL|CL	ABILITY:Cleric Class Feature|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
-1						ABILITY:Cleric Class Feature|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
-1						ABILITY:Cleric Class Feature|VIRTUAL|Aura of Good|PREDEITYALIGN:LG,NG,CG
-1						ABILITY:Cleric Class Feature|VIRTUAL|Aura of Law|PREDEITYALIGN:LG,LN,LE
-###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
-###Block: Domains
-1	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL	ABILITY:Cleric Class Feature|AUTOMATIC|Domains
 ###Block: Level progression
-1	CAST:3,1				BONUS:VAR|ClericChannelEnergyLVL|CL	ABILITY:Cleric Class Feature|AUTOMATIC|Channel Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericChannelEnergy	ABILITY:Cleric Class Feature|AUTOMATIC|Orisons ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericOrisons	ABILITY:Cleric Class Feature|AUTOMATIC|Spontaneous Casting ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericSpontaneousCasting
+1	CAST:3,1			
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
@@ -135,7 +138,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages	Ability																	Define			Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
-CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|CL	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid
+CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|CL	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid	DEFINE:DruidLVL|CL
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:NG,LN,TN,CN,NE
 # Class Name	Skill Pts/Lvl
@@ -152,18 +155,17 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Level Progression Abilities
-1	ABILITY:Druid Class Feature|AUTOMATIC|Orisons ~ Druid
-1	ABILITY:Druid Class Feature|AUTOMATIC|Spontaneous Casting ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
-1	ABILITY:Druid Class Feature|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense
-1	ABILITY:Druid Class Feature|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
-2	ABILITY:Druid Class Feature|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWoodlandStride
-3	ABILITY:Druid Class Feature|AUTOMATIC|Trackless Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTracklessStep
-4	ABILITY:Druid Class Feature|AUTOMATIC|Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
-4	ABILITY:Druid Class Feature|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidResistNaturesLure
-9	ABILITY:Druid Class Feature|AUTOMATIC|Venom Immunity|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidVenomImmunity
-13	ABILITY:Druid Class Feature|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidThousandFaces,TYPE.DruidAThousandFaces
-15	ABILITY:Druid Class Feature|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTimelessBody
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Orisons
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
+2	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWoodlandStride
+3	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Trackless Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTracklessStep
+4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
+4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Resist Nature's Lure|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidResistNaturesLure
+9	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Venom Immunity|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidVenomImmunity
+13	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidThousandFaces,TYPE.DruidAThousandFaces
+15	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTimelessBody
 ###Block: Nature Bond Choice
 1	BONUS:ABILITYPOOL|Nature Bond|1
 ###Block: Domains
@@ -177,10 +179,10 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 0	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Water]
 0	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Weather]
 ###Block: Vars
-1	BONUS:VAR|AnimalCompanionMasterLVL|CL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
-1	BONUS:VAR|DomainLVL|CL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
-1	BONUS:VAR|DruidWildShape|CL
-1	BONUS:VAR|WildEmpathyLVL|CL
+1	BONUS:VAR|AnimalCompanionMasterLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
+1	BONUS:VAR|DomainLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
+1	BONUS:VAR|DruidWildShape|DruidLVL
+1
 ###Block: Level progression
 1	CAST:3,1
 2	CAST:4,2
@@ -233,13 +235,13 @@ CLASS:Fighter	STARTSKILLPTS:2
 5	BONUS:VAR|FighterWeaponTrainingLVL|CL
 1	BONUS:VAR|FighterWeaponQualifyLVL|CL
 ###Block:
-1	ABILITY:Fighter Class Feature|AUTOMATIC|Bonus Feats ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
-2	ABILITY:Fighter Class Feature|AUTOMATIC|Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
-3	ABILITY:Fighter Class Feature|AUTOMATIC|Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL
-5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter Weapon Training|Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
-19	ABILITY:Fighter Class Feature|AUTOMATIC|Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
+1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
+2	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
+3	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL
+5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
+19	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
 ###Block:
-20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
+20	BONUS:ABILITYPOOL|Fighter ~ Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define										Save checks bonus								Combat bonus					Modify VAR			Monster Role
@@ -273,28 +275,28 @@ CLASS:Monk		STARTSKILLPTS:4
 ###Block: Monk Bonus Feats
 1	AUTO:FEAT|Improved Unarmed Strike
 ###Block:
-1	ABILITY:Monk Class Feature|AUTOMATIC|Flurry of Blows|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFlurryOfBlows
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk Bonus Feat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeats
-1	ABILITY:Monk Class Feature|AUTOMATIC|AC Bonus ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkACBonus
-1	ABILITY:Monk Class Feature|AUTOMATIC|Stunning Fist|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStunningFist
-2	ABILITY:Monk Class Feature|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEvasion
-3	ABILITY:Monk Class Feature|AUTOMATIC|Fast Movement ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFastMovement
-3	ABILITY:Monk Class Feature|AUTOMATIC|Maneuver Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkManeuverTraining
-3	ABILITY:Monk Class Feature|AUTOMATIC|Still Mind|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStillMind
-4	ABILITY:Monk Class Feature|AUTOMATIC|Ki Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkKiPool
-4	ABILITY:Monk Class Feature|AUTOMATIC|Slow Fall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkSlowFall
-5	ABILITY:Monk Class Feature|AUTOMATIC|High Jump|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkHighJump
-5	ABILITY:Monk Class Feature|AUTOMATIC|Purity of Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPurityOfBody
-7	ABILITY:Monk Class Feature|AUTOMATIC|Wholeness of Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWholenessOfBody
-9	ABILITY:Monk Class Feature|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkImprovedEvasion
-11	ABILITY:Monk Class Feature|AUTOMATIC|Diamond Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkDiamondBody
-12	ABILITY:Monk Class Feature|AUTOMATIC|Abundant Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAbundantStep
-13	ABILITY:Monk Class Feature|AUTOMATIC|Diamond Soul|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkDiamondSoul
-15	ABILITY:Monk Class Feature|AUTOMATIC|Quivering Palm|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkQuiveringPalm
-17	ABILITY:Monk Class Feature|AUTOMATIC|Tongue of the Sun and Moon|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTongueOfTheSunAndMoon
-17	ABILITY:Monk Class Feature|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTimelessBody
-19	ABILITY:Monk Class Feature|AUTOMATIC|Empty Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEmptyBody
-20	ABILITY:Monk Class Feature|AUTOMATIC|Perfect Self|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPerfectSelf
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFlurryOfBlows
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeats
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkACBonus
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Stunning Fist|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStunningFist
+2	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEvasion
+3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Fast Movement|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFastMovement
+3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Maneuver Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkManeuverTraining
+3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Still Mind|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkStillMind
+4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkKiPool
+4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Slow Fall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkSlowFall
+5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ High Jump|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkHighJump
+5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Purity of Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPurityOfBody
+7	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Wholeness of Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWholenessOfBody
+9	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkImprovedEvasion
+11	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkDiamondBody
+12	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Abundant Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAbundantStep
+13	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkDiamondSoul
+15	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Quivering Palm|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkQuiveringPalm
+17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Tongue of the Sun and Moon|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTongueOfTheSunAndMoon
+17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTimelessBody
+19	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEmptyBody
+20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPerfectSelf
 ###Block:
 17	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
 ###Block: Level progression
@@ -345,20 +347,20 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 20	BONUS:VAR|HolyChampionLVL|CL
 ###Block:
 1	ABILITY:Paladin Class Feature|VIRTUAL|Aura of Good
-1	ABILITY:Paladin Class Feature|AUTOMATIC|Detect Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
-1	ABILITY:Paladin Class Feature|AUTOMATIC|Smite Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
-2	ABILITY:Paladin Class Feature|AUTOMATIC|Divine Grace|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace
-2	ABILITY:Paladin Class Feature|AUTOMATIC|Lay on Hands|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
-3	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Courage|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage
-3	ABILITY:Paladin Class Feature|AUTOMATIC|Divine Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth
-3	ABILITY:Paladin Class Feature|AUTOMATIC|Mercy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
-4	ABILITY:Paladin Class Feature|AUTOMATIC|Channel Positive Energy ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannel,TYPE.PaladinChannelPositiveEnergy
-5	ABILITY:Paladin Class Feature|AUTOMATIC|Divine Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
-8	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfResolve
-11	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Justice|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfJustice
-14	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Faith|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfFaith
-17	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Righteousness|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
-20	ABILITY:Paladin Class Feature|AUTOMATIC|Holy Champion|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Detect Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Smite Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Mercy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Channel Positive Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannel,TYPE.PaladinChannelPositiveEnergy
+5	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
+8	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfResolve
+11	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Justice|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfJustice
+14	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Faith|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfFaith
+17	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Righteousness|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
+20	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Holy Champion|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion
 ###Block: Spell Level progression
 4	CAST:0,0
 5	CAST:0,1
@@ -403,9 +405,9 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerShieldProficiency
 ###Block: Favored Enemies and Terrains
-1	BONUS:VAR|RangerDefaultCombatStyle|1	DEFINE:RangerDefaultCombatStyle|0
-1	BONUS:VAR|RangerFavoredEnemyLVL|CL								ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy
-1	BONUS:VAR|RangerFavoredTerrainLVL|CL							ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredTerrain
+1
+1	BONUS:VAR|RangerFavoredEnemyLVL|CL								
+1	BONUS:VAR|RangerFavoredTerrainLVL|CL							
 1	BONUS:VAR|WildEmpathy|CL
 1	BONUS:VAR|TrackLVL|CL
 2	BONUS:VAR|CombatStyleLVL|CL
@@ -413,19 +415,21 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 4	BONUS:VAR|AnimalCompanionMasterLVL|CL-3
 20	BONUS:VAR|MasterHunterLVL|CL
 ###Block: Progression Abilities
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
-4	ABILITY:Ranger Class Feature|AUTOMATIC|Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
-7	ABILITY:Ranger Class Feature|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride
-8	ABILITY:Ranger Class Feature|AUTOMATIC|Swift Tracker|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker
-9	ABILITY:Ranger Class Feature|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
-11	ABILITY:Ranger Class Feature|AUTOMATIC|Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
-12	ABILITY:Ranger Class Feature|AUTOMATIC|Camouflage|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCamoflage
-16	ABILITY:Ranger Class Feature|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
-17	ABILITY:Ranger Class Feature|AUTOMATIC|Hide in Plain Sight|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHideInPlainSight
-19	ABILITY:Ranger Class Feature|AUTOMATIC|Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
-20	ABILITY:Ranger Class Feature|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredTerrain
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
+4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
+7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride
+8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker
+9	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
+11	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
+12	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCamoflage
+16	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
+17	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHideInPlainSight
+19	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
+20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
 ###Block:
 3	AUTO:FEAT|Endurance|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEndurance
 ###Block: Level progression
@@ -465,13 +469,13 @@ CLASS:Rogue		STARTSKILLPTS:8
 8	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueImprovedUncannyDodge
 20	BONUS:VAR|MasterStrikeLVL|CL
 ###Block:
-1	ABILITY:Rogue Class Feature|AUTOMATIC|Sneak Attack|Sneak Attack ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack
-1	ABILITY:Rogue Class Feature|AUTOMATIC|Trapfinding|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapfinding
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueEvasion
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue Talents|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalents
-3	ABILITY:Rogue Class Feature|AUTOMATIC|Trap Sense ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapfinding
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueEvasion
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalents
+3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
 4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-20	ABILITY:Rogue Class Feature|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
+20	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus					Monster Role
@@ -486,9 +490,9 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block: Bloodline
 1	BONUS:VAR|BloodlineLVL,BloodlineCasterLVL|CL
 ###Block:
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer Bloodline
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Cantrips ~ Sorcerer
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Eschew Materials ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererEschewMaterials
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerer Bloodline
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererEschewMaterials
 ###Block: Level progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
@@ -513,7 +517,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages		Ability																Visible	Define																Save checks bonus											Combat bonus					Monster Role
-CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:WizardLVL|CL	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Wizard
+CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:WizardLVL|CL	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Wizard	DEFINE:WizardLVL|CL		DEFINE:SpellMasteryQualify|1
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -521,37 +525,32 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	
 #							Need some way to remove cantrips known
 #
 SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1	BONUS:VAR|AbjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1		ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Conjurer		CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1	BONUS:VAR|ConjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Diviner		CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1	BONUS:VAR|DivinationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Enchanter	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1	BONUS:VAR|EnchantmentSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Evoker		CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1	BONUS:VAR|EvocationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Illusionist	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1	BONUS:VAR|IllusionSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Necromancer	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1	BONUS:VAR|NecromancySchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Transmuter	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1	BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
-###Block: Wizard School
-1	BONUS:VAR|UniversalSchoolLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-1	BONUS:VAR|FamiliarMasterLVL|CL
 ###Block:
 1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardScribeScroll
 ###Block:
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVARGT:UniversalSchoolLVL,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Cantrips ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
-5	ABILITY:Wizard Class Feature|AUTOMATIC|Bonus Feats ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
+5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
 1	ABILITY:Internal|AUTOMATIC|Wizard Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
-###Block:
-1	DEFINE:SpellMasteryQualify|1
 ###Block: Level progression
 1	CAST:3,1
 2	CAST:4,2
@@ -576,7 +575,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArca
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Arcane Archer	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:p.374	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Arcane Archer	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:p.374	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:ArcaneArcherLVL|CL
 # Class Name		Req. Att.	Required Feat															Req. Spell Type
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point-Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -585,12 +584,12 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|ArrowEnhancementLVL|CL						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
-2												ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-4	BONUS:VAR|SeekerArrowTimes|1							ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
-6	BONUS:VAR|PhaseArrowTimes|1							ABILITY:Special Ability|AUTOMATIC|Phase Arrow
-8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
-10												ABILITY:Special Ability|AUTOMATIC|Arrow of Death
+1	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow
+2	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow
+4	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Seeker Arrow
+6	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Phase Arrow
+8	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Hail of Arrows
+10	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death
 ###Block: Spell Improvement
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane
@@ -603,21 +602,21 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
 ###Block: Arcane Trickster (Complete) ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.376	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.376	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	DEFINE:ArcaneTricksterLVL|CL
 # Class Name		Required AL				Required Skill									Req. Known Spell		Req. Spell Type		Var. Min. Value
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Perception|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim
-1	BONUS:VAR|RangedLegermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Ranged Legerdemain
-2	BONUS:VAR|SneakAttackDice|CL/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3	BONUS:VAR|ImpromptuSneak|(CL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack
+1	BONUS:VAR|RangedLegermain|(ArcaneTricksterLVL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain
+2	BONUS:VAR|SneakAttackDice|ArcaneTricksterLVL/2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Sneak Attack
+3	BONUS:VAR|ImpromptuSneak|(ArcaneTricksterLVL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
 4							ADD:SPELLCASTER|ANY
-5	BONUS:VAR|TrickySpells|3		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tricky Spells
+5	BONUS:VAR|TrickySpells|3		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Tricky Spells
 6							ADD:SPELLCASTER|ANY
 7	BONUS:VAR|TrickySpells|1		ADD:SPELLCASTER|ANY
 8							ADD:SPELLCASTER|ANY
-9	BONUS:VAR|TrickySpells|1		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Invisible Thief
-10							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Surprise Spells
+9	BONUS:VAR|TrickySpells|1		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Invisible Thief
+10							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Surprise Spells
 
 
 ###Block: Assassin (Complete - review) --------------------------------------------------------------------------------------------------------------------------------------------
@@ -746,9 +745,9 @@ CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PfC		MAXLEVE
 CLASS:Pathfinder Chronicler	PRESKILL:3,Linguistics=3,Perform (Oratory)=5,Profession (Scribe)=5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Pathfinder Chronicler	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|Ride|Sense Motive|Sleight of Hand|Survival|Use Magic Device
-1												ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Deep Pockets|Master Scribe
+1												ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Deep Pockets|Master Scribe
 2												ABILITY:Special Ability|AUTOMATIC|Live to Tell the Tale|Pathfinding
-3	BONUS:VAR|BardicPerformanceDuration,BardicPerformanceLVL|CL-2	ABILITY:Special Ability|AUTOMATIC|Bardic Performance|Bardic Performance ~ PFC|Improved Aid
+3	BONUS:VAR|BardicPerformanceDuration,BardicPerformanceLVL|CL-2	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Performance|Bardic Performance ~ PFC|Improved Aid
 4												ABILITY:Special Ability|AUTOMATIC|Epic Tales
 5												ABILITY:Special Ability|AUTOMATIC|Whispering Campaign
 6												ABILITY:Special Ability|AUTOMATIC|Inspire Action ~ PFC
@@ -771,9 +770,9 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Es
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3				ABILITY:Special Ability|AUTOMATIC|Darkvision ~ SD|Evasion|Uncanny Dodge ~ Base
 3	BONUS:VAR|ShadowIllusionLVL,ShadowCompanionLVL|CL	BONUS:VAR|ShadowDancerTalentLVL|CL	BONUS:VAR|ShadowCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Rogue Talents ~ SD|Shadow Illusion|Summon Shadow
 4	BONUS:VAR|ShadowJump|20																		ABILITY:Special Ability|AUTOMATIC|Shadow Call ~ SD|Shadow Jump
-5																						ABILITY:Special Ability|AUTOMATIC|Defensive Roll|Defensive Roll ~ SD
+5																						ABILITY:Special Ability|AUTOMATIC|Rogue Talent ~ Defensive Roll|Defensive Roll ~ SD
 6	BONUS:VAR|ShadowJump|20
-7																						ABILITY:Special Ability|AUTOMATIC|Slippery Mind
+7																						ABILITY:Special Ability|AUTOMATIC|Rogue Talent ~ Slippery Mind
 8	BONUS:VAR|ShadowJump|40																		ABILITY:Special Ability|AUTOMATIC|Shadow Power
 10	BONUS:VAR|ShadowJump|80																		ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Shadow Master
 

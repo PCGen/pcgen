@@ -372,7 +372,7 @@ SKILL:Perception			RANK:2
 SKILL:Spellcraft			RANK:2
 FEAT:Combat Casting
 FEAT:Great Fortitude
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy ~ Cleric
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
 GEAR:Scythe					LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Potion of Cure Moderate Wounds	LOCATION:Equipped
 GEAR:Breastplate				LOCATION:Equipped		EQMOD:PLUS1A
@@ -411,7 +411,7 @@ FEAT:Extend Spell
 FEAT:Spell Focus(Necromancy)
 FEAT:Martial Weapon Proficiency (Scythe)
 FEAT:Weapon Focus (Scythe)			FREE:YES
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy ~ Cleric
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
 GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOUS
 GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Cloak of Resistance +2	LOCATION:Equipped

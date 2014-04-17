@@ -331,7 +331,7 @@ FEAT:Lamashtu's Mark
 FEAT:Dazzling Display
 ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
-ABILITY:CATEGORY=Channel Energy|Channel Negative Energy ~ Cleric
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
 TEMPLATE:Lamashtu's Gift
 GEAR:Breastplate					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:PLUS1W

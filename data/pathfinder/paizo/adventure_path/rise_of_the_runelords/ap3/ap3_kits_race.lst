@@ -40,8 +40,8 @@ SKILL:Stealth	RANK:6
 SKILL:Survival	RANK:6
 SKILL:Swim		RANK:6
 SKILL:Linguistics	RANK:2
-ABILITY:CATEGORY=Combat Style|Archery
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Goblinoid))
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Archery
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Goblinoid)
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Longbow)
@@ -173,10 +173,10 @@ SKILL:Stealth		RANK:11
 SKILL:Perception		RANK:11
 SKILL:Ride			RANK:11
 SKILL:Survival		RANK:11
-ABILITY:CATEGORY=Combat Style|Archery
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Dragon)
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
-ABILITY:CATEGORY=Favored Enemy Bonus|Favored Enemy Bonus (Humanoid (Giant))
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Archery
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Dragon
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Giant)
+ABILITY:CATEGORY=Favored Enemy Bonus|Favored Enemy Bonus ~ Humanoid (Giant)
 ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Mounted Archery
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
@@ -199,8 +199,8 @@ SKILL:Knowledge (Engineering)	RANK:4
 SKILL:Perception			RANK:5
 SKILL:Survival			RANK:5
 SKILL:Craft (Stonemasonry)	RANK:9
-ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Giant)
 ABILITY:CATEGORY=FEAT|Cleave
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Weapon Focus(Handaxe)
@@ -227,8 +227,8 @@ SKILL:Perception		RANK:10
 SKILL:Bluff			RANK:10
 SKILL:Intimidate		RANK:2
 SKILL:Sleight of Hand	RANK:8
-ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
+ABILITY:CATEGORY=Combat Style|Ranger Combat Style ~ Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Giant)
 FEAT:Persuasive
 FEAT:Two-Weapon Defense
 FEAT:Two-Weapon Fighting
