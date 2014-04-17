@@ -744,7 +744,7 @@ public final class ExportHandler
 		}
 
 		// Deal with UNTRAINED (skills)
-		if (expr1.endsWith("UNTRAINED"))
+		if (expr1.endsWith("UNTRAINED") && !expr1.startsWith("SKILLSIT."))
 		{
 			final StringTokenizer aTok = new StringTokenizer(expr1, ".");
 			final String fString = aTok.nextToken();
