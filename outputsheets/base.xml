@@ -368,25 +368,25 @@
 		<list_mods>|SKILLLISTMODS|</list_mods>
 		<max_class_skill_level>|MAXSKILLLEVEL|</max_class_skill_level>
 		<max_cross_class_skill_level>|MAXCCSKILLLEVEL|</max_cross_class_skill_level>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 		<skill>
-			<name>|SKILL.%skill|</name>
-			<ranks>|SKILL.%skill.RANK|</ranks>
-			<mod>|SKILL.%skill.MOD|<!-- Mods from abilities, equipment, etc -->
+			<name>|SKILLSIT.%skill|</name>
+			<ranks>|SKILLSIT.%skill.RANK|</ranks>
+			<mod>|SKILLSIT.%skill.MOD|<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>|SKILL.%skill.TOTAL|</skill_mod>
-			<ability_mod>|SKILL.%skill.ABMOD|<!-- Mod from the key ability -->
+			<skill_mod>|SKILLSIT.%skill.TOTAL|</skill_mod>
+			<ability_mod>|SKILLSIT.%skill.ABMOD|<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>|SKILL.%skill.MISC|<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>|SKILLSIT.%skill.MISC|<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability>|SKILL.%skill.ABILITY|</ability>
-			<synergy>|SKILL.%skill.SYNERGY|</synergy>
-			<untrained>|SKILL.%skill.UNTRAINED|</untrained>
-			<exclusive>|SKILL.%skill.EXCLUSIVE|</exclusive>
-			<trained_total>|SKILL.%skill.TRAINED_TOTAL|</trained_total>
-			<exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
-			<classes>|SKILL.%skill.CLASSES|</classes>
-			<type>|SKILL.%skill.TYPE|</type>
+			<ability>|SKILLSIT.%skill.ABILITY|</ability>
+			<synergy>|SKILLSIT.%skill.SYNERGY|</synergy>
+			<untrained>|SKILLSIT.%skill.UNTRAINED|</untrained>
+			<exclusive>|SKILLSIT.%skill.EXCLUSIVE|</exclusive>
+			<trained_total>|SKILLSIT.%skill.TRAINED_TOTAL|</trained_total>
+			<exclusive_total>|SKILLSIT.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
+			<classes>|SKILLSIT.%skill.CLASSES|</classes>
+			<type>|SKILLSIT.%skill.TYPE|</type>
 		</skill>
 |ENDFOR|
 
