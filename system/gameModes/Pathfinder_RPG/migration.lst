@@ -52,58 +52,27 @@ ABILITY:Special Ability|Percussion Instruments	MAXVER:6.4.00	NEWKEY:Versatile Pe
 ABILITY:Special Ability|Sing				MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Sing				
 ABILITY:Special Ability|String Instruments	MAXVER:6.4.00	NEWKEY:Versatile Performance ~ String Instruments		
 ABILITY:Special Ability|Wind Instruments		MAXVER:6.4.00	NEWKEY:Versatile Performance ~ Wind Instruments		
-
-
 ABILITY:Special Ability|Weapon and Armor Proficiency ~ Cleric	MAXVER:6.4.00	NEWKEY:Cleric ~ Weapon and Armor Proficiency
 ABILITY:Special Ability|Channel Energy				MAXVER:6.4.00	NEWKEY:Cleric ~ Channel Energy		
 ABILITY:Special Ability|Channel Positive Energy ~ Cleric	MAXVER:6.4.00	NEWKEY:Cleric ~ Channel Positive Energy
 ABILITY:Special Ability|Channel Negative Energy ~ Cleric	MAXVER:6.4.00	NEWKEY:Cleric ~ Channel Negative Energy
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ABILITY:Special Ability|Ancient Enmity ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Ancient Enmity		
+ABILITY:Special Ability|Craftsman ~ Dwarf			MAXVER:6.4.00	NEWKEY:Dwarf ~ Craftsman			
+ABILITY:Special Ability|Deep Warrior ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Deep Warrior		
+ABILITY:Special Ability|Giant Hunter ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Giant Hunter		
+ABILITY:Special Ability|Lorekeeper ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Lorekeeper			
+ABILITY:Special Ability|Magic Resistant ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Magic Resistant		
+ABILITY:Special Ability|Minesight ~ Dwarf			MAXVER:6.4.00	NEWKEY:Dwarf ~ Minesight			
+ABILITY:Special Ability|Mountaineer ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Mountaineer			
+ABILITY:Special Ability|Relentless ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Relentless			
+ABILITY:Special Ability|Rock Stepper ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Rock Stepper		
+ABILITY:Special Ability|Saltbeard ~ Dwarf			MAXVER:6.4.00	NEWKEY:Dwarf ~ Saltbeard			
+ABILITY:Special Ability|Sky Sentinel ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Sky Sentinel		
+ABILITY:Special Ability|Stonesinger ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Stonesinger		
+ABILITY:Special Ability|Stubborn ~ Dwarf			MAXVER:6.4.00	NEWKEY:Dwarf ~ Stubborn			
+ABILITY:Special Ability|Surface Survivalist ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Surface Survivalist	
+ABILITY:Special Ability|Xenophobic ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Xenophobic			
+ABILITY:Special Ability|Wyrmscourged ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Wyrmscourged		
 ABILITY:Special Ability|Lightning Arc ~ Air Domain			MAXVER:6.4.00	NEWKEY:Air Domain ~ Lightning Arc
 ABILITY:Special Ability|Electricity Resistance ~ Air Domain		MAXVER:6.4.00	NEWKEY:Air Domain ~ Electricity Resistance
 ABILITY:Special Ability|Speak with Animals ~ Animal Domain		MAXVER:6.4.00	NEWKEY:Animal Domain ~ Speak with Animals
@@ -170,7 +139,6 @@ ABILITY:Special Ability|Icicle ~ Water Domain				MAXVER:6.4.00	NEWKEY:Water Doma
 ABILITY:Special Ability|Cold Resistance ~ Water Domain		MAXVER:6.4.00	NEWKEY:Water Domain ~ Cold Resistance			
 ABILITY:Special Ability|Storm Burst ~ Weather Domain			MAXVER:6.4.00	NEWKEY:Weather Domain ~ Storm Burst			
 ABILITY:Special Ability|Lightning Lord ~ Weather Domain		MAXVER:6.4.00	NEWKEY:Weather Domain ~ Lightning Lord			
-
 ABILITY:Special Ability|Spontaneous Casting ~ Druid	MAXVER:6.4.00	NEWKEY:Druid ~ Spontaneous Casting	
 ABILITY:Special Ability|Orisons ~ Druid			MAXVER:6.4.00	NEWKEY:Druid ~ Orisons			
 ABILITY:Special Ability|Nature Sense			MAXVER:6.4.00	NEWKEY:Druid ~ Nature Sense		
@@ -183,7 +151,6 @@ ABILITY:Special Ability|Armor Training			MAXVER:6.4.00	NEWKEY:Fighter ~ Armor Tr
 ABILITY:Special Ability|Armor Mastery			MAXVER:6.4.00	NEWKEY:Fighter ~ Armor Mastery	
 ABILITY:Special Ability|Weapon Mastery			MAXVER:6.4.00	NEWKEY:Fighter ~ Weapon Mastery	
 ABILITY:Special Ability|Bonus Feats ~ Fighter		MAXVER:6.4.00	NEWKEY:Fighter ~ Bonus Feats	
-
 ABILITY:Special Ability|Weapon Training		MAXVER:6.4.00	NEWKEY:Fighter ~ Weapon Training
 ABILITY:Special Ability|Monk Bonus Feat			MAXVER:6.4.00	NEWKEY:Monk ~ Monk Bonus Feat			
 ABILITY:Special Ability|AC Bonus ~ Monk			MAXVER:6.4.00	NEWKEY:Monk ~ AC Bonus					
@@ -399,11 +366,9 @@ ABILITY:Special Ability|Feat					MAXVER:6.4.00	NEWKEY:Rogue Talent ~ Feat
 ABILITY:Special Ability|Cantrips ~ Sorcerer		MAXVER:6.4.00	NEWKEY:Sorcerer ~ Cantrips				
 ABILITY:Special Ability|Sorcerer Bloodline		MAXVER:6.4.00	NEWKEY:Sorcerer ~ Sorcerer Bloodline		
 ABILITY:Special Ability|Eschew Materials ~ Sorcerer	MAXVER:6.4.00	NEWKEY:Sorcerer ~ Eschew Materials	
-
 ABILITY:Special Ability|Arcane Bond			MAXVER:6.4.00	NEWKEY:Wizard ~ Arcane Bond
 ABILITY:Special Ability|Cantrips ~ Wizard		MAXVER:6.4.00	NEWKEY:Wizard ~ Cantrips
 ABILITY:Special Ability|Bonus Feats ~ Wizard	MAXVER:6.4.00	NEWKEY:Wizard ~ Bonus Feats
-
 ABILITY:Special Ability|Deadly Aim				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Deadly Aim			
 ABILITY:Special Ability|Focused Shot			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Focused Shot		
 ABILITY:Special Ability|Point Blank Mastery		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Point Blank Mastery	
@@ -440,58 +405,90 @@ ABILITY:Special Ability|Saving Shield			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~
 ABILITY:Special Ability|Shield Master			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Shield Master		
 ABILITY:Special Ability|Bashing Finish			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Bashing Finish		
 ABILITY:Special Ability|Greater Shield Focus		MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Greater Shield Focus	
-
-
-
-
-
 ABILITY:Special Ability|Ranged Legerdemain	MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Ranged Legerdemain		
 ABILITY:Special Ability|Impromptu Sneak Attack	MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Impromptu Sneak Attack	
 ABILITY:Special Ability|Tricky Spells		MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Tricky Spells		
 ABILITY:Special Ability|Invisible Thief		MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Invisible Thief		
 ABILITY:Special Ability|Surprise Spells		MAXVER:6.4.00	NEWKEY:Arcane Trickster ~ Surprise Spells		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ABILITY:Special Ability|Save against Poisons			MAXVER:6.4.00	NEWKEY:Assassin ~ Save against Poisons	
+ABILITY:Special Ability|Hide in Plain Sight ~ Assassin	MAXVER:6.4.00	NEWKEY:Assassin ~ Hide in Plain Sight	
+ABILITY:Special Ability|Death Attack				MAXVER:6.4.00	NEWKEY:Assassin ~ Death Attack		
+ABILITY:Special Ability|Poison Use					MAXVER:6.4.00	NEWKEY:Assassin ~ Poison Use		
+ABILITY:Special Ability|Hidden Weapons				MAXVER:6.4.00	NEWKEY:Assassin ~ Hidden Weapons		
+ABILITY:Special Ability|True Death					MAXVER:6.4.00	NEWKEY:Assassin ~ True Death		
+ABILITY:Special Ability|Quiet Death					MAXVER:6.4.00	NEWKEY:Assassin ~ Quiet Death		
+ABILITY:Special Ability|Swift Death					MAXVER:6.4.00	NEWKEY:Assassin ~ Swift Death		
+ABILITY:Special Ability|Angel of Death				MAXVER:6.4.00	NEWKEY:Assassin ~ Angel of Death		
+ABILITY:Special Ability|Hide in Plain Sight (Su)		MAXVER:6.4.00	NEWKEY:Assassin ~ Hide in Plain Sight	
+ABILITY:Special Ability|Blood of Dragons ~ DD		MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Blood of Dragons		
+ABILITY:Special Ability|Natural Armor Increase ~ DD	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Natural Armor Increase	
+ABILITY:Special Ability|Dragon Bite ~ DD			MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Dragon Bite			
+ABILITY:Special Ability|Blindsense ~ DD			MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Blindsense			
+ABILITY:Special Ability|Dragon Form ~ DD			MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Dragon Form			
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Archmage		MAXVER:6.4.00	NEWKEY:Archmage ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Assassin		MAXVER:6.4.00	NEWKEY:Assassin ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Dragon Disciple	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Duelist		MAXVER:6.4.00	NEWKEY:Duelist ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Dwarven Defender	MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Eldritch Knight	MAXVER:6.4.00	NEWKEY:Eldritch Knight ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Hierophant		MAXVER:6.4.00	NEWKEY:Hierophant ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Horizon Walker	MAXVER:6.4.00	NEWKEY:Horizon Walker ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Loremaster		MAXVER:6.4.00	NEWKEY:Loremaster ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Shadowdancer Weapon Proficiencies			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Weapon and Armor Proficiency ~ Thaumaturgist	MAXVER:6.4.00	NEWKEY:Thaumaturgist ~ Weapon and Armor Proficiency
+ABILITY:Special Ability|Canny Defense			MAXVER:6.4.00	NEWKEY:Duelist ~ Canny Defense		
+ABILITY:Special Ability|Improved Reaction			MAXVER:6.4.00	NEWKEY:Duelist ~ Improved Reaction	
+ABILITY:Special Ability|Enhanced Mobility			MAXVER:6.4.00	NEWKEY:Duelist ~ Enhanced Mobility	
+ABILITY:Special Ability|Grace					MAXVER:6.4.00	NEWKEY:Duelist ~ Grace			
+ABILITY:Special Ability|Precise Strike			MAXVER:6.4.00	NEWKEY:Duelist ~ Precise Strike		
+ABILITY:Special Ability|Acrobatic Charge			MAXVER:6.4.00	NEWKEY:Duelist ~ Acrobatic Charge	
+ABILITY:Special Ability|Elaborate Defense			MAXVER:6.4.00	NEWKEY:Duelist ~ Elaborate Defense	
+ABILITY:Special Ability|Parry					MAXVER:6.4.00	NEWKEY:Duelist ~ Parry			
+ABILITY:Special Ability|Riposte				MAXVER:6.4.00	NEWKEY:Duelist ~ Riposte			
+ABILITY:Special Ability|No Retreat				MAXVER:6.4.00	NEWKEY:Duelist ~ No Retreat		
+ABILITY:Special Ability|Combat Reflexes ~ Duelist	MAXVER:6.4.00	NEWKEY:Duelist ~ Combat Reflexes		
+ABILITY:Special Ability|Crippling Critical		MAXVER:6.4.00	NEWKEY:Duelist ~ Crippling Critical	
+ABILITY:Special Ability|Deflect Arrows ~ Duelist	MAXVER:6.4.00	NEWKEY:Duelist ~ Deflect Arrows		
+ABILITY:Special Ability|Diverse Training			MAXVER:6.4.00	NEWKEY:Eldritch Knight ~ Diverse Training	
+ABILITY:Special Ability|Spell Critical			MAXVER:6.4.00	NEWKEY:Eldritch Knight ~ Spell Critical	
+ABILITY:Special Ability|Secret Lore				MAXVER:6.4.00	NEWKEY:Loremaster ~ Secret Lore	
+ABILITY:Special Ability|Greater Lore			MAXVER:6.4.00	NEWKEY:Loremaster ~ Greater Lore	
+ABILITY:Special Ability|True Lore				MAXVER:6.4.00	NEWKEY:Loremaster ~ True Lore	
+ABILITY:Special Ability|Lore					MAXVER:6.4.00	NEWKEY:Loremaster ~ Lore		
+ABILITY:Special Ability|Instant Mastery			MAXVER:6.4.00	NEWKEY:Secret Lore ~ Instant Mastery			
+ABILITY:Special Ability|Secret Health			MAXVER:6.4.00	NEWKEY:Secret Lore ~ Secret Health			
+ABILITY:Special Ability|Secrets of Inner Strength	MAXVER:6.4.00	NEWKEY:Secret Lore ~ Secrets of Inner Strength	
+ABILITY:Special Ability|The Lore of True Stamina	MAXVER:6.4.00	NEWKEY:Secret Lore ~ The Lore of True Stamina	
+ABILITY:Special Ability|Secret Knowledge of Avoidance	MAXVER:6.4.00	NEWKEY:Secret Lore ~ Secret Knowledge of Avoidance	
+ABILITY:Special Ability|Weapon Trick			MAXVER:6.4.00	NEWKEY:Secret Lore ~ Weapon Trick			
+ABILITY:Special Ability|Dodge Trick				MAXVER:6.4.00	NEWKEY:Secret Lore ~ Dodge Trick				
+ABILITY:Special Ability|Applicable Knowledge		MAXVER:6.4.00	NEWKEY:Secret Lore ~ Applicable Knowledge		
+ABILITY:Special Ability|Newfound Arcana			MAXVER:6.4.00	NEWKEY:Secret Lore ~ Newfound Arcana			
+ABILITY:Special Ability|More Newfound Arcana		MAXVER:6.4.00	NEWKEY:Secret Lore ~ More Newfound Arcana		
+ABILITY:Special Ability|Combined Spells			MAXVER:6.4.00	NEWKEY:Mystic Theurge ~ Combined Spells	
+ABILITY:Special Ability|Spell Synthesis			MAXVER:6.4.00	NEWKEY:Mystic Theurge ~ Spell Synthesis	
+ABILITY:Special Ability|Bardic Performance ~ PFC	MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Bardic Performance		
+ABILITY:Special Ability|Deep Pockets			MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Deep Pockets							
+ABILITY:Special Ability|Master Scribe			MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Master Scribe							
+ABILITY:Special Ability|Live to Tell the Tale		MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Live to Tell the Tale					
+ABILITY:Special Ability|Pathfinding				MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Pathfinding							
+ABILITY:Special Ability|Improved Aid			MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Improved Aid							
+ABILITY:Special Ability|Epic Tales				MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Epic Tales							
+ABILITY:Special Ability|Whispering Campaign		MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Whispering Campaign						
+ABILITY:Special Ability|Inspire Action ~ PFC		MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Inspire Action		
+ABILITY:Special Ability|Call Down the Legends		MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Call Down the Legends					
+ABILITY:Special Ability|Greater Epic Tales		MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Greater Epic Tales						
+ABILITY:Special Ability|Lay of the Exalted Dead		MAXVER:6.4.00	NEWKEY:Pathfinder Chronicler ~ Lay of the Exalted Dead					
+ABILITY:Special Ability|Hide in Plain Sight ~ SD	MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Hide in Plain Sight	
+ABILITY:Special Ability|Darkvision ~ SD			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Darkvision			
+ABILITY:Special Ability|Rogue Talents ~ SD		MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Rogue Talents		
+ABILITY:Special Ability|Shadow Illusion			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Shadow Illusion					
+ABILITY:Special Ability|Summon Shadow			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Summon Shadow					
+ABILITY:Special Ability|Shadow Call ~ SD			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Shadow Call		
+ABILITY:Special Ability|Shadow Jump				MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Shadow Jump					
+ABILITY:Special Ability|Defensive Roll ~ SD		MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Defensive Roll		
+ABILITY:Special Ability|Shadow Power			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Shadow Power		
+ABILITY:Special Ability|Shadow Master			MAXVER:6.4.00	NEWKEY:Shadowdancer ~ Shadow Master		
 ABILITY:Special Ability|Improved Leadership ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Improved Leadership	
 ABILITY:Special Ability|Voice of Authority ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Voice of Authority	
 ABILITY:Special Ability|Easy March ~ Battle Herald				MAXVER:6.4.00	NEWKEY:Battle Herald ~ Easy March		
@@ -502,6 +499,7 @@ ABILITY:Special Ability|Demanding Challenge ~ Battle Herald			MAXVER:6.4.00	NEWK
 ABILITY:Special Ability|Persistent Commands ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Persistent Commands	
 ABILITY:Special Ability|Inspire Last Stand ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Inspire Last Stand	
 ABILITY:Special Ability|Complex Commands ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Complex Commands	
+ABILITY:Special Ability|Inspiring Command ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Inspiring Command
 ABILITY:Special Ability|Vindicator's Shield ~ Holy Vindicator		MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Vindicator's Shield		
 ABILITY:Special Ability|Stigmata ~ Holy Vindicator				MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Stigmata		
 ABILITY:Special Ability|Faith Healing ~ Holy Vindicator			MAXVER:6.4.00	NEWKEY:Holy Vindicator ~ Faith Healing			
@@ -625,59 +623,12 @@ ABILITY:Special Ability|Damage Reduction ~ Stalwart Defender		MAXVER:6.4.00	NEWK
 ABILITY:Special Ability|Improved Uncanny Dodge ~ Stalwart Defender	MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Improved Uncanny Dodge			
 ABILITY:Special Ability|Mobile Defense ~ Stalwart Defender			MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Mobile Defense			
 ABILITY:Special Ability|Last Word ~ Stalwart Defender				MAXVER:6.4.00	NEWKEY:Stalwart Defender ~ Last Word				
-ABILITY:Special Ability|Inspiring Command ~ Battle Herald			MAXVER:6.4.00	NEWKEY:Battle Herald ~ Inspiring Command
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ABILITY:Special Ability|Bonus Tricks		MAXVER:6.4.00	NEWKEY:Companion ~ Bonus Tricks			
 ABILITY:Special Ability|Link				MAXVER:6.4.00	NEWKEY:Companion ~ Link				
 ABILITY:Special Ability|Share Spells		MAXVER:6.4.00	NEWKEY:Companion ~ Share Spells			
 ABILITY:Special Ability|Ability Score Increase	MAXVER:6.4.00	NEWKEY:Companion ~ Ability Score Increase	
 ABILITY:Special Ability|Devotion			MAXVER:6.4.00	NEWKEY:Companion ~ Devotion			
 ABILITY:Special Ability|Multiattack ~ Companion	MAXVER:6.4.00	NEWKEY:Companion ~ Multiattack					
-
 ABILITY:Special Ability|Deliver Touch Spells			MAXVER:6.4.00	NEWKEY:Familiar ~ Deliver Touch Spells			
 ABILITY:Special Ability|Empathic Link				MAXVER:6.4.00	NEWKEY:Familiar ~ Empathic Link				
 ABILITY:Special Ability|Scry on Familiar				MAXVER:6.4.00	NEWKEY:Familiar ~ Scry on Familiar			
@@ -685,19 +636,6 @@ ABILITY:Special Ability|Speak with Master				MAXVER:6.4.00	NEWKEY:Familiar ~ Spe
 ABILITY:Special Ability|Speak with Animals of Its Kind	MAXVER:6.4.00	NEWKEY:Familiar ~ Speak with Animals of Its Kind	
 ABILITY:Special Ability|Speak One Language			MAXVER:6.4.00	NEWKEY:Familiar ~ Speak One Language			
 ABILITY:Special Ability|Spell Resistance ~ Familiar		MAXVER:6.4.00	NEWKEY:Familiar ~ Spell Resistance			
-
-
-
-
-
-
-
-
-
-
-
-
-
 ABILITY:Special Ability|None ~ HumanEthnicity		MAXVER:6.4.00	NEWKEY:Human Ethnicity ~ None	
 ABILITY:Special Ability|Unknown ~ HumanEthnicity	MAXVER:6.4.00	NEWKEY:Human Ethnicity ~ Unknown	
 ABILITY:Special Ability|None ~ Region			MAXVER:6.4.00	NEWKEY:Region ~ None			
@@ -710,9 +648,6 @@ ABILITY:Special Ability|Truespeech ~ Archon	MAXVER:6.4.00	NEWKEY:Archon ~ Truesp
 ABILITY:Special Ability|Truespeech ~ Azata	MAXVER:6.4.00	NEWKEY:Azata ~ Truespeech	
 ABILITY:Special Ability|See in Darkness ~ Devil	MAXVER:6.4.00	NEWKEY:Devil ~ See in Darkness	
 ABILITY:Special Ability|Change Shape ~ Oni	MAXVER:6.4.00	NEWKEY:Oni ~ Change Shape	
-
-
-
 ABILITY:Special Ability|Defensive Training ~ Dwarf		MAXVER:6.4.00	NEWKEY:Dwarf ~ Defensive Training	
 ABILITY:Special Ability|Greed ~ Dwarf					MAXVER:6.4.00	NEWKEY:Dwarf ~ Greed				
 ABILITY:Special Ability|Hatred ~ Dwarf				MAXVER:6.4.00	NEWKEY:Dwarf ~ Hatred			
@@ -754,64 +689,6 @@ ABILITY:Special Ability|Sure-Footed ~ Halfling			MAXVER:6.4.00	NEWKEY:Halfling ~
 ABILITY:Special Ability|Weapon Familiarity ~ Halfling		MAXVER:6.4.00	NEWKEY:Halfling ~ Weapon Familiarity	
 ABILITY:Special Ability|Bonus Feat ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Bonus Feat
 ABILITY:Special Ability|Skilled ~ Human	MAXVER:6.4.00	NEWKEY:Human ~ Skilled
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # APG Rage Powers
 ABILITY:Special Ability|Beast Totem ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Beast Totem
 ABILITY:Special Ability|Beast Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Beast Totem (Greater)
@@ -861,7 +738,6 @@ ABILITY:Special Ability|Spirit Totem Greater ~ Barbarian	MAXVER:6.4.00	NEWKEY:Ra
 ABILITY:Special Ability|Spirit Totem Lesser ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Spirit Totem (Lesser)
 ABILITY:Special Ability|Staggering Drunk ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Staggering Drunk
 ABILITY:Special Ability|Witch Hunter ~ Barbarian	MAXVER:6.4.00	NEWKEY:Rage Power ~ Witch Hunter
-
 # CR Rage Powers
 ABILITY:Special Ability|Animal Fury ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Animal Fury
 ABILITY:Special Ability|Clear Mind ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Clear Mind
@@ -891,7 +767,6 @@ ABILITY:Special Ability|Surprise Accuracy ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage
 ABILITY:Special Ability|Swift Foot ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Swift Foot
 ABILITY:Special Ability|Terrifying Howl ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Terrifying Howl
 ABILITY:Special Ability|Unexpected Strike ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Unexpected Strike
-
 # UC
 ABILITY:Special Ability|Auspicious Mark ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Auspicious Mark
 ABILITY:Special Ability|Bestial Climber ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ Bestial Climber
@@ -925,8 +800,6 @@ ABILITY:Special Ability|Sunder Enchantment ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rag
 ABILITY:Special Ability|World Serpent Totem ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Totem
 ABILITY:Special Ability|World Serpent Spirit ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Spirit
 ABILITY:Special Ability|World Serpent Totem Unity ~ Rage Power	MAXVER:6.4.00	NEWKEY:Rage Power ~ World Serpent Totem Unity
-
-
 ABILITY:Special Ability|Ancient Enmity ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Ancient Enmity
 ABILITY:Special Ability|Craftsman ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Craftsman
 ABILITY:Special Ability|Deep Warrior ~ Dwarf	MAXVER:6.4.00	NEWKEY:Dwarf ~ Deep Warrior
