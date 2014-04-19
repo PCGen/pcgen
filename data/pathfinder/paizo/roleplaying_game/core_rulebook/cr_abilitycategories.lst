@@ -163,6 +163,7 @@ ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 # Loremaster
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list				Plural description for UI			Display Location
 ABILITYCATEGORY:Loremaster Secret				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret												PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Add Spoken Language			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AddSpokenLanguage														DISPLAYLOCATION:Class Features
 
 
 # Master Category
@@ -211,3 +212,29 @@ ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		F
 
 
 ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeadbandSkill																			DISPLAYLOCATION:Misc
+
+
+
+
+
+
+
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Assassin Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AssassinClassFeatures	PLURAL:Assassin Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dragon Disciple Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Dragon DiscipleClassFeatures	PLURAL:Dragon Disciple Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Duelist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DuelistClassFeatures	PLURAL:Duelist Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eldritch Knight Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Eldritch KnightClassFeatures	PLURAL:Eldritch Knight Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Loremaster Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterClassFeatures	PLURAL:Loremaster Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mystic Theurge Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic TheurgeClassFeatures	PLURAL:Mystic Theurge Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Pathfinder ChroniclerClassFeatures	PLURAL:Pathfinder Chronicler Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Shadowdancer Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowdancerClassFeatures	PLURAL:Shadowdancer Class Features		DISPLAYLOCATION:Class Features
+
+

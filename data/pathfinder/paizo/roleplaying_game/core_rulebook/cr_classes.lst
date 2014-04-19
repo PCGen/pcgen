@@ -593,118 +593,135 @@ CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Art		MAXLEVEL:10	
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Perception|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim
-1	BONUS:VAR|RangedLegermain|(ArcaneTricksterLVL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain
-2	BONUS:VAR|SneakAttackDice|ArcaneTricksterLVL/2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Sneak Attack
-3	BONUS:VAR|ImpromptuSneak|(ArcaneTricksterLVL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
-4							ADD:SPELLCASTER|ANY
-5	BONUS:VAR|TrickySpells|3		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Tricky Spells
-6							ADD:SPELLCASTER|ANY
-7	BONUS:VAR|TrickySpells|1		ADD:SPELLCASTER|ANY
-8							ADD:SPELLCASTER|ANY
-9	BONUS:VAR|TrickySpells|1		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Invisible Thief
-10							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Surprise Spells
+###Block:
+1	ADD:SPELLCASTER|ANY	
+2	ADD:SPELLCASTER|ANY	
+3	ADD:SPELLCASTER|ANY	
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY	
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY	
+10	ADD:SPELLCASTER|ANY	
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain
+2	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Sneak Attack
+3	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
+5	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Tricky Spells
+9	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Invisible Thief
+10	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Surprise Spells
 
 
 ###Block: Assassin (Complete - review) --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Assassin	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:p.378	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Assassin	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:p.378	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:AssassinLVL|CL
 # Class Name	Required AL		Required Skill
 CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:2,Disguise=2,Stealth=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
-1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
-1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Death Attack|Poison Use|Sneak Attack
-2	BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLVL|1												ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
-3
-4																							ABILITY:Special Ability|AUTOMATIC|Hidden Weapons|True Death
-5	BONUS:VAR|UncannyDodgeLVL|1
-6																							ABILITY:Special Ability|AUTOMATIC|Quiet Death
-7
-8																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight ~ Assassin
-9																							ABILITY:Special Ability|AUTOMATIC|Swift Death
-10																							ABILITY:Special Ability|AUTOMATIC|Angel of Death
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack|Assassin ~ Poison Use|Assassin ~ Sneak Attack
+2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Save against Poisons|Assassin ~ Uncanny Dodge
+4	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hidden Weapons|Assassin ~ True Death
+6	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Quiet Death
+8	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hide in Plain Sight
+9	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Swift Death
+10	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Angel of Death
 
 
 ###Block: Dragon Disciple (Complete - review) ------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Base class as subclass?	Source Page		Save checks bonus												Combat bonus
-CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.380	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:DrD		MAXLEVEL:10	SOURCEPAGE:p.380	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:DragonDiscipleLVL|CL
 # Class Name		Required Language		Multiple Requirements																														Prohibited Race			Required Skill				Prohibited Template
 CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREMULT:3,[PRESPELLCAST:MEMORIZE=N],[PRESPELLCAST:TYPE=Arcane],[!PRECLASS:1,Sorcerer=1]],[PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline]]	!PRERACE:1,RACETYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=5	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Knowledge|Perception|Spellcraft
 ###Block: Progression
-1																						BONUS:VAR|DragonDiscipleArmorBonus|1											ABILITY:Special Ability|AUTOMATIC|Blood of Dragons ~ DD|Natural Armor Increase ~ DD
-2	BONUS:ABILITYPOOL|Draconic Bloodline Feat|(CL+1)/3										BONUS:STAT|STR|2	BONUS:VAR|BloodlineCasterLVL|CL-1								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Bite ~ DD
-3																						BONUS:VAR|BreathWeaponTimes|1									ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Breath Weapon
-4																			BONUS:STAT|STR|2	BONUS:VAR|DragonDiscipleArmorBonus|1							ADD:SPELLCASTER|Arcane
-5																						BONUS:VAR|BloodlineCasterLVL|-1												ABILITY:Special Ability|AUTOMATIC|Blindsense ~ DD
-6																			BONUS:STAT|CON|2														ADD:SPELLCASTER|Arcane
-7																						BONUS:VAR|DragonDiscipleArmorBonus|1	BONUS:VAR|DragonFormTimes|(CL-4)/3	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dragon Form ~ DD
-8																			BONUS:STAT|INT|2														ADD:SPELLCASTER|Arcane
-9										BONUS:MOVEADD|TYPE.Fly|30|PREVARGTEQ:BloodlineLVL,15				BONUS:VAR|BloodlineCasterLVL|-1												ABILITY:Special Ability|AUTOMATIC|Wings
-10																																			ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block: Progression
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blood of Dragons|Dragon Disciple ~ Natural Armor Increase
+2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Bite
+3	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon
+5	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blindsense
+7	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Form
+9	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Wings
 
 
 ###Block: Duelist (Complete - review) --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:p.382	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:p.382	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:DuelistLVL|CL
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,Acrobatics=2,TYPE.Perform=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE=Perform|Sense Motive
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|CannyDefenseLVL|CL	BONUS:VAR|PreciseStrike|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense|Precise Strike
-2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2			ABILITY:Special Ability|AUTOMATIC|Improved Reaction|Parry
-3											ABILITY:Special Ability|AUTOMATIC|Enhanced Mobility
-4											ABILITY:Special Ability|AUTOMATIC|Combat Reflexes ~ Duelist|Grace
-5											ABILITY:Special Ability|AUTOMATIC|Riposte
-6											ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
-7	BONUS:VAR|ElaborateParryLVL|CL					ABILITY:Special Ability|AUTOMATIC|Elaborate Defense
-9											ABILITY:Special Ability|AUTOMATIC|Deflect Arrows ~ Duelist|No Retreat	VFEAT:Deflect Arrows|PREEQUIP:1,TYPE=Piercing|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded
-10											ABILITY:Special Ability|AUTOMATIC|Crippling Critical
+1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Weapon and Armor Proficiency
+1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Canny Defense|Duelist ~ Precise Strike
+2	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Improved Reaction|Duelist ~ Parry
+3	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Enhanced Mobility
+4	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Combat Reflexes|Duelist ~ Grace
+5	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Riposte
+6	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Acrobatic Charge
+7	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Elaborate Defense
+9	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Deflect Arrows|Duelist ~ No Retreat
+10	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Crippling Critical
 
 ###Block: Eldritch Knight (Complete)
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Eldritch Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:p.384	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Eldritch Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:p.384	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:EldritchKnightLVL|CL
 # Class Name		Required Ability							Req. Spell Type
 CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Internal,Weapon Prof ~ Martial	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Climb|Knowledge (Arcana)|Knowledge (Nobility)|Linguistics|Ride|Sense Motive|Spellcraft|Swim
-1	BONUS:ABILITYPOOL|Fighter Bonus Feat|1					ABILITY:Special Ability|AUTOMATIC|Diverse Training
-2								ADD:SPELLCASTER|Arcane
-3								ADD:SPELLCASTER|Arcane
-4								ADD:SPELLCASTER|Arcane
-5	BONUS:ABILITYPOOL|Fighter Bonus Feat|1	ADD:SPELLCASTER|Arcane
-6								ADD:SPELLCASTER|Arcane
-7								ADD:SPELLCASTER|Arcane
-8								ADD:SPELLCASTER|Arcane
-9	BONUS:ABILITYPOOL|Fighter Bonus Feat|1	ADD:SPELLCASTER|Arcane
-10								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Spell Critical
+###Block: Level Progression
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block: Level Progression
+1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Bonus Feat|Eldritch Knight ~ Diverse Training
+10	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Spell Critical
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus													Combat bonus
-CLASS:Loremaster	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:p.385	DEFINE:LoreMasterLvl|CL	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Loremaster	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:p.385		BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	DEFINE:LoremasterLVL|CL
 # Class Name	Required Feat												Required Skill						Required Spell School
 CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=7,TYPE.Knowledge=7	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|Linguistics|TYPE=Perform|Spellcraft|Use Magic Device
-1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret Lore
-2														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Lore
-3														ADD:SPELLCASTER|ANY
-4														ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
-5														ADD:SPELLCASTER|ANY
-6														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
-7														ADD:SPELLCASTER|ANY
-8														ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
-9														ADD:SPELLCASTER|ANY
-10														ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
+1	ADD:SPELLCASTER|ANY						
+2	ADD:SPELLCASTER|ANY						
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY						
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY						
+###Block: Level Progression
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Secret Lore
+2	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Lore
+6	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Greater Lore
+10	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ True Lore
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Mystic Theurge	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:p.387	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -713,7 +730,7 @@ CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Religion)=3	PRES
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft
 ###Block: Level Progression
-1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Combined Spells
+1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 3	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 4	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
@@ -722,45 +739,54 @@ CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Religi
 7	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 8	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 9	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
-10	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Spell Synthesis
+10	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+###Block: Level Progression
+1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Combined Spells
+10	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Spell Synthesis
 
 
 # Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.388	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.388	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:PathfinderChroniclerLVL|CL
 # Class Name			Required Skill
 CLASS:Pathfinder Chronicler	PRESKILL:3,Linguistics=3,Perform (Oratory)=5,Profession (Scribe)=5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Pathfinder Chronicler	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|Ride|Sense Motive|Sleight of Hand|Survival|Use Magic Device
-1												ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Deep Pockets|Master Scribe
-2												ABILITY:Special Ability|AUTOMATIC|Live to Tell the Tale|Pathfinding
-3	BONUS:VAR|BardicPerformanceDuration,BardicPerformanceLVL|CL-2	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Performance|Bardic Performance ~ PFC|Improved Aid
-4												ABILITY:Special Ability|AUTOMATIC|Epic Tales
-5												ABILITY:Special Ability|AUTOMATIC|Whispering Campaign
-6												ABILITY:Special Ability|AUTOMATIC|Inspire Action ~ PFC
-7												ABILITY:Special Ability|AUTOMATIC|Call down the Legends
-8												ABILITY:Special Ability|AUTOMATIC|Greater Epic Tales
-9	BONUS:VAR|InspireActionBonus|1
-10												ABILITY:Special Ability|AUTOMATIC|Lay of the Exalted Dead
+1	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Bardic Knowledge|Pathfinder Chronicler ~ Deep Pockets|Pathfinder Chronicler ~ Master Scribe
+2	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Live to Tell the Tale|Pathfinder Chronicler ~ Pathfinding
+3	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Bardic Performance|Pathfinder Chronicler ~ Improved Aid
+4	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Epic Tales
+5	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Whispering Campaign
+6	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Inspire Action
+7	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Call down the Legends
+8	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Greater Epic Tales
+10	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Lay of the Exalted Dead
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.391	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:p.391	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:ShadowdancerLVL|CL
 # Class Name		Required Feat					Required Skill
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:2,Stealth=5,Perform (Dance)=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Escape Artist|Perception|TYPE=Perform|Sleight of Hand|Stealth
-1	ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies
-1													AUTO:FEAT|Armor Proficiency (Light)
-###Block: Normal Level Progression
-1																						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight ~ SD
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLVL|(CL+1)/3				ABILITY:Special Ability|AUTOMATIC|Darkvision ~ SD|Evasion|Uncanny Dodge ~ Base
-3	BONUS:VAR|ShadowIllusionLVL,ShadowCompanionLVL|CL	BONUS:VAR|ShadowDancerTalentLVL|CL	BONUS:VAR|ShadowCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Rogue Talents ~ SD|Shadow Illusion|Summon Shadow
-4	BONUS:VAR|ShadowJump|20																		ABILITY:Special Ability|AUTOMATIC|Shadow Call ~ SD|Shadow Jump
-5																						ABILITY:Special Ability|AUTOMATIC|Rogue Talent ~ Defensive Roll|Defensive Roll ~ SD
-6	BONUS:VAR|ShadowJump|20
-7																						ABILITY:Special Ability|AUTOMATIC|Rogue Talent ~ Slippery Mind
-8	BONUS:VAR|ShadowJump|40																		ABILITY:Special Ability|AUTOMATIC|Shadow Power
-10	BONUS:VAR|ShadowJump|80																		ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Shadow Master
+###Block:
+1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Weapon and Armor Proficiency
+1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Hide in Plain Sight
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Darkvision
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Evasion
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Uncanny Dodge
+3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Rogue Talents|Shadowdancer ~ Shadow Illusion|Shadowdancer ~ Summon Shadow
+4	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Call|Shadowdancer ~ Shadow Jump
+5	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Defensive Roll
+7	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Slippery Mind
+8	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Power
+10	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Evasion|Shadowdancer ~ Shadow Master
+
+
+
+
+
+
+
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
