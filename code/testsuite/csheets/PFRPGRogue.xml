@@ -3785,6 +3785,17 @@ BIO
 		</ability_object>
 		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Evasion</name>
+			<description></description>
+			<type>ROGUECLASSFEATURES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Fearless</name>
 			<description>Halflings receive a +2 racial bonus on saving throws against fear. This bonus stacks with the bonus granted by Halfling Luck.</description>
 			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
@@ -4029,7 +4040,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Sneak Attack ~ Rogue</name>
+			<name>Sneak Attack</name>
 			<description></description>
 			<type>INTERNAL.ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES</type>
 			<associated></associated>
@@ -4040,7 +4051,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Trap Sense ~ Rogue</name>
+			<name>Trap Sense</name>
 			<description></description>
 			<type>INTERNAL.ROGUECLASSFEATURES</type>
 			<associated></associated>
