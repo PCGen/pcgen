@@ -87,8 +87,8 @@ CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Rac
 CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Oni-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Oni-Spawn)
 CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
 CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
-CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,ANY|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
-CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Qlippoth-Spawn)
+CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSkilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Rakshasa-Spawn)
+CATEGORY=Internal|Race Traits ~ Tiefling.MOD																ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-SpawnSLA ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA|PREABILITY:1,CATEGORY=Special Ability,Tiefling (Rakshasa-Spawn)
 
 
 
