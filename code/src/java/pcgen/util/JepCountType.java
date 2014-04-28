@@ -47,6 +47,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -827,19 +828,38 @@ public abstract class JepCountType
 		public Number count(PlayerCharacter pc, Object[] params)
 			throws ParseException
 		{
-			if (params.length != 0)
+			SkillFilter sf = null;
+			if (params.length > 1)
 			{
-				Logging.errorPrint("count(\"SKILLSIT\") does not take parameters");
+				Logging.errorPrint("count(\"SKILLSIT\") allows 0 or 1 parameters");
+			}
+			if (params.length == 1)
+			{
+				Object filtername = params[0];
+				sf = SkillFilter.getByToken(filtername.toString());
+				if (sf == null)
+				{
+					Logging.errorPrint("Unable to find Skill Filter: "
+						+ filtername);
+				}
 			}
 			int count = 0;
 			Collection<Skill> skills = pc.getSkillSet();
 			for (Skill sk : skills)
 			{
-				if (pc.includeSkill(sk, null)
+				if (pc.includeSkill(sk, sf)
 						&& sk.qualifies(pc, null))
 				{
 					count++; //For the skill
-					count += sk.getSizeOfListFor(ListKey.SITUATION);
+					for (String situation : sk.getSafeListFor(ListKey.SITUATION))
+					{
+						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
+							+ "=" + situation);
+						if (bonus > .01)
+						{
+							count++;
+						}
+					}
 				}
 			}
 			return Double.valueOf(count);

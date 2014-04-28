@@ -24,8 +24,9 @@ public class SkillSituation
 
 	private final Skill skill;
 	private final String situation;
+	private final double bonus;
 
-	public SkillSituation(Skill sk, String sit)
+	public SkillSituation(Skill sk, String sit, double sitbonus)
 	{
 		if (sk == null)
 		{
@@ -37,6 +38,7 @@ public class SkillSituation
 		}
 		skill = sk;
 		situation = sit;
+		bonus = sitbonus;
 	}
 
 	public Skill getSkill()
@@ -47,5 +49,10 @@ public class SkillSituation
 	public String getSituation()
 	{
 		return situation;
+	}
+	
+	public double getSituationBonus()
+	{
+		return bonus;
 	}
 }

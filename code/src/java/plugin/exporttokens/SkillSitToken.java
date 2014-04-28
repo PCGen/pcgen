@@ -150,9 +150,20 @@ public class SkillSitToken extends Token
 					if (i < numSits)
 					{
 						Collections.sort(situations);
-						return new SkillSituation(sk, situations.get(i));
 					}
-					i -= numSits;
+					for (String situation : situations)
+					{
+						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
+							+ "=" + situation);
+						if (bonus > .01)
+						{
+							if (i == 0)
+							{
+								return new SkillSituation(sk, situations.get(i), bonus);
+							}
+							i--; //Wasn't this situation
+						}
+					}
 				}
 			}
 		}
@@ -172,7 +183,9 @@ public class SkillSitToken extends Token
 				String situation = skillName.substring(equalLoc + 1);
 				Skill sk = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Skill.class, skillName.substring(0, equalLoc));
-				return new SkillSituation(sk, situation);
+				double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
+					+ "=" + situation);
+				return new SkillSituation(sk, situation, bonus);
 			}
 		}
 		return skill;
@@ -242,15 +255,17 @@ public class SkillSitToken extends Token
 			Skill skill;
 			boolean isSituation;
 			String situation;
+			SkillSituation sit;
 			if (skillSit instanceof Skill)
 			{
+				sit = null;
 				skill = (Skill) skillSit;
 				isSituation = false;
 				situation = "";
 			}
 			else if (skillSit instanceof SkillSituation)
 			{
-				SkillSituation sit = (SkillSituation) skillSit;
+				sit = (SkillSituation) skillSit;
 				skill = sit.getSkill();
 				isSituation = true;
 				situation = sit.getSituation();
@@ -277,9 +292,7 @@ public class SkillSitToken extends Token
 						+ SkillModifier.modifier(skill, pc).intValue();
 					if (isSituation)
 					{
-						rank +=
-								pc.getTotalBonusTo("SITUATION",
-									skill.getKeyName() + "=" + situation);
+						rank += sit.getSituationBonus();
 					}
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
@@ -309,9 +322,7 @@ public class SkillSitToken extends Token
 					int mod = SkillModifier.modifier(skill, pc).intValue();
 					if (isSituation)
 					{
-						mod +=
-								pc.getTotalBonusTo("SITUATION",
-									skill.getKeyName() + "=" + situation);
+						mod += sit.getSituationBonus();
 					}
 					retValue.append(Integer.toString(mod));
 					break;
@@ -328,9 +339,7 @@ public class SkillSitToken extends Token
 					int misc = SkillModifier.modifier(skill, pc).intValue();
 					if (isSituation)
 					{
-						misc +=
-								pc.getTotalBonusTo("SITUATION",
-									skill.getKeyName() + "=" + situation);
+						misc += sit.getSituationBonus();
 					}
 					misc -= SkillModifier.getStatMod(skill, pc);
 					retValue.append(Integer.toString(misc));
@@ -393,9 +402,7 @@ public class SkillSitToken extends Token
 										.intValue();
 						if (isSituation)
 						{
-							mRank +=
-									pc.getTotalBonusTo("SITUATION",
-										skill.getKeyName() + "=" + situation);
+							mRank += sit.getSituationBonus();
 						}
 						retValue.append(Integer.toString(mRank));
 					}
@@ -417,9 +424,7 @@ public class SkillSitToken extends Token
 										.intValue();
 						if (isSituation)
 						{
-							mRank +=
-									pc.getTotalBonusTo("SITUATION",
-										skill.getKeyName() + "=" + situation);
+							mRank += sit.getSituationBonus();
 						}
 						retValue.append(Integer.toString(mRank));
 					}
