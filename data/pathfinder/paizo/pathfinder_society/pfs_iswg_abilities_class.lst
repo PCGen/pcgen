@@ -198,10 +198,10 @@ CATEGORY=Special Ability|Totem Spirit ~ Tamiir-Quah.MOD			TYPE:PFSNotLegal	PRECL
 
 ###BLOCK: Varisian Tattoo Abilities
 # Ability Name			Product Identity?	Category of Ability		Type						Required Feat					Innate Spells									Description																								Caster level					Source Page
-CATEGORY=Special Ability|Varisian Tattoo ~ Avidais.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Varisian Tattoo ~ Idolis.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Varisian Tattoo ~ Carnasia.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Varisian Tattoo ~ Ragario.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Varisian Tattoo ~ Vangloris.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Varisian Tattoo ~ Voratalo.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Varisian Tattoo ~ Avaria.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Varisian Tattoo ~ Avidais.MOD		TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Idolis.MOD		TYPE:PFSLegal	
+CATEGORY=Special Ability|Varisian Tattoo ~ Carnasia.MOD		TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Ragario.MOD		TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Vangloris.MOD	TYPE:PFSLegal	
+CATEGORY=Special Ability|Varisian Tattoo ~ Voratalo.MOD		TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Tattoo ~ Avaria.MOD		TYPE:PFSLegal	
