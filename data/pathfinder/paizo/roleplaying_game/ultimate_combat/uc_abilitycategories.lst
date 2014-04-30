@@ -5,11 +5,11 @@
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list																			Plural description for UI			Display Location
 ABILITYCATEGORY:Choose Attack Rolls Stat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:AttackStatChoice																																		DISPLAYLOCATION:Class Features
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list																			Plural description for UI			Display Location
-ABILITYCATEGORY:Spellslinger Gun Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Display ~ Arcane Gun																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spellslinger Gun Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Arcane Gun ~ Display																								DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Spellslinger Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:School of the Gun ~ Display																							DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Arcane Bomber Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:School of the Bomb ~ Display																							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Siege Mage Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Display ~ Siege School																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Siege Mage Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Siege School ~ Display																								DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Unarmed Fighter Bonus Style Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnarmedFighterStyle																										PLURAL:Unarmed Fighter Bonus Style Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Gladiator Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Performance																											PLURAL:Gladiator Bonus Feats			DISPLAYLOCATION:Feats
