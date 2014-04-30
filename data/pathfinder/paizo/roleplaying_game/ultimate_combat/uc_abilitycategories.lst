@@ -5,18 +5,18 @@
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list																			Plural description for UI			Display Location
 ABILITYCATEGORY:Choose Attack Rolls Stat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:AttackStatChoice																																		DISPLAYLOCATION:Class Features
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list																			Plural description for UI			Display Location
-ABILITYCATEGORY:Spellslinger Gun Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Arcane Gun ~ Display																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spellslinger Gun Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Display ~ Arcane Gun																								DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Spellslinger Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:School of the Gun ~ Display																							DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Arcane Bomber Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:School of the Bomb ~ Display																							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Siege Mage Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Siege School ~ Display																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Siege Mage Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Display ~ Siege School																								DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Unarmed Fighter Bonus Style Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnarmedFighterStyle																										PLURAL:Unarmed Fighter Bonus Style Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Gladiator Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Performance																											PLURAL:Gladiator Bonus Feats			DISPLAYLOCATION:Feats
 
 
 # Gunslinger
-ABILITYCATEGORY:Gun Training Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Gun Training Choice ~ Gunslinger															PLURAL:Gun Training Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Gun Training Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Gunslinger ~ Gun Training Choice															PLURAL:Gun Training Choices			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Gunslinger Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GunslingerFeat.Combat.Grit																									PLURAL:Gunslinger Feats				DISPLAYLOCATION:Feats
 
 # Samurai
@@ -63,10 +63,10 @@ ABILITYCATEGORY:Ape Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		F
 ABILITYCATEGORY:Bat Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Acrobatic|Agile Maneuvers|Improved Initiative|Lightning Reflexes|Skill Focus (Perception)													DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Boar Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Bleeding Critical|Blind-Fight|Diehard|Improved Overrun																		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:KENSAI Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Weapon Proficiency ~ Kensai																							DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Kensai Chosen Weapon				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Chosen Weapon ~ Kensai																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:KENSAI Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Kensai ~ Weapon Proficiency																							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kensai Chosen Weapon				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Kensai ~ Chosen Weapon																								DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Kensai Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Weapon Focus Display ~ Kensai																							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kensai Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Kensai ~ Weapon Focus Display																							DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:WILD STALKER Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WILDSTALKERWildTalent																																	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Rapid Reload																									DISPLAYLOCATION:Class Features
