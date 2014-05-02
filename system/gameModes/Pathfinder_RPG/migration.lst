@@ -1814,3 +1814,82 @@ ABILITY:Special Ability|Natural Disaster ~ WitchGrandHex		MAXVER:6.4.0	NEWKEY:Wi
 ABILITY:Special Ability|Fiendish Boon ~ Antipaladin			MAXVER:6.4.0	NEWKEY:Antipaladin ~ Fiendish Boon	
 ABILITY:Special Ability|Enhance Weapon ~ Antipaladin			MAXVER:6.4.0	NEWKEY:Fiendish Boon ~ Enhance Weapon	
 ABILITY:Special Ability|Fiendish Servant ~ Antipaladin		MAXVER:6.4.0	NEWKEY:Fiendish Boon ~ Fiendish Servant
+
+ABILITY:Special Ability|Weapon Proficiencies ~ Ninja				MAXVER:6.4.0	NEWKEY:Ninja ~ Weapon Proficiencies			
+ABILITY:Special Ability|Poison Use ~ Ninja						MAXVER:6.4.0	NEWKEY:Ninja ~ Poison Use					
+ABILITY:Special Ability|Ninja Trick ~ Ninja						MAXVER:6.4.0	NEWKEY:Ninja ~ Ninja Trick					
+ABILITY:Special Ability|Sneak Attack ~ Ninja					MAXVER:6.4.0	NEWKEY:Ninja ~ Sneak Attack				
+ABILITY:Special Ability|No Trace ~ Ninja						MAXVER:6.4.0	NEWKEY:Ninja ~ No Trace					
+ABILITY:Special Ability|Light Steps ~ Ninja						MAXVER:6.4.0	NEWKEY:Ninja ~ Light Steps					
+ABILITY:Special Ability|Hidden Master ~ Ninja					MAXVER:6.4.0	NEWKEY:Ninja ~ Hidden Master				
+ABILITY:Special Ability|Ki Pool ~ Ninja						MAXVER:6.4.0	NEWKEY:Ninja ~ Ki Pool					
+ABILITY:Special Ability|Trap Sense ~ Ninja						MAXVER:6.4.0	NEWKEY:Ninja ~ Trap Sense					
+ABILITY:Special Ability|Acrobatic Master ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Acrobatic Master			
+ABILITY:Special Ability|Bleeding Attack ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Bleeding Attack			
+ABILITY:Special Ability|Choking Bomb ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Choking Bomb			
+ABILITY:Special Ability|Combat Trick ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Combat Trick			
+ABILITY:Special Ability|Darkvision ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Darkvision				
+ABILITY:Special Ability|Deadly Range ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Deadly Range			
+ABILITY:Special Ability|Deflect Arrows ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Deflect Arrows			
+ABILITY:Special Ability|Fast Stealth ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Fast Stealth			
+ABILITY:Special Ability|Feather Fall ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Feather Fall			
+ABILITY:Special Ability|Flurry of Stars ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Flurry of Stars			
+ABILITY:Special Ability|Forgotten Trick ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Forgotten Trick			
+ABILITY:Special Ability|Hidden Weapons ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Hidden Weapons			
+ABILITY:Special Ability|High Jumper ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ High Jumper				
+ABILITY:Special Ability|Ki Block ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Ki Block				
+ABILITY:Special Ability|Ki Charge ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Ki Charge				
+ABILITY:Special Ability|Poison Bomb ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Poison Bomb				
+ABILITY:Special Ability|Pressure Points ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Pressure Points			
+ABILITY:Special Ability|Rogue Talent ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Rogue Talent			
+ABILITY:Special Ability|Shadow Clone ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Shadow Clone			
+ABILITY:Special Ability|Slow Metabolism ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Slow Metabolism			
+ABILITY:Special Ability|Slow Reactions ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Slow Reactions			
+ABILITY:Special Ability|Smoke Bomb ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Smoke Bomb				
+ABILITY:Special Ability|Snatch Arrows ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Snatch Arrows			
+ABILITY:Special Ability|Style Master ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Style Master			
+ABILITY:Special Ability|Sudden Disguise ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Sudden Disguise			
+ABILITY:Special Ability|Unarmed Combat Training ~ Ninja Trick			MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Unarmed Combat Training		
+ABILITY:Special Ability|Undetected Sabotage ~ Ninja Trick			MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Undetected Sabotage		
+ABILITY:Special Ability|Vanishing Trick ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Vanishing Trick			
+ABILITY:Special Ability|Ventriloquism ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Ventriloquism			
+ABILITY:Special Ability|Wall Climber ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Wall Climber			
+ABILITY:Special Ability|Weapon Training ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Weapon Training			
+ABILITY:Special Ability|Advanced Talents ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Advanced Talents			
+ABILITY:Special Ability|Assassinate ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Assassinate				
+ABILITY:Special Ability|Blinding Bomb ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Blinding Bomb			
+ABILITY:Special Ability|Deadly Shuriken ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Deadly Shuriken			
+ABILITY:Special Ability|Evasion ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Evasion				
+ABILITY:Special Ability|Feat ~ Ninja Trick						MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Feat					
+ABILITY:Special Ability|Ghost Step ~ Ninja Trick					MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Ghost Step				
+ABILITY:Special Ability|Invisible Blade ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Invisible Blade			
+ABILITY:Special Ability|Master Disguise ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Master Disguise			
+ABILITY:Special Ability|See the Unseen ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ See the Unseen			
+ABILITY:Special Ability|Shadow Split ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Shadow Split			
+ABILITY:Special Ability|Unarmed Combat Mastery ~ Ninja Trick			MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Unarmed Combat Mastery		
+ABILITY:Special Ability|Unbound Steps ~ Ninja Trick				MAXVER:6.4.0	NEWKEY:Ninja Trick ~ Unbound Steps			
+ABILITY:Special Ability|Black Market Connections ~ Rogue Talent			MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Black Market Connections	
+ABILITY:Special Ability|Convincing Lie ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Convincing Lie			
+ABILITY:Special Ability|Deft Palm ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Deft Palm				
+ABILITY:Special Ability|Esoteric Scholar ~ Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Esoteric Scholar			
+ABILITY:Special Ability|Firearm Training ~ Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Firearm Training			
+ABILITY:Special Ability|Getaway Artist ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Getaway Artist			
+ABILITY:Special Ability|Grit ~ Rogue Talent						MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Grit					
+ABILITY:Special Ability|Hold Breath ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Hold Breath			
+ABILITY:Special Ability|Iron Guts ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Iron Guts				
+ABILITY:Special Ability|Ki Pool ~ Rogue Talent						MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Ki Pool				
+ABILITY:Special Ability|Ninja Trick ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Ninja Trick			
+ABILITY:Special Ability|Rope Master ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Rope Master			
+ABILITY:Special Ability|Strong Stroke ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Strong Stroke			
+ABILITY:Special Ability|Terrain Mastery ~ Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Terrain Mastery			
+ABILITY:Special Ability|Underhanded ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Underhanded			
+ABILITY:Special Ability|Wall Scramble ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Wall Scramble			
+ABILITY:Special Ability|Confounding Blades ~ Advanced Rogue Talent		MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Confounding Blades	
+ABILITY:Special Ability|Familiar ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Familiar		
+ABILITY:Special Ability|Getaway Master ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Getaway Master	
+ABILITY:Special Ability|Hard Minded ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Hard Minded		
+ABILITY:Special Ability|Hide in Plain Sight ~ Advanced Rogue Talent		MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Hide in Plain Sight	
+ABILITY:Special Ability|Rumormonger ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Rumormonger		
+ABILITY:Special Ability|Unwitting Ally ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Unwitting Ally	
+ABILITY:Special Ability|Weapon Snatcher ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Weapon Snatcher	
+
