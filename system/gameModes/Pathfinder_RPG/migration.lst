@@ -1884,14 +1884,14 @@ ABILITY:Special Ability|Strong Stroke ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rog
 ABILITY:Special Ability|Terrain Mastery ~ Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Terrain Mastery			
 ABILITY:Special Ability|Underhanded ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Underhanded			
 ABILITY:Special Ability|Wall Scramble ~ Rogue Talent					MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Wall Scramble			
-ABILITY:Special Ability|Confounding Blades ~ Advanced Rogue Talent		MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Confounding Blades	
-ABILITY:Special Ability|Familiar ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Familiar		
-ABILITY:Special Ability|Getaway Master ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Getaway Master	
-ABILITY:Special Ability|Hard Minded ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Hard Minded		
-ABILITY:Special Ability|Hide in Plain Sight ~ Advanced Rogue Talent		MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Hide in Plain Sight	
-ABILITY:Special Ability|Rumormonger ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Rumormonger		
-ABILITY:Special Ability|Unwitting Ally ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Unwitting Ally	
-ABILITY:Special Ability|Weapon Snatcher ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Weapon Snatcher	
+ABILITY:Special Ability|Confounding Blades ~ Advanced Rogue Talent		MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Confounding Blades	
+ABILITY:Special Ability|Familiar ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Familiar		
+ABILITY:Special Ability|Getaway Master ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Getaway Master	
+ABILITY:Special Ability|Hard Minded ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Hard Minded		
+ABILITY:Special Ability|Hide in Plain Sight ~ Advanced Rogue Talent		MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Hide in Plain Sight	
+ABILITY:Special Ability|Rumormonger ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Rumormonger		
+ABILITY:Special Ability|Unwitting Ally ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Unwitting Ally	
+ABILITY:Special Ability|Weapon Snatcher ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Rogue Talent ~ Weapon Snatcher	
 
 ABILITY:Special Ability|Boar Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Boar Style			
 ABILITY:Special Ability|Crane Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Crane Style			
