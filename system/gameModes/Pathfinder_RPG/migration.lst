@@ -997,12 +997,11 @@ ABILITY:Special Ability|Looking for Work_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Look
 ABILITY:Special Ability|Optimistic Gambler_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Optimistic Gambler
 ABILITY:Special Ability|Researching the Blot_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Researching the Blot
 ABILITY:Special Ability|Scouting for Fiends_Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Scouting for Fiends
-
+ABILITY:Special Ability|Unknown ~ Region			MAXVER:6.4.00	NEWKEY:Region ~ Unknown
 
 
 
 ###Block: Old 6.2
-
 
 EQUIPMENT:Kasari Gusoku	NEWKEY:Kusari Gusoku	MAXVER:6.1.8
 
@@ -1367,3 +1366,451 @@ ABILITY:Archetype|Rogue Arcehtype ~ SURVIVALIST		NEWKEY:Rogue Archetype ~ SURVIV
 
 ###Block DATA-1603 - Ultimate Combat 2nd printing errata
 ABILITY:Archetype|Hard to Fool ~ Advanced Rogue Talent		NEWKEY:Hard Minded ~ Advanced Rogue Talent	MAXVER:6.2.0
+
+###Block: 6.4
+
+
+ABILITY:Special Ability|Magus Arcana ~ Arcane Redoubt - Greater	MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Arcane Redoubt (Greater)
+ABILITY:Special Ability|Magus Arcana ~ Pool Strike - Arcing		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Pool Strike (Arcing)		
+ABILITY:Special Ability|Magus Arcana ~ Pool Strike - Clinging	MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Pool Strike (Clinging)		
+ABILITY:Special Ability|Magus Arcana ~ Pool Strike - Thunderous	MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Pool Strike (Thunderous)	
+
+ABILITY:Special Ability|Alarm Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Alarm										
+ABILITY:Special Ability|Animate Dead Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Animate Dead									
+ABILITY:Special Ability|Animate Plants Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Animate Plants								
+ABILITY:Special Ability|Aqueous Orb Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Aqueous Orb									
+ABILITY:Special Ability|Astral Projection Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Astral Projection								
+ABILITY:Special Ability|Augury Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Augury										
+ABILITY:Special Ability|Banishment Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Banishment									
+ABILITY:Special Ability|Barkskin Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Barkskin									
+ABILITY:Special Ability|Beast Shape IV Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Beast Shape IV								
+ABILITY:Special Ability|Bestow Curse Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Bestow Curse									
+ABILITY:Special Ability|Black Tentacles Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Black Tentacles								
+ABILITY:Special Ability|Bless Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Bless										
+ABILITY:Special Ability|Blink Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Blink										
+ABILITY:Special Ability|Blur Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Blur										
+ABILITY:Special Ability|Break Enchantment Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Break Enchantment								
+ABILITY:Special Ability|Bull's Strength Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Bull's Strength								
+ABILITY:Special Ability|Burning Hands (Acid) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Burning Hands (Acid)							
+ABILITY:Special Ability|Burning Hands (Cold) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Burning Hands (Cold)							
+ABILITY:Special Ability|Burning Hands (Electricity) Crossblooded Spell				MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Burning Hands (Electricity)						
+ABILITY:Special Ability|Burning Hands Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Burning Hands								
+ABILITY:Special Ability|Call Lightning Storm (Starsoul) Crossblooded Spell			MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Call Lightning Storm (Starsoul)					
+ABILITY:Special Ability|Cause Fear Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Cause Fear									
+ABILITY:Special Ability|Chain Lightning Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Chain Lightning								
+ABILITY:Special Ability|Charm Monster Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Charm Monster								
+ABILITY:Special Ability|Chill Touch Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Chill Touch									
+ABILITY:Special Ability|Clashing Rocks Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Clashing Rocks								
+ABILITY:Special Ability|Command Plants Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Command Plants								
+ABILITY:Special Ability|Cone of Cold Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Cone of Cold									
+ABILITY:Special Ability|Confusion Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Confusion									
+ABILITY:Special Ability|Control Water Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Control Water								
+ABILITY:Special Ability|Control Weather Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Control Weather								
+ABILITY:Special Ability|Darkvision Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Darkvision									
+ABILITY:Special Ability|Deep Slumber Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Deep Slumber									
+ABILITY:Special Ability|Deeper Darkness Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Deeper Darkness								
+ABILITY:Special Ability|Delay Poison Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Delay Poison									
+ABILITY:Special Ability|Dimension Door Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dimension Door								
+ABILITY:Special Ability|Dimensional Lock Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dimensional Lock								
+ABILITY:Special Ability|Disintegrate Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Disintegrate									
+ABILITY:Special Ability|Dismissal Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dismissal									
+ABILITY:Special Ability|Dispel Magic (Greater) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dispel Magic (Greater)							
+ABILITY:Special Ability|Dispel Magic Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dispel Magic									
+ABILITY:Special Ability|Divination Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Divination									
+ABILITY:Special Ability|Dominate Monster Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dominate Monster								
+ABILITY:Special Ability|Dominate Person Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dominate Person								
+ABILITY:Special Ability|Dream Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Dream										
+ABILITY:Special Ability|Earthquake Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Earthquake									
+ABILITY:Special Ability|Elemental Aura (Cold Only) Crossblooded Spell				MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Elemental Aura (Cold Only)						
+ABILITY:Special Ability|Elemental Body I Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Elemental Body I								
+ABILITY:Special Ability|Elemental Body II Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Elemental Body II								
+ABILITY:Special Ability|Elemental Body III Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Elemental Body III								
+ABILITY:Special Ability|Elemental Body IV Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Elemental Body IV								
+ABILITY:Special Ability|Elemental Swarm Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Elemental Swarm								
+ABILITY:Special Ability|Energy Drain Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Energy Drain									
+ABILITY:Special Ability|Enlarge Person Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Enlarge Person								
+ABILITY:Special Ability|Entangle Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Entangle									
+ABILITY:Special Ability|Entropic Shield Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Entropic Shield								
+ABILITY:Special Ability|Expeditious Excavation Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Expeditious Excavation							
+ABILITY:Special Ability|Eyebite Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Eyebite									
+ABILITY:Special Ability|False Life Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ False Life									
+ABILITY:Special Ability|Fear Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Fear										
+ABILITY:Special Ability|Feeblemind Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Feeblemind									
+ABILITY:Special Ability|Finger of Death Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Finger of Death								
+ABILITY:Special Ability|Fireball Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Fireball									
+ABILITY:Special Ability|Flame Strike Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Flame Strike									
+ABILITY:Special Ability|Fly Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Fly										
+ABILITY:Special Ability|Foresight Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Foresight									
+ABILITY:Special Ability|Form of the Dragon I Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Form of the Dragon I							
+ABILITY:Special Ability|Form of the Dragon II Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Form of the Dragon II							
+ABILITY:Special Ability|Form of the Dragon III Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Form of the Dragon III							
+ABILITY:Special Ability|Freedom of Movement Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Freedom of Movement							
+ABILITY:Special Ability|Gaseous Form Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Gaseous Form									
+ABILITY:Special Ability|Gate Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Gate										
+ABILITY:Special Ability|Geyser Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Geyser										
+ABILITY:Special Ability|Giant Form I Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Giant Form I									
+ABILITY:Special Ability|Giant Form II Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Giant Form II								
+ABILITY:Special Ability|Glitterdust Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Glitterdust									
+ABILITY:Special Ability|Gust of Wind Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Gust of Wind									
+ABILITY:Special Ability|Hideous Laughter Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Hideous Laughter								
+ABILITY:Special Ability|Hold Monster Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Hold Monster									
+ABILITY:Special Ability|Horrid Wilting Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Horrid Wilting								
+ABILITY:Special Ability|Hydraulic Push Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Hydraulic Push								
+ABILITY:Special Ability|Hypnotism Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Hypnotism									
+ABILITY:Special Ability|Identify Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Identify									
+ABILITY:Special Ability|Insanity Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Insanity									
+ABILITY:Special Ability|Invisibility Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Invisibility									
+ABILITY:Special Ability|Iron Body Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Iron Body									
+ABILITY:Special Ability|Irresistible Dance Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Irresistible Dance								
+ABILITY:Special Ability|Lightning Bolt Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Lightning Bolt								
+ABILITY:Special Ability|Mage Armor Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Mage Armor									
+ABILITY:Special Ability|Magic Circle against Evil Crossblooded Spell				MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Magic Circle against Evil						
+ABILITY:Special Ability|Magic Weapon (Greater) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Magic Weapon (Greater)							
+ABILITY:Special Ability|Major Creation Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Major Creation								
+ABILITY:Special Ability|Meteor Swarm (dealing cold damage) Crossblooded Spell			MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Meteor Swarm (dealing cold damage)					
+ABILITY:Special Ability|Meteor Swarm Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Meteor Swarm									
+ABILITY:Special Ability|Mind Blank Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Mind Blank									
+ABILITY:Special Ability|Minor Creation Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Minor Creation								
+ABILITY:Special Ability|Mislead Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Mislead									
+ABILITY:Special Ability|Moment of Prescience Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Moment of Prescience							
+ABILITY:Special Ability|Obscuring Mist Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Obscuring Mist								
+ABILITY:Special Ability|Overland Flight Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Overland Flight								
+ABILITY:Special Ability|Persistent Image Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Persistent Image								
+ABILITY:Special Ability|Phase Door Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Phase Door									
+ABILITY:Special Ability|Planar Binding Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Planar Binding								
+ABILITY:Special Ability|Planar Binding (devils and fiendish creatures only) Crossblooded Spell	MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Planar Binding (devils and fiendish creatures only)		
+ABILITY:Special Ability|Planar Binding (Greater) Crossblooded Spell				MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Planar Binding (Greater)							
+ABILITY:Special Ability|Plane Shift Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Plane Shift									
+ABILITY:Special Ability|Plant Shape III Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Plant Shape III								
+ABILITY:Special Ability|Poison Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Poison										
+ABILITY:Special Ability|Polar Ray Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Polar Ray									
+ABILITY:Special Ability|Polymorph (Greater) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Polymorph (Greater)							
+ABILITY:Special Ability|Polymorph Any Object Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Polymorph Any Object							
+ABILITY:Special Ability|Power Word Blind Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Power Word Blind								
+ABILITY:Special Ability|Power Word Stun Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Power Word Stun								
+ABILITY:Special Ability|Protection from Energy Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Protection from Energy							
+ABILITY:Special Ability|Protection from Good Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Protection from Good							
+ABILITY:Special Ability|Prying Eyes (Greater) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Prying Eyes (Greater)							
+ABILITY:Special Ability|Rage Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Rage										
+ABILITY:Special Ability|Ray of Enfeeblement Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Ray of Enfeeblement							
+ABILITY:Special Ability|Ray of Exhaustion Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Ray of Exhaustion								
+ABILITY:Special Ability|Remove Curse Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Remove Curse									
+ABILITY:Special Ability|Repel Metal or Stone Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Repel Metal or Stone							
+ABILITY:Special Ability|Repulsion Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Repulsion									
+ABILITY:Special Ability|Resist Energy Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Resist Energy								
+ABILITY:Special Ability|Reverse Gravity Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Reverse Gravity								
+ABILITY:Special Ability|Scorching Ray (Acid) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Scorching Ray (Acid)							
+ABILITY:Special Ability|Scorching Ray (Cold) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Scorching Ray (Cold)							
+ABILITY:Special Ability|Scorching Ray (Electricity) Crossblooded Spell				MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Scorching Ray (Electricity)						
+ABILITY:Special Ability|Scorching Ray Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Scorching Ray								
+ABILITY:Special Ability|Seamantle Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Seamantle									
+ABILITY:Special Ability|See Invisibility Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ See Invisibility								
+ABILITY:Special Ability|Shades Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shades										
+ABILITY:Special Ability|Shadow Conjuration Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shadow Conjuration								
+ABILITY:Special Ability|Shadow Evocation (Greater) Crossblooded Spell				MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shadow Evocation (Greater)						
+ABILITY:Special Ability|Shadow Evocation Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shadow Evocation								
+ABILITY:Special Ability|Shadow Walk Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shadow Walk									
+ABILITY:Special Ability|Shambler Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shambler									
+ABILITY:Special Ability|Shapechange Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shapechange									
+ABILITY:Special Ability|Shifting Sand Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shifting Sand								
+ABILITY:Special Ability|Shocking Grasp Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shocking Grasp								
+ABILITY:Special Ability|Shout Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shout										
+ABILITY:Special Ability|Shout (Greater) Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Shout (Greater)								
+ABILITY:Special Ability|Sleep Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Sleep										
+ABILITY:Special Ability|Slipstream Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Slipstream									
+ABILITY:Special Ability|Speak with Plants Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Speak with Plants								
+ABILITY:Special Ability|Spell Resistance Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Spell Resistance								
+ABILITY:Special Ability|Spell Turning Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Spell Turning								
+ABILITY:Special Ability|Spike Stones Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Spike Stones									
+ABILITY:Special Ability|Stone Tell Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Stone Tell									
+ABILITY:Special Ability|Stoneskin Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Stoneskin									
+ABILITY:Special Ability|Storm of Vengeance Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Storm of Vengeance								
+ABILITY:Special Ability|Suggestion (Mass) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Suggestion (Mass)								
+ABILITY:Special Ability|Suggestion Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Suggestion									
+ABILITY:Special Ability|Summon Monster III (Reptiles Only) Crossblooded Spell			MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Summon Monster III (Reptiles Only)					
+ABILITY:Special Ability|Summon Monster VII Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Summon Monster VII								
+ABILITY:Special Ability|Summon Monster VII (Reptiles Only) Crossblooded Spell			MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Summon Monster VII (Reptiles Only)					
+ABILITY:Special Ability|Summon Monster VIII (Elementals Only) Crossblooded Spell		MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Summon Monster VIII (Elementals Only)				
+ABILITY:Special Ability|Summon Monster IX Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Summon Monster IX								
+ABILITY:Special Ability|Sunburst Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Sunburst									
+ABILITY:Special Ability|Teleport (Greater) Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Teleport (Greater)								
+ABILITY:Special Ability|Tongues Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Tongues									
+ABILITY:Special Ability|Touch of Idiocy Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Touch of Idiocy								
+ABILITY:Special Ability|Transformation Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Transformation								
+ABILITY:Special Ability|Transport via Plants Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Transport via Plants							
+ABILITY:Special Ability|Tree Stride Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Tree Stride									
+ABILITY:Special Ability|True Seeing Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ True Seeing									
+ABILITY:Special Ability|True Strike Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ True Strike									
+ABILITY:Special Ability|Undeath To Death Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Undeath To Death								
+ABILITY:Special Ability|Unholy Aura Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Unholy Aura									
+ABILITY:Special Ability|Unseen Servant Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Unseen Servant								
+ABILITY:Special Ability|Vampiric Touch Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Vampiric Touch								
+ABILITY:Special Ability|Veil Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Veil										
+ABILITY:Special Ability|Ventriloquism Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Ventriloquism								
+ABILITY:Special Ability|Vision Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Vision										
+ABILITY:Special Ability|Wail of the Banshee Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wail of the Banshee							
+ABILITY:Special Ability|Wall of Fire Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wall of Fire									
+ABILITY:Special Ability|Wall Of Ice Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wall Of Ice									
+ABILITY:Special Ability|Wall of Iron Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wall of Iron									
+ABILITY:Special Ability|Wall of Stone Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wall of Stone								
+ABILITY:Special Ability|Wall Of Thorns Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wall Of Thorns								
+ABILITY:Special Ability|Waves Of Fatigue Crossblooded Spell						MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Waves Of Fatigue								
+ABILITY:Special Ability|Whirlwind Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Whirlwind									
+ABILITY:Special Ability|Wish Crossblooded Spell								MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Wish										
+ABILITY:Special Ability|World Wave Crossblooded Spell							MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ World Wave									
+
+ABILITY:Special Ability|Aberrant ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Aberrant		
+ABILITY:Special Ability|Abyssal ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Abyssal		
+ABILITY:Special Ability|Arcane ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Arcane		
+ABILITY:Special Ability|Celestial ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Celestial	
+ABILITY:Special Ability|Destined ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Destined		
+ABILITY:Special Ability|Draconic ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Draconic		
+ABILITY:Special Ability|Elemental ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Elemental	
+ABILITY:Special Ability|Fey ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Fey		
+ABILITY:Special Ability|Infernal ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Infernal		
+ABILITY:Special Ability|Undead ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Undead		
+ABILITY:Special Ability|Aquatic ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Aquatic		
+ABILITY:Special Ability|Boreal ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Boreal		
+ABILITY:Special Ability|Deepearth ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Deepearth	
+ABILITY:Special Ability|Dreamspun ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Dreamspun	
+ABILITY:Special Ability|Protean ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Protean		
+ABILITY:Special Ability|Serpentine ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Serpentine	
+ABILITY:Special Ability|Shadow ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Shadow		
+ABILITY:Special Ability|Starsoul ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Starsoul		
+ABILITY:Special Ability|Stormborn ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Stormborn	
+ABILITY:Special Ability|Verdant ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Verdant		
+ABILITY:Special Ability|Accursed ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Accursed		
+ABILITY:Special Ability|Djinni ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Djinni		
+ABILITY:Special Ability|Efreeti ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Efreeti		
+ABILITY:Special Ability|Maestro ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Maestro		
+ABILITY:Special Ability|Marid ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Marid		
+ABILITY:Special Ability|Rakshasa ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Rakshasa		
+ABILITY:Special Ability|Shaitan ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Shaitan		
+ABILITY:Special Ability|Anarchic ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Anarchic		
+ABILITY:Special Ability|Arial ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Arial		
+ABILITY:Special Ability|Bedrock ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Bedrock		
+ABILITY:Special Ability|Brutal ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Brutal		
+ABILITY:Special Ability|Empyreal ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Empyreal		
+ABILITY:Special Ability|Envenomed ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Envenomed	
+ABILITY:Special Ability|Groveborn ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Groveborn	
+ABILITY:Special Ability|Karmic ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Karmic		
+ABILITY:Special Ability|Linnorm ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Linnorm		
+ABILITY:Special Ability|Pit-Touched ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Pit-Touched	
+ABILITY:Special Ability|Primal ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Primal		
+ABILITY:Special Ability|Rime-Blooded ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Rime-Blooded	
+ABILITY:Special Ability|Sage ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Sage		
+ABILITY:Special Ability|Sanguine ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Sanguine		
+ABILITY:Special Ability|Seaborn ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Seaborn		
+ABILITY:Special Ability|Sylvan ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Sylvan		
+ABILITY:Special Ability|Umbral ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Umbral		
+ABILITY:Special Ability|Visionary ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Visionary	
+ABILITY:Special Ability|Void-Touched ~ Crossbloodline			MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Void-Touched	
+ABILITY:Special Ability|Warped ~ Crossbloodline				MAXVER:6.4.0	NEWKEY:Crossbloodline ~ Warped		
+
+ABILITY:Special Ability|Aberrant Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Aberrant	
+ABILITY:Special Ability|Abyssal Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Abyssal	
+ABILITY:Special Ability|Arcane Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Arcane	
+ABILITY:Special Ability|Celestial Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Celestial	
+ABILITY:Special Ability|Destined Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Destined	
+ABILITY:Special Ability|Draconic Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Draconic	
+ABILITY:Special Ability|Elemental Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Elemental	
+ABILITY:Special Ability|Fey Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Fey		
+ABILITY:Special Ability|Infernal Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Infernal	
+ABILITY:Special Ability|Undead Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Undead	
+
+ABILITY:Special Ability|Aberrant Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Abyssal Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Arcane Bloodline Bonus Spells		MAXVER:6.4.0	NEWKEY:Arcane Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Celestial Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Destined Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Draconic Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Elemental Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Fey Bloodline Bonus Spells		MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Bonus Spells		
+ABILITY:Special Ability|Infernal Bloodline Bonus Spells	MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ Bonus Spells	
+ABILITY:Special Ability|Undead Bloodline Bonus Spells		MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ Bonus Spells	
+
+ABILITY:Special Ability|Bloodline Arcana (Aberrant)	MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Bloodline Arcana			
+ABILITY:Special Ability|Acidic Ray ~ Aberrant		MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Acidic Ray				
+ABILITY:Special Ability|Long Limbs				MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Long Limbs										
+ABILITY:Special Ability|Unusual Anatomy			MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Unusual Anatomy									
+ABILITY:Special Ability|Alien Resistance			MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Alien Resistance									
+ABILITY:Special Ability|Aberrant Form			MAXVER:6.4.0	NEWKEY:Aberrant Bloodline ~ Aberrant Form									
+ABILITY:Special Ability|Bloodline Arcana (Abyssal)	MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Bloodline Arcana		
+ABILITY:Special Ability|Claws ~ Abyssal			MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Claws				
+ABILITY:Special Ability|Demon Resistances			MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Demon Resistances		
+ABILITY:Special Ability|Strength of the Abyss		MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Strength of the Abyss	
+ABILITY:Special Ability|Added Summonings			MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Added Summonings		
+ABILITY:Special Ability|Demonic Might			MAXVER:6.4.0	NEWKEY:Abyssal Bloodline ~ Demonic Might		
+ABILITY:Special Ability|Bloodline Arcana (Arcane)			MAXVER:6.4.0	NEWKEY:Arcane Bloodline ~ Bloodline Arcana	
+ABILITY:Special Ability|Metamagic Adept ~ Arcane Bloodline		MAXVER:6.4.0	NEWKEY:Arcane Bloodline ~ Metamagic Adept	
+ABILITY:Special Ability|New Arcana ~ Arcane Bloodline			MAXVER:6.4.0	NEWKEY:Arcane Bloodline ~ New Arcana		
+ABILITY:Special Ability|School Power ~ Arcane Bloodline			MAXVER:6.4.0	NEWKEY:Arcane Bloodline ~ School Power		
+ABILITY:Special Ability|Arcane Apotheosis ~ Arcane Bloodline		MAXVER:6.4.0	NEWKEY:Arcane Bloodline ~ Arcane Apotheosis	
+ABILITY:Special Ability|Bloodline Arcana (Celestial)				MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Bloodline Arcana						
+ABILITY:Special Ability|Heavenly Fire ~ Celestial Bloodline			MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Heavenly Fire		
+ABILITY:Special Ability|Celestial Resistances ~ Celestial Bloodline	MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Celestial Resistances	
+ABILITY:Special Ability|Wings of Heaven ~ Celestial Bloodline		MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Wings of Heaven		
+ABILITY:Special Ability|Conviction ~ Celestial Bloodline			MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Conviction		
+ABILITY:Special Ability|Ascension ~ Celestial Bloodline			MAXVER:6.4.0	NEWKEY:Celestial Bloodline ~ Ascension			
+ABILITY:Special Ability|Bloodline Arcana (Destined)				MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ Bloodline Arcana							
+ABILITY:Special Ability|Touch of Destiny ~ Destined Bloodline		MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ Touch of Destiny		
+ABILITY:Special Ability|Fated ~ Destined Bloodline				MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ Fated			
+ABILITY:Special Ability|It Was Meant To Be ~ Destined Bloodline		MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ It Was Meant To Be	
+ABILITY:Special Ability|Within Reach ~ Destined Bloodline			MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ Within Reach		
+ABILITY:Special Ability|Destiny Realized ~ Destined Bloodline		MAXVER:6.4.0	NEWKEY:Destined Bloodline ~ Destiny Realized		
+ABILITY:Special Ability|Claws ~ Draconic			MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Claws		
+ABILITY:Special Ability|Bloodline Arcana (Draconic)	MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Bloodline Arcana	
+ABILITY:Special Ability|Dragon Resistances		MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Dragon Resistances
+ABILITY:Special Ability|Breath Weapon			MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Breath Weapon	
+ABILITY:Special Ability|Wings					MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Wings		
+ABILITY:Special Ability|Power of Wyrms			MAXVER:6.4.0	NEWKEY:Draconic Bloodline ~ Power of Wyrms	
+ABILITY:Special Ability|Elemental Bloodline		MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Bloodline Arcana
+ABILITY:Special Ability|Elemental Ray			MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Elemental Ray	
+ABILITY:Special Ability|Elemental Resistance		MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Elemental Resistance	
+ABILITY:Special Ability|Elemental Blast			MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Elemental Blast		
+ABILITY:Special Ability|Elemental Movement		MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Elemental Movement
+ABILITY:Special Ability|Elemental Body			MAXVER:6.4.0	NEWKEY:Elemental Bloodline ~ Elemental Body	
+ABILITY:Special Ability|Bloodline Arcana (Fey)				MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Bloodline Arcana	
+ABILITY:Special Ability|Laughing Touch ~ Fey Bloodline		MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Laughing Touch		
+ABILITY:Special Ability|Woodland Stride ~ Fey Bloodline		MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Woodland Stride		
+ABILITY:Special Ability|Fleeting Glance ~ Fey Bloodline		MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Fleeting Glance		
+ABILITY:Special Ability|Fey Magic ~ Fey Bloodline			MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Fey Magic			
+ABILITY:Special Ability|Soul of the Fey ~ Fey Bloodline		MAXVER:6.4.0	NEWKEY:Fey Bloodline ~ Soul of the Fey		
+ABILITY:Special Ability|Bloodline Arcana (Infernal)	MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ Bloodline Arcana		
+ABILITY:Special Ability|Corrupting Touch ~ Infernal Bloodline			MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ Corrupting Touch		
+ABILITY:Special Ability|Infernal Resistances ~ Infernal Bloodline		MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ Infernal Resistances	
+ABILITY:Special Ability|Hellfire ~ Infernal Bloodline				MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ Hellfire			
+ABILITY:Special Ability|On Dark Wings ~ Infernal Bloodline			MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ On Dark Wings		
+ABILITY:Special Ability|Power of the Pit ~ Infernal Bloodline			MAXVER:6.4.0	NEWKEY:Infernal Bloodline ~ Power of the Pit		
+ABILITY:Special Ability|Bloodline Arcana (Undead)	MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ Bloodline Arcana	
+ABILITY:Special Ability|Grave Touch ~ Undead Bloodline			MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ Grave Touch		
+ABILITY:Special Ability|Death's Gift ~ Undead Bloodline			MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ Death's Gift		
+ABILITY:Special Ability|Grasp of the Dead ~ Undead Bloodline		MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ Grasp of the Dead	
+ABILITY:Special Ability|Incorporeal Form ~ Undead Bloodline		MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ Incorporeal Form	
+ABILITY:Special Ability|One of Us ~ Undead Bloodline			MAXVER:6.4.0	NEWKEY:Undead Bloodline ~ One of Us		
+
+ABILITY:Special Ability|Bloodline ~ Anarchic Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Anarchic		
+ABILITY:Special Ability|Bloodline ~ Arial Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Arial		
+ABILITY:Special Ability|Bloodline ~ Bedrock Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Bedrock		
+ABILITY:Special Ability|Bloodline ~ Brutal Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Brutal		
+ABILITY:Special Ability|Bloodline ~ Empyreal Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Empyreal		
+ABILITY:Special Ability|Bloodline ~ Envenomed Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Envenomed		
+ABILITY:Special Ability|Bloodline ~ Groveborn Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Groveborn		
+ABILITY:Special Ability|Bloodline ~ Karmic Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Karmic		
+ABILITY:Special Ability|Linnorm Bloodline					MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Linnorm		
+ABILITY:Special Ability|Bloodline ~ Pit-Touched Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Pit-Touched	
+ABILITY:Special Ability|Primal Bloodline					MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Primal		
+ABILITY:Special Ability|Bloodline ~ Rime-Blooded Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Rime-Blooded	
+ABILITY:Special Ability|Bloodline ~ Sage Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Sage			
+ABILITY:Special Ability|Bloodline ~ Sanguine Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Sanguine		
+ABILITY:Special Ability|Bloodline ~ Seaborn Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Seaborn		
+ABILITY:Special Ability|Bloodline ~ Sylvan Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Sylvan		
+ABILITY:Special Ability|Bloodline ~ Umbral Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Umbral		
+ABILITY:Special Ability|Bloodline ~ Visionary Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Visionary		
+ABILITY:Special Ability|Bloodline ~ Void-Touched Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Void-Touched	
+ABILITY:Special Ability|Bloodline ~ Warped Bloodline			MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Warped		
+
+ABILITY:Special Ability|Alarm Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Alarm Trap		
+ABILITY:Special Ability|Burning Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Burning Trap	
+ABILITY:Special Ability|Exploding Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Exploding Trap	
+ABILITY:Special Ability|Fire Trap ~ Ranger Trap			MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Fire Trap		
+ABILITY:Special Ability|Freezing Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Freezing Trap	
+ABILITY:Special Ability|Marking Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Marking Trap	
+ABILITY:Special Ability|Poison Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Poison Trap		
+ABILITY:Special Ability|Sleet Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Sleet Trap		
+ABILITY:Special Ability|Snare Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Snare Trap		
+ABILITY:Special Ability|Swarm Trap ~ Ranger Trap		MAXVER:6.4.0	NEWKEY:Ranger Trap ~ Swarm Trap		
+
+
+ABILITY:Special Ability|Beast of Ill-Omen ~ WitchHex			MAXVER:6.4.0	NEWKEY:Witch Hex ~ Beast of Ill-Omen		
+ABILITY:Special Ability|Child-Scent ~ WitchHex				MAXVER:6.4.0	NEWKEY:Witch Hex ~ Child-Scent			
+ABILITY:Special Ability|Feral Speech ~ WitchHex				MAXVER:6.4.0	NEWKEY:Witch Hex ~ Feral Speech			
+ABILITY:Special Ability|Nails ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Nails				
+ABILITY:Special Ability|Poison Steep ~ WitchHex				MAXVER:6.4.0	NEWKEY:Witch Hex ~ Poison Steep			
+ABILITY:Special Ability|Prehensile Hair ~ WitchHex			MAXVER:6.4.0	NEWKEY:Witch Hex ~ Prehensile Hair		
+ABILITY:Special Ability|Hair ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Hair				
+ABILITY:Special Ability|Scar ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Scar				
+ABILITY:Special Ability|Swamp Hag ~ WitchHex				MAXVER:6.4.0	NEWKEY:Witch Hex ~ Swamp Hag			
+ABILITY:Special Ability|Unnerve Beasts ~ WitchHex			MAXVER:6.4.0	NEWKEY:Witch Hex ~ Unnerve Beasts		
+ABILITY:Special Ability|Water Lung ~ WitchHex				MAXVER:6.4.0	NEWKEY:Witch Hex ~ Water Lung			
+ABILITY:Special Ability|Beast Eye ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Beast Eye		
+ABILITY:Special Ability|Cook People ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Cook People		
+ABILITY:Special Ability|Hidden Home ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Hidden Home		
+ABILITY:Special Ability|Hoarfrost ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Hoarfrost		
+ABILITY:Special Ability|Ice Tomb ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Ice Tomb		
+ABILITY:Special Ability|Infected Wounds ~ WitchMajorHex		MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Infected Wounds	
+ABILITY:Special Ability|Speak in Dreams ~ WitchMajorHex		MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Speak in Dreams	
+ABILITY:Special Ability|Witch's Brew ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Witch's Brew		
+ABILITY:Special Ability|Dire Prophecy ~ WitchGrandHex			MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Dire Prophecy		
+ABILITY:Special Ability|Summon Spirit ~ WitchGrandHex			MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Summon Spirit		
+ABILITY:Special Ability|Witch's Hut ~ WitchGrandHex			MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Witch's Hut		
+
+ABILITY:Special Ability|Accursed Bloodline	MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Accursed	
+ABILITY:Special Ability|Djinni Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Djinni	
+ABILITY:Special Ability|Efreeti Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Efreeti	
+ABILITY:Special Ability|Maestro Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Maestro	
+ABILITY:Special Ability|Marid Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Marid	
+ABILITY:Special Ability|Rakshasa Bloodline	MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Rakshasa	
+ABILITY:Special Ability|Shaitan Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Shaitan	
+
+ABILITY:Special Ability|Arcane Accuracy ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Arcane Accuracy			
+ABILITY:Special Ability|Broad Study ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Broad Study			
+ABILITY:Special Ability|Close Range ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Close Range			
+ABILITY:Special Ability|Concentrate ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Concentrate			
+ABILITY:Special Ability|Critical Strike ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Critical Strike			
+ABILITY:Special Ability|Dispelling Strike ~ Magus Arcana			MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Dispelling Strike		
+ABILITY:Special Ability|Empowered Magic ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Empowered Magic			
+ABILITY:Special Ability|Familiar ~ Magus Arcana					MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Familiar				
+ABILITY:Special Ability|Hasted Assault ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Hasted Assault			
+ABILITY:Special Ability|Maneuver Mastery Bull Rush ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Bull Rush	
+ABILITY:Special Ability|Maneuver Mastery Disarm ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Disarm	
+ABILITY:Special Ability|Maneuver Mastery Grapple ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Grapple	
+ABILITY:Special Ability|Maneuver Mastery Overrun ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Overrun	
+ABILITY:Special Ability|Maneuver Mastery Sunder ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Sunder	
+ABILITY:Special Ability|Maneuver Mastery Trip ~ Magus Arcana			MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Trip		
+ABILITY:Special Ability|Maneuver Mastery Dirty Trick ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Dirty Trick	
+ABILITY:Special Ability|Maneuver Mastery Drag ~ Magus Arcana			MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Drag		
+ABILITY:Special Ability|Maneuver Mastery Reposition ~ Magus Arcana		MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Reposition	
+ABILITY:Special Ability|Maneuver Mastery Steal ~ Magus Arcana			MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maneuver Mastery Steal		
+ABILITY:Special Ability|Maximized Magic ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Maximized Magic			
+ABILITY:Special Ability|Pool Strike ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Pool Strike			
+ABILITY:Special Ability|Quickened Magic ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Quickened Magic			
+ABILITY:Special Ability|Reflection ~ Magus Arcana					MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Reflection				
+ABILITY:Special Ability|Silent Magic ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Silent Magic			
+ABILITY:Special Ability|Spell Blending ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Spell Blending			
+ABILITY:Special Ability|Spell Shield ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Spell Shield			
+ABILITY:Special Ability|Still Magic ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Still Magic			
+ABILITY:Special Ability|Wand Mastery ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Wand Mastery			
+ABILITY:Special Ability|Wand Wielder ~ Magus Arcana				MAXVER:6.4.0	NEWKEY:Magus Arcana ~ Wand Wielder			
+
+ABILITY:Special Ability|Blight ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Blight				
+ABILITY:Special Ability|Cackle ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Cackle				
+ABILITY:Special Ability|Cauldron ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Cauldron			
+ABILITY:Special Ability|Charm ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Charm				
+ABILITY:Special Ability|Coven ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Coven				
+ABILITY:Special Ability|Disguise ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Disguise			
+ABILITY:Special Ability|Evil Eye ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Evil Eye			
+ABILITY:Special Ability|Flight ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Flight				
+ABILITY:Special Ability|Fortune ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Fortune				
+ABILITY:Special Ability|Healing ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Healing				
+ABILITY:Special Ability|Misfortune ~ WitchHex				MAXVER:6.4.0	NEWKEY:Witch Hex ~ Misfortune			
+ABILITY:Special Ability|Slumber ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Slumber				
+ABILITY:Special Ability|Tongues ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Tongues				
+ABILITY:Special Ability|Ward ~ WitchHex					MAXVER:6.4.0	NEWKEY:Witch Hex ~ Ward				
+ABILITY:Special Ability|Agony ~ WitchMajorHex				MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Agony			
+ABILITY:Special Ability|Hags Eye ~ WitchMajorHex				MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Hags Eye		
+ABILITY:Special Ability|Major Healing ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Major Healing		
+ABILITY:Special Ability|Nightmares ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Nightmares		
+ABILITY:Special Ability|Retribution ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Retribution		
+ABILITY:Special Ability|Vision ~ WitchMajorHex				MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Vision			
+ABILITY:Special Ability|Waxen Image ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Waxen Image		
+ABILITY:Special Ability|Weather Control ~ WitchMajorHex			MAXVER:6.4.0	NEWKEY:Witch Major Hex ~ Weather Control	
+ABILITY:Special Ability|Death Curse ~ WitchGrandHex			MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Death Curse		
+ABILITY:Special Ability|Eternal Slumber ~ WitchGrandHex			MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Eternal Slumber	
+ABILITY:Special Ability|Forced Reincarnation ~ WitchGrandHex		MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Forced Reincarnation
+ABILITY:Special Ability|Life Giver ~ WitchGrandHex			MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Life Giver		
+ABILITY:Special Ability|Natural Disaster ~ WitchGrandHex		MAXVER:6.4.0	NEWKEY:Witch Grand Hex ~ Natural Disaster	
+
+ABILITY:Special Ability|Fiendish Boon ~ Antipaladin			MAXVER:6.4.0	NEWKEY:Antipaladin ~ Fiendish Boon	
+ABILITY:Special Ability|Enhance Weapon ~ Antipaladin			MAXVER:6.4.0	NEWKEY:Fiendish Boon ~ Enhance Weapon	
+ABILITY:Special Ability|Fiendish Servant ~ Antipaladin		MAXVER:6.4.0	NEWKEY:Fiendish Boon ~ Fiendish Servant
