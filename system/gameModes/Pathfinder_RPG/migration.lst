@@ -1893,3 +1893,20 @@ ABILITY:Special Ability|Rumormonger ~ Advanced Rogue Talent				MAXVER:6.4.0	NEWK
 ABILITY:Special Ability|Unwitting Ally ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Unwitting Ally	
 ABILITY:Special Ability|Weapon Snatcher ~ Advanced Rogue Talent			MAXVER:6.4.0	NEWKEY:Advanced Rogue Talent ~ Weapon Snatcher	
 
+ABILITY:Special Ability|Boar Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Boar Style			
+ABILITY:Special Ability|Crane Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Crane Style			
+ABILITY:Special Ability|Djinni Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Djinni Style			
+ABILITY:Special Ability|Dragon Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Dragon Style			
+ABILITY:Special Ability|Earth Child Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Earth Child Style		
+ABILITY:Special Ability|Efreeti Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Efreeti Style			
+ABILITY:Special Ability|Janni Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Janni Style			
+ABILITY:Special Ability|Kirin Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Kirin Style			
+ABILITY:Special Ability|Mantis Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Mantis Style			
+ABILITY:Special Ability|Marid Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Marid Style			
+ABILITY:Special Ability|Monkey Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Monkey Style			
+ABILITY:Special Ability|Panther Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Panther Style			
+ABILITY:Special Ability|Shaitan Style			MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Shaitan Style			
+ABILITY:Special Ability|Snake Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Snake Style			
+ABILITY:Special Ability|Snapping Turtle Style		MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Snapping Turtle Style	
+ABILITY:Special Ability|Tiger Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Tiger Style			
+
