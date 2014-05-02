@@ -9,7 +9,7 @@
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI	Display Location
 ABILITYCATEGORY:Magus Archetype				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:MagusArchetype										PLURAL:Magus Archetypes		DISPLAYLOCATION:Archetype
 
-ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Animal Friend Choice ~ Animal Speaker						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Animal Friend Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Animal Speaker ~ Animal Friend Choice						DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Geisha Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal							ABILITYLIST:Geisha Weapon Proficiency Choice							DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Geisha Knowledge Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Geisha Knowledge Choice									DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Secrets of the Grave Spell Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Secrets of the Grave Spell Choice							DISPLAYLOCATION:Class Features

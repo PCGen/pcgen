@@ -188,7 +188,7 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 ###Block: Oracle Spell Choice
 1	BONUS:ABILITYPOOL|Oracle Spell Choice|1
 ###Block: Oracle's Class Abilities
-1	ABILITY:Oracle Class Feature|AUTOMATIC|Orisons ~ Oracle
+1	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle ~ Orisons
 1	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Curse|!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesCurse
 1	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Mystery|!PREABILITY:1,CATEGORY=Archetype,TYPE.OracleOraclesMystery
 ###Block: Level progression
@@ -226,22 +226,22 @@ CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summ
 1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLightArmor,TYPE.SummonerArmorProficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
 ###Block: Class Abilities
-1	ABILITY:Internal|AUTOMATIC|Summon Monster Spell List ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonsterSpells
-1	ABILITY:Summoner Class Feature|AUTOMATIC|Cantrips ~ Summoner
-1	ABILITY:Summoner Class Feature|AUTOMATIC|Eidolon ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon
-1	ABILITY:Summoner Class Feature|AUTOMATIC|Life Link ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
-1	ABILITY:Summoner Class Feature|AUTOMATIC|Summon Monster ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
-2	ABILITY:Summoner Class Feature|AUTOMATIC|Bond Senses ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
-4	ABILITY:Summoner Class Feature|AUTOMATIC|Shield Ally ~ Summoner|PREMULT:2,[PREVARLT:CL,12],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly]
-6	ABILITY:Summoner Class Feature|AUTOMATIC|Maker's Call ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
-8	ABILITY:Summoner Class Feature|AUTOMATIC|Transposition ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
-10	ABILITY:Summoner Class Feature|AUTOMATIC|Aspect ~ Summoner|PREVARLT:CL,18
-12	ABILITY:Summoner Class Feature|AUTOMATIC|Greater Shield Ally ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
-14	ABILITY:Summoner Class Feature|AUTOMATIC|Life Bond ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
-16	ABILITY:Summoner Class Feature|AUTOMATIC|Merge Forms ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
-18	ABILITY:Summoner Class Feature|AUTOMATIC|Greater Aspect ~ Summoner
-19	ABILITY:Summoner Class Feature|AUTOMATIC|Gate ~ Summoner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
-20	ABILITY:Summoner Class Feature|AUTOMATIC|Twin Eidolon ~ Summoner
+1	ABILITY:Internal|AUTOMATIC|Summoner ~ Summon Monster Spell List|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonsterSpells
+1	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Cantrips
+1	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Eidolon|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerEidolon
+1	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Life Link|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeLink
+1	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Summon Monster|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+2	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Bond Senses|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerBondSenses
+4	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Shield Ally|PREMULT:2,[PREVARLT:CL,12],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShieldAlly]
+6	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Maker's Call|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMakersCall
+8	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Transposition|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTransposition
+10	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Aspect|PREVARLT:CL,18
+12	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Greater Shield Ally|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
+14	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Life Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
+16	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Merge Forms|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
+18	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Greater Aspect
+19	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Gate|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+20	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Twin Eidolon
 ###Block: Casting Progression
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
@@ -277,8 +277,8 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 1	BONUS:VAR|FamiliarMasterLVL|CL	DEFINE:SpellMasteryQualify|1
 ###Block: Witch Class Abilities
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
-1	ABILITY:Witch Class Feature|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
-1	ABILITY:Witch Class Feature|AUTOMATIC|Hex ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHexes
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHexes
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron
 3	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar,TYPE.WitchFamiliarTouchSpells
 ###Block: Witch Pool Progressions
@@ -366,18 +366,18 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 1	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfEvil
 1	ABILITY:Antipaladin Class Feature|AUTOMATIC|Detect Good|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectGood
 1	ABILITY:Antipaladin Class Feature|AUTOMATIC|Smite Good|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteGood
-2	ABILITY:Antipaladin Class Feature|AUTOMATIC|Touch of Corruption ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinTouchOfCorruption
-2	ABILITY:Antipaladin Class Feature|AUTOMATIC|Unholy Resilience ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyResilience
-3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Cowardice ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCowardice
-3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Cruelty ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinCruelty
-3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Plague Bringer ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinPlagueBringer
-4	ABILITY:Antipaladin Class Feature|AUTOMATIC|Channel Negative Energy ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelNegativeEnergy
-5	ABILITY:Antipaladin Class Feature|AUTOMATIC|Fiendish Boon ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinFiendishBoon
-8	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Despair ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDespair
-11	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Vengeance ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfVengeance
-14	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Sin ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfSin
-17	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Depravity ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDepravity
-20	ABILITY:Antipaladin Class Feature|AUTOMATIC|Unholy Champion ~ Antipaladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyChampion
+2	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Touch of Corruption|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinTouchOfCorruption
+2	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Unholy Resilience|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyResilience
+3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Cowardice|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCowardice
+3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Cruelty|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinCruelty
+3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Plague Bringer|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinPlagueBringer
+4	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Channel Negative Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelNegativeEnergy
+5	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Fiendish Boon|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinFiendishBoon
+8	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Despair|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDespair
+11	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Vengeance|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfVengeance
+14	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Sin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfSin
+17	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Depravity|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfDepravity
+20	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Unholy Champion|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinUnholyChampion
 ###Block: Casting Progression
 4	CAST:0,0
 5	CAST:0,1

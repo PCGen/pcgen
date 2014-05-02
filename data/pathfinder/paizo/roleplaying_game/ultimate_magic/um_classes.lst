@@ -28,21 +28,21 @@ CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			S
 ###Block:
 5	BONUS:ABILITYPOOL|Magus Bonus Feat|(CL+1)/6
 ###Block:
-1	ABILITY:Magus Class Feature|AUTOMATIC|Armor Proficiency ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
-1	ABILITY:Magus Class Feature|AUTOMATIC|Arcane Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
-1	ABILITY:Magus Class Feature|AUTOMATIC|Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
-1	ABILITY:Magus Class Feature|AUTOMATIC|Cantrips ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
-2	ABILITY:Magus Class Feature|AUTOMATIC|Spellstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
-3	ABILITY:Magus Class Feature|AUTOMATIC|Magus Arcana ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
-4	ABILITY:Magus Class Feature|AUTOMATIC|Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
-7	ABILITY:Magus Class Feature|AUTOMATIC|Knowledge Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
-8	ABILITY:Magus Class Feature|AUTOMATIC|Improved Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
-10	ABILITY:Magus Class Feature|AUTOMATIC|Fighter Training ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
-11	ABILITY:Magus Class Feature|AUTOMATIC|Improved Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
-14	ABILITY:Magus Class Feature|AUTOMATIC|Greater Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
-16	ABILITY:Magus Class Feature|AUTOMATIC|Counterstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
-19	ABILITY:Magus Class Feature|AUTOMATIC|Greater Spell Access ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
-20	ABILITY:Magus Class Feature|AUTOMATIC|True Magus ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
+1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
+1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Arcane Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
+1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
+1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
+2	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spellstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
+3	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Magus Arcana|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
+4	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
+7	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Knowledge Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
+8	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
+10	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Fighter Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
+11	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
+14	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
+16	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Counterstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
+19	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Access|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
+20	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ True Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
 ###Block: Spell progression
 1	CAST:3,1
 2	CAST:4,2
@@ -98,25 +98,25 @@ CLASS:Cleric.MOD
 
 # Class Name
 CLASS:Druid.MOD
-0	DOMAIN:Aquatic[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Aquatic]
-0	DOMAIN:Arctic[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Arctic]
-0	DOMAIN:Cave[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cave]
-0	DOMAIN:Desert[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Desert]
-0	DOMAIN:Eagle[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Eagle]
-0	DOMAIN:Frog[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Frog]
-0	DOMAIN:Jungle[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Jungle]
-0	DOMAIN:Monkey[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Monkey]
-0	DOMAIN:Mountain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Mountain]
-0	DOMAIN:Plains[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plains]
-0	DOMAIN:Serpent[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Serpent]
-0	DOMAIN:Swamp[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Swamp]
-0	DOMAIN:Wolf[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wolf]
+0	DOMAIN:Aquatic[PREABILITY:1,CATEGORY=Special Ability,Aquatic ~ Druid Domain]
+0	DOMAIN:Arctic[PREABILITY:1,CATEGORY=Special Ability,Arctic ~ Druid Domain]
+0	DOMAIN:Cave[PREABILITY:1,CATEGORY=Special Ability,Cave ~ Druid Domain]
+0	DOMAIN:Desert[PREABILITY:1,CATEGORY=Special Ability,Desert ~ Druid Domain]
+0	DOMAIN:Eagle[PREABILITY:1,CATEGORY=Special Ability,Eagle ~ Druid Domain]
+0	DOMAIN:Frog[PREABILITY:1,CATEGORY=Special Ability,Frog ~ Druid Domain]
+0	DOMAIN:Jungle[PREABILITY:1,CATEGORY=Special Ability,Jungle ~ Druid Domain]
+0	DOMAIN:Monkey[PREABILITY:1,CATEGORY=Special Ability,Monkey ~ Druid Domain]
+0	DOMAIN:Mountain[PREABILITY:1,CATEGORY=Special Ability,Mountain ~ Druid Domain]
+0	DOMAIN:Plains[PREABILITY:1,CATEGORY=Special Ability,Plains ~ Druid Domain]
+0	DOMAIN:Serpent[PREABILITY:1,CATEGORY=Special Ability,Serpent ~ Druid Domain]
+0	DOMAIN:Swamp[PREABILITY:1,CATEGORY=Special Ability,Swamp ~ Druid Domain]
+0	DOMAIN:Wolf[PREABILITY:1,CATEGORY=Special Ability,Wolf ~ Druid Domain]
 
 ###Block: Additional Domains for Druid archetypes
 0	DOMAIN:Cloud Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cloud Subdomain]
-0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Destruction]
+0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Destruction ~ Druid Domain]
 0	DOMAIN:Storms Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Storms Subdomain]
-0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ War]
+0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,War ~ Druid Domain]
 0	DOMAIN:Wind Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wind Subdomain]
 
 ###Block: Wizard Elemental Schools
@@ -132,36 +132,36 @@ SUBCLASSLEVEL:1	BONUS:VAR|WoodSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Woo
 
 # Class Name
 CLASS:Cleric.MOD
-0	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Air Domain]
-0	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Animal Domain]
-0	DOMAIN:Artifice[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Artifice Domain]
-0	DOMAIN:Chaos[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Chaos Domain]
-0	DOMAIN:Charm[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Charm Domain]
-0	DOMAIN:Community[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Community Domain]
-0	DOMAIN:Darkness[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Darkness Domain]
-0	DOMAIN:Death[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Death Domain]
-0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Destruction Domain]
-0	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Earth Domain]
-0	DOMAIN:Evil[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Evil Domain]
-0	DOMAIN:Fire[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Fire Domain]
-0	DOMAIN:Glory[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Glory Domain]
-0	DOMAIN:Good[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Good Domain]
-0	DOMAIN:Healing[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Healing Domain]
-0	DOMAIN:Knowledge[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Knowledge Domain]
-0	DOMAIN:Law[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Law Domain]
-0	DOMAIN:Liberation[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Liberation Domain]
-0	DOMAIN:Luck[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Luck Domain]
-0	DOMAIN:Madness[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Madness Domain]
-0	DOMAIN:Magic[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Magic Domain]
-0	DOMAIN:Nobility[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Nobility Domain]
-0	DOMAIN:Plant[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Plant Domain]
-0	DOMAIN:Protection[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Protection Domain]
-0	DOMAIN:Repose[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Repose Domain]
-0	DOMAIN:Rune[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Rune Domain]
-0	DOMAIN:Strength[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Strength Domain]
-0	DOMAIN:Sun[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Sun Domain]
-0	DOMAIN:Travel[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Travel Domain]
-0	DOMAIN:Trickery[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Trickery Domain]
-0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ War Domain]
-0	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Water Domain]
-0	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Forbidden Rites Domain ~ Weather Domain]
+0	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Air Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Animal Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Artifice[PREABILITY:1,CATEGORY=Special Ability,Artifice Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Chaos[PREABILITY:1,CATEGORY=Special Ability,Chaos Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Charm[PREABILITY:1,CATEGORY=Special Ability,Charm Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Community[PREABILITY:1,CATEGORY=Special Ability,Community Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Darkness[PREABILITY:1,CATEGORY=Special Ability,Darkness Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Death[PREABILITY:1,CATEGORY=Special Ability,Death Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Destruction Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Earth Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Evil[PREABILITY:1,CATEGORY=Special Ability,Evil Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Fire[PREABILITY:1,CATEGORY=Special Ability,Fire Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Glory[PREABILITY:1,CATEGORY=Special Ability,Glory Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Good[PREABILITY:1,CATEGORY=Special Ability,Good Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Healing[PREABILITY:1,CATEGORY=Special Ability,Healing Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Knowledge[PREABILITY:1,CATEGORY=Special Ability,Knowledge Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Law[PREABILITY:1,CATEGORY=Special Ability,Law Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Liberation[PREABILITY:1,CATEGORY=Special Ability,Liberation Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Luck[PREABILITY:1,CATEGORY=Special Ability,Luck Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Madness[PREABILITY:1,CATEGORY=Special Ability,Madness Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Magic[PREABILITY:1,CATEGORY=Special Ability,Magic Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Nobility[PREABILITY:1,CATEGORY=Special Ability,Nobility Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Plant[PREABILITY:1,CATEGORY=Special Ability,Plant Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Protection[PREABILITY:1,CATEGORY=Special Ability,Protection Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Repose[PREABILITY:1,CATEGORY=Special Ability,Repose Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Rune[PREABILITY:1,CATEGORY=Special Ability,Rune Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Strength[PREABILITY:1,CATEGORY=Special Ability,Strength Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Sun[PREABILITY:1,CATEGORY=Special Ability,Sun Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Travel[PREABILITY:1,CATEGORY=Special Ability,Travel Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Trickery[PREABILITY:1,CATEGORY=Special Ability,Trickery Domain ~ Forbidden Rites Domain]
+0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,War Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Water Domain ~ Forbidden Rites Domain]
+0	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Weather Domain ~ Forbidden Rites Domain]
