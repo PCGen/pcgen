@@ -165,9 +165,9 @@ Tengu Language Selections	CATEGORY:Special Ability	MULT:YES	CHOOSE:LANG|!PC,TYPE
 # Ability Name						Category of Ability	Ability
 Race Traits ~ Tiefling				CATEGORY:Internal
 # This is altered in later sources
-CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Stats|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSubrace
-CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled,TYPE.TieflingSubrace
-CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA,TYPE.TieflingSubrace
+CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Stats|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats
+CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
+CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
 
 # These are constant
 CATEGORY=Internal|Race Traits ~ Tiefling.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
