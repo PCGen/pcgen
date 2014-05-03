@@ -18,17 +18,17 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 ###BLOCK: Harrower Abilities
 # Ability Name		Unique Key				Product Identity?	Category of Ability		Type						Define				Innate Spells									Desc is PI?		Description																																																																		Source Page		Aspects							Description of the Benefits
-CATEGORY=Special Ability|Blessing of the Harrow.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Harrow Casting.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Tower of Intelligence.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Tower of Strength.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Tower of Charisma.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Spirit Deck.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Divination ~ Harrower.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Tower of Constitution.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Tower of Dexterity.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Tower of Wisdom.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Reading the Signs.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Blessing of the Harrow.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Harrow Casting.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Intelligence.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Strength.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Charisma.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Spirit Deck.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Divination ~ Harrower.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Constitution.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Dexterity.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Tower of Wisdom.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Reading the Signs.MOD			TYPE:PFSNotLegal
 
 ###BLOCK: Hellknight Abilities
 # Ability Name						Unique Key					Product Identity?	Category of Ability		Type									Visible	Restricted Ability											Define															Innate Spells													Desc is PI?		Description																																																																																																																																		Automatically Gained Weapon Prof.	Virtual Feat												Ability																																													Bonus to Ability Pool																					Save checks bonus								Misc bonus									Add to base move			Bonus to skill								Modify VAR																										Class Skill			Vision								Source, Long Desc.		Source, Short Desc.	Source Page		Aspects												Description of the Benefits																																																																																										List of Known Class Spells by Level																																																																												Ignore Encumberance		Temporary Bonus
@@ -125,76 +125,76 @@ CATEGORY=Special Ability|RedemptionG ~ Low.MOD			TYPE:PFSLegal
 CATEGORY=Special Ability|RedemptionL ~ Low.MOD			TYPE:PFSLegal	
 
 ### BLOCK: Red Mantis Assassin
-CATEGORY=Special Ability|RMA Weapon Proficiencies.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Armored Casting ~ RMA.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Sabre Fighting.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Prayer Attack.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Red Shroud.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Summon Mantis.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Resurrection Sense.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Mantis Form.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Blood Mantis Form.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Death Mantis Form.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Fading.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Mantis Doom.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|RMA Bonus Spells.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|RMA Weapon Proficiencies.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Armored Casting ~ RMA.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Sabre Fighting.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Prayer Attack.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Red Shroud.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Summon Mantis.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Resurrection Sense.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Mantis Form.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Blood Mantis Form.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Death Mantis Form.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Fading.MOD						TYPE:PFSNotLegal
+CATEGORY=Special Ability|Mantis Doom.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|RMA Bonus Spells.MOD			TYPE:PFSNotLegal
 
 ###BLOCK: Companion Ablities
 # Ability Name			Unique Key				Category of Ability		Type						Desc is PI?		Description																Bonus to Ability Pool								Save checks bonus				Combat bonus				Source Page		Aspects
-CATEGORY=Special Ability|Companion Andoren Falconry.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Bonus to AC ~ AF.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Bonus to Attack ~ AF.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Bonus to Will Saves ~ AF.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Companion Andoren Falconry.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Bonus to AC ~ AF.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Bonus to Attack ~ AF.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Bonus to Will Saves ~ AF.MOD	TYPE:PFSNotLegal
 
 
 ###BLOCK: Hermean Blood Abilities
 # Ability Name			Product Identity?	Category of Ability		Type						Description														Multiple?	Choose					Selections	Class Skill	Source Page
-CATEGORY=Special Ability|Hermean Blood ~ Strength.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Hermean Blood ~ Dexterity.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Hermean Blood ~ Intelligence.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Hermean Blood ~ Wisdom.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Hermean Blood ~ Charisma.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Hermean Blood ~ Strength.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Dexterity.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Intelligence.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Wisdom.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hermean Blood ~ Charisma.MOD		TYPE:PFSNotLegal
 
 ###BLOCK: Noble Scion Abilities
 # Ability Name			Category of Ability		Type						Description																																																															Multiple?	Choose									Automatically Gained Language	Ability																																															Combat bonus				Bonus to skill												Modify VAR															Class Skill			Source Page
-CATEGORY=Special Ability|Scion of the Arts.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Arcana.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Dungeoneering.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Engineering.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Geography.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ History.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Local.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Nature.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Nobility.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Planes.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Lore ~ Religion.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Magic.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of Peace.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scion of War.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Scion of the Arts.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Arcana.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Dungeoneering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Engineering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Geography.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ History.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Local.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Nature.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Nobility.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Planes.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Lore ~ Religion.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Magic.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of Peace.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scion of War.MOD					TYPE:PFSNotLegal
 
 ###BLOCK: Scholar Abilities
 # Ability Name		Category of Ability		Type					Define			Description											Bonus to skill							Modify VAR													Source Page
-CATEGORY=Special Ability|Scholar ~ Arcana.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Dungeoneering.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Engineering.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Geography.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ History.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Local.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Nature.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Nobility.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Planes.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Scholar ~ Religion.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Scholar ~ Arcana.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Dungeoneering.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Engineering.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Geography.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ History.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Local.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Nature.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Nobility.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Planes.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Scholar ~ Religion.MOD			TYPE:PFSNotLegal
 
 ###BLOCK: Totem Spirit Abilities
 # Ability Name				Product Identity?	Category of Ability		Type						Description																																							Save checks bonus			Combat bonus			Add to base move			Bonus to skill			Modify VAR											Source Page
-CATEGORY=Special Ability|Totem Spirit ~ Lyrune-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Totem Spirit ~ Shadde-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Totem Spirit ~ Shriikirri-Quah.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Totem Spirit ~ Shundar-Quah.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Totem Spirit ~ Sklar-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Totem Spirit ~ Skoan-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-CATEGORY=Special Ability|Totem Spirit ~ Tamiir-Quah.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CATEGORY=Special Ability|Totem Spirit ~ Lyrune-Quah.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Shadde-Quah.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Shriikirri-Quah.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Shundar-Quah.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Sklar-Quah.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Skoan-Quah.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Totem Spirit ~ Tamiir-Quah.MOD			TYPE:PFSNotLegal
 
 ###BLOCK: Varisian Tattoo Abilities
 # Ability Name			Product Identity?	Category of Ability		Type						Required Feat					Innate Spells									Description																								Caster level					Source Page
