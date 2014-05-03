@@ -3979,12 +3979,12 @@ ALIGN:CG
 RACE:Sphinx (Androsphinx)	!PRERACE:1,%
 NAME:Androsphinx
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Fly			RANK:5
-SKILL:Intimidate		RANK:13
-SKILL:TYPE=Knowledge	RANK:16	COUNT:1
-SKILL:Perception		RANK:23
-SKILL:Sense Motive	RANK:13
-SKILL:Survival		RANK:16
+SKILL:Fly			RANK:8
+SKILL:Intimidate		RANK:10
+SKILL:TYPE=Knowledge	RANK:13	COUNT:1
+SKILL:Perception		RANK:13
+SKILL:Sense Motive	RANK:8
+SKILL:Survival		RANK:13
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Flyby Attack
