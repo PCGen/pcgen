@@ -121,7 +121,7 @@ ALIGN:NE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 ABILITY:CATEGORY=Region of Origin|Unknown
 LANGBONUS:Abyssal|Common|Infernal|Necril
-FEAT:Ability Focus (Disease ~ Daughter of Urgathoa)
+FEAT:Ability Focus (Disease)
 FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Improved Initiative

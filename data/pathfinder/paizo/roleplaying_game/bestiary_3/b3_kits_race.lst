@@ -510,7 +510,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Perception	RANK:34
 SKILL:Survival	RANK:18
 SKILL:Swim		RANK:30
-FEAT:Ability Focus (Water Jet ~ Thalassic Behemoth)
+FEAT:Ability Focus (Water Jet)
 FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Greater Vital Strike
@@ -716,7 +716,7 @@ SKILL:Perception		RANK:9
 SKILL:Sense Motive	RANK:6
 SKILL:Stealth		RANK:7
 SKILL:Swim			RANK:10
-FEAT:Ability Focus (Lure ~ Ceratioidi)
+FEAT:Ability Focus (Lure)
 FEAT:Weapon Focus (Shortspear)
 GEAR:Shortspear	QTY:2	LOCATION:Two Weapons
 
@@ -909,7 +909,7 @@ SKILL:Perception			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spellcraft			RANK:8
 SKILL:Stealth			RANK:16
-FEAT:Ability Focus (Aura of Doom ~ Vulnudaemon)
+FEAT:Ability Focus (Aura of Doom)
 FEAT:Combat Casting
 FEAT:Weapon Finesse
 GEAR:Sword (Short)	LOCATION:Equipped
@@ -955,7 +955,7 @@ SKILL:Perception				RANK:27
 SKILL:Sense Motive			RANK:27
 SKILL:Spellcraft				RANK:23
 SKILL:Stealth				RANK:24
-FEAT:Ability Focus (Devour Soul ~ Demilich)
+FEAT:Ability Focus (Devour Soul)
 FEAT:Alertness
 FEAT:Defensive Combat Training
 FEAT:Dodge
@@ -1956,7 +1956,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Fly		RANK:25
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:24
-FEAT:Ability Focus (Poison ~ Hellwasp Swarm)
+FEAT:Ability Focus (Poison)
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Iron Will
@@ -2517,7 +2517,7 @@ SKILL:Perception	RANK:7
 SKILL:Stealth	RANK:9
 SKILL:Survival	RANK:3
 SKILL:Swim		RANK:8
-FEAT:Ability Focus (Water Jet ~ Seaweed Leshy)
+FEAT:Ability Focus (Water Jet)
 FEAT:Toughness
 
 
@@ -3923,7 +3923,7 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Climb		RANK:7
 SKILL:Perception	RANK:7
 SKILL:Survival	RANK:2
-FEAT:Ability Focus (Musk ~ Giant Skunk)
+FEAT:Ability Focus (Musk)
 FEAT:Power Attack
 FEAT:Weapon Finesse
 
@@ -4406,7 +4406,7 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:8
 SKILL:Stealth	RANK:12
 SKILL:Swim		RANK:17
-FEAT:Ability Focus (Blood-Freezing Howl ~ Voonith)
+FEAT:Ability Focus (Blood-Freezing Howl)
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Focus (Bite)
 
@@ -4519,6 +4519,6 @@ SKILL:Bluff				RANK:7
 SKILL:Knowledge (Arcana)	RANK:8
 SKILL:Perception			RANK:10
 SKILL:Stealth			RANK:14
-FEAT:Ability Focus (Corpse Call ~ Zuvembie)
+FEAT:Ability Focus (Corpse Call)
 FEAT:Dodge
 FEAT:Toughness

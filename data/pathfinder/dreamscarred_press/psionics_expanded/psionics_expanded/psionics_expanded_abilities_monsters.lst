@@ -28,7 +28,7 @@ Link			KEY:Link ~ Astral Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality.Ex
 
 ###Block: Ectoplasmic Swarm abilities
 # Ability Name		Unique Key							Category of Ability		Type						Define							Description																						Modify VAR													Source Page		Aspects
-Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
+Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
 
 ###Block: Horror abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define																						Description																																																																																																															Modify VAR																												Source Page

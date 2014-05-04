@@ -5239,7 +5239,7 @@ SKILL:Climb		RANK:14
 SKILL:Perception	RANK:14
 SKILL:Stealth	RANK:14
 SKILL:Swim		RANK:14
-FEAT:Ability Focus (Paralysis ~ Mohrg)
+FEAT:Ability Focus (Paralysis)
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
@@ -5334,7 +5334,7 @@ SKILL:Perception			RANK:10
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:9
 SKILL:Swim				RANK:1
-FEAT:Ability Focus (Charming Gaze ~ Spirit Naga)
+FEAT:Ability Focus (Charming Gaze)
 FEAT:Combat Casting
 FEAT:Lightning Reflexes
 FEAT:Skill Focus (Perception)
@@ -5582,7 +5582,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Climb		RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
-FEAT:Ability Focus (Poison ~ Phase Spider)
+FEAT:Ability Focus (Poison)
 FEAT:Improved Initiative
 FEAT:Skill Focus (Stealth)
 
@@ -5787,7 +5787,7 @@ NAME:Rust Monster
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:5
-FEAT:Ability Focus (Rust ~ Rust Monster)
+FEAT:Ability Focus (Rust)
 FEAT:Skill Focus (Perception)
 FEAT:Weapon Finesse
 

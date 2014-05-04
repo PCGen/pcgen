@@ -3,7 +3,7 @@ SOURCELONG:Second Darkness, Chapter 6 - Descent into Midnight	SOURCESHORT:AP18	S
 
 ###Block: Black-Blooded Abilities
 # Ability Name			Output Name				Category of Ability		Type								Define							Description																	Modify VAR													Source Page		Aspects
-Black-Blooded Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:BlackBloodedBreathWeaponDC|10+(HD/2)+CON	DESC:Cone of black blood, reflex save (DC %1) for half|BlackBloodedBreathWeaponDC					BONUS:VAR|BlackBloodedBreathWeaponDC|2|PREFEAT:1,Ability Focus (Breath Weapon)	SOURCEPAGE:p. 82
+Black-Blooded Breath Weapon	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEFINE:BlackBloodedBreathWeaponDC|10+(HD/2)+CON	DESC:Cone of black blood, reflex save (DC %1) for half|BlackBloodedBreathWeaponDC					BONUS:VAR|BlackBloodedBreathWeaponDC|2|PREFEAT:1,Ability Focus (Breath Weapon)	ABILITY:Ability Focus|AUTOMATIC|Breath Weapon	SOURCEPAGE:p. 82
 Blood Rain									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura										DESC:Black-blooded creatures constantly leak and spray bursts of freezing black blood (%1 Cold Damage)|CON															SOURCEPAGE:p. 82
 Tainted Life								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness									DESC:The black blood is antithetical to all life and consumes all but the heartiest hosts.																	SOURCEPAGE:p. 82
 Cold Damage									CATEGORY:Special Ability	TYPE:SpecialAttack													DESC:A black-blooded creature deals additional cold damage on all attacks																				SOURCEPAGE:p. 82	ASPECT:Ability Bonus|+1d6

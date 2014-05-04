@@ -296,7 +296,7 @@ SKILL:Perception		RANK:14
 SKILL:Sense Motive	RANK:14
 SKILL:Spellcraft		RANK:14
 SKILL:Stealth		RANK:14
-FEAT:Ability Focus (Roar ~ Leonal)
+FEAT:Ability Focus (Roar)
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Mobility
@@ -3074,7 +3074,7 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:5
-FEAT:Ability Focus (Confusion ~ Gloomwing)
+FEAT:Ability Focus (Confusion)
 FEAT:Flyby Attack
 FEAT:Hover
 
@@ -3557,7 +3557,7 @@ SKILL:Knowledge (Religion)	RANK:16
 SKILL:Perception			RANK:16
 SKILL:Sense Motive		RANK:16
 SKILL:Survival			RANK:16
-FEAT:Ability Focus (Fists of Lightning and Thunder ~ Marut)
+FEAT:Ability Focus (Fists of Lightning and Thunder)
 FEAT:Awesome Blow
 FEAT:Combat Casting
 FEAT:Dodge
@@ -4478,7 +4478,7 @@ NAME:Poltergeist
 ALIGN:LE
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:3
-FEAT:Ability Focus (Frightener ~ Poltergeist)
+FEAT:Ability Focus (Frightener)
 FEAT:Alertness
 
 STARTPACK:Primate (Baboon) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Primate (Baboon)]	SOURCEPAGE:p.212
@@ -5041,7 +5041,7 @@ SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Stealth			RANK:9
 SKILL:Use Magic Device		RANK:9
-FEAT:Ability Focus (Aura of Madness ~ Seugathi)
+FEAT:Ability Focus (Aura of Madness)
 FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
@@ -5095,7 +5095,7 @@ SKILL:Knowledge (Planes)	RANK:16
 SKILL:Perception			RANK:16
 SKILL:Spellcraft			RANK:16
 SKILL:Use Magic Device		RANK:16
-FEAT:Ability Focus (Blinding Light ~ Shining Child)
+FEAT:Ability Focus (Blinding Light)
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
@@ -5564,7 +5564,7 @@ SKILL:Disguise		RANK:10
 SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Stealth		RANK:10
-FEAT:Ability Focus (Charisma Drain ~ Totenmaske)
+FEAT:Ability Focus (Charisma Drain)
 FEAT:Combat Expertise
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
@@ -5777,7 +5777,7 @@ SKILL:Sense Motive		RANK:18
 SKILL:Spellcraft			RANK:18
 SKILL:Stealth			RANK:18
 SKILL:Survival			RANK:18
-FEAT:Ability Focus (Howl ~ Wendigo)
+FEAT:Ability Focus (Howl)
 FEAT:Critical Focus
 FEAT:Flyby Attack
 FEAT:Improved Critical (Claw)
