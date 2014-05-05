@@ -73,3 +73,31 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #fractions must start with a "1/". Expressions such as CR:3/4 or CR:0.5 will not work.
 #
 #The SOURCEPAGE tag can be used to hold a reference to where you can find the race. This will be displayed in PCGen.
+
+#RACE ENTRY TEMPLATE
+
+#yyy
+#SOURCEPAGE:p.
+#KEY:xxx (yyy)
+#SORTKEY:xxx
+#MONSTERCLASS:zzz:
+#RACETYPE:zzz
+#TYPE:zzz
+#RACESUBTYPE:xyz
+#BONUS:COMBAT|AC|xxy|TYPE=NaturalArmor
+#BONUS:STAT|STR|
+#BONUS:STAT|DEX|
+#BONUS:STAT|CON|
+#BONUS:STAT|INT|
+#BONUS:STAT|WIS|
+#BONUS:STAT|CHA|
+#KIT:1|yyy Default
+#ABILITY:Internal|AUTOMATIC|Race Traits ~ yyy
+#LANGBONUS:
+#AUTO:LANG|
+
+#yyy = Name of the Creature
+#xxx = Group *(Demon, Devil, Herd Animal, etc)*
+#zzz = Monster Type (Humanoid, Aberration, etc.)
+#xyz = RACESUBTYPEs if applicable
+#xxy = Number, great for double click selection to enter the number (Trust me)
