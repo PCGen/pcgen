@@ -4,8 +4,8 @@ SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.
 
 ###Block: Suli Abilities
 # Ability Name	Category of Ability		Type						Description																																																																						Source Page
-Elemental Assault	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Once per day as a swift action, a suli can call on the elemental power lurking in his veins to shroud his arms in acid, cold, electricity, or fire. Unarmed strikes with his arms or hands (or attacks with weapons held in those hands) deal +1d6 damage of the appropriate energy damage, as if using a flaming or frost weapon. This lasts for 1 round per level. The suli can dismiss the elemental power as a free action.	SOURCEPAGE:p.28
+Elemental Assault	KEY:Suli ~ Elemental Assault	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Once per day as a swift action, a suli can call on the elemental power lurking in his veins to shroud his arms in acid, cold, electricity, or fire. Unarmed strikes with his arms or hands (or attacks with weapons held in those hands) deal +1d6 damage of the appropriate energy damage, as if using a flaming or frost weapon. This lasts for 1 round per level. The suli can dismiss the elemental power as a free action.	SOURCEPAGE:p.28
 
 ###Block: Jocta
 # Ability Name	Category of Ability		Type						Description
-Size Change		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Can change from Tiny to Small size or back at will as a free action.
+Size Change		KEY:Jocta ~ Size Change	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Can change from Tiny to Small size or back at will as a free action.

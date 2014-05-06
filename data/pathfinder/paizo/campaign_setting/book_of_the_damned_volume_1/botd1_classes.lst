@@ -8,13 +8,13 @@ CLASS:Diabolist	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Dia		MAXLEVEL:10	SOURCEP
 CLASS:Diabolist	PREALIGN:LN,LE,NE	PRELANG:1,Infernal	PRESKILL:3,Knowledge (Planes)=5,Knowledge (Religion)=3,Spellcraft=5	PRETEXT:Must have conjured a devil using Lesser Planar Ally or Lesser Planar Binding (or a similar spell) and successfully coaxed the fiend into performing a task lasting longer than 1 day.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft
-1	BONUS:VAR|DiabolistDamnedLVL,DiabolistInfernalCharismaLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Damned ~ Diabolist|Imp Companion ~ Diabolist|Infernal Charisma ~ Diabolist
-2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Channel Hellfire ~ Diabolist|Infernal Bargain ~ Diabolist
-3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Heresey ~ Diabolist											AUTO:FEAT|Augment Summoning
+1	BONUS:VAR|DiabolistDamnedLVL,DiabolistInfernalCharismaLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Damned|Diabolist ~ Imp Companion|Diabolist ~ Infernal Charisma
+2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Channel Hellfire|Diabolist ~ Infernal Bargain
+3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Heresey											AUTO:FEAT|Augment Summoning
 4												ADD:SPELLCASTER|ANY
-5												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Hellish Soul ~ Diabolist
-6												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Infernal Transport ~ Diabolist
+5												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Hellish Soul
+6												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Infernal Transport
 7												ADD:SPELLCASTER|ANY
-8	BONUS:VAR|DiabolistHellfireRayLVL|CL					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Hellfire Ray ~ Diabolist
+8	BONUS:VAR|DiabolistHellfireRayLVL|CL					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Hellfire Ray
 9												ADD:SPELLCASTER|ANY
-10												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Master Conjurer ~ Diabolist
+10												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Master Conjurer

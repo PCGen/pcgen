@@ -2,7 +2,7 @@
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by:Stefan Radermacher
 
-# Prestige Classes: Hellknight, Low Templar; 
+# Prestige Classes: Hellknight, Low Templar;
 
 ###Block: Cleric Domain Powers
 # Ability Name		Unique Key								Category of Ability		Type								Define					Description																										Modify VAR									Allow Follower			Allowed Companions												Source Page		Aspects																				Description of the Benefits

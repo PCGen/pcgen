@@ -2,5 +2,5 @@
 SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
 # Author: Henk Slaaf
 
-# Race Name	Ability					Type			Challenge Rating
-Orc.MOD	ABILITY:Internal|AUTOMATIC|Default	TYPE:Base.PC	CR:1/2
+# Race Name	Type			Challenge Rating
+Orc.MOD	TYPE:Base.PC	CR:1/2

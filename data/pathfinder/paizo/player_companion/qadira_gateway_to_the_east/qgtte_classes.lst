@@ -9,13 +9,13 @@ CLASS:Daivrat	!PREALIGN:NE,LE,CE	PREFEAT:1,Spell Focus (Conjuration)	PRELANG:1,A
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Daivrat	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Planes)|Linguistics|Spellcraft|Use Magic Device
 
-1	BONUS:ABILITYPOOL|Elemental Focus|1											ABILITY:Special Ability|AUTOMATIC|Genie-Tongue
-2								BONUS:VAR|SpellFetchLvl|3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Spell Fetch
-3								BONUS:VAR|GenieFriend|2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Genie's Friend
+1	BONUS:ABILITYPOOL|Elemental Focus|1											ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie-Tongue
+2								BONUS:VAR|SpellFetchLvl|3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Spell Fetch
+3								BONUS:VAR|GenieFriendBonus|2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie's Friend
 4	BONUS:ABILITYPOOL|Elemental Attunement|1						ADD:SPELLCASTER|ANY
 5								BONUS:VAR|SpellFetchLvl|3	ADD:SPELLCASTER|ANY
-6													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Zhyen Familiar
+6													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Zhyen Familiar
 7	BONUS:ABILITYPOOL|Elemental Focus|1							ADD:SPELLCASTER|ANY
 8								BONUS:VAR|SpellFetchLvl|2	ADD:SPELLCASTER|ANY
-9								BONUS:VAR|GenieFriend|2		ADD:SPELLCASTER|ANY
-10													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Genie Kin
+9								BONUS:VAR|GenieFriendBonus|2		ADD:SPELLCASTER|ANY
+10													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie Kin

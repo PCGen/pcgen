@@ -256,8 +256,8 @@ Wild Shape		VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=WildshapeT
 #At 10th level,
 #	now functions as elemental body III.
 #	now functions as plant shape II.
-#At 12th level, a druid can also use wild shape to change into a Huge elemental or a Huge plant creature. 
-#	now functions as elemental body IV. 
+#At 12th level, a druid can also use wild shape to change into a Huge elemental or a Huge plant creature.
+#	now functions as elemental body IV.
 #	now functions as plant shape III.
 ###Block: Shape/Size
 # Template Name				Size		Face/Space	Reach		Visible		Var. Min. Value				Combat bonus				Stat bonus

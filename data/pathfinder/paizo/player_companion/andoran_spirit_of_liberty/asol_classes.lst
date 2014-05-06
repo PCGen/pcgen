@@ -15,11 +15,11 @@ CLASS:Steel Falcon	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (
 #none
 
 ###Block: Normal Level Progression
-1	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Heart of Freedom ~ Steel Falcon|Enemy of Slavers ~ Steel Falcon|Sailor and Survivalist ~ Steel Falcon
-2									ABILITY:Special Ability|AUTOMATIC|Heroic Speech ~ Steel Falcon|Luck of the Eagle ~ Steel Falcon|Superior Aid ~ Steel Falcon
-3									ABILITY:Special Ability|AUTOMATIC|Natural Traps ~ Steel Falcon|Subtle Manipulator ~ Steel Falcon
-4									ABILITY:Special Ability|AUTOMATIC|Chainbreaker ~ Steel Falcon|Comrade's Bond ~ Steel Falcon
-5	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Talmandor's Blessing ~ Steel Falcon|Talmandor's Fury ~ Steel Falcon
+1	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Heart of Freedom|Steel Falcon ~ Enemy of Slavers|Steel Falcon ~ Sailor and Survivalist
+2									ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Heroic Speech|Steel Falcon ~ Luck of the Eagle|Steel Falcon ~ Superior Aid
+3									ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Natural Traps|Steel Falcon ~ Subtle Manipulator
+4									ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Chainbreaker|Steel Falcon ~ Comrade's Bond
+5	BONUS:VAR|EnemyOfSlaversSteelFalconBonus|2	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Talmandor's Blessing|Steel Falcon ~ Talmandor's Fury
 
 #
 # End

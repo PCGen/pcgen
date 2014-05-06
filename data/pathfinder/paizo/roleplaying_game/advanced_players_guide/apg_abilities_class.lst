@@ -2130,7 +2130,7 @@ CATEGORY=Special Ability|Ranger Combat Style ~ Two-Weapon Combat.MOD												
 #	RangerCombatStyleTwoHandedWeaponAllowed
 #	RangerCombatStyleWeaponAndShieldAllowed
 
-###Block: Ranger Combat Style Bonus Feats		KEY:Ranger Bonus Feat ~ 
+###Block: Ranger Combat Style Bonus Feats		KEY:Ranger Bonus Feat ~
 # Crossbow Feats
 # Ability Name							Category of Ability		Type				Visible		Clear Prereq.	Required Ability														Required Feat								Prohibited Feat				Var. Min. Value			Multiple?	Choose												Virtual Feat												Weapon prof. bonus
 Deadly Aim			KEY:Ranger Bonus Feat ~ Deadly Aim					CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY				PREABILITY:1,CATEGORY=Special Ability,Ranger Combat Style ~ Crossbow															!PREFEAT:1,Deadly Aim			PREVARGTEQ:CombatStyleLVL,1																VFEAT:Deadly Aim|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
