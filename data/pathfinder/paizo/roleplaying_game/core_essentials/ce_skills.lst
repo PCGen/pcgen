@@ -199,4 +199,5 @@ Ride.MOD				SITUATION:Samurai Mount
 Acrobatics.MOD			SITUATION:Move through threatened squares
 Heal.MOD				SITUATION:Treat disease and poison
 
+Stealth.MOD				SITUATION:Move Silently
 ###Block:

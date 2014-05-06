@@ -446,16 +446,16 @@ FOLLOWER:PackMember20LVL=20	TYPE:Pack Member 20	HD:1																												
 
 ###Block: Black Blade abilities
 # Class of the Master	Type			Ability																					Copy Masters Checks	Bonus to skill rank				Stat bonus				Modify VAR
-FOLLOWER:BBLevel=3	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade Arcane Pool|Ego ~ Black Blade|Enhancement Bonus ~ Black Blade|Senses ~ Black Blade	COPYMASTERCHECK:MASTER
-FOLLOWER:BBLevel=3	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade Strike|Telepathy ~ Black Blade|Unbreakable ~ Black Blade																BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|5
-FOLLOWER:BBLevel=5	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Energy Attunement ~ Black Blade																BONUS:SKILLRANK|Knowledge (Arcana)|INT	BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|3
+FOLLOWER:BBLevel=3	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade Arcane Pool|Black Blade ~ Ego|Black Blade ~ Enhancement Bonus|Black Blade ~ Senses	COPYMASTERCHECK:MASTER
+FOLLOWER:BBLevel=3	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade Strike|Black Blade ~ Telepathy|Black Blade ~ Unbreakable																BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|5
+FOLLOWER:BBLevel=5	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade ~ Energy Attunement																BONUS:SKILLRANK|Knowledge (Arcana)|INT	BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|3
 FOLLOWER:BBLevel=7	TYPE:Black Blade																																		BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEgo|2
-FOLLOWER:BBLevel=9	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Teleport Blade ~ Black Blade																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|2
+FOLLOWER:BBLevel=9	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade ~ Teleport Blade																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|2
 FOLLOWER:BBLevel=11	TYPE:Black Blade																																		BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEgo|2
-FOLLOWER:BBLevel=13	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Transfer Arcana ~ Black Blade																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|2
+FOLLOWER:BBLevel=13	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade ~ Transfer Arcana																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|2
 FOLLOWER:BBLevel=15	TYPE:Black Blade																																		BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEgo|2
-FOLLOWER:BBLevel=17	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Spell Defense ~ Black Blade																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|4
-FOLLOWER:BBLevel=19	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Life Drinker ~ Black Blade																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEgo|2
+FOLLOWER:BBLevel=17	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade ~ Spell Defense																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEnhancement|1	BONUS:VAR|BBEgo|4
+FOLLOWER:BBLevel=19	TYPE:Black Blade	ABILITY:Special Ability|AUTOMATIC|Black Blade ~ Life Drinker																							BONUS:STAT|INT,WIS,CHA|1	BONUS:VAR|BBEgo|2
 
 # Race of familiar		Type			Virtual Feat
 MASTERBONUSRACE:Black Blade	TYPE:Black Blade	VFEAT:Alertness

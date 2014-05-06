@@ -4397,8 +4397,8 @@ CLASS:Fighter	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Ogrekin Beneficial Deformity|Oversized Maw ~ Ogrekin
-ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Weak Mind ~ Ogrekin
+ABILITY:CATEGORY=Ogrekin Beneficial Deformity|Ogrekin ~ Oversized Maw
+ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Ogrekin ~ Weak Mind
 SKILL:Climb	RANK:2
 SKILL:Swim	RANK:2
 ABILITY:CATEGORY=Fighter Bonus Feat|Cleave

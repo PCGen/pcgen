@@ -4271,7 +4271,7 @@ FEAT:Improved Overrun
 FEAT:Intimidating Prowess
 FEAT:Iron Will
 FEAT:Power Attack
-#ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Oversized Weapon ~ Cloud Giant (Morningstar)
+#ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Cloud Giant ~ Oversized Weapon (Morningstar)
 GEAR:Morningstar		SIZE:G	LOCATION:Both Hands
 GEAR:Chain Shirt		SIZE:H	LOCATION:Equipped
 GEAR:Rock (Medium)			LOCATION:Not Carried
@@ -6168,7 +6168,7 @@ FEAT:Hover
 FEAT:Improved Critical (Claw)
 FEAT:Improved Initiative
 FEAT:Iron Will
-ABILITY:CATEGORY=Special Ability|Symbol of Fear ~ Gynosphinx|Symbol of Pain ~ Gynosphinx|Symbol of Persuasion ~ Gynosphinx|Symbol of Sleep ~ Gynosphinx|Symbol of Stunning ~ Gynosphinx	FREE:YES
+ABILITY:CATEGORY=Special Ability|Gynosphinx ~ Symbol of Fear|Gynosphinx ~ Symbol of Pain|Gynosphinx ~ Symbol of Persuasion|Gynosphinx ~ Symbol of Sleep|Gynosphinx ~ Symbol of Stunning	FREE:YES
 
 STARTPACK:Spider (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant)]	SOURCEPAGE:p.258
 RACE:Spider (Giant)	!PRERACE:1,%
@@ -6784,9 +6784,9 @@ SKILL:Survival			RANK:4
 FEAT:Multiattack
 FEAT:Weapon Focus (Gore)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Strength ~ Template
-ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Constitution ~ Template
-ABILITY:CATEGORY=Half-Celestial Ability Bonus|+2 Wisdom ~ Template
+ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Strength
+ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Constitution
+ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Wisdom
 
 
 STARTPACK:Dracolisk		TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basilisk],[!PRERACE:1,%]	SOURCEPAGE:p.170
@@ -6819,9 +6819,9 @@ FEAT:Great Fortitude
 FEAT:Improved Bull Rush
 FEAT:Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Strength ~ Template
-ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Constitution ~ Template
-ABILITY:CATEGORY=Half-Fiend Ability Bonus|+2 Dexterity ~ Template
+ABILITY:CATEGORY=Half-Fiend Ability Bonus|Template ~ +2 Strength
+ABILITY:CATEGORY=Half-Fiend Ability Bonus|Template ~ +2 Constitution
+ABILITY:CATEGORY=Half-Fiend Ability Bonus|Template ~ +2 Dexterity
 GEAR:Greataxe	SIZE:L	LOCATION:Equipped
 
 

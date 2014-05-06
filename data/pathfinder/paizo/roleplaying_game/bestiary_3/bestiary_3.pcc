@@ -68,6 +68,7 @@ COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data t
 #EXTRAFILE:OGL.txt
 
 # Data files
+ABILITY:b3_abilities_companion.lst
 ABILITY:b3_abilities_race.lst
 ABILITYCATEGORY:b3_abilitycategories.lst
 DEITY:b3_deities.lst
