@@ -84,6 +84,9 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #RACETYPE:zzz
 #TYPE:zzz
 #RACESUBTYPE:xyz
+#MOVE:
+#FACE:
+#REACH:
 #BONUS:COMBAT|AC|xxy|TYPE=NaturalArmor
 #BONUS:STAT|STR|
 #BONUS:STAT|DEX|
