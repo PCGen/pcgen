@@ -1910,3 +1910,347 @@ ABILITY:Special Ability|Snake Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style
 ABILITY:Special Ability|Snapping Turtle Style		MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Snapping Turtle Style	
 ABILITY:Special Ability|Tiger Style				MAXVER:6.4.0	NEWKEY:Unarmed Fighter Style ~ Tiger Style			
 
+ABILITY:Special Ability|Standard Choices ~ Special Mount	MAXVER:6.4.0	NEWKEY:Special Mount ~ Standard Choices
+ABILITY:Special Ability|Expanded Choices ~ Special Mount	MAXVER:6.4.0	NEWKEY:Special Mount ~ Expanded Choices
+
+ABILITY:Special Ability|Companion Advancement (Ape)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Ape				
+ABILITY:Special Ability|Companion Advancement (Badger (Wolverine))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Wolverine			
+ABILITY:Special Ability|Companion Advancement (Bear)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Bear				
+ABILITY:Special Ability|Companion Advancement (Bird)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Bird				
+ABILITY:Special Ability|Companion Advancement (Boar)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Boar				
+ABILITY:Special Ability|Companion Advancement (Camel)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Camel				
+ABILITY:Special Ability|Companion Advancement (Cat (Small (Cheetah)))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Cheetah				
+ABILITY:Special Ability|Companion Advancement (Cat (Small (Leopard)))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Leopard				
+ABILITY:Special Ability|Companion Advancement (Crocodile (Alligator))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Alligator			
+ABILITY:Special Ability|Companion Advancement (Dog)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dog				
+ABILITY:Special Ability|Companion Advancement (Horse)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Horse				
+ABILITY:Special Ability|Companion Advancement (Pony)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Pony				
+ABILITY:Special Ability|Companion Advancement (Shark)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Shark				
+ABILITY:Special Ability|Companion Advancement (Snake (Constrictor))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Snake (Constrictor)		
+ABILITY:Special Ability|Companion Advancement (Snake (Viper))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Snake (Viper)			
+ABILITY:Special Ability|Companion Advancement (Dire Rat)			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dire Rat			
+ABILITY:Special Ability|Companion Advancement (Cat (Big (Lion)))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Lion				
+ABILITY:Special Ability|Companion Advancement (Cat (Big (Tiger)))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Tiger				
+ABILITY:Special Ability|Companion Advancement (Dinosaur (Deinonychus))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dinosaur (Deinonychus)	
+ABILITY:Special Ability|Companion Advancement (Dinosaur (Velociraptor))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dinosaur (Velociraptor)	
+ABILITY:Special Ability|Companion Advancement (Wolf)				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Wolf				
+ABILITY:Special Ability|Companion Advancement (Dinosaur (Allosaurus))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dinosaur (Allosaurus)		
+ABILITY:Special Ability|Companion Advancement (Dinosaur (Parasaurolophus))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dinosaur (Parasaurolophus)	
+ABILITY:Special Ability|Companion Advancement (Dinosaur (Tylosaurus))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Dinosaur (Tylosaurus)		
+ABILITY:Special Ability|Companion Advancement (Gar)					MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Gar					
+ABILITY:Special Ability|Companion Advancement (Herd Animal (Ram))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Herd Animal (Ram)			
+ABILITY:Special Ability|Companion Advancement (Hippopotamus)			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Hippopotamus				
+ABILITY:Special Ability|Companion Advancement (Megafauna (Arsinoitherium))	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Megafauna (Arsinoitherium)	
+ABILITY:Special Ability|Companion Advancement (Megafauna (Gylptodon))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Megafauna (Gylptodon)		
+ABILITY:Special Ability|Companion Advancement (Megafauna (Megaloceros))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Megafauna (Megaloceros)		
+ABILITY:Special Ability|Companion Advancement (Megafauna (Megatherium))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Megafauna (Megatherium)		
+ABILITY:Special Ability|Companion Advancement (Primate (Baboon))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Primate (Baboon)			
+ABILITY:Special Ability|Companion Advancement (Ray (Manta))				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Ray (Manta)				
+ABILITY:Special Ability|Companion Advancement (Ray (Stingray))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Ray (Stingray)			
+ABILITY:Special Ability|Companion Advancement (Turtle (Giant Snapping))		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Turtle (Giant Snapping)		
+
+ABILITY:Special Ability|Bloodline ~ Oni Bloodline	MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Oni
+
+ABILITY:Special Ability|Deep Guardian		MAXVER:6.4.0	NEWKEY:Trait ~ Deep Guardian		
+ABILITY:Special Ability|Earthbound			MAXVER:6.4.0	NEWKEY:Trait ~ Earthbound			
+ABILITY:Special Ability|Eldritch Smith		MAXVER:6.4.0	NEWKEY:Trait ~ Eldritch Smith		
+ABILITY:Special Ability|Strength of the Land	MAXVER:6.4.0	NEWKEY:Trait ~ Strength of the Land	
+ABILITY:Special Ability|Clearheaded		MAXVER:6.4.0	NEWKEY:Trait ~ Clearheaded		
+ABILITY:Special Ability|Deep Marker		MAXVER:6.4.0	NEWKEY:Trait ~ Deep Marker		
+ABILITY:Special Ability|Goldsniffer		MAXVER:6.4.0	NEWKEY:Trait ~ Goldsniffer		
+ABILITY:Special Ability|Grounded		MAXVER:6.4.0	NEWKEY:Trait ~ Grounded		
+ABILITY:Special Ability|Ruthless		MAXVER:6.4.0	NEWKEY:Trait ~ Ruthless		
+ABILITY:Special Ability|Tunnel Fighter	MAXVER:6.4.0	NEWKEY:Trait ~ Tunnel Fighter	
+ABILITY:Special Ability|Warsmith		MAXVER:6.4.0	NEWKEY:Trait ~ Warsmith		
+ABILITY:Special Ability|Zest for Battle	MAXVER:6.4.0	NEWKEY:Trait ~ Zest for Battle	
+ABILITY:Special Ability|Blooded		MAXVER:6.4.0	NEWKEY:Trait ~ Blooded		
+ABILITY:Special Ability|Coin Hoarder	MAXVER:6.4.0	NEWKEY:Trait ~ Coin Hoarder	
+ABILITY:Special Ability|Frostborn		MAXVER:6.4.0	NEWKEY:Trait ~ Frostborn		
+ABILITY:Special Ability|Glory of Old	MAXVER:6.4.0	NEWKEY:Trait ~ Glory of Old	
+ABILITY:Special Ability|Perseverance	MAXVER:6.4.0	NEWKEY:Trait ~ Perseverance	
+ABILITY:Special Ability|Warrior Poet	MAXVER:6.4.0	NEWKEY:Trait ~ Warrior Poet	
+ABILITY:Special Ability|Alluring			MAXVER:6.4.0	NEWKEY:Trait ~ Alluring			
+ABILITY:Special Ability|Battlefield Caster	MAXVER:6.4.0	NEWKEY:Trait ~ Battlefield Caster	
+ABILITY:Special Ability|Guardian of the Forge	MAXVER:6.4.0	NEWKEY:Trait ~ Guardian of the Forge	
+ABILITY:Special Ability|Honeyed Words		MAXVER:6.4.0	NEWKEY:Trait ~ Honeyed Words		
+ABILITY:Special Ability|Resigned			MAXVER:6.4.0	NEWKEY:Trait ~ Resigned			
+ABILITY:Special Ability|Toilcrafter			MAXVER:6.4.0	NEWKEY:Trait ~ Toilcrafter			
+ABILITY:Special Ability|Honeyed Tongue		MAXVER:6.4.0	NEWKEY:Trait ~ Honeyed Tongue		
+ABILITY:Special Ability|Militia			MAXVER:6.4.0	NEWKEY:Trait ~ Militia			
+ABILITY:Special Ability|Szaezan Crags Miner	MAXVER:6.4.0	NEWKEY:Trait ~ Szaezan Crags Miner	
+ABILITY:Special Ability|Tiger Brigadier		MAXVER:6.4.0	NEWKEY:Trait ~ Tiger Brigadier		
+ABILITY:Special Ability|Acupuncturist		MAXVER:6.4.0	NEWKEY:Trait ~ Acupuncturist		
+ABILITY:Special Ability|Mizu Ki Hikari Rebel	MAXVER:6.4.0	NEWKEY:Trait ~ Mizu Ki Hikari Rebel	
+ABILITY:Special Ability|Darklands Delver		MAXVER:6.4.0	NEWKEY:Trait ~ Darklands Delver		
+ABILITY:Special Ability|Slayer of the Deep	MAXVER:6.4.0	NEWKEY:Trait ~ Slayer of the Deep	
+ABILITY:Special Ability|Dtang Ma Bloodline	MAXVER:6.4.0	NEWKEY:Trait ~ Dtang Ma Bloodline	
+ABILITY:Special Ability|Guerilla			MAXVER:6.4.0	NEWKEY:Trait ~ Guerilla			
+ABILITY:Special Ability|Kami Talker			MAXVER:6.4.0	NEWKEY:Trait ~ Kami Talker			
+ABILITY:Special Ability|Spiritual Forester	MAXVER:6.4.0	NEWKEY:Trait ~ Spiritual Forester	
+ABILITY:Special Ability|Cosmopolitan		MAXVER:6.4.0	NEWKEY:Trait ~ Cosmopolitan		
+ABILITY:Special Ability|Undermarket Smuggler	MAXVER:6.4.0	NEWKEY:Trait ~ Undermarket Smuggler	
+ABILITY:Special Ability|Hongal Bloodrider		MAXVER:6.4.0	NEWKEY:Trait ~ Hongal Bloodrider		
+ABILITY:Special Ability|Storm Hunter		MAXVER:6.4.0	NEWKEY:Trait ~ Storm Hunter		
+ABILITY:Special Ability|Altruistic Diplomat	MAXVER:6.4.0	NEWKEY:Trait ~ Altruistic Diplomat	
+ABILITY:Special Ability|Hwan Artist			MAXVER:6.4.0	NEWKEY:Trait ~ Hwan Artist			
+ABILITY:Special Ability|Conscientious Miner	MAXVER:6.4.0	NEWKEY:Trait ~ Conscientious Miner	
+ABILITY:Special Ability|Intrepid Delver		MAXVER:6.4.0	NEWKEY:Trait ~ Intrepid Delver		
+ABILITY:Special Ability|Indentured Blacksmith	MAXVER:6.4.0	NEWKEY:Trait ~ Indentured Blacksmith	
+ABILITY:Special Ability|Privileged Slave		MAXVER:6.4.0	NEWKEY:Trait ~ Privileged Slave		
+ABILITY:Special Ability|Border Guard		MAXVER:6.4.0	NEWKEY:Trait ~ Border Guard		
+ABILITY:Special Ability|Kwanlai Believer		MAXVER:6.4.0	NEWKEY:Trait ~ Kwanlai Believer		
+ABILITY:Special Ability|Heart of Clay		MAXVER:6.4.0	NEWKEY:Trait ~ Heart of Clay		
+ABILITY:Special Ability|Lingshen's Finest		MAXVER:6.4.0	NEWKEY:Trait ~ Lingshen's Finest		
+ABILITY:Special Ability|Belem Pirate		MAXVER:6.4.0	NEWKEY:Trait ~ Belem Pirate		
+ABILITY:Special Ability|Wayang Spellhunter	MAXVER:6.4.0	NEWKEY:Trait ~ Wayang Spellhunter	
+ABILITY:Special Ability|Instigator of Rebellion	MAXVER:6.4.0	NEWKEY:Trait ~ Instigator of Rebellion	
+ABILITY:Special Ability|Minkai Advocate		MAXVER:6.4.0	NEWKEY:Trait ~ Minkai Advocate		
+ABILITY:Special Ability|Jungle Resilience		MAXVER:6.4.0	NEWKEY:Trait ~ Jungle Resilience		
+ABILITY:Special Ability|Snake Bleeder		MAXVER:6.4.0	NEWKEY:Trait ~ Snake Bleeder		
+ABILITY:Special Ability|Chosen Child		MAXVER:6.4.0	NEWKEY:Trait ~ Chosen Child		
+ABILITY:Special Ability|Passionate Believer	MAXVER:6.4.0	NEWKEY:Trait ~ Passionate Believer	
+ABILITY:Special Ability|Quain Martial Artist	MAXVER:6.4.0	NEWKEY:Trait ~ Quain Martial Artist	
+ABILITY:Special Ability|Silvertongued Eunuch	MAXVER:6.4.0	NEWKEY:Trait ~ Silvertongued Eunuch	
+ABILITY:Special Ability|Mutabi-qi Explorer	MAXVER:6.4.0	NEWKEY:Trait ~ Mutabi-qi Explorer	
+ABILITY:Special Ability|Sky Spirit Worshipper	MAXVER:6.4.0	NEWKEY:Trait ~ Sky Spirit Worshipper	
+ABILITY:Special Ability|Aberration Hunter		MAXVER:6.4.0	NEWKEY:Trait ~ Aberration Hunter		
+ABILITY:Special Ability|Shenmen Prospector	MAXVER:6.4.0	NEWKEY:Trait ~ Shenmen Prospector	
+ABILITY:Special Ability|Freedom Fighter		MAXVER:6.4.0	NEWKEY:Trait ~ Freedom Fighter		
+ABILITY:Special Ability|Rebel Leader		MAXVER:6.4.0	NEWKEY:Trait ~ Rebel Leader		
+ABILITY:Special Ability|Heavenly Touch		MAXVER:6.4.0	NEWKEY:Trait ~ Heavenly Touch		
+ABILITY:Special Ability|Tianjing Temple Guard	MAXVER:6.4.0	NEWKEY:Trait ~ Tianjing Temple Guard	
+ABILITY:Special Ability|Jungle Diplomat		MAXVER:6.4.0	NEWKEY:Trait ~ Jungle Diplomat		
+ABILITY:Special Ability|Valashmai Veteran		MAXVER:6.4.0	NEWKEY:Trait ~ Valashmai Veteran		
+ABILITY:Special Ability|Master of Peaks		MAXVER:6.4.0	NEWKEY:Trait ~ Master of Peaks		
+ABILITY:Special Ability|Seasoned Climber		MAXVER:6.4.0	NEWKEY:Trait ~ Seasoned Climber		
+ABILITY:Special Ability|Rice Runner			MAXVER:6.4.0	NEWKEY:Trait ~ Rice Runner			
+ABILITY:Special Ability|Swamp Rebel			MAXVER:6.4.0	NEWKEY:Trait ~ Swamp Rebel			
+ABILITY:Special Ability|Clan Artisan		MAXVER:6.4.0	NEWKEY:Trait ~ Clan Artisan		
+ABILITY:Special Ability|Xa Hoi Soldier		MAXVER:6.4.0	NEWKEY:Trait ~ Xa Hoi Soldier		
+ABILITY:Special Ability|Pearl Diver			MAXVER:6.4.0	NEWKEY:Trait ~ Pearl Diver			
+ABILITY:Special Ability|Trench Navigator		MAXVER:6.4.0	NEWKEY:Trait ~ Trench Navigator		
+ABILITY:Special Ability|Discerning Beliefs	MAXVER:6.4.0	NEWKEY:Trait ~ Discerning Beliefs	
+ABILITY:Special Ability|Sound of Mind		MAXVER:6.4.0	NEWKEY:Trait ~ Sound of Mind		
+ABILITY:Special Ability|Honey-Tongued			MAXVER:6.4.0	NEWKEY:Trait ~ Honey-Tongued			
+ABILITY:Special Ability|Lover of the Law			MAXVER:6.4.0	NEWKEY:Trait ~ Lover of the Law			
+ABILITY:Special Ability|Opportunistic			MAXVER:6.4.0	NEWKEY:Trait ~ Opportunistic			
+ABILITY:Special Ability|Holy Schemer			MAXVER:6.4.0	NEWKEY:Trait ~ Holy Schemer			
+ABILITY:Special Ability|Iron Grip				MAXVER:6.4.0	NEWKEY:Trait ~ Iron Grip				
+ABILITY:Special Ability|Strong Heart			MAXVER:6.4.0	NEWKEY:Trait ~ Strong Heart			
+ABILITY:Special Ability|Child of Nature			MAXVER:6.4.0	NEWKEY:Trait ~ Child of Nature			
+ABILITY:Special Ability|Strong Swimmer			MAXVER:6.4.0	NEWKEY:Trait ~ Strong Swimmer			
+ABILITY:Special Ability|Seer of Reality			MAXVER:6.4.0	NEWKEY:Trait ~ Seer of Reality			
+ABILITY:Special Ability|Centered				MAXVER:6.4.0	NEWKEY:Trait ~ Centered				
+ABILITY:Special Ability|Underlying Principals		MAXVER:6.4.0	NEWKEY:Trait ~ Underlying Principals		
+ABILITY:Special Ability|Arcane Depth (Knowledge)	MAXVER:6.4.0	NEWKEY:Trait ~ Arcane Depth (Knowledge)	
+ABILITY:Special Ability|Arcane Depth (Spellcraft)	MAXVER:6.4.0	NEWKEY:Trait ~ Arcane Depth (Spellcraft)	
+ABILITY:Special Ability|Corpse Hunter			MAXVER:6.4.0	NEWKEY:Trait ~ Corpse Hunter			
+ABILITY:Special Ability|Spirit Guide			MAXVER:6.4.0	NEWKEY:Trait ~ Spirit Guide			
+ABILITY:Special Ability|Eyes of the Wild			MAXVER:6.4.0	NEWKEY:Trait ~ Eyes of the Wild			
+ABILITY:Special Ability|Know the Land			MAXVER:6.4.0	NEWKEY:Trait ~ Know the Land			
+ABILITY:Special Ability|Opener of Doors			MAXVER:6.4.0	NEWKEY:Trait ~ Opener of Doors			
+ABILITY:Special Ability|Deck Fighter			MAXVER:6.4.0	NEWKEY:Trait ~ Deck Fighter			
+ABILITY:Special Ability|Nimble Fingers Keen Mind ~ Trait	MAXVER:6.4.0	NEWKEY:Trait ~ Nimble Fingers (Keen Mind)	
+ABILITY:Special Ability|Broken Mind				MAXVER:6.4.0	NEWKEY:Trait ~ Broken Mind				
+ABILITY:Special Ability|River Freedom			MAXVER:6.4.0	NEWKEY:Trait ~ River Freedom			
+ABILITY:Special Ability|Empty Heart Full Heart ~ Trait		MAXVER:6.4.0	NEWKEY:Trait ~ Empty Heart (Full Heart)	
+ABILITY:Special Ability|Strip the Veils			MAXVER:6.4.0	NEWKEY:Trait ~ Strip the Veils			
+ABILITY:Special Ability|Contract Master			MAXVER:6.4.0	NEWKEY:Trait ~ Contract Master			
+ABILITY:Special Ability|Fiendish Confidence		MAXVER:6.4.0	NEWKEY:Trait ~ Fiendish Confidence		
+ABILITY:Special Ability|Deformed				MAXVER:6.4.0	NEWKEY:Trait ~ Deformed				
+ABILITY:Special Ability|Unhinged Mentality		MAXVER:6.4.0	NEWKEY:Trait ~ Unhinged Mentality		
+ABILITY:Special Ability|Practiced Deception		MAXVER:6.4.0	NEWKEY:Trait ~ Practiced Deception		
+ABILITY:Special Ability|Secret Knowledge			MAXVER:6.4.0	NEWKEY:Trait ~ Secret Knowledge			
+ABILITY:Special Ability|Destructive Blows			MAXVER:6.4.0	NEWKEY:Trait ~ Destructive Blows			
+ABILITY:Special Ability|Hatred of the Gods		MAXVER:6.4.0	NEWKEY:Trait ~ Hatred of the Gods		
+ABILITY:Special Ability|Deathspeaker			MAXVER:6.4.0	NEWKEY:Trait ~ Deathspeaker			
+ABILITY:Special Ability|Inoculated				MAXVER:6.4.0	NEWKEY:Trait ~ Inoculated				
+ABILITY:Special Ability|Battlefield Surgeon		MAXVER:6.4.0	NEWKEY:Trait ~ Battlefield Surgeon		
+ABILITY:Special Ability|Kuthite Caster			MAXVER:6.4.0	NEWKEY:Trait ~ Kuthite Caster			
+ABILITY:Special Ability|Frightening Speed			MAXVER:6.4.0	NEWKEY:Trait ~ Frightening Speed			
+ABILITY:Special Ability|Flames of Hell			MAXVER:6.4.0	NEWKEY:Trait ~ Flames of Hell			
+ABILITY:Special Ability|Dragonslayer			MAXVER:6.4.0	NEWKEY:Trait ~ Dragonslayer			
+ABILITY:Special Ability|Demonic Persuasion		MAXVER:6.4.0	NEWKEY:Trait ~ Demonic Persuasion		
+ABILITY:Special Ability|Affinity of the Elements	MAXVER:6.4.0	NEWKEY:Trait ~ Affinity of the Elements	
+ABILITY:Special Ability|Covenant of Abaddon		MAXVER:6.4.0	NEWKEY:Trait ~ Covenant of Abaddon		
+ABILITY:Special Ability|Potent Concoctions		MAXVER:6.4.0	NEWKEY:Trait ~ Potent Concoctions		
+ABILITY:Special Ability|Unspeakable Bond			MAXVER:6.4.0	NEWKEY:Trait ~ Unspeakable Bond			
+ABILITY:Special Ability|Vindictive Strike			MAXVER:6.4.0	NEWKEY:Trait ~ Vindictive Strike			
+ABILITY:Special Ability|Loreseeker				MAXVER:6.4.0	NEWKEY:Trait ~ Loreseeker				
+ABILITY:Special Ability|Serpentine Squeeze		MAXVER:6.4.0	NEWKEY:Trait ~ Serpentine Squeeze		
+ABILITY:Special Ability|Fatal Trapper			MAXVER:6.4.0	NEWKEY:Trait ~ Fatal Trapper			
+ABILITY:Special Ability|Good Natured		MAXVER:6.4.0	NEWKEY:Trait ~ Good Natured		
+ABILITY:Special Ability|Strong Willed		MAXVER:6.4.0	NEWKEY:Trait ~ Strong Willed		
+ABILITY:Special Ability|Faithful Artist		MAXVER:6.4.0	NEWKEY:Trait ~ Faithful Artist		
+ABILITY:Special Ability|Stoic Optimism		MAXVER:6.4.0	NEWKEY:Trait ~ Stoic Optimism		
+ABILITY:Special Ability|Erastil's Speaker		MAXVER:6.4.0	NEWKEY:Trait ~ Erastil's Speaker		
+ABILITY:Special Ability|Wise Teacher		MAXVER:6.4.0	NEWKEY:Trait ~ Wise Teacher		
+ABILITY:Special Ability|Purity of Faith		MAXVER:6.4.0	NEWKEY:Trait ~ Purity of Faith		
+ABILITY:Special Ability|A Shining Beacon		MAXVER:6.4.0	NEWKEY:Trait ~ A Shining Beacon		
+ABILITY:Special Ability|Cleansing Light		MAXVER:6.4.0	NEWKEY:Trait ~ Cleansing Light		
+ABILITY:Special Ability|Illuminator			MAXVER:6.4.0	NEWKEY:Trait ~ Illuminator			
+ABILITY:Special Ability|Intense Artist		MAXVER:6.4.0	NEWKEY:Trait ~ Intense Artist		
+ABILITY:Special Ability|Inner Beauty		MAXVER:6.4.0	NEWKEY:Trait ~ Inner Beauty		
+ABILITY:Special Ability|Eye of the Father		MAXVER:6.4.0	NEWKEY:Trait ~ Eye of the Father		
+ABILITY:Special Ability|Defensive Strategist	MAXVER:6.4.0	NEWKEY:Trait ~ Defensive Strategist	
+ABILITY:Special Ability|Scaly Ally			MAXVER:6.4.0	NEWKEY:Trait ~ Scaly Ally			
+ABILITY:Special Ability|The Flexing Arm		MAXVER:6.4.0	NEWKEY:Trait ~ The Flexing Arm		
+ABILITY:Special Ability|Talented Organizer	MAXVER:6.4.0	NEWKEY:Trait ~ Talented Organizer	
+ABILITY:Special Ability|Propitiation		MAXVER:6.4.0	NEWKEY:Trait ~ Propitiation		
+ABILITY:Special Ability|Elven Pantheist		MAXVER:6.4.0	NEWKEY:Trait ~ Elven Pantheist		
+ABILITY:Special Ability|Agent of Chance		MAXVER:6.4.0	NEWKEY:Trait ~ Agent of Chance		
+ABILITY:Special Ability|Lessons of Chaldira	MAXVER:6.4.0	NEWKEY:Trait ~ Lessons of Chaldira	
+ABILITY:Special Ability|Empyreal Focus		MAXVER:6.4.0	NEWKEY:Trait ~ Empyreal Focus		
+ABILITY:Special Ability|Excitable ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Excitable	
+ABILITY:Special Ability|Sprint ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Sprint	
+ABILITY:Special Ability|Charlatan ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Charlatan		
+ABILITY:Special Ability|Naturally Gifted ~ Trait		MAXVER:6.4.0	NEWKEY:Trait ~ Naturally Gifted	
+ABILITY:Special Ability|Trickster ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Trickster		
+ABILITY:Special Ability|First Memories ~ Trait			MAXVER:6.4.0	NEWKEY:Trait ~ First Memories
+ABILITY:Special Ability|Zealot ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Zealot
+ABILITY:Special Ability|Brastlewark Businessman ~ Trait	MAXVER:6.4.0	NEWKEY:Trait ~ Brastlewark Businessman
+ABILITY:Special Ability|Collector ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Collector			
+ABILITY:Special Ability|Explorer ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Explorer			
+ABILITY:Special Ability|Etymologist ~ Trait			MAXVER:6.4.0	NEWKEY:Trait ~ Etymologist			
+ABILITY:Special Ability|Cliff-Master			MAXVER:6.4.0	NEWKEY:Trait ~ Cliff-Master			
+ABILITY:Special Ability|Goblin Pirate			MAXVER:6.4.0	NEWKEY:Trait ~ Goblin Pirate			
+ABILITY:Special Ability|Monkey Goblin			MAXVER:6.4.0	NEWKEY:Trait ~ Monkey Goblin			
+ABILITY:Special Ability|Scion of Goblinblood		MAXVER:6.4.0	NEWKEY:Trait ~ Scion of Goblinblood		
+ABILITY:Special Ability|Flounderer				MAXVER:6.4.0	NEWKEY:Trait ~ Flounderer				
+ABILITY:Special Ability|Mother's Teeth			MAXVER:6.4.0	NEWKEY:Trait ~ Mother's Teeth			
+ABILITY:Special Ability|Restless Hunger			MAXVER:6.4.0	NEWKEY:Trait ~ Restless Hunger			
+ABILITY:Special Ability|Strength of the Barghest	MAXVER:6.4.0	NEWKEY:Trait ~ Strength of the Barghest	
+ABILITY:Special Ability|Wolf Cub				MAXVER:6.4.0	NEWKEY:Trait ~ Wolf Cub				
+ABILITY:Special Ability|Cheap to Feed		MAXVER:6.4.0	NEWKEY:Trait ~ Cheap to Feed		
+ABILITY:Special Ability|Dusk Dancer			MAXVER:6.4.0	NEWKEY:Trait ~ Dusk Dancer			
+ABILITY:Special Ability|Equality for All		MAXVER:6.4.0	NEWKEY:Trait ~ Equality for All		
+ABILITY:Special Ability|Legalistic Liberation	MAXVER:6.4.0	NEWKEY:Trait ~ Legalistic Liberation	
+ABILITY:Special Ability|Rabble Rebel		MAXVER:6.4.0	NEWKEY:Trait ~ Rabble Rebel		
+ABILITY:Special Ability|Isger Fixer			MAXVER:6.4.0	NEWKEY:Trait ~ Isger Fixer			
+ABILITY:Special Ability|Pomp and Pageantry	MAXVER:6.4.0	NEWKEY:Trait ~ Pomp and Pageantry	
+ABILITY:Special Ability|Clumsy Slave		MAXVER:6.4.0	NEWKEY:Trait ~ Clumsy Slave		
+ABILITY:Special Ability|Backstabber			MAXVER:6.4.0	NEWKEY:Trait ~ Backstabber			
+ABILITY:Special Ability|Call for Help		MAXVER:6.4.0	NEWKEY:Trait ~ Call for Help		
+ABILITY:Special Ability|Dawn Renewal		MAXVER:6.4.0	NEWKEY:Trait ~ Dawn Renewal		
+ABILITY:Special Ability|Good Dreams			MAXVER:6.4.0	NEWKEY:Trait ~ Good Dreams			
+ABILITY:Special Ability|Provider			MAXVER:6.4.0	NEWKEY:Trait ~ Provider			
+ABILITY:Special Ability|Self-Sacrifice		MAXVER:6.4.0	NEWKEY:Trait ~ Self-Sacrifice		
+ABILITY:Special Ability|Sense of Order		MAXVER:6.4.0	NEWKEY:Trait ~ Sense of Order		
+ABILITY:Special Ability|Sensing Imperfection	MAXVER:6.4.0	NEWKEY:Trait ~ Sensing Imperfection	
+ABILITY:Special Ability|Venom-Drenched		MAXVER:6.4.0	NEWKEY:Trait ~ Venom-Drenched		
+ABILITY:Special Ability|Jinx ~ Halfling		MAXVER:6.4.0	NEWKEY:Halfling ~ Jinx
+ABILITY:Special Ability|Touch of Rage ~ Crossbloodline Ability			MAXVER:6.4.0	NEWKEY:Crossbloodline Ability ~ Touch of Rage		
+ABILITY:Special Ability|Fearless ~ Crossbloodline Ability				MAXVER:6.4.0	NEWKEY:Crossbloodline Ability ~ Fearless			
+ABILITY:Special Ability|Strength of the Beast ~ Crossbloodline Ability		MAXVER:6.4.0	NEWKEY:Crossbloodline Ability ~ Strength of the Beast	
+ABILITY:Special Ability|Power of Giants ~ Crossbloodline Ability			MAXVER:6.4.0	NEWKEY:Crossbloodline Ability ~ Power of Giants		
+ABILITY:Special Ability|Warlord Reborn ~ Crossbloodline Ability			MAXVER:6.4.0	NEWKEY:Crossbloodline Ability ~ Warlord Reborn		
+ABILITY:Special Ability|Cloudkill Crossblooded Spell					MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Cloudkill			
+ABILITY:Special Ability|Delayed Blast Fireball Crossblooded Spell			MAXVER:6.4.0	NEWKEY:Crossblooded Spell ~ Delayed Blast Fireball	
+ABILITY:Special Ability|Bloodline ~ Orc Bloodline					MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Orc
+ABILITY:Special Ability|Bloodline Powers ~ Orc			MAXVER:6.4.0	NEWKEY:Orc Bloodline ~ Bloodline Powers
+ABILITY:Special Ability|Bloodline Arcana ~ Orc			MAXVER:6.4.0	NEWKEY:Orc Bloodline ~ Bloodline Arcana	
+ABILITY:Special Ability|Bloodline Bonus Spells ~ Orc		MAXVER:6.4.0	NEWKEY:Orc Bloodline ~ Bonus Spells
+ABILITY:Special Ability|Amazingly Ugly ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Amazingly Ugly		
+ABILITY:Special Ability|Beast Rider ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Beast Rider			
+ABILITY:Special Ability|Big Mouth ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Big Mouth			
+ABILITY:Special Ability|Brute ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Brute				
+ABILITY:Special Ability|Deadeye ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Deadeye			
+ABILITY:Special Ability|Demented Inventor ~ OoG ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Demented Inventor		
+ABILITY:Special Ability|Dirty Fighter ~ Oog ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Dirty Fighter		
+ABILITY:Special Ability|Mindlessly Cruel ~ OoG ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Mindlessly Cruel		
+ABILITY:Special Ability|Rage of Storms ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Rage of Storms		
+ABILITY:Special Ability|Tribal ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Tribal			
+ABILITY:Special Ability|Tusked ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Tusked			
+ABILITY:Special Ability|Unbreakable Hate ~ OoG ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Unbreakable Hate		
+ABILITY:Special Ability|Dominator ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Dominator			
+ABILITY:Special Ability|Linebreaker ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Linebreaker			
+ABILITY:Special Ability|Mammoth Master B ~ OoG ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Mammoth Master B		
+ABILITY:Special Ability|Mammoth Master M ~ OoG ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Mammoth Master M		
+ABILITY:Special Ability|Sun-Blasted ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Sun-Blasted			
+ABILITY:Special Ability|Unafraid ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Unafraid			
+ABILITY:Special Ability|Water Brave ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Water Brave			
+ABILITY:Special Ability|Blessing of the Feast ~ OoG ~ Trait				MAXVER:6.4.0	NEWKEY:Trait ~ Blessing of the Feast	
+ABILITY:Special Ability|Fury ~ OoG ~ Trait						MAXVER:6.4.0	NEWKEY:Trait ~ Fury				
+ABILITY:Special Ability|Mother's Rage ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Mother's Rage		
+ABILITY:Special Ability|Sacred Smasher ~ OoG ~ Trait					MAXVER:6.4.0	NEWKEY:Trait ~ Sacred Smasher		
+ABILITY:Special Ability|Chainbreaker			MAXVER:6.4.0	NEWKEY:Trait ~ Chainbreaker			
+ABILITY:Special Ability|Fight for Liberty			MAXVER:6.4.0	NEWKEY:Trait ~ Fight for Liberty			
+ABILITY:Special Ability|Freedom Fighter			MAXVER:6.4.0	NEWKEY:Trait ~ Freedom Fighter			
+ABILITY:Special Ability|Pretend Pirate			MAXVER:6.4.0	NEWKEY:Trait ~ Pretend Pirate			
+ABILITY:Special Ability|Devilfish Diver			MAXVER:6.4.0	NEWKEY:Trait ~ Devilfish Diver			
+ABILITY:Special Ability|Dinosaur Whisperer		MAXVER:6.4.0	NEWKEY:Trait ~ Dinosaur Whisperer		
+ABILITY:Special Ability|Pirate Duelist			MAXVER:6.4.0	NEWKEY:Trait ~ Pirate Duelist			
+ABILITY:Special Ability|Treasure Mapper			MAXVER:6.4.0	NEWKEY:Trait ~ Treasure Mapper			
+ABILITY:Special Ability|Abolitionist Hunter		MAXVER:6.4.0	NEWKEY:Trait ~ Abolitionist Hunter		
+ABILITY:Special Ability|Cruel Master			MAXVER:6.4.0	NEWKEY:Trait ~ Cruel Master			
+ABILITY:Special Ability|Slave Taker				MAXVER:6.4.0	NEWKEY:Trait ~ Slave Taker				
+ABILITY:Special Ability|Whip Specialist			MAXVER:6.4.0	NEWKEY:Trait ~ Whip Specialist			
+ABILITY:Special Ability|Cyphermage Backer			MAXVER:6.4.0	NEWKEY:Trait ~ Cyphermage Backer			
+ABILITY:Special Ability|Eager Combatant			MAXVER:6.4.0	NEWKEY:Trait ~ Eager Combatant			
+ABILITY:Special Ability|Gold Goblin Regular		MAXVER:6.4.0	NEWKEY:Trait ~ Gold Goblin Regular		
+ABILITY:Special Ability|Shipboard Caster			MAXVER:6.4.0	NEWKEY:Trait ~ Shipboard Caster			
+ABILITY:Special Ability|Expert Swimmer			MAXVER:6.4.0	NEWKEY:Trait ~ Expert Swimmer			
+ABILITY:Special Ability|Free Agent				MAXVER:6.4.0	NEWKEY:Trait ~ Free Agent				
+ABILITY:Special Ability|River Navigator			MAXVER:6.4.0	NEWKEY:Trait ~ River Navigator			
+ABILITY:Special Ability|River Sniper			MAXVER:6.4.0	NEWKEY:Trait ~ River Sniper			
+ABILITY:Special Ability|Home Port				MAXVER:6.4.0	NEWKEY:Trait ~ Home Port				
+ABILITY:Special Ability|Hurricane Savvy			MAXVER:6.4.0	NEWKEY:Trait ~ Hurricane Savvy			
+ABILITY:Special Ability|Narrow Escape			MAXVER:6.4.0	NEWKEY:Trait ~ Narrow Escape			
+ABILITY:Special Ability|Ship Aptitude			MAXVER:6.4.0	NEWKEY:Trait ~ Ship Aptitude			
+ABILITY:Special Ability|Cheat Death (Besmara)		MAXVER:6.4.0	NEWKEY:Trait ~ Cheat Death (Besmara)		
+ABILITY:Special Ability|Expert Boarder (Besmara)	MAXVER:6.4.0	NEWKEY:Trait ~ Expert Boarder (Besmara)	
+ABILITY:Special Ability|Classic Duelist		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Classic Duelist		
+ABILITY:Special Ability|Deep Breath			MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Deep Breath		
+ABILITY:Special Ability|Drink for Free		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Drink for Free		
+ABILITY:Special Ability|Farseer			MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Farseer			
+ABILITY:Special Ability|Hand Stab			MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Hand Stab			
+ABILITY:Special Ability|Quick Appraise		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Quick Appraise		
+ABILITY:Special Ability|Rigging Monkey		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Rigging Monkey		
+ABILITY:Special Ability|Storm Sailor		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Storm Sailor		
+ABILITY:Special Ability|Windrigger			MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Windrigger			
+ABILITY:Special Ability|Burst of Speed		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Burst of Speed		
+ABILITY:Special Ability|Defensive Climber		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Defensive Climber	
+ABILITY:Special Ability|Fearsome Advance		MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Fearsome Advance		
+ABILITY:Special Ability|Foot Sweep			MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Foot Sweep			
+ABILITY:Special Ability|Shipboard Authority	MAXVER:6.4.0	NEWKEY:Pirate Trick ~ Shipboard Authority	
+ABILITY:Special Ability|Strong Arm Supple Wrist	MAXVER:6.4.0	NEWKEY:Trait ~ Strong Arm Supple Wrist	
+ABILITY:Special Ability|Rider of Paresh		MAXVER:6.4.0	NEWKEY:Trait ~ Rider of Paresh		
+ABILITY:Special Ability|Watching Taldor		MAXVER:6.4.0	NEWKEY:Trait ~ Watching Taldor		
+ABILITY:Special Ability|Merchant of Katheer	MAXVER:6.4.0	NEWKEY:Trait ~ Merchant of Katheer	
+ABILITY:Special Ability|Venicaan Medic		MAXVER:6.4.0	NEWKEY:Trait ~ Venicaan Medic		
+ABILITY:Special Ability|Alchemical Prodigy	MAXVER:6.4.0	NEWKEY:Trait ~ Alchemical Prodigy	
+ABILITY:Special Ability|Elemental Pupil		MAXVER:6.4.0	NEWKEY:Trait ~ Elemental Pupil		
+ABILITY:Special Ability|Genie-Caller		MAXVER:6.4.0	NEWKEY:Trait ~ Genie-Caller		
+ABILITY:Special Ability|Keeper of the Veil	MAXVER:6.4.0	NEWKEY:Trait ~ Keeper of the Veil	
+ABILITY:Special Ability|Walking Ward		MAXVER:6.4.0	NEWKEY:Trait ~ Walking Ward		
+ABILITY:Special Ability|Flame of the Dawnflower	MAXVER:6.4.0	NEWKEY:Trait ~ Flame of the Dawnflower	
+ABILITY:Special Ability|Keleshite Princess	MAXVER:6.4.0	NEWKEY:Trait ~ Keleshite Princess	
+ABILITY:Special Ability|Kaava Musk ~ Equipment Trick			MAXVER:6.4.0	NEWKEY:Equipment Trick ~ Kaava Musk		
+ABILITY:Special Ability|Careful Steps ~ Kaava Musk Trick		MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Careful Steps	
+ABILITY:Special Ability|Fast Flask ~ Kaava Musk Trick			MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Fast Flask		
+ABILITY:Special Ability|Make the Kill ~ Kaava Musk Trick		MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Make the Kill	
+ABILITY:Special Ability|Musk Blinding ~ Kaava Musk Trick		MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Musk Blinding	
+ABILITY:Special Ability|Musk Poison ~ Kaava Musk Trick		MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Musk Poison		
+ABILITY:Special Ability|Musk Sickening ~ Kaava Musk Trick		MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Musk Sickening	
+ABILITY:Special Ability|Reactive Splashing ~ Kaava Musk Trick	MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Reactive Splashing	
+ABILITY:Special Ability|Splashproof Shield ~ Kaava Musk Trick	MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Splashproof Shield	
+ABILITY:Special Ability|Stink-Fighting ~ Kaava Musk Trick		MAXVER:6.4.0	NEWKEY:Kaava Musk Trick ~ Stink-Fighting	
+ABILITY:Special Ability|Hill Fighter		MAXVER:6.4.0	NEWKEY:Trait ~ Hill Fighter		
+ABILITY:Special Ability|Jungle Fighter		MAXVER:6.4.0	NEWKEY:Trait ~ Jungle Fighter		
+ABILITY:Special Ability|River Fighter		MAXVER:6.4.0	NEWKEY:Trait ~ River Fighter		
+ABILITY:Special Ability|Savanna Hunter		MAXVER:6.4.0	NEWKEY:Trait ~ Savanna Hunter		
+ABILITY:Special Ability|Two-World Magic		MAXVER:6.4.0	NEWKEY:Trait ~ Two-World Magic		
+ABILITY:Special Ability|Adventurous Explorer	MAXVER:6.4.0	NEWKEY:Trait ~ Adventurous Explorer	
+ABILITY:Special Ability|Born to the Water		MAXVER:6.4.0	NEWKEY:Trait ~ Born to the Water		
+ABILITY:Special Ability|Colonial Entitlement	MAXVER:6.4.0	NEWKEY:Trait ~ Colonial Entitlement	
+ABILITY:Special Ability|Colonial Sympathizer	MAXVER:6.4.0	NEWKEY:Trait ~ Colonial Sympathizer	
+ABILITY:Special Ability|Assimilated Native	MAXVER:6.4.0	NEWKEY:Trait ~ Assimilated Native	
+ABILITY:Special Ability|Nomadic			MAXVER:6.4.0	NEWKEY:Trait ~ Nomadic			
+ABILITY:Special Ability|Proud Tribesman		MAXVER:6.4.0	NEWKEY:Trait ~ Proud Tribesman		
+ABILITY:Special Ability|Slaver			MAXVER:6.4.0	NEWKEY:Trait ~ Slaver			
+ABILITY:Special Ability|Citizen of Eleder		MAXVER:6.4.0	NEWKEY:Trait ~ Citizen of Eleder		
+ABILITY:Special Ability|Citizen of Kalabuto	MAXVER:6.4.0	NEWKEY:Trait ~ Citizen of Kalabuto	
+ABILITY:Special Ability|Plainsman			MAXVER:6.4.0	NEWKEY:Trait ~ Plainsman			
+ABILITY:Special Ability|Faithful Arodenite	MAXVER:6.4.0	NEWKEY:Trait ~ Faithful Arodenite	
+ABILITY:Special Ability|Spirit Talker		MAXVER:6.4.0	NEWKEY:Trait ~ Spirit Talker		
+
