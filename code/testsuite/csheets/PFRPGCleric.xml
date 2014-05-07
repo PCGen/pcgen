@@ -2441,7 +2441,7 @@ BIO
 		<ability_object>
 			<name>Weapon Prof ~ Auto</name>
 			<description></description>
-			<type>WEAPONPROFAUTO</type>
+			<type>WEAPONPROFAUTO.WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
