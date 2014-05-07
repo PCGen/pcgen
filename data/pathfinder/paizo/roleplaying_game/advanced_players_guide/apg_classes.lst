@@ -540,38 +540,6 @@ SUBCLASS:Fire	CHOICE:SCHOOL|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|FireSchoolLVL|CL	ABILITY:Wizard Class Feature|AUTOMATIC|Fire School|Water Opposition School
 SUBCLASS:Water	CHOICE:SCHOOL|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|CL	ABILITY:Wizard Class Feature|AUTOMATIC|Fire Opposition School|Water School
-SUBCLASS:Admixture School	CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1	BONUS:VAR|EvocationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Admixture School
-SUBCLASS:Banishment School		CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1	BONUS:VAR|AbjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Banishment School
-SUBCLASS:Controller School	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1	BONUS:VAR|EnchantmentSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Controller School
-SUBCLASS:Counterspell School		CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1	BONUS:VAR|AbjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Counterspell School
-SUBCLASS:Creation School		CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1	BONUS:VAR|ConjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Creation School
-SUBCLASS:Enhancement School	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1	BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Enhancement School
-SUBCLASS:Foresight School		CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1	BONUS:VAR|DivinationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Foresight School
-SUBCLASS:Generation School		CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1	BONUS:VAR|EvocationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Generation School
-SUBCLASS:Life School	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1	BONUS:VAR|NecromancySchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Life School
-SUBCLASS:Manipulator School	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1	BONUS:VAR|EnchantmentSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Manipulator School
-SUBCLASS:Phantasm School	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1	BONUS:VAR|IllusionSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Phantasm School
-SUBCLASS:Scryer School		CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1	BONUS:VAR|DivinationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Scryer School
-SUBCLASS:Shadow School	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1	BONUS:VAR|IllusionSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Shadow School
-SUBCLASS:Shapechange School	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1	BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Shapechange School
-SUBCLASS:Teleportation School		CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1	BONUS:VAR|ConjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Teleportation School
-SUBCLASS:Undead School	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1	BONUS:VAR|NecromancySchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Undead School
 
 ### Block: Prestige Classes
 ###Block: Battle Herald --------------------------------------------------------------------------------------------------------------------------------------------
