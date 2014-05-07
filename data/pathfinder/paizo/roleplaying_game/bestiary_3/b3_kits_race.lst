@@ -4522,3 +4522,6 @@ SKILL:Stealth			RANK:14
 FEAT:Ability Focus (Corpse Call)
 FEAT:Dodge
 FEAT:Toughness
+
+STARTPACK:Unfettered Eidolon
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11

@@ -41,3 +41,8 @@ ABILITYCATEGORY:Hag Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FR
 ABILITYCATEGORY:Ruinous Revivification		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Graveknight ~ Ruinous Revivification	PLURAL:Ruinous Revivification		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Fey Creature Special Abilities	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeyCreatureSelection										PLURAL:Fey Creature Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unfettered Eidolon Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnfetteredEidolonEvolution										PLURAL:Unfettered Eidolon Evolutions		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon AC Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eidolon AC Bonus										PLURAL:Eidolon AC Bonus		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unfettered Eidolon Base Form	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Base Form										PLURAL:Unfettered Eidolon Evolutions		DISPLAYLOCATION:Racial Abilities
+
+

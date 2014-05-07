@@ -342,6 +342,17 @@ CLASS:Eidolon (Ref/Will)	PRERACETYPE:Eidolon
 CLASS:Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 
+# Class Name			Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
+CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:EidolonLVL|CL
+# Class Name			Reg. Race Type
+CLASS:Eidolon	PRERACETYPE:Eidolon
+# Each Eidolon has variable Good and Bad Saves, this is set up to handle that. 0=Bad, 1=Good
+CLASS:Eidolon	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PREVAREQ:EidolonFortGood,1	BONUS:CHECKS|BASE.Reflex|CL/2+2|PREVAREQ:EidolonReflexGood,1	BONUS:CHECKS|BASE.Will|CL/2+2|PREVAREQ:EidolonWillGood,1	BONUS:CHECKS|BASE.Fortitude|CL/3|PREVAREQ:EidolonFortGood,0	BONUS:CHECKS|BASE.Reflex|CL/3|PREVAREQ:EidolonReflexGood,0	BONUS:CHECKS|BASE.Will|CL/3|PREVAREQ:EidolonWillGood,0
+# Class Name			Skill Pts/LVL	Add INT to Skill Points?	Class Skill
+CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
+
+
+
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define									Save checks bonus											Combat bonus
 CLASS:Antipaladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Apl		MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEPAGE:p.118	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
