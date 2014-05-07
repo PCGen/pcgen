@@ -22,7 +22,7 @@ ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:N
 ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures		PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Antipaladin Class Feature		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassFeatures	PLURAL:Antipaladin Class Features	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Wizard Focused School		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WizardFocusedSchool							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Focused Arcane School		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Focused Arcane School							DISPLAYLOCATION:Class Features
 
 
 # Alchemist
