@@ -2254,3 +2254,43 @@ ABILITY:Special Ability|Plainsman			MAXVER:6.4.0	NEWKEY:Trait ~ Plainsman
 ABILITY:Special Ability|Faithful Arodenite	MAXVER:6.4.0	NEWKEY:Trait ~ Faithful Arodenite	
 ABILITY:Special Ability|Spirit Talker		MAXVER:6.4.0	NEWKEY:Trait ~ Spirit Talker		
 
+ABILITY:Special Ability|Imperious Bloodline		MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Imperious
+ABILITY:Special Ability|BWIC ~ Amulet		MAXVER:6.4.0	NEWKEY:BWBI ~ Amulet	
+ABILITY:Special Ability|BWIC ~ Ring			MAXVER:6.4.0	NEWKEY:BWBI ~ Ring	
+ABILITY:Special Ability|BWIC ~ Staff		MAXVER:6.4.0	NEWKEY:BWBI ~ Staff	
+ABILITY:Special Ability|BWIC ~ Wand			MAXVER:6.4.0	NEWKEY:BWBI ~ Wand	
+ABILITY:Special Ability|BWIC ~ Weapon		MAXVER:6.4.0	NEWKEY:BWBI ~ Weapon	
+ABILITY:Special Ability|Student of Stone ~ Elemental Fist		MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Elemental Fist	
+ABILITY:Special Ability|Student of Stone ~ Shaitan Style		MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Shaitan Style		
+ABILITY:Special Ability|Student of Stone ~ Shaitan Skin		MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Shaitan Skin			
+ABILITY:Special Ability|Student of Stone ~ Shaitan Earthblast	MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Shaitan Earthblast		
+ABILITY:Special Ability|Expanded Capacity	MAXVER:6.4.0	NEWKEY:Experimental Gunsmith Innovations ~ Expanded Capacity	
+ABILITY:Special Ability|Expanded Chamber	MAXVER:6.4.0	NEWKEY:Experimental Gunsmith Innovations ~ Expanded Chamber	
+ABILITY:Special Ability|Grapple Launcher	MAXVER:6.4.0	NEWKEY:Experimental Gunsmith Innovations ~ Grapple Launcher	
+ABILITY:Special Ability|Recoilless		MAXVER:6.4.0	NEWKEY:Experimental Gunsmith Innovations ~ Recoilless		
+ABILITY:Special Ability|Vial Launcher	MAXVER:6.4.0	NEWKEY:Experimental Gunsmith Innovations ~ Vial Launcher		
+ABILITY:Special Ability|Ironskin Monk ~ Power Attack			MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Power Attack		
+ABILITY:Special Ability|Ironskin Monk ~ Improved Sunder		MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Improved Sunder		
+ABILITY:Special Ability|Ironskin Monk ~ Greater Sunder		MAXVER:6.4.0	NEWKEY:Monk Bonus Feat ~ Greater Sunder		
+ABILITY:Special Ability|Kobold Sorcerer Bloodline				MAXVER:6.4.0	NEWKEY:Sorcerer Bloodline ~ Kobold	
+ABILITY:Special Ability|Branding Ray ~ Kinslayer			MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Branding Ray		
+ABILITY:Special Ability|Debilitating Brand ~ Kinslayer		MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Debilitating Brand	
+ABILITY:Special Ability|Devastating Brand ~ Kinslayer		MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Devastating Brand	
+ABILITY:Special Ability|Dual Brand ~ Kinslayer			MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Dual Brand		
+ABILITY:Special Ability|Holy Brand ~ Kinslayer			MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Holy Brand		
+ABILITY:Special Ability|Searing Brand ~ Kinslayer			MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Searing Brand		
+ABILITY:Special Ability|Silver Brand ~ Kinslayer			MAXVER:6.4.0	NEWKEY:Greater Brand Modification ~ Silver Brand		
+ABILITY:Special Ability|Burn! Burn! Burn! ~ Fire Bomber		MAXVER:6.4.0	NEWKEY:Discovery ~ Burn! Burn! Burn!	
+ABILITY:Special Ability|Fire Tamer ~ Fire Bomber			MAXVER:6.4.0	NEWKEY:Discovery ~ Fire Tamer		
+ABILITY:Special Ability|Flame Heart ~ Fire Bomber			MAXVER:6.4.0	NEWKEY:Discovery ~ Flame Heart		
+ABILITY:Special Ability|Charming Gaze ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Charming Gaze		
+ABILITY:Special Ability|Darkvision ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Darkvision		
+ABILITY:Special Ability|Detect Thoughts ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Detect Thoughts	
+ABILITY:Special Ability|Guarded Thoughts ~ Naga Aspirant		MAXVER:6.4.0	NEWKEY:Augmented Form ~ Guarded Thoughts	
+ABILITY:Special Ability|Poison Immunity ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Poison Immunity	
+ABILITY:Special Ability|Poisonous Sting ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Poisonous Sting	
+ABILITY:Special Ability|Spit Venom ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Spit Venom		
+ABILITY:Special Ability|Sting ~ Naga Aspirant				MAXVER:6.4.0	NEWKEY:Augmented Form ~ Sting			
+ABILITY:Special Ability|Swim ~ Naga Aspirant				MAXVER:6.4.0	NEWKEY:Augmented Form ~ Swim			
+ABILITY:Special Ability|Tough Scales ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Tough Scales		
+ABILITY:Special Ability|Venomous Bite ~ Naga Aspirant			MAXVER:6.4.0	NEWKEY:Augmented Form ~ Venomous Bite		
