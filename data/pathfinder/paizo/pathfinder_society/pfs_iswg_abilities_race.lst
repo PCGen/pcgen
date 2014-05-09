@@ -4,64 +4,73 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 # COMMENT: These don't match - Flag for Mark (also, is there a reason we're doing this for race abilities? If the creature isn't Legal, can we just note that instead?)
 
+# From Mark Means...
+# These did match originally. They don't match now because the original source iswg keys were changed. 
+# I had asked Andrew whether I was responsible for making the requisite KEY changes in the PFS material and he said it was his responsibility to update the keys for all released sources.
+# This is why I left these alone. I have now updated these keys since Andrew did not and I guess he forgot that he said he would do it.
+#
+# TYPE:PFSNotLegal tags all abilities, races, entries, equipment, everything that is specifically not legal in case a user finds some otherwise legal ability that somehow grants the illegal ability.
+# It eliminates loophole game lawyers trying to finagle their way into an otherwise specifically illegal ability, such as the Adpted trait which allows the choice of other race character traits.
+# It also opens the door for a future UI preferences switch to automatically enforce PFSNotLegal.
+
 #Aluum
 # Ability Name							Unique Key						Category of Ability		Type									Define																				Innate Spells										Clear Description	Description																																																																																																																																																			Virtual Feat		Save checks bonus									Combat bonus																								Bonus to HP								Modify VAR																																			Weapon prof. bonus									Source, Long Desc.		Source, Short Desc.	Source Page		Aspects
-#CATEGORY=Special Ability|Immunity to Magic ~ Aluum.MOD			TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Paralysis ~ Aluum.MOD					TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Soul Shriek ~ Aluum.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Aluum ~ Immunity to Magic.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Aluum ~ Paralysis.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Aluum ~ Soul Shriek.MOD				TYPE:PFSNotLegal
 
 #Calikang
-#CATEGORY=Special Ability|Fast Healing ~ Calikang.MOD			TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Defensive Slam ~ Calikang.MOD			TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Energy Absorption ~ Calikang.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Breath Weapon ~ Calikang.MOD			TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Suspend Animation ~ Calikang.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Calikang ~ Fast Healing.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Calikang ~ Defensive Slam.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Calikang ~ Energy Absorption.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Calikang ~ Breath Weapon.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Calikang ~ Suspend Animation.MOD		TYPE:PFSNotLegal
 
 #Charau-ka
-#CATEGORY=Special Ability|Shrieking Frenzy ~ Charau-ka.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Thrown-Weapon Mastery ~ Charau-ka.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Charau-ka ~ Shrieking Frenzy.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Charau-ka ~ Thrown-Weapon Mastery.MOD	TYPE:PFSNotLegal
 
 #Daughter of Urgathoa
-#CATEGORY=Special Ability|Disease ~ Daughter of Urgathoa.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Great Claw ~ Daughter of Urgathoa.MOD	TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Spells ~ Daughter of Urgathoa.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Daughter of Urgathoa ~ Disease.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Daughter of Urgathoa ~ Great Claw.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Daughter of Urgathoa ~ Spells.MOD		TYPE:PFSNotLegal
 
 #Gillman
-#CATEGORY=Special Ability|Enchantment Resistance ~ Gillman.MOD	TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Servitor ~ Gillman.MOD					TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Water Dependent ~ Gillman.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Gillman ~ Enchantment Resistance.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Gillman ~ Servitor.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Gillman ~ Water Dependent.MOD			TYPE:PFSNotLegal
 
 #Sandpoint Devil
-#CATEGORY=Special Ability|Bay ~ Sandpoint Devil.MOD				TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Hellfire Breath ~ Sandpoint Devil.MOD	TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Kick ~ Sandpoint Devil.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Sandpoint Devil ~ Bay.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Sandpoint Devil ~ Hellfire Breath.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Sandpoint Devil ~ Kick.MOD				TYPE:PFSNotLegal
 
 #Spine Dragon
-#CATEGORY=Special Ability|Breath Weapon ~ Spine Dragon.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Ray Deflection ~ Spine Dragon.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Spines ~ Spine Dragon.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Spine Dragon ~ Breath Weapon.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Spine Dragon ~ Ray Deflection.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Spine Dragon ~ Spines.MOD				TYPE:PFSNotLegal
 
 #Strix
-#CATEGORY=Special Ability|Hatred ~ Strix.MOD						TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Nocturnal ~ Strix.MOD					TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Suspicious ~ Strix.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Strix ~ Hatred.MOD						TYPE:PFSNotLegal
+CATEGORY=Special Ability|Strix ~ Nocturnal.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Strix ~ Suspicious.MOD					TYPE:PFSNotLegal
 
 #Treerazer
-#CATEGORY=Special Ability|Regeneration ~ Treerazer.MOD			TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Aura of Corruption ~ Treerazer.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Defoliation ~ Treerazer.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Treerazer ~ Regeneration.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Treerazer ~ Aura of Corruption.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Treerazer ~ Defoliation.MOD			TYPE:PFSNotLegal
 
 #Nascent Demon Lord abilities
-#CATEGORY=Special Ability|Aligned Strike ~ NDL.MOD				TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Grant Spells ~ NDL.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|NDL ~ Aligned Strike.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|NDL ~ Grant Spells.MOD					TYPE:PFSNotLegal
 
 #Constant Spell-like Abilities
-#CATEGORY=Special Ability|Desecrate ~ Constant.MOD				TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Magic Weapon ~ Constant.MOD			TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Water Breathing ~ Constant.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Constant ~ Desecrate.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Constant ~ Magic Weapon.MOD			TYPE:PFSNotLegal
+CATEGORY=Special Ability|Constant ~ Water Breathing.MOD			TYPE:PFSNotLegal
 
 ###Block: Clockwork template abilities
 # Ability Name		Unique Key					Category of Ability		Type						Description																																Virtual Feat						Combat bonus
-#CATEGORY=Special Ability|Winding ~ Clockwork.MOD				TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Swift Reactions ~ Clockwork.MOD		TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Difficult to Create ~ Clockwork.MOD	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Clockwork ~ Winding.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Clockwork ~ Swift Reactions.MOD		TYPE:PFSNotLegal
+CATEGORY=Special Ability|Clockwork ~ Difficult to Create.MOD	TYPE:PFSNotLegal
