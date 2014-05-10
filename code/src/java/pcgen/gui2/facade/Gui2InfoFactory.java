@@ -52,6 +52,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -1345,12 +1346,22 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		String aString = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
-		if (StringUtils.isEmpty(aString) && originObj instanceof PObject)
+		if (StringUtils.isEmpty(aString) && originObj instanceof Spell)
 		{
 			Spell sp = (Spell) originObj;
 			aString =
 					DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp),
 						false);
+		}
+		else if (StringUtils.isEmpty(aString) && originObj instanceof Ability)
+		{
+			Ability ab = (Ability) originObj;
+			List<CNAbility> wrappedAbility =
+					Collections.singletonList(new CNAbility(ab
+						.getCDOMCategory(), ab, Nature.NORMAL));
+			aString =
+					DescriptionFormatting.piWrapDesc(ab,
+						pc.getDescription(wrappedAbility), false);
 		}
 		if (aString.length() > 0)
 		{
