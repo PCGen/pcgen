@@ -33,6 +33,8 @@ EQSLOT:Weapon	CONTAINS:Weapon=1											NUMBER:HANDS
 # You'd change the EQSLOT:Fingers to CONTAINS:RING=2
 #
 
+EQSLOT:SlottedIoun	CONTAINS:SlottedIoun=1									NUMBER:0
+
 ###Block: Pathfinder WIKI
 #Armor: This slot is used for suits of armor that are worn.
 #Belts: This slot consists of belts and other items that can be worn around the waist.
