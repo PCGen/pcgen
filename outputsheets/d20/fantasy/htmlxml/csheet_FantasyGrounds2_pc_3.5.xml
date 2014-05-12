@@ -236,7 +236,7 @@
     <senses type="string">|VISION|</senses>
     <size type="string">|SIZELONG|</size>
     <skilllist fgapi="CC.PG.SKILLLIST">
-|FOR,%skillno,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skillno,0,${count("SKILLSIT")-1},1,0|
       <id-0000|(%skillno+1).INTVAL|>
 |IIF(SKILL.%skillno.NAME:Swim)|
         <armorcheckmultiplier type="number">2</armorcheckmultiplier>

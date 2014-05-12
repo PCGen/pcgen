@@ -40,7 +40,7 @@
     <nodehandler class="rpg_grid_handler" icon="grid" module="rpg_grid" name="Skills" version="1.0">
       <grid autosize="1" border="0">
         <row><cell>Skill</cell><cell>Total</cell><cell>Rnk</cell><cell>Stat</cell><cell>Msc</cell></row>
-|FOR.0,COUNT[SKILLS],1,<cell>\SKILL.%\</cell><cell>\SKILL.%.TOTAL\</cell><cell>\SKILL.%.RANK\</cell><cell>\SKILL.%.ABMOD\</cell><cell>\SKILL.%.MISC\</cell>,        <row>,</row>,1|
+|FOR.0,COUNT[SKILL],1,<cell>\SKILL.%\</cell><cell>\SKILL.%.TOTAL\</cell><cell>\SKILL.%.RANK\</cell><cell>\SKILL.%.ABMOD\</cell><cell>\SKILL.%.MISC\</cell>,        <row>,</row>,1|
       </grid>
       <macros>
         <macro name=""/>
@@ -114,7 +114,7 @@
     </nodehandler>
     <nodehandler class="listbox_handler" icon="gear" module="forms" name="Skills">
       <list send_button="1" type="0">
-|FOR.0,COUNT[SKILLS],1,\SKILL.%\ Check: [\SKILL.%.TOTAL\+1d20],        <option selected="0" value="0">,</option>,1|
+|FOR.0,COUNT[SKILL],1,\SKILL.%\ Check: [\SKILL.%.TOTAL\+1d20],        <option selected="0" value="0">,</option>,1|
       </list>
     </nodehandler>
 |%VAR.TOTALPOWERPOINTS.GTEQ.1|

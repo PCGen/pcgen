@@ -349,9 +349,9 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
     	<td width="75%">
 
 <!--   Trouble-shooting stuff   
-|FOR.0,COUNT[SKILLS],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
+|FOR.0,COUNT[SKILL],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
 -->
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 |IIF(SKILL.%skill.TYPE:SkillUse)|
 |ELSE|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
@@ -604,13 +604,13 @@ at will)
 
 |IIF(VAR.IF(var("SKILLPOINTS.UNUSED")==0;1;0):1)|
 |ELSE|
-  <br /><font color="#FF0000" size="+1"><strong>Unspent Skill Points: |SKILLPOINTS.UNUSED.INTVAL|</strong></font>  
+  <br /><font color="#FF0000" size="+1"><strong>Unspent Skill Points: |SKILLPOINTS.UNUSED.INTVAL|</strong></font>  
 |ENDIF|
 
 
 <p>Skill Breakdown</p>
 <p>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|

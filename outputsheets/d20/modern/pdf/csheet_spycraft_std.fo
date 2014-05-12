@@ -845,7 +845,7 @@
 								</fo:table-header>
 								<fo:table-body>
 
-|FOR,%skill,0,COUNT[SKILLS]MIN35-1,1,0|
+|FOR,%skill,0,COUNT[SKILL]MIN35-1,1,0|
 									<fo:table-row background-color="|OIF(EVEN:%skill,lightgrey,white)|">
 										<fo:table-cell>
 											<fo:block font-size="6pt" font-family="ZapfDingbats">
@@ -2005,7 +2005,7 @@
 
 			<!-- START Extra skill list-->
 			<fo:block>
-|FOR,%myskill,35,COUNT[SKILLS]MIN35,1,0|
+|FOR,%myskill,35,COUNT[SKILL]MIN35,1,0|
 				<fo:table space-after.optimum="2mm">
 					<fo:table-column column-width="4mm"/>
 					<fo:table-column column-width="38mm"/>
@@ -2166,7 +2166,7 @@
 								</fo:table-header>
 					<fo:table-body>
 |ENDFOR|
-|FOR,%skill,35,COUNT[SKILLS]-1,1,1|
+|FOR,%skill,35,COUNT[SKILL]-1,1,1|
 						<fo:table-row background-color="|OIF(EVEN:%skill,lightgrey,white)|">
 							<fo:table-cell>
 								<fo:block font-size="6pt" font-family="ZapfDingbats">
@@ -2189,7 +2189,7 @@
 							<fo:table-cell><fo:block text-align="center" space-before.optimum="1pt" font-size="8pt">|SKILL.%skill.MISC|</fo:block></fo:table-cell>
 						</fo:table-row>
 |ENDFOR|
-|FOR,%myskill,35,COUNT[SKILLS]MIN35,1,1|
+|FOR,%myskill,35,COUNT[SKILL]MIN35,1,1|
 						<fo:table-row height="9pt">
 							<fo:table-cell/>
 							<fo:table-cell border-bottom-color="black" border-bottom-width="0.5pt" border-bottom-style="solid"/>

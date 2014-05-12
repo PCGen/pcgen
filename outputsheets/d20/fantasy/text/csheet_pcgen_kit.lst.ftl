@@ -54,7 +54,7 @@ CLASS:<@pcstring tag="CLASS.${class}"/>		LEVEL:<@pcstring tag="CLASS.${class}.LE
 <#assign numDomains = pcvar('COUNT[DOMAINS]') />
 DEITY:${pcstring('DEITY')}	<#if (numDomains>0)>DOMAIN:<@loop from=0 to=numDomains-1 ; dmnIdx, dmnIdx_has_next>${pcstring('DOMAIN.${dmnIdx}')}<#if dmnIdx_has_next>|</#if></@loop></#if>
 </#if>
-<@loop from=0 to=pcvar('COUNT[SKILLS]-1') ; skill , skill_has_next >
+<@loop from=0 to=pcvar('COUNT[SKILL]-1') ; skill , skill_has_next >
 <#if ((pcvar('SKILL.${skill}.RANK') > 0) && pcstring('SKILL.${skill}.TYPE')?contains('Base'))><#-- We only want to see base skills here -->
 SKILL:<@pcstring tag="SKILL.${skill}"/>			RANK:<@pcstring tag="SKILL.${skill}.RANK"/>
 </#if>

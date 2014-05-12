@@ -937,7 +937,7 @@ ATKArr[3] = new ATK("CMD","|VAR.CMD.INTVAL.SIGN|","|ATTACK.MELEE.BASE|",STRDEXin
 ATKArr[2] = new ATK("Grapple","|ATTACK.GRAPPLE.TOTAL|","|ATTACK.GRAPPLE|",STRindex,|ATTACK.GRAPPLE.SIZE|,|ATTACK.GRAPPLE.EPIC|,|ATTACK.GRAPPLE.MISC|);
 |ENDIF|
 // Now, set up the list of skills
-|FOR,%skill,0,COUNT[SKILLS]-1,1,1|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| ,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|","|SKILL.%skill.EXPLAIN|");
 |ENDFOR|
 // A variable of type Ability supports the following

@@ -358,7 +358,7 @@
 		<list_mods>|SKILLLISTMODS|</list_mods>
 		<max_class_skill_level>|MAXSKILLLEVEL|</max_class_skill_level>
 		<max_cross_class_skill_level>|MAXCCSKILLLEVEL|</max_cross_class_skill_level>
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 		<skill>
 			<name>|SKILL.%skill|</name>
 			<ranks>|SKILL.%skill.RANK|</ranks>

@@ -619,7 +619,7 @@ STATISTICS
 [b]Feats[/b]|SPACE||FEATALLLIST||BR|
 
 [b]Skills[/b]|SPACE|
-|FOR,%skill,0,COUNT[SKILLS]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
 |ELSE|
 |SKILL.%skill||SPACE||SKILL.%skill.TOTAL.INTVAL.SIGN|,|SPACE| 

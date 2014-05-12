@@ -48,7 +48,7 @@
 	<attack>\\%.FOR.0,COUNT[EQTYPE.Weapon],1,\WEAPON.%.NAME.NOSTAR\: \WEAPON.%.BASEHIT\ (\WEAPON.%.DAMAGE\/\WEAPON.%.CRIT\/x\WEAPON.%.MULT\), ,;,1\\</attack>
 	<specialAttacks>\\%.ABILITYALLLIST.Special Ability.TYPE=SpecialAttack\\</specialAttacks>
 	<specialQualities>\\%.ABILITYALLLIST.Special Ability.TYPE=SpecialQuality\\ \\%.SPECIALLIST\\</specialQualities>
-	<skills>\\%.FOR.0,COUNT[SKILLS],1,\SKILL.%\: \SKILL.%.TOTAL.SIGN\, ,; ,1\\</skills>
+	<skills>\\%.FOR.0,COUNT[SKILL],1,\SKILL.%\: \SKILL.%.TOTAL.SIGN\, ,; ,1\\</skills>
 	<feats>\\%.FEATALLLIST\\</feats>
 	<alignment>\\%.ALIGNMENT\\</alignment>
 	<levalAdjustment>\\%.VAR.ECL-TL.INTVAL\\</levalAdjustment>
