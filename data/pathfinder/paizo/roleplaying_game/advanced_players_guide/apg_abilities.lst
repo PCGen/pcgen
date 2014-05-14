@@ -190,6 +190,7 @@ Favored Terrain (Water)		KEY:Equipment ~ Favored Terrain (Water)		CATEGORY:Speci
 ###Block:
 Racial Heritage Choice	CATEGORY:Internal	CHOOSE:TEMPLATE|TYPE=Racial Heritage	MULT:YES	STACK:NO	TEMPLATE:%LIST
 
+Feat ~ Cosmopolitan	CATEGORY:Internal	BONUS:ABILITYPOOL|Add Spoken Language|2
 #
 # EOF
 #
