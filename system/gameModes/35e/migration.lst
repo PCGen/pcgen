@@ -12,9 +12,49 @@
 #EQUIPMENT:Kasari Gusoku		NEWKEY:Kusari Gusoku	MAXVER:6.1.8
 #ABILITY:Archetype|Fighter Archetype ~ Aldori Sworldlord	NEWKEY:Fighter Archetype ~ Aldori Swordlord	MAXVER:6.00.01	MAXDEVVER:6.01.08
 
+	
+#ABILITY:Special Ability|Barbarian Fast Movement	NEWKEY:Barbarian ~ Fast Movement	MAXVER:6.4.0
+
+#ABILITY:Special Ability|Barbarian DR	NEWKEY:Barbarian ~ Damage Reduction	MAXVER:6.4.0
+
+#35e Game MODE
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 6.0
 EQUIPMENT:Ring (Elemental Command/Air)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Air)
 EQUIPMENT:Ring (Elemental Command/Earth)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Earth)
 EQUIPMENT:Ring (Elemental Command/Fire)				MAXVER:6.00.01	NEWKEY:Ring of Elemental Command (Fire)
@@ -95,4 +135,1401 @@ EQUIPMENT:Ring (Clumsiness)						MAXVER:6.00.01	NEWKEY:Ring of Clumsiness
 
 # AEG - Evil
 EQUIPMENT:Ring (Elements)						MAXVER:6.00.01	NEWKEY:Ring of Elements
+
+
+#6.3
+#Barbarian
+ABILITY:Special Ability|Fast Movement		MAXVER:6.4.00	NEWKEY:Barbarian ~ Fast Movement				
+ABILITY:Special Ability|Illiteracy			MAXVER:6.4.00	NEWKEY:Barbarian ~ Illiteracy				
+ABILITY:Special Ability|Rage					MAXVER:6.4.00	NEWKEY:Barbarian ~ Rage					
+ABILITY:Special Ability|Uncanny Dodge			MAXVER:6.4.00	NEWKEY:Barbarian ~ Uncanny Dodge				
+ABILITY:Special Ability|Trap Sense				MAXVER:6.4.00	NEWKEY:Barbarian ~ Trap Sense				
+ABILITY:Special Ability|Improved Uncanny Dodge		MAXVER:6.4.00	NEWKEY:Barbarian ~ Improved Uncanny Dodge		
+ABILITY:Special Ability|Damage Reduction			MAXVER:6.4.00	NEWKEY:Barbarian ~ Damage Reduction			
+ABILITY:Special Ability|Greater Rage			MAXVER:6.4.00	NEWKEY:Barbarian ~ Greater Rage				
+ABILITY:Special Ability|Indomitable Will			MAXVER:6.4.00	NEWKEY:Barbarian ~ Indomitable Will			
+ABILITY:Special Ability|Tireless Rage			MAXVER:6.4.00	NEWKEY:Barbarian ~ Tireless Rage				
+ABILITY:Special Ability|Mighty Rage				MAXVER:6.4.00	NEWKEY:Barbarian ~ Mighty Rage				
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Bard ~ Spells					
+ABILITY:Special Ability|Bardic Knowledge			MAXVER:6.4.00	NEWKEY:Bard ~ Bardic Knowledge			
+ABILITY:Special Ability|Bardic Music			MAXVER:6.4.00	NEWKEY:Bard ~ Bardic Music				
+ABILITY:Special Ability|Countersong				MAXVER:6.4.00	NEWKEY:Bardic Music ~ Countersong		
+ABILITY:Special Ability|Fascinate				MAXVER:6.4.00	NEWKEY:Bardic Music ~ Fascinate			
+ABILITY:Special Ability|Inspire Courage			MAXVER:6.4.00	NEWKEY:Bardic Music ~ Inspire Courage		
+ABILITY:Special Ability|Inspire Competence		MAXVER:6.4.00	NEWKEY:Bardic Music ~ Inspire Competence	
+ABILITY:Special Ability|Suggestion				MAXVER:6.4.00	NEWKEY:Bardic Music ~ Suggestion			
+ABILITY:Special Ability|Inspire Greatness			MAXVER:6.4.00	NEWKEY:Bardic Music ~ Inspire Greatness	
+ABILITY:Special Ability|Song of Freedom			MAXVER:6.4.00	NEWKEY:Bardic Music ~ Song of Freedom		
+ABILITY:Special Ability|Inspire Heroics			MAXVER:6.4.00	NEWKEY:Bardic Music ~ Inspire Heroics		
+ABILITY:Special Ability|Mass Suggestion			MAXVER:6.4.00	NEWKEY:Bardic Music ~ Mass Suggestion		
+ABILITY:Special Ability|Weapon and Armor Proficiency			MAXVER:6.4.00	NEWKEY:Cleric ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Aura							MAXVER:6.4.00	NEWKEY:Cleric ~ Aura					
+ABILITY:Special Ability|Spells						MAXVER:6.4.00	NEWKEY:Cleric ~ Spells				
+ABILITY:Special Ability|Spontaneous Casting				MAXVER:6.4.00	NEWKEY:Cleric ~ Spontaneous Casting		
+#ABILITY:Special Ability|Chaotic, Evil, Good, and Lawful Spells	MAXVER:6.4.00	NEWKEY:Cleric ~ Alignment Spells			
+ABILITY:Special Ability|Turn or Rebuke Undead				MAXVER:6.4.00	NEWKEY:Cleric ~ Turn or Rebuke Undead		
+ABILITY:Special Ability|Bonus Languages					MAXVER:6.4.00	NEWKEY:Cleric ~ Bonus Languages			
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Druid ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Druid ~ Spells				
+ABILITY:Special Ability|Spontaneous Casting		MAXVER:6.4.00	NEWKEY:Druid ~ Spontaneous Casting		
+ABILITY:Special Ability|Bonus Languages			MAXVER:6.4.00	NEWKEY:Druid ~ Bonus Languages			
+ABILITY:Special Ability|Animal Companion			MAXVER:6.4.00	NEWKEY:Druid ~ Animal Companion			
+ABILITY:Special Ability|Nature Sense			MAXVER:6.4.00	NEWKEY:Druid ~ Nature Sense			
+ABILITY:Special Ability|Wild Empathy			MAXVER:6.4.00	NEWKEY:Druid ~ Wild Empathy			
+ABILITY:Special Ability|Woodland Stride			MAXVER:6.4.00	NEWKEY:Druid ~ Woodland Stride			
+ABILITY:Special Ability|Trackless Step			MAXVER:6.4.00	NEWKEY:Druid ~ Trackless Step			
+ABILITY:Special Ability|Resist Nature's Lure		MAXVER:6.4.00	NEWKEY:Druid ~ Resist Nature's Lure		
+ABILITY:Special Ability|Wild Shape				MAXVER:6.4.00	NEWKEY:Druid ~ Wild Shape				
+ABILITY:Special Ability|Venom Immunity			MAXVER:6.4.00	NEWKEY:Druid ~ Venom Immunity			
+ABILITY:Special Ability|A Thousand Faces			MAXVER:6.4.00	NEWKEY:Druid ~ A Thousand Faces			
+ABILITY:Special Ability|Timeless Body			MAXVER:6.4.00	NEWKEY:Druid ~ Timeless Body			
+ABILITY:Special Ability|Link					MAXVER:6.4.00	NEWKEY:Animal Companion ~ Link			
+ABILITY:Special Ability|Share Spells			MAXVER:6.4.00	NEWKEY:Animal Companion ~ Share Spells		
+ABILITY:Special Ability|Evasion				MAXVER:6.4.00	NEWKEY:Animal Companion ~ Evasion		
+ABILITY:Special Ability|Devotion				MAXVER:6.4.00	NEWKEY:Animal Companion ~ Devotion		
+ABILITY:Special Ability|Multiattack				MAXVER:6.4.00	NEWKEY:Animal Companion ~ Multiattack		
+ABILITY:Special Ability|Improved Evasion			MAXVER:6.4.00	NEWKEY:Animal Companion ~ Improved Evasion	
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Fighter ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Bonus Feats				MAXVER:6.4.00	NEWKEY:Fighter ~ Bonus Feats				
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Monk ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|AC Bonus				MAXVER:6.4.00	NEWKEY:Monk ~ AC Bonus				
+ABILITY:Special Ability|Flurry of Blows			MAXVER:6.4.00	NEWKEY:Monk ~ Flurry of Blows			
+ABILITY:Special Ability|Unarmed Strike			MAXVER:6.4.00	NEWKEY:Monk ~ Unarmed Strike			
+ABILITY:Special Ability|Bonus Feat				MAXVER:6.4.00	NEWKEY:Monk ~ Bonus Feat				
+ABILITY:Special Ability|Evasion				MAXVER:6.4.00	NEWKEY:Monk ~ Evasion				
+ABILITY:Special Ability|Fast Movement			MAXVER:6.4.00	NEWKEY:Monk ~ Fast Movement			
+ABILITY:Special Ability|Still Mind				MAXVER:6.4.00	NEWKEY:Monk ~ Still Mind				
+ABILITY:Special Ability|Ki Strike				MAXVER:6.4.00	NEWKEY:Monk ~ Ki Strike				
+ABILITY:Special Ability|Slow Fall				MAXVER:6.4.00	NEWKEY:Monk ~ Slow Fall				
+ABILITY:Special Ability|Purity of Body			MAXVER:6.4.00	NEWKEY:Monk ~ Purity of Body			
+ABILITY:Special Ability|Wholeness of Body			MAXVER:6.4.00	NEWKEY:Monk ~ Wholeness of Body			
+ABILITY:Special Ability|Improved Evasion			MAXVER:6.4.00	NEWKEY:Monk ~ Improved Evasion			
+ABILITY:Special Ability|Diamond Body			MAXVER:6.4.00	NEWKEY:Monk ~ Diamond Body				
+ABILITY:Special Ability|Abundant Step			MAXVER:6.4.00	NEWKEY:Monk ~ Abundant Step			
+ABILITY:Special Ability|Diamond Soul			MAXVER:6.4.00	NEWKEY:Monk ~ Diamond Soul				
+ABILITY:Special Ability|Quivering Palm			MAXVER:6.4.00	NEWKEY:Monk ~ Quivering Palm			
+ABILITY:Special Ability|Timeless Body			MAXVER:6.4.00	NEWKEY:Monk ~ Timeless Body			
+ABILITY:Special Ability|Tongue of the Sun and Moon	MAXVER:6.4.00	NEWKEY:Monk ~ Tongue of the Sun and Moon	
+ABILITY:Special Ability|Empty Body				MAXVER:6.4.00	NEWKEY:Monk ~ Empty Body				
+ABILITY:Special Ability|Perfect Self			MAXVER:6.4.00	NEWKEY:Monk ~ Perfect Self				
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Paladin ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Aura of Good			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Good				
+ABILITY:Special Ability|Detect Evil				MAXVER:6.4.00	NEWKEY:Paladin ~ Detect Evil				
+ABILITY:Special Ability|Smite Evil				MAXVER:6.4.00	NEWKEY:Paladin ~ Smite Evil				
+ABILITY:Special Ability|Divine Grace			MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Grace				
+ABILITY:Special Ability|Lay on Hands			MAXVER:6.4.00	NEWKEY:Paladin ~ Lay on Hands				
+ABILITY:Special Ability|Aura of Courage			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Courage				
+ABILITY:Special Ability|Divine Health			MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Health				
+ABILITY:Special Ability|Turn Undead				MAXVER:6.4.00	NEWKEY:Paladin ~ Turn Undead				
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Paladin ~ Spells					
+ABILITY:Special Ability|Special Mount			MAXVER:6.4.00	NEWKEY:Paladin ~ Special Mount				
+ABILITY:Special Ability|Remove Disease			MAXVER:6.4.00	NEWKEY:Paladin ~ Remove Disease				
+ABILITY:Special Ability|Code of Conduct			MAXVER:6.4.00	NEWKEY:Paladin ~ Code of Conduct				
+ABILITY:Special Ability|Associates				MAXVER:6.4.00	NEWKEY:Paladin ~ Associates				
+ABILITY:Special Ability|Empathic Link		MAXVER:6.4.00	NEWKEY:Special Mount ~ Empathic Link		
+ABILITY:Special Ability|Improved Evasion		MAXVER:6.4.00	NEWKEY:Special Mount ~ Improved Evasion	
+ABILITY:Special Ability|Share Spells		MAXVER:6.4.00	NEWKEY:Special Mount ~ Share Spells		
+ABILITY:Special Ability|Share Saving Throws	MAXVER:6.4.00	NEWKEY:Special Mount ~ Share Saving Throws	
+ABILITY:Special Ability|Improved Speed		MAXVER:6.4.00	NEWKEY:Special Mount ~ Improved Speed		
+ABILITY:Special Ability|Command			MAXVER:6.4.00	NEWKEY:Special Mount ~ Command			
+ABILITY:Special Ability|Spell Resistance		MAXVER:6.4.00	NEWKEY:Special Mount ~ Spell Resistance	
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Ranger ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Favored Enemy			MAXVER:6.4.00	NEWKEY:Ranger ~ Favored Enemy			
+ABILITY:Special Ability|Track					MAXVER:6.4.00	NEWKEY:Ranger ~ Track				
+ABILITY:Special Ability|Wild Empathy			MAXVER:6.4.00	NEWKEY:Ranger ~ Wild Empathy			
+ABILITY:Special Ability|Combat Style			MAXVER:6.4.00	NEWKEY:Ranger ~ Combat Style			
+ABILITY:Special Ability|Endurance				MAXVER:6.4.00	NEWKEY:Ranger ~ Endurance				
+ABILITY:Special Ability|Animal Companion			MAXVER:6.4.00	NEWKEY:Ranger ~ Animal Companion			
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Ranger ~ Spells				
+ABILITY:Special Ability|Improved Combat Style		MAXVER:6.4.00	NEWKEY:Ranger ~ Improved Combat Style		
+ABILITY:Special Ability|Woodland Stride			MAXVER:6.4.00	NEWKEY:Ranger ~ Woodland Stride			
+ABILITY:Special Ability|Swift Tracker			MAXVER:6.4.00	NEWKEY:Ranger ~ Swift Tracker			
+ABILITY:Special Ability|Evasion				MAXVER:6.4.00	NEWKEY:Ranger ~ Evasion				
+ABILITY:Special Ability|Combat Style Mastery		MAXVER:6.4.00	NEWKEY:Ranger ~ Combat Style Mastery		
+ABILITY:Special Ability|Camouflage				MAXVER:6.4.00	NEWKEY:Ranger ~ Camouflage				
+ABILITY:Special Ability|Hide in Plain Sight		MAXVER:6.4.00	NEWKEY:Ranger ~ Hide in Plain Sight		
+ABILITY:Special Ability|Aberration					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Aberration			
+ABILITY:Special Ability|Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Animal				
+ABILITY:Special Ability|Construct					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Construct				
+ABILITY:Special Ability|Dragon					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Dragon				
+ABILITY:Special Ability|Elemental					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Elemental				
+ABILITY:Special Ability|Fey						MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Fey					
+ABILITY:Special Ability|Giant						MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Giant				
+ABILITY:Special Ability|Humanoid (Aquatic)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Aquatic)		
+ABILITY:Special Ability|Humanoid (Dwarf)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Dwarf)		
+ABILITY:Special Ability|Humanoid (Elf)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Elf)			
+ABILITY:Special Ability|Humanoid (Goblinoid)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Goblinoid)		
+ABILITY:Special Ability|Humanoid (Gnoll)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Gnoll)		
+ABILITY:Special Ability|Humanoid (Gnome)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Gnome)		
+ABILITY:Special Ability|Humanoid (Halfling)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Halfling)		
+ABILITY:Special Ability|Humanoid (Human)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Human			
+ABILITY:Special Ability|Humanoid (Orc)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Orc)			
+ABILITY:Special Ability|Humanoid (Reptilian)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Humanoid (Reptilian)		
+ABILITY:Special Ability|Magical Beast				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Magical Beast			
+ABILITY:Special Ability|Monstrous Humanoid			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Monstrous Humanoid		
+ABILITY:Special Ability|Ooze						MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Ooze				
+ABILITY:Special Ability|Outsider (Air)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Air)			
+ABILITY:Special Ability|Outsider (Earth)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Earth)		
+ABILITY:Special Ability|Outsider (Fire)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Fire)			
+ABILITY:Special Ability|Outsider (Water)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Water)		
+ABILITY:Special Ability|Outsider (Lawful)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Lawful)		
+ABILITY:Special Ability|Outsider (Chaotic)			MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Chaotic)		
+ABILITY:Special Ability|Outsider (Good)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Good)			
+ABILITY:Special Ability|Outsider (Evil)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Evil)			
+ABILITY:Special Ability|Outsider (Native)				MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Outsider (Native)		
+ABILITY:Special Ability|Plant						MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Plant				
+ABILITY:Special Ability|Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Undead				
+ABILITY:Special Ability|Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Vermin				
+
+ABILITY:Special Ability|Aberration					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Aberration		
+ABILITY:Special Ability|Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Animal			
+ABILITY:Special Ability|Construct					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Construct			
+ABILITY:Special Ability|Dragon					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Dragon			
+ABILITY:Special Ability|Elemental					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Elemental			
+ABILITY:Special Ability|Fey						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Fey				
+ABILITY:Special Ability|Giant						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Giant			
+ABILITY:Special Ability|Humanoid (Aquatic)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Aquatic)	
+ABILITY:Special Ability|Humanoid (Dwarf)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Dwarf)	
+ABILITY:Special Ability|Humanoid (Elf)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Elf)		
+ABILITY:Special Ability|Humanoid (Goblinoid)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Goblinoid)	
+ABILITY:Special Ability|Humanoid (Gnoll)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnoll)	
+ABILITY:Special Ability|Humanoid (Gnome)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnome)	
+ABILITY:Special Ability|Humanoid (Halfling)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Halfling)	
+ABILITY:Special Ability|Humanoid (Human)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Human)	
+ABILITY:Special Ability|Humanoid (Orc)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Orc)		
+ABILITY:Special Ability|Humanoid (Reptilian)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Reptilian)	
+ABILITY:Special Ability|Magical Beast				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Magical Beast		
+ABILITY:Special Ability|Monstrous Humanoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Monstrous Humanoid	
+ABILITY:Special Ability|Ooze						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Ooze			
+ABILITY:Special Ability|Outsider (Air)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Air)		
+ABILITY:Special Ability|Outsider (Earth)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Earth)	
+ABILITY:Special Ability|Outsider (Fire)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Fire)		
+ABILITY:Special Ability|Outsider (Water)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Water)	
+ABILITY:Special Ability|Outsider (Lawful)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Lawful)	
+ABILITY:Special Ability|Outsider (Chaotic)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Chaotic)	
+ABILITY:Special Ability|Outsider (Good)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Good)		
+ABILITY:Special Ability|Outsider (Evil)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Evil)		
+ABILITY:Special Ability|Outsider (Native)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Native)	
+ABILITY:Special Ability|Plant						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Plant			
+ABILITY:Special Ability|Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Undead			
+ABILITY:Special Ability|Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Vermin			
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Rogue ~ Weapon and Armor Proficiency		
+ABILITY:Special Ability|Sneak Attack			MAXVER:6.4.00	NEWKEY:Rogue ~ Sneak Attack				
+ABILITY:Special Ability|Trapfinding				MAXVER:6.4.00	NEWKEY:Rogue ~ Trapfinding					
+ABILITY:Special Ability|Evasion				MAXVER:6.4.00	NEWKEY:Rogue ~ Evasion					
+ABILITY:Special Ability|Trap Sense				MAXVER:6.4.00	NEWKEY:Rogue ~ Trap Sense					
+ABILITY:Special Ability|Uncanny Dodge			MAXVER:6.4.00	NEWKEY:Rogue ~ Uncanny Dodge				
+ABILITY:Special Ability|Improved Uncanny Dodge		MAXVER:6.4.00	NEWKEY:Rogue ~ Improved Uncanny Dodge			
+ABILITY:Special Ability|Special Abilities			MAXVER:6.4.00	NEWKEY:Rogue ~ Special Abilities				
+ABILITY:Special Ability|Crippling Strike			MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Crippling Strike	
+ABILITY:Special Ability|Defensive Roll			MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Defensive Roll	
+ABILITY:Special Ability|Improved Evasion			MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Improved Evasion	
+ABILITY:Special Ability|Opportunist				MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Opportunist		
+ABILITY:Special Ability|Skill Mastery			MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Skill Mastery		
+ABILITY:Special Ability|Slippery Mind			MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Slippery Mind		
+ABILITY:Special Ability|Feat					MAXVER:6.4.00	NEWKEY:Rogue Special Ability ~ Feat			
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Sorcerer ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Sorcerer ~ Spells					
+ABILITY:Special Ability|Familiar				MAXVER:6.4.00	NEWKEY:Sorcerer ~ Familiar					
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Wizard ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Wizard ~ Spells				
+ABILITY:Special Ability|Bonus Languages			MAXVER:6.4.00	NEWKEY:Wizard ~ Bonus Languages			
+ABILITY:Special Ability|Familiar				MAXVER:6.4.00	NEWKEY:Wizard ~ Familiar				
+ABILITY:Special Ability|Scribe Scroll			MAXVER:6.4.00	NEWKEY:Wizard ~ Scribe Scroll			
+ABILITY:Special Ability|Bonus Feats				MAXVER:6.4.00	NEWKEY:Wizard ~ Bonus Feats			
+ABILITY:Special Ability|Spellbooks				MAXVER:6.4.00	NEWKEY:Wizard ~ Spellbooks				
+ABILITY:Special Ability|Alertness					MAXVER:6.4.00	NEWKEY:Familiar ~ Alertness				
+ABILITY:Special Ability|Improved Evasion				MAXVER:6.4.00	NEWKEY:Familiar ~ Improved Evasion			
+ABILITY:Special Ability|Share Spells				MAXVER:6.4.00	NEWKEY:Familiar ~ Share Spells				
+ABILITY:Special Ability|Empathic Link				MAXVER:6.4.00	NEWKEY:Familiar ~ Empathic Link				
+ABILITY:Special Ability|Deliver Touch Spells			MAXVER:6.4.00	NEWKEY:Familiar ~ Deliver Touch Spells			
+ABILITY:Special Ability|Speak with Master				MAXVER:6.4.00	NEWKEY:Familiar ~ Speak with Master			
+ABILITY:Special Ability|Speak with Animals of Its Kind	MAXVER:6.4.00	NEWKEY:Familiar ~ Speak with Animals of Its Kind	
+ABILITY:Special Ability|Spell Resistance				MAXVER:6.4.00	NEWKEY:Familiar ~ Spell Resistance			
+ABILITY:Special Ability|Scry on Familiar				MAXVER:6.4.00	NEWKEY:Familiar ~ Scry on Familiar			
+ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Adept ~ Weapon and Armor Proficiency		
+ABILITY:Special Ability|Spells					MAXVER:6.4.00	NEWKEY:Adept ~ Spells					
+ABILITY:Special Ability|Summon Familiar				MAXVER:6.4.00	NEWKEY:Adept ~ Summon Familiar				
+ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Aristocrat ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Commoner ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Expert ~ Weapon and Armor Proficiency		
+ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Warrior ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Enhance Arrow			MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Enhance Arrow				
+ABILITY:Special Ability|Imbue Arrow				MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Imbue Arrow				
+ABILITY:Special Ability|Seeker Arrow			MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Seeker Arrow				
+ABILITY:Special Ability|Phase Arrow				MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Phase Arrow				
+ABILITY:Special Ability|Hail of Arrows			MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Hail of Arrows				
+ABILITY:Special Ability|Arrow of Death			MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Arrow of Death				
+ABILITY:Special Ability|Arcane Fire				MAXVER:6.4.00	NEWKEY:High Arcana ~ Arcane Fire				
+ABILITY:Special Ability|Arcane Reach			MAXVER:6.4.00	NEWKEY:High Arcana ~ Arcane Reach			
+ABILITY:Special Ability|Mastery of Counterspelling	MAXVER:6.4.00	NEWKEY:High Arcana ~ Mastery of Counterspelling	
+ABILITY:Special Ability|Mastery of Elements		MAXVER:6.4.00	NEWKEY:High Arcana ~ Mastery of Elements		
+ABILITY:Special Ability|Mastery of Shaping		MAXVER:6.4.00	NEWKEY:High Arcana ~ Mastery of Shaping		
+ABILITY:Special Ability|Spell Power				MAXVER:6.4.00	NEWKEY:High Arcana ~ Spell Power				
+ABILITY:Special Ability|Spell-Like Ability		MAXVER:6.4.00	NEWKEY:High Arcana ~ Spell-Like Ability		
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Assassin ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Save Bonus against Poison	MAXVER:6.4.00	NEWKEY:Assassin ~ Save Bonus against Poison		
+ABILITY:Special Ability|Hide in Plain Sight		MAXVER:6.4.00	NEWKEY:Assassin ~ Hide in Plain Sight			
+ABILITY:Special Ability|Death Attack			MAXVER:6.4.00	NEWKEY:Assassin ~ Death Attack				
+ABILITY:Special Ability|Poison Use				MAXVER:6.4.00	NEWKEY:Assassin ~ Poison Use				
+ABILITY:Special Ability|Sneak Attack			MAXVER:6.4.00	NEWKEY:Assassin ~ Sneak Attack				
+ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Assassin ~ Spells					
+ABILITY:Special Ability|Uncanny Dodge			MAXVER:6.4.00	NEWKEY:Assassin ~ Uncanny Dodge				
+ABILITY:Special Ability|Improved Uncanny Dodge		MAXVER:6.4.00	NEWKEY:Assassin ~ Improved Uncanny Dodge		
+ABILITY:Special Ability|Weapon and Armor Proficiency						MAXVER:6.4.00	NEWKEY:Blackguard ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Aura of Evil								MAXVER:6.4.00	NEWKEY:Blackguard ~ Aura of Evil				
+ABILITY:Special Ability|Detect Good					MAXVER:6.4.00	NEWKEY:Blackguard ~ Detect Good				
+ABILITY:Special Ability|Poison Use									MAXVER:6.4.00	NEWKEY:Blackguard ~ Poison Use				
+ABILITY:Special Ability|Dark Blessing				MAXVER:6.4.00	NEWKEY:Blackguard ~ Dark Blessing			
+ABILITY:Special Ability|Spells									MAXVER:6.4.00	NEWKEY:Blackguard ~ Spells					
+ABILITY:Special Ability|Smite Good									MAXVER:6.4.00	NEWKEY:Blackguard ~ Smite Good				
+ABILITY:Special Ability|Aura of Despair				MAXVER:6.4.00	NEWKEY:Blackguard ~ Aura of Despair			
+ABILITY:Special Ability|Command Undead								MAXVER:6.4.00	NEWKEY:Blackguard ~ Command Undead			
+ABILITY:Special Ability|Sneak Attack								MAXVER:6.4.00	NEWKEY:Blackguard ~ Sneak Attack				
+ABILITY:Special Ability|Fiendish Summoning			MAXVER:6.4.00	NEWKEY:Blackguard ~ Fiendish Summoning			
+ABILITY:Special Ability|Undead Companion								MAXVER:6.4.00	NEWKEY:Blackguard ~ Undead Companion			
+ABILITY:Special Ability|Fiendish Servant								MAXVER:6.4.00	NEWKEY:Blackguard ~ Fiendish Servant			
+ABILITY:Special Ability|Bonus Spell Level 1	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 1
+ABILITY:Special Ability|Bonus Spell Level 2	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 2
+ABILITY:Special Ability|Bonus Spell Level 3	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 3
+ABILITY:Special Ability|Bonus Spell Level 4	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 4
+ABILITY:Special Ability|Bonus Spell Level 5	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 5
+ABILITY:Special Ability|Bonus Spell Level 6	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 6
+ABILITY:Special Ability|Bonus Spell Level 7	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 7
+ABILITY:Special Ability|Bonus Spell Level 8	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 8
+ABILITY:Special Ability|Bonus Spell Level 9	MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spell LVL 9
+ABILITY:Special Ability|Wings									MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Wings					
+ABILITY:Special Ability|Natural Armor Increase						MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Natural Armor Increase		
+ABILITY:Special Ability|Claws and Bite							MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Claws and Bite			
+ABILITY:Special Ability|Blindsense								MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Blindsense				
+ABILITY:Special Ability|Dragon Apotheosis							MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Dragon Apotheosis			
+ABILITY:Special Ability|Weapon and Armor Proficiency					MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Bonus Spells							MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Bonus Spells				
+ABILITY:Special Ability|Ability Boost							MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Ability Boost
+ABILITY:Special Ability|Breath Weapon		MAXVER:6.4.00	NEWKEY:Dragon Disciple ~ Breath Weapon	
+#ABILITY:Special Ability|DD~Line of Acid			MAXVER:6.4.00	NEWKEY:
+#ABILITY:Special Ability|DD~Line of Lightning		MAXVER:6.4.00	NEWKEY:
+#ABILITY:Special Ability|DD~Line of Fire			MAXVER:6.4.00	NEWKEY:
+#ABILITY:Special Ability|DD~Cone of Gas			MAXVER:6.4.00	NEWKEY:
+#ABILITY:Special Ability|DD~Cone of Fire			MAXVER:6.4.00	NEWKEY:
+#ABILITY:Special Ability|DD~Cone of Cold			MAXVER:6.4.00	NEWKEY:
+ABILITY:Special Ability|Weapon and Armor Proficiency				MAXVER:6.4.00	NEWKEY:Duelist ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Canny Defense	MAXVER:6.4.00	NEWKEY:Duelist ~ Canny Defense				
+ABILITY:Special Ability|Improved Reaction	MAXVER:6.4.00	NEWKEY:Duelist ~ Improved Reaction			
+ABILITY:Special Ability|Enhanced Mobility	MAXVER:6.4.00	NEWKEY:Duelist ~ Enhanced Mobility			
+ABILITY:Special Ability|Grace			MAXVER:6.4.00	NEWKEY:Duelist ~ Grace					
+ABILITY:Special Ability|Precise Strike	MAXVER:6.4.00	NEWKEY:Duelist ~ Precise Strike				
+ABILITY:Special Ability|Acrobatic Charge	MAXVER:6.4.00	NEWKEY:Duelist ~ Acrobatic Charge			
+ABILITY:Special Ability|Elaborate Parry	MAXVER:6.4.00	NEWKEY:Duelist ~ Elaborate Parry				
+ABILITY:Special Ability|Deflect Arrows						MAXVER:6.4.00	NEWKEY:Duelist ~ Deflect Arrows				
+ABILITY:Special Ability|AC Bonus		MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ AC Bonus				
+ABILITY:Special Ability|Defensive Stance	MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Defensive Stance			
+ABILITY:Special Ability|Damage Reduction	MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Damage Reduction			
+ABILITY:Special Ability|Mobile Defense	MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Mobile Defense			
+ABILITY:Special Ability|Weapon and Armor Proficiency				MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Uncanny Dodge						MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Uncanny Dodge			
+ABILITY:Special Ability|Trap Sense							MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Trap Sense				
+ABILITY:Special Ability|Improved Uncanny Dodge					MAXVER:6.4.00	NEWKEY:Dwarven Defender ~ Improved Uncanny Dodge		
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Eldritch Knight ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Bonus Feat				MAXVER:6.4.00	NEWKEY:Eldritch Knight ~ Bonus Feat				
+ABILITY:Special Ability|Spells per Day			MAXVER:6.4.00	NEWKEY:Eldritch Knight ~ Spells per Day			
+ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Hierophant ~ Weapon and Armor Proficiency	
+ABILITY:Special Ability|Spells and Caster Level		MAXVER:6.4.00	NEWKEY:Hierophant ~ Spells and Caster Level		
+ABILITY:Special Ability|Special Ability		MAXVER:6.4.00	NEWKEY:Hierophant ~ Special Ability			
+ABILITY:Special Ability|Blast Infidel		MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Blast Infidel
+ABILITY:Special Ability|Divine Reach		MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Divine Reach
+ABILITY:Special Ability|Faith Healing		MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Faith Healing
+ABILITY:Special Ability|Gift of the Divine	MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Gift of the Divine	
+ABILITY:Special Ability|Mastery of Energy		MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Mastery of Energy	
+ABILITY:Special Ability|Power of Nature		MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Power of Nature	
+ABILITY:Special Ability|Spell Power			MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Spell Power
+ABILITY:Special Ability|Spell-Like Ability	MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Spell-Like Ability	
+ABILITY:Special Ability|Metamagic Feat		MAXVER:6.4.00	NEWKEY:Hierophant Special Ability ~ Metamagic Feat
+
+#ABILITY:Special Ability|Enslave ~ Aboleth				
+#ABILITY:Special Ability|Psionics ~ Aboleth				
+#ABILITY:Special Ability|Slime ~ Aboleth				
+#ABILITY:Special Ability|Mucus Cloud ~ Aboleth			
+#ABILITY:Special Ability|Skills ~ Aboleth				
+#ABILITY:Special Ability|Natural Weapons ~ Achairai		
+#ABILITY:Special Ability|Black Cloud ~ Achairai			
+#ABILITY:Special Ability|Babble ~ Allip				
+#ABILITY:Special Ability|Madness ~ Allip				
+#ABILITY:Special Ability|Wisdom Drain ~ Allip			
+#ABILITY:Special Ability|Natural Weapons ~ Astral Daeva		
+#ABILITY:Special Ability|Spell-Like Abilities ~ Astral Daeva	
+#ABILITY:Special Ability|Change Shape ~ Astral Daeva		
+#ABILITY:Special Ability|Stun ~ Astral Daeva				
+#ABILITY:Special Ability|Uncanny Dodge ~ Astral Daeva		
+#ABILITY:Special Ability|Natural Weapons ~ Planetar		
+#ABILITY:Special Ability|Regeneration ~ Planetar			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Planetar		
+#ABILITY:Special Ability|Spells ~ Planetar				
+#ABILITY:Special Ability|Natural Weapons ~ Solar			
+#ABILITY:Special Ability|Regeneration ~ Solar			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Solar		
+#ABILITY:Special Ability|Spells ~ Solar				
+#ABILITY:Special Ability|Blind ~ Animated Object			
+#ABILITY:Special Ability|Constrict ~ Animated Object		
+#ABILITY:Special Ability|Hardness ~ Animated Object		
+#ABILITY:Special Ability|Improved Speed ~ Animated Object	
+#ABILITY:Special Ability|Trample ~ Animated Object			
+#ABILITY:Special Ability|Improved Grab ~ Ankheg			
+#ABILITY:Special Ability|Spit Acid ~ Ankheg				
+#ABILITY:Special Ability|Poison ~ Aranea				
+#ABILITY:Special Ability|Spells ~ Aranea				
+#ABILITY:Special Ability|Web ~ Aranea					
+#ABILITY:Special Ability|Change Shape ~ Aranea			
+#ABILITY:Special Ability|Skills ~ Aranea				
+#ABILITY:Special Ability|Aura of Menace ~ Archon			
+#ABILITY:Special Ability|Magic Circle against Evil ~ Archon	
+#ABILITY:Special Ability|Teleport ~ Archon				
+#ABILITY:Special Ability|Tongues ~ Archon				
+#ABILITY:Special Ability|Aura of Menace ~ Lantern Archon		
+#ABILITY:Special Ability|Light Ray ~ Lantern Archon		
+#ABILITY:Special Ability|Spell-Like Abilities ~ Lantern Archon	
+#ABILITY:Special Ability|Spell-Like Abilities ~ Hound Archon	
+#ABILITY:Special Ability|Aura of Menace ~ Hound Archon		
+#ABILITY:Special Ability|Change Shape ~ Hound Archon		
+#ABILITY:Special Ability|Skills ~ Hound Archon			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Trumpet Archon	
+#ABILITY:Special Ability|Aura of Menace ~ Trumpet Archon		
+#ABILITY:Special Ability|Spells ~ Trumpet Archon			
+#ABILITY:Special Ability|Trumpet ~ Trumpet Archon			
+#ABILITY:Special Ability|Electricity Ray ~ Arrowhawk		
+#ABILITY:Special Ability|Constrict ~ Assassin Vine			
+#ABILITY:Special Ability|Entangle ~ Assassin Vine			
+#ABILITY:Special Ability|Improved Grab ~ Assassin Vine		
+#ABILITY:Special Ability|Blindsight ~ Assassin Vine		
+#ABILITY:Special Ability|Camouflage ~ Assassin Vine		
+#ABILITY:Special Ability|Poison ~ Athach				
+#ABILITY:Special Ability|Natural Weapons ~ Avoral			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Avoral		
+#ABILITY:Special Ability|Fear Aura ~ Avoral				
+#ABILITY:Special Ability|Lay on Hands ~ Avoral			
+#ABILITY:Special Ability|Speak with Animals ~ Avoral		
+#ABILITY:Special Ability|True Seeing ~ Avoral			
+#ABILITY:Special Ability|Skills ~ Avoral				
+#ABILITY:Special Ability|Heat ~ Azer					
+#ABILITY:Special Ability|Natural Weapons ~ Barghest			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Barghest			
+#ABILITY:Special Ability|Feed ~ Barghest					
+#ABILITY:Special Ability|Change Shape ~ Barghest				
+#ABILITY:Special Ability|Pass Without Trace ~ Barghest			
+#ABILITY:Special Ability|Skills ~ Barghest					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Greater Barghest	
+#ABILITY:Special Ability|Petrifying Gaze ~ Basilisk			
+#ABILITY:Special Ability|Skills ~ Basilisk					
+#ABILITY:Special Ability|Natural Weapons ~ Abyssal Greater Basilisk	
+#ABILITY:Special Ability|Breath Weapon ~ Behir				
+#ABILITY:Special Ability|Constrict ~ Behir					
+#ABILITY:Special Ability|Improved Grab ~ Behir				
+#ABILITY:Special Ability|Rake ~ Behir						
+#ABILITY:Special Ability|Swallow Whole ~ Behir				
+#ABILITY:Special Ability|Skills ~ Behir					
+#ABILITY:Special Ability|Smoke Claws ~ Belker				
+#ABILITY:Special Ability|Smoke Form ~ Belker					
+#ABILITY:Special Ability|Skills ~ Belker					
+#ABILITY:Special Ability|Blink ~ Blink Dog					
+#ABILITY:Special Ability|Dimension Door ~ Blink Dog			
+#ABILITY:Special Ability|Death Gaze ~ Bodak					
+#ABILITY:Special Ability|Vulnerability to Sunlight ~ Bodak		
+#ABILITY:Special Ability|Natural Weapons ~ Bralani				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Bralani			
+#ABILITY:Special Ability|Whirlwind Blast ~ Bralani				
+#ABILITY:Special Ability|Alternate Form ~ Bralani				
+#ABILITY:Special Ability|Tongues ~ Bralani					
+#ABILITY:Special Ability|Skills ~ Bugbear					
+#ABILITY:Special Ability|Leap ~ Bulette					
+#ABILITY:Special Ability|Natural Weapons ~ Chaos Beast			
+#ABILITY:Special Ability|Corporeal Instability ~ Chaos Beast		
+#ABILITY:Special Ability|Immunity to Transformation ~ Chaos Beast	
+#ABILITY:Special Ability|Breath Weapon ~ Chimera				
+#ABILITY:Special Ability|Skills ~ Chimera					
+#ABILITY:Special Ability|Constrict ~ Choker					
+#ABILITY:Special Ability|Improved Grab ~ Choker				
+#ABILITY:Special Ability|Quickness ~ Choker					
+#ABILITY:Special Ability|Skills ~ Choker					
+#ABILITY:Special Ability|Constrict ~ Chuul					
+#ABILITY:Special Ability|Improved Grab ~ Chuul				
+#ABILITY:Special Ability|Paralytic Tentacles ~ Chuul			
+#ABILITY:Special Ability|Amphibious ~ Chuul					
+#ABILITY:Special Ability|Skills ~ Chuul					
+#ABILITY:Special Ability|Moan ~ Cloaker					
+#ABILITY:Special Ability|Engulf ~ Cloaker					
+#ABILITY:Special Ability|Shadow Shift ~ Cloaker				
+#ABILITY:Special Ability|Petrification ~ Cockatrice			
+#ABILITY:Special Ability|Constrict ~ Couatl					
+#ABILITY:Special Ability|Improved Grab ~ Couatl				
+#ABILITY:Special Ability|Poison ~ Couatl					
+#ABILITY:Special Ability|Psionics ~ Couatl					
+#ABILITY:Special Ability|Spells ~ Couatl					
+#ABILITY:Special Ability|Ethereal Jaunt ~ Couatl				
+#ABILITY:Special Ability|Telepathy ~ Couatl					
+#ABILITY:Special Ability|Darkness ~ Darkmantle				
+#ABILITY:Special Ability|Improved Grab ~ Darkmantle			
+#ABILITY:Special Ability|Constrict ~ Darkmantle				
+#ABILITY:Special Ability|Blindsight ~ Darkmantle				
+#ABILITY:Special Ability|Skills ~ Darkmantle					
+#ABILITY:Special Ability|Corrosive Slime ~ Delver				
+#ABILITY:Special Ability|Stone Shape ~ Delver				
+#ABILITY:Special Ability|Natural Weapons ~ Babau				
+#ABILITY:Special Ability|Sneak Attack ~ Babau				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Babau			
+#ABILITY:Special Ability|Protective Slime ~ Babau				
+#ABILITY:Special Ability|Summon Demon ~ Babau				
+#ABILITY:Special Ability|Skills ~ Babau					
+#ABILITY:Special Ability|Natural Weapons ~ Balor				
+#ABILITY:Special Ability|Death Throes ~ Balor				
+#ABILITY:Special Ability|Entangle ~ Balor					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Balor			
+#ABILITY:Special Ability|Vorpal Sword ~ Balor				
+#ABILITY:Special Ability|Summon Demon ~ Balor				
+#ABILITY:Special Ability|Flaming Body ~ Balor				
+#ABILITY:Special Ability|True Seeing ~ Balor					
+#ABILITY:Special Ability|Skills ~ Balor					
+#ABILITY:Special Ability|Natural Weapons ~ Bebilith			
+#ABILITY:Special Ability|Poison ~ Bebilith					
+#ABILITY:Special Ability|Rend Armor ~ Bebilith				
+#ABILITY:Special Ability|Web ~ Bebilith					
+#ABILITY:Special Ability|Plane Shift ~ Bebilith				
+#ABILITY:Special Ability|Skills ~ Bebilith					
+#ABILITY:Special Ability|Natural Weapons ~ Dretch				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Dretch			
+#ABILITY:Special Ability|Summon Demon ~ Dretch				
+#ABILITY:Special Ability|Telepathy ~ Dretch					
+#ABILITY:Special Ability|Natural Weapons ~ Glabrezu			
+#ABILITY:Special Ability|Improved Grab ~ Glabrezu				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Glabrezu			
+#ABILITY:Special Ability|Summon Demon ~ Glabrezu				
+#ABILITY:Special Ability|True Seeing ~ Glabrezu				
+#ABILITY:Special Ability|Skills ~ Glabrezu					
+#ABILITY:Special Ability|Natural Weapons ~ Hezrou				
+#ABILITY:Special Ability|Improved Grab ~ Hezrou				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Hezrou			
+#ABILITY:Special Ability|Stench ~ Hezrou					
+#ABILITY:Special Ability|Summon Demon ~ Hezrou				
+#ABILITY:Special Ability|Skills ~ Hezrou					
+#ABILITY:Special Ability|Natural Weapons ~ Marilith			
+#ABILITY:Special Ability|Constrict ~ Marilith				
+#ABILITY:Special Ability|Improved Grab ~ Marilith				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Marilith			
+#ABILITY:Special Ability|Summon Demon ~ Marilith				
+#ABILITY:Special Ability|True Seeing ~ Marilith				
+#ABILITY:Special Ability|Skills ~ Marilith					
+#ABILITY:Special Ability|Feats ~ Marilith					
+#ABILITY:Special Ability|Natural Weapons ~ Nalfeshnee			
+#ABILITY:Special Ability|Smite ~ Nalfeshnee					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Nalfeshnee		
+#ABILITY:Special Ability|Summon Demon ~ Nalfeshnee				
+#ABILITY:Special Ability|True Seeing ~ Nalfeshnee				
+#ABILITY:Special Ability|Skills ~ Nalfeshnee					
+#ABILITY:Special Ability|Natural Weapons ~ Quasit				
+#ABILITY:Special Ability|Poison ~ Quasit					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Quasit			
+#ABILITY:Special Ability|Alternate Form ~ Quasit				
+#ABILITY:Special Ability|Eye Rays ~ Retriever				
+#ABILITY:Special Ability|Find Target ~ Retriever				
+#ABILITY:Special Ability|Improved Grab ~ Retriever				
+#ABILITY:Special Ability|Natural Weapons ~ Succubus			
+#ABILITY:Special Ability|Energy Drain ~ Succubus				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Succubus			
+#ABILITY:Special Ability|Summon Demon ~ Succubus				
+#ABILITY:Special Ability|Tongues ~ Succubus					
+#ABILITY:Special Ability|Skills ~ Succubus					
+#ABILITY:Special Ability|Natural Weapons ~ Vrock				
+#ABILITY:Special Ability|Dance of Ruin ~ Vrock				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Vrock			
+#ABILITY:Special Ability|Spores ~ Vrock					
+#ABILITY:Special Ability|Stunning Screech ~ Vrock				
+#ABILITY:Special Ability|Summon Demon ~ Vrock				
+#ABILITY:Special Ability|Skills ~ Vrock					
+#ABILITY:Special Ability|Madness ~ Derro					
+#ABILITY:Special Ability|Poison Use ~ Derro					
+#ABILITY:Special Ability|Sneak Attack ~ Derro				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Derro			
+#ABILITY:Special Ability|Vulnerability to Sunlight ~ Derro		
+#ABILITY:Special Ability|Skills ~ Derro					
+#ABILITY:Special Ability|Destructive Harmonics ~ Destrachan		
+#ABILITY:Special Ability|Blindsight ~ Destrachan				
+#ABILITY:Special Ability|Immunities ~ Destrachan				
+#ABILITY:Special Ability|Protection from Sonics ~ Destrachan		
+#ABILITY:Special Ability|Skills ~ Destrachan					
+#ABILITY:Special Ability|See in Darkness ~ Devil				
+#ABILITY:Special Ability|Summon ~ Devil					
+#ABILITY:Special Ability|Natural Weapons ~ Barbed Devil			
+#ABILITY:Special Ability|Fear ~ Barbed Devil					
+#ABILITY:Special Ability|Impale ~ Barbed Devil				
+#ABILITY:Special Ability|Improved Grab ~ Barbed Devil			
+#ABILITY:Special Ability|Summon Devil ~ Barbed Devil			
+#ABILITY:Special Ability|Barbed Defense ~ Barbed Devil			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Barbed Devil		
+#ABILITY:Special Ability|Natural Weapons ~ Bearded Devil			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Bearded Devil		
+#ABILITY:Special Ability|Infernal Wound ~ Bearded Devil			
+#ABILITY:Special Ability|Beard ~ Bearded Devil				
+#ABILITY:Special Ability|Battle Frenzy ~ Bearded Devil			
+#ABILITY:Special Ability|Summon Devil ~ Bearded Devil			
+#ABILITY:Special Ability|Natural Weapons ~ Bone Devil			
+#ABILITY:Special Ability|Fear Aura ~ Bone Devil				
+#ABILITY:Special Ability|Poison ~ Bone Devil					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Bone Devil		
+#ABILITY:Special Ability|Summon Devil ~ Bone Devil				
+#ABILITY:Special Ability|Natural Weapons ~ Chain Devil			
+#ABILITY:Special Ability|Dancing Chains ~ Chain Devil			
+#ABILITY:Special Ability|Unnerving Gaze ~ Chain Devil			
+#ABILITY:Special Ability|Regeneration ~ Chain Devil			
+#ABILITY:Special Ability|Skills ~ Chain Devil				
+#ABILITY:Special Ability|Natural Weapons ~ Erinyes				
+#ABILITY:Special Ability|Entangle ~ Erinyes					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Erinyes			
+#ABILITY:Special Ability|Summon Devil ~ Erinyes				
+#ABILITY:Special Ability|True Seeing ~ Erinyes				
+#ABILITY:Special Ability|Natural Weapons ~ Hellcat				
+#ABILITY:Special Ability|Improved Grab ~ Hellcat				
+#ABILITY:Special Ability|Pounce ~ Hellcat					
+#ABILITY:Special Ability|Rake ~ Hellcat					
+#ABILITY:Special Ability|Invisible in Light ~ Hellcat			
+#ABILITY:Special Ability|Skills ~ Hellcat					
+#ABILITY:Special Ability|Natural Weapons ~ Horned Devil			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Horned Devil		
+#ABILITY:Special Ability|Fear Aura ~ Horned Devil				
+#ABILITY:Special Ability|Stun ~ Horned Devil					
+#ABILITY:Special Ability|Infernal Wound ~ Horned Devil			
+#ABILITY:Special Ability|Summon Devil ~ Horned Devil			
+#ABILITY:Special Ability|Regeneration ~ Horned Devil			
+#ABILITY:Special Ability|Natural Weapons ~ Ice Devil			
+#ABILITY:Special Ability|Fear Aura ~ Ice Devil				
+#ABILITY:Special Ability|Slow ~ Ice Devil					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Ice Devil		
+#ABILITY:Special Ability|Summon Devil ~ Ice Devil				
+#ABILITY:Special Ability|Regeneration ~ Ice Devil				
+#ABILITY:Special Ability|Natural Weapons ~ Imp				
+#ABILITY:Special Ability|Poison ~ Imp						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Imp			
+#ABILITY:Special Ability|Alternate Form ~ Imp				
+#ABILITY:Special Ability|Natural Weapons ~ Lemure				
+#ABILITY:Special Ability|Mindless ~ Lemure					
+#ABILITY:Special Ability|Natural Weapons ~ Pit Fiend			
+#ABILITY:Special Ability|Constrict ~ Pit Fiend				
+#ABILITY:Special Ability|Disease ~ Pit Fiend					
+#ABILITY:Special Ability|Fear Aura ~ Pit Fiend				
+#ABILITY:Special Ability|Improved Grab ~ Pit Fiend				
+#ABILITY:Special Ability|Poison ~ Pit Fiend					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Pit Fiend		
+#ABILITY:Special Ability|Summon Devil ~ Pit Fiend				
+#ABILITY:Special Ability|Regeneration ~ Pit Fiend				
+#ABILITY:Special Ability|Energy Drain ~ Devourer				
+#ABILITY:Special Ability|Trap Essence ~ Devourer				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Devourer			
+#ABILITY:Special Ability|Spell Deflection ~ Devourer			
+#ABILITY:Special Ability|Acid Spray ~ Digester				
+#ABILITY:Special Ability|Skills ~ Digester					
+#ABILITY:Special Ability|Pounce ~ Deinonychus				
+#ABILITY:Special Ability|Skills ~ Deinonychus				
+#ABILITY:Special Ability|Skills ~ Elasmosaurus				
+#ABILITY:Special Ability|Pounce ~ Megaraptor					
+#ABILITY:Special Ability|Skills ~ Megaraptor					
+#ABILITY:Special Ability|Powerful Charge ~ Triceratops			
+#ABILITY:Special Ability|Trample ~ Triceratops				
+#ABILITY:Special Ability|Improved Grab ~ Tyrannosaurus			
+#ABILITY:Special Ability|Swallow Whole ~ Tyrannosaurus			
+#ABILITY:Special Ability|Skills ~ Tyrannosaurus				
+#ABILITY:Special Ability|Rend ~ Dire Ape					
+#ABILITY:Special Ability|Skills ~ Dire Ape					
+#ABILITY:Special Ability|Rage ~ Dire Badger					
+#ABILITY:Special Ability|Blindsense ~ Dire Bat				
+#ABILITY:Special Ability|Skills ~ Dire Bat					
+#ABILITY:Special Ability|Improved Grab ~ Dire Bear				
+#ABILITY:Special Ability|Ferocity ~ Dire Boar				
+#ABILITY:Special Ability|Improved Grab ~ Dire Lion				
+#ABILITY:Special Ability|Pounce ~ Dire Lion					
+#ABILITY:Special Ability|Rake ~ Dire Lion					
+#ABILITY:Special Ability|Skills ~ Dire Lion					
+#ABILITY:Special Ability|Disease ~ Dire Rat					
+#ABILITY:Special Ability|Skills ~ Dire Rat					
+#ABILITY:Special Ability|Improved Grab ~ Dire Shark			
+#ABILITY:Special Ability|Swallow Whole ~ Dire Shark			
+#ABILITY:Special Ability|Keen Scent ~ Dire Shark				
+#ABILITY:Special Ability|Skills ~ Dire Shark					
+#ABILITY:Special Ability|Improved Grab ~ Dire Tiger			
+#ABILITY:Special Ability|Pounce ~ Dire Tiger					
+#ABILITY:Special Ability|Rake ~ Dire Tiger					
+#ABILITY:Special Ability|Skills ~ Dire Tiger					
+#ABILITY:Special Ability|Attach ~ Dire Weasel				
+#ABILITY:Special Ability|Blood Drain ~ Dire Weasel				
+#ABILITY:Special Ability|Trip ~ Dire Wolf					
+#ABILITY:Special Ability|Skills ~ Dire Wolf					
+#ABILITY:Special Ability|Rage ~ Dire Wolverine				
+#ABILITY:Special Ability|Skills ~ Dire Wolverine				
+#ABILITY:Special Ability|Detect Thoughts ~ Doppelganger			
+#ABILITY:Special Ability|Change Shape ~ Doppelganger			
+#ABILITY:Special Ability|Skills ~ Doppelganger				
+#ABILITY:Special Ability|Keen Senses ~ Dragon				
+#ABILITY:Special Ability|Empower Spell-Like Ability ~ Epic Dragon	
+#ABILITY:Special Ability|Maximize Spell-Like Ability ~ Epic Dragon	
+#ABILITY:Special Ability|Greater Invisibility ~ Force Dragon		
+#ABILITY:Special Ability|Breath Weapon ~ Dragon Turtle			
+#ABILITY:Special Ability|Capsize ~ Dragon Turtle				
+#ABILITY:Special Ability|Skills ~ Dragon Turtle				
+#ABILITY:Special Ability|Pounce ~ Dragonne					
+#ABILITY:Special Ability|Roar ~ Dragonne					
+#ABILITY:Special Ability|Skills ~ Dragonne					
+#ABILITY:Special Ability|Poison ~ Drider					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Drider			
+#ABILITY:Special Ability|Spells ~ Drider					
+#ABILITY:Special Ability|Skills ~ Drider					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Dryad			
+#ABILITY:Special Ability|Tree Dependent ~ Dryad				
+#ABILITY:Special Ability|Wild Empathy ~ Dryad				
+#ABILITY:Special Ability|Light Sensitivity ~ Deep Dwarf			
+#ABILITY:Special Ability|Light Sensitivity ~ Duergar			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Duergar			
+#ABILITY:Special Ability|Dwarf Immunity ~ Duergar				
+#ABILITY:Special Ability|Evasion ~ Giant Eagle				
+#ABILITY:Special Ability|Skills ~ Giant Eagle				
+#ABILITY:Special Ability|Air Mastery ~ Air Elemental			
+#ABILITY:Special Ability|Whirlwind ~ Air Elemental				
+#ABILITY:Special Ability|Earth Mastery ~ Earth Elemental			
+#ABILITY:Special Ability|Push ~ Earth Elemental				
+#ABILITY:Special Ability|Earth Glide ~ Earth Elemental			
+#ABILITY:Special Ability|Burn ~ Fire Elemental				
+#ABILITY:Special Ability|Water Mastery ~ Water Elemental			
+#ABILITY:Special Ability|Drench ~ Water Elemental				
+#ABILITY:Special Ability|Vortex ~ Water Elemental				
+#ABILITY:Special Ability|Skills ~ Water Elemental				
+#ABILITY:Special Ability|Superior Low-Light Vision ~ Aquatic Elf	
+#ABILITY:Special Ability|Gills ~ Aquatic Elf					
+#ABILITY:Special Ability|Poison ~ Drow						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Drow			
+#ABILITY:Special Ability|Light Blindness ~ Drow				
+#ABILITY:Special Ability|Weapon Proficiency ~ Drow				
+#ABILITY:Special Ability|Racial Save Bonus ~ Drow				
+#ABILITY:Special Ability|Detect Magic ~ Ethereal Filcher			
+#ABILITY:Special Ability|Ethereal Jaunt ~ Ethereal Filcher		
+#ABILITY:Special Ability|Skills ~ Ethereal Filcher				
+#ABILITY:Special Ability|Ethereal Jaunt ~ Ethereal Marauder		
+#ABILITY:Special Ability|Skills ~ Ethereal Marauder			
+#ABILITY:Special Ability|Poison ~ Ettercap					
+#ABILITY:Special Ability|Web ~ Ettercap					
+#ABILITY:Special Ability|Skills ~ Ettercap					
+#ABILITY:Special Ability|Superior Two-Weapon Fighting ~ Ettin		
+#ABILITY:Special Ability|Skills ~ Ettin					
+#ABILITY:Special Ability|Hive Mind ~ Formian Shared			
+#ABILITY:Special Ability|Natural Weapons ~ Formian Worker		
+#ABILITY:Special Ability|Cure Serious Wounds ~ Formian Worker		
+#ABILITY:Special Ability|Make Whole ~ Formian Worker			
+#ABILITY:Special Ability|Natural Weapons ~ Formian Warrior		
+#ABILITY:Special Ability|Poison ~ Formian Warrior				
+#ABILITY:Special Ability|Natural Weapons ~ Formian Taskmaster		
+#ABILITY:Special Ability|Dominate Monster ~ Formian Taskmaster		
+#ABILITY:Special Ability|Dominated Creature ~ Formian Taskmaster	
+#ABILITY:Special Ability|Poison ~ Formian Taskmaster			
+#ABILITY:Special Ability|Natural Weapons ~ Formian Myrmarch		
+#ABILITY:Special Ability|Poison ~ Formian Myrmarch				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Formian Myrmarch	
+#ABILITY:Special Ability|Spells ~ Formian Queen				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Formian Queen		
+#ABILITY:Special Ability|Telepathy ~ Formian Queen				
+#ABILITY:Special Ability|Trill ~ Frost Worm					
+#ABILITY:Special Ability|Cold ~ Frost Worm					
+#ABILITY:Special Ability|Breath Weapon ~ Frost Worm			
+#ABILITY:Special Ability|Death Throes ~ Frost Worm				
+#ABILITY:Special Ability|Skills ~ Frost Worm					
+#ABILITY:Special Ability|Shriek ~ Shrieker					
+#ABILITY:Special Ability|Poison ~ Violet Fungus				
+#ABILITY:Special Ability|Natural Weapons ~ Gargoyle				
+#ABILITY:Special Ability|Freeze ~ Gargoyle						
+#ABILITY:Special Ability|Skills ~ Gargoyle						
+#ABILITY:Special Ability|Plane Shift ~ Genie Shared				
+#ABILITY:Special Ability|Air Mastery ~ Djinni					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Djinni				
+#ABILITY:Special Ability|Whirlwind ~ Djinni						
+#ABILITY:Special Ability|Change Size ~ Efreeti					
+#ABILITY:Special Ability|Heat ~ Efreeti						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Efreeti				
+#ABILITY:Special Ability|Change Size ~ Janni						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Janni				
+#ABILITY:Special Ability|Elemental Endurance ~ Janni				
+#ABILITY:Special Ability|Natural Weapons ~ Ghaele					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Ghaele				
+#ABILITY:Special Ability|Spells ~ Ghaele						
+#ABILITY:Special Ability|Gaze ~ Ghaele							
+#ABILITY:Special Ability|Light Ray ~ Ghaele						
+#ABILITY:Special Ability|Alternate Form ~ Ghaele					
+#ABILITY:Special Ability|Protective Aura ~ Ghaele					
+#ABILITY:Special Ability|Tongues ~ Ghaele						
+#ABILITY:Special Ability|Corrupting Gaze ~ Ghost Template			
+#ABILITY:Special Ability|Corrupting Touch ~ Ghost Template			
+#ABILITY:Special Ability|Draining Touch ~ Ghost Template				
+#ABILITY:Special Ability|Frightful Moan ~ Ghost Template				
+#ABILITY:Special Ability|Horrific Appearance ~ Ghost Template			
+#ABILITY:Special Ability|Malevolence ~ Ghost Template				
+#ABILITY:Special Ability|Manifestation ~ Ghost Template				
+#ABILITY:Special Ability|Telekinesis ~ Ghost Template				
+#ABILITY:Special Ability|Special Qualities ~ Ghost Template			
+#ABILITY:Special Ability|Rejuvenation ~ Ghost Template				
+#ABILITY:Special Ability|Turn Resistance ~ Ghost Template			
+#ABILITY:Special Ability|Ghoul Fever ~ Ghoul						
+#ABILITY:Special Ability|Paralysis ~ Ghoul						
+#ABILITY:Special Ability|Ghoul Fever ~ Ghast						
+#ABILITY:Special Ability|Paralysis ~ Ghast						
+#ABILITY:Special Ability|Stench ~ Ghast						
+#ABILITY:Special Ability|Rock Throwing ~ Giant Shared				
+#ABILITY:Special Ability|Rock Catching ~ Giant Shared				
+#ABILITY:Special Ability|Rock Throwing ~ Cloud Giant				
+#ABILITY:Special Ability|Oversized Weapon ~ Cloud Giant				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Cloud Giant			
+#ABILITY:Special Ability|Rock Throwing ~ Fire Giant				
+#ABILITY:Special Ability|Rock Throwing ~ Frost Giant				
+#ABILITY:Special Ability|Rock Throwing ~ Hill Giant				
+#ABILITY:Special Ability|Rock Throwing ~ Stone Giant				
+#ABILITY:Special Ability|Rock Catching ~ Stone Giant				
+#ABILITY:Special Ability|Skills ~ Stone Giant					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Storm Giant			
+#ABILITY:Special Ability|Freedom of Movement ~ Storm Giant			
+#ABILITY:Special Ability|Water Breathing ~ Storm Giant				
+#ABILITY:Special Ability|Skills ~ Storm Giant					
+#ABILITY:Special Ability|Gibbering ~ Gibbering Mouther				
+#ABILITY:Special Ability|Spittle ~ Gibbering Mouther				
+#ABILITY:Special Ability|Improved Grab ~ Gibbering Mouther			
+#ABILITY:Special Ability|Blood Drain ~ Gibbering Mouther				
+#ABILITY:Special Ability|Engulf ~ Gibbering Mouther				
+#ABILITY:Special Ability|Ground Manipulation ~ Gibbering Mouther		
+#ABILITY:Special Ability|Amorphous ~ Gibbering Mouther				
+#ABILITY:Special Ability|Skills ~ Gibbering Mouther				
+#ABILITY:Special Ability|Rend ~ Girallon						
+#ABILITY:Special Ability|Skills ~ Girallon						
+#ABILITY:Special Ability|Skills ~ Goblin						
+#ABILITY:Special Ability|Immunity to Magic ~ Golem Shared			
+#ABILITY:Special Ability|Berserk ~ Clay Golem					
+#ABILITY:Special Ability|Cursed Wound ~ Clay Golem					
+#ABILITY:Special Ability|Immunity to Magic ~ Clay Golem				
+#ABILITY:Special Ability|Haste ~ Clay Golem						
+#ABILITY:Special Ability|Berserk ~ Flesh Golem					
+#ABILITY:Special Ability|Immunity to Magic ~ Flesh Golem				
+#ABILITY:Special Ability|Breath Weapon ~ Iron Golem				
+#ABILITY:Special Ability|Immunity to Magic ~ Iron Golem				
+#ABILITY:Special Ability|Slow ~ Stone Golem						
+#ABILITY:Special Ability|Immunity to Magic ~ Stone Golem				
+#ABILITY:Special Ability|Breath Weapon ~ Gorgon					
+#ABILITY:Special Ability|Trample ~ Gorgon						
+#ABILITY:Special Ability|Improved Grab ~ Gray Render				
+#ABILITY:Special Ability|Rend ~ Gray Render						
+#ABILITY:Special Ability|Skills ~ Gray Render					
+#ABILITY:Special Ability|Skills ~ Grick						
+#ABILITY:Special Ability|Pounce ~ Griffon						
+#ABILITY:Special Ability|Rake ~ Griffon						
+#ABILITY:Special Ability|Skills ~ Griffon						
+#ABILITY:Special Ability|Blindsight ~ Grimlock					
+#ABILITY:Special Ability|Immunities ~ Grimlock					
+#ABILITY:Special Ability|Skills ~ Grimlock						
+#ABILITY:Special Ability|Improved Grab ~ Hag Annis					
+#ABILITY:Special Ability|Rake ~ Hag Annis						
+#ABILITY:Special Ability|Rend ~ Hag Annis						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Hag Annis			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Green Hag			
+#ABILITY:Special Ability|Weakness ~ Green Hag					
+#ABILITY:Special Ability|Mimicry ~ Green Hag						
+#ABILITY:Special Ability|Skills ~ Green Hag						
+#ABILITY:Special Ability|Horrific Appearance ~ Sea Hag				
+#ABILITY:Special Ability|Evil Eye ~ Sea Hag						
+#ABILITY:Special Ability|Amphibious ~ Sea Hag					
+#ABILITY:Special Ability|Skills ~ Sea Hag						
+#ABILITY:Special Ability|Captivating Song ~ Harpy					
+#ABILITY:Special Ability|Skills ~ Harpy						
+#ABILITY:Special Ability|Breath Weapon ~ Hell Hound				
+#ABILITY:Special Ability|Fiery Bite ~ Hell Hound					
+#ABILITY:Special Ability|Skills ~ Hell Hound						
+#ABILITY:Special Ability|Breath Weapon ~ Nessian Warhound			
+#ABILITY:Special Ability|Fiery Bite ~ Nessian Warhound				
+#ABILITY:Special Ability|Skills ~ Hippogriff						
+#ABILITY:Special Ability|Skills ~ Hobgoblin						
+#ABILITY:Special Ability|Poison ~ Homunculus						
+#ABILITY:Special Ability|Natural Weapons ~ Howler					
+#ABILITY:Special Ability|Quills ~ Howler						
+#ABILITY:Special Ability|Howl ~ Howler							
+#ABILITY:Special Ability|Fast Healing ~ Hydra					
+#ABILITY:Special Ability|Skills ~ Hydra						
+#ABILITY:Special Ability|Feats ~ Hydra							
+#ABILITY:Special Ability|Natural Weapons ~ Inevitable				
+#ABILITY:Special Ability|Fast Healing ~ Inevitable					
+#ABILITY:Special Ability|Natural Weapons ~ Kolyarut				
+#ABILITY:Special Ability|Enervation Ray ~ Kolyarut					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Kolyarut				
+#ABILITY:Special Ability|Vampiric Touch ~ Kolyarut					
+#ABILITY:Special Ability|Skills ~ Kolyarut						
+#ABILITY:Special Ability|Natural Weapons ~ Marut					
+#ABILITY:Special Ability|Fists of Thunder and Lightning ~ Marut		
+#ABILITY:Special Ability|Spell-Like Abilities ~ Marut				
+#ABILITY:Special Ability|Skills ~ Marut						
+#ABILITY:Special Ability|Natural Weapons ~ Zelekhut				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Zelekhut				
+#ABILITY:Special Ability|Skills ~ Zelekhut						
+#ABILITY:Special Ability|Feats ~ Zelekhut						
+#ABILITY:Special Ability|Natural Invisibility ~ Invisible Stalker		
+#ABILITY:Special Ability|Improved Tracking ~ Invisible Stalker			
+#ABILITY:Special Ability|Light Sensitivity ~ Kobold				
+#ABILITY:Special Ability|Skills ~ Kobold						
+#ABILITY:Special Ability|Improved Grab ~ Kraken					
+#ABILITY:Special Ability|Constrict ~ Kraken						
+#ABILITY:Special Ability|Jet ~ Kraken							
+#ABILITY:Special Ability|Ink Cloud ~ Kraken						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Kraken				
+#ABILITY:Special Ability|Skills ~ Kraken						
+#ABILITY:Special Ability|Scare ~ Krenshar						
+#ABILITY:Special Ability|Skills ~ Krenshar						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Lamia				
+#ABILITY:Special Ability|Wisdom Drain ~ Lamia					
+#ABILITY:Special Ability|Skills ~ Lamia						
+#ABILITY:Special Ability|Spells ~ Lammasu						
+#ABILITY:Special Ability|Magic Circle against Evil ~ Lammasu			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Lammasu				
+#ABILITY:Special Ability|Pounce ~ Lammasu						
+#ABILITY:Special Ability|Rake ~ Lammasu						
+#ABILITY:Special Ability|Skills ~ Lammasu						
+#ABILITY:Special Ability|Natural Weapons ~ Leonal					
+#ABILITY:Special Ability|Roar ~ Leonal							
+#ABILITY:Special Ability|Pounce ~ Leonal						
+#ABILITY:Special Ability|Improved Grab ~ Leonal					
+#ABILITY:Special Ability|Rake ~ Leonal							
+#ABILITY:Special Ability|Spell-Like Abilities ~ Leonal				
+#ABILITY:Special Ability|Lay on Hands ~ Leonal					
+#ABILITY:Special Ability|Protective Aura ~ Leonal					
+#ABILITY:Special Ability|Speak with Animals ~ Leonal				
+#ABILITY:Special Ability|Skills ~ Leonal						
+#ABILITY:Special Ability|Special Attacks ~ LICH TEMPLATE				
+#ABILITY:Special Ability|Fear Aura ~ LICH TEMPLATE					
+#ABILITY:Special Ability|Paralyzing Touch ~ LICH TEMPLATE			
+#ABILITY:Special Ability|Spells ~ LICH TEMPLATE					
+#ABILITY:Special Ability|Special Qualities ~ LICH TEMPLATE			
+#ABILITY:Special Ability|Turn Resistance ~ LICH TEMPLATE				
+#ABILITY:Special Ability|Damage Reduction ~ LICH TEMPLATE			
+#ABILITY:Special Ability|Immunities ~ LICH TEMPLATE				
+#ABILITY:Special Ability|Abilities ~ LICH TEMPLATE					
+#ABILITY:Special Ability|Skills ~ LICH TEMPLATE					
+#ABILITY:Special Ability|Natural Weapons ~ Lillend					
+#ABILITY:Special Ability|Constrict ~ Lillend						
+#ABILITY:Special Ability|Improved Grab ~ Lillend					
+#ABILITY:Special Ability|Spells ~ Lillend						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Lillend				
+#ABILITY:Special Ability|Skills ~ Lillend						
+#ABILITY:Special Ability|Bardic Music ~ Lillend					
+#ABILITY:Special Ability|Hold Breath ~ Lizardfolk					
+#ABILITY:Special Ability|Skills ~ Lizardfolk						
+#ABILITY:Special Ability|Skills ~ Locathah						
+#ABILITY:Special Ability|Natural Weapons ~ Magmin					
+#ABILITY:Special Ability|Combustion ~ Magmin						
+#ABILITY:Special Ability|Fiery Aura ~ Magmin						
+#ABILITY:Special Ability|Melt Weapons ~ Magmin					
+#ABILITY:Special Ability|Spikes ~ Manticore						
+#ABILITY:Special Ability|Skills ~ Manticore						
+#ABILITY:Special Ability|Petrifying Gaze ~ Medusa					
+#ABILITY:Special Ability|Poison ~ Medusa						
+#ABILITY:Special Ability|Natural Weapons ~ Mephit					
+#ABILITY:Special Ability|Breath Weapon ~ Mephit					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Mephit				
+#ABILITY:Special Ability|Summon Mephit ~ Mephit					
+#ABILITY:Special Ability|Fast Healing ~ Mephit					
+#ABILITY:Special Ability|Breath Weapon ~ Air Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Air Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Air Mephit					
+#ABILITY:Special Ability|Breath Weapon ~ Dust Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Dust Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Dust Mephit				
+#ABILITY:Special Ability|Breath Weapon ~ Earth Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Earth Mephit			
+#ABILITY:Special Ability|Change Size ~ Earth Mephit				
+#ABILITY:Special Ability|Fast Healing ~ Earth Mephit				
+#ABILITY:Special Ability|Breath Weapon ~ Fire Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Fire Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Fire Mephit				
+#ABILITY:Special Ability|Breath Weapon ~ Ice Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Ice Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Ice Mephit					
+#ABILITY:Special Ability|Breath Weapon ~ Magma Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Magma Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Magma Mephit				
+#ABILITY:Special Ability|Breath Weapon ~ Ooze Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Ooze Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Ooze Mephit				
+#ABILITY:Special Ability|Skills ~ Ooze Mephit					
+#ABILITY:Special Ability|Breath Weapon ~ Salt Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Salt Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Salt Mephit				
+#ABILITY:Special Ability|Breath Weapon ~ Steam Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Steam Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Steam Mephit				
+#ABILITY:Special Ability|Breath Weapon ~ Water Mephit				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Water Mephit			
+#ABILITY:Special Ability|Fast Healing ~ Water Mephit				
+#ABILITY:Special Ability|Skills ~ Water Mephit					
+#ABILITY:Special Ability|Amphibious ~ Merfolk					
+#ABILITY:Special Ability|Skills ~ Merfolk						
+#ABILITY:Special Ability|Adhesive ~ Mimic						
+#ABILITY:Special Ability|Crush ~ Mimic							
+#ABILITY:Special Ability|Mimic Shape ~ Mimic						
+#ABILITY:Special Ability|Skills ~ Mimic						
+#ABILITY:Special Ability|Powerful Charge ~ Minotaur				
+#ABILITY:Special Ability|Natural Cunning ~ Minotaur				
+#ABILITY:Special Ability|Skills ~ Minotaur						
+#ABILITY:Special Ability|Improved Grab ~ Mohrg					
+#ABILITY:Special Ability|Paralyzing Touch ~ Mohrg					
+#ABILITY:Special Ability|Create Spawn ~ Mohrg					
+#ABILITY:Special Ability|Despair ~ Mummy						
+#ABILITY:Special Ability|Mummy Rot ~ Mummy						
+#ABILITY:Special Ability|Poison ~ Dark Naga						
+#ABILITY:Special Ability|Spells ~ Dark Naga						
+#ABILITY:Special Ability|Resistance to Charm ~ Dark Naga				
+#ABILITY:Special Ability|Detect Thoughts ~ Dark Naga				
+#ABILITY:Special Ability|Guarded Thoughts ~ Dark Naga				
+#ABILITY:Special Ability|Poison ~ Guardian Naga					
+#ABILITY:Special Ability|Spit ~ Guardian Naga					
+#ABILITY:Special Ability|Spells ~ Guardian Naga					
+#ABILITY:Special Ability|Charming Gaze ~ Spirit Naga				
+#ABILITY:Special Ability|Poison ~ Spirit Naga					
+#ABILITY:Special Ability|Spells ~ Spirit Naga					
+#ABILITY:Special Ability|Poison ~ Water Naga						
+#ABILITY:Special Ability|Spells ~ Water Naga						
+#ABILITY:Special Ability|Skills ~ Water Naga						
+#ABILITY:Special Ability|Natural Weapons ~ Night Hag				
+#ABILITY:Special Ability|Disease ~ Night Hag						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Night Hag			
+#ABILITY:Special Ability|Dream Haunting ~ Night Hag				
+#ABILITY:Special Ability|Natural Weapons ~ Nightmare				
+#ABILITY:Special Ability|Flaming Hooves ~ Nightmare				
+#ABILITY:Special Ability|Smoke ~ Nightmare						
+#ABILITY:Special Ability|Astral Projection and Etherealness ~ Nightmare	
+#ABILITY:Special Ability|Aversion to Daylight ~ Nightshade Shared		
+#ABILITY:Special Ability|Desecrating Aura ~ Nightshade Shared			
+#ABILITY:Special Ability|Natural Weapons ~ Nightcrawler				
+#ABILITY:Special Ability|Energy Drain ~ Nightcrawler				
+#ABILITY:Special Ability|Improved Grab ~ Nightcrawler				
+#ABILITY:Special Ability|Poison ~ Nightcrawler					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Nightcrawler			
+#ABILITY:Special Ability|Summon Undead ~ Nightcrawler				
+#ABILITY:Special Ability|Swallow Whole ~ Nightcrawler				
+#ABILITY:Special Ability|Natural Weapons ~ Nightwalker				
+#ABILITY:Special Ability|Crush Item ~ Nightwalker					
+#ABILITY:Special Ability|Evil Gaze ~ Nightwalker					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Nightwalker			
+#ABILITY:Special Ability|Summon Undead ~ Nightwalker				
+#ABILITY:Special Ability|Skills ~ Nightwalker					
+#ABILITY:Special Ability|Natural Weapons ~ Nightwing				
+#ABILITY:Special Ability|Magic Drain ~ Nightwing					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Nightwing			
+#ABILITY:Special Ability|Summon Undead ~ Nightwing					
+#ABILITY:Special Ability|Skills ~ Nightwing						
+#ABILITY:Special Ability|Blinding Beauty ~ Nymph					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Nymph				
+#ABILITY:Special Ability|Spells ~ Nymph						
+#ABILITY:Special Ability|Stunning Glance ~ Nymph					
+#ABILITY:Special Ability|Unearthly Grace ~ Nymph					
+#ABILITY:Special Ability|Wild Empathy ~ Nymph					
+#ABILITY:Special Ability|Skills ~ Nymph						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Ogre Mage			
+#ABILITY:Special Ability|Flight ~ Ogre Mage						
+#ABILITY:Special Ability|Regeneration ~ Ogre Mage					
+#ABILITY:Special Ability|Blindsight ~ Ooze Shared					
+#ABILITY:Special Ability|Acid ~ Black Pudding					
+#ABILITY:Special Ability|Constrict ~ Black Pudding					
+#ABILITY:Special Ability|Improved Grab ~ Black Pudding				
+#ABILITY:Special Ability|Split ~ Black Pudding					
+#ABILITY:Special Ability|Skills ~ Black Pudding					
+#ABILITY:Special Ability|Acid ~ Gelatinous Cube					
+#ABILITY:Special Ability|Engulf ~ Gelatinous Cube					
+#ABILITY:Special Ability|Paralysis ~ Gelatinous Cube				
+#ABILITY:Special Ability|Transparent ~ Gelatinous Cube				
+#ABILITY:Special Ability|Acid ~ Gray Ooze						
+#ABILITY:Special Ability|Constrict ~ Gray Ooze					
+#ABILITY:Special Ability|Improved Grab ~ Gray Ooze					
+#ABILITY:Special Ability|Transparent ~ Gray Ooze					
+#ABILITY:Special Ability|Acid ~ Ochre Jelly						
+#ABILITY:Special Ability|Constrict ~ Ochre Jelly					
+#ABILITY:Special Ability|Improved Grab ~ Ochre Jelly				
+#ABILITY:Special Ability|Split ~ Ochre Jelly						
+#ABILITY:Special Ability|Skills ~ Ochre Jelly					
+#ABILITY:Special Ability|Light Sensitivity ~ Orc					
+#ABILITY:Special Ability|Constrict ~ Otyugh						
+#ABILITY:Special Ability|Disease ~ Otyugh						
+#ABILITY:Special Ability|Improved Grab ~ Otyugh					
+#ABILITY:Special Ability|Skills ~ Otyugh						
+#ABILITY:Special Ability|Superior Low-Light Vision ~ Giant Owl			
+#ABILITY:Special Ability|Skills ~ Giant Owl						
+#ABILITY:Special Ability|Improved Grab ~ Owlbear					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Pegasus				
+#ABILITY:Special Ability|Skills ~ Pegasus						
+#ABILITY:Special Ability|Greater Invisibility ~ Phantom Fungus			
+#ABILITY:Special Ability|Skills ~ Phantom Fungus					
+#ABILITY:Special Ability|Ethereal Jaunt ~ Phase Spider				
+#ABILITY:Special Ability|Poison ~ Phase Spider					
+#ABILITY:Special Ability|Skills ~ Phase Spider					
+#ABILITY:Special Ability|Amorphous ~ Phasm						
+#ABILITY:Special Ability|Resilient ~ Phasm						
+#ABILITY:Special Ability|Alternate Form ~ Phasm					
+#ABILITY:Special Ability|Tremorsense ~ Phasm						
+#ABILITY:Special Ability|Skills ~ Phasm						
+#ABILITY:Special Ability|Daylight ~ Planetouched Aasimar				
+#ABILITY:Special Ability|Skills ~ Planetouched Aasimar				
+#ABILITY:Special Ability|Darkness ~ Planetouched Tiefling			
+#ABILITY:Special Ability|Skills ~ Planetouched Tiefling				
+#ABILITY:Special Ability|Poison ~ Pseudodragon					
+#ABILITY:Special Ability|Blindsense ~ Pseudodragon					
+#ABILITY:Special Ability|Telepathy ~ Pseudodragon					
+#ABILITY:Special Ability|Skills ~ Pseudodragon					
+#ABILITY:Special Ability|Improved Grab ~ Purple Worm				
+#ABILITY:Special Ability|Poison ~ Purple Worm					
+#ABILITY:Special Ability|Swallow Whole ~ Purple Worm				
+#ABILITY:Special Ability|Skills ~ Purple Worm					
+#ABILITY:Special Ability|Detect Thoughts ~ Rakshasa				
+#ABILITY:Special Ability|Spells ~ Rakshasa						
+#ABILITY:Special Ability|Change Shape ~ Rakshasa					
+#ABILITY:Special Ability|Skills ~ Rakshasa						
+#ABILITY:Special Ability|Paralyzing Gaze ~ Rast					
+#ABILITY:Special Ability|Improved Grab ~ Rast					
+#ABILITY:Special Ability|Blood Drain ~ Rast						
+#ABILITY:Special Ability|Flight ~ Rast							
+#ABILITY:Special Ability|Positive Energy Lash ~ Ravid				
+#ABILITY:Special Ability|Animate Objects ~ Ravid					
+#ABILITY:Special Ability|Flight ~ Ravid						
+#ABILITY:Special Ability|Feats ~ Ravid							
+#ABILITY:Special Ability|Improved Grab ~ Remorhaz					
+#ABILITY:Special Ability|Swallow Whole ~ Remorhaz					
+#ABILITY:Special Ability|Heat ~ Remorhaz						
+#ABILITY:Special Ability|Skills ~ Remorhaz						
+#ABILITY:Special Ability|Skills ~ Roc							
+#ABILITY:Special Ability|Drag ~ Roper							
+#ABILITY:Special Ability|Strands ~ Roper						
+#ABILITY:Special Ability|Weakness ~ Roper						
+#ABILITY:Special Ability|Skills ~ Roper						
+#ABILITY:Special Ability|Rust ~ Rust Monster						
+#ABILITY:Special Ability|Blindsense ~ Sahuagin					
+#ABILITY:Special Ability|Blood Frenzy ~ Sahuagin					
+#ABILITY:Special Ability|Rake ~ Sahuagin						
+#ABILITY:Special Ability|Freshwater Sensitivity ~ Sahuagin			
+#ABILITY:Special Ability|Light Blindness ~ Sahuagin				
+#ABILITY:Special Ability|Speak with Sharks ~ Sahuagin				
+#ABILITY:Special Ability|Water Dependent ~ Sahuagin				
+#ABILITY:Special Ability|Skills ~ Sahuagin						
+#ABILITY:Special Ability|Light Sensitivity ~ Malenti				
+#ABILITY:Special Ability|Natural Weapons ~ Salamander				
+#ABILITY:Special Ability|Constrict ~ Salamander					
+#ABILITY:Special Ability|Heat ~ Salamander						
+#ABILITY:Special Ability|Improved Grab ~ Salamander				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Salamander			
+#ABILITY:Special Ability|Skills ~ Salamander						
+#ABILITY:Special Ability|Feats ~ Salamander						
+#ABILITY:Special Ability|Pipes ~ Satyr							
+#ABILITY:Special Ability|Skills ~ Satyr						
+#ABILITY:Special Ability|Hold Breath ~ Sea Cat					
+#ABILITY:Special Ability|Rend ~ Sea Cat						
+#ABILITY:Special Ability|Skills ~ Sea Cat						
+#ABILITY:Special Ability|Strength Damage ~ Shadow					
+#ABILITY:Special Ability|Create Spawn ~ Shadow					
+#ABILITY:Special Ability|Skills ~ Shadow						
+#ABILITY:Special Ability|Strength Damage ~ Greater Shadow			
+#ABILITY:Special Ability|Bay ~ Shadow Mastiff					
+#ABILITY:Special Ability|Trip ~ Shadow Mastiff					
+#ABILITY:Special Ability|Shadow Blend ~ Shadow Mastiff				
+#ABILITY:Special Ability|Skills ~ Shadow Mastiff					
+#ABILITY:Special Ability|Improved Grab ~ Shambling Mound				
+#ABILITY:Special Ability|Constrict ~ Shambling Mound				
+#ABILITY:Special Ability|Immunity to Electricity ~ Shambling Mound		
+#ABILITY:Special Ability|Skills ~ Shambling Mound					
+#ABILITY:Special Ability|Find Master ~ Shield Guardian				
+#ABILITY:Special Ability|Guard ~ Shield Guardian					
+#ABILITY:Special Ability|Shield Other ~ Shield Guardian				
+#ABILITY:Special Ability|Spell Storing ~ Shield Guardian				
+#ABILITY:Special Ability|Stunning Shock ~ Shocker Lizard				
+#ABILITY:Special Ability|Lethal Shock ~ Shocker Lizard				
+#ABILITY:Special Ability|Electricity Sense ~ Shocker Lizard			
+#ABILITY:Special Ability|Skills ~ Shocker Lizard					
+#ABILITY:Special Ability|Rake ~ Skum							
+#ABILITY:Special Ability|Skills ~ Skum							
+#ABILITY:Special Ability|Energy Drain ~ Spectre					
+#ABILITY:Special Ability|Create Spawn ~ Spectre					
+#ABILITY:Special Ability|Unnatural Aura ~ Spectre					
+#ABILITY:Special Ability|Sunlight Powerlessness ~ Spectre			
+#ABILITY:Special Ability|Pounce ~ Sphinx						
+#ABILITY:Special Ability|Rake ~ Sphinx							
+#ABILITY:Special Ability|Rake ~ Androsphinx						
+#ABILITY:Special Ability|Roar ~ Androsphinx						
+#ABILITY:Special Ability|Spells ~ Androsphinx					
+#ABILITY:Special Ability|Rake ~ Criosphinx						
+#ABILITY:Special Ability|Rake ~ Gynosphinx						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Gynosphinx			
+#ABILITY:Special Ability|Rake ~ Hieracosphinx					
+#ABILITY:Special Ability|Skills ~ Hieracosphinx					
+#ABILITY:Special Ability|Implant ~ Spider Eater					
+#ABILITY:Special Ability|Poison ~ Spider Eater					
+#ABILITY:Special Ability|Freedom of Movement ~ Spider Eater			
+#ABILITY:Special Ability|Skills ~ Spider Eater					
+#ABILITY:Special Ability|Skills ~ SPRITE						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Grig				
+#ABILITY:Special Ability|Fiddle ~ Grig							
+#ABILITY:Special Ability|Skills ~ Grig							
+#ABILITY:Special Ability|Charm Person ~ Nixie					
+#ABILITY:Special Ability|Amphibious ~ Nixie						
+#ABILITY:Special Ability|Water Breathing ~ Nixie					
+#ABILITY:Special Ability|Wild Empathy ~ Nixie					
+#ABILITY:Special Ability|Skills ~ Nixie						
+#ABILITY:Special Ability|Greater Invisibility ~ Pixie				
+#ABILITY:Special Ability|Spell-Like Abilities ~ Pixie				
+#ABILITY:Special Ability|Special Arrows ~ Pixie					
+#ABILITY:Special Ability|Attach ~ Stirge						
+#ABILITY:Special Ability|Blood Drain ~ Stirge					
+#ABILITY:Special Ability|Distraction ~ Bat Swarm					
+#ABILITY:Special Ability|Wounding ~ Bat Swarm					
+#ABILITY:Special Ability|Blindsense ~ Bat Swarm					
+#ABILITY:Special Ability|Skills ~ Bat Swarm						
+#ABILITY:Special Ability|Distraction ~ Centipede Swarm				
+#ABILITY:Special Ability|Poison ~ Centipede Swarm					
+#ABILITY:Special Ability|Skills ~ Centipede Swarm					
+#ABILITY:Special Ability|Natural Weapons ~ Hellwasp Swarm			
+#ABILITY:Special Ability|Distraction ~ Hellwasp Swarm				
+#ABILITY:Special Ability|Inhabit ~ Hellwasp Swarm					
+#ABILITY:Special Ability|Poison ~ Hellwasp Swarm					
+#ABILITY:Special Ability|Hive Mind ~ Hellwasp Swarm				
+#ABILITY:Special Ability|Distraction ~ Locust Swarm				
+#ABILITY:Special Ability|Skills ~ Locust Swarm					
+#ABILITY:Special Ability|Disease ~ Rat Swarm						
+#ABILITY:Special Ability|Distraction ~ Rat Swarm					
+#ABILITY:Special Ability|Skills ~ Rat Swarm						
+#ABILITY:Special Ability|Distraction ~ Spider Swarm				
+#ABILITY:Special Ability|Poison ~ Spider Swarm					
+#ABILITY:Special Ability|Skills ~ Spider Swarm					
+#ABILITY:Special Ability|Natural Weapons ~ Tarrasque				
+#ABILITY:Special Ability|Augmented Critical ~ Tarrasque				
+#ABILITY:Special Ability|Frightful Presence ~ Tarrasque				
+#ABILITY:Special Ability|Improved Grab ~ Tarrasque					
+#ABILITY:Special Ability|Rush ~ Tarrasque						
+#ABILITY:Special Ability|Swallow Whole ~ Tarrasque					
+#ABILITY:Special Ability|Carapace ~ Tarrasque					
+#ABILITY:Special Ability|Regeneration ~ Tarrasque					
+#ABILITY:Special Ability|Skills ~ Tarrasque						
+#ABILITY:Special Ability|Improved Grab ~ Tendriculos				
+#ABILITY:Special Ability|Swallow Whole/Paralysis ~ Tendriculos			
+#ABILITY:Special Ability|Regeneration ~ Tendriculos				
+#ABILITY:Special Ability|Heat ~ Thoqqua						
+#ABILITY:Special Ability|Burn ~ Thoqqua						
+#ABILITY:Special Ability|Natural Weapons ~ Titan					
+#ABILITY:Special Ability|Oversized Weapon ~ Titan					
+#ABILITY:Special Ability|Spell-Like Abilities ~ Titan				
+#ABILITY:Special Ability|Improved Grab ~ Tojanida					
+#ABILITY:Special Ability|Ink Cloud ~ Tojanida					
+#ABILITY:Special Ability|All-Around Vision ~ Tojanida				
+#ABILITY:Special Ability|Skills ~ Tojanida						
+#ABILITY:Special Ability|Animate Trees ~ Treant					
+#ABILITY:Special Ability|Double Damage against Objects ~ Treant		
+#ABILITY:Special Ability|Trample ~ Treant						
+#ABILITY:Special Ability|Skills ~ Treant						
+#ABILITY:Special Ability|Spell-Like Abilities ~ Triton				
+#ABILITY:Special Ability|Skills ~ Triton						
+#ABILITY:Special Ability|Stench ~ Troglodyte						
+#ABILITY:Special Ability|Skills ~ Troglodyte						
+#ABILITY:Special Ability|Rend ~ Troll							
+#ABILITY:Special Ability|Regeneration ~ Troll					
+#ABILITY:Special Ability|Magic Circle against Evil ~ Unicorn			
+#ABILITY:Special Ability|Spell-Like Abilities ~ Unicorn				
+#ABILITY:Special Ability|Wild Empathy ~ Unicorn					
+#ABILITY:Special Ability|Skills ~ Unicorn						
+#ABILITY:Special Ability|Blood Drain ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Children of the Night ~ VAMPIRE TEMPLATE		
+#ABILITY:Special Ability|Dominate ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Create Spawn ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Energy Drain ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Special Qualities ~ VAMPIRE TEMPLATE			
+#ABILITY:Special Ability|Alternate Form ~ VAMPIRE TEMPLATE			
+#ABILITY:Special Ability|Damage Reduction ~ VAMPIRE TEMPLATE			
+#ABILITY:Special Ability|Fast Healing ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Gaseous Form ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Resistances ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Spider Climb ~ VAMPIRE TEMPLATE				
+#ABILITY:Special Ability|Turn Resistance ~ VAMPIRE TEMPLATE			
+#ABILITY:Special Ability|Vampire Weaknesses ~ VAMPIRE TEMPLATE			
+#ABILITY:Special Ability|Blood Drain ~ Vampire Spawn				
+#ABILITY:Special Ability|Domination ~ Vampire Spawn				
+#ABILITY:Special Ability|Energy Drain ~ Vampire Spawn				
+#ABILITY:Special Ability|Fast Healing ~ Vampire Spawn				
+#ABILITY:Special Ability|Gaseous Form ~ Vampire Spawn				
+#ABILITY:Special Ability|Spider Climb ~ Vampire Spawn				
+#ABILITY:Special Ability|Skills ~ Vampire Spawn					
+#ABILITY:Special Ability|Vampire Weaknesses ~ Vampire Spawn			
+#ABILITY:Special Ability|Natural Weapons ~ Vargouille				
+#ABILITY:Special Ability|Shriek ~ Vargouille						
+#ABILITY:Special Ability|Kiss ~ Vargouille						
+#ABILITY:Special Ability|Poison ~ Vargouille						
+#ABILITY:Special Ability|Create Spawn ~ Wight					
+#ABILITY:Special Ability|Energy Drain ~ Wight					
+#ABILITY:Special Ability|Skills ~ Wight						
+#ABILITY:Special Ability|Immunity to Magic ~ Will-O'-Wisp			
+#ABILITY:Special Ability|Natural Invisibility ~ Will-O'-Wisp			
+#ABILITY:Special Ability|Breath Weapon ~ Winter Wolf				
+#ABILITY:Special Ability|Freezing Bite ~ Winter Wolf				
+#ABILITY:Special Ability|Trip ~ Winter Wolf						
+#ABILITY:Special Ability|Skills ~ Winter Wolf					
+#ABILITY:Special Ability|Trip ~ Worg							
+#ABILITY:Special Ability|Skills ~ Worg							
+#ABILITY:Special Ability|Unnatural Aura ~ Wraith Shared				
+#ABILITY:Special Ability|Daylight Powerlessness ~ Wraith Shared		
+#ABILITY:Special Ability|Constitution Drain ~ Wraith				
+#ABILITY:Special Ability|Create Spawn ~ Wraith					
+#ABILITY:Special Ability|Lifesense ~ Dread Wraith					
+#ABILITY:Special Ability|Constitution Drain ~ Dread Wraith			
+#ABILITY:Special Ability|Create Spawn ~ Dread Wraith				
+#ABILITY:Special Ability|Improved Grab ~ Wyvern					
+#ABILITY:Special Ability|Poison ~ Wyvern						
+#ABILITY:Special Ability|Skills ~ Wyvern						
+#ABILITY:Special Ability|Implant ~ Xill						
+#ABILITY:Special Ability|Improved Grab ~ Xill					
+#ABILITY:Special Ability|Paralysis ~ Xill						
+#ABILITY:Special Ability|Planewalk ~ Xill						
+#ABILITY:Special Ability|All-Around Vision ~ Xorn					
+#ABILITY:Special Ability|Earth Glide ~ Xorn						
+#ABILITY:Special Ability|Natural Weapons ~ Yeth Hound				
+#ABILITY:Special Ability|Bay ~ Yeth Hound						
+#ABILITY:Special Ability|Trip ~ Yeth Hound						
+#ABILITY:Special Ability|Flight ~ Yeth Hound						
+#ABILITY:Special Ability|Skills ~ Yeth Hound						
+#ABILITY:Special Ability|Sonic Lance ~ Yrthak					
+#ABILITY:Special Ability|Explosion ~ Yrthak						
+#ABILITY:Special Ability|Blindsight ~ Yrthak						
+#ABILITY:Special Ability|Immunities ~ Yrthak						
+#ABILITY:Special Ability|Skills ~ Yrthak						
+#ABILITY:Special Ability|Single Actions Only ~ Zombie Template			
+#ABILITY:Special Ability|								
+#ABILITY:Special Ability|Stonecunning ~ Svirfneblin				
+#ABILITY:Special Ability|Stonecunning ~ Deep Halfling				
+#ABILITY:Special Ability|Halfling Appraise						
+#ABILITY:Special Ability|Halfling Craft						
+#ABILITY:Special Ability|Acid Sting ~ Giant Ant			
+#ABILITY:Special Ability|Improved Grab ~ Giant Ant			
+#ABILITY:Special Ability|Skills ~ Giant Ant				
+#ABILITY:Special Ability|Poison ~ Giant Bee				
+#ABILITY:Special Ability|Skills ~ Giant Bee				
+#ABILITY:Special Ability|eetle                                 
+#ABILITY:Special Ability|Acid Spray ~ Giant Bombardier Beetle	
+#ABILITY:Special Ability|Trample ~ Giant Stag Beetle		
+#ABILITY:Special Ability|is                                    
+#ABILITY:Special Ability|Improved Grab ~ Giant Praying Mantis	
+#ABILITY:Special Ability|Skills ~ Giant Praying Mantis		
+#ABILITY:Special Ability|Poison ~ Giant Wasp				
+#ABILITY:Special Ability|Skills ~ Giant Wasp				
+#ABILITY:Special Ability|e                                     
+#ABILITY:Special Ability|Poison ~ Monstrous Centipede		
+#ABILITY:Special Ability|Skills ~ Monstrous Centipede		
+#ABILITY:Special Ability|Constrict ~ Monstrous Scorpion		
+#ABILITY:Special Ability|Improved Grab ~ Monstrous Scorpion	
+#ABILITY:Special Ability|Poison ~ Monstrous Scorpion		
+#ABILITY:Special Ability|Skills ~ Monstrous Scorpion		
+#ABILITY:Special Ability|Poison ~ Monstrous Spider			
+#ABILITY:Special Ability|Web ~ Monstrous Spider			
+#ABILITY:Special Ability|Tremorsense ~ Monstrous Spider		
+#ABILITY:Special Ability|Skills ~ Monstrous Spider			
+#ABILITY:Special Ability|ue Key						
+#ABILITY:Special Ability|Skills ~ Ape					
+#ABILITY:Special Ability|Skills ~ Baboon				
+#ABILITY:Special Ability|Rage ~ Badger					
+#ABILITY:Special Ability|Skills ~ Badger				
+#ABILITY:Special Ability|Blindsense ~ Bat				
+#ABILITY:Special Ability|Skills ~ Bat					
+#ABILITY:Special Ability|Skills ~ Black Bear				
+#ABILITY:Special Ability|Improved Grab ~ Brown Bear		
+#ABILITY:Special Ability|Skills ~ Brown Bear				
+#ABILITY:Special Ability|Improved Grab ~ Polar Bear		
+#ABILITY:Special Ability|Skills ~ Polar Bear				
+#ABILITY:Special Ability|Stampede ~ Bison				
+#ABILITY:Special Ability|Ferocity ~ Boar				
+#ABILITY:Special Ability|Skills ~ Cat					
+#ABILITY:Special Ability|Trip ~ Cheetah				
+#ABILITY:Special Ability|Sprint ~ Cheetah				
+#ABILITY:Special Ability|Improved Grab ~ Crocodile			
+#ABILITY:Special Ability|Hold Breath ~ Crocodile			
+#ABILITY:Special Ability|Skills ~ Crocodile				
+#ABILITY:Special Ability|ame as above)                         
+#ABILITY:Special Ability|Skills ~ Dog					
+#ABILITY:Special Ability|Combat ~ Riding Dog				
+#ABILITY:Special Ability|Skills ~ Riding Dog				
+#ABILITY:Special Ability|Skills ~ Donkey				
+#ABILITY:Special Ability|Skills ~ Eagle				
+#ABILITY:Special Ability|Trample ~ Elephant				
+#ABILITY:Special Ability|Skills ~ Hawk					
+#ABILITY:Special Ability|Combat ~ Horse Shared			
+#ABILITY:Special Ability|Combat ~ Heavy Horse			
+#ABILITY:Special Ability|Combat ~ Light Horse			
+#ABILITY:Special Ability|Combat ~ Heavy Warhorse			
+#ABILITY:Special Ability|Combat ~ Light Warhorse			
+#ABILITY:Special Ability|Trip ~ Hyena					
+#ABILITY:Special Ability|Skills ~ Hyena				
+#ABILITY:Special Ability|Improved Grab ~ Leopard			
+#ABILITY:Special Ability|Pounce ~ Leopard				
+#ABILITY:Special Ability|Rake ~ Leopard				
+#ABILITY:Special Ability|Skills ~ Leopard				
+#ABILITY:Special Ability|Pounce ~ Lion					
+#ABILITY:Special Ability|Improved Grab ~ Lion			
+#ABILITY:Special Ability|Rake ~ Lion					
+#ABILITY:Special Ability|Skills ~ Lion					
+#ABILITY:Special Ability|Skills ~ Lizard				
+#ABILITY:Special Ability|Skills ~ Monitor Lizard			
+#ABILITY:Special Ability|Combat ~ Manta Ray				
+#ABILITY:Special Ability|Skills ~ Manta Ray				
+#ABILITY:Special Ability|Skills ~ Monkey				
+#ABILITY:Special Ability|Skills ~ Mule					
+#ABILITY:Special Ability|Improved Grab ~ Octopus			
+#ABILITY:Special Ability|Ink Cloud ~ Octopus				
+#ABILITY:Special Ability|Jet ~ Octopus					
+#ABILITY:Special Ability|Skills ~ Octopus				
+#ABILITY:Special Ability|Tentacles ~ Giant Octopus			
+#ABILITY:Special Ability|Constrict ~ Giant Octopus			
+#ABILITY:Special Ability|Improved Grab ~ Giant Octopus		
+#ABILITY:Special Ability|Ink Cloud ~ Giant Octopus			
+#ABILITY:Special Ability|Jet ~ Giant Octopus				
+#ABILITY:Special Ability|Skills ~ Giant Octopus			
+#ABILITY:Special Ability|Skills ~ Owl					
+#ABILITY:Special Ability|Combat ~ Pony					
+#ABILITY:Special Ability|Combat ~ Warpony				
+#ABILITY:Special Ability|Blindsight ~ Porpoise			
+#ABILITY:Special Ability|Hold Breath ~ Porpoise			
+#ABILITY:Special Ability|Skills ~ Porpoise				
+#ABILITY:Special Ability|Skills ~ Rat					
+#ABILITY:Special Ability|Powerful Charge ~ Rhinoceros		
+#ABILITY:Special Ability|Blindsense ~ Shark				
+#ABILITY:Special Ability|Keen Scent ~ Shark				
+#ABILITY:Special Ability|Skills ~ Shark				
+#ABILITY:Special Ability|Skills ~ Snake Shared			
+#ABILITY:Special Ability|Constrict ~ Constrictor Snake		
+#ABILITY:Special Ability|Improved Grab ~ Constrictor Snake	
+#ABILITY:Special Ability|Poison ~ Viper Snake			
+#ABILITY:Special Ability|Improved Grab ~ Squid			
+#ABILITY:Special Ability|Ink Cloud ~ Squid				
+#ABILITY:Special Ability|Jet ~ Squid					
+#ABILITY:Special Ability|Skills ~ Squid				
+#ABILITY:Special Ability|Combat ~ Giant Squid			
+#ABILITY:Special Ability|Constrict ~ Giant Squid			
+#ABILITY:Special Ability|Improved Grab ~ Giant Squid		
+#ABILITY:Special Ability|Ink Cloud ~ Giant Squid			
+#ABILITY:Special Ability|Jet ~ Giant Squid				
+#ABILITY:Special Ability|Skills ~ Giant Squid			
+#ABILITY:Special Ability|Improved Grab ~ Tiger			
+#ABILITY:Special Ability|Pounce ~ Tiger				
+#ABILITY:Special Ability|Rake ~ Tiger					
+#ABILITY:Special Ability|Skills ~ Tiger				
+#ABILITY:Special Ability|Skills ~ Toad					
+#ABILITY:Special Ability|Attach ~ Weasel				
+#ABILITY:Special Ability|Skills ~ Weasel				
+#ABILITY:Special Ability|Blindsight ~ Whale				
+#ABILITY:Special Ability|Hold Breath ~ Whale				
+#ABILITY:Special Ability|Skills ~ Whale				
+#ABILITY:Special Ability|Trip ~ Wolf					
+#ABILITY:Special Ability|Skills ~ Wolf					
+#ABILITY:Special Ability|Rage ~ Wolverine				
+#ABILITY:Special Ability|Skills ~ Wolverine				
+#ABILITY:Special Ability|Breath Fire ~ Hydra	
+#ABILITY:Special Ability|Breath Frost ~ Hydra	
+#ABILITY:Special Ability|Burst ~ Xeph		
+#ABILITY:Special Ability|Dominate ~ Vampire	
+#ABILITY:Special Ability|Paralyzing Touch ~ Lich	
+#ABILITY:Special Ability|#Stench ~ Troglodyte	
+#ABILITY:Special Ability|Touch Attack ~ Lich	
 
