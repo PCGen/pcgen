@@ -272,7 +272,7 @@ public class CharacterAbilities
 		AbilityCategory category = (AbilityCategory) cat;
 		
 		int numSelections = theCharacter.getAvailableAbilityPool(category).intValue();
-		if (category.getVisibility().isVisibleTo(View.VISIBLE_EXPORT))
+		if (category.getVisibility().isVisibleTo(View.HIDDEN_DISPLAY))
 		{
 			// Hide todos for categories that should not be displayed
 			numSelections = 0;
