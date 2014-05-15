@@ -75,7 +75,7 @@ Speaks Homish																	CATEGORY:Special Ability	TYPE:SpecialQuality.HomeL
 Does not speak Homish																CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage
 
 Fame - Standard Usage																CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport															SAB:+1 to Social skills when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai																																														TEMPDESC:Apply this temporary bonus when you are in the country you are famous in																														TEMPBONUS:PC|SKILL|TYPE=Social|1|TYPE=Fame
-Fame - Optional Usage																CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport															SAB:+2 to Social skills when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai																				ADD:FEAT|Infamous																								TEMPDESC:Apply this temporary bonus when you are in the country you are famous in																														TEMPBONUS:PC|SKILL|TYPE=Social|2|TYPE=Fame
+Fame - Optional Usage																CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport															SAB:+2 to Social skills when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai																				BONUS:ABILITYPOOL|Infamous|1																								TEMPDESC:Apply this temporary bonus when you are in the country you are famous in																														TEMPBONUS:PC|SKILL|TYPE=Social|2|TYPE=Fame
 Infamous																		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																SAB:-1 to Charisma checks when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai
 
 ###Block: Support for Reward Feats --------------------------------------------------------------------
@@ -83,14 +83,14 @@ Infamous																		CATEGORY:Special Ability	TYPE:SpecialQuality.Special		
 # Feat support for - Triumphant Hero of Launhym
 # Feat Name					Type				Visible		Description												Stackable?	Multiple?	Choose					Caster level				Bonus to skill		Stat bonus
 # Ability Name				Category of Ability		Type						Visible		Description												Stackable?	Multiple?	Choose				Caster level				Bonus to skill		Stat bonus
-Triumphant Hero Ability Score Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																		STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL													BONUS:STAT|LIST|1
+Triumphant Hero Ability Score Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																		STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL													BONUS:STAT|%LIST|1
 Leadership					CATEGORY:Special Ability	AUTO:FEAT|Leadership	
 
 # Feat support for - Damnation (aka Ylviuss' Wish)
-Damnation - Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|ALL							BONUS:SKILL|LIST|5
-Damnation - Arcane Power		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL		BONUS:CASTERLEVEL|SCHOOL.%LIST|1
-Damnation - Might				CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES																BONUS:STAT|LIST|2
-Damnation (Mystic Forces)		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You may cast one arcane or divine spell once as a caster of 20th level.
+Damnation ~ Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|ALL							BONUS:SKILL|%LIST|5
+Damnation ~ Arcane Power		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL		BONUS:CASTERLEVEL|SCHOOL.%LIST|1
+Damnation ~ Might				CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL														BONUS:STAT|%LIST|2
+Damnation ~ Mystic Forces		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You may cast one arcane or divine spell once as a caster of 20th level.
 
 ###Block: Racial Abilties --------------------------------------------------------------------------------
 
@@ -106,7 +106,7 @@ Light Blindness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	TEMPD
 ###Block: Homefront Guardian
 # Feat Name					Type			Visible	Stackable?	Multiple?	Choose													Bonus to skill
 # Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose												Bonus to skill
-Homefront Guardian Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassFeature	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Alchemy|Bluff|Climb|Forgery|Hide|Open Lock|Sneak	BONUS:SKILL|LIST|2|TYPE=Class
+Homefront Guardian Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassFeature	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Alchemy)|Bluff|Climb|Forgery|Hide|Open Lock|Move Silently	BONUS:SKILL|LIST|2|TYPE=Class
 
 ###Block: Knight of Pure Heart
 # Feat Name				Type				Visible	Required Feat					Special ABility								Define				Combat bonus									Stat bonus										Modify VAR					Temporary effect description
@@ -171,9 +171,8 @@ Icy Burst Arrow	KEY:Icy Burst Arrow ~ Blizzard Archer	CATEGORY:Special Ability	T
 Hail of Arrows	KEY:Hail of Arrows ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
 Arrow of Death	KEY:Arrow of Death ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
 
-Enhance Arrow	KEY:Enhance Arrow	 ~ Deepwood Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality
 Imbue Arrow		KEY:Imbue Arrow ~ Deepwood Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
 True Strike		KEY:True Strike ~ Deepwood Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
 Arrow of Sleep	KEY:Arrow of Sleep ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
 Arrow of Slow	KEY:Arrow of Slow ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
-Arrow of Death	KEY:Arrow of Death ~ Deepwood Guardian	v
+Arrow of Death	KEY:Arrow of Death ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
