@@ -28,7 +28,7 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|D
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Poison Use
+1													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Assassin ~ Poison Use
 2	BONUS:VAR|SneakAttackDice|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2								ABILITY:Special Ability|AUTOMATIC|Poison Save ~ Homefront Guardian	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Homeblood use ~ Homefront Guardian
 5													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Homeblood Immunity ~ Homefront Guardian
@@ -58,7 +58,7 @@ CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCE
 CLASS:Knight of Pure Heart	PREATT:5	PRESKILL:2,Diplomacy=5,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE=Perform|Ride|Speak Language
-1	BONUS:ABILITYPOOL|Passion Feat|1	ABILITY:Special Ability|AUTOMATIC|Nobility
+1	BONUS:ABILITYPOOL|Passion Feat|1	ABILITY:Special Ability|AUTOMATIC|Nobility ~ Knight of Pure Heart
 3	BONUS:ABILITYPOOL|PureHeart|1
 5	BONUS:ABILITYPOOL|Passion|1
 6	BONUS:ABILITYPOOL|PureHeart|1

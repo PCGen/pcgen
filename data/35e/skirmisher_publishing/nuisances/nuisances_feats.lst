@@ -53,13 +53,13 @@ Walk Like a Man				TYPE:General																																																	
 
 ###Block: Subtypes
 # Feat Name		Type			Required Gender	Required Race	Description																																				Bonus to skill			Class Skill				Source Page
-Subtype: Barkeep	TYPE:General							DESC:Barkeeps are sturdy individuals who have developed the skills needed to run drinking establishments frequented by soldiers, adventurers, and other tough customers.														CSKILL:Profession (Bartender)	SOURCEPAGE:p. 57
-Subtype: Bully	TYPE:General							DESC:Bullies are characters who use their often greater-than-average size and strength to oppress and harass those that are physically inferior to them.												BONUS:SKILL|Intimidate|2						SOURCEPAGE:p. 57
-Subtype: Eunuch	TYPE:General	PREGENDER:Male				DESC:Eunuchs are men who have had their genitals removed -- along with many of their masculine personality traits -- generally for purposes of making them suitable for purposes like guarding harems.				BONUS:SKILL|Perform (Sing)|2						SOURCEPAGE:p. 58
-Subtype: Gnoblin	TYPE:General				PRERACE:1,Gnome	DESC:Gnomes who take this feat adopt, inexplicably, Goblin clothing, music, speech patterns, customs, and the like. Whenever possible, such debased creatures will try to include one or more true Goblins in their ranks.											SOURCEPAGE:p. 58
-Subtype: Gnobold	TYPE:General				PRERACE:1,Gnome	DESC:Gnomes who take this feat adopt, inexplicably, Kobold clothing, music, speech patterns, customs, and the like. Whenever possible, such debased creatures will try to include one or more true Kobolds in their ranks.											SOURCEPAGE:p. 58
-Subtype: Goth	TYPE:General							DESC:Characters with this Feat are members of a subculture who thrive on wearing black, skulls, and the like, and enjoy exhibiting a fascination for death and un-death.																			SOURCEPAGE:p. 58
-Subtype: Thug	TYPE:General							DESC:Thugs are petty hoodlums who achieve their ends through intimidation, assault, and murder, either individually, in small bands, or in the service of more powerful criminals.								BONUS:SKILL|Intimidate|2						SOURCEPAGE:p. 58
+Subtype Barkeep	TYPE:General							DESC:Barkeeps are sturdy individuals who have developed the skills needed to run drinking establishments frequented by soldiers, adventurers, and other tough customers.														CSKILL:Profession (Bartender)	SOURCEPAGE:p. 57
+Subtype Bully	TYPE:General							DESC:Bullies are characters who use their often greater-than-average size and strength to oppress and harass those that are physically inferior to them.												BONUS:SKILL|Intimidate|2						SOURCEPAGE:p. 57
+Subtype Eunuch	TYPE:General	PREGENDER:Male				DESC:Eunuchs are men who have had their genitals removed -- along with many of their masculine personality traits -- generally for purposes of making them suitable for purposes like guarding harems.				BONUS:SKILL|Perform (Sing)|2						SOURCEPAGE:p. 58
+Subtype Gnoblin	TYPE:General				PRERACE:1,Gnome	DESC:Gnomes who take this feat adopt, inexplicably, Goblin clothing, music, speech patterns, customs, and the like. Whenever possible, such debased creatures will try to include one or more true Goblins in their ranks.											SOURCEPAGE:p. 58
+Subtype Gnobold	TYPE:General				PRERACE:1,Gnome	DESC:Gnomes who take this feat adopt, inexplicably, Kobold clothing, music, speech patterns, customs, and the like. Whenever possible, such debased creatures will try to include one or more true Kobolds in their ranks.											SOURCEPAGE:p. 58
+Subtype Goth	TYPE:General							DESC:Characters with this Feat are members of a subculture who thrive on wearing black, skulls, and the like, and enjoy exhibiting a fascination for death and un-death.																			SOURCEPAGE:p. 58
+Subtype Thug	TYPE:General							DESC:Thugs are petty hoodlums who achieve their ends through intimidation, assault, and murder, either individually, in small bands, or in the service of more powerful criminals.								BONUS:SKILL|Intimidate|2						SOURCEPAGE:p. 58
 
 #
 # End

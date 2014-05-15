@@ -3,7 +3,7 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 #Originally done by Paul W. King
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL		DEFINE:ArchaneArcherLVL|CL
 # Class Name			Multiple Requirements																Required Race
 CLASS:Arcane Archer ~ Core	PREMULT:1,[PREPCLEVEL:MAX=1],[PREMULT:1,[!PRECLASS:1,TYPE.ArcaneArcher=1],[PRECLASS:1,Arcane Archer ~ Core=1]]	PRERACE:1,Elf%,Half-Elf
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -40,10 +40,10 @@ CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CA
 ###Block: Standard
 1																																VFEAT:Point Blank Shot
 2	BONUS:ABILITYPOOL|Weapon Focus|1
-3																																VFEAT:Precise Shot
-4							BONUS:VAR|ArrowEnhancement|min((CL-1)/3,5)									ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
-5																							ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-6							BONUS:VAR|SeekerArrowTimes|CL/6											ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
-9							BONUS:VAR|PhaseArrowTimes|(CL+1)/10											ABILITY:Special Ability|AUTOMATIC|Phase Arrow
-14							BONUS:VAR|HailArrowsTargets|CL/2	BONUS:VAR|HailArrowsTimes|1						ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
-15							BONUS:VAR|ArrowDeathLevel|CL							DEFINE:ArrowDeathLevel|0	ABILITY:Special Ability|AUTOMATIC|Arrow of Death
+3							VFEAT:Precise Shot
+4							ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow
+5							ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow
+6							ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Seeker Arrow
+9							ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Phase Arrow
+14							ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Hail of Arrows
+15							ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death

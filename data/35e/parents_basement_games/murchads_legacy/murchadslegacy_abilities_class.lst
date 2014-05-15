@@ -54,6 +54,8 @@ Blood Oath							KEY:Blood Oath ~ Steadfast Knight						CATEGORY:Special Ability
 #Steel Dragons
 Magical Alertness						KEY:Magical Alertness ~ Steel Dragons					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:MagicalAlertnessBonus|0	DESC:+%1|MagicalAlertnessBonus
 Fear of Flame						KEY:Fear of Flame ~ Steel Dragons						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																												DESC:+2 saving throw bonus versus any fire related attack or incident
+Magical Alertness						KEY:Magical Alertness ~ Steel Dragons					CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Magical Alertness				KEY:Improved Magical Alertness ~ Steel Dragons				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #Shadowtamer
 Lure of the Dammed					KEY:Lure of the Dammed ~ Shadowtamer					CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -82,6 +84,7 @@ Infamous																		CATEGORY:Special Ability	TYPE:SpecialQuality.Special		
 # Feat Name					Type				Visible		Description												Stackable?	Multiple?	Choose					Caster level				Bonus to skill		Stat bonus
 # Ability Name				Category of Ability		Type						Visible		Description												Stackable?	Multiple?	Choose				Caster level				Bonus to skill		Stat bonus
 Triumphant Hero Ability Score Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																		STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL													BONUS:STAT|LIST|1
+Leadership					CATEGORY:Special Ability	AUTO:FEAT|Leadership	
 
 # Feat support for - Damnation (aka Ylviuss' Wish)
 Damnation - Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|ALL							BONUS:SKILL|LIST|5
