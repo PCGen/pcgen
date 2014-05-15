@@ -3,5 +3,5 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fe
 
 # Skill Name		Key Stat	Untrained?		Type					Source Page		Bonus to skill
 Knowledge (Fey)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.8
-Knowledge (Enigmas)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.12	BONUS:SKILL|Open Locks|SynergyBonus|TYPE=Synergy|PRESKILL:1,Knowledge (Enigmas)=5	BONUS:SKILL|Disable Device|SynergyBonus|TYPE=Synergy|PRESKILL:1,Knowledge (Enigmas)=5
+Knowledge (Enigmas)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.12	BONUS:SKILL|Open Lock|SynergyBonus|TYPE=Synergy|PRESKILL:1,Knowledge (Enigmas)=5	BONUS:SKILL|Disable Device|SynergyBonus|TYPE=Synergy|PRESKILL:1,Knowledge (Enigmas)=5
 Knowledge (Reverie)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.16	BONUS:SKILL|Knowledge (Reverie)|2|PRERACE:1,Elf%

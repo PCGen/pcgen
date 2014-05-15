@@ -278,7 +278,7 @@ FEAT:Improved Initiative
 FEAT:Improved Sunder
 FEAT:Multiattack
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability(Prismatic Spray)
+FEAT:Quicken Spell-Like Ability(Prismatic Spray)
 FEAT:Weapon Focus (Slam)
 FEAT:Craft Epic Staff
 FEAT:Dire Charge
@@ -348,7 +348,7 @@ FEAT:Enlarge Spell
 FEAT:Improved Initiative
 FEAT:Maximize Spell
 FEAT:Power Attack
-FEAT:Quicken Spell Like Ability(Circle of Cold)
+FEAT:Quicken Spell-Like Ability(Circle of Cold)
 FEAT:Weapon Focus (Slam)
 FEAT:Enhance Spell
 FEAT:Epic Reflexes
@@ -517,7 +517,7 @@ SKILL:Escape Artist			RANK:18
 SKILL:Gather Information		RANK:35
 SKILL:Intimidate				RANK:46
 SKILL:Knowledge (Arcana)		RANK:48
-SKILL:Knowledge (History [Abyss])	RANK:48
+SKILL:Knowledge (History)		RANK:48
 SKILL:Knowledge (The Planes)		RANK:48
 SKILL:Knowledge (Religion)		RANK:48
 SKILL:Knowledge (Undead)		RANK:48
@@ -590,7 +590,7 @@ SKILL:Survival			RANK:42
 SKILL:Use Magic Device		RANK:42
 FEAT:Blind-Fight
 FEAT:Cleave
-FEAT:Empower Spell Like Ability(Lightning Bolt)
+FEAT:Empower Spell-Like Ability(Lightning Bolt)
 FEAT:Flyby Attack
 FEAT:Great Cleave
 FEAT:Hover

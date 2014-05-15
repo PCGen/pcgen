@@ -77,8 +77,8 @@ SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Horse's Surefootedness
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Born to the Saddle
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Horse and Hattock
 SUBCLASS:Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COST:0	PREFEAT:1,Stealthy
-SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Camouflage
-SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight
+SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Ranger ~ Hide in Plain Sight
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Pounce
 SUBCLASS:Animal Champion ~ (Lion/Dire Lion)					COST:0	PREFEAT:2,Skill Focus (Intimidate),Wild Empathy
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pounce
@@ -94,7 +94,7 @@ SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Mongoose's Stubbornness
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Mongoose's Retaliation
 SUBCLASS:Animal Champion ~ (Octopus/Giant Squid)				COST:0
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Water Breathing
-SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camouflage
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Darkness
 SUBCLASS:Animal Champion ~ (Owl)							COST:0	PREFEAT:1,Skill Focus (Knowledge%)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Owl's Insight
@@ -118,7 +118,7 @@ SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Snake Eyes
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Snake's Healing Slough
 SUBCLASS:Animal Champion ~ (Tiger/Dire Tiger)					COST:0	PREFEAT:1,Skill Focus (Move Silently)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pounce
-SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Camouflage
+SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Tiger's Fearful Symmetry
 SUBCLASS:Animal Champion ~ (Dire Weasel)						COST:0	PREFEAT:2,Skill Focus (Appraise),Skill Focus (Sleight of Hand)
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Weasel's Gaze
@@ -220,7 +220,7 @@ CLASS:Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|J
 
 ###Block: Level Abilities
 1	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Code of Conduct ~ GWJ|Commonwealth of the Forest|Greenwood Leadership|Greenwood Signal
-2							ABILITY:Special Ability|AUTOMATIC|Detect Evil|Mark of the Greenwood Foe
+2							ABILITY:Special Ability|AUTOMATIC|Paladin ~ Detect Evil|Mark of the Greenwood Foe
 3	BONUS:VAR|GreenwoodSignalTimes|1
 4							ABILITY:Special Ability|AUTOMATIC|Discern Lies
 5	BONUS:VAR|GreenwoodSignalTimes|1	ABILITY:Special Ability|AUTOMATIC|Discern Location

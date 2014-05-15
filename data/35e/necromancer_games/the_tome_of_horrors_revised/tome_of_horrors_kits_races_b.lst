@@ -55,7 +55,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Search		RANK:6
 SKILL:Spot			RANK:6
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Power Attack
 
 STARTPACK:Basidirond Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basidirond]
@@ -235,7 +235,7 @@ SKILL:Search		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:5
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Dodge
 
 STARTPACK:Bone Cobbler Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Cobbler]

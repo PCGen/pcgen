@@ -4,3 +4,6 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:
 # Skill Name	Key Stat	Untrained?		Type				Temporary effect description													Temporary Bonus
 Craft (Fletcher)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Fletcher)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools
 Craft (Bowyer)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Bowyer)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools
+
+
+Profession (Woodsman)				KEYSTAT:WIS	USEUNTRAINED:NO					TYPE:Wisdom.Profession.Standard.Base.Profession (Woodsman)							

@@ -2,4 +2,4 @@
 
 
 # Ability Category		Visible		Editable or Static?	Change Pool?	Category of Object	Specific choices list																							Display Location
-ABILITYCATEGORY:Reaver Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT		ABILITYLIST:Ambidexterity|Combat Reflexes|Dodge|Exotic Weapon Proficiency|Improved Critical|Improved Initiative|Quick Draw|Weapon Finesse|Weapon Focus	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Reaver Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	CATEGORY:FEAT		ABILITYLIST:Combat Reflexes|Dodge|Exotic Weapon Proficiency|Improved Critical|Improved Initiative|Quick Draw|Weapon Finesse|Weapon Focus	DISPLAYLOCATION:Class Abilities

@@ -20,7 +20,7 @@ Chameleon Camouflage				OUTPUTNAME:Camouflage			CATEGORY:Special Ability	TYPE:Ex
 TC ~ Silent Phantom										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Silent Phantom (Ex)					DEFINE:TheChameleonLVL|0																BONUS:SKILL|Hide,Move Silently|TheChameleonLVL|TYPE=Competence
 TC ~ Moving Shadow										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Moving Shadow (Ex)
 TC ~ Swift and Silent										CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Swift and Silent (Ex)
-TC ~ Keen Eye											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Keen Eye (Ex)																										BONUS:SKILL|Listen,Spot,Search,Survival (Find or follow tracks)|TheChameleonLVL|TYPE=Competence
+TC ~ Keen Eye											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Keen Eye (Ex)																								BONUS:SITUATION|Survival=Find or follow tracks|TheChameleonLVL|TYPE=Competence		BONUS:SKILL|Listen,Spot,Search|TheChameleonLVL|TYPE=Competence
 TC ~ Blindsight											CATEGORY:Special Ability	TYPE:Extraordinary	VISIBLE:NO	SAB:Blindsight (Ex)					DEFINE:BlindsightRange|0																																													BONUS:VISION|Blindsight|BlindsightRange	VISION:Blindsight
 TC ~ True Seeing											CATEGORY:Special Ability	TYPE:Spelllike		VISIBLE:NO	SAB:True Seeing (Sp)					DEFINE:ChameleonPlusRangerLVL|0	SPELLS:Class|TIMES=1|CASTERLEVEL=ChameleonPlusRangerLVL|True Seeing																			BONUS:VAR|ChameleonPlusRangerLVL|var("CL=Ranger")+var("CL=The Chameleon")
 TC ~ Improved Invisibility									CATEGORY:Special Ability	TYPE:Spelllike		VISIBLE:NO	SAB:Improved Invisibility (Sp)									SPELLS:Class|TIMES=1|CASTERLEVEL=ChameleonPlusRangerLVL|Invisibility (Greater)

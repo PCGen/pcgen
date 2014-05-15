@@ -42,7 +42,7 @@ Chameleon								CATEGORY:Special Ability	TYPE:TheStalkingCat																			
 #Block: The Survivor -------------------------------------------------------------------------------------------------------
 The Survivor							CATEGORY:Special Ability	TYPE:TheWindingPaths	PRECLASS:1,Ranger=1	PREFEAT:2,Alertness,Diehard,Endurance,Great Fortitude,Iron Will,Lightning Reflexes,Run,Self-Sufficient,Toughness,Skill Focus (Escape Artist),Skill Focus (Heal),Skill Focus (Knowledge (Geography)),Skill Focus (Survival)		PRESKILL:2,Escape Artist=5,Heal=5,Knowledge (Geography)=5,Survival=5				PRESTAT:1,CON=13																						BONUS:ABILITYPOOL|The Survivor|1
 #
-Immune to Nature's Fury						CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Immune to Nature's Fury	SAB:Weather Focused										BONUS:SKILL|Survival (Find or follow tracks)|-4
+Immune to Nature's Fury						CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Immune to Nature's Fury	SAB:Weather Focused										BONUS:SITUATION|Survival=Find or follow tracks|-4
 Resilient				KEY:Resilient Career	CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Resilient	SAB:Jealous Spirit												BONUS:SKILL|Heal|2
 Snake Eater								CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Snake Eater	SAB:Naked Beneath His Armour
 

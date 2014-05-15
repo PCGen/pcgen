@@ -28,7 +28,7 @@ CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nv
 CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:1,Divination=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE=Knowledge|Profession (Navigator)|Scry|Spellcraft
-1	BONUS:SKILL|Profession (Navigation)|2								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Infallible Direction ~ Navigator Wizard
+1	BONUS:SKILL|Profession (Navigator)|2								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Infallible Direction ~ Navigator Wizard
 2															ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Fast Pursuit ~ Navigator Wizard
 3	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Intuitive Seamanship ~ Navigator Wizard
 4															ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Catch the Wind ~ Navigator Wizard
@@ -77,10 +77,10 @@ CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:3,1				BONUS:VAR|AnimalCompanionLVL|CL			DEFINE:WildshapeLvl|0	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense
+1	CAST:3,1				BONUS:VAR|AnimalCompanionLVL|CL			DEFINE:WildshapeLvl|0	ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense
 2	CAST:4,2				BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0	ABILITY:Special Ability|AUTOMATIC|Predict the Weather ~ Sea Druid|Speed of the Fish ~ Sea Druid
 3	CAST:4,2,1																ABILITY:Special Ability|AUTOMATIC|Salt Synthesis ~ Sea Druid
-4	CAST:5,3,2																ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
+4	CAST:5,3,2																ABILITY:Special Ability|AUTOMATIC|Druid ~ Resist Nature's Lure
 5	CAST:5,3,2,1			BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0
 6	CAST:5,3,3,2			BONUS:VAR|Wildshape|1
 7	CAST:6,4,3,2,1			BONUS:VAR|Wildshape|1
@@ -89,9 +89,9 @@ CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 10	CAST:6,4,4,3,3,2			BONUS:VAR|Wildshape|1
 11	CAST:6,5,4,4,3,2,1		BONUS:VAR|WildshapeLvl|1
 12	CAST:6,5,4,4,3,3,2		BONUS:VAR|WildshapeLvl|1
-13	CAST:6,5,5,4,4,3,2,1														ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
+13	CAST:6,5,5,4,4,3,2,1														ABILITY:Special Ability|AUTOMATIC|Druid ~ A Thousand Faces
 14	CAST:6,5,5,4,4,3,3,2		BONUS:VAR|Wildshape|1
-15	CAST:6,5,5,5,4,4,3,2,1		BONUS:VAR|WildshapeLvl|1								ABILITY:Special Ability|AUTOMATIC|Timeless Body									TEMPLATE:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1		BONUS:VAR|WildshapeLvl|1								ABILITY:Special Ability|AUTOMATIC|Druid ~ Timeless Body									TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2		BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2	BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
