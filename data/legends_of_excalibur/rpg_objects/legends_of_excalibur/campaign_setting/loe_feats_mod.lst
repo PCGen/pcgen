@@ -19,7 +19,7 @@ Agile.MOD			TYPE:BaseCriminal
 Alertness.MOD		TYPE:BaseCriminal.CommonSerf
 Animal Affinity.MOD	TYPE:CommonSerf.RobberBaron.Hermit
 Athletic.MOD		TYPE:ConnomSerf
-Blind Fight.MOD		TYPE:RobberBaron
+Blind-Fight.MOD		TYPE:RobberBaron
 Combat Reflexes.MOD	TYPE:RobberBaron
 Combat Expertise.MOD	TYPE:RobberBaron
 Deceitful.MOD		TYPE:BaseCriminal.RobberBaron
@@ -38,7 +38,7 @@ Persuasive.MOD		TYPE:RobberBaron
 Nimble Fingers.MOD	TYPE:BaseCriminal
 Quick Draw.MOD		TYPE:RobberBaron
 Scribe Scroll.MOD		TYPE:Hermit
-Self Sufficient.MOD	TYPE:BaseCriminal.Hermit
+Self-Sufficient.MOD	TYPE:BaseCriminal.Hermit
 Stealthy.MOD		TYPE:BaseCriminal
 Toughness.MOD		TYPE:Hermit
 Weapon Focus.MOD		TYPE:RobberBaron
