@@ -1583,4 +1583,4 @@ ABILITY:Special Ability|Stout ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Stout
 ABILITY:Special Ability|Suspicious ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Suspicious					
 ABILITY:Special Ability|Torpid ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Torpid				
 ABILITY:Special Ability|Uncivilized ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Uncivilized					
-ABILITY:Special Ability|
+ABILITY:FEAT|Blind Fight	MAXVER:6.4.00	NEWKEY:Blind-Fight
