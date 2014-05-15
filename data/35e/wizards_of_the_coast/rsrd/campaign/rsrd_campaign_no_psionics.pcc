@@ -121,7 +121,6 @@ HIDETYPE:FEAT|AgentRetriever|CosmicDescryer|DivineEmissary|GuardianParamount|Hig
 
 # Divine
 ABILITY:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_abilities.lst
-ABILITY:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_feats_sda.lst
 TEMPLATE:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_templates.lst
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_abilitycategories.lst
 
