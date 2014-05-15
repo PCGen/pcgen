@@ -1,12 +1,12 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:3.5 RSRD Basics (Upgrade)
+CAMPAIGN:3.5 RSRD Basics
 RANK:1
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:RSRD
 TYPE:Wizards of the Coast.RSRD.Partial
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics (Upgrade)]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
 PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
