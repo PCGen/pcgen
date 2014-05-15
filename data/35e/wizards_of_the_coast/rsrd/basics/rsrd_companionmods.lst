@@ -18,10 +18,10 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount			SR:25
 
 ###Block: Special Mount Specific Kits per allowed Race
 # Class of the Master		Type				Required Race				Apply Kit
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Dog (Riding)			KIT:1|Dog (Riding) Default
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Horse (Warhorse Heavy)	KIT:1|Horse (Warhorse Heavy) Default
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Pony (War)			KIT:1|Pony (War) Default
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Shark (Large)			KIT:1|Shark (Large) Default
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Dog (Riding)			KIT:1|Dog (Riding) Companion
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Horse (Warhorse Heavy)	KIT:1|Horse (Warhorse Heavy) Companion
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Pony (War)			KIT:1|Pony (War) Companion
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Shark (Large)			KIT:1|Shark (Large) Companion
 #
 
 ###Block: Fiendish Servant
@@ -42,8 +42,8 @@ FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block: Specific Undead Companions
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Skeleton (Human Warrior)	KIT:1|Skeleton (Human Warrior) Default
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie (Human Commoner)	KIT:1|Zombie (Human Commoner) Default
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Skeleton (Human Warrior)	KIT:1|Skeleton (Human Warrior) Companion
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie (Human Commoner)	KIT:1|Zombie (Human Commoner) Companion
 
 
 ###Block:Familiar
@@ -90,16 +90,16 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Stirge			KIT:1|Stirge
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Bat			TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
-MASTERBONUSRACE:Cat			TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
-MASTERBONUSRACE:Hawk			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Lizard			TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Owl			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
-MASTERBONUSRACE:Raven			TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
 #
 
 ###Block:Animal Companion

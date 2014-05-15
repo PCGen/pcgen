@@ -5,7 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:RSRD
-TYPE:RSRD.Campaign
+TYPE:Wizards of the Coast.RSRD.Campaign
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD - Campaign Set - Core Book I]
 PUBNAMELONG:Wizards of the Coast
 PUBNAMESHORT:WotC
@@ -26,58 +26,41 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 #EXTRAFILE:@/35e/wizards_of_the_coast/srd35/OGL.txt
 
 # Basics
-ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_class_base.lst
-ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_class_prestige.lst
-ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_common.lst
-ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_companions.lst
-ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_racial.lst
-ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_monsters.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_class.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_race.lst
+ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilitycategories.lst
 
+CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes.lst
+#CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal|Animal (Will)|Magical Beast|Sorcerer/Cleric (Arcane))
+COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_companionmods.lst
+DEITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_deities.lst
+DOMAIN:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_domains.lst
 
-ABILITYCATEGORY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_ability_categories_core.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_arms_and_armor.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_general.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_magic_items.lst
 
-CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_base.lst
-CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal|Magical Beast)
-COMPANIONMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_companionmods.lst
-DEITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_deities.lst
-DOMAIN:@/35e/wizards_of_the_coast/srd35/basics/rsrd_domains.lst
+EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equipmods.lst
 
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_armorshields.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_basetypes.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_coinsgems.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_ammo.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_melee.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_ranged.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_natural.lst
-EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip.lst
+FEAT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
 
-EQUIPMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equipmods_base.lst
-EQUIPMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equipmods_enhancing.lst|(INCLUDE:CHARGED_ITEM_10)
+KIT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_kits_companion.lst
+#|(INCLUDE:Bat Default|Cat Default|Hawk Default|Lizard Default|Owl Default|Rat Default|Raven Default|Snake (Viper/Tiny) Default|Toad Default|Weasel Default|Dog (Riding) Default|Donkey Default|Horse (Heavy) Default|Horse (Light) Default|Horse (Warhorse Heavy) Default|Horse (Warhorse Light) Default|Mule Default|Pony Default|Pony (War) Default|Shark (Large) Default|Bat Familiar|Cat Familiar|Hawk Familiar|Lizard Familiar|Owl Familiar|Rat Familiar|Raven Familiar|Snake (Viper/Tiny) Familiar|Toad Familiar|Weasel Familiar)
+KIT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_kits.lst
+LANGUAGE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_languages.lst
 
-FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Multiattack)
-FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats.lst
+ARMORPROF:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_profs_armor.lst
+SHIELDPROF:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_profs_shield.lst
+WEAPONPROF:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_profs_weapon.lst
 
-KIT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_kits_races__animals.lst|(INCLUDE:Shark (Large) Default|Horse (Warhorse Heavy) Default|Bat Default|Cat Default|Hawk Default|Lizard Default|Owl Default|Rat Default|Raven Default|Snake (Viper/Tiny) Default|Toad Default|Weasel Default|Dog (Riding) Default|Donkey Default|Horse (Heavy) Default|Horse (Light) Default|Horse (Warhorse Heavy) Default|Horse (Warhorse Light) Default|Mule Default|Pony Default|Pony (War) Default|Bat Familiar|Cat Familiar|Hawk Familiar|Lizard Familiar|Owl Familiar|Rat Familiar|Raven Familiar|Snake (Viper/Tiny) Familiar|Toad Familiar|Weasel Familiar)
-KIT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_kits_races__base.lst
+RACE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_races.lst
+RACE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_races_companion.lst
 
-LANGUAGE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_languages.lst
+SKILL:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_skills.lst|(EXCLUDE:Control Shape)
+SPELL:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_spells.lst
 
-RACE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Camel|Elephant|Hawk|Lizard|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Shark (Large)|Mule|Pony|Pony (War))
-RACE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_races__base.lst
-
-SKILL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_skills.lst|(EXCLUDE:Control Shape)
-SKILL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_skills_conditional.lst
-SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells.lst
-SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells_monster.lst
-
-TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_hidden.lst
-TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_tempmods.lst
-TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_types.lst
-TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_tempmods.lst
-
-WEAPONPROF:@/35e/wizards_of_the_coast/srd35/basics/rsrd_weaponprofs.lst
-ARMORPROF:@/35e/wizards_of_the_coast/srd35/basics/rsrd_profs_armor.lst
-SHIELDPROF:@/35e/wizards_of_the_coast/srd35/basics/rsrd_profs_shield.lst
+TEMPLATE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_templates.lst
 
 
 #Hiding Starting Outfits

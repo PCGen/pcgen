@@ -251,6 +251,16 @@ FEAT:Endurance
 FEAT:Run
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
+STARTPACK:Horse (Warhorse Heavy) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+RACE:Companion ~ Horse (Warhorse Heavy)	!PRERACE:1,%
+ALIGN:TN
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+FEAT:Endurance
+FEAT:Run
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+
 STARTPACK:Leopard Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
 RACE:Companion ~ Leopard	!PRERACE:1,%
 ALIGN:TN
@@ -303,6 +313,14 @@ STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Pony Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
 RACE:Companion ~ Pony	!PRERACE:1,%
+ALIGN:TN
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5	FREE:YES
+FEAT:Endurance
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Pony (War) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+RACE:Companion ~ Pony (War)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5	FREE:YES
@@ -570,6 +588,20 @@ STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 ###Block: Animal Companion Kits
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 STARTPACK:Dinosaur (Deinonychus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
 RACE:Companion ~ Dinosaur (Deinonychus)	!PRERACE:1,%
 ALIGN:TN
@@ -765,3 +797,19 @@ SKILL:Spot		RANK:4
 FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Zombie (Human Commoner) Companion	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Human Commoner)]
+RACE:Companion ~ Zombie (Human Commoner)	!PRERACE:1,%
+NAME:Zombie (Human Commoner)
+STAT:DEX=10|STR=10|CON=10|INT=10|WIS=10|CHA=10
+ALIGN:NE
+GEAR:Club	SIZE:PC	LOCATION:Primary Hand
+
+STARTPACK:Skeleton (Human Warrior) Companion	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Human Warrior)]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Companion ~ Skeleton (Human Warrior)	!PRERACE:1,%
+NAME:Skeleton (Human Warrior)
+ALIGN:NE
+FEAT:Improved Initiative
+GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Scimitar			SIZE:PC	LOCATION:Primary Hand

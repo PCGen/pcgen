@@ -30,11 +30,10 @@ INFOTEXT:The Core Rules for the 3.5 revised edition
 PCC:basics/_rsrd_basics.pcc
 
 # Epic
-PCC:basics/epic/_rsrd_epic.pcc
+PCC:epic/_rsrd_epic.pcc
 
 # Divine
 PCC:divine/_rsrd_divine.pcc
-#PCC:@/35e/wizards_of_the_coast/srd35/divine/rsrd_divine.pcc
 
 # Monsters
 PCC:monsters/_rsrd_monsters.pcc
@@ -42,6 +41,8 @@ PCC:monsters/_rsrd_monsters.pcc
 # Psionics
 PCC:psionics/_rsrd_psionics.pcc
 
+# Epic Psionics
+PCC:epic_psionics/_rsrd_epic_psionics.pcc
 
 
 #Hiding Starting Outfits
