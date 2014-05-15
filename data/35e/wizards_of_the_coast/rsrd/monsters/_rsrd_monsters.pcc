@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:3.5 RSRD Monsters (update)
+RANK:1
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Core Supplement
+SETTING:RSRD
+TYPE:RSRD.Partial
+PRECAMPAIGN:1,3.5 RSRD - Campaign Set - Core Books I and II
+!PRECAMPAIGN:1,3.5 RSRD,3.5 RSRD - Campaign Set - Core Book I,3.5 RSRD - Campaign Set - Core Books I - III,3.5 RSRD - Campaign Set - No Psionics
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCEDATE:2000-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2007, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky, Frank Kliewe)
+
+INFOTEXT:Subset of the RSRD that contains the Monsters.  Requires the RSRD Basics set.
+
+#ABILITY:rsrd_abilities_race.lst
+
+CLASS:rsrd_classes_monsters_dragons.lst
+CLASS:rsrd_classes_monsters_specific.lst
+
+
+EQUIPMENT:rsrd_equip.lst
+
+
+#KIT:rsrd_kits_races__companions.lst
+#KIT:rsrd_kits_races__dragons.lst
+#KIT:rsrd_kits_races__vermin.lst
+KIT:rsrd_kits.lst
+
+RACE:rsrd_races.lst
+
+#
+# End
+#

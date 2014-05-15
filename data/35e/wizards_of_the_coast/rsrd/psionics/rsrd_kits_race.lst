@@ -1,0 +1,393 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+
+STARTPACK:Dromite Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dromite]
+NAME:Dromite
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Dromite	!PRERACE:1,%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Spot	RANK:2
+FEAT:Weapon Focus(Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Crossbow (Light)		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Duergar Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf%]
+NAME:Duergar
+KIT:Dwarf (Duergar) Default
+RACE:Dwarf	!PRERACE:1,%
+ABILITY:CATEGORY=Dwarf Subrace|Dwarf ~ Duergar
+
+STARTPACK:Elan Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elan]
+NAME:Elan
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Elan	!PRERACE:1,%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Jump	RANK:4
+FEAT:Weapon Focus(Warhammer)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow			SIZE:PC	LOCATION:Carried
+
+STARTPACK:Half-Giant Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Half-Giant]
+NAME:Half-Giant
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:NG
+RACE:Half-Giant	!PRERACE:1,%
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Weapon Focus(Greatsword)
+GEAR:Scale Mail	SIZE:PC	LOCATION:Equipped
+GEAR:Greatsword	SIZE:L	LOCATION:Both Hands
+GEAR:Javelin	SIZE:L	LOCATION:Carried
+
+STARTPACK:Maenad Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Maenad]
+NAME:Maenad
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Maenad	!PRERACE:1,%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Jump	RANK:4
+FEAT:Weapon Focus(Longsword)
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow			SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Xeph Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Xeph]
+NAME:Xeph
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+ALIGN:TN
+RACE:Xeph	!PRERACE:1,%
+CLASS:Warrior	LEVEL:1
+SKILL:Climb	RANK:4
+SKILL:Jump	RANK:4
+FEAT:Weapon Finesse
+GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
+GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
+GEAR:Rapier				SIZE:PC	LOCATION:Primary Hand
+GEAR:Longbow			SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Astral Construct (1st Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (1st Level)]
+RACE:Astral Construct (1st Level)	!PRERACE:1,%
+NAME:Astral Construct (1st Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (2nd Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (2nd Level)]
+RACE:Astral Construct (2nd Level)	!PRERACE:1,%
+NAME:Astral Construct (2nd Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (3rd Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (3rd Level)]
+RACE:Astral Construct (3rd Level)	!PRERACE:1,%
+NAME:Astral Construct (3rd Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (4th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (4th Level)]
+RACE:Astral Construct (4th Level)	!PRERACE:1,%
+NAME:Astral Construct (4th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (5th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (5th Level)]
+RACE:Astral Construct (5th Level)	!PRERACE:1,%
+NAME:Astral Construct (5th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (6th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (6th Level)]
+RACE:Astral Construct (6th Level)	!PRERACE:1,%
+NAME:Astral Construct (6th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (7th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (7th Level)]
+RACE:Astral Construct (7th Level)	!PRERACE:1,%
+NAME:Astral Construct (7th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (8th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (8th Level)]
+RACE:Astral Construct (8th Level)	!PRERACE:1,%
+NAME:Astral Construct (8th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Astral Construct (9th Level) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Construct (9th Level)]
+RACE:Astral Construct (9th Level)	!PRERACE:1,%
+NAME:Astral Construct (9th Level)
+STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
+
+STARTPACK:Aboleth (Psionic) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth (Psionic)]
+RACE:Aboleth (Psionic)	!PRERACE:1,%
+NAME:Aboleth (Psionic)
+SKILL:Concentration	RANK:11
+SKILL:Listen		RANK:11
+SKILL:Spot			RANK:11
+SKILL:TYPE=Knowledge	RANK:11
+FEAT:Alertness
+FEAT:Combat Manifestation
+FEAT:Iron Will
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+
+STARTPACK:Blue Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blue]
+NAME:Blue
+STAT:STR=8|DEX=13|CON=14|INT=15|WIS=12|CHA=10
+ALIGN:NE
+RACE:Blue	!PRERACE:1,%
+CLASS:Psion	LEVEL:1	SUBCLASS:Telepath
+ABILITY:CATEGORY=Psion Feat|Psionic Dodge
+SKILL:Concentration	RANK:4
+SKILL:Hide			RANK:2
+SKILL:Psicraft		RANK:4
+SKILL:Spot			RANK:2
+FEAT:Psionic Body
+GEAR:Quarterstaff		SIZE:PC	LOCATION:Both Hands
+GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
+SPELLS:SPELLBOOK=Known Spells|CLASS=Psion|Inertial Armor|Mind Thrust|Charm (Psionic)
+
+STARTPACK:Brain Mole Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brain Mole]
+RACE:Brain Mole	!PRERACE:1,%
+NAME:Brain Mole
+ALIGN:TN
+SKILL:Hide			RANK:1
+SKILL:Move Silently	RANK:1
+SKILL:Listen		RANK:2
+FEAT:Alertness
+STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
+
+STARTPACK:Caller in Darkness Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller in Darkness]
+RACE:Caller in Darkness	!PRERACE:1,%
+NAME:Caller in Darkness
+ALIGN:CE
+SKILL:Psicraft			RANK:8
+SKILL:Hide				RANK:10
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (Psionics)	RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Listen			RANK:12
+SKILL:Spot				RANK:12
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
+
+STARTPACK:Cerebrilith Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebrilith]
+RACE:Cerebrilith	!PRERACE:1,%
+NAME:Cerebrilith
+ALIGN:CE
+SKILL:Psicraft			RANK:8
+SKILL:Concentration		RANK:10
+SKILL:Hide				RANK:10
+SKILL:Jump				RANK:10
+SKILL:Knowledge (Arcana)	RANK:10
+SKILL:Knowledge (Psionics)	RANK:10
+SKILL:Knowledge (The Planes)	RANK:10
+SKILL:Listen			RANK:10
+SKILL:Move Silently		RANK:10
+SKILL:Search			RANK:10
+SKILL:Sense Motive		RANK:10
+SKILL:Spot				RANK:10
+FEAT:Power Attack
+FEAT:Psionic Fist
+FEAT:Psionic Meditation
+FEAT:Unavoidable Strike
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Couatl (Psionic) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Couatl (Psionic)]
+NAME:Couatl (Psionic)
+STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
+RACE:Couatl (Psionic)	!PRERACE:1,%
+ALIGN:LG
+SKILL:Concentration	RANK:12
+SKILL:Diplomacy		RANK:12
+SKILL:TYPE=Knowledge	RANK:12	COUNT:2
+SKILL:Listen		RANK:12
+SKILL:Search		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spellcraft		RANK:12
+SKILL:Spot			RANK:12
+SKILL:Tumble		RANK:12
+SKILL:Use Magic Device	RANK:12
+FEAT:Dodge
+FEAT:Empower Spell
+FEAT:Hover
+FEAT:Improved Initiative
+
+STARTPACK:Crysmal Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal]
+RACE:Crysmal	!PRERACE:1,%
+NAME:Crysmal
+SKILL:Appraise	RANK:3
+SKILL:Climb		RANK:3
+SKILL:Jump		RANK:3
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Folugub Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Folugub]
+RACE:Folugub	!PRERACE:1,%
+NAME:Folugub
+ALIGN:TN
+SKILL:Move Silently	RANK:1
+SKILL:Listen		RANK:3
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Weapon Finesse
+STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
+
+STARTPACK:Gray Glutton Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Glutton]
+RACE:Gray Glutton	!PRERACE:1,%
+NAME:Gray Glutton
+ALIGN:TN
+SKILL:Spot		RANK:1
+SKILL:Jump		RANK:2
+SKILL:Listen	RANK:5
+FEAT:Closed Mind
+FEAT:Hostile Mind
+FEAT:Iron Will
+FEAT:Psionic Hole
+STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
+
+STARTPACK:Intellect Devourer Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer]
+RACE:Intellect Devourer	!PRERACE:1,%
+NAME:Intellect Devourer
+ALIGN:CE
+SKILL:Move Silently	RANK:3
+SKILL:Concentration	RANK:9
+SKILL:Bluff			RANK:5
+SKILL:Hide			RANK:5
+SKILL:Listen		RANK:5
+FEAT:Combat Manifestation
+FEAT:Toughness
+FEAT:Up the Walls
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+STARTPACK:Neothelid Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
+RACE:Neothelid	!PRERACE:1,%
+NAME:Neothelid
+ALIGN:LE
+SKILL:Climb				RANK:28
+SKILL:Knowledge (Psionics)	RANK:28
+SKILL:Listen			RANK:28
+SKILL:Spot				RANK:28
+SKILL:Psicraft			RANK:26
+FEAT:Cleave
+FEAT:Improved Critical(Tentacle Rake)
+FEAT:Improved Initiative
+FEAT:Power Attack
+FEAT:Psionic Endowment
+FEAT:Psionic Fist
+FEAT:Psionic Meditation
+FEAT:Speed of Thought
+FEAT:Wild Talent
+STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
+
+
+# Removed Default Psicrystal kits, Psicrystals need to be created as companions and can't be acurately created without a master.
+
+STARTPACK:Phthisic Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phthisic]
+RACE:Phthisic	!PRERACE:1,%
+NAME:Phthisic
+ALIGN:CE
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:6
+SKILL:Spot			RANK:6
+FEAT:Alertness
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Psion Killer Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion Killer]
+RACE:Psion Killer	!PRERACE:1,%
+NAME:Psion Killer
+ALIGN:TN
+STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Puppeteer Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer]
+RACE:Puppeteer	!PRERACE:1,%
+NAME:Puppeteer
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Iron Will
+STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Puppeteer (Flesh Harrower) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
+RACE:Puppeteer (Flesh Harrower)	!PRERACE:1,%
+NAME:Puppeteer (Flesh Harrower)
+ALIGN:TN
+SKILL:Hide			RANK:3
+SKILL:Listen		RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Spot			RANK:3
+FEAT:Alertness
+FEAT:Iron Will
+STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
+
+STARTPACK:Temporal Filcher Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
+RACE:Temporal Filcher	!PRERACE:1,%
+NAME:Temporal Filcher
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Tumble	RANK:3
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Improved Initiative
+STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
+
+STARTPACK:Thought Eater Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
+RACE:Thought Eater	!PRERACE:1,%
+NAME:Thought Eater
+SKILL:Hide		RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Alertness
+FEAT:Improved Initiative
+STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
+
+STARTPACK:Thought Slayer Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
+RACE:Thought Slayer	!PRERACE:1,%
+NAME:Thought Slayer
+SKILL:Climb		RANK:4
+SKILL:Jump		RANK:4
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:5
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Power Attack
+FEAT:Weapon Focus(Bite)
+STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
+
+STARTPACK:Udoroot Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
+RACE:Udoroot	!PRERACE:1,%
+NAME:Udoroot
+ALIGN:TN
+SKILL:Listen	RANK:9
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
+
+STARTPACK:Unbodied Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
+RACE:Unbodied	!PRERACE:1,%
+NAME:Unbodied
+SKILL:Bluff			RANK:4
+SKILL:Diplomacy		RANK:4
+SKILL:Disguise		RANK:4
+SKILL:Intimidate		RANK:4
+SKILL:Listen		RANK:4
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Overchannel
+FEAT:Wild Talent
+STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Psion|Detect Psionics|Empty Mind|Mind Thrust|Charm (Psionic)|Brain Lock|Cloud Mind|Energy Push|Read Thoughts

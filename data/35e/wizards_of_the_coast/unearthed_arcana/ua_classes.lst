@@ -1,0 +1,989 @@
+# Original Entry by: Tir-Gwaith
+
+
+CLASS:Barbarian.MOD	BONUS:ABILITYPOOL|Totem Barbarian|1	BONUS:ABILITYPOOL|Barbarian Rage Variant|1
+
+
+
+
+
+###Block: Bard
+# Class Name
+CLASS:Bard.COPY=Bardic Sage
+
+# Class Name
+CLASS:Bard.COPY=Divine Bard
+
+# Class Name
+CLASS:Bard.COPY=Savage Bard
+
+# Class Name	Prohibited Class
+CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
+
+# Class Name		Abbreviation	Source Page		Save checks bonus
+CLASS:Bardic Sage.MOD	ABB:BrdSge		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Reflex|floor(CL/3)-floor(CL/2+2)
+# Class Name		Clear Prereq.	Required AL		Prohibited Class
+CLASS:Bardic Sage.MOD	PRE:.CLEAR		PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
+# Class Name		Spell Stat		Stat for Bonus Spells	Caster level				Bonus to DC					Use Spell List
+CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL	BONUS:DC|CLASS.Bardic Sage|CHA-INT	SPELLLIST:2|Bard|Bardic Sage
+###Block: spells
+1	SPELLLEVEL:CLASS|Bardic Sage=1|Detect Chaos,Detect Evil,Detect Good,Detect Law
+1	SPELLLEVEL:CLASS|Bardic Sage=2|Zone of Truth
+1	SPELLLEVEL:CLASS|Bardic Sage=3|Arcane Sight
+1	SPELLLEVEL:CLASS|Bardic Sage=4|Analyze Dweomer,Sending
+1	SPELLLEVEL:CLASS|Bardic Sage=5|Contact Other Plane,Scrying (Greater)
+1	SPELLLEVEL:CLASS|Bardic Sage=6|True Seeing,Vision
+###Block: Normal progression
+1	BONUS:VAR|BardicKnowledge|2
+1	BONUS:VAR|InspireDurationBase|-2
+# Extra Spells Known - Not sure how to limit it to Divination.
+#   Tried to do as Subclass, similar to Wizard specialities, but no-go with the spontaneous caster.
+###Block: Extra spells known
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=0|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=1|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=2|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=3|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=4|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=5|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=6|1
+
+#Spellcasting
+#
+#A bardic sage learns and casts spells as a normal bard, with a few exceptions. In addition to the
+# normal number of spells known, a bardic sage knows one divination spell of each spell level he is
+# capable of casting. For example, a 1st-level bardic sage knows four 0-level bard spells plus one
+# 0-level bard spell of the divination school (such as detect magic, know direction, or read magic.
+# The bardic sage's number of spells per day does not change.
+#
+
+
+# Class Name		Abbreviation	Source Page
+CLASS:Divine Bard.MOD	ABB:DvnBrd		SOURCEPAGE:p.50
+# Class Name		Prohibited Class
+CLASS:Divine Bard.MOD	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Caster level				Bonus to DC					Use Spell List
+CLASS:Divine Bard.MOD	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL	BONUS:DC|CLASS.Divine Bard|CHA-WIS	SPELLLIST:1|Bard
+###Block: Expanded spell list options
+1	SPELLLEVEL:CLASS|Divine Bard=0|Create Water,Cure Minor Wounds
+1	SPELLLEVEL:CLASS|Divine Bard=1|Detect Evil,Detect Good,Detect Law,Protection from Evil,Protection from Good,Protection from Law
+1	SPELLLEVEL:CLASS|Divine Bard=2|Consecrate,Desecrate,Gentle Repose
+1	SPELLLEVEL:CLASS|Divine Bard=3|Magic Circle Against Evil,Magic Circle Against Good,Magic Circle Against Law,Prayer
+1	SPELLLEVEL:CLASS|Divine Bard=4|Remove Disease,Sending,Speak with Dead
+1	SPELLLEVEL:CLASS|Divine Bard=5|Divination,Restoration
+1	SPELLLEVEL:CLASS|Divine Bard=6|Commune,Hallow,Raise Dead,Unhallow
+###Block: alignment spell restrictions
+1	PROHIBITSPELL:DESCRIPTOR.Lawful
+1	PROHIBITSPELL:DESCRIPTOR.Chaotic|PREALIGN:TN
+1	PROHIBITSPELL:DESCRIPTOR.Good|PREALIGN:NE,CE,TN
+1	PROHIBITSPELL:DESCRIPTOR.Evil|PREALIGN:NG,CG,TN
+
+
+# Class Name		Abbreviation	Source Page		Save checks bonus
+CLASS:Savage Bard.MOD	ABB:SvgBrd		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Reflex|CL/3-floor(CL/2+2)	BONUS:CHECKS|BASE.Fortitude|CL/2+2-floor(CL/3)
+# Class Name		Required AL		Prohibited Class
+CLASS:Savage Bard.MOD	PREALIGN:CG,CN,CE	!PRECLASS:1,Bard=1,Bardic Sage=1,Divine Bard=1
+# Class Name		Remove Class Skill						Class Skill
+CLASS:Savage Bard.MOD	CSKILL:.CLEAR.Decipher Script|.CLEAR.Speak Language	CSKILL:Survival
+# Class Name		Caster level				Use Spell List
+CLASS:Savage Bard.MOD	BONUS:CASTERLEVEL|Savage Bard|CL	SPELLLIST:1|Savage Bard
+###Block: Illiteracy
+# (Copy this line and include the hidden feat for any other Illiterate class.)
+#	Currently, this does not take into account the removal using Skill points.
+1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Barbarian ~ Illiteracy|PREVAREQ:TL,IlliteracyLVL
+###Block: Spell List
+# This doesn't take into accound Bard spells from other sources.  No way to 'Remove spells from a spell list'
+1	SPELLLEVEL:CLASS|Savage Bard=0|Dancing Lights,Daze,Detect Magic,Flare,Ghost Sound,Know Direction,Light,Lullaby,Mage Hand,Mending,Message,Open/Close,Resistance,Summon Instrument
+1	SPELLLEVEL:CLASS|Savage Bard=1|Alarm,Animate Rope,Calm Emotions,Cause Fear,Charm Person,Confusion (Lesser),Cure Light Wounds,Detect Snares and Pits,Disguise Self,Endure Elements,Expeditious Retreat,Feather Fall,Grease,Hideous Laughter,Hypnotism,Identify,Magic Aura,Magic Mouth,Obscure Object,Remove Fear,Silent Image,Sleep,Summon Nature's Ally I,Undetectable Alignment,Unseen Servant,Ventriloquism
+1	SPELLLEVEL:CLASS|Savage Bard=2|Alter Self,Animal Messenger,Animal Trance,Blindness/Deafness,Blur,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Daze Monster,Delay Poison,Detect Thoughts,Eagle's Splendor,Enthrall,Fox's Cunning,Glitterdust,Heroism,Hold Person,Hypnotic Pattern,Invisibility,Locate Object,Minor Image,Mirror Image,Misdirection,Pass without Trace,Pyrotechnics,Rage,Scare,Shatter,Silence,Sound Burst,Suggestion,Summon Nature's Ally II,Summon Swarm,Tongues,Whispering Wind
+1	SPELLLEVEL:CLASS|Savage Bard=3|Blink,Charm Monster,Clairaudience/Clairvoyance,Confusion,Crushing Despair,Cure Serious Wounds,Daylight,Deep Slumber,Dispel Magic,Displacement,Fear,Gaseous Form,Geas (Lesser),Glibness,Good Hope,Haste,Illusory Script,Invisibility Sphere,Major Image,Phantom Steed,Remove Curse,Scrying,Sculpt Sound,Secret Page,See Invisibility,Slow,Snare,Speak with Animals,Summon Nature's Ally III,Tiny Hut
+1	SPELLLEVEL:CLASS|Savage Bard=4|Break Enchantment,Cure Critical Wounds,Detect Scrying,Dimension Door,Dominate Person,Freedom of Movement,Hallucinatory Terrain,Hold Monster,Insect Plague,Invisibility (Greater),Legend Lore,Locate Creature,Modify Memory,Neutralize Poison,Rainbow Pattern,Repel Vermin,Secure Shelter,Shadow Conjuration,Shout,Speak with Plants,Summon Nature's Ally IV,Zone of Silence
+1	SPELLLEVEL:CLASS|Savage Bard=5|Commune with Nature,Cure Light Wounds (Mass),Dispel Magic (Greater),Dream,False Vision,Heroism (Greater),Mind Fog,Mirage Arcana,Mislead,Nightmare,Persistent Image,Seeming,Shadow Evocation,Shadow Walk,Song of Discord,Suggestion (Mass),Summon Nature's Ally V
+1	SPELLLEVEL:CLASS|Savage Bard=6|Analyze Dweomer,Animate Objects,Cat's Grace (Mass),Charm Monster (Mass),Creeping Doom,Eagle's Splendor (Mass),Eyebite,Find the Path,Fox's Cunning (Mass),Geas/Quest,Heroes' Feast,Irresistible Dance,Permanent Image,Programmed Image,Project Image,Reincarnate,Scrying (Greater),Summon Nature's Ally VI,Sympathetic Vibration,Veil
+
+
+# From Page 58, "Other class variants.
+#Since this is an option, and not subclass, I'm NOT changing the SOURCE info.
+
+# Class Name
+CLASS:Bard.MOD	BONUS:ABILITYPOOL|Bard Variant|1
+
+
+# Cleric Variant
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Save checks bonus											Combat bonus					Add domain number		Monster Role
+CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Variant	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	ROLE:Cleric
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Decipher Script|Speak Language
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
+CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|CL
+###Block:Proficiencies
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfLight
+1	ABILITY:Special Ability|AUTOMATIC|Cloistered Cleric ~ Lore
+1	DOMAIN:Knowledge	BONUS:DOMAIN|NUMBER|1
+# This is Phase I of the Turn abilities improvement (for 5.6).  Futher enhancements are planned,
+#	both OS and data to include modifications for differences in Turning ability for Undead,
+#	Air, Fire, etc.
+###Block: Turn Undead stuff
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|Cleric ~ Spontaneous Casting|Cleric ~ Aura
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block: Aura strength
+1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0
+###Block: Righteous Might Workaround
+1	TEMPLATE:RighteousMightDR
+###Block: Level progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+
+# Druid Variant
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
+CLASS:Druid (Druidic Avenger)		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid	DEFINE:DruidLVL|CL
+# Class Name	Required AL
+CLASS:Druid (Druidic Avenger)		PREALIGN:LN,NG,TN,NE,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Druid (Druidic Avenger)		STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim|Intimidate
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
+CLASS:Druid (Druidic Avenger)		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
+###Block: Wildshape Abilities Block
+#
+# To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
+#
+1	BONUS:VAR|DruidWildShape|CL
+1	BONUS:VAR|WildEmpathy|-4
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidNatureSense
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildEmpathy
+2	ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWoodlandStride
+3	ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTracklessStep
+4	ABILITY:Special Ability|AUTOMATIC|Druid ~ Resist Nature's Lure|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidResistNaturesLure
+9	ABILITY:Special Ability|AUTOMATIC|Druid ~ Venom Immunity|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity
+13	ABILITY:Special Ability|AUTOMATIC|Druid ~ A Thousand Faces|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces
+15	ABILITY:Special Ability|AUTOMATIC|Druid ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody																	TEMPLATE:Timeless Body
+#
+1	ABILITY:Special Ability|AUTOMATIC|Druidic Avenger ~ Fast Movement
+1	ABILITY:Special Ability|AUTOMATIC|Druidic Avenger ~ Rage
+17	ABILITY:Special Ability|AUTOMATIC|Druidic Avenger ~ Tireless Rage
+###Block: Normal Progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+
+# Fighter Variant-
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Fighter (Thug)	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.51	DEFINE:FighterLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat	DEFINE:ThugLVL|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fighter (Thug)	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim|Bluff|Gather Information|Knowledge (Local)|Sleight of Hand
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Thug ~ Weapon and Armor Proficiency
+###Block: Advanced Weapon Feat qualifications
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
+1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterWeaponSpecialization
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponFocus
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponSpecialization
+1	ABILITY:Special Ability|AUTOMATIC|Thug ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterBonusFeat,TYPE.FighterBonusFeats
+
+# Monk Variant - Monk Fighting Style
+CLASS:Monk.MOD
+1	BONUS:ABILITYPOOL|Monk Fighting Style|1
+1	BONUS:VAR|MonkFeatCount|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkFightingStyleAlt
+2	BONUS:VAR|MonkFeatCount|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkFightingStyleAlt
+6	BONUS:VAR|MonkFeatCount|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.MonkFightingStyleAlt
+
+# Paladin Variants -
+# Class Name	Prohibited Class
+CLASS:Paladin.MOD	!PRECLASS:1,Paladin of Freedom=1,Paladin of Slaughter=1,Paladin of Tyranny=1
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Paladin of Freedom	HD:10		TYPE:Base.PC	ABB:PoF		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL	Prohibited Class
+CLASS:Paladin of Freedom	PREALIGN:CG	!PRECLASS:1,Paladin=1,Paladin of Slaughter=1,Paladin of Tyranny=1
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Paladin of Freedom	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level											Use Spell List
+CLASS:Paladin of Freedom	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin of Freedom=4	SPELLLIST:1|Paladin
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
+###Block: Prohibited Spells
+1	PROHIBITSPELL:SPELL.Death Ward
+1	PROHIBITSPELL:SPELL.Discern Lies
+1	PROHIBITSPELL:SPELL.Dispel Chaos
+1	PROHIBITSPELL:SPELL.Magic Circle against Chaos
+1	PROHIBITSPELL:SPELL.Protection from Chaos
+###Block: Level progression
+1				BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good|Paladin ~ Detect Evil|Paladin ~ Smite Evil
+2				BONUS:VAR|LayOnHandsLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|Paladin ~ Lay on Hands
+3																			ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Freedom ~ Aura of Resolve|Paladin ~ Divine Health
+4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Turn Undead
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount
+6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Remove Disease
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Paladin of Slaughter	HD:10		TYPE:Base.PC	ABB:PoS		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL	Prohibited Class
+CLASS:Paladin of Slaughter	PREALIGN:CE	!PRECLASS:1,Paladin=1,Paladin of Freedom=1,Paladin of Tyranny=1
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Paladin of Slaughter	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level											Use Spell List
+CLASS:Paladin of Slaughter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin of Slaughter|CL/2|PRECLASS:1,Paladin of Slaughter=4	SPELLLIST:1|Paladin of Slaughter
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
+###Block: Level progression
+1				BONUS:VAR|AuraEvil,DetectGoodLVL,PaladinSmiteGoodLVL|CL	DEFINE:AllowUnholyAvenger|1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Aura of Evil|Paladin of Slaughter ~ Detect Good|Paladin of Slaughter ~ Smite Good
+2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Deadly Touch|Paladin ~ Divine Grace
+3																			ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Debilitating Aura|Paladin ~ Divine Health
+4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Rebuke Undead
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount
+6	CAST:0,1		BONUS:VAR|CauseDiseaseLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Cause Disease
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Paladin of Tyranny	HD:10		TYPE:Base.PC	ABB:PoT		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required AL	Prohibited Class
+CLASS:Paladin of Tyranny	PREALIGN:LE	!PRECLASS:1,Paladin=1,Paladin of Freedom=1,Paladin of Slaughter=1
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Paladin of Tyranny	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level											Use Spell List
+CLASS:Paladin of Tyranny	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin of Tyranny|CL/2|PRECLASS:1,Paladin of Tyranny=4	SPELLLIST:1|Paladin of Tyranny
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
+###Block: Prohibited Spells
+
+###Block: Level progression
+1				BONUS:VAR|AuraEvil,DetectGoodLVL,PaladinSmiteGoodLVL|CL	DEFINE:AllowUnholyAvenger|1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Aura of Evil|Paladin of Tyranny ~ Detect Good|Paladin of Tyranny ~ Smite Good
+2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Deadly Touch|Paladin ~ Divine Grace
+3																			ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Aura of Despair|Paladin ~ Divine Health
+4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Rebuke Undead
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount
+6	CAST:0,1		BONUS:VAR|CauseDiseaseLVL|CL											ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Cause Disease
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Monster Role
+CLASS:Ranger (Planar Ranger)	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ranger (Planar Ranger)	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope|Knowledge (The Planes)|Speak Language
+#(Abyssal, Aquan, Auran, Celestial, Ignan, Infernal, Terran only)
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
+CLASS:Ranger (Planar Ranger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger (Planar Ranger)|CL/2|PRECLASS:1,Ranger (Planar Ranger)=4	SPELLLIST:1|Ranger
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerProficiencies
+###Block:
+1	BONUS:VAR|RangerFavoredEnemyLVL|CL
+1	BONUS:VAR|RangerCombatTreeLVL|CL
+1	BONUS:VAR|WildEmpathyBonus|CL
+4	BONUS:VAR|AnimalCompanionLVL|CL/2|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion
+9	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Favored Enemy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerFavoredEnemy
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatTree
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWildEmpathy
+4	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion
+7	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWoodlandStride
+8	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Swift Tracker|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerSwiftTracker
+9	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEvasion
+13	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCamouflage
+17	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Hide in Plain Sight|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerHideInPlainSight
+###Block:
+1	AUTO:FEAT|Track|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerTrack
+3	AUTO:FEAT|Endurance|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEndurance
+###Block: Level progression
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Monster Role
+CLASS:Ranger (Urban Ranger)	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ranger (Urban Ranger)	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Gather Information|Knowledge (Local)|Sense Motive
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
+CLASS:Ranger (Urban Ranger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger (Urban Ranger)|CL/2|PRECLASS:1,Ranger (Urban Ranger)=4	BONUS:CASTERLEVEL|Ranger|CL/2|PRECLASS:1,Ranger (Urban Ranger)=4	SPELLLIST:2|Ranger|Ranger (Urban Ranger)
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerProficiencies
+###Block: Removed from Urban Ranger
+1	PROHIBITSPELL:SPELL.Animal Messenger
+1	PROHIBITSPELL:SPELL.Charm Animal
+1	PROHIBITSPELL:SPELL.Detect Animals or Plants
+1	PROHIBITSPELL:SPELL.Speak with Animals
+1	PROHIBITSPELL:SPELL.Bear's Endurance
+1	PROHIBITSPELL:SPELL.Hold Animal
+1	PROHIBITSPELL:SPELL.Snare
+1	PROHIBITSPELL:SPELL.Speak with Plants
+1	PROHIBITSPELL:SPELL.Command Plants
+1	PROHIBITSPELL:SPELL.Diminish Plants
+1	PROHIBITSPELL:SPELL.Plant Growth
+1	PROHIBITSPELL:SPELL.Reduce Animal
+1	PROHIBITSPELL:SPELL.Tree Shape
+1	PROHIBITSPELL:SPELL.Water Walk
+1	PROHIBITSPELL:SPELL.Commune with Nature
+1	PROHIBITSPELL:SPELL.Tree Stride
+###Block:
+1	BONUS:VAR|RangerFavoredEnemyLVL|CL
+1	BONUS:VAR|RangerCombatTreeLVL|CL
+1	BONUS:VAR|WildEmpathyBonus|CL/2
+4	BONUS:VAR|AnimalCompanionLVL|CL/2|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion
+9	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Favored Enemy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerFavoredEnemy
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatTree
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWildEmpathy
+4	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion
+8	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Swift Tracker|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerSwiftTracker
+9	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEvasion
+17	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Hide in Plain Sight|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerHideInPlainSight
+###Block:
+1	AUTO:FEAT|Urban Tracking|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerTrack
+3	AUTO:FEAT|Endurance|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEndurance
+###Block: Level progression
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+# Variant Rogue -
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Monster Role
+CLASS:Rogue (Wilderness Rogue)		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rogue (Wilderness Rogue)		STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Ride|Survival
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueProficiencies
+###Block: Level progression
+1											BONUS:VAR|RogueSneakAttackLVL|CL												ABILITY:Special Ability|AUTOMATIC|Rogue ~ Sneak Attack|Rogue ~ Trapfinding
+2											BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Evasion
+3											BONUS:VAR|RogueTrapSenseLVL|CL												ABILITY:Special Ability|AUTOMATIC|Rogue ~ Trap Sense
+4											BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|CL/4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+10	BONUS:ABILITYPOOL|Rogue Special Ability|min(4,(CL-7)/3)
+7	ABILITY:Special Ability|AUTOMATIC|Wilderness Rogue ~ Woodland Stride
+
+
+
+
+###Battle Sorcerer
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Monster Role
+CLASS:Battle Sorcerer	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Sorcerer
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Battle Sorcerer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft|Intimidate
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Battle Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Sorcerer|CL	SPELLLIST:1|Sorcerer
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererProficiencies
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight
+
+###Block: Familiar
+1	BONUS:VAR|FamiliarLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar
+###Block:
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=0|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=1|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=2|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=3|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=4|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=5|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=6|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=7|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=8|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=9|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
+1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+###Block: Level progression
+1	CAST:5,3				KNOWN:4,2	
+2	CAST:6,4				KNOWN:5,2
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2
+6	CAST:6,6,5,3			KNOWN:7,4,2,1
+7	CAST:6,6,6,4			KNOWN:7,5,3,2
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+CLASS:Cleric (Spontaneous)	HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	SERVESAS:CLASS|Cleric		MAXLEVEL:20	SOURCEPAGE:p.64	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	ROLE:Cleric
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cleric (Spontaneous)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
+CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	SPELLLIST:1|Cleric	BONUS:CASTERLEVEL|Cleric (Spontaneous)|CL
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Turn or Rebuke Undead
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block: Aura strength
+1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0
+###Block:
+1	ABILITY:Special Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
+1	ABILITY:Special Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
+1	ABILITY:Special Ability|VIRTUAL|Aura of Good|PREDEITYALIGN:LG,NG,CG
+1	ABILITY:Special Ability|VIRTUAL|Aura of Law|PREDEITYALIGN:LG,LN,LE
+###Block: Righteous Might Workaround
+1	TEMPLATE:RighteousMightDR
+###Block: Level progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+###Block:	
+1	KNOWN:4,2
+2	KNOWN:5,2
+3	KNOWN:5,3,0
+4	KNOWN:6,3,1
+5	KNOWN:6,4,2,0
+6	KNOWN:7,4,2,1
+7	KNOWN:7,5,3,2,0
+8	KNOWN:8,5,3,2,1
+9	KNOWN:8,5,4,3,2,0
+10	KNOWN:9,5,4,3,2,1
+11	KNOWN:9,5,5,4,3,2,0
+12	KNOWN:9,5,5,4,3,2,1
+13	KNOWN:9,5,5,4,4,3,2,0
+14	KNOWN:9,5,5,4,4,3,2,1
+15	KNOWN:9,5,5,4,4,4,3,2,0
+16	KNOWN:9,5,5,4,4,4,3,2,1
+17	KNOWN:9,5,5,4,4,4,3,3,2,0
+18	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	KNOWN:9,5,5,4,4,4,3,3,3,3
+###Block: Domain Support
+#Air
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Obscuring Mist|Cleric (Spontaneous)=2|Wind Wall|Cleric (Spontaneous)=3|Gaseous Form|Cleric (Spontaneous)=4|Air Walk|Cleric (Spontaneous)=5|Control Winds|Cleric (Spontaneous)=6|Chain Lightning|Cleric (Spontaneous)=7|Control Weather|Cleric (Spontaneous)=8|Whirlwind|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Air
+#Animal
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Calm Animals|Cleric (Spontaneous)=2|Hold Animal|Cleric (Spontaneous)=3|Dominate Animal|Cleric (Spontaneous)=4|Summon Nature's Ally IV|Cleric (Spontaneous)=5|Commune with Nature|Cleric (Spontaneous)=6|Antilife Shell|Cleric (Spontaneous)=7|Animal Shapes|Cleric (Spontaneous)=8|Summon Nature's Ally VIII|Cleric (Spontaneous)=9|Shapechange|PREDOMAIN:1,Animal
+#Chaos
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Law|Cleric (Spontaneous)=2|Shatter|Cleric (Spontaneous)=3|Magic Circle against Law|Cleric (Spontaneous)=4|Chaos Hammer|Cleric (Spontaneous)=5|Dispel Law|Cleric (Spontaneous)=6|Animate Objects|Cleric (Spontaneous)=7|Word of Chaos|Cleric (Spontaneous)=8|Cloak of Chaos|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Chaos
+#Death
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Cause Fear|Cleric (Spontaneous)=2|Death Knell|Cleric (Spontaneous)=3|Animate Dead|Cleric (Spontaneous)=4|Death Ward|Cleric (Spontaneous)=5|Slay Living|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Destruction|Cleric (Spontaneous)=8|Create Greater Undead|Cleric (Spontaneous)=9|Wail of the Banshee|PREDOMAIN:1,Death
+#Destruction
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Inflict Light Wounds|Cleric (Spontaneous)=2|Shatter|Cleric (Spontaneous)=3|Contagion|Cleric (Spontaneous)=4|Inflict Critical Wounds|Cleric (Spontaneous)=5|Inflict Light Wounds (Mass)|Cleric (Spontaneous)=6|Harm|Cleric (Spontaneous)=7|Disintegrate|Cleric (Spontaneous)=8|Earthquake|Cleric (Spontaneous)=9|Implosion|PREDOMAIN:1,Destruction
+#Earth
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Stone|Cleric (Spontaneous)=2|Soften Earth and Stone|Cleric (Spontaneous)=3|Stone Shape|Cleric (Spontaneous)=4|Spike Stones|Cleric (Spontaneous)=5|Wall of Stone|Cleric (Spontaneous)=6|Stoneskin|Cleric (Spontaneous)=7|Earthquake|Cleric (Spontaneous)=8|Iron Body|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Earth
+#Evil
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Good|Cleric (Spontaneous)=2|Desecrate|Cleric (Spontaneous)=3|Magic Circle against Good|Cleric (Spontaneous)=4|Unholy Blight|Cleric (Spontaneous)=5|Dispel Good|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Blasphemy|Cleric (Spontaneous)=8|Unholy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Evil
+#Fire
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Burning Hands|Cleric (Spontaneous)=2|Produce Flame|Cleric (Spontaneous)=3|Resist Energy|Cleric (Spontaneous)=4|Wall of Fire|Cleric (Spontaneous)=5|Fire Shield|Cleric (Spontaneous)=6|Fire Seeds|Cleric (Spontaneous)=7|Fire Storm|Cleric (Spontaneous)=8|Incendiary Cloud|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Fire
+#Good
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Evil|Cleric (Spontaneous)=2|Aid|Cleric (Spontaneous)=3|Magic Circle against Evil|Cleric (Spontaneous)=4|Holy Smite|Cleric (Spontaneous)=5|Dispel Evil|Cleric (Spontaneous)=6|Blade Barrier|Cleric (Spontaneous)=7|Holy Word|Cleric (Spontaneous)=8|Holy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Good
+#Healing
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Cure Light Wounds|Cleric (Spontaneous)=2|Cure Moderate Wounds|Cleric (Spontaneous)=3|Cure Serious Wounds|Cleric (Spontaneous)=4|Cure Critical Wounds|Cleric (Spontaneous)=5|Cure Light Wounds (Mass)|Cleric (Spontaneous)=6|Heal|Cleric (Spontaneous)=7|Regenerate|Cleric (Spontaneous)=8|Cure Critical Wounds (Mass)|Cleric (Spontaneous)=9|Heal (Mass)|PREDOMAIN:1,Healing
+#Knowledge
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Detect Secret Doors|Cleric (Spontaneous)=2|Detect Thoughts|Cleric (Spontaneous)=3|Clairaudience/Clairvoyance|Cleric (Spontaneous)=4|Divination|Cleric (Spontaneous)=5|True Seeing|Cleric (Spontaneous)=6|Find the Path|Cleric (Spontaneous)=7|Legend Lore|Cleric (Spontaneous)=8|Discern Location|Cleric (Spontaneous)=9|Foresight|PREDOMAIN:1,Knowledge
+#Law
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Chaos|Cleric (Spontaneous)=2|Calm Emotions|Cleric (Spontaneous)=3|Magic Circle against Chaos|Cleric (Spontaneous)=4|Order's Wrath|Cleric (Spontaneous)=5|Dispel Chaos|Cleric (Spontaneous)=6|Hold Monster|Cleric (Spontaneous)=7|Dictum|Cleric (Spontaneous)=8|Shield of Law|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Law
+#Luck
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Entropic Shield|Cleric (Spontaneous)=2|Aid|Cleric (Spontaneous)=3|Protection from Energy|Cleric (Spontaneous)=4|Freedom of Movement|Cleric (Spontaneous)=5|Break Enchantment|Cleric (Spontaneous)=6|Mislead|Cleric (Spontaneous)=7|Spell Turning|Cleric (Spontaneous)=8|Moment of Prescience|Cleric (Spontaneous)=9|Miracle|PREDOMAIN:1,Luck
+#Magic
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Aura|Cleric (Spontaneous)=2|Identify|Cleric (Spontaneous)=3|Dispel Magic|Cleric (Spontaneous)=4|Imbue with Spell Ability|Cleric (Spontaneous)=5|Spell Resistance|Cleric (Spontaneous)=6|Antimagic Field|Cleric (Spontaneous)=7|Spell Turning|Cleric (Spontaneous)=8|Protection from Spells|Cleric (Spontaneous)=9|Mage's Disjunction|PREDOMAIN:1,Magic
+#Plant
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Entangle|Cleric (Spontaneous)=2|Barkskin|Cleric (Spontaneous)=3|Plant Growth|Cleric (Spontaneous)=4|Command Plants|Cleric (Spontaneous)=5|Wall of Thorns|Cleric (Spontaneous)=6|Repel Wood|Cleric (Spontaneous)=7|Animate Plants|Cleric (Spontaneous)=8|Control Plants|Cleric (Spontaneous)=9|Shambler|PREDOMAIN:1,Plant
+#Protection
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Sanctuary|Cleric (Spontaneous)=2|Shield Other|Cleric (Spontaneous)=3|Protection from Energy|Cleric (Spontaneous)=4|Spell Immunity|Cleric (Spontaneous)=5|Spell Resistance|Cleric (Spontaneous)=6|Antimagic Field|Cleric (Spontaneous)=7|Repulsion|Cleric (Spontaneous)=8|Mind Blank|Cleric (Spontaneous)=9|Prismatic Sphere|PREDOMAIN:1,Protection
+#Strength
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Enlarge Person|Cleric (Spontaneous)=2|Bull's Strength|Cleric (Spontaneous)=3|Magic Vestment|Cleric (Spontaneous)=4|Spell Immunity|Cleric (Spontaneous)=5|Righteous Might|Cleric (Spontaneous)=6|Stoneskin|Cleric (Spontaneous)=7|Grasping Hand|Cleric (Spontaneous)=8|Clenched Fist|Cleric (Spontaneous)=9|Crushing Hand|PREDOMAIN:1,Strength
+#Sun
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Endure Elements|Cleric (Spontaneous)=2|Heat Metal|Cleric (Spontaneous)=3|Searing Light|Cleric (Spontaneous)=4|Fire Shield|Cleric (Spontaneous)=5|Flame Strike|Cleric (Spontaneous)=6|Fire Seeds|Cleric (Spontaneous)=7|Sunbeam|Cleric (Spontaneous)=8|Sunburst|Cleric (Spontaneous)=9|Prismatic Sphere|PREDOMAIN:1,Sun
+#Travel
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Longstrider|Cleric (Spontaneous)=2|Locate Object|Cleric (Spontaneous)=3|Fly|Cleric (Spontaneous)=4|Dimension Door|Cleric (Spontaneous)=5|Teleport|Cleric (Spontaneous)=6|Find the Path|Cleric (Spontaneous)=7|Teleport (Greater)|Cleric (Spontaneous)=8|Phase Door|Cleric (Spontaneous)=9|Astral Projection|PREDOMAIN:1,Travel
+#Trickery
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Disguise Self|Cleric (Spontaneous)=2|Invisibility|Cleric (Spontaneous)=3|Nondetection|Cleric (Spontaneous)=4|Confusion|Cleric (Spontaneous)=5|False Vision|Cleric (Spontaneous)=6|Mislead|Cleric (Spontaneous)=7|Screen|Cleric (Spontaneous)=8|Polymorph Any Object|Cleric (Spontaneous)=9|Time Stop|PREDOMAIN:1,Trickery
+#War
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Weapon|Cleric (Spontaneous)=2|Spiritual Weapon|Cleric (Spontaneous)=3|Magic Vestment|Cleric (Spontaneous)=4|Divine Power|Cleric (Spontaneous)=5|Flame Strike|Cleric (Spontaneous)=6|Blade Barrier|Cleric (Spontaneous)=7|Power Word Blind|Cleric (Spontaneous)=8|Power Word Stun|Cleric (Spontaneous)=9|Power Word Kill|PREDOMAIN:1,War
+#Water	
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Obscuring Mist|Cleric (Spontaneous)=2|Fog Cloud|Cleric (Spontaneous)=3|Water Breathing|Cleric (Spontaneous)=4|Control Water|Cleric (Spontaneous)=5|Ice Storm|Cleric (Spontaneous)=6|Cone of Cold|Cleric (Spontaneous)=7|Acid Fog|Cleric (Spontaneous)=8|Horrid Wilting|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Water
+
+
+
+CLASS:Druid (Spontaneous)		HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	ABB:Drd		SERVESAS:CLASS|Druid	MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p.64	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid
+# Class Name	Required AL
+CLASS:Druid (Spontaneous)		PREALIGN:LN,NG,TN,NE,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Druid (Spontaneous)		STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
+CLASS:Druid (Spontaneous)		SPELLSTAT:WIS	SPELLTYPE:Divine	SPELLLIST:1|Druid	BONUS:CASTERLEVEL|Druid (Spontaneous)|CL
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
+###Block: Wildshape Abilities Block
+#
+# To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
+#
+1	BONUS:VAR|DruidWildShape|CL
+1	BONUS:VAR|WildEmpathyBonus|CL	BONUS:VAR|AnimalCompanionLVL|CL
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAnimalCompanion
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidNatureSense
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildEmpathy
+2	ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWoodlandStride
+3	ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTracklessStep
+4	ABILITY:Special Ability|AUTOMATIC|Druid ~ Resist Nature's Lure|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidResistNaturesLure
+9	ABILITY:Special Ability|AUTOMATIC|Druid ~ Venom Immunity|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity
+13	ABILITY:Special Ability|AUTOMATIC|Druid ~ A Thousand Faces|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces
+15	ABILITY:Special Ability|AUTOMATIC|Druid ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody																	TEMPLATE:Timeless Body
+###Block: Normal Progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+###Block:
+1	KNOWN:4,2
+2	KNOWN:5,2
+3	KNOWN:5,3,0
+4	KNOWN:6,3,1
+5	KNOWN:6,4,2,0
+6	KNOWN:7,4,2,1
+7	KNOWN:7,5,3,2,0
+8	KNOWN:8,5,3,2,1
+9	KNOWN:8,5,4,3,2,0
+10	KNOWN:9,5,4,3,2,1
+11	KNOWN:9,5,5,4,3,2,0
+12	KNOWN:9,5,5,4,3,2,1
+13	KNOWN:9,5,5,4,4,3,2,0
+14	KNOWN:9,5,5,4,4,3,2,1
+15	KNOWN:9,5,5,4,4,4,3,2,0
+16	KNOWN:9,5,5,4,4,4,3,2,1
+17	KNOWN:9,5,5,4,4,4,3,3,2,0
+18	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	KNOWN:9,5,5,4,4,4,3,3,3,3
+###Block:
+1	SPELLKNOWN:CLASS|Druid (Spontaneous)=1|Summon Nature's Ally I|Druid (Spontaneous)=2|Summon Nature's Ally II|Druid (Spontaneous)=3|Summon Nature's Ally III|Druid (Spontaneous)=4|Summon Nature's Ally IV|Druid (Spontaneous)=5|Summon Nature's Ally V|Druid (Spontaneous)=6|Summon Nature's Ally VI|Druid (Spontaneous)=7|Summon Nature's Ally VII|Druid (Spontaneous)=8|Summon Nature's Ally VIII|Druid (Spontaneous)=9|Summon Nature's Ally IX
+
+# Original Entry by: Jasper-Spaans
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Prestige Bard	HD:6		TYPE:PC.Prestige	ABB:PBrd		MAXLEVEL:15	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Restricted AL		Req. Att.	Prohibited Class		Required Skill						Required Spell School
+CLASS:Prestige Bard	!PREALIGN:LG,LN,LE	PREATT:3	!PRECLASS:1,Bard=1	PRESKILL:2,TYPE.Knowledge=4,TYPE.Perform=8	PRESPELLSCHOOL:1,Divination=1	PRESPELLSCHOOL:1,Enchantment=1	PRESPELLSCHOOL:1,Illusion=1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Weapon and Armor Proficiency
+# caster level adjustments for spells
+1									BONUS:CASTERLEVEL|SCHOOL.Divination|2	BONUS:CASTERLEVEL|SCHOOL.Enchantment|2	BONUS:CASTERLEVEL|Illusion|2
+1									BONUS:CASTERLEVEL|SCHOOL.Necromancy|-2	BONUS:CASTERLEVEL|SCHOOL:Evocation|-2
+1																												
+1	BONUS:ABILITYPOOL|Prestige Bard Unique Spells|1
+###Block: Bardic abilities level definitions.
+1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl											ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge
+1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL	BONUS:VAR|InspireDurationBase|5									ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Music
+#NB: need to adjust inspire courage progression:
+1	BONUS:VAR|InspireCourageSaves,InspireCourageAttack,InspireCourageDamage|1+floor(InspireCourageLVL/5)-max(floor((InspireCourageLVL+4)/6),1)
+###Block: Bardic Music Abilities by level
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Countersong|Bardic Music ~ Fascinate|Bardic Music ~ Inspire Courage|PRESKILL:1,TYPE.Perform=8|PREVARGTEQ:BardicMusicLvl,1
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Inspire Competence|PRESKILL:1,TYPE.Perform=11|PREVARGTEQ:BardicMusicLvl,3
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Inspire Greatness|PRESKILL:1,TYPE.Perform=17|PREVARGTEQ:BardicMusicLvl,7
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Song of Freedom|PRESKILL:1,TYPE.Perform=20|PREVARGTEQ:BardicMusicLvl,9
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Inspire Heroics|PRESKILL:1,TYPE.Perform=23|PREVARGTEQ:BardicMusicLvl,11
+#NB: prestige bard does not get suggestion, but mass suggestion refers to suggestion, so include it at the same lvl
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Suggestion|PRESKILL:1,TYPE.Perform=26|PREVARGTEQ:BardicMusicLvl,13
+1					ABILITY:Special Ability|VIRTUAL|Bardic Music ~ Mass Suggestion|PRESKILL:1,TYPE.Perform=26|PREVARGTEQ:BardicMusicLvl,13
+#caster level progression
+2	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+11	ADD:SPELLCASTER|Arcane
+12	ADD:SPELLCASTER|Arcane
+14	ADD:SPELLCASTER|Arcane
+15	ADD:SPELLCASTER|Arcane
+
+# Original Entry by: Jasper-Spaans
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Save checks bonus											Combat bonus
+CLASS:Prestige Paladin	HD:8		TYPE:PC.Prestige	ABB:PPal		MAXLEVEL:15	EXCLASS:Ex Prestige Paladin	SOURCEPAGE:p.71	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|2+CL/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Ability							Required AL	Req. Att.	Prohibited Class				Required Feat			Required Skill											Req. Known Spell				Required Text
+CLASS:Prestige Paladin	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG	PREATT:4	!PRECLASS:2,Paladin=1,Ex Paladin=1	PREFEAT:1,Mounted Combat	PRESKILL:3,Knowledge (Religion)=2,Knowledge(Nobility and Royalty)=2,Ride=4	PRESPELL:1,Protection from Evil	PRETEXT:Must be able to cast Protection from Evil as a Divine Spell
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
+###Block: Level progression
+1	BONUS:ABILITYPOOL|Prestige Paladin Unique Spells|1
+1										BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL
+1										BONUS:VAR|DetectEvilLVL,PaladinSmiteEvilLVL|CL
+1																					DEFINE:AllowHolyAvenger|1
+1																														ABILITY:Special Ability|AUTOMATIC|Paladin ~ Detect Evil|Paladin ~ Smite Evil
+2										BONUS:VAR|LayOnHandsLVL|CL+3	BONUS:VAR|SpecialMountLVL|CL+3
+2																														ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Grace|Paladin ~ Lay on Hands|Paladin ~ Special Mount
+3																														ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Courage|Paladin ~ Divine Health
+#NB: offset bonus included in removedisease ability
+4										BONUS:VAR|RemoveDisease|CL/4-(RemoveDiseaseLVL/3-1)												ABILITY:Special Ability|AUTOMATIC|Paladin ~ Remove Disease
+#spellcasting progression
+1																										ADD:SPELLCASTER|Divine
+3																										ADD:SPELLCASTER|Divine
+5																										ADD:SPELLCASTER|Divine
+7																										ADD:SPELLCASTER|Divine
+9																										ADD:SPELLCASTER|Divine
+11																										ADD:SPELLCASTER|Divine
+13																										ADD:SPELLCASTER|Divine
+15																										ADD:SPELLCASTER|Divine
+
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Visible	Save checks bonus											Combat bonus
+CLASS:Ex Prestige Paladin	HD:8		TYPE:PC.Prestige	ABB:XPPal		SOURCEPAGE:p.71	VISIBLE:NO	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|2+CL/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
+
+# Original Entry by: Jasper-Spaans
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Prestige Ranger	HD:8		TYPE:PC.Prestige	ABB:PRgr		MAXLEVEL:15	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|2+CL/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Prohibited Class		Required Feat										Required Skill
+CLASS:Prestige Ranger	PREATT:4	!PRECLASS:1,Ranger=1	PREFEAT:2,Endurance,Track	PREFEAT:1,Two-Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Weapon and Armor Proficiency
+###Block: Favored Enemy level stacking
+1	BONUS:ABILITYPOOL|Prestige Ranger Unique Spells|1
+1										BONUS:VAR|RangerFavoredEnemyLVL|CL												ABILITY:Special Ability|AUTOMATIC|Ranger ~ Favored Enemy
+1										BONUS:VAR|WildEmpathy|CL													ABILITY:Special Ability|AUTOMATIC|Ranger ~ Wild Empathy
+1										BONUS:VAR|AnimalCompanionLVL|CL												ABILITY:Special Ability|AUTOMATIC|Ranger ~ Animal Companion
+2																							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Woodland Stride
+2	BONUS:ABILITYPOOL|Prestige Ranger Bonus Feats|1		BONUS:VAR|PrestigeRangerBonusFeatLVL|CL	DEFINE:PrestigeRangerBonusFeatLVL|0
+3																											ABILITY:Special Ability|AUTOMATIC|Ranger ~ Swift Tracker
+4																							ADD:SPELLCASTER|Divine
+6																							ADD:SPELLCASTER|Divine
+7	BONUS:ABILITYPOOL|Prestige Ranger Bonus Feats|1
+8																							ADD:SPELLCASTER|Divine
+9																											ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage
+10																							ADD:SPELLCASTER|Divine
+12																							ADD:SPELLCASTER|Divine
+13																											ABILITY:Special Ability|AUTOMATIC|Ranger ~ Hide in Plain Sight
+14																							ADD:SPELLCASTER|Divine
+
+
+#####################################
+
+#	PARAGON CLASSES			#
+
+#####################################
+
+
+# Original Entry by: Tir-Gwaith
+# Updated by: Andrew Maitland
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus												Combat bonus
+CLASS:Drow Paragon	HD:6		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.32	DEFINE:DrowParagonLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Drow Paragon	PRERACE:1,Elf (Drow)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
+###Block: Class Features
+1	ABILITY:Special Ability|AUTOMATIC|Improved Spell-Like Abilities ~ Drow Paragon|Spells ~ Drow Paragon|Weapon and Armor Proficiency ~ Drow Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Drow Paragon|Light Sensitivity ~ Drow Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Drow Paragon
+###Block:
+1	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+3	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
+CLASS:Dwarf Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.33	DEFINE:DwarfParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Dwarf Paragon	PRERACE:1,Dwarf%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dwarf Paragon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Intimidate|Jump|Knowledge (Dungeoneering)|TYPE=Profession|Sense Motive|Survival
+###Block: Class Features
+1	ABILITY:Special Ability|AUTOMATIC|Craft Expertise ~ Dwarf Paragon|Improved Stonecunning ~ Dwarf Paragon|Weapon and Armor Proficiency ~ Dwarf Paragon	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Dwarf Paragon|Save Bonus ~ Dwarf Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Dwarf Paragon
+
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus
+CLASS:Elf Paragon	HD:8		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.35	DEFINE:ElfParagonLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Multiple Requirements
+CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PRERACE:1,Elf (Drow)]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Elf Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Elfsight ~ Elf Paragon|Resist Enchantments ~ Elf Paragon|Weapon and Armor Proficiency ~ Elf Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Spells ~ Elf Paragon|Weapon Focus ~ Elf Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Elf Paragon
+###Block: Class Features
+2	BONUS:PCLEVEL|Wizard|1
+3	BONUS:PCLEVEL|Wizard|1
+
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
+CLASS:Gnome Paragon	HD:6		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.xx	DEFINE:GnomeParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Gnome Paragon	PRERACE:1,Gnome%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Gnome Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Spellcraft|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Illusion Aptitude ~ Gnome Paragon|Keen Senses ~ Gnome Paragon|Weapon and Armor Proficiency ~ Gnome Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Mirror Image ~ Gnome Paragon|Spells ~ Gnome Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Gnome Paragon
+###Block: Class Features
+2	BONUS:PCLEVEL|Bard|1
+3	BONUS:PCLEVEL|Bard|1
+
+
+# Class Name			Output Name					Hit Dice	Type					Abbreviation	Max Level	Source Page		Define					Save checks bonus											Combat bonus
+CLASS:Half-Dragon Paragon	OUTPUTNAME:Half-Dragon Paragon	HD:12		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.37	DEFINE:HalfDragonParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Required Race			Required Template
+CLASS:Half-Dragon Paragon	PRERACE:1,RACETYPE=Dragon	PRETEMPLATE:1,Half Dragon
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Half-Dragon Paragon	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Intimidate|TYPE=Knowledge|Listen|Search|Sense Motive|Spot
+SUBCLASS:Black Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Black)	CSKILL:Hide|Move Silently|Swim
+SUBCLASS:Blue Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Blue)	CSKILL:Bluff|Hide|Spellcraft
+SUBCLASS:Brass Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Brass)	CSKILL:Bluff|Gather Information|Survival
+SUBCLASS:Bronze Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Bronze)	CSKILL:Disguise|Survival|Swim
+SUBCLASS:Copper Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Copper)	CSKILL:Bluff|Hide|Jump
+SUBCLASS:Gold Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Gold)	CSKILL:Disguise|Heal|Swim
+SUBCLASS:Green Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Green)	CSKILL:Bluff|Hide|Move Silently
+SUBCLASS:Red Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Red)	CSKILL:Appraise|Bluff|Jump
+SUBCLASS:Silver Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Silver)	CSKILL:Bluff|Jump|TYPE=Perform
+SUBCLASS:White Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (White)	CSKILL:Hide|Move Silently|Swim
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Sorcerous Blood ~ Half-Dragon Paragon|Weapon and Armor Proficiency ~ Half-Dragon Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Natural Armor Increase ~ Half-Dragon Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Half-Dragon Paragon
+
+
+# Class Name		Output Name				Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
+CLASS:Half-Elf Paragon	OUTPUTNAME:Half-Elf Paragon	HD:8		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.39	DEFINE:HalfElfParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Half-Elf Paragon	PRERACE:1,Half-Elf
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Half-Elf Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Half-Elf Paragon|Divided Ancestry ~ Half-Elf Paragon|Elven Vision ~ Half-Elf Paragon|Weapon and Armor Proficiency ~ Half-Elf Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Persuasion ~ Half-Elf Paragon|Spells ~ Half-Elf Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Half-Elf Paragon
+
+
+# Class Name		Output Name				Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
+CLASS:Half-Orc Paragon	OUTPUTNAME:Half-Orc Paragon	HD:8		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.40	DEFINE:HalfOrcParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Half-Orc Paragon	PRERACE:1,Halfling
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Half-Orc Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Survival|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Divided Ancestry ~ Half-Orc Paragon|Monstrous Mien ~ Half-Orc Paragon|Weapon and Armor Proficiency ~ Half-Orc Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Rage ~ Half-Orc Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Half-Orc Paragon
+
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus												Combat bonus
+CLASS:Halfling Paragon	HD:6		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.42	DEFINE:HalflingParagonLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Halfling Paragon	PRERACE:1,Halfling%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Halfling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Survival|Swim
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Athletic Prowess ~ Halfling Paragon|Save Bonus ~ Halfling Paragon|Weapon and Armor Proficiency ~ Halfling Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Thrown Weapon Mastery ~ Halfling Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Halfling Paragon
+
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
+CLASS:Human Paragon	HD:8		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.43	DEFINE:HumanParagonLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Multiple Requirements
+CLASS:Human Paragon	PREMULT:1,[PRERACE:1,Human],[PREMULT:3,[PRERACE:1,Half-Orc],[PRECLASS:1,Half-Orc Paragon=1],[!PRECLASS:1,Orc Paragon=1]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Elf Paragon=1]]
+# Class Name		Skill Pts/Lvl
+CLASS:Human Paragon	STARTSKILLPTS:4
+###Block:
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+###Block: Class Features
+1	ABILITY:Special Ability|AUTOMATIC|Adaptive Learning ~ Human Paragon|Weapon and Armor Proficiency ~ Human Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Human Paragon|Spells ~ Human Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Human Paragon
+
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Orc Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.44	DEFINE:OrcParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Multiple Requirements
+CLASS:Orc Paragon	PREMULT:1,[PRERACE:1,Orc%],[PREMULT:3,[PRERACE:1,Half-Orc],[PRECLASS:1,Half-Orc Paragon=1],[!PRECLASS:1,Human Paragon=1]]
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Orc Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Listen|Spot|Survival|Swim
+###Block: Class Features
+1	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Orc Paragon|No Light Sensitivity ~ Orc Paragon|Weapon and Armor Proficiency ~ Orc Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Elf Slayer ~ Orc Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Orc Paragon
+
+
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus								Combat bonus
+CLASS:Tiefling Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.45	DEFINE:TieflingParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Tiefling Paragon	PRERACE:1,Planetouched (Tiefling%
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Tiefling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Disguise|Hide|Knowledge (the planes)|Listen|Move Silently|TYPE=Profession|Sleight of Hand|Spot
+###Block: Class Features
+1	ABILITY:Special Ability|AUTOMATIC|Improved Resistance ~ Tiefling Paragon|Weapon and Armor Proficiency ~ Tiefling Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Darkness ~ Tiefling Paragon|Skill Bonus ~ Tiefling Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Tiefling Paragon

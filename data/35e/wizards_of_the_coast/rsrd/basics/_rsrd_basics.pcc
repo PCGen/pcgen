@@ -1,0 +1,83 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:3.5 RSRD Basics (Upgrade)
+RANK:1
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:RSRD
+TYPE:Wizards of the Coast.RSRD.Partial
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics (Upgrade)]
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCEDATE:2000-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2007, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky, Frank Kliewe)
+INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
+
+PCC:@/homebrew/conversion_support/conversion_support.pcc
+
+
+ABILITY:rsrd_abilities.lst
+ABILITY:rsrd_abilities_class.lst
+ABILITY:rsrd_abilities_race.lst
+
+ABILITYCATEGORY:rsrd_abilitycategories.lst
+
+CLASS:rsrd_classes.lst
+COMPANIONMOD:rsrd_companionmods.lst
+DEITY:rsrd_deities.lst
+DOMAIN:rsrd_domains.lst
+
+EQUIPMENT:rsrd_equip_arms_and_armor.lst
+EQUIPMENT:rsrd_equip_general.lst
+EQUIPMENT:rsrd_equip_magic_items.lst
+
+EQUIPMOD:rsrd_equipmods.lst
+
+FEAT:rsrd_feats.lst
+
+KIT:rsrd_kits.lst
+KIT:rsrd_kits_companion.lst
+
+LANGUAGE:rsrd_languages.lst
+
+WEAPONPROF:rsrd_profs_weapon.lst
+ARMORPROF:rsrd_profs_armor.lst
+SHIELDPROF:rsrd_profs_shield.lst
+
+RACE:rsrd_races.lst
+RACE:rsrd_races_companion.lst
+
+SKILL:rsrd_skills.lst
+SPELL:rsrd_spells.lst
+
+TEMPLATE:rsrd_templates.lst
+
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource|SpecificSlingStone
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|AnimalTrickAttack|AnimalTrickCome|AnimalTrickDefend|AnimalTrickDown|AnimalTrickGuard|AnimalTrickHeel|AnimalTrickStay|AnimalTrickFetch|AnimalTrickPerform|AnimalTrickSeek|AnimalTrickTrack|AnimalTrickWork
+
+# Hide key stat types for skills
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Standard|None
+
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|PRESTAT:1,INT=2|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+#
+# DONE
+#

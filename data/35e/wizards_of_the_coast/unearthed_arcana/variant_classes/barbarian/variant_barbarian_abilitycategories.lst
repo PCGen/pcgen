@@ -1,9 +1,0 @@
-# CVS $Revision: 454 $ $Author: tir $ -- Sun Jul 20 00:57:20 2008 -- reformated by prettylst.pl v1.38 (build 7121)
-#SOURCELONG:Unearthed Arcana	SOURCESHORT:UA
-# Original Entry by: Tir-Gwaith
-#
-# Ability Categories
-#
-
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
-ABILITYCATEGORY:Barbarian Rage Variant	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RageChoice	PLURAL:Barbarian Rage Variants	DISPLAYLOCATION:Class Abilities

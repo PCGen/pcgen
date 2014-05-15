@@ -1533,3 +1533,53 @@ ABILITY:Special Ability|Metamagic Feat		MAXVER:6.4.00	NEWKEY:Hierophant Special 
 #ABILITY:Special Ability|#Stench ~ Troglodyte	
 #ABILITY:Special Ability|Touch Attack ~ Lich	
 
+ABILITY:Special Ability|Feeble ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Feeble			
+ABILITY:Special Ability|Frail ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Frail			
+ABILITY:Special Ability|Inattentive ~ Flaw		MAXVER:6.4.00	NEWKEY:Flaw ~ Inattentive		
+ABILITY:Special Ability|Meager Fortitude ~ Flaw		MAXVER:6.4.00	NEWKEY:Flaw ~ Meager Fortitude	
+ABILITY:Special Ability|Murky-Eyed ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Murky-Eyed		
+ABILITY:Special Ability|Noncombatant ~ Flaw		MAXVER:6.4.00	NEWKEY:Flaw ~ Noncombatant		
+ABILITY:Special Ability|Pathetic ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Pathetic		
+ABILITY:Special Ability|Poor Reflexes ~ Flaw		MAXVER:6.4.00	NEWKEY:Flaw ~ Poor Reflexes	
+ABILITY:Special Ability|Shaky ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Shaky			
+ABILITY:Special Ability|Slow ~ Flaw				MAXVER:6.4.00	NEWKEY:Flaw ~ Slow			
+ABILITY:Special Ability|Unreactive ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Unreactive		
+ABILITY:Special Ability|Vulnerable ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Vulnerable		
+ABILITY:Special Ability|Weak Will ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Weak Will		
+Abrasive ~ Trait				
+Absent-Minded ~ Trait			
+Aggressive ~ Trait				
+Brawler ~ Trait				
+Cautious ~ Trait				
+Detached ~ Trait				
+Dishonest ~ Trait				
+Distinctive ~ Trait				
+Easygoing ~ Trait				
+Farsighted ~ Trait				
+Focused ~ Trait				
+Hard of Hearing ~ Trait			
+Hardy ~ Trait					
+Honest ~ Trait				
+Illiterate ~ Trait				
+Inattentive ~ Trait				
+Musclebound ~ Trait				
+Nearsighted ~ Trait				
+Nightsighted ~ Trait			
+Passionate ~ Trait				
+Plucky ~ Trait				
+Polite ~ Trait				
+Quick ~ Trait					
+Reckless ~ Trait				
+Relentless ~ Trait				
+Saddleborn ~ Trait				
+Skinny ~ Trait				
+Slippery ~ Trait				
+Slow ~ Trait					
+Specialized ~ Craft ~ Trait		
+Specialized ~ Knowledge ~ Trait		
+Specialized ~ Profession ~ Trait	
+Spellgifted ~ Trait				
+Stout ~ Trait					
+Suspicious ~ Trait				
+Torpid ~ Trait				
+Uncivilized ~ Trait				

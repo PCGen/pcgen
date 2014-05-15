@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+
+# VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus -- Frank
+
+
+###Block: Epic Synergy Bonuses, see EpicSkills.rtf
+
+# Skill Name				Bonus to skill
+Balance.MOD					BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Diplomacy.MOD				BONUS:SKILL|Diplomacy|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*SynergyBonus|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|max(0,floor((var("SKILLRANK=Sense Motive")-5)/20))*SynergyBonus|TYPE=Synergy.STACK	BONUS:SKILL|Diplomacy|max(0,floor((var("SKILLRANK=Knowledge (Nobility and Royalty)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Disguise.MOD				BONUS:SKILL|Disguise|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Escape Artist.MOD				BONUS:SKILL|Escape Artist|max(0,floor((var("SKILLRANK=Use Rope")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Gather Information.MOD			BONUS:SKILL|Gather Information|max(0,floor((var("SKILLRANK=Knowledge (Local)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Intimidate.MOD				BONUS:SKILL|Intimidate|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Jump.MOD					BONUS:SKILL|Jump|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Knowledge (Nature).MOD			BONUS:SKILL|Knowledge (Nature)|max(0,floor((var("SKILLRANK=Survival")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Ride.MOD					BONUS:SKILL|Ride|max(0,floor((var("SKILLRANK=Handle Animal")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Search.MOD					BONUS:SKILL|Search|max(0,floor((var("SKILLRANK=Knowledge (Architecture and Engineering)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Sleight of Hand.MOD			BONUS:SKILL|Sleight of Hand|max(0,floor((var("SKILLRANK=Bluff")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Spellcraft.MOD				BONUS:SKILL|Spellcraft|max(0,floor((var("SKILLRANK=Knowledge (Arcana)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Tumble.MOD					BONUS:SKILL|Tumble|max(0,floor((var("SKILLRANK=Jump")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+###Block:
+Survival.MOD	BONUS:SITUATION|Survival=Underground|max(0,floor((var("SKILLRANK=Knowledge (Dungeoneering)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Survival.MOD	BONUS:SITUATION|Survival=The Planes|max(0,floor((var("SKILLRANK=Knowledge (The Planes)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Survival.MOD	BONUS:SITUATION|Survival=Natural environments|max(0,floor((var("SKILLRANK=Knowledge (Nature)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+Survival.MOD	BONUS:SITUATION|Survival=Lost/Natural hazards|max(0,floor((var("SKILLRANK=Knowledge (Geography)")-5)/20))*SynergyBonus|TYPE=Synergy.STACK
+
+#
+# End
+#

@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+#Original Entry: Arknight
+
+###Block:Psicrystal
+# Class of the Master		Type			Spell Res.			Ability																															Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Move		Combat bonus					Stat bonus		Modify VAR
+FOLLOWER:PsiCrystalLVL=1	TYPE:Psicrystal					ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Hardness|Psicrystal ~ Improved Evasion|Psicrystal ~ Self-Propulsion|Psicrystal ~ Share Powers|Psicrystal ~ Skills|Psicrystal ~ Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES
+FOLLOWER:PsiCrystalLVL=3	TYPE:Psicrystal					ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Deliver Touch Powers																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=5	TYPE:Psicrystal					ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Telepathic Speech																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=7	TYPE:Psicrystal																																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=9	TYPE:Psicrystal					ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Flight|Flight Maneuverability																																			MOVE:Fly,50	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1	BONUS:VAR|Maneuverability|2
+FOLLOWER:PsiCrystalLVL=11	TYPE:Psicrystal	SR:5+PsiCrystalLVL	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Power Resistance																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=13	TYPE:Psicrystal					ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sight Link																																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=15	TYPE:Psicrystal					ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Channel Power																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=17	TYPE:Psicrystal																																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal																																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|INT|1
+#

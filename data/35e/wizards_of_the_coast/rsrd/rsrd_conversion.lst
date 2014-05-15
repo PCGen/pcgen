@@ -1,0 +1,15 @@
+	
+BarbRageTimesLVL			>	BarbarianRageTimesLVL
+BarbRagePowerLVL			>	BarbarianRagePowerLVL
+TrapSense				>	TrapSenseBonus
+DruidWildShape			>	DruidWildShapeLVL
+WildEmpathy				>	WildEmpathyBonus
+WildEmpathyMagicalBeast		>	WildEmpathyMagicalBeastBonus
+DruidWildShape			>	DruidWildShapeLVL
+UncannyDodgeFlankingLevel	>	UncannyDodgeFlankingLVL
+
+#  Barbarian Rage variables, for stacking with other classes in any which way...  - Tir Gwaith
+#	BarbarianRageTimesLVL	For if a class stacks its levels with levels of Barbarian for Rages / day
+#	BarbarianRagePowerLVL	For if a class stacks its levels with levels of Barbarian for Mighty Rage, Greater Rage, etc.
+#	RageTimes			For if a class has it's own Rage / day progression.  This is a straight 'Rage / day' variable.
+#	RageDuration		For if a class has it's onw Rage duration. This is a straight 'Number of rounds' variable.

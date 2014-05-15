@@ -1,0 +1,67 @@
+# CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:Dungeons & Dragons Revised (v.3.5) System Reference Document
+KEY:RSRD
+RANK:1
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:RSRD
+TYPE:Wizards of the Coast.RSRD.Complete
+#!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD]
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCEDATE:2003-07
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2007, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerstrom, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky, Frank Kliewe)
+COPYRIGHT:PCGen dataset conversion for the Revised System Reference Document Copyright 2014, PCGen Data team (Including, but not limited to Andrew Maitland (Legacyking), BahamutDragon)
+INFOTEXT:The Core Rules for the 3.5 revised edition
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+# Basics
+PCC:basics/_rsrd_basics.pcc
+
+# Epic
+PCC:basics/epic/_rsrd_epic.pcc
+
+# Divine
+PCC:divine/_rsrd_divine.pcc
+#PCC:@/35e/wizards_of_the_coast/srd35/divine/rsrd_divine.pcc
+
+# Monsters
+PCC:monsters/_rsrd_monsters.pcc
+
+# Psionics
+PCC:psionics/_rsrd_psionics.pcc
+
+
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource|SpecificSlingStone
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|AnimalTrickAttack|AnimalTrickCome|AnimalTrickDefend|AnimalTrickDown|AnimalTrickGuard|AnimalTrickHeel|AnimalTrickStay|AnimalTrickFetch|AnimalTrickPerform|AnimalTrickSeek|AnimalTrickTrack|AnimalTrickWork
+
+# Hide key stat types for skills
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Standard|None
+
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|PRESTAT:1,INT=2|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+
+#
+# End
+#

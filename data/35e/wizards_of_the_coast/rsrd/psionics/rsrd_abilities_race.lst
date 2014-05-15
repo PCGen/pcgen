@@ -1,0 +1,54 @@
+
+
+##Block: Internal Race Traits
+Race Traits ~ Astral Construct (1st Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (2nd Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (3rd Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (4th Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (5th Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (6th Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (7th Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (8th Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Astral Construct (9th Level)	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Aboleth (Psionic)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Mucus Cloud|Slime
+Race Traits ~ Blue	CATEGORY:Internal	
+Race Traits ~ Brain Mole	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Caller in Darkness	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Steal Essence|Unnatural Aura|Vulnerability To Sunlight
+Race Traits ~ Cerebrilith	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Poison|Resistance To Acid|Resistance To Cold|Resistance To Fire|Summon Demon|Telepathy
+Race Traits ~ Couatl (Psionic)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Constrict|Ethereal Jaunt|Flight Maneuverability|Improved Grab|Poison|Telepathy
+Race Traits ~ Crysmal	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Immunity To Fire|Resistance To Electricity
+Race Traits ~ Folugub	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Liquefy Crystal|Scent
+Race Traits ~ Gray Glutton	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Intellect Devourer	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Body Thief|Immunity To Fire|Resistance To Electricity|Vulnerability to Protection from Evil
+Race Traits ~ Neothelid	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Breath Weapon|Improved Grab|Swallow Whole
+Race Traits ~ Psicrystal (Artiste)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Bully)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Coward)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Friendly)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Hero)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Liar)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Meticulous)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Nimble)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Observant)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Poised)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Resolved)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Sage)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Single Minded)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Sneaky)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal (Sympathetic)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Psicrystal	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Psicrystal ~ Sighted
+Race Traits ~ Phthisic	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Mind Feed|Regeneration|Resistance To Cold|Scent
+Race Traits ~ Psion Killer	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Puppeteer	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Enthrall|Hide Mind|Host Protection|Telepathy
+Race Traits ~ Puppeteer (Flesh Harrower)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Telepathy
+Race Traits ~ Temporal Filcher	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Improved Grab|Time Filch
+Race Traits ~ Thought Eater	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Eat Thoughts|Ethereal Jaunt
+Race Traits ~ Thought Slayer	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Ethereal Jaunt|Mind Consuming Gaze
+Race Traits ~ Udoroot	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Double Manifest|Immunity To Electricity|Resistance To Cold|Resistance To Fire
+Race Traits ~ Unbodied	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Assume Likeness|Flight Maneuverability|Hide Mind|Telekinetic Force|Telepathy
+Race Traits ~ Dromite	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Compound Eyes|Naturally Psionic|Scent
+Race Traits ~ Duergar	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Dodge Giant|Dwarf Appraise|Dwarf Attacks|Dwarf Craft|Dwarf Spell Resistance|Immunity to Paralysis|Immunity To Phantasms|Immunity To Poison|Light Sensitivity|Naturally Psionic|Stability|Stonecunning
+Race Traits ~ Elan	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Naturally Psionic|Repletion|Resilience|Resistance
+Race Traits ~ Half-Giant	CATEGORY:Internal	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Race Traits ~ Maenad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Naturally Psionic|Outburst
+Race Traits ~ Xeph	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Burst ~ Xeph|Naturally Psionic|Xeph Power Resistance
