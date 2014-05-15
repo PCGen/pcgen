@@ -1575,10 +1575,10 @@ ABILITY:Special Ability|Saddleborn ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Saddleb
 ABILITY:Special Ability|Skinny ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Skinny				
 ABILITY:Special Ability|Slippery ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Slippery				
 ABILITY:Special Ability|Slow ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Slow						
-ABILITY:Special Ability|Specialized ~ Craft ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Craft)		
-ABILITY:Special Ability|Specialized ~ Knowledge ~ TraitMAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Knowledge)			
-ABILITY:Special Ability|Specialized ~ Profession ~ TraitMAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Profession)	
-ABILITY:Special Ability|Spellgifted ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Spellgifted					
+ABILITY:Special Ability|Specialized ~ Craft ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Craft)		
+ABILITY:Special Ability|Specialized ~ Knowledge ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Knowledge)			
+ABILITY:Special Ability|Specialized ~ Profession ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Profession)	
+ABILITY:Special Ability|Spellgifted ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Spellgifted					
 ABILITY:Special Ability|Stout ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Stout						
 ABILITY:Special Ability|Suspicious ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Suspicious					
 ABILITY:Special Ability|Torpid ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Torpid				
