@@ -8,7 +8,7 @@ CLASS:Cavalryman	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BAS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalryman	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Intimidate|Knowledge (Nobility and Royalty)|Ride
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 
