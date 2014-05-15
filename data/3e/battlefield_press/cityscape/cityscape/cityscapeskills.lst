@@ -77,3 +77,9 @@ Savoir Faire				KEYSTAT:CHA											TYPE:Charisma										SOURCEPAGE:p.
 Seduction					KEYSTAT:CHA											TYPE:Charisma										SOURCEPAGE:p.
 Scent/Taste					KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution										SOURCEPAGE:p.
 Weird Science!				KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence										SOURCEPAGE:Errata
+
+
+###Block - RSRD
+Sleight of Hand					KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Standard.Base.Sleight of Hand								SOURCEPAGE:SkillsII.rtf
+Survival						KEYSTAT:WIS								TYPE:Wisdom.Standard.Base.Survival									SOURCEPAGE:SkillsII.rtf								BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
+

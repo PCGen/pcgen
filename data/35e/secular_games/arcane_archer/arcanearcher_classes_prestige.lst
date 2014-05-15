@@ -37,14 +37,14 @@ CLASS:Blizzard Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silentl
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	BONUS:VAR|ArrowEnhancement|(CL+3)/4						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
-2												ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-3												ABILITY:Special Ability|AUTOMATIC|Frost Arrow
-4												ABILITY:Special Ability|AUTOMATIC|Winter Wolf Bite
-6												ABILITY:Special Ability|AUTOMATIC|Freezing Arrow
-7												ABILITY:Special Ability|AUTOMATIC|Icy Burst Arrow
-8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
-10												ABILITY:Special Ability|AUTOMATIC|Arrow of Death
+1	BONUS:VAR|ArrowEnhancement|(CL+3)/4						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow ~ Blizzard Archer
+2												ABILITY:Special Ability|AUTOMATIC|Imbue Arrow ~ Blizzard Archer
+3												ABILITY:Special Ability|AUTOMATIC|Frost Arrow ~ Blizzard Archer
+4												ABILITY:Special Ability|AUTOMATIC|Winter Wolf Bite ~ Blizzard Archer
+6												ABILITY:Special Ability|AUTOMATIC|Freezing Arrow ~ Blizzard Archer
+7												ABILITY:Special Ability|AUTOMATIC|Icy Burst Arrow ~ Blizzard Archer
+8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows ~ Blizzard Archer
+10												ABILITY:Special Ability|AUTOMATIC|Arrow of Death ~ Blizzard Archer
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Deepwood Guardian	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -57,12 +57,12 @@ CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silen
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
-1	BONUS:VAR|ArrowEnhancement|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
-2							ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-4							ABILITY:Special Ability|AUTOMATIC|True Strike		SPELLS:Class|TIMES=1|True Strike
-6							ABILITY:Special Ability|AUTOMATIC|Arrow of Sleep
-8							ABILITY:Special Ability|AUTOMATIC|Arrow of Slow
-10							ABILITY:Special Ability|AUTOMATIC|Arrow of Death
+1	BONUS:VAR|ArrowEnhancement|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Enhance Arrow ~ Deepwood Guardian
+2							ABILITY:Special Ability|AUTOMATIC|Imbue Arrow ~ Deepwood Guardian
+4							ABILITY:Special Ability|AUTOMATIC|True Strike ~ Deepwood Guardian		SPELLS:Class|TIMES=1|True Strike
+6							ABILITY:Special Ability|AUTOMATIC|Arrow of Sleep ~ Deepwood Guardian
+8							ABILITY:Special Ability|AUTOMATIC|Arrow of Slow ~ Deepwood Guardian
+10							ABILITY:Special Ability|AUTOMATIC|Arrow of Death ~ Deepwood Guardian
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Divine Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL

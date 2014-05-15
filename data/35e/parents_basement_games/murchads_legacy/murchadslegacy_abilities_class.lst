@@ -161,3 +161,19 @@ Summon Shadow Beast	CATEGORY:Special Ability	TYPE:SpecialQuality.Special	DEFINE:
 #
 # End
 #
+
+Enhance Arrow	KEY:Enhance Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Imbue Arrow		KEY:Imbue Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Frost Arrow		KEY:Frost Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Winter Wolf Bite	KEY:Winter Wolf Bite ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Freezing Arrow	KEY:Freezing Arrow ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Icy Burst Arrow	KEY:Icy Burst Arrow ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Hail of Arrows	KEY:Hail of Arrows ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Death	KEY:Arrow of Death ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+
+Enhance Arrow	KEY:Enhance Arrow	 ~ Deepwood Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality
+Imbue Arrow		KEY:Imbue Arrow ~ Deepwood Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
+True Strike		KEY:True Strike ~ Deepwood Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Sleep	KEY:Arrow of Sleep ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Slow	KEY:Arrow of Slow ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Death	KEY:Arrow of Death ~ Deepwood Guardian	v
