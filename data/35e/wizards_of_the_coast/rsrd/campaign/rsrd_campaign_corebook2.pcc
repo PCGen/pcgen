@@ -31,7 +31,7 @@ ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_class.lst
 ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities_race.lst
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilitycategories.lst
 
-CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes_base.lst
+CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes.lst
 #CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal|Animal (Will)|Magical Beast|Sorcerer/Cleric (Arcane))
 COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_companionmods.lst
 DEITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_deities.lst
