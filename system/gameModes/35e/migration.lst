@@ -1546,40 +1546,41 @@ ABILITY:Special Ability|Slow ~ Flaw				MAXVER:6.4.00	NEWKEY:Flaw ~ Slow
 ABILITY:Special Ability|Unreactive ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Unreactive		
 ABILITY:Special Ability|Vulnerable ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Vulnerable		
 ABILITY:Special Ability|Weak Will ~ Flaw			MAXVER:6.4.00	NEWKEY:Flaw ~ Weak Will		
-Abrasive ~ Trait				
-Absent-Minded ~ Trait			
-Aggressive ~ Trait				
-Brawler ~ Trait				
-Cautious ~ Trait				
-Detached ~ Trait				
-Dishonest ~ Trait				
-Distinctive ~ Trait				
-Easygoing ~ Trait				
-Farsighted ~ Trait				
-Focused ~ Trait				
-Hard of Hearing ~ Trait			
-Hardy ~ Trait					
-Honest ~ Trait				
-Illiterate ~ Trait				
-Inattentive ~ Trait				
-Musclebound ~ Trait				
-Nearsighted ~ Trait				
-Nightsighted ~ Trait			
-Passionate ~ Trait				
-Plucky ~ Trait				
-Polite ~ Trait				
-Quick ~ Trait					
-Reckless ~ Trait				
-Relentless ~ Trait				
-Saddleborn ~ Trait				
-Skinny ~ Trait				
-Slippery ~ Trait				
-Slow ~ Trait					
-Specialized ~ Craft ~ Trait		
-Specialized ~ Knowledge ~ Trait		
-Specialized ~ Profession ~ Trait	
-Spellgifted ~ Trait				
-Stout ~ Trait					
-Suspicious ~ Trait				
-Torpid ~ Trait				
-Uncivilized ~ Trait				
+ABILITY:Special Ability|Abrasive ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Abrasive				
+ABILITY:Special Ability|Absent-Minded ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Absent-Minded			
+ABILITY:Special Ability|Aggressive ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Aggressive					
+ABILITY:Special Ability|Brawler ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Brawler				
+ABILITY:Special Ability|Cautious ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Cautious				
+ABILITY:Special Ability|Detached ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Detached				
+ABILITY:Special Ability|Dishonest ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Dishonest				
+ABILITY:Special Ability|Distinctive ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Distinctive					
+ABILITY:Special Ability|Easygoing ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Easygoing				
+ABILITY:Special Ability|Farsighted ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Farsighted					
+ABILITY:Special Ability|Focused ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Focused				
+ABILITY:Special Ability|Hard of Hearing ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Hard of Hearing			
+ABILITY:Special Ability|Hardy ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Hardy						
+ABILITY:Special Ability|Honest ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Honest				
+ABILITY:Special Ability|Illiterate ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Illiterate					
+ABILITY:Special Ability|Inattentive ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Inattentive					
+ABILITY:Special Ability|Musclebound ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Musclebound					
+ABILITY:Special Ability|Nearsighted ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Nearsighted					
+ABILITY:Special Ability|Nightsighted ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Nightsighted			
+ABILITY:Special Ability|Passionate ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Passionate					
+ABILITY:Special Ability|Plucky ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Plucky				
+ABILITY:Special Ability|Polite ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Polite				
+ABILITY:Special Ability|Quick ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Quick						
+ABILITY:Special Ability|Reckless ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Reckless				
+ABILITY:Special Ability|Relentless ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Relentless					
+ABILITY:Special Ability|Saddleborn ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Saddleborn					
+ABILITY:Special Ability|Skinny ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Skinny				
+ABILITY:Special Ability|Slippery ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Slippery				
+ABILITY:Special Ability|Slow ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Slow						
+ABILITY:Special Ability|Specialized ~ Craft ~ Trait	MAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Craft)		
+ABILITY:Special Ability|Specialized ~ Knowledge ~ TraitMAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Knowledge)			
+ABILITY:Special Ability|Specialized ~ Profession ~ TraitMAXVER:6.4.00	NEWKEY:Trait ~ Specialized (Profession)	
+ABILITY:Special Ability|Spellgifted ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Spellgifted					
+ABILITY:Special Ability|Stout ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Stout						
+ABILITY:Special Ability|Suspicious ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Suspicious					
+ABILITY:Special Ability|Torpid ~ Trait			MAXVER:6.4.00	NEWKEY:Trait ~ Torpid				
+ABILITY:Special Ability|Uncivilized ~ Trait		MAXVER:6.4.00	NEWKEY:Trait ~ Uncivilized					
+ABILITY:Special Ability|
