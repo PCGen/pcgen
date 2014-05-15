@@ -10,6 +10,7 @@ Knowledge (Outsider Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Know
 ###COMMENT: Referenced by Class Requirements
 #Craft (Trapmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.49
 Knowledge (Traps)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.58
+Knowledge (Demon Lore)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 Profession (Doctor)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.56
 Profession (Trapmaker)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.49
 

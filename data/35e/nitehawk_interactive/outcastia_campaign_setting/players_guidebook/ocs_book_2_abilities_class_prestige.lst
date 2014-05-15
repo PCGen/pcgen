@@ -216,10 +216,10 @@ Weapon of Disruption	KEY:Weapon of Disruption ~ Knight of Manunzul	CATEGORY:Spec
 
 
 ###Block:# ~ Living Compass
-#Zenith Fighting Style (Ex): The living compass gains one of the following bonus feats: Blind Fight, Cleave, Combat Reflexes, Dodge, Great Cleave, Improved Disarm, Improved Sunder, Mobility, Power Attack, Spring Attack, and Whirlwind Attack. He must have the required prerequisites for all feats gained by this ability.
+#Zenith Fighting Style (Ex): The living compass gains one of the following bonus feats: Blind-Fight, Cleave, Combat Reflexes, Dodge, Great Cleave, Improved Disarm, Improved Sunder, Mobility, Power Attack, Spring Attack, and Whirlwind Attack. He must have the required prerequisites for all feats gained by this ability.
 # Ability Name			Unique Key								Category of Ability		Type						Automatically Gained Feat	Source Page
 Lifeforce Awareness		KEY:Lifeforce Awareness ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
-Lifeforce Senses			KEY:Lifeforce Senses ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	AUTO:FEAT|Blind Fight		SOURCEPAGE:p.118
+Lifeforce Senses			KEY:Lifeforce Senses ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	AUTO:FEAT|Blind-Fight		SOURCEPAGE:p.118
 Enhanced Lifeforce		KEY:Enhanced Lifeforce ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
 Death Touch Resistance		KEY:Death Touch Resistance ~ Living Compass		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
 Aura of Darkness Resistance	KEY:Aura Of Darkness Resistance ~ Living Compass	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118

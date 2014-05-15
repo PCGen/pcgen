@@ -119,3 +119,6 @@ Consume Magic				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					S
 Magic Aura					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.22
 See in Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES	SOURCEPAGE:p.66
 Telepathy		KEY:Telepathy ~Su	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES	SOURCEPAGE:p.28
+
+#
+Canny Defense ~ Pallemon		CATEGORY:Special Ability	TYPE:SpecialQuality

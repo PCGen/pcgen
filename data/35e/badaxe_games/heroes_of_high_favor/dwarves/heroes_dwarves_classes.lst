@@ -26,19 +26,19 @@ CLASS:Dwarven Skald	HD:6		TYPE:PC.Prestige	ABB:DSkald		MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Req. Att.	Required Skill										Required Text
 CLASS:Dwarven Skald	PREATT:5	PRESKILL:3,Decipher Script=4,Gather Information=4,Knowledge (Dwarves)=6	PRETEXT:1,Perform (Chant)=3,Perform (Epic)=3,Perform (Storytelling)=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dwarven Skald	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Sense Motive|Speak Language|Spellcraft|Swim|Use Magic Device
+CLASS:Dwarven Skald	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|Survival|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Sense Motive|Speak Language|Spellcraft|Swim|Use Magic Device
 ###Block: Weapon & Armor Profs
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
-1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
-1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bardic Music
+1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge
+1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL					ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Music
 ###Block: Bardic Music Abilities by level
-1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
-1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9
+#1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bard ~ Bardic Inspire Courage|PREVARGTEQ:BardicMusicLvl,1
+#1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PREVARGTEQ:BardicMusicLvl,3
+#1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PREVARGTEQ:BardicMusicLvl,6
+#1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PREVARGTEQ:BardicMusicLvl,9
 1	ABILITY:Special Ability|AUTOMATIC|Bardic Study
 2	ABILITY:Special Ability|AUTOMATIC|Invoke Curse
 5	ABILITY:Special Ability|AUTOMATIC|Captivate
@@ -81,7 +81,7 @@ CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:p.3
 # Class Name	Required Feat		Required Language	Required Skill							Req. Spell Type
 CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Animal Empathy=8,Scry=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Survival|Knowledge (Nature)|Scry|Spellcraft|Swim|Wilderness Lore
 1											ADD:SPELLCASTER|Druid	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 2											ADD:SPELLCASTER|Druid
 2					BONUS:VAR|RockWardenWildShape|CL/2					ABILITY:Special Ability|AUTOMATIC|Rock-Warden Wild Shape
@@ -102,24 +102,24 @@ CLASS:Stoneheart Ascetic	HD:8		TYPE:PC.Prestige	ABB:StoneA		MAXLEVEL:10	SOURCEPA
 # Class Name			Required Check Base		Required Feat													Required Skill					Required Text
 CLASS:Stoneheart Ascetic	PRECHECKBASE:1,Fortitude=6	PREFEAT:4,Endurance,Improved Unarmed Strike,Stunning Fist,Weapon Focus (Unarmed Strike)	PRESKILL:2,Concentration=6,Sense Motive=4	PRETEXT:Base unarmed damage 1d8
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Intuit Direction|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|Sense Motive|Spot
+CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Survival|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|Sense Motive|Spot
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Monk Weapon Proficiencies
 ###Block: UDAM Progression
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Special Abilities
-1	BONUS:VAR|MonkStunningLVL|CL					ABILITY:Special Ability|VIRTUAL|Stunning Attack
+1	BONUS:VAR|MonkStunningLVL|CL					ABILITY:Special Ability|VIRTUAL|Monk Bonus Feat ~ Stunning Fist
 1	BONUS:VAR|WholenessHpLVL|CL	DEFINE:WholenessHpLVL|0
-1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|VIRTUAL|Monk AC
+1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|VIRTUAL|Monk ~ AC Bonus
 ###Block: Level abilities
 1					BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
-2																			ABILITY:Special Ability|AUTOMATIC|Purity of Body|Still Mind
-3																			ABILITY:Special Ability|AUTOMATIC|Stone Step|Wholeness of Body
+2																			ABILITY:Special Ability|AUTOMATIC|Monk ~ Purity of Body|Monk ~ Still Mind
+3																			ABILITY:Special Ability|AUTOMATIC|Stone Step|Monk ~ Wholeness of Body
 4	VISION:Tremorsense (5')	BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1	BONUS:VISION|Tremorsense|(CL-1)*5
 5																			ABILITY:Special Ability|AUTOMATIC|Stone Slumber
 6																			ABILITY:Special Ability|AUTOMATIC|Stone Heart
 7					BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1
 8																			ABILITY:Special Ability|AUTOMATIC|Stone Soul
-9																			ABILITY:Special Ability|AUTOMATIC|Timeless Body				TEMPLATE:Timeless Body
+9																			ABILITY:Special Ability|AUTOMATIC|Monk ~ Timeless Body				TEMPLATE:Timeless Body
 10					BONUS:ABILITYPOOL|Stoneheart Ascetic Feat|1							ABILITY:Special Ability|AUTOMATIC|Stone Body
 
 
@@ -129,7 +129,7 @@ CLASS:Paragon	HD:10		TYPE:PC.Prestige	ABB:Parag		MAXLEVEL:10	SOURCEPAGE:p.42	BON
 CLASS:Paragon	PREATT:5	PREFEAT:2,Sunder,Weapon Specialization	PRESA:1,Lay on Hands (Su)	PRESKILL:2,Craft (Armorsmithing)=8,Knowledge (Dwarves)=6	PRETEXT:Weapon Specialization must be deities favored weapon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Paragon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)
-1	BONUS:VAR|SmiteEvil|1	BONUS:VAR|LayOnHands|max(CHA,0)*CL					ABILITY:Special Ability|AUTOMATIC|Lay on Hands	ABILITY:Special Ability|AUTOMATIC|Smite Evil
+1	BONUS:VAR|SmiteEvil|1	BONUS:VAR|LayOnHands|max(CHA,0)*CL					ABILITY:Special Ability|AUTOMATIC|Paladin ~ Lay on Hands	ABILITY:Special Ability|AUTOMATIC|Smite Evil
 2											ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Forge Mastery
 3	BONUS:VAR|AncestralWeaponLvl|1									ABILITY:Special Ability|AUTOMATIC|Ancestral Weapon
 4	BONUS:VAR|SmiteEvil|1							ADD:SPELLCASTER|Divine
@@ -147,7 +147,7 @@ CLASS:Slayer ~ HoHFD	HD:10		TYPE:PC.Prestige	ABB:Slyr		MAXLEVEL:10	SOURCEPAGE:p.
 # Class Name		Req. Att.	Required Feat							Required Skill								Required Text
 CLASS:Slayer ~ HoHFD	PREATT:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Wilderness Lore=8	PRETEXT:Must have a favored enemy
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Wilderness Lore
+CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Survival|Jump|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 ### ADD:VFEAT(Slayer Favored ~ Cleave,Slayer Favored ~ Dodge,Slayer Favored ~ Expertise,Slayer Favored ~ Great Fortitude,Slayer Favored ~ Lightning Reflexes,Slayer Favored ~ Iron Will,Slayer Favored ~ Improved Charge,Slayer Favored ~ Point Blank Shot,Slayer Favored ~ Power Attack,Slayer Favored ~ Precise Shot,Slayer Favored ~ Improved Critical,Slayer Favored ~ Mobility,Slayer Favored ~ Great Cleave)1
 1	BONUS:ABILITYPOOL|Slayer Feat|1								BONUS:VAR|RangerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Favored Enemies
 2	BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Slayer Skill Mastery|1
@@ -164,9 +164,9 @@ CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Tunnel-Fighter	HD:6		TYPE:PC.Prestige	ABB:TunFgt		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat								Required Race				Required Skill
-CLASS:Tunnel-Fighter	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Intuit Direction=6,Move Silently=6,Spot=6,Tumble=6
+CLASS:Tunnel-Fighter	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
+CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Innuendo|Survival|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1						ABILITY:Special Ability|AUTOMATIC|Ambush Expert|Quick and Quiet
 2	BONUS:VAR|SneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Uncanny Dodge
 3	BONUS:VAR|TunnelFightWall|3	ABILITY:Special Ability|AUTOMATIC|Tunnel Fighting

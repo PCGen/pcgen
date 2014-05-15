@@ -170,7 +170,7 @@ SKILL:Spot				RANK:51
 SKILL:Survival			RANK:43
 SKILL:Use Magic Device		RANK:22
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting
 FEAT:Dodge
@@ -246,7 +246,7 @@ SKILL:Spellcraft			RANK:43
 SKILL:Spot				RANK:43
 SKILL:Survival			RANK:32
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting
 FEAT:Combat Reflexes

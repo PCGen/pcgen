@@ -70,7 +70,7 @@ ABILITYCATEGORY:Beast Lord Wild Shape Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITP
 ABILITYCATEGORY:Cerberus Agent Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Combat Expertise|Dodge|Improved Critical|Improved Feint|Improved Initiative|Negotiator|Persuasive|Stealthy|Track						DISPLAYLOCATION:Feats
 
 # Multiple Classes
-ABILITYCATEGORY:Zenith Fighting Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Blind Fight|Cleave|Combat Reflexes|Dodge|Great Cleave|Improved Disarm|Improved Sunder|Mobility|Power Attack|Spring Attack|Whirlwind Attack	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Zenith Fighting Style		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Blind-Fight|Cleave|Combat Reflexes|Dodge|Great Cleave|Improved Disarm|Improved Sunder|Mobility|Power Attack|Spring Attack|Whirlwind Attack	DISPLAYLOCATION:Feats
 
 # ~ Dragon Rider
 ABILITYCATEGORY:Dragon Rider Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT										ABILITYLIST:Improved Precise Shot|Manyshot|Precise Shot|Rapid Reload|Rapid Shot|Weapon Focus ~ Ranged										DISPLAYLOCATION:Feats

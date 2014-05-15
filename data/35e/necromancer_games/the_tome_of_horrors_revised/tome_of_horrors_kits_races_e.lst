@@ -122,7 +122,7 @@ SKILL:Listen			RANK:15
 SKILL:Search			RANK:15
 SKILL:Spot				RANK:15
 SKILL:Survival			RANK:11
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Hover
@@ -143,7 +143,7 @@ SKILL:Listen			RANK:10
 SKILL:Search			RANK:10
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:8
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Hover
@@ -163,7 +163,7 @@ SKILL:Listen			RANK:17
 SKILL:Search			RANK:15
 SKILL:Spot				RANK:17
 SKILL:Survival			RANK:16
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Hover
@@ -183,7 +183,7 @@ SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:12
 SKILL:Search		RANK:10
 SKILL:Spot			RANK:10
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Flyby Attack
 FEAT:Hover

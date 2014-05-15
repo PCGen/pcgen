@@ -7,7 +7,7 @@ Cypher Script		TYPE:General					PRESKILL:1,Decipher Script=4	PRESTAT:1,INT=12	DE
 Cypher Magic		TYPE:General	PREFEAT:1,Scribe Scroll						PRESTAT:1,INT=14	DESC:Your intimacy with runes and the mysteries of ancient arcana has taught you secrets to draw greater power from a variety of arcane writings.	SOURCEPAGE:p. 27
 
 # MODs
-Blind Fight.MOD		TYPE:Liberator
+Blind-Fight.MOD		TYPE:Liberator
 Iron Will.MOD		TYPE:Liberator
 Skill Focus.MOD		TYPE:Liberator
 

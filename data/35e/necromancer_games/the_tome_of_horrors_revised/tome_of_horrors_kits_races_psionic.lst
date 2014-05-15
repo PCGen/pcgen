@@ -62,7 +62,7 @@ SKILL:Concentration		RANK:7
 SKILL:Knowledge (Psionics)	RANK:9
 SKILL:Listen			RANK:7
 SKILL:Spot				RANK:7
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
@@ -80,7 +80,7 @@ SKILL:Knowledge (Psionics)	RANK:15
 SKILL:Listen			RANK:14
 SKILL:Spot				RANK:14
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
@@ -100,7 +100,7 @@ SKILL:Knowledge (Psionics)	RANK:25
 SKILL:Listen			RANK:20
 SKILL:Spot				RANK:20
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Manifestation
 FEAT:Combat Reflexes
 FEAT:Improved Initiative

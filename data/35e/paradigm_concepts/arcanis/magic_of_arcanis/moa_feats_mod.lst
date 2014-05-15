@@ -21,7 +21,7 @@ Silent Spell.MOD					TYPE:AdaptableMagic
 Still Spell.MOD					TYPE:AdaptableMagic
 
 #Warder
-Blind Fight.MOD					TYPE:WarderFeat
+Blind-Fight.MOD					TYPE:WarderFeat
 Combat Reflexes.MOD				TYPE:WarderFeat
 Combat Casting.MOD				TYPE:WarderFeat
 Dodge.MOD						TYPE:WarderFeat

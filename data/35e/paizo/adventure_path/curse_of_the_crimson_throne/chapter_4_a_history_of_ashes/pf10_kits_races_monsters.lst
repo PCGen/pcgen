@@ -30,7 +30,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Spot	RANK:35
 FEAT:Alertness
 FEAT:Awesome Blow
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Great Cleave

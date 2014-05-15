@@ -165,7 +165,9 @@ Abyssal Smiting		KEY:Abyssal Smiting_1st	CATEGORY:Special Ability	TYPE:SpecialQu
 Abyssal Smiting_2nd					CATEGORY:Special Ability							VISIBLE:NO											BONUS:VAR|AbyssalSmitingLevel|1
 Abyssal Smiting_3rd					CATEGORY:Special Ability							VISIBLE:NO											BONUS:VAR|AbyssalSmitingLevel|1
 
+###Block: Monster Races
 
+Camouflage	KEY:Camouflage ~ Fleshcutter Ant	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #
 ## EOF

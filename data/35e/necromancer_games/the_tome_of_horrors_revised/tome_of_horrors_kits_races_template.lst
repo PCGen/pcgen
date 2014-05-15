@@ -122,7 +122,7 @@ ABILITY:CATEGORY=Fighter Feat|Weapon Specialization (Sword (Bastard/Martial))
 FEAT:Track
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Great Cleave
-FEAT:Blind Fight
+FEAT:Blind-Fight
 ABILITY:CATEGORY=Fighter Feat|Quick Draw
 FEAT:Improved Initiative
 ABILITY:CATEGORY=Fighter Feat|Improved Sunder

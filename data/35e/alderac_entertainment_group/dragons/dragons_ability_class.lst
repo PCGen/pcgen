@@ -56,3 +56,4 @@ Immune to dragon fear	KEY:Immune to dragon fear ~ Wyrm Spawn	CATEGORY:Special Ab
 Innate Magic		KEY:Innate Magic ~ Wyrm Spawn			CATEGORY:Special Ability
 Draconic Hide		KEY:Draconic Hide ~ Wyrm Spawn		CATEGORY:Special Ability	DESC: +4
 Longevity			KEY:Longevity ~ Wyrm Spawn			CATEGORY:Special Ability
+Scent				KEY:Scent ~ Wyrm Spawn		CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Scent

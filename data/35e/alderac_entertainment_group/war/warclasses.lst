@@ -6,7 +6,7 @@ CLASS:Beast Handler	HD:10		TYPE:PC.Prestige	ABB:BHd		MAXLEVEL:10	SOURCEPAGE:p.48
 # Class Name		Req. Att.	Required Feat										Required Skill
 CLASS:Beast Handler	PREATT:4	PREFEAT:2,Exotic Weapon Proficiency (Whip),Skill Focus (Handle Animal)	PRESKILL:1,Handle Animal=8
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
+CLASS:Beast Handler	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Beast Handler	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Beast Handler|CL
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -55,7 +55,7 @@ CLASS:Elf Treerunner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Hide|Int
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1									DEFINE:ElfTreerunnerLvl|CL	ABILITY:Special Ability|AUTOMATIC|Treewalking ~ Elf Treerunner|PREVARLT:ElfTreerunnerLvl,3
-2														ABILITY:Special Ability|AUTOMATIC|Trackless Step
+2														ABILITY:Special Ability|AUTOMATIC|Ranger ~ Trackless Step
 3														ABILITY:Special Ability|AUTOMATIC|Treewalking (Su) ~ Elf Treerunner|PREVARGTEQ:ElfTreerunnerLvl,3
 4					BONUS:VAR|SpeakPlants|3	DEFINE:SpeakPlants|WIS		ABILITY:Special Ability|AUTOMATIC|Speak with Plants ~ Elf Treerunner
 5														ABILITY:Special Ability|AUTOMATIC|Arboreal Ally ~ Elf Treerunner

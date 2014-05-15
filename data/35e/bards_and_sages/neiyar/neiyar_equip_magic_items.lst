@@ -94,7 +94,7 @@ Doldanda's Shell Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Scale Mail							T
 ###Block: Appendix Items pg 139 - 143:
 # Equipment Name			Product Identity?	Output Name					Required Weapon Proficiency			Required Shield Proficiency		Type															Alternative Type				Contains		Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier	Wield Category	Range		Reach		Size		Source Page		% of Spell Failure	Combat bonus																			Bonus to skill
 Amphikin Trapbuilder's Kit	NAMEISPI:YES																				TYPE:Goods																							COST:100																																										SOURCEPAGE:p.139
-Ankle Braces																									TYPE:Goods.Boot																						COST:1			SLOTS:0																																						SOURCEPAGE:p.139																										BONUS:SKILL|Balance,Jump,Tumble,Perform (Dancing)|1|TYPE=Circumstantial
+Ankle Braces																									TYPE:Goods.Boot																						COST:1			SLOTS:0																																						SOURCEPAGE:p.139																										BONUS:SKILL|Balance,Jump,Tumble,Perform (Dance)|1|TYPE=Circumstantial
 Auronne Flute			NAMEISPI:YES							PROFICIENCY:WEAPON|Auronne Flute								TYPE:Goods.Tools.Instrument.Wind.Resizable.Weapon.Melee.Simple.Bashing				ALTTYPE:Weapon.Ranged.Piercing				COST:300								CRITMULT:x2			CRITRANGE:2			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d3		EQMOD:STEEL	WIELD:Light		RANGE:20					SOURCEPAGE:p.139
 Auronne Tambourine		NAMEISPI:YES							PROFICIENCY:WEAPON|Auronne Tambourine							TYPE:Goods.Tools.Instrument.Percussion.Resizable.Weapon.Melee.Exotic.Slashing												COST:150								CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:STEEL	WIELD:Light								SOURCEPAGE:p.140
 Bicycle																										TYPE:Goods																							COST:10	WT:20																																									SOURCEPAGE:p.140
@@ -124,7 +124,7 @@ Rubber Chew Toy																									TYPE:Goods																							COST:0.
 Rubber Soled Boots					OUTPUTNAME:Rubber-soled Boots															TYPE:Goods																							COST:5	WT:0																																									SOURCEPAGE:p.142
 Sleeper Bat Venom																									TYPE:Goods.Poison																						COST:200	WT:0																																									SOURCEPAGE:p.142
 Trick Sword													PROFICIENCY:WEAPON|Sword (Short)								TYPE:Weapon.Melee.Finesseable.Martial.Standard.Piercing.Sword														COST:25	WT:0							CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL	WIELD:Light						SIZE:M	SOURCEPAGE:p.143
-Wrist Wraps																										TYPE:Goods.Glove																						COST:0.20	WT:0		SLOTS:0																																						SOURCEPAGE:p.143																										BONUS:SKILL|Climb,TYPE.Craft,Disable Device,Open Lock,Rope Use|1|TYPE=Circumstance
+Wrist Wraps																										TYPE:Goods.Glove																						COST:0.20	WT:0		SLOTS:0																																						SOURCEPAGE:p.143																										BONUS:SKILL|Climb,TYPE.Craft,Disable Device,Open Lock,Use Rope|1|TYPE=Circumstance
 
 #
 ## EOF

@@ -24,4 +24,4 @@ Combat Sense	KEY:Combat Sense ~ Honor Guard	CATEGORY:Special Ability	TYPE:Specia
 ###Block: Questing Knight abilties
 # Feat Name		Type			Visible	Define			Bonus to skill
 # Ability Name	Unique Key						Category of Ability		Type				Define			Bonus to skill
-Knowledge Local	KEY:Knowledge Local ~ Questing Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:KnowledgeLocal|0	BONUS:SKILL|Knolwedge (Local)|KnowledgeLocal
+Knowledge Local	KEY:Knowledge Local ~ Questing Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:KnowledgeLocal|0	BONUS:SKILL|Knowledge (Local)|KnowledgeLocal

@@ -153,7 +153,7 @@ SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:3
 SKILL:Swim			RANK:6
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Weapon Focus (Bite)
 
 ###Block: Bloodfrog-------------------------------
@@ -277,7 +277,7 @@ SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
 SKILL:Survival		RANK:10
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Great Fortitude
 FEAT:Improved Initiative
 FEAT:Iron Will
@@ -352,7 +352,7 @@ SKILL:Listen	RANK:23
 SKILL:Search	RANK:20
 SKILL:Spot		RANK:23
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Combat Expertise

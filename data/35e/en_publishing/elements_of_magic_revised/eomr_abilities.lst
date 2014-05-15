@@ -12,7 +12,7 @@ Magic Points ~ Total	OUTPUTNAME:Total Magic Points	CATEGORY:Special Ability	TYPE
 
 ###Block: Skill Mastery
 # Ability Name						Type
-CATEGORY=Special Ability|Skill Mastery.MOD	TYPE:TaskmageSkillMastery
+CATEGORY=Special Ability|Rogue Special Ability ~ Skill Mastery.MOD	TYPE:TaskmageSkillMastery
 
 ###Block: Boons ---------------------------------------------------------------------------
 #Block: Minor Boons

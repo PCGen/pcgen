@@ -77,7 +77,7 @@ SKILL:TYPE.Knowledge	RANK:6	COUNT:2
 SKILL:Listen		RANK:12
 SKILL:Sense Motive	RANK:12
 SKILL:Spot			RANK:12
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Finesse

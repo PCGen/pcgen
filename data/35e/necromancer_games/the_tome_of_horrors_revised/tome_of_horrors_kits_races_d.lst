@@ -18,7 +18,7 @@ SKILL:Search			RANK:12
 SKILL:Sense Motive		RANK:15
 SKILL:Spot				RANK:15
 SKILL:Survival			RANK:13
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Power Attack
@@ -50,7 +50,7 @@ SKILL:Spellcraft			RANK:8
 SKILL:Spot				RANK:20
 SKILL:Survival			RANK:15
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Improved Critical (Quarterstaff)
 FEAT:Improved Initiative
@@ -144,7 +144,7 @@ SKILL:Spellcraft			RANK:52
 SKILL:Spot				RANK:40
 SKILL:Survival			RANK:43
 SKILL:Use Magic Device		RANK:11
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Craft Staff
@@ -235,7 +235,7 @@ SKILL:Intimidate	RANK:11
 SKILL:Listen	RANK:11
 SKILL:Search	RANK:11
 SKILL:Spot		RANK:11
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 
@@ -384,7 +384,7 @@ SKILL:Move Silently		RANK:12
 SKILL:Search			RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Spot				RANK:12
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Power Attack
 FEAT:Weapon Focus (Longsword)
@@ -420,7 +420,7 @@ SKILL:Climb		RANK:1
 SKILL:Hide		RANK:1
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Blind Fight
+FEAT:Blind-Fight
 
 STARTPACK:Disenchanter Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Disenchanter]
 ALIGN:TN
@@ -444,7 +444,7 @@ SKILL:Move Silently	RANK:8
 SKILL:Search		RANK:8
 SKILL:Spot			RANK:8
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Multiattack
 FEAT:Power Attack
 
@@ -711,7 +711,7 @@ SKILL:Search			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Spot				RANK:8
 SKILL:Survival			RANK:8
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Improved Initiative
 
 STARTPACK:Dust Digger Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]

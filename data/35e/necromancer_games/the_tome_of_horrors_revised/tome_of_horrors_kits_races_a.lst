@@ -143,7 +143,7 @@ SKILL:Survival			RANK:13
 SKILL:Tumble			RANK:15
 FEAT:Acrobatic
 FEAT:Agile
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
@@ -168,7 +168,7 @@ SKILL:Spot				RANK:18
 SKILL:Survival			RANK:12
 SKILL:Swim				RANK:18
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Improved Initiative
 FEAT:Weapon Finesse
@@ -192,7 +192,7 @@ SKILL:Search		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Survival		RANK:6
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Improved Initiative
 
 STARTPACK:Archer Bush Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archer Bush]

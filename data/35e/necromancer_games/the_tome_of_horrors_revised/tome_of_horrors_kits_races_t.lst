@@ -104,7 +104,7 @@ SKILL:Listen		RANK:15
 SKILL:Move Silently	RANK:15
 SKILL:Spot			RANK:15
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Improved Initiative
 FEAT:Skill Focus (Hide)
 FEAT:Toughness

@@ -9,7 +9,7 @@ Animal Affinity.MOD		TYPE:Noble.Yeoman
 Athletic.MOD			TYPE:Knave.Noble.Yeoman
 Barroom Brawler.MOD		TYPE:Yeoman
 Blade Ballet.MOD			TYPE:Knave
-Blind Fight.MOD			TYPE:Knave.ManAtArms
+Blind-Fight.MOD			TYPE:Knave.ManAtArms
 Bow Mastery (Bow).MOD		TYPE:Knave.ManAtArms
 Bow Mastery (Crossbow).MOD	TYPE:Knave.ManAtArms
 Cleave.MOD				TYPE:ManAtArms.Yeoman

@@ -164,7 +164,7 @@ CLASS:Chosen of Roarth	STARTSKILLPTS:4	CSKILL:Concentration|Climb|Handle Animal|
 3	ADD:SPELLCASTER|Divine
 5	ADD:SPELLCASTER|Divine
 ###Block: Special Abilities:
-1								ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+1								ABILITY:Special Ability|AUTOMATIC|Druid ~ Venom Immunity
 2								ABILITY:Special Ability|AUTOMATIC|Speak with Animals ~ Chosen of Roarth
 4	BONUS:VAR|WSTimes|1	DEFINE:WSTimes|0	ABILITY:Special Ability|AUTOMATIC|Wild Shape ~ Chosen of Roarth
 6	BONUS:VAR|WSTimes|1
@@ -269,7 +269,7 @@ CLASS:Wild Walker	PREALIGN:CG,CN,CE	PREATT:6	PREDEITY:1,Sophia Kalla	PRERACE:1,N
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wild Walker	STARTSKILLPTS:2	CSKILL:Climb|Hide|Knowledge (Nature)|Knowledge (Geography)|Move Silently|Ride|Swim|Survival|Use Rope
 ###Block: Special Abilities:
-1						ABILITY:Special Ability|AUTOMATIC|Woodland Stride
+1						ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
 2						ABILITY:Special Ability|AUTOMATIC|Charm Monster
 3	BONUS:MOVEADD|TYPE.Walk|10	ABILITY:Special Ability|AUTOMATIC|Fast Movement
 4						ABILITY:Special Ability|AUTOMATIC|Summon Monster

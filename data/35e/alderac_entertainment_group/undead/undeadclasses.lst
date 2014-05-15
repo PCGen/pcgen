@@ -57,7 +57,7 @@ CLASS:The Dying	STARTSKILLPTS:2
 4							BONUS:ABILITYPOOL|The Undying Feat|1										BONUS:STAT|DEX|-1	ABILITY:Special Ability|AUTOMATIC|Tireless ~ The Dying
 5														BONUS:HP|CURRENTMAX|-10									ABILITY:Special Ability|AUTOMATIC|Improved Turn Undead ~ The Dying
 6							BONUS:ABILITYPOOL|The Undying Feat|1													ABILITY:Special Ability|AUTOMATIC|Doom ~ The Dying ~ The Dying|Incurable ~ The Dying|Protection from Evil ~ The Dying|Regeneration ~ The Dying
-7																										ABILITY:Special Ability|AUTOMATIC|Radiate Evil ~ The Dying|Unearthly Courage
+7																										ABILITY:Special Ability|AUTOMATIC|Radiate Evil ~ The Dying|Unearthly Courage ~ The Dying
 8							BONUS:ABILITYPOOL|The Undying Feat|1					BONUS:MOVEADD|TYPE=Walk|-10
 9	VISION:Darkvision (60')	DR:15/+2																				ABILITY:Special Ability|AUTOMATIC|Blindness ~ The Dying
 10																										ABILITY:Special Ability|AUTOMATIC|Death ~ The Dying

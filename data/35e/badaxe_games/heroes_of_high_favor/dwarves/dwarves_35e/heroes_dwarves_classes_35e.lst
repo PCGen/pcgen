@@ -13,7 +13,7 @@ CLASS:Rune-Priest.MOD	CSKILL:.CLEAR.Scry
 
 
 # Class Name				Required Feat		Required Language	Required Skill		Req. Spell Type
-CLASS:Rock-Warden.MOD PRE:.CLEAR	PREFEAT:1,Blind Fight	PRELANG:1,Terran	PRESKILL:1,Survival=8	PRESPELLTYPE:1,Divine=2
+CLASS:Rock-Warden.MOD PRE:.CLEAR	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:1,Survival=8	PRESPELLTYPE:1,Divine=2
 # Class Name		Remove Class Skill																	Class Skill
 CLASS:Rock-Warden.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Scry	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
 

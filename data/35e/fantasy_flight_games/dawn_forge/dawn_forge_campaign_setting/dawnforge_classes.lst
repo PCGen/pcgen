@@ -53,12 +53,12 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal level progression
-1	CAST:3,1																																						BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|AnimalCompanionLVL|CL/2	ABILITY:Special Ability|AUTOMATIC|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion
+1	CAST:3,1																																						BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|AnimalCompanionLVL|CL/2	ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|Spontaneous casting ~ Summon Nature's Ally|Druid ~ Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion
 2	CAST:4,2																																																																																		AUTO:FEAT|Craft Spell Fetish
 3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
 4	CAST:5,3,2				SAB:Companion Sight (Su)
 5	CAST:5,3,2,1																														BONUS:ABILITYPOOL|Elemental Form Choice|1
-6	CAST:5,3,3,2																																																		ABILITY:Special Ability|AUTOMATIC|Trackless Step
+6	CAST:5,3,3,2																																																		ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step
 7	CAST:6,4,3,2,1			SAB:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
 8	CAST:6,4,3,3,2			SAB:Treant Form (Su)
 9	CAST:6,4,4,3,2,1
@@ -67,7 +67,7 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 12	CAST:6,5,4,4,3,3,2		SAB:Quickened Rituals (Ex) for I and II
 13	CAST:6,5,5,4,4,3,2,1		SAB:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
 14	CAST:6,5,5,4,4,3,3,2		SAB:Improved Elemental Form
-15	CAST:6,5,5,5,4,4,3,2,1																																																	ABILITY:Special Ability|AUTOMATIC|Timeless Body																				TEMPLATE:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1																																																	ABILITY:Special Ability|AUTOMATIC|Druid ~ Timeless Body																				TEMPLATE:Timeless Body
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1																												BONUS:ABILITYPOOL|Elemental Form Choice|1
 18	CAST:6,5,5,5,5,4,4,3,3,2	SAB:Rituals of Power IV (Su) (-4 WIS for any spell up to 9th level or free from all harmful magical effects/heal all ability damage/remove all negative levels)
@@ -173,7 +173,7 @@ SUBCLASSLEVEL:5	SAB:Still Spell (1/day)
 SUBCLASSLEVEL:10	SAB:Empower Spell (1/day)
 SUBCLASSLEVEL:15	SAB:Widen Spell (1/day)
 SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
-1	CAST:5,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Simple Weapon Proficiency
+1	CAST:5,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar	AUTO:FEAT|Simple Weapon Proficiency
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -215,7 +215,7 @@ SUBCLASSLEVEL:1	SAB:Available Schools (Conjuration, Divination, Enchantment, Nec
 1						SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
 1						SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
 1						SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
-1	CAST:3,1																															ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+1	CAST:3,1																															ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar	AUTO:FEAT|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

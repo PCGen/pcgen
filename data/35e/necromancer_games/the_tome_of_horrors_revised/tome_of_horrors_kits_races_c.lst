@@ -82,7 +82,7 @@ SKILL:Search			RANK:16
 SKILL:Sense Motive		RANK:15
 SKILL:Spot				RANK:33
 SKILL:Survival			RANK:33
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Dodge
 FEAT:Great Cleave

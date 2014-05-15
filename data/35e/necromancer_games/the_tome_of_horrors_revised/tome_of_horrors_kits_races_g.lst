@@ -261,7 +261,7 @@ SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
 FEAT:Ability Focus(Keening)
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Improved Initiative
 
 STARTPACK:Gryph Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
@@ -289,6 +289,6 @@ SKILL:Search			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:10
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Multiattack
 FEAT:Power Attack

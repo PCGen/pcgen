@@ -142,7 +142,7 @@ Shield Mastery			TYPE:Cultural								PREFEAT:1,Shield Proficiency									PRETE
 # Feat Name					Type
 Alertness.MOD				TYPE:OrcTrustingEars
 Acrobatic.MOD				TYPE:ForestWightTransformationFeat
-Blind Fight.MOD				TYPE:OrcTrustingEars
+Blind-Fight.MOD				TYPE:OrcTrustingEars
 Combat Reflexes.MOD			TYPE:OrcTrustingEars
 Eschew Materials.MOD			TYPE:TieflingCovertCasting
 Exotic Weapon Proficiency.MOD		TYPE:ForestWightTalentFeat.TieflingMartialTraining

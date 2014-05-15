@@ -31,7 +31,7 @@ SKILL:Intimidate	RANK:6
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Great Fortitude
 
 STARTPACK:Fire Lizard Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Lizard]
@@ -233,7 +233,7 @@ SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
 SKILL:Survival		RANK:3
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried

@@ -23,6 +23,7 @@ COPYRIGHT:PCGen dataset conversion for Dungeon Crawl Classics 25: The dread Cryp
 
 #EXTRAFILE:OGL.txt
 
+ABILITY:dcc25_abilities.lst
 EQUIPMENT:dcc25_equip.lst
 KIT:dcc25_kits.lst
 RACE:dcc25_races.lst

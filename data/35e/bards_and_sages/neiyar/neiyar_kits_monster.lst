@@ -53,7 +53,7 @@ SKILL:Listen		RANK:6	FREE:YES
 SKILL:Move Silently	RANK:7	FREE:YES
 SKILL:Search		RANK:10	FREE:YES
 SKILL:Spot			RANK:7	FREE:YES
-FEAT:Blind Fight
+FEAT:Blind-Fight
 
 
 #Corpse-Eater Lily

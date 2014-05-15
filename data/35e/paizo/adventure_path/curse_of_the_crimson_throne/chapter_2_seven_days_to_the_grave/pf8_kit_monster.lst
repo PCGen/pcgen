@@ -16,7 +16,7 @@ SKILL:Spot				RANK:13
 SKILL:Survival			RANK:13
 SKILL:TYPE.Knowledge		RANK:13	COUNT:2
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Improved Initiative
 FEAT:Weapon Focus(Shortbow)
 GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.BOWSTR|+4.WOOD

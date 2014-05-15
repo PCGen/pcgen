@@ -159,7 +159,7 @@ SKILL:Listen		RANK:6
 SKILL:Search		RANK:7
 SKILL:Sense Motive	RANK:5
 SKILL:Spot			RANK:8
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Dodge
 FEAT:Improved Initiative
 FEAT:Iron Will
@@ -322,7 +322,7 @@ SKILL:Escape Artist	RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:4	FREE:YES
 SKILL:Spot			RANK:2
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Weapon Finesse
 
 ###Block:Walking Disease ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -337,7 +337,7 @@ SKILL:Move Silently	RANK:5
 SKILL:Search		RANK:13
 SKILL:Spot			RANK:14
 SKILL:Survival		RANK:10
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Lightning Reflexes
 FEAT:Power Attack

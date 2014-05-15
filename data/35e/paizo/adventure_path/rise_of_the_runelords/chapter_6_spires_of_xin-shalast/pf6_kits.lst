@@ -181,7 +181,7 @@ CLASS:Expert	LEVEL:14
 TEMPLATE:Ghost
 SKILL:Climb	RANK:41
 SKILL:Jump	RANK:41
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Power Attack
 FEAT:Cleave
 FEAT:Great Cleave

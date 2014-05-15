@@ -17,7 +17,7 @@ SKILL:Search			RANK:15
 SKILL:Spellcraft			RANK:13
 SKILL:Spot				RANK:15
 SKILL:Survival			RANK:15
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Iron Will
 FEAT:Power Attack
@@ -38,7 +38,7 @@ SKILL:Listen			RANK:9
 SKILL:Move Silently		RANK:9
 SKILL:Search			RANK:9
 SKILL:Spot				RANK:9
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
@@ -67,7 +67,7 @@ SKILL:Spellcraft			RANK:25
 SKILL:Spot				RANK:33
 SKILL:Survival			RANK:33
 SKILL:Use Rope			RANK:18
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting
 FEAT:Great Cleave
@@ -104,7 +104,7 @@ SKILL:Spot				RANK:17
 SKILL:Survival			RANK:19
 FEAT:Ability Focus(Seduction)
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Combat Reflexes
 FEAT:Dodge
 FEAT:Iron Will
@@ -125,7 +125,7 @@ SKILL:Search			RANK:11
 SKILL:Spot				RANK:11
 SKILL:Survival			RANK:11
 SKILL:Use Rope			RANK:11
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
@@ -242,7 +242,7 @@ SKILL:Sense Motive		RANK:10
 SKILL:Spellcraft			RANK:13
 SKILL:Spot				RANK:15
 SKILL:Survival			RANK:10
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Multiattack
@@ -314,7 +314,7 @@ SKILL:Sense Motive		RANK:18
 SKILL:Spellcraft			RANK:9
 SKILL:Spot				RANK:18
 SKILL:Survival			RANK:16
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Great Cleave
 FEAT:Improved Initiative
@@ -391,7 +391,7 @@ SKILL:Sense Motive		RANK:17
 SKILL:Spellcraft			RANK:27
 SKILL:Spot				RANK:29
 SKILL:Survival			RANK:31
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting
 FEAT:Great Cleave
@@ -528,7 +528,7 @@ SKILL:Sense Motive			RANK:41
 SKILL:Spellcraft				RANK:44
 SKILL:Spot					RANK:48
 SKILL:Survival				RANK:48
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting
 FEAT:Craft Wand
@@ -588,7 +588,7 @@ SKILL:Spellcraft			RANK:40
 SKILL:Spot				RANK:42
 SKILL:Survival			RANK:42
 SKILL:Use Magic Device		RANK:42
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Empower Spell Like Ability(Lightning Bolt)
 FEAT:Flyby Attack
@@ -632,7 +632,7 @@ SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:10
 FEAT:Alertness
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Improved Initiative
 
 STARTPACK:Demon (Sonechard) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Sonechard)]
@@ -708,7 +708,7 @@ SKILL:Sense Motive		RANK:45
 SKILL:Spellcraft			RANK:41
 SKILL:Spot				RANK:35
 SKILL:Survival			RANK:33
-FEAT:Blind Fight
+FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting
 FEAT:Combat Expertise

@@ -730,7 +730,7 @@ SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pressing Attack					AUTO:
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
 SUBCLASS:Sword That Believes		ABB:StBlv	PREFEAT:4,Improved Quick Draw,Quick Draw,Pureblood Kio,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio))																																																																				PREITEM:1,Sword (Kio)
-SUBCLASSLEVEL:1																			AUTO:FEAT|Blind Fight
+SUBCLASSLEVEL:1																			AUTO:FEAT|Blind-Fight
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts|Instinctual Defense
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Strike Without Thought

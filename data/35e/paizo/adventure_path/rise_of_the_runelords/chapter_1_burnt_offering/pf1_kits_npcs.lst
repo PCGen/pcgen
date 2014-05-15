@@ -162,7 +162,7 @@ SKILL:Speak Language	RANK:1	SELECTION:Goblin
 SKILL:Swim			RANK:4
 FEAT:Weapon Focus(Sword (Bastard))
 FEAT:Athletic
-FEAT:Blind Fight
+FEAT:Blind-Fight
 ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried

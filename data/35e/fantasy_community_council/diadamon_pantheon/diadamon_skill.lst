@@ -2,4 +2,5 @@
 SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/	SOURCEDATE:2002-01
 
 # Skill Name		Key Stat	Untrained?		Type				Source Page
-Profession (Sailor)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:srdskillsii.rtf
+Profession (Sailor)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.
+Profession (Herbalist)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.

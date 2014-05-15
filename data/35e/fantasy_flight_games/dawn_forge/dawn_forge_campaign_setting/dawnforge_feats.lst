@@ -14,7 +14,7 @@ Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Kno
 # Feat Name					Type
 Alertness.MOD				TYPE:GnomeTalentFeat.HighlanderTalentFeat
 Augment Summoning.MOD			TYPE:TieflingTalentFeat
-Blind Fight.MOD				TYPE:MinotaurTalentFeat.OgreTalentFeat
+Blind-Fight.MOD				TYPE:MinotaurTalentFeat.OgreTalentFeat
 Brew Potion.MOD				TYPE:OrcTalentFeat
 Combat Expertise.MOD			TYPE:HalflingTalentFeat
 Craft Magic Arms and Armor.MOD	TYPE:OrcTalentFeat

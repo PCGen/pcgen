@@ -63,7 +63,7 @@ STARTPACK:Ahsarin Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PRE
 RACE:Ahsarin	!PRERACE:1,%
 NAME:Ahsarin
 ALIGN:LG|NG|CG
-FEAT:Weapon Finesse(Longsword)
+FEAT:Weapon Finesse
 FEAT:Weapon Focus(Longsword)
 FEAT:Improved Initiative
 

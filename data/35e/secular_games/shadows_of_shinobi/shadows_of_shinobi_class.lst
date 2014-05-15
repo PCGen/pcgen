@@ -73,7 +73,7 @@ CLASS:Lotus Warrior	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Shadow Saint	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name		Required AL		Req. Att.	Required Feat										Required Skill
-CLASS:Shadow Saint	PREALIGN:LG,LN	PREATT:7	PREFEAT:4,Blind Fight,Improved Unarmed Strike,Stealthy,Stunning Fist	PRESKILL:3,Knowledge (Religion)=5,Sense Motive=5,Spot=5
+CLASS:Shadow Saint	PREALIGN:LG,LN	PREATT:7	PREFEAT:4,Blind-Fight,Improved Unarmed Strike,Stealthy,Stunning Fist	PRESKILL:3,Knowledge (Religion)=5,Sense Motive=5,Spot=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Saint	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Escape Artist|Handle Animal|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Swim|Tumble
 ###Block:Proficiencies

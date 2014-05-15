@@ -404,7 +404,7 @@ CLASS:Keeper	STARTSKILLPTS:8	CSKILL:TYPE=Craft|Decipher Script|Diplomacy|Handle 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Knight of Manunzul	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.115	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat								Required Skill									Required Text
-CLASS:Knight of Manunzul	PREALIGN:LG,NG,CG	PREFEAT:4,Alertness,Blind Fight,Leadership,Mounted Combat	PRESKILL:3,Knowledge (religion)=4,Knowledge (undead)=6,Ride=2	PRETEXT:Special: A knight of manunzul must come from the ranks of the watchmen|undergo their required training program
+CLASS:Knight of Manunzul	PREALIGN:LG,NG,CG	PREFEAT:4,Alertness,Blind-Fight,Leadership,Mounted Combat	PRESKILL:3,Knowledge (religion)=4,Knowledge (undead)=6,Ride=2	PRETEXT:Special: A knight of manunzul must come from the ranks of the watchmen|undergo their required training program
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Manunzul	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (undead)|Knowledge (religion)|Listen|Ride|Search|Spot
 ###Block:
@@ -651,7 +651,7 @@ CLASS:Troubadour	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|TYP
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Watchman	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.139	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Restricted AL		Req. Att.	Required Feat				Required Skill				Required Text
-CLASS:Watchman	!PREALIGN:LE,NE,CE	PREATT:3	PREFEAT:2,Alertness,Blind Fight	PRESKILL:1,Knowledge (undead)=3	PRETEXT:Special Must complete a 3-month training program
+CLASS:Watchman	!PREALIGN:LE,NE,CE	PREATT:3	PREFEAT:2,Alertness,Blind-Fight	PRESKILL:1,Knowledge (undead)=3	PRETEXT:Special Must complete a 3-month training program
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (undead)|Listen|Ride|Search|Spot
 #Weapon and Armor Proficiency: Watchmen are skilled with all martial and simple weapons.

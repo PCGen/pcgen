@@ -115,7 +115,7 @@ Wood Elf Talent Feats	CATEGORY:Special Ability	TYPE:WoodElfRacialTalent					VISI
 Feet of a Cat				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																																																													SOURCEPAGE:p.33
 Ears of a Fox				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																																	BONUS:SKILL|Listen|3|TYPE=Transformation						SOURCEPAGE:p.33
 Eyes of a Hawk				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																																	BONUS:SKILL|Spot|3|TYPE=Transformation						SOURCEPAGE:p.33
-Heart of a Bear				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PRELEVEL:MIN=6	PRESTAT:1,CON=13												DEFINE:BarbRageTimesLVL|0								ABILITY:Special Ability|AUTOMATIC|Barbarian Rage|Rage																	BONUS:VAR|BarbRageTimesLVL|1	SOURCEPAGE:p.33
+Heart of a Bear				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PRELEVEL:MIN=6	PRESTAT:1,CON=13												DEFINE:BarbarianRageTimesLVL|0								ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Rage|Rage																	BONUS:VAR|BarbarianRageTimesLVL|1	SOURCEPAGE:p.33
 Wood Elf Transformation Skills	CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation						VISIBLE:DISPLAY																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:ABILITYPOOL|Wood Elf Transformation Skill|5													SOURCEPAGE:p.22
 Wood Elf Transformation Feats		CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation						VISIBLE:DISPLAY							PRETEXT:This racial trait may not be selected twice in a row						STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:ABILITYPOOL|Wood Elf Transformation Feat|1													SOURCEPAGE:p.22
 
@@ -139,7 +139,7 @@ Blood of Shadows									CATEGORY:Special Ability	TYPE:ForestWightRacialTransfor
 Child of Darkness									CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation.SpecialQuality.SpellLike	VISIBLE:YES		PRELEVEL:MIN=6												DEFINE:ChildDarknessTimes|0	SPELLS:Innate|TIMES=ChildDarknessTimes|Invisibility	DESC:%1/day|ChildDarknessTimes	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:VAR|ChildDarknessTimes|1	SOURCEPAGE:p.73
 Faded Spirit									CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PRELEVEL:MIN=8																																																															SOURCEPAGE:p.73
 Icy Breath										CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES		PRELEVEL:MIN=6																										DESC:1/day																																				SOURCEPAGE:p.73
-Trackless Step				KEY:Wight Trackless Step	CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation					VISIBLE:DISPLAY																																										ABILITY:Special Ability|AUTOMATIC|Trackless Step																SOURCEPAGE:p.73
+Trackless Step				KEY:Wight Trackless Step	CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation					VISIBLE:DISPLAY																																										ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step																SOURCEPAGE:p.73
 Forest Wight Transformation Skills						CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation					VISIBLE:DISPLAY																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:ABILITYPOOL|Forest Wight Transformation Skill|5							SOURCEPAGE:p.22
 Forest Wight Transformation Feats						CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation					VISIBLE:DISPLAY				PRETEXT:This racial trait may not be selected twice in a row																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:ABILITYPOOL|Forest Wight Transformation Feat|1							SOURCEPAGE:p.22
 
@@ -287,7 +287,7 @@ Unseen Strength		CATEGORY:Special Ability	TYPE:HalflingRacialTransformation.Spec
 # Ability Name	Unique Key				Category of Ability		Type										Visible	Required Class			Required Lvl	Define			Description										Stackable?	Multiple?	Choose		Ability								Modify VAR				Source Page
 Drive the Body						CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PRECLASS:1,Spirit Adept=1	PRELEVEL:MIN=4																																					SOURCEPAGE:p.42
 Purity of Heart						CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PRECLASS:1,Spirit Adept=1																																								SOURCEPAGE:p.43
-Purity of Body	KEY:Highlander Purity of Body	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality			VISIBLE:YES	PRECLASS:1,Spirit Adept=1																										ABILITY:Special Ability|AUTOMATIC|Purity of Body						SOURCEPAGE:p.43
+Purity of Body	KEY:Highlander Purity of Body	CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality			VISIBLE:YES	PRECLASS:1,Spirit Adept=1																										ABILITY:Special Ability|AUTOMATIC|Monk ~ Purity of Body						SOURCEPAGE:p.43
 Strength of Stone						CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PRECLASS:1,Spirit Adept=1	PRELEVEL:MIN=8																																					SOURCEPAGE:p.43
 Surge of Will						CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																													SOURCEPAGE:p.43
 Way of Spirit						CATEGORY:Special Ability	TYPE:HighlanderRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PRECLASS:1,Spirit Adept=1				DEFINE:WayofSpirit|0	DESC:%1 additional spirit adepth strength points|WayofSpirit	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|WayofSpirit|TL	SOURCEPAGE:p.43
@@ -374,7 +374,7 @@ Ironclad		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extr
 Defending Soldier							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES			PREFEAT:1,Dodge																							SOURCEPAGE:p.107
 Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																												SOURCEPAGE:p.107
 Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES						SPELLS:Innate|TIMES=ATWILL|Light																	SOURCEPAGE:p.107
-Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES												ABILITY:Special Ability|AUTOMATIC|Divine Health									SOURCEPAGE:p.107
+Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES												ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
 Divine Heritage							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																												SOURCEPAGE:p.107
 Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PREATT:6																										SOURCEPAGE:p.107
 Staunch								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																				BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107
@@ -467,7 +467,7 @@ Speak through Silence	CATEGORY:Special Ability	TYPE:LizardRacialTalent.SpecialQu
 
 ###Block: Lizardfolk Racial Transformations
 # Ability Name	Unique Key			Category of Ability		Type											Visible		Required Ability									Description			Ability						Bonus to skill							Weapon prof. bonus			Source Page
-Ancestor's Claws					CATEGORY:Special Ability	TYPE:LizardRacialTransformation.SpecialQuality				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery I												BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	SOURCEPAGE:p.86
+Ancestor's Claws					CATEGORY:Special Ability	TYPE:LizardRacialTransformation.SpecialQuality				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery I												BONUS:SKILL|Open Lock,Sleight of Hand|-2|TYPE=Racial	BONUS:WEAPONPROF=Claw|DAMAGESIZE|1	SOURCEPAGE:p.86
 Pounce		KEY:Lizardfolk_Pounce	CATEGORY:Special Ability	TYPE:LizardRacialTransformation						VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Natural Weapon Mastery II					ABILITY:Special Ability|AUTOMATIC|Pounce																SOURCEPAGE:p.86
 Rend			KEY:Lizardfolk_Rend	CATEGORY:Special Ability	TYPE:LizardRacialTransformation						VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Ancestor's Claws						ABILITY:Special Ability|AUTOMATIC|Rend																SOURCEPAGE:p.86
 Thunder Shout					CATEGORY:Special Ability	TYPE:LizardRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES													DESC:%1/day|1+TL/5																							SOURCEPAGE:p.86
@@ -493,7 +493,7 @@ Whip Fighting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality
 
 ###Block: Tiefling Racial Transformations
 # Ability Name	Output Name		Category of Ability		Type											Visible	Required Ability							Required Template				Description	Move		Combat bonus			Bonus to skill													Bonus to nb of slots	Source Page
-Tiefling Claws	OUTPUTNAME:Claws	CATEGORY:Special Ability	TYPE:TieflingRacialTransformation.SpecialQuality			VISIBLE:YES																DESC:1d3								BONUS:SKILL|Open Locks,Sleight of Hand|-2|TYPE=Racial											SOURCEPAGE:p.94
+Tiefling Claws	OUTPUTNAME:Claws	CATEGORY:Special Ability	TYPE:TieflingRacialTransformation.SpecialQuality			VISIBLE:YES																DESC:1d3								BONUS:SKILL|Open Lock,Sleight of Hand|-2|TYPE=Racial											SOURCEPAGE:p.94
 #TODO: Claws as weapons plus multiple time...
 Fiendish Form				CATEGORY:Special Ability	TYPE:TieflingRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES										PRETEMPLATE:1,Tiefling Outsider					BONUS:COMBAT|TOHIT.GRAPPLE|2	BONUS:SKILL|Hide|4|TYPE=Transformation	BONUS:SKILL|Handle Animal,Ride|-4|TYPE=Racial					SOURCEPAGE:p.94
 Inured to Good				CATEGORY:Special Ability	TYPE:TieflingRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																												SOURCEPAGE:p.94

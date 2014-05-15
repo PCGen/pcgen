@@ -3,7 +3,7 @@ SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:htt
 
 # ~ Champion of the Dead
 # Ability Name			Unique Key									Category of Ability		Type							Define				Description
-Leader of the Dead		KEY:Leader of the Dead ~ Champion of the Dead			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLikeellLike
+Leader of the Dead		KEY:Leader of the Dead ~ Champion of the Dead			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Sanctuary of the Dead		KEY:Sanctuary of the Dead ~ Champion of the Dead		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Rally Undead			KEY:Rally Undead ~ Champion of the Dead				CATEGORY:Special Ability	TYPE:SpecialQuality
 Inspire Undead			KEY:Inspire Undead ~ Champion of the Dead				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -51,7 +51,7 @@ Indominable Will			KEY:Indominable Will ~ Faith Hunter					CATEGORY:Special Abil
 Cure Infection			KEY:Cure Infection ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality
 Stake Attack			KEY:Stake Attack ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality				DEFINE:StakeAttack|0		DESC:+%1d6|StakeAttack
 Detect Undead			KEY:Detect Undead ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Undead Foe				KEY:Undead Foe								CATEGORY:Special Ability	TYPE:SpecialQuality
+Undead Foe				KEY:Undead Foe ~ Faith Hunter						CATEGORY:Special Ability	TYPE:SpecialQuality
 Unpalatable Blood			KEY:Unpalatable Blood ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Ranged Stake Attack		KEY:Ranged Stake Attack ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~	KEY:Undead Foe								CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -124,7 +124,7 @@ Master of the Dead		KEY:Master of the Dead ~ Sacred Theurgis				CATEGORY:Special
 
 
 # ~ Unbeating Heart
-Bloody Devotion			KEY:Bloody Devotion ~ Unbeating Heart				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLikeellLike
+Bloody Devotion			KEY:Bloody Devotion ~ Unbeating Heart				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Dark Eyes				KEY:Dark Eyes ~ Unbeating Heart					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Hidden Veil				KEY:Hidden Veil ~ Unbeating Heart					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:Undead|PREVARLT:UnbeatingHeartLvl,5	DESC:Undead or Animals|PREVARGTEQ:UnbeatingHeartLvl,5
 Tainted Blood			KEY:Tainted Blood ~ Unbeating Heart					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -140,5 +140,5 @@ Lifeless Pallor			KEY:Lifeless Pallor ~ Wasteland Druid				CATEGORY:Special Abil
 Companions of the Grave		KEY:Companions of the Grave ~ Wasteland Druid			CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~
 
-Destruction Domain		KEY:Wasteland Druid Destruction Domain									TYPE:WastelandDruidDomainChoice
-Undead Domain			KEY:Wasteland Druid Undead Domain										TYPE:WastelandDruidDomainChoice
+Destruction Domain		KEY:Wasteland Druid Destruction Domain				CATEGORY:Special Ability	TYPE:WastelandDruidDomainChoice
+Undead Domain			KEY:Wasteland Druid Undead Domain					CATEGORY:Special Ability	TYPE:WastelandDruidDomainChoice
