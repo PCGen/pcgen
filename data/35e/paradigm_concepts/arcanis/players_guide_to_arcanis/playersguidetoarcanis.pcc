@@ -90,20 +90,11 @@ KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_a_b_extras.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_a_b_treasure.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_g_h_extras.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_i_j.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_k_l.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_k_l_extras.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_m_n.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_m_n_extras.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_o_p.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_o_p_extras.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_q_r.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_s_t.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_s_t_extras.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_u_v.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_u_v_extras.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_w_x.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_y_z.lst
 RACE:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_races.lst|(EXCLUDE:Dinosaur (Deinonychus)|Dinosaur (Elasmosaurus)|Dinosaur (Megaraptor)|Dinosaur (Triceratops)|Dinosaur (Tyrannosaurus))
 
 # RSRD Imports -  Psionics

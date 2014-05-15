@@ -2,21 +2,21 @@
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 
 # Race Name				Clear Prereq.
-Bat.MOD				PRE:.CLEAR
-Cat.MOD				PRE:.CLEAR
-Hawk.MOD				PRE:.CLEAR
-Owl.MOD				PRE:.CLEAR
-Rat.MOD				PRE:.CLEAR
-Raven.MOD				PRE:.CLEAR
-Snake (Viper/Tiny).MOD		PRE:.CLEAR
-Toad.MOD				PRE:.CLEAR
-Weasel.MOD				PRE:.CLEAR
-Dog (Riding).MOD			PRE:.CLEAR
-Donkey.MOD				PRE:.CLEAR
-Horse (Heavy).MOD			PRE:.CLEAR
-Horse (Light).MOD			PRE:.CLEAR
-Horse (Warhorse Heavy).MOD	PRE:.CLEAR
-Horse (Warhorse Light).MOD	PRE:.CLEAR
-Mule.MOD				PRE:.CLEAR
-Pony.MOD				PRE:.CLEAR
-Pony (War).MOD			PRE:.CLEAR
+#Bat.MOD				PRE:.CLEAR
+#Cat.MOD				PRE:.CLEAR
+#Hawk.MOD				PRE:.CLEAR
+#Owl.MOD				PRE:.CLEAR
+#Rat.MOD				PRE:.CLEAR
+#Raven.MOD				PRE:.CLEAR
+#Snake (Viper/Tiny).MOD		PRE:.CLEAR
+#Toad.MOD				PRE:.CLEAR
+#Weasel.MOD				PRE:.CLEAR
+#Dog (Riding).MOD			PRE:.CLEAR
+#Donkey.MOD				PRE:.CLEAR
+#Horse (Heavy).MOD			PRE:.CLEAR
+#Horse (Light).MOD			PRE:.CLEAR
+#Horse (Warhorse Heavy).MOD	PRE:.CLEAR
+#Horse (Warhorse Light).MOD	PRE:.CLEAR
+#Mule.MOD				PRE:.CLEAR
+#Pony.MOD				PRE:.CLEAR
+#Pony (War).MOD			PRE:.CLEAR
