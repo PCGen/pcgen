@@ -145,7 +145,7 @@ Darkvision						KEY:Darkvision ~ 30	CATEGORY:Special Ability	TYPE:SpecialQuality
 Spell Resistance and Power Resistance					CATEGORY:Special Ability																		ABILITY:Special Ability|AUTOMATIC|Power Resistance|Spell Resistance
 
 Spell Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:SpellResistance|0	DESC:%1|SpellResistance																											SR:SpellResistance
-#Power Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:PowerResistance|0	DESC:%1|PowerResistance
+Power Resistance									CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait.SpecialQuality	DEFINE:PowerResistance|0	DESC:%1|PowerResistance
 
 ###Block: Dwarves
 

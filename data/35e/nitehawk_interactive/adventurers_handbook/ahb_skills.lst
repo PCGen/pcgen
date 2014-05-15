@@ -29,7 +29,7 @@ Seduction			KEYSTAT:CHA	USEUNTRAINED:YES												TYPE:Charisma	SOURCEPAGE:p.6
 # Not tackling the racial modifier table for now.  Not even sure if we can (not reading in detail yet. - Tir-Gwaith)
 Star Reading		KEYSTAT:WIS	USEUNTRAINED:NO												TYPE:Wisdom		SOURCEPAGE:p.64
 Tactics			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65
-Witchcraft			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|PRESKILL:1,Witchcraft=5
+Witchcraft			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65	BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|PRESKILL:1,Witchcraft=5
 
 
 ###Block: Craft/Knowledge/Profession subskills

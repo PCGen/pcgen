@@ -21,8 +21,8 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Gather Informat
 3																							AUTO:FEAT|Improved Unarmed Strike
 5	BONUS:ABILITYPOOL|Favored Prey Choice|CL/5
 8													ABILITY:Special Ability|AUTOMATIC|Base of Operations
-10									BONUS:VAR|Reputation|1	ABILITY:Special Ability|AUTOMATIC|Reputation|Swift Tracker
-15													ABILITY:Special Ability|AUTOMATIC|Camouflage
+10									BONUS:VAR|Reputation|1	ABILITY:Special Ability|AUTOMATIC|Reputation|Ranger ~ Swift Tracker
+15													ABILITY:Special Ability|AUTOMATIC|Ranger ~ Camouflage
 20									BONUS:VAR|Reputation|1
 
 
@@ -72,11 +72,11 @@ CLASS:Shaman (Alternate)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 #Shamans are proficient with all simple weapons, but may not use any edged weapons unless allowed or required by their deity. They are proficient with light and medium armors but are restricted to only padded, leather, studded leather, bone, or hide. They are skilled with shields but must use only wooden ones.
 ###Block: Level Progression
-1						BONUS:VAR|DanceOfTheShamanBonus|2		DEFINE:ShamanBAB|0	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Animal Companion|Dance of the Shaman|Interpret Dream|Turn Undead|Wild Empathy
-2						BONUS:VAR|ShamanBAB|1								ABILITY:Special Ability|AUTOMATIC|Woodland Stride
+1						BONUS:VAR|DanceOfTheShamanBonus|2		DEFINE:ShamanBAB|0	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid ~ Animal Companion|Dance of the Shaman|Interpret Dream|Turn Undead|Wild Empathy
+2						BONUS:VAR|ShamanBAB|1								ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
 3						BONUS:VAR|ShamanBAB|1
 4						BONUS:VAR|ShamanBAB|1
-5						BONUS:VAR|DanceOfTheShamanBonus|(CL/5)*2					ABILITY:Special Ability|AUTOMATIC|Trackless Step|War Summoning
+5						BONUS:VAR|DanceOfTheShamanBonus|(CL/5)*2					ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step|War Summoning
 6						BONUS:VAR|ShamanBAB|1
 7						BONUS:VAR|ShamanBAB|1
 9						BONUS:VAR|ShamanBAB|1								ABILITY:Special Ability|AUTOMATIC|Commune with Nature
@@ -137,7 +137,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 ###Block:Proficiencies
 1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 #Block: Level Progression
-1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Empowered Charm|Summon Familiar	AUTO:FEAT|Scribe Scroll
+1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Empowered Charm|Wizard ~ Familiar	AUTO:FEAT|Scribe Scroll
 3																																			AUTO:FEAT|Brew Potion
 5						BONUS:ABILITYPOOL|Witch Favored Race|CL/5	BONUS:VAR|EmpoweredCharmBonus|CL/5
 13																								ABILITY:Special Ability|AUTOMATIC|Improved Brewing

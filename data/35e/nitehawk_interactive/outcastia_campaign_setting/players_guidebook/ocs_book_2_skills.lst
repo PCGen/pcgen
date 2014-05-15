@@ -17,6 +17,10 @@ Dragon Handling						KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom
 Knowledge (Librarian)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 Knowledge (Weaponology)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 
+# COMMENT: Lore referenced, but no entry
+
+Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Lore
+
 # Requires the synergy bonuses below this point
 Perform (Juggling/Awe)					KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Perform
 Perform (Juggling/Manuevers)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Perform
@@ -39,9 +43,11 @@ Profession (Smelter)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 Profession (Tanner)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 #Profession (Teamster)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 Profession (Woodcutter)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Tailor)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+#Tactics.MOD	SITUATION:Guerrilla Warfare Only
 
-Tactics.COPY=Tactics (guerrilla warfare only)
-#Tactics (guerrilla warfare only)
+Tactics (guerrilla warfare only)			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65
+
 #Speak Language					USEUNTRAINED:NO
 #Spot				KEYSTAT:WIS
 Weaponcraft							KEYSTAT:INT	USEUNTRAINED:NO
@@ -51,7 +57,7 @@ Weaponcraft							KEYSTAT:INT	USEUNTRAINED:NO
 # Skill Name			Bonus to skill
 Craft (Brewing).MOD		BONUS:SKILL|Profession (Bartender)|2|TYPE=Synergy|PRESKILL:1,Craft (Brewing)=5
 Craft (Embroidery).MOD		BONUS:SKILL|Profession (Tailor)|2|TYPE=Synergy|PRESKILL:1,Craft (Embroidery)=5
-Craft (Locksmithing).MOD	BONUS:SKILL|Open Locks|2|TYPE=Synergy|PRESKILL:1,Craft (Brewing)=5
+Craft (Locksmithing).MOD	BONUS:SKILL|Open Lock|2|TYPE=Synergy|PRESKILL:1,Craft (Brewing)=5
 Craft (Shipmaking).MOD		BONUS:SKILL|Craft (Carpentry),Craft (Woodworking)|2|TYPE=Synergy|PRESKILL:1,Craft (Shipmaking)=5
 Craft (Tailor).MOD		BONUS:SKILL|Craft (Embroidery)|2|TYPE=Synergy|PRESKILL:1,Craft (Tailor)=5
 #
@@ -67,7 +73,6 @@ Diplomacy.MOD			BONUS:SKILL|Dragon Handling|2|TYPE=Synergy|PRESKILL:1,Diplomacy=
 
 Knowledge (Weaponology).MOD	BONUS:SKILL|Craft (Weaponsmithing),Weaponcraft|2|TYPE=Synergy|PRESKILL:1,Knowledge (Weaponology)=5
 Weaponcraft.MOD			BONUS:SKILL|Knowledge (Weaponology)|2|TYPE=Synergy|PRESKILL:1,Weaponcraft=5
-
 
 
 ###Block: Conditional Skills

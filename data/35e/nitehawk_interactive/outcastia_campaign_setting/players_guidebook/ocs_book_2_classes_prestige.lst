@@ -290,7 +290,7 @@ CLASS:Goblin Protector	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Escape 
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
 1									AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Poison Use|Swarm ~ Goblin Protector
+1	ABILITY:Special Ability|AUTOMATIC|Assassin ~ Poison Use|Swarm ~ Goblin Protector
 3	ABILITY:Special Ability|AUTOMATIC|Toughness ~ Goblin Protector
 5	ABILITY:Special Ability|AUTOMATIC|Evasion
 
@@ -309,7 +309,7 @@ CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lo
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Divine Spells ~ Holy Terror|Tithing ~ Holy Terror|Turn Undead|Turn Undead ~ Holy Terror
 2	ABILITY:Special Ability|AUTOMATIC|Divine Armor ~ Holy Terror|Smite Evil ~ Holy Terror
-3	ABILITY:Special Ability|AUTOMATIC|Divine Health|Extra Turning ~ Holy Terror
+3	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health|Extra Turning ~ Holy Terror
 4	ABILITY:Special Ability|AUTOMATIC|Wyrmrage
 5	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Holy Terror|Fasting ~ Holy Terror|Inspiration ~ Holy Terror
 6	ABILITY:Special Ability|AUTOMATIC|Divine Resistance ~ Holy Terror

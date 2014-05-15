@@ -58,10 +58,10 @@ Unholy Blast	KEY:Unholy Blast ~ Bone Mage	CATEGORY:Special Ability	TYPE:SpecialA
 ###Block:# Cerberus Agent
 # Ability Name		Unique Key						Category of Ability		Type						Description																																																							Bonus to skill							Source Page
 Eavesdrop			KEY:Eavesdrop ~ Cerberus Agent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:An agent gains a +2 trained bonus to all Listen and Gather Information skill checks.																																										BONUS:SKILL|Listen,Gather Information|2|TYPE=Trained	SOURCEPAGE:p.89
-Deception			KEY:Deception ~ Cerberus Agent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																									BONUS:SKILL|Bluff|4|TYPE=Competency				SOURCEPAGE:p.90
+Deception			KEY:Deception ~ Cerberus Agent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																									BONUS:SKILL|Bluff|4|TYPE=Competence				SOURCEPAGE:p.90
 Bonus Feat			KEY:Bonus Feat ~ Cerberus Agent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Agents are always training themselves physically and mentally for the task of working for Cerberus and may choose one of the following feats as a bonus feat, provided they have the necessary requirements: Combat Expertise, Dodge, Improved Critical, Improved Feint, Improved Initiative, Negotiator, Persuasive, Stealthy, Track.										SOURCEPAGE:p.90
 #Sneak Attack	SOURCEPAGE:p.90		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		KEY:Sneak Attack
-Aura of Intimidation	KEY:Aura of Intimidation ~ Cerberus Agent	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																									BONUS:SKILL|Intimidation|2					SOURCEPAGE:p.90
+Aura of Intimidation	KEY:Aura of Intimidation ~ Cerberus Agent	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																									BONUS:SKILL|Intimidate|2					SOURCEPAGE:p.90
 Aura of Despair		KEY:Aura of Despair ~ Cerberus Agent	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:All enemies within 10 feet of you to suffer a -2 morale penalty on all attack rolls and saving throws.																																																SOURCEPAGE:p.90
 
 
@@ -197,7 +197,7 @@ Lore			KEY:Lore ~ Keeper			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraord
 #	SOURCEPAGE:p.114		CATEGORY:Special Ability	TYPE:SpecialQuality.R.Extraordinary		KEY:Dragon Riding ~ Keeper
 Precise Memory	KEY:Precise Memory ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						SOURCEPAGE:p.114
 Dragon Empathy	KEY:Dragon Empathy ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Telepathic communicate with all dragons within 1 mile.												SOURCEPAGE:p.114
-Dragon Lore		KEY:Dragon Lore ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											BONUS:SKILL|Knowledge (Dragons),Lore (Dragons)|10|TYPE=Competence	SOURCEPAGE:p.114
+Dragon Lore		KEY:Dragon Lore ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											BONUS:SKILL|Knowledge (Dragons),Dragon Lore|10|TYPE=Competence	SOURCEPAGE:p.114
 Sage Knowledge	KEY:Sage Knowledge ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											BONUS:SKILL|Lore|10|TYPE=Competence						SOURCEPAGE:p.114
 Dragon Blade	KEY:Dragon Blade ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																							SOURCEPAGE:p.114
 Draconic Shape	KEY:Draconic Shape ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						SOURCEPAGE:p.115
@@ -208,7 +208,7 @@ Dragon Riding	KEY:Dragon Riding ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQu
 #Bonus Feat (Ex): A knight of manunzul is highly trained in the use of the bow and mace, and riding a mount. Due to this, he chooses his bonus feats from the following list (provided he has the necessary prerequisites): Far Shot, Improved Critical (any bow or mace), Improved Precise Shot, Manyshot, Mounted Combat, Precise Shot, Point Blank Shot, Rapid Shot, Ride-By Attack, Shot on the Run.
 # Ability Name		Unique Key							Category of Ability		Type						Description																							Template						Ability												Save checks bonus						Source Page
 Aura of Courage		KEY:Aura of Courage ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Each ally within 10 feet of you gains a +4 morale bonus on saving throws against fear effects.																																				SOURCEPAGE:p.116
-Turn Undead			KEY:Turn Undead ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning|Turn Undead									SOURCEPAGE:p.116
+Turn Undead			KEY:Turn Undead ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric ~ Turn or Rebuke Undead|Turn Undead									SOURCEPAGE:p.116
 Mounted Archery		KEY:Mounted Archery ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:The penalty taken when using a ranged weapon while mounted is further halved to -1 and -2.|PRETEMPLATE:1,Has Mounted Archery Feat		TEMPLATE:Select Knight of Manuzul Bonus																						SOURCEPAGE:p.116
 Divine Grace		KEY:Divine Grace ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																													BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	SOURCEPAGE:p.116
 Critical Strike		KEY:Critical Strike ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:against a corporeal undead creature, they are able to deliver critical damage on such abominations (as they would a normal creature).																													SOURCEPAGE:p.116
@@ -371,8 +371,8 @@ Nature's Spirit		KEY:Nature's Spirit ~ Wereranger	CATEGORY:Special Ability	TYPE:
 
 ###Block: ~ Wyrm Master
 # Ability Name		Unique Key						Category of Ability		Type						Define					Description																																																							Bonus to skill						Source Page
-Draconic Friendship	KEY:Draconic Friendship ~ Wyrm Master	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															BONUS:SKILL|Diplomacy (Draconic Creatures)|10	SOURCEPAGE:p.145
-Dragon Riding		KEY:Dragon Riding ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															BONUS:SKILL|Ride (Dragon)|5				SOURCEPAGE:p.145
+Draconic Friendship	KEY:Draconic Friendship ~ Wyrm Master	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															BONUS:SITUATION|Diplomacy=Draconic Creatures|10	SOURCEPAGE:p.145
+Dragon Riding		KEY:Dragon Riding ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															BONUS:SITUATION|Ride=Dragon|5				SOURCEPAGE:p.145
 Forbidden			KEY:Forbidden ~ Wyrm Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																																								SOURCEPAGE:p.145
 Summon Dragon		KEY:Summon Dragon ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:WyrmMasterSummonDragonLvl|0	DESC:Summon	DESC: Young|PREVAREQ:WyrmMasterSummonDragonLvl,1	DESC: Juvenile|PREVAREQ:WyrmMasterSummonDragonLvl,2	DESC: Young Adult|PREVAREQ:WyrmMasterSummonDragonLvl,3	DESC: Adult|PREVAREQ:WyrmMasterSummonDragonLvl,4	DESC: Mature Adult|PREVARGTEQ:WyrmMasterSummonDragonLvl,5	DESC:Dragon, [%1/day]|MAX((CHA/2),1)									SOURCEPAGE:p.146
 Lore				KEY:Lore ~ Wyrm Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																							SOURCEPAGE:p.146
