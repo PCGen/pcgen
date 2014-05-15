@@ -305,7 +305,7 @@ RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 # Character Types:
 CHARACTERTYPE:PC|NPC
 
-#DEFAULTDATASET:3.5 RSRD|SRD 3.5 for Game Masters (includes Monsters)
+DEFAULTDATASET:3.5 RSRD|SRD 3.5 for Game Masters (includes Monsters)
 
 #
 # DONE
