@@ -13,7 +13,7 @@ CLASS:Bard ~ LoE	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 1	BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	DEFINE:BardicKnowledgeLevel|0
 1	BONUS:VAR|BardicMusicLevel|CL	BONUS:VAR|BardicMusicTimes|BardicMusicLevel		DEFINE:BardicMusicLevel|0
 ###Block: Level progression
-1	CAST:1,2,12			KNOWN:4,2,1			BONUS:VAR|BASEPOWERPOINTS|1	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|Bardic Music	VFEAT:Power Source(Hedge Mage)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip|TYPE=SIMPLE
+1	CAST:1,2,12			KNOWN:4,2,1			BONUS:VAR|BASEPOWERPOINTS|1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Bard ~ Bardic Music	VFEAT:Power Source(Hedge Mage)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip|TYPE=SIMPLE
 2	CAST:1,1,8			KNOWN:5,2,1			BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15		KNOWN:5,3,2,1		BONUS:VAR|BASEPOWERPOINTS|2
 4	CAST:1,1,3,10		KNOWN:6,3,2,1		BONUS:VAR|BASEPOWERPOINTS|3
@@ -40,22 +40,22 @@ CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rt
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid ~ LoE	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|CLASS=Druid ~ LoE|CL
-1	CAST:1,2,12												BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|BASEPOWERPOINTS|1							ABILITY:Special Ability|AUTOMATIC|Nature Sense|Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion					VFEAT:Power Source(Druid/Minstrel)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Shortspear|Longspear
+1	CAST:1,2,12												BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|BASEPOWERPOINTS|1							ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|Druid ~ Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion					VFEAT:Power Source(Druid/Minstrel)	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Shortspear|Longspear
 # VFEAT:Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-2	CAST:1,1,8												BONUS:VAR|BASEPOWERPOINTS|1													ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-3	CAST:1,1,4,15											BONUS:VAR|BASEPOWERPOINTS|2													ABILITY:Special Ability|AUTOMATIC|Trackless Step
-4	CAST:1,1,3,10											BONUS:VAR|BASEPOWERPOINTS|3													ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
+2	CAST:1,1,8												BONUS:VAR|BASEPOWERPOINTS|1													ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
+3	CAST:1,1,4,15											BONUS:VAR|BASEPOWERPOINTS|2													ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step
+4	CAST:1,1,3,10											BONUS:VAR|BASEPOWERPOINTS|3													ABILITY:Special Ability|AUTOMATIC|Druid ~ Resist Nature's Lure
 5	CAST:0,1,2,5,18			SAB:Wildshape %/day|Wildshape				BONUS:VAR|BASEPOWERPOINTS|3	BONUS:VAR|Wildshape|1					DEFINE:Wildshape|0
 6	CAST:0,1,2,4,12											BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|Wildshape|1
 7	CAST:0,1,2,3,6,21											BONUS:VAR|BASEPOWERPOINTS|5	BONUS:VAR|Wildshape|1
 8	CAST:0,1,2,3,5,14			SAB:Wildshape Large					BONUS:VAR|BASEPOWERPOINTS|7
-9	CAST:0,1,2,3,4,7,24										BONUS:VAR|BASEPOWERPOINTS|7													ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+9	CAST:0,1,2,3,4,7,24										BONUS:VAR|BASEPOWERPOINTS|7													ABILITY:Special Ability|AUTOMATIC|Druid ~ Venom Immunity
 10	CAST:0,1,2,3,4,6,16										BONUS:VAR|BASEPOWERPOINTS|9	BONUS:VAR|Wildshape|1
 11	CAST:0,1,2,3,4,5,8,27		SAB:Wildshape (Tiny)					BONUS:VAR|BASEPOWERPOINTS|9
 12	CAST:0,1,2,3,4,5,7,18		SAB:Wildshape (Plant)					BONUS:VAR|BASEPOWERPOINTS|11
 13	CAST:0,1,2,3,4,5,6,9,30		SAB:A Thousand Faces (Su)				BONUS:VAR|BASEPOWERPOINTS|11
 14	CAST:0,1,2,3,4,5,6,8,20										BONUS:VAR|BASEPOWERPOINTS|13	BONUS:VAR|Wildshape|1
-15	CAST:0,1,2,3,4,5,6,7,10,33	SAB:Wildshape (Huge)					BONUS:VAR|BASEPOWERPOINTS|13													ABILITY:Special Ability|AUTOMATIC|Timeless Body												TEMPLATE:Timeless Body
+15	CAST:0,1,2,3,4,5,6,7,10,33	SAB:Wildshape (Huge)					BONUS:VAR|BASEPOWERPOINTS|13													ABILITY:Special Ability|AUTOMATIC|Druid ~ Timeless Body												TEMPLATE:Timeless Body
 16	CAST:0,1,2,3,4,5,6,7,9,22	SAB:Wildshape (elemental %/day)|EWildshape	BONUS:VAR|BASEPOWERPOINTS|15	BONUS:VAR|EWildshape|1					DEFINE:EWildshape|0
 17	CAST:0,1,2,3,4,5,6,7,8,11									BONUS:VAR|BASEPOWERPOINTS|15
 18	CAST:0,0,2,3,4,5,6,7,8,10									BONUS:VAR|BASEPOWERPOINTS|17	BONUS:VAR|Wildshape|1	BONUS:VAR|EWildshape|2
@@ -89,7 +89,7 @@ CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		MAXLEVEL:20	SOURCEPAGE:p.12	VFEAT:L
 CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcana)|TYPE=Profession|Prophecy|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Hedge Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CLASS=Hedge Mage|CL
-1	CAST:1,2,12				KNOWN:4,2,1				SAB:Superstition		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar	VFEAT:Power Source(Hedge Mage)	AUTO:WEAPONPROF|TYPE=SIMPLE
+1	CAST:1,2,12				KNOWN:4,2,1				SAB:Superstition		BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar	VFEAT:Power Source(Hedge Mage)	AUTO:WEAPONPROF|TYPE=SIMPLE
 2	CAST:1,1,8				KNOWN:5,2,1				SAB:Dream Reader		BONUS:VAR|BASEPOWERPOINTS|1
 3	CAST:1,1,4,15			KNOWN:5,3,2,1							BONUS:VAR|BASEPOWERPOINTS|2
 4	CAST:1,1,3,10			KNOWN:6,3,2,1							BONUS:VAR|BASEPOWERPOINTS|3
@@ -149,7 +149,7 @@ CLASS:Knight	PRESTAT:1,NOB=41
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Swim
 1	SAB:Mounted Combat +% (Ex)|MountedCombat	SAB:Code of Chivalry (Ex)	BONUS:VAR|MountedCombat|CL/4+1					DEFINE:MountedCombat|0	ADD:FEAT|Mounted Combat		AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:FEAT|Aura of Knighthood	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=SIMPLE|TYPE=Martial
 2	SAB:Armor Tolerance +% (Ex)|ArmorTolerance					BONUS:VAR|ArmorTolerance|CL/2	BONUS:VAR|KnightLevel|CL	DEFINE:ArmorTolerance|0																	AUTO:FEAT|Knight's Warhorse
-3																											ADD:FEAT|Ride By Attack
+3																											ADD:FEAT|Ride-By Attack
 4	SAB:Dispense Justice (Ex)
 5																											ADD:FEAT|Spirited Charge
 7																											ADD:FEAT|Trample
@@ -171,22 +171,22 @@ CLASS:Minstrel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 ###Block: Normal Level Progression
 1																																																					AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=SIMPLE
 2						SAB:Soothe the Savage Beast (Ex)
-4	CAST:1,2,12										BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS								ABILITY:Special Ability|AUTOMATIC|Nature Sense			VFEAT:Power Source(Druid/Minstrel)
+4	CAST:1,2,12										BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|BASEPOWERPOINTS|1	BONUS:VAR|BONUSPOWERPOINTS|WIS								ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense			VFEAT:Power Source(Druid/Minstrel)
 5	CAST:1,1,8																	BONUS:VAR|BASEPOWERPOINTS|1											ADD:FEAT|Track
 6	CAST:1,1,4,15																BONUS:VAR|BASEPOWERPOINTS|2
-7	CAST:1,1,3,10																BONUS:VAR|BASEPOWERPOINTS|3														ABILITY:Special Ability|AUTOMATIC|Trackless Step
+7	CAST:1,1,3,10																BONUS:VAR|BASEPOWERPOINTS|3														ABILITY:Special Ability|AUTOMATIC|Druid ~ Trackless Step
 8	CAST:0,1,2,5,18																BONUS:VAR|BASEPOWERPOINTS|3
 9	CAST:0,1,2,4,12																BONUS:VAR|BASEPOWERPOINTS|5
-10	CAST:0,1,2,3,6,21																BONUS:VAR|BASEPOWERPOINTS|5														ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
+10	CAST:0,1,2,3,6,21																BONUS:VAR|BASEPOWERPOINTS|5														ABILITY:Special Ability|AUTOMATIC|Druid ~ Resist Nature's Lure
 11	CAST:0,1,2,3,5,14			SAB:Wild Shape %/day (Su)|WildShape								BONUS:VAR|BASEPOWERPOINTS|7	BONUS:VAR|WildShape|1			DEFINE:Wildshape|0
 12	CAST:0,1,2,3,4,7,24															BONUS:VAR|BASEPOWERPOINTS|7
-13	CAST:0,1,2,3,4,6,16															BONUS:VAR|BASEPOWERPOINTS|9														ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+13	CAST:0,1,2,3,4,6,16															BONUS:VAR|BASEPOWERPOINTS|9														ABILITY:Special Ability|AUTOMATIC|Druid ~ Venom Immunity
 14	CAST:0,1,2,3,4,5,8,27															BONUS:VAR|BASEPOWERPOINTS|9
 15	CAST:0,1,2,3,4,5,7,18															BONUS:VAR|BASEPOWERPOINTS|11
 16	CAST:0,1,2,3,4,5,6,9,30															BONUS:VAR|BASEPOWERPOINTS|11	BONUS:VAR|WildShape|1
 17	CAST:0,1,2,3,4,5,6,8,20															BONUS:VAR|BASEPOWERPOINTS|13	BONUS:VAR|WildShape|1
 18	CAST:0,1,2,3,4,5,6,7,10,33														BONUS:VAR|BASEPOWERPOINTS|13
-19	CAST:0,1,2,3,4,5,6,7,9,22														BONUS:VAR|BASEPOWERPOINTS|15														ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
+19	CAST:0,1,2,3,4,5,6,7,9,22														BONUS:VAR|BASEPOWERPOINTS|15														ABILITY:Special Ability|AUTOMATIC|Druid ~ A Thousand Faces
 20	CAST:0,1,2,3,4,5,6,7,8,11														BONUS:VAR|BASEPOWERPOINTS|15
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Virtual Feat													Save checks bonus											Combat bonus
@@ -196,9 +196,9 @@ CLASS:Noble		PRESTAT:1,NOB=51
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (History)|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Sense Motive
 1	SAB:Dispense Justice (Ex)	SAB:Aura of Nobility (Ex)	SAB:Nobless Oblige (Ex)	BONUS:SKILL|Intimidate|AuraNobility	BONUS:VAR|AuraNobility|NOB/2	DEFINE:AuraNobility|0										AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=SIMPLE|TYPE=Martial
-2																														ABILITY:Special Ability|AUTOMATIC|Divine Grace
+2																														ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Grace
 3	SAB:Quest +% (Ex)|Qust																	BONUS:VAR|Qust|CL/3		DEFINE:Qust|0
-4																														ABILITY:Special Ability|AUTOMATIC|Aura of Courage
+4																														ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Courage
 5	SAB:Divine Wrath %/day (Su)|DivineWrath														BONUS:VAR|DivineWrath|1		DEFINE:DivineWrath|0
 8	SAB:Divine Right (Aura of Majesty) (Su)
 10																					BONUS:VAR|DivineWrath|1

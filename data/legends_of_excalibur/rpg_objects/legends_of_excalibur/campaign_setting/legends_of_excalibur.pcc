@@ -74,13 +74,15 @@ KIT:loe_kits.lst
 
 # Suppress forward references
 FORWARDREF:EQUIPMENT|Flurry of Blows
-FORWARDREF:CLASSSPELLLIST|Adept,Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard
-FORWARDREF:DOMAINSPELLLIST|Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water
+FORWARDREF:CLASSSPELLLIST|Adept,Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard,Assassin,Blackguard
+FORWARDREF:DOMAINSPELLLIST|Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water,Artifice,Creation,Darkness,Glory,Madness,Repose
+
 FORWARDREF:RACE|Dire Animal (Dire Rat),Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Cheetah,Crocodile,Dog,Eagle,Hyena,Leopard,Lion,Lizard,Manta Ray,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine,Crocodile (Giant),Lizard (Monitor),Octopus (Giant),Squid (Giant)
 FORWARDREF:TEMPLATE|Inspire Courage ~ Is The Bard,Inspire Competence ~ Is The Bard,Spell Like Ability ~ Cleric,Spellbook,Awakened Animal_Standard,Awakened Animal_Will,Dragon Disciple Attacks,Dragon Disciple Attacks Large,Dragon Disciple Attacks Medium,Dragon Disciple Attacks Small,RighteousMightDR,Timeless Body,Timeless Body ~ Adult,Timeless Body ~ Middle Age,Timeless Body ~ Old,Timeless Body ~ Venerable
-FORWARDREF:LANGUAGE|Goblin
+FORWARDREF:LANGUAGE|Goblin,Aquan,Common,Drow Sign Language,Dwarven,Elven,Giant,Gnoll,Gnome,Halfling,Orc,Telepathy,Terran,Undercommon
+
 FORWARDREF:ABILITY=Special Ability|Flurry of Blows
-FORWARDREF:CLASS|Bard,Wizard,Sorcerer,Cleric
+FORWARDREF:CLASS|Bard,Wizard,Sorcerer,Cleric,Animal,Dragon,Magical Beast,Outsider,Ranger,Undead,Undead (Mindless)
 
 #
 # End
