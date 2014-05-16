@@ -43,7 +43,7 @@ EQUIPMOD:rsrd_equipmods.lst
 FEAT:rsrd_feats.lst
 KIT:rsrd_kits_race.lst
 LANGUAGE:rsrd_languages.lst
-WEAPONPROF:rsrd_profs_weap.lst
+WEAPONPROF:rsrd_profs_weapon.lst
 RACE:rsrd_races.lst
 SKILL:rsrd_skills.lst
 SPELL:rsrd_spells.lst
