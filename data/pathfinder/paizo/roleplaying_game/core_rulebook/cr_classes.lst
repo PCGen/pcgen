@@ -332,7 +332,7 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 5	BONUS:VAR|DivineBondLVL|CL
 20	BONUS:VAR|HolyChampionLVL|CL
 ###Block:
-1	ABILITY:Paladin Class Feature|VIRTUAL|Aura of Good
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Good|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfGood
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Detect Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Smite Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
 2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace
