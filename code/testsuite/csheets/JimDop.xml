@@ -384,7 +384,7 @@ BIO
 			<used>10</used>
 			<unused>59</unused>
 		</skillpoints>
-		<list_mods>Bluff +10, Diplomacy +3, Disguise +10, Disguise (Act in character) +12, Intimidate +3</list_mods>
+		<list_mods>Bluff +10, Diplomacy +3, Disguise +10, Intimidate +3</list_mods>
 		<max_class_skill_level>9</max_class_skill_level>
 		<max_cross_class_skill_level>4.5</max_cross_class_skill_level>
 		<skill>
@@ -522,23 +522,6 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>10</trained_total>
 			<exclusive_total>10</exclusive_total>
-		</skill>
-		<skill>
-			<name>Disguise (Act in character)</name>
-			<ranks>5.0</ranks>
-			<mod>7<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>12</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Disguise (Act in character)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
@@ -1412,77 +1395,7 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<!-- Auto feats -->
-		<feat>
-			<name>Armor Proficiency (Heavy)</name>
-			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Armor Proficiency (Light)</name>
-			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Armor Proficiency (Medium)</name>
-			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Martial Weapon Proficiency</name>
-			<description>You understand how to use all types of martial weapons in combat.</description>
-			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Shield Proficiency</name>
-			<description>You can use a shield and take only the standard penalties.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Tower Shield Proficiency</name>
-			<description>You can use a tower shield and suffer only the standard penalties.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
 		<!-- Virtual Feats -->
-		<feat>
-			<name>Simple Weapon Proficiency</name>
-			<description>You make attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
@@ -1499,7 +1412,29 @@ BIO
 		<ability_object>
 			<name>Change Shape</name>
 			<description>A doppelganger can assume the shape of any Small or Medium humanoid. In humanoid form, the doppelganger loses its natural attacks. A doppelganger can remain in its humanoid form until it chooses to assume a new one. A change in form cannot be dispelled, but a doppelganger reverts to its natural form when killed. A true seeing spell or ability reveals its natural form.</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>DOPPELGANGERRACETRAIT.SPECIALQUALITY.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bonus Feats</name>
+			<description>At 1st level, a fighter gets a bonus combat-oriented feat in addition to the feat that any 1st-level character gets and the bonus feat granted to a human character. The fighter gains an additional bonus feat at 2nd level and every two fighter levels thereafter (4th, 6th, 8th, 10th, 12th, 14th, 16th, 18th, and 20th). These bonus feats must be drawn from the feats noted as fighter bonus feats. A fighter must still meet all prerequisites for a bonus feat, including ability score and base attack bonus minimums. These bonus feats are in addition to the feat that a character of any class gets from advancing levels. A fighter is not limited to the list of fighter bonus feats when choosing these feats.</description>
+			<type>CLASSFEATURES.FIGHTERCLASSFEATURES.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon and Armor Proficiency</name>
+			<description>A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and shields (including tower shields).</description>
+			<type>CLASSFEATURES.FIGHTERCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1521,7 +1456,7 @@ BIO
 		<ability_object>
 			<name>Detect Thoughts</name>
 			<description>A doppelganger can continuously use detect thoughts as the spell (caster level 18th; Will DC 13 negates). It can suppress or resume this ability as a free action. The save DC is Charisma-based.</description>
-			<type>SPECIALQUALITY.SUPERNATURAL</type>
+			<type>DOPPELGANGERRACETRAIT.SPECIALQUALITY.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1596,17 +1531,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Low-Light</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Low-Light Vision</name>
 			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
@@ -1642,18 +1566,7 @@ BIO
 		<ability_object>
 			<name>Skills</name>
 			<description>A doppelganger has a +4 racial bonus on Bluff and Disguise checks. *When using its change shape ability, a doppelganger gets an additional +10 circumstance bonus on Disguise checks. If it can read an opponent&#39;s mind, it gets a further +4 circumstance bonus on Bluff and Disguise checks.</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Weapon and Armor Proficiency</name>
-			<description>A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and shields (including tower shields).</description>
-			<type>CLASSABILITY.SPECIALQUALITY</type>
+			<type>DOPPELGANGERRACETRAIT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1662,83 +1575,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>All Martial Weapon Proficiencies</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Fighter Bonus Feat</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Fighter Level Advanced Feat Tracker</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Greater Weapon Focus Qualify</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Greater Weapon Specialization Qualify</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Low light Vision</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
 		<ability_object>
 			<name>Monstrous Humanoid Proficiencies</name>
 			<description></description>
@@ -1750,18 +1586,40 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
+	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
-			<name>Weapon Specialization Qualify</name>
+			<name>Armor Prof ~ Heavy</name>
 			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
+			<type>ARMORPROFHEAVY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
-			<hidden>T</hidden>
+			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<category>Special Ability</category>
+			<category>Internal</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Armor Prof ~ Light</name>
+			<description></description>
+			<type>ARMORPROFLIGHT.ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Prof ~ Medium</name>
+			<description></description>
+			<type>ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1785,7 +1643,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Grants All Hidden Abilities</name>
+			<name>First Base Class</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -1796,9 +1654,64 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Select Racial Traits</name>
+			<name>Race Traits ~ Doppelganger</name>
 			<description></description>
 			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Shield Prof</name>
+			<description></description>
+			<type>SHIELDPROFTOWER.SHIELDPROF</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Shield Prof ~ Tower</name>
+			<description></description>
+			<type>SHIELDPROFTOWER</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Auto</name>
+			<description></description>
+			<type>WEAPONPROFAUTO.WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Martial</name>
+			<description></description>
+			<type>WEAPONPROFMARTIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Simple</name>
+			<description></description>
+			<type>WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1808,7 +1721,7 @@ BIO
 		</ability_object>
 	<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
-			<name>Master Traits</name>
+			<name>Creature Type</name>
 			<description></description>
 			<type>INTERNAL</type>
 			<associated></associated>
@@ -1826,7 +1739,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells (Ray), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
+	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells (Ray), Spells (Touch), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Common</languages>
 
 	<templates>
