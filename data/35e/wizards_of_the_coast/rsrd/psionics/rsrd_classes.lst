@@ -20,17 +20,17 @@ CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 ###COMMENT: Choice is invalid. Commented out CHOICE. - AM
-SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
+SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	ABILITY:Internal|AUTOMATIC|Psion ~ Seer		DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
 #SUBCLASS:Egoist		CHOICE:SCHOOL|Psychometabolism
-SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicKineticist|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
+SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	ABILITY:Internal|AUTOMATIC|Psion ~ Kineticist	DEFINE:PsionicKineticist|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
 #SUBCLASS:Kineticist	CHOICE:SCHOOL|Psychokinesis
-SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicNomad|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
+SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	ABILITY:Internal|AUTOMATIC|Psion ~ Nomad		DEFINE:PsionicNomad|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
 #SUBCLASS:Nomad		CHOICE:SCHOOL|Psychoportation
-SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Gather Information|Listen|Spot
+SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	ABILITY:Internal|AUTOMATIC|Psion ~ Seer		DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Gather Information|Listen|Spot
 #SUBCLASS:Seer		CHOICE:SCHOOL|Clairsentience
-SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicShaper|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Disguise|Use Psionic Device
+SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	ABILITY:Internal|AUTOMATIC|Psion ~ Shaper		DEFINE:PsionicShaper|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Disguise|Use Psionic Device
 #SUBCLASS:Shaper		CHOICE:SCHOOL|Metacreativity
-SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicTelepath|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
+SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	ABILITY:Internal|AUTOMATIC|Psion ~ Telepath	DEFINE:PsionicTelepath|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Psion ~ Weapon and Armor Proficiency

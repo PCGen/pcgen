@@ -5,26 +5,32 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 Human			KEY:Human Base				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common					LANGBONUS:TYPE=Spoken
 # Dwarf
 Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
+
 Deep			KEY:Deep Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
-Duergar		KEY:Duergar Dwarf				VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran									SUBRACE:YES
+Duergar		KEY:Duergar Dwarf				VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:.CLEAR	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran									SUBRACE:YES
 Mountain		KEY:Mountain Dwarf			VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
 # Elf
 High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
+
 Aquatic		KEY:Aquatic Elf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:YES	RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
-Drow			KEY:Drow Elf			CR:1	VISIBLE:NO	LEVELADJUSTMENT:2							AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin						SUBRACE:YES
+Drow			KEY:Drow Elf			CR:1	VISIBLE:NO	LEVELADJUSTMENT:2							AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin						SUBRACE:YES
 Gray			KEY:Gray Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
 Wild			KEY:Wild Elf				VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
 Wood			KEY:Wood Elf				VISIBLE:NO				FAVOREDCLASS:Ranger			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
 # Half-Elf
 Half-Elf		KEY:Half-Elf				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven				LANGBONUS:TYPE=Spoken						
+# Half-Orc
+Half-Orc		KEY:Half-Orc				VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin						
 # Gnome
 Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:YES
-Svirfneblin		KEY:Svirfneblin Gnome		CR:1	VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue			AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran									SUBRACE:YES
+
+Svirfneblin		KEY:Svirfneblin Gnome		CR:1	VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue			AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran									SUBRACE:YES
 Forest		KEY:Forest Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:YES
 # Halfling
 Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:YES
-Tallfellow		KEY:Tallfellow Halfling			VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:Dwarven,Gnome,Goblin,Orc											SUBRACE:YES
-Deep			KEY:Deep Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:Elven,Gnome,Goblin,Orc											SUBRACE:YES
+
+Tallfellow		KEY:Tallfellow Halfling			VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Gnome,Goblin,Orc											SUBRACE:YES
+Deep			KEY:Deep Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:.CLEAR	LANGBONUS:Elven,Gnome,Goblin,Orc											SUBRACE:YES
 
 
 ###Block:

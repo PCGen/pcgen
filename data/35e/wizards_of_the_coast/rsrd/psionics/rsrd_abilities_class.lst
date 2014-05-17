@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Monster Psion Casting Support
 # Ability Name		Category of Ability	List of Class Spells by Level
-Psion Egoist Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=2|Animal Affinity,Chameleon,Empathic Transfer|Psion=3|Ectoplasmic Form,Hustle|Psion=4|Metamorphosis,Psychic Vampire|Psion=5|Psionic Revivify,Psychofeedback,Restore Extremity|Psion=6|Restoration (Psionic)|Psion=8|Fusion|Psion=9|Metamorphosis (Greater)|PREABILITY:1,CATEGORY=Internal,Psion Egoist Class
+Psion Egoist Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=2|Animal Affinity,Chameleon,Empathic Transfer|Psion=3|Ectoplasmic Form,Hustle|Psion=4|Metamorphosis,Psychic Vampire|Psion=5|Psionic Revivify,Psychofeedback,Restore Extremity|Psion=6|Restoration (Psionic)|Psion=8|Fusion|Psion=9|Metamorphosis (Greater)
 Psion Kineticist Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=1|Control Object|Psion=2|Control Air,Energy Missile|Psion=3|Energy Cone|Psion=4|Control Body,Energy Ball,Inertial Barrier|Psion=5|Energy Current,Fiery Discorporation|Psion=6|Dispelling Buffer,Null Psionics Field|Psion=7|Dream Travel,Fission,Reddopsi|Psion=8|Telekinetic Sphere (Psionic)|Psion=9|Tornado Blast
 Psion Nomad Class		CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=1|Burst,Detect Teleportation|Psion=2|Dimension Swap,Levitate (Psionic)|Psion=3|Astral Caravan|Psion=4|Dimensional Anchor (Psionic),Dismissal (Psionic),Fly (Psionic)|Psion=5|Baleful Teleport,Teleport (Psionic),Teleport Trigger|Psion=6|Banishment (Psionic)|Psion=7|Ethereal Jaunt (Psionic)|Psion=8|Time Hop (Mass)|Psion=9|Teleportation Circle (Psionic),Time Regression
 Psion Seer Class		CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=1|Destiny Dissonance,Precognition|Psion=2|Clairvoyant Sense,Object Reading,Sensitivity to Psychic Impressions|Psion=3|Escape Detection,Fate Link|Psion=4|Remote Viewing|Psion=5|Clairtangent Hand,Second Chance|Psion=6|Precognition (Greater)|Psion=7|Fate of One|Psion=8|Hypercognition|Psion=9|Metafaculty
@@ -13,10 +13,12 @@ Psion Telepath Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=1|Charm (Psionic)
 
 
 ###Block:
-
-
-
-
+Psion ~ Seer		CATEGORY:Internal	DEFINE:PsionicSeer|1		
+Psion ~ Kineticist	CATEGORY:Internal	DEFINE:PsionicKineticist|1	
+Psion ~ Nomad		CATEGORY:Internal	DEFINE:PsionicNomad|1		
+Psion ~ Seer		CATEGORY:Internal	DEFINE:PsionicSeer|1		
+Psion ~ Shaper		CATEGORY:Internal	DEFINE:PsionicShaper|1		
+Psion ~ Telepath		CATEGORY:Internal	DEFINE:PsionicTelepath|1	
 
 
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR
