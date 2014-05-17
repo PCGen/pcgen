@@ -1,6 +1,6 @@
-/**
- * pcgen.core.term.PCBABTermEvaluator.java
- * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
+/*
+ * pcgen.core.term.PCBaseCRTermEvaluator.java
+ * Copyright (c) 2014 Stefan Radermacher <zaister@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created 03-Aug-2008 22:45:18
+ * Created 30-Mar-2014 22:45:18
  *
  * Current Ver: $Revision:$
  * Last Editor: $Author:$
@@ -28,27 +28,51 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
+/**
+ * The Class <code>PCBaseCRTermEvaluator</code> is responsible for calculating
+ * the character's unmodified challenge rating, as specified by the 
+ * CR tag in the race definition. 
+ * 
+ * Last Editor: $Author: thpr $
+ * Last Edited: $Date: 2012-01-07 18:57:16 +0100 (Sa, 07 Jan 2012) $
+ * 
+ * @author Stefan Radermacher <zaister@users.sourceforge.net>
+ * @version $Revision: 15744 $
+ */
 public class PCBaseCRTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
 
-	public PCBaseCRTermEvaluator(
-			String originalText)
+	/**
+	 * Instantiates a new PCBaseHDTermEvaluator.
+	 * 
+	 * @param expressionString the expression string
+	 */
+	public PCBaseCRTermEvaluator(String expressionString)
 	{
-		this.originalText = originalText;
+		this.originalText = expressionString;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.PlayerCharacter)
+	 */
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.getDisplay().calcBaseCR();
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
+	 */
 	@Override
 	public boolean isSourceDependant()
 	{
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see pcgen.core.term.TermEvaluator#isStatic()
+	 */
 	public boolean isStatic()
 	{
 		return false;
