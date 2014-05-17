@@ -232,7 +232,7 @@ LEVEL ADJUSTMENT +9							VISIBLE:NO	LEVELADJUSTMENT:9
 
 
 ###Block: Known First Base Class - Barbarian Illiteracy Support
-First Base Class	VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseClass]	REMOVABLE:NO
+First Base Class	VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseClass]	
 ###Block: Classes
 # Template Name	Visible	Required Class		Removable?		Type
 Barbarian		VISIBLE:NO	PRECLASS:1,Barbarian=1	REMOVABLE:NO	TYPE:BaseClass	DEFINE:IlliteracyLVL|0

@@ -1,7 +1,7 @@
 # COMMENT: Method to track first assigned class.
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|First Base Class|PRECLASS:1,TYPE.Base=1	ABILITY:Internal|AUTOMATIC|Defines Required		ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]	ABILITY:Internal|AUTOMATIC|Bardic Inspire Competence (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Defines Required		ABILITY:Internal|AUTOMATIC|Bardic Inspire Courage (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCourage,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage]	ABILITY:Internal|AUTOMATIC|Bardic Inspire Competence (For Others)|PREMULT:2,[PREVAREQ:EnableBardicInspireCompetence,1],[!PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Competence]
 
-
+#	ABILITY:Internal|AUTOMATIC|First Base Class|PRECLASS:1,TYPE.Base=1
 
 #COMMENT: Holds Global DEFINES
 
