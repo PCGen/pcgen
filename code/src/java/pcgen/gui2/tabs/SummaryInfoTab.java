@@ -783,32 +783,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		//initialize XP table model
 		xpTableModel.setListFacade(dataset.getXPTableNames());
 		xpTableModel.setReference(character.getXPTableNameRef());
-
-		ReferenceFacade<RaceFacade> raceRef = character.getRaceRef();
-		ReferenceListener<Object> raceListener = new ReferenceListener<Object>()
-		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<Object> e)
-			{
-				RaceFacade race = character.getRaceRef().getReference();
-				if (race != null)
-				{
-					genderModel.setListFacade(race.getGenders());
-					handsModel.setListFacade(race.getHands());
-					resetBasicsPanel();
-				}
-				else
-				{
-					genderModel.setListFacade(new DefaultListFacade<GenderFacade>());
-					handsModel.setListFacade(new DefaultListFacade<HandedFacade>());
-				}
-			}
-
-		};
-		raceListener.referenceChanged(null);
-		raceRef.addReferenceListener(raceListener);
-		raceModel.setReference(raceRef);
+        
+        genderModel.setListFacade(character.getAvailableGenders());
+        handsModel.setListFacade(character.getAvailableHands());
+		raceModel.setReference(character.getRaceRef());
 
 		//Manages the character name text field
 		TextFieldHandler charNameHandler = new TextFieldHandler(characterNameField, character.getNameRef())
@@ -906,7 +884,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		stateTable.put(Models.RandomNameAction, new RandomNameAction(character,
 																	 (JFrame) SwingUtilities.getWindowAncestor(this)));
-		stateTable.put(Models.ClassLevelTableModel, new ClassLevelTableModel(character));
+		stateTable.put(Models.ClassLevelTableModel, new ClassLevelTableModel(character, classLevelTable, classComboBox));
 		stateTable.put(Models.GenerateRollsAction, new GenerateRollsAction(character));
 		stateTable.put(Models.RollMethodAction, new RollMethodAction(
 				(JFrame) SwingUtilities.getWindowAncestor(this), character));
@@ -1001,6 +979,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		((HPHandler) state.get(Models.HPHandler)).uninstall();
 		
 		raceComboBox.removeFocusListener((DeferredCharacterComboBoxModel<RaceFacade>) state.get(Models.RaceComboBoxModel));
+        ((ComboBoxRenderer) state.get(Models.InfoComboBoxRenderer)).uninstall();
+        ((ComboBoxRenderer) state.get(Models.ClassComboBoxRenderer)).uninstall();
 	}
 
 	@Override
@@ -1012,7 +992,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		((InfoPaneHandler) state.get(Models.InfoPaneHandler)).install();
 		((LanguageTableModel) state.get(Models.LanguageTableModel)).install(languageTable);
 		((StatTableModel) state.get(Models.StatTableModel)).install();
-		((ClassLevelTableModel) state.get(Models.ClassLevelTableModel)).install(classLevelTable, classComboBox);
+		((ClassLevelTableModel) state.get(Models.ClassLevelTableModel)).install();
 		((FormattedFieldHandler) state.get(Models.AgeHandler)).install();
 		((FormattedFieldHandler) state.get(Models.ExpHandler)).install();
 		((FormattedFieldHandler) state.get(Models.NextLevelHandler)).install();
@@ -1067,6 +1047,20 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			return this;
 		}
 
+        /**
+         * This is necessary because Java's Swing automatically
+         * adds this component to a container when it is drawn but
+         * does not ever remove it. This means that the component
+         * will exist forever in the component hierarchy and thus never be
+         * garbage collected. We must remove it from the hierarchy ourselves
+         * to solve the problem.
+         */
+        public void uninstall(){
+            Container parent = getParent();
+            if(parent != null){
+                parent.remove(this);
+            }
+        }
 	}
 
 	private class InfoBoxRenderer extends ComboBoxRenderer

@@ -211,9 +211,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
 	private DefaultReferenceFacade<GenderFacade> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
+    private DefaultListFacade<HandedFacade> availHands;
+    private DefaultListFacade<GenderFacade> availGenders;
 	private Map<StatFacade, DefaultReferenceFacade<Integer>> statScoreMap;
 	private UndoManager undoManager;
-	private DataSetFacade dataSet;
+	private DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<RaceFacade> race;
 	private DefaultReferenceFacade<DeityFacade> deity;
 	private DefaultReferenceFacade<String> tabName;
@@ -295,7 +297,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		this.delegate = delegate;
 		theCharacter = pc;
 		charDisplay = pc.getDisplay();
-		dataSet = dataSetFacade;
+		dataSet = new DelegatingDataSet(dataSetFacade);
 		buildAgeCategories();
 		initForCharacter();
 		undoManager = new UndoManager();
@@ -313,6 +315,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			.removeDataFacetChangeListener(templateListener);
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
+        companionSupportFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
 		Globals.getPCList().remove(theCharacter);
 		lastExportChar = null;
@@ -323,6 +326,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		 */
 		theCharacter = DUMMY_PC;
 		charDisplay = null;
+        dataSet.detachDelegates();
 	}
 	
 	/**
@@ -375,9 +379,21 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		handedness = new DefaultReferenceFacade<HandedFacade>();
 		gender = new DefaultReferenceFacade<GenderFacade>();
+        
+        availHands = new DefaultListFacade<HandedFacade>();
+        availGenders = new DefaultListFacade<GenderFacade>();
+		for (Handed handed : Handed.values())
+		{
+			availHands.addElement(handed);
+		}
+		for (Gender gender : Gender.values())
+		{
+			availGenders.addElement(gender);
+		}
+        
 		if (charDisplay.getRace() != null)
 		{
-			for (HandedFacade handsFacade : charDisplay.getRace().getHands())
+			for (HandedFacade handsFacade : availHands)
 			{
 				if (handsFacade.equals(charDisplay.getHandedObject()))
 				{
@@ -385,7 +401,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					break;
 				}
 			}
-			for (GenderFacade pcGender : race.getReference().getGenders())
+			for (GenderFacade pcGender : availGenders)
 			{
 				if (pcGender.equals(charDisplay.getGenderObject()))
 				{
@@ -620,6 +636,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		return charName.startsWith("Unnamed"); //$NON-NLS-1$
 	}
+
+    @Override
+    public ListFacade<HandedFacade> getAvailableHands()
+    {
+        return availHands;
+    }
+
+    @Override
+    public ListFacade<GenderFacade> getAvailableGenders()
+    {
+        return availGenders;
+    }
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addAbility(pcgen.core.facade.AbilityCategoryFacade, pcgen.core.facade.AbilityFacade)
@@ -1490,7 +1518,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		this.selectedGender = gender;
 		if (charDisplay.getRace() != null)
 		{
-			for (GenderFacade raceGender : charDisplay.getRace().getGenders())
+			for (GenderFacade raceGender : availGenders)
 			{
 				if (raceGender.toString().equals(gender))
 				{
@@ -1881,7 +1909,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		if (charDisplay.getRace() != null)
 		{
-			for (HandedFacade handsFacade : charDisplay.getRace().getHands())
+			for (HandedFacade handsFacade : availHands)
 			{
 				if (handsFacade.toString().equals(charDisplay.getHanded()))
 				{
@@ -1889,7 +1917,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					break;
 				}
 			}
-			for (GenderFacade pcGender : race.getReference().getGenders())
+			for (GenderFacade pcGender : availGenders)
 			{
 				if (pcGender.equals(charDisplay.getGenderObject()))
 				{

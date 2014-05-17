@@ -20,10 +20,11 @@
  */
 package pcgen.core.facade;
 
+import java.util.Comparator;
 import java.util.List;
-
 import pcgen.core.facade.generator.StatGenerationFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.core.facade.util.MapFacade;
 
 /**
  *
@@ -32,9 +33,11 @@ import pcgen.core.facade.util.ListFacade;
 public interface DataSetFacade
 {
 
-	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
-
-	public ListFacade<AbilityCategoryFacade> getAbilityCategories();
+    public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities();
+    
+//	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
+//
+//	public ListFacade<AbilityCategoryFacade> getAbilityCategories();
 
 	/**
 	 * Retrieve the abilities that must be taken before this ability can be taken.

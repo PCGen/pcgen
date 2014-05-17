@@ -57,14 +57,7 @@ import pcgen.util.Logging;
 public class HtmlSheetSupport
 {
 
-	private WeakReference<CharacterFacade> characterRef;
-	private final File templateFile;
-	private final JEditorPane htmlPane;
-	private ImageCache cache = new ImageCache();
-	private FutureTask<HTMLDocument> refresher = null;
-	private boolean installed = false;
-	private String missingSheetMsg;
-	private ExecutorService executor = Executors.newSingleThreadExecutor(new ThreadFactory()
+	private static final ThreadFactory threadFactory = new ThreadFactory()
 	{
 
 		@Override
@@ -76,7 +69,16 @@ public class HtmlSheetSupport
 			return thread;
 		}
 
-	});
+	};
+	private ExecutorService executor = Executors.newSingleThreadExecutor(threadFactory);
+
+	private WeakReference<CharacterFacade> characterRef;
+	private final File templateFile;
+	private final JEditorPane htmlPane;
+	private ImageCache cache = new ImageCache();
+	private FutureTask<HTMLDocument> refresher = null;
+	private boolean installed = false;
+	private String missingSheetMsg;
 
 	public HtmlSheetSupport(JEditorPane htmlPane, String infoSheetFile)
 	{

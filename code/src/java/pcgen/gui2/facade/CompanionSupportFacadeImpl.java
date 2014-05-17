@@ -427,6 +427,15 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		}
 	}
 
+    /**
+     * Remove ourselves from the global characters list so that
+     * the current character can be garbage collected.
+     */
+    void closeCharacter()
+    {
+        CharacterManager.getCharacters().removeListListener(this);
+    }
+    
 	/**
 	 * Removes a character from the companion framework.
 	 * This will replace the specified character with a dummy

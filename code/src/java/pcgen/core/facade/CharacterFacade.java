@@ -418,6 +418,9 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef();
 
+    public ListFacade<HandedFacade> getAvailableHands();
+    
+    public ListFacade<GenderFacade> getAvailableGenders();
 	/**
 	 * @return The domains which the character has access to.
 	 */

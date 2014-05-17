@@ -67,8 +67,9 @@ public class ClassLevelTableModel extends AbstractTableModel
 	private Editor editor = new Editor();
 	private Editor renderer = new Editor();
 	private JComboBox classComboBox;
+	private JTable classTable;
 
-	public ClassLevelTableModel(CharacterFacade character)
+	public ClassLevelTableModel(CharacterFacade character, JTable table, JComboBox comboBox)
 	{
 		super();
 		this.character = character;
@@ -78,6 +79,8 @@ public class ClassLevelTableModel extends AbstractTableModel
 		levels.addListListener(this);
 		levels.addClassListener(this);
 		levels.addHitPointListener(this);
+		this.classComboBox = comboBox;
+		this.classTable = table;
 	}
 
 	public static void initializeTable(JTable classLevelTable)
@@ -98,15 +101,14 @@ public class ClassLevelTableModel extends AbstractTableModel
 		classLevelTable.setRowHeight(20);
 	}
 
-	public void install(JTable table, JComboBox comboBox)
+	public void install()
 	{
-		this.classComboBox = comboBox;
-		table.setModel(this);
-		table.setDefaultRenderer(Object.class, renderer);
-		table.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
-		table.setDefaultEditor(Object.class, editor);
-		comboBox.addItemListener(this);
-		comboBox.addPropertyChangeListener("model", this);
+		classTable.setModel(this);
+		classTable.setDefaultRenderer(Object.class, renderer);
+		classTable.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
+		classTable.setDefaultEditor(Object.class, editor);
+		classComboBox.addItemListener(this);
+		classComboBox.addPropertyChangeListener("model", this);
 	}
 
 	public void uninstall()

@@ -26,6 +26,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
@@ -217,11 +218,11 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		/** Version for serialisation.  */
 		private static final long serialVersionUID = -9006249573217208478L;
 
-		private CharacterFacade character;
+        private WeakReference<CharacterFacade> characterRef;
 
 		public TempBonusRenderer(CharacterFacade character)
 		{
-			this.character = character;
+            this.characterRef = new WeakReference<CharacterFacade>(character);
 			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
 			setClosedIcon(null);
 			setLeafIcon(null);
@@ -238,7 +239,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 			}
 			super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-			if (value instanceof TempBonusFacade && !character.isQualifiedFor((TempBonusFacade) value))
+			if (value instanceof TempBonusFacade && !characterRef.get().isQualifiedFor((TempBonusFacade) value))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}

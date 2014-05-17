@@ -49,24 +49,6 @@ import pcgen.core.facade.util.ListFacade;
 public final class Race extends PObject implements RaceFacade
 {
 
-	private static final DefaultListFacade<GenderFacade> genderList =
-			new DefaultListFacade<GenderFacade>();
-	private static final DefaultListFacade<HandedFacade> handList =
-			new DefaultListFacade<HandedFacade>();
-
-	static
-	{
-		Gender[] genders = Gender.values();
-		for (final Gender gender : genders)
-		{
-			genderList.addElement(gender);
-		}
-		for (Handed handed : Handed.values())
-		{
-			handList.addElement(handed);
-		}
-	}
-
 	/**
 	 * Checks if this race's advancement is limited.
 	 * 
@@ -93,18 +75,6 @@ public final class Race extends PObject implements RaceFacade
 	{
 		List<Integer> hda = getListFor(ListKey.HITDICE_ADVANCEMENT);
 		return hda == null ? 0 : hda.get(hda.size() - 1);
-	}
-
-    @Override
-	public ListFacade<GenderFacade> getGenders()
-	{
-		return genderList;
-	}
-
-    @Override
-	public ListFacade<HandedFacade> getHands()
-	{
-		return handList;
 	}
 
     @Override

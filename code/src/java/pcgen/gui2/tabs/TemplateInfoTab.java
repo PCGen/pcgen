@@ -200,6 +200,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((InfoHandler) state.get(Models.InfoHandler)).uninstall();
 		((AddAction) state.get(Models.AddAction)).uninstall();
 		((RemoveAction) state.get(Models.RemoveAction)).uninstall();
+        ((QualifiedTreeCellRenderer) state.get(Models.TemplateRenderer)).uninstall();
 	}
 
 	@Override

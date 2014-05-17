@@ -23,6 +23,7 @@ package pcgen.gui2.tabs;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
@@ -304,7 +305,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				int index = selectionModel.getMinSelectionIndex();
 				if (index != -1)
 				{
-					delegate.setDelegate(character.getDataSet().getAbilities((AbilityCategoryFacade) categoryTable.getValueAt(index, 0)));
+					delegate.setDelegate(character.getDataSet().getAbilities().getValue((AbilityCategoryFacade) categoryTable.getValueAt(index, 0)));
 				}
 			}
 			else
@@ -315,7 +316,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 					Object data = selectedTreeViewPanel.getValueAt(index, 0);
 					if (data instanceof AbilityCategoryFacade)
 					{
-						delegate.setDelegate(character.getDataSet().getAbilities((AbilityCategoryFacade) data));
+						delegate.setDelegate(character.getDataSet().getAbilities().getValue((AbilityCategoryFacade) data));
 						// Select the appropriate row in the category table
 						for (int i = 0; i < categoryTable.getRowCount(); i++)
 						{
@@ -594,6 +595,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		((CategoryTableModel) state.get(CategoryTableModel.class)).uninstall();
 		((AddAction) state.get(AddAction.class)).uninstall();
 		((RemoveAction) state.get(RemoveAction.class)).uninstall();
+        ((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class)).uninstall();
 	}
 
 	@Override
@@ -879,7 +881,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private class AbilityRenderer extends DefaultTreeCellRenderer
 	{
 
-		private CharacterFacade character;
+		private final WeakReference<CharacterFacade> characterRef;
 
 		/**
 		 * Create a new renderer for the ability names for a character. Will
@@ -889,7 +891,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		 */
 		public AbilityRenderer(CharacterFacade character)
 		{
-			this.character = character;
+            this.characterRef = new WeakReference<CharacterFacade>(character);
 			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
 			setClosedIcon(null);
 			setLeafIcon(null);
@@ -908,13 +910,13 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			if (abilityObj instanceof AbilityFacade)
 			{
 				AbilityFacade ability = (AbilityFacade) abilityObj;
-				if (!character.isQualifiedFor(ability))
+				if (!characterRef.get().isQualifiedFor(ability))
 				{
 					setForeground(UIPropertyContext.getNotQualifiedColor());
 				}
 				else
 				{
-					Nature nature = character.getAbilityNature(ability);
+					Nature nature = characterRef.get().getAbilityNature(ability);
 					if (nature != null)
 					{
 						switch (nature)

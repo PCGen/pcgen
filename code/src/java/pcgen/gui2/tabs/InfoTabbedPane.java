@@ -39,7 +39,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -47,7 +46,6 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.GameModeFacade;
@@ -62,6 +60,7 @@ import pcgen.util.enumeration.Tab;
 /**
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
@@ -88,7 +87,7 @@ public final class InfoTabbedPane extends JTabbedPane
 
 	public InfoTabbedPane()
 	{
-		this.stateMap = new DoubleKeyMap<CharacterFacade, CharacterInfoTab, Hashtable<Object, Object>>(WeakHashMap.class, HashMap.class);
+		this.stateMap = new DoubleKeyMap<CharacterFacade, CharacterInfoTab, Hashtable<Object, Object>>();
 		this.tabSelectionMap = new WeakHashMap<CharacterFacade, Integer>();
 		this.modelService = new TabModelService();
 		initComponent();
@@ -178,17 +177,17 @@ public final class InfoTabbedPane extends JTabbedPane
 	}
 
 	/**
-	 * Update the displayed tabs to reflect the settings of the game mode of 
-	 * the character to which we are switching. 
+	 * Update the displayed tabs to reflect the settings of the game mode of the
+	 * character to which we are switching.
+	 *
 	 * @param character The character being displayed.
 	 */
 	private void updateTabsForCharacter(CharacterFacade character)
 	{
 		GameModeFacade gameMode = character.getDataSet().getGameMode();
 		int tabIndex = 0;
-		for (int i = 0; i < fullTabList.size(); i++)
+		for (CharacterInfoTab charInfoTab : fullTabList)
 		{
-			CharacterInfoTab charInfoTab = fullTabList.get(i);
 			TabTitle tabTitle = charInfoTab.getTabTitle();
 			Tab tab = tabTitle.getTab();
 			String newName = gameMode.getTabName(tab);
@@ -213,23 +212,25 @@ public final class InfoTabbedPane extends JTabbedPane
 				{
 					remove(tabIndex);
 				}
-				
+
 			}
 		}
 	}
 
 	/**
-	 * Switch the current tab to be the one named, possibly including a sub tab and 
-	 * then advise the user of the item to be done. generally the tab will handle 
-	 * this but a fallback of a dialog will be used if the tab can't do the advising.    
-	 * @param dest An arry of the tab name, the field name and optionally the sub tab name.
+	 * Switch the current tab to be the one named, possibly including a sub tab
+	 * and then advise the user of the item to be done. generally the tab will
+	 * handle this but a fallback of a dialog will be used if the tab can't do
+	 * the advising.
+	 *
+	 * @param dest An arry of the tab name, the field name and optionally the
+	 * sub tab name.
 	 */
 	private void switchTabsAndAdviseTodo(String[] dest)
 	{
 		Tab tab = Tab.valueOf(dest[0]);
-		String tabName =
-				currentCharacter.getDataSet().getGameMode().getTabName(tab);
-		
+		String tabName = currentCharacter.getDataSet().getGameMode().getTabName(tab);
+
 		Component selTab = null;
 		for (int i = 0; i < getTabCount(); i++)
 		{
@@ -262,20 +263,20 @@ public final class InfoTabbedPane extends JTabbedPane
 
 		if (selTab instanceof TodoHandler)
 		{
-			((TodoHandler)selTab).adviseTodo(dest[1]);
+			((TodoHandler) selTab).adviseTodo(dest[1]);
 		}
 		else
 		{
 			String message = LanguageBundle.getFormattedString("in_todoUseField", dest[1]); //$NON-NLS-1$
 			JOptionPane.showMessageDialog(selTab, message,
-				LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
-				JOptionPane.INFORMATION_MESSAGE);
+					LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
 	/**
-	* {@inheritDoc}
-	*/
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
@@ -286,27 +287,35 @@ public final class InfoTabbedPane extends JTabbedPane
 			((DisplayAwareTab) comp).tabSelected();
 		}
 	}
-	 
+
+	public void characterRemoved(CharacterFacade character)
+	{
+		stateMap.removeAll(character);
+	}
+
 	/**
-	 * This class handles the concurrent processing of storing and restoring tab models.
-	 * Conceptually this process consists of two separate processing queues.
-	 * One queue is the orderly execution of restoring tab models which takes place in a
-	 * a semi-concurrent manner. Each tab has its models restored as a separate task on
-	 * the EventDispatchThread which allows for the UI to remain responsive to other events.
-	 * If the user selects a different character while tab models are being restored then
-	 * the model restoration is canceled and the tabs which completed restoration will be
-	 * processed to store their models. This is where the second queue is needed because
-	 * it contains the tabs which have completed their model restoration.
-	 * So on a character tab change the general process is as follows:<br>
+	 * This class handles the concurrent processing of storing and restoring tab
+	 * models. Conceptually this process consists of two separate processing
+	 * queues. One queue is the orderly execution of restoring tab models which
+	 * takes place in a a semi-concurrent manner. Each tab has its models
+	 * restored as a separate task on the EventDispatchThread which allows for
+	 * the UI to remain responsive to other events. If the user selects a
+	 * different character while tab models are being restored then the model
+	 * restoration is canceled and the tabs which completed restoration will be
+	 * processed to store their models. This is where the second queue is needed
+	 * because it contains the tabs which have completed their model
+	 * restoration. So on a character tab change the general process is as
+	 * follows:<br>
 	 * 1. cancel all restoration tasks that have not yet executed<br>
 	 * 2. clear the restoration queue<br>
 	 * 3. process the store queue<br>
 	 * 4. push all tabs onto the restoration process queue<br>
-	 * 
-	 * The order in which tabs have their models restored is dependent on the amount of time
-	 * that it takes a tab to restore their model data. The tabs that take the least amount of
-	 * time to restore their models will be executed first, the second least second, and so on.
-	 * The calculation of time taken is based on the amount of time the previous execution of
+	 *
+	 * The order in which tabs have their models restored is dependent on the
+	 * amount of time that it takes a tab to restore their model data. The tabs
+	 * that take the least amount of time to restore their models will be
+	 * executed first, the second least second, and so on. The calculation of
+	 * time taken is based on the amount of time the previous execution of
 	 * restoreModels() took.
 	 */
 	private class TabModelService extends ThreadPoolExecutor implements Comparator<CharacterInfoTab>

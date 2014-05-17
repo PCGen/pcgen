@@ -31,10 +31,6 @@ import pcgen.core.facade.util.ListFacade;
 public interface RaceFacade extends InfoFacade
 {
 
-	public ListFacade<GenderFacade> getGenders();
-
-	public ListFacade<HandedFacade> getHands();
-
 	public String getSize();
 
     @Override

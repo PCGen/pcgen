@@ -34,6 +34,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -1106,11 +1107,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class EquipmentRenderer extends DefaultTreeCellRenderer
 	{
 
-		private CharacterFacade character;
+		private WeakReference<CharacterFacade> characterRef;
 
 		public EquipmentRenderer(CharacterFacade character)
 		{
-			this.character = character;
+			this.characterRef = new WeakReference<CharacterFacade>(character);
 			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
 			setClosedIcon(null);
 			setLeafIcon(null);
@@ -1119,14 +1120,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-													  boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+				boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 		{
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded,
-											   leaf, row, focus);
+					leaf, row, focus);
 			Object equipObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (equipObj instanceof EquipmentFacade
-				&& !character.isQualifiedFor((EquipmentFacade) equipObj))
+					&& !characterRef.get().isQualifiedFor((EquipmentFacade) equipObj))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}

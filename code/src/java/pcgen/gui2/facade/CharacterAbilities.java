@@ -29,9 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import javax.swing.SwingUtilities;
-
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -197,8 +195,7 @@ public class CharacterAbilities
 				new LinkedHashMap<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>>();
 		DefaultListFacade<AbilityCategoryFacade> workingActiveCategories = new DefaultListFacade<AbilityCategoryFacade>();
 
-		ListFacade<AbilityCategoryFacade> categories = dataSetFacade.getAbilityCategories();
-		for (AbilityCategoryFacade category : categories)
+		for (AbilityCategoryFacade category : dataSetFacade.getAbilities().getKeys())
 		{
 			AbilityCategory cat = (AbilityCategory) category;
 
@@ -309,11 +306,10 @@ public class CharacterAbilities
 	 */
 	private int getCatIndex(AbilityCategory abilityCategory, ListFacade<AbilityCategoryFacade> catList)
 	{
-		ListFacade<AbilityCategoryFacade> allCategories = dataSetFacade.getAbilityCategories();
+		Set<AbilityCategoryFacade> allCategories = dataSetFacade.getAbilities().getKeys();
 		int index = 0;
-		for (int i = 0; i < allCategories.getSize(); i++)
+		for (AbilityCategoryFacade compCat : allCategories)
 		{
-			AbilityCategoryFacade compCat = allCategories.getElementAt(i);
 			if (compCat == abilityCategory || index >= catList.getSize())
 			{
 				break;

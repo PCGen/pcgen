@@ -366,7 +366,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-	private static class GenderItem extends BioItem implements ReferenceListener<RaceFacade>
+	private static class GenderItem extends BioItem
 	{
 
 		private CharacterComboBoxModel<GenderFacade> genderModel;
@@ -385,34 +385,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 			};
 			genderModel.setReference(character.getGenderRef());
-
-			ReferenceFacade<RaceFacade> ref = character.getRaceRef();
-			if (ref.getReference() != null)
-			{
-				genderModel.setListFacade(ref.getReference().getGenders());
-			}
-			else
-			{
-				genderModel.setListFacade(new DefaultListFacade<GenderFacade>());
-			}
-
+            genderModel.setListFacade(character.getAvailableGenders());
 			setComboBoxModel(genderModel);
 
-			checkVisible();
-			ref.addReferenceListener(this);
-		}
-
-		@Override
-		public void referenceChanged(ReferenceEvent<RaceFacade> e)
-		{
-			if (e.getNewReference() != null)
-			{
-				genderModel.setListFacade(e.getNewReference().getGenders());
-			}
-			else
-			{
-				genderModel.setListFacade(new DefaultListFacade<GenderFacade>());
-			}
 			checkVisible();
 		}
 
@@ -423,7 +398,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-	private static class HandedItem extends BioItem implements ReferenceListener<RaceFacade>
+	private static class HandedItem extends BioItem
 	{
 
 		private CharacterComboBoxModel<HandedFacade> handsModel;
@@ -442,34 +417,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 			};
 			handsModel.setReference(character.getHandedRef());
-
-			ReferenceFacade<RaceFacade> ref = character.getRaceRef();
-			if (ref.getReference() != null)
-			{
-				handsModel.setListFacade(ref.getReference().getHands());
-			}
-			else
-			{
-				handsModel.setListFacade(new DefaultListFacade<HandedFacade>());
-			}
-
+            handsModel.setListFacade(character.getAvailableHands());
 			setComboBoxModel(handsModel);
 
-			checkVisible();
-			ref.addReferenceListener(this);
-		}
-
-		@Override
-		public void referenceChanged(ReferenceEvent<RaceFacade> e)
-		{
-			if (e.getNewReference() != null)
-			{
-				handsModel.setListFacade(e.getNewReference().getHands());
-			}
-			else
-			{
-				handsModel.setListFacade(new DefaultListFacade<HandedFacade>());
-			}
 			checkVisible();
 		}
 

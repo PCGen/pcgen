@@ -214,6 +214,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((InfoHandler) state.get(InfoHandler.class)).uninstall();
 		((SelectRaceAction) state.get(SelectRaceAction.class)).uninstall();
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).uninstall();
+        ((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class)).uninstall();
 	}
 
 	@Override

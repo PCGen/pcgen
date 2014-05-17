@@ -292,6 +292,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 		((InfoHandler) state.get(InfoHandler.class)).uninstall();
 		((AddClassAction) state.get(AddClassAction.class)).uninstall();
+        ((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class)).uninstall();
 	}
 
 	@Override

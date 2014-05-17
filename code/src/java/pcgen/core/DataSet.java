@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+import java.util.TreeMap;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
@@ -57,8 +57,10 @@ import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.generator.StatGenerationFacade;
+import pcgen.core.facade.util.AbstractMapFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.core.facade.util.MapFacade;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.View;
@@ -78,8 +80,9 @@ public class DataSet implements DataSetFacade
 	private DefaultListFacade<AlignmentFacade> alignments;
 	private DefaultListFacade<KitFacade> kits;
 	private DefaultListFacade<StatFacade> stats;
-	private DefaultListFacade<AbilityCategoryFacade> categories;
-	private Map<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
+    private AbilityMap abilityMap;
+//	private DefaultListFacade<AbilityCategoryFacade> categories;
+//	private Map<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
 	private final ListFacade<CampaignFacade> campaigns;
@@ -100,8 +103,9 @@ public class DataSet implements DataSetFacade
 		templates = new DefaultListFacade<TemplateFacade>();
 		alignments = new DefaultListFacade<AlignmentFacade>();
 		stats = new DefaultListFacade<StatFacade>();
-		categories = new DefaultListFacade<AbilityCategoryFacade>();
-		abilityMap = new HashMap<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
+//		categories = new DefaultListFacade<AbilityCategoryFacade>();
+//		abilityMap = new HashMap<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
+        abilityMap = new AbilityMap();
 		bodyStructures = new DefaultListFacade<BodyStructureFacade>();
 		equipment = new DefaultListFacade<EquipmentFacade>();
 		xpTableNames = new DefaultListFacade<String>();
@@ -166,16 +170,16 @@ public class DataSet implements DataSetFacade
 		{
 			stats.addElement(stat);
 		}
-		List<AbilityCategory> displayOrderCategories =
-				new ArrayList<AbilityCategory>(
-					gameMode.getAllAbilityCategories());
-		Collections.sort(displayOrderCategories,
-			new AbilityCategoryComparator());
-		for (AbilityCategory category : displayOrderCategories)
+//		List<AbilityCategory> displayOrderCategories =
+//				new ArrayList<AbilityCategory>(
+//					gameMode.getAllAbilityCategories());
+//		Collections.sort(displayOrderCategories,
+//			new AbilityCategoryComparator());
+		for (AbilityCategory category : gameMode.getAllAbilityCategories())
 		{
 			if (category.isVisibleTo(View.VISIBLE_DISPLAY))
 			{
-				categories.addElement(category);
+//				categories.addElement(category);
 				List<Ability> abList =
 						new ArrayList<Ability>(Globals.getContext().ref
 							.getManufacturer(Ability.class, category)
@@ -283,16 +287,10 @@ public class DataSet implements DataSetFacade
 	}
 
     @Override
-	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
-	{
-		return abilityMap.get(category);
-	}
-
-    @Override
-	public ListFacade<AbilityCategoryFacade> getAbilityCategories()
-	{
-		return categories;
-	}
+    public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
+    {
+        return abilityMap;
+    }
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DataSetFacade#getPrereqAbilities(pcgen.core.facade.AbilityFacade)
@@ -611,16 +609,45 @@ public class DataSet implements DataSetFacade
 		}
 		
 	}
-	
-	class AbilityCategoryComparator implements Comparator<AbilityCategory>
+	class AbilityMap extends AbstractMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>>
+    {
+
+        private TreeMap<AbilityCategoryFacade, ListFacade<AbilityFacade>> map;
+
+        public AbilityMap()
+        {
+            map = new TreeMap<AbilityCategoryFacade, ListFacade<AbilityFacade>>(new AbilityCategoryComparator());
+        }
+        
+        @Override
+        public Set<AbilityCategoryFacade> getKeys()
+        {
+            return Collections.unmodifiableSet(map.keySet());
+        }
+
+        @Override
+        public ListFacade<AbilityFacade> getValue(AbilityCategoryFacade key)
+        {
+            return map.get(key);
+        }
+
+        public void put(AbilityCategoryFacade key, ListFacade<AbilityFacade> value)
+        {
+            map.put(key, value);
+        }
+        
+    }
+	class AbilityCategoryComparator implements Comparator<AbilityCategoryFacade>
 	{
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public int compare(AbilityCategory o1, AbilityCategory o2)
+		public int compare(AbilityCategoryFacade f1, AbilityCategoryFacade f2)
 		{
+            AbilityCategory o1 = (AbilityCategory) f1;
+            AbilityCategory o2 = (AbilityCategory) f2;
 		    final int BEFORE = -1;
 		    final int EQUAL = 0;
 		    final int AFTER = 1;

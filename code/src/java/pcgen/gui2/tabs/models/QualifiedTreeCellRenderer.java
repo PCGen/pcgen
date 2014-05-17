@@ -21,8 +21,10 @@
 package pcgen.gui2.tabs.models;
 
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Font;
-
+import java.awt.Graphics;
+import java.lang.ref.WeakReference;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -30,6 +32,7 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  *
@@ -38,15 +41,21 @@ import pcgen.system.LanguageBundle;
 public class QualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 {
 
-	private CharacterFacade character;
+	/**
+	 * Java Swing seems to have issues garbage collecting Cell Renderers so we
+	 * are using a weak reference here to make sure the character can always be
+	 * garbage collected
+	 */
+	private final WeakReference<CharacterFacade> characterRef;
 
 	/**
 	 * Create a new instance of QualifiedTreeCellRenderer
+	 *
 	 * @param character The character for which this instance is rendering.
 	 */
 	public QualifiedTreeCellRenderer(CharacterFacade character)
 	{
-		this.character = character;
+		this.characterRef = new WeakReference<CharacterFacade>(character);
 		setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
 		setClosedIcon(null);
 		setLeafIcon(null);
@@ -55,7 +64,7 @@ public class QualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 
 	@Override
 	public Component getTreeCellRendererComponent(JTree tree, Object value,
-		boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 	{
 		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 		if ("".equals(obj)) //$NON-NLS-1$
@@ -63,7 +72,7 @@ public class QualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 		}
 		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-		if (obj instanceof InfoFacade && !character.isQualifiedFor((InfoFacade) obj))
+		if (obj instanceof InfoFacade && !characterRef.get().isQualifiedFor((InfoFacade) obj))
 		{
 			setForeground(UIPropertyContext.getNotQualifiedColor());
 		}
@@ -76,6 +85,22 @@ public class QualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 			setFont(getFont().deriveFont(Font.PLAIN));
 		}
 		return this;
+	}
+
+	/**
+	 * This is necessary because Java's Swing automatically adds this component
+	 * to a container when it is drawn but does not ever remove it. This means
+	 * that the component will exist forever in the component hierarchy and thus
+	 * never be garbage collected. We must remove it from the hierarchy
+	 * ourselves to solve the problem.
+	 */
+	public void uninstall()
+	{
+		Container parent = getParent();
+		if (parent != null)
+		{
+			parent.remove(this);
+		}
 	}
 
 }

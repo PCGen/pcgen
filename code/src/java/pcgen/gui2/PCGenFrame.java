@@ -597,6 +597,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		if (closeAllCharacters())
 		{
 			currentSourceSelection.setReference(null);
+			currentDataSetRef.setReference(null);
 			Globals.emptyLists();
 			updateTitle();
 		}

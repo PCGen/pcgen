@@ -31,11 +31,13 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.core.facade.AbilityCategoryFacade;
+import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
+import pcgen.core.facade.util.MapFacade;
 import pcgen.gui2.util.SharedTabPane;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -91,7 +93,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		private final Map<String, TabInfo> typeMap = new HashMap<String, TabInfo>();
 		private final List<TabInfo> tabs = new ArrayList<TabInfo>();
-		private final ListFacade<AbilityCategoryFacade> categories;
+        private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> categoryMap;
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
 		private String selectedTitle = null;
@@ -101,7 +103,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 			this.character = character;
 			this.activeCategories = character.getActiveAbilityCategories();
-			this.categories = character.getDataSet().getAbilityCategories();
+            this.categoryMap = character.getDataSet().getAbilities();
 			for (AbilityCategoryFacade category : activeCategories)
 			{
 				String type = category.getType();
@@ -124,7 +126,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		 */
 		private void populateFullCategoryList(String type, TabInfo tabInfo)
 		{
-			for (AbilityCategoryFacade category : categories)
+			for (AbilityCategoryFacade category : categoryMap.getKeys())
 			{
 				if (type.equals(category.getType()))
 				{
@@ -184,7 +186,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 			Map<String, List<AbilityCategoryFacade>> tempMap;
 			tempMap = new HashMap<String, List<AbilityCategoryFacade>>();
-			for (AbilityCategoryFacade category : categories)
+			for (AbilityCategoryFacade category : categoryMap.getKeys())
 			{
 				String type = category.getType();
 				if (!tempMap.containsKey(type))

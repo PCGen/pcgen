@@ -70,16 +70,16 @@ public class FilteredTreeViewModel<C, E>
 
 	public void setBaseModel(TreeViewModel<E> model)
 	{
-		if(this.model != null)
+		if (this.model != null)
 		{
 			this.model.getDataModel().removeListListener(this);
 		}
 		this.model = model;
-		if(this.model != null)
+		if (this.model != null)
 		{
 			this.model.getDataModel().addListListener(this);
+			data.updateContents(ListFacades.wrap(model.getDataModel()));
 		}
-		data.updateContents(ListFacades.wrap(model.getDataModel()));
 	}
 
 	public void setContext(C context)
@@ -143,7 +143,7 @@ public class FilteredTreeViewModel<C, E>
 	@Override
 	public void elementModified(ListEvent<E> e)
 	{
-		if(!filter.accept(context, e.getElement()))
+		if (!filter.accept(context, e.getElement()))
 		{
 			data.removeElement(e.getElement());
 		}

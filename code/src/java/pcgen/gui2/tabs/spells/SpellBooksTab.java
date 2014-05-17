@@ -191,6 +191,7 @@ public class SpellBooksTab extends FlippingSplitPane
 		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
 		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
 		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
+		((QualifiedSpellTreeCellRenderer) state.get(QualifiedSpellTreeCellRenderer.class)).uninstall();
 	}
 
 	public TabTitle getTabTitle()

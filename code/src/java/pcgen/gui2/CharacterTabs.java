@@ -109,6 +109,7 @@ public final class CharacterTabs extends SharedTabPane
 		characters.remove(index);
 		removeTabAt(index);
 		listenerMap.remove(character).removeListeners();
+		infoTabbedPane.characterRemoved(character);
 	}
 
 	@Override

@@ -61,6 +61,7 @@ import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.treetable.DefaultSortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
+import pcgen.util.Logging;
 
 /**
  * This example shows how to create a simple JTreeTable component,
@@ -661,12 +662,23 @@ public class JTreeTable extends JTableEx
 			}
 			catch (Exception e)
 			{
+                Logging.errorPrint("Paint Exception", e);
 				// TODO Handle this?
 			}
 			finally
 			{
 				g.translate(0, -offset);
 			}
+            Container parent = getParent();
+            if(parent != null){
+                parent.remove(this);
+            }
+//            for(Component comp : this.getComponents()){
+//                if(comp instanceof CellRendererPane)
+//                {
+//                    ((Container) comp).removeAll();
+//                }
+//            }
 		}
 
 		/**

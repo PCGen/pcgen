@@ -219,6 +219,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
 		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
 		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
+		((QualifiedSpellTreeCellRenderer) state.get(QualifiedSpellTreeCellRenderer.class)).uninstall();
 	}
 
 	@Override
