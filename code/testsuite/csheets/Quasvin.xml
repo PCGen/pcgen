@@ -1543,7 +1543,7 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Quarterstaff, Shortspear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Shortspear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Draconic, Elven, Halfling, Orc</languages>
 
 	<templates>
