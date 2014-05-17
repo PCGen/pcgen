@@ -1442,16 +1442,6 @@ BIO
 		</feat>
 		<!-- Auto feats -->
 		<!-- Virtual Feats -->
-		<feat>
-			<name>Simple Weapon Proficiency</name>
-			<description>You make attack rolls with simple weapons normally.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
@@ -1554,17 +1544,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Low-Light</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Low-Light Vision</name>
 			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
@@ -1578,7 +1557,7 @@ BIO
 		<ability_object>
 			<name>Oversized Weapon</name>
 			<description>A cloud giant wields a great, two-handed morningstar (big enough for Gargantuan creatures) without penalty.</description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<type>CLOUD GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1589,7 +1568,7 @@ BIO
 		<ability_object>
 			<name>Rock Catching</name>
 			<description>A giant of at least Large size can catch Small, Medium, or Large rocks (or projectiles of similar shape). Once per round, a giant that would normally be hit by a rock can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) The giant must be ready for and aware of the attack in order to make a rock catching attempt.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>GIANTRACETRAIT.SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1600,7 +1579,7 @@ BIO
 		<ability_object>
 			<name>Rock Throwing</name>
 			<description>The range increment is 140 feet for a cloud giant&#39;s thrown rocks.</description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<type>CLOUD GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1611,7 +1590,7 @@ BIO
 		<ability_object>
 			<name>Rock Throwing</name>
 			<description>Adult giants are accomplished rock throwers and receive a +1 racial bonus on attack rolls when throwing rocks. A giant of at least Large size can hurl rocks weighing 40 to 50 pounds each (Small objects) up to five range increments. The size of the range increment varies with the giant&#39;s variety. A Huge giant can hurl rocks of 60 to 80 pounds (Medium objects).</description>
-			<type>SPECIALATTACK.EXTRAORDINARY</type>
+			<type>GIANTRACETRAIT.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1632,17 +1611,6 @@ BIO
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>All Martial Weapon Proficiencies</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Flight Maneuverability</name>
 			<description></description>
 			<type></type>
@@ -1657,17 +1625,6 @@ BIO
 			<name>Giant Proficiencies</name>
 			<description></description>
 			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Low light Vision</name>
-			<description></description>
-			<type></type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1710,7 +1667,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Select Racial Traits</name>
+			<name>Race Traits ~ Giant (Cloud)</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -1720,9 +1677,42 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Auto</name>
+			<description></description>
+			<type>WEAPONPROFAUTO.WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Martial</name>
+			<description></description>
+			<type>WEAPONPROFMARTIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Simple</name>
+			<description></description>
+			<type>WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 	<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
-			<name>Master Traits</name>
+			<name>Creature Type</name>
 			<description></description>
 			<type>INTERNAL</type>
 			<associated></associated>
@@ -1740,7 +1730,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells (Ray), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
+	<weapon_proficiencies>Axe (Throwing), Battleaxe, Bite, Boulder, Claw, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Javelin, Kukri, Lance, Longbow, Longspear, Longsword, Mace (Heavy), Mace (Light), Morningstar, Pick (Heavy), Pick (Light), Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash (Heavy), Shieldbash (Light), Shortbow, Shortspear, Sickle, Slam, Sling, Spear, Spells (Ray), Spells (Touch), Spiked Armor, Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Giant</languages>
 
 	<templates>
