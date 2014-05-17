@@ -331,7 +331,7 @@ BIO
 			<used>48</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Bluff +8, Concentration +8, Diplomacy +12, Disguise (Act in character) +2, Gather Information +8, Hide +4, Intimidate +2, Listen +4, Psicraft +12, Sense Motive +10, Spot +4</list_mods>
+		<list_mods>Bluff +8, Concentration +8, Diplomacy +12, Gather Information +8, Hide +4, Intimidate +2, Listen +4, Psicraft +12, Sense Motive +10, Spot +4</list_mods>
 		<max_class_skill_level>8</max_class_skill_level>
 		<max_cross_class_skill_level>4</max_cross_class_skill_level>
 		<skill>
@@ -469,23 +469,6 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
-		</skill>
-		<skill>
-			<name>Disguise (Act in character)</name>
-			<ranks>0.0</ranks>
-			<mod>2<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Disguise (Act in character)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
@@ -1473,26 +1456,14 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
+			<name>Weapon and Armor Proficiency</name>
+			<description>Psions are proficient with the club, dagger, heavy crossbow, light crossbow, quarterstaff, and shortspear. They are not proficient with any type of armor or shield. Armor does not, however, interfere with the manifestation of powers.</description>
+			<type>CLASSFEATURES.PSIONCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Psion Weapon Proficiencies</name>
-			<description></description>
-			<type>CLASSABILITY.INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
+			<hidden>F</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
@@ -1520,7 +1491,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Grants All Hidden Abilities</name>
+			<name>Psion ~ Telepath</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -1531,9 +1502,20 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Select Racial Traits</name>
+			<name>Race Traits ~ Elan</name>
 			<description></description>
 			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Auto</name>
+			<description></description>
+			<type>WEAPONPROFAUTO.WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1543,7 +1525,7 @@ BIO
 		</ability_object>
 		<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
-			<name>Master Traits</name>
+			<name>Creature Type</name>
 			<description></description>
 			<type>INTERNAL</type>
 			<associated></associated>
@@ -1561,7 +1543,7 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Gauntlet, Grapple, Quarterstaff, Shortspear, Spells (Ray), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Club, Crossbow (Heavy), Crossbow (Light), Dagger, Quarterstaff, Shortspear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
 	<languages>Common, Draconic, Elven, Halfling, Orc</languages>
 
 	<templates>
@@ -1657,7 +1639,7 @@ BIO
 							<fullschool>Telepathy (Charm) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Telepath1</sourcelevel>
+							<sourcelevel>Psi1</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
 							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1744,7 +1726,7 @@ BIO
 							<fullschool>Telepathy [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Telepath1</sourcelevel>
+							<sourcelevel>Psi1</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersG-P.rtf</source>
 							<sourcepage>PsionicPowersG-P.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1804,7 +1786,7 @@ BIO
 							<fullschool>Telepathy (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Telepath2</sourcelevel>
+							<sourcelevel>Psi2</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
 							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1891,7 +1873,7 @@ BIO
 							<fullschool>Telepathy (Compulsion) [Mind-Affecting, Language-Dependent]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Telepath2</sourcelevel>
+							<sourcelevel>Psi2</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersQ-W.rtf</source>
 							<sourcepage>PsionicPowersQ-W.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1922,7 +1904,7 @@ BIO
 							<fullschool>Telepathy (Compulsion) [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Telepath3</sourcelevel>
+							<sourcelevel>Psi3</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
 							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
@@ -1951,7 +1933,7 @@ BIO
 							<fullschool>Telepathy [Mind-Affecting]</fullschool>
 						</school>
 						<source>
-							<sourcelevel>Telepath3</sourcelevel>
+							<sourcelevel>Psi3</sourcelevel>
 							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F.rtf</source>
 							<sourcepage>PsionicPowersD-F.rtf</sourcepage>
 							<sourceshort>RSRD</sourceshort>
