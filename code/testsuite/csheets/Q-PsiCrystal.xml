@@ -988,17 +988,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Low-Light</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Low-Light Vision</name>
 			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
@@ -1044,7 +1033,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Select Racial Traits</name>
+			<name>Race Traits ~ Psicrystal (Coward)</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -1056,7 +1045,7 @@ BIO
 		</ability_object>
 	<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
-			<name>Master Traits</name>
+			<name>Creature Type</name>
 			<description></description>
 			<type>INTERNAL</type>
 			<associated></associated>
