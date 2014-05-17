@@ -3059,7 +3059,18 @@ BIO
 		<ability_object>
 			<name>Aura of Courage</name>
 			<description>You are immune to fear (magical or otherwise). Each ally within 10 feet of you gains a +4 morale bonus on saving throws against fear effects. This ability functions only while you are conscious, not if you are unconscious or dead.</description>
-			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.AURA</type>
+			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.AURA.AURA OF COURAGE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Aura of Good</name>
+			<description>You project a strong good aura.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.AURA.CLERICCLASSFEATURES.PALADINCLASSFEATURES</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3153,18 +3164,6 @@ BIO
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<!-- Visible Virtual "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>Aura of Good</name>
-			<description>You project a strong good aura.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.AURA.CLERICCLASSFEATURES.PALADINCLASSFEATURES</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
 		<!-- Hidden Normal "Special Ability" Ability Objects -->
