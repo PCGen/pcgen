@@ -812,6 +812,11 @@ public class CharacterDisplay
 		return crFacet.calcRaceCR(id);
 	}
 
+	public float getBaseHD()
+	{
+		return crFacet.getBaseHD(id);
+	}
+
 	public int getXPAward()
 	{
 		return crFacet.getXPAward(id);

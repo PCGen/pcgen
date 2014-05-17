@@ -25,6 +25,7 @@ import org.apache.commons.lang.math.Fraction;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
+import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -132,6 +133,23 @@ public class ChallengeRatingFacet
 		final Float raceCR = formulaResolvingFacet.resolve(id, cr.getRating(), "")
 				.floatValue();
 		return raceCR;
+	}
+
+	/**
+	 * Returns the racial hit dice provided solely by the race of the
+	 * character identified by the given CharID.
+	 * 
+	 * @param id  The CharID representing the character
+	 * 
+	 * @return the racial hit dice provided by the race of the character
+	 *         identified by the given CharID
+	 */
+	public int getBaseHD(CharID id)
+	{
+		final LevelCommandFactory lcf = raceFacet.get(id).getSafe(
+				ObjectKey.MONSTER_CLASS);
+		final int raceHD = Integer.parseInt(lcf.getLevelCount().toString());
+		return raceHD;
 	}
 
 	/**

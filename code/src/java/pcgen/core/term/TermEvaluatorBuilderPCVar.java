@@ -109,6 +109,21 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_PC_BASEHD
+			("BASEHD",
+			new String[] { "BASEHD" },
+			true) {
+
+		@Override
+		public TermEvaluator getTermEvaluator(
+				final String expressionString, 
+				final String src, 
+				final String matchedSection) {
+
+			return new PCBaseHDTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_PC_BASESPELLSTAT
 			("BASESPELLSTAT",
 			 new String[] { "BASESPELLSTAT" },
