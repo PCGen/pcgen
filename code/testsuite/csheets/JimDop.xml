@@ -1643,17 +1643,6 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>First Base Class</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
 			<name>Race Traits ~ Doppelganger</name>
 			<description></description>
 			<type></type>
