@@ -23,7 +23,6 @@
 package pcgen.gui2.facade;
 
 import java.util.List;
-
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
@@ -47,7 +46,9 @@ import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.generator.StatGenerationFacade;
 import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.core.facade.util.DefaultMapFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.core.facade.util.MapFacade;
 
 /**
  * The Class <code></code> is ...
@@ -63,7 +64,7 @@ public class MockDataSetFacade implements DataSetFacade
 {
 
 	private DefaultListFacade<BodyStructureFacade> equipmentLoc;
-	private DefaultListFacade<AbilityCategoryFacade> abilityCat;
+	private DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final GameMode game;
 	private DefaultListFacade<RaceFacade> races;
 	private DefaultListFacade<SkillFacade> skills;
@@ -76,7 +77,7 @@ public class MockDataSetFacade implements DataSetFacade
 	{
 		this.game = gameMode;
 		equipmentLoc = new DefaultListFacade<BodyStructureFacade>();
-		abilityCat = new DefaultListFacade<AbilityCategoryFacade>();
+		abilityMap = new DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
 		races = new DefaultListFacade<RaceFacade>();
 		skills = new DefaultListFacade<SkillFacade>();
 		stats  = new DefaultListFacade<StatFacade>();
@@ -88,26 +89,10 @@ public class MockDataSetFacade implements DataSetFacade
 	 * @see pcgen.core.facade.DataSetFacade#getAbilities(pcgen.core.facade.AbilityCategoryFacade)
 	 */
     @Override
-	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-    @Override
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade)
 	{
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.DataSetFacade#getAbilityCategories()
-	 */
-    @Override
-	public ListFacade<AbilityCategoryFacade> getAbilityCategories()
-	{
-		return abilityCat;
 	}
 
 	/**
@@ -116,7 +101,7 @@ public class MockDataSetFacade implements DataSetFacade
 	 */
 	public void addAbilityCategory(AbilityCategory cat)
 	{
-		abilityCat.addElement(cat);
+		abilityMap.putValue(cat, null);
 	}
 
 	/* (non-Javadoc)
@@ -323,6 +308,15 @@ public class MockDataSetFacade implements DataSetFacade
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
+	{
+		return abilityMap;
 	}
 
 }
