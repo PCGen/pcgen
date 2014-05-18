@@ -213,37 +213,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the output of old format tokens
-	 * @throws IOException
-	 */
-	public void testOldFormat() throws IOException
-	{
-		PlayerCharacter character = getCharacter();
-
-		// Test each token for old and new syntax processing.
-
-		assertEquals("New format SKILL Token", "2", evaluateToken(
-			"SKILL.0.MISC", character));
-		assertEquals("Old format SKILL Token", evaluateToken("SKILL.0.MISC",
-			character), evaluateToken("SKILL0.MISC", character));
-
-		assertEquals("New format SKILLLEVEL Token", "6", evaluateToken(
-			"SKILLLEVEL.1.TOTAL", character));
-
-		assertEquals("New format SKILLSUBSET Token", "KNOWLEDGE (RELIGION)",
-			evaluateToken("SKILLSUBSET.1.KNOWLEDGE.NAME", character));
-		assertEquals("Old format SKILLSUBSET Token", evaluateToken(
-			"SKILLSUBSET.1.KNOWLEDGE.NAME", character), evaluateToken(
-			"SKILLSUBSET1.KNOWLEDGE.NAME", character));
-
-		assertEquals("New format SKILLTYPE Token", "Balance", evaluateToken(
-			"SKILLTYPE.0.DEX.NAME", character));
-		assertEquals("Old format SKILLTYPE Token", evaluateToken(
-			"SKILLTYPE.0.DEX.NAME", character), evaluateToken(
-			"SKILLTYPE0.DEX.NAME", character));
-	}
-
-	/**
 	 * Test the behaviour of the weapon loop
 	 * @throws IOException
 	 */

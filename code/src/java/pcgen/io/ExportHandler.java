@@ -1991,10 +1991,6 @@ public final class ExportHandler
 			// Now check for the rest of the tokens
 			populateTokenMap();
 
-			// Correct old format tags such as SPELLLIST
-			// so that they get processed correctly
-			tokenString = correctOldFormatTag(tokenString);
-
 			StringTokenizer tok = new StringTokenizer(tokenString, ".,", false);
 			String firstToken = tok.nextToken();
 
@@ -2956,128 +2952,6 @@ public final class ExportHandler
 			merge = Constants.MERGE_LOCATION;
 		}
 		return merge;
-	}
-
-	/**
-	 * Take an old format tag, one without a 'full stop' separating the token from
-	 * the first value and put it into a format that can be used with the
-	 * export tokens
-	 *
-	 * @param aString The tag to be checked
-	 * @return The reformatted tag, if needed or the original tag if it was OK
-	 */
-	private String correctOldFormatTag(String aString)
-	{
-		StringBuilder converted = new StringBuilder();
-
-		// Correct the old SPELLLIST Tag
-		if (aString.startsWith("SPELLIST"))
-		{
-			final StringTokenizer aTok = new StringTokenizer(aString, ".");
-			String fString = aTok.nextToken();
-
-			if ((fString.charAt(fString.length() - 1) >= '0')
-				&& (fString.charAt(fString.length() - 1) <= '9'))
-			{
-				if (aString.regionMatches(9, "TYPE", 0, 4)
-					|| aString.regionMatches(9, "BOOK", 0, 4)
-					|| aString.regionMatches(9, "CAST", 0, 4))
-				{
-					converted.append(aString.substring(0, 14));
-					converted.append('.');
-					converted.append(aString.substring(14));
-				}
-				else if (aString.regionMatches(9, "KNOWN", 0, 5)
-					|| aString.regionMatches(9, "CLASS", 0, 5))
-				{
-					converted.append(aString.substring(0, 15));
-					converted.append('.');
-					converted.append(aString.substring(15));
-				}
-				else if (aString.regionMatches(9, "DCSTAT", 0, 6))
-				{
-					converted.append(aString.substring(0, 16));
-					converted.append('.');
-					converted.append(aString.substring(16));
-				}
-				else if (aString.regionMatches(9, "DC", 0, 2))
-				{
-					converted.append(aString.substring(0, 12));
-					converted.append('.');
-					converted.append(aString.substring(12));
-				}
-			}
-		}
-		// Correct the old SPELLMEM Tag		
-		else if (aString.startsWith("SPELLMEM"))
-		{
-			if (aString.length() > 8 && (aString.charAt(8) != '.'))
-			{
-				converted.append(aString.substring(0, 8));
-				converted.append('.');
-				converted.append(aString.substring(8));
-			}
-		}
-		// Correct the old SKILLSUBSET Tag
-		else if (aString.startsWith("SKILLSUBSET"))
-		{
-			if (aString.length() > 11 && (aString.charAt(11) != '.'))
-			{
-				converted.append(aString.substring(0, 11));
-				converted.append('.');
-				converted.append(aString.substring(11));
-			}
-		}
-		// Correct the old SKILLTYPE Tag
-		else if (aString.startsWith("SKILLTYPE"))
-		{
-			if ((aString.length() > 9) && (aString.charAt(9) != '.')
-				&& (aString.charAt(9) != '='))
-			{
-				converted.append(aString.substring(0, 9));
-				converted.append('.');
-				converted.append(aString.substring(9));
-			}
-		}
-		// Correct SKILL Tags
-		else if (aString.startsWith("SKILL") && !aString.startsWith("SKILLS")
-			&& !aString.startsWith("SKILLLEVEL")
-			&& !aString.startsWith("SKILLLISTMODS")
-			&& !aString.startsWith("SKILLPOINTS")
-			&& !aString.startsWith("SKILLSUBSET")
-			&& !aString.startsWith("SKILLTYPE"))
-		{
-			if ((aString.length() > 5) && (aString.charAt(5) != '.')
-				&& (aString.charAt(5) != '('))
-			{
-				converted.append(aString.substring(0, 5));
-				converted.append('.');
-				converted.append(aString.substring(5));
-			}
-		}
-		// Correct various old 'FOLLOWER' Tags
-		else if (aString.startsWith("FOLLOWER")
-			&& !aString.startsWith("FOLLOWERLIST")
-			&& !aString.startsWith("FOLLOWEROF")
-			&& !aString.startsWith("FOLLOWERTYPE"))
-		{
-			if ((aString.length() > 8) && (aString.charAt(8) != '.')
-				&& (aString.charAt(8) != '('))
-			{
-				converted.append(aString.substring(0, 8));
-				converted.append('.');
-				converted.append(aString.substring(8));
-			}
-		}
-
-		// Print out a message stating what we've done
-		if (converted.length() > 0)
-		{
-			Logging.errorPrint("Old syntax '" + aString + "' replaced with '"
-				+ converted.toString() + "'.");
-			return converted.toString();
-		}
-		return aString;
 	}
 
 	/**
