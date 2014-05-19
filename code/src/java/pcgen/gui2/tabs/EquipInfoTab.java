@@ -319,7 +319,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	public Hashtable<Object, Object> createModels(CharacterFacade character)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(EquipmentModel.class, new EquipmentModel(character));
+		state.put(EquipmentModel.class, new EquipmentModel(character, equipmentSetTable));
 		state.put(EquipmentModels.class, new EquipmentModels(character));
 		state.put(UnequipAllAction.class, new UnequipAllAction(character));
 		state.put(EquipSetBoxModel.class, new EquipSetBoxModel(character));
@@ -339,7 +339,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
-		((EquipmentModel) state.get(EquipmentModel.class)).install(equipmentSetTable);
+		((EquipmentModel) state.get(EquipmentModel.class)).install();
 		((EquipmentModels) state.get(EquipmentModels.class)).install(
 			equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
 			equipButton, unequipButton, moveUpButton, moveDownButton);

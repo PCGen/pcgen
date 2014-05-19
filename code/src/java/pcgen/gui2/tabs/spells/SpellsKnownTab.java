@@ -60,6 +60,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private final TabTitle tabTitle = new TabTitle(Tab.KNOWN_SPELLS);
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
+	private final QualifiedSpellTreeCellRenderer spellRenderer;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final JCheckBox autoKnownBox;
@@ -76,6 +77,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		super("SpellsKnown");
 		this.availableTable = new JTreeViewTable<SuperNode>();
 		this.selectedTable = new JTreeViewTable<SuperNode>();
+		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.autoKnownBox = new JCheckBox();
@@ -88,6 +90,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	private void initComponents()
 	{
+		availableTable.setTreeCellRenderer(spellRenderer);
+		selectedTable.setTreeCellRenderer(spellRenderer);
 		FlippingSplitPane upperPane = new FlippingSplitPane("SpellsKnownTop");
 		Box box = Box.createVerticalBox();
 		JScrollPane pane = new JScrollPane(availableTable);
@@ -180,11 +184,9 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		state.put(PreviewSpellsAction.class, new PreviewSpellsAction(character));
 		state.put(ExportSpellsAction.class, new ExportSpellsAction(character));
 		state.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
-															   selectedTable, spellsPane));
+				selectedTable, spellsPane));
 		state.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
-															   selectedTable, classPane));
-		state.put(QualifiedSpellTreeCellRenderer.class,
-			new QualifiedSpellTreeCellRenderer(character));
+				selectedTable, classPane));
 		return state;
 	}
 
@@ -204,12 +206,6 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class)).install();
 		previewSpellsButton.setAction((PreviewSpellsAction) state.get(PreviewSpellsAction.class));
 		exportSpellsButton.setAction((ExportSpellsAction) state.get(ExportSpellsAction.class));
-		availableTable
-			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
-				.get(QualifiedSpellTreeCellRenderer.class));
-		selectedTable
-			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
-				.get(QualifiedSpellTreeCellRenderer.class));
 	}
 
 	@Override
@@ -219,7 +215,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
 		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
 		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
-		((QualifiedSpellTreeCellRenderer) state.get(QualifiedSpellTreeCellRenderer.class)).uninstall();
+		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).uninstall();
 	}
 
 	@Override
@@ -229,7 +225,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	}
 
 	/**
-	 *  Select a spell output sheet
+	 * Select a spell output sheet
 	 */
 	private void selectSpellSheetButton()
 	{
@@ -247,7 +243,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
 		{
 			PCGenSettings.getInstance().setProperty(PCGenSettings.SELECTED_SPELL_SHEET_PATH,
-													fileChooser.getSelectedFile().getAbsolutePath());
+					fileChooser.getSelectedFile().getAbsolutePath());
 			spellSheetField.setText(fileChooser.getSelectedFile().getName());
 			spellSheetField.setToolTipText(fileChooser.getSelectedFile().getName());
 		}
@@ -276,12 +272,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			availableTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTable.removeActionListener(this);
@@ -312,12 +308,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			selectedTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
@@ -372,7 +368,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		}
 
 	}
-	
+
 	private class PreviewSpellsAction extends AbstractAction
 	{
 
@@ -391,7 +387,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		}
 
 	}
-	
+
 	private class ExportSpellsAction extends AbstractAction
 	{
 
@@ -410,23 +406,31 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		}
 
 	}
-	
+
 	private class TreeViewModelHandler
 	{
 
 		private SpellTreeViewModel availableModel;
 		private SpellTreeViewModel selectedModel;
+		private CharacterFacade character;
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{
+			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getAvailableSpellNodes(), false, "SpellsKnownAva");
 			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getAllKnownSpellNodes(), true, "SpellsKnownSel");
 		}
 
 		public void install()
 		{
+			spellRenderer.setCharacter(character);
 			availableTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
+		}
+
+		public void uninstall()
+		{
+			spellRenderer.setCharacter(null);
 		}
 
 	}

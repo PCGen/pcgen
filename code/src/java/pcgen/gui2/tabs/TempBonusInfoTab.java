@@ -26,12 +26,10 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
-import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -43,7 +41,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.InfoFacade;
@@ -59,6 +56,8 @@ import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
@@ -74,28 +73,31 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>TempBonusInfoTab</code> allows the user to select which 
+ * The Class <code>TempBonusInfoTab</code> allows the user to select which
  * temporary bonus should be applied to their character.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
+ * Last Editor: $Author$ Last Edited: $Date: 2014-05-17 15:43:31
+ * -0700 (Sat, 17 May 2014) $
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	/** Version for serialisation.  */
+	/**
+	 * Version for serialisation.
+	 */
 	private static final long serialVersionUID = 4521237435574462482L;
-	
+
 	private final TabTitle tabTitle = new TabTitle(Tab.TEMPBONUS);
 	private final FilteredTreeViewTable<CharacterFacade, TempBonusFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, TempBonusFacade> selectedTable;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane infoPane;
+	private final TempBonusRenderer tempBonusRenderer;
 
 	/**
 	 * Create a new instance of TemporaryBonusInfoTab.
@@ -108,6 +110,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_InfoTempMod")); //$NON-NLS-1$
+		this.tempBonusRenderer = new TempBonusRenderer();
 		initComponents();
 	}
 
@@ -123,6 +126,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		availPanel.add(bar, BorderLayout.NORTH);
 
 		availableTable.setDisplayableFilter(bar);
+		availableTable.setTreeCellRenderer(tempBonusRenderer);
 		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
@@ -132,7 +136,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		addButton.setHorizontalTextPosition(SwingConstants.LEADING);
 		box.add(addButton);
 		box.add(Box.createHorizontalStrut(5));
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		availPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setLeftComponent(availPanel);
@@ -142,6 +146,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
+		selectedTable.setTreeCellRenderer(tempBonusRenderer);
 		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		selectedTable.sortModel();
 		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
@@ -150,7 +155,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		box.add(Box.createHorizontalStrut(5));
 		box.add(removeButton);
 		box.add(Box.createHorizontalGlue());
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		selPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setRightComponent(selPanel);
@@ -166,7 +171,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		InfoHandler,
 		AddAction,
 		RemoveAction,
-		TempBonusRenderer
+		TempBonusRendererHandler
 	}
 
 	@Override
@@ -178,13 +183,14 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		state.put(Models.InfoHandler, new InfoHandler(character));
 		state.put(Models.AddAction, new AddAction(character));
 		state.put(Models.RemoveAction, new RemoveAction(character));
-		state.put(Models.TempBonusRenderer, new TempBonusRenderer(character));
+		state.put(Models.TempBonusRendererHandler, tempBonusRenderer.createHandler(character));
 		return state;
 	}
 
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
+		((Handler) state.get(Models.TempBonusRendererHandler)).install();
 		((TempBonusTreeViewModel) state.get(Models.AvailableModel)).install();
 		availableTable.setTreeViewModel((TempBonusTreeViewModel) state.get(Models.AvailableModel));
 		((TempBonusTreeViewModel) state.get(Models.SelectedModel)).install();
@@ -195,8 +201,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		addButton.setAction((AddAction) state.get(Models.AddAction));
 		removeButton.setAction((RemoveAction) state.get(Models.RemoveAction));
-		availableTable.setTreeCellRenderer((TempBonusRenderer) state.get(Models.TempBonusRenderer));
-		selectedTable.setTreeCellRenderer((TempBonusRenderer) state.get(Models.TempBonusRenderer));
 	}
 
 	@Override
@@ -205,6 +209,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		((InfoHandler) state.get(Models.InfoHandler)).uninstall();
 		((AddAction) state.get(Models.AddAction)).uninstall();
 		((RemoveAction) state.get(Models.RemoveAction)).uninstall();
+		((Handler) state.get(Models.TempBonusRendererHandler)).uninstall();
 	}
 
 	@Override
@@ -213,25 +218,17 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		return tabTitle;
 	}
 
-	private class TempBonusRenderer extends DefaultTreeCellRenderer
+	private static class TempBonusRenderer extends CharacterTreeCellRenderer
 	{
-		/** Version for serialisation.  */
+
+		/**
+		 * Version for serialisation.
+		 */
 		private static final long serialVersionUID = -9006249573217208478L;
-
-        private WeakReference<CharacterFacade> characterRef;
-
-		public TempBonusRenderer(CharacterFacade character)
-		{
-            this.characterRef = new WeakReference<CharacterFacade>(character);
-			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-			setClosedIcon(null);
-			setLeafIcon(null);
-			setOpenIcon(null);
-		}
 
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+				boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 		{
 			Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 			if ("".equals(obj)) //$NON-NLS-1$
@@ -239,7 +236,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 			}
 			super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-			if (value instanceof TempBonusFacade && !characterRef.get().isQualifiedFor((TempBonusFacade) value))
+			if (value instanceof TempBonusFacade && !character.isQualifiedFor((TempBonusFacade) value))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}
@@ -315,7 +312,10 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	private class AddAction extends AbstractAction
 	{
-		/** Version for serialisation.  */
+
+		/**
+		 * Version for serialisation.
+		 */
 		private static final long serialVersionUID = -6640460398947215666L;
 
 		private CharacterFacade character;
@@ -340,12 +340,12 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			availableTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTable.removeActionListener(this);
@@ -355,7 +355,10 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	private class RemoveAction extends AbstractAction
 	{
-		/** Version for serialisation.  */
+
+		/**
+		 * Version for serialisation.
+		 */
 		private static final long serialVersionUID = 2922387838116495051L;
 
 		private CharacterFacade character;
@@ -380,12 +383,12 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			selectedTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
@@ -398,8 +401,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			Filter<CharacterFacade, TempBonusFacade>, ListListener<TempBonusFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TempBonusFacade>> treeViews =
-				new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<TempBonusFacade>> treeViews
+				= new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final InfoFactory infoFactory;
@@ -419,15 +422,15 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				tempBonuses.setDelegate(character.getAvailableTempBonuses());
 				character.getAvailableTempBonuses().addListListener(this);
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, true), //$NON-NLS-1$
-										new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-										new DefaultDataViewColumn("in_source", String.class, true)); //$NON-NLS-1$
+						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_source", String.class, true)); //$NON-NLS-1$
 			}
 			else
 			{
 				tempBonuses = null;
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, false), //$NON-NLS-1$
-										new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-										new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -438,7 +441,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				tbTreeView.setInfoFactory(infoFactory);
 			}
 		}
-		
+
 		@Override
 		public ListFacade<? extends TreeView<TempBonusFacade>> getTreeViews()
 		{
@@ -474,8 +477,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		public List<?> getData(TempBonusFacade obj)
 		{
 			return Arrays.asList(obj.getOriginType(),
-								 infoFactory.getTempBonusTarget(obj),
-								 obj.getSource());
+					infoFactory.getTempBonusTarget(obj),
+					obj.getSource());
 		}
 
 		@Override
@@ -532,7 +535,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		ORIGIN_NAME("in_itmOriginName"), //$NON-NLS-1$
 		SOURCE_NAME("in_sourceName"), //$NON-NLS-1$
 		TARGET_NAME("in_itmTargetName"); //$NON-NLS-1$
-		
+
 		private final String name;
 		private InfoFactory infoFactory;
 
@@ -542,7 +545,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		}
 
 		/**
-		 * @param factory The InfoFactory for the character ebing displayed. 
+		 * @param factory The InfoFactory for the character ebing displayed.
 		 */
 		public void setInfoFactory(InfoFactory factory)
 		{
@@ -563,17 +566,17 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				case TARGET_NAME:
 					if (infoFactory != null)
 					{
-						return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus, 
+						return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus,
 								infoFactory.getTempBonusTarget(bonus)));
 					}
-					// No info factory? Treat as a name 
+				// No info factory? Treat as a name 
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus));
 				case ORIGIN_NAME:
-					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus, 
+					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus,
 							bonus.getOriginType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus, 
+					return Collections.singletonList(new TreeViewPath<TempBonusFacade>(bonus,
 							bonus.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();

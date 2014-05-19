@@ -37,7 +37,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.tree.TreeCellRenderer;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.KitFacade;
@@ -84,7 +83,7 @@ public class KitPanel extends FlippingSplitPane
 	private final JButton addButton;
 	private final InfoPane infoPane;
 	private final CharacterFacade character;
-	private TreeCellRenderer renderer;
+	private QualifiedTreeCellRenderer renderer;
 	private AddAction addAction;
 	private final FilterButton<Object, KitFacade> qFilterButton;
 
@@ -100,7 +99,7 @@ public class KitPanel extends FlippingSplitPane
 		this.selectedTable = new FilteredTreeViewTable<Object, KitFacade>();
 		this.addButton = new JButton();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_kitInfo")); //$NON-NLS-1$
-		this.renderer = new QualifiedTreeCellRenderer(character);
+		this.renderer = new QualifiedTreeCellRenderer();
 		this.addAction = new AddAction(character);
 		this.qFilterButton = new FilterButton<Object, KitFacade>("KitQualified");
 
@@ -110,6 +109,7 @@ public class KitPanel extends FlippingSplitPane
 
 	private void initComponents()
 	{
+		renderer.setCharacter(character);
 		FlippingSplitPane topPane = new FlippingSplitPane("kitTop");
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);

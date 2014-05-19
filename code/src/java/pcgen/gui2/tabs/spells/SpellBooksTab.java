@@ -62,6 +62,7 @@ public class SpellBooksTab extends FlippingSplitPane
 	private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
+	private final QualifiedSpellTreeCellRenderer spellRenderer;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane spellsPane;
@@ -73,6 +74,7 @@ public class SpellBooksTab extends FlippingSplitPane
 		super("SpellBooks");
 		this.availableTable = new JTreeViewTable<SuperNode>();
 		this.selectedTable = new JTreeViewTable<SuperNode>();
+		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
@@ -83,6 +85,8 @@ public class SpellBooksTab extends FlippingSplitPane
 
 	private void initComponents()
 	{
+		availableTable.setTreeCellRenderer(spellRenderer);
+		selectedTable.setTreeCellRenderer(spellRenderer);
 		FlippingSplitPane upperPane = new FlippingSplitPane("SpellBooksTop");
 		Box box = Box.createVerticalBox();
 		JScrollPane pane = new JScrollPane(availableTable);
@@ -161,9 +165,6 @@ public class SpellBooksTab extends FlippingSplitPane
 		defaultSpellBookModel.setListFacade(character.getSpellSupport().getSpellbooks());
 		defaultSpellBookModel.setReference(character.getSpellSupport().getDefaultSpellBookRef());
 		state.put(Models.DefaultSpellBookModel, defaultSpellBookModel);
-		state.put(QualifiedSpellTreeCellRenderer.class,
-			new QualifiedSpellTreeCellRenderer(character));
-
 		return state;
 	}
 
@@ -177,12 +178,6 @@ public class SpellBooksTab extends FlippingSplitPane
 		addButton.setAction((AddSpellAction) state.get(AddSpellAction.class));
 		removeButton.setAction((RemoveSpellAction) state.get(RemoveSpellAction.class));
 		defaultBookCombo.setModel((ComboBoxModel) state.get(Models.DefaultSpellBookModel));
-		availableTable
-			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
-				.get(QualifiedSpellTreeCellRenderer.class));
-		selectedTable
-			.setTreeCellRenderer((QualifiedSpellTreeCellRenderer) state
-				.get(QualifiedSpellTreeCellRenderer.class));
 	}
 
 	public void storeModels(Hashtable<Object, Object> state)
@@ -191,7 +186,7 @@ public class SpellBooksTab extends FlippingSplitPane
 		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
 		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
 		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
-		((QualifiedSpellTreeCellRenderer) state.get(QualifiedSpellTreeCellRenderer.class)).uninstall();
+		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).uninstall();
 	}
 
 	public TabTitle getTabTitle()
@@ -329,17 +324,25 @@ public class SpellBooksTab extends FlippingSplitPane
 
 		private SpellTreeViewModel availableModel;
 		private SpellTreeViewModel selectedModel;
+		private CharacterFacade character;
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{
+			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellBooksAva");
 			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true, "SpellBooksSel");
 		}
 
 		public void install()
 		{
+			spellRenderer.setCharacter(character);
 			availableTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
+		}
+
+		public void uninstall()
+		{
+			spellRenderer.setCharacter(null);
 		}
 
 	}

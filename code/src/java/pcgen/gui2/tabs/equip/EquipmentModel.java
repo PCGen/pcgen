@@ -22,13 +22,10 @@ package pcgen.gui2.tabs.equip;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.Rectangle;
-import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
@@ -40,8 +37,6 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableColumn;
-import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.TreeCellRenderer;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentFacade;
@@ -54,6 +49,7 @@ import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JTreeTable;
 
@@ -73,16 +69,17 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	private static Font lessFont;
 
 	private final CharacterFacade character;
-	private TreeRenderer treeRenderer;
-	private Map<EquipmentSetFacade, EquipmentTreeTableModel> equipsetMap;
-	private ListFacade<EquipmentSetFacade> equipsets;
+	private final TreeRenderer treeRenderer;
+	private final Map<EquipmentSetFacade, EquipmentTreeTableModel> equipsetMap;
+	private final ListFacade<EquipmentSetFacade> equipsets;
 	private EquipmentTreeTableModel selectedModel;
-	private JTreeTable treeTable;
+	private final JTreeTable treeTable;
 
-	public EquipmentModel(CharacterFacade character)
+	public EquipmentModel(CharacterFacade character, JTreeTable table)
 	{
 		this.character = character;
-		treeRenderer = new TreeRenderer(character);
+		this.treeTable = table;
+		treeRenderer = (TreeRenderer)treeTable.getTreeCellRenderer();
 
 		equipsetMap = new HashMap<EquipmentSetFacade, EquipmentTreeTableModel>();
 		equipsets = character.getEquipmentSets();
@@ -117,7 +114,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 			treeTable.setColumnModel(model);
 			treeTable.getTableHeader().setResizingAllowed(false);
 		}
-
+		treeTable.setTreeCellRenderer(new TreeRenderer());
 	}
 
 	private static TableColumn createFixedColumn(int index, int width, CellRenderer renderer)
@@ -173,13 +170,12 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 
 	}
 
-	public void install(JTreeTable table)
+	public void install()
 	{
-		this.treeTable = table;
-		table.setTreeCellRenderer(treeRenderer);
+		treeRenderer.setCharacter(character);
 		selectedModel = equipsetMap.get(character.getEquipmentSetRef().getReference());
-		table.setTreeTableModel(selectedModel);
-		table.getModel().addTableModelListener(this);
+		treeTable.setTreeTableModel(selectedModel);
+		treeTable.getModel().addTableModelListener(this);
 		realignRowHeights();
 
 		character.getEquipmentSetRef().addReferenceListener(this);
@@ -192,7 +188,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 			treeTable.getModel().removeTableModelListener(this);
 		}
 		character.getEquipmentSetRef().removeReferenceListener(this);
-		treeRenderer.uninstall();
+		treeRenderer.setCharacter(null);
 	}
 
 	private void realignRowHeights()
@@ -252,17 +248,10 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		realignRowHeights();
 	}
 
-	private static class TreeRenderer extends DefaultTreeCellRenderer
+	private static class TreeRenderer extends CharacterTreeCellRenderer
 	{
 
 		private Map<String, ImageIcon> iconCache = new HashMap<String, ImageIcon>();
-
-		private final WeakReference<CharacterFacade> characterRef;
-
-		public TreeRenderer(CharacterFacade character)
-		{
-			this.characterRef = new WeakReference<CharacterFacade>(character);
-		}
 
 		@Override
 		public Component getTreeCellRendererComponent(final JTree tree,
@@ -311,7 +300,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 					}
 					setIcon(icon);
 
-					if (!characterRef.get().isQualifiedFor(equip))
+					if (!character.isQualifiedFor(equip))
 					{
 						setForeground(UIPropertyContext.getNotQualifiedColor());
 					}
@@ -320,21 +309,6 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 			return this;
 		}
 
-		/**
-		 * This is necessary because Java's Swing automatically adds this
-		 * component to a container when it is drawn but does not ever remove
-		 * it. This means that the component will exist forever in the component
-		 * hierarchy and thus never be garbage collected. We must remove it from
-		 * the hierarchy ourselves to solve the problem.
-		 */
-		public void uninstall()
-		{
-			Container parent = getParent();
-			if (parent != null)
-			{
-				parent.remove(this);
-			}
-		}
 	}
 
 }

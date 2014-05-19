@@ -202,6 +202,11 @@ public class JTreeTable extends JTableEx
 		return tree;
 	}
 
+	public TreeCellRenderer getTreeCellRenderer()
+	{
+		return tree.getCellRenderer();
+	}
+
 	public void setTreeCellRenderer(TreeCellRenderer renderer)
 	{
 		tree.setCellRenderer(renderer);
@@ -669,16 +674,6 @@ public class JTreeTable extends JTableEx
 			{
 				g.translate(0, -offset);
 			}
-            Container parent = getParent();
-            if(parent != null){
-                parent.remove(this);
-            }
-//            for(Component comp : this.getComponents()){
-//                if(comp instanceof CellRendererPane)
-//                {
-//                    ((Container) comp).removeAll();
-//                }
-//            }
 		}
 
 		/**

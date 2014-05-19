@@ -36,6 +36,7 @@ import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -50,29 +51,13 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class QualifiedSpellTreeCellRenderer extends DefaultTreeCellRenderer
+public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {
 
 	/**
 	 * Version for serialisation.
 	 */
 	private static final long serialVersionUID = -5763535370085434234L;
-
-	private final WeakReference<CharacterFacade> characterRef;
-
-	/**
-	 * Create a new instance of QualifiedSpellTreeCellRenderer
-	 *
-	 * @param character The character for which this instance is rendering.
-	 */
-	public QualifiedSpellTreeCellRenderer(CharacterFacade character)
-	{
-		this.characterRef = new WeakReference<CharacterFacade>(character);
-		setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
-		setClosedIcon(null);
-		setLeafIcon(null);
-		setOpenIcon(null);
-	}
 
 	/**
 	 * {@inheritDoc}
@@ -92,7 +77,7 @@ public class QualifiedSpellTreeCellRenderer extends DefaultTreeCellRenderer
 			SpellNode spellNode = (SpellNode) obj;
 			SpellFacade spell = spellNode.getSpell();
 			ClassFacade pcClass = spellNode.getSpellcastingClass();
-			if (!characterRef.get().isQualifiedFor(spell, pcClass))
+			if (!character.isQualifiedFor(spell, pcClass))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}
@@ -108,19 +93,4 @@ public class QualifiedSpellTreeCellRenderer extends DefaultTreeCellRenderer
 		return this;
 	}
 
-	/**
-	 * This is necessary because Java's Swing automatically adds this component
-	 * to a container when it is drawn but does not ever remove it. This means
-	 * that the component will exist forever in the component hierarchy and thus
-	 * never be garbage collected. We must remove it from the hierarchy
-	 * ourselves to solve the problem.
-	 */
-	public void uninstall()
-	{
-		Container parent = getParent();
-		if (parent != null)
-		{
-			parent.remove(this);
-		}
-	}
 }

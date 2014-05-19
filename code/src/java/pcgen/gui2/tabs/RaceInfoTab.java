@@ -30,7 +30,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -40,7 +39,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.RaceFacade;
@@ -52,6 +50,7 @@ import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.ConcurrentDataView;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
@@ -88,6 +87,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final JButton removeButton;
 	private final FilterButton<Object, RaceFacade> qFilterButton;
 	private final FilterButton<Object, RaceFacade> noRacialHdFilterButton;
+	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public RaceInfoTab()
 	{
@@ -99,6 +99,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.removeButton = new JButton();
 		this.qFilterButton = new FilterButton<Object, RaceFacade>("RaceQualified");
 		this.noRacialHdFilterButton = new FilterButton<Object, RaceFacade>("RaceNoHD");
+		this.qualifiedRenderer = new QualifiedTreeCellRenderer();
 		initComponents();
 	}
 
@@ -119,6 +120,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		raceTable.setDisplayableFilter(bar);
 		availPanel.add(bar, BorderLayout.NORTH);
 
+		raceTable.setTreeCellRenderer(qualifiedRenderer);
 		raceTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		raceTable.sortModel();
 		availPanel.add(new JScrollPane(raceTable), BorderLayout.CENTER);
@@ -139,6 +141,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
+		selectedTable.setTreeCellRenderer(qualifiedRenderer);
 		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		selectedTable.sortModel();
 		JScrollPane scrollPane = new JScrollPane(selectedTable);
@@ -181,7 +184,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(Models.AvailableViewModel, new RaceTreeViewModel(character, true, availDataView));
 		state.put(Models.SelectedViewModel, new RaceTreeViewModel(character, false, selDataView));
 		state.put(InfoHandler.class, new InfoHandler(character));
-		state.put(QualifiedTreeCellRenderer.class, new QualifiedTreeCellRenderer(character));
+		state.put(Handler.class, qualifiedRenderer.createHandler(character));
 		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
 		state.put(NoRacialHdFilterHandler.class, new NoRacialHdFilterHandler(character));
 		return state;
@@ -192,6 +195,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 		((NoRacialHdFilterHandler) state.get(NoRacialHdFilterHandler.class)).install();
+		((Handler) state.get(Handler.class)).install();
 		raceTable.setTreeViewModel((RaceTreeViewModel) state.get(Models.AvailableViewModel));
 		selectedTable.setTreeViewModel((RaceTreeViewModel) state.get(Models.SelectedViewModel));
 		((RaceDataView) state.get(Models.AvailableDataModel)).install();
@@ -199,9 +203,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((SelectRaceAction) state.get(SelectRaceAction.class)).install();
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).install();
-		
-		raceTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
-		selectedTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		selectRaceButton.setAction((SelectRaceAction) state.get(SelectRaceAction.class));
 		removeButton.setAction((RemoveRaceAction) state.get(RemoveRaceAction.class));
 	}
@@ -214,7 +215,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((InfoHandler) state.get(InfoHandler.class)).uninstall();
 		((SelectRaceAction) state.get(SelectRaceAction.class)).uninstall();
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).uninstall();
-        ((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class)).uninstall();
+        ((Handler) state.get(Handler.class)).uninstall();
 	}
 
 	@Override

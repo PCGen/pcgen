@@ -26,7 +26,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -36,7 +35,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.TemplateFacade;
@@ -51,6 +49,7 @@ import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.ConcurrentDataView;
+import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
@@ -80,6 +79,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private final JButton removeButton;
 	private final InfoPane infoPane;
 	private final FilterButton<CharacterFacade, TemplateFacade> qFilterButton;
+	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public TemplateInfoTab()
 	{
@@ -90,6 +90,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.removeButton = new JButton();
 		this.infoPane = new InfoPane("in_irTemplateInfo"); //$NON-NLS-1$
 		this.qFilterButton = new FilterButton<CharacterFacade, TemplateFacade>("TemplateQualified");
+		this.qualifiedRenderer = new QualifiedTreeCellRenderer();
 		initComponents();
 	}
 
@@ -107,6 +108,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		availPanel.add(bar, BorderLayout.NORTH);
 
 		availableTable.setDisplayableFilter(bar);
+		availableTable.setTreeCellRenderer(qualifiedRenderer);
 		availableTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		availableTable.sortModel();
 		availPanel.add(new JScrollPane(availableTable), BorderLayout.CENTER);
@@ -126,6 +128,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
+		selectedTable.setTreeCellRenderer(qualifiedRenderer);
 		selectedTable.setSortingPriority(Collections.singletonList(new SortingPriority(0, SortMode.ASCENDING)));
 		selectedTable.sortModel();
 		selPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
@@ -151,8 +154,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		SelectedDataView,
 		InfoHandler,
 		AddAction,
-		RemoveAction,
-		TemplateRenderer
+		RemoveAction
 	}
 
 	@Override
@@ -169,7 +171,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		state.put(Models.InfoHandler, new InfoHandler(character));
 		state.put(Models.AddAction, new AddAction(character));
 		state.put(Models.RemoveAction, new RemoveAction(character));
-		state.put(Models.TemplateRenderer, new QualifiedTreeCellRenderer(character));
+		state.put(Handler.class, qualifiedRenderer.createHandler(character));
 		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
 		return state;
 	}
@@ -178,6 +180,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
+		((Handler) state.get(Handler.class)).install();
 		availableTable.setTreeViewModel((TemplateTreeViewModel) state.get(Models.AvailableModel));
 		selectedTable.setTreeViewModel((TemplateTreeViewModel) state.get(Models.SelectedModel));
 		((TemplateDataView) state.get(Models.AvailableDataView)).install();
@@ -188,8 +191,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		
 		addButton.setAction((AddAction) state.get(Models.AddAction));
 		removeButton.setAction((RemoveAction) state.get(Models.RemoveAction));
-		availableTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(Models.TemplateRenderer));
-		selectedTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(Models.TemplateRenderer));
 	}
 
 	@Override
@@ -200,7 +201,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((InfoHandler) state.get(Models.InfoHandler)).uninstall();
 		((AddAction) state.get(Models.AddAction)).uninstall();
 		((RemoveAction) state.get(Models.RemoveAction)).uninstall();
-        ((QualifiedTreeCellRenderer) state.get(Models.TemplateRenderer)).uninstall();
+		((Handler) state.get(Handler.class)).uninstall();
 	}
 
 	@Override
