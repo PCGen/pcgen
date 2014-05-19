@@ -67,6 +67,8 @@ HIDETYPE:EQUIP|Starting
 HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource|SpecificSlingStone
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|AnimalTrickAttack|AnimalTrickCome|AnimalTrickDefend|AnimalTrickDown|AnimalTrickGuard|AnimalTrickHeel|AnimalTrickStay|AnimalTrickFetch|AnimalTrickPerform|AnimalTrickSeek|AnimalTrickTrack|AnimalTrickWork
+HIDETYPE:FEAT|Base|Appraise|Balance|Bluff|Climb|Concentration|Control Shape|Craft (Alchemy)|Craft (Armorsmithing)|Craft (Bowmaking)|Craft (Blacksmithing)|Craft (Carpentry)|Craft (Leatherworking)|Craft (Painting)|Craft (Pottery)|Craft (Sculpting)|Craft (Shipmaking)|Craft (Stonemasonry)|Craft (Trapmaking)|Craft (Weaponsmithing)|Craft (Woodworking)|Craft (Untrained)|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Literacy|Move Silently|Open Lock|Perform (Untrained)|Perform (Act)|Perform (Comedy)|Perform (Dance)|Perform (Keyboard Instruments)|Perform (Oratory)|Perform (Percussion Instruments)|Perform (String Instruments)|Perform (Wind Instruments)|Perform (Sing)|Profession (Hunter)|Profession (Miner)|Profession (Siege Engineer)|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Survival|Swim|Tumble|Use Magic Device|Use Rope
+
 
 # Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Standard|None
@@ -81,3 +83,6 @@ BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|PRESTAT:1,INT=2|!PREA
 #
 # DONE
 #
+
+
+
