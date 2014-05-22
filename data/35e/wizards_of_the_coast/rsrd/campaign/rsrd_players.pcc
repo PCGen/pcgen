@@ -5,7 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:RSRD
-TYPE:RSRD.Campaign
+TYPE:Wizards of the Coast.RSRD.Campaign
 SHOWINMENU:YES
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[SRD 3.5 for Players]
 PUBNAMELONG:Wizards of the Coast
