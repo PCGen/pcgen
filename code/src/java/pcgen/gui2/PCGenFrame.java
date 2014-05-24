@@ -1056,8 +1056,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			{
 				CharacterManager.removeCharacter(character);
 				
-				if (character.getFileRef().getReference() == null || 
-						StringUtils.isEmpty(character.getFileRef().getReference().getName()))
+				if (character.getFileRef().getReference() != null && 
+						character.getFileRef().getReference().exists())
 				{
 					openCharacter(character.getFileRef().getReference(), currentDataSetRef.getReference());
 				}
