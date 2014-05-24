@@ -54,7 +54,14 @@ import pcgen.gui2.util.SharedTabPane;
 import pcgen.system.CharacterManager;
 
 /**
+ * This is the tabbed pane for PCGen characters. Unlike normal tabbed panes, the
+ * CharacterTabs pane really only has a component single child component, the
+ * InfoTabbedPane. The CharacterTabs pane is responsible for notifying both the
+ * PCGenFrame and the InfoTabbedPane when a change in character selection
+ * occurs.
  *
+ * @see pcgen.gui2.PCGenFrame
+ * @see pcgen.gui2.tabs.InfoTabbedPane
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class CharacterTabs extends SharedTabPane
@@ -209,7 +216,7 @@ public final class CharacterTabs extends SharedTabPane
 			closeButton.setBorderPainted(false);
 			closeButton.setContentAreaFilled(false);
 			closeButton.setRolloverEnabled(true);
-			
+
 			ImageIcon icon = Icons.XButton_Stat.getImageIcon();
 			Dimension size = new Dimension(icon.getIconWidth(), icon.getIconHeight());
 			Insets insets = closeButton.getInsets();
@@ -285,7 +292,7 @@ public final class CharacterTabs extends SharedTabPane
 			{
 				popupMenu.setVisible(true);
 				popupMenu.show(e.getComponent(),
-							   e.getX(), e.getY() - popupMenu.getHeight());
+						e.getX(), e.getY() - popupMenu.getHeight());
 			}
 		}
 

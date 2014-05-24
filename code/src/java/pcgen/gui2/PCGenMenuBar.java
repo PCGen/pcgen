@@ -52,7 +52,7 @@ import pcgen.util.Comparators;
 import pcgen.util.Logging;
 
 /**
- *
+ * The menu bar that is displayed in PCGen's main window.
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionListener
@@ -392,7 +392,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	 * The Class <code>LoggingLevelWrapper</code> provides a display wrapper 
 	 * around a Level. 
 	 */
-	public static class LoggingLevelWrapper
+	private static class LoggingLevelWrapper
 	{
 		private final Level level;
 

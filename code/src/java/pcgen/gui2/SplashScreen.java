@@ -36,7 +36,9 @@ import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
 
 /**
+ * PCGen's splash screen which is shown upon startup.
  *
+ * @see pcgen.system.Main
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class SplashScreen extends JWindow implements PCGenTaskListener
@@ -71,6 +73,11 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		setLocationRelativeTo(null);
 	}
 
+	/**
+	 * Sets the message to display
+	 *
+	 * @param text the message to display
+	 */
 	public void setMessage(String text)
 	{
 		loadingLabel.setText(text);
@@ -78,6 +85,16 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 
 	private boolean dirty = false;
 
+	/**
+	 * This updates the progress bar with the latest task progress information.
+	 * It is not assumed that this method will be called on the Event Dispatch
+	 * thread so UI updates are added to the Event Dispatch queue so that they
+	 * are handled appropriately. To make sure that update requests do not
+	 * overwhelm the UI thread a <code>dirty</code> flag is used to make sure
+	 * that the multiple UI update requests are not queued at the same time.
+	 *
+	 * @param event a PCGenTaskEvent
+	 */
 	@Override
 	public void progressChanged(final PCGenTaskEvent event)
 	{

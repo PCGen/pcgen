@@ -114,6 +114,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
+ * This component displays a basic summary of a character such as name,
+ * alignment, race, class, and stat information.
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */

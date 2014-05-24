@@ -23,7 +23,6 @@ package pcgen.gui2.tabs;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
@@ -43,7 +42,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreePath;
 import javax.swing.undo.StateEditable;
 import pcgen.cdom.enumeration.Nature;
@@ -80,7 +78,13 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 
 /**
+ * This component allows the user to select abilities for a character. The
+ * AbilityChooserTab is a subtab of the AbilitiesInfoTab and is used to display
+ * the available and selected abilities for a particular ability category. Its
+ * up to the AbilitiesInfoTab to manage this tab's state which more or less
+ * follows the state management guidelines of a <code>CharacterInfoTab</code>.
  *
+ * @see pcgen.gui2.tabs.CharacterInfoTab
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")

@@ -34,7 +34,11 @@ import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.system.Main;
 
 /**
+ * The PCGenUIManager is responsible for starting up and shutting down PCGen's
+ * main window. This class also provides static methods for outside UI
+ * frameworks such as the application toolbar for Macs.
  *
+ * @see pcgen.gui2.PCGenFrame
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public final class PCGenUIManager

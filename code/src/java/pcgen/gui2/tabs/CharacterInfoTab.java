@@ -25,7 +25,8 @@ import pcgen.core.facade.CharacterFacade;
 
 /**
  * This interface must be implemented by all tabs that display character
- * information, i.c. summary tab, classes tab, abilities tab, inventory tab.
+ * information: summary tab, classes tab, abilities tab, inventory tab, etc....
+ * <br>
  * The goal of this class is to create a separation of UI models and the UI components
  * that use them. By doing this, knowledge of the CharacterFacade can be isolated from
  * the tab itself and stored solely within the models that use the CharacterFacade.
@@ -33,7 +34,7 @@ import pcgen.core.facade.CharacterFacade;
  * charcter is selected. Reusing models, although it increases overhead, can make
  * swiching between character tabs several times faster than if a new model was created
  * each time. A fast UI greatly enhances a user's experience when using a program.
- * <br>
+ * <p>
  * To achieve this speed goal this interface defines the following methods:<br>
  * <code>
  * createModels(Character)<br>
@@ -50,7 +51,7 @@ import pcgen.core.facade.CharacterFacade;
  * a call to <code>restoreModels</code> with the new selected character's state hashtable.
  * It is guaranteed that any call to <code>restoreModels</code> will be preceded by a
  * call to <code>storeModels</code> if a character is currently displayed on this tab.
- * <br>
+ * <p>
  * Note: The states crated by the a tab's <code>createModels</code> are guaranteed to not
  * be modified in anyway by the tab handler. The only changes that would occur to any
  * state would be in a call to <code>storeModels</code>.

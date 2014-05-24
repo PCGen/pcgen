@@ -43,7 +43,12 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**
+ * This component is the tabbed pane which contains all of the
+ * AbilityChooserTabs. This component doesn't actually display any character
+ * information, that is the job of the AbilityChooserTab. All this class does is
+ * manage the states of all the AbilityChooserTab.
  *
+ * @see AbilityChooserTab
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")

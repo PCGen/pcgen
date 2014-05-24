@@ -52,7 +52,7 @@ import pcgen.core.facade.util.MapFacade;
 
 /**
  *
- * @author Connor
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class DelegatingDataSet implements DataSetFacade
 {

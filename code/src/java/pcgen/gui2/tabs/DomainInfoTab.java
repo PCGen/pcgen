@@ -81,6 +81,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
+ * This component handles diety and domain selection for a character.
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */

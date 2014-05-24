@@ -28,6 +28,8 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.system.PropertyContext;
 
 /**
+ * This is a property context which holds UI related user preferences such as
+ * screen position and colors.
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
