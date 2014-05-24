@@ -307,10 +307,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		
 		assertEquals("Test for evaluates correctly", "----------------",
 			evaluateToken(
-				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24,-,NONE,NONE,1", pc));
+				"FOR.1,((24-STRLEN[SKILL.0])),24,-,NONE,NONE,1", pc));
 		assertEquals("Test for evaluates correctly", "                ",
 			evaluateToken(
-				"FOR.1,((24-STRLEN[SKILL.0])).INTVAL,24, ,NONE,NONE,1", pc));
+				"FOR.1,((24-STRLEN[SKILL.0])),24, ,NONE,NONE,1", pc));
 		
 		String tok = "DFOR." +
 		"0" +

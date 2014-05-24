@@ -51,6 +51,9 @@ import java.util.StringTokenizer;
  */
 public abstract class VariableProcessor
 {
+	/** A simple mathematical operation. */
+	private enum MATH_OP { PLUS, MINUS, MULTIPLY, DIVIDE};
+	
 	/** The current indenting to be used for debug output of jep evaluations. */
 	protected String jepIndent = "";
 	protected PlayerCharacter pc;
@@ -245,7 +248,6 @@ public abstract class VariableProcessor
 			int spellLevelTemp)
 	{
 		Float total = new Float(0.0);
-		Float total1 = null;
 		aString = aString.toUpperCase();
 		src = src.toUpperCase();
 
@@ -267,9 +269,8 @@ public abstract class VariableProcessor
 
 		final String delimiter = "+-/*";
 		String valString = "";
-		int mode = 0; //0=plus, 1=minus, 2=mult, 3=div
-		int nextMode = 0;
-		int endMode = 0; //1,11=min, 2,12=max, 3,13=req, 10 = int
+		MATH_OP mode = MATH_OP.PLUS; 
+		MATH_OP nextMode = MATH_OP.PLUS;
 
 		if (aString.startsWith(".IF."))
 		{
@@ -403,14 +404,8 @@ public abstract class VariableProcessor
 					(i == (aString.length() - 1)) ||
 					
 					// have found one of +, -, *, /
-					(delimiter.lastIndexOf(aString.charAt(i)) > -1) || 
-
-					// there are more than three characters
-					((valString.length() > 3) && 
-					 	(valString.endsWith("MIN") || 
-						(!valString.startsWith("MODEQUIP") && valString.endsWith("MAX")) || 
-						valString.endsWith("REQ")))
-					)
+					(delimiter.lastIndexOf(aString.charAt(i)) > -1)
+				)
 			{
 				if ((valString.length() == 1) && (delimiter.lastIndexOf(aString.charAt(i)) > -1))
 				{
@@ -431,51 +426,21 @@ public abstract class VariableProcessor
 
 				if (i < aString.length())
 				{
-					if (valString.endsWith(".TRUNC"))
+					if (aString.length() > 0 && aString.charAt(i) == '+')
 					{
-						valString = String.valueOf(getVariableValue(aSpell, valString.substring(0, valString.length() - 6), "", spellLevelTemp)
-								.intValue());
-					}
-
-					if (valString.endsWith(".INTVAL"))
-					{
-						valString = getVariableValue(aSpell, valString.substring(0, valString.length() - 7), "", spellLevelTemp).toString();
-						endMode += 10;
-					}
-
-					if (valString.endsWith("MIN"))
-					{
-						valString = getVariableValue(aSpell, valString.substring(0, valString.length() - 3), "", spellLevelTemp).toString();
-						nextMode = 0;
-						++endMode;
-					}
-					else if (valString.endsWith("MAX"))
-					{
-						valString = getVariableValue(aSpell, valString.substring(0, valString.length() - 3), "", spellLevelTemp).toString();
-						nextMode = 0;
-						endMode += 2;
-					}
-					else if (valString.endsWith("REQ"))
-					{
-						valString = getVariableValue(aSpell, valString.substring(0, valString.length() - 3), "", spellLevelTemp).toString();
-						nextMode = 0;
-						endMode += 3;
-					}
-					else if (aString.length() > 0 && aString.charAt(i) == '+')
-					{
-						nextMode = 0;
+						nextMode = MATH_OP.PLUS;
 					}
 					else if (aString.length() > 0 && aString.charAt(i) == '-')
 					{
-						nextMode = 1;
+						nextMode = MATH_OP.MINUS;
 					}
 					else if (aString.length() > 0 && aString.charAt(i) == '*')
 					{
-						nextMode = 2;
+						nextMode = MATH_OP.MULTIPLY;
 					}
 					else if (aString.length() > 0 && aString.charAt(i) == '/')
 					{
-						nextMode = 3;
+						nextMode = MATH_OP.DIVIDE;
 					}
 				}
 
@@ -491,24 +456,25 @@ public abstract class VariableProcessor
 						// Don't care, as it's just zero
 						//Logging.debugPrint("Will use default for total: " + total, exc);
 					}
+
 					switch (mode)
 					{
-						case 0:
+						case PLUS:
 							total += valFloat;
 
 							break;
 
-						case 1:
+						case MINUS:
 							total -= valFloat;
 
 							break;
 
-						case 2:
+						case MULTIPLY:
 							total *= valFloat;
 
 							break;
 
-						case 3:
+						case DIVIDE:
 							total /= valFloat;
 
 							break;
@@ -522,45 +488,9 @@ public abstract class VariableProcessor
 				}
 
 				mode = nextMode;
-				nextMode = 0;
+				nextMode = MATH_OP.PLUS;
 				valString = "";
-
-				if (total1 == null && endMode % 10 != 0)
-				{
-					total1 = total;
-					total = new Float(0.0);
-				}
 			}
-		}
-
-		if (total1 != null)
-		{
-			if (endMode % 10 == 1)
-			{
-				total = new Float(Math.min(total.doubleValue(), total1.doubleValue()));
-			}
-
-			if (endMode % 10 == 2)
-			{
-				total = new Float(Math.max(total.doubleValue(), total1.doubleValue()));
-			}
-
-			if (endMode % 10 == 3)
-			{
-				if (total1.doubleValue() < total.doubleValue())
-				{
-					total = new Float(0.0);
-				}
-				else
-				{
-					total = total1;
-				}
-			}
-		}
-
-		if (endMode / 10 > 0)
-		{
-			total = (float) total.intValue();
 		}
 
 		return total;

@@ -435,7 +435,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(2, pcClass, true);
 
 		final Float result =
-				character.getVariableValue("(SCORE/2).TRUNC-5", "STAT:STR");
+				character.getVariableValue("floor(SCORE/2)-5", "STAT:STR");
 		assertEquals("Stat modifier not correct", 3.0, result.doubleValue(),
 			0.1);
 	}
