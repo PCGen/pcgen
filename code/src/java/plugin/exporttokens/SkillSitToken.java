@@ -159,7 +159,7 @@ public class SkillSitToken extends Token
 						{
 							if (i == 0)
 							{
-								return new SkillSituation(sk, situations.get(i), bonus);
+								return new SkillSituation(sk, situation, bonus);
 							}
 							i--; //Wasn't this situation
 						}
