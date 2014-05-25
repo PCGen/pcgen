@@ -26,6 +26,8 @@
 package plugin.exporttokens;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -58,7 +60,8 @@ public class GoldToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return getGoldToken(pc).toString();
+		NumberFormat decimalFormat = new DecimalFormat("#,##0.##");
+		return decimalFormat.format(getGoldToken(pc));
 	}
 
 	/**
