@@ -240,7 +240,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.4",
 			character, null));
 		//Alphabetical!
-		assertEquals("SkillToken", "Tumble (Down a Mountain)", token.getToken("SKILLSIT.5",
+		assertEquals("SkillToken", "Tumble (On Hot Concrete)", token.getToken("SKILLSIT.5",
 			character, null));
 
 		// Test the named retrieval
