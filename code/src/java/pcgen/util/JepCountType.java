@@ -27,6 +27,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -58,8 +59,10 @@ import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.display.SkillDisplay;
 import pcgen.util.AbstractCountCommand.JepAbilityCountEnum;
 import pcgen.util.AbstractCountCommand.JepEquipmentCountEnum;
+import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 public abstract class JepCountType
@@ -829,32 +832,79 @@ public abstract class JepCountType
 			throws ParseException
 		{
 			SkillFilter sf = null;
-			if (params.length > 1)
+			View v = View.ALL;
+			if (params.length == 0)
 			{
-				Logging.errorPrint("count(\"SKILLSIT\") allows 0 or 1 parameters");
+				return processCount(pc, sf, v);
 			}
-			if (params.length == 1)
+			if (params.length > 2)
 			{
-				Object filtername = params[0];
-				sf = SkillFilter.getByToken(filtername.toString());
-				if (sf == null)
+				Logging
+					.errorPrint("count(\"SKILLSIT\") allows up to 2 parameters");
+			}
+			int nextparameter = 0;
+			//There is at least one parameter, but we don't know what kind
+			String filtername = params[nextparameter++].toString();
+			//If the filter is a SkillFilter,  use it
+			sf = SkillFilter.getByToken(filtername);
+			if (sf != null)
+			{
+				if (params.length == 1)
 				{
-					Logging.errorPrint("Unable to find Skill Filter: "
-						+ filtername);
+					//If it was just a skill filter, we're done
+					return processCount(pc, sf, v);
+				}
+				else
+				{
+					//else we fall through to a VIEW using the next parameter
+					filtername = params[nextparameter++].toString();
 				}
 			}
+			//Now must start with VIEW=
+			if (filtername.startsWith("VIEW="))
+			{
+				v = View.getViewFromName(filtername.substring(5));
+				if (v == null)
+				{
+					Logging
+						.errorPrint("count(\"SKILLSIT\") found View it does not understand: "
+							+ filtername
+							+ " Legal values are: "
+							+ Arrays.asList(View.values()));
+				}
+			}
+			else
+			{
+				Logging
+					.errorPrint("count(\"SKILLSIT\") found parameter (Skill Filter?) "
+						+ "it does not understand: " + filtername);
+			}
+			while (nextparameter != params.length)
+			{
+				Logging.errorPrint("count(\"SKILLSIT\") found parameter "
+					+ "it did not expect (out of order?): '"
+					+ params[nextparameter++] + "'.  Parameter was ignored.");
+			}
+			return processCount(pc, sf, v);
+		}
+
+		private Number processCount(PlayerCharacter pc, SkillFilter sf, View v)
+		{
 			int count = 0;
-			Collection<Skill> skills = pc.getSkillSet();
+			final List<Skill> skills =
+					SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
+						.getPartialSkillList(v));
 			for (Skill sk : skills)
 			{
-				if (pc.includeSkill(sk, sf)
-						&& sk.qualifies(pc, null))
+				if (pc.includeSkill(sk, sf) && sk.qualifies(pc, null))
 				{
 					count++; //For the skill
-					for (String situation : sk.getSafeListFor(ListKey.SITUATION))
+					for (String situation : sk
+						.getSafeListFor(ListKey.SITUATION))
 					{
-						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
-							+ "=" + situation);
+						double bonus =
+								pc.getTotalBonusTo("SITUATION", sk.getKeyName()
+									+ "=" + situation);
 						if (bonus > .01)
 						{
 							count++;
@@ -864,6 +914,6 @@ public abstract class JepCountType
 			}
 			return Double.valueOf(count);
 		}
-		
+
 	}
 }
