@@ -5,11 +5,11 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ###Block: Base Materials
 # Modifier Name	Unique Key	Naming Option	Type														Cost		Visible		Type granted	Prohibited Type							Apply to both heads
-Cloth			KEY:CLOTH	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Leather		KEY:LEATHER	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Rope			KEY:ROPE	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
-Steel			KEY:STEEL	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Wooden
-Wood			KEY:WOOD	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal		ASSIGNTOALL:YES
+Cloth			KEY:CLOTH	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				PREMULT:1,[PRETYPE:1,EQMOD=CLOTH],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal,Wooden
+Leather		KEY:LEATHER	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				PREMULT:1,[PRETYPE:1,EQMOD=LEATHER],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal,Wooden
+Rope			KEY:ROPE	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				PREMULT:1,[PRETYPE:1,EQMOD=ROPE],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal,Wooden
+Steel			KEY:STEEL	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		PREMULT:1,[PRETYPE:1,EQMOD=STEEL],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Wooden
+Wood			KEY:WOOD	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	PREMULT:1,[PRETYPE:1,EQMOD=WOOD],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal		ASSIGNTOALL:YES
 
 ###Block: Masterwork
 # Modifier Name	Unique Key	Naming Format	Naming Option	Type								Cost		Visible		Type granted	Source Page		Required Type				Prohibited Type							Bonus Armor Modifiers				Modify the item cost								Weapon prop. bonus				Apply to both heads
