@@ -20,8 +20,8 @@
  */
 package pcgen.core.facade;
 
-import java.util.Comparator;
 import java.util.List;
+
 import pcgen.core.facade.generator.StatGenerationFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.MapFacade;

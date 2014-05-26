@@ -23,14 +23,11 @@
 package pcgen.gui2.tabs.spells;
 
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.Font;
-import java.lang.ref.WeakReference;
 
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
-import pcgen.core.facade.CharacterFacade;
+
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.SpellFacade;

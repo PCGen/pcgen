@@ -20,9 +20,8 @@
  */
 package pcgen.gui2.tabs.models;
 
-import java.awt.Component;
-import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
 

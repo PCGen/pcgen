@@ -22,8 +22,6 @@ package pcgen.core.facade;
 
 import java.util.List;
 
-import pcgen.core.facade.util.ListFacade;
-
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
