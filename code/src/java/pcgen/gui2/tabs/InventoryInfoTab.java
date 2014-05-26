@@ -1,20 +1,19 @@
 /**
- * InventoryInfoTab.java
- * Copyright James Dempsey, 2010
+ * InventoryInfoTab.java Copyright James Dempsey, 2010
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created on 29/09/2010 7:16:42 PM
  *
@@ -22,19 +21,18 @@
  */
 package pcgen.gui2.tabs;
 
-import java.util.Hashtable;
 import javax.swing.JTabbedPane;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>InventoryInfoTab</code> is a placeholder for the yet
- * to be implemented Inventory tab.
+ * The Class <code>InventoryInfoTab</code> is a placeholder for the yet to be
+ * implemented Inventory tab.
  * <br/>
- * Last Editor: $Author: cpmeister $
- * Last Edited: $Date: 2011-02-25 14:43:05 -0800 (Fri, 25 Feb 2011) $
- * 
+ * Last Editor: $Author: cpmeister $ Last Edited: $Date: 2011-02-25 14:43:05
+ * -0800 (Fri, 25 Feb 2011) $
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 14613 $
  */
@@ -53,26 +51,48 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> table = new Hashtable<Object, Object>();
-		table.put(equipTab, equipTab.createModels(character));
-		table.put(purchaseTab, purchaseTab.createModels(character));
-		return table;
+		ModelMap models = new ModelMap();
+		models.put(ModelHandler.class, new ModelHandler(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		equipTab.restoreModels((Hashtable<?, ?>) state.get(equipTab));
-		purchaseTab.restoreModels((Hashtable<?, ?>) state.get(purchaseTab));
+		models.get(ModelHandler.class).restoreModels();
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		equipTab.storeModels((Hashtable<Object, Object>) state.get(equipTab));
-		purchaseTab.storeModels((Hashtable<Object, Object>) state.get(purchaseTab));
+		models.get(ModelHandler.class).storeModels();
+	}
+
+	private class ModelHandler
+	{
+
+		private final ModelMap equipModelMap;
+		private final ModelMap purchaseModelMap;
+
+		public ModelHandler(CharacterFacade character)
+		{
+			equipModelMap = equipTab.createModels(character);
+			purchaseModelMap = purchaseTab.createModels(character);
+		}
+
+		public void restoreModels()
+		{
+			equipTab.restoreModels(equipModelMap);
+			purchaseTab.restoreModels(purchaseModelMap);
+		}
+
+		public void storeModels()
+		{
+			equipTab.storeModels(equipModelMap);
+			purchaseTab.storeModels(purchaseModelMap);
+		}
 	}
 
 	@Override

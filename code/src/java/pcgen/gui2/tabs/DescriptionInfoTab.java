@@ -1,20 +1,19 @@
 /**
- * DescriptionInfoTab.java
- * Copyright James Dempsey, 2010
+ * DescriptionInfoTab.java Copyright James Dempsey, 2010
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created on 29/09/2010 7:16:42 PM
  *
@@ -27,7 +26,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -58,13 +56,13 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to
- * be implemented description tab.
+ * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to be
+ * implemented description tab.
  *
  * <br/>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-09-29 05:59:43 -0700 (Wed, 29 Sep 2010) $
- * 
+ * Last Editor: $Author: jdempsey $ Last Edited: $Date: 2010-09-29 05:59:43
+ * -0700 (Wed, 29 Sep 2010) $
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 13208 $
  */
@@ -136,9 +134,9 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
+		ModelMap models = new ModelMap();
 		DefaultListModel listModel = new DefaultListModel();
 		List<NoteInfoPane> notePaneList = new ArrayList<NoteInfoPane>();
 
@@ -146,37 +144,37 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		listModel.addElement(firstPage);
 		listModel.addElement(new PageItem(character, LanguageBundle.getString("in_portrait"), portraitPane)); //$NON-NLS-1$
 		listModel.addElement(new PageItem(character, LanguageBundle.getString("in_descCampHist"), histPane)); //$NON-NLS-1$
-		
-		state.put(ListModel.class, listModel);
-		state.put(List.class, notePaneList);
-		state.put(NoteListHandler.class, new NoteListHandler(character, listModel, notePaneList));
+
+		models.put(ListModel.class, listModel);
+		models.put(List.class, notePaneList);
+		models.put(NoteListHandler.class, new NoteListHandler(character, listModel, notePaneList));
 
 		ListSelectionModel model = new DefaultListSelectionModel();
 		model.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		model.setSelectionInterval(0, 0);
-		state.put(ListSelectionModel.class, model);
-		state.put(PageHandler.class, new PageHandler(model, firstPage));
-		state.put(AddAction.class, new AddAction(character));
-		
-		return state;
+		models.put(ListSelectionModel.class, model);
+		models.put(PageHandler.class, new PageHandler(model, firstPage));
+		models.put(AddAction.class, new AddAction(character));
+
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		pageList.setModel((ListModel) state.get(ListModel.class));
-		pageList.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
-		((NoteListHandler) state.get(NoteListHandler.class)).install();
-		((PageHandler) state.get(PageHandler.class)).install();
-		addButton.setAction(((AddAction) state.get(AddAction.class)));
+		pageList.setModel(models.get(ListModel.class));
+		pageList.setSelectionModel(models.get(ListSelectionModel.class));
+		models.get(NoteListHandler.class).install();
+		models.get(PageHandler.class).install();
+		addButton.setAction(models.get(AddAction.class));
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
 		pageList.setSelectionModel(new DefaultListSelectionModel());
-		((PageHandler) state.get(PageHandler.class)).uninstall();
-		((NoteListHandler) state.get(NoteListHandler.class)).uninstall();
+		models.get(PageHandler.class).uninstall();
+		models.get(NoteListHandler.class).uninstall();
 	}
 
 	@Override
@@ -187,6 +185,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 
 	private class NoteListHandler implements ListListener<NoteFacade>
 	{
+
 		private static final int NUM_NON_NOTE_NODES = 3;
 		private ListFacade<NoteFacade> notes;
 		private final DefaultListModel listModel;
@@ -199,23 +198,23 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			this.listModel = listModel;
 			this.notePaneList = notePaneList;
 			this.notes = character.getDescriptionFacade().getNotes();
-			
+
 			for (NoteFacade note : notes)
 			{
 				createNotePane(note, character, listModel, notePaneList, -1);
 			}
-			
+
 		}
-		
+
 		private NoteInfoPane createNotePane(NoteFacade note, CharacterFacade character,
-			DefaultListModel listModel, List<NoteInfoPane> notePaneList, int pos)
+				DefaultListModel listModel, List<NoteInfoPane> notePaneList, int pos)
 		{
 			NoteInfoPane notePane = new NoteInfoPane(note);
 			PageItem pageItem = new PageItem(character, note, notePane);
 			if (pos >= 0 && pos < notePaneList.size())
 			{
 				// List model also has the portrait etc tabs, so we have to skip over those.
-				listModel.insertElementAt(pageItem, pos+NUM_NON_NOTE_NODES);
+				listModel.insertElementAt(pageItem, pos + NUM_NON_NOTE_NODES);
 				notePaneList.add(pos, notePane);
 			}
 			else
@@ -229,7 +228,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		public void install()
 		{
 			notes.addListListener(this);
-			
+
 			for (NoteInfoPane noteInfoPane : notePaneList)
 			{
 				addPage(noteInfoPane);
@@ -246,7 +245,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-
 		/**
 		 * {@inheritDoc}
 		 */
@@ -254,12 +252,11 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		public void elementAdded(ListEvent<NoteFacade> e)
 		{
 			NoteFacade note = e.getElement();
-			NoteInfoPane notePane =
-					createNotePane(note, character, listModel, notePaneList,
-						e.getIndex());
+			NoteInfoPane notePane
+					= createNotePane(note, character, listModel, notePaneList,
+							e.getIndex());
 			addPage(notePane);
 		}
-
 
 		/**
 		 * {@inheritDoc}
@@ -272,13 +269,13 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			{
 				return;
 			}
-			
+
 			removeNote(note);
 			// Select the next node
-			int index = e.getIndex()+NUM_NON_NOTE_NODES;
+			int index = e.getIndex() + NUM_NON_NOTE_NODES;
 			if (index >= pageList.getModel().getSize())
 			{
-				index = pageList.getModel().getSize()-1;
+				index = pageList.getModel().getSize() - 1;
 			}
 			pageList.setSelectedIndex(index);
 		}
@@ -302,10 +299,9 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 					listModel.removeElement(item);
 					break;
 				}
-				
+
 			}
 		}
-
 
 		/**
 		 * {@inheritDoc}
@@ -335,12 +331,12 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			{
 				return;
 			}
-			
+
 			int noteIndex = e.getIndex();
 			listModel.set(noteIndex, listModel.getElementAt(noteIndex));
 		}
 	}
-	
+
 	private static class PageItem
 	{
 
@@ -348,13 +344,14 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		private String name;
 		private String id;
 		private CharacterInfoTab page;
-		private Hashtable<Object, Object> data;
+		private ModelMap data;
 
 		/**
 		 * Create a new instance of PageItem to represent a Note.
+		 *
 		 * @param character The character being displayed.
-		 * @param note The note being represented.
-		 * @param page The page to display the note.
+		 * @param note      The note being represented.
+		 * @param page      The page to display the note.
 		 */
 		public PageItem(CharacterFacade character, NoteFacade note, CharacterInfoTab page)
 		{
@@ -367,14 +364,15 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 
 		/**
 		 * Create a new instance of PageItem to represent a pre-defined panel.
+		 *
 		 * @param character The character being displayed.
-		 * @param name The name of the page.
-		 * @param page The pre-defined page..
+		 * @param name      The name of the page.
+		 * @param page      The pre-defined page..
 		 */
 		public PageItem(CharacterFacade character, String name, CharacterInfoTab page)
 		{
 			this.note = null;
-			this.name = name; 
+			this.name = name;
 			this.id = (String) page.getTabTitle().getValue(TabTitle.TITLE);
 			this.page = page;
 			this.data = page.createModels(character);
@@ -446,13 +444,13 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	}
 
 	/**
-	 * The Class <code>AddAction</code> acts on a user pressing the Add Note 
+	 * The Class <code>AddAction</code> acts on a user pressing the Add Note
 	 * button.
 	 */
 	private class AddAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddAction(CharacterFacade character)
 		{

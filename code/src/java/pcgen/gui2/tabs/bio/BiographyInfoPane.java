@@ -33,7 +33,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -163,25 +162,25 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(final CharacterFacade character)
+	public ModelMap createModels(final CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(ItemHandler.class, new ItemHandler(character));
-		state.put(AddCustomAction.class, new AddCustomAction(character));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(ItemHandler.class, new ItemHandler(character));
+		models.put(AddCustomAction.class, new AddCustomAction(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((ItemHandler) state.get(ItemHandler.class)).install(this);
-		addCustomItemButton.setAction(((AddCustomAction) state.get(AddCustomAction.class)));
+		models.get(ItemHandler.class).install(this);
+		addCustomItemButton.setAction(models.get(AddCustomAction.class));
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((ItemHandler) state.get(ItemHandler.class)).uninstall(this);
+		models.get(ItemHandler.class).uninstall(this);
 	}
 
 	@Override
@@ -683,8 +682,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private JComboBox combobox = null;
 		private JTextField textField = null;
 		private JLabel trailinglabel = null; 
-		private BiographyField bioField;
-		private CharacterFacade character;
+		private final BiographyField bioField;
+		private final CharacterFacade character;
 		private TextFieldHandler textFieldHandler;
 		private FormattedFieldHandler formattedFieldHandler;
 
@@ -892,7 +891,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private class AddCustomAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddCustomAction(CharacterFacade character)
 		{

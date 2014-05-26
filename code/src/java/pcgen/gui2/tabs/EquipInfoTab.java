@@ -36,7 +36,6 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -100,23 +99,22 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 
 /**
- * EquipInfoTab is a character tab for managing where gear is distributed for a 
- * character. Each set of distribution information is called an EquipSet. 
+ * EquipInfoTab is a character tab for managing where gear is distributed for a
+ * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  *
  * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- *  
+ * Last Editor: $Author: $ Last Edited: $Date: $
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision: $
  */
 @SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(
-		DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
+			DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
 			+ EquipNode[].class.getName() + "\"", null); //$NON-NLS-1$
 	private final JDynamicTable equipmentTable;
 	private final JComboBox equipViewBox;
@@ -188,7 +186,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		viewBrowserButton.setText(LanguageBundle.getString("in_equipViewBrowser")); //$NON-NLS-1$
 		exportFileButton.setText(LanguageBundle.getString("in_equipExportFile")); //$NON-NLS-1$
 		setNoteButton.setText(LanguageBundle.getString("in_equipSetNote")); //$NON-NLS-1$
-
 
 		setOrientation(HORIZONTAL_SPLIT);
 		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT, "EquipMain");
@@ -295,8 +292,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	private DynamicTableColumnModel createEquipmentColumnModel()
 	{
-		PrefTableColumnModel model = new PrefTableColumnModel("EquipList",1);
-		
+		PrefTableColumnModel model = new PrefTableColumnModel("EquipList", 1);
+
 		TableColumn column = new TableColumn(0);
 		column.setHeaderValue(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
 		model.addColumn(column, true, 150);
@@ -316,55 +313,55 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(EquipmentModel.class, new EquipmentModel(character, equipmentSetTable));
-		state.put(EquipmentModels.class, new EquipmentModels(character));
-		state.put(UnequipAllAction.class, new UnequipAllAction(character));
-		state.put(EquipSetBoxModel.class, new EquipSetBoxModel(character));
-		state.put(AddSetAction.class, new AddSetAction(character));
-		state.put(RemoveSetAction.class, new RemoveSetAction(character));
-		state.put(LabelsUpdater.class, new LabelsUpdater(character));
-		state.put(EquipInfoHandler.class, new EquipInfoHandler(character));
-		state.put(EquipmentRenderer.class, new EquipmentRenderer(character));
-		state.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
-		state.put(EquipmentSetTransferHandler.class, new EquipmentSetTransferHandler(character));
-		state.put(OrderPopupMenuHandler.class, new OrderPopupMenuHandler(character));
-		state.put(ExpandAllAction.class, new ExpandAllAction());
-		state.put(CollapseAllAction.class, new CollapseAllAction());
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(EquipmentModel.class, new EquipmentModel(character, equipmentSetTable));
+		models.put(EquipmentModels.class, new EquipmentModels(character));
+		models.put(UnequipAllAction.class, new UnequipAllAction(character));
+		models.put(EquipSetBoxModel.class, new EquipSetBoxModel(character));
+		models.put(AddSetAction.class, new AddSetAction(character));
+		models.put(RemoveSetAction.class, new RemoveSetAction(character));
+		models.put(LabelsUpdater.class, new LabelsUpdater(character));
+		models.put(EquipInfoHandler.class, new EquipInfoHandler(character));
+		models.put(EquipmentRenderer.class, new EquipmentRenderer(character));
+		models.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
+		models.put(EquipmentSetTransferHandler.class, new EquipmentSetTransferHandler(character));
+		models.put(OrderPopupMenuHandler.class, new OrderPopupMenuHandler(character));
+		models.put(ExpandAllAction.class, new ExpandAllAction());
+		models.put(CollapseAllAction.class, new CollapseAllAction());
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((EquipmentModel) state.get(EquipmentModel.class)).install();
-		((EquipmentModels) state.get(EquipmentModels.class)).install(
-			equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
-			equipButton, unequipButton, moveUpButton, moveDownButton);
-		((LabelsUpdater) state.get(LabelsUpdater.class)).install();
-		((EquipInfoHandler) state.get(EquipInfoHandler.class)).install();
-		((EquipmentRenderer) state.get(EquipmentRenderer.class)).install();
-		((EquipmentTransferHandler) state.get(EquipmentTransferHandler.class)).install();
-		((EquipmentSetTransferHandler) state.get(EquipmentSetTransferHandler.class)).install();
-		((OrderPopupMenuHandler) state.get(OrderPopupMenuHandler.class)).install();
-		unequipAllButton.setAction((UnequipAllAction) state.get(UnequipAllAction.class));
-		newSetButton.setAction((AddSetAction) state.get(AddSetAction.class));
-		removeSetButton.setAction((RemoveSetAction) state.get(RemoveSetAction.class));
-		expandAllButton.setAction((ExpandAllAction) state.get(ExpandAllAction.class));
-		collapseAllButton.setAction((CollapseAllAction) state.get(CollapseAllAction.class));
-		equipSetBox.setModel((EquipSetBoxModel) state.get(EquipSetBoxModel.class));
+		models.get(EquipmentModel.class).install();
+		models.get(EquipmentModels.class).install(
+				equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
+				equipButton, unequipButton, moveUpButton, moveDownButton);
+		models.get(LabelsUpdater.class).install();
+		models.get(EquipInfoHandler.class).install();
+		models.get(EquipmentRenderer.class).install();
+		models.get(EquipmentTransferHandler.class).install();
+		models.get(EquipmentSetTransferHandler.class).install();
+		models.get(OrderPopupMenuHandler.class).install();
+		unequipAllButton.setAction(models.get(UnequipAllAction.class));
+		newSetButton.setAction(models.get(AddSetAction.class));
+		removeSetButton.setAction(models.get(RemoveSetAction.class));
+		expandAllButton.setAction(models.get(ExpandAllAction.class));
+		collapseAllButton.setAction(models.get(CollapseAllAction.class));
+		equipSetBox.setModel(models.get(EquipSetBoxModel.class));
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((LabelsUpdater) state.get(LabelsUpdater.class)).uninstall();
-		((EquipmentModel) state.get(EquipmentModel.class)).uninstall();
-		((EquipmentModels) state.get(EquipmentModels.class)).uninstall();
-		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
-		((OrderPopupMenuHandler) state.get(OrderPopupMenuHandler.class)).uninstall();
+		((LabelsUpdater) models.get(LabelsUpdater.class)).uninstall();
+		((EquipmentModel) models.get(EquipmentModel.class)).uninstall();
+		((EquipmentModels) models.get(EquipmentModels.class)).uninstall();
+		((EquipInfoHandler) models.get(EquipInfoHandler.class)).uninstall();
+		((OrderPopupMenuHandler) models.get(OrderPopupMenuHandler.class)).uninstall();
 	}
 
 	@Override
@@ -391,31 +388,32 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	/**
 	 * @param load (i.e. Encumbrance) value
 	 */
-	public void setLoadLabel(String text) {
+	public void setLoadLabel(String text)
+	{
 		// bold / highlight text based on encumbrance value
 		Font font = loadLabel.getFont();
 		Color color = UIPropertyContext.getQualifiedColor();
 		Load encumbrance = Load.getLoadType(text);
-		
+
 		switch (encumbrance)
 		{
-		case MEDIUM:
-			font = FontManipulation.bold(font);
-			color = UIPropertyContext.getAutomaticColor();
-			break;
-		case HEAVY:
-			font = FontManipulation.bold_italic(font);
-			color = UIPropertyContext.getVirtualColor();
-			break;
-		case OVERLOAD:
-			font = FontManipulation.bold_italic(font);
-			color = UIPropertyContext.getNotQualifiedColor();
-			break;
-			
+			case MEDIUM:
+				font = FontManipulation.bold(font);
+				color = UIPropertyContext.getAutomaticColor();
+				break;
+			case HEAVY:
+				font = FontManipulation.bold_italic(font);
+				color = UIPropertyContext.getVirtualColor();
+				break;
+			case OVERLOAD:
+				font = FontManipulation.bold_italic(font);
+				color = UIPropertyContext.getNotQualifiedColor();
+				break;
+
 			default:
 				font = font.deriveFont(Font.PLAIN);
 		}
-		
+
 		loadLabel.setText(text);
 		loadLabel.setFont(font);
 		loadLabel.setForeground(color);
@@ -429,7 +427,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 		// We don't provide further advice at this time. 
 	}
-	
+
 	private class AddSetAction extends AbstractAction
 	{
 
@@ -527,8 +525,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 			JTree tree = equipmentSetTable.getTree();
-			for (int i = tree.getRowCount() - 1; i >= 0; i--) {
-		         tree.collapseRow(i);
+			for (int i = tree.getRowCount() - 1; i >= 0; i--)
+			{
+				tree.collapseRow(i);
 			}
 		}
 
@@ -549,11 +548,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 
-			int ret =
-					JOptionPane.showConfirmDialog(EquipInfoTab.this,
-						LanguageBundle.getString("in_equipUnequipConfirm"), //$NON-NLS-1$
-						LanguageBundle.getString("in_areYouSure"), //$NON-NLS-1$
-						JOptionPane.YES_NO_OPTION);
+			int ret
+					= JOptionPane.showConfirmDialog(EquipInfoTab.this,
+							LanguageBundle.getString("in_equipUnequipConfirm"), //$NON-NLS-1$
+							LanguageBundle.getString("in_areYouSure"), //$NON-NLS-1$
+							JOptionPane.YES_NO_OPTION);
 			if (ret == JOptionPane.YES_OPTION)
 			{
 				character.getEquipmentSetRef().getReference().removeAllEquipment();
@@ -1063,7 +1062,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			List<EquipNode> downTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
 			List<EquipNode> sortTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
 			EquipNode[] relativeNodes = filterTargets(targets, upTargets, downTargets, sortTargets);
-			
+
 			JPopupMenu popupMenu = new JPopupMenu();
 			if (!upTargets.isEmpty() || !downTargets.isEmpty())
 			{
@@ -1075,7 +1074,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				if (!upTargets.isEmpty() || !downTargets.isEmpty())
 				{
 					popupMenu.addSeparator();
-					
+
 				}
 				popupMenu.add(new SortEquipMenuItem(character, sortTargets));
 			}
@@ -1086,8 +1085,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		}
 
 		private EquipNode[] filterTargets(List<Integer> targetRows,
-			List<EquipNode> upTargets, List<EquipNode> downTargets,
-			List<EquipNode> sortTargets)
+				List<EquipNode> upTargets, List<EquipNode> downTargets,
+				List<EquipNode> sortTargets)
 		{
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
 			SortableTableModel equipSetModel = equipmentSetTable.getModel();
@@ -1105,7 +1104,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				{
 					continue;
 				}
-				
+
 				switch (equipNode.getNodeType())
 				{
 					case BODY_SLOT:
@@ -1122,43 +1121,46 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 							sortTargets.add(equipNode);
 						}
 						break;
-						
+
 					default:
 						break;
 				}
 			}
-			
+
 			// Set the before and after nodes
-			EquipNode[] relativeNodes = new EquipNode[]{null, null};
+			EquipNode[] relativeNodes = new EquipNode[]
+			{
+				null, null
+			};
 			if (beforeRow >= 0)
 			{
-				relativeNodes[0] =
-						(EquipNode) equipSetModel.getValueAt(beforeRow, 0);
+				relativeNodes[0]
+						= (EquipNode) equipSetModel.getValueAt(beforeRow, 0);
 			}
 			if (afterRow < equipSetModel.getRowCount())
 			{
-				relativeNodes[1] =
-						(EquipNode) equipSetModel.getValueAt(afterRow, 0);
+				relativeNodes[1]
+						= (EquipNode) equipSetModel.getValueAt(afterRow, 0);
 			}
 			return relativeNodes;
 		}
 
 		/**
-		 * Identify if the EquipNode is within one of the general 
-		 * body structures (equipped, carried and not carried)  
-		 * 
+		 * Identify if the EquipNode is within one of the general body
+		 * structures (equipped, carried and not carried)
+		 *
 		 * @param equipNode The node to check.
 		 * @return true if it is in a general body structure.
 		 */
 		private boolean isInGeneralBodyStructure(EquipNode equipNode)
 		{
-			BodyStructureFacade bodyStructure =
-					equipNode.getBodyStructure();
+			BodyStructureFacade bodyStructure
+					= equipNode.getBodyStructure();
 			return (bodyStructure instanceof BodyStructure
-				&& ((BodyStructure) bodyStructure).getEquipSlots()
+					&& ((BodyStructure) bodyStructure).getEquipSlots()
 					.isEmpty());
 		}
-		
+
 		public void install()
 		{
 			equipmentSetTable.addMouseListener(this);
@@ -1176,6 +1178,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	 */
 	private class MoveEquipUpMenuItem extends JMenuItem implements ActionListener
 	{
+
 		private final CharacterFacade character;
 		private final List<EquipNode> targets;
 		private final EquipNode beforeNode;
@@ -1199,8 +1202,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet =
-					character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet
+					= character.getEquipmentSetRef().getReference();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.moveEquipment(equipNode, -1);
@@ -1214,6 +1217,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	 */
 	private class MoveEquipDownMenuItem extends JMenuItem implements ActionListener
 	{
+
 		private final CharacterFacade character;
 		private final List<EquipNode> targets;
 		private final EquipNode afterNode;
@@ -1237,8 +1241,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet =
-					character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet
+					= character.getEquipmentSetRef().getReference();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.moveEquipment(equipNode, 1);
@@ -1252,6 +1256,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	 */
 	private class SortEquipMenuItem extends JMenuItem implements ActionListener
 	{
+
 		private final CharacterFacade character;
 		private final List<EquipNode> targets;
 
@@ -1273,8 +1278,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			EquipmentSetFacade equipSet =
-					character.getEquipmentSetRef().getReference();
+			EquipmentSetFacade equipSet
+					= character.getEquipmentSetRef().getReference();
 			for (EquipNode equipNode : targets)
 			{
 				equipSet.sortEquipment(equipNode);

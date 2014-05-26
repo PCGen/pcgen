@@ -22,7 +22,6 @@
  */
 package pcgen.gui2.tabs;
 
-import java.util.Hashtable;
 import javax.swing.JTabbedPane;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.gui2.tabs.spells.SpellBooksTab;
@@ -58,31 +57,51 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> table = new Hashtable<Object, Object>();
-		table.put(knownTab, knownTab.createModels(character));
-		table.put(preparedTab, preparedTab.createModels(character));
-		table.put(booksTab, booksTab.createModels(character));
-		return table;
+		ModelMap models = new ModelMap();
+		models.put(ModelHandler.class, new ModelHandler(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		knownTab.restoreModels((Hashtable<?, ?>) state.get(knownTab));
-		preparedTab.restoreModels((Hashtable<?, ?>) state.get(preparedTab));
-		booksTab.restoreModels((Hashtable<?, ?>) state.get(booksTab));
+		models.get(ModelHandler.class).restoreModels();
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		knownTab.storeModels((Hashtable<Object, Object>) state.get(knownTab));
-		preparedTab.storeModels((Hashtable<Object, Object>) state.get(preparedTab));
-		booksTab.storeModels((Hashtable<Object, Object>) state.get(booksTab));
+		models.get(ModelHandler.class).storeModels();
 	}
 
+	private class ModelHandler
+	{
+		private final ModelMap knownTabMap;
+		private final ModelMap preparedTabMap;
+		private final ModelMap booksTabMap;
+
+		public ModelHandler(CharacterFacade character)
+		{
+			this.knownTabMap = knownTab.createModels(character);
+			this.preparedTabMap = preparedTab.createModels(character);
+			this.booksTabMap = booksTab.createModels(character);
+		}
+		
+		public void restoreModels()
+		{
+			knownTab.restoreModels(knownTabMap);
+			preparedTab.restoreModels(preparedTabMap);
+			booksTab.restoreModels(booksTabMap);
+		}
+		public void storeModels()
+		{
+			knownTab.storeModels(knownTabMap);
+			preparedTab.storeModels(preparedTabMap);
+			booksTab.storeModels(booksTabMap);
+		}
+	}
 	@Override
 	public TabTitle getTabTitle()
 	{

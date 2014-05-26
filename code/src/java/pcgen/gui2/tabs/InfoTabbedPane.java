@@ -27,7 +27,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +50,7 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.TodoFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tabs.CharacterInfoTab.ModelMap;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.system.LanguageBundle;
@@ -79,15 +79,15 @@ public final class InfoTabbedPane extends JTabbedPane
 	public static final int INVENTORY_TAB = 8;
 	public static final int DESCRIPTION_TAB = 9;
 	public static final int CHARACTER_SHEET_TAB = 10;
-	private final DoubleKeyMap<CharacterFacade, CharacterInfoTab, Hashtable<Object, Object>> stateMap;
+	private final DoubleKeyMap<CharacterFacade, CharacterInfoTab, ModelMap> stateMap;
 	private final Map<CharacterFacade, Integer> tabSelectionMap;
 	private final TabModelService modelService;
+	private final List<CharacterInfoTab> fullTabList = new ArrayList<CharacterInfoTab>();
 	private CharacterFacade currentCharacter = null;
-	private List<CharacterInfoTab> fullTabList = new ArrayList<CharacterInfoTab>();
 
 	public InfoTabbedPane()
 	{
-		this.stateMap = new DoubleKeyMap<CharacterFacade, CharacterInfoTab, Hashtable<Object, Object>>();
+		this.stateMap = new DoubleKeyMap<CharacterFacade, CharacterInfoTab, ModelMap>();
 		this.tabSelectionMap = new WeakHashMap<CharacterFacade, Integer>();
 		this.modelService = new TabModelService();
 		initComponent();
@@ -98,7 +98,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		//Make sure that models get a chance to detach themselves from the UI before disgarding them
 		if (currentCharacter != null)
 		{
-			Map<CharacterInfoTab, Hashtable<Object, Object>> states = stateMap.getMapFor(currentCharacter);
+			Map<CharacterInfoTab, ModelMap> states = stateMap.getMapFor(currentCharacter);
 			for (CharacterInfoTab tab : states.keySet())
 			{
 				tab.storeModels(states.get(tab));
@@ -152,8 +152,8 @@ public final class InfoTabbedPane extends JTabbedPane
 			for (int i = 0; i < getTabCount(); i++)
 			{
 				CharacterInfoTab tab = (CharacterInfoTab) getComponentAt(i);
-				Hashtable<Object, Object> state = tab.createModels(character);
-				stateMap.put(character, tab, state);
+				ModelMap models = tab.createModels(character);
+				stateMap.put(character, tab, models);
 			}
 			String key = UIPropertyContext.C_PROP_INITIAL_TAB;
 			key = UIPropertyContext.createCharacterPropertyKey(character, key);
@@ -163,14 +163,14 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 		if (currentCharacter != null)
 		{
-			Map<CharacterInfoTab, Hashtable<Object, Object>> states = stateMap.getMapFor(currentCharacter);
+			Map<CharacterInfoTab, ModelMap> states = stateMap.getMapFor(currentCharacter);
 			modelService.storeModels(states);
 			//Save tabSelection for this character
 			tabSelectionMap.put(currentCharacter, getSelectedIndex());
 		}
 		currentCharacter = character;
 
-		Map<CharacterInfoTab, Hashtable<Object, Object>> states = stateMap.getMapFor(character);
+		Map<CharacterInfoTab, ModelMap> states = stateMap.getMapFor(character);
 		updateTabsForCharacter(character);
 		int selectedIndex = tabSelectionMap.get(character);
 		modelService.restoreModels(states, selectedIndex);
@@ -372,7 +372,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			return 0;
 		}
 
-		private void restoreTab(CharacterInfoTab infoTab, Hashtable<Object, Object> models)
+		private void restoreTab(CharacterInfoTab infoTab, ModelMap models)
 		{
 			long starttime = System.nanoTime();
 			infoTab.restoreModels(models);
@@ -381,7 +381,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			storeQueue.add(infoTab);
 		}
 
-		public void restoreModels(Map<CharacterInfoTab, Hashtable<Object, Object>> states, int selectedIndex)
+		public void restoreModels(Map<CharacterInfoTab, ModelMap> states, int selectedIndex)
 		{
 			CharacterInfoTab firstTab = (CharacterInfoTab) getComponentAt(selectedIndex);
 			restoreTab(firstTab, states.get(firstTab));
@@ -394,12 +394,12 @@ public final class InfoTabbedPane extends JTabbedPane
 			while (!queue.isEmpty())
 			{
 				CharacterInfoTab infoTab = queue.poll();
-				Hashtable<Object, Object> models = states.get(infoTab);
+				ModelMap models = states.get(infoTab);
 				restoreQueue.add(submit(new RestoreModelsTask(infoTab, models)));
 			}
 		}
 
-		public void storeModels(Map<CharacterInfoTab, Hashtable<Object, Object>> states)
+		public void storeModels(Map<CharacterInfoTab, ModelMap> states)
 		{
 			while (!storeQueue.isEmpty())
 			{
@@ -420,10 +420,10 @@ public final class InfoTabbedPane extends JTabbedPane
 		{
 
 			private final CharacterInfoTab infoTab;
-			private final Hashtable<Object, Object> models;
+			private final ModelMap models;
 			private boolean executed;
 
-			public RestoreModelsTask(CharacterInfoTab infoTab, Hashtable<Object, Object> models)
+			public RestoreModelsTask(CharacterInfoTab infoTab, ModelMap models)
 			{
 				this.infoTab = infoTab;
 				this.models = models;

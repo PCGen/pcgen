@@ -2,13 +2,12 @@ package pcgen.gui2.tabs.models;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-
 import javax.swing.ComboBoxModel;
 import javax.swing.SwingUtilities;
-
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
+import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 /**
@@ -39,6 +38,15 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	private ReferenceFacade<E> reference = null;
 	protected Object selectedItem = null;
 
+	public DeferredCharacterComboBoxModel()
+	{
+	}
+
+	public DeferredCharacterComboBoxModel(ListFacade<E> list, ReferenceFacade<E> ref)
+	{
+		setListFacade(list);
+		setReference(ref);
+	}
 	/**
 	 * Set the reference to the selected object that we should listen for external changes to.
 	 * @param ref The reference.

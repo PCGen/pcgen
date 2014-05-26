@@ -4,6 +4,7 @@ import javax.swing.ComboBoxModel;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
+import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> implements ComboBoxModel, ReferenceListener<E>
@@ -11,6 +12,16 @@ public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> imple
 
 	private ReferenceFacade<E> reference = null;
 	protected Object selectedItem = null;
+
+	public CharacterComboBoxModel()
+	{
+	}
+
+	public CharacterComboBoxModel(ListFacade<E> list, ReferenceFacade<E> ref)
+	{
+		setListFacade(list);
+		setReference(ref);
+	}
 
 	public void setReference(ReferenceFacade<E> ref)
 	{

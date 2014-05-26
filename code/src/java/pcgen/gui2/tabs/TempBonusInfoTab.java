@@ -28,7 +28,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Hashtable;
 import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -163,53 +162,35 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		setResizeWeight(.75);
 	}
 
-	private enum Models
+	@Override
+	public ModelMap createModels(CharacterFacade character)
 	{
-
-		AvailableModel,
-		SelectedModel,
-		InfoHandler,
-		AddAction,
-		RemoveAction,
-		TempBonusRendererHandler
+		ModelMap models = new ModelMap();
+		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
+		models.put(InfoHandler.class, new InfoHandler(character));
+		models.put(AddAction.class, new AddAction(character));
+		models.put(RemoveAction.class, new RemoveAction(character));
+		models.put(Handler.class, tempBonusRenderer.createHandler(character));
+		return models;
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public void restoreModels(ModelMap models)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(Models.AvailableModel, new TempBonusTreeViewModel(character, true));
-		state.put(Models.SelectedModel, new TempBonusTreeViewModel(character, false));
-		state.put(Models.InfoHandler, new InfoHandler(character));
-		state.put(Models.AddAction, new AddAction(character));
-		state.put(Models.RemoveAction, new RemoveAction(character));
-		state.put(Models.TempBonusRendererHandler, tempBonusRenderer.createHandler(character));
-		return state;
+		models.get(Handler.class).install();
+		models.get(TreeViewModelHandler.class).install();
+		models.get(InfoHandler.class).install();
+		models.get(AddAction.class).install();
+		models.get(RemoveAction.class).install();
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void storeModels(ModelMap models)
 	{
-		((Handler) state.get(Models.TempBonusRendererHandler)).install();
-		((TempBonusTreeViewModel) state.get(Models.AvailableModel)).install();
-		availableTable.setTreeViewModel((TempBonusTreeViewModel) state.get(Models.AvailableModel));
-		((TempBonusTreeViewModel) state.get(Models.SelectedModel)).install();
-		selectedTable.setTreeViewModel((TempBonusTreeViewModel) state.get(Models.SelectedModel));
-		((InfoHandler) state.get(Models.InfoHandler)).install();
-		((AddAction) state.get(Models.AddAction)).install();
-		((RemoveAction) state.get(Models.RemoveAction)).install();
-
-		addButton.setAction((AddAction) state.get(Models.AddAction));
-		removeButton.setAction((RemoveAction) state.get(Models.RemoveAction));
-	}
-
-	@Override
-	public void storeModels(Hashtable<Object, Object> state)
-	{
-		((InfoHandler) state.get(Models.InfoHandler)).uninstall();
-		((AddAction) state.get(Models.AddAction)).uninstall();
-		((RemoveAction) state.get(Models.RemoveAction)).uninstall();
-		((Handler) state.get(Models.TempBonusRendererHandler)).uninstall();
+		models.get(InfoHandler.class).uninstall();
+		models.get(AddAction.class).uninstall();
+		models.get(RemoveAction.class).uninstall();
+		models.get(Handler.class).uninstall();
 	}
 
 	@Override
@@ -344,6 +325,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		public void install()
 		{
 			availableTable.addActionListener(this);
+			addButton.setAction(this);
 		}
 
 		public void uninstall()
@@ -387,6 +369,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		public void install()
 		{
 			selectedTable.addActionListener(this);
+			removeButton.setAction(this);
 		}
 
 		public void uninstall()
@@ -394,6 +377,27 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			selectedTable.removeActionListener(this);
 		}
 
+	}
+
+	private class TreeViewModelHandler
+	{
+
+		private final TempBonusTreeViewModel availableModel;
+		private final TempBonusTreeViewModel selectedModel;
+
+		public TreeViewModelHandler(CharacterFacade character)
+		{
+			availableModel = new TempBonusTreeViewModel(character, true);
+			selectedModel = new TempBonusTreeViewModel(character, false);
+		}
+
+		public void install()
+		{
+			availableModel.install();
+			availableTable.setTreeViewModel(availableModel);
+			selectedModel.install();
+			selectedTable.setTreeViewModel(selectedModel);
+		}
 	}
 
 	private static class TempBonusTreeViewModel

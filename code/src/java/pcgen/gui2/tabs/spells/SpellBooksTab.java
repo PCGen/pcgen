@@ -22,26 +22,23 @@ package pcgen.gui2.tabs.spells;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.util.Hashtable;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.Box;
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
-
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.SpellSupportFacade;
 import pcgen.core.facade.SpellSupportFacade.RootNode;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
 import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
@@ -56,7 +53,7 @@ import pcgen.util.enumeration.Tab;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
-public class SpellBooksTab extends FlippingSplitPane
+public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
@@ -136,70 +133,55 @@ public class SpellBooksTab extends FlippingSplitPane
 		setOrientation(VERTICAL_SPLIT);
 	}
 
-	private enum Models
+	@Override
+	public ModelMap createModels(final CharacterFacade character)
 	{
-		DefaultSpellBookModel
+		ModelMap models = new ModelMap();
+		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
+		models.put(AddSpellAction.class, new AddSpellAction(character));
+		models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
+		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
+				selectedTable, spellsPane));
+		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
+				selectedTable, classPane));
+		models.put(SpellBookModel.class, new SpellBookModel(character));
+		return models;
 	}
 
-	public Hashtable<Object, Object> createModels(final CharacterFacade character)
+	@Override
+	public void restoreModels(ModelMap models)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
-		state.put(AddSpellAction.class, new AddSpellAction(character));
-		state.put(RemoveSpellAction.class, new RemoveSpellAction(character));
-		state.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
-															   selectedTable, spellsPane));
-		state.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
-															   selectedTable, classPane));
-		final CharacterComboBoxModel<String> defaultSpellBookModel;
-		defaultSpellBookModel = new CharacterComboBoxModel<String>()
-		{
-
-			@Override
-			public void setSelectedItem(Object anItem)
-			{
-				character.getSpellSupport().setDefaultSpellBook((String) anItem);
-			}
-
-		};
-		defaultSpellBookModel.setListFacade(character.getSpellSupport().getSpellbooks());
-		defaultSpellBookModel.setReference(character.getSpellSupport().getDefaultSpellBookRef());
-		state.put(Models.DefaultSpellBookModel, defaultSpellBookModel);
-		return state;
+		models.get(TreeViewModelHandler.class).install();
+		models.get(SpellInfoHandler.class).install();
+		models.get(ClassInfoHandler.class).install();
+		models.get(AddSpellAction.class).install();
+		models.get(RemoveSpellAction.class).install();
+		defaultBookCombo.setModel(models.get(SpellBookModel.class));
 	}
 
-	public void restoreModels(Hashtable<?, ?> state)
+	@Override
+	public void storeModels(ModelMap models)
 	{
-		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).install();
-		((SpellInfoHandler) state.get(SpellInfoHandler.class)).install();
-		((ClassInfoHandler) state.get(ClassInfoHandler.class)).install();
-		((AddSpellAction) state.get(AddSpellAction.class)).install();
-		((RemoveSpellAction) state.get(RemoveSpellAction.class)).install();
-		addButton.setAction((AddSpellAction) state.get(AddSpellAction.class));
-		removeButton.setAction((RemoveSpellAction) state.get(RemoveSpellAction.class));
-		defaultBookCombo.setModel((ComboBoxModel) state.get(Models.DefaultSpellBookModel));
+		models.get(SpellInfoHandler.class).uninstall();
+		models.get(ClassInfoHandler.class).uninstall();
+		models.get(AddSpellAction.class).uninstall();
+		models.get(RemoveSpellAction.class).uninstall();
+		models.get(TreeViewModelHandler.class).uninstall();
 	}
 
-	public void storeModels(Hashtable<Object, Object> state)
-	{
-		((SpellInfoHandler) state.get(SpellInfoHandler.class)).uninstall();
-		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
-		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
-		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
-		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).uninstall();
-	}
-
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
 	}
 
 	/**
-	 * Identify the current spell book, being the spell book that spells should 
+	 * Identify the current spell book, being the spell book that spells should
 	 * be added to. If no books exist then return an empty string.
-	 * 
+	 *
 	 * @param character The character we are checking for.
-	 * @return The name of the 'current' spell book, or empty string if none exist.
+	 * @return The name of the 'current' spell book, or empty string if none
+	 *         exist.
 	 */
 	String getCurrentSpellBookName(CharacterFacade character)
 	{
@@ -209,9 +191,7 @@ public class SpellBooksTab extends FlippingSplitPane
 		{
 			if (selectedObject instanceof SpellNode)
 			{
-				spellList =
-						((SpellNode) selectedObject).getRootNode()
-							.getName();
+				spellList = ((SpellNode) selectedObject).getRootNode().getName();
 			}
 			else if (selectedObject instanceof RootNode)
 			{
@@ -243,10 +223,29 @@ public class SpellBooksTab extends FlippingSplitPane
 		return spellList;
 	}
 
+	private class SpellBookModel extends CharacterComboBoxModel<String>
+	{
+
+		private final SpellSupportFacade spellSupport;
+
+		public SpellBookModel(CharacterFacade character)
+		{
+			this.spellSupport = character.getSpellSupport();
+			setListFacade(spellSupport.getSpellbooks());
+			setReference(spellSupport.getDefaultSpellBookRef());
+		}
+
+		@Override
+		public void setSelectedItem(Object anItem)
+		{
+			spellSupport.setDefaultSpellBook((String) anItem);
+		}
+	}
+
 	private class AddSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddSpellAction(CharacterFacade character)
 		{
@@ -264,16 +263,17 @@ public class SpellBooksTab extends FlippingSplitPane
 				if (object instanceof SpellNode)
 				{
 					character.getSpellSupport().addToSpellBook(
-						(SpellNode) object, bookname);
+							(SpellNode) object, bookname);
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			availableTable.addActionListener(this);
+			addButton.setAction(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTable.removeActionListener(this);
@@ -284,7 +284,7 @@ public class SpellBooksTab extends FlippingSplitPane
 	private class RemoveSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveSpellAction(CharacterFacade character)
 		{
@@ -302,16 +302,17 @@ public class SpellBooksTab extends FlippingSplitPane
 				{
 					SpellNode node = (SpellNode) object;
 					character.getSpellSupport().removeFromSpellBook(node,
-						node.getRootNode().getName());
+							node.getRootNode().getName());
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			selectedTable.addActionListener(this);
+			removeButton.setAction(this);
 		}
-		
+
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
@@ -322,9 +323,9 @@ public class SpellBooksTab extends FlippingSplitPane
 	private class TreeViewModelHandler
 	{
 
-		private SpellTreeViewModel availableModel;
-		private SpellTreeViewModel selectedModel;
-		private CharacterFacade character;
+		private final SpellTreeViewModel availableModel;
+		private final SpellTreeViewModel selectedModel;
+		private final CharacterFacade character;
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{

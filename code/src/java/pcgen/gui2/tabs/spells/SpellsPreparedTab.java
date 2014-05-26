@@ -22,9 +22,7 @@ package pcgen.gui2.tabs.spells;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.util.Hashtable;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -35,13 +33,12 @@ import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.tree.TreePath;
-
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
 import pcgen.core.facade.SpellSupportFacade.SuperNode;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
@@ -55,7 +52,7 @@ import pcgen.util.enumeration.Tab;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
-public class SpellsPreparedTab extends FlippingSplitPane
+public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.PREPARED_SPELLS);
@@ -150,57 +147,58 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		setOrientation(VERTICAL_SPLIT);
 	}
 
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	@Override
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
-		state.put(AddMMSpellAction.class, new AddMMSpellAction(character));
-		state.put(AddSpellAction.class, new AddSpellAction(character));
-		state.put(RemoveSpellAction.class, new RemoveSpellAction(character));
-		state.put(AddSpellListAction.class, new AddSpellListAction(character));
-		state.put(RemoveSpellListAction.class, new RemoveSpellListAction(character));
-		state.put(UseHigherSlotsAction.class, new UseHigherSlotsAction(character));
-		state.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
-															   selectedTable, spellsPane));
-		state.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
-															   selectedTable, classPane));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
+		models.put(AddMMSpellAction.class, new AddMMSpellAction(character));
+		models.put(AddSpellAction.class, new AddSpellAction(character));
+		models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
+		models.put(AddSpellListAction.class, new AddSpellListAction(character));
+		models.put(RemoveSpellListAction.class, new RemoveSpellListAction(character));
+		models.put(UseHigherSlotsAction.class, new UseHigherSlotsAction(character));
+		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
+				selectedTable, spellsPane));
+		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
+				selectedTable, classPane));
+		return models;
 	}
 
-	public void restoreModels(Hashtable<?, ?> state)
+	@Override
+	public void restoreModels(ModelMap models)
 	{
-		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).install();
-		((SpellInfoHandler) state.get(SpellInfoHandler.class)).install();
-		((ClassInfoHandler) state.get(ClassInfoHandler.class)).install();
-		((AddSpellAction) state.get(AddSpellAction.class)).install();
-		((RemoveSpellAction) state.get(RemoveSpellAction.class)).install();
-		addMMSpellButton.setAction((AddMMSpellAction) state.get(AddMMSpellAction.class));
-		addSpellButton.setAction((AddSpellAction) state.get(AddSpellAction.class));
-		removeSpellButton.setAction((RemoveSpellAction) state.get(RemoveSpellAction.class));
-		addSpellListButton.setAction((AddSpellListAction) state.get(AddSpellListAction.class));
-		removeSpellListButton.setAction((RemoveSpellListAction) state.get(RemoveSpellListAction.class));
-		slotsBox.setAction((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class));
-		((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class)).install();
+		models.get(TreeViewModelHandler.class).install();
+		models.get(SpellInfoHandler.class).install();
+		models.get(ClassInfoHandler.class).install();
+		models.get(AddSpellAction.class).install();
+		models.get(RemoveSpellAction.class).install();
+		addMMSpellButton.setAction((AddMMSpellAction) models.get(AddMMSpellAction.class));
+		addSpellListButton.setAction((AddSpellListAction) models.get(AddSpellListAction.class));
+		removeSpellListButton.setAction((RemoveSpellListAction) models.get(RemoveSpellListAction.class));
+		models.get(UseHigherSlotsAction.class).install();
 	}
 
-	public void storeModels(Hashtable<Object, Object> state)
+	@Override
+	public void storeModels(ModelMap models)
 	{
-		((SpellInfoHandler) state.get(SpellInfoHandler.class)).uninstall();
-		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
-		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
-		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
-		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).uninstall();
+		models.get(SpellInfoHandler.class).uninstall();
+		models.get(ClassInfoHandler.class).uninstall();
+		models.get(AddSpellAction.class).uninstall();
+		models.get(RemoveSpellAction.class).uninstall();
+		models.get(TreeViewModelHandler.class).uninstall();
 	}
 
+	@Override
 	public TabTitle getTabTitle()
 	{
 		return tabTitle;
 	}
 
 	/**
-	 * Identify the current spell list, being the spell list that spell should 
+	 * Identify the current spell list, being the spell list that spell should
 	 * be added to. If no lists exist then a default one will be created.
-	 * 
+	 *
 	 * @param character The character qwe are checking for.
 	 * @return The name of the 'current' spell list.
 	 */
@@ -212,9 +210,9 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		{
 			if (selectedObject instanceof SpellNode)
 			{
-				spellList =
-						((SpellNode) selectedObject).getRootNode()
-							.toString();
+				spellList
+						= ((SpellNode) selectedObject).getRootNode()
+						.toString();
 			}
 			else
 			{
@@ -260,14 +258,14 @@ public class SpellsPreparedTab extends FlippingSplitPane
 		public AddMMSpellAction(CharacterFacade character)
 		{
 			this.character = character;
-			String label =
-					character.getDataSet().getGameMode()
-						.getAddWithMetamagicMessage();
+			String label
+					= character.getDataSet().getGameMode()
+					.getAddWithMetamagicMessage();
 			if (StringUtils.isEmpty(label))
 			{
-				label =
-						LanguageBundle
-							.getString("InfoSpells.add.with.metamagic");
+				label
+						= LanguageBundle
+						.getString("InfoSpells.add.with.metamagic");
 			}
 			putValue(NAME, label);
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -283,7 +281,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 				{
 					String spellList = getCurrentSpellListName(character);
 					character.getSpellSupport().addPreparedSpell(
-						(SpellNode) object, spellList, true);
+							(SpellNode) object, spellList, true);
 				}
 			}
 		}
@@ -311,16 +309,17 @@ public class SpellsPreparedTab extends FlippingSplitPane
 				if (object instanceof SpellNode)
 				{
 					character.getSpellSupport().addPreparedSpell(
-						(SpellNode) object, spellList, false);
+							(SpellNode) object, spellList, false);
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			availableTable.addActionListener(this);
+			addSpellButton.setAction(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTable.removeActionListener(this);
@@ -349,16 +348,17 @@ public class SpellsPreparedTab extends FlippingSplitPane
 				{
 					SpellNode spellNode = (SpellNode) object;
 					character.getSpellSupport().removePreparedSpell(spellNode,
-						spellNode.getRootNode().toString());
+							spellNode.getRootNode().toString());
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			selectedTable.addActionListener(this);
+			removeSpellButton.setAction(this);
 		}
-		
+
 		public void uninstall()
 		{
 			selectedTable.removeActionListener(this);
@@ -385,6 +385,7 @@ public class SpellsPreparedTab extends FlippingSplitPane
 
 		public void install()
 		{
+			slotsBox.setAction(this);
 			slotsBox.setSelected(character.getSpellSupport().isUseHigherPreppedSlots());
 		}
 

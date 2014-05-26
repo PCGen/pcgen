@@ -38,13 +38,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.swing.AbstractAction;
 import javax.swing.Box;
-import javax.swing.ComboBoxModel;
 import javax.swing.DropMode;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -108,9 +106,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * A character tab providing the user with the ability to buy and sell 
+ * A character tab providing the user with the ability to buy and sell
  * equipment.
- * 
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
@@ -170,8 +168,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
 			{// Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
-				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter =
-						new FilterButton<CharacterFacade, EquipmentFacade>("EqQualified");//$NON-NLS-1$
+				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
+						= new FilterButton<CharacterFacade, EquipmentFacade>("EqQualified");//$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -183,8 +181,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					}
 
 				});
-				FilterButton<CharacterFacade, EquipmentFacade> customFilter =
-						new FilterButton<CharacterFacade, EquipmentFacade>("EqAffordable");//$NON-NLS-1$
+				FilterButton<CharacterFacade, EquipmentFacade> customFilter
+						= new FilterButton<CharacterFacade, EquipmentFacade>("EqAffordable");//$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -262,6 +260,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	/**
 	 * Create the money panel laying out all components.
+	 *
 	 * @param panel The panel to be populated.
 	 */
 	private void initMoneyPanel(JPanel panel)
@@ -340,6 +339,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	/**
 	 * Create a new label with the currency abbreviation.
+	 *
 	 * @return A new label
 	 */
 	private JLabel createCurrencyLabel()
@@ -350,70 +350,31 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		return label;
 	}
 
-	private enum Models
-	{
-
-		WealthHandler,
-		FundsHandler
-	}
-
 	@Override
-	public Hashtable<Object, Object> createModels(final CharacterFacade character)
+	public ModelMap createModels(final CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(AvailableTreeViewModel.class, new AvailableTreeViewModel(character));
-		state.put(PurchasedTreeViewModel.class, new PurchasedTreeViewModel(character));
-		state.put(UseAutoResizeAction.class, new UseAutoResizeAction(character));
-		state.put(AddCustomAction.class, new AddCustomAction(character));
-		state.put(AddAction.class, new AddAction(character));
-		state.put(RemoveAction.class, new RemoveAction(character));
-		state.put(DeleteCustomAction.class, new DeleteCustomAction(character));
-		state.put(FundsAddAction.class, new FundsAddAction(character));
-		state.put(FundsSubtractAction.class, new FundsSubtractAction(character));
-		state.put(AllowDebtAction.class, new AllowDebtAction(character));
-		state.put(EquipInfoHandler.class, new EquipInfoHandler(character));
-		state.put(Handler.class, equipmentRenderer.createHandler(character));
-		state.put(EquipmentFilterHandler.class, new EquipmentFilterHandler(character));
-		state.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
-		state.put(CurrencyLabelHandler.class, new CurrencyLabelHandler(character));
-		state.put(BuyPopupMenuHandler.class, new BuyPopupMenuHandler(character));
-		state.put(SellPopupMenuHandler.class, new SellPopupMenuHandler(character));
+		ModelMap models = new ModelMap();
+		models.put(AvailableTreeViewModel.class, new AvailableTreeViewModel(character));
+		models.put(PurchasedTreeViewModel.class, new PurchasedTreeViewModel(character));
+		models.put(UseAutoResizeAction.class, new UseAutoResizeAction(character));
+		models.put(AddCustomAction.class, new AddCustomAction(character));
+		models.put(AddAction.class, new AddAction(character));
+		models.put(RemoveAction.class, new RemoveAction(character));
+		models.put(DeleteCustomAction.class, new DeleteCustomAction(character));
+		models.put(FundsAddAction.class, new FundsAddAction(character));
+		models.put(FundsSubtractAction.class, new FundsSubtractAction(character));
+		models.put(AllowDebtAction.class, new AllowDebtAction(character));
+		models.put(EquipInfoHandler.class, new EquipInfoHandler(character));
+		models.put(Handler.class, equipmentRenderer.createHandler(character));
+		models.put(EquipmentFilterHandler.class, new EquipmentFilterHandler(character));
+		models.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
+		models.put(CurrencyLabelHandler.class, new CurrencyLabelHandler(character));
+		models.put(BuyPopupMenuHandler.class, new BuyPopupMenuHandler(character));
+		models.put(SellPopupMenuHandler.class, new SellPopupMenuHandler(character));
 
-		/**
-		 * Handler for the Current Funds field. This listens for and
-		 * processes both changes to the value from the character and
-		 * modifications to the field made by the user.
-		 */
-		BigDecimalFieldHandler fundsHandler = new BigDecimalFieldHandler(goldField, character.getFundsRef())
-		{
+		models.put(CurrencyFieldHandler.class, new CurrencyFieldHandler(character));
 
-			@Override
-			protected void valueChanged(BigDecimal value)
-			{
-				character.setFunds(value);
-				availableTable.refilter();
-			}
-
-		};
-		state.put(Models.FundsHandler, fundsHandler);
-
-		/**
-		 * Handler for theTotal Wealth field. This listens for and
-		 * processes changes to the value from the character.
-		 */
-		BigDecimalFieldHandler wealthHandler = new BigDecimalFieldHandler(wealthLabel, character.getWealthRef())
-		{
-
-			@Override
-			protected void valueChanged(BigDecimal value)
-			{
-				// Ignored for this read-only field
-			}
-
-		};
-		state.put(Models.WealthHandler, wealthHandler);
-
-		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>()
+		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>(character.getDataSet().getGearBuySellSchemes(), character.getGearBuySellRef())
 		{
 
 			@Override
@@ -423,53 +384,49 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 
 		};
-		buySellModel.setListFacade(character.getDataSet().getGearBuySellSchemes());
-		buySellModel.setReference(character.getGearBuySellRef());
-		state.put(CharacterComboBoxModel.class, buySellModel);
+		models.put(CharacterComboBoxModel.class, buySellModel);
 
-		return state;
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((EquipmentFilterHandler) state.get(EquipmentFilterHandler.class)).install();
-		((AvailableTreeViewModel) state.get(AvailableTreeViewModel.class)).install();
-		((Handler) state.get(Handler.class)).install();
-		purchasedTable.setTreeViewModel((TreeViewModel<EquipmentFacade>) state.get(PurchasedTreeViewModel.class));
-		autoResizeBox.setAction((UseAutoResizeAction) state.get(UseAutoResizeAction.class));
-		addCustomButton.setAction((AddCustomAction) state.get(AddCustomAction.class));
-		addEquipmentButton.setAction((AddAction) state.get(AddAction.class));
-		removeEquipmentButton.setAction((RemoveAction) state.get(RemoveAction.class));
-		fundsAddButton.setAction((FundsAddAction) state.get(FundsAddAction.class));
-		fundsSubtractButton.setAction((FundsSubtractAction) state.get(FundsSubtractAction.class));
-		buySellRateBox.setModel((ComboBoxModel) state.get(CharacterComboBoxModel.class));
-		allowDebt.setAction((AllowDebtAction) state.get(AllowDebtAction.class));
+		models.get(EquipmentFilterHandler.class).install();
+		models.get(AvailableTreeViewModel.class).install();
+		models.get(Handler.class).install();
+		purchasedTable.setTreeViewModel(models.get(PurchasedTreeViewModel.class));
+		autoResizeBox.setAction(models.get(UseAutoResizeAction.class));
+		addCustomButton.setAction(models.get(AddCustomAction.class));
+		addEquipmentButton.setAction(models.get(AddAction.class));
+		removeEquipmentButton.setAction(models.get(RemoveAction.class));
+		fundsAddButton.setAction(models.get(FundsAddAction.class));
+		fundsSubtractButton.setAction(models.get(FundsSubtractAction.class));
+		buySellRateBox.setModel(models.get(CharacterComboBoxModel.class));
+		allowDebt.setAction(models.get(AllowDebtAction.class));
 
-		((EquipInfoHandler) state.get(EquipInfoHandler.class)).install();
-		((EquipmentTransferHandler) state.get(EquipmentTransferHandler.class)).install();
-		((UseAutoResizeAction) state.get(UseAutoResizeAction.class)).install();
-		((AddAction) state.get(AddAction.class)).install();
-		((RemoveAction) state.get(RemoveAction.class)).install();
-		((BigDecimalFieldHandler) state.get(Models.WealthHandler)).install();
-		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).install();
-		((CurrencyLabelHandler) state.get(CurrencyLabelHandler.class)).install();
-		((BuyPopupMenuHandler) state.get(BuyPopupMenuHandler.class)).install();
-		((SellPopupMenuHandler) state.get(SellPopupMenuHandler.class)).install();
+		models.get(EquipInfoHandler.class).install();
+		models.get(EquipmentTransferHandler.class).install();
+		models.get(UseAutoResizeAction.class).install();
+		models.get(AddAction.class).install();
+		models.get(RemoveAction.class).install();
+		models.get(CurrencyFieldHandler.class).install();
+		models.get(CurrencyLabelHandler.class).install();
+		models.get(BuyPopupMenuHandler.class).install();
+		models.get(SellPopupMenuHandler.class).install();
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((AvailableTreeViewModel) state.get(AvailableTreeViewModel.class)).uninstall();
-		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
-		((AddAction) state.get(AddAction.class)).uninstall();
-		((RemoveAction) state.get(RemoveAction.class)).uninstall();
-		((BigDecimalFieldHandler) state.get(Models.WealthHandler)).uninstall();
-		((BigDecimalFieldHandler) state.get(Models.FundsHandler)).uninstall();
-		((BuyPopupMenuHandler) state.get(BuyPopupMenuHandler.class)).uninstall();
-		((SellPopupMenuHandler) state.get(SellPopupMenuHandler.class)).uninstall();
-		((Handler) state.get(Handler.class)).uninstall();
+		models.get(AvailableTreeViewModel.class).uninstall();
+		models.get(EquipInfoHandler.class).uninstall();
+		models.get(AddAction.class).uninstall();
+		models.get(RemoveAction.class).uninstall();
+		models.get(CurrencyFieldHandler.class).uninstall();
+		models.get(BuyPopupMenuHandler.class).uninstall();
+		models.get(SellPopupMenuHandler.class).uninstall();
+		models.get(Handler.class).uninstall();
 	}
 
 	@Override
@@ -498,6 +455,59 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 		}
 		return targets;
+	}
+
+	private class CurrencyFieldHandler
+	{
+
+		private final BigDecimalFieldHandler fundsHandler;
+		private final BigDecimalFieldHandler wealthHandler;
+
+		public CurrencyFieldHandler(final CharacterFacade character)
+		{
+			/**
+			 * Handler for the Current Funds field. This listens for and
+			 * processes both changes to the value from the character and
+			 * modifications to the field made by the user.
+			 */
+			fundsHandler = new BigDecimalFieldHandler(goldField, character.getFundsRef())
+			{
+
+				@Override
+				protected void valueChanged(BigDecimal value)
+				{
+					character.setFunds(value);
+					availableTable.refilter();
+				}
+
+			};
+			/**
+			 * Handler for theTotal Wealth field. This listens for and processes
+			 * changes to the value from the character.
+			 */
+			wealthHandler = new BigDecimalFieldHandler(wealthLabel, character.getWealthRef())
+			{
+
+				@Override
+				protected void valueChanged(BigDecimal value)
+				{
+					// Ignored for this read-only field
+				}
+
+			};
+		}
+
+		public void install()
+		{
+			fundsHandler.install();
+			wealthHandler.install();
+		}
+
+		public void uninstall()
+		{
+			fundsHandler.uninstall();
+			wealthHandler.uninstall();
+		}
 	}
 
 	private class AddAction extends AbstractAction
@@ -582,9 +592,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>DeleteCustomAction</code> defines an action to delete a 
+	 * The Class <code>DeleteCustomAction</code> defines an action to delete a
 	 * custom equipment item.
-	 * 
+	 *
 	 * @author James Dempsey <jdempsey@users.sourceforge.net>
 	 */
 	private class DeleteCustomAction extends AbstractAction
@@ -680,8 +690,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * Handler for actions from the add funds button. Also defines 
-	 * the appearance of the button.
+	 * Handler for actions from the add funds button. Also defines the
+	 * appearance of the button.
 	 */
 	private class FundsAddAction extends AbstractAction
 	{
@@ -709,8 +719,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * Handler for actions from the subtract funds button. Also defines 
-	 * the appearance of the button.
+	 * Handler for actions from the subtract funds button. Also defines the
+	 * appearance of the button.
 	 */
 	private class FundsSubtractAction extends AbstractAction
 	{
@@ -738,7 +748,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>AllowDebtAction</code> links the allow debt checkbox to a character.
+	 * The Class <code>AllowDebtAction</code> links the allow debt checkbox to a
+	 * character.
 	 */
 	private class AllowDebtAction extends AbstractAction
 	{
@@ -832,8 +843,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>CurrencyLabelHandler</code> manages the currently 
-	 * displayed currency. 
+	 * The Class <code>CurrencyLabelHandler</code> manages the currently
+	 * displayed currency.
 	 */
 	private class CurrencyLabelHandler
 	{
@@ -847,8 +858,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		public void install()
 		{
-			String currencyDisplay =
-					character.getDataSet().getGameMode().getCurrencyDisplay();
+			String currencyDisplay
+					= character.getDataSet().getGameMode().getCurrencyDisplay();
 			for (JLabel label : currencyLabels)
 			{
 				label.setText(currencyDisplay);
@@ -861,12 +872,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			implements TreeViewModel<EquipmentFacade>
 	{
 
-		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
-				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
-		private final List<DefaultDataViewColumn> columns =
-				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
-							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
-							  new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
+		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews
+				= new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
+		private final List<DefaultDataViewColumn> columns
+				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
 
@@ -932,8 +943,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		protected List<?> getDataList(EquipmentFacade obj)
 		{
 			return Arrays.asList(character.getInfoFactory().getCost(obj),
-								 character.getInfoFactory().getWeight(obj),
-								 obj.getSource());
+					character.getInfoFactory().getWeight(obj),
+					obj.getSource());
 		}
 
 		@Override
@@ -954,12 +965,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			implements TreeViewModel<EquipmentFacade>, DataView<EquipmentFacade>, EquipmentListListener
 	{
 
-		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
-				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
-		private final List<DefaultDataViewColumn> columns =
-				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
-							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
-							  new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true)); //$NON-NLS-1$
+		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews
+				= new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
+		private final List<DefaultDataViewColumn> columns
+				= Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
+						new DefaultDataViewColumn("in_igEqModelColQty", Integer.class, true)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final EquipmentListFacade equipmentList;
 
@@ -1053,8 +1064,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					List<String> types = pobj.getTypesForDisplay();
 					if (types != null && types.size() > 1)
 					{
-						List<TreeViewPath<EquipmentFacade>> paths =
-								new ArrayList<TreeViewPath<EquipmentFacade>>();
+						List<TreeViewPath<EquipmentFacade>> paths
+								= new ArrayList<TreeViewPath<EquipmentFacade>>();
 						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
@@ -1092,11 +1103,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj));
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj,
-																					   pobj.getSourceForNodeDisplay()));
+							pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
-
 
 		}
 
@@ -1104,7 +1114,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	/**
 	 * The Class <code>EquipmentRenderer</code> displays the tree cells of the
-	 * available and purchased equipment tables.  
+	 * available and purchased equipment tables.
 	 */
 	private class EquipmentRenderer extends CharacterTreeCellRenderer
 	{
@@ -1411,9 +1421,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			int num = quantity;
 			if (num == 0)
 			{
-				String selectedValue =
-						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-													Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+				String selectedValue
+						= JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+								Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 				if (selectedValue != null)
 				{
 					try
@@ -1565,9 +1575,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			int num = quantity;
 			if (num == 0)
 			{
-				String selectedValue =
-						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-													Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+				String selectedValue
+						= JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
+								Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 				if (selectedValue != null)
 				{
 					try

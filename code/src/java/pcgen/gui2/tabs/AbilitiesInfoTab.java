@@ -66,25 +66,23 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put("TabsModel", new AbilityTabsModel(character)); //$NON-NLS-1$
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(AbilityTabsModel.class, new AbilityTabsModel(character));
+		return models;
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel"); //$NON-NLS-1$
-		tabsModel.uninstall();
+		models.get(AbilityTabsModel.class).uninstall();
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		AbilityTabsModel tabsModel = (AbilityTabsModel) state.get("TabsModel"); //$NON-NLS-1$
-		tabsModel.install();
+		models.get(AbilityTabsModel.class).install();
 	}
 
 	@Override

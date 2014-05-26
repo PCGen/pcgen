@@ -1,20 +1,19 @@
 /**
- * CharacterSheetInfoTab.java
- * Copyright James Dempsey, 2010
+ * CharacterSheetInfoTab.java Copyright James Dempsey, 2010
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created on 29/09/2010 7:16:42 PM
  *
@@ -29,7 +28,6 @@ import java.io.File;
 import java.io.FileFilter;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Hashtable;
 
 import javax.swing.Box;
 import javax.swing.ComboBoxModel;
@@ -65,19 +63,22 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>CharacterSheetInfoTab</code> is a placeholder for the character 
- * sheet tab.
+ * The Class <code>CharacterSheetInfoTab</code> is a placeholder for the
+ * character sheet tab.
  *
  * <br/>
- * Last Editor: $Author: cpmeister $
- * Last Edited: $Date: 2011-02-22 22:16:07 -0800 (Tue, 22 Feb 2011) $
- * 
+ * Last Editor: $Author: cpmeister $ Last Edited: $Date: 2011-02-22 22:16:07
+ * -0800 (Tue, 22 Feb 2011) $
+ *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 14593 $
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
-	/** Version for serialisation. */
+
+	/**
+	 * Version for serialisation.
+	 */
 	private static final long serialVersionUID = -4957524684640929994L;
 
 	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);
@@ -142,31 +143,33 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(BoxHandler.class, new BoxHandler(character));
-		state.put(CSheetHandler.class, new CSheetHandler(character));
-		state.put(TempBonusTableModel.class, new TempBonusTableModel(character));
-		state.put(EquipSetTableModel.class, new EquipSetTableModel(character));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(BoxHandler.class, new BoxHandler(character));
+		models.put(CSheetHandler.class, new CSheetHandler(character));
+		models.put(TempBonusTableModel.class, new TempBonusTableModel(character));
+		models.put(EquipSetTableModel.class, new EquipSetTableModel(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((BoxHandler) state.get(BoxHandler.class)).install();
-		((CSheetHandler) state.get(CSheetHandler.class)).install();
-		equipSetTable.setModel((EquipSetTableModel) state.get(EquipSetTableModel.class));
-		equipSetRowTable.setModel((EquipSetTableModel) state.get(EquipSetTableModel.class));
-		tempBonusTable.setModel((TempBonusTableModel) state.get(TempBonusTableModel.class));
-		tempBonusRowTable.setModel((TempBonusTableModel) state.get(TempBonusTableModel.class));
+		models.get(BoxHandler.class).install();
+		models.get(CSheetHandler.class).install();
+		EquipSetTableModel equipSetModel = models.get(EquipSetTableModel.class);
+		equipSetTable.setModel(equipSetModel);
+		equipSetRowTable.setModel(equipSetModel);
+		TempBonusTableModel tempBonusModel = models.get(TempBonusTableModel.class);
+		tempBonusTable.setModel(tempBonusModel);
+		tempBonusRowTable.setModel(tempBonusModel);
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((CSheetHandler) state.get(CSheetHandler.class)).uninstall();
+		models.get(CSheetHandler.class).uninstall();
 	}
 
 	@Override
@@ -188,7 +191,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	private class BoxHandler extends ListDataAdapter
 	{
 
-		/** Prefs key for the character sheet for a game mode. */
+		/**
+		 * Prefs key for the character sheet for a game mode.
+		 */
 		private CharacterFacade character;
 		private ComboBoxModel model;
 
@@ -213,11 +218,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				Arrays.sort(files, new Comparator<File>()
 				{
 					@Override
-				    public int compare(File f1, File f2)
-				    {
+					public int compare(File f1, File f2)
+					{
 						// TODO I18N Use a Collator 
-				        return f1.toString().compareToIgnoreCase(f2.toString());
-				    }
+						return f1.toString().compareToIgnoreCase(f2.toString());
+					}
 				});
 				model = new DefaultComboBoxModel(files);
 
@@ -225,9 +230,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				String previewSheet = character.getPreviewSheetRef().toString();
 				if (previewSheet == null)
 				{
-					previewSheet  = game.getDefaultCharSheet();
+					previewSheet = game.getDefaultCharSheet();
 				}
-				if (previewSheet  != null)
+				if (previewSheet != null)
 				{
 					file = new File(sheetDir, previewSheet);
 					if (!file.isFile())
@@ -363,9 +368,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			implements Filter<CharacterFacade, TempBonusFacade>
 	{
 
-		/** Version for serialisation. */
+		/**
+		 * Version for serialisation.
+		 */
 		private static final long serialVersionUID = -2157540968522498242L;
-		
+
 		private ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
 		{
 
@@ -474,7 +481,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			implements ReferenceListener<EquipmentSetFacade>, Filter<CharacterFacade, EquipmentSetFacade>
 	{
 
-		/** Version for serialisation. */
+		/**
+		 * Version for serialisation.
+		 */
 		private static final long serialVersionUID = 5028006226606996671L;
 
 		public EquipSetTableModel(CharacterFacade character)

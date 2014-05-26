@@ -156,30 +156,30 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	}
 	
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(CompanionsModel.class, new CompanionsModel(character));
-		state.put(ButtonCellEditor.class, new ButtonCellEditor(character));
-		state.put(LoadButtonAndSheetHandler.class, new LoadButtonAndSheetHandler());
-		state.put(TreeExpansionHandler.class, new TreeExpansionHandler());
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(CompanionsModel.class, new CompanionsModel(character));
+		models.put(ButtonCellEditor.class, new ButtonCellEditor(character));
+		models.put(LoadButtonAndSheetHandler.class, new LoadButtonAndSheetHandler());
+		models.put(TreeExpansionHandler.class, new TreeExpansionHandler());
+		return models;
 	}
 	
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		companionsTable.setTreeTableModel((CompanionsModel) state.get(CompanionsModel.class));
-		companionsTable.setDefaultEditor(Object.class, (ButtonCellEditor) state.get(ButtonCellEditor.class));
-		((TreeExpansionHandler) state.get(TreeExpansionHandler.class)).install();
-		((LoadButtonAndSheetHandler) state.get(LoadButtonAndSheetHandler.class)).install();
+		companionsTable.setTreeTableModel(models.get(CompanionsModel.class));
+		companionsTable.setDefaultEditor(Object.class, models.get(ButtonCellEditor.class));
+		models.get(TreeExpansionHandler.class).install();
+		models.get(LoadButtonAndSheetHandler.class).install();
 	}
 	
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((TreeExpansionHandler) state.get(TreeExpansionHandler.class)).uninstall();
-		((LoadButtonAndSheetHandler) state.get(LoadButtonAndSheetHandler.class)).uninstall();
+		models.get(TreeExpansionHandler.class).uninstall();
+		models.get(LoadButtonAndSheetHandler.class).uninstall();
 	}
 	
 	@Override

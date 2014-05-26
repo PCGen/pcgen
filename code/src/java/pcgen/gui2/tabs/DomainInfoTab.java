@@ -27,7 +27,6 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Hashtable;
 import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -192,48 +191,48 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(DeityTreeViewModel.class, new DeityTreeViewModel(character));
-		state.put(DomainTableHandler.class, new DomainTableHandler(character));
-		state.put(SelectDeityAction.class, new SelectDeityAction(character));
-		state.put(DeityLabelHandler.class, new DeityLabelHandler(character, selectedDeity));
-		state.put(DomainLabelHandler.class, new DomainLabelHandler(character, selectedDomain));
-		state.put(DeityInfoHandler.class, new DeityInfoHandler(character));
-		state.put(DomainInfoHandler.class, new DomainInfoHandler(character));
-		state.put(DomainRenderer.class, new DomainRenderer(character));
-		state.put(Handler.class, qualifiedRenderer.createHandler(character));
-		state.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(DeityTreeViewModel.class, new DeityTreeViewModel(character));
+		models.put(DomainTableHandler.class, new DomainTableHandler(character));
+		models.put(SelectDeityAction.class, new SelectDeityAction(character));
+		models.put(DeityLabelHandler.class, new DeityLabelHandler(character, selectedDeity));
+		models.put(DomainLabelHandler.class, new DomainLabelHandler(character, selectedDomain));
+		models.put(DeityInfoHandler.class, new DeityInfoHandler(character));
+		models.put(DomainInfoHandler.class, new DomainInfoHandler(character));
+		models.put(DomainRenderer.class, new DomainRenderer(character));
+		models.put(Handler.class, qualifiedRenderer.createHandler(character));
+		models.put(QualifiedFilterHandler.class, new QualifiedFilterHandler(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((DomainLabelHandler) state.get(DomainLabelHandler.class)).install();
-		((DeityLabelHandler) state.get(DeityLabelHandler.class)).install();
-		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
-		((DomainTableHandler) state.get(DomainTableHandler.class)).install();
-		((DomainInfoHandler) state.get(DomainInfoHandler.class)).install();
-		((DeityInfoHandler) state.get(DeityInfoHandler.class)).install();
-		((DomainRenderer) state.get(DomainRenderer.class)).install();
-		((SelectDeityAction) state.get(SelectDeityAction.class)).install();
-		((Handler) state.get(Handler.class)).install();
-		deityTable.setTreeViewModel((DeityTreeViewModel) state.get(DeityTreeViewModel.class));
-		selectDeity.setAction((SelectDeityAction) state.get(SelectDeityAction.class));
+		models.get(DomainLabelHandler.class).install();
+		models.get(DeityLabelHandler.class).install();
+		models.get(QualifiedFilterHandler.class).install();
+		models.get(DomainTableHandler.class).install();
+		models.get(DomainInfoHandler.class).install();
+		models.get(DeityInfoHandler.class).install();
+		models.get(DomainRenderer.class).install();
+		models.get(SelectDeityAction.class).install();
+		models.get(Handler.class).install();
+		deityTable.setTreeViewModel(models.get(DeityTreeViewModel.class));
+		selectDeity.setAction(models.get(SelectDeityAction.class));
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((DomainLabelHandler) state.get(DomainLabelHandler.class)).uninstall();
-		((DeityLabelHandler) state.get(DeityLabelHandler.class)).uninstall();
-		((DomainTableHandler) state.get(DomainTableHandler.class)).uninstall();
-		((DomainInfoHandler) state.get(DomainInfoHandler.class)).uninstall();
-		((DeityInfoHandler) state.get(DeityInfoHandler.class)).uninstall();
-		((SelectDeityAction) state.get(SelectDeityAction.class)).uninstall();
-		((Handler) state.get(Handler.class)).uninstall();
+		models.get(DomainLabelHandler.class).uninstall();
+		models.get(DeityLabelHandler.class).uninstall();
+		models.get(DomainTableHandler.class).uninstall();
+		models.get(DomainInfoHandler.class).uninstall();
+		models.get(DeityInfoHandler.class).uninstall();
+		models.get(SelectDeityAction.class).uninstall();
+		models.get(Handler.class).uninstall();
 	}
 
 	@Override

@@ -24,7 +24,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.Hashtable;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -173,49 +172,45 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
-		state.put(AddSpellAction.class, new AddSpellAction(character));
-		state.put(RemoveSpellAction.class, new RemoveSpellAction(character));
-		state.put(AutoAddSpellsAction.class, new AutoAddSpellsAction(character));
-		state.put(UseHigherSlotsAction.class, new UseHigherSlotsAction(character));
-		state.put(PreviewSpellsAction.class, new PreviewSpellsAction(character));
-		state.put(ExportSpellsAction.class, new ExportSpellsAction(character));
-		state.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
+		ModelMap models = new ModelMap();
+		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
+		models.put(AddSpellAction.class, new AddSpellAction(character));
+		models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
+		models.put(AutoAddSpellsAction.class, new AutoAddSpellsAction(character));
+		models.put(UseHigherSlotsAction.class, new UseHigherSlotsAction(character));
+		models.put(PreviewSpellsAction.class, new PreviewSpellsAction(character));
+		models.put(ExportSpellsAction.class, new ExportSpellsAction(character));
+		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
 				selectedTable, spellsPane));
-		state.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
+		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
 				selectedTable, classPane));
-		return state;
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).install();
-		((SpellInfoHandler) state.get(SpellInfoHandler.class)).install();
-		((ClassInfoHandler) state.get(ClassInfoHandler.class)).install();
-		((AddSpellAction) state.get(AddSpellAction.class)).install();
-		((RemoveSpellAction) state.get(RemoveSpellAction.class)).install();
-		addButton.setAction((AddSpellAction) state.get(AddSpellAction.class));
-		removeButton.setAction((RemoveSpellAction) state.get(RemoveSpellAction.class));
-		autoKnownBox.setAction((AutoAddSpellsAction) state.get(AutoAddSpellsAction.class));
-		((AutoAddSpellsAction) state.get(AutoAddSpellsAction.class)).install();
-		slotsBox.setAction((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class));
-		((UseHigherSlotsAction) state.get(UseHigherSlotsAction.class)).install();
-		previewSpellsButton.setAction((PreviewSpellsAction) state.get(PreviewSpellsAction.class));
-		exportSpellsButton.setAction((ExportSpellsAction) state.get(ExportSpellsAction.class));
+		models.get(TreeViewModelHandler.class).install();
+		models.get(SpellInfoHandler.class).install();
+		models.get(ClassInfoHandler.class).install();
+		models.get(AddSpellAction.class).install();
+		models.get(RemoveSpellAction.class).install();
+		models.get(AutoAddSpellsAction.class).install();
+		models.get(UseHigherSlotsAction.class).install();
+		previewSpellsButton.setAction(models.get(PreviewSpellsAction.class));
+		exportSpellsButton.setAction(models.get(ExportSpellsAction.class));
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((SpellInfoHandler) state.get(SpellInfoHandler.class)).uninstall();
-		((ClassInfoHandler) state.get(ClassInfoHandler.class)).uninstall();
-		((AddSpellAction) state.get(AddSpellAction.class)).uninstall();
-		((RemoveSpellAction) state.get(RemoveSpellAction.class)).uninstall();
-		((TreeViewModelHandler) state.get(TreeViewModelHandler.class)).uninstall();
+		models.get(SpellInfoHandler.class).uninstall();
+		models.get(ClassInfoHandler.class).uninstall();
+		models.get(AddSpellAction.class).uninstall();
+		models.get(RemoveSpellAction.class).uninstall();
+		models.get(TreeViewModelHandler.class).uninstall();
 	}
 
 	@Override
@@ -252,7 +247,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class AddSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddSpellAction(CharacterFacade character)
 		{
@@ -276,6 +271,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		public void install()
 		{
 			availableTable.addActionListener(this);
+			addButton.setAction(this);
 		}
 
 		public void uninstall()
@@ -288,7 +284,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class RemoveSpellAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveSpellAction(CharacterFacade character)
 		{
@@ -312,6 +308,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		public void install()
 		{
 			selectedTable.addActionListener(this);
+			removeButton.setAction(this);
 		}
 
 		public void uninstall()
@@ -324,7 +321,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class AutoAddSpellsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AutoAddSpellsAction(CharacterFacade character)
 		{
@@ -335,6 +332,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			autoKnownBox.setAction(this);
 			character.getSpellSupport().setAutoSpells(autoKnownBox.isSelected());
 		}
 
@@ -348,7 +346,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class UseHigherSlotsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public UseHigherSlotsAction(CharacterFacade character)
 		{
@@ -364,6 +362,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		public void install()
 		{
+			slotsBox.setAction(this);
 			slotsBox.setSelected(character.getSpellSupport().isUseHigherKnownSlots());
 		}
 
@@ -372,7 +371,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class PreviewSpellsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public PreviewSpellsAction(CharacterFacade character)
 		{
@@ -391,7 +390,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class ExportSpellsAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public ExportSpellsAction(CharacterFacade character)
 		{
@@ -410,9 +409,9 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private class TreeViewModelHandler
 	{
 
-		private SpellTreeViewModel availableModel;
-		private SpellTreeViewModel selectedModel;
-		private CharacterFacade character;
+		private final SpellTreeViewModel availableModel;
+		private final SpellTreeViewModel selectedModel;
+		private final CharacterFacade character;
 
 		public TreeViewModelHandler(CharacterFacade character)
 		{

@@ -28,10 +28,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.Hashtable;
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -143,29 +141,29 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(PortraitHandler.class, new PortraitHandler(character));
-		state.put(LoadAction.class, new LoadAction(character));
-		state.put(ClearAction.class, new ClearAction(character));
-		//state.put(PurchaseAction.class, new PurchaseAction(character));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(PortraitHandler.class, new PortraitHandler(character));
+		models.put(LoadAction.class, new LoadAction(character));
+		models.put(ClearAction.class, new ClearAction(character));
+		//models.put(PurchaseAction.class, new PurchaseAction(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		loadButton.setAction((Action) state.get(LoadAction.class));
-		clearButton.setAction((Action) state.get(ClearAction.class));
-		//purchaseButton.setAction((Action) state.get(PurchaseAction.class));
-		((PortraitHandler) state.get(PortraitHandler.class)).install();
+		loadButton.setAction(models.get(LoadAction.class));
+		clearButton.setAction(models.get(ClearAction.class));
+		//purchaseButton.setAction((Action) models.get(PurchaseAction.class));
+		models.get(PortraitHandler.class).install();
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((PortraitHandler) state.get(PortraitHandler.class)).uninstall();
+		((PortraitHandler) models.get(PortraitHandler.class)).uninstall();
 	}
 
 	@Override
@@ -178,7 +176,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	{
 
 		private final CharacterFacade character;
-		private ImagePreviewer previewer = new ImagePreviewer();
+		private final ImagePreviewer previewer = new ImagePreviewer();
 
 		public LoadAction(CharacterFacade character)
 		{
@@ -266,8 +264,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	private class PortraitHandler implements ReferenceListener<Object>
 	{
 
-		private CharacterFacade character;
-		private PortraitPane.MouseHandler mouseHandler;
+		private final CharacterFacade character;
+		private final PortraitPane.MouseHandler mouseHandler;
 		private BufferedImage image;
 
 		public PortraitHandler(CharacterFacade character)

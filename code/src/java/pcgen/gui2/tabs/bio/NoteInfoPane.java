@@ -26,7 +26,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Hashtable;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -109,20 +108,20 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 	}
 	
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(NoteHandler.class, new NoteHandler(character));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(NoteHandler.class, new NoteHandler(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
 	}
 

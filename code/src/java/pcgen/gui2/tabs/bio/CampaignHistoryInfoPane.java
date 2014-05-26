@@ -32,7 +32,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 
 import javax.swing.Box;
@@ -139,23 +138,23 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 	}
 
 	@Override
-	public Hashtable<Object, Object> createModels(CharacterFacade character)
+	public ModelMap createModels(CharacterFacade character)
 	{
-		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
-		state.put(ChronicleHandler.class, new ChronicleHandler(character));
-		return state;
+		ModelMap models = new ModelMap();
+		models.put(ChronicleHandler.class, new ChronicleHandler(character));
+		return models;
 	}
 
 	@Override
-	public void restoreModels(Hashtable<?, ?> state)
+	public void restoreModels(ModelMap models)
 	{
-		((ChronicleHandler) state.get(ChronicleHandler.class)).install();
+		models.get(ChronicleHandler.class).install();
 	}
 
 	@Override
-	public void storeModels(Hashtable<Object, Object> state)
+	public void storeModels(ModelMap models)
 	{
-		((ChronicleHandler) state.get(ChronicleHandler.class)).uninstall();
+		models.get(ChronicleHandler.class).uninstall();
 	}
 
 	@Override
