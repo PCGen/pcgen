@@ -138,6 +138,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int babMaxAtt = Integer.MAX_VALUE; //4
 	private int babMaxLvl = Integer.MAX_VALUE; //20
 	private int babMinVal = 1;
+	private int maxNonEpicLevel = Integer.MAX_VALUE;
 	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
 	private final List<String> schoolsList = new ArrayList<String>(20);
@@ -3081,5 +3082,15 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setFeatTemplate(AbilityCategory featTemplate)
 	{
 		this.featTemplate = featTemplate;
+	}
+
+	public void setMaxNonEpicLevel(int i)
+	{
+		maxNonEpicLevel = i;
+	}
+	
+	public int getMaxNonEpicLevel()
+	{
+		return maxNonEpicLevel;
 	}
 }
