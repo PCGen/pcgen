@@ -315,7 +315,18 @@ CATEGORY=Internal|Race Traits ~ Samsaran.MOD	ABILITY:Samsaran Racial Trait|AUTOM
 # COMMENT: Adding chosen spells isn't well-supported by PCGen yet, so this isn't implemented.
 # COMMENT: Future changes to spellcasting ability bonus DON'T increase the number of spells added to the list.  This is tricky in PCGen.
 # Ability Name	Unique Key					Category of Ability		Type																Multiple Requirements																						Description																						Cost		Source Page
-Mystic Past Life	KEY:Samsaran ~ Mystic Past Life	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranShardsOfThePast	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Mystic Past Life],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast]	DESC:Add 1 + casting key ability score bonus spells of the same type as your spellcasting class to your spell list.  NOT IMPLEMENTED.	COST:0	SOURCEPAGE:p.198
+Mystic Past Life	KEY:Samsaran ~ Mystic Past Life	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranShardsOfThePast	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Mystic Past Life],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast]	DESC:Add 1 + casting key ability score bonus spells of the same type as your spellcasting class to your spell list.	COST:0	SOURCEPAGE:p.198	BONUS:ABILITYPOOL|Mystic Past Life Class|1
+
+###Block:
+Bard		KEY:Mystic Past Life ~ Bard		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
+Sorcerer	KEY:Mystic Past Life ~ Sorcerer	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|1+CHA
+Inquisitor	KEY:Mystic Past Life ~ Inquisitor	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|1+WIS
+Oracle	KEY:Mystic Past Life ~ Oracle		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|1+CHA
+Summoner	KEY:Mystic Past Life ~ Summoner	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|1+CHA
+#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
+#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
+#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
+#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
 
 ###Block: Shards of the Past Knowledge Skill abilities
 # Ability Name			Unique Key					Category of Ability		Type					Bonus to skill							Class Skill
