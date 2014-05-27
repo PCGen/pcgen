@@ -315,18 +315,36 @@ CATEGORY=Internal|Race Traits ~ Samsaran.MOD	ABILITY:Samsaran Racial Trait|AUTOM
 # COMMENT: Adding chosen spells isn't well-supported by PCGen yet, so this isn't implemented.
 # COMMENT: Future changes to spellcasting ability bonus DON'T increase the number of spells added to the list.  This is tricky in PCGen.
 # Ability Name	Unique Key					Category of Ability		Type																Multiple Requirements																						Description																						Cost		Source Page
-Mystic Past Life	KEY:Samsaran ~ Mystic Past Life	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranShardsOfThePast	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Mystic Past Life],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast]	DESC:Add 1 + casting key ability score bonus spells of the same type as your spellcasting class to your spell list.	COST:0	SOURCEPAGE:p.198	BONUS:ABILITYPOOL|Mystic Past Life Class|1
+Mystic Past Life	KEY:Samsaran ~ Mystic Past Life	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranShardsOfThePast	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran ~ Mystic Past Life],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast]	DESC:You can add spells from another spellcasting class to the spell list of your current spellcasting class. You add a number of spells equal to 1 + your spellcasting class’s key ability score bonus (Wisdom for clerics, and so on). The spells must be the same type (arcane or divine) as the spellcasting class you’re adding them to. For example, you could add divine power to your druid class spell list, but not to your wizard class spell list because divine power is a divine spell. These spells do not have to be spells you can cast as a 1st-level character. The number of spells granted by this ability is set at 1st level. Changes to your ability score do not change the number of spells gained. This racial trait replaces shards of the past.	COST:0	SOURCEPAGE:p.198	BONUS:ABILITYPOOL|Mystic Past Life Class|1	TEMPLATE:Mystic Past Life Base Score
 
 ###Block:
-Bard		KEY:Mystic Past Life ~ Bard		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
-Sorcerer	KEY:Mystic Past Life ~ Sorcerer	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|1+CHA
-Inquisitor	KEY:Mystic Past Life ~ Inquisitor	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|1+WIS
-Oracle	KEY:Mystic Past Life ~ Oracle		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|1+CHA
-Summoner	KEY:Mystic Past Life ~ Summoner	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|1+CHA
-#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
-#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
-#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
-#Bard		KEY:Mystic Past Life ~ Bard	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1+CHA
+Bard		KEY:Mystic Past Life Base ~ Bard		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeCHABonus
+Sorcerer	KEY:Mystic Past Life Base ~ Sorcerer	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeCHABonus
+Oracle	KEY:Mystic Past Life Base ~ Oracle		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeCHABonus
+Summoner	KEY:Mystic Past Life Base ~ Summoner	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeCHABonus
+Wizard	KEY:Mystic Past Life Base ~ Wizard		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeINTBonus
+
+# Divine
+Cleric	KEY:Mystic Past Life Base ~ Cleric		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeWISBonus
+Druid		KEY:Mystic Past Life Base ~ Druid		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeWISBonus
+Inquisitor	KEY:Mystic Past Life Base ~ Inquisitor	CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeWISBonus
+Paladin	KEY:Mystic Past Life Base ~ Paladin		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeWISBonus
+Ranger	KEY:Mystic Past Life Base ~ Ranger		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	BONUS:ABILITYPOOL|Mystic Past Life Add Spells|1+MysticPastLifeWISBonus
+
+# Arcane
+Spells added to Bard		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Bard		KEY:Mystic Past Life Add ~ Bard		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Arcane
+Spells added to Sorcerer	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Sorcerer		KEY:Mystic Past Life Add ~ Sorcerer		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Arcane
+Spells added to Oracle		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Oracle		KEY:Mystic Past Life Add ~ Oracle		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Arcane
+Spells added to Summoner	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Summoner		KEY:Mystic Past Life Add ~ Summoner		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Arcane
+Spells added to Wizard		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Wizard		KEY:Mystic Past Life Add ~ Wizard		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Arcane
+
+# Divine
+Spells added to Cleric		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Cleric		KEY:Mystic Past Life Add ~ Cleric		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Divine
+Spells added to Druid		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Druid		KEY:Mystic Past Life Add ~ Druid		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Divine
+Spells added to Inquisitor	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Inquisitor	KEY:Mystic Past Life Add ~ Inquisitor	CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Divine
+Spells added to Paladin		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Paladin		KEY:Mystic Past Life Add ~ Paladin		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Divine
+Spells added to Ranger		PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Ranger		KEY:Mystic Past Life Add ~ Ranger		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	MULT:YES	STACK:NO	CHOOSE:SPELLS|!PC,SPELLTYPE=Divine
+
 
 ###Block: Shards of the Past Knowledge Skill abilities
 # Ability Name			Unique Key					Category of Ability		Type					Bonus to skill							Class Skill
