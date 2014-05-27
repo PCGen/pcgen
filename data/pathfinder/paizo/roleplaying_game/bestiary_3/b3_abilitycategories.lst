@@ -44,5 +44,6 @@ ABILITYCATEGORY:Fey Creature Special Abilities	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 ABILITYCATEGORY:Unfettered Eidolon Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnfetteredEidolonEvolution										PLURAL:Unfettered Eidolon Evolutions		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Eidolon AC Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eidolon AC Bonus										PLURAL:Eidolon AC Bonus		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Unfettered Eidolon Base Form	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Base Form										PLURAL:Unfettered Eidolon Evolutions		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unfettered Eidolon Stat Boost	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Stat Selection										PLURAL:Unfettered Eidolon Stat Selection		DISPLAYLOCATION:Racial Abilities
 
 
