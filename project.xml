@@ -260,12 +260,26 @@
       <version>1.2.3</version>
       <url>http://www.l2fprod.com/</url>
     </dependency>
-    <dependency>
-      <groupId>fop</groupId>
-      <artifactId>fop</artifactId>
-      <version>0.20.5</version>
-      <url>http://xml.apache.org/fop/</url>
-    </dependency>
+     <dependency>
+         <groupId>org.apache.xmlgraphics</groupId>
+         <artifactId>fop</artifactId>
+         <version>1.0</version>
+     </dependency>
+     <dependency>
+  		 <groupId>org.apache.xmlgraphics</groupId>
+  		 <artifactId>xmlgraphics-commons</artifactId>
+         <version>1.4</version>
+     </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-api</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.avalon.framework</groupId>
+            <artifactId>avalon-framework-impl</artifactId>
+            <version>4.3.1</version>
+        </dependency>
     <dependency>
       <groupId>jep</groupId>
       <artifactId>jep</artifactId>
