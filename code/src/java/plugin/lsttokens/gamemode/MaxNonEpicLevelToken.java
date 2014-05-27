@@ -41,6 +41,11 @@ public class MaxNonEpicLevelToken implements GameModeLstToken
     	try
     	{
     		int i = Integer.parseInt(value);
+    		if (i <= 1)
+    		{
+    			Logging.errorPrint("Max Non Epic Level must be > 1");
+    			return false;
+    		}
     		gameMode.setMaxNonEpicLevel(i);
     		return true;
     	}
