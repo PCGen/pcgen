@@ -7,7 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,Inner Sea World Guide,Ultimate Combat
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Inner Sea World Guide,INCLUDES=Ultimate Combat
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
