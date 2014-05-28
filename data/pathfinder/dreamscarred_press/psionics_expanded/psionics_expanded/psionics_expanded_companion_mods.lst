@@ -10,7 +10,7 @@ FOLLOWER:AstralWarriorLVL=2	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AU
 FOLLOWER:AstralWarriorLVL=3	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=4	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=5	TYPE:Astral Warrior	HD:1																					BONUS:ABILITYPOOL|Companion Stat Increase|1				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:AstralWarriorLVL=6	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=6	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=7	TYPE:Astral Warrior	HD:1																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=8	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=9	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
