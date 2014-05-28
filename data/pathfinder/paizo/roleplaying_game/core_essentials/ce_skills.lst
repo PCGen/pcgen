@@ -201,3 +201,4 @@ Heal.MOD				SITUATION:Treat disease and poison
 
 Stealth.MOD				SITUATION:Move Silently
 ###Block:
+Disguise.MOD			SITUATION:as original race
