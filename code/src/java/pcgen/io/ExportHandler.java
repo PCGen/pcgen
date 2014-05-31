@@ -32,12 +32,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
@@ -1332,9 +1336,11 @@ public final class ExportHandler
 					try
 					{
 						// Float values
-						valString = String.valueOf(Float.parseFloat(bString));
+						DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols(Locale.US);
+						DecimalFormat decimalFormat = new DecimalFormat("#,##0.##", decimalFormatSymbols);
+						valString = String.valueOf(decimalFormat.parse(bString));
 					}
-					catch (NumberFormatException e)
+					catch (ParseException e)
 					{
 						// String values
 						valString = bString;
