@@ -1,5 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 
+
+Concentration				USEUNTRAINED:NO
+
 # COMMENT: Do not ADD USEUNTRAINED:YES Skills, they will alter Alice, Bob and Charlie's test suites.
 # Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Prohibited Var. Value										Source Page			Choose			Bonus to skill																Bonus to skill rank																																														Modify VAR														Add
 Balance												KEYSTAT:DEX	USEUNTRAINED:NO
@@ -9,7 +12,7 @@ Swim													KEYSTAT:STR	USEUNTRAINED:NO
 
 
 # Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Prohibited Var. Value										Source Page			Choose			Bonus to skill																Bonus to skill rank																																														Modify VAR														Add
-Deception												KEYSTAT:CHA	USEUNTRAINED:NO				CLASSES:ALL			TYPE:Charisma																																	BONUS:SKILL|Thievery (Sleight of Hand),Persuasion|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5
+Deception												KEYSTAT:CHA	USEUNTRAINED:NO				CLASSES:ALL			TYPE:Charisma																																BONUS:SITUATION|Thievery=Sleight of Hand|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5		BONUS:SKILL|Persuasion|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5
 Deception (Act in character)									KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC	SOURCEPAGE:SkillsI.rtf
 Deception.MOD																																																										BONUS:SKILL|Deception (Act in character)|SKILL.Deception.MISC								BONUS:SKILLRANK|Deception (Act in character)|skillinfo("TOTALRANK","Deception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC
 

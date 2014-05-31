@@ -112,9 +112,13 @@ Test-57 Apply A5 MyAddingFeat										TYPE:TEST-57																													
 
 #8)
 #Feat file:
-Test-57 Apply A8 MyFeat (is Really Cool)								TYPE:Foo							VISIBLE:EXPORT
+Test-57 Apply A8 MyFeat is Really Cool								TYPE:Foo							VISIBLE:EXPORT
 Test-57 Apply A8 MySelectableFeat																	VISIBLE:EXPORT																											MULT:YES	CHOOSE:FEATSELECTION|TYPE=Foo
-Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57 Apply A8 MySelectableFeat
+Test-57 Apply A8 ToBeAdded										TYPE:TEST-57																																																																																																																													ADD:VFEAT|Dodge,Test-57 Apply A8 MySelectableFeat,Test-57 Applied 1
+
+Test-57 Applied 1												
+
+
 
 #Note the choices you will receive in the window are:
 #MySelectableFeat(My Feat (is Really Cool))
