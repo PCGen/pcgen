@@ -56,7 +56,18 @@ public class SkillRankControl
 	 */
 	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
 	{
-		double baseRanks = pc.getRank(sk).doubleValue();
+		if (pc == null)
+		{
+			Logging.errorPrint("Asked to get total rank for null character. Location was ", new Throwable());
+			return 0.0f;
+		}
+		Float rank = pc.getRank(sk);
+		if (rank == null)
+		{
+			Logging.errorPrint("Rank of skill " + sk + " for " + pc + " was null. Location was ", new Throwable());
+			return 0.0f;
+		}
+		double baseRanks = rank.doubleValue();
 		double ranks = baseRanks + SkillRankControl.getSkillRankBonusTo(pc, sk);
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && pc.hasClass())
 		{
