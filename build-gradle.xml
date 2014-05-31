@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+build-gradle.xml - a stub ant file to allow gradle to include just the plugin build tasks.
+
+$Id$
+-->
+<project name="pcgen" default="main" basedir=".">
+    <import file="code/pluginbuild.xml" />
+</project>
