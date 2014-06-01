@@ -231,7 +231,7 @@ CLASS:Fighter	STARTSKILLPTS:2
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define										Save checks bonus								Combat bonus					Modify VAR			Monster Role
-CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills	DEFINE:FlurryOfBlows|1	DEFINE:MonkLVL|CL	DEFINE:KiPoolWis|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	ROLE:None
+CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56		DEFINE:FlurryOfBlows|1	DEFINE:MonkLVL|CL	DEFINE:KiPoolWis|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	ROLE:None
 # Class Name	Multiple Requirements
 CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment]
 # Class Name	Skill Pts/Lvl
@@ -239,7 +239,8 @@ CLASS:Monk		STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
-
+1	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills
+#PREVAREQ:MonkDefaultSkill,0
 ###Block: Vars
 1	BONUS:VAR|FlurryLVL|MonkLVL
 1	BONUS:VAR|MonkBAB|CL*3/4
