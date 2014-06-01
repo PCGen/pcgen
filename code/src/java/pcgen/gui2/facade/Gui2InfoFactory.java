@@ -45,6 +45,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AspectName;
@@ -502,12 +503,7 @@ public class Gui2InfoFactory implements InfoFactory
 		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
 			getDescription(abilityFacade));
 
-		/*
-		 * TODO this is probably a problem in that it is doing a target (all
-		 * associations for an ability, not related to the current CNAbility
-		 * selected in the UI)
-		 */
-		List<CNAbility> wrappedAbility = pc.getMatchingCNAbilities(ability);
+		List<CNAbility> wrappedAbility = getWrappedAbility(ability);
 
 		if (ability.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
@@ -1932,12 +1928,7 @@ public class Gui2InfoFactory implements InfoFactory
 		try
 		{
 			Ability a = (Ability) ability;
-			/*
-			 * TODO this is probably a problem in that it is doing a target (all
-			 * associations for an ability, not related to the current CNAbility
-			 * selected in the UI)
-			 */
-			List<CNAbility> wrappedAbility = pc.getMatchingCNAbilities(a);
+			List<CNAbility> wrappedAbility = getWrappedAbility(a);
 			return DescriptionFormatting.piWrapDesc(a, pc.getDescription(wrappedAbility), false);
 		}
 		catch (Exception e)
@@ -1945,6 +1936,31 @@ public class Gui2InfoFactory implements InfoFactory
 			Logging.errorPrint("Failed to get description for " + ability, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
+	}
+
+	/**
+	 * Retrieve a wrapped instance of the provided ability, whether the 
+	 * character has the ability or not. This will either be a list of the 
+	 * specific occurrences of the ability the character, or a list of a new 
+	 * CNAbility if the character does not possess the ability.
+	 *   
+	 * @param a The ability to be wrapped.
+	 * @return The list of wrapped abilities.
+	 */
+	private List<CNAbility> getWrappedAbility(Ability a)
+	{
+		/*
+		 * TODO this is probably a problem in that it is doing a target (all
+		 * associations for an ability, not related to the current CNAbility
+		 * selected in the UI)
+		 */
+		List<CNAbility> wrappedAbility = pc.getMatchingCNAbilities(a);
+		if (wrappedAbility.isEmpty())
+		{
+			CNAbility cna = CNAbilityFactory.getCNAbility(a.getCDOMCategory(), Nature.NORMAL, a);
+			wrappedAbility.add(cna);
+		}
+		return wrappedAbility;
 	}
 
 	/**
