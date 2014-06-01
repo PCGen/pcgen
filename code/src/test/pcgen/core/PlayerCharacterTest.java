@@ -113,13 +113,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		TestRunner.run(PlayerCharacterTest.class);
 	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PlayerCharacterTest.class);
-	}
+//	/**
+//	 * @return Test
+//	 */
+//	public static Test suite()
+//	{
+//		return new TestSuite(PlayerCharacterTest.class);
+//	}
 
 	/**
 	 * @see junit.framework.TestCase#setUp()
