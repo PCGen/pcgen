@@ -12,6 +12,8 @@ Oracle Tongues Choice ~ Ignan		AUTO:LANG|Ignan
 Oracle Tongues Choice ~ Infernal	AUTO:LANG|Infernal
 Oracle Tongues Choice ~ Terran	AUTO:LANG|Terran
 
+LEGS 2	VISIBLE:NO	LEGS:2
+LEGS 4	VISIBLE:NO	LEGS:4
 
 
 ###Block: Eidolon templates

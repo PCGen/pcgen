@@ -466,209 +466,215 @@ $Date$
 
 	
 <!-- START 4e classfeature Powers Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ClassFeature";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-    <tr>
-     <td bgcolor="black" align="center" class="ab"><b>ClassFeature Powers</b></td>
-    </tr>
-|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ClassFeature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(count("ABILITIES";"CATEGORY=Power";"TYPE=Class Feature";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+	<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+		<tr>
+			<td bgcolor="black" align="center" class="ab"><b>Class Feature Powers</b></td>
+		</tr>
+|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Power","TYPE=Class Feature","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%classFeature,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Extraordinary)| 
+ <td valign="top" class="font8"><b>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Supernatural)| 
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:Supernatural)| 
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:SpellLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:SpellLike)| 
  (Sp)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:PsiLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:PsiLike)| 
  (Ps)
 |ENDIF|
 </b>
 <br/>
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Power Use:Y)|
-<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Power Use|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Power Use|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Action Type:Y)|
-<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Action Type|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Action Type|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Special:Y)|
-<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Special|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Special|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Target:Y)|
-<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Target|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Target|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Trigger:Y)|
-<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Trigger|
-<br/>    
-|ENDIF||IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Attack:Y)|
-<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Attack|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Trigger|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Hit:Y)|
-<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Hit|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Attack Type:Y)|
+<b>Attack Type:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Attack Type|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Miss:Y)|
-<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Miss|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Attack|
+<br/>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Hit|
+<br/>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Miss|
+<br/>
 |ENDIF| 
-|IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.HASASPECT.Effect:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.ASPECT.Effect|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Effect|
+<br/>
 |ENDIF|
-<center><i>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.DESC|</i></center>
+<center><i>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.DESC|</i></center>
 </td>
    </tr>
 |ENDFOR|
-    </table>
+</table>
 |ENDIF|
 <!-- STOP ClassFeature Powers Table -->
 <!-- START 4e At-Will Powers Table -->
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AtWill";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Power";"TYPE=AtWill";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-    <tr>
-     <td bgcolor="black" align="center" class="ab"><b>At-Will Powers</b></td>
-    </tr>
-|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=AtWill","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+<tr>
+ <td bgcolor="black" align="center" class="ab"><b>At-Will Powers</b></td>
+</tr>
+|FOR,%atWill,0,count("ABILITIES","CATEGORY=Power","TYPE=AtWill","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%atWill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)| 
+ <td valign="top" class="font8"><b>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill|
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)| 
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.TYPE:Supernatural)| 
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.TYPE:SpellLike)| 
  (Sp)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.TYPE:PsiLike)| 
  (Ps)
 |ENDIF|
 </b>
 <br/>
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
-<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Power Use|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
-<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Action Type|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
-<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Special|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
-<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Target|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
-<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Trigger|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
-<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Attack|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
-<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Hit|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
-<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Miss|
+<br/>
 |ENDIF| 
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Effect|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.HASASPECT.Sustain:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|
+<br/>
 |ENDIF|
-<center><i>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.DESC|</i></center>
+<center><i>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.DESC|</i></center>
 </td>
    </tr>
 |ENDFOR|
-    </table>
+</table>
 |ENDIF|
 <!-- STOP At-Will Powers Table -->
 
 <!-- START 4e Encounter Powers Table -->
 
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Encounter";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Power";"TYPE=Encounter";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-    <tr>
-     <td bgcolor="black" align="center" class="ab"><b>Encounter Powers</b></td>
-    </tr>
-|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Encounter","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+<tr>
+ <td bgcolor="black" align="center" class="ab"><b>Encounter Powers</b></td>
+</tr>
+|FOR,%encounter,0,count("ABILITIES","CATEGORY=Power","TYPE=Encounter","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%encounter,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)| 
+ <td valign="top" class="font8"><b>|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter|
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)| 
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.TYPE:Supernatural)| 
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.TYPE:SpellLike)| 
  (Sp)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.TYPE:PsiLike)| 
  (Ps)
 |ENDIF|
 </b>
 <br/>
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
-<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Power Use|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
-<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Special|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
-<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Action Type|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
-<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Target|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
-<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|
-<br/>    
-|ENDIF||IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
-<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Trigger|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
-<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Attack|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
-<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Hit|
+<br/>
+|ENDIF|
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Miss|
+<br/>
 |ENDIF| 
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Effect|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.HASASPECT.Sustain:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|
+<br/>
 |ENDIF|
-<center><i>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.DESC|</i></center>
+<center><i>|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.DESC|</i></center>
 </td>
    </tr>
 |ENDFOR|
-    </table>
+</table>
 |ENDIF|
 
 <!-- STOP Encounter Powers Table -->
@@ -676,72 +682,73 @@ $Date$
 
 <!-- START 4e Daily Powers Table -->
 
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Daily";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Power";"TYPE=Daily";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-    <tr>
-     <td bgcolor="black" align="center" class="ab"><b>Daily Powers</b></td>
-    </tr>
-|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Daily","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+<tr>
+ <td bgcolor="black" align="center" class="ab"><b>Daily Powers</b></td>
+</tr>
+|FOR,%daily,0,count("ABILITIES","CATEGORY=Power","TYPE=Daily","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%daily,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td valign="top" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)| 
+ <td valign="top" class="font8"><b>|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily|
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)| 
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.TYPE:Supernatural)| 
  (Su)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.TYPE:SpellLike)| 
  (Sp)
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)| 
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.TYPE:PsiLike)| 
  (Ps)
 |ENDIF|
 </b>
 <br/>
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
-<b>Power Use:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Power Use:Y)|
+<b>Power Use:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Power Use|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
-<b>Special:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%dily.TYPE=Daily.ASPECT.Special|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Special:Y)|
+<b>Special:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%dily.TYPE=Daily.ASPECT.Special|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
-<b>Action Type:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Action Type:Y)|
+<b>Action Type:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Action Type|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
-<b>Target:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Target:Y)|
+<b>Target:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Target|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
-<b>Attack:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Attack:Y)|
+<b>Attack:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Attack|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
-<b>Trigger:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Trigger:Y)|
+<b>Trigger:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Trigger|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
-<b>Hit:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Hit:Y)|
+<b>Hit:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Hit|
+<br/>
 |ENDIF|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
-<b>Miss:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Miss:Y)|
+<b>Miss:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Miss|
+<br/>
 |ENDIF| 
-|IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|
-<br/>    
-|ENDIF||IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
-<b>Effect:</b>&nbsp;|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|
-<br/>    
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Effect:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Effect|
+<br/>
 |ENDIF|
-<center><i>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.DESC|</i></center>
+|IIF(ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.HASASPECT.Sustain:Y)|
+<b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|
+<br/>
+|ENDIF|
+<center><i>|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.DESC|</i></center>
 </td>
    </tr>
 |ENDFOR|
-    </table>
+</table>
 |ENDIF|
 <!-- STOP Daily Powers Table -->
 

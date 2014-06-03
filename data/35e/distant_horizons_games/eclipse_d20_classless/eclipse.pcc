@@ -100,7 +100,7 @@ HIDETYPE:FEAT|Channeling|PathOfInfusions|PlanarBonds|HandOfDarkness|HatredsWeal|
 HIDETYPE:FEAT|Focusing|MultipleMedia
 HIDETYPE:FEAT|CharCreation|DivineWrath|Hexcrafting|PathOfThePharaoh|SpellCasterOutput|SpiritWeapon|SpiritWeaponCap|SpiritWeaponDamage|TheBoundlessRealms|TidesOfLightAndDark
 HIDETYPE:FEAT|WayOfOmnipresence|WayOfTheLands|WayOfValor|WitchcraftOutput|Special Ability|ChannelingBase|EclipseAbilityOutput
-HIDETYPE:FEAT|Extra|Template_Ancient_One|Template_Ancient_Onex
+HIDETYPE:FEAT|Template_Ancient_One|Template_Ancient_Onex
 
 # Universal tags
 #COMPANIONLIST:Mount|ANY

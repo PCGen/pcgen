@@ -925,7 +925,10 @@
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+									<fo:table-cell/>
+				</fo:table-row>
+
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
@@ -1429,7 +1432,10 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="0.5pt"/>
+				<fo:table-row height="0.5pt">
+								<fo:table-cell/>
+				</fo:table-row>
+
 				<fo:table-row>
 					<fo:table-cell/>
 					<fo:table-cell/>
@@ -1517,7 +1523,10 @@
 			    <xsl:attribute name="column-width"><xsl:value-of select="0.17 * (0.26 * $pagePrintableWidth - 8)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row height="2pt"/>
+				<fo:table-row height="2pt">
+								<fo:table-cell/>
+				</fo:table-row>
+
 				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1558,7 +1567,10 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="0.5pt"/>
+				<fo:table-row height="0.5pt">
+								<fo:table-cell/>
+				</fo:table-row>
+
 				<fo:table-row>
 					<fo:table-cell/>
 					<fo:table-cell/>
@@ -1596,7 +1608,10 @@
 			    <xsl:attribute name="column-width"><xsl:value-of select="0.56 * (0.26 * $pagePrintableWidth - 4)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row height="2pt"/>
+				<fo:table-row height="2pt">
+								<fo:table-cell/>
+				</fo:table-row>
+
 				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1695,7 +1710,10 @@
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 				<xsl:copy-of select="$columns"/>
 				<fo:table-body>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+									<fo:table-cell/>
+				</fo:table-row>
+
 					<fo:table-row>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
 						<fo:table-cell />
@@ -1982,7 +2000,10 @@
 							</xsl:call-template>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+									<fo:table-cell/>
+				</fo:table-row>
+
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
@@ -4690,13 +4711,19 @@
 					<xsl:with-param name="details" select="'false'"/>
 				</xsl:call-template>
 				<fo:table-body>
-					<fo:table-row height="2mm"/>
+					<fo:table-row height="2mm">
+									<fo:table-cell/>
+					</fo:table-row>
+
 					<fo:table-row>
 						<fo:table-cell number-columns-spanned="100">
 							<xsl:apply-templates select="." mode="spell.level.table"/>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2mm"/>
+					<fo:table-row height="2mm">
+									<fo:table-cell/>
+					</fo:table-row>
+
 					<xsl:apply-templates select="level" mode="known.spells">
 						<xsl:with-param name="columnOne" select="$columnOne"/>
 						<xsl:with-param name="columnOneTitle" select="$columnOneTitle"/>
@@ -4837,7 +4864,10 @@
 				<xsl:with-param name="columnOne" select="$columnOne"/>
 				<xsl:sort select="name"/>
 			</xsl:apply-templates>
-			<fo:table-row height="1mm"/>
+			<fo:table-row height="1mm">
+							<fo:table-cell/>
+				</fo:table-row>
+
 		</xsl:if>
 	</xsl:template>
 	<!--

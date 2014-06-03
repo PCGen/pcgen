@@ -317,6 +317,7 @@
 		<xsl:param name="special.tag" />
 		<xsl:param name="target.tag"  />
 		<xsl:param name="trigger.tag"  />
+		<xsl:param name="attack_type.tag"  />
 		<xsl:param name="attack.tag"  />
 		<xsl:param name="hit.tag"  />
 		<xsl:param name="miss.tag"  />
@@ -389,6 +390,14 @@
 										<fo:inline font-weight="bold">Target  </fo:inline>
 										<xsl:call-template name="paragraghlist">
 											<xsl:with-param name="tag" select="$target.tag"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="string-length(./*[name()=$attack_type.tag]) &gt; 0">
+									<fo:block font-size="7pt" text-align="left" text-indent="5pt">
+										<fo:inline font-weight="bold">Attack Type  </fo:inline>
+										<xsl:call-template name="paragraghlist">
+											<xsl:with-param name="tag" select="$attack_type.tag"/>
 										</xsl:call-template>
 									</fo:block>
 								</xsl:if>

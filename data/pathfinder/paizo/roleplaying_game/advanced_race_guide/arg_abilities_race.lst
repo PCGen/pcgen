@@ -7,6 +7,8 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 ##Block: Core Racial Abilities
 ##
 
+
+
 ###Block: Dwarf Racial Trait Abilities
 # Ability Name		Unique Key					Category of Ability		Type																				Multiple Requirements																											Description																																																																																																												Automatically Gained Language	Caster level					Bonus to skill									Modify VAR																													Add to vision			Spell Res.				Cost		Source Page		Aspects																					More language
 #Ancient Enmity		KEY:Dwarf ~ Ancient Enmity		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialAttack.Extraordinary.DwarfRacialTrait.DwarfHatred								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Ancient Enmity],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred]									DESC:Dwarves have long been in conflict with elves, especially the hated drow. Dwarves with this racial trait receive a +1 bonus on attack rolls against humanoid creatures of the elf subtype.																																																																																																																																													COST:0	SOURCEPAGE:p.11
@@ -268,12 +270,16 @@ Kitsune Magic						KEY:Kitsune ~ Kitsune Magic		CATEGORY:Special Ability	TYPE:Ra
 Natural Weapons						KEY:Kitsune ~ Natural Weapons		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Natural Weapons],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons]		DEFINE:KitsuneSLATimes|3	SPELLS:Innate|TIMES=KitsuneSLATimes|CASTERLEVEL=TL|Dancing Lights|PRESTAT:1,CHA=11	DESC:Kitsune have a bite attack in their natural form.																																									SOURCEPAGE:p.192	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Piercing,*1,1d4
 
 #Race Traits ~ Kitsune
-Race Traits ~ Kitsune										CATEGORY:Internal
+Race Traits ~ Kitsune										CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Race Language ~ Default Setting|PREABILITY:1,CATEGORY=Internal,TYPE.RaceAlternativeLanguageSet
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapons|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Internal|AUTOMATIC|Kitsune ~ Default Language|PREABILITY:1,CATEGORY=Internal,Race Language ~ Default Setting
+
+
+
 ###Block: Default Nagaji Abilities (POOL=4)
 # Ability Name						Unique Key				Category of Ability		Type															Multiple Requirements																					Description																				Ability																					Combat bonus				Bonus to skill					Source Page
 Low-Light Vision						KEY:Nagaji ~ Low-Light Vision	CATEGORY:Special Ability	TYPE:NagajiRacialTrait.NagajiRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nagaji ~ Low-Light Vision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiLowLightVision]	DESC:Nagaji can see twice as far as humans in conditions of dim light.																																													SOURCEPAGE:p.196

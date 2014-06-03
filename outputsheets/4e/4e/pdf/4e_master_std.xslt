@@ -305,6 +305,8 @@
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="talents"/>
+						<xsl:apply-templates select="powers_classfeatures"/>
+						<xsl:apply-templates select="powers_featpowers"/>
 						<xsl:apply-templates select="powers_atwills"/>
 						<xsl:apply-templates select="powers_encounters"/>
 						<xsl:apply-templates select="powers_dailies"/>
@@ -1092,7 +1094,9 @@
 			    <xsl:attribute name="column-width"><xsl:value-of select="0.17 * (0.26 * $pagePrintableWidth - 8)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row height="2pt"/>
+				<fo:table-row height="2pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1133,7 +1137,9 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="0.5pt"/>
+				<fo:table-row height="0.5pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell/>
 					<fo:table-cell/>
@@ -1171,7 +1177,9 @@
 			    <xsl:attribute name="column-width"><xsl:value-of select="0.56 * (0.26 * $pagePrintableWidth - 4)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row height="2pt"/>
+				<fo:table-row height="2pt">
+				<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1267,10 +1275,13 @@
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.border'"/></xsl:call-template>
 				<xsl:copy-of select="$columns"/>
 				<fo:table-body>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+						<fo:table-cell/>
+					</fo:table-row>
+
 					<fo:table-row>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'skills.header'"/></xsl:call-template>
-						<fo:table-cell />
+						<fo:table-cell/>
 						<fo:table-cell number-columns-spanned="6">
 							<fo:block text-align="end" line-height="10pt" font-weight="bold" font-size="10pt">SKILLS</fo:block>
 						</fo:table-cell>
@@ -3933,6 +3944,63 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+<!--
+====================================
+====================================
+	TEMPLATE - CLASSFEATURE POWERS
+====================================
+====================================-->
+	<xsl:template match="powers_classfeatures">
+		<xsl:if test="count(power_classfeature) &gt; 0">
+			<xsl:call-template name="power.list">
+				<xsl:with-param name="attribute" select="'powers_classfeatures'" />
+				<xsl:with-param name="title" select="'CLASSFEATURE POWERS'" />
+				<xsl:with-param name="list" select="power_classfeature"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="action_type.tag" select="'action_type'"/>
+				<xsl:with-param name="power_type.tag" select="'power_type'"/>
+				<xsl:with-param name="power_use.tag" select="'power_use'"/>
+				<xsl:with-param name="attack_type.tag" select="'attack_type'"/>
+				<xsl:with-param name="attack.tag" select="'attack'"/>
+				<xsl:with-param name="trigger.tag" select="'trigger'"/>
+				<xsl:with-param name="special.tag" select="'special'"/>
+				<xsl:with-param name="target.tag" select="'target'"/>
+				<xsl:with-param name="hit.tag" select="'hit'"/>
+				<xsl:with-param name="miss.tag" select="'miss'"/>
+				<xsl:with-param name="effect.tag" select="'effect'"/>		
+				<xsl:with-param name="sustain.tag" select="'sustain'"/>		
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+<!--
+====================================
+====================================
+	TEMPLATE - FEATPOWERS POWERS
+====================================
+====================================-->
+	<xsl:template match="powers_featpowers">
+		<xsl:if test="count(power_featpower) &gt; 0">
+			<xsl:call-template name="power.list">
+				<xsl:with-param name="attribute" select="'powers_featpowers'" />
+				<xsl:with-param name="title" select="'FEAT POWERS'" />
+				<xsl:with-param name="list" select="power_featpower"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="action_type.tag" select="'action_type'"/>
+				<xsl:with-param name="power_type.tag" select="'power_type'"/>
+				<xsl:with-param name="power_use.tag" select="'power_use'"/>
+				<xsl:with-param name="attack.tag" select="'attack'"/>
+				<xsl:with-param name="trigger.tag" select="'trigger'"/>
+				<xsl:with-param name="special.tag" select="'special'"/>
+				<xsl:with-param name="target.tag" select="'target'"/>
+				<xsl:with-param name="hit.tag" select="'hit'"/>
+				<xsl:with-param name="miss.tag" select="'miss'"/>
+				<xsl:with-param name="effect.tag" select="'effect'"/>		
+				<xsl:with-param name="sustain.tag" select="'sustain'"/>		
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 	<!--
 ====================================
 ====================================
@@ -3941,15 +4009,26 @@
 ====================================-->
 	<xsl:template match="powers_atwills">
 		<xsl:if test="count(powers_atwill) &gt; 0">
-			<xsl:call-template name="bold.list">
+			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_atwills'" />
 				<xsl:with-param name="title" select="'AT-WILL POWERS'" />
 				<xsl:with-param name="list" select="powers_atwill"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="power_type.tag" select="'power_type'"/>
+				<xsl:with-param name="action_type.tag" select="'action_type'"/>
+				<xsl:with-param name="power_use.tag" select="'power_use'"/>
+				<xsl:with-param name="attack.tag" select="'attack'"/>
+				<xsl:with-param name="trigger.tag" select="'trigger'"/>
+				<xsl:with-param name="special.tag" select="'special'"/>
+				<xsl:with-param name="target.tag" select="'target'"/>
+				<xsl:with-param name="hit.tag" select="'hit'"/>
+				<xsl:with-param name="miss.tag" select="'miss'"/>
+				<xsl:with-param name="effect.tag" select="'effect'"/>		
+				<xsl:with-param name="sustain.tag" select="'sustain'"/>		
 			</xsl:call-template>
 		</xsl:if>
-	</xsl:template>
+	</xsl:template>	
 	<!--
 ====================================
 ====================================
@@ -3958,12 +4037,23 @@
 ====================================-->
 	<xsl:template match="powers_encounters">
 		<xsl:if test="count(powers_encounter) &gt; 0">
-			<xsl:call-template name="bold.list">
+			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_encounters'" />
 				<xsl:with-param name="title" select="'ENCOUNTER POWERS'" />
 				<xsl:with-param name="list" select="powers_encounter"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="power_type.tag" select="'power_type'"/>
+				<xsl:with-param name="action_type.tag" select="'action_type'"/>
+				<xsl:with-param name="power_use.tag" select="'power_use'"/>
+				<xsl:with-param name="attack.tag" select="'attack'"/>
+				<xsl:with-param name="trigger.tag" select="'trigger'"/>
+				<xsl:with-param name="special.tag" select="'special'"/>
+				<xsl:with-param name="target.tag" select="'target'"/>
+				<xsl:with-param name="hit.tag" select="'hit'"/>
+				<xsl:with-param name="miss.tag" select="'miss'"/>
+				<xsl:with-param name="effect.tag" select="'effect'"/>		
+				<xsl:with-param name="sustain.tag" select="'sustain'"/>		
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -3975,12 +4065,23 @@
 ====================================-->
 	<xsl:template match="powers_dailies">
 		<xsl:if test="count(powers_daily) &gt; 0">
-			<xsl:call-template name="bold.list">
+			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_dailies'" />
 				<xsl:with-param name="title" select="'DAILY POWERS'" />
 				<xsl:with-param name="list" select="powers_daily"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="power_type.tag" select="'power_type'"/>
+				<xsl:with-param name="action_type.tag" select="'action_type'"/>
+				<xsl:with-param name="power_use.tag" select="'power_use'"/>
+				<xsl:with-param name="attack.tag" select="'attack'"/>
+				<xsl:with-param name="trigger.tag" select="'trigger'"/>
+				<xsl:with-param name="special.tag" select="'special'"/>
+				<xsl:with-param name="target.tag" select="'target'"/>
+				<xsl:with-param name="hit.tag" select="'hit'"/>
+				<xsl:with-param name="miss.tag" select="'miss'"/>
+				<xsl:with-param name="effect.tag" select="'effect'"/>		
+				<xsl:with-param name="sustain.tag" select="'sustain'"/>		
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -3992,15 +4093,28 @@
 ====================================-->
 	<xsl:template match="powers_utilities">
 		<xsl:if test="count(powers_utility) &gt; 0">
-			<xsl:call-template name="bold.list">
+			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_utilities'" />
 				<xsl:with-param name="title" select="'UTILITY POWERS'" />
 				<xsl:with-param name="list" select="powers_utility"/>
-				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="name.tag" select="'name'"/>		
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="power_type.tag" select="'power_type'"/>
+				<xsl:with-param name="action_type.tag" select="'action_type'"/>
+				<xsl:with-param name="power_use.tag" select="'power_use'"/>
+				<xsl:with-param name="trigger.tag" select="'trigger'"/>
+				<xsl:with-param name="attack.tag" select="'attack'"/>
+				<xsl:with-param name="special.tag" select="'special'"/>
+				<xsl:with-param name="target.tag" select="'target'"/>
+				<xsl:with-param name="hit.tag" select="'hit'"/>
+				<xsl:with-param name="miss.tag" select="'miss'"/>
+				<xsl:with-param name="effect.tag" select="'effect'"/>		
+				<xsl:with-param name="sustain.tag" select="'sustain'"/>		
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
+	
 	<!--
 ====================================
 ====================================
@@ -4155,13 +4269,19 @@
 					<xsl:with-param name="details" select="'false'"/>
 				</xsl:call-template>
 				<fo:table-body>
-					<fo:table-row height="2mm"/>
+					<fo:table-row height="2mm">
+									<fo:table-cell/>
+				</fo:table-row>
+
 					<fo:table-row>
 						<fo:table-cell number-columns-spanned="100">
 							<xsl:apply-templates select="." mode="spell.level.table"/>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2mm"/>
+					<fo:table-row height="2mm">				
+					<fo:table-cell/>
+					</fo:table-row>
+
 					<xsl:apply-templates select="level" mode="known.spells">
 						<xsl:with-param name="columnOne" select="$columnOne"/>
 						<xsl:with-param name="columnOneTitle" select="$columnOneTitle"/>
@@ -4302,7 +4422,10 @@
 				<xsl:with-param name="columnOne" select="$columnOne"/>
 				<xsl:sort select="name"/>
 			</xsl:apply-templates>
-			<fo:table-row height="1mm"/>
+			<fo:table-row height="1mm">
+				<fo:table-cell/>
+			</fo:table-row>
+
 		</xsl:if>
 	</xsl:template>
 	<!--

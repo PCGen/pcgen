@@ -107,7 +107,7 @@ CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diploma
 ###Block: UDAM Progression
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Special Abilities
-1	BONUS:VAR|MonkStunningLVL|CL					ABILITY:Special Ability|VIRTUAL|Monk Bonus Feat ~ Stunning Fist
+1	BONUS:VAR|MonkStunningLVL|CL					
 1	BONUS:VAR|WholenessHpLVL|CL	DEFINE:WholenessHpLVL|0
 1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|VIRTUAL|Monk ~ AC Bonus
 ###Block: Level abilities

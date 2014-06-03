@@ -11,3 +11,5 @@ Wayang	SERVESAS:RACE|Wayang	KEY:Wayang_DEG	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE
 Human.MOD		TEMPLATE:Human Ethnicity
 Half-Elf.MOD	TEMPLATE:Human Ethnicity
 Half-Orc.MOD	TEMPLATE:Human Ethnicity
+
+#RaceAlternativeLanguageSet

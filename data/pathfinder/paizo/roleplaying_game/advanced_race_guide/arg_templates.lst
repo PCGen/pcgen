@@ -89,3 +89,6 @@ Mystic Past Life ~ CHA 22	REMOVABLE:NO	BONUS:VAR|MysticPastLifeScoreCHA|22|TYPE=
 Mystic Past Life ~ CHA 23	REMOVABLE:NO	BONUS:VAR|MysticPastLifeScoreCHA|23|TYPE=BASE	PREVAREQ:CHASCORE,23
 Mystic Past Life ~ CHA 24	REMOVABLE:NO	BONUS:VAR|MysticPastLifeScoreCHA|24|TYPE=BASE	PREVAREQ:CHASCORE,24
 
+Kitsune Languages ~ Default Setting			VISIBLE:NO		LANGBONUS:Aklo,Celestial,Elven,Gnome,Tengu	AUTO:LANG|Common|Sylvan	
+
+

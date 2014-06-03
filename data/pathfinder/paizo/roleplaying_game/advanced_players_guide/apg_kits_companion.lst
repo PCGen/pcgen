@@ -2,8 +2,14 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher
 
-# NO LONGER NEEDED - Placed new version in core to make this more seemless.
+STARTPACK:Eidolon	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon]
+RACE:Eidolon	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
+
+
+
+# NO LONGER NEEDED - Placed new version in core to make this more seemless.
 STARTPACK:Eidolon (Quadruped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Quadruped)]
 RACE:Eidolon (Quadruped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11

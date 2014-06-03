@@ -1,6 +1,8 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
+Dragon Empire Setting		KEY:Race Language ~ Dragon Empire Setting	TYPE:RaceLangSelection		CATEGORY:Internal	DESC:Grants the race the default race language of the core supplements.
+
 
 Race Traits ~ Kitsune											CATEGORY:Internal																																																																																																																																		BONUS:ABILITYPOOL|Kitsune Racial Trait|-4
 #
@@ -15,6 +17,9 @@ Change Shape	KEY:Kitsune ~ Change Shape	CATEGORY:Special Ability	TYPE:RacialTrai
 Agile			KEY:Kitsune ~ Agile		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Agile],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile]																	DESC:Kitsune receive a +2 racial bonus on Acrobatics checks.																																																																							BONUS:SKILL|Acrobatics|2|TYPE=Racial
 Kitsune Magic	KEY:Kitsune ~ Kitsune Magic	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.KitsuneRacialTrait.KitsuneRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Kitsune Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic]		SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Dancing Lights,10+CHA|PRESTAT:1,CHA=11	DESC:Kitsune add +1 to the DC of any saving throws against enchantment spells that they cast. Kitsune with a Charisma of 11 or higher also gain a spell-like ability.																																																	BONUS:DC|SCHOOL.Enchantment|1
 Natural Weapon	KEY:Kitsune ~ Natural Weapon	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune ~ Natural Weapon],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapon]														DESC:A kitsune has a bite attack in its natural form. This bite does a base of 1d4 points of damage on a hit. This is a primary attack, or a secondary attack if the kitsune wields a manufactured weapon.																																																							NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+
+
+
 
 Race Traits ~ Nagaji	CATEGORY:Internal
 #
