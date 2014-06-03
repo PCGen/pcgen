@@ -1018,6 +1018,9 @@ Giant Creature (Proper Rules)		SORTKEY:Giant Creature_1a	CATEGORY:Special Abilit
 Giant Creature (Rebuild Option)	SORTKEY:Giant Creature_1b	CATEGORY:Special Ability	TYPE:GiantCreatureSelection				DEFINE:BypassSizeMods|1	DESC:Rebuild Rules: Used for on-the-fly gaming. Size increase by one category; AC increase natural armor by +3; Attacks increase dice rolled by 1 step; Ability Scores +4 size bonus to Str and Con, -2 Dex.	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CON|4|TYPE=Size	BONUS:STAT|DEX|-2|TYPE=Size
 Giant Creature (Quick Rules)		SORTKEY:Giant Creature_1c	CATEGORY:Special Ability	TYPE:GiantCreatureSelection.SpecialQuality					DESC:Quick Rules: +2 to all rolls based on Str or Con, +2 hp/HD, -1 penalty on all rolls based on Dex.
 
+###Block: Defaults till I sort things out - Andrew M.
+Kitsune ~ Default Language	CATEGORY:Internal		
+#AUTO:LANG|
 
 #
 # End
