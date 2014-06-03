@@ -4,7 +4,7 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 # Template Name			Source Page		Required Race			Modify VAR																	Ability																																									Race Subtype		Innate Spells
 Clockwork				SOURCEPAGE:p.256	PRERACE:1,RACETYPE=Construct																			ABILITY:Special Ability|AUTOMATIC|Clockwork ~ Difficult to Create|Clockwork ~ Swift Reactions|Vulnerability to Electricity|Clockwork ~ Winding																			RACESUBTYPE:Clockwork
-Nascent Demon Lord Traits	SOURCEPAGE:p.314	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|NDL ~ Aligned Strike|NDL ~ Grant Spells|Immunity to Charm|Immunity to Compulsion|Immunity to Death Effects|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy					SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord)
+Nascent Demon Lord Traits	SOURCEPAGE:p.314	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|Nascent Demon Lord ~ Aligned Strike|Nascent Demon Lord ~ Grant Spells|Immunity to Charm|Immunity to Compulsion|Immunity to Death Effects|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy					SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord)
 
 ###Block: Human Ethnicities
 # Template Name			Visible	Source Page		Automatically Gained Language	Subrace
