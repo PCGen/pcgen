@@ -61,8 +61,8 @@ CATEGORY=Special Ability|Treerazer ~ Aura of Corruption.MOD		TYPE:PFSNotLegal
 CATEGORY=Special Ability|Treerazer ~ Defoliation.MOD			TYPE:PFSNotLegal
 
 #Nascent Demon Lord abilities
-CATEGORY=Special Ability|NDL ~ Aligned Strike.MOD				TYPE:PFSNotLegal
-CATEGORY=Special Ability|NDL ~ Grant Spells.MOD					TYPE:PFSNotLegal
+CATEGORY=Special Ability|Nascent Demon Lord ~ Aligned Strike.MOD				TYPE:PFSNotLegal
+CATEGORY=Special Ability|Nascent Demon Lord ~ Grant Spells.MOD					TYPE:PFSNotLegal
 
 #Constant Spell-like Abilities
 CATEGORY=Special Ability|Constant ~ Desecrate.MOD				TYPE:PFSNotLegal
