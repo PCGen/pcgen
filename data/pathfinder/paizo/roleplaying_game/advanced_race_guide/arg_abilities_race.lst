@@ -6,8 +6,15 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 ##
 ##Block: Core Racial Abilities
 ##
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default
+CATEGORY=Internal|Race Traits ~ Nagaji.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default
+CATEGORY=Internal|Race Traits ~ Samsaran.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default
+CATEGORY=Internal|Race Traits ~ Wayang.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base	ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default
 
-
+Default Language ~ Kitsune	CATEGORY:Internal	TEMPLATE:Default Language ~ Kitsune	
+Default Language ~ Nagaji	CATEGORY:Internal	TEMPLATE:Default Language ~ Nagaji
+Default Language ~ Samsaran	CATEGORY:Internal	TEMPLATE:Default Language ~ Samsaran	
+Default Language ~ Wayang	CATEGORY:Internal	TEMPLATE:Default Language ~ Wayang	
 
 ###Block: Dwarf Racial Trait Abilities
 # Ability Name		Unique Key					Category of Ability		Type																				Multiple Requirements																											Description																																																																																																												Automatically Gained Language	Caster level					Bonus to skill									Modify VAR																													Add to vision			Spell Res.				Cost		Source Page		Aspects																					More language
@@ -276,7 +283,6 @@ CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMAT
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapons|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD	ABILITY:Internal|AUTOMATIC|Kitsune ~ Default Language|PREABILITY:1,CATEGORY=Internal,Race Language ~ Default Setting
 
 
 

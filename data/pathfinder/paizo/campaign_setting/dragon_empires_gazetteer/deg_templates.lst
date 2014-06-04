@@ -19,3 +19,9 @@ Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-Light Vision
 Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-Light Vision
 Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-Light Vision
 Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')
+
+Dragon Empire ~ Kitsune			AUTO:LANG|Tien|Senzar			VISIBLE:NO	LANGBONUS:Aklo,Celestial,Elven,Gnome,Nagaji,Samsaran,Tengu,Wayang							
+Dragon Empire ~ Nagaji			AUTO:LANG|Nagaji|Tien			VISIBLE:NO	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Samsaran,Senzar,Sylvan,Tengu,Wayang		
+Dragon Empire ~ Samsaran		AUTO:LANG|Samsaran|Tien			VISIBLE:NO	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Nagaji,Senzar,Tengu,Wayang	
+Dragon Empire ~ Tengu			AUTO:LANG|Tengu|Tien			VISIBLE:NO	LANGBONUS:TYPE=Spoken															
+Dragon Empire ~ Wayang			AUTO:LANG|Wayang|Tien			VISIBLE:NO	LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Nagaji,Samsaran,Senzar,Tengu					

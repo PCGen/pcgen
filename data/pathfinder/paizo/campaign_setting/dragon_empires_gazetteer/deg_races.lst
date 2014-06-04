@@ -1,15 +1,14 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
-# Race Name		Unique Key		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages															Stat bonus						Automatically Gained Language	Ability								Main Race Type	Type			Template				Challenge Rating
-Kitsune	SERVESAS:RACE|Kitsune	KEY:Kitsune_DEG	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Aklo,Celestial,Elven,Gnome,Nagaji,Samsaran,Tengu,Wayang							BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|Tien|Senzar		ABILITY:Internal|AUTOMATIC|Race Traits ~ Kitsune	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Kitsune			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
-Nagaji	SERVESAS:RACE|Nagaji	KEY:Nagaji_DEG	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Samsaran,Senzar,Sylvan,Tengu,Wayang		BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Nagaji|Tien		ABILITY:Internal|AUTOMATIC|Race Traits ~ Nagaji		RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Nagaji			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
-Samsaran	SERVESAS:RACE|Samsaran	KEY:Samsaran_DEG	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Nagaji,Senzar,Tengu,Wayang	BONUS:STAT|INT,WIS|2	BONUS:STAT|CON|-2	AUTO:LANG|Samsaran|Tien		ABILITY:Internal|AUTOMATIC|Race Traits ~ Samsaran	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Samsaran			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
-Tengu		SERVESAS:RACE|Tengu	KEY:Tengu_DEG	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL															BONUS:STAT|DEX,WIS|2	BONUS:STAT|CON|-2	AUTO:LANG|Tengu|Tien		ABILITY:Internal|AUTOMATIC|Race Traits ~ Tengu		RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Tengu			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
-Wayang	SERVESAS:RACE|Wayang	KEY:Wayang_DEG	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Nagaji,Samsaran,Senzar,Tengu					BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	AUTO:LANG|Wayang|Tien		ABILITY:Internal|AUTOMATIC|Race Traits ~ Wayang		RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Wayang			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
+# Race Name		Starting Feats	Size		Move			Face/Space	Reach		Stat bonus						Automatically Gained Language	Ability			Main Race Type	Type			Template				Challenge Rating
+Kitsune		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	ABILITY:Internal|AUTOMATIC|Race Traits ~ Kitsune	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Kitsune			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
+Nagaji		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	ABILITY:Internal|AUTOMATIC|Race Traits ~ Nagaji		RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Nagaji			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
+Samsaran		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:STAT|INT,WIS|2	BONUS:STAT|CON|-2	ABILITY:Internal|AUTOMATIC|Race Traits ~ Samsaran	RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Samsaran			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
+Tengu			STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	BONUS:STAT|DEX,WIS|2	BONUS:STAT|CON|-2	ABILITY:Internal|AUTOMATIC|Race Traits ~ Tengu		RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Tengu			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
+Wayang		STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	ABILITY:Internal|AUTOMATIC|Race Traits ~ Wayang		RACETYPE:Humanoid	TYPE:Base.PC	TEMPLATE:Wayang			CR:1/2	SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG
 ###Block: Add Ethnicity
 Human.MOD		TEMPLATE:Human Ethnicity
 Half-Elf.MOD	TEMPLATE:Human Ethnicity
 Half-Orc.MOD	TEMPLATE:Human Ethnicity
 
-#RaceAlternativeLanguageSet

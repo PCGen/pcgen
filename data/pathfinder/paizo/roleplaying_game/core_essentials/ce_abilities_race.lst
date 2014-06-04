@@ -1019,8 +1019,8 @@ Giant Creature (Rebuild Option)	SORTKEY:Giant Creature_1b	CATEGORY:Special Abili
 Giant Creature (Quick Rules)		SORTKEY:Giant Creature_1c	CATEGORY:Special Ability	TYPE:GiantCreatureSelection.SpecialQuality					DESC:Quick Rules: +2 to all rolls based on Str or Con, +2 hp/HD, -1 penalty on all rolls based on Dex.
 
 ###Block: Defaults till I sort things out - Andrew M.
-Kitsune ~ Default Language	CATEGORY:Internal		
-#AUTO:LANG|
+Setting Language ~ Default	CATEGORY:Internal		TYPE:RaceLanguageSelection
+
 
 #
 # End

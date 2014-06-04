@@ -1,7 +1,24 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
-Dragon Empire Setting		KEY:Race Language ~ Dragon Empire Setting	TYPE:RaceLangSelection		CATEGORY:Internal	DESC:Grants the race the default race language of the core supplements.
+Dragon Empire Setting		KEY:Setting Language ~ Dragon Empire Setting	TYPE:RaceLanguageSelection		CATEGORY:Internal	DESC:Grants the race the default race language of the core supplements.
+
+
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting	
+CATEGORY=Internal|Race Traits ~ Nagaji.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting	
+CATEGORY=Internal|Race Traits ~ Samsaran.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting	
+CATEGORY=Internal|Race Traits ~ Tengu.MOD		BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Tengu|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting		
+CATEGORY=Internal|Race Traits ~ Wayang.MOD	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Dragon Empire ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Dragon Empire Setting	
+
+Dragon Empire ~ Kitsune		CATEGORY:Internal		TEMPLATE:Dragon Empire ~ Kitsune		
+Dragon Empire ~ Nagaji		CATEGORY:Internal		TEMPLATE:Dragon Empire ~ Nagaji		
+Dragon Empire ~ Samsaran	CATEGORY:Internal		TEMPLATE:Dragon Empire ~ Samsaran	
+Dragon Empire ~ Tengu		CATEGORY:Internal		TEMPLATE:Dragon Empire ~ Tengu		
+Dragon Empire ~ Wayang		CATEGORY:Internal		TEMPLATE:Dragon Empire ~ Wayang		
+
+
+
+
 
 
 Race Traits ~ Kitsune											CATEGORY:Internal																																																																																																																																		BONUS:ABILITYPOOL|Kitsune Racial Trait|-4
