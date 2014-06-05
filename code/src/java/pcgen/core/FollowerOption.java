@@ -28,7 +28,6 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -113,10 +112,10 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 * then the master must have at least 4 levels to qualify for this follower
 	 * (4 - 3 &gt; 0)
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#qualifies(pcgen.core.PlayerCharacter, Loadable)
+	 * @see pcgen.cdom.base.PrereqObject#qualifies(pcgen.core.PlayerCharacter, Object)
 	 */
 	@Override
-	public boolean qualifies(final PlayerCharacter aPC, Loadable source)
+	public boolean qualifies(final PlayerCharacter aPC, Object source)
 	{
 		if (theAdjustment != 0)
 		{

@@ -17,14 +17,14 @@
  */
 package pcgen.cdom.helper;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
-import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -162,20 +162,21 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, T choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, T choice, PlayerCharacter pc)
 	{
 		Ability ab = ability.resolvesTo();
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
 		detailedApply(obj, ci, choice, pc);
 	}
 	
-	private <T> void detailedApply(CDOMObject obj, ChooseInformation<T> ci,
+	private <T> void detailedApply(ChooseDriver obj, ChooseInformation<T> ci,
 		T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				new CNAbility(category, ability.resolvesTo(), nature), string);
-		pc.addAppliedAbility(appliedSelection, obj);
+				CNAbilityFactory.getCNAbility(category, nature, ability.resolvesTo()), string);
+		appliedSelection.addAllPrerequisites(getPrerequisiteList());
+		pc.addAbility(appliedSelection, obj, this);
 	}
 
 	@Override
@@ -191,20 +192,20 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, T choice, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, T choice, PlayerCharacter pc)
 	{
 		Ability ab = ability.resolvesTo();
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
 		detailedRemove(obj, ci, choice, pc);
 	}
 	
-	private <T> void detailedRemove(CDOMObject obj, ChooseInformation<T> ci,
+	private <T> void detailedRemove(ChooseDriver obj, ChooseInformation<T> ci,
 		T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				new CNAbility(category, ability.resolvesTo(), nature), string);
-		pc.removeAppliedAbility(appliedSelection, obj);
+				CNAbilityFactory.getCNAbility(category, nature, ability.resolvesTo()), string);
+		pc.removeAbility(appliedSelection, obj, this);
 	}
 
 	@Override

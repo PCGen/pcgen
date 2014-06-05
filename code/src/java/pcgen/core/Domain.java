@@ -25,6 +25,15 @@
  */
 package pcgen.core;
 
+import java.util.List;
+
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.facade.InfoFacade;
 
 
@@ -35,6 +44,35 @@ import pcgen.core.facade.InfoFacade;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
-public final class Domain extends PObject implements InfoFacade
+public final class Domain extends PObject implements InfoFacade, ChooseDriver
 {
+	@Override
+	public ChooseInformation<?> getChooseInfo()
+	{
+		return get(ObjectKey.CHOOSE_INFO);
+	}
+
+	@Override
+	public Formula getSelectFormula()
+	{
+		return getSafe(FormulaKey.SELECT);
+	}
+
+	@Override
+	public List<ChooseSelectionActor<?>> getActors()
+	{
+		return getListFor(ListKey.NEW_CHOOSE_ACTOR);
+	}
+
+	@Override
+	public String getFormulaSource()
+	{
+		return getKeyName();
+	}
+
+	@Override
+	public Formula getNumChoices()
+	{
+		return getSafe(FormulaKey.NUMCHOICES);
+	}
 }

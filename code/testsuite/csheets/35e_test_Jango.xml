@@ -1092,6 +1092,16 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<!-- Virtual Feats -->
+		<feat>
+			<name>Weapon Focus (Longsword)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Longsword</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->

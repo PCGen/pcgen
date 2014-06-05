@@ -30,7 +30,6 @@ import java.util.Map;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
-import pcgen.core.Ability;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -68,13 +67,6 @@ public final class AssociationListKey<T>
 	 * This is a candidate to be sunset as part of CODE-1908
 	 */
 	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
-
-	/*
-	 * The following items are used by the tokens to store the information that
-	 * was selected, and this information is intended to be extracted by the
-	 * Facets. So the use of this key is not localized
-	 */
-	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 
 	/*
 	 * End non-local token-related keys

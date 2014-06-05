@@ -31,10 +31,9 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -74,7 +73,7 @@ public class ChooserUtilities
 	 * @return true if we processed the list of choices, false if we used the
 	 *         routine to build the list of choices without processing them.
 	 */
-	public static final boolean modChoices(final CDOMObject aPObject,
+	public static final boolean modChoices(final ChooseDriver aPObject,
 		List availableList, final List selectedList, final PlayerCharacter aPC,
 		final boolean addIt, final AbilityCategory category)
 	{
@@ -90,11 +89,6 @@ public class ChooserUtilities
 		}
 
 		aMan.getChoices(aPC, availableList, selectedList);
-		if (aPObject instanceof Ability)
-		{
-			modifyAvailChoicesForAbilityCategory(availableList, category,
-				(Ability) aPObject);
-		}
 
 		if (availableList.size() > 0 || selectedList.size() > 0)
 		{
@@ -116,7 +110,7 @@ public class ChooserUtilities
 	}
 
 	public static <T> ChoiceManagerList<T> getConfiguredController(
-			final CDOMObject aPObject, final PlayerCharacter aPC,
+			final ChooseDriver aPObject, final PlayerCharacter aPC,
 			final AbilityCategory category, List<String> reservedList)
 	{
 		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
@@ -125,9 +119,10 @@ public class ChooserUtilities
 			return null;
 		}
 
-		if (aPObject instanceof Ability)
+		if (aPObject instanceof CNAbility)
 		{
-			Ability a = (Ability) aPObject;
+			CNAbility driver = (CNAbility) aPObject;
+			Ability a = driver.getAbility();
 			AbilityCategory cat;
 			if (category == null)
 			{
@@ -232,13 +227,13 @@ public class ChooserUtilities
 	 * 
 	 * @return an initialized ChoiceManager
 	 */
-	public static ChoiceManagerList getChoiceManager(CDOMObject aPObject,
+	public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject,
 		PlayerCharacter aPC)
 	{
-		ChooseInformation<?> chooseInfo = aPObject.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> chooseInfo = aPObject.getChooseInfo();
 		if (chooseInfo != null)
 		{
-			Formula selectionsPerUnitCost = aPObject.getSafe(FormulaKey.SELECT);
+			Formula selectionsPerUnitCost = aPObject.getSelectFormula();
 			int cost = selectionsPerUnitCost.resolve(aPC, "").intValue();
 			return chooseInfo.getChoiceManager(aPObject, cost);
 		}

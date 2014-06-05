@@ -33,16 +33,14 @@ import javax.swing.SwingUtilities;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.CategorizedDataFacetChangeEvent;
-import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.input.ActiveAbilityFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -94,9 +92,7 @@ public class CharacterAbilities
 	private DataSetFacade dataSetFacade;
 	private final List<ChangeListener> abilityCatSelectionListeners;
 	private final TodoManager todoManager;
-	private ActiveAbilityChangeHandler activeAbilityChangeHandler;
 	private GrantedAbilityChangeHandler grantedAbilityChangeHandler;
-	private DirectAbilityChangeHandler directAbilityChangeHandler;
 
 	/**
 	 * Create a new instance of CharacterAbilities for a character.
@@ -123,12 +119,8 @@ public class CharacterAbilities
 	 */
 	protected void closeCharacter()
 	{
-		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
-		directAbilityFacet.removeDataFacetChangeListener(directAbilityChangeHandler);
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 		grantedAbilityFacet.removeDataFacetChangeListener(grantedAbilityChangeHandler);
-		ActiveAbilityFacet activeAbilityFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
-		activeAbilityFacet.removeDataFacetChangeListener(activeAbilityChangeHandler);
 	}
 	
 	private void initForCharacter()
@@ -139,33 +131,12 @@ public class CharacterAbilities
 
 		charID = theCharacter.getCharID();
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
-		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
-		ActiveAbilityFacet activeAbilityFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
 		
 		//theCharacter.getAbilityList(cat, nature)
 		rebuildAbilityLists();
 		
-		activeAbilityChangeHandler = new ActiveAbilityChangeHandler();
-		activeAbilityFacet.addDataFacetChangeListener(activeAbilityChangeHandler);
 		grantedAbilityChangeHandler = new GrantedAbilityChangeHandler();
 		grantedAbilityFacet.addDataFacetChangeListener(grantedAbilityChangeHandler);
-		directAbilityChangeHandler = new DirectAbilityChangeHandler();
-		directAbilityFacet.addDataFacetChangeListener(directAbilityChangeHandler);
-	}
-
-	private void addAbilityToLists(AbilityCategory cat, Ability ability, Nature nature)
-	{
-		addCategorisedAbility(cat, ability, nature, abilityListMap);
-		if (!activeCategories.containsElement(cat))
-		{
-			int index = getCatIndex(cat, activeCategories);
-			activeCategories.addElement(index, cat);
-		}
-		else
-		{
-			adviseSelectionChangeLater(cat);				
-		}
-		updateAbilityCategoryLater(cat);		
 	}
 
 	void removeAbilityFromLists(AbilityCategory cat,
@@ -201,7 +172,7 @@ public class CharacterAbilities
 
 			for (CNAbility cna : theCharacter.getPoolAbilities(cat))
 			{
-				addCategorisedAbility(cat, cna.getAbility(), cna.getNature(), workingAbilityListMap);
+				addCategorisedAbility(cna, workingAbilityListMap);
 			}
 
 			// deal with visibility
@@ -331,32 +302,37 @@ public class CharacterAbilities
 	 * @param nature The nature via which the ability is being added.
 	 * @param workingAbilityListMap The map to be adjusted.
 	 */
-	private void addCategorisedAbility(AbilityCategory cat,
-		Ability ability, Nature nature, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
+	private void addCategorisedAbility(CNAbility cna, Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap)
 	{
+		Ability ability = cna.getAbility();
 		List<CNAbilitySelection> cas = new ArrayList<CNAbilitySelection>();
+		Category<Ability> cat = cna.getAbilityCategory();
+		Nature nature = cna.getNature();
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			List<String> choices = theCharacter.getAssociationList(ability);
+			List<String> choices = theCharacter.getAssociationList(cna);
 			if (choices == null || choices.isEmpty())
 			{
-				//TODO shouldn't this be a warning - the core should not let this happen?
-				cas.add(new CNAbilitySelection(new CNAbility(cat, ability, nature),
-					""));
+				Logging
+					.errorPrint("Ignoring Ability: "
+						+ ability
+						+ " ("
+						+ cat
+						+ " / "
+						+ nature
+						+ ") that UI has as added to the PC, but it has no associations");
 			}
 			else
 			{
 				for (String choice : choices)
 				{
-					cas.add(new CNAbilitySelection(new CNAbility(cat, ability,
-						nature), choice));
+					cas.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability), choice));
 				}
 			}
-			
 		}
 		else
 		{
-			cas.add(new CNAbilitySelection(new CNAbility(cat, ability, nature)));
+			cas.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability)));
 		}
 		for (CNAbilitySelection sel : cas)
 		{
@@ -370,11 +346,11 @@ public class CharacterAbilities
 		CNAbilitySelection cas;
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			cas = new CNAbilitySelection(new CNAbility(cat, ability, nature), "");
+			cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability), "");
 		}
 		else
 		{
-			cas = new CNAbilitySelection(new CNAbility(cat, ability, nature));
+			cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability));
 		}
 		removeElement(cas);
 	}
@@ -412,8 +388,8 @@ public class CharacterAbilities
 
 			theCharacter.getSpellList();
 
-			AbilityUtilities.driveChooseAndAdd(new CNAbility(category, ability,
-				Nature.NORMAL), theCharacter, true);
+			CNAbility cna = CNAbilityFactory.getCNAbility(category, Nature.NORMAL, ability);
+			AbilityUtilities.driveChooseAndAdd(cna, theCharacter, true);
 		}
 		catch (Exception exc)
 		{
@@ -454,21 +430,16 @@ public class CharacterAbilities
 		Ability anAbility = (Ability) abilityFacade;
 		AbilityCategory theCategory = (AbilityCategory) categoryFacade;
 
-		try
-		{
-			theCharacter.setDirty(true);
-			if (!theCharacter.isImporting())
-			{
-				theCharacter.getSpellList();
-			}
-
+		try {
 			Ability pcAbility =
 					theCharacter.getMatchingAbility(theCategory, anAbility,
 						Nature.NORMAL);
 
 			if (pcAbility != null)
 			{
-				CNAbility cna = new CNAbility(theCategory, pcAbility, Nature.NORMAL);
+				CNAbility cna =
+						CNAbilityFactory.getCNAbility(theCategory,
+							Nature.NORMAL, anAbility);
 				AbilityUtilities.driveChooseAndAdd(cna, theCharacter, false);
 				theCharacter.adjustMoveRates();
 			}
@@ -768,62 +739,6 @@ public class CharacterAbilities
 		}
 	}
 
-	
-	/**
-	 * The Class <code>DirectAbilityChangeHandler</code> responds to changes to 
-	 * the character's list of direct abilities.
-	 */
-	private final class DirectAbilityChangeHandler implements
-			DataFacetChangeListener<CharID, CNAbilitySelection>
-	{
-		@SuppressWarnings("nls")
-		@Override
-		public void dataAdded(
-			DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
-		{
-			if (dfce.getCharID() != charID)
-			{
-				// The change notification is not for this character, so ignore it.
-//				Logging.debugPrint("CA for " + theCharacter.getName() 
-//					+ ". Ignoring direct ability added for character " 
-//					+ dfce.getCharID());
-				return;
-			}
-			CNAbilitySelection cnas = dfce.getCDOMObject();
-			CNAbility cas = cnas.getCNAbility();
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint("Got direct ability added of "
-					+ cas.getAbilityKey() + " for cat "
-					+ cas.getAbilityCategory());
-			}
-			addElement(abilityListMap, cnas);
-			updateAbilityCategoryLater(cas.getAbilityCategory());
-		}
-
-		@SuppressWarnings("nls")
-		@Override
-		public void dataRemoved(
-			DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
-		{
-			if (dfce.getCharID() != charID)
-			{
-				// The change notification is not for this character, so ignore it.
-				return;
-			}
-			CNAbilitySelection cnas = dfce.getCDOMObject();
-			CNAbility cas = cnas.getCNAbility();
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint("Got direct ability removed of "
-					+ cas.getAbilityKey() + " for cat "
-					+ cas.getAbilityCategory());
-			}
-			removeElement(cnas);
-			updateAbilityCategoryLater(cas.getAbilityCategory());
-		}
-	}
-
 	/**
 	 * The Class <code>GrantedAbilityChangeHandler</code> responds to changes to 
 	 * the character's list of granted abilities.
@@ -871,72 +786,6 @@ public class CharacterAbilities
 			}
 			//Ability ability = dfce.getCDOMObject();
 			rebuildAbilityLists();
-		}
-	}
-
-	/**
-	 * The Class <code>ActiveAbilityChangeHandler</code> responds to changes to 
-	 * the character's list of active abilities.
-	 */
-	private final class ActiveAbilityChangeHandler implements
-			DataFacetChangeListener<CharID, Ability>
-	{
-		@SuppressWarnings("nls")
-		@Override
-		public void dataAdded(DataFacetChangeEvent<CharID, Ability> dfce)
-		{
-			if (dfce.getCharID() != charID)
-			{
-//					Logging.debugPrint("CA for " + theCharacter.getName()
-//						+ ". Ignoring active ability added for character "
-//						+ dfce.getCharID());
-				return;
-			}
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint("Got active ability added of "
-					+ dfce.getCDOMObject());
-			}
-			Ability ability = dfce.getCDOMObject();
-			if (dfce instanceof CategorizedDataFacetChangeEvent)
-			{
-				
-				CategorizedDataFacetChangeEvent<CharID, ?> categorizedEvent =
-						(CategorizedDataFacetChangeEvent<CharID, ?>) dfce;
-				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
-				Nature nature = categorizedEvent.getNature();
-				addAbilityToLists(cat, ability, nature);
-			}
-		}
-
-		@SuppressWarnings("nls")
-		@Override
-		public void dataRemoved(DataFacetChangeEvent<CharID, Ability> dfce)
-		{
-			if (dfce.getCharID() != charID)
-			{
-					Logging
-						.debugPrint("CA for "
-							+ charDisplay.getName()
-							+ ". Ignoring active ability removed for character "
-							+ dfce.getCharID());
-				return;
-			}
-			if (Logging.isDebugMode())
-			{
-				Logging.debugPrint("Got active ability removed of "
-					+ dfce.getCDOMObject());
-			}
-			Ability ability = dfce.getCDOMObject();
-			if (dfce instanceof CategorizedDataFacetChangeEvent)
-			{
-				
-				CategorizedDataFacetChangeEvent<CharID, ?> categorizedEvent =
-						(CategorizedDataFacetChangeEvent<CharID, ?>) dfce;
-				AbilityCategory cat = (AbilityCategory) categorizedEvent.getCategory();
-				Nature nature = categorizedEvent.getNature();
-				removeAbilityFromLists(cat, ability, nature);
-			}
 		}
 	}
 

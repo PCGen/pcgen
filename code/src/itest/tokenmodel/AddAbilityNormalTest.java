@@ -19,17 +19,25 @@ package tokenmodel;
 
 import java.util.Collection;
 
+import org.junit.Test;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.input.ActiveAbilityFacet;
+import pcgen.cdom.facet.GrantedAbilityFacet;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Domain;
+import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.add.AbilityToken;
+import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
@@ -38,8 +46,8 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 {
 
 	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
-	private ActiveAbilityFacet activeAbilityFacet = FacetLibrary
-		.getFacet(ActiveAbilityFacet.class);
+	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
+		.getFacet(GrantedAbilityFacet.class);
 	private AssocCheck assocCheck;
 
 	@Override
@@ -63,9 +71,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 
 	private ParseResult runToken(CDOMObject source)
 	{
-		ParseResult result =
-				ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|NORMAL|Granted");
-		return result;
+		return ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|NORMAL|STACKS,Granted");
 	}
 
 	@Override
@@ -75,9 +81,9 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	}
 
 	@Override
-	protected ActiveAbilityFacet getTargetFacet()
+	protected GrantedAbilityFacet getTargetFacet()
 	{
-		return activeAbilityFacet;
+		return grantedAbilityFacet;
 	}
 
 	@Override
@@ -145,42 +151,42 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	}
 
 	//TODO this appears to be a bug - is only applied once?
-//	@Test
-//	public void testMult() throws PersistenceLayerException
-//	{
-//		TokenRegistration.register(new NoChoiceToken());
-//		TokenRegistration.register(new StackToken());
-//		Domain source = create(Domain.class, "Source");
-//		PCClass pcc = create(PCClass.class, "Class");
-//		Ability a = createGrantedObject();
-//		context.unconditionallyProcess(a, "MULT", "YES");
-//		context.unconditionallyProcess(a, "STACK", "YES");
-//		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
-//		runToken(source);
-//		processToken(source);
-//		assocCheck = new AssocCheck()
-//		{
-//			
-//			public boolean check(Ability g)
-//			{
-//				if (pc.getDetailedAssociationCount(g) == 1)
-//				{
-//					return true;
-//				}
-//				else
-//				{
-//					System.err.println("Incorrect Association Count");
-//					return false;
-//				}
-//			}
-//			
-//		};
-//		assertEquals(0, getCount());
-//		ClassSource classSource = new ClassSource(pcc);
-//		domainFacet.add(id, source, classSource);
-//		assertTrue(containsExpected(a));
-//		assertEquals(2, getCount());
-//		domainFacet.remove(id, source);
-//		assertEquals(0, getCount());
-//	}
+	@Test
+	public void testMult() throws PersistenceLayerException
+	{
+		TokenRegistration.register(new NoChoiceToken());
+		TokenRegistration.register(new StackToken());
+		Domain source = create(Domain.class, "Source");
+		PCClass pcc = create(PCClass.class, "Class");
+		Ability a = createGrantedObject();
+		context.unconditionallyProcess(a, "MULT", "YES");
+		context.unconditionallyProcess(a, "STACK", "YES");
+		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
+		runToken(source);
+		processToken(source);
+		assocCheck = new AssocCheck()
+		{
+			
+			public boolean check(CNAbility g)
+			{
+				if (pc.getDetailedAssociationCount(g) == 2)
+				{
+					return true;
+				}
+				else
+				{
+					System.err.println("Incorrect Association Count");
+					return false;
+				}
+			}
+			
+		};
+		assertEquals(0, getCount());
+		ClassSource classSource = new ClassSource(pcc);
+		domainFacet.add(id, source, classSource);
+		assertTrue(containsExpected(a));
+		assertEquals(2, getCount());
+		domainFacet.remove(id, source);
+		assertEquals(0, getCount());
+	}
 }

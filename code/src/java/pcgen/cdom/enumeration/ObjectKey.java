@@ -42,6 +42,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -241,7 +242,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<SpellProhibitor> CHOICE = new ObjectKey<SpellProhibitor>(null);
 
-	public static final ObjectKey<TransitionChoice<Ability>> MODIFY_CHOICE = new ObjectKey<TransitionChoice<Ability>>(null);
+	public static final ObjectKey<TransitionChoice<CNAbility>> MODIFY_CHOICE = new ObjectKey<TransitionChoice<CNAbility>>(null);
 
 	public static final ObjectKey<Boolean> CONTAINER_CONSTANT_WEIGHT = new ObjectKey<Boolean>(Boolean.FALSE);
 

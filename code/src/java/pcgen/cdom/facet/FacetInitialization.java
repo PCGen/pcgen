@@ -19,7 +19,6 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
-import pcgen.cdom.facet.input.ActiveAbilityFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.MasterUsableSkillFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
@@ -84,7 +83,6 @@ public class FacetInitialization {
 		CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
 		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
-		ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
 
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
 		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
@@ -135,7 +133,6 @@ public class FacetInitialization {
 		classFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		deityFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		domainFacet.addDataFacetChangeListener(charObjectFacet); //model done
-		abFacet.addDataFacetChangeListener(charObjectFacet);
 		raceFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		sizeFacet.addDataFacetChangeListener(charObjectFacet);
 		skillFacet.addDataFacetChangeListener(charObjectFacet); //model done
@@ -145,7 +142,7 @@ public class FacetInitialization {
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
 		classLevelFacet.addDataFacetChangeListener(charObjectFacet); //model done
-		simpleAbilityFacet.addDataFacetChangeListener(charObjectFacet);
+		simpleAbilityFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
 		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);

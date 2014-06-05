@@ -50,11 +50,11 @@ public interface ChooseInformation<T>
 
 	Collection<? extends T> getSet(PlayerCharacter pc);
 	
-	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
-	void removeChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
-	ChoiceManagerList<T> getChoiceManager(CDOMObject owner, int cost);
+	ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost);
 
 	CharSequence composeDisplay(Collection<? extends T> collection);
 

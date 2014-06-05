@@ -50,6 +50,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -988,6 +989,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			for (final String line : cache.get(TAG_ABILITY))
 			{
+System.err.println(line);
 				parseAbilityLine(line);
 			}
 		}
@@ -2596,7 +2598,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 		}
-
 		List<String> associations = new ArrayList<String>();
 		List<BonusObj> bonuses = new ArrayList<BonusObj>();
 		while (it.hasNext())
@@ -2636,53 +2637,65 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (ability != null && category != null && nature != null)
 		{
 			CNAbility cna = null;
+			boolean needError = true;
 			if (nature == Nature.NORMAL)
 			{
 				// If we weren't loading an old character who had feats stored as seperate
 				// lines, save the feat now.
 				if (!featsPresent || category != AbilityCategory.FEAT)
 				{
-					cna = new CNAbility(category, ability, nature);
+					cna = CNAbilityFactory.getCNAbility(category, nature, ability);
+				}
+				else
+				{
+					needError = false;
 				}
 			}
 			else if (nature == Nature.VIRTUAL)
 			{
-				cna = new CNAbility(category, ability, nature);
+				cna = CNAbilityFactory.getCNAbility(category, nature, ability);
 			}
-			if (cna != null)
+			if (cna == null)
+			{
+				if (needError)
+				{
+					warnings.add("Unable to build Ability: " + ability);
+				}
+			}
+			else
 			{
 				if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
  				{
 					for (String appliedToKey : associations)
- 					{
-						if ((ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && ability
-							.getSafe(ObjectKey.STACKS))
-							|| !thePC.containsAssociated(cna, appliedToKey))
- 						{
-							String[] assoc =
-									appliedToKey.split(Constants.COMMA, -1);
-							for (String string : assoc)
+					{
+						String[] assoc =
+								appliedToKey.split(Constants.COMMA, -1);
+						for (String string : assoc)
+						{
+							CNAbilitySelection cnas =
+									new CNAbilitySelection(cna, string);
+							if (nature == Nature.VIRTUAL)
 							{
-								CNAbilitySelection cnas =
-										new CNAbilitySelection(cna, string);
-								if (nature == Nature.VIRTUAL)
-								{
-									thePC.addSavedAbility(cnas,
-										UserSelection.getInstance(),
-										UserSelection.getInstance());
-								}
-								else
-								{
-									thePC.addAbility(cnas,
-										UserSelection.getInstance(),
-										UserSelection.getInstance());
-								}
+								thePC.addSavedAbility(cnas,
+									UserSelection.getInstance(),
+									UserSelection.getInstance());
 							}
- 						}
- 					}
+							else
+							{
+								thePC.addAbility(cnas,
+									UserSelection.getInstance(),
+									UserSelection.getInstance());
+							}
+						}
+					}
 				}
 				else
 				{
+					if (associations != null && !associations.isEmpty())
+					{
+						warnings.add(cna + " found with selections: "
+							+ associations + " but is MULT:NO in the data");
+					}
 					CNAbilitySelection cnas = new CNAbilitySelection(cna);
 					if (nature == Nature.VIRTUAL)
 					{
@@ -2756,7 +2769,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 
-			CNAbility pcAbility = new CNAbility(AbilityCategory.FEAT, anAbility, Nature.NORMAL);
+			CNAbility pcAbility =
+					CNAbilityFactory.getCNAbility(AbilityCategory.FEAT,
+						Nature.NORMAL, anAbility);
 			if (!anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
 				thePC.addAbility(new CNAbilitySelection(pcAbility),
@@ -2847,9 +2862,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				final String appliedToKey =
 						EntityEncoder.decode(element.getText());
 
-				if ((aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && aFeat
-					.getSafe(ObjectKey.STACKS))
-					|| !thePC.containsAssociated(cna, appliedToKey))
+				if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					String[] assoc = appliedToKey.split(Constants.COMMA, -1);
 					for (String string : assoc)
@@ -4773,7 +4786,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				return;
 			}
-			CNAbility cna = new CNAbility(AbilityCategory.FEAT, anAbility, Nature.VIRTUAL);
+			CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, anAbility);
 			parseFeatsHandleAppliedToAndSaveTags(it, cna);
 			thePC.setDirty(true);
 		}

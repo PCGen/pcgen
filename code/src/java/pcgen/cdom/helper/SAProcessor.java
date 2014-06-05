@@ -21,10 +21,11 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
+import pcgen.util.Logging;
 
 public final class SAProcessor implements QualifiedActor<SpecialAbility, SpecialAbility>
 {
@@ -46,15 +47,26 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 			StringBuilder sb = new StringBuilder();
 			sb.append(key.substring(0, idx));
 
-			if (pc.hasAssociations((CDOMObject) source))
+			if (source instanceof ChooseDriver)
 			{
-				List<String> associationList =
-						pc.getAssociationList((CDOMObject) source);
-				Collections.sort(associationList);
-				sb.append(StringUtil.joinToStringBuilder(associationList, ", "));
+				ChooseDriver object = (ChooseDriver) source;
+				if (pc.hasAssociations(object))
+				{
+					List<String> associationList =
+							pc.getAssociationList(object);
+					Collections.sort(associationList);
+					sb.append(StringUtil.joinToStringBuilder(associationList, ", "));
+				}
 			}
 			else
 			{
+				Logging
+					.errorPrint("In SpecialAbility resolution, "
+						+ "Error using object of type: "
+						+ source.getClass().getName()
+						+ " because "
+						+ "%CHOICE"
+						+ " was requested but the object does not support CHOOSE");
 				sb.append("<undefined>");
 			}
 

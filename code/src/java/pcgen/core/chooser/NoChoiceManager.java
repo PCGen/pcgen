@@ -3,7 +3,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
@@ -12,7 +12,7 @@ import pcgen.core.PlayerCharacter;
 public class NoChoiceManager implements ChoiceManagerList<String>
 {
 
-	private final CDOMObject owner;
+	private final ChooseDriver owner;
 	private final int choicesPerUnitCost;
 	private ChooseController<String> controller =
 			new ChooseController<String>();
@@ -20,7 +20,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 
 	private transient int preChooserChoices;
 
-	public NoChoiceManager(CDOMObject cdo,
+	public NoChoiceManager(ChooseDriver cdo,
 		ChooseInformation<String> chooseType, int cost)
 	{
 		owner = cdo;
@@ -76,7 +76,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		final List<String> availableList, final List<String> selectedList,
 		final List<String> reservedList)
 	{
-		selectedList.add("NOCHOICE");
+		selectedList.add("");
 		return new ArrayList<String>(selectedList);
 	}
 
@@ -113,7 +113,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject target,
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver target,
 		String choice)
 	{
 		info.restoreChoice(pc, target, info.decodeChoice(Globals.getContext(), choice));
@@ -127,7 +127,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject obj, String selection)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver obj, String selection)
 	{
 		info.removeChoice(pc, obj, selection);
 	}
@@ -139,7 +139,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
 	@Override
-	public void applyChoice(PlayerCharacter pc, CDOMObject cdo,
+	public void applyChoice(PlayerCharacter pc, ChooseDriver cdo,
 		String selection)
 	{
 		info.getChoiceActor().applyChoice(cdo, Constants.EMPTY_STRING, pc);

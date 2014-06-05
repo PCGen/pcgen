@@ -41,6 +41,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
 import pcgen.core.bonus.util.MissingObject;
@@ -788,8 +789,9 @@ public class BonusManager
 						{
 							CDOMObject creator = (CDOMObject) co;
 							for (String assoc : pc
-									.getAssociationList(creator))
+									.getConsolidatedAssociationList(creator))
 							{
+								//TODO Case sensitivity?
 								if (assoc.contains(statAbbr))
 								{
 									found = true;
@@ -1210,7 +1212,7 @@ public class BonusManager
 		if (creatorObj instanceof CDOMObject)
 		{
 			anObj = (CDOMObject) creatorObj;
-			associatedList = pc.getAssociationList(anObj);
+			associatedList = pc.getConsolidatedAssociationList(anObj);
 			if (associatedList == null || associatedList.isEmpty())
 			{
 				associatedList = NO_ASSOC_LIST;
@@ -1298,6 +1300,7 @@ public class BonusManager
 						creatorObj));
 			}
 		}
+
 		return bonusList;
 	}
 
@@ -1335,11 +1338,11 @@ public class BonusManager
 			}
 
 			int k;
-			if (pc.hasAssociations(anObj))
+			if (ChooseActivation.hasNewChooseToken(anObj))
 			{
 				k = 0;
 
-				for (String aString : pc.getAssociationList(anObj))
+				for (String aString : pc.getConsolidatedAssociationList(anObj))
 				{
 					if (aString.equalsIgnoreCase(aBonus.getBonusInfo()))
 					{
@@ -1380,7 +1383,6 @@ public class BonusManager
 	private Map<BonusObj, Object> getAllActiveBonuses()
 	{
 		Map<BonusObj, Object> ret = new IdentityHashMap<BonusObj, Object>();
-
 		for (final BonusContainer pobj : pc.getBonusContainerList())
 		{
 			// We exclude equipmods here as their bonuses are already counted in
@@ -1412,7 +1414,6 @@ public class BonusManager
 		{
 			ret.putAll(getTempBonuses());
 		}
-
 		return ret;
 	}
 

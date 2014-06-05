@@ -8,7 +8,6 @@
 	<!--  Facet Definitions -->
 	<!-- A -->
 	<bean id="abilitySelectionApplication" class="pcgen.cdom.facet.AbilitySelectionApplication" />
-	<bean id="activeAbilityFacet" class="pcgen.cdom.facet.input.ActiveAbilityFacet" />
 	<bean id="activeEqModFacet" class="pcgen.cdom.facet.model.ActiveEqModFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>

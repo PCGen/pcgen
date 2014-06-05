@@ -20,7 +20,7 @@ package selectionactor.auto;
 import org.junit.Test;
 
 import pcgen.base.test.InequalityTester;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.Nature;
@@ -30,8 +30,8 @@ import pcgen.cdom.helper.AbilitySelector;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -85,7 +85,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 		setUpPC();
 		finishLoad(Globals.getContext());
 		InequalityTester it = InequalityTesterInst.getInstance();
-		CDOMObject owner = getOwner();
+		ChooseDriver owner = getOwner();
 		Ability a = construct("Templ");
 		Ability a2 = construct("Templ2");
 		AbilitySelection t = new AbilitySelection(a, null);
@@ -141,7 +141,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 					"LANG|Universal");
 			Globals.getContext().unconditionallyProcess(a2, "AUTO",
 					"LANG|Other");
-			CDOMObject owner = getOwner();
+			ChooseDriver owner = getOwner();
 			AbilitySelection t = new AbilitySelection(a, null);
 			AbilitySelection t2 = new AbilitySelection(a2, null);
 			finishLoad(Globals.getContext());
@@ -192,7 +192,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 		setUpPC();
 		finishLoad(Globals.getContext());
 		InequalityTester it = InequalityTesterInst.getInstance();
-		CDOMObject owner = getOwner();
+		ChooseDriver owner = getOwner();
 		Ability a = construct("Templ");
 		Ability a2 = construct("Templ2");
 		AbilitySelection t = new AbilitySelection(a, null);
@@ -244,7 +244,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 			setUpPC();
 			Ability a = construct("Templ (other)");
 			Ability a2 = construct("Templ2 (paren)");
-			CDOMObject owner = getOwner();
+			ChooseDriver owner = getOwner();
 			Globals.getContext().unconditionallyProcess(a, "AUTO",
 					"LANG|Universal");
 			Globals.getContext().unconditionallyProcess(a2, "AUTO",
@@ -299,7 +299,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 	{
 		setUpPC();
 		InequalityTester it = InequalityTesterInst.getInstance();
-		CDOMObject owner = getOwner();
+		ChooseDriver owner = getOwner();
 		Ability a = construct("Templ");
 		a.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		Ability a2 = construct("Templ2");
@@ -372,7 +372,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 			pr = st.parseToken(context, a2, "Knowledge|Diplomacy");
 			assertTrue(pr.passed());
 			context.commit();
-			CDOMObject owner = getOwner();
+			ChooseDriver owner = getOwner();
 			finishLoad(context);
 			AbilitySelection t = new AbilitySelection(a, "Perception");
 			AbilitySelection t2 = new AbilitySelection(a2, "Diplomacy");
@@ -418,13 +418,13 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 		}
 	}
 
-	protected void preparePC(PlayerCharacter pc1, CDOMObject owner)
+	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
 	{
 	}
 
-	protected CDOMObject getOwner()
+	protected ChooseDriver getOwner()
 	{
-		return new PCClass();
+		return new Domain();
 	}
 
 }

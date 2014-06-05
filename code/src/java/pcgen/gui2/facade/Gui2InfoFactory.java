@@ -1352,8 +1352,8 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Ability ab = (Ability) originObj;
 			List<CNAbility> wrappedAbility =
-					Collections.singletonList(new CNAbility(ab
-						.getCDOMCategory(), ab, Nature.NORMAL));
+					Collections.singletonList(CNAbilityFactory.getCNAbility(ab
+						.getCDOMCategory(), Nature.NORMAL, ab));
 			aString =
 					DescriptionFormatting.piWrapDesc(ab,
 						pc.getDescription(wrappedAbility), false);

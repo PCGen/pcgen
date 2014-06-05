@@ -23,6 +23,7 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -54,9 +55,10 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		if (choice == null && abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
-				"No AbilitySelection with MULT:YES Ability " + abil
+				"AbilitySelection with MULT:YES Ability " + abil
 					+ ": must have choices");
 		}
+if ("NOCHOICE".equals(choice)) Thread.dumpStack();
 		this.cna = cna;
 		selection = choice;
 	}
@@ -160,7 +162,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 					+ "must have 3 or 4 arguments, but found more: "
 					+ persistentFormat);
 		}
-		CNAbility cna = new CNAbility(ac, a, nat);
+		CNAbility cna = CNAbilityFactory.getCNAbility(ac, nat, a);
 		return new CNAbilitySelection(cna, sel);
 	}
 

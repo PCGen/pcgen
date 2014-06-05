@@ -19,7 +19,7 @@ package selectionactor.domain;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
@@ -60,13 +60,13 @@ public class CskillTokenTest extends AbstractSelectionActorTest<Skill>
 	}
 	
 	@Override
-	public CDOMObject getOwner()
+	public ChooseDriver getOwner()
 	{
 		return new Domain();
 	}
 
 	@Override
-	protected void preparePC(PlayerCharacter pc1, CDOMObject owner)
+	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
 	{
 		PCClass c1 = Globals.getContext().ref.constructCDOMObject(PCClass.class, "Class1");
 		pc1.setDefaultDomainSource(new ClassSource(c1));

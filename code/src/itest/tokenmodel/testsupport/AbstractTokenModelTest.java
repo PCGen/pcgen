@@ -77,6 +77,16 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected PlayerCharacter pc;
 	protected CharID id;
 
+	public AbstractTokenModelTest()
+	{
+		super();
+	}
+
+	public AbstractTokenModelTest(String string)
+	{
+		super(string);
+	}
+
 	@Override
 	protected void setUp() throws Exception
 	{

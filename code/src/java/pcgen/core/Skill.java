@@ -27,7 +27,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.bonus.BonusObj;
@@ -39,7 +45,7 @@ import pcgen.core.facade.SkillFacade;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Skill extends PObject implements SkillFacade
+public final class Skill extends PObject implements SkillFacade, ChooseDriver
 {
 	public String getKeyStatAbb()
 	{
@@ -156,5 +162,35 @@ public final class Skill extends PObject implements SkillFacade
 			return false;
 		}
 		
+	}
+
+	@Override
+	public ChooseInformation<?> getChooseInfo()
+	{
+		return get(ObjectKey.CHOOSE_INFO);
+	}
+
+	@Override
+	public Formula getSelectFormula()
+	{
+		return getSafe(FormulaKey.SELECT);
+	}
+
+	@Override
+	public List<ChooseSelectionActor<?>> getActors()
+	{
+		return getListFor(ListKey.NEW_CHOOSE_ACTOR);
+	}
+
+	@Override
+	public String getFormulaSource()
+	{
+		return getKeyName();
+	}
+
+	@Override
+	public Formula getNumChoices()
+	{
+		return getSafe(FormulaKey.NUMCHOICES);
 	}
 }

@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -218,28 +219,25 @@ public class Description extends ConcretePrereqObject
 					}
 					else if ( var.equals(VAR_CHOICE) )
 					{
-						Object obj = objList.get(0);
-						PObject object;
-						if (obj instanceof PObject)
+						if (b instanceof ChooseDriver)
 						{
-							object = (PObject) b;
-						}
-						else if (obj instanceof CNAbility)
-						{
-							object = ((CNAbility) obj).getAbility();
+							ChooseDriver object = (ChooseDriver) b;
+							if (aPC.hasAssociations(object))
+							{
+								//TODO This is ill defined
+								buf.append(aPC.getAssociationList(object).get(0));
+							}
 						}
 						else
 						{
 							Logging
 								.errorPrint("In Description resolution, "
 									+ "Ignoring object of type: "
-									+ b.getClass().getName());
+									+ b.getClass().getName()
+									+ " because "
+									+ VAR_CHOICE
+									+ " was requested but the object does not support CHOOSE");
 							continue;
-						}
-						if (aPC.hasAssociations(object))
-						{
-							//TODO This is ill defined
-							buf.append(aPC.getAssociationList(object).get(0));
 						}
 					}
 					else if ( var.equals(VAR_LIST) )
@@ -247,24 +245,25 @@ public class Description extends ConcretePrereqObject
 						List<String> assocList = new ArrayList<String>();
 						for (Object obj : objList)
 						{
-							PObject object;
-							if (obj instanceof PObject)
+							if (obj instanceof ChooseDriver)
 							{
-								object = (PObject) b;
-							}
-							else if (obj instanceof CNAbility)
-							{
-								object = ((CNAbility) obj).getAbility();
+								ChooseDriver object = (ChooseDriver) obj;
+								if (aPC.hasAssociations(object))
+								{
+									assocList.addAll(aPC.getAssociationList(object));
+								}
 							}
 							else
 							{
 								Logging
 									.errorPrint("In Description resolution, "
 										+ "Ignoring object of type: "
-										+ b.getClass().getName());
+										+ b.getClass().getName()
+										+ " because "
+										+ VAR_CHOICE
+										+ " was requested but the object does not support CHOOSE");
 								continue;
 							}
-							assocList.addAll(aPC.getAssociationList(object));
 						}
 						String joinString;
 						if (assocList.size() == 2)

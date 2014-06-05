@@ -25,7 +25,7 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -101,7 +101,7 @@ public interface ChoiceManagerList<T> {
 
 	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
 
-	public abstract void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice);
+	public abstract void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice);
 
 	public void setController(ChooseController<T> cc);
 
@@ -109,9 +109,9 @@ public interface ChoiceManagerList<T> {
 
 	public int getChoicesPerUnitCost();
 
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T selection);
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
 
-	public void applyChoice(PlayerCharacter pc, CDOMObject owner, T selection);
+	public void applyChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
 
 	public abstract T decodeChoice(String choice);
 

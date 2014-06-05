@@ -29,7 +29,6 @@ import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Kit;
 import pcgen.core.Language;
@@ -66,8 +65,8 @@ public class KitLangBonus extends BaseKit
 		CNAbility cna = aPC.getBonusLanguageAbility();
 		for (Language l : theLanguages)
 		{
-			aPC.addAppliedAbility(new CNAbilitySelection(cna, l
-				.getKeyName()), UserSelection.getInstance());
+			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()),
+				UserSelection.getInstance(), UserSelection.getInstance());
 		}
 	}
 
@@ -86,7 +85,7 @@ public class KitLangBonus extends BaseKit
 	{
 		theLanguages = new ArrayList<Language>();
 
-		Ability a = aPC.getBonusLanguageAbility().getAbility();
+		CNAbility cna = aPC.getBonusLanguageAbility();
 
 		List<String> reservedList = new ArrayList<String>();
 
@@ -96,7 +95,7 @@ public class KitLangBonus extends BaseKit
 		 * to actually try to apply the langbonus ability in this case)
 		 */
 		ChoiceManagerList<Language> controller = ChooserUtilities
-				.getConfiguredController(a, aPC, AbilityCategory.LANGBONUS,
+				.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS,
 						reservedList);
 		if (controller == null)
 		{

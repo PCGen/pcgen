@@ -29,11 +29,14 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.CoreUtility;
@@ -53,57 +56,65 @@ public class AbilityUtilities
 		// private constructor, do nothing
 	}
 
-	public static void adjustPool(final Ability ability,
-			final PlayerCharacter aPC, final boolean addIt,
-			double abilityCount, boolean removed)
+	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
 	{
-		if (!addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED) && removed)
-		{
-			// We don't need to adjust the pool for abilities here as it is recalculated each time it is queried.
-			abilityCount += ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-		}
-		else if (addIt && !ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			abilityCount -= ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-		}
-		else
-		{
-			int listSize = aPC.getSelectCorrectedAssociationCount(ability);
+		CNAbility cna = cnas.getCNAbility();
+		Ability ability = cna.getAbility();
+		// how many sub-choices to make
 
-			for (CNAbility cna : aPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
-			{
-				if (cna.getAbilityKey().equalsIgnoreCase(ability.getKeyName()))
-				{
-					listSize = aPC.getSelectCorrectedAssociationCount(cna);
-				}
-			}
-
-			abilityCount -= (listSize * ability.getSafe(ObjectKey.SELECTION_COST).doubleValue());
+		ChoiceManagerList cm =
+				ChooserUtilities.getChoiceManager(cna, aPC);
+		if (cm != null)
+		{
+//			add(cm, aPC, ability, cnas.getSelection());
 		}
-		aPC.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(abilityCount));
+
+		/*
+		 * This modifyChoice method is a bit like mod choices, but it uses a
+		 * different tag to set the chooser string.
+		 */
+		TransitionChoice<CNAbility> mc = ability.get(ObjectKey.MODIFY_CHOICE);
+		if (mc != null)
+		{
+			mc.act(mc.driveChoice(aPC), ability, aPC);
+		}
+
+		for (TransitionChoice<Kit> kit : ability
+			.getSafeListFor(ListKey.KIT_CHOICE))
+		{
+			kit.act(kit.driveChoice(aPC), ability, aPC);
+		}
+
+		if ((cna.getAbilityCategory() == AbilityCategory.FEAT)
+			&& cna.getNature().equals(Nature.NORMAL))
+		{
+			adjustPool(ability, aPC, true);
+		}
+
+		aPC.adjustMoveRates();
+
+		if (!aPC.isImporting())
+		{
+			AddObjectActions.globalChecks(ability, aPC);
+			/*
+			 * Protection for CODE-1240. Note the better solution is when facets
+			 * are association aware and thus trigger a change when an
+			 * association is added. - thpr
+			 */
+			aPC.calcActiveBonuses();
+		}
 	}
 
-	public static Ability retrieveAbilityKeyed(AbilityCategory aCat,
-			final String token)
+	public static void adjustPool(final Ability ability,
+			final PlayerCharacter aPC, final boolean addIt)
 	{
-		Ability ability = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(Ability.class, aCat, token);
-
-		if (ability != null)
+		double abilityCount =
+				ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+		if (addIt)
 		{
-			return ability;
+			abilityCount *= -1;
 		}
-
-		final String stripped = removeChoicesFromName(token);
-		ability = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				Ability.class, aCat, stripped);
-
-		if (ability != null)
-		{
-			return ability;
-		}
-
-		return null;
+		aPC.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(abilityCount));
 	}
 
 	/**
@@ -254,7 +265,7 @@ public class AbilityUtilities
 		ArrayList<String> reservedList = new ArrayList<String>();
 
 		ChoiceManagerList<?> aMan =
-				ChooserUtilities.getConfiguredController(ability, pc, category,
+				ChooserUtilities.getConfiguredController(cna, pc, category,
 					reservedList);
 		if (aMan != null)
 		{
@@ -296,8 +307,16 @@ public class AbilityUtilities
 		}
 
 		//Need to use only the new ones
-		removedSelections.removeAll(newSelections);
-		newSelections.removeAll(origSelections);
+		for (T obj : newSelections)
+		{
+			removedSelections.remove(obj);
+		}
+		//removedSelections.removeAll(newSelections);
+		for (T obj : origSelections)
+		{
+			newSelections.remove(obj);
+		}
+		//newSelections.removeAll(origSelections);
 
 		for (T sel : newSelections)
 		{

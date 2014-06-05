@@ -1137,11 +1137,11 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackChoiceFeatAuto (Tumble), StackNoChoiceFeat)</name>
+			<name>GivingThingy (StackChoiceFeatAuto (Tumble))</name>
 			<description></description>
 			<type>TEST47</type>
-			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackChoiceFeatAuto (Tumble),StackNoChoiceFeat</associated>
-			<count>4</count>
+			<associated>StackChoiceFeatAuto (Tumble)</associated>
+			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1208,11 +1208,11 @@ BIO
 		</feat>
 		<!-- Virtual Feats -->
 		<feat>
-			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackChoiceFeatAuto (Tumble), StackNoChoiceFeat)</name>
+			<name>GivingThingy (StackChoiceFeat (Ride), StackChoiceFeat (Tumble), StackNoChoiceFeat)</name>
 			<description></description>
 			<type>TEST47</type>
-			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackChoiceFeatAuto (Tumble),StackNoChoiceFeat</associated>
-			<count>4</count>
+			<associated>StackChoiceFeat (Ride),StackChoiceFeat (Tumble),StackNoChoiceFeat</associated>
+			<count>3</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>

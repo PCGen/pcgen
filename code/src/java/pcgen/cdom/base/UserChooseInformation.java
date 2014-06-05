@@ -23,7 +23,6 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
@@ -50,7 +49,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public ChoiceManagerList<String> getChoiceManager(CDOMObject owner, int cost)
+	public ChoiceManagerList<String> getChoiceManager(ChooseDriver owner, int cost)
 	{
 		return new UserInputManager(owner, this, cost);
 	}
@@ -92,25 +91,24 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
 		String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(CDOMObject owner,
+	public List<String> getCurrentlySelected(ChooseDriver owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor csa : actors)
@@ -120,18 +118,17 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
-	private void applyChoice(CDOMObject owner, PlayerCharacter pc, String choice,
+	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
 		ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor csa : actors)

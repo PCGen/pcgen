@@ -2104,31 +2104,9 @@ BIO
 	<ability_objects>
 		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>Bonus Feat</name>
-			<description>Humans select one extra feat at 1st level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Channel Positive Energy</name>
 			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 16 Will save to halve the damage. You can use this ability 6 times per day.</description>
 			<type>CLERICCLASSFEATURES.SUPERNATURAL.SPECIALATTACK.CHANNELENERGY.CHANNEL ENERGY.CHANNEL ENERGY POSITIVE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Skilled</name>
-			<description>Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

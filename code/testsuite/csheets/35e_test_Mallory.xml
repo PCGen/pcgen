@@ -1173,41 +1173,41 @@ BIO
 			<virtual>T</virtual>
 		</feat>
 		<feat>
-			<name>Test-57-Ability-7</name>
+			<name>Test-57-Ability-7 (Ability-57-4a)</name>
 			<description></description>
 			<type></type>
-			<associated></associated>
-			<count>0</count>
+			<associated>Ability-57-4a</associated>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 		</feat>
 		<feat>
-			<name>Test-57 Apply A3 FeatSelector</name>
+			<name>Test-57 Apply A3 FeatSelector (Test-57 Apply A3 LangGrant (Elven))</name>
 			<description></description>
 			<type></type>
-			<associated></associated>
-			<count>0</count>
+			<associated>Test-57 Apply A3 LangGrant (Elven)</associated>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 		</feat>
 		<feat>
-			<name>Test-57 Apply A5 FeatSelector</name>
+			<name>Test-57 Apply A5 FeatSelector (Test-57 Apply A5 LangGrant (English))</name>
 			<description></description>
 			<type></type>
-			<associated></associated>
-			<count>0</count>
+			<associated>Test-57 Apply A5 LangGrant (English)</associated>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 		</feat>
 		<feat>
-			<name>Test-57 Apply A8 MySelectableFeat</name>
+			<name>Test-57 Apply A8 MySelectableFeat (Dodge)</name>
 			<description></description>
 			<type></type>
-			<associated></associated>
-			<count>0</count>
+			<associated>Dodge</associated>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>

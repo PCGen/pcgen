@@ -6,9 +6,8 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
@@ -20,7 +19,7 @@ import pcgen.util.chooser.ChooserFactory;
 public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 {
 
-	private final CDOMObject owner;
+	private final ChooseDriver owner;
 	private final Integer numberOfChoices;
 	protected final int choicesPerUnitCost;
 	protected ChooseController<T> controller = new ChooseController<T>();
@@ -28,7 +27,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 
 	private transient int preChooserChoices;
 
-	public CDOMChoiceManager(CDOMObject cdo,
+	public CDOMChoiceManager(ChooseDriver cdo,
 		ChooseInformation<T> chooseType, Integer numChoices,
 			int cost)
 	{
@@ -195,10 +194,10 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 				.min(controller.getPool() + selectedPoolValue,
 						effectiveTotalChoices / choicesPerUnitCost);
 		effectiveChoices *= choicesPerUnitCost;
-		Formula formula = owner.get(FormulaKey.NUMCHOICES);
+		Formula formula = owner.getNumChoices();
 		if (formula != null)
 		{
-			int numChoices = formula.resolve(aPc, owner.getKeyName()).intValue();
+			int numChoices = formula.resolve(aPc, owner.getFormulaSource()).intValue();
 			if (numChoices > 0)
 			{
 				effectiveChoices = Math.min(effectiveChoices, numChoices);
@@ -245,7 +244,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
     @Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject target, String choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver target, String choice)
 	{
 		if (choice.length() > 0)
 		{
@@ -270,7 +269,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject obj, T selection)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver obj, T selection)
 	{
 		info.removeChoice(pc, obj, selection);
 	}
@@ -282,7 +281,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
 	@Override
-	public void applyChoice(PlayerCharacter pc, CDOMObject cdo, T selection)
+	public void applyChoice(PlayerCharacter pc, ChooseDriver cdo, T selection)
 	{
 		info.getChoiceActor().applyChoice(cdo, selection, pc);
 	}

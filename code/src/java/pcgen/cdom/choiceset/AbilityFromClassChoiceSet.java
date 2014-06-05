@@ -17,13 +17,13 @@
  */
 package pcgen.cdom.choiceset;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
@@ -147,27 +147,27 @@ public class AbilityFromClassChoiceSet implements
 		Set<CNAbilitySelection> set = new HashSet<CNAbilitySelection>();
 		if (aClass != null)
 		{
-			List<Ability> abilityList = pc.getAssocList(aClass,
-					AssociationListKey.ADDED_FEAT);
+			//TODO This is a bug -> it was not properly gathering before
+			List<Ability> abilityList = Collections.emptyList();
 			if (abilityList != null)
 			{
 				for (Ability aFeat : abilityList)
 				{
 					set.add(new CNAbilitySelection(
-						new CNAbility(AbilityCategory.FEAT, aFeat, Nature.VIRTUAL)));
+						CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
 			{
 				PCClassLevel pcl = pc.getActiveClassLevel(aClass, lvl);
-				abilityList = pc.getAssocList(pcl,
-						AssociationListKey.ADDED_FEAT);
+				//TODO This is a bug -> it was not properly gathering before
+				abilityList = Collections.emptyList();
 				if (abilityList != null)
 				{
 					for (Ability aFeat : abilityList)
 					{
 						set.add(new CNAbilitySelection(
-							new CNAbility(AbilityCategory.FEAT, aFeat, Nature.VIRTUAL)));
+							CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 					}
 				}
 			}

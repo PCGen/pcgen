@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
@@ -31,7 +32,6 @@ import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
@@ -165,19 +165,18 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, AbilitySelection st,
+	public void applyChoice(ChooseDriver owner, AbilitySelection st,
 		PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
 		AbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -188,12 +187,11 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
 		AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -204,7 +202,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(CDOMObject owner,
+	public List<AbilitySelection> getCurrentlySelected(ChooseDriver owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());

@@ -31,7 +31,6 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
@@ -54,8 +53,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.chooser.ChoiceManagerList;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -454,42 +451,15 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CNAbilitySelection choice)
 	{
 		CNAbility cna = choice.getCNAbility();
-		Ability anAbility = cna.getAbility();
-
-		boolean required = false;
-		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		if (cna.getNature().equals(Nature.NORMAL))
 		{
-			required = true;
-			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
-			if (remove(cm, pc, anAbility, choice.getSelection()))
-			{
-				required = false;
-			}
+			pc.removeAbility(choice, UserSelection.getInstance(),
+				UserSelection.getInstance());
 		}
-		if (!required)
+		else
 		{
-			CDOMObjectUtilities.removeAdds(anAbility, pc);
-			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
-			if (cna.getNature().equals(Nature.NORMAL))
-			{
-				pc.removeAbility(choice, UserSelection.getInstance(),
-					UserSelection.getInstance());
-			}
-			else
-			{
-				pc.removeSavedAbility(choice, UserSelection.getInstance(),
-					UserSelection.getInstance());
-			}
+			pc.removeSavedAbility(choice, UserSelection.getInstance(),
+				UserSelection.getInstance());
 		}
-	}
-
-	private static <T> boolean remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
-	{
-		T sel = aMan.decodeChoice(choice);
-		aMan.removeChoice(pc, obj, sel);
-		List<T> selected = new ArrayList<T>();
-		aMan.getChoices(pc, new ArrayList<T>(), selected);
-		return selected.isEmpty();
 	}
 }

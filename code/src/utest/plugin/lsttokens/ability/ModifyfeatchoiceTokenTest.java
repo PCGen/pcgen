@@ -30,6 +30,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -168,7 +169,7 @@ public class ModifyfeatchoiceTokenTest extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	protected TransitionChoice<Ability> buildChoice(
+	protected TransitionChoice<CNAbility> buildChoice(
 			CDOMReference<Ability>... refs)
 	{
 		ReferenceChoiceSet<Ability> rcs = buildRCS(refs);
@@ -176,10 +177,10 @@ public class ModifyfeatchoiceTokenTest extends
 		return buildTC(rcs);
 	}
 
-	protected TransitionChoice<Ability> buildTC(ReferenceChoiceSet<Ability> rcs)
+	protected TransitionChoice<CNAbility> buildTC(ReferenceChoiceSet<Ability> rcs)
 	{
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
-		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getToken()
+		ChoiceSet<CNAbility> cs = new ChoiceSet<CNAbility>(getToken()
 				.getTokenName(), gfd);
 		TabInfo ti = primaryContext.ref.silentlyGetConstructedCDOMObject(
 				TabInfo.class, Tab.ABILITIES.toString());
@@ -189,7 +190,7 @@ public class ModifyfeatchoiceTokenTest extends
 			singularName = singularName.substring(0, singularName.length() - 1);
 		}
 		cs.setTitle("Select a " + singularName + " to modify");
-		TransitionChoice<Ability> tc = new ConcreteTransitionChoice<Ability>(cs,
+		TransitionChoice<CNAbility> tc = new ConcreteTransitionChoice<CNAbility>(cs,
 				FormulaFactory.ONE);
 		tc.setRequired(false);
 		// tc.setChoiceActor(getToken());
@@ -208,7 +209,7 @@ public class ModifyfeatchoiceTokenTest extends
 	public void testUnparseSingle() throws PersistenceLayerException
 	{
 		Ability wp1 = construct(primaryContext, "TestWP1");
-		TransitionChoice<Ability> tc = buildChoice(CDOMDirectSingleRef
+		TransitionChoice<CNAbility> tc = buildChoice(CDOMDirectSingleRef
 				.getRef(wp1));
 		primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -255,7 +256,7 @@ public class ModifyfeatchoiceTokenTest extends
 	{
 		Ability wp1 = construct(primaryContext, "TestWP1");
 		Ability wp2 = construct(primaryContext, "TestWP2");
-		TransitionChoice<Ability> tc = buildChoice(CDOMDirectSingleRef
+		TransitionChoice<CNAbility> tc = buildChoice(CDOMDirectSingleRef
 				.getRef(wp1), CDOMDirectSingleRef.getRef(wp2));
 		primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -268,7 +269,7 @@ public class ModifyfeatchoiceTokenTest extends
 		Ability wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<Ability> rcs = buildRCS(CDOMDirectSingleRef
 				.getRef(wp1), null);
-		TransitionChoice<Ability> tc = buildTC(rcs);
+		TransitionChoice<CNAbility> tc = buildTC(rcs);
 		primaryProf.put(ObjectKey.MODIFY_CHOICE, tc);
 		try
 		{

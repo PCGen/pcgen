@@ -24,6 +24,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -225,14 +226,14 @@ public class TemplateLst extends AbstractToken implements
 	}
 
 	@Override
-	public void removeChoice(CDOMObject owner, PCTemplate choice,
+	public void removeChoice(ChooseDriver owner, PCTemplate choice,
 			PlayerCharacter pc)
 	{
 		pc.removeTemplate(choice);
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, PCTemplate choice,
+	public void applyChoice(ChooseDriver owner, PCTemplate choice,
 			PlayerCharacter pc)
 	{
 		pc.addTemplate(choice);

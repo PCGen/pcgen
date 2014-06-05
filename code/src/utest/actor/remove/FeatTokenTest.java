@@ -24,7 +24,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
@@ -58,8 +58,7 @@ public class FeatTokenTest extends TestCase
 	{
 		Ability item = construct("ItemName");
 		CNAbilitySelection as =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
-					Nature.NORMAL));
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
 		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
 			.encodeChoice(as));
 	}
@@ -78,8 +77,7 @@ public class FeatTokenTest extends TestCase
 		}
 		Ability item = construct("ItemName");
 		CNAbilitySelection as =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
-					Nature.NORMAL));
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
 		assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}

@@ -26,6 +26,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -275,8 +276,9 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		// adjust the associated List
 		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
-			remove(cm, pc, anAbility, choice.getSelection());
+			ChoiceManagerList cm =
+					ChooserUtilities.getChoiceManager(cna, pc);
+			remove(cm, pc, cna, choice.getSelection());
 			result = pc.hasAssociations(cna);
 		}
 
@@ -296,10 +298,10 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				cna.getAbility().getSafe(ObjectKey.SELECTION_COST)
 					.doubleValue();
 		pc.adjustFeats(-cost);
-	}
+}
 
 	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
+		ChooseDriver obj, String choice)
 	{
 		T sel = aMan.decodeChoice(choice);
 		aMan.removeChoice(pc, obj, sel);

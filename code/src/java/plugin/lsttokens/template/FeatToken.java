@@ -30,6 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -163,7 +164,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			{
 				pc.adjustFeats(cost);
 			}
-			pc.addAbility(choice, owner, this);
+			pc.addAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 		}
 		pc.addTemplateFeat(owner, choice);
 	}
@@ -225,7 +226,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 				.getAbility(), Nature.NORMAL);
 		if (anAbility != null)
 		{
-			pc.removeAbility(choice, owner, this);
+			pc.removeAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 			CDOMObjectUtilities.removeAdds(anAbility, pc);
 			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
 			pc.adjustMoveRates();

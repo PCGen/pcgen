@@ -18,10 +18,8 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
 
 /**
  * An ProfProvider is an object that contains the ability to contain
@@ -59,19 +57,6 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 *         otherwise.
 	 */
 	public boolean providesProficiency(T prof);
-
-	/**
-	 * Tests if the specified PlayerCharacter passes all the prerequisites.
-	 * 
-	 * @param playerCharacter
-	 *            The PlayerCharacter to test.
-	 * @param owner
-	 *            The Loadable that owns the ProficiencyProvider (used for
-	 *            PRExxx resolution)
-	 * @return true if the given PlayerCharacter passes all the prerequisites.
-	 */
-	@Override
-	public boolean qualifies(PlayerCharacter playerCharacter, Loadable owner);
 
 	/**
 	 * Returns true if this ProfProvider provides proficiency with the given

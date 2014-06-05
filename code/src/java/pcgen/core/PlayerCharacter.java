@@ -53,12 +53,14 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Modifier;
@@ -99,7 +101,6 @@ import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet;
 import pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
-import pcgen.cdom.facet.DirectAbilityInputFacet;
 import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
@@ -173,7 +174,6 @@ import pcgen.cdom.facet.fact.SkillFilterFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
-import pcgen.cdom.facet.input.ActiveAbilityFacet;
 import pcgen.cdom.facet.input.AddLanguageFacet;
 import pcgen.cdom.facet.input.AutoEquipmentListFacet;
 import pcgen.cdom.facet.input.AutoLanguageListFacet;
@@ -225,7 +225,6 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.BonusManager.TempBonusInfo;
-import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
@@ -369,14 +368,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
-	private ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
 	private ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 	private ConditionallyGrantedKnownSpellFacet cKnSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedKnownSpellFacet.class);
 	private ConditionallyGrantedAvailableSpellFacet cAvSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedAvailableSpellFacet.class);
 	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
-	private DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
 	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
@@ -508,11 +505,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
-	private CNAbility bonusLanguageAbility = new CNAbility(
-		AbilityCategory.LANGBONUS,
-		Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"),
-		Nature.VIRTUAL);
+	private CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
 
 	/**
 	 * Constructor.
@@ -560,10 +554,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
-		if (load)
-		{
-			insertBonusLanguageAbility();
-		}
 	}
 
 	/**
@@ -574,14 +564,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		return "PlayerCharacter [name=" + getName() + " @ "
 			+ getFileName() + " serial=" + getSerial() + "]";
-	}
-
-	/**
-	 * Adds a virtual ability that grants a bonus language to the character.
-	 */
-	public void insertBonusLanguageAbility()
-	{
-		addSavedAbility(getBonusLanguageAbility().getAbility());
 	}
 
 	/**
@@ -3565,11 +3547,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public Ability getMatchingAbility(Category<Ability> abilityCategory, Ability ability, Nature nature)
 	{
-		Ability contained = abFacet.getContained(id, abilityCategory, nature, ability);
-		if (contained != null)
-		{
-			return contained;
-		}
 		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, abilityCategory, nature);
 		for (CNAbility cna : cnas)
 		{
@@ -6452,12 +6429,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		setDirty(true);
 	}
 
-	public void addAutoLanguage(Language l, CDOMObject obj)
+	public void addAutoLanguage(Language l, Object obj)
 	{
 		autoLangListFacet.add(id, l, obj);
 	}
 
-	public void removeAutoLanguage(Language l, CDOMObject obj)
+	public void removeAutoLanguage(Language l, Object obj)
 	{
 		autoLangListFacet.remove(id, l, obj);
 	}
@@ -8487,7 +8464,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		double iCount = 0;
 
 		Collection<CNAbility> abilities =
-				abFacet.getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
+				grantedAbilityFacet.getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
 		if (abilities == null)
 		{
 			return 0;
@@ -8595,8 +8572,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public boolean hasAbilityKeyed(final Category<Ability> cat, final String aKey)
 	{
-		return abFacet.hasAbilityKeyed(id, cat, aKey)
-			|| grantedAbilityFacet.hasAbilityKeyed(id, cat, aKey);
+		return grantedAbilityFacet.hasAbilityKeyed(id, cat, aKey);
 	}
 
 	/**
@@ -8651,8 +8627,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public boolean hasAbilityVisibleTo(final AbilityCategory aCategory,
 		View view)
 	{
-		return abFacet.hasAbilityVisibleTo(id, aCategory, view)
-			|| grantedAbilityFacet.hasAbilityVisibleTo(id, aCategory, view);
+		return grantedAbilityFacet.hasAbilityVisibleTo(id, aCategory, view);
 	}
 
 	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
@@ -8695,30 +8670,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 						if (choices == null)
 						{
 						    //CHOOSE:NOCHOICE can be unconditionally applied (must be STACK:YES)
-							CNAbilitySelection cas = new CNAbilitySelection(new CNAbility(cat, ab, nature), "");
+							CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ab), "");
 							cas.addAllPrerequisites(apo.getPrerequisiteList());
 							applyAbility(cas, cdo);
-						} else
+						}
+						else
 						{
 							for (final String choice : choices)
 							{
-								if (!AbilityUtilities.alreadySelected(this, ab, choice, true))
-								{
-									CNAbilitySelection cas = new CNAbilitySelection(new CNAbility(cat, ab,
-											nature), choice);
-									cas.addAllPrerequisites(apo.getPrerequisiteList());
-									applyAbility(cas, cdo);
-								}
+								CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ab), choice);
+								cas.addAllPrerequisites(apo.getPrerequisiteList());
+								applyAbility(cas, cdo);
 							}
 						}
 					} else
 					{
-						if (!AbilityUtilities.alreadySelected(this, ab, null, true))
-						{
-							CNAbilitySelection cas = new CNAbilitySelection(new CNAbility(cat, ab, nature));
-							cas.addAllPrerequisites(apo.getPrerequisiteList());
-							applyAbility(cas, cdo);
-						}
+						CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ab));
+						cas.addAllPrerequisites(apo.getPrerequisiteList());
+						applyAbility(cas, cdo);
 					}
 				}
 			}
@@ -8848,18 +8817,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return skillCostFacet.skillCostForPCClass(id, sk, cl);
 	}
 
-	public boolean containsAssociated(CNAbility obj, String o)
+	public boolean containsAssociated(ChooseDriver obj, String o)
 	{
-		return containsAssociated(obj.getAbility(), o);
-	}
-
-	public boolean containsAssociated(CDOMObject obj, String o)
-	{
-		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> info = obj.getChooseInfo();
 		return (info != null) && containsAssociated(obj, info, o);
 	}
 
-	private <T> boolean containsAssociated(CDOMObject obj,
+	private <T> boolean containsAssociated(ChooseDriver obj,
 		ChooseInformation<T> info, String o)
 	{
 		List<? extends T> selections =
@@ -8878,25 +8842,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return false;
 	}
 
-	public int getSelectCorrectedAssociationCount(CNAbility cna)
-	{
-		return getSelectCorrectedAssociationCount(cna.getAbility());
-	}
-
-	public int getSelectCorrectedAssociationCount(CDOMObject obj)
+	public int getSelectCorrectedAssociationCount(ChooseDriver obj)
 	{
 		return getDetailedAssociationCount(obj)
-				/ obj.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
+				/ obj.getSelectFormula().resolve(this, "").intValue();
 	}
 
-	public List<String> getAssociationList(CNAbility cna)
+	public List<String> getAssociationList(ChooseDriver obj)
 	{
-		return getAssociationList(cna.getAbility());
-	}
-
-	public List<String> getAssociationList(CDOMObject obj)
-	{
-		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> info = obj.getChooseInfo();
 		if (info == null)
 		{
 			return Collections.emptyList();
@@ -8904,14 +8858,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return getExpandedAssociations(obj, info);
 	}
 
-	public boolean hasAssociations(CNAbility cna)
+	public boolean hasAssociations(ChooseDriver obj)
 	{
-		return hasAssociations(cna.getAbility());
-	}
-
-	public boolean hasAssociations(CDOMObject obj)
-	{
-		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> info = obj.getChooseInfo();
 		if (info == null)
 		{
 			return false;
@@ -8921,14 +8870,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return (selections != null) && !selections.isEmpty();
 	}
 
-	public int getDetailedAssociationCount(CNAbility cna)
+	public int getDetailedAssociationCount(ChooseDriver obj)
 	{
-		return getDetailedAssociationCount(cna.getAbility());
-	}
-
-	public int getDetailedAssociationCount(CDOMObject obj)
-	{
-		ChooseInformation<?> info = obj.get(ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> info = obj.getChooseInfo();
 		if (info == null)
 		{
 			return 0;
@@ -8942,7 +8886,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return selections.size();
 	}
 
-	private <T> List<String> getExpandedAssociations(CDOMObject obj,
+	private <T> List<String> getExpandedAssociations(ChooseDriver obj,
 		ChooseInformation<T> info)
 	{
 		List<? extends T> selections =
@@ -9684,7 +9628,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
 		Set<Ability> newSet = new HashSet<Ability>();
-		newSet.addAll(abFacet.get(id, cat, nature));
 		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, cat, nature);
 		for (CNAbility cna : cnas)
 		{
@@ -9767,12 +9710,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return list.get(0);
 	}
 
-	public void addWeaponProf(CDOMObject owner, WeaponProf choice)
+	public void addWeaponProf(Object owner, WeaponProf choice)
 	{
 		alWeaponProfFacet.add(id, choice, owner);
 	}
 
-	public void removeWeaponProf(CDOMObject owner, WeaponProf choice)
+	public void removeWeaponProf(Object owner, WeaponProf choice)
 	{
 		alWeaponProfFacet.remove(id, choice, owner);
 	}
@@ -9804,22 +9747,22 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return loadFacet.getLoadType(id);
 	}
 
-	public void addArmorProf(CDOMObject owner, ArmorProf ap)
+	public void addArmorProf(Object owner, ArmorProf ap)
 	{
 		armorProfListFacet.add(id, ap, owner);
 	}
 
-	public void removeArmorProf(CDOMObject owner, ArmorProf ap)
+	public void removeArmorProf(Object owner, ArmorProf ap)
 	{
 		armorProfListFacet.remove(id, ap, owner);
 	}
 
-	public void addShieldProf(CDOMObject owner, ShieldProf sp)
+	public void addShieldProf(Object owner, ShieldProf sp)
 	{
 		shieldProfListFacet.add(id, sp, owner);
 	}
 
-	public void removeShieldProf(CDOMObject owner, ShieldProf sp)
+	public void removeShieldProf(Object owner, ShieldProf sp)
 	{
 		shieldProfListFacet.remove(id, sp, owner);
 	}
@@ -9829,32 +9772,22 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return !followerFacet.isEmpty(id);
 	}
 
-	public void addAppliedAbility(CNAbilitySelection cas, Object source)
-	{
-		directAbilityFacet.add(id, cas, source);
-	}
-
-	public void removeAppliedAbility(CNAbilitySelection cas, Object source)
-	{
-		directAbilityFacet.remove(id, cas, source);
-	}
-
-	public void addAutoEquipment(Equipment e, CDOMObject obj)
+	public void addAutoEquipment(Equipment e, Object obj)
 	{
 		autoListEquipmentFacet.add(id, e, obj);
 	}
 
-	public void removeAutoEquipment(Equipment e, CDOMObject obj)
+	public void removeAutoEquipment(Equipment e, Object obj)
 	{
 		autoListEquipmentFacet.remove(id, e, obj);
 	}
 
-	public void addMonCSkill(Skill skill, CDOMObject obj)
+	public void addMonCSkill(Skill skill, Object obj)
 	{
 		monCSkillFacet.add(id, skill, obj);
 	}
 
-	public void removeMonCSkill(Skill skill, CDOMObject obj)
+	public void removeMonCSkill(Skill skill, Object obj)
 	{
 		monCSkillFacet.remove(id, skill, obj);
 	}
@@ -9972,22 +9905,22 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		saveableBonusFacet.remove(id, bonus, source);
 	}
 
-	public void addGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)
+	public void addGlobalCost(SkillCost sc, Skill skill, Object obj)
 	{
 		globalAddedSkillCostFacet.add(id, sc, skill, obj);
 	}
 
-	public void removeGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)
+	public void removeGlobalCost(SkillCost sc, Skill skill, Object obj)
 	{
 		globalAddedSkillCostFacet.remove(id, sc, skill, obj);
 	}
 
-	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
+	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, Object owner)
 	{
 		localAddedSkillCostFacet.add(id, pcc, sc, skill, owner);
 	}
 
-	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
+	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc, Object owner)
 	{
 		localAddedSkillCostFacet.remove(id, pcc, sc, skill, owner);
 	}
@@ -10693,20 +10626,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return templateFeatFacet.getSet(id, template);
 	}
 
-	public void addAppliedAbility(CDOMObject owner, CNAbilitySelection cnas)
-	{
-		directAbilityInputFacet.add(id, owner, cnas);
-	}
-
-	public void removeAppliedAbility(CDOMObject owner, CNAbilitySelection cnas)
-	{
-		directAbilityInputFacet.remove(id, owner, cnas);
-	}
-
 	public Collection<CNAbility> getCNAbilities()
 	{
 		Set<CNAbility> set = new HashSet<CNAbility>();
-		set.addAll(abFacet.getCNAbilities(id));
 		set.addAll(grantedAbilityFacet.getCNAbilities(id));
 		return set;
 	}
@@ -10719,22 +10641,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				"Category for getCNAbilities must be parent category");
 		}
 		Set<CNAbility> set = new HashSet<CNAbility>();
-		set.addAll(abFacet.getCNAbilities(id, cat, n));
 		set.addAll(grantedAbilityFacet.getCNAbilities(id, cat, n));
 		return set;
 	}
 
-	public List<?> getDetailedAssociations(CNAbility cna)
+	public List<?> getDetailedAssociations(ChooseDriver cd)
 	{
-		Ability ab = cna.getAbility();
-		ChooseInformation<?> chooseInfo = ab.get(ObjectKey.CHOOSE_INFO);
-		return chooseInfo.getChoiceActor().getCurrentlySelected(ab, this);
+		ChooseInformation<?> chooseInfo = cd.getChooseInfo();
+		return chooseInfo.getChoiceActor().getCurrentlySelected(cd, this);
 	}
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
 		List<CNAbility> list = new ArrayList<CNAbility>();
-		list.addAll(abFacet.getCNAbilities(id, ability));
 		list.addAll(grantedAbilityFacet.getCNAbilities(id, ability));
 		return list;
 	}
@@ -10747,7 +10666,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				"Category for getCNAbilities must be parent category, was: " + cat);
 		}
 		List<CNAbility> list = new ArrayList<CNAbility>();
-		list.addAll(abFacet.getCNAbilities(id, cat));
 		list.addAll(grantedAbilityFacet.getCNAbilities(id, cat));
 		return list;
 	}
@@ -10755,7 +10673,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
 		List<CNAbility> list = new ArrayList<CNAbility>();
-		list.addAll(abFacet.getPoolAbilities(id, cat));
 		list.addAll(grantedAbilityFacet.getPoolAbilities(id, cat));
 		return list;
 	}
@@ -10763,22 +10680,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
 		Set<CNAbility> set = new HashSet<CNAbility>();
-		set.addAll(abFacet.getPoolAbilities(id, cat, n));
 		set.addAll(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 		return set;
 	}
 
-	public void addSavedAbility(Ability a)
+	public void addSavedAbility(CNAbilitySelection choice)
 	{
-		svAbilityFacet.add(id, a);
+		svAbilityFacet.add(id, choice);
 	}
 
-	public void removeSavedAbility(Ability a)
-	{
-		svAbilityFacet.remove(id, a);
-	}
-
-	public Collection<Ability> getSaveAbilities()
+	public Collection<CNAbilitySelection> getSaveAbilities()
 	{
 		return svAbilityFacet.getSet(id);
 	}
@@ -10816,100 +10727,52 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public void addSavedAbility(CNAbilitySelection cnas, Object owner,
 		Object location)
 	{
+		svAbilityFacet.add(id, cnas);
 		addAbility(cnas, owner, location);
-		addSavedAbility(cnas.getCNAbility().getAbility());
 	}
 
 	public void addAbility(CNAbilitySelection cnas, Object owner,
 		Object location)
 	{
-		CNAbility cna = cnas.getCNAbility();
-		Category<Ability> category = cna.getAbilityCategory();
-
-		boolean newAdd = imposePCAbility(cna);
-		Ability ability = cna.getAbility();
-		abFacet.add(id, category, cna.getNature(), ability);
-		ChoiceManagerList<Object> controller =
-				ChooserUtilities.getConfiguredController(ability,
-					this, (AbilityCategory) category, new ArrayList<String>());
-		if (controller != null)
+		//TODO Need to handle owner
+		if (cnas.hasPrerequisites())
 		{
-			controller.restoreChoice(this, ability, cnas.getSelection());
+			conditionalFacet.add(id, cnas, location);
 		}
-		if ((category == AbilityCategory.FEAT) && !isImporting())
+		else
 		{
-			double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			adjustFeats(-cost);
+			directAbilityFacet.add(id, cnas, location);
 		}
-		if (newAdd && !isImporting())
-		{
-			AddObjectActions.globalChecks(ability, this);
-			/*
-			 * Protection for CODE-1240. Note the better solution is when facets
-			 * are association aware and thus trigger a change when an
-			 * association is added. - thpr
-			 */
-			calcActiveBonuses();
-		}
+		AbilityUtilities.finaliseAbility(this, cnas);
 	}
 
 	public void removeAbility(CNAbilitySelection cnas, Object owner,
 		Object location)
 	{
-		CNAbility cna = cnas.getCNAbility();
-		Ability ability = cna.getAbility();
-		Category<Ability> category = cna.getAbilityCategory();
-		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		//TODO Need to handle owner
+		if (cnas.hasPrerequisites())
 		{
-			ChoiceManagerList<?> controller =
-					ChooserUtilities.getConfiguredController(ability,
-						this, (AbilityCategory) category, new ArrayList<String>());
-			if (controller != null)
-			{
-				remove(cnas, cna, controller);
-				if ((category == AbilityCategory.FEAT) && !isImporting())
-				{
-					double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-					adjustFeats(cost);
-				}
-			}
+			conditionalFacet.remove(id, cnas, location);
 		}
 		else
 		{
-			Ability contained =
-					abFacet.getContained(id, category, cna.getNature(),
-						cna.getAbility());
-			abFacet.remove(id, category, cna.getNature(), contained);
-			if ((category == AbilityCategory.FEAT) && !isImporting())
-			{
-				double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-				adjustFeats(cost);
-			}
-			CDOMObjectUtilities.removeAdds(contained, this);
-			CDOMObjectUtilities.restoreRemovals(contained, this);
+			directAbilityFacet.remove(id, cnas, location);
 		}
-	}
-
-	private <T> void remove(CNAbilitySelection cnas, CNAbility cna,
-		ChoiceManagerList<T> controller)
-	{
-		Category<Ability> category = cna.getAbilityCategory();
-		T obj = controller.decodeChoice(cnas.getSelection());
-		imposePCAbility(cna);
-		Ability contained = cna.getAbility();
-		controller.removeChoice(this, contained, obj);
-		if (getAssociationList(cna).isEmpty())
+		CDOMObjectUtilities.removeAdds(cnas.getCNAbility().getAbility(), this);
+		if ((cnas.getCNAbility().getAbilityCategory() == AbilityCategory.FEAT)
+				&& cnas.getCNAbility().getNature().equals(Nature.NORMAL))
 		{
-			abFacet.remove(id, category, cna.getNature(), contained);
-			CDOMObjectUtilities.removeAdds(contained, this);
-			CDOMObjectUtilities.restoreRemovals(contained, this);
+			AbilityUtilities.adjustPool(cnas.getCNAbility().getAbility(),
+				this, false);
 		}
+		setDirty(true);
+		calcActiveBonuses();
 	}
 
 	public void removeSavedAbility(CNAbilitySelection cnas, Object owner,
 		Object location)
 	{
-		removeSavedAbility(cnas.getCNAbility().getAbility());
+		svAbilityFacet.remove(id, cnas);
 		removeAbility(cnas, owner, location);
 	}
 
@@ -10925,33 +10788,22 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 			return list;
 		}
-		return getAssociationList(cdo);
-	}
-
-	public boolean imposePCAbility(CNAbility cna)
-	{
-		Category<Ability> category = cna.getAbilityCategory();
-		Ability contained =
-				abFacet.getContained(id, category, cna.getNature(),
-					cna.getAbility());
-		String abilityKey = cna.getAbilityKey();
-		boolean doesNotHave = contained == null;
-		boolean needClone = doesNotHave && (abilityKey.charAt(0) != '*');
-		if (needClone)
+		else if (cdo instanceof ChooseDriver)
 		{
-			contained = cna.getAbility().clone();
+			return getAssociationList((ChooseDriver) cdo);
 		}
-		else if (doesNotHave)
+		else
 		{
-			return false;
+			//Can't really do a message here because this is heavily done by BonusManager
+			//			Logging
+			//				.errorPrint("Consolidated Association List requested for object of type "
+			//					+ cdo.getClass() + " but it is not a ChooseDriver");
+			return Collections.emptyList();
 		}
-		cna.doMagicalAndEvilThings(contained);
-		return needClone;
 	}
 
 	public boolean hasAbilityInPool(AbilityCategory aCategory)
 	{
-		return abFacet.hasAbilityInPool(id, aCategory)
-				|| grantedAbilityFacet.hasAbilityInPool(id, aCategory);
+		return grantedAbilityFacet.hasAbilityInPool(id, aCategory);
 	}
 }

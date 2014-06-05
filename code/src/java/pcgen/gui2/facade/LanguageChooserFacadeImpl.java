@@ -27,13 +27,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
@@ -64,7 +64,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private CDOMObject source;
+	private ChooseDriver source;
 	private String name;
 	private DefaultListFacade<LanguageFacade> availableList;
 	private DefaultListFacade<LanguageFacade> selectedList;
@@ -81,7 +81,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 * @param name The name of the chooser
 	 * @param source The source of the languages list, null for racial bionus languages.
 	 */
-	public LanguageChooserFacadeImpl(CharacterFacadeImpl pcFacade, String name, CDOMObject source)
+	public LanguageChooserFacadeImpl(CharacterFacadeImpl pcFacade, String name, ChooseDriver source)
 	{
 		this.pcFacade = pcFacade;
 		this.theCharacter = pcFacade.getTheCharacter();
@@ -115,7 +115,8 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildBonusLangList()
 	{
-		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
+		CNAbility cna = theCharacter.getBonusLanguageAbility();
+		Ability a = cna.getAbility();
 
 		List<Language> availLangs = new ArrayList<Language>();
 		ChooseInformation<Language> chooseInfo =
@@ -123,7 +124,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		availLangs.addAll(chooseInfo.getSet(theCharacter));
 
 		List<? extends Language> selLangs =
-				chooseInfo.getChoiceActor().getCurrentlySelected(a,
+				chooseInfo.getChoiceActor().getCurrentlySelected(cna,
 					theCharacter);
 		if (selLangs == null)
 		{
@@ -156,7 +157,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	{
 		final List<Language> availLangs = new ArrayList<Language>();
 		ChooseInformation<Language> chooseInfo =
-				(ChooseInformation<Language>) source.get(ObjectKey.CHOOSE_INFO);
+				(ChooseInformation<Language>) source.getChooseInfo();
 		availLangs.addAll(chooseInfo.getSet(theCharacter));
 
 		final List<? extends Language> selLangs =
@@ -180,7 +181,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		else
 		{
 			ChoiceManagerList<Language> aMan =
-					ChooserUtilities.getConfiguredController((PObject) source,
+					ChooserUtilities.getConfiguredController(source,
 						theCharacter, null, new ArrayList<String>());
 			numSelections =
 					aMan.getNumEffectiveChoices(selLangs,

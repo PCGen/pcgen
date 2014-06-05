@@ -28,6 +28,11 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -42,7 +47,7 @@ import pcgen.util.enumeration.View;
  * @author Mark Hulsman <hulsmanm@purdue.edu>
  * @version $Revision$
  */
-public final class PCTemplate extends PObject implements TemplateFacade
+public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
 {
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
@@ -159,5 +164,35 @@ public final class PCTemplate extends PObject implements TemplateFacade
 			retValue = toString();
 		}
 		return retValue;
+	}
+
+	@Override
+	public ChooseInformation<?> getChooseInfo()
+	{
+		return get(ObjectKey.CHOOSE_INFO);
+	}
+
+	@Override
+	public Formula getSelectFormula()
+	{
+		return getSafe(FormulaKey.SELECT);
+	}
+
+	@Override
+	public List<ChooseSelectionActor<?>> getActors()
+	{
+		return getListFor(ListKey.NEW_CHOOSE_ACTOR);
+	}
+
+	@Override
+	public String getFormulaSource()
+	{
+		return getKeyName();
+	}
+
+	@Override
+	public Formula getNumChoices()
+	{
+		return getSafe(FormulaKey.NUMCHOICES);
 	}
 }

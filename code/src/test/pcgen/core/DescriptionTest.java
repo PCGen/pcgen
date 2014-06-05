@@ -30,7 +30,7 @@ import java.util.Collections;
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.CNAbility;
@@ -264,7 +264,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	}
 
 	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
+		ChooseDriver obj, String choice)
 	{
 		T sel = aMan.decodeChoice(choice);
 		aMan.applyChoice(pc, obj, sel);

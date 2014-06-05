@@ -27,6 +27,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalSelectionActor;
@@ -251,7 +252,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, Equipment e, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Equipment e, PlayerCharacter pc)
 	{
 		e = e.clone();
 		e.setQty(1);
@@ -260,7 +261,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, Equipment e, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Equipment e, PlayerCharacter pc)
 	{
 		pc.removeAutoEquipment(e, obj);
 	}

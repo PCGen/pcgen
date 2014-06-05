@@ -51,6 +51,7 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.BiographyField;
@@ -2548,10 +2549,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		Ability a = theCharacter.getBonusLanguageAbility().getAbility();
+		CNAbility cna = theCharacter.getBonusLanguageAbility();
 		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<LanguageChooserFacade>();
 		chooserList.addElement(new LanguageChooserFacadeImpl(this,
-			LanguageBundle.getString("in_sumLangBonus"), a)); //$NON-NLS-1$
+			LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
 
 		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
@@ -2569,7 +2570,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void removeLanguage(LanguageFacade lang)
 	{
-		CDOMObject owner = getLaguageOwner(lang);
+		ChooseDriver owner = getLaguageOwner(lang);
 		if (owner == null)
 		{
 			return;
@@ -2589,11 +2590,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param lang The language to be found.
 	 * @return The granting rules object, or null if none or automatic.
 	 */
-	private CDOMObject getLaguageOwner(LanguageFacade lang)
+	private ChooseDriver getLaguageOwner(LanguageFacade lang)
 	{
 		if (currBonusLangs.contains(lang))
 		{
-			return theCharacter.getBonusLanguageAbility().getAbility();
+			return theCharacter.getBonusLanguageAbility();
 		} else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
 			return (Skill) dataSet.getSpeakLanguageSkill();

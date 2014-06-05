@@ -17,17 +17,26 @@
  */
 package pcgen.cdom.content;
 
+import java.util.List;
+
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 
 /**
  * An CNAbility represents an "unresolved" (categorized) Ability & Nature.
  */
 public class CNAbility extends ConcretePrereqObject implements
-		QualifyingObject, Comparable<CNAbility>
+		QualifyingObject, Comparable<CNAbility>, ChooseDriver
 {
 
 	private final Category<Ability> category;
@@ -35,8 +44,7 @@ public class CNAbility extends ConcretePrereqObject implements
 	/**
 	 * The Ability that this CNAbility represents
 	 */
-	private Ability ability;
-//	private final Ability ability;
+	private final Ability ability;
 
 	/**
 	 * The Nature of the Ability
@@ -51,7 +59,7 @@ public class CNAbility extends ConcretePrereqObject implements
 	 * @param nat
 	 *            The Nature of the given Ability
 	 */
-	public CNAbility(Category<Ability> cat, Ability abil, Nature nat)
+	CNAbility(Category<Ability> cat, Ability abil, Nature nat)
 	{
 		if (cat == null)
 		{
@@ -189,9 +197,39 @@ public class CNAbility extends ConcretePrereqObject implements
 		return compare;
 	}
 
-	public void doMagicalAndEvilThings(Ability clone)
+	@Override
+	public ChooseInformation<?> getChooseInfo()
 	{
-		ability = clone;
+		return ability.get(ObjectKey.CHOOSE_INFO);
 	}
 
+	@Override
+	public Formula getSelectFormula()
+	{
+		return ability.getSafe(FormulaKey.SELECT);
+	}
+
+	@Override
+	public List<ChooseSelectionActor<?>> getActors()
+	{
+		return ability.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+	}
+
+	@Override
+	public String getFormulaSource()
+	{
+		return ability.getKeyName();
+	}
+
+	@Override
+	public Formula getNumChoices()
+	{
+		return ability.getSafe(FormulaKey.NUMCHOICES);
+	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return ability.getDisplayName();
+	}
 }

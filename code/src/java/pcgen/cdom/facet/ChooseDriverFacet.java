@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
@@ -25,6 +26,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.util.Logging;
 
 /**
  * ChooseDriverFacet is a Facet that drives the application of a CHOOSE on a
@@ -58,14 +60,26 @@ public class ChooseDriverFacet
 			}
 			CDOMObject obj = dfce.getScope();
 			Object sel = dfce.getCDOMObject();
-			if (ChooseActivation.hasNewChooseToken(obj))
+			if (obj instanceof ChooseDriver)
 			{
-				addAssoc(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
+				if (ChooseActivation.hasNewChooseToken(obj))
+				{
+					ChooseDriver cd = (ChooseDriver) obj;
+					addAssoc(ChooserUtilities.getChoiceManager(cd, pc), pc,
+						cd, sel);
+				}
+			}
+			else
+			{
+				Logging
+					.errorPrint("Object of type "
+						+ obj.getClass()
+						+ " was sent to ChooseDriverFacet, but it is not a ChooseDriver");
 			}
 		}
 
 		private <T> void addAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-			CDOMObject obj, T sel)
+			ChooseDriver obj, T sel)
 		{
 			aMan.applyChoice(pc, obj, sel);
 		}
@@ -93,14 +107,25 @@ public class ChooseDriverFacet
 			}
 			Object assoc = dfce.getCDOMObject();
 			CDOMObject cdo = dfce.getScope();
-			if (ChooseActivation.hasNewChooseToken(cdo))
+			if (cdo instanceof ChooseDriver)
 			{
-				removeAssoc(ChooserUtilities.getChoiceManager(cdo, pc), pc, cdo, assoc);
+				if (ChooseActivation.hasNewChooseToken(cdo))
+				{
+					ChooseDriver cd = (ChooseDriver) cdo;
+					removeAssoc(ChooserUtilities.getChoiceManager(cd, pc), pc, cd, assoc);
+				}
+			}
+			else
+			{
+				Logging
+					.errorPrint("Object of type "
+						+ cdo.getClass()
+						+ " was sent to ChooseDriverFacet, but it is not a ChooseDriver");
 			}
 		}
 
 		private <T> void removeAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-			CDOMObject obj, T sel)
+			ChooseDriver obj, T sel)
 		{
 			aMan.removeChoice(pc, obj, sel);
 		}

@@ -80,14 +80,14 @@ public class BonusCalc
 	
 		if (aPC != null && "VAR".equals(aType))
 		{
-			iTimes = Math.max(1, aPC.getDetailedAssociationCount(po));
+			iTimes = Math.max(1, aPC.getConsolidatedAssociationList(po).size());
 		}
 	
 		for (BonusObj bonus : aBonusList)
 		{
 			String bString = bonus.toString().toUpperCase();
 	
-			if (aPC != null && aPC.hasAssociations(po))
+			if (aPC != null && !aPC.getConsolidatedAssociationList(po).isEmpty())
 			{
 				int span = 4;
 				int idx = bString.indexOf("%VAR");
@@ -103,7 +103,7 @@ public class BonusCalc
 					final String firstPart = bString.substring(0, idx);
 					final String secondPart = bString.substring(idx + span);
 	
-					for (String assoc : aPC.getAssociationList(po))
+					for (String assoc : aPC.getConsolidatedAssociationList(po))
 					{
 						final String xString = new StringBuilder()
 							.append(firstPart)

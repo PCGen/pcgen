@@ -32,6 +32,7 @@ import java.util.TreeSet;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
@@ -229,7 +230,7 @@ public final class KitAbilities extends BaseKit
 			}
 			else
 			{
-				CNAbility cna = new CNAbility(category, ability, Nature.NORMAL);
+				CNAbility cna = CNAbilityFactory.getCNAbility(category, Nature.NORMAL, ability);
 				CNAbilitySelection cnas = new CNAbilitySelection(cna, as.selection);
 				abilitiesToAdd.add(cnas);
 				aPC.addAbility(cnas, UserSelection.getInstance(), this);

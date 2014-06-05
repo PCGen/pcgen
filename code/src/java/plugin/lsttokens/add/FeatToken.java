@@ -23,7 +23,6 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
@@ -35,7 +34,6 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
-import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -45,8 +43,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.chooser.ChoiceManagerList;
-import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -345,36 +341,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		CNAbilitySelection choice)
 	{
-		CNAbility cna = choice.getCNAbility();
-		Ability anAbility = cna.getAbility();
-
-		boolean required = false;
-		if (anAbility.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			required = true;
-			ChoiceManagerList cm = ChooserUtilities.getChoiceManager(anAbility, pc);
-			if (remove(cm, pc, anAbility, choice.getSelection()))
-			{
-				required = false;
-			}
-		}
-		if (!required)
-		{
-			CDOMObjectUtilities.removeAdds(anAbility, pc);
-			CDOMObjectUtilities.restoreRemovals(anAbility, pc);
-			pc.removeAbility(choice, UserSelection.getInstance(),
-				UserSelection.getInstance());
-			pc.adjustMoveRates();
-		}
-	}
-
-	private static <T> boolean remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-		CDOMObject obj, String choice)
-	{
-		T sel = aMan.decodeChoice(choice);
-		aMan.removeChoice(pc, obj, sel);
-		List<T> selected = new ArrayList<T>();
-		aMan.getChoices(pc, new ArrayList<T>(), selected);
-		return selected.isEmpty();
+		pc.removeAbility(choice, UserSelection.getInstance(),
+			UserSelection.getInstance());
+		pc.adjustMoveRates();
 	}
 }

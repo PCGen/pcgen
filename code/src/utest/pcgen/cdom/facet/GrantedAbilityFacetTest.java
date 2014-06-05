@@ -17,32 +17,15 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.content.CNAbility;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.helper.CNAbilitySelection;
-import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
+import pcgen.cdom.testsupport.AbstractCNASEnforcingFacetTest;
 
-public class GrantedAbilityFacetTest extends
-		AbstractSourcedListFacetTest<CNAbilitySelection>
+public class GrantedAbilityFacetTest extends AbstractCNASEnforcingFacetTest
 {
 	private GrantedAbilityFacet facet = new GrantedAbilityFacet();
 
-	@Override
-	protected AbstractSourcedListFacet<CharID, CNAbilitySelection> getFacet()
+	protected GrantedAbilityFacet getFacet()
 	{
 		return facet;
-	}
-	@Override
-	protected CNAbilitySelection getObject()
-	{
-		Ability a1 = new Ability();
-		a1.setKeyName("Ab");
-		a1.setCDOMCategory(AbilityCategory.FEAT);
-		return new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, a1, Nature.VIRTUAL));
 	}
 
 }

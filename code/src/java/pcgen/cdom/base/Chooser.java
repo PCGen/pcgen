@@ -47,7 +47,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @param item
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	/**
 	 * Removes a choice from a PlayerCharacter.
@@ -59,7 +59,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @param item
 	 *            The choice being removed from the given PlayerCharacter.
 	 */
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	/**
 	 * Applies the given choice to the given PlayerCharacter.
@@ -72,7 +72,7 @@ public interface Chooser<T> extends Persistent<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	public void applyChoice(CDOMObject owner, T item, PlayerCharacter pc);
+	public void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc);
 
 	/**
 	 * Returns true if the given choice should be allowed for the
@@ -107,6 +107,6 @@ public interface Chooser<T> extends Persistent<T>
 	 *            The PlayerCharacter for which the currently selected items are
 	 *            being returned.
 	 */
-	public List<? extends T> getCurrentlySelected(CDOMObject owner,
+	public List<? extends T> getCurrentlySelected(ChooseDriver owner,
 		PlayerCharacter pc);
 }

@@ -21,10 +21,11 @@ import org.junit.Test;
 
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
@@ -46,7 +47,7 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 		setUpPC();
 		finishLoad(Globals.getContext());
 		InequalityTester it = InequalityTesterInst.getInstance();
-		CDOMObject owner = getOwner();
+		ChooseDriver owner = getOwner();
 		T t = construct("Templ");
 		T t2 = construct("Templ2");
 		PlayerCharacter pc1 = new PlayerCharacter();
@@ -78,7 +79,7 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
-	protected void preparePC(PlayerCharacter pc1, CDOMObject owner)
+	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
 	{
 	}
 
@@ -87,9 +88,9 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 		return cdo.getKeyName();
 	}
 
-	protected CDOMObject getOwner()
+	protected ChooseDriver getOwner()
 	{
-		return new PCClass();
+		return new Domain();
 	}
 
 	@Test
@@ -104,7 +105,7 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 			Globals.getContext().unconditionallyProcess(t2, "AUTO", "LANG|Other");
 			finishLoad(Globals.getContext());
 			InequalityTester it = InequalityTesterInst.getInstance();
-			CDOMObject owner = getOwner();
+			ChooseDriver owner = getOwner();
 			PlayerCharacter pc1 = new PlayerCharacter();
 			PlayerCharacter pc2 = new PlayerCharacter();
 			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));

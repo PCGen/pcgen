@@ -24,6 +24,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalSelectionActor;
@@ -264,12 +265,14 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(CDOMObject obj, Language l, PlayerCharacter pc)
+	@Override
+	public void applyChoice(ChooseDriver obj, Language l, PlayerCharacter pc)
 	{
 		pc.addAutoLanguage(l, obj);
 	}
 
-	public void removeChoice(CDOMObject obj, Language l, PlayerCharacter pc)
+	@Override
+	public void removeChoice(ChooseDriver obj, Language l, PlayerCharacter pc)
 	{
 		pc.removeAutoLanguage(l, obj);
 	}

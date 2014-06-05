@@ -294,14 +294,14 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
 		SpellLevel choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
 
 	@Override
-	public ChoiceManagerList<SpellLevel> getChoiceManager(CDOMObject owner, int cost)
+	public ChoiceManagerList<SpellLevel> getChoiceManager(ChooseDriver owner, int cost)
 	{
 		return new CDOMChoiceManager<SpellLevel>(owner, this, null, cost);
 	}
@@ -313,7 +313,7 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
 		SpellLevel item)
 	{
 		choiceActor.removeChoice(pc, owner, item);

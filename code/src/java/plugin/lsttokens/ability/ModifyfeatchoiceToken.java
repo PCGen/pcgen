@@ -33,6 +33,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ModifyChoiceDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
+import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.TabInfo;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -54,7 +55,7 @@ import pcgen.util.enumeration.Tab;
  * Deals with the MODIFYFEATCHOICE token
  */
 public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
-		implements CDOMPrimaryToken<Ability>, ChoiceActor<Ability>
+		implements CDOMPrimaryToken<Ability>, ChoiceActor<CNAbility>
 {
 
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -95,7 +96,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 
 		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<Ability>(refs);
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
-		ChoiceSet<Ability> cs = new ChoiceSet<Ability>(getTokenName(), gfd);
+		ChoiceSet<CNAbility> cs = new ChoiceSet<CNAbility>(getTokenName(), gfd);
 		
 		TabInfo ti = context.ref.silentlyGetConstructedCDOMObject(
 				TabInfo.class, Tab.ABILITIES.toString());
@@ -105,7 +106,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			singularName = singularName.substring(0, singularName.length() - 1);
 		}
 		cs.setTitle("Select a " + singularName + " to modify");
-		TransitionChoice<Ability> tc = new ConcreteTransitionChoice<Ability>(cs,
+		TransitionChoice<CNAbility> tc = new ConcreteTransitionChoice<CNAbility>(cs,
 				FormulaFactory.ONE);
 		tc.setRequired(false);
 		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);
@@ -117,7 +118,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		TransitionChoice<Ability> mc = context.getObjectContext().getObject(
+		TransitionChoice<CNAbility> mc = context.getObjectContext().getObject(
 				ability, ObjectKey.MODIFY_CHOICE);
 		if (mc == null)
 		{
@@ -135,13 +136,13 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, Ability choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, CNAbility choice, PlayerCharacter pc)
 	{
 		// build a list of available choices and choices already made.
-		processApplication(pc, choice, choice.get(ObjectKey.CHOOSE_INFO));
+		processApplication(pc, choice, choice.getChooseInfo());
 	}
 
-	private <T> void processApplication(PlayerCharacter pc, Ability choice,
+	private <T> void processApplication(PlayerCharacter pc, CNAbility choice,
 		ChooseInformation<T> chooseInfo)
 	{
 		List<T> available = new ArrayList<T>(chooseInfo.getSet(pc));
@@ -191,7 +192,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	}
 
 	@Override
-	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(CNAbility choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}

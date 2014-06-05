@@ -23,9 +23,9 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -207,13 +207,13 @@ public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, PCClass cls, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, PCClass cls, PlayerCharacter pc)
 	{
 		pc.addFavoredClass(cls, obj);
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, PCClass cls, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, PCClass cls, PlayerCharacter pc)
 	{
 		pc.removeFavoredClass(cls, obj);
 	}

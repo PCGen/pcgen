@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.UserSelection;
-import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -66,8 +66,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 	{
 		Ability item = construct("ItemName");
 		CNAbilitySelection as =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
-					Nature.NORMAL));
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
 		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
 			.encodeChoice(as));
 	}
@@ -86,8 +85,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 		}
 		Ability item = construct("ItemName");
 		CNAbilitySelection as =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
-					Nature.NORMAL));
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
 		assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
@@ -131,24 +129,16 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 		Object source = UserSelection.getInstance();
 		finishLoad(context);
 		
-		CNAbilitySelection badCACAS = new CNAbilitySelection(new CNAbility(oc,
-			badCA, Nature.AUTOMATIC), "Foo");
-		CNAbilitySelection fooCAS = new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT,
-				item, Nature.AUTOMATIC), "Foo");
-		CNAbilitySelection barCAS = new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT,
-				item, Nature.VIRTUAL), "Bar");
-		CNAbilitySelection gooCAS = new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT,
-			item, Nature.NORMAL), "Goo");
+		CNAbilitySelection badCACAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
+		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, item), "Foo");
+		CNAbilitySelection barCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, item), "Bar");
+		CNAbilitySelection gooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Goo");
 		CNAbilitySelection wowCAS =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
-					Nature.NORMAL), "Wow");
-		CNAbilitySelection wowFFCAS = new CNAbilitySelection(new CNAbility(ff,
-			item, Nature.NORMAL), "Wow");
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Wow");
+		CNAbilitySelection wowFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Wow");
 		CNAbilitySelection revCAS =
-				new CNAbilitySelection(new CNAbility(AbilityCategory.FEAT, item,
-					Nature.NORMAL), "Rev");
-		CNAbilitySelection revFFCAS = new CNAbilitySelection(new CNAbility(ff,
-			item, Nature.NORMAL), "Rev");
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Rev");
+		CNAbilitySelection revFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
 		
 		assertTrue(pca.allow(fooCAS, pc, false));
 		assertTrue(pca.allow(barCAS, pc, false));

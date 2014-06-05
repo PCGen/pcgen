@@ -26,6 +26,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalSelectionActor;
@@ -266,12 +267,14 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(CDOMObject obj, ShieldProf sp, PlayerCharacter pc)
+	@Override
+	public void applyChoice(ChooseDriver obj, ShieldProf sp, PlayerCharacter pc)
 	{
 		pc.addShieldProf(obj, sp);
 	}
 
-	public void removeChoice(CDOMObject obj, ShieldProf sp, PlayerCharacter pc)
+	@Override
+	public void removeChoice(ChooseDriver obj, ShieldProf sp, PlayerCharacter pc)
 	{
 		pc.removeShieldProf(obj, sp);
 	}

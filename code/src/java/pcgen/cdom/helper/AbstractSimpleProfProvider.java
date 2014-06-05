@@ -18,7 +18,6 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Loadable;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -80,7 +79,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * @return true, as AbstractSimpleProfProvider is not a conditional object
 	 */
 	@Override
-	public boolean qualifies(PlayerCharacter playerCharacter, Loadable owner)
+	public boolean qualifies(PlayerCharacter playerCharacter, Object owner)
 	{
 		return true;
 	}

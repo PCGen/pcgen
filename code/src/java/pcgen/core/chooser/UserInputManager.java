@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -14,7 +14,7 @@ import pcgen.util.chooser.ChooserFactory;
 
 public class UserInputManager extends CDOMChoiceManager<String>
 {
-	public UserInputManager(CDOMObject cdo,
+	public UserInputManager(ChooseDriver cdo,
 		ChooseInformation<String> chooseType, int cost)
 	{
 		super(cdo, chooseType, null, cost);

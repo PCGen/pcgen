@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalSelectionActor;
@@ -337,12 +338,14 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return CDOMObject.class;
 	}
 
-	public void applyChoice(CDOMObject obj, WeaponProf wp, PlayerCharacter pc)
+	@Override
+	public void applyChoice(ChooseDriver obj, WeaponProf wp, PlayerCharacter pc)
 	{
 		pc.addWeaponProf(obj, wp);
 	}
 
-	public void removeChoice(CDOMObject obj, WeaponProf wp, PlayerCharacter pc)
+	@Override
+	public void removeChoice(ChooseDriver obj, WeaponProf wp, PlayerCharacter pc)
 	{
 		pc.removeWeaponProf(obj, wp);
 	}

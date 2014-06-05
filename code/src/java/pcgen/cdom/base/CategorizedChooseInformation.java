@@ -301,13 +301,13 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
 		choiceActor.restoreChoice(pc, owner, item);
 	}
 
 	@Override
-	public ChoiceManagerList<T> getChoiceManager(CDOMObject owner, int cost)
+	public ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost)
 	{
 		return new CDOMChoiceManager<T>(owner, this, null, cost);
 	}
@@ -319,7 +319,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T item)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
 	}

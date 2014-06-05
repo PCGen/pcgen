@@ -23,7 +23,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.input.ActiveAbilityFacet;
+import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
@@ -37,8 +37,8 @@ public class AddTargetedVFeatTest extends AbstractAddListTokenTest<Ability>
 {
 
 	private static final VFeatToken ADD_VFEAT_TOKEN = new VFeatToken();
-	private ActiveAbilityFacet activeAbilityFacet = FacetLibrary
-		.getFacet(ActiveAbilityFacet.class);
+	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
+		.getFacet(GrantedAbilityFacet.class);
 
 	@Override
 	public void processToken(CDOMObject source)
@@ -60,9 +60,9 @@ public class AddTargetedVFeatTest extends AbstractAddListTokenTest<Ability>
 	}
 
 	@Override
-	protected ActiveAbilityFacet getTargetFacet()
+	protected GrantedAbilityFacet getTargetFacet()
 	{
-		return activeAbilityFacet;
+		return grantedAbilityFacet;
 	}
 
 	@Override
@@ -90,8 +90,7 @@ public class AddTargetedVFeatTest extends AbstractAddListTokenTest<Ability>
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{
-				Ability g = pc.getAbilityKeyed(AbilityCategory.FEAT, "Granted");
-				if (pc.getDetailedAssociationCount(g) == 1)
+				if (pc.getDetailedAssociationCount(a) == 1)
 				{
 					if (!pc.getAssociationList(a).get(0).equals("English"))
 					{

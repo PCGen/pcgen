@@ -17,13 +17,14 @@
  */
 package pcgen.cdom.helper;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
@@ -91,13 +92,13 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, AbilitySelection as,
+	public void applyChoice(ChooseDriver obj, AbilitySelection as,
 		PlayerCharacter pc)
 	{
-		CNAbility cna = new CNAbility(category, as.getObject(), nature);
+		CNAbility cna = CNAbilityFactory.getCNAbility(category, nature, as.getObject());
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, as.getSelection());
 		pc.associateSelection(as, cnas);
-		pc.addAppliedAbility(obj, cnas);
+		pc.addAbility(cnas, obj, this);
 	}
 
 	@Override
@@ -107,17 +108,18 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, AbilitySelection as,
+	public void removeChoice(ChooseDriver obj, AbilitySelection as,
 		PlayerCharacter pc)
 	{
 		CNAbilitySelection cnas = pc.getAssociatedSelection(as);
 		if (cnas == null)
 		{
+			System.err.println("Null CNAS");
 			//error??
 		}
 		else
 		{
-			pc.removeAppliedAbility(obj, cnas);
+			pc.removeAbility(cnas, obj, this);
 		}
 	}
 

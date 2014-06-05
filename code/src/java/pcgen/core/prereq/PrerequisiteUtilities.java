@@ -26,14 +26,18 @@ package pcgen.core.prereq;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -201,7 +205,7 @@ public final class PrerequisiteUtilities
 
 		int runningTotal = 0;
 
-		final List<Ability> abilityList = buildAbilityList(character, categoryName);
+		final Set<Ability> abilityList = buildAbilityList(character, categoryName);
 
 		if (!abilityList.isEmpty())
 		{
@@ -238,8 +242,14 @@ public final class PrerequisiteUtilities
 							 * instance is a SERVESAS, but that is a high cost corner case.
 							 */
 
-							final int num =
-							   character.getSelectCorrectedAssociationCount(ability) - 1;
+
+							List<String> assocs =
+									character
+										.getConsolidatedAssociationList(ability);
+							int select =
+									ability.getSafe(FormulaKey.SELECT)
+										.resolve(character, "").intValue();
+							int num = (assocs.size() / select) - 1;
 							if (num > 0)
 							{
 								runningTotal += num;
@@ -317,8 +327,9 @@ public final class PrerequisiteUtilities
 
 		final String  subKey = prereq.getSubKey();
 		final boolean subKeyIsType = isTypeTest(subKey);
-
 		final int wildCardPos = subKey.indexOf('%');
+
+		List<String> assocs = character.getConsolidatedAssociationList(ability);
 
 		if (subKeyIsType)
 		{
@@ -327,12 +338,13 @@ public final class PrerequisiteUtilities
 		}
 
 		else if (ability.getKeyName().equalsIgnoreCase(key)
-			&& character.containsAssociated(ability, subKey))
+			&& hasAssoc(assocs, subKey))
 		{
 
 			if (countMults && ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
-				runningTotal = character.getSelectCorrectedAssociationCount(ability);
+				int select = ability.getSafe(FormulaKey.SELECT).resolve(character, "").intValue();
+				runningTotal = assocs.size() / select;
 			}
 			else
 			{
@@ -353,6 +365,18 @@ public final class PrerequisiteUtilities
 		}
 
 		return runningTotal;
+	}
+
+	private static boolean hasAssoc(List<String> assocs, String subKey)
+	{
+		for (String s : assocs)
+		{
+			if (subKey.equalsIgnoreCase(s))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -389,7 +413,7 @@ public final class PrerequisiteUtilities
 
 		int runningTotal = 0;
 
-		for (String assoc : character.getAssociationList(ability))
+		for (String assoc : character.getConsolidatedAssociationList(ability))
 		{
 			final String fString = assoc.toUpperCase();
 
@@ -409,7 +433,7 @@ public final class PrerequisiteUtilities
 		PlayerCharacter aPC,
 		Ability ability, String type, boolean countMults)
 	{
-		final List<String> selectedList = aPC.getAssociationList(ability);
+		final List<String> selectedList = aPC.getConsolidatedAssociationList(ability);
 
 		ChooseInformation<?> chooseInformation = ability.getSafe(ObjectKey.CHOOSE_INFO);
 		final String aChoiceString = chooseInformation.getName();
@@ -441,11 +465,11 @@ public final class PrerequisiteUtilities
 	 * @param categoryName The name of the required category, null if any category will be matched.
 	 * @return A list of categories matching.
 	 */
-	private static List<Ability> buildAbilityList(
+	private static Set<Ability> buildAbilityList(
 		final PlayerCharacter character,
 		String categoryName)
 	{
-		final List<Ability> abilityList = new ArrayList<Ability>();
+		final Set<Ability> abilityList = new WrappedMapSet<Ability>(IdentityHashMap.class);
 		if (character != null)
 		{
 			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
@@ -495,6 +519,7 @@ public final class PrerequisiteUtilities
 		int returnTotal = 0;
 		for (String spell : selectedList)
 		{
+			//TODO Case sensitivity?
 			final Spell sp = Globals.getSpellKeyed(spell);
 
 			if (sp == null)

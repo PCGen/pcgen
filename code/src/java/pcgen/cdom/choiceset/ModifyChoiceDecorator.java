@@ -35,7 +35,7 @@ import pcgen.core.PlayerCharacter;
  * Feats that are possessed by the PlayerCharacter. This is a special case
  * PrimitiveChoiceSet for the MODIFYFEATCHOICE token.
  */
-public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
+public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 {
 
 	/**
@@ -64,9 +64,9 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 * @return The class of object this ModifyChoiceDecorator contains.
 	 */
 	@Override
-	public Class<? super Ability> getChoiceClass()
+	public Class<? super CNAbility> getChoiceClass()
 	{
-		return pcs.getChoiceClass();
+		return CNAbility.class;
 	}
 
 	/**
@@ -103,18 +103,18 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<Ability>
 	 *         contains and which are also possessed by the PlayerCharacter.
 	 */
 	@Override
-	public Set<Ability> getSet(PlayerCharacter pc)
+	public Set<CNAbility> getSet(PlayerCharacter pc)
 	{
 		Collection<Ability> collection = pcs.getSet(pc);
 		List<CNAbility> pcfeats = pc.getPoolAbilities(AbilityCategory.FEAT);
-		Set<Ability> returnSet = new HashSet<Ability>();
+		Set<CNAbility> returnSet = new HashSet<CNAbility>();
 		for (CNAbility cna : pcfeats)
 		{
 			Ability a = cna.getAbility();
 			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue()
-				&& collection.contains(a) && !returnSet.contains(a))
+				&& collection.contains(a))
 			{
-				returnSet.add(a);
+				returnSet.add(cna);
 			}
 		}
 		return returnSet;

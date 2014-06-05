@@ -34,7 +34,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
-import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -198,8 +198,7 @@ public class AbilityRefChoiceSet implements
 				}
 				else
 				{
-					returnSet.add(new CNAbilitySelection(new CNAbility(
-						category, a, nature)));
+					returnSet.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category, nature, a)));
 				}
 			}
 		}
@@ -288,8 +287,7 @@ public class AbilityRefChoiceSet implements
 				availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new CNAbilitySelection(new CNAbility(category,
-				ability, nature), s));
+			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category, nature, ability), s));
 		}
 		return returnList;
 	}

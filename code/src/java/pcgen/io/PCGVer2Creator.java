@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -41,7 +40,6 @@ import java.util.TreeSet;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -1379,6 +1377,8 @@ public final class PCGVer2Creator implements IOConstants
 		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
 				getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
+
+		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 		
 		Collections.sort(categories, new Comparator<AbilityCategory>() {
 			@Override
@@ -1388,21 +1388,10 @@ public final class PCGVer2Creator implements IOConstants
 			}
 		});
 		
-		Collection<Ability> virtSave = new WrappedMapSet<Ability>(IdentityHashMap.class);
-		virtSave.addAll(thePC.getSaveAbilities());
-
 		for (final AbilityCategory cat : categories)
 		{
 			final List<CNAbility> normalAbilitiesToSave =
 					new ArrayList<CNAbility>(thePC.getPoolAbilities(cat, Nature.NORMAL));
-			final List<CNAbility> virtualAbilitiesToSave = new ArrayList<CNAbility>();
-			for (final CNAbility vability : thePC.getPoolAbilities(cat, Nature.VIRTUAL))
-			{
-				if (virtSave.contains(vability.getAbility()))
-				{
-					virtualAbilitiesToSave.add(vability);
-				}
-			}
 			
 			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
 			Collections.sort(normalAbilitiesToSave);
@@ -1410,12 +1399,16 @@ public final class PCGVer2Creator implements IOConstants
 			{
 				writeAbilityToBuffer(buffer, ability);
 			}
-			Collections.sort(virtualAbilitiesToSave);
-			for (final CNAbility ability : virtualAbilitiesToSave)
+			for (final CNAbilitySelection ability : virtSave)
 			{
-				writeAbilityToBuffer(buffer, ability);
+				CNAbility cnAbility = ability.getCNAbility();
+				if (cnAbility.getAbilityCategory().equals(cat))
+				{
+					//TODO Need to write each CNAbility only once :/
+					writeAbilityToBuffer(buffer, cnAbility);
+				}
 			}
-			if (!normalAbilitiesToSave.isEmpty() || !virtualAbilitiesToSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
+			if (!normalAbilitiesToSave.isEmpty() || !virtSave.isEmpty() || thePC.getUserPoolBonus(cat) != 0.0)
 			{
 				buffer.append(TAG_USERPOOL).append(TAG_END);
 				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(

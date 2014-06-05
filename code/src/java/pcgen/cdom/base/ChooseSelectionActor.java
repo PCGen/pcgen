@@ -40,7 +40,7 @@ public interface ChooseSelectionActor<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	void applyChoice(CDOMObject obj, T item, PlayerCharacter pc);
+	void applyChoice(ChooseDriver obj, T item, PlayerCharacter pc);
 
 	/**
 	 * Removes the given choice from the given PlayerCharacter.
@@ -54,7 +54,7 @@ public interface ChooseSelectionActor<T>
 	 *            The PlayerCharacter from which the given choice should be
 	 *            removed.
 	 */
-	void removeChoice(CDOMObject obj, T item, PlayerCharacter pc);
+	void removeChoice(ChooseDriver obj, T item, PlayerCharacter pc);
 
 	/**
 	 * Returns the source of this ChooseSelectionActor. Provided primarily to

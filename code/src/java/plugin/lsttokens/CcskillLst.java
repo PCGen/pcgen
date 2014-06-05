@@ -24,6 +24,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -246,13 +247,13 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, Skill skill, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
 	{
 		pc.addGlobalCost(SkillCost.CROSS_CLASS, skill, obj);
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, Skill skill, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
 	{
 		pc.removeGlobalCost(SkillCost.CROSS_CLASS, skill, obj);
 	}

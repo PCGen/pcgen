@@ -24,13 +24,13 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
@@ -154,11 +154,10 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -169,12 +168,11 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
 		String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
@@ -191,19 +189,19 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
 	}
 
-	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,
+	private void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc,
 		ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(CDOMObject owner,
+	public List<String> getCurrentlySelected(ChooseDriver owner,
 		PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());

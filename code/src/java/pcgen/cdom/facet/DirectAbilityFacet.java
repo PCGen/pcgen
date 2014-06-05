@@ -17,8 +17,13 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.facet.base.AbstractCNASEnforcingFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.helper.CNAbilitySelection;
 
 /**
@@ -27,12 +32,69 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DirectAbilityFacet extends
-		AbstractSingleSourceListFacet<CNAbilitySelection, Object>
+public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 {
 
-	public int size(CharID id)
+	public void removeAll(CharID id, Object source)
 	{
-		return getCount(id);
+		if (source == null)
+		{
+			throw new IllegalArgumentException(
+				"Attempt to remove object with null source from list");
+		}
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list == null)
+		{
+			return;
+		}
+		List<CNAbilitySelection> removed = new ArrayList<CNAbilitySelection>();
+		List<CNAbilitySelection> added = new ArrayList<CNAbilitySelection>();
+		for (Iterator<List<SourcedCNAS>> listIT = list.iterator(); listIT
+			.hasNext();)
+		{
+			List<SourcedCNAS> array = listIT.next();
+			int length = array.size();
+			//Iterate backwards, so that we remove harmless items first
+			for (int j = length - 1; j >= 0; j--)
+			{
+				SourcedCNAS sc = array.get(j);
+				if (source.equals(sc.source))
+				{
+					//fix the array here
+					array.remove(j);
+					boolean needRemove = true;
+					if (!array.isEmpty())
+					{
+						CNAbilitySelection newPrimary = array.get(0).cnas;
+						//Only fire if the CNAS differs to avoid churn
+						if (!sc.cnas.equals(newPrimary) && (j == 0))
+						{
+							added.add(newPrimary);
+						}
+						else
+						{
+							needRemove = false;
+						}
+					}
+					if (needRemove)
+					{
+						removed.add(sc.cnas);
+					}
+				}
+			}
+			if (array.isEmpty())
+			{
+				listIT.remove();
+			}
+		}
+		for (CNAbilitySelection cnas : removed)
+		{
+			fireDataFacetChangeEvent(id, cnas,
+				DataFacetChangeEvent.DATA_REMOVED);
+		}
+		for (CNAbilitySelection cnas : added)
+		{
+			fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_ADDED);
+		}
 	}
 }

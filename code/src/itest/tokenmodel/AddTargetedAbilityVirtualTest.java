@@ -18,11 +18,12 @@
 package tokenmodel;
 
 import java.util.Collection;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.input.ActiveAbilityFacet;
+import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
@@ -36,8 +37,8 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 {
 
 	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
-	private ActiveAbilityFacet activeAbilityFacet = FacetLibrary
-		.getFacet(ActiveAbilityFacet.class);
+	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
+		.getFacet(GrantedAbilityFacet.class);
 
 	@Override
 	public void processToken(CDOMObject source)
@@ -59,9 +60,9 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	}
 
 	@Override
-	protected ActiveAbilityFacet getTargetFacet()
+	protected GrantedAbilityFacet getTargetFacet()
 	{
-		return activeAbilityFacet;
+		return grantedAbilityFacet;
 	}
 
 	@Override

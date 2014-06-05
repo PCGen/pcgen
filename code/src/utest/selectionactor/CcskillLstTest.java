@@ -19,7 +19,7 @@ package selectionactor;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Domain;
 import pcgen.core.Skill;
@@ -56,7 +56,7 @@ public class CcskillLstTest extends AbstractSelectionActorTest<Skill>
 	}
 
 	@Override
-	public CDOMObject getOwner()
+	public ChooseDriver getOwner()
 	{
 		return new Domain();
 	}

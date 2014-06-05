@@ -26,6 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.ChooseDriver;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -40,7 +43,7 @@ import pcgen.core.facade.RaceFacade;
  * @author Michael Osterlie
  * @version $Revision$
  */
-public final class Race extends PObject implements RaceFacade
+public final class Race extends PObject implements RaceFacade, ChooseDriver
 {
 
 	/**
@@ -108,5 +111,35 @@ public final class Race extends PObject implements RaceFacade
 		    }
 		}
 		return subTypeNames;
+	}
+
+	@Override
+	public ChooseInformation<?> getChooseInfo()
+	{
+		return get(ObjectKey.CHOOSE_INFO);
+	}
+
+	@Override
+	public Formula getSelectFormula()
+	{
+		return getSafe(FormulaKey.SELECT);
+	}
+
+	@Override
+	public List<ChooseSelectionActor<?>> getActors()
+	{
+		return getListFor(ListKey.NEW_CHOOSE_ACTOR);
+	}
+
+	@Override
+	public String getFormulaSource()
+	{
+		return getKeyName();
+	}
+
+	@Override
+	public Formula getNumChoices()
+	{
+		return getSafe(FormulaKey.NUMCHOICES);
 	}
 }

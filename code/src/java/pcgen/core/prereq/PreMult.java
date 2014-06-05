@@ -61,6 +61,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, targetNumber);
+
 		return countedTotal(prereq, runningTotal);
 	}
 

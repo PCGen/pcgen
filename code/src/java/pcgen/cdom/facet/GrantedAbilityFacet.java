@@ -19,7 +19,8 @@ package pcgen.cdom.facet;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.Category;
@@ -27,8 +28,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.base.AbstractCNASEnforcingFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
@@ -41,19 +41,19 @@ import pcgen.util.enumeration.View;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GrantedAbilityFacet extends
-		AbstractSourcedListFacet<CharID, CNAbilitySelection> implements
+public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		DataFacetChangeListener<CharID, CNAbilitySelection>
 {
 
-	public boolean hasAbilityVisibleTo(CharID id, Category<Ability> cat, View view)
+	public boolean hasAbilityVisibleTo(CharID id, Category<Ability> cat,
+		View view)
 	{
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				Ability a = cna.getAbility();
 				if (cna.getAbilityCategory().equals(cat)
 					&& a.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
@@ -68,13 +68,13 @@ public class GrantedAbilityFacet extends
 	public Collection<CNAbility> getPoolAbilities(CharID id,
 		Category<Ability> cat)
 	{
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
+		List<List<SourcedCNAS>> list = getList(id);
 		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
-		if (map != null)
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().equals(cat))
 				{
 					returnList.add(cna);
@@ -88,12 +88,12 @@ public class GrantedAbilityFacet extends
 		Category<Ability> cat, Nature n)
 	{
 		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().equals(cat)
 					&& cna.getNature().equals(n))
 				{
@@ -112,12 +112,12 @@ public class GrantedAbilityFacet extends
 		}
 
 		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().getParentCategory().equals(cat))
 				{
 					returnList.add(cna);
@@ -130,12 +130,12 @@ public class GrantedAbilityFacet extends
 	public Collection<CNAbility> getCNAbilities(CharID id)
 	{
 		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				returnList.add(cnas.getCNAbility());
+				returnList.add(array.get(0).cnas.getCNAbility());
 			}
 		}
 		return returnList;
@@ -145,12 +145,12 @@ public class GrantedAbilityFacet extends
 		Category<Ability> cat, Nature n)
 	{
 		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().getParentCategory().equals(cat)
 					&& cna.getNature().equals(n))
 				{
@@ -163,14 +163,14 @@ public class GrantedAbilityFacet extends
 
 	public Collection<CNAbility> getCNAbilities(CharID id, Ability ability)
 	{
-		ArrayList<CNAbility> returnList = new ArrayList<CNAbility>();
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		Set<CNAbility> returnList = new HashSet<CNAbility>();
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
 			Category<Ability> cat = ability.getCDOMCategory();
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().getParentCategory().equals(cat)
 					&& cna.getAbilityKey().equals(ability.getKeyName()))
 				{
@@ -183,12 +183,12 @@ public class GrantedAbilityFacet extends
 
 	public boolean hasAbilityKeyed(CharID id, Category<Ability> cat, String aKey)
 	{
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().getParentCategory().equals(cat)
 					&& cna.getAbilityKey().equals(aKey))
 				{
@@ -199,27 +199,15 @@ public class GrantedAbilityFacet extends
 		return false;
 	}
 
-	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
-	{
-		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
-	}
-
-	@Override
-	public void dataRemoved(
-		DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
-	{
-		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
-	}
 
 	public boolean hasAbilityInPool(CharID id, AbilityCategory cat)
 	{
-		Map<CNAbilitySelection, Set<Object>> map = getCachedMap(id);
-		if (map != null)
+		List<List<SourcedCNAS>> list = getList(id);
+		if (list != null)
 		{
-			for (CNAbilitySelection cnas : map.keySet())
+			for (List<SourcedCNAS> array : list)
 			{
-				CNAbility cna = cnas.getCNAbility();
+				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().equals(cat))
 				{
 					return true;
