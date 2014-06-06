@@ -232,7 +232,7 @@ CATEGORY=Special Ability|Aasimar ~ Racial DEX bonus.MOD				BONUS:STAT|DEX|2
 CATEGORY=Special Ability|Aasimar ~ Manipulate armor.MOD				
 CATEGORY=Special Ability|Aasimar ~ Will save bonus.MOD				BONUS:CHECKS|Will|2|TYPE=Racial
 CATEGORY=Special Ability|Aasimar ~ Create water 3/day.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=AasimarSpellLikeLVL|Create Water
-CATEGORY=Special Ability|Aasimar ~ Sonic resistance.MOD				DEFINE:SonicResistanceBonus|0		BONUS:VAR|SonicResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic
+CATEGORY=Special Ability|Aasimar ~ Sonic resistance.MOD				BONUS:VAR|SonicResistanceBonus|5|TYPE=Resistance		ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic
 CATEGORY=Special Ability|Aasimar ~ Burst of speed.MOD					
 CATEGORY=Special Ability|Aasimar ~ Dodge humans.MOD					
 CATEGORY=Special Ability|Aasimar ~ Craft check bonus.MOD				CHOOSE:SKILL|Craft%	SELECT:1		BONUS:SKILL|%LIST|2|TYPE=Racial	MULT:YES
@@ -288,7 +288,7 @@ CATEGORY=Special Ability|Aasimar ~ Racial curse save bonus.MOD
 CATEGORY=Special Ability|Aasimar ~ Racial Knowledge (planes) bonus.MOD		BONUS:SKILL|Knowledge (planes)|2|TYPE=Racial
 CATEGORY=Special Ability|Aasimar ~ Comfortably warm.MOD				
 CATEGORY=Special Ability|Aasimar ~ Track stars.MOD					
-CATEGORY=Special Ability|Aasimar ~ Fire resistance.MOD				DEFINE:FireResistanceBonus|0		BONUS:VAR|FireResistanceBonus|5		ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
+CATEGORY=Special Ability|Aasimar ~ Fire resistance.MOD				BONUS:VAR|FireResistanceBonus|5|TYPE=Resistance		ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
 CATEGORY=Special Ability|Aasimar ~ Double healing from rest.MOD			
 CATEGORY=Special Ability|Aasimar ~ Mending 3/day.MOD					SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Mending
 CATEGORY=Special Ability|Aasimar ~ Energising ancestor.MOD				

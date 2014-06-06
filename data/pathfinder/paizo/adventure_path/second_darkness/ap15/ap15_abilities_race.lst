@@ -69,7 +69,7 @@ CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Heretical Revelation ~ 
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Any living creature you damage with a slashing or piercing weapon continues to bleed, losing 1 hit point per round thereafter.|PREDEITY:1,Andirifkhu
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Once per day, as a free action, you may pass through one door and come out another elsewhere.|PREDEITY:1,Areshkagal
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day you can make a touch attack against an opponent for 4d6 points of damage, which you gain as temporary hit points.|PREDEITY:1,Cyth-V'sug
-CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain fire resistance 10.|PREDEITY:1,Flauros																			ABILITY:Special Ability|VIRTUAL|Resistance To Fire|PREDEITY:1,Flauros	BONUS:VAR|FireResistanceBonus|10|PREDEITY:1,Flauros
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain fire resistance 10.|PREDEITY:1,Flauros																			ABILITY:Special Ability|VIRTUAL|Resistance To Fire|PREDEITY:1,Flauros	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance|PREDEITY:1,Flauros
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain a malleable form and may employ alter self as a spell-like ability at will.|PREDEITY:1,Haagenti
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day, as a free action, you may add the effects of the spell poison to any melee attack that just dealt damage.|PREDEITY:1,Jubilex
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain a climb speed equal to half your base land speed and you can communicate with all vermin.|PREDEITY:1,Mazmezz
