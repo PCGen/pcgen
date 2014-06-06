@@ -227,7 +227,7 @@ CLASS:Fighter	STARTSKILLPTS:2
 5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
 19	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
 ###Block:
-20	BONUS:ABILITYPOOL|Fighter ~ Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
+20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define										Save checks bonus								Combat bonus					Modify VAR			Monster Role
