@@ -1,0 +1,99 @@
+/*
+ * PCGen distributable generation tasks. This file specifies the 
+ * archives included in the PCGen autobuild and PCGen releases. It 
+ * is called from the main build.gradle file.
+ *
+ * Usage: gradle builddist
+ * 
+ * Author: James Dempsey 
+ */
+
+ext {
+    zipRootFolder = "pcgen"
+
+    dataDistsImage = copySpec {
+        from('.') {
+        	include 'data/**'
+        	include 'outputsheets/**'
+        	include 'system/**'
+        	include 'preview/**'
+        }
+    }
+
+    docsDistsImage = copySpec {
+        from('.') {
+        	include 'docs/**'
+        }
+    }
+
+    programDistsImage = copySpec {
+        from('build/libs') {
+        	include 'pcgen-*.jar'
+        	// Use a regular expression to map the file name
+    		rename "(.+)-$version(.+)", '$1$2'
+        }
+        from('.') {
+        	include 'pcgen.sh'
+        	include 'pcgen_low_mem.bat'
+        	include 'filepaths.ini'
+        	include 'autobuild.timestamp'
+        	include 'plugins/**'
+        	include 'logging.properties'
+        }
+        from('code') {
+        	include 'pcgen.exe'
+        	include 'LICENSE'
+        }
+    }
+
+    libsDistsImage = copySpec {
+        from('build/libs') {
+        	into 'lib'
+        	exclude 'pcgen-*.jar'
+        }
+	}
+}
+
+
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLib']) {
+    classifier = 'full'
+    into(zipRootFolder) {
+        with dataDistsImage
+        with docsDistsImage
+        with programDistsImage
+        with libsDistsImage
+    }
+}
+
+
+task dataZip(type: Zip) {
+    classifier = 'data'
+    into(zipRootFolder) {
+        with dataDistsImage
+    }
+}
+
+task docsZip(type: Zip) {
+    classifier = 'docs'
+    into(zipRootFolder) {
+        with docsDistsImage
+    }
+}
+
+task programZip(type: Zip, dependsOn: 'converterJar') {
+    classifier = 'program'
+    into(zipRootFolder) {
+        with programDistsImage
+    }
+}
+
+task libsZip(type: Zip, dependsOn: 'copyToLib') {
+    classifier = 'libs'
+    into(zipRootFolder) {
+        with libsDistsImage
+    }
+}
+
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip']) {
+	description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
+}

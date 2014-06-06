@@ -1,5 +1,22 @@
+/*
+ * PCGen build using the Gradle tool. This file specifies the core build tasks
+ * and refers to other files in the code/gradle directory for additional tasks
+ * for specific output.
+ *
+ * Developer build: gradle
+ * Incremental dev build: gradle build 
+ * Full build: gradle all 
+ * Build and run all tests: gradle clean build slowtest 
+ * Run the data tests: gradle datatest 
+ * Run the character integration tests: gradle inttest 
+ * 
+ * Author: James Dempsey 
+ */
+
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'application'
+apply plugin: 'build-dashboard'
 
 group = 'net.sourceforge.pcgen'
 version = '6.03.01-SNAPSHOT'
@@ -10,6 +27,33 @@ defaultTasks 'clean', 'build'
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
+
+ext {
+	binDir = "code/bin"
+}
+
+mainClassName = 'pcgen.system.Main'
+applicationDistribution.from('plugins') {
+    into "plugins"
+}
+applicationDistribution.from('docs') {
+    into "docs"
+}
+applicationDistribution.from('data') {
+    into "data"
+}
+applicationDistribution.from('outputsheets') {
+    into "outputsheets"
+}
+applicationDistribution.from('system') {
+    into "system"
+}
+applicationDistribution.from('preview') {
+    into "preview"
+}
+applicationDistribution.from(artifacts) {
+    into ""
+}
 
 repositories {
         
@@ -99,6 +143,7 @@ dependencies {
     compile group: 'org.apache.avalon.framework', name: 'avalon-framework-api', version:'4.3.1'
     compile group: 'org.apache.avalon.framework', name: 'avalon-framework-impl', version:'4.3.1'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
+    
     //testCompile group: 'org.easymock', name: 'easymock', version:'2.5.2'
     //testCompile group: 'org.easymock', name: 'easymockclassextension', version:'2.5.2'
     testCompile group: 'junit', name: 'junit', version:'4.11'
@@ -109,10 +154,12 @@ dependencies {
     //testCompile group: 'com.cenqua.clover', name: 'clover', version:'1.3.12'
     //testCompile group: 'emma', name: 'emma', version:'2.1.5320'
     //testCompile group: 'emma', name: 'emma_ant', version:'2.1.5320'
+    
     itestCompile sourceSets.main.output
     itestCompile configurations.testCompile
     itestCompile sourceSets.test.output
     itestRuntime configurations.testRuntime
+    
     slowtestCompile sourceSets.main.output
     slowtestCompile configurations.testCompile
     slowtestCompile sourceSets.test.output
@@ -122,20 +169,64 @@ dependencies {
 ant.importBuild 'build-gradle.xml'
 ant.properties['src.java.dir']="code/src/java"
 ant.properties['build.classes.dir']="build/classes/main"
-//ant.properties['basedir']="../"
 
 configure('jar-all-plugins') {    
     group = BasePlugin.BUILD_GROUP // Or use 'build'
     description = 'Create the plugin jars'
 }
 
+ext {
+	classpath = ""
+	configurations.runtime.each { lib -> classpath += " libs/${lib.name} "}
+}
+
 jar {
     it.dependsOn 'jar-all-plugins'
     manifest {
-        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version
+        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version, 
+        	'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
 }
 
+task converterJar(type: Jar, dependsOn: jar) {
+    manifest {
+        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version, 
+        	'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': jar.archiveName + classpath
+    }
+
+    classifier = 'batch-convert'
+    from sourceSets.main.output
+    include 'none'
+}
+
+artifacts {
+    archives converterJar
+}
+
+task copyToLib(type: Copy) {
+	into "$buildDir/libs"
+	from configurations.runtime
+}
+
+task copyToRoot(dependsOn: [copyToLib, jar, converterJar]) {
+	// We have to use this approach due to http://issues.gradle.org/browse/GRADLE-3002
+	doLast{
+		copy {
+			from "$buildDir/libs"
+			into "$projectDir/libs"
+		} 
+		copy {
+			from "$buildDir/libs/pcgen-${version}.jar"
+			from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
+			into "$projectDir"
+		 	rename "(.+)-$version(.+)", '$1$2'
+		} 
+	}
+}
+
+build {
+	it.dependsOn 'copyToRoot'
+}
 
 clean {
 	it.dependsOn 'clean-plugins'
@@ -144,32 +235,79 @@ clean {
 test {
 	exclude 'pcgen/testsupport/**'
 	maxParallelForks 4
+    testLogging {
+        exceptionFormat = 'full'
+    }
 }
 
 task itest(type: Test, dependsOn: jar) {
     testClassesDir = sourceSets.itest.output.classesDir
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
+    testLogging {
+        exceptionFormat = 'full'
+    }
 }
 
-task slowtest(type: Test, dependsOn: jar) {
+task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
     forkEvery = 1
-    // include '**PlayerCharacterTest.class'
-    // Exclude the two suites to avoid duplciate test runs.
+    maxHeapSize = "512m"
+    // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
     exclude 'pcgen/core/AllJUnitTests.class'
-}
-
-uploadArchives {
-    repositories {
-       flatDir {
-           dirs 'code/bin'
-           dirs '.'
-       }
+    testLogging {
+        exceptionFormat = 'full'
     }
 }
 
-check.dependsOn itest
+task datatest(type: Test, dependsOn: 'jar') {
+    testClassesDir = sourceSets.slowtest.output.classesDir
+    classpath = sourceSets.slowtest.runtimeClasspath
+    include 'pcgen/persistence/lst/DataTest.class'
+    include 'pcgen/persistence/lst/DataLoadTest.class'
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}
+
+task inttest(type: Test, dependsOn: 'jar') {
+    testClassesDir = sourceSets.slowtest.output.classesDir
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    maxHeapSize = "512m"
+    include 'pcgen/inttest/**/*Test.class'
+    testLogging {
+        exceptionFormat = 'full'
+    }
+
+	// Report each test as it is started.
+	beforeTest { descriptor ->
+    	logger.lifecycle("Running test: " + descriptor)
+	}
+}
+
+task pfinttest(type: Test, dependsOn: 'jar') {
+    testClassesDir = sourceSets.slowtest.output.classesDir
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    maxHeapSize = "512m"
+    include 'pcgen/inttest/game_pathfinder/*Test.class'
+    testLogging {
+        exceptionFormat = 'full'
+    }
+
+	// Report each test as it is started.
+	beforeTest { descriptor ->
+    	logger.lifecycle("Running test: " + descriptor)
+	}
+}
+
+// Do the lot!
+task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
+}
+
+apply from: 'code/gradle/distribution.gradle'
+apply from: 'code/gradle/reporting.gradle'

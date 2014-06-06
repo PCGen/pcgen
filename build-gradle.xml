@@ -4,6 +4,7 @@ build-gradle.xml - a stub ant file to allow gradle to include just the plugin bu
 
 $Id$
 -->
-<project name="pcgen" default="main" basedir=".">
+<project name="pcgen" basedir=".">
+    <property name="manifest.file" value="code/manifest" />
     <import file="code/pluginbuild.xml" />
 </project>
