@@ -61,12 +61,12 @@ Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
 Amentum					TYPE:Martial.Ranged.Piercing
 Atlatl					TYPE:Martial.Ranged.Piercing
 Hunga Munga					TYPE:Martial.Ranged.Thrown.Piercing
-Iron Brush					TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing
-Lungchuan Tamo				TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing.Slashing
+Iron Brush					TYPE:Martial.Melee.Eastern.Light.Ranged.Thrown.Piercing
+Lungchuan Tamo				TYPE:Martial.Melee.Eastern.Light.Ranged.Thrown.Piercing.Slashing
 Poisoned Sand Tube			TYPE:Martial.Ranged.Eastern
-Sibat						TYPE:Martial.Melee.OneHanded.Ranged.Thrown.Piercing.Slashing
+Sibat						TYPE:Martial.Melee.Eastern.OneHanded.Ranged.Thrown.Piercing.Slashing
 Tube Arrow Shooter			TYPE:Martial.Ranged.Piercing.Eastern
-Wushu Dart					TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing
+Wushu Dart					TYPE:Martial.Melee.Eastern.Light.Ranged.Thrown.Piercing
 
 
 ####Block: Exotic Weapons
