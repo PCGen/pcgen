@@ -20,7 +20,7 @@ checkstyle {
 }
 
 pmd {
-	ruleSetFiles = files('code/standards/pmdruleSet.xml')
+	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	ignoreFailures = true
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
 }
