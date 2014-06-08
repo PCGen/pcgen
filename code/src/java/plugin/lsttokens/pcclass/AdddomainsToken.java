@@ -18,6 +18,7 @@
 package plugin.lsttokens.pcclass;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -39,6 +40,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * Class deals with ADDDOMAINS Token
@@ -65,7 +67,15 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		PCClass pcc, String value)
 	{
-		StringTokenizer tok = new StringTokenizer(value, Constants.DOT);
+		ParseResult pr = checkForIllegalSeparator('|', value);
+		if (!pr.passed())
+		{
+			return pr;
+		}
+		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
+		String first = pipeTok.nextToken();
+		List<AssociatedPrereqObject> apoList = new ArrayList<AssociatedPrereqObject>();
+		StringTokenizer tok = new StringTokenizer(first, Constants.DOT);
 		while (tok.hasMoreTokens())
 		{
 			String tokString = tok.nextToken();
@@ -105,16 +115,58 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 					return new ParseResult.Fail(getTokenName()
 							+ " had invalid prerequisite : " + prereqString, context);
 				}
+				Logging.deprecationPrint(getTokenName()
+					+ " using PRExxx in brackets is deprecated: " + value
+					+ " ... Please use a trailing pipe: " + getTokenName()
+					+ ":x|PRExxx", context);
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(
 					getTokenName(), pcc, PCClass.ALLOWED_DOMAINS,
 					context.ref.getCDOMReference(DOMAIN_CLASS, domainKey));
+			apoList.add(apo);
 			if (prereq != null)
 			{
 				apo.addPrerequisite(prereq);
 			}
 		}
-
+		String tokString;
+		while (true)
+		{
+			if (!pipeTok.hasMoreTokens())
+			{
+				// No prereqs, no more items, so we're done
+				return ParseResult.SUCCESS;
+			}
+			tokString = pipeTok.nextToken();
+			if (looksLikeAPrerequisite(tokString))
+			{
+				break;
+			}
+			AssociatedPrereqObject apo =
+					context.getListContext().addToList(getTokenName(), pcc,
+						PCClass.ALLOWED_DOMAINS,
+						context.ref.getCDOMReference(DOMAIN_CLASS, tokString));
+			apoList.add(apo);
+		}
+		while (true)
+		{
+			Prerequisite prereq = getPrerequisite(tokString);
+			if (prereq == null)
+			{
+				return new ParseResult.Fail(getTokenName()
+						+ " had invalid prerequisite : " + tokString, context);
+			}
+			for (AssociatedPrereqObject apo : apoList)
+			{
+				apo.addPrerequisite(prereq);
+			}
+			if (!pipeTok.hasMoreTokens())
+			{
+				// We're done
+				break;
+			}
+			tokString = pipeTok.nextToken();
+		}
 		return ParseResult.SUCCESS;
 	}
 
@@ -141,31 +193,21 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		Set<String> set = new TreeSet<String>();
+		Set<String> noPrereqSet = new TreeSet<String>();
 		for (CDOMReference<Domain> domain : mtl.getKeySet())
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))
 			{
 				StringBuilder sb = new StringBuilder(domain.getLSTformat(false));
 				List<Prerequisite> prereqs = assoc.getPrerequisiteList();
-				Prerequisite prereq;
 				if (prereqs == null || prereqs.size() == 0)
 				{
-					prereq = null;
+					noPrereqSet.add(sb.toString());
+					continue;
 				}
-				else if (prereqs.size() == 1)
+				for (Prerequisite prereq : prereqs)
 				{
-					prereq = prereqs.get(0);
-				}
-				else
-				{
-					context.addWriteMessage("Added Domain from "
-							+ getTokenName() + " had more than one "
-							+ "Prerequisite: " + prereqs.size());
-					return null;
-				}
-				if (prereq != null)
-				{
-					sb.append('[');
+					sb.append(Constants.PIPE);
 					StringWriter swriter = new StringWriter();
 					try
 					{
@@ -178,12 +220,15 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 						return null;
 					}
 					sb.append(swriter.toString());
-					sb.append(']');
 				}
 				set.add(sb.toString());
 			}
 		}
-		return new String[] { StringUtil.join(set, Constants.DOT) };
+		if (!noPrereqSet.isEmpty())
+		{
+			set.add(StringUtil.join(noPrereqSet, Constants.PIPE));
+		}
+		return set.toArray(new String[set.size()]);
 	}
 
 	@Override

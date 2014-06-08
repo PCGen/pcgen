@@ -105,7 +105,7 @@ public class AddDomainsTokenTest extends
 	@Override
 	public char getJoinCharacter()
 	{
-		return '.';
+		return '|';
 	}
 
 	@Test
@@ -156,7 +156,7 @@ public class AddDomainsTokenTest extends
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		runRoundRobin("TestWP1[PRERACE:1,Dwarf]");
+		runRoundRobin("TestWP1|PRERACE:1,Dwarf");
 	}
 
 	@Test
@@ -166,7 +166,7 @@ public class AddDomainsTokenTest extends
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		runRoundRobin("TestWP1[PRERACE:1,Dwarf].TestWP1[PRERACE:1,Human]");
+		runRoundRobin("TestWP1|PRERACE:1,Dwarf, TestWP1|PRERACE:1,Human");
 	}
 
 	@Test
@@ -178,8 +178,8 @@ public class AddDomainsTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		runRoundRobin("TestWP1[PRERACE:1,Dwarf]" + getJoinCharacter()
-				+ "TestWP2[PRERACE:1,Human]" + getJoinCharacter() + "TestWP3");
+		runRoundRobin("TestWP1|PRERACE:1,Dwarf", "TestWP2|PRERACE:1,Human",
+			"TestWP3");
 	}
 
 	@Test
@@ -203,4 +203,12 @@ public class AddDomainsTokenTest extends
 	{
 		return PCClass.ALLOWED_DOMAINS;
 	}
+
+	@Override
+	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	{
+		//Ignore as this is legal for now
+	}
+	
+	
 }
