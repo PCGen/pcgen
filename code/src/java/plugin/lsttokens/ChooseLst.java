@@ -61,14 +61,6 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (!((obj instanceof Ability) || (obj instanceof Domain)
-			|| (obj instanceof Race) || (obj instanceof PCTemplate)
-			|| (obj instanceof Skill) || (obj instanceof EquipmentModifier)))
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is not supported for " + obj.getClass().getSimpleName(),
-				context);
-		}
 		String key;
 		String val;
 		int pipeLoc = value.indexOf(Constants.PIPE);
@@ -92,6 +84,19 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			key = value.substring(0, pipeLoc);
 			val = value.substring(pipeLoc + 1);
 		}
+		if (!((obj instanceof Ability) || (obj instanceof Domain)
+			|| (obj instanceof Race) || (obj instanceof PCTemplate)
+			|| (obj instanceof Skill) || (obj instanceof EquipmentModifier)))
+		{
+			//Allow TEMPBONUS related choose
+			if (!"NUMBER".equals(key))
+			{
+				return new ParseResult.Fail(
+					getTokenName() + " is not supported for "
+						+ obj.getClass().getSimpleName(), context);
+			}
+		}
+
 		if (key.startsWith("NUMCHOICES="))
 		{
 			String maxCount = key.substring(11);
