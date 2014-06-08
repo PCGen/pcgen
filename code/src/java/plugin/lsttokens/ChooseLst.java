@@ -30,6 +30,10 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Ability;
+import pcgen.core.Domain;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -55,6 +59,13 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
+		if (!((obj instanceof Ability) || (obj instanceof Domain)
+			|| (obj instanceof Race) || (obj instanceof PCTemplate)))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is not supported for " + obj.getClass().getSimpleName(),
+				context);
+		}
 		String key;
 		String val;
 		int pipeLoc = value.indexOf(Constants.PIPE);
