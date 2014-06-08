@@ -2065,6 +2065,15 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PRETOTALAB.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreTotalABParser.class" />
+					<include name="plugin/pretokens/test/PreTotalABTester.class" />
+					<include name="plugin/pretokens/writer/PreTotalABWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${preplugins.dir}/PreToken-PRETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
