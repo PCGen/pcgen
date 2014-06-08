@@ -31,6 +31,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * <code>Checks</code>.
@@ -42,6 +43,11 @@ public final class Checks extends BonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, final String argToken)
 	{
+		Logging
+			.deprecationPrint(
+				"BONUS:CHECKS is deprecated due to "
+					+ "unusual behavior around epic class levels.  Please use BONUS:SAVE",
+				context);
 		boolean isBase = false;
 		final String token;
 

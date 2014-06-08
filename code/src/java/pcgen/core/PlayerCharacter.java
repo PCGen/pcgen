@@ -3214,32 +3214,35 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		final String checkName = check.getKeyName();
 		bonus = getTotalBonusTo("CHECKS", "BASE." + checkName);
 
-		//
-		// now we see if this PC is a Familiar/Mount
-		final PlayerCharacter nPC = getMasterPC();
-
-		if ((nPC != null) && (masterFacet.getCopyMasterCheck(id).length() > 0))
-		{
-			int masterBonus = nPC.getBaseCheck(check);
-
-			final String copyMasterCheck = replaceMasterString(masterFacet.getCopyMasterCheck(id), masterBonus);
-			masterBonus = getVariableValue(copyMasterCheck, Constants.EMPTY_STRING).intValue();
-
-			// use masters save if better
-			bonus = Math.max(bonus, masterBonus);
-		}
-
-		if (isEpic)
-		{
-			epicCheckMap.put(check, (int) bonus);
-		}
-
 		if (totalLvlMap != null)
 		{
 			setClassLevelsBrazenlyTo(totalLvlMap);
 			setAllowInteraction(true);
 			getVariableProcessor().restartCache();
 		}
+
+		//Apply non-magical bonuses
+		bonus += getTotalBonusTo("SAVE", "BASE." + checkName);
+
+		//
+		// now we see if this PC is a Familiar/Mount
+		final PlayerCharacter nPC = getMasterPC();
+		if ((nPC != null) && (masterFacet.getCopyMasterCheck(id).length() > 0))
+		{
+			int masterBonus = nPC.getBaseCheck(check);
+			
+			final String copyMasterCheck = replaceMasterString(masterFacet.getCopyMasterCheck(id), masterBonus);
+			masterBonus = getVariableValue(copyMasterCheck, Constants.EMPTY_STRING).intValue();
+			
+			// use masters save if better
+			bonus = Math.max(bonus, masterBonus);
+		}
+		
+		if (isEpic)
+		{
+			epicCheckMap.put(check, (int) bonus);
+		}
+
 		return (int) bonus;
 	}
 
@@ -3257,7 +3260,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public int getTotalCheck(PCCheck check)
 	{
 		int bonus = getBaseCheck(check);
-		return bonus + (int) getTotalBonusTo("CHECKS", check.getKeyName());
+		return bonus + (int) getTotalBonusTo("CHECKS", check.getKeyName())
+			+ (int) getTotalBonusTo("SAVE", check.getKeyName());
 	}
 
 	/**
@@ -5448,16 +5452,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			} else if ("MISC".equals(tokens[i]))
 			{
 				save += (int) getTotalBonusTo("CHECKS", saveType);
+				save += (int) getTotalBonusTo("SAVE", saveType);
 			}
 
 			if ("EPIC".equals(tokens[i]))
 			{
 				save += (int) getBonusDueToType("CHECKS", saveType, "EPIC");
+				save += (int) getBonusDueToType("SAVE", saveType, "EPIC");
 			}
 
 			if ("MAGIC".equals(tokens[i]))
 			{
 				save += (int) getEquipmentBonusTo("CHECKS", saveType);
+				save += (int) getEquipmentBonusTo("SAVE", saveType);
 			}
 
 			if ("RACE".equals(tokens[i]))
@@ -5468,11 +5475,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			if ("FEATS".equals(tokens[i]))
 			{
 				save += (int) getFeatBonusTo("CHECKS", saveType);
+				save += (int) getFeatBonusTo("SAVE", saveType);
 			}
 
 			if ("STATMOD".equals(tokens[i]))
 			{
 				save += (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
+				save += (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 
 			/**
@@ -5481,11 +5490,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			if ("NOEPIC".equals(tokens[i]))
 			{
 				save -= (int) getBonusDueToType("CHECKS", saveType, "EPIC");
+				save -= (int) getBonusDueToType("SAVE", saveType, "EPIC");
 			}
 
 			if ("NOMAGIC".equals(tokens[i]))
 			{
 				save -= (int) getEquipmentBonusTo("CHECKS", saveType);
+				save -= (int) getEquipmentBonusTo("SAVE", saveType);
 			}
 
 			if ("NORACE".equals(tokens[i]))
@@ -5496,11 +5507,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			if ("NOFEATS".equals(tokens[i]))
 			{
 				save -= (int) getFeatBonusTo("CHECKS", saveType);
+				save -= (int) getFeatBonusTo("SAVE", saveType);
 			}
 
 			if ("NOSTAT".equals(tokens[i]) || "NOSTATMOD".equals(tokens[i]))
 			{
 				save -= (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
+				save -= (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 		}
 
@@ -7091,6 +7104,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		Race race = getRace();
 		save = (int) BonusCalc.charBonusTo(race, "CHECKS", "BASE." + sString, this);
 		save += (int) BonusCalc.charBonusTo(race, "CHECKS", sString, this);
+		save += (int) BonusCalc.charBonusTo(race, "SAVE", "BASE." + sString, this);
+		save += (int) BonusCalc.charBonusTo(race, "SAVE", sString, this);
 
 		return save;
 	}
