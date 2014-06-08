@@ -44,6 +44,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BonusContainer;
@@ -10329,9 +10330,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 	
 		// Race modifiers apply after Intellegence. BUG 577462
-		spMod += getRace().getSafe(IntegerKey.SKILL_POINTS_PER_LEVEL);
+		Formula safe = getRace().getSafe(FormulaKey.SKILL_POINTS_PER_LEVEL);
+		spMod += safe.resolve(this, "").intValue();
 		spMod = Math.max(skillMin, spMod); // Minimum 1, not sure if bonus
-		// skills per
 	
 		// level can be < 1, better safe than sorry
 		for (PCTemplate template : getTemplateSet())

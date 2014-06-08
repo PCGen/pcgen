@@ -17,17 +17,14 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
-
-import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractFormulaTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class XtraSkillPointsPerLevelTokenTest extends
-		AbstractIntegerTokenTestCase<Race>
+public class XtraSkillPointsPerLevelTokenTest extends AbstractFormulaTokenTestCase<Race>
 {
 
 	static XtraskillptsperlvlToken token = new XtraskillptsperlvlToken();
@@ -52,32 +49,8 @@ public class XtraSkillPointsPerLevelTokenTest extends
 	}
 
 	@Override
-	public IntegerKey getIntegerKey()
+	public FormulaKey getFormulaKey()
 	{
-		return IntegerKey.SKILL_POINTS_PER_LEVEL;
-	}
-
-	@Override
-	public boolean isNegativeAllowed()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean isZeroAllowed()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean isPositiveAllowed()
-	{
-		return true;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+		return FormulaKey.SKILL_POINTS_PER_LEVEL;
 	}
 }

@@ -72,6 +72,8 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey STAT_MOD = getConstant("STAT_MOD");
 
+	public static final FormulaKey SKILL_POINTS_PER_LEVEL = getConstant("SKILL_POINTS_PER_LEVEL");
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

@@ -17,15 +17,19 @@
  */
 package plugin.lsttokens.race;
 
-import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.base.formula.Formula;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Race;
-import pcgen.rules.persistence.token.AbstractIntToken;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with XTRASKILLPTSPERLVL Token
  */
-public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements
+public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> implements
 		CDOMPrimaryToken<Race>
 {
 
@@ -41,20 +45,31 @@ public class XtraskillptsperlvlToken extends AbstractIntToken<Race> implements
 	}
 
 	@Override
-	protected IntegerKey integerKey()
-	{
-		return IntegerKey.SKILL_POINTS_PER_LEVEL;
-	}
-
-	@Override
-	protected int minValue()
-	{
-		return 1;
-	}
-
-	@Override
 	public Class<Race> getTokenClass()
 	{
 		return Race.class;
+	}
+
+	@Override
+	public ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
+	{
+		Formula formula = FormulaFactory.getFormulaFor(value);
+		if (!formula.isValid())
+		{
+			return new ParseResult.Fail("Formula in " + getTokenName()
+					+ " was not valid: " + formula.toString(), context);
+		}
+		context.getObjectContext().put(race, FormulaKey.SKILL_POINTS_PER_LEVEL, formula);
+		return ParseResult.SUCCESS;
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, Race race) {
+		Formula f = context.getObjectContext().getFormula(race, FormulaKey.SKILL_POINTS_PER_LEVEL);
+		if (f == null)
+		{
+			return null;
+		}
+		return new String[] { f.toString() };
 	}
 }
