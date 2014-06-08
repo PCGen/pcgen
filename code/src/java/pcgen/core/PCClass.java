@@ -628,9 +628,8 @@ public class PCClass extends PObject implements ClassFacade
 			return 0;
 		}
 
-		// final int i = (int) this.getBonusTo("TOHIT", "TOHIT", level) + (int)
-		// getBonusTo("COMBAT", "BAB");
-		final int i = (int) getBonusTo("COMBAT", "BAB", aPC.getLevel(this), aPC);
+		int i = (int) getBonusTo("COMBAT", "BAB", aPC.getLevel(this), aPC);
+		i += (int) getBonusTo("COMBAT", "BASEAB", aPC.getLevel(this), aPC);
 
 		return i;
 	}

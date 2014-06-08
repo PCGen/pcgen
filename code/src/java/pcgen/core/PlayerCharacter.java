@@ -5102,7 +5102,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			}
 		}
 
-		final int bab = (int) getTotalBonusTo("COMBAT", "BAB");
+		int bab = (int) getTotalBonusTo("COMBAT", "BAB");
 
 		if (isEpic)
 		{
@@ -5114,6 +5114,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			setAllowInteraction(true);
 			getVariableProcessor().restartCache();
 		}
+
+		bab += (int) getTotalBonusTo("COMBAT", "BASEAB");
 
 		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(bab));
 		return bab;

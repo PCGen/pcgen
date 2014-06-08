@@ -26,6 +26,8 @@
 package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
+import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * Handles the BONUS:COMBAT token.
@@ -37,7 +39,20 @@ public final class Combat extends MultiTagBonusObj
 				"DAMAGESIZE", "DAMAGE-PRIMARY", "DAMAGE-SECONDARY",
 				"DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "RANGEPENALTY", 
 				"REACH", "TOHIT", "TOHIT-PRIMARY", "TOHIT-SECONDARY", 
-				"TOHIT-SHORTRANGE"};
+				"TOHIT-SHORTRANGE", "BASEAB", "EPICAB"};
+
+	@Override
+	protected boolean parseToken(LoadContext context, String token)
+	{
+		if ("BAB".equalsIgnoreCase(token))
+		{
+			Logging.deprecationPrint("BONUS:COMBAT|BAB is deprecated due to "
+				+ "unusual behavior around epic class levels.  "
+				+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB",
+				context);
+		}
+		return super.parseToken(context, token);
+	}
 
 	/**
 	 * Return the bonus tag handled by this class.
