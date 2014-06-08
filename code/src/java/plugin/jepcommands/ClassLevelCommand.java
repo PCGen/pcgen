@@ -1,7 +1,10 @@
 package plugin.jepcommands;
 
 import org.nfunk.jep.ParseException;
+
+import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
@@ -11,9 +14,10 @@ import java.util.Stack;
 /**
  * JEP command for class level (cl)
  *
- * eg. cl("Fighter")
- * eg. cl("Fighter", 21)
- * eg. cl()
+ * eg. classlevel("Fighter")
+ * eg. classlevel("Fighter", "APPLIEDAS=NONEPIC")
+ * eg. classlevel("APPLIEDAS=NONEPIC") [in CLASS LST file only]
+ * eg. classlevel() [in CLASS LST file only]
  */
 public class ClassLevelCommand extends PCGenCommand
 {
@@ -90,84 +94,103 @@ public class ClassLevelCommand extends PCGenCommand
 
         int paramCount = curNumberOfParameters;
 
-		//
-		// If there are no parameters and this is used in a CLASS file, then use the
-		// class name
-		//
-		if (paramCount == 0)
+        String applied = null;
+        String className = null;
+
+        if (paramCount > 2)
+        {
+			throw new ParseException("Invalid number of parameters");
+        }
+
+        if (paramCount >= 2)
+        {
+			String p2 = inStack.pop().toString();
+			if (p2.startsWith("APPLIEDAS="))
+			{
+				applied = p2.substring(10);
+			}
+        }
+
+        if (paramCount >= 1)
+        {
+    		String p1 = inStack.pop().toString();
+			if (p1.startsWith("APPLIEDAS="))
+			{
+				if (applied != null)
+				{
+					throw new ParseException(
+						"Formula had two APPLIEDAS= entries");
+				}
+				applied = p1.substring(10);
+			}
+			else
+			{
+				//Should be a class name
+				className = p1;
+			}
+        }
+
+		/*
+		 * If there was no parameter showing the class, and this is used in a
+		 * CLASS file, then use the class name
+		 */
+		if (className == null)
 		{
 			String src = variableSource;
 			if (src.startsWith("CLASS:"))
 			{
-				src = src.substring(6);
+				className = src.substring(6);
 				inStack.push(src);
-				++paramCount;
 			}
 		}
 
-		//
-		// have to do this in reverse order...this is a stack afterall
-		//
-        final Object param1;
-        Object param2 = null;
-        if (paramCount == 1)
+		if (className == null)
 		{
-			param1 = inStack.pop();
+			throw new ParseException("Unable to determine class name");
 		}
-		else if (paramCount == 2)
-		{
-			param2 = inStack.pop();
-			param1 = inStack.pop();
 
-			if (param2 instanceof Integer)
+		PlayerCharacter pc = getPC();
+
+		String cl = className;
+		if (applied != null)
+		{
+			if ("NONEPIC".equalsIgnoreCase(applied))
 			{
-				// Do Nothing, param is already an integer
-			}
-			else if (param2 instanceof Double)
-			{
-				param2 = ((Double) param2).intValue();
+				GameMode mode = SettingsHandler.getGame();
+				//Add 1 since game mode is inclusive, but BEFORELEVEL is not!
+				int limit = mode.getMaxNonEpicLevel() + 1;
+				if (limit == Integer.MAX_VALUE)
+				{
+					throw new ParseException("Game Mode has no EPIC limit");
+				}
+				cl += ";BEFORELEVEL=" + limit;
 			}
 			else
 			{
-				throw new ParseException("Invalid parameter type");
+				throw new ParseException("Did not understand APPLIEDAS= "
+					+ applied);
 			}
 		}
-		else
+
+		inStack.push(new Double(pc.getClassLevelString(cl, false)));
+	}
+
+	private PlayerCharacter getPC() throws ParseException
+	{
+		PlayerCharacter pc = null;
+		if (parent instanceof VariableProcessor)
 		{
-			throw new ParseException("Invalid parameter count");
+			pc = ((VariableProcessor) parent).getPc();
 		}
-
-        if (param1 instanceof String)
+		else if (parent instanceof PlayerCharacter)
 		{
-			PlayerCharacter pc = null;
-			if (parent instanceof VariableProcessor)
-			{
-				pc = ((VariableProcessor) parent).getPc();
-			}
-			else if (parent instanceof PlayerCharacter)
-			{
-				pc = (PlayerCharacter) parent;
-			}
-			if (pc == null)
-			{
-				throw new ParseException("Invalid parent (no PC): "
-					+ parent.getClass().getName());
-			}
-
-			// ";BEFORELEVEL="
-			String cl = (String) param1;
-			if (param2 != null)
-			{
-				cl += ";BEFORELEVEL=" + param2.toString();
-			}
-
-            final Object result = new Double(pc.getClassLevelString(cl, false));
-
-            inStack.push(result);
+			pc = (PlayerCharacter) parent;
 		}
-		else
+		if (pc == null)
 		{
-			throw new ParseException("Invalid parameter type");
+			throw new ParseException("Invalid parent (no PC): "
+				+ parent.getClass().getName());
 		}
+		return pc;
 	}
 }
