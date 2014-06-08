@@ -23,6 +23,7 @@ import pcgen.core.PCClass;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * Class deals with SPELLTYPE Token
@@ -41,12 +42,14 @@ public class SpelltypeToken implements CDOMPrimaryToken<PCClass>
 	{
 		if (value == null || value.length() == 0)
 		{
-			// CONSIDER Deprecate this behavior
+			Logging.deprecationPrint("Use of an empty value in "
+				+ getTokenName() + " has been deprecated and is ignored", context);
 			return ParseResult.SUCCESS;
 		}
 		if (value.equalsIgnoreCase(Constants.LST_NONE))
 		{
-			// CONSIDER Deprecate this behavior
+			Logging.deprecationPrint("Use of 'NONE' in " + getTokenName()
+				+ " has been deprecated and is ignored", context);
 			return ParseResult.SUCCESS;
 		}
 		context.getObjectContext().put(pcc, StringKey.SPELLTYPE, value);
