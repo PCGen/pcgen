@@ -32,8 +32,10 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -60,7 +62,8 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMObject obj, String value)
 	{
 		if (!((obj instanceof Ability) || (obj instanceof Domain)
-			|| (obj instanceof Race) || (obj instanceof PCTemplate)))
+			|| (obj instanceof Race) || (obj instanceof PCTemplate)
+			|| (obj instanceof Skill) || (obj instanceof EquipmentModifier)))
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " is not supported for " + obj.getClass().getSimpleName(),
