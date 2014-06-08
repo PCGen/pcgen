@@ -19,8 +19,8 @@ package plugin.primitive.pcclass;
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Deity;
 import pcgen.core.PCClass;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -67,9 +67,9 @@ public class SpellTypeTest extends
 	}
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Deity.class;
+		return Race.class;
 	}
 
 	@Override

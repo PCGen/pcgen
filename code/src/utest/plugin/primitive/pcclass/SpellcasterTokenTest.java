@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -51,6 +52,8 @@ public class SpellcasterTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(SPELLCASTER_PRIMITIVE);
+		primaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
+		secondaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
 	}
 
 	@Override
@@ -66,9 +69,9 @@ public class SpellcasterTokenTest extends
 	}
 
 	@Override
-	public Class<PCClass> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return PCClass.class;
+		return Race.class;
 	}
 
 	@Override

@@ -19,6 +19,7 @@ package plugin.primitive.weaponprof;
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -65,9 +66,9 @@ public class DeityWeaponTokenTest extends
 	}
 
 	@Override
-	public Class<WeaponProf> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return WeaponProf.class;
+		return Race.class;
 	}
 
 	@Override

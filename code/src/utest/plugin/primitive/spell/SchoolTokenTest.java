@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.identifier.SpellSchool;
+import pcgen.core.Race;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -68,9 +69,9 @@ public class SchoolTokenTest extends
 	}
 
 	@Override
-	public Class<Spell> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Spell.class;
+		return Race.class;
 	}
 
 	@Override

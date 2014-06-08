@@ -26,6 +26,7 @@ import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
+import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
@@ -79,9 +80,9 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<WeaponProf> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return WeaponProf.class;
+		return Race.class;
 	}
 
 	@Override

@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -74,9 +75,9 @@ public class SpellcasterQualifierTokenTest extends
 	}
 
 	@Override
-	public Class<WeaponProf> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return WeaponProf.class;
+		return Race.class;
 	}
 
 	@Override
@@ -124,11 +125,10 @@ public class SpellcasterQualifierTokenTest extends
 		set = info.getSet(pc);
 		assertFalse(set.isEmpty());
 		//Note the INTENTIOANL effect here is to ADD ALL regardless of what the PC has
-		assertEquals(4, set.size());
+		assertEquals(3, set.size());
 		assertTrue(set.contains(wp1));
 		assertTrue(set.contains(wp2));
 		assertTrue(set.contains(wp3));
-		assertTrue(set.contains(primaryProf));
 	}
 
 	@Test

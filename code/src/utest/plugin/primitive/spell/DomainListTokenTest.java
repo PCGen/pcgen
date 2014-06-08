@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.Race;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -51,6 +52,8 @@ public class DomainListTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(DOMAINLIST_TOKEN);
+		primaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
+		secondaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
 	}
 
 	@Override
@@ -66,9 +69,9 @@ public class DomainListTokenTest extends
 	}
 
 	@Override
-	public Class<Spell> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Spell.class;
+		return Race.class;
 	}
 
 	@Override

@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Language;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -50,6 +51,8 @@ public class LangBonusTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(LANGBONUS_TOKEN);
+		primaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
+		secondaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
 	}
 
 	@Override
@@ -65,9 +68,9 @@ public class LangBonusTokenTest extends
 	}
 
 	@Override
-	public Class<Language> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Language.class;
+		return Race.class;
 	}
 
 	@Override

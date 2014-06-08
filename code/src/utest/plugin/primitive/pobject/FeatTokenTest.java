@@ -21,7 +21,7 @@ import java.net.URISyntaxException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Deity;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -69,9 +69,9 @@ public class FeatTokenTest extends
 	}
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Deity.class;
+		return Race.class;
 	}
 
 	@Override

@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -66,9 +67,9 @@ public class WieldTokenTest extends
 	}
 
 	@Override
-	public Class<Equipment> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Equipment.class;
+		return Race.class;
 	}
 
 	@Override
