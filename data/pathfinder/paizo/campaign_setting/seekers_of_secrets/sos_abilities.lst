@@ -10,3 +10,12 @@ Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompani
 
 
 Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal								MULT:YES	STACK:NO	CHOOSE:WEAPONPROFICIENCY|!PC	AUTO:WEAPONPROF|%LIST
+
+
+Deep Red Sphere			KEY:Equipment ~ Deep Red Sphere		CATEGORY:Internal	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Dexterity		BONUS:SKILL|LIST|1	MULT:YES
+Incandescent Blue Sphere	KEY:Equipment ~ Incandescent Blue Sphere	CATEGORY:Internal	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Wisdom		BONUS:SKILL|LIST|1|TYPE=Competence	MULT:YES	
+Pale Blue Rhomboid		KEY:Equipment ~ Pale Blue Rhomboid		CATEGORY:Internal	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Strength		BONUS:SKILL|LIST|1	MULT:YES
+Pink And Green Sphere		KEY:Equipment ~ Pink And Green Sphere	CATEGORY:Internal	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma		BONUS:SKILL|LIST|1	MULT:YES
+Scarlet And Blue Sphere		KEY:Equipment ~ Scarlet and blue Sphere	CATEGORY:Internal	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Intelligence	BONUS:SKILL|LIST|1	MULT:YES
+
+
