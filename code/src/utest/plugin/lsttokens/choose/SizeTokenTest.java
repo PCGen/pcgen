@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCCheck;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -41,9 +42,9 @@ public class SizeTokenTest extends
 			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
 
 	@Override
-	public Class<SizeAdjustment> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return SizeAdjustment.class;
+		return Race.class;
 	}
 
 	@Override

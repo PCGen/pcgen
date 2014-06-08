@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCCheck;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -40,9 +41,9 @@ public class CheckTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<PCCheck> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return PCCheck.class;
+		return Race.class;
 	}
 
 	@Override

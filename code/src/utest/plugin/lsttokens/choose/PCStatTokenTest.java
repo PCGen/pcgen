@@ -23,6 +23,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -43,9 +44,9 @@ public class PCStatTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<PCStat> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return PCStat.class;
+		return Race.class;
 	}
 
 	@Override

@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.core.Race;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -73,12 +74,14 @@ public class SpellsTokenTest extends
 		super.setUp();
 		TokenRegistration.register(new SubSchoolToken());
 		TokenRegistration.register(new AllToken());
+		primaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
+		secondaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
 	}
 	
 	@Override
-	public Class<Spell> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Spell.class;
+		return Race.class;
 	}
 
 	@Override

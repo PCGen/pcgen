@@ -21,6 +21,7 @@ package plugin.lsttokens.choose;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -41,9 +42,9 @@ public class WeaponProficiencyTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<WeaponProf> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return WeaponProf.class;
+		return Race.class;
 	}
 
 	@Override

@@ -22,6 +22,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.PCAlignment;
+import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
@@ -42,9 +43,9 @@ public class AlignmentTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<PCAlignment> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return PCAlignment.class;
+		return Race.class;
 	}
 
 	@Override

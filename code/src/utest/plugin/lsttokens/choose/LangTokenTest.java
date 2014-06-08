@@ -21,12 +21,12 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Language;
+import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
-import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.language.PCToken;
@@ -41,9 +41,9 @@ public class LangTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<Language> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Language.class;
+		return Race.class;
 	}
 
 	@Override

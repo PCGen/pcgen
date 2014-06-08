@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
+import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -41,9 +42,9 @@ public class DeityTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<Deity> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Deity.class;
+		return Race.class;
 	}
 
 	@Override

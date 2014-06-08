@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
+import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -41,9 +42,9 @@ public class EquipmentTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<Equipment> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return Equipment.class;
+		return Race.class;
 	}
 
 	@Override

@@ -24,6 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
+import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -46,9 +47,9 @@ public class ShieldProficiencyTokenTest extends
 			CDOMObject.class);
 
 	@Override
-	public Class<ShieldProf> getCDOMClass()
+	public Class<Race> getCDOMClass()
 	{
-		return ShieldProf.class;
+		return Race.class;
 	}
 
 	@Override
