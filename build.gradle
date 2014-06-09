@@ -30,6 +30,12 @@ targetCompatibility = 1.6
 
 ext {
 	binDir = "code/bin"
+	
+	// Default ignoreTestFailures to false if it is not provided
+	if (!hasProperty('ignoreTestFailures')) {
+		ignoreTestFailures = false;
+	}
+	
 }
 
 mainClassName = 'pcgen.system.Main'
