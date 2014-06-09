@@ -20,8 +20,16 @@
  */
 package pcgen.system;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.MissingResourceException;
+import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
+
+import org.apache.commons.lang.StringUtils;
+
+import pcgen.util.Logging;
 
 /**
  * This class is used to manage the properties of the PCGen application
@@ -38,6 +46,8 @@ import java.util.ResourceBundle;
 public class PCGenPropBundle
 {
 	private static ResourceBundle d_properties = null;
+	private static ResourceBundle autobuildProperties = null;
+	private static ResourceBundle svnProperties = null;
 
 	/**
 	 * This static initializer loads the resources from the PCGenProp resource bundle.
@@ -51,6 +61,46 @@ public class PCGenPropBundle
 		catch (MissingResourceException mre)
 		{
 			d_properties = null;
+		}
+		
+		try
+		{
+			File autobuildProps = new File("autobuild.properties");
+			if (autobuildProps.isFile() && autobuildProps.canRead())
+			{
+				FileInputStream fis = new FileInputStream(autobuildProps);
+				autobuildProperties = new PropertyResourceBundle(fis);
+			}
+		}
+		catch (MissingResourceException mre)
+		{
+			Logging.errorPrint("Failed to load autobuild.properties", mre);
+			autobuildProperties = null;
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("autobuildProperties. failed", e);
+			
+		}
+		
+		try
+		{
+			File svnProps = new File("svn.properties");
+			if (svnProps.isFile() && svnProps.canRead())
+			{
+				FileInputStream fis = new FileInputStream(svnProps);
+				svnProperties = new PropertyResourceBundle(fis);
+			}
+		}
+		catch (MissingResourceException mre)
+		{
+			Logging.errorPrint("Failed to load autobuild.properties", mre);
+			svnProperties = null;
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("Failed to load autobuild.properties", e);
+			svnProperties = null;
 		}
 	}
 
@@ -179,10 +229,85 @@ public class PCGenPropBundle
 			}
 			else
 			{
-				result = "Misting property " + propName;
+				result = "Missing property " + propName;
 			}
 		}
 
 		return result;
+	}
+	
+	/**
+	 * Retrieve the build number of the autobuild in which this PCGen instance 
+	 * was built.
+	 * @return The build number, or blank if unknown. 
+	 */
+	public static String getAutobuildNumber()
+	{
+		final String buildNumKey = "BuildNumber";
+		if (autobuildProperties != null
+			&& autobuildProperties.containsKey(buildNumKey))
+		{
+			return autobuildProperties.getString(buildNumKey);
+		}
+		return "";
+	}
+
+	/**
+	 * Retrieve the date of the the autobuild in which this PCGen instance was 
+	 * built.
+	 * @return The build date, or blank if unknown. 
+	 */
+	public static String getAutobuildDate()
+	{
+		final String buildTimeKey = "BuildTime";
+		if (autobuildProperties != null
+			&& autobuildProperties.containsKey(buildTimeKey))
+		{
+			return autobuildProperties.getString(buildTimeKey);
+		}
+		return "";
+	}
+
+	/**
+	 * @return A display formatted version of the autobuild details, or blank if unknown. 
+	 */
+	public static String getAutobuildString()
+	{
+		String autobuildNumber = getAutobuildNumber();
+		String autobuildDate = getAutobuildDate();
+		if (StringUtils.isNotBlank(autobuildNumber))
+		{
+			return " autobuild #" + autobuildNumber + " built on "
+				+ autobuildDate;
+		}
+		return "";
+	}
+
+	/**
+	 * Retrieve the subversion revision number from which this PCGen instance 
+	 * was built.
+	 * @return The SVN revision number, or blank if unknown. 
+	 */
+	public static String getSvnRevisionNumber()
+	{
+		final String svnRevNumKey = "svnrevision";
+		if (svnProperties != null && svnProperties.containsKey(svnRevNumKey))
+		{
+			return svnProperties.getString(svnRevNumKey);
+		}
+		return "";
+	}
+
+	/**
+	 * @return A display formatted version of the SVN revision, or blank if unknown. 
+	 */
+	public static String getSvnRevisionString()
+	{
+		String svnRevisionNumber = getSvnRevisionNumber();
+		if (StringUtils.isNotBlank(svnRevisionNumber))
+		{
+			return " r" + svnRevisionNumber;
+		}
+		return "";
 	}
 }

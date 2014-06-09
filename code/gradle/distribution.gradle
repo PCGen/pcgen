@@ -44,9 +44,9 @@ ext {
         	include 'pcgen.sh'
         	include 'pcgen_low_mem.bat'
         	include 'filepaths.ini'
-        	include 'autobuild.timestamp'
         	include 'plugins/**'
         	include 'logging.properties'
+        	include 'svn.properties'
         }
         from('code') {
         	include 'pcgen.exe'

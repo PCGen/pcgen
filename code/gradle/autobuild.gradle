@@ -3,7 +3,7 @@
  * autobuild site is generated and the outputs from other tasks that are to be 
  * deployed with the site.
  *
- * Usage: gradle builddist
+ * Usage: gradle deployAutobuild
  * 
  * Author: James Dempsey 
  */

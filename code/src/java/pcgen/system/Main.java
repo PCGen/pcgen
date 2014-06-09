@@ -142,7 +142,10 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
+		Logging.log(Level.INFO,
+			"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
+				+ PCGenPropBundle.getAutobuildString()
+				+ PCGenPropBundle.getSvnRevisionString());
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
