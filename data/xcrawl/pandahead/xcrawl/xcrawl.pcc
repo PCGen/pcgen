@@ -25,6 +25,8 @@ INFOTEXT:Requires the loading of the SRD as well
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:xcrawl_abilities.lst
+ABILITYCATEGORY:xcrawl_abilitycategories.lst
 # Basics
 CLASS:xcrawl_classes.lst
 DEITY:xcrawl_deities.lst
