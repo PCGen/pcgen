@@ -194,3 +194,7 @@ Feat ~ Cosmopolitan	CATEGORY:Internal	BONUS:ABILITYPOOL|Add Spoken Language|2
 #
 # EOF
 #
+
+
+Spindle of Perfect Knowledge	KEY:Equipment ~ Spindle of Perfect Knowledge	CATEGORY:Internal	CHOOSE:SKILL|TYPE=Knowledge		MULT:YES	STACK:NO	BONUS:SKILL|LIST|5
+

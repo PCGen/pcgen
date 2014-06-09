@@ -244,3 +244,6 @@ Psicrystal (Sympathetic)	CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPe
 #
 # End
 #
+
+Crystal Mask	KEY:Equipment ~ Crystal Mask	CATEGORY:Internal	CHOOSE:SKILL|TYPE=Knowledge	MULT:YES	STACK:NO	BONUS:SKILL|LIST|5|TYPE=Competence
+

@@ -83,3 +83,6 @@ Throw Mind-Blade		CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE
 #
 # End
 #
+
+
+Crystal Mask	KEY:Equipment ~ Crystal Mask		BONUS:SKILL|LIST|5	CHOOSE:SKILL|Knowledge %	CATEGORY:Internal	MULT:YES	STACK:NO

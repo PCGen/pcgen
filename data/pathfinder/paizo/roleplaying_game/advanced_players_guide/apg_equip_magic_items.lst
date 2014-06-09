@@ -9,7 +9,7 @@ Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.OneHanded
 ##TODO: Add PRExxx for Girdle and additional capabilities.
 Knucklebone of Fickle Fortune						TYPE:Artifact.Minor									COST:0	WT:0.01																												SOURCEPAGE:p.314
 Perfect Golden Lute							TYPE:Artifact.Minor									COST:0	WT:3																													SOURCEPAGE:p.314
-Spindle of Perfect Knowledge						TYPE:Artifact.Minor									COST:0	WT:0.01	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																					SOURCEPAGE:p.314	BONUS:SKILL|LIST|5	BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
+Spindle of Perfect Knowledge						TYPE:Artifact.Minor									COST:0	WT:0.01																						SOURCEPAGE:p.314		BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement	BONUS:ABILITYPOOL|Spindle of Perfect Knowledge|2
 Talisman of Reluctant Wishes						TYPE:Artifact.Minor									COST:0	WT:1																													SOURCEPAGE:p.314
 
 ###Block: MAJOR ARTIFACTS

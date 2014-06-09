@@ -19,6 +19,10 @@ ABILITYCATEGORY:Astral Construct Menu C Ability	VISIBLE:QUALIFY	EDITABLE:YES		ED
 
 ABILITYCATEGORY:Slayer Favored Enemy		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SlayerFavoredEnemy											DISPLAYLOCATION:Class Abilities
 
+
+ABILITYCATEGORY:Crystal Mask		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal												DISPLAYLOCATION:Equipment	ABILITYLIST:Equipment ~ Crystal Mask
+
+	
 #
 # End
 #
