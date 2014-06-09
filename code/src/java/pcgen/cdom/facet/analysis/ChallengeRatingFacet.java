@@ -505,7 +505,9 @@ public class ChallengeRatingFacet
 					crString = crString + cr;
 				}
 			}
-			return xpAwardsMap.get(crString);
+			
+			Integer xp = xpAwardsMap.get(crString);
+			return xp == null ? 0 : xp;
 		}
 		return 0;
 	}
