@@ -1,0 +1,40 @@
+/*
+ * PCGen autobuild generation tasks. This file specifies the way in which the 
+ * autobuild site is generated and the outputs from other tasks that are to be 
+ * deployed with the site.
+ *
+ * Usage: gradle builddist
+ * 
+ * Author: James Dempsey 
+ */
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+ext {
+	if (System.env.BUILD_NUMBER) {
+		destAutobuildDir = '/home/pcgen1/public_html/autobuilds/'
+	} else {
+		destAutobuildDir = "${buildDir}/autobuilds/"
+	}
+	
+	buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
+}
+
+task copyDocs(type: Sync) {
+	from 'docs'
+	into "${destAutobuildDir}/pcgen-docs/"
+}
+
+task copyDist(type: Sync, dependsOn: 'buildDist') {
+	from "${buildDir}/distributions"
+	into "${destAutobuildDir}/downloads/"
+}
+
+task copySite(type: Copy) {
+	from "${projectDir}/code/gradle/site"
+	into "${destAutobuildDir}"
+	expand(copyright: '2014', version: version, timestamp: buildTimestamp)
+}
+
+task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite']) {
+}

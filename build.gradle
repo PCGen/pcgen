@@ -309,5 +309,7 @@ task pfinttest(type: Test, dependsOn: 'jar') {
 task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
+apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
+

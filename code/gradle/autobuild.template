@@ -1,0 +1,3 @@
+# Properties specified by the autobuild
+BuildTime=${timestamp}
+BuildNumber=${buildnumber}

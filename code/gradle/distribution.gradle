@@ -11,6 +11,14 @@
 ext {
     zipRootFolder = "pcgen"
 
+	buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
+	
+	autobuildSpec = copySpec {
+		from('code/gradle/autobuild.template')
+		rename('.+','autobuild.properties')
+		expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
+	}
+	
     dataDistsImage = copySpec {
         from('.') {
         	include 'data/**'
@@ -62,6 +70,7 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLib']) {
         with docsDistsImage
         with programDistsImage
         with libsDistsImage
+        with autobuildSpec
     }
 }
 
@@ -70,6 +79,7 @@ task dataZip(type: Zip) {
     classifier = 'data'
     into(zipRootFolder) {
         with dataDistsImage
+        with autobuildSpec
     }
 }
 
@@ -77,6 +87,7 @@ task docsZip(type: Zip) {
     classifier = 'docs'
     into(zipRootFolder) {
         with docsDistsImage
+        with autobuildSpec
     }
 }
 
@@ -84,6 +95,7 @@ task programZip(type: Zip, dependsOn: 'converterJar') {
     classifier = 'program'
     into(zipRootFolder) {
         with programDistsImage
+        with autobuildSpec
     }
 }
 
@@ -91,6 +103,7 @@ task libsZip(type: Zip, dependsOn: 'copyToLib') {
     classifier = 'libs'
     into(zipRootFolder) {
         with libsDistsImage
+        with autobuildSpec
     }
 }
 
