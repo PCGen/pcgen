@@ -56,7 +56,7 @@ ext {
 
     libsDistsImage = copySpec {
         from('build/libs') {
-        	into 'lib'
+        	into 'libs'
         	exclude 'pcgen-*.jar'
         }
 	}
