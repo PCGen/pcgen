@@ -1,6 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-#SOURCELONG:Rise of the Runelords Player's Guide Anniversary Edition	SOURCESHORT:ROTRAEPG	SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition-Players-Guide	SOURCEDATE:2012-07
-# Original Entry by: Paul Shipley
-
-# Equipment Name	Required Weapon Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Wield Category	Size		Source Page		Special Property
-Sadist's Lash	PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Melee.OneHanded.Exotic.Reach.Finesseable.Slashing.Flail	COST:22301	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:PLUS1W.WOUND	WIELD:Light		SIZE:M	SOURCEPAGE:p.425x	SPROP:Deliver enchantment spells with range touch. Additionally, target DC 15 Will save or suffers -5 penalty on Will saves against all enchantment effects created by wielder.

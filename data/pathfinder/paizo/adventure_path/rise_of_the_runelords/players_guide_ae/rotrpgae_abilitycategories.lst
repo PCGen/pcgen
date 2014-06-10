@@ -1,6 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-#SOURCELONG:Rise of the Runelords Player's Guide Anniversary Edition	SOURCESHORT:ROTRAEPG	SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition-Players-Guide	SOURCEDATE:2012-07
-# Original Entry by: Paul Shipley
-
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Eager Performer Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EagerPerformer	PLURAL:Eager Performer Spell	DISPLAYLOCATION:Traits
