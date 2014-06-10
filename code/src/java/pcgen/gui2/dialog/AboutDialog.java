@@ -54,6 +54,8 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
 import pcgen.gui2.PCGenFrame;
@@ -209,7 +211,12 @@ final class MainAbout extends JPanel
 		// Info
 
 		version.setEditable(false);
-		version.setText(PCGenPropBundle.getVersionNumber());
+		String versionNum = PCGenPropBundle.getVersionNumber();
+		if (StringUtils.isNotBlank(PCGenPropBundle.getAutobuildNumber()))
+		{
+			versionNum += " autobuild #" + PCGenPropBundle.getAutobuildNumber();
+		}
+		version.setText(versionNum);
 		version.setBorder(null);
 		version.setOpaque(false);
 
@@ -219,7 +226,12 @@ final class MainAbout extends JPanel
 		aCreditsPanel.add(version, gridBagConstraints1);
 
 		releaseDate.setEditable(false);
-		releaseDate.setText(PCGenPropBundle.getReleaseDate());
+		String releaseDateStr = PCGenPropBundle.getReleaseDate();
+		if (StringUtils.isNotBlank(PCGenPropBundle.getAutobuildDate()))
+		{
+			releaseDateStr = PCGenPropBundle.getAutobuildDate();
+		}
+		releaseDate.setText(releaseDateStr);
 		releaseDate.setBorder(new EmptyBorder(new Insets(1, 1, 1, 1)));
 		releaseDate.setOpaque(false);
 
