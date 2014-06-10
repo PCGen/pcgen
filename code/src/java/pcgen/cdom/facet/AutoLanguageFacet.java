@@ -157,6 +157,7 @@ public class AutoLanguageFacet extends
 				list.add(l);
 			}
 		}
+		list.addAll(autoLanguageUnconditionalFacet.getSet(id));
 		return list;
 	}
 
