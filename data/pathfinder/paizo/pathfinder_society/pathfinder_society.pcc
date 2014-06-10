@@ -54,13 +54,13 @@ PCC:@/pathfinder/paizo/pathfinder_society/organized_play/guide_to_pathfinder_soc
 
 # Rise of the Runelords Player's Guide
 # Equipment: all equipment on pages 10-11 (except hide shirt and Varisian Idol)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_equip_arms_armor.lst|(EXCLUDE:Hide Shirt)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_equip_general.lst|(EXCLUDE:Varisian Idol)
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_equip_arms_armor.lst|(EXCLUDE:Hide Shirt)
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_equip_general.lst|(EXCLUDE:Varisian Idol)
 
 # Pathfinder Adventure Path: Rise of the Runelords Anniversary Edition
 # Equipment: boots of the mire, elixir of the peaks, fog-cutting lenses, medusa mask, robe of runes, sadist's lash, snakeskin tunic, staff of heaven and earth, staff of mithral might, talons of Leng are legal for play;
 # Spells: Blood money, covetous aura, deathwine, raiment of command, sign of wrath, swipe, and unconscious agenda are legal for play.
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide_ae/rotrpgae_equipment.lst
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide_ae/rotrpgae_equipment.lst
 EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap2/ap2_equip_magic_items.lst|(INCLUDE:Medusa Mask|Snakeskin Tunic)
 EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap3/ap3_equip_magic_items.lst|(INCLUDE:Boots of the Mire)
 EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap4/ap4_equip_magic_items.lst
