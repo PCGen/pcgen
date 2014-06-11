@@ -1,0 +1,28 @@
+# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+
+###Block: New skills
+# Skill Name		Key Stat	Untrained?		Type					Source Page		Bonus to skill
+Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				SOURCEPAGE:p.82	BONUS:SKILL|Autohypnosis|3|TYPE=ClassSkill|PRECSKILL:1,Autohypnosis|PRESKILL:1,Autohypnosis=1
+Craft (Guns)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft					BONUS:SKILL|Craft (Guns)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Guns)|PRESKILL:1,Craft (Guns)=1
+Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.83	BONUS:SKILL|Knowledge (Psionics)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Psionics)|PRESKILL:1,Knowledge (Psionics)=1
+Perform (Thoughtsong)	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform.Base	SOURCEPAGE:p.297	BONUS:SKILL|Perform (Thoughtsong)|3|TYPE=ClassSkill|PRECSKILL:1,Perform (Thoughtsong)|PRESKILL:1,Perform (Thoughtsong)=1
+
+###Block: Conditional Skills
+# Skill Name		Situational Skill Use
+Acrobatics.MOD		SITUATION:On ship
+Acrobatics.MOD		SITUATION:On the ground
+Climb.MOD			SITUATION:On ship
+Diplomacy.MOD		SITUATION:Dromites
+Disable Device.MOD	SITUATION:Traps
+Perception.MOD		SITUATION:Vision
+Use Magic Device.MOD	SITUATION:Activate item
+
+###Block: Skill for losing a skill point - not sure this works
+# Skill Name	Untrained?		Exclusive?		Visible
+Lost Skill Point	USEUNTRAINED:NO	EXCLUSIVE:YES	VISIBLE:DISPLAY|READONLY
+
+#
+# End
+#

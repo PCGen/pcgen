@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Fri May 23 05:25:59 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Horror Companion Classes
+
+# Class Name		Output Name		Hit Dice	Type				Class Type			Max Level		Source Page		Levels per Feat	Ability																		Save checks bonus											Combat bonus					Template
+CLASS:Horror (Fort/Ref)	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.268	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	TEMPLATE:Construct|Mindless
+# Class Name		Reg. Race Type
+CLASS:Horror (Fort/Ref)	PRERACETYPE:Construct
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror (Fort/Ref)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type				Class Type			Max Level		Source Page		Levels per Feat	Ability																		Save checks bonus											Combat bonus					Template
+CLASS:Horror (Fort/Will)	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.268	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	TEMPLATE:Construct|Mindless
+# Class Name			Reg. Race Type
+CLASS:Horror (Fort/Will)	PRERACETYPE:Construct
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror (Fort/Will)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name		Output Name		Hit Dice	Type				Class Type			Max Level		Source Page		Levels per Feat	Ability																		Save checks bonus											Combat bonus					Template
+CLASS:Horror (Ref/Will)	OUTPUTNAME:Horror	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.268	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	TEMPLATE:Construct|Mindless
+# Class Name		Reg. Race Type
+CLASS:Horror (Ref/Will)	PRERACETYPE:Construct
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Horror (Ref/Will)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+#
+# End
+#
