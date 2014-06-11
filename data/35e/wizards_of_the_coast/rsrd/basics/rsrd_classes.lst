@@ -3,7 +3,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page			Save checks bonus											Combat bonus					Monster Role
-CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex Barbarian	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat	DEFINE:BarbarianLVL|CL
+CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex Barbarian	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat	DEFINE:BarbarianLVL|CL
 # Class Name	Required AL
 CLASS:Barbarian	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -23,7 +23,7 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianMightyRage
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page			Visible	Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:ClassesI.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:ClassesI.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
@@ -35,7 +35,7 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDR
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus					Monster Role
-CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Bard	DEFINE:BardLVL|CL
+CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Bard	DEFINE:BardLVL|CL
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -70,7 +70,7 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Save checks bonus											Combat bonus					Add domain number		Monster Role
-CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	ROLE:Cleric	DEFINE:ClericLVL|CL
+CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	ROLE:Cleric	DEFINE:ClericLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -107,7 +107,7 @@ CLASS:Cleric	TEMPLATE:RighteousMightDR	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
-CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid	DEFINE:DruidLVL|CL
+CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	ROLE:Druid	DEFINE:DruidLVL|CL
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -153,14 +153,14 @@ CLASS:Druid		PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNM
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page			Bonus Languages	Visible	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex Druid	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Druid
+CLASS:Ex Druid	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Druid
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:Proficiencies
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Save checks bonus											Combat bonus					Monster Role
-CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FighterLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FighterLVL|CL	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:
@@ -168,7 +168,7 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|J
 1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterBonusFeat,TYPE.FighterBonusFeats
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Save checks bonus								Combat bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:MonkLVL|CL
+CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:MonkLVL|CL
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -219,7 +219,7 @@ CLASS:Monk		KIT:1|Monk Flurry of Blows
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page				Define			Save checks bonus											Combat bonus					Monster Role
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:ClassesII.rtf	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat	DEFINE:PaladinLVL|0	DEFINE:AllowHolyAvenger|1
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:ClassesII.rtf	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat	DEFINE:PaladinLVL|0	DEFINE:AllowHolyAvenger|1
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -261,14 +261,14 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 20	CAST:0,3,3,3,3
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page				Visible	Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal		SOURCEPAGE:ClassesII.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+CLASS:Ex Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal		SOURCEPAGE:ClassesII.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 ###Block:Proficiencies
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinProficiencies
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Monster Role
-CLASS:Ranger	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill	DEFINE:RangerLVL|CL
+CLASS:Ranger	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat.Skill	DEFINE:RangerLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
@@ -309,7 +309,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:0,3,3,3,3
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Monster Role
-CLASS:Rogue		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Skill	DEFINE:RogueLVL|CL
+CLASS:Rogue		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Skill	DEFINE:RogueLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Level progression
@@ -323,7 +323,7 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Deci
 10	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Special Abilities
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Monster Role
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Sorcerer	DEFINE:SorcererLVL|CL
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Sorcerer	DEFINE:SorcererLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -355,7 +355,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Bonus Languages		Save checks bonus											Combat bonus					Monster Role
-CLASS:Wizard	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Wizard	DEFINE:WizardLVL|CL
+CLASS:Wizard	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Wizard	DEFINE:WizardLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -408,7 +408,7 @@ SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter Learning Bonus
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 ###Block: NPC Classes
-CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	DEFINE:AdeptLVL|CL
+CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	DEFINE:AdeptLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -447,21 +447,21 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:3,3,3,3,3,2
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Aristocrat	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Aristocrat	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Survival
 ###Block: Proficiencies
 1	ABILITY:Aristocrat Class Feature|AUTOMATIC|Aristocrat ~ Weapon and Armor Proficiency
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.	Save checks bonus								Combat bonus
-CLASS:Commoner	HD:4		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	WEAPONBONUS:TYPE=Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0
+CLASS:Commoner	HD:4		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	WEAPONBONUS:TYPE=Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen|TYPE=Profession|Ride|Spot|Swim|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Commoner Class Feature|AUTOMATIC|Commoner ~ Weapon and Armor Proficiency
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Expert	HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Expert	HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl
 CLASS:Expert	STARTSKILLPTS:6
 ###Block: Proficiencies
@@ -471,7 +471,7 @@ CLASS:Expert	STARTSKILLPTS:6
 1	ADD:CLASSSKILLS|10|ANY
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Warrior	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Warrior	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block: Proficiencies
@@ -481,7 +481,7 @@ CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Sw
 ###Block: Prestige Classes
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:ArchaneArcherLVL|CL
+CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	DEFINE:ArchaneArcherLVL|CL
 # Class Name		Req. Att.	Required Feat															Required Race		Req. Spell Type
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -500,7 +500,7 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Archer Feat|1
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:ArcaneTricksterLVL|CL
+CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:ArcaneTricksterLVL|CL
 # Class Name		Required AL				Required Skill												Req. Known Spell		Req. Spell Type		Var. Min. Value
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -529,7 +529,7 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Trickster Feat|1
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Archmage	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:ArchmageLVL|CL
+CLASS:Archmage	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:ArchmageLVL|CL
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Archmage	PREMULT:2,[PREFEAT:1,Skill Focus (Spellcraft)],[PREFEAT:2,CHECKMULT,Spell Focus]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLSCHOOL:5,Abjuration=5,Conjuration=5,Divination=5,Enchantment=5,Evocation=5,Illusion=5,Necromancy=5,Transmutation=5	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -548,7 +548,7 @@ CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowled
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Assassin	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:AssassinLVL|CL
+CLASS:Assassin	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:AssassinLVL|CL
 # Class Name	Required AL		Required Skill
 CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -580,7 +580,7 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Blackguard	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:BlackguardLVL|CL
+CLASS:Blackguard	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	DEFINE:BlackguardLVL|CL
 # Class Name	Required AL		Req. Att.	Required Feat						Required Skill
 CLASS:Blackguard	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:3,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -619,7 +619,7 @@ CLASS:Blackguard	EXCHANGELEVEL:Ex Paladin|11|10|1
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Base class as subclass?	Source Page					Save checks bonus											Combat bonus
-CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:DragonDiscipleLVL|CL
+CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:DragonDiscipleLVL|CL
 # Class Name		Required Language		Prohibited Race		Required Skill				Required Casting Type						Prohibited Template
 CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLCAST:TYPE=Arcane	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -679,7 +679,7 @@ SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:DuelistLVL|CL
+CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	DEFINE:DuelistLVL|CL
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,TYPE.Perform=3,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -698,7 +698,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:DwarvenDefenderLVL|CL
+CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	DEFINE:DwarvenDefenderLVL|CL
 # Class Name		Required AL		Req. Att.	Required Feat				Required Race
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -716,7 +716,7 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spo
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Required Ability										Req. Spell Type
 CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,TYPE.WeaponProfMartial	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -739,7 +739,7 @@ CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher S
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Hierophant	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:HierophantLVL|CL
+CLASS:Hierophant	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:HierophantLVL|CL
 # Class Name	Required Feat			Required Skill				Req. Spell Type
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -751,7 +751,7 @@ CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|
 
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:HorizonWalkerLVL|CL
+CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:HorizonWalkerLVL|CL
 # Class Name		Required Feat		Required Skill
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -764,7 +764,7 @@ CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Anima
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Loremaster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:LoremasterLVL|CL
+CLASS:Loremaster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:LoremasterLVL|CL
 # Class Name	Required Feat												Required Skill						Required Spell School
 CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -792,7 +792,7 @@ CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|D
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0
+CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -815,7 +815,7 @@ CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Sc
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:ShadowdancerLVL|CL
+CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	DEFINE:ShadowdancerLVL|CL
 # Class Name		Required Feat					Required Skill
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,Move Silently=8,Perform (Dance)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -835,7 +835,7 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 10	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Evasion
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0
+CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0
 # Class Name		Required Feat				Req. Known Spell
 CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -952,182 +952,182 @@ CLASS:Thaumaturgist.MOD	BONUS:COMBAT|BAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREV
 #Vermin			d8	3/4	Fort		2
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
-CLASS:Aberration	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Aberration	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Aberration	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
-CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
+CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
 # Class Name	Prohibited Class			Reg. Race Type
 CLASS:Animal	!PRECLASS:1,Animal (Will)=1	PRERACETYPE:Animal
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
+CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
 # Class Name		Prohibited Class		Reg. Race Type
 CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Construct	PRERACETYPE:Construct
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus								Combat bonus
-CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Reg. Race Type
 CLASS:Construct (Mindless)	PRERACETYPE:Construct
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/2)
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/2)
 # Class Name	Reg. Race Type
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus																																																							Combat bonus
-CLASS:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Elemental	PRERACETYPE:Elemental
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus												Combat bonus
-CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Reg. Race Type
 CLASS:Elemental (Air/Fire)	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
-CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Reg. Race Type
 CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus																																																							Combat bonus
-CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Reg. Race Type
 CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability													Save checks bonus											Combat bonus
-CLASS:Fey		HD:6		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Fey		HD:6		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Fey		PRERACETYPE:Fey
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability														Save checks bonus											Combat bonus
-CLASS:Giant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Giant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Giant		PRERACETYPE:Giant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page						Ability														Save checks bonus												Combat bonus
-CLASS:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Prohibited Class							Reg. Race Type
 CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page						Ability														Save checks bonus											Combat bonus
-CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Prohibited Class					Reg. Race Type
 CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name		Output Name			Hit Dice	Type			Class Type		Max Level		Source Page						Ability														Save checks bonus											Combat bonus
-CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name		Prohibited Class						Reg. Race Type
 CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid=1,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
-CLASS:Magical Beast	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
+CLASS:Magical Beast	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
 # Class Name		Reg. Race Type
 CLASS:Magical Beast	PRERACETYPE:Magical Beast
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Magical Beast	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Hit Dice	Type			Class Type		Max Level		Source Page					Ability																Save checks bonus											Combat bonus
-CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
+CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/3)
 # Class Name			Reg. Race Type
 CLASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus								Combat bonus
-CLASS:Ooze		HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Ooze		HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Ooze		PRERACETYPE:Ooze
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Reg. Race Type
 CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability														Save checks bonus								Combat bonus
-CLASS:Outsider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Outsider Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/2)
+CLASS:Outsider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Outsider Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/2)
 # Class Name	Reg. Race Type
 CLASS:Outsider	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
-CLASS:Plant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Plant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Plant		PRERACETYPE:Plant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus											Combat bonus
-CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name		Reg. Race Type
 CLASS:Plant (Mindless)	PRERACETYPE:Plant
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability														Save checks bonus											Combat bonus
-CLASS:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Undead	PRERACETYPE:Undead
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
 
 # Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Ability														Save checks bonus											Combat bonus
-CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name		Reg. Race Type
 CLASS:Undead (Mindless)	PRERACETYPE:Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus											Combat bonus
-CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name	Reg. Race Type
 CLASS:Vermin	PRERACETYPE:Vermin
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
-CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
+CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:MISC|CR|floor((HD-BASEHD)/4)
 # Class Name			Reg. Race Type
 CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
