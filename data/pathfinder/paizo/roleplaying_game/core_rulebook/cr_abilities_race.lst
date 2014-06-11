@@ -144,7 +144,7 @@ Weapon Familiarity	KEY:Halfling ~ Weapon Familiarity	CATEGORY:Special Ability	TY
 ###Block: Human Abilities
 # Ability Name	Unique Key			Category of Ability		Type												Multiple Requirements																			Description																		Bonus to Ability Pool		Bonus to skill point/L		Modify VAR			Source Page
 Bonus Feat		KEY:Human ~ Bonus Feat	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HumanRacialTrait.HumanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Human ~ Bonus Feat],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat]	DESC:Humans select one extra feat at 1st level.												BONUS:ABILITYPOOL|FEAT|1										SOURCEPAGE:p.27
-Skilled		KEY:Human ~ Skilled	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HumanRacialTrait.HumanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Human ~ Skilled],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled]		DESC:Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.															SOURCEPAGE:p.27
+Skilled		KEY:Human ~ Skilled	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HumanRacialTrait.HumanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Human ~ Skilled],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled]		DESC:Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.															SOURCEPAGE:p.27	BONUS:VAR|SkillPointBonus|1
 
 
 # CVS $Revision: 21765 $ $Author: amaitland $ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
