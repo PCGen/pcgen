@@ -35,7 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne Player's Gui
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-LANGUAGE:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_languages.lst|(EXCLUDE:Boggard)
+#LANGUAGE:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide/rotrpg_languages.lst|(EXCLUDE:Boggard)
 
 ABILITY:cotctpg_abilities.lst
 ABILITYCATEGORY:cotctpg_abilitycategories.lst
