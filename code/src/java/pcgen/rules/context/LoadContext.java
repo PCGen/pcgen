@@ -66,6 +66,9 @@ import pcgen.util.StringPClassUtil;
 public abstract class LoadContext
 {
 
+	private static final PrerequisiteWriter PREREQ_WRITER =
+			new PrerequisiteWriter();
+
 	static
 	{
 		FacetInitialization.initialize();
@@ -82,6 +85,18 @@ public abstract class LoadContext
 	private final ReferenceContext ref;
 	
 	private final List<Campaign> campaignList = new ArrayList<Campaign>();
+
+	private int writeMessageCount = 0;
+
+	private final TokenSupport support = new TokenSupport();
+
+	private Map<Class<?>, Set<String>> typeMap = new HashMap<Class<?>, Set<String>>();
+	
+	private URI sourceURI;
+
+	private CDOMObject stateful;
+
+	private List<Object> dontForget = new ArrayList<Object>();
 
 	public LoadContext(ReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
@@ -101,8 +116,6 @@ public abstract class LoadContext
 		list = lc;
 		obj = oc;
 	}
-
-	private int writeMessageCount = 0;
 
 	public void addWriteMessage(String string)
 	{
@@ -238,8 +251,6 @@ public abstract class LoadContext
 		}
 	}
 
-	private final TokenSupport support = new TokenSupport();
-
 	public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			SelectionCreator<T> sc, String value)
 	{
@@ -329,13 +340,6 @@ public abstract class LoadContext
 		return support.unparse(this, cdo);
 	}
 
-//	public <T extends CDOMObject> PrimitiveChoiceSet<?> getChoiceSet(
-//			CDOMObject cdo, String key, String val)
-//			throws PersistenceLayerException
-//	{
-//		return support.getChoiceSet(this, cdo, key, val);
-//	}
-
 	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName)
 	{
 		T newObj = getObjectContext().cloneConstructedCDOMObject(cdo, newName);
@@ -370,9 +374,6 @@ public abstract class LoadContext
 		return newObj;
 	}
 	
-	private static final PrerequisiteWriter PREREQ_WRITER =
-			new PrerequisiteWriter();
-
 	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
 	{
 		try
@@ -386,8 +387,6 @@ public abstract class LoadContext
 		}
 	}
 
-	public Map<Class<?>, Set<String>> typeMap = new HashMap<Class<?>, Set<String>>();
-	
 	public void buildTypeLists()
 	{
 		Set<String> typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
@@ -427,14 +426,10 @@ public abstract class LoadContext
 		return set != null && set.contains(type);
 	}
 
-	private URI sourceURI;
-
 	public CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value)
 	{
 		return CampaignSourceEntry.getNewCSE(source, sourceURI, value);
 	}
-
-	private CDOMObject stateful;
 
 	public void clearStatefulInformation()
 	{
@@ -687,8 +682,6 @@ public abstract class LoadContext
 	{
 		FacetLibrary.getFacet(DataSetInitializationFacet.class).initialize(this);
 	}
-
-	private List<Object> dontForget = new ArrayList<Object>();
 
 	public void forgetMeNot(CDOMReference<?> cdr)
 	{
