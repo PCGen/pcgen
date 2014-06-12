@@ -3933,7 +3933,6 @@
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2H'"/>
 						<xsl:with-param name="tohit" select="w1_h2/to_hit"/>
-						<xsl:with-param name="damage" select="w1_h2/damage" />
 					</xsl:call-template>
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2W-OH'"/>

@@ -476,7 +476,6 @@
 				<description>|ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus|</description>
 			</savebonus>
 |ENDFOR|
-
 		</conditional_modifiers>
 
 		<melee>
@@ -487,7 +486,7 @@
 			<stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
 			<size_mod>|ATTACK.MELEE.SIZE|</size_mod>
 			<misc_mod>|ATTACK.MELEE.MISC|</misc_mod>
-			<epic_mod>|ATTACK.MELEE.EPIC|</epic_mod>
+			<epic_mod>|ATTACK.MELEE.EPIC||charbonusto("COMBAT","EPICAB")|</epic_mod>
 			<temp_mod/>
 		</melee>
 		<ranged>
@@ -497,7 +496,7 @@
 			<stat_mod>|ATTACK.RANGED.STAT|</stat_mod>
 			<size_mod>|ATTACK.RANGED.SIZE|</size_mod>
 			<misc_mod>|ATTACK.RANGED.MISC|</misc_mod>
-			<epic_mod>|ATTACK.RANGED.EPIC|</epic_mod>
+			<epic_mod>|ATTACK.RANGED.EPIC||charbonusto("COMBAT","EPICAB")|</epic_mod>
 			<temp_mod/>
 		</ranged>
 		<!-- Either CMB block, or Grapple Block -->
@@ -757,6 +756,10 @@ Immune
 				<sequence>|%weap|</sequence>
 			</common>
 			<melee>
+				<invalidtext>
+					<tohit>|INVALIDTEXT.TOHIT|</tohit>
+					<damage>|INVALIDTEXT.DAMAGE|</damage>
+				</invalidtext>
 				<hand>|WEAPON.%weap.HAND|</hand>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
