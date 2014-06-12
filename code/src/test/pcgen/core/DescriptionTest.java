@@ -236,7 +236,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 2");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
-		Globals.getContext().resolveReferences(null);
+		Globals.getContext().getReferenceContext().resolveReferences(null);
 		PlayerCharacter pc = getCharacter();
 
 		final Description desc = new Description("%1 test %3 %2");

@@ -48,7 +48,6 @@ import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.PObject;
-import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
@@ -92,11 +91,13 @@ public abstract class LoadContext
 
 	private Map<Class<?>, Set<String>> typeMap = new HashMap<Class<?>, Set<String>>();
 	
+	private List<Object> dontForget = new ArrayList<Object>();
+
+	//Per file
 	private URI sourceURI;
 
+	//Per file
 	private CDOMObject stateful;
-
-	private List<Object> dontForget = new ArrayList<Object>();
 
 	public LoadContext(ReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
@@ -187,11 +188,6 @@ public abstract class LoadContext
 		getObjectContext().rollback();
 	}
 
-	public void resolveReferences(UnconstructedValidator validator)
-	{
-		getReferenceContext().resolveReferences(validator);
-	}
-
 	public void resolveDeferredTokens()
 	{
 		for (DeferredToken<? extends Loadable> token : TokenLibrary
@@ -272,7 +268,6 @@ public abstract class LoadContext
 		return ChoiceSetLoadUtilities.getPrimitive(this, sc, key);
 	}
 			
-
 	public <T> ParseResult processSubToken(T cdo, String tokenName,
 			String key, String value)
 	{
@@ -305,21 +300,6 @@ public abstract class LoadContext
 			Logging.errorPrint("Error in token parse: "
 					+ e.getLocalizedMessage());
 		}
-	}
-
-	/**
-	 * Produce the LST code for any occurrences of the token. An attempt to 
-	 * unparse an invalid or non-existent token will result in an 
-	 * IllegalArgumentError.
-	 *  
-	 * @param <T> The type of object to be processed, generally a CDOMObject.
-	 * @param cdo The object to be partially unparsed
-	 * @param tokenName The name of the token to be extracted, must be a primary token.
-	 * @return An array of LST code 'fields' being each occurrence of the token for the target object.
-	 */
-	public <T> String[] unparseToken(T cdo, String tokenName)
-	{
-		return support.unparseToken(this, cdo, tokenName);
 	}
 
 	/**
@@ -387,18 +367,10 @@ public abstract class LoadContext
 		}
 	}
 
+	//TODO DatasetID based facet??
 	public void buildTypeLists()
 	{
 		Set<String> typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-		typeMap.put(WeaponProf.class, typeSet);
-		for (WeaponProf wp : getReferenceContext().getConstructedCDOMObjects(WeaponProf.class))
-		{
-			for (Type t : wp.getTrueTypeList(false))
-			{
-				typeSet.add(t.toString());
-			}
-		}
-		typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 		typeMap.put(Equipment.class, typeSet);
 		for (Equipment e : getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
@@ -418,12 +390,6 @@ public abstract class LoadContext
 			returnSet.addAll(set);
 		}
 		return returnSet;
-	}
-	
-	public boolean containsType(Class<?> cl, String type)
-	{
-		Set<String> set = typeMap.get(cl);
-		return set != null && set.contains(type);
 	}
 
 	public CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value)
@@ -466,6 +432,7 @@ public abstract class LoadContext
 		campaignList.addAll(campaigns);
 	}
 
+	//TODO This should be in a DatasetID based facet...
 	public boolean isTypeHidden(Class<?> cl, String type)
 	{
 		for (Campaign c : campaignList)
@@ -582,24 +549,6 @@ public abstract class LoadContext
 		return rm;
 	}
 
-	public void performDeferredProcessing(CDOMObject cdo)
-	{
-		for (DeferredToken<? extends Loadable> token : TokenLibrary
-				.getDeferredTokens())
-		{
-			if (token.getDeferredTokenClass().isAssignableFrom(cdo.getClass()))
-			{
-				processDeferred(cdo, token);
-			}
-		}
-	}
-
-	private <T extends Loadable> void processDeferred(CDOMObject cdo,
-			DeferredToken<T> token)
-	{
-		token.process(this, ((T) cdo));
-	}
-
 	public <T extends PObject> void addTypesToList(T cdo)
 	{
 		Set<String> typeSet = typeMap.get(cdo.getClass());
@@ -666,7 +615,6 @@ public abstract class LoadContext
 			}
 		}
 	}
-	
 
 	private boolean report(UnconstructedValidator validator, Class<?> cl, String key)
 	{

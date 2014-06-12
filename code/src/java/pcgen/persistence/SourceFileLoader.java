@@ -638,7 +638,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.resolveDeferredTokens();
 		LoadValidator validator = new LoadValidator(aSelectedCampaignsList);
 		context.getReferenceContext().validate(validator);
-		context.resolveReferences(validator);
+		context.getReferenceContext().resolveReferences(validator);
 		context.resolvePostDeferredTokens();
 		context.validateAssociations(validator);
 		for (Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
