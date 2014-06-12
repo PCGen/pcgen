@@ -101,7 +101,7 @@ public class EquipmentList {
 				final String cString = aTok.nextToken();
 				int iSize;
 
-				SizeAdjustment sa = Globals.getContext().ref
+				SizeAdjustment sa = Globals.getContext().getReferenceContext()
 						.getAbbreviatedObject(SizeAdjustment.class, cString);
 
 				if (sa != null) {
@@ -295,7 +295,7 @@ public class EquipmentList {
 				/*
 				 * CONSIDER This size can be further optimized by changing sizList
 				 */
-				eq.resizeItem(aPC, Globals.getContext().ref
+				eq.resizeItem(aPC, Globals.getContext().getReferenceContext()
 						.getAbbreviatedObject(SizeAdjustment.class, sizList
 								.get(0)));
 				bModified = true;
@@ -307,12 +307,12 @@ public class EquipmentList {
 
 			if (bModified) {
 				eq.nameItemFromModifiers(aPC);
-				Equipment equip = Globals.getContext().ref
+				Equipment equip = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(Equipment.class, eq
 								.getKeyName());
 				if (equip == null)
 				{
-					Globals.getContext().ref.importObject(eq);
+					Globals.getContext().getReferenceContext().importObject(eq);
 				}
 				else
 				{
@@ -341,7 +341,7 @@ public class EquipmentList {
 
 		if (desiredTypeList.size() != 0)
 		{
-			for (Equipment eq : Globals.getContext().ref
+			for (Equipment eq : Globals.getContext().getReferenceContext()
 					.getConstructedCDOMObjects(Equipment.class))
 			{
 				boolean addIt = true;
@@ -401,7 +401,7 @@ public class EquipmentList {
 
 	private static void autogenerateExoticMaterialsEquipment() {
 		if (SettingsHandler.isAutogenExoticMaterial()) {
-			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
@@ -427,7 +427,7 @@ public class EquipmentList {
 			for (int iPlus = 1; iPlus <= 5; iPlus++) {
 				final String aBonus = Delta.toString(iPlus);
 
-				for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+				for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 				{
 					// Only apply to non-magical
 					// Armor, Shield and Weapon
@@ -482,7 +482,7 @@ public class EquipmentList {
 
 	private static void autogenerateMasterWorkEquipment() {
 		if (SettingsHandler.isAutogenMasterwork()) {
-			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to non-magical Armor, Shield and Weapon
@@ -521,7 +521,7 @@ public class EquipmentList {
 			// creatures weren't being catered for (and therefore an OutOfBounds exception
 			// was being thrown) - Bug 937586
 			//
-			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
+			for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
 			{
 				/*
 				 * SIZE: in Race LST files enforces that the formula is fixed,
@@ -537,13 +537,13 @@ public class EquipmentList {
 			Set<SizeAdjustment> gensizes = new HashSet<SizeAdjustment>();
 			for (Integer i : gensizesid)
 			{
-				gensizes.add(Globals.getContext().ref.getItemInOrder(SizeAdjustment.class, i));
+				gensizes.add(Globals.getContext().getReferenceContext().getItemInOrder(SizeAdjustment.class, i));
 			}
 			// skip over default size
 			gensizes.remove(defaultSize);
 
 			PlayerCharacter dummyPc = new PlayerCharacter();
-			for (Equipment eq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to Armor, Shield and resizable items
@@ -562,7 +562,7 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getModifierNamed(final String aName) {
-		for (EquipmentModifier eqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
+		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(EquipmentModifier.class))
 		{
 			if (eqMod.getDisplayName().equals(aName)) { return eqMod; }
 		}
@@ -571,7 +571,7 @@ public class EquipmentList {
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq) {
-		for (EquipmentModifier eqMod : Globals.getContext().ref.getConstructedCDOMObjects(EquipmentModifier.class))
+		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(EquipmentModifier.class))
 		{
 			if (eqMod.getDisplayName().startsWith(aName)) {
 				for (String t : eq.typeList() )
@@ -654,7 +654,7 @@ public class EquipmentList {
 			// Change the names, to protect the innocent
 			//
 			final String sName = eq.nameItemFromModifiers(aPC);
-			final Equipment eqExists = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			final Equipment eqExists = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Equipment.class, sName);
 
 			if (eqExists != null) { return; }
@@ -675,7 +675,7 @@ public class EquipmentList {
 			// Make sure all the equipment types are present in the sorted list
 			//
 			Globals.getContext().addTypesToList(eq);
-			Globals.getContext().ref.importObject(eq);
+			Globals.getContext().getReferenceContext().importObject(eq);
 		} catch (NumberFormatException exception) {
 			Logging.errorPrint("createItem: exception: " + eq.getName());
 		}
@@ -709,7 +709,7 @@ public class EquipmentList {
 			newName.append(')');
 		}
 
-		final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		final Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Equipment.class, aName + newName);
 
 		return eq;

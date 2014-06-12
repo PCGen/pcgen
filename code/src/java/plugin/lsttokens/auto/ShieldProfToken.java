@@ -154,7 +154,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
 				foundAny = true;
-				shieldProfs.add(context.ref
+				shieldProfs.add(context.getReferenceContext()
 						.getCDOMAllReference(SHIELDPROF_CLASS));
 			}
 			else if (aProf.startsWith("SHIELDTYPE.")
@@ -173,7 +173,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			else
 			{
 				foundOther = true;
-				shieldProfs.add(context.ref.getCDOMReference(SHIELDPROF_CLASS,
+				shieldProfs.add(context.getReferenceContext().getCDOMReference(SHIELDPROF_CLASS,
 						aProf));
 			}
 		}

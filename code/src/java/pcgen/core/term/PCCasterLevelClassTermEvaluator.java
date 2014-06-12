@@ -57,7 +57,7 @@ public class PCCasterLevelClassTermEvaluator
 	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
 
 		// check if this is a domain spell
-		Domain domain = Globals.getContext().ref
+		Domain domain = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, source);
 		final ClassSource cs = pc.getDomainSource(domain);
 		
@@ -65,7 +65,7 @@ public class PCCasterLevelClassTermEvaluator
 		// otherwise just go with the original varSource
 		final String varSource = (cs != null) ? cs.getPcclass().getKeyName() : source;
 
-		final PCClass spClass = Globals.getContext().ref
+		final PCClass spClass = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(PCClass.class, varSource);
 
 		String spellType = Constants.NONE;

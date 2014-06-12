@@ -84,7 +84,7 @@ public class SpellCountCalc
 		if (specialty != null)
 		{
 			SpellSchool ss =
-				Globals.getContext().ref
+				Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(
 						SpellSchool.class, specialty);
 			return (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)

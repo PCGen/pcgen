@@ -49,7 +49,7 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Ability granted = createGrantedObject();
-		context.ref.constructCDOMObject(Language.class, "English");
+		context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		ParseResult result =
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
@@ -88,9 +88,9 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 	public void testFromAbility() throws PersistenceLayerException
 	{
 		Ability source = create(Ability.class, "Source");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		Ability granted = createGrantedObject();
-		context.ref.constructCDOMObject(Language.class, "English");
+		context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		ParseResult result =
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
@@ -136,7 +136,7 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 	@Override
 	protected Language getAssoc()
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(Language.class,
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Language.class,
 			"English");
 	}
 
@@ -151,7 +151,7 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			boolean abilityExpected =
 					cas.getAbility().equals(
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
 			boolean selectionExpected = "English".equals(cnas.getSelection());
@@ -180,7 +180,7 @@ public class AutoFeatListTargetTest extends AbstractTokenModelTest
 	protected Ability createGrantedObject()
 	{
 		Ability a = create(Ability.class, "Granted");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 }

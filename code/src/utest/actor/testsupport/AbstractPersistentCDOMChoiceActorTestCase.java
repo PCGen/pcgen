@@ -25,9 +25,9 @@ public abstract class AbstractPersistentCDOMChoiceActorTestCase<T extends CDOMOb
     @Override
 	protected T getObject()
 	{
-		T item = context.ref.constructCDOMObject(getCDOMClass(), "ItemName");
+		T item = context.getReferenceContext().constructCDOMObject(getCDOMClass(), "ItemName");
 		//In case
-		context.ref.registerAbbreviation(item, "ItemName");
+		context.getReferenceContext().registerAbbreviation(item, "ItemName");
 		return item;
 	}
 

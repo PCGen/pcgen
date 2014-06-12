@@ -77,7 +77,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 			//Skill name is actually type to compare for
 
 			//loop through skill list checking for type and class skill
-			for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
+			for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 			{
 				if (skill.isType(skillKey) && character.isClassSkill(skill))
 				{
@@ -113,7 +113,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		}
 		else
 		{
-			Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skillKey);
+			Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skillKey);
 			if (skill != null && character.isClassSkill(skill))
 			{
 				runningTotal++;
@@ -143,7 +143,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	private void getImitators(
 		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
 	{
-		for(Skill aSkill: Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
+		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
 			Set<Skill> servesAs = new HashSet<Skill>();
 			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))

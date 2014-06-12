@@ -77,12 +77,12 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8	TYPE:Monster	CLASSTYPE:Monster	"
 						+ "STARTSKILLPTS:2	MODTOSKILLS:YES";
 		humanoidClass = classLoader.parseLine(context, null, humanoidClassLine, source);
-		context.ref.importObject(humanoidClass);
+		context.getReferenceContext().importObject(humanoidClass);
 		
 		// Create the pc class
 		final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		HD:10";
 		pcClass = classLoader.parseLine(context, null, pcClassLine, source);
-		context.ref.importObject(pcClass);
+		context.getReferenceContext().importObject(pcClass);
 
 		// Create the BugBear race
 		bugbearRace.setName("Bugbear");
@@ -91,13 +91,13 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(humanoidClass), FormulaFactory.getFormulaFor(3)));
-		context.ref.importObject(bugbearRace);
+		context.getReferenceContext().importObject(bugbearRace);
 		
 		// Create the human race
 		humanRace.setName("Human");
 		humanRace.put(StringKey.KEY_NAME, "KEY_Human");
 		humanRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
-		context.ref.importObject(humanRace);
+		context.getReferenceContext().importObject(humanRace);
 	}
 
 	/**

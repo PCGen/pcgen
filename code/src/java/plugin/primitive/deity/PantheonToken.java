@@ -47,7 +47,7 @@ public class PantheonToken implements PrimitiveToken<Deity>, PrimitiveFilter<Dei
 			return false;
 		}
 		pantheon = Pantheon.getConstant(value);
-		allDeities = context.ref.getCDOMAllReference(DEITY_CLASS);
+		allDeities = context.getReferenceContext().getCDOMAllReference(DEITY_CLASS);
 		return true;
 	}
 

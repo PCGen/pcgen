@@ -69,7 +69,7 @@ public abstract class PCGenTestCase extends TestCase
 		gamemode.addXPTableName("Normal");
 		gamemode.setDefaultXPTableName("Normal");
 		LoadInfo loadable =
-				gamemode.getModeContext().ref.constructNowIfNecessary(
+				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
 					LoadInfo.class, gamemode.getName());
 		loadable.addLoadScoreValue(0, BigDecimal.ONE);
 		GameModeFileLoader.addDefaultTabInfo(gamemode);

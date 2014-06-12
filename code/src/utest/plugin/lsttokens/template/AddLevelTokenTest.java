@@ -113,34 +113,34 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		runRoundRobin("Fighter|3");
 	}
 
 	@Test
 	public void testRoundRobinFormula() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		runRoundRobin("Fighter|Formula");
 	}
 
 	@Test
 	public void testRoundRobinHardFormula() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		runRoundRobin("Fighter|if(var(\"SIZE==3||SIZE==4\"),5,0)");
 	}
 	
 	@Test
 	public void testRoundRobinMultiple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Thief");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Thief");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Thief");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Thief");
 		runRoundRobin("Fighter|3", "Thief|4");
 	}
 
@@ -166,8 +166,8 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	@Test
 	public void testUnparseSingle() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
 				PCClass.class, "Fighter");
 		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(cl,
 				FormulaFactory.getFormulaFor(4)));
@@ -215,13 +215,13 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	@Test
 	public void testUnparseMultiple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Cleric");
-		CDOMSingleRef<PCClass> fi = primaryContext.ref.getCDOMReference(
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
+		CDOMSingleRef<PCClass> fi = primaryContext.getReferenceContext().getCDOMReference(
 				PCClass.class, "Fighter");
 		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(fi,
 				FormulaFactory.getFormulaFor(2)));
-		CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
 				PCClass.class, "Cleric");
 		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(cl,
 				FormulaFactory.getFormulaFor("Formula")));

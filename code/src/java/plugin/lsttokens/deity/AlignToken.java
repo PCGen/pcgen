@@ -40,7 +40,7 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 	public ParseResult parseToken(LoadContext context, Deity deity, String value)
 	{
 		PCAlignment al =
-				context.ref.getAbbreviatedObject(PCAlignment.class, value);
+				context.getReferenceContext().getAbbreviatedObject(PCAlignment.class, value);
 		if (al == null)
 		{
 			return new ParseResult.Fail("In " + getTokenName() + " " + value

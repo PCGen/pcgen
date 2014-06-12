@@ -61,18 +61,18 @@ public class KitTokenTest extends AbstractKitTokenTestCase<KitKit>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Kit.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Kit.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Kit.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Kit.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Kit.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Kit.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Kit.class, "English");
-		secondaryContext.ref.constructCDOMObject(Kit.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(Kit.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Kit.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Kit.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(Kit.class, "English");
 		runRoundRobin("Fireball" + getJoinCharacter() + "English");
 	}
 

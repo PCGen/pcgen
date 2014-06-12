@@ -41,7 +41,7 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
-		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
+		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "

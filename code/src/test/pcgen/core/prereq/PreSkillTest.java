@@ -87,41 +87,41 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(knowledge, "CLASSES", "MyClass");
 		knowledge.setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
-		context.ref.importObject(knowledge);
+		context.getReferenceContext().importObject(knowledge);
 		SkillRankControl.modRanks(6.0, myClass, true, character, knowledge);
 		
 		knowledge2 = new Skill();
 		context.unconditionallyProcess(knowledge2, "CLASSES", "MyClass");
 		knowledge2.setName("KNOWLEDGE (NATURE)");
 		TestHelper.addType(knowledge2, "KNOWLEDGE.INT");
-		context.ref.importObject(knowledge2);
+		context.getReferenceContext().importObject(knowledge2);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge2);
 
 		tumble = new Skill();
 		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		context.ref.importObject(tumble);
+		context.getReferenceContext().importObject(tumble);
 		SkillRankControl.modRanks(8.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		context.ref.importObject(balance);
+		context.getReferenceContext().importObject(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 		
 		target = new Skill();
 		context.unconditionallyProcess(target, "CLASSES", "MyClass");
 		target.setName("Target");
 		target.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
-		context.ref.importObject(target);
+		context.getReferenceContext().importObject(target);
 		
 		target2 = new Skill();
 		context.unconditionallyProcess(target2, "CLASSES", "MyClass");
 		target2.setName("Target2");
 		target2.addToListFor(ListKey.TYPE, Type.getConstant("STR"));
-		context.ref.importObject(target2);
+		context.getReferenceContext().importObject(target2);
 
 		fake = new Skill();
 		context.unconditionallyProcess(fake, "CLASSES", "MyClass");
@@ -129,18 +129,18 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("WIS"));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target));
 		fake.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(target2));
-		context.ref.importObject(fake);
+		context.getReferenceContext().importObject(fake);
 		SkillRankControl.modRanks(6.0, myClass, true, character, fake);
 		
 		fake2 = new Skill();
 		context.unconditionallyProcess(fake2, "CLASSES", "MyClass");
 		fake2.setName("Fake 2");
 		fake2.addToListFor(ListKey.TYPE, Type.getConstant("INT"));
-		context.ref.importObject(fake2);
+		context.getReferenceContext().importObject(fake2);
 		SkillRankControl.modRanks(8.0, myClass, true, character, fake2);
 		
-		context.ref.buildDerivedObjects();
-		context.ref.resolveReferences(null);
+		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 	}
 
 	/* (non-Javadoc)

@@ -50,14 +50,14 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		 * gate to additional alignments being added in Campaigns (vs. Game
 		 * Modes)
 		 */
-		context.ref.registerAbbreviation(al, value);
+		context.getReferenceContext().registerAbbreviation(al, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCAlignment al)
 	{
-		String abb = context.ref.getAbbreviation(al);
+		String abb = context.getReferenceContext().getAbbreviation(al);
 		if (abb == null)
 		{
 			return null;

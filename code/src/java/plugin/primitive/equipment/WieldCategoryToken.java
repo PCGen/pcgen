@@ -61,7 +61,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 			Logging.errorPrint("Unable to understand Wield Category: " + value);
 			return false;
 		}
-		allEquipment = context.ref.getCDOMAllReference(EQUIPMENT_CLASS);
+		allEquipment = context.getReferenceContext().getCDOMAllReference(EQUIPMENT_CLASS);
 		return true;
 	}
 

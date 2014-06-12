@@ -234,7 +234,7 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		PCClass raceClass = new PCClass();
 		raceClass.setName("Race Class");
 		raceClass.put(StringKey.KEY_NAME, "RaceClass");
-		Globals.getContext().ref.importObject(raceClass);
+		Globals.getContext().getReferenceContext().importObject(raceClass);
 
 		race.setName("Gnoll");
 		race.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
@@ -244,6 +244,6 @@ public class PreLevelTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(StringKey.KEY_NAME, "MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getContext().ref.importObject(myClass);
+		Globals.getContext().getReferenceContext().importObject(myClass);
 	}
 }

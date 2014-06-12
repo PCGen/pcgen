@@ -95,7 +95,7 @@ public class ClassData
 	public WeightedCollection<PCStat> getStatWeights()
 	{
 		// Make sure that we have all the stats
-		for (final PCStat stat : Globals.getContext().ref
+		for (final PCStat stat : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(PCStat.class))
 		{
 			if (theStatWeights == null || !theStatWeights.contains(stat))
@@ -221,7 +221,7 @@ public class ClassData
 	{
 		if ( theDeityWeights == null )
 		{
-			for ( final Deity deity : Globals.getContext().ref.getConstructedCDOMObjects(Deity.class) )
+			for ( final Deity deity : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Deity.class) )
 			{
 				addDeity(deity, 1);
 			}
@@ -254,7 +254,7 @@ public class ClassData
 		if ( domains == null )
 		{
 			domains = new WeightedCollection<Domain>();
-			Deity deity = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Deity.class, aDeityKey);
+			Deity deity = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, aDeityKey);
 			for (CDOMReference<Domain> deityDomains : deity.getSafeListMods(Deity.DOMAINLIST))
 			{
 				domains.addAll(deityDomains.getContainedObjects(), deity

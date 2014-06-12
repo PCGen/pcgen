@@ -132,7 +132,7 @@ if ("NOCHOICE".equals(choice)) Thread.dumpStack();
 		Nature nat = Nature.valueOf(natString);
 		String ab = st.nextToken();
 		Ability a =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, ac, ab);
 		if (a == null)
 		{

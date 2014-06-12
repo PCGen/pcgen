@@ -91,8 +91,8 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		primaryContext.getObjectContext().setExtractURI(testURI);
 		secondaryContext.getObjectContext().setSourceURI(testURI);
 		secondaryContext.getObjectContext().setExtractURI(testURI);
-		primaryContext.ref.importObject(AbilityCategory.FEAT);
-		secondaryContext.ref.importObject(AbilityCategory.FEAT);
+		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
 		primaryProf = getPrimary("TestObj");
 		primaryProf.setSourceURI(testCampaign.getURI());
 		secondaryProf = getSecondary("TestObj");
@@ -101,12 +101,12 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 
 	protected T getSecondary(String name)
 	{
-		return secondaryContext.ref.constructCDOMObject(getCDOMClass(), name);
+		return secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), name);
 	}
 
 	protected T getPrimary(String name)
 	{
-		return primaryContext.ref.constructCDOMObject(getCDOMClass(), name);
+		return primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), name);
 	}
 
 	public abstract Class<? extends T> getCDOMClass();
@@ -181,8 +181,8 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 					sUnparsed[i]);
 		}
 		assertCleanConstruction();
-		assertTrue(secondaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.resolveReferences(null));
+		assertTrue(secondaryContext.getReferenceContext().validate(null));
+		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
 		assertEquals(expectedPrimaryMessageCount, primaryContext
 				.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
@@ -338,13 +338,13 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 	{
 		assertFalse(
 			"Expected one of validate or resolve references to be false.",
-			primaryContext.ref.validate(null)
-				&& primaryContext.ref.resolveReferences(null));
+			primaryContext.getReferenceContext().validate(null)
+				&& primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	protected void assertCleanConstruction()
 	{
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(primaryContext.ref.resolveReferences(null));
+		assertTrue(primaryContext.getReferenceContext().validate(null));
+		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 }

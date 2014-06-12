@@ -40,7 +40,7 @@ public class AbilityTargetSaveRestoreTest extends
 		if (cl.equals(Ability.class))
 		{
 			T ab = super.create(cl, key);
-			context.ref.reassociateCategory(AbilityCategory.FEAT, (Ability) ab);
+			context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, (Ability) ab);
 			return ab;
 		}
 		else

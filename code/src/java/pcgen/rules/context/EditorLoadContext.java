@@ -50,6 +50,6 @@ public class EditorLoadContext extends LoadContext
 	{
 		((EditorObjectContext) obj).purge(cdo);
 		((EditorListContext) list).purge(cdo);
-		((EditorReferenceContext) ref).purge(cdo);
+		((EditorReferenceContext) getReferenceContext()).purge(cdo);
 	}
 }

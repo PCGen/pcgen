@@ -54,9 +54,9 @@ public class AbilitySelectionTokenTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		primaryContext.ref.constructCDOMObject(AbilityCategory.class,
+		primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
 			"Special Ability");
-		secondaryContext.ref.constructCDOMObject(AbilityCategory.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
 			"Special Ability");
 
 	}
@@ -123,21 +123,21 @@ public class AbilitySelectionTokenTest extends
 	@Override
 	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		Category<Ability> cat = loadContext.ref
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		Category<Ability> cat = loadContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		loadContext.ref.reassociateCategory(cat, obj);
+		loadContext.getReferenceContext().reassociateCategory(cat, obj);
 		return obj;
 	}
 
 	@Override
 	protected ReferenceManufacturer<Ability> getManufacturer()
 	{
-		Category<Ability> cat = primaryContext.ref
+		Category<Ability> cat = primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		return primaryContext.ref.getManufacturer(getTargetClass(), cat);
+		return primaryContext.getReferenceContext().getManufacturer(getTargetClass(), cat);
 	}
 
 	@Override

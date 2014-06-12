@@ -68,7 +68,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	@Override
 	protected void loadAllReference()
 	{
-		CDOMGroupRef<Language> ref = primaryContext.ref.getCDOMAllReference(Language.class);
+		CDOMGroupRef<Language> ref = primaryContext.getReferenceContext().getCDOMAllReference(Language.class);
 		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 
@@ -97,7 +97,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	@Override
 	protected void loadTypeProf(String... types)
 	{
-		CDOMGroupRef<Language> ref = primaryContext.ref.getCDOMTypeReference(Language.class, types);
+		CDOMGroupRef<Language> ref = primaryContext.getReferenceContext().getCDOMTypeReference(Language.class, types);
 		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 

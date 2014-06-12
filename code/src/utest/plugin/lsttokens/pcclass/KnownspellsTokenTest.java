@@ -272,7 +272,7 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		Spell fireball = primaryContext.ref.constructCDOMObject(Spell.class,
+		Spell fireball = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Fireball");
 		CDOMDirectSingleRef<Spell> ref = CDOMDirectSingleRef.getRef(fireball);
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
@@ -284,9 +284,9 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testUnparseMultiple() throws PersistenceLayerException
 	{
-		Spell fireball = primaryContext.ref.constructCDOMObject(Spell.class,
+		Spell fireball = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Fireball");
-		Spell bolt = primaryContext.ref.constructCDOMObject(Spell.class,
+		Spell bolt = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Lightning Bolt");
 		CDOMDirectSingleRef<Spell> ref = CDOMDirectSingleRef.getRef(fireball);
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
@@ -301,7 +301,7 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testUnparseLevel() throws PersistenceLayerException
 	{
-		CDOMGroupRef<Spell> all = primaryContext.ref
+		CDOMGroupRef<Spell> all = primaryContext.getReferenceContext()
 				.getCDOMAllReference(Spell.class);
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
 				new KnownSpellIdentifier(all, 4));
@@ -314,7 +314,7 @@ public class KnownspellsTokenTest extends
 	{
 		try
 		{
-			CDOMGroupRef<Spell> all = primaryContext.ref
+			CDOMGroupRef<Spell> all = primaryContext.getReferenceContext()
 					.getCDOMAllReference(Spell.class);
 			primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
 					new KnownSpellIdentifier(all, -3));
@@ -329,7 +329,7 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testUnparseTypeLevel() throws PersistenceLayerException
 	{
-		CDOMGroupRef<Spell> cool = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<Spell> cool = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Cool");
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
 				new KnownSpellIdentifier(cool, 4));
@@ -340,11 +340,11 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testUnparseMultTypeLevel() throws PersistenceLayerException
 	{
-		CDOMGroupRef<Spell> cool = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<Spell> cool = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Cool");
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
 				new KnownSpellIdentifier(cool, 4));
-		CDOMGroupRef<Spell> awesome = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<Spell> awesome = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Awesome");
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS,
 				new KnownSpellIdentifier(awesome, 7));

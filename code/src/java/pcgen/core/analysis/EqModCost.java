@@ -187,7 +187,7 @@ public class EqModCost
 
 				if (castClassKey.length() != 0)
 				{
-					final PCClass castClass = Globals.getContext().ref
+					final PCClass castClass = Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(PCClass.class,
 									castClassKey);
 

@@ -93,7 +93,7 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 			}
 			else
 			{
-				CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
+				CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(
 					DOMAIN_CLASS, tok);
 				QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
 						domain);

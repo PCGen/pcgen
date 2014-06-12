@@ -160,16 +160,16 @@ public class SpellcasterQualifierTokenTest extends
 	{
 		wp1 = new WeaponProf();
 		wp1.setName("Wp1");
-		primaryContext.ref.importObject(wp1);
+		primaryContext.getReferenceContext().importObject(wp1);
 		
 		wp2 = new WeaponProf();
 		wp2.setName("Wp2");
-		primaryContext.ref.importObject(wp2);
+		primaryContext.getReferenceContext().importObject(wp2);
 		primaryContext.unconditionallyProcess(wp2, "TYPE", "WEAPON.Masterful");
 
 		wp3 = new WeaponProf();
 		wp3.setName("Wp3");
-		primaryContext.ref.importObject(wp3);
+		primaryContext.getReferenceContext().importObject(wp3);
 		primaryContext.unconditionallyProcess(wp3, "TYPE", "WEAPON.Masterful");
 	}
 

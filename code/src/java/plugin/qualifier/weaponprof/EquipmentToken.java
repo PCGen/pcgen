@@ -92,7 +92,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
-		ReferenceManufacturer<Equipment> erm = context.ref
+		ReferenceManufacturer<Equipment> erm = context.getReferenceContext()
 				.getManufacturer(Equipment.class);
 		if (value == null)
 		{

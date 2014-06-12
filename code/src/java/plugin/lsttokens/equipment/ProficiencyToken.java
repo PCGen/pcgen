@@ -77,7 +77,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 //					"Only one PROFICIENCY:WEAPON is allowed per item. Token was PROFICIENCY:"
 //						+ value, context);
 //			}
-			CDOMSingleRef<WeaponProf> wp = context.ref.getCDOMReference(
+			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
 					WeaponProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.WEAPON_PROF, wp);
 		}
@@ -90,7 +90,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 //						+ value, context);
 //			}
 
-			CDOMSingleRef<ArmorProf> wp = context.ref.getCDOMReference(
+			CDOMSingleRef<ArmorProf> wp = context.getReferenceContext().getCDOMReference(
 					ArmorProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.ARMOR_PROF, wp);
 		}
@@ -103,7 +103,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 //						+ value, context);
 //			}
 
-			CDOMSingleRef<ShieldProf> wp = context.ref.getCDOMReference(
+			CDOMSingleRef<ShieldProf> wp = context.getReferenceContext().getCDOMReference(
 					ShieldProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.SHIELD_PROF, wp);
 		}

@@ -80,7 +80,7 @@ public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 							+ value, context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		Collection<PCStat> list = context.ref.getConstructedCDOMObjects(PCStat.class);
+		Collection<PCStat> list = context.getReferenceContext().getConstructedCDOMObjects(PCStat.class);
 		Integer min = null;
 		Integer max = null;
 		while (tok.hasMoreTokens())

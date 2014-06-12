@@ -52,13 +52,13 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 		Type type = Type.getConstant(value);
 		context.getObjectContext().addToList(mod, ListKey.TYPE, type);
 		final Category<CompanionMod> cat =
-				context.ref.constructNowIfNecessary(COMPANIONLIST_CLASS, value);
+				context.getReferenceContext().constructNowIfNecessary(COMPANIONLIST_CLASS, value);
 		if (cat == null)
 		{
 			return new ParseResult.Fail("Cannot find Companion List: "
 				+ value, context);
 		}
-		context.ref.reassociateCategory(cat, mod);
+		context.getReferenceContext().reassociateCategory(cat, mod);
 		return ParseResult.SUCCESS;
 	}
 

@@ -81,7 +81,7 @@ public class SkillInfoCommand extends PCGenCommand
 					+ parent.getClass().getName());
 			}
 
-			Skill aSkill = Globals.getContext().ref
+			Skill aSkill = Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(Skill.class, param2
 							.toString());
 

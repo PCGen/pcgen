@@ -54,20 +54,20 @@ public class StatIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class, "STR");
+		PCStat ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "STR");
 		ps.put(StringKey.ABB, "STR");
-		primaryContext.ref.registerAbbreviation(ps, "STR");
-		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class,
+		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
+		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"STR");
 		ss.put(StringKey.ABB, "STR");
-		secondaryContext.ref.registerAbbreviation(ss, "STR");
-		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class, "INT");
+		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
+		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "INT");
 		pi.put(StringKey.ABB, "INT");
-		primaryContext.ref.registerAbbreviation(pi, "INT");
-		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class,
+		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
+		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"INT");
 		si.put(StringKey.ABB, "INT");
-		secondaryContext.ref.registerAbbreviation(si, "INT");
+		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
 	}
 
 	@Override

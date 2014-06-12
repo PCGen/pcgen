@@ -424,7 +424,7 @@ public final class KitGear extends BaseKit
 			theEquipment.setQty(new Float(theQty));
 
 			aPC.addEquipment(theEquipment);
-			Globals.getContext().ref.importObject(theEquipment);
+			Globals.getContext().getReferenceContext().importObject(theEquipment);
 		}
 		else
 		{

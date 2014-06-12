@@ -106,7 +106,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 			String token = sep.next();
 			PrimitiveCollection<PCClass> pcf =
 					context.getPrimitiveChoiceFilter(
-						context.ref.getManufacturer(PCClass.class), token);
+						context.getReferenceContext().getManufacturer(PCClass.class), token);
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(

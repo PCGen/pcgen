@@ -75,7 +75,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 				continue;
 			}
 
-			T obj = context.ref.constructCDOMObject(cdomClass, line + "Test"
+			T obj = context.getReferenceContext().constructCDOMObject(cdomClass, line + "Test"
 					+ tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
 			List<CDOMObject> injected = processToken(sb, objectName, obj,

@@ -118,7 +118,7 @@ public class DomainsTokenTest extends
 	@Override
 	protected Domain construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(Domain.class, one);
+		return loadContext.getReferenceContext().constructCDOMObject(Domain.class, one);
 	}
 
 	@Test
@@ -254,10 +254,10 @@ public class DomainsTokenTest extends
 		AssociatedPrereqObject apo = new SimpleAssociatedObject();
 		apo.setAssociation(AssociationKey.TOKEN, "DOMAINS");
 		primaryProf.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
-				.getRef(primaryContext.ref.silentlyGetConstructedCDOMObject(
+				.getRef(primaryContext.getReferenceContext().silentlyGetConstructedCDOMObject(
 						getTargetClass(), "TestWP1")), apo);
 		primaryProf.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
-				.getRef(primaryContext.ref.silentlyGetConstructedCDOMObject(
+				.getRef(primaryContext.getReferenceContext().silentlyGetConstructedCDOMObject(
 						getTargetClass(), "TestWP2")), apo);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertNotNull(unparsed);

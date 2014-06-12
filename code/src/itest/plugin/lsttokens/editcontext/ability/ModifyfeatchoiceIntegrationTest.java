@@ -43,9 +43,9 @@ public class ModifyfeatchoiceIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		TabInfo ti = primaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		TabInfo ti = primaryContext.getReferenceContext().constructCDOMObject(TabInfo.class, "Feats");
 		ti.setName("Feats");
-		ti = secondaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		ti = secondaryContext.getReferenceContext().constructCDOMObject(TabInfo.class, "Feats");
 		ti.setName("Feats");
 	}
 
@@ -112,8 +112,8 @@ public class ModifyfeatchoiceIntegrationTest extends
 	@Override
 	protected void construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 	}
 
 	@Override

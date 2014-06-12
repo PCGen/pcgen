@@ -201,11 +201,11 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 				{
 					for (Object o : bonus.getBonusInfoList())
 					{
-						if (context.ref.silentlyGetConstructedCDOMObject(
+						if (context.getReferenceContext().silentlyGetConstructedCDOMObject(
 								ABILITY_CATEGORY_CLASS, o.toString()) == null)
 						{
 							LoadContext dummyCtx =
-									new RuntimeLoadContext(context.ref,
+									new RuntimeLoadContext(context.getReferenceContext(),
 										new ConsolidatedListCommitStrategy());
 							dummyCtx.setSourceURI(obj.getSourceURI());
 							Logging.errorPrint(
@@ -223,7 +223,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 					for (Object o : bonus.getBonusInfoList())
 					{
 						String classKey = o.toString();
-						final PCClass aClass = context.ref
+						final PCClass aClass = context.getReferenceContext()
 								.silentlyGetConstructedCDOMObject(
 										PCCLASS_CLASS, classKey);
 						if (aClass == null)

@@ -583,7 +583,7 @@ public class SpellMemToken extends Token
 			String classKey = spellList.getKeyName();
 			for (Integer lvl : tempHash.getListFor(spellList))
 			{
-				PCClass pcc = Globals.getContext().ref
+				PCClass pcc = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(PCClass.class,
 								classKey);
 				if (pcc != null)

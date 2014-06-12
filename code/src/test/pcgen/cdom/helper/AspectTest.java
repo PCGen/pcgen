@@ -145,7 +145,7 @@ public class AspectTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pobj, "MULT", "YES");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter pc = getCharacter();
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
@@ -178,7 +178,7 @@ public class AspectTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pobj, "MULT", "YES");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "Testing");
 		aspect.addVariable("%LIST");
@@ -198,9 +198,9 @@ public class AspectTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		Globals.getContext().unconditionallyProcess(dummy, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(dummy, "MULT", "YES");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 1");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 2");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 3");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 1");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 2");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 3");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
 		PlayerCharacter pc = getCharacter();

@@ -101,11 +101,11 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			CDOMReference<Kit> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
-				ref = context.ref.getCDOMAllReference(KIT_CLASS);
+				ref = context.getReferenceContext().getCDOMAllReference(KIT_CLASS);
 			}
 			else
 			{
-				ref = context.ref.getCDOMReference(KIT_CLASS, token);
+				ref = context.getReferenceContext().getCDOMReference(KIT_CLASS, token);
 			}
 			refs.add(ref);
 		}

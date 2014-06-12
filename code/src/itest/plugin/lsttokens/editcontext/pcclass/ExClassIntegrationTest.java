@@ -67,10 +67,10 @@ public class ExClassIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Cleric");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Cleric");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Wizard");
 		commit(modCampaign, tc, "Cleric");
@@ -81,8 +81,8 @@ public class ExClassIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "Sorcerer");
@@ -93,8 +93,8 @@ public class ExClassIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Wizard");
 		emptyCommit(modCampaign, tc);

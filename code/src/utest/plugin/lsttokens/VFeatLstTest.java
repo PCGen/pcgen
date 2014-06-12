@@ -113,8 +113,8 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 	@Override
 	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 

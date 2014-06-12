@@ -46,7 +46,7 @@ public class PCMaxCastableDomainTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Domain domain = Globals.getContext().ref
+		Domain domain = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 
 		if (domain == null)

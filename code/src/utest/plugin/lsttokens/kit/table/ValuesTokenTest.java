@@ -159,18 +159,18 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	public void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD:EQMOD2|5,10");
 	}
 
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD:EQMOD2|1,99|"
 				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]"
@@ -179,9 +179,9 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 
 	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD:EQMOD2|1,if(var(\"SIZE==3||SIZE==4\"),5,10)|"
 				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]"

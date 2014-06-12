@@ -41,7 +41,7 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 	@Override
 	public ParseResult parseToken(LoadContext context, Skill skill, String value)
 	{
-		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
+		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "

@@ -105,6 +105,6 @@ public abstract class AbstractItemIntegrationTestCase<T extends CDOMObject, TC e
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 }

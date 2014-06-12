@@ -120,7 +120,7 @@ public class DataSet implements DataSetFacade
 
 	private void initLists()
 	{
-		List<Race> raceList = new ArrayList<Race>(context.ref.getConstructedCDOMObjects(Race.class));
+		List<Race> raceList = new ArrayList<Race>(context.getReferenceContext().getConstructedCDOMObjects(Race.class));
 		Collections.sort(raceList, new RaceComparator());
 		for (Race race : raceList)
 		{
@@ -130,7 +130,7 @@ public class DataSet implements DataSetFacade
 			}
 		}
 		
-		List<PCClass> classList = new ArrayList<PCClass>(context.ref.getConstructedCDOMObjects(PCClass.class));
+		List<PCClass> classList = new ArrayList<PCClass>(context.getReferenceContext().getConstructedCDOMObjects(PCClass.class));
 		Collections.sort(classList, new PCClassComparator());
 		for (PCClass pcClass : classList)
 		{
@@ -140,33 +140,33 @@ public class DataSet implements DataSetFacade
 			}
 		}
 
-		for (Skill skill : context.ref.getConstructedCDOMObjects(Skill.class))
+		for (Skill skill : context.getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
 			if (skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 			{
 				skills.addElement(skill);
 			}
 		}
-		for (Deity deity : context.ref.getConstructedCDOMObjects(Deity.class))
+		for (Deity deity : context.getReferenceContext().getConstructedCDOMObjects(Deity.class))
 		{
 			deities.addElement(deity);
 		}
-		for (PCTemplate template : context.ref.getConstructedCDOMObjects(PCTemplate.class))
+		for (PCTemplate template : context.getReferenceContext().getConstructedCDOMObjects(PCTemplate.class))
 		{
 			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 			{
 				templates.addElement(template);
 			}
 		}
-		for (Kit kit : context.ref.getConstructedCDOMObjects(Kit.class))
+		for (Kit kit : context.getReferenceContext().getConstructedCDOMObjects(Kit.class))
 		{
 			kits.addElement(kit);
 		}
-		for (PCAlignment alignment : context.ref.getOrderSortedCDOMObjects(PCAlignment.class))
+		for (PCAlignment alignment : context.getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
 		{
 			alignments.addElement(alignment);
 		}
-		for (PCStat stat : context.ref.getOrderSortedCDOMObjects(PCStat.class))
+		for (PCStat stat : context.getReferenceContext().getOrderSortedCDOMObjects(PCStat.class))
 		{
 			stats.addElement(stat);
 		}
@@ -181,7 +181,7 @@ public class DataSet implements DataSetFacade
 			{
 //				categories.addElement(category);
 				List<Ability> abList =
-						new ArrayList<Ability>(Globals.getContext().ref
+						new ArrayList<Ability>(Globals.getContext().getReferenceContext()
 							.getManufacturer(Ability.class, category)
 							.getAllObjects());
 				Globals.sortPObjectListByName(abList);
@@ -230,7 +230,7 @@ public class DataSet implements DataSetFacade
 			}
 		}
 
-		for(Equipment eq : context.ref.getConstructedCDOMObjects(Equipment.class))
+		for(Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			equipment.addElement(eq);
 		}
@@ -242,7 +242,7 @@ public class DataSet implements DataSetFacade
 		{
 			characterTypes.addElement(characterType);
 		}
-		for (SizeAdjustment size : context.ref.getOrderSortedCDOMObjects(SizeAdjustment.class))
+		for (SizeAdjustment size : context.getReferenceContext().getOrderSortedCDOMObjects(SizeAdjustment.class))
 		{
 			sizes.addElement(size);
 		}
@@ -327,7 +327,7 @@ public class DataSet implements DataSetFacade
 			|| "ABILITY".equalsIgnoreCase(prereq.getKind()))
 		{
 			Ability ability =
-					Globals.getContext().ref
+					Globals.getContext().getReferenceContext()
 						.getManufacturer(Ability.class, cat).getObject(
 							prereq.getKey());
 			if (ability != null)
@@ -443,7 +443,7 @@ public class DataSet implements DataSetFacade
     @Override
 	public void refreshEquipment()
 	{
-		equipment.updateContents(new ArrayList<EquipmentFacade>(context.ref
+		equipment.updateContents(new ArrayList<EquipmentFacade>(context.getReferenceContext()
 			.getConstructedCDOMObjects(Equipment.class)));
 	}
 	

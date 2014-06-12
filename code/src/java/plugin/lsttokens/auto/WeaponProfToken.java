@@ -163,7 +163,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				if (Constants.LST_ALL.equalsIgnoreCase(token))
 				{
 					foundAny = true;
-					CDOMGroupRef<WeaponProf> allRef = context.ref
+					CDOMGroupRef<WeaponProf> allRef = context.getReferenceContext()
 							.getCDOMAllReference(WEAPONPROF_CLASS);
 					wpp.addWeaponProfAll(allRef);
 				}
@@ -184,7 +184,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					}
 					else
 					{
-						CDOMSingleRef<WeaponProf> ref = context.ref
+						CDOMSingleRef<WeaponProf> ref = context.getReferenceContext()
 								.getCDOMReference(WEAPONPROF_CLASS, token);
 						wpp.addWeaponProf(ref);
 					}

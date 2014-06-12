@@ -156,6 +156,6 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		myClass.setName("My Class");
 		myClass.put(StringKey.KEY_NAME, "MY_CLASS");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getContext().ref.importObject(myClass);
+		Globals.getContext().getReferenceContext().importObject(myClass);
 	}
 }

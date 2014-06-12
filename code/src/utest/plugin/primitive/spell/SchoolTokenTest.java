@@ -51,8 +51,8 @@ public class SchoolTokenTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		primaryContext.ref.constructNowIfNecessary(SpellSchool.class, "SampleSchool");
-		secondaryContext.ref.constructNowIfNecessary(SpellSchool.class, "SampleSchool");
+		primaryContext.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "SampleSchool");
+		secondaryContext.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "SampleSchool");
 		TokenRegistration.register(SCHOOL_TOKEN);
 	}
 

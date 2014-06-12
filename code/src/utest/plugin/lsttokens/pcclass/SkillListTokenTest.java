@@ -264,7 +264,7 @@ public class SkillListTokenTest extends AbstractTokenTestCase<PCClass>
 
 	protected ClassSkillList construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(ClassSkillList.class, one);
+		return loadContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, one);
 	}
 
 	@Override

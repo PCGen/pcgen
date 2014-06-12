@@ -44,7 +44,7 @@ public class PCMaxCastableClassTermEvaluator
 	public PCMaxCastableClassTermEvaluator(String originalText, String classKey)
 	{
 		this.originalText = originalText;
-		this.spellList = Globals.getContext().ref
+		this.spellList = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(ClassSpellList.class,
 						classKey);
 		// TODO Warning if null? or is null gate in resolve not necessary?

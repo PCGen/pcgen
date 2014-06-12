@@ -106,7 +106,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 	protected <T extends Loadable> T create(Class<T> cl, String key)
 	{
-		return context.ref.constructCDOMObject(cl, key);
+		return context.getReferenceContext().constructCDOMObject(cl, key);
 	}
 
 	protected static final MultToken ABILITY_MULT_TOKEN =
@@ -132,10 +132,10 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected void finishLoad()
 	{
 		context.commit();
-		context.ref.buildDeferredObjects();
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDeferredObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
@@ -241,7 +241,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		wis = createStat("Wisdom", "WIS");
 		cha = createStat("Charisma", "CHA");
 
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");
@@ -295,7 +295,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		}
 		context = Globals.getContext();
 		create(Language.class, "Common");
-		context.ref.importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 	}
 
@@ -320,8 +320,8 @@ public abstract class AbstractTokenModelTest extends TestCase
 		sa.setName(name);
 		sa.put(StringKey.ABB, abb);
 
-		Globals.getContext().ref.importObject(sa);
-		Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+		Globals.getContext().getReferenceContext().importObject(sa);
+		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		return sa;
 	}
 

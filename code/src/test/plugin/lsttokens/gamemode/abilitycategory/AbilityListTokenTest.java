@@ -59,13 +59,13 @@ public class AbilityListTokenTest extends PCGenTestCase
 		super.setUp();
 		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
-		context.ref.importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 	}
 
 	private Ability buildFeat(RuntimeLoadContext context, String abName)
 	{
-		Ability ab = context.ref.constructCDOMObject(Ability.class, abName);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, abName);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		return ab;
 	}
 	
@@ -87,7 +87,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 	 */
 	public void testSingleEntry()
 	{
-		AbilityCategory aCat = context.ref.constructCDOMObject(
+		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		assertFalse("Test category should start with an empty list of keys",
@@ -108,7 +108,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 	 */
 	public void testMultipleEntries()
 	{
-		AbilityCategory aCat = context.ref.constructCDOMObject(
+		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		assertFalse("Test category should start with an empty list of keys",
@@ -133,7 +133,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 	 */
 	public void testEntriesWithAssoc()
 	{
-		AbilityCategory aCat = context.ref.constructCDOMObject(
+		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 		assertFalse("Test category should start with an empty list of keys",
@@ -149,8 +149,8 @@ public class AbilityListTokenTest extends PCGenTestCase
 			.getAbilityRefs().size());
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, sf, false); //Because this tests LST format
-		context.ref.validate(new LoadValidator(new ArrayList<Campaign>()));
-		assertTrue(context.ref.resolveReferences(null));
+		context.getReferenceContext().validate(new LoadValidator(new ArrayList<Campaign>()));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Collection<CDOMSingleRef<Ability>> refs = aCat.getAbilityRefs();
 		boolean found = false;
 		for (CDOMSingleRef<Ability> ref : refs)

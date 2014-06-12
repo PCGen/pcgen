@@ -44,7 +44,7 @@ public class PCStatBaseTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		PCStat stat = Globals.getContext().ref.getAbbreviatedObject(
+		PCStat stat = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				PCStat.class, statAbbrev);
 		return (float) display.getBaseStatFor(stat);
 	}

@@ -247,20 +247,20 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "Abil1");
 		construct(primaryContext, "Abil2");
 		construct(secondaryContext, "Abil2");
-		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+		AbilityCategory pac = primaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(pac, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil3");
-		secondaryContext.ref.reassociateCategory(sac, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil4");
-		primaryContext.ref.reassociateCategory(pac, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
+		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil4");
+		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil4");
-		secondaryContext.ref.reassociateCategory(sac, ab);
+		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
 		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 
@@ -320,8 +320,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	//  
 	private Ability construct(LoadContext context, String name)
 	{
-		Ability ab = context.ref.constructCDOMObject(Ability.class, name);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, name);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		return ab;
 	}
 

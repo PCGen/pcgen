@@ -58,10 +58,10 @@ public class AddLevelIntegrationTest extends
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Rogue");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Rogue");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Rogue");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Rogue");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Fighter|4");
@@ -72,10 +72,10 @@ public class AddLevelIntegrationTest extends
 	@Test
 	public void testRoundRobinClassOnly() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Rogue");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Rogue");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Rogue");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Rogue");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Fighter|4");
@@ -86,8 +86,8 @@ public class AddLevelIntegrationTest extends
 	@Test
 	public void testRoundRobinLevelOnly() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Fighter|4");
@@ -98,8 +98,8 @@ public class AddLevelIntegrationTest extends
 	@Test
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
@@ -110,8 +110,8 @@ public class AddLevelIntegrationTest extends
 	@Test
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Fighter|3");

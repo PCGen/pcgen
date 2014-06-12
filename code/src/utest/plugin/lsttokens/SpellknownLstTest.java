@@ -125,10 +125,10 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinSingleSpell() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Bless");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Bless");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Bless");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Bless");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		runRoundRobin("CLASS|Wizard=3|Bless");
 	}
@@ -255,10 +255,10 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinClass() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Cleric");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Cleric");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Cleric");
 		runRoundRobin("CLASS|Cleric=2|Fireball|PRECLASS:1,Fighter=2");
 	}
@@ -266,11 +266,11 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinSpellCaster() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		ClassSpellList a = primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		ClassSpellList a = primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		a.addType(Type.getConstant("Arcane"));
-		ClassSpellList b = secondaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
+		ClassSpellList b = secondaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		b.addType(Type.getConstant("Arcane"));
 		runRoundRobin("CLASS|SPELLCASTER.Arcane=2|Fireball|PRECLASS:1,Fighter=2");
 	}
@@ -278,12 +278,12 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidDomain() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		assertFalse(parse("DOMAIN|Fire=2|Fireball,Lightning Bolt|PRECLASS:1,Fighter=2"));
 		assertNoSideEffects();
 	}

@@ -227,7 +227,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		Spell sp = new Spell();
 		sp.setName("Test");
-		SpellSchool ss = Globals.getContext().ref.constructNowIfNecessary(SpellSchool.class, "INFUSE");
+		SpellSchool ss = Globals.getContext().getReferenceContext().constructNowIfNecessary(SpellSchool.class, "INFUSE");
 		sp.addToListFor(ListKey.SPELL_SCHOOL, ss);
 		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Duration", 4));
 		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Infuse Fire", 4));
@@ -355,7 +355,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
-		context.ref.constructNowIfNecessary(PCClass.class, "Wizard");
+		context.getReferenceContext().constructNowIfNecessary(PCClass.class, "Wizard");
 
 		BonusObj bonus = Bonus.newBonus(context, "SPELLKNOWN|%LIST|1");
 		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();

@@ -42,10 +42,10 @@ public class DefineStatLstTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
-		primaryContext.ref.registerAbbreviation(ps, "STR");
-		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
-		secondaryContext.ref.registerAbbreviation(ss, "STR");
+		PCStat ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
+		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
+		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
+		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
 	}
 
 	@Override

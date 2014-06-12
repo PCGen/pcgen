@@ -40,7 +40,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		{
 			return false;
 		}
-		spelllist = context.ref.getCDOMReference(DomainSpellList.class, value);
+		spelllist = context.getReferenceContext().getCDOMReference(DomainSpellList.class, value);
 		return initialize(context, args);
 	}
 

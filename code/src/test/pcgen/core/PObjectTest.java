@@ -170,7 +170,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		raceLoader.parseLine(Globals.getContext(), null, racePCCText, source);
-		Race reconstRace = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, "TestRace");
+		Race reconstRace = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestRace");
 		assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			racePCCText, reconstRace.getPCCText());
@@ -208,7 +208,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(pObj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pObj, "MULT", "YES");
 		Globals.getContext().unconditionallyProcess(pObj, "STACK", "YES");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "TestPsion 1");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "TestPsion 1");
 
 		PlayerCharacter aPC = getCharacter();
 		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
@@ -256,10 +256,10 @@ public class PObjectTest extends AbstractCharacterTestCase
 				null,
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
-		Ability pObj = Globals.getContext().ref
+		Ability pObj = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Ability.class,
 						AbilityCategory.FEAT, "Toughness");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
@@ -296,7 +296,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 				Globals.getContext(),
 				null,
 				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
-		Ability pObj = Globals.getContext().ref
+		Ability pObj = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Ability.class,
 						AbilityCategory.FEAT, "Toughness");
 		PlayerCharacter aPC = getCharacter();
@@ -352,7 +352,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	{
 		// Create some abilities to be added
 		LoadContext context = Globals.getContext();
-		AbilityCategory cat = context.ref.constructCDOMObject(
+		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		new AbilityCategoryLoader().parseLine(context, "TestCat\tCATEGORY:TestCat", null);
 		Ability ab1 = new Ability();
@@ -361,8 +361,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(SettingsHandler.getGame().getAbilityCategory("TestCat"));
-		context.ref.importObject(ab1);
-		context.ref.importObject(ab2);
+		context.getReferenceContext().importObject(ab1);
+		context.getReferenceContext().importObject(ab2);
 
 		// Link them to a template
 		Race race = new Race();
@@ -382,9 +382,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 				context,
 				race,
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		context.ref.importObject(ab1);
-		context.ref.importObject(ab2);
-		assertTrue(context.ref.resolveReferences(null));
+		context.getReferenceContext().importObject(ab1);
+		context.getReferenceContext().importObject(ab2);
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = race.getListMods(autoList);
 		assertEquals(2, listMods.size());
@@ -420,7 +420,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(2), "REMOVE",
 				"FEAT|KEY_Alertness");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(arRace);
 		assertEquals("Initial number of feats, including racial bonus feat",

@@ -155,7 +155,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				foundAny = true;
 				armorProfs
-						.add(context.ref.getCDOMAllReference(ARMORPROF_CLASS));
+						.add(context.getReferenceContext().getCDOMAllReference(ARMORPROF_CLASS));
 			}
 			else if (aProf.startsWith("ARMORTYPE.")
 					|| aProf.startsWith("ARMORTYPE="))
@@ -173,7 +173,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			else
 			{
 				foundOther = true;
-				armorProfs.add(context.ref.getCDOMReference(ARMORPROF_CLASS,
+				armorProfs.add(context.getReferenceContext().getCDOMReference(ARMORPROF_CLASS,
 						aProf));
 			}
 		}

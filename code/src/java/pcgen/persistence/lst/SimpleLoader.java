@@ -65,7 +65,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		{
 			return null;
 		}
-		T loadable = context.ref.constructCDOMObject(loadClass, name.intern());
+		T loadable = context.getReferenceContext().constructCDOMObject(loadClass, name.intern());
 		loadable.setSourceURI(sourceURI);
 		return loadable;
 	}

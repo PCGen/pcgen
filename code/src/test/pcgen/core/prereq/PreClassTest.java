@@ -189,16 +189,16 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testCharWithMultipleSpellClasses() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
+		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
-		final PCClass pcClass2 = context.ref.constructCDOMObject(PCClass.class, "Other Class");
+		final PCClass pcClass2 = context.getReferenceContext().constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -228,16 +228,16 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testFromParserCharWithMultipleSpellClasses() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
+		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
-		final PCClass pcClass2 = context.ref.constructCDOMObject(PCClass.class, "Other Class");
+		final PCClass pcClass2 = context.getReferenceContext().constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -374,11 +374,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcaster() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
+		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -429,11 +429,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypePass() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
+		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -458,11 +458,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypeWrongCasePass() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		final PCClass pcClass = context.ref.constructCDOMObject(PCClass.class, "MyClass");
+		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();

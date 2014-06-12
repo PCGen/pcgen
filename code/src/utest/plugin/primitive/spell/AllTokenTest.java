@@ -51,8 +51,8 @@ public class AllTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(ALL_TOKEN);
-		primaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
-		secondaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
+		primaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
+		secondaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
 	}
 
 	@Override

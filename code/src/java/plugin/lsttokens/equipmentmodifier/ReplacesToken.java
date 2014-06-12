@@ -59,7 +59,7 @@ public class ReplacesToken extends
 		StringTokenizer tok = new StringTokenizer(value, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
-			CDOMSingleRef<EquipmentModifier> ref = context.ref
+			CDOMSingleRef<EquipmentModifier> ref = context.getReferenceContext()
 					.getCDOMReference(EquipmentModifier.class, tok.nextToken());
 			context.getObjectContext().addToList(mod, ListKey.REPLACED_KEYS,
 					ref);

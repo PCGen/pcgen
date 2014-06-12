@@ -113,7 +113,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	public void testUnparseIndivAll() throws PersistenceLayerException
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
-		wpp.addWeaponProfAll(primaryContext.ref
+		wpp.addWeaponProfAll(primaryContext.getReferenceContext()
 				.getCDOMAllReference(WeaponProf.class));
 		WeaponProf wp1 = construct(primaryContext, "TestWP1");
 		CDOMSingleRef<WeaponProf> ref = CDOMDirectSingleRef.getRef(wp1);
@@ -153,7 +153,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	protected void loadAllReference()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
-		wpp.addWeaponProfAll(primaryContext.ref
+		wpp.addWeaponProfAll(primaryContext.getReferenceContext()
 				.getCDOMAllReference(WeaponProf.class));
 		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
 	}
@@ -224,7 +224,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	protected void loadTypeProf(String... types)
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
-		CDOMGroupRef<WeaponProf> ref = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<WeaponProf> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				WeaponProf.class, types);
 		wpp.addWeaponProfType(ref);
 		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);

@@ -64,7 +64,7 @@ public class ClassToken extends AbstractNonEmptyToken<KitSkill> implements
 		String value)
 	{
 		CDOMSingleRef<PCClass> ref =
-				context.ref.getCDOMReference(PCCLASS_CLASS, value);
+				context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
 		kitSkill.setPcclass(ref);
 		return ParseResult.SUCCESS;
 	}

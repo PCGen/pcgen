@@ -64,14 +64,14 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		Race pObj = new Race();
 		pObj.setName("My PObject");
 		LoadContext context = Globals.getContext();
-		Domain foo = context.ref.constructCDOMObject(Domain.class, "KEY_Foo");
-		Domain bar = context.ref.constructCDOMObject(Domain.class, "KEY_Bar");
-		Domain baz = context.ref.constructCDOMObject(Domain.class, "KEY_Baz");
-		Domain qux = context.ref.constructCDOMObject(Domain.class, "KEY_Qux");
-		Domain quux = context.ref.constructCDOMObject(Domain.class, "KEY_Quux");
+		Domain foo = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Foo");
+		Domain bar = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Bar");
+		Domain baz = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Baz");
+		Domain qux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Qux");
+		Domain quux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Quux");
 		context.unconditionallyProcess(pObj, "CHOOSE",
 				"DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		assertNotNull(pObj.get(ObjectKey.CHOOSE_INFO));
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
 		PlayerCharacter aPC = getCharacter();

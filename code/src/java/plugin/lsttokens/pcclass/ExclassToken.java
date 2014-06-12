@@ -42,7 +42,7 @@ public class ExclassToken extends AbstractNonEmptyToken<PCClass> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
 		String value)
 	{
-		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class,
 				value);
 		context.getObjectContext().put(pcc, ObjectKey.EX_CLASS, cl);
 		return ParseResult.SUCCESS;

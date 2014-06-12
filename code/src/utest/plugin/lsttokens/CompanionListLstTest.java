@@ -271,8 +271,8 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 
 	private <T extends Loadable> void construct(Class<T> cl, String name)
 	{
-		primaryContext.ref.constructCDOMObject(cl, name);
-		secondaryContext.ref.constructCDOMObject(cl, name);
+		primaryContext.getReferenceContext().constructCDOMObject(cl, name);
+		secondaryContext.getReferenceContext().constructCDOMObject(cl, name);
 	}
 
 	@Test

@@ -83,7 +83,7 @@ public class TypeToken implements PrimitiveToken<WeaponProf>
 		{
 			return false;
 		}
-		typeRef = context.ref.getCDOMTypeReference(WEAPONPROF_CLASS, value);
+		typeRef = context.getReferenceContext().getCDOMTypeReference(WEAPONPROF_CLASS, value);
 		return typeRef != null;
 	}
 

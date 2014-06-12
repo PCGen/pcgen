@@ -134,7 +134,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantClass.put(StringKey.CLASSTYPE, "MONSTER");
 		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL*3/4");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		context.ref.importObject(giantClass);
+		context.getReferenceContext().importObject(giantClass);
 	
 		// Human
 		human = new Race();
@@ -155,7 +155,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		giantRace.addToListFor(ListKey.BONUS, giantRaceFeatBonus);
 		giantRace.ownBonuses(giantRace);
 	
-		context.ref.importObject(giantRace);
+		context.getReferenceContext().importObject(giantRace);
 	
 		// Create the monster class type
 		SettingsHandler.getGame().addClassType(
@@ -164,7 +164,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
-		context.ref.importObject(pcClass);
+		context.getReferenceContext().importObject(pcClass);
 		
 		classMemDivine = new PCClass();
 		classMemDivine.setName("MemDivine");
@@ -173,31 +173,31 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(classMemDivine, "SPELLSTAT", "WIS");
 		context.unconditionallyProcess(classMemDivine.getOriginalClassLevel(1), "CAST", "3,2,2");
 		context.unconditionallyProcess(classMemDivine, "BONUS", "DOMAIN|NUMBER|1");
-		context.ref.importObject(classMemDivine);
+		context.getReferenceContext().importObject(classMemDivine);
 	
 		classWarmind = new PCClass();
 		classWarmind.setName("Warmind");
-		context.ref.importObject(classWarmind);
+		context.getReferenceContext().importObject(classWarmind);
 	
 		class2LpfM = new PCClass();
 		class2LpfM.setName("2LpfM");
 		class2LpfM.put(StringKey.CLASSTYPE, "MONSTER");
 		class2LpfM.put(IntegerKey.LEVELS_PER_FEAT, 2);
 		class2LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
-		context.ref.importObject(class2LpfM);
+		context.getReferenceContext().importObject(class2LpfM);
 		
 		class3LpfM = new PCClass();
 		class3LpfM.setName("3LpfM");
 		class3LpfM.put(StringKey.CLASSTYPE, "MONSTER");
 		class3LpfM.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		class3LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
-		context.ref.importObject(class3LpfM);
+		context.getReferenceContext().importObject(class3LpfM);
 		
 		class3LpfBlank = new PCClass();
 		class3LpfBlank.setName("3LpfBlank");
 		class3LpfBlank.put(StringKey.CLASSTYPE, "Foo");
 		class3LpfBlank.put(IntegerKey.LEVELS_PER_FEAT, 3);
-		context.ref.importObject(class3LpfBlank);
+		context.getReferenceContext().importObject(class3LpfBlank);
 
 		toughness = new Ability();
 		toughness.setName("Toughness");
@@ -211,7 +211,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			toughness.addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(toughness);
+		context.getReferenceContext().importObject(toughness);
 	
 		Ability exoticWpnProf =
 				TestHelper.makeAbility("Exotic Weapon Proficiency", AbilityCategory.FEAT,
@@ -224,19 +224,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		wpnProfTestA.setName("Weapon A");
 		wpnProfTestA.put(StringKey.KEY_NAME, "Weapon A");
 		wpnProfTestA.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
-		context.ref.importObject(wpnProfTestA);
+		context.getReferenceContext().importObject(wpnProfTestA);
 	
 		WeaponProf wpnProfTestB = new WeaponProf();
 		wpnProfTestB.setName("Weapon B");
 		wpnProfTestB.put(StringKey.KEY_NAME, "Weapon B");
 		wpnProfTestB.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
-		context.ref.importObject(wpnProfTestB);
+		context.getReferenceContext().importObject(wpnProfTestB);
 	
 		WeaponProf wpnProfTestC = new WeaponProf();
 		wpnProfTestC.setName("Weapon C");
 		wpnProfTestC.put(StringKey.KEY_NAME, "Weapon C");
 		wpnProfTestC.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
-		context.ref.importObject(wpnProfTestC);
+		context.getReferenceContext().importObject(wpnProfTestC);
 	
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
@@ -248,14 +248,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(3), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon C)");
 		
-		specialFeatCat = Globals.getContext().ref
+		specialFeatCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "Special Feat");
 		specialFeatCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		specialAbilityCat = Globals.getContext().ref
+		specialAbilityCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "Special Ability");
 		
 		luckDomain = TestHelper.makeDomain("Luck");
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		
 		luckDomainLvl1Spell = TestHelper.makeSpell("true strike");
 		luckDomainLvl2Spell = TestHelper.makeSpell("aid");
@@ -272,7 +272,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		context.resolveDeferredTokens();
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	@Override
@@ -1100,7 +1100,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(resToAcid, "CHOOSE", "NOCHOICE");
 		PCTemplate template = TestHelper.makeTemplate("TemplateVirt"); 
 		PCTemplate templateNorm = TestHelper.makeTemplate("TemplateNorm"); 
-		context.ref.importObject(resToAcid);
+		context.getReferenceContext().importObject(resToAcid);
 		context.unconditionallyProcess(human, "ABILITY", "FEAT|AUTOMATIC|KEY_Swelter");
 		context.unconditionallyProcess(template, "ABILITY", "FEAT|VIRTUAL|KEY_Swelter");
 		context.unconditionallyProcess(templateNorm, "ABILITY", "FEAT|NORMAL|KEY_Swelter");
@@ -1139,15 +1139,15 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		template2.addToListFor(ListKey.BONUS, digBonus);
 
 		//template.addm
-		context.ref.importObject(quickFlySlowSwim);
-		context.ref.importObject(template2);
+		context.getReferenceContext().importObject(quickFlySlowSwim);
+		context.getReferenceContext().importObject(template2);
 		context.unconditionallyProcess(human, "MOVE", "Walk,30");
 		context.unconditionallyProcess(quickFlySlowSwim, "MOVE",
 			"Swim,10,Fly,30");
 		context.unconditionallyProcess(template, "MOVE", "Swim,30,Fly,10");
 		readyToRun();
 		GameMode game = SettingsHandler.getGame();
-		LoadInfo li = game.getModeContext().ref.constructNowIfNecessary(
+		LoadInfo li = game.getModeContext().getReferenceContext().constructNowIfNecessary(
 				LoadInfo.class, game.getName());
 		li.addLoadScoreValue(0, new BigDecimal(100.0));
 		li.addLoadScoreValue(10, new BigDecimal(100.0));
@@ -1186,11 +1186,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass paladin = new PCClass();
 		paladin.setName("Paladin");
-		context.ref.importObject(paladin);
+		context.getReferenceContext().importObject(paladin);
 		PCClass exPaladin = new PCClass();
 		exPaladin.setName("exPaladin");
-		context.ref.importObject(exPaladin);
-		paladin.put(ObjectKey.EX_CLASS, context.ref.getCDOMReference(PCClass.class, exPaladin.getKeyName()));
+		context.getReferenceContext().importObject(exPaladin);
+		paladin.put(ObjectKey.EX_CLASS, context.getReferenceContext().getCDOMReference(PCClass.class, exPaladin.getKeyName()));
 		readyToRun();
 		
 		PlayerCharacter pc = getCharacter();

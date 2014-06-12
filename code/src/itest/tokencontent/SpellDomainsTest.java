@@ -55,8 +55,8 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		sp = context.ref.constructCDOMObject(Spell.class, "MySpell");
-		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
+		sp = context.getReferenceContext().constructCDOMObject(Spell.class, "MySpell");
+		dragon = context.getReferenceContext().constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
 		domain = create(Domain.class, "Source");
 		ChooserFactory.setDelegate(new MockUIDelegate());

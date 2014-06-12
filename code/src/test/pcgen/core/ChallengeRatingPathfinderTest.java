@@ -87,57 +87,57 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 
 		final String standardRaceLine = "Standard Race";
 		raceLoader.parseLine(context, null, standardRaceLine, source);
-		standardRace = context.ref.silentlyGetConstructedCDOMObject(Race.class, "Standard Race");
+		standardRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Standard Race");
 
 		final String koboldRaceLine = "Kobold	CRMOD:NPC|-3";
 		raceLoader.parseLine(context, null, koboldRaceLine, source);
-		koboldRace = context.ref.silentlyGetConstructedCDOMObject(Race.class, "Kobold");
+		koboldRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Kobold");
 
 		final String drowNobleLine = "Drow Noble	CRMOD:PC.NPC|0";
 		raceLoader.parseLine(context, null, drowNobleLine, source);
-		drowNobleRace = context.ref.silentlyGetConstructedCDOMObject(Race.class, "Drow Noble");
+		drowNobleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Drow Noble");
 
 		final String babauLine = "Babau	MONSTERCLASS:TestMonsterClass:7	CR:6	ROLE:Combat.Skill";
 		raceLoader.parseLine(context, null, babauLine, source);
-		babauRace = context.ref.silentlyGetConstructedCDOMObject(Race.class, "Babau");
+		babauRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Babau");
 
 		final String dryadLine = "Dryad	MONSTERCLASS:TestMonsterClass:8	CR:7	ROLE:Druid";
 		raceLoader.parseLine(context, null, dryadLine, source);
-		dryadRace = context.ref.silentlyGetConstructedCDOMObject(Race.class, "Dryad");
+		dryadRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Dryad");
 
 		final String companionLine = "TestCompanion MONSTERCLASS:TestCompanionClass:4";
 		raceLoader.parseLine(context, null, companionLine, source);
-		companionRace = context.ref.silentlyGetConstructedCDOMObject(Race.class, "TestCompanion");
+		companionRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestCompanion");
 
 		final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		ROLE:Combat";
 		pcClass = classLoader.parseLine(context, null, pcClassLine, source);
-		context.ref.importObject(pcClass);
+		context.getReferenceContext().importObject(pcClass);
 		
 		final String pcClassLine2 = "CLASS:TestPCClass2	TYPE:PC		ROLE:Druid";
 		pcClass2 = classLoader.parseLine(context, null, pcClassLine2, source);
-		context.ref.importObject(pcClass2);
+		context.getReferenceContext().importObject(pcClass2);
 		
 		final String npcClassLine = "CLASS:TestNPCClass2	TYPE:NPC";
 		npcClass = classLoader.parseLine(context, null, npcClassLine, source);
-		context.ref.importObject(npcClass);
+		context.getReferenceContext().importObject(npcClass);
 
 		final String npcClassLine2 = "CLASS:TestNPCClass2	TYPE:NPC";
 		npcClass2 = classLoader.parseLine(context, null, npcClassLine2, source);
-		context.ref.importObject(npcClass2);
+		context.getReferenceContext().importObject(npcClass2);
 
 		final String monsterClassLine = "CLASS:TestMonsterClass	HD:8	CLASSTYPE:Monster";
 		monsterClass = classLoader.parseLine(context, null, monsterClassLine, source);
-		context.ref.importObject(monsterClass);
+		context.getReferenceContext().importObject(monsterClass);
 
 		final String companionClassLine = "CLASS:TestCompanionClass	HD:8	CLASSTYPE:Companion";
 		companionClass = classLoader.parseLine(context, null, companionClassLine, source);
-		context.ref.importObject(companionClass);
+		context.getReferenceContext().importObject(companionClass);
 
 		context.commit();
 
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	/**

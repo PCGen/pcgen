@@ -64,14 +64,14 @@ public class SizeTokenTest extends AbstractTokenTestCase<PCTemplate>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.ref.constructCDOMObject(SizeAdjustment.class, "Small");
-		primaryContext.ref.registerAbbreviation(ps, "S");
-		SizeAdjustment pm = primaryContext.ref.constructCDOMObject(SizeAdjustment.class, "Medium");
-		primaryContext.ref.registerAbbreviation(pm, "M");
-		SizeAdjustment ss = secondaryContext.ref.constructCDOMObject(SizeAdjustment.class, "Small");
-		secondaryContext.ref.registerAbbreviation(ss, "S");
-		SizeAdjustment sm = secondaryContext.ref.constructCDOMObject(SizeAdjustment.class, "Medium");
-		secondaryContext.ref.registerAbbreviation(sm, "M");
+		SizeAdjustment ps = primaryContext.getReferenceContext().constructCDOMObject(SizeAdjustment.class, "Small");
+		primaryContext.getReferenceContext().registerAbbreviation(ps, "S");
+		SizeAdjustment pm = primaryContext.getReferenceContext().constructCDOMObject(SizeAdjustment.class, "Medium");
+		primaryContext.getReferenceContext().registerAbbreviation(pm, "M");
+		SizeAdjustment ss = secondaryContext.getReferenceContext().constructCDOMObject(SizeAdjustment.class, "Small");
+		secondaryContext.getReferenceContext().registerAbbreviation(ss, "S");
+		SizeAdjustment sm = secondaryContext.getReferenceContext().constructCDOMObject(SizeAdjustment.class, "Medium");
+		secondaryContext.getReferenceContext().registerAbbreviation(sm, "M");
 	}
 
 	@Override

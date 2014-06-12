@@ -33,14 +33,14 @@ public class AlignmentConverter
 		try
 		{
 			final int align = Integer.parseInt(desiredAlignIdentifier);
-			List<PCAlignment> alignments = Globals.getContext().ref
+			List<PCAlignment> alignments = Globals.getContext().getReferenceContext()
 					.getOrderSortedCDOMObjects(ALIGNMENT_CLASS);
 			desiredAlign = alignments.get(align);
 		}
 		catch (NumberFormatException e)
 		{
 			// If it isn't a number, we expect the exception
-			desiredAlign = Globals.getContext().ref.getAbbreviatedObject(
+			desiredAlign = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 					ALIGNMENT_CLASS, desiredAlignIdentifier);
 		}
 		if (desiredAlign == null)

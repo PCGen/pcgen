@@ -151,8 +151,8 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("MEDIUM"));
 		chainmail.setName("Chainmail");
-		Globals.getContext().ref.importObject(chainmail);
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		Globals.getContext().getReferenceContext().importObject(chainmail);
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("armortype");
 		prereq.setKey("LIST");
@@ -176,7 +176,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));
 		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("HEAVY"));
 		fullPlate.setName("Full Plate");
-		Globals.getContext().ref.importObject(fullPlate);
+		Globals.getContext().getReferenceContext().importObject(fullPlate);
 		
 		/*
 		 * TODO This doesn't make a lot of sense - false? Shouldn't this be true

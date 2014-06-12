@@ -78,7 +78,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			if (isnew)
 			{
 				context.addStatefulInformation(spell);
-				context.ref.importObject(spell);
+				context.getReferenceContext().importObject(spell);
 			}
 		}
 

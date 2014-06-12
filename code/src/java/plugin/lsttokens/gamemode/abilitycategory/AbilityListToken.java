@@ -68,7 +68,7 @@ public class AbilityListToken extends
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
-			ac.addAbilityKey(context.ref.getManufacturer(ABILITY_CLASS, ac)
+			ac.addAbilityKey(context.getReferenceContext().getManufacturer(ABILITY_CLASS, ac)
 					.getReference(st.nextToken()));
 		}
 		return ParseResult.SUCCESS;

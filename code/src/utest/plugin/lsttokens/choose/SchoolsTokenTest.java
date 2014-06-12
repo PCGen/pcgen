@@ -113,13 +113,13 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 		construct(primaryContext, "Abjuration");
 		construct(secondaryContext, "Abjuration");
 		Ability ss =
-				primaryContext.ref.constructCDOMObject(Ability.class,
+				primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 					"School Stuff");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ss);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ss);
 		ss =
-				secondaryContext.ref.constructCDOMObject(Ability.class,
+				secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 					"School Stuff");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ss);
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ss);
 		runRoundRobin("SCHOOLS|FEAT=School Stuff");
 	}
 
@@ -208,7 +208,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	@Override
 	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructNowIfNecessary(SpellSchool.class, one);
+		return loadContext.getReferenceContext().constructNowIfNecessary(SpellSchool.class, one);
 	}
 
 	@Override

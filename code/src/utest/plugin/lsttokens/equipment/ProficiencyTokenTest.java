@@ -518,9 +518,9 @@ public class ProficiencyTokenTest extends AbstractTokenTestCase<Equipment>
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(WeaponProf.class, one);
-		loadContext.ref.constructCDOMObject(ShieldProf.class, one);
-		loadContext.ref.constructCDOMObject(ArmorProf.class, one);
+		loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
+		loadContext.getReferenceContext().constructCDOMObject(ShieldProf.class, one);
+		loadContext.getReferenceContext().constructCDOMObject(ArmorProf.class, one);
 	}
 
 	private boolean isClearLegal()

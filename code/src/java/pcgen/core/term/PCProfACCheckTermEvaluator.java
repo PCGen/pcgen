@@ -50,7 +50,7 @@ public class PCProfACCheckTermEvaluator
 		}
 		else
 		{
-			final Equipment eq = Globals.getContext().ref
+			final Equipment eq = Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(Equipment.class, eqKey);
 
 			return (eq == null || pc.isProficientWith(eq)) ?

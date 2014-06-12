@@ -48,7 +48,7 @@ public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
 			String value)
 	{
 		// TODO Need to convert this to a reference??
-		WieldCategory wc = context.ref.silentlyGetConstructedCDOMObject(
+		WieldCategory wc = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, value);
 		if (wc == null)
 		{

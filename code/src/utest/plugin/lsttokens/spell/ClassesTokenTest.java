@@ -246,8 +246,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testInvalidInputNotClassCompound()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		assertTrue(parse("Wizard,Sorcerer=4"));
 		assertConstructionError();
@@ -264,8 +264,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		runRoundRobin("Wizard=4");
 	}
@@ -274,8 +274,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinPrereq() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		runRoundRobin("Wizard=4[PRERACE:1,Human]");
 	}
@@ -284,12 +284,12 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinComma() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
-		secondaryContext.ref
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class,
 				"Sorcerer");
 		runRoundRobin("Sorcerer,Wizard=4");
 	}
@@ -298,12 +298,12 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
-		secondaryContext.ref
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class,
 				"Sorcerer");
 		runRoundRobin("Wizard=3|Sorcerer=4");
 	}
@@ -312,15 +312,15 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinCommaPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Sorcerer");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Bard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Bard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(ClassSpellList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class,
 				"Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSpellList.class, "Bard");
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Bard");
 		runRoundRobin("Sorcerer,Wizard=3|Bard=4");
 	}
 
@@ -355,8 +355,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	@Test
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		runRoundRobin("ALL=3");
 	}
@@ -365,14 +365,14 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testInvalidRoundRobinMixedPrereqs()
 		throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Cleric");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Priest");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Cleric");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Priest");
+		secondaryContext.getReferenceContext()
 			.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		secondaryContext.getReferenceContext()
 			.constructCDOMObject(ClassSpellList.class, "Cleric");
-		secondaryContext.ref
+		secondaryContext.getReferenceContext()
 			.constructCDOMObject(ClassSpellList.class, "Priest");
 		assertFalse(parse("Sorcerer=5|Wizard=5|Cleric=4[PRESUBCLASS:1,Sarish]|Priest=4[PRESUBCLASS:1,Priest of Sarish]"));
 	}
@@ -380,8 +380,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	@Test
 	public void testReplacementInputs() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		String[] unparsed;
 		assertTrue(parse("Wizard=-1"));
@@ -417,8 +417,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
 	public void testClearPrereqInvalid() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
 	}

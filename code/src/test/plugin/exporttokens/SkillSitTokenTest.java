@@ -109,7 +109,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
-		context.ref.importObject(knowledge[0]);
+		context.getReferenceContext().importObject(knowledge[0]);
 		aBonus = Bonus.newBonus(context, "SITUATION|Tumble=On Hot Concrete|2");
 		if (aBonus != null)
 		{
@@ -127,7 +127,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		{
 			knowledge[1].addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(knowledge[1]);
+		context.getReferenceContext().importObject(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
@@ -137,7 +137,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		tumble.addToListFor(ListKey.SITUATION, "On Hot Concrete");
 		tumble.addToListFor(ListKey.SITUATION, "Down a Mountain");
 		tumble.put(ObjectKey.KEY_STAT, dex);
-		context.ref.importObject(tumble);
+		context.getReferenceContext().importObject(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
@@ -152,11 +152,11 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		{
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(balance);
+		context.getReferenceContext().importObject(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
-		context.ref.buildDerivedObjects();
-		context.ref.resolveReferences(null);
+		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 
 		character.calcActiveBonuses();
 	}

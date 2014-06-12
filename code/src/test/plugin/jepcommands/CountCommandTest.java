@@ -66,9 +66,9 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		AbilityCategory bardCategory = Globals.getContext().ref
+		AbilityCategory bardCategory = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
-		AbilityCategory clericalCategory = Globals.getContext().ref
+		AbilityCategory clericalCategory = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
 
         final Ability[] abArray = new Ability[14];
@@ -437,7 +437,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		AbilityCategory gCat = Globals.getContext().ref
+		AbilityCategory gCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
 
 		final Ability ab =
@@ -478,7 +478,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 
-		AbilityCategory gCat = Globals.getContext().ref
+		AbilityCategory gCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
 
 		final Ability ab =

@@ -59,10 +59,10 @@ public class ChangeProfIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Hammer=Martial");
 		commit(modCampaign, tc, "Hammer,Pipe=Martial");
@@ -73,10 +73,10 @@ public class ChangeProfIntegrationTest extends
 	public void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Hammer,TYPE.Heavy=Martial");
 		commit(modCampaign, tc, "Hammer=Martial|Pipe=Exotic");
@@ -87,10 +87,10 @@ public class ChangeProfIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "Hammer=Martial|Pipe=Exotic");
@@ -101,10 +101,10 @@ public class ChangeProfIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Hammer");
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Pipe");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Pipe");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Hammer=Martial|Pipe=Exotic");
 		emptyCommit(modCampaign, tc);

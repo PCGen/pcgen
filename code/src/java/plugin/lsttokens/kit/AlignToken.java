@@ -78,7 +78,7 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			PCAlignment ref = context.ref.getAbbreviatedObject(
+			PCAlignment ref = context.getReferenceContext().getAbbreviatedObject(
 						ALIGNMENT_CLASS, tokText);
 			if (ref == null)
 			{

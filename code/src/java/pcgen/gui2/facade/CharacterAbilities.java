@@ -678,7 +678,7 @@ public class CharacterAbilities
 
 		//TODO Why do we regrab the context-based Ability when an Ability was passed in?
 		Ability ability =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, theCategory, aKey);
 		if (ability != null
 			&& !ability.qualifies(theCharacter, ability)

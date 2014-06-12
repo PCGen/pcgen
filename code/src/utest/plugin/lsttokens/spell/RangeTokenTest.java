@@ -98,7 +98,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 
 	public void testGoodParentheses() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
 		assertTrue(parse("(first)"));
 		coll = primaryProf.getListFor(getListKey());
@@ -109,7 +109,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 
 	public void testBadParentheses() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		assertFalse("Missing end paren should have been flagged.",
 				parse("(first"));
 		assertFalse("Missing start paren should have been flagged.",

@@ -108,7 +108,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		// build a list of checkboxes from the current gameMode Rules
 		int gridNum = 1;
 		GameMode gameMode = SettingsHandler.getGame();
-		ruleCheckList = gameMode.getModeContext().ref
+		ruleCheckList = gameMode.getModeContext().getReferenceContext()
 				.getConstructedCDOMObjects(RuleCheck.class);
 
 		// initialize all the checkboxes
@@ -221,7 +221,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 			}
 
 			String aKey = hrRadio[i].getActionCommand();
-			RuleCheck aRule = gameMode.getModeContext().ref
+			RuleCheck aRule = gameMode.getModeContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
 
 			if (aRule == null)
@@ -327,7 +327,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 				boolean aBool = hrBoxes[i].isSelected();
 
 				// Save settings
-				if (gameMode.getModeContext().ref
+				if (gameMode.getModeContext().getReferenceContext()
 						.containsConstructedCDOMObject(RuleCheck.class, aKey))
 				{
 					SettingsHandler.setRuleCheck(aKey, aBool);
@@ -343,7 +343,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 				boolean aBool = hrRadio[i].isSelected();
 
 				// Save settings
-				if (gameMode.getModeContext().ref
+				if (gameMode.getModeContext().getReferenceContext()
 						.containsConstructedCDOMObject(RuleCheck.class, aKey))
 				{
 					SettingsHandler.setRuleCheck(aKey, aBool);

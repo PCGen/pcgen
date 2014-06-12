@@ -66,18 +66,18 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "English");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "English");
 		runRoundRobin("Fireball" + getJoinCharacter() + "English");
 	}
 

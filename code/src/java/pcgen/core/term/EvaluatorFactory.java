@@ -103,7 +103,7 @@ public class EvaluatorFactory {
 
 	private static TermEvaluatorBuilder makeStatBuilder()
 	{
-		Collection<PCStat> stats = Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class);
+		Collection<PCStat> stats = Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class);
 		List<String> s = new LinkedList<String>();
 		StringBuilder pSt = new StringBuilder(stats.size() * 4 + 6);
 

@@ -83,15 +83,15 @@ public class SpellKnownIntegrationTest extends
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Cleric");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Cleric");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Cleric");
-		primaryContext.ref.constructCDOMObject(Spell.class, "Bless");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Bless");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Bless");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Bless");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -103,8 +103,8 @@ public class SpellKnownIntegrationTest extends
 	@Test
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
@@ -116,12 +116,12 @@ public class SpellKnownIntegrationTest extends
 	@Test
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		primaryContext.ref.constructCDOMObject(ClassSpellList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSpellList.class, "Wizard");
 		verifyCleanStart();
 		TestContext tc = new TestContext();

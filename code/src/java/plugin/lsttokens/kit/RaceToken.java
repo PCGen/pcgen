@@ -72,7 +72,7 @@ public class RaceToken extends AbstractNonEmptyToken<KitRace> implements
 			return pr;
 		}
 		CDOMSingleRef<Race> ref =
-				context.ref.getCDOMReference(RACE_CLASS, value);
+				context.getReferenceContext().getCDOMReference(RACE_CLASS, value);
 		kitRace.setRace(ref);
 		return ParseResult.SUCCESS;
 	}

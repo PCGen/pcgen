@@ -150,14 +150,14 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 			//
 			// Must still be be a valid size
 			//
-			int maxIndex = Globals.getContext().ref
+			int maxIndex = Globals.getContext().getReferenceContext()
 					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;
 			iSize = Math.min(maxIndex, Math.max(0, iSize));
 		}
 
 		info.sizeInt = iSize;
 		SizeAdjustment oldSize = info.sizeAdj;
-		SizeAdjustment newSize = Globals.getContext().ref.getItemInOrder(
+		SizeAdjustment newSize = Globals.getContext().getReferenceContext().getItemInOrder(
 				SIZEADJUSTMENT_CLASS, sizeInt(id));
 		info.sizeAdj = newSize;
 		if (oldSize != newSize)

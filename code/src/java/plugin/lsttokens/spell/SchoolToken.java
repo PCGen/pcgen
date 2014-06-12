@@ -82,7 +82,7 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 			else
 			{
 				SpellSchool ss =
-						context.ref.constructNowIfNecessary(SpellSchool.class,
+						context.getReferenceContext().constructNowIfNecessary(SpellSchool.class,
 							tokString);
 				context.getObjectContext().addToList(spell,
 						ListKey.SPELL_SCHOOL, ss);

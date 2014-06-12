@@ -46,7 +46,7 @@ public class PCSkillTotalTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Skill aSkill = Globals.getContext().ref
+		Skill aSkill = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Skill.class, total);
 
 		Float totalRank = SkillRankControl.getTotalRank(pc, aSkill);

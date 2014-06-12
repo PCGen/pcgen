@@ -130,7 +130,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	public void testGetModifierExplanation()
 	{
 		bluff =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, "KEY_bluff");
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 10);

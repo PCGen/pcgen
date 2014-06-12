@@ -453,7 +453,7 @@ final class MainAbout extends JPanel
 		sponsorLabel.setBackground(panel.getBackground());
 		panel.add(sp, BorderLayout.CENTER);
 
-		Collection<Sponsor> sponsors = Globals.getGlobalContext().ref.getConstructedCDOMObjects(Sponsor.class);
+		Collection<Sponsor> sponsors = Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html><b>");
 		sb.append(LanguageBundle.getString("in_abt_ourSponsors")).append("</b><br>");

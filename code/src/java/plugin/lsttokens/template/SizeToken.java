@@ -45,7 +45,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		PCTemplate template, String value)
 	{
-		SizeAdjustment size = context.ref.getAbbreviatedObject(
+		SizeAdjustment size = context.getReferenceContext().getAbbreviatedObject(
 				SizeAdjustment.class, value);
 		Formula sizeFormula;
 		if (size == null)

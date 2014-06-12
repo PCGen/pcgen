@@ -43,7 +43,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.ref.importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 //				new RuntimeLoadContext(new RuntimeReferenceContext(),
 //					new ConsolidatedListCommitStrategy());
 	}

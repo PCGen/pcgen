@@ -122,7 +122,7 @@ public class VFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasNext())

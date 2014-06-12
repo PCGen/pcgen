@@ -194,7 +194,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		else
 		{
 			excludedObjects.add(pObj.getKeyName());
-			context.ref.forget(pObj);
+			context.getReferenceContext().forget(pObj);
 		}
 	}
 
@@ -237,7 +237,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 						 * forgetting something that is local to the context
 						 * (was never "added" to the 5.x system)
 						 */
-						context.ref.forget(pObj);
+						context.getReferenceContext().forget(pObj);
 					}
 				}
 				else
@@ -515,7 +515,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 */
 	protected void performForget(LoadContext context, T objToForget)
 	{
-		context.ref.forget(objToForget);
+		context.getReferenceContext().forget(objToForget);
 	}
 
 	/**
@@ -569,7 +569,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			return null;
 		}
 
-		T obj = context.ref.performCopy(object, copyName);
+		T obj = context.getReferenceContext().performCopy(object, copyName);
 		if (obj == null)
 		{
 			setChanged();
@@ -602,7 +602,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 
 		// get the actual object to modify
-		T object = context.ref.performMod(getObjectKeyed(context, key));
+		T object = context.getReferenceContext().performMod(getObjectKeyed(context, key));
 		
 		if (object == null)
 		{

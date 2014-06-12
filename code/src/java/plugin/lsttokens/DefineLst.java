@@ -70,7 +70,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 								+ "Must be of Format: varName|varFormula or "
 								+ "LOCK.<stat>|value or UNLOCK.<stat>", context);
 			}
-			PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value
+			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value
 					.substring(7));
 			context.obj.addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
 			Logging.deprecationPrint("DEFINE:UNLOCK. has been deprecated, "
@@ -103,7 +103,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			if (value.startsWith("LOCK."))
 			{
-				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS,
+				PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS,
 						firstItem.substring(5));
 				if (f.isStatic() && f.resolveStatic().equals(10))
 				{

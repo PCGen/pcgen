@@ -97,7 +97,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 				+ Constants.COLON+subToken+"| must be followed by a stat.", context);
 		}
 		String statKey = sep.next();
-		PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, statKey);
+		PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, statKey);
 		if (stat == null)
 		{
 			return new ParseResult.Fail(getTokenName() + Constants.COLON + value

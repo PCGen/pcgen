@@ -84,13 +84,13 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		{
 			String classKey = bTok.nextToken();
 			PCClass pcClass =
-					context.ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS,
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS,
 						classKey);
 
 			if (pcClass != null)
 			{
 				CDOMSingleRef<PCClass> pcc =
-						context.ref.getCDOMReference(
+						context.getReferenceContext().getCDOMReference(
 							PCCLASS_CLASS, classKey);
 				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc,
 					lvl);

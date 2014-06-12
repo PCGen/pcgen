@@ -114,12 +114,12 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		
 		final WeaponProf wp = new WeaponProf();
 		wp.setName("Rapier");
-		Globals.getContext().ref.importObject(wp);
+		Globals.getContext().getReferenceContext().importObject(wp);
 
 		final Equipment e = new Equipment();
 		e.setName("Rapier");
 		TestHelper.addType(e, "Weapon.Melee.Martial.Finesseable.Standard.Piercing.Sword");
-		Globals.getContext().ref.importObject(e);
+		Globals.getContext().getReferenceContext().importObject(e);
 
 		final Ability focusFeat = new Ability();
 		focusFeat.setName("Weapon Focus");
@@ -191,7 +191,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		spellFocus.setName("Spell Focus");
 		spellFocus.setCDOMCategory(AbilityCategory.FEAT);
 		Globals.getContext().unconditionallyProcess(spellFocus, "CHOOSE", "SCHOOLS|ALL");
-		Globals.getContext().ref.constructCDOMObject(SpellSchool.class, "Conjuration");
+		Globals.getContext().getReferenceContext().constructCDOMObject(SpellSchool.class, "Conjuration");
 		Globals.getContext().unconditionallyProcess(spellFocus, "MULT", "YES");
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, spellFocus, "Conjuration");
 
@@ -213,10 +213,10 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	public void test966023c() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Conjuration");
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Evocation");
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Illusion");
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Necromany");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Conjuration");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Evocation");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Illusion");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Necromany");
 		final PlayerCharacter character = getCharacter();
 		final Ability spellFocus = new Ability();
 
@@ -255,10 +255,10 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	public void testExclusion() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Conjuration");
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Evocation");
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Illusion");
-		context.ref.constructNowIfNecessary(SpellSchool.class, "Necromany");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Conjuration");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Evocation");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Illusion");
+		context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Necromany");
 		final PlayerCharacter character = getCharacter();
 		final Ability spellFocus = new Ability();
 
@@ -337,7 +337,7 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		skillFocusKnow.put(StringKey.KEY_NAME, "Skill Focus");
 		Globals.getContext().unconditionallyProcess(skillFocusKnow, "CHOOSE", "SKILL|ALL");
 		Globals.getContext().unconditionallyProcess(skillFocusKnow, "MULT", "YES");
-		Globals.getContext().ref.constructCDOMObject(Skill.class, "Knowledge (Arcana)");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Skill.class, "Knowledge (Arcana)");
 
 		final PlayerCharacter character = getCharacter();
 
@@ -367,8 +367,8 @@ public class PreFeatTest extends AbstractCharacterTestCase
 		spellFocus.put(StringKey.KEY_NAME, "Spell Focus");
 		spellFocus.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		Globals.getContext().unconditionallyProcess(spellFocus, "CHOOSE", "SCHOOLS|ALL");
-		Globals.getContext().ref.constructNowIfNecessary(SpellSchool.class, "Enchantment");
-		Globals.getContext().ref.constructNowIfNecessary(SpellSchool.class, "Evocation");
+		Globals.getContext().getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Enchantment");
+		Globals.getContext().getReferenceContext().constructNowIfNecessary(SpellSchool.class, "Evocation");
 
 		final PlayerCharacter character = getCharacter();
 

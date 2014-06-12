@@ -40,7 +40,7 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 	public ParseResult parseToken(LoadContext context, AbilityCategory ac,
 			String value)
 	{
-		CDOMSingleRef<AbilityCategory> cat = context.ref.getCDOMReference(
+		CDOMSingleRef<AbilityCategory> cat = context.getReferenceContext().getCDOMReference(
 				AbilityCategory.class, value);
 		ac.setAbilityCategory(cat);
 		return ParseResult.SUCCESS;

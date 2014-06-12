@@ -51,12 +51,12 @@ public class AlignTokenTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCAlignment lg = primaryContext.ref.constructCDOMObject(
+		PCAlignment lg = primaryContext.getReferenceContext().constructCDOMObject(
 				PCAlignment.class, "Lawful Good");
-		primaryContext.ref.registerAbbreviation(lg, "LG");
-		PCAlignment slg = secondaryContext.ref.constructCDOMObject(
+		primaryContext.getReferenceContext().registerAbbreviation(lg, "LG");
+		PCAlignment slg = secondaryContext.getReferenceContext().constructCDOMObject(
 				PCAlignment.class, "Lawful Good");
-		secondaryContext.ref.registerAbbreviation(slg, "LG");
+		secondaryContext.getReferenceContext().registerAbbreviation(slg, "LG");
 		TokenRegistration.register(ALIGN_TOKEN);
 	}
 

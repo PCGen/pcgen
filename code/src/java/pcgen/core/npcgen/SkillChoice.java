@@ -60,13 +60,13 @@ public class SkillChoice
 		if ( theKey.startsWith("TYPE") ) //$NON-NLS-1$
 		{
 			final List<Skill> subSkills = Globals.getPObjectsOfType(Globals
-					.getContext().ref.getConstructedCDOMObjects(Skill.class),
+					.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class),
 					theKey.substring(5));
 			theSkillList.addAll(subSkills);
 		}
 		else
 		{
-			theSkillList.add(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, theKey));
+			theSkillList.add(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, theKey));
 		}
 	}
 	
@@ -102,7 +102,7 @@ public class SkillChoice
 		{
 			return false;
 		}
-		final Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, aKey);
+		final Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, aKey);
 		if ( skill == null )
 		{
 			return false;

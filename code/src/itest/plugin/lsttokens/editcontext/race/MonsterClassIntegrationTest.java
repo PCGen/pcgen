@@ -58,10 +58,10 @@ public class MonsterClassIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Wizard:4");
 		commit(modCampaign, tc, "Sorcerer:3");
@@ -72,8 +72,8 @@ public class MonsterClassIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "Sorcerer:3");
@@ -84,8 +84,8 @@ public class MonsterClassIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Sorcerer");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Sorcerer:2");
 		emptyCommit(modCampaign, tc);

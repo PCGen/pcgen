@@ -171,7 +171,7 @@ public class SkillToken extends Token
 		catch (NumberFormatException exc)
 		{
 			//Allowing SKILL.Spot.<subtoken>
-			skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, details.getSkillId());
 		}
 		return skill;

@@ -64,25 +64,25 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Fireball");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext()
 				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		runRoundRobin("CATEGORY=FEAT|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Fireball");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		ab = secondaryContext.ref
+		ab = secondaryContext.getReferenceContext()
 				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
@@ -90,16 +90,16 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Fireball");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext()
 				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "English");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "English");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 

@@ -79,7 +79,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			if (isnew)
 			{
 				context.addStatefulInformation(anAbility);
-				context.ref.importObject(anAbility);
+				context.getReferenceContext().importObject(anAbility);
 			}
 		}
 
@@ -122,14 +122,14 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		}
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(
 				abilityCatName);
-		return context.ref.silentlyGetConstructedCDOMObject(Ability.class, ac,
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class, ac,
 				abilityKey);
 	}
 
 	@Override
 	protected Ability getMatchingObject(LoadContext context, CDOMObject key)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(Ability.class,
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
 				((Ability) key).getCDOMCategory(), key.getKeyName());
 	}
 

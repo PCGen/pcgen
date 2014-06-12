@@ -111,7 +111,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	@Override
 	protected void loadTypeProf(String... types)
 	{
-		CDOMGroupRef<Equipment> ref = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<Equipment> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Equipment.class, types);
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
 				new QualifiedObject<CDOMReference<Equipment>>(ref));

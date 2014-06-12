@@ -44,7 +44,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 
 	protected TC construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructNowIfNecessary(getTargetClass(), one);
+		return loadContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), one);
 	}
 
 	public abstract boolean isClearLegal();

@@ -402,7 +402,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 
 	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		return loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 
 	public abstract boolean isClearLegal();

@@ -52,8 +52,8 @@ public class DomainListTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(DOMAINLIST_TOKEN);
-		primaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
-		secondaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
+		primaryContext.getReferenceContext().constructNowIfNecessary(Spell.class, "Placeholder");
+		secondaryContext.getReferenceContext().constructNowIfNecessary(Spell.class, "Placeholder");
 	}
 
 	@Override

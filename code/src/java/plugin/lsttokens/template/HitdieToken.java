@@ -84,7 +84,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 					{
 						return pr;
 					}
-					owner = context.ref.getCDOMTypeReference(PCCLASS_CLASS,
+					owner = context.getReferenceContext().getCDOMTypeReference(PCCLASS_CLASS,
 							substring.split("\\."));
 				}
 				else if (lockPre.startsWith(Constants.LST_CLASS_EQUAL))
@@ -95,7 +95,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 						return new ParseResult.Fail("Cannot have Empty Class Limitation in "
 										+ getTokenName() + ": " + value, context);
 					}
-					owner = context.ref.getCDOMReference(PCCLASS_CLASS,
+					owner = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS,
 							substring);
 				}
 				else

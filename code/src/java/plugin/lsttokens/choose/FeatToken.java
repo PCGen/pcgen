@@ -222,7 +222,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	public ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return parseTokenWithSeparator(context, context.ref.getManufacturer(
+		return parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT), obj, value);
 	}
 
@@ -245,7 +245,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public Ability decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				Ability.class, AbilityCategory.FEAT, s);
 	}
 

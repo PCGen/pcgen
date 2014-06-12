@@ -107,11 +107,11 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 				if (Constants.LST_ALL.equals(clearText)
 						|| Constants.LST_ANY.equals(clearText))
 				{
-					ref = context.ref.getCDOMAllReference(DOMAIN_CLASS);
+					ref = context.getReferenceContext().getCDOMAllReference(DOMAIN_CLASS);
 				}
 				else
 				{
-					ref = context.ref.getCDOMReference(DOMAIN_CLASS, clearText);
+					ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, clearText);
 				}
 				context.getListContext().removeFromList(getTokenName(), deity,
 						dl, ref);
@@ -120,7 +120,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 			else if (Constants.LST_ALL.equals(tokString)
 					|| Constants.LST_ANY.equals(tokString))
 			{
-				CDOMGroupRef<Domain> ref = context.ref
+				CDOMGroupRef<Domain> ref = context.getReferenceContext()
 						.getCDOMAllReference(DOMAIN_CLASS);
 				proList.add(context.getListContext().addToList(getTokenName(),
 						deity, dl, ref));
@@ -128,7 +128,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 			}
 			else
 			{
-				CDOMSingleRef<Domain> ref = context.ref.getCDOMReference(
+				CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(
 						DOMAIN_CLASS, tokString);
 				proList.add(context.getListContext().addToList(getTokenName(),
 						deity, dl, ref));

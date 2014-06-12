@@ -114,14 +114,14 @@ public class WeaponhToken extends WeaponToken
 	{
 		// Creating a fake Unarmed Strike equipment so we
 		// don't need it in the .lst files anymore
-		WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(WeaponProf.class, "Unarmed Strike");
+		WeaponProf wp = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(WeaponProf.class, "Unarmed Strike");
 		if (wp == null)
 		{
 			wp = new WeaponProf();
 			wp.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
 			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
-			Globals.getContext().ref.importObject(wp);
+			Globals.getContext().getReferenceContext().importObject(wp);
 		}
 		Equipment eq = new Equipment();
 		eq.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
@@ -136,7 +136,7 @@ public class WeaponhToken extends WeaponToken
 		eq.addType(Type.STANDARD);
 		eq.addType(Type.MONK);
 		eq.addType(Type.BLUDGEONING);
-		WieldCategory lightWC = Globals.getContext().ref
+		WieldCategory lightWC = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WieldCategory.class, "Light");
 		if (lightWC == null)
 		{

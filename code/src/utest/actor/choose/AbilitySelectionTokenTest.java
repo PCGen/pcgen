@@ -63,7 +63,7 @@ public class AbilitySelectionTokenTest extends TestCase
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
 		
-		context.ref.importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 	}
 
 	@Test
@@ -115,8 +115,8 @@ public class AbilitySelectionTokenTest extends TestCase
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.ref.constructCDOMObject(Ability.class, one);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 }

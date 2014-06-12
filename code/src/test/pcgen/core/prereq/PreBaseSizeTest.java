@@ -224,7 +224,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 
 		race.setName("Human");
 		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		
 		template.put(FormulaKey.SIZE, new FixedSizeFormula(large));
 	}

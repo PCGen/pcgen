@@ -194,7 +194,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 
 	@Override
@@ -220,7 +220,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		CDOMSingleRef<TC> o = primaryContext.ref.getCDOMReference(getTargetClass(), getLegalValue());
+		CDOMSingleRef<TC> o = primaryContext.getReferenceContext().getCDOMReference(getTargetClass(), getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), o.getLSTformat(false));
 	}

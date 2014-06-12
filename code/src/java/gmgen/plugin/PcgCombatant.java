@@ -81,7 +81,7 @@ public class PcgCombatant extends Combatant
 		display = pc.getDisplay();
 		this.init = new PcgSystemInitiative(pc);
 
-		PCStat stat = Globals.getContext().ref
+		PCStat stat = Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(PCStat.class, "CON");
 		this.hitPoints = new SystemHP(new SystemAttribute("Constitution",
 				pc.getTotalStatFor(stat)), pc.hitPoints(), pc
@@ -114,7 +114,7 @@ public class PcgCombatant extends Combatant
 			this.pc = msg.getPlayerCharacter();
 			this.init = new PcgSystemInitiative(pc);
 
-			PCStat stat = Globals.getContext().ref
+			PCStat stat = Globals.getContext().getReferenceContext()
 					.getAbbreviatedObject(PCStat.class, "CON");
 			this.hitPoints =
 					new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(), pc
@@ -681,7 +681,7 @@ public class PcgCombatant extends Combatant
 			statBuf
 				.append("<font class='type'>Sv:</font> ");
 			boolean firstChk = true;
-			for (PCCheck chk : Globals.getContext().ref
+			for (PCCheck chk : Globals.getContext().getReferenceContext()
 					.getOrderSortedCDOMObjects(PCCheck.class))
 			{
 				if (!firstChk)

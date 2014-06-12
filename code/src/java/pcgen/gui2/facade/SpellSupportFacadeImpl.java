@@ -540,7 +540,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 		
 		// Prevent spellbooks being given the same name as a class
-		for (PCClass current : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class))
+		for (PCClass current : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class))
 		{
 			if ((spellList.equals(current.getKeyName())))
 			{

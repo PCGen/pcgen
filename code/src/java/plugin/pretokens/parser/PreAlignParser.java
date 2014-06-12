@@ -82,7 +82,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 			return prereq;
 		}
 
-		if (Globals.getContext().ref.getConstructedObjectCount(PCAlignment.class) == 0)
+		if (Globals.getContext().getReferenceContext().getConstructedObjectCount(PCAlignment.class) == 0)
 		{
 			// There are no alignments for this game mode, so we
 			// do not do prereqs.

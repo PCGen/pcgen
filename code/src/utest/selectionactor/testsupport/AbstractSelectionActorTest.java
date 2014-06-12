@@ -138,7 +138,7 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 
 	protected T construct(String name)
 	{
-		return Globals.getContext().ref.constructCDOMObject(getCDOMClass(), name);
+		return Globals.getContext().getReferenceContext().constructCDOMObject(getCDOMClass(), name);
 	}
 
 }

@@ -46,20 +46,20 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ps = primaryContext.ref.constructCDOMObject(PCStat.class, "Strength");
-		primaryContext.ref.registerAbbreviation(ps, "STR");
+		ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
+		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
 		ps.put(StringKey.ABB, "STR");
-		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class,
+		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Strength");
-		secondaryContext.ref.registerAbbreviation(ss, "STR");
+		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
 		ss.put(StringKey.ABB, "STR");
-		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class,
+		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Intelligence");
-		primaryContext.ref.registerAbbreviation(pi, "INT");
+		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
 		pi.put(StringKey.ABB, "INT");
-		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class,
+		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Intelligence");
-		secondaryContext.ref.registerAbbreviation(si, "INT");
+		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
 		si.put(StringKey.ABB, "INT");
 	}
 

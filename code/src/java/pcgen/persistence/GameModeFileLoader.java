@@ -222,7 +222,7 @@ public class GameModeFileLoader extends PCGenTask
 				
 				// Load pointbuymethods.lst
 				loadPointBuyFile(context, gameFile, gmName);
-				for (PointBuyCost pbc : context.ref.getConstructedCDOMObjects(PointBuyCost.class))
+				for (PointBuyCost pbc : context.getReferenceContext().getConstructedCDOMObjects(PointBuyCost.class))
 				{
 					gm.addPointBuyStatCost(pbc);
 				}
@@ -402,7 +402,7 @@ public class GameModeFileLoader extends PCGenTask
 			{
 				gameMode = new GameMode(aName);
 				SystemCollections.addToGameModeList(gameMode);
-				gameMode.getModeContext().ref.importObject(AbilityCategory.FEAT);
+				gameMode.getModeContext().getReferenceContext().importObject(AbilityCategory.FEAT);
 			}
 
 			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
@@ -472,11 +472,11 @@ public class GameModeFileLoader extends PCGenTask
 	public static void addDefaultUnitSet(GameMode gameMode)
 	{
 		LoadContext context = gameMode.getModeContext();
-		UnitSet us = context.ref.silentlyGetConstructedCDOMObject(
+		UnitSet us = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				UnitSet.class, Constants.STANDARD_UNITSET_NAME);
 		if (us == null)
 		{
-			gameMode.getModeContext().ref.importObject(getDefaultUnitSet());
+			gameMode.getModeContext().getReferenceContext().importObject(getDefaultUnitSet());
 		}
 	}
 
@@ -506,11 +506,11 @@ public class GameModeFileLoader extends PCGenTask
 		LoadContext context = gameMode.getModeContext();
 		for (Tab aTab : Tab.values())
 		{
-			TabInfo ti = context.ref.silentlyGetConstructedCDOMObject(
+			TabInfo ti = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					TabInfo.class, aTab.toString());
 			if (ti == null)
 			{
-				ti = context.ref.constructCDOMObject(TabInfo.class, aTab.toString());
+				ti = context.getReferenceContext().constructCDOMObject(TabInfo.class, aTab.toString());
 				ti.setTabName(aTab.label());
 			}
 		}
@@ -532,7 +532,7 @@ public class GameModeFileLoader extends PCGenTask
 			throw new UnreachableError();
 		}
 
-		ReferenceContext refContext = context.ref;
+		ReferenceContext refContext = context.getReferenceContext();
 		Collection<WieldCategory> categories = refContext.getConstructedCDOMObjects(WieldCategory.class);
 
 		WieldCategory light = null;

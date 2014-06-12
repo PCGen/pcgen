@@ -89,7 +89,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 					+ " requires at format: Class|LevelCount");
 			return cpr;
 		}
-		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(
 				PCClass.class, classString);
 		Formula f;
 		try

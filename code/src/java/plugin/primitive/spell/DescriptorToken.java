@@ -44,7 +44,7 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 			return false;
 		}
 		school = value;
-		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
+		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 

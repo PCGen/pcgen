@@ -80,7 +80,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 			levelString = persistentFormat.substring(loc + 7);
 		}
 		PCClass pcc =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					PCClass.class, classString);
 		try
 		{

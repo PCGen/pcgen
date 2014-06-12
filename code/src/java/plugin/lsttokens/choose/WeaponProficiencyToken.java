@@ -48,7 +48,7 @@ public class WeaponProficiencyToken extends
 	@Override
 	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return context.ref
+		return context.getReferenceContext()
 			.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, s);
 	}
 
@@ -68,7 +68,7 @@ public class WeaponProficiencyToken extends
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(WEAPONPROF_CLASS), obj, value);
 	}
 

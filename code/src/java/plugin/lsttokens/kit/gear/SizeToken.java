@@ -65,7 +65,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 		}
 		else
 		{
-			SizeAdjustment size = context.ref.getAbbreviatedObject(
+			SizeAdjustment size = context.getReferenceContext().getAbbreviatedObject(
 					SizeAdjustment.class, value);
 			if (size == null)
 			{

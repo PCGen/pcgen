@@ -57,7 +57,7 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		context.getObjectContext().put(pcc,
 				ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.FALSE);
-		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
+		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()

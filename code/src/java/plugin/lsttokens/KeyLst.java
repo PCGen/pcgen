@@ -42,7 +42,7 @@ public class KeyLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		context.ref.reassociateKey(value, obj);
+		context.getReferenceContext().reassociateKey(value, obj);
 		context.obj.put(obj, StringKey.KEY_NAME, value);
 		return ParseResult.SUCCESS;
 	}

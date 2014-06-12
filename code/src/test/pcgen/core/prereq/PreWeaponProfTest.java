@@ -82,7 +82,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -119,7 +119,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -158,7 +158,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
 		context.unconditionallyProcess(pctlb, "AUTO", "WEAPONPROF|Longbow");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -195,7 +195,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
@@ -244,7 +244,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Weapon Proficiency (Martial)", AbilityCategory.FEAT, "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO",
 				"WEAPONPROF|TYPE.Martial");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -276,7 +276,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pctls = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		
 		final FeatLoader featLoader = new FeatLoader();
 		
@@ -330,17 +330,17 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		WeaponProf Longsword = new WeaponProf();
 		Longsword.setName("Longsword");
 		Longsword.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
-		Globals.getContext().ref.importObject(Longsword);
+		Globals.getContext().getReferenceContext().importObject(Longsword);
 
 		WeaponProf Longbow = new WeaponProf();
 		Longbow.setName("Longbow");
 		Longbow.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
-		Globals.getContext().ref.importObject(Longbow);
+		Globals.getContext().getReferenceContext().importObject(Longbow);
 
 		WeaponProf Dagger = new WeaponProf();
 		Dagger.setName("Dagger");
 		Dagger.addToListFor(ListKey.TYPE, Type.SIMPLE);
-		Globals.getContext().ref.importObject(Dagger);
+		Globals.getContext().getReferenceContext().importObject(Dagger);
 
 	}
 }

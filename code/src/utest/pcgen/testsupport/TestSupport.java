@@ -83,7 +83,7 @@ public class TestSupport
 
 	public static void createAllAlignments()
 	{
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		ref.importObject(createAlignment("Lawful Good", "LG"));
 		ref.importObject(createAlignment("Lawful Neutral", "LN"));
 		ref.importObject(createAlignment("Lawful Evil", "LE"));

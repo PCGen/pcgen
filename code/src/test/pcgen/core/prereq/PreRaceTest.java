@@ -79,7 +79,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 
 		character.setRace(race);
 
@@ -103,7 +103,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 
 		character.setRace(race);
 
@@ -127,7 +127,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 
 		character.setRace(race);
 
@@ -151,7 +151,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 
 		character.setRace(race);
 
@@ -174,11 +174,11 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
-		Globals.getContext().ref.importObject(fake);
+		Globals.getContext().getReferenceContext().importObject(fake);
 
 		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		character.setRace(fake);
@@ -201,7 +201,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 		race.setName("Human");
 		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		character.setRace(race);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -220,7 +220,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 		race.setName("Human");
 		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		character.setRace(race);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -250,25 +250,25 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		race.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("aquatic"));
 		race.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("foo"));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
 		fake.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("desert"));
 		fake.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("none"));
-		Globals.getContext().ref.importObject(fake);
+		Globals.getContext().getReferenceContext().importObject(fake);
 		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		
 		final Race gnome = new Race();
 		gnome.setName("Gnome");
 		gnome.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("SpikyHair"));
-		Globals.getContext().ref.importObject(gnome);
+		Globals.getContext().getReferenceContext().importObject(gnome);
 		
 		final Race bugbear = new Race();
 		bugbear.setName("Bugbear");
 		bugbear.addToListFor(ListKey.RACESUBTYPE, RaceSubType.getConstant("SpikyClub"));
-		Globals.getContext().ref.importObject(bugbear);
+		Globals.getContext().getReferenceContext().importObject(bugbear);
 		bugbear.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(gnome));
 
 		character.setRace(fake);
@@ -310,19 +310,19 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		race.setName("Human");
 		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Outsider"));
 		race.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
-		Globals.getContext().ref.importObject(fake);
+		Globals.getContext().getReferenceContext().importObject(fake);
 		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		
 		final Race gnome = new Race();
 		gnome.setName("Gnome");
 		gnome.put(ObjectKey.RACETYPE, RaceType.getConstant("Smaller"));
-		Globals.getContext().ref.importObject(gnome);
+		Globals.getContext().getReferenceContext().importObject(gnome);
 		
 		character.setRace(fake);
 
@@ -354,18 +354,18 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final Race race = new Race();
 		race.setName("Human");
 		race.addToListFor(ListKey.TYPE, Type.getConstant("Outsider"));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 		
 		final Race fake = new Race();
 		fake.setName("NotHuman");
 		fake.addToListFor(ListKey.TYPE, Type.getConstant("Humanoid"));
-		Globals.getContext().ref.importObject(fake);
+		Globals.getContext().getReferenceContext().importObject(fake);
 		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef.getRef(race));
 		
 		final Race gnome = new Race();
 		gnome.setName("Gnome");
 		gnome.addToListFor(ListKey.TYPE, Type.getConstant("Smaller"));
-		Globals.getContext().ref.importObject(gnome);
+		Globals.getContext().getReferenceContext().importObject(gnome);
 
 		character.setRace(fake);
 
@@ -395,17 +395,17 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Human");
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 
 		final Race fake = new Race();
 		fake.setName("NotHuman");
-		Globals.getContext().ref.importObject(fake);
+		Globals.getContext().getReferenceContext().importObject(fake);
 		fake.addToListFor(ListKey.SERVES_AS_RACE, CDOMDirectSingleRef
 			.getRef(race));
 		
 		final Race gnome = new Race();
 		gnome.setName("Gnome");
-		Globals.getContext().ref.importObject(gnome);
+		Globals.getContext().getReferenceContext().importObject(gnome);
 		
 		character.setRace(fake);
 

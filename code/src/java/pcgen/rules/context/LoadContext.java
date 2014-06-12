@@ -79,7 +79,7 @@ public abstract class LoadContext
 
 	public final AbstractObjectContext obj;
 
-	public final ReferenceContext ref;
+	private final ReferenceContext ref;
 	
 	private final List<Campaign> campaignList = new ArrayList<Campaign>();
 
@@ -127,7 +127,7 @@ public abstract class LoadContext
 	public void setExtractURI(URI extractURI)
 	{
 		getObjectContext().setExtractURI(extractURI);
-		ref.setExtractURI(extractURI);
+		getReferenceContext().setExtractURI(extractURI);
 		getListContext().setExtractURI(extractURI);
 	}
 
@@ -141,7 +141,7 @@ public abstract class LoadContext
 	{
 		this.sourceURI = sourceURI;
 		getObjectContext().setSourceURI(sourceURI);
-		ref.setSourceURI(sourceURI);
+		getReferenceContext().setSourceURI(sourceURI);
 		getListContext().setSourceURI(sourceURI);
 		clearStatefulInformation();
 		Logging.debugPrint("Starting Load of " + sourceURI);
@@ -176,7 +176,7 @@ public abstract class LoadContext
 
 	public void resolveReferences(UnconstructedValidator validator)
 	{
-		ref.resolveReferences(validator);
+		getReferenceContext().resolveReferences(validator);
 	}
 
 	public void resolveDeferredTokens()
@@ -192,7 +192,7 @@ public abstract class LoadContext
 	private <T extends Loadable> void processRes(DeferredToken<T> token)
 	{
 		Class<T> cl = token.getDeferredTokenClass();
-		Collection<? extends ReferenceManufacturer> mfgs = ref
+		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
 				.getAllManufacturers();
 		for (ReferenceManufacturer<? extends T> rm : mfgs)
 		{
@@ -212,7 +212,7 @@ public abstract class LoadContext
 
 	public void resolvePostDeferredTokens()
 	{
-		Collection<? extends ReferenceManufacturer> mfgs = ref
+		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
 				.getAllManufacturers();
 		for (PostDeferredToken<? extends Loadable> token : TokenLibrary
 				.getPostDeferredTokens())
@@ -339,7 +339,7 @@ public abstract class LoadContext
 	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName)
 	{
 		T newObj = obj.cloneConstructedCDOMObject(cdo, newName);
-		ref.importObject(newObj);
+		getReferenceContext().importObject(newObj);
 		return newObj;
 	}
 
@@ -392,7 +392,7 @@ public abstract class LoadContext
 	{
 		Set<String> typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 		typeMap.put(WeaponProf.class, typeSet);
-		for (WeaponProf wp : ref.getConstructedCDOMObjects(WeaponProf.class))
+		for (WeaponProf wp : getReferenceContext().getConstructedCDOMObjects(WeaponProf.class))
 		{
 			for (Type t : wp.getTrueTypeList(false))
 			{
@@ -401,7 +401,7 @@ public abstract class LoadContext
 		}
 		typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 		typeMap.put(Equipment.class, typeSet);
-		for (Equipment e : ref.getConstructedCDOMObjects(Equipment.class))
+		for (Equipment e : getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			for (Type t : e.getTrueTypeList(false))
 			{
@@ -559,7 +559,7 @@ public abstract class LoadContext
 				return null;
 			}
 			
-			rm = ref.getManufacturer(((Class) c), catClass, categoryName);
+			rm = getReferenceContext().getManufacturer(((Class) c), catClass, categoryName);
 			if (rm == null)
 			{
 				Logging.log(Logging.LST_ERROR, "  Error encountered: "
@@ -582,7 +582,7 @@ public abstract class LoadContext
 						+ StringPClassUtil.getValidStrings());
 				return null;
 			}
-			rm = ref.getManufacturer(c);
+			rm = getReferenceContext().getManufacturer(c);
 		}
 		return rm;
 	}
@@ -620,7 +620,7 @@ public abstract class LoadContext
 	 */
 	public void validateAssociations(LoadValidator validator)
 	{
-		for (ReferenceManufacturer<?> rm : ref.getAllManufacturers())
+		for (ReferenceManufacturer<?> rm : getReferenceContext().getAllManufacturers())
 		{
 			for (CDOMSingleRef<?> singleRef : rm.getReferenced())
 			{
@@ -649,9 +649,9 @@ public abstract class LoadContext
 					if (Loadable.class.isAssignableFrom(cl))
 					{
 						ReferenceManufacturer<? extends Loadable> mfg =
-								ref.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
+								getReferenceContext().getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
 						if (!mfg.containsObject(choice)
-							&& (ref.getAbbreviatedObject(
+							&& (getReferenceContext().getAbbreviatedObject(
 								clIdentity.getChoiceClass(), choice) == null)
 							&& (TokenLibrary.getPrimitive(cl, choice) == null)
 							&& !report(validator, clIdentity.getChoiceClass(), choice))
@@ -693,6 +693,11 @@ public abstract class LoadContext
 	public void forgetMeNot(CDOMReference<?> cdr)
 	{
 		dontForget.add(cdr);
+	}
+
+	public ReferenceContext getReferenceContext()
+	{
+		return ref;
 	}
 	
 }

@@ -149,7 +149,7 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			final String methodName = npmd.getEnteredName();
 
-			if (SettingsHandler.getGame().getModeContext().ref.silentlyGetConstructedCDOMObject(
+			if (SettingsHandler.getGame().getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					PointBuyMethod.class, methodName) == null)
 			{
 				PointBuyMethod pbm = new PointBuyMethod();
@@ -565,7 +565,7 @@ public final class PurchaseModeFrame extends JDialog
 		// Set up the current methods combo's contents
 		//
 		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
-				.getModeContext().ref
+				.getModeContext().getReferenceContext()
 				.getConstructedCDOMObjects(PointBuyMethod.class);
 		if (methods.size() > 0)
 		{
@@ -1161,7 +1161,7 @@ public final class PurchaseModeFrame extends JDialog
 				SettingsHandler.getGame().addPointBuyStatCost(pbc);
 			}
 
-			ReferenceContext ref = SettingsHandler.getGame().getModeContext().ref;
+			ReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
 			List<PointBuyMethod> methods = new ArrayList<PointBuyMethod>(ref
 					.getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)

@@ -133,7 +133,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		Category<Ability> category = context.ref
+		Category<Ability> category = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
@@ -189,7 +189,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		boolean first = true;
 		boolean removed = false;
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, category);
 
 		while (true)

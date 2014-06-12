@@ -87,7 +87,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 				{
 					context.getObjectContext().removeFromList(obj,
 							ListKey.LOCALCSKILL,
-							context.ref.getCDOMAllReference(SKILL_CLASS));
+							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
@@ -116,7 +116,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 					foundAny = true;
 					context.getObjectContext().addToList(obj,
 							ListKey.LOCALCSKILL,
-							context.ref.getCDOMAllReference(SKILL_CLASS));
+							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
@@ -148,7 +148,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel>
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<Skill>(Skill.class, context.ref
+			return new PatternMatchingReference<Skill>(Skill.class, context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else

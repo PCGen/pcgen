@@ -75,7 +75,7 @@ public class BonusWithPreApplyTest extends EnUsLocaleDependentTestCase
 		setUp();
 		TokenRegistration.register(Weapon.class);
 		Spell spell =
-				Globals.getContext().ref.constructNowIfNecessary(Spell.class,
+				Globals.getContext().getReferenceContext().constructNowIfNecessary(Spell.class,
 					"MySpellAnyPc");
 		assertFalse(spell.containsListFor(ListKey.BONUS_ANYPC));
 		assertFalse(spell.containsListFor(ListKey.BONUS));
@@ -105,7 +105,7 @@ public class BonusWithPreApplyTest extends EnUsLocaleDependentTestCase
 		setUp();
 		TokenRegistration.register(Weapon.class);
 		Spell spell =
-				Globals.getContext().ref.constructNowIfNecessary(Spell.class,
+				Globals.getContext().getReferenceContext().constructNowIfNecessary(Spell.class,
 					"MySpellPc");
 		assertFalse(spell.containsListFor(ListKey.BONUS_EQUIP));
 		assertFalse(spell.containsListFor(ListKey.BONUS_ANYPC));
@@ -135,7 +135,7 @@ public class BonusWithPreApplyTest extends EnUsLocaleDependentTestCase
 		setUp();
 		TokenRegistration.register(Weapon.class);
 		Spell spell =
-				Globals.getContext().ref.constructNowIfNecessary(Spell.class,
+				Globals.getContext().getReferenceContext().constructNowIfNecessary(Spell.class,
 					"MySpellEqOr");
 		assertFalse(spell.containsListFor(ListKey.BONUS_ANYPC));
 		assertFalse(spell.containsListFor(ListKey.BONUS_EQUIP));
@@ -162,7 +162,7 @@ public class BonusWithPreApplyTest extends EnUsLocaleDependentTestCase
 		setUp();
 		TokenRegistration.register(Weapon.class);
 		Spell spell =
-				Globals.getContext().ref.constructNowIfNecessary(Spell.class,
+				Globals.getContext().getReferenceContext().constructNowIfNecessary(Spell.class,
 					"MySpellEqAnd");
 		assertFalse(spell.containsListFor(ListKey.BONUS_EQUIP));
 		assertFalse(spell.containsListFor(ListKey.BONUS));

@@ -55,9 +55,9 @@ public class ReplacesIntegrationTest extends
 	@Override
 	public Object getConstant(String string)
 	{
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructIfNecessary(EquipmentModifier.class, string);
-		secondaryContext.ref.constructIfNecessary(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructIfNecessary(EquipmentModifier.class,
 				string);
 		return null;
 	}

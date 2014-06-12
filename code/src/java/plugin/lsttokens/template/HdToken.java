@@ -139,7 +139,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		derivative.put(ObjectKey.VISIBILITY, Visibility.HIDDEN);
 		derivative.put(IntegerKey.HD_MIN, minhd);
 		derivative.put(IntegerKey.HD_MAX, maxhd);
-		context.ref.getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
+		context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
 		context.getObjectContext().addToList(template, ListKey.HD_TEMPLATES,
 				derivative);
 		try

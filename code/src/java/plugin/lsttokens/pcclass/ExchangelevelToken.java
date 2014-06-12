@@ -61,7 +61,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 		}
 
 		String classString = tok.nextToken();
-		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class,
 				classString);
 		String mindlString = tok.nextToken();
 		int mindl;

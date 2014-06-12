@@ -273,7 +273,7 @@ public final class EquipmentChoice
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
 	public void addSkills() {
-		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
+		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
 		{
 			this.getAvailableList().add(skill.getKeyName());
 		}
@@ -341,7 +341,7 @@ public final class EquipmentChoice
 		final String          typeString,
 		final String          aCategory)
 	{
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
 		for (Ability anAbility : ref.getManufacturer(
 				Ability.class, cat).getAllObjects())
@@ -370,7 +370,7 @@ public final class EquipmentChoice
 	public void addSelectableEquipment(
 		final String          typeString)
 	{
-		for (Equipment aEquip : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			if (
 				aEquip.isType(typeString) &&
@@ -389,7 +389,7 @@ public final class EquipmentChoice
 	public void addSelectableSkills(
 		final String          typeString)
 	{
-		for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
+		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
 		{
 			if (
 				(typeString.equalsIgnoreCase("ALL") ||
@@ -492,7 +492,7 @@ public final class EquipmentChoice
 	 * Add the current character stats as defined in the game mode to the chooser
 	 */
 	public void addStats() {
-		for (PCStat stat : Globals.getContext().ref.getConstructedCDOMObjects(PCStat.class))
+		for (PCStat stat : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class))
 		{
 			this.getAvailableList().add(stat.getAbb());
 		}

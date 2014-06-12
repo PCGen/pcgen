@@ -52,7 +52,7 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 		PCClass pcc = create(PCClass.class, "Class");
 		Ability granted = createGrantedObject();
 		Language sel =
-				context.ref.constructCDOMObject(Language.class, "English");
+				context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		ParseResult result =
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
@@ -100,7 +100,7 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			boolean abilityExpected =
 					cas.getAbility().equals(
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
 			boolean selectionExpected = "English".equals(cnas.getSelection());
@@ -129,7 +129,7 @@ public class DomainFeatListTargetTest extends AbstractTokenModelTest
 	protected Ability createGrantedObject()
 	{
 		Ability a = create(Ability.class, "Granted");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 }

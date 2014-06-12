@@ -111,7 +111,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 			if (isnew)
 			{
 				context.addStatefulInformation(po);
-				context.ref.importObject(po);
+				context.getReferenceContext().importObject(po);
 			}
 		}
 
@@ -135,7 +135,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 	@Override
 	protected T getObjectKeyed(LoadContext context, String aKey)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				baseClass, aKey);
 	}
 }

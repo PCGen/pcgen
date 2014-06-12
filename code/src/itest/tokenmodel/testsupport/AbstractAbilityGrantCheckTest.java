@@ -45,7 +45,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public Ability getMultNo(String s)
 	{
 		Ability a = create(Ability.class, s);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		ParseResult result = TYPE_TOKEN.parseToken(context, a, "Selectable");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -58,7 +58,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public Ability getMultYesStackNo(String s, String target)
 	{
 		Ability a = create(Ability.class, s);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -83,7 +83,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public Ability getMultYesStackYes(String s, String target)
 	{
 		Ability a = create(Ability.class, s);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -114,7 +114,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public Ability getMultYesStackNoChooseNoChoice(String s)
 	{
 		Ability a = create(Ability.class, s);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -133,7 +133,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	public Ability getMultYesStackYesChooseNoChoice(String s)
 	{
 		Ability a = create(Ability.class, s);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{

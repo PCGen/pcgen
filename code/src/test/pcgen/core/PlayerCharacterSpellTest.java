@@ -75,12 +75,12 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		divineClass = classLoader.parseLine(context, null, classLine, source);
 		classLoader.parseLine(context, divineClass, "CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL", source);
 		classLoader.parseClassLevelLine(context, divineClass, 1, source, "CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
-		context.ref.importObject(divineClass);
+		context.getReferenceContext().importObject(divineClass);
 		
 		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";
 		GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
 		domainLoader.parseLine(context, null, domainLine, source);
-		sunDomain = context.ref.silentlyGetConstructedCDOMObject(Domain.class, "Sun");
+		sunDomain = context.getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, "Sun");
 
 		CDOMReference<ClassSpellList> ref = TokenUtilities.getTypeOrPrimitive(context,
 			ClassSpellList.class, divineClass.getKeyName());
@@ -90,9 +90,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
 		context.commit();
 
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.loadCampaignFacets();
 	}
 

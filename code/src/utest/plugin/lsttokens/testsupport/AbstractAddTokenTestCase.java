@@ -202,21 +202,21 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 
 	protected void addSingleRef(List<CDOMReference<TC>> refs, String string)
 	{
-		TC obj = primaryContext.ref.constructCDOMObject(getTargetClass(),
+		TC obj = primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(),
 				string);
 		refs.add(CDOMDirectSingleRef.getRef(obj));
 	}
 
 	protected void addTypeRef(List<CDOMReference<TC>> refs, String... types)
 	{
-		CDOMGroupRef<TC> ref = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<TC> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				getTargetClass(), types);
 		refs.add(ref);
 	}
 
 	protected void addAllRef(List<CDOMReference<TC>> refs)
 	{
-		CDOMGroupRef<TC> ref = primaryContext.ref
+		CDOMGroupRef<TC> ref = primaryContext.getReferenceContext()
 				.getCDOMAllReference(getTargetClass());
 		refs.add(ref);
 	}

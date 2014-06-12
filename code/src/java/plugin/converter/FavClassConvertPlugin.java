@@ -73,7 +73,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 					|| Constants.LST_ANY.equalsIgnoreCase(token))
 			{
 				foundAny = true;
-				ref = context.ref.getCDOMAllReference(PCCLASS_CLASS);
+				ref = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 			}
 			else
 			{
@@ -82,7 +82,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 				if (dotLoc == -1)
 				{
 					// Primitive
-					ref = context.ref.getCDOMReference(PCCLASS_CLASS, token);
+					ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, token);
 				}
 				else
 				{
@@ -90,7 +90,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.ref.getCDOMReference(SUBCLASS_CLASS, scc,
+					ref = context.getReferenceContext().getCDOMReference(SUBCLASS_CLASS, scc,
 							subclass);
 				}
 			}

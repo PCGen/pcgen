@@ -109,7 +109,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<Race> implements
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
-					lang = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
+					lang = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);
 				}
 				else
 				{

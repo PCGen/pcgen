@@ -126,11 +126,11 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 
 		Domain goodDomain = new Domain();
 		goodDomain.setName("Good");
-		Globals.getContext().ref.importObject(goodDomain);
+		Globals.getContext().getReferenceContext().importObject(goodDomain);
 
 		Domain animalDomain = new Domain();
 		animalDomain.setName("Animal");
-		Globals.getContext().ref.importObject(animalDomain);
+		Globals.getContext().getReferenceContext().importObject(animalDomain);
 
 		deity = new Deity();
 		deity.setName("Test Deity");

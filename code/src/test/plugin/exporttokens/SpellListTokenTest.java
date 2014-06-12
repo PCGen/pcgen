@@ -117,7 +117,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "CAST", "3,1,0");
-		context.ref.importObject(arcaneClass);
+		context.getReferenceContext().importObject(arcaneClass);
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
@@ -128,10 +128,10 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(divineClass.getOriginalClassLevel(1), "CAST", "3,1,0");
 		context.unconditionallyProcess(divineClass, "SPELLLEVEL",
 				"CLASS|SPELLCASTER.Divine=1|Cure Light Wounds");
-		context.ref.importObject(divineClass);
+		context.getReferenceContext().importObject(divineClass);
 		context.resolveDeferredTokens();
-		context.ref.buildDerivedObjects();
-		context.ref.resolveReferences(null);
+		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 	}
 
 	/*
@@ -140,8 +140,8 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		Globals.getContext().ref.forget(divineClass);
-		Globals.getContext().ref.forget(arcaneClass);
+		Globals.getContext().getReferenceContext().forget(divineClass);
+		Globals.getContext().getReferenceContext().forget(arcaneClass);
 
 		super.tearDown();
 	}

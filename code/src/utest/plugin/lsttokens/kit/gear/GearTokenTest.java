@@ -61,10 +61,10 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 	@Test
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Equipment.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Equipment.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Equipment.class, "English");
-		secondaryContext.ref.constructCDOMObject(Equipment.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "English");
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -72,8 +72,8 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Equipment.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Equipment.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 }

@@ -66,7 +66,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		preRule.setName("PRERULE");
 		preRule.setDefault(false);
 		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.getModeContext().ref.importObject(preRule);
+		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
 	/* (non-Javadoc)
@@ -124,7 +124,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 */
 	public void ruleEnabled() throws Exception
 	{
-		RuleCheck preRule = SettingsHandler.getGame().getModeContext().ref
+		RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
 		preRule.setDefault(true);
 		

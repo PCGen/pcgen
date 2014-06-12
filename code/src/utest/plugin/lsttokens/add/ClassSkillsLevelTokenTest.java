@@ -52,7 +52,7 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		fighter = primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		fighter = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 	}
 
 	@Override
@@ -295,6 +295,6 @@ public class ClassSkillsLevelTokenTest extends AbstractAddTokenTestCase<Skill>
 
 	private CDOMGroupRef<Skill> getAllRef()
 	{
-		return primaryContext.ref.getCDOMAllReference(Skill.class);
+		return primaryContext.getReferenceContext().getCDOMAllReference(Skill.class);
 	}
 }

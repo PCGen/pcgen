@@ -60,10 +60,10 @@ public class SpellsIntegrationTest extends
 		TokenRegistration.register(preclasswriter);
 		TokenRegistration.register(prerace);
 		TokenRegistration.register(preracewriter);
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 	}
 
 	@Override

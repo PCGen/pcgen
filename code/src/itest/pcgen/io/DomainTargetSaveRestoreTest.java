@@ -45,7 +45,7 @@ public class DomainTargetSaveRestoreTest extends
 	protected void applyObject(Domain obj)
 	{
 		PCClass cl =
-				context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 					"MyClass");
 		pc.addClass(cl);
 		pc.incrementClassLevel(1, cl);

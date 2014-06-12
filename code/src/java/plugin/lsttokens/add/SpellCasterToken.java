@@ -120,7 +120,7 @@ public class SpellCasterToken extends AbstractToken implements
 		List<CDOMReference<PCClass>> groups = new ArrayList<CDOMReference<PCClass>>();
 		List<CDOMReference<PCClass>> prims = new ArrayList<CDOMReference<PCClass>>();
 		List<String> spelltypes = new ArrayList<String>();
-		CDOMGroupRef<PCClass> allRef = context.ref.getCDOMAllReference(PCCLASS_CLASS);
+		CDOMGroupRef<PCClass> allRef = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
@@ -155,7 +155,7 @@ public class SpellCasterToken extends AbstractToken implements
 				}
 				else
 				{
-					prims.add(context.ref
+					prims.add(context.getReferenceContext()
 							.getCDOMReference(PCCLASS_CLASS, token));
 				}
 			}
@@ -268,7 +268,7 @@ public class SpellCasterToken extends AbstractToken implements
 	@Override
 	public PCClass decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, s);
 	}
 
 	@Override

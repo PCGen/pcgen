@@ -65,7 +65,7 @@ public class PreDomainTester extends AbstractDisplayPrereqTest implements Prereq
 		if ( prereq.getKey().equalsIgnoreCase("ANY") ) {
 			runningTotal = display.getDomainCount();
 		} else {
-			Domain domain = Globals.getContext().ref
+			Domain domain = Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, prereq
 							.getKey());
 			final boolean hasDomain = domain != null && display.hasDomain(domain);

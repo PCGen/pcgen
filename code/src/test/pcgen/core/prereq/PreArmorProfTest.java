@@ -100,7 +100,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -140,7 +140,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -208,7 +208,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Chainmail");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Breastplate");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -248,7 +248,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Armor Proficiency (Single)", AbilityCategory.FEAT, "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|ARMORTYPE=Medium");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -308,7 +308,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "ARMORPROF|Full Plate");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
@@ -337,48 +337,48 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 		chainmailArmor.setName("Chainmail");
 		chainmailArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		chainmailArmor.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
-		Globals.getContext().ref.importObject(chainmailArmor);
+		Globals.getContext().getReferenceContext().importObject(chainmailArmor);
 		
 		Equipment breastplateArmor = new Equipment();
 		breastplateArmor.setName("Breastplate");
 		breastplateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		breastplateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
-		Globals.getContext().ref.importObject(breastplateArmor);
+		Globals.getContext().getReferenceContext().importObject(breastplateArmor);
 		
 		Equipment leatherArmor = new Equipment();
 		leatherArmor.setName("Leather");
 		leatherArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		leatherArmor.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
-		Globals.getContext().ref.importObject(leatherArmor);
+		Globals.getContext().getReferenceContext().importObject(leatherArmor);
 		
 		Equipment fullPlateArmor = new Equipment();
 		fullPlateArmor.setName("Full Plate");
 		fullPlateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		fullPlateArmor.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(fullPlateArmor);
+		Globals.getContext().getReferenceContext().importObject(fullPlateArmor);
 		
 		ArmorProf leather = new ArmorProf();
 		leather.setName("Leather");
 		leather.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		leather.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
-		Globals.getContext().ref.importObject(leather);
+		Globals.getContext().getReferenceContext().importObject(leather);
 
 		ArmorProf chainmail = new ArmorProf();
 		chainmail.setName("Chainmail");
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
-		Globals.getContext().ref.importObject(chainmail);
+		Globals.getContext().getReferenceContext().importObject(chainmail);
 
 		ArmorProf breastplate = new ArmorProf();
 		breastplate.setName("Breastplate");
 		breastplate.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		breastplate.addToListFor(ListKey.TYPE, Type.getConstant("Medium"));
-		Globals.getContext().ref.importObject(breastplate);
+		Globals.getContext().getReferenceContext().importObject(breastplate);
 
 		ArmorProf fpprof = new ArmorProf();
 		fpprof.setName("Full Plate");
 		fpprof.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		fpprof.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(fpprof);
+		Globals.getContext().getReferenceContext().importObject(fpprof);
 }
 }

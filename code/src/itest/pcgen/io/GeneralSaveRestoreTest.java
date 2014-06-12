@@ -44,10 +44,10 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		{
 			fail (e.getMessage());
 		}
-		Language lang = context.ref.constructCDOMObject(Language.class, "English");
-		Ability a = context.ref.constructCDOMObject(Ability.class, "Ab");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		PCTemplate pct = context.ref.constructCDOMObject(PCTemplate.class, "Templ");
+		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
+		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, "Ab");
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
 		try
 		{
 			assertTrue(context.processToken(a, "MULT", "YES"));

@@ -61,18 +61,18 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Language.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Language.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Language.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Language.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Language.class, "English");
-		secondaryContext.ref.constructCDOMObject(Language.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Language.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(Language.class, "English");
 		runRoundRobin("Fireball" + getJoinCharacter() + "English");
 	}
 

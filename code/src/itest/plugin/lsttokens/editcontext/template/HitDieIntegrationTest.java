@@ -83,10 +83,10 @@ public class HitDieIntegrationTest extends
 	public void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "4|CLASS=Fighter");
 		commit(modCampaign, tc, "5|CLASS=Wizard");
@@ -97,10 +97,10 @@ public class HitDieIntegrationTest extends
 	public void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "6|CLASS=Wizard");
 		commit(modCampaign, tc, "4|CLASS=Fighter");
@@ -111,8 +111,8 @@ public class HitDieIntegrationTest extends
 	public void testRoundRobinSpecialNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "4|CLASS=Fighter");
@@ -123,8 +123,8 @@ public class HitDieIntegrationTest extends
 	public void testRoundRobinSpecialNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "4|CLASS=Fighter");
 		emptyCommit(modCampaign, tc);

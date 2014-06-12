@@ -142,37 +142,37 @@ public class EquipmentQualifierTokenTest extends
 	{
 		wp1 = new WeaponProf();
 		wp1.setName("Eq1");
-		primaryContext.ref.importObject(wp1);
+		primaryContext.getReferenceContext().importObject(wp1);
 		eq1 = new Equipment();
 		eq1.setName("Eq1");
-		primaryContext.ref.importObject(eq1);
+		primaryContext.getReferenceContext().importObject(eq1);
 		primaryContext.unconditionallyProcess(eq1, "TYPE", "WEAPON");
 		primaryContext.unconditionallyProcess(eq1, "PROFICIENCY", "WEAPON|Eq1");
 		
 		sp1 = new ShieldProf();
 		sp1.setName("Eq2");
-		primaryContext.ref.importObject(sp1);
+		primaryContext.getReferenceContext().importObject(sp1);
 		eq2 = new Equipment();
 		eq2.setName("Eq2");
-		primaryContext.ref.importObject(eq2);
+		primaryContext.getReferenceContext().importObject(eq2);
 		primaryContext.unconditionallyProcess(eq2, "TYPE", "SHIELD");
 		primaryContext.unconditionallyProcess(eq2, "PROFICIENCY", "SHIELD|Eq2");
 
 		ap1 = new ArmorProf();
 		ap1.setName("Eq3");
-		primaryContext.ref.importObject(ap1);
+		primaryContext.getReferenceContext().importObject(ap1);
 		eq3 = new Equipment();
 		eq3.setName("Eq3");
-		primaryContext.ref.importObject(eq3);
+		primaryContext.getReferenceContext().importObject(eq3);
 		primaryContext.unconditionallyProcess(eq3, "TYPE", "ARMOR.Masterful");
 		primaryContext.unconditionallyProcess(eq3, "PROFICIENCY", "ARMOR|Eq3");
 		
 		wp2 = new WeaponProf();
 		wp2.setName("Wp2");
-		primaryContext.ref.importObject(wp2);
+		primaryContext.getReferenceContext().importObject(wp2);
 		eq4 = new Equipment();
 		eq4.setName("Eq4");
-		primaryContext.ref.importObject(eq4);
+		primaryContext.getReferenceContext().importObject(eq4);
 		primaryContext.unconditionallyProcess(eq4, "TYPE", "WEAPON.Masterful");
 		primaryContext.unconditionallyProcess(eq4, "PROFICIENCY", "WEAPON|Wp2");
 	}

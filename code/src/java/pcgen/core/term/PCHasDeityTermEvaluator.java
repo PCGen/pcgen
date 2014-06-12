@@ -46,7 +46,7 @@ public class PCHasDeityTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Deity d = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		Deity d = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Deity.class, deity);
 		return display.hasDeity(d) ? 1f : 0f;
 	}

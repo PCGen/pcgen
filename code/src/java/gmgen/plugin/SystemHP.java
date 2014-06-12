@@ -137,7 +137,7 @@ public class SystemHP
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 
-			PCStat stat = Globals.getContext().ref
+			PCStat stat = Globals.getContext().getReferenceContext()
 					.getAbbreviatedObject(PCStat.class, "CON");
 			if (damage > pc.getTotalStatFor(stat))
 			{

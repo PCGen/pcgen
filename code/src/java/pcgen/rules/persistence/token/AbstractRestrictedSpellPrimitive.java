@@ -44,7 +44,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 
 	public boolean initialize(LoadContext context, String args)
 	{
-		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
+		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 		if (args != null)
 		{
 			restriction = getRestriction(args);

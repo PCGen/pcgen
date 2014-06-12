@@ -42,7 +42,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	public void testFromAbility() throws PersistenceLayerException
 	{
 		Ability source = create(Ability.class, "Source");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());

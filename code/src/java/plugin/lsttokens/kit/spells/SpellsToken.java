@@ -118,7 +118,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				}
 				else
 				{
-					kitSpell.setCastingClass(context.ref.getCDOMReference(
+					kitSpell.setCastingClass(context.getReferenceContext().getCDOMReference(
 							PCClass.class, className));
 				}
 			}
@@ -165,7 +165,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 				while (subTok.hasMoreTokens())
 				{
 					String featName = subTok.nextToken();
-					CDOMSingleRef<Ability> feat = context.ref.getCDOMReference(
+					CDOMSingleRef<Ability> feat = context.getReferenceContext().getCDOMReference(
 							ABILITY_CLASS, AbilityCategory.FEAT, featName);
 					featList.add(feat);
 				}

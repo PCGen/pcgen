@@ -78,7 +78,7 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 		{
 			String tokText = tok.nextToken();
 			CDOMSingleRef<WeaponProf> ref =
-					context.ref.getCDOMReference(WEAPONPROF_CLASS, tokText);
+					context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
 			obj.addProficiency(ref);
 		}
 		return ParseResult.SUCCESS;

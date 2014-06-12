@@ -45,7 +45,7 @@ public class RaceTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race
 			return false;
 		}
 		racetype = RaceType.getConstant(value);
-		allRaces = context.ref.getCDOMAllReference(RACE_CLASS);
+		allRaces = context.getReferenceContext().getCDOMAllReference(RACE_CLASS);
 		return true;
 	}
 

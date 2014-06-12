@@ -84,7 +84,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 			}
 			else
 			{
-				PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCTemplate template = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						PCTEMPLATE_CLASS, templateKey);
 				if (display.hasTemplate(template))
 				{

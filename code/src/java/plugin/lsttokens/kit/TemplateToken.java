@@ -111,7 +111,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 						String ownedTemplateName = subStr.substring(9);
 
 						CDOMSingleRef<PCTemplate> ref =
-								context.ref.getCDOMReference(TEMPLATE_CLASS,
+								context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS,
 									ownedTemplateName);
 						subList.add(ref);
 					}
@@ -124,7 +124,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 				}
 			}
 			CDOMSingleRef<PCTemplate> ref =
-					context.ref.getCDOMReference(TEMPLATE_CLASS, name);
+					context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS, name);
 			kitTemplate.addTemplate(ref, subList);
 		}
 		return ParseResult.SUCCESS;

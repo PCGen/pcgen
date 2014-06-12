@@ -72,12 +72,12 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	protected void additionalSetUp() throws Exception
 	{
 		LoadContext context = Globals.getContext();
-		wiz = context.ref.constructCDOMObject(PCClass.class, "Wizard");
+		wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		context.unconditionallyProcess(wiz, "SPELLTYPE", "ARCANE");
 		context.unconditionallyProcess(wiz, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
 		context.unconditionallyProcess(wiz.getOriginalClassLevel(1), "CAST", "1,1");
 		context.unconditionallyProcess(wiz.getOriginalClassLevel(2), "CAST", "2,2,2");
-		cle = context.ref.constructCDOMObject(PCClass.class, "Cleric");
+		cle = context.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
 		context.unconditionallyProcess(cle, "SPELLTYPE", "DIVINE");
 		context.unconditionallyProcess(cle, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
 		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
@@ -85,41 +85,41 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 		Arcaneball = new Spell();
 		Arcaneball.setName("Arcaneball");
-		context.ref.importObject(Arcaneball);
+		context.getReferenceContext().importObject(Arcaneball);
 		Globals.addToSpellMap(Arcaneball.getKeyName(), Arcaneball);
 		context.unconditionallyProcess(Arcaneball, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(Arcaneball, "TYPE", "Arcane");
 
 		lightning = new Spell();
 		lightning.setName("Lightning Bolt");
-		context.ref.importObject(lightning);
+		context.getReferenceContext().importObject(lightning);
 		Globals.addToSpellMap(lightning.getKeyName(), lightning);
 		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(lightning, "TYPE", "Arcane");
 
 		burning = new Spell();
 		burning.setName("Burning Hands");
-		context.ref.importObject(burning);
+		context.getReferenceContext().importObject(burning);
 		Globals.addToSpellMap(burning.getKeyName(), burning);
 		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
 		context.unconditionallyProcess(burning, "TYPE", "Arcane");
 
 		heal = new Spell();
 		heal.setName("Heal");
-		context.ref.importObject(heal);
+		context.getReferenceContext().importObject(heal);
 		Globals.addToSpellMap(heal.getKeyName(), heal);
 		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
 		context.unconditionallyProcess(heal, "TYPE", "Divine");
 
 		cure = new Spell();
 		cure.setName("Cure Light Wounds");
-		context.ref.importObject(cure);
+		context.getReferenceContext().importObject(cure);
 		Globals.addToSpellMap(cure.getKeyName(), cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
 		context.unconditionallyProcess(cure, "TYPE", "Divine");
 
-		context.ref.buildDerivedObjects();
-		assertTrue(context.ref.resolveReferences(null));
+		context.getReferenceContext().buildDerivedObjects();
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	public void testSimpleType() throws Exception

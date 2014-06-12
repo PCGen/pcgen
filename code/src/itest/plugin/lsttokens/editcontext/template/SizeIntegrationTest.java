@@ -63,18 +63,18 @@ public class SizeIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.ref.constructCDOMObject(
+		SizeAdjustment ps = primaryContext.getReferenceContext().constructCDOMObject(
 				SizeAdjustment.class, "Small");
-		primaryContext.ref.registerAbbreviation(ps, "S");
-		SizeAdjustment pm = primaryContext.ref.constructCDOMObject(
+		primaryContext.getReferenceContext().registerAbbreviation(ps, "S");
+		SizeAdjustment pm = primaryContext.getReferenceContext().constructCDOMObject(
 				SizeAdjustment.class, "Medium");
-		primaryContext.ref.registerAbbreviation(pm, "M");
-		SizeAdjustment ss = secondaryContext.ref.constructCDOMObject(
+		primaryContext.getReferenceContext().registerAbbreviation(pm, "M");
+		SizeAdjustment ss = secondaryContext.getReferenceContext().constructCDOMObject(
 				SizeAdjustment.class, "Small");
-		secondaryContext.ref.registerAbbreviation(ss, "S");
-		SizeAdjustment sm = secondaryContext.ref.constructCDOMObject(
+		secondaryContext.getReferenceContext().registerAbbreviation(ss, "S");
+		SizeAdjustment sm = secondaryContext.getReferenceContext().constructCDOMObject(
 				SizeAdjustment.class, "Medium");
-		secondaryContext.ref.registerAbbreviation(sm, "M");
+		secondaryContext.getReferenceContext().registerAbbreviation(sm, "M");
 	}
 
 	@Test

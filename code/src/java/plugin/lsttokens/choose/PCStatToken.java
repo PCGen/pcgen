@@ -52,7 +52,7 @@ public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 	@Override
 	public PCStat decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.getAbbreviatedObject(PCSTAT_CLASS, s);
+		return context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, s);
 	}
 
 	@Override

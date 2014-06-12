@@ -214,8 +214,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
 		runRoundRobin("ALL");
 	}
@@ -224,8 +224,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
 		runRoundRobin("Wizard");
 	}
@@ -234,8 +234,8 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	public void testRoundRobinNegated() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
 		runRoundRobin("ALL|!Wizard");
 	}
@@ -244,12 +244,12 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	public void testRoundRobinPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		runRoundRobin("Sorcerer|Wizard");
 	}
@@ -258,12 +258,12 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 	public void testRoundRobinNegatedPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		runRoundRobin("ALL|!Sorcerer|!Wizard");
 	}

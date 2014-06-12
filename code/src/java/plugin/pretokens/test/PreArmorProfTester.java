@@ -68,7 +68,7 @@ public class PreArmorProfTester extends AbstractDisplayPrereqTest implements Pre
 		}
 
 		final String aString = prereq.getKey();
-		Equipment keyEquip = Globals.getContext().ref
+		Equipment keyEquip = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
 		final boolean isType = aString.startsWith("TYPE")
 				&& aString.length() > 5;

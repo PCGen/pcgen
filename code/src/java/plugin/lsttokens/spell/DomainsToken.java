@@ -179,7 +179,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 				if (Constants.LST_ALL.equals(token))
 				{
 					foundAny = true;
-					ref = context.ref.getCDOMAllReference(SPELLLIST_CLASS);
+					ref = context.getReferenceContext().getCDOMAllReference(SPELLLIST_CLASS);
 				}
 				else
 				{

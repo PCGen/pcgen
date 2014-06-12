@@ -77,7 +77,7 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 			String tokString = pipeTok.nextToken();
 			Class<Domain> DOMAIN_CLASS = Domain.class;
 			CDOMSingleRef<Domain> ref =
-					context.ref.getCDOMReference(DOMAIN_CLASS, tokString);
+					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
 			kitDeity.addDomain(ref);
 		}
 		return ParseResult.SUCCESS;

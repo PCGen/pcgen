@@ -277,7 +277,7 @@ public final class CustomData
 			bw.write(AUTO_GEN_WARN_LINE_2);
 			bw.newLine();
 			
-			for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+			for (Equipment aEq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 			{
 				if (aEq.isType(Constants.TYPE_CUSTOM) && !aEq.isType("AUTO_GEN"))
 				{
@@ -369,7 +369,7 @@ public final class CustomData
 			bw.newLine();
 
 			for (PointBuyMethod pbm : SettingsHandler.getGame()
-					.getModeContext().ref
+					.getModeContext().getReferenceContext()
 					.getConstructedCDOMObjects(PointBuyMethod.class))
 			{
 				bw.write("METHOD:" + pbm.getDisplayName() + "\t\tPOINTS:"
@@ -485,7 +485,7 @@ public final class CustomData
 			bw.write("#");
 			bw.newLine();
 
-			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
+			for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
 			{
 				if (race.isType(Constants.TYPE_CUSTOM))
 				{
@@ -533,20 +533,20 @@ public final class CustomData
 
 	private static void writeCustomClasses()
 	{
-		writeCustomPObjects(customClassFilePath(true), Globals.getContext().ref
+		writeCustomPObjects(customClassFilePath(true), Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(PCClass.class).iterator());
 	}
 
 	private static void writeCustomDeities()
 	{
-		writeCustomPObjects(customDeityFilePath(true), Globals.getContext().ref
+		writeCustomPObjects(customDeityFilePath(true), Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(Deity.class).iterator());
 	}
 
 	private static void writeCustomDomains()
 	{
 		writeCustomPObjects(customDomainFilePath(true),
-				Globals.getContext().ref
+				Globals.getContext().getReferenceContext()
 						.getConstructedCDOMObjects(Domain.class).iterator());
 	}
 
@@ -555,7 +555,7 @@ public final class CustomData
 		for (AbilityCategory ac : SettingsHandler.getGame().getAllAbilityCategories())
 		{
 			writeCustomPObjects(customAbilityFilePath(true), Globals
-					.getContext().ref.getManufacturer(Ability.class, ac)
+					.getContext().getReferenceContext().getManufacturer(Ability.class, ac)
 					.getAllObjects().iterator());
 		}
 	}
@@ -584,7 +584,7 @@ public final class CustomData
 	private static void writeCustomLanguages()
 	{
 		writeCustomPObjects(customLanguageFilePath(true),
-				Globals.getContext().ref.getConstructedCDOMObjects(
+				Globals.getContext().getReferenceContext().getConstructedCDOMObjects(
 						Language.class).iterator());
 	}
 
@@ -632,13 +632,13 @@ public final class CustomData
 
 	private static void writeCustomRaces()
 	{
-		writeCustomPObjects(customRaceFilePath(true), Globals.getContext().ref
+		writeCustomPObjects(customRaceFilePath(true), Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(Race.class).iterator());
 	}
 
 	private static void writeCustomSkills()
 	{
-		writeCustomPObjects(customSkillFilePath(true), Globals.getContext().ref
+		writeCustomPObjects(customSkillFilePath(true), Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(Skill.class).iterator());
 	}
 
@@ -696,7 +696,7 @@ public final class CustomData
 	private static void writeCustomTemplates()
 	{
 		writeCustomPObjects(customTemplateFilePath(true),
-				Globals.getContext().ref.getConstructedCDOMObjects(
+				Globals.getContext().getReferenceContext().getConstructedCDOMObjects(
 						PCTemplate.class).iterator());
 	}
 

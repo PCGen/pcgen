@@ -41,7 +41,7 @@ public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
 			RuleCheck rule, String value)
 	{
 		rule.setParameter(value);
-		context.ref.reassociateKey(value, rule);
+		context.getReferenceContext().reassociateKey(value, rule);
 		rule.setKeyName(value);
 		return ParseResult.SUCCESS;
 	}

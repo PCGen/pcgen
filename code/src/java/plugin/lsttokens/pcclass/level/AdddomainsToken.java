@@ -109,7 +109,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 			}
 			AssociatedPrereqObject apo = context.getListContext().addToList(
 					getTokenName(), level, PCClass.ALLOWED_DOMAINS,
-					context.ref.getCDOMReference(DOMAIN_CLASS, domainKey));
+					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, domainKey));
 			if (prereq != null)
 			{
 				apo.addPrerequisite(prereq);

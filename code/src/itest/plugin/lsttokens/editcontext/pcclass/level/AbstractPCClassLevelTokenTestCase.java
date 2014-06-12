@@ -73,17 +73,17 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();
 		secondaryContext = new EditorLoadContext();
-		primaryProf1 = primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryProf1 = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj1");
-		secondaryProf1 = secondaryContext.ref.constructCDOMObject(
+		secondaryProf1 = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj1");
-		primaryProf2 = primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryProf2 = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj2");
-		secondaryProf2 = secondaryContext.ref.constructCDOMObject(
+		secondaryProf2 = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj2");
-		primaryProf3 = primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryProf3 = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj3");
-		secondaryProf3 = secondaryContext.ref.constructCDOMObject(
+		secondaryProf3 = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj3");
 	}
 

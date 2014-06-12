@@ -51,7 +51,7 @@ public class PreStatTester extends AbstractDisplayPrereqTest implements
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
 	{
 		final int targetNumber = Integer.parseInt(prereq.getOperand());
-		PCStat stat = Globals.getContext().ref
+		PCStat stat = Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(PCStat.class, prereq.getKey());
 		if (stat == null)
 		{

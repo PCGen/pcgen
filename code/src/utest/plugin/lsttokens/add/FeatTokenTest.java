@@ -115,16 +115,16 @@ public class FeatTokenTest extends
 	@Override
 	protected Ability construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 
 	@Override
 	protected Ability constructTyped(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 
@@ -260,9 +260,9 @@ public class FeatTokenTest extends
 	private List<CDOMReference<Ability>> createSingle(String name)
 	{
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		Ability obj = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability obj = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				name);
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		CDOMDirectSingleRef<Ability> ar = CDOMDirectSingleRef.getRef(obj);
 		refs.add(ar);
 		if (name.indexOf('(') != -1)
@@ -279,7 +279,7 @@ public class FeatTokenTest extends
 	public void testUnparseType() throws PersistenceLayerException
 	{
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMTypeReference(
+		CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
 		refs.add(ref);
 
@@ -348,7 +348,7 @@ public class FeatTokenTest extends
 		if (isAllLegal())
 		{
 			List<CDOMReference<Ability>> refs = createSingle("TestWP1");
-			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMAllReference(
+			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
@@ -362,7 +362,7 @@ public class FeatTokenTest extends
 		if (isAllLegal())
 		{
 			List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMAllReference(
+			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);
@@ -377,10 +377,10 @@ public class FeatTokenTest extends
 		if (isAllLegal())
 		{
 			List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-			CDOMGroupRef<Ability> ref = primaryContext.ref.getCDOMTypeReference(
+			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 					Ability.class, AbilityCategory.FEAT, "Foo", "Bar");
 			refs.add(ref);
-			ref = primaryContext.ref.getCDOMAllReference(
+			ref = primaryContext.getReferenceContext().getCDOMAllReference(
 					Ability.class, AbilityCategory.FEAT);
 			refs.add(ref);
 			createTC(refs, FormulaFactory.ONE);

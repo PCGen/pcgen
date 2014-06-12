@@ -67,7 +67,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 			sb.append(tok);
 		}
 		return super.parseTokenWithSeparator(context,
-			context.ref.getManufacturer(DOMAIN_CLASS), obj, sb.toString());
+			context.getReferenceContext().getManufacturer(DOMAIN_CLASS), obj, sb.toString());
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	@Override
 	public Domain decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(DOMAIN_CLASS, s);
 	}
 
 	@Override

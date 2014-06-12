@@ -199,12 +199,12 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				/*
 				 * This is actually a TYPE
 				 */
-				ref = context.ref.getCDOMTypeReference(tagType, classString
+				ref = context.getReferenceContext().getCDOMTypeReference(tagType, classString
 						.substring(12));
 			}
 			else
 			{
-				ref = context.ref.getCDOMReference(tagType, classString);
+				ref = context.getReferenceContext().getCDOMReference(tagType, classString);
 			}
 			slList.add(ref);
 		}
@@ -219,7 +219,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		while (spTok.hasMoreTokens())
 		{
 			String spellName = spTok.nextToken();
-			CDOMReference<Spell> sp = context.ref.getCDOMReference(Spell.class,
+			CDOMReference<Spell> sp = context.getReferenceContext().getCDOMReference(Spell.class,
 					spellName);
 			for (CDOMReference<? extends CDOMList<Spell>> sl : slList)
 			{

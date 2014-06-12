@@ -47,7 +47,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	public void testFromAbility() throws PersistenceLayerException
 	{
 		Ability source = create(Ability.class, "Source");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =

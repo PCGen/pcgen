@@ -58,15 +58,15 @@ public class AbilityTokenTest extends TestCase
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.ref.importObject(CATEGORY);
+		context.getReferenceContext().importObject(CATEGORY);
 	}
 
 	private Ability getObject()
 	{
-		Ability obj = context.ref.constructCDOMObject(Ability.class, ITEM_NAME);
+		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, ITEM_NAME);
 		//In case
-		context.ref.registerAbbreviation(obj, ITEM_NAME);
-		context.ref.reassociateCategory(CATEGORY, obj);
+		context.getReferenceContext().registerAbbreviation(obj, ITEM_NAME);
+		context.getReferenceContext().reassociateCategory(CATEGORY, obj);
 		return obj;
 	}
 

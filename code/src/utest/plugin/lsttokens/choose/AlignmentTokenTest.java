@@ -105,9 +105,9 @@ public class AlignmentTokenTest extends
 	@Override
 	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		PCAlignment obj = loadContext.ref.constructCDOMObject(getTargetClass(),
+		PCAlignment obj = loadContext.getReferenceContext().constructCDOMObject(getTargetClass(),
 				one);
-		loadContext.ref.registerAbbreviation(obj, one);
+		loadContext.getReferenceContext().registerAbbreviation(obj, one);
 		return obj;
 	}
 

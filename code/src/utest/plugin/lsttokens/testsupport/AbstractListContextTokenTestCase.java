@@ -113,7 +113,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 
 	protected CDOMGroupRef<TC> getTypeReference()
 	{
-		return primaryContext.ref.getCDOMTypeReference(getTargetClass(), "Type1");
+		return primaryContext.getReferenceContext().getCDOMTypeReference(getTargetClass(), "Type1");
 	}
 
 	@Test
@@ -130,7 +130,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 
 	protected CDOMGroupRef<TC> getAllReference()
 	{
-		return primaryContext.ref.getCDOMAllReference(getTargetClass());
+		return primaryContext.getReferenceContext().getCDOMAllReference(getTargetClass());
 	}
 
 	/*

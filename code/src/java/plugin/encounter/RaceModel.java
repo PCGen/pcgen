@@ -29,7 +29,7 @@ public class RaceModel extends DefaultListModel
 	{
 		clear();
 
-		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
+		for (final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class))
 		{
 			if (!contains(race.toString()))
 			{

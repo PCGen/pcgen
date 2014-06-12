@@ -580,7 +580,7 @@ public final class Globals
 	 */
 	public static int getPaperCount()
 	{
-		return SettingsHandler.getGame().getModeContext().ref
+		return SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.getConstructedObjectCount(PaperInfo.class);
 	}
 
@@ -603,13 +603,13 @@ public final class Globals
 	public static String getPaperInfo(final int idx, final int infoType)
 	{
 		if ((idx < 0)
-				|| (idx >= SettingsHandler.getGame().getModeContext().ref
+				|| (idx >= SettingsHandler.getGame().getModeContext().getReferenceContext()
 						.getConstructedObjectCount(PaperInfo.class)))
 		{
 			return null;
 		}
 
-		final PaperInfo pi = SettingsHandler.getGame().getModeContext().ref
+		final PaperInfo pi = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.getItemInOrder(PaperInfo.class, idx);
 
 		return pi.getPaperInfo(infoType);
@@ -785,7 +785,7 @@ public final class Globals
 	 */
 	public static String adjustDamage(final String aDamage, int baseSize, final int finalSize)
 	{
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
 				aDamage);
 		int multiplier = 0;
@@ -890,7 +890,7 @@ public final class Globals
 	 */
 	public static boolean checkRule(final String aKey)
 	{
-		RuleCheck rule = SettingsHandler.getGame().getModeContext().ref
+		RuleCheck rule = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
 		if (rule == null)
 		{
@@ -934,18 +934,18 @@ public final class Globals
 		{
 			Logging.log(logLevel, "Number of objects loaded. The following should "
 				+ "all be greater than 0:");
-			Logging.log(logLevel, "Races=" + Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size());
-			Logging.log(logLevel, "Classes=" + getContext().ref.getConstructedCDOMObjects(PCClass.class).size());
-			Logging.log(logLevel, "Skills=" + Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size());
+			Logging.log(logLevel, "Races=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).size());
+			Logging.log(logLevel, "Classes=" + getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).size());
+			Logging.log(logLevel, "Skills=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).size());
 			Logging.log(logLevel, "Feats="
-					+ Globals.getContext().ref.getManufacturer(Ability.class,
+					+ Globals.getContext().getReferenceContext().getManufacturer(Ability.class,
 					AbilityCategory.FEAT).getConstructedObjectCount());
-			Logging.log(logLevel, "Equipment=" + Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size());
-			Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ArmorProf.class).size());
-			Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(ShieldProf.class).size());
-			Logging.log(logLevel, "WeaponProfs=" + Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size());
-			Logging.log(logLevel, "Kits=" + Globals.getContext().ref.getConstructedCDOMObjects(Kit.class).size());
-			Logging.log(logLevel, "Templates=" + Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class).size());
+			Logging.log(logLevel, "Equipment=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).size());
+			Logging.log(logLevel, "ArmorProfs=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(ArmorProf.class).size());
+			Logging.log(logLevel, "ShieldProfs=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(ShieldProf.class).size());
+			Logging.log(logLevel, "WeaponProfs=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).size());
+			Logging.log(logLevel, "Kits=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Kit.class).size());
+			Logging.log(logLevel, "Templates=" + Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCTemplate.class).size());
 		}
 		return listsHappy;
 	}
@@ -957,13 +957,13 @@ public final class Globals
 	public static boolean checkListsHappy()
 	{
 		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
-		boolean listsHappy = !((Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size() == 0)
-				|| (getContext().ref.getConstructedCDOMObjects(PCClass.class).size() == 0)
+		boolean listsHappy = !((Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).size() == 0)
+				|| (getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).size() == 0)
 //				|| (Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
 //				|| (Globals.getContext().ref.getManufacturer(
 //						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
-				|| (Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size() == 0)
-				|| (Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size() == 0));
+				|| (Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).size() == 0)
+				|| (Globals.getContext().getReferenceContext().getConstructedCDOMObjects(WeaponProf.class).size() == 0));
 		return listsHappy;
 	}
 
@@ -1182,10 +1182,10 @@ public final class Globals
 	 */
 	public static boolean selectPaper(final String paperName)
 	{
-		for (int i = 0; i < SettingsHandler.getGame().getModeContext().ref
+		for (int i = 0; i < SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.getConstructedObjectCount(PaperInfo.class); ++i)
 		{
-			final PaperInfo pi = SettingsHandler.getGame().getModeContext().ref
+			final PaperInfo pi = SettingsHandler.getGame().getModeContext().getReferenceContext()
 					.getItemInOrder(PaperInfo.class, i);
 
 			if (pi.getName().equals(paperName))
@@ -1640,7 +1640,7 @@ public final class Globals
 			s_EMPTYRACE.addToListFor(ListKey.TYPE, Type.HUMANOID);
 		}
 
-		getContext().ref.importObject(s_EMPTYRACE);
+		getContext().getReferenceContext().importObject(s_EMPTYRACE);
 	}
 
 	private static String expandRelativePath(String path)

@@ -80,13 +80,13 @@ public class PreHDTest extends AbstractCharacterTestCase
 	{
 		race.setName("Human");
 		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
-		Globals.getContext().ref.importObject(race);
+		Globals.getContext().getReferenceContext().importObject(race);
 
 		PCClass raceClass = new PCClass();
 		raceClass.setName("Race Class");
 		raceClass.put(StringKey.KEY_NAME, "RaceClass");
 		raceClass.put(ObjectKey.IS_MONSTER, true);
-		Globals.getContext().ref.importObject(raceClass);
+		Globals.getContext().getReferenceContext().importObject(raceClass);
 
 		race.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(raceClass), FormulaFactory
@@ -137,7 +137,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 	{
 		monClass.setName("Humanoid");
 		monClass.put(ObjectKey.IS_MONSTER, true);
-		Globals.getContext().ref.importObject(monClass);
+		Globals.getContext().getReferenceContext().importObject(monClass);
 
 		race1.setName("Bugbear");
 		race1.put(FormulaKey.SIZE, new FixedSizeFormula(large));
@@ -145,7 +145,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 		race1.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(monClass), FormulaFactory
 						.getFormulaFor(3)));
-		Globals.getContext().ref.importObject(race1);
+		Globals.getContext().getReferenceContext().importObject(race1);
 
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(race1);

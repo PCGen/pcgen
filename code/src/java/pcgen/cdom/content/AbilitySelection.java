@@ -53,7 +53,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		}
 		String ab = st.nextToken();
 		Ability a =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, ac, ab);
 		if (a == null)
 		{

@@ -556,13 +556,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		for (Campaign c : loaded)
 		{
-			c.applyTo(context.ref);
+			c.applyTo(context.getReferenceContext());
 		}
 
 		// load weapon profs first
 		wProfLoader.loadLstFiles(context, weaponProfFileList);
 		WeaponProf wp =
-				context.ref.silentlyGetConstructedCDOMObject(WeaponProf.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(WeaponProf.class,
 					"Unarmed Strike");
 		if (wp == null)
 		{
@@ -570,7 +570,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			wp.setName(LanguageBundle.getString("Equipment.UnarmedStrike"));
 			wp.put(StringKey.KEY_NAME, "Unarmed Strike");
 			wp.addToListFor(ListKey.TYPE, Type.SIMPLE);
-			context.ref.importObject(wp);
+			context.getReferenceContext().importObject(wp);
 		}
 
 		aProfLoader.loadLstFiles(context, armorProfFileList);
@@ -632,16 +632,16 @@ public class SourceFileLoader extends PCGenTask implements Observer
 							LoadContext context)
 	{
 		createLangBonusObject(context);
-		context.ref.buildDeferredObjects();
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDeferredObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		referenceAllCategories(context);
 		context.resolveDeferredTokens();
 		LoadValidator validator = new LoadValidator(aSelectedCampaignsList);
-		context.ref.validate(validator);
+		context.getReferenceContext().validate(validator);
 		context.resolveReferences(validator);
 		context.resolvePostDeferredTokens();
 		context.validateAssociations(validator);
-		for (Equipment eq : context.ref.getConstructedCDOMObjects(Equipment.class))
+		for (Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			EqModAttachment.finishEquipment(eq);
 		}
@@ -676,14 +676,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			 * Yes, these are thrown away... just need to make sure the
 			 * manufacturer was built.
 			 */
-			context.ref.getManufacturer(Ability.class, cat);
+			context.getReferenceContext().getManufacturer(Ability.class, cat);
 		}
 	}
 
 	public static void createLangBonusObject(LoadContext context)
 	{
-		Ability a = context.ref.constructCDOMObject(Ability.class, "*LANGBONUS");
-		context.ref.reassociateCategory(AbilityCategory.LANGBONUS, a);
+		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, "*LANGBONUS");
+		context.getReferenceContext().reassociateCategory(AbilityCategory.LANGBONUS, a);
 		a.put(ObjectKey.INTERNAL, true);
 		context.unconditionallyProcess(a, "CHOOSE", "LANG|!PC,LANGBONUS");
 		context.unconditionallyProcess(a, "VISIBLE", "NO");
@@ -740,7 +740,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					aLine = aLine.substring(idx + 1);
 
 					Equipment aEq =
-							Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 							Equipment.class, baseItemKey);
 
 					if (aEq != null)
@@ -752,7 +752,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 						{
 							aEq.addType(Type.CUSTOM);
 						}
-						Globals.getContext().ref.importObject(aEq);
+						Globals.getContext().getReferenceContext().importObject(aEq);
 					}
 				}
 			}
@@ -822,7 +822,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// Check all the weapons to see if they are either Melee or Ranged, to avoid
 		// problems when we go to export/preview the character
 		//
-		for (Equipment aEq : Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class))
+		for (Equipment aEq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			if (aEq.isWeapon() && !aEq.isMelee() && !aEq.isRanged())
 			{
@@ -1134,7 +1134,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	public int getDefaultSizeAdjustmentCount()
 	{
 		int i = 0;
-		for (SizeAdjustment s : Globals.getContext().ref
+		for (SizeAdjustment s : Globals.getContext().getReferenceContext()
 				.getOrderSortedCDOMObjects(SizeAdjustment.class))
 		{
 			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))

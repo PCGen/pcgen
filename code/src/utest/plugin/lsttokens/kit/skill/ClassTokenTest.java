@@ -61,10 +61,10 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "English");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "English");
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -72,8 +72,8 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 }

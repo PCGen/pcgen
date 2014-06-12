@@ -169,7 +169,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL+15");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		context.ref.importObject(myClass);
+		context.getReferenceContext().importObject(myClass);
 		character.incrementClassLevel(1, myClass, true);
 
 		character.calcActiveBonuses();
@@ -185,7 +185,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 		dblWpn.getEquipmentHead(2).put(IntegerKey.CRIT_RANGE, 1);
 		dblWpn.put(IntegerKey.SLOTS, 2);
-		dblWpn.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		dblWpn.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
 		dblWpn.put(ObjectKey.SIZE, medium);
 		dblWpn.put(ObjectKey.BASESIZE, medium);
@@ -201,13 +201,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponProf wp = new WeaponProf();
 		wp.setName("DoubleWpn");
 		wp.put(IntegerKey.HANDS, Constants.HANDS_SIZE_DEPENDENT);
-		context.ref.importObject(wp);
+		context.getReferenceContext().importObject(wp);
 
 		wp = new WeaponProf();
 		wp.setName("Sword (Bastard)");
 		wp.put(StringKey.KEY_NAME, "KEY_Sword (Bastard)");
 		TestHelper.addType(wp, "MARTIAL.EXOTIC");
-		context.ref.importObject(wp);
+		context.getReferenceContext().importObject(wp);
 
 		bastardSword = new Equipment();
 		bastardSword.setName("Sword, Bastard");
@@ -217,7 +217,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		bastardSword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		bastardSword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
 		bastardSword.put(ObjectKey.SIZE, medium);
 		bastardSword.put(ObjectKey.BASESIZE, medium);
@@ -226,7 +226,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.setName("Longsword");
 		wp.put(StringKey.KEY_NAME, "KEY_LONGSWORD");
 		wp.addToListFor(ListKey.TYPE, Type.getConstant("MARTIAL"));
-		context.ref.importObject(wp);
+		context.getReferenceContext().importObject(wp);
 
 		largeSword = new Equipment();
 		largeSword.setName("Longsword (Large)");
@@ -237,7 +237,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		largeSword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		largeSword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 		largeSword.put(ObjectKey.SIZE, large);
 		largeSword.put(ObjectKey.BASESIZE, large);
@@ -251,7 +251,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		fineSword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		fineSword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 		fineSword.put(ObjectKey.SIZE, medium);
 		fineSword.put(ObjectKey.BASESIZE, medium);
@@ -260,7 +260,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		spearwp.setName("Spear");
 		spearwp.put(StringKey.KEY_NAME, "KEY_SPEAR");
 		spearwp.addToListFor(ListKey.TYPE, Type.getConstant("MARTIAL"));
-		context.ref.importObject(spearwp);
+		context.getReferenceContext().importObject(spearwp);
 
 		longSpear = new Equipment();
 		longSpear.setName("Longspear");
@@ -271,7 +271,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
-		longSpear.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		longSpear.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
 		longSpear.put(ObjectKey.SIZE, medium);
 		longSpear.put(ObjectKey.BASESIZE, medium);
@@ -280,7 +280,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		GameMode gm = SettingsHandler.getGame();
 		RuleCheck rc = new RuleCheck();
 		rc.setName("SIZECAT");
-		gm.getModeContext().ref.importObject(rc);
+		gm.getModeContext().getReferenceContext().importObject(rc);
 		SettingsHandler.setRuleCheck("SIZECAT", true);
 		gm.setWCStepsFormula("EQUIP.SIZE.INT-PC.SIZE.INT");
 		gm.setWeaponReachFormula("(RACEREACH+(max(0,REACH-5)))*REACHMULT");
@@ -290,7 +290,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		wp.put(StringKey.KEY_NAME, "SillyBite");
 		//wp.setTypeInfo("Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		wp.addToListFor(ListKey.TYPE, Type.NATURAL);
-		context.ref.importObject(wp);
+		context.getReferenceContext().importObject(wp);
 
 		bite = new Equipment();
 		bite.setName("Silly Bite");
@@ -313,7 +313,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
-		bite.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		bite.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 		bite.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(wp));
 
@@ -333,7 +333,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 		
 		// Weild categories
-		WieldCategory twoHanded = context.ref.silentlyGetConstructedCDOMObject(
+		WieldCategory twoHanded = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded");
 		twoHanded.setSizeDifference(1);
 
@@ -352,7 +352,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(eqMod);
+		context.getReferenceContext().importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Plus 2 Enhancement");
 		eqMod.put(StringKey.KEY_NAME, "PLUS2W");
@@ -367,7 +367,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(eqMod);
+		context.getReferenceContext().importObject(eqMod);
 		eqMod = new EquipmentModifier();
 		eqMod.setName("Masterwork");
 		eqMod.put(StringKey.KEY_NAME, "MWORKW");
@@ -379,13 +379,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			eqMod.addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(eqMod);
+		context.getReferenceContext().importObject(eqMod);
 		
 		PCTemplate pct = new PCTemplate();
 		context.unconditionallyProcess(pct, "AUTO",
 				"WEAPONPROF|KEY_Sword (Bastard)|KEY_LONGSWORD|SillyBite");
 		character.addTemplate(pct);
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	/*

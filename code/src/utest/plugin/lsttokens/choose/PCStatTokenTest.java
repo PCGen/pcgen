@@ -125,9 +125,9 @@ public class PCStatTokenTest extends
 	@Override
 	protected Loadable construct(LoadContext loadContext, String one)
 	{
-		PCStat obj = loadContext.ref.constructCDOMObject(getTargetClass(),
+		PCStat obj = loadContext.getReferenceContext().constructCDOMObject(getTargetClass(),
 				one);
-		loadContext.ref.registerAbbreviation(obj, one);
+		loadContext.getReferenceContext().registerAbbreviation(obj, one);
 		return obj;
 	}
 

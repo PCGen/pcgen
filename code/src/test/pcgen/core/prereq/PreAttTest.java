@@ -107,6 +107,6 @@ public class PreAttTest extends AbstractCharacterTestCase
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
 		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL+5");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
-		Globals.getContext().ref.importObject(myClass);
+		Globals.getContext().getReferenceContext().importObject(myClass);
 	}
 }

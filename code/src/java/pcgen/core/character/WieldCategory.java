@@ -216,7 +216,7 @@ public final class WieldCategory implements Loadable
 			if (aBump != 0)
 			{
 				final int newSizeInt = eq.sizeInt() + aBump;
-				final SizeAdjustment sadj = Globals.getContext().ref
+				final SizeAdjustment sadj = Globals.getContext().getReferenceContext()
 						.getItemInOrder(SizeAdjustment.class, newSizeInt);
 				eq.put(ObjectKey.SIZE, sadj);
 			}

@@ -167,7 +167,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ value, context);
 		}
 
-		Category<Ability> category = context.ref
+		Category<Ability> category = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, first);
 		if (category == null)
 		{
@@ -205,7 +205,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean allowStack = false;
 		int dupChoices = 0;
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, category);
 
 		while (tok.hasNext())

@@ -59,15 +59,15 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil1");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil1");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil1");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|NORMAL|Abil1");
 		commit(modCampaign, tc, "FEAT|VIRTUAL|TYPE=TestType");
@@ -78,15 +78,15 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil1");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil1");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil1");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|Abil1|Abil2");
 		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
@@ -97,15 +97,15 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinMixed() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil1");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil1");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil1");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2|Abil1");
 		commit(modCampaign, tc, "FEAT|AUTOMATIC|.CLEAR.Abil1|Abil2");
@@ -116,15 +116,15 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil1");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil1");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil1");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "FEAT|VIRTUAL|Abil1|Abil2");
@@ -135,15 +135,15 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil1");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil1");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil1");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|Abil1|Abil2");
 		emptyCommit(modCampaign, tc);
@@ -154,11 +154,11 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinNoSetDotClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
@@ -170,11 +170,11 @@ public class AbilityIntegrationTest extends
 			throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
 		emptyCommit(modCampaign, tc);
@@ -184,11 +184,11 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinMixedClearDot() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
 		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
@@ -199,11 +199,11 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinMixedDotClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR.Abil2");
 		commit(modCampaign, tc, "FEAT|VIRTUAL|.CLEAR");
@@ -234,15 +234,15 @@ public class AbilityIntegrationTest extends
 	public void testRoundRobinClearOrder() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil1");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil1");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil2");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil1");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil2");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|VIRTUAL|.CLEAR",
 				"FEAT|VIRTUAL|Abil1|Abil2");

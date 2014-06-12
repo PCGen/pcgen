@@ -226,7 +226,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			int commaLoc = token.indexOf(',');
 			String name = commaLoc == -1 ? token : token.substring(0, commaLoc);
-			CDOMReference<Spell> spell = context.ref.getCDOMReference(
+			CDOMReference<Spell> spell = context.getReferenceContext().getCDOMReference(
 					Spell.class, name);
 			dkm.put(spell, AssociationKey.CASTER_LEVEL, casterLevel);
 			Formula timesFormula = FormulaFactory.getFormulaFor(times);

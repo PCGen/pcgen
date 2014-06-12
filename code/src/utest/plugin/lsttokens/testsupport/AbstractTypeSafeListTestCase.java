@@ -47,7 +47,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
 		assertTrue(parse("Rheinhessen"));
 		coll = getUnparseTarget().getListFor(getListKey());
@@ -59,7 +59,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
 		List<?> coll;
 		assertTrue(parse("Nieder�sterreich"));
@@ -72,7 +72,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputSpace() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		List<?> coll;
 		assertTrue(parse("Finger Lakes"));
 		coll = getUnparseTarget().getListFor(getListKey());
@@ -84,7 +84,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputHyphen() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		List<?> coll;
 		assertTrue(parse("Languedoc-Roussillon"));
@@ -97,7 +97,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputY() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		List<?> coll;
 		assertTrue(parse("Yarra Valley"));
 		coll = getUnparseTarget().getListFor(getListKey());
@@ -109,9 +109,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputList() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		List<?> coll;
 		assertTrue(parse("Nieder�sterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
@@ -125,12 +125,12 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
 		assertTrue(parse("Nieder�sterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
@@ -159,7 +159,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
@@ -168,7 +168,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 		assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
@@ -177,7 +177,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 		assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
@@ -186,8 +186,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -197,16 +197,16 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testRoundRobinBase() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		runRoundRobin("Rheinhessen");
 	}
 
 	@Test
 	public void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		runRoundRobin("Finger Lakes");
 	}
@@ -214,9 +214,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
 		runRoundRobin("Nieder�sterreich");
 	}
@@ -224,9 +224,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testRoundRobinHyphen() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		runRoundRobin("Languedoc-Roussillon");
 	}
@@ -234,8 +234,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testRoundRobinY() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		runRoundRobin("Yarra Valley");
 	}
@@ -243,14 +243,14 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testRoundRobinThree() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Yarra Valley"
 				+ getJoinCharacter() + "Languedoc-Roussillon");
@@ -259,11 +259,11 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	@Test
 	public void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Rheinhessen"
 				+ getJoinCharacter() + "Languedoc-Roussillon");

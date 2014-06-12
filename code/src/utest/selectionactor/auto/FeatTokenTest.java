@@ -73,7 +73,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 
 	protected Ability construct(String name)
 	{
-		ReferenceContext refContext = Globals.getContext().ref;
+		ReferenceContext refContext = Globals.getContext().getReferenceContext();
 		Ability obj = refContext.constructCDOMObject(ABILITY_CLASS, name);
 		refContext.reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;

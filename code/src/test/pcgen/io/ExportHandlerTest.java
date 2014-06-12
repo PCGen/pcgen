@@ -143,7 +143,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
 		character.setSkillOrder(knowledge[0], 2);
-		Globals.getContext().ref.importObject(knowledge[0]);
+		Globals.getContext().getReferenceContext().importObject(knowledge[0]);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
@@ -152,7 +152,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intel);
 		character.setSkillOrder(knowledge[1], 3);
-		Globals.getContext().ref.importObject(knowledge[1]);
+		Globals.getContext().getReferenceContext().importObject(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
@@ -161,7 +161,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		tumble.put(ObjectKey.KEY_STAT, dex);
 		character.setSkillOrder(tumble, 4);
-		Globals.getContext().ref.importObject(tumble);
+		Globals.getContext().getReferenceContext().importObject(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
@@ -176,7 +176,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		{
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.getContext().ref.importObject(balance);
+		Globals.getContext().getReferenceContext().importObject(balance);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
 		character.calcActiveBonuses();
@@ -194,8 +194,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		armor.setName("TestArmorSuit");
 		TestHelper.addType(armor, "armor.suit");
 
-		context.ref.buildDerivedObjects();
-		context.ref.resolveReferences(null);
+		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 	}
 
 	/**
@@ -377,9 +377,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
 		}
 		
-		AbilityCategory cat = context.ref.constructCDOMObject(
+		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "Maneuver");
-		AbilityCategory cat2 = context.ref.constructCDOMObject(
+		AbilityCategory cat2 = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "Maneuver(Special)");
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("DummyFeat3");

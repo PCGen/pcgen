@@ -66,7 +66,7 @@ public final class FeatLoader extends AbilityLoader
 			feat.setName(name.intern());
 			feat.setCDOMCategory(AbilityCategory.FEAT);
 			context.addStatefulInformation(feat);
-			context.ref.importObject(feat);
+			context.getReferenceContext().importObject(feat);
 		}
 		else
 		{
@@ -97,7 +97,7 @@ public final class FeatLoader extends AbilityLoader
 	 */
 	private void loadDefaultFeats(LoadContext context, CampaignSourceEntry firstSource)
 	{
-		Ability wpFeat = context.ref.silentlyGetConstructedCDOMObject(Ability.class,
+		Ability wpFeat = context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
 				AbilityCategory.FEAT, Constants.INTERNAL_WEAPON_PROF);
 		if (wpFeat == null)
 		{
@@ -134,7 +134,7 @@ public final class FeatLoader extends AbilityLoader
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, final String aKey)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(Ability.class,
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class,
 				AbilityCategory.FEAT, aKey);
 	}
 	

@@ -267,15 +267,15 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
 
-		WeaponProf cwp = context.ref.silentlyGetConstructedCDOMObject(
+		WeaponProf cwp = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WEAPONPROF_CLASS, attackName);
 		if (cwp == null)
 		{
-			cwp = context.ref.constructNowIfNecessary(WEAPONPROF_CLASS,
+			cwp = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS,
 					attackName);
 			cwp.addToListFor(ListKey.TYPE, Type.NATURAL);
 		}
-		CDOMSingleRef<WeaponProf> wp = context.ref.getCDOMReference(
+		CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
 				WEAPONPROF_CLASS, attackName);
 		anEquip.put(ObjectKey.WEAPON_PROF, wp);
 		anEquip.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
@@ -403,7 +403,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				int isize =
 						sizeFormula.resolveStatic().intValue();
-				SizeAdjustment size = context.ref.getItemInOrder(
+				SizeAdjustment size = context.getReferenceContext().getItemInOrder(
 						SizeAdjustment.class, isize);
 				for (Equipment e : natWeapons)
 				{

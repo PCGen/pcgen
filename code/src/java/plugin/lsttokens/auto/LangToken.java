@@ -142,7 +142,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				context.getObjectContext().addToList(
 						obj,
 						ListKey.AUTO_LANGUAGE,
-						new QualifiedObject<CDOMReference<Language>>(context.ref.getCDOMAllReference(LANGUAGE_CLASS),
+						new QualifiedObject<CDOMReference<Language>>(context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS),
 								prereq));
 			} else
 			{

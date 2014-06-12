@@ -227,7 +227,7 @@ class ClassDataHandler extends DefaultHandler
 				if ( anAttrs != null )
 				{
 					final String classKey = anAttrs.getValue("key"); //$NON-NLS-1$
-					final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
+					final PCClass pcClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 					if ( pcClass == null )
 					{
 						Logging.errorPrintLocalised("Exceptions.PCGenParser.ClassNotFound", classKey); //$NON-NLS-1$
@@ -294,7 +294,7 @@ class ClassDataHandler extends DefaultHandler
 					final String statAbbr = anAttrs.getValue("value"); //$NON-NLS-1$
 					if ( statAbbr != null )
 					{
-						PCStat stat = Globals.getContext().ref
+						PCStat stat = Globals.getContext().getReferenceContext()
 								.getAbbreviatedObject(PCStat.class, statAbbr);
 						theCurrentData.addStat(stat, weight);
 					}
@@ -319,7 +319,7 @@ class ClassDataHandler extends DefaultHandler
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
 							final List<Skill> skillsOfType = Globals.getPObjectsOfType(Globals
-									.getContext().ref.getConstructedCDOMObjects(Skill.class),
+									.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class),
 									key.substring(5));
 							if ( skillsOfType.size() == 0 )
 							{
@@ -328,7 +328,7 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else
 						{
-							final Skill skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, key);
+							final Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, key);
 							if (skill == null)
 							{
 								Logging.debugPrint("NPCGenerator: Skill not found (" + key + ")"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -364,7 +364,7 @@ class ClassDataHandler extends DefaultHandler
 						else if (key.startsWith("TYPE")) //$NON-NLS-1$
 						{
 							Type type = Type.getConstant(key.substring(5));
-							for (final Ability ability : Globals.getContext().ref
+							for (final Ability ability : Globals.getContext().getReferenceContext()
 									.getManufacturer(Ability.class,
 											theCurrentCategory).getAllObjects())
 							{
@@ -392,7 +392,7 @@ class ClassDataHandler extends DefaultHandler
 						}
 						else
 						{
-							final Ability ability = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+							final Ability ability = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 									Ability.class, theCurrentCategory, key);
 							if (ability == null)
 							{
@@ -495,7 +495,7 @@ class ClassDataHandler extends DefaultHandler
 			if (remainingWeight > 0)
 			{
 				// Add all remaining skills at this weight.
-				for ( final Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
+				for ( final Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
 				{
 					if (skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					{
@@ -516,7 +516,7 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all abilities at this weight.
-				for (Ability ability : Globals.getContext().ref
+				for (Ability ability : Globals.getContext().getReferenceContext()
 						.getManufacturer(Ability.class, theCurrentCategory)
 						.getAllObjects())
 				{
@@ -529,7 +529,7 @@ class ClassDataHandler extends DefaultHandler
 			}
 			for ( final String remove : removeList )
 			{
-				Ability ability = Globals.getContext().ref
+				Ability ability = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(Ability.class,
 								theCurrentCategory, remove);
 				theCurrentData.removeAbility(theCurrentCategory, ability);

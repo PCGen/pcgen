@@ -176,8 +176,8 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testInvalidNegativePrefix() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("TestWP2[TestWP1]"));
 		assertNoSideEffects();
 	}
@@ -185,8 +185,8 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testInvalidNegativeSuffix() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("[TestWP1]TestWP2"));
 		assertNoSideEffects();
 	}
@@ -194,7 +194,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testInvalidNegativeStart() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse("TestWP1]"));
 		assertNoSideEffects();
 	}
@@ -202,7 +202,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testInvalidNegativeEnd() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse("[TestWP1"));
 		assertNoSideEffects();
 	}
@@ -210,7 +210,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testInvalidNegativeListEnd() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse("[TestWP1]" + getJoinCharacter()));
 		assertNoSideEffects();
 	}
@@ -218,7 +218,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testInvalidNegativeListStart() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "[TestWP1]"));
 		assertNoSideEffects();
 	}
@@ -244,8 +244,8 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testInvalidNegativeListDoubleJoin()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP1");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
 		assertFalse(parse("[TestWP2]" + getJoinCharacter() + getJoinCharacter()
 				+ "[TestWP1]"));
 		assertNoSideEffects();
@@ -254,8 +254,8 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testRoundRobinNegativeBase() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		runRoundRobin("[Rheinhessen]");
 	}
 
@@ -263,8 +263,8 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testRoundRobinNegativeWithSpace()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Finger Lakes");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		runRoundRobin("[Finger Lakes]");
 	}
@@ -273,9 +273,9 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testRoundRobinNegativeNonEnglishAndN()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Nieder�sterreich");
 		runRoundRobin("[Nieder�sterreich]");
 	}
@@ -283,14 +283,14 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testRoundRobinNegativeThree() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		runRoundRobin("[Rheinhessen]" + getJoinCharacter() + "[Yarra Valley]"
 				+ getJoinCharacter() + "[Languedoc-Roussillon]");
@@ -299,14 +299,14 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	@Test
 	public void testRoundRobinMixed() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(getCDOMClass(), "Yarra Valley");
-		primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
-		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
+		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		runRoundRobin("Rheinhessen" + getJoinCharacter() + "Yarra Valley"
 				+ getJoinCharacter() + "[Languedoc-Roussillon]");

@@ -168,8 +168,8 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinJustSkill() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
 		runRoundRobin("SKILL|Fireball");
 	}
 
@@ -178,15 +178,15 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	{
 		primaryProf = new Ability();
 		secondaryProf = new Ability();
-		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+		AbilityCategory pac = primaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(pac, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil3");
-		secondaryContext.ref.reassociateCategory(sac, ab);
+		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
@@ -204,11 +204,11 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Skill.class,
+		primaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Skill.class,
 				"Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Skill.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class,
 				"Lightning Bolt");
 		runRoundRobin("SKILL|Fireball|Lightning Bolt");
 	}

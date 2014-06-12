@@ -76,7 +76,7 @@ public class EquipmentLoader implements Loader
 				continue;
 			}
 
-			Equipment obj = context.ref.constructCDOMObject(EQUIPMENT_CLASS,
+			Equipment obj = context.getReferenceContext().constructCDOMObject(EQUIPMENT_CLASS,
 					line + "Test" + tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
 			List<CDOMObject> injected = processToken(sb, objectName, obj,

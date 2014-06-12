@@ -47,7 +47,7 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	@Override
 	public Language decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(LANGUAGE_CLASS), obj, value);
 	}
 }

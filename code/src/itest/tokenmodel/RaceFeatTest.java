@@ -154,7 +154,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 			}
 			boolean abilityExpected =
 					cas.getAbility().equals(
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (!abilityExpected)
 			{
@@ -203,7 +203,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 	protected Ability createGrantedObject()
 	{
 		Ability a = create(Ability.class, "Granted");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 

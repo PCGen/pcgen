@@ -149,16 +149,16 @@ public class QualifiedQualifierTokenTest extends
 	{
 		s1 = new Race();
 		s1.setName("s1");
-		primaryContext.ref.importObject(s1);
+		primaryContext.getReferenceContext().importObject(s1);
 
 		s2 = new Race();
 		s2.setName("s2");
-		primaryContext.ref.importObject(s2);
+		primaryContext.getReferenceContext().importObject(s2);
 		primaryContext.unconditionallyProcess(s2, "TYPE", "Masterful");
 
 		s3 = new Race();
 		s3.setName("s3");
-		primaryContext.ref.importObject(s3);
+		primaryContext.getReferenceContext().importObject(s3);
 		primaryContext.unconditionallyProcess(s3, "TYPE", "Masterful");
 	}
 }

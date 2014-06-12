@@ -82,9 +82,9 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		TokenRegistration.register(getToken());
 		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
 		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		primaryProf = primaryContext.ref.constructCDOMObject(PCClass.class,
+		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"TestObj");
-		secondaryProf = secondaryContext.ref.constructCDOMObject(PCClass.class,
+		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"TestObj");
 		primaryProf1 = primaryProf.getOriginalClassLevel(1);
 		primaryProf2 = primaryProf.getOriginalClassLevel(2);
@@ -149,8 +149,8 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		assertNull(getToken().unparse(secondaryContext, secondaryProf3));
 		validateUnparsed(secondaryContext, secondaryProf2, unparsed);
 		assertCleanConstruction();
-		assertTrue(secondaryContext.ref.validate(null));
-		assertTrue(secondaryContext.ref.resolveReferences(null));
+		assertTrue(secondaryContext.getReferenceContext().validate(null));
+		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
@@ -245,7 +245,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 
 	protected void assertCleanConstruction()
 	{
-		assertTrue(primaryContext.ref.validate(null));
-		assertTrue(primaryContext.ref.resolveReferences(null));
+		assertTrue(primaryContext.getReferenceContext().validate(null));
+		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 }

@@ -55,7 +55,7 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		 * HAS_BONUS_SPELL_STAT to true, but not trigger the creation of
 		 * BONUS_SPELL_STAT?
 		 */
-		PCStat pcs = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value);
+		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()

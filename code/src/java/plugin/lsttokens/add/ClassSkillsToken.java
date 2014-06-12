@@ -108,7 +108,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements
 
 		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
-		CDOMGroupRef<Skill> allRef = context.ref
+		CDOMGroupRef<Skill> allRef = context.getReferenceContext()
 				.getCDOMAllReference(SKILL_CLASS);
 		Integer autoRank = null;
 		while (tok.hasMoreTokens())

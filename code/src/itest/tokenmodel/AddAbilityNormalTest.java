@@ -112,7 +112,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		for (CNAbility a : abilities)
 		{
 			boolean abilityExpected =
-					a.getAbility().equals(context.ref.silentlyGetConstructedCDOMObject(
+					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{
@@ -132,7 +132,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	protected Ability createGrantedObject()
 	{
 		Ability a = super.createGrantedObject();
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 

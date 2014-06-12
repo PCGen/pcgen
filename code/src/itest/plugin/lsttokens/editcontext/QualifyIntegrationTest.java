@@ -60,13 +60,13 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		Ability a = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"My Feat");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		a = secondaryContext.ref.constructCDOMObject(Ability.class, "My Feat");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		a = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "FEAT|My Feat");
 		commit(modCampaign, tc, "SPELL|Lightning Bolt");
@@ -77,10 +77,10 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "SPELL|Lightning Bolt");
 		commit(modCampaign, tc, "SPELL|Fireball");
@@ -91,15 +91,15 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+		AbilityCategory pac = primaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil3");
-		primaryContext.ref.reassociateCategory(pac, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.ref.reassociateCategory(sac, ab);
+		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "ABILITY=NEWCAT|Abil3");
@@ -110,15 +110,15 @@ public class QualifyIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		AbilityCategory pac = primaryContext.ref.constructCDOMObject(
+		AbilityCategory pac = primaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		AbilityCategory sac = secondaryContext.ref.constructCDOMObject(
+		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class,
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 				"Abil3");
-		primaryContext.ref.reassociateCategory(pac, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.ref.reassociateCategory(sac, ab);
+		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ABILITY=NEWCAT|Abil3");
 		emptyCommit(modCampaign, tc);

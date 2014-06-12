@@ -2004,7 +2004,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	public void showSponsorsDialog()
 	{
-		Collection<Sponsor> sponsors = Globals.getGlobalContext().ref.getConstructedCDOMObjects(Sponsor.class);
+		Collection<Sponsor> sponsors = Globals.getGlobalContext().getReferenceContext().getConstructedCDOMObjects(Sponsor.class);
 
 		if (sponsors.size() <= 1)
 		{

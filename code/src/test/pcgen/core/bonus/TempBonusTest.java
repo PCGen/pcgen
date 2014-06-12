@@ -40,7 +40,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		Spell spell = context.ref.constructNowIfNecessary(Spell.class, "PCTempBonusItem");
+		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_PC, bonus);
 		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell, character));
 		assertTrue(TempBonusHelper.hasPCTempBonus(spell, character));
@@ -63,7 +63,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
-		Spell spell = context.ref.constructNowIfNecessary(Spell.class, "PCTempBonusItem");
+		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_ANYPC, bonus);
 		assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasPCTempBonus(spell, character));
@@ -87,7 +87,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
-		Spell spell = context.ref.constructNowIfNecessary(Spell.class, "PCTempBonusItem");
+		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_EQUIP, tb);
 		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasPCTempBonus(spell, character));
@@ -98,7 +98,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		assertFalse(eaStringSet.isEmpty());
 		assertEquals(1, eaStringSet.size());
 		assertEquals("MARTIAL;SIMPLE;EXOTIC", eaStringSet.iterator().next());
-		Equipment dagger = context.ref.constructNowIfNecessary(Equipment.class, "Dagger");
+		Equipment dagger = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Dagger");
 		dagger.addToListFor(ListKey.TYPE, Type.WEAPON);
 		dagger.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		character.addEquipment(dagger);

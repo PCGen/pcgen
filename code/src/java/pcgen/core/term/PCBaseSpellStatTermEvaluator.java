@@ -51,7 +51,7 @@ public class PCBaseSpellStatTermEvaluator
 
 		if (pcClass == null)
 		{
-			pcClass = Globals.getContext().ref
+			pcClass = Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(PCClass.class, source);
 		}
 		//null safe to pass in

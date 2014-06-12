@@ -140,12 +140,12 @@ public class TokenConverter
 		String value = tpe.getValue();
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		Category<Ability> category = tpe.getContext().ref
+		Category<Ability> category = tpe.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class, cat);
 		if (category == null)
 		{
 //			Logging.log(Logging.INFO, "Found new cat " + cat + " in " + tpe);
-			tpe.getContext().ref.constructCDOMObject(
+			tpe.getContext().getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, cat);
 		}
 	}

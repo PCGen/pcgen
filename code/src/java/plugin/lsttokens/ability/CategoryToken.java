@@ -45,13 +45,13 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
-		final Category<Ability> cat = context.ref
+		final Category<Ability> cat = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
 		if (cat == null)
 		{
 			return new ParseResult.Fail("Cannot find Ability Category: " + value, context);
 		}
-		context.ref.reassociateCategory(cat, ability);
+		context.getReferenceContext().reassociateCategory(cat, ability);
 		return ParseResult.SUCCESS;
 	}
 

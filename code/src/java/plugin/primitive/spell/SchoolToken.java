@@ -45,8 +45,8 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 		{
 			return false;
 		}
-		school = context.ref.getCDOMReference(SpellSchool.class, value);
-		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
+		school = context.getReferenceContext().getCDOMReference(SpellSchool.class, value);
+		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 

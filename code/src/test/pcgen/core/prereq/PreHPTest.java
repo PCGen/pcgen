@@ -108,6 +108,6 @@ public class PreHPTest extends AbstractCharacterTestCase
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getContext().ref.importObject(myClass);
+		Globals.getContext().getReferenceContext().importObject(myClass);
 	}
 }

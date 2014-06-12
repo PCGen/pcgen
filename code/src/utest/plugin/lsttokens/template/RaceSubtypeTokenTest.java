@@ -146,7 +146,7 @@ public class RaceSubtypeTokenTest extends
 	@Test
 	public void testInvalidRemoveEmpty() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		assertFalse(parse(".REMOVE."));
 		assertNoSideEffects();
 	}
@@ -154,7 +154,7 @@ public class RaceSubtypeTokenTest extends
 	@Test
 	public void testInvalidRemoveListEnd() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter() + ".REMOVE."));
 		assertNoSideEffects();
 	}
@@ -162,7 +162,7 @@ public class RaceSubtypeTokenTest extends
 	@Test
 	public void testInvalidRemoveListStart() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		assertFalse(parse(".REMOVE." + getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
@@ -171,8 +171,8 @@ public class RaceSubtypeTokenTest extends
 	public void testInvalidRemoveListDoubleJoin()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP1");
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP2");
 		assertFalse(parse(".REMOVE.TestWP2" + getJoinCharacter()
 				+ getJoinCharacter() + ".REMOVE.TestWP1"));
 		assertNoSideEffects();

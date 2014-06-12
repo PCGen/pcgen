@@ -78,7 +78,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		boolean foundOther = false;
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		CDOMGroupRef<ClassSkillList> monsterList = context.ref
+		CDOMGroupRef<ClassSkillList> monsterList = context.getReferenceContext()
 				.getCDOMTypeReference(ClassSkillList.class, "Monster");
 
 		while (tok.hasMoreTokens())
@@ -101,7 +101,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 				String clearText = tokText.substring(7);
 				if (Constants.LST_ALL.equals(clearText))
 				{
-					skill = context.ref.getCDOMAllReference(SKILL_CLASS);
+					skill = context.getReferenceContext().getCDOMAllReference(SKILL_CLASS);
 				}
 				else
 				{
@@ -141,7 +141,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
-					skill = context.ref.getCDOMAllReference(SKILL_CLASS);
+					skill = context.getReferenceContext().getCDOMAllReference(SKILL_CLASS);
 				}
 				else
 				{
@@ -186,7 +186,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<Skill>(Skill.class, context.ref
+			return new PatternMatchingReference<Skill>(Skill.class, context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else
@@ -199,7 +199,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		CDOMGroupRef<ClassSkillList> monsterList = context.ref
+		CDOMGroupRef<ClassSkillList> monsterList = context.getReferenceContext()
 				.getCDOMTypeReference(ClassSkillList.class, "Monster");
 		AssociatedChanges<CDOMReference<Skill>> changes = context
 				.getListContext().getChangesInList(getTokenName(), race,

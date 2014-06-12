@@ -124,7 +124,7 @@ public class CheckToken extends Token
 		{
 			int i = Integer.parseInt(saveType);
 
-			List<PCCheck> checkList = Globals.getContext().ref
+			List<PCCheck> checkList = Globals.getContext().getReferenceContext()
 					.getOrderSortedCDOMObjects(PCCheck.class);
 			if ((i >= 0) && (i < checkList.size()))
 			{
@@ -134,7 +134,7 @@ public class CheckToken extends Token
 		catch (NumberFormatException e)
 		{
 			// just means it's a name, not a number
-			return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					PCCheck.class, saveType);
 		}
 		return null;

@@ -54,7 +54,7 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 		Deity deity = display.getDeity();
 		if (deity != null)
 		{
-			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
+			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
 			{
 				runningTotal++;
 			}

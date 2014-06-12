@@ -47,7 +47,7 @@ public final class LockedStat extends BonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		PCStat stat = context.ref.getAbbreviatedObject(PCStat.class, token);
+		PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCStat.class, token);
 
 		if (stat != null)
 		{
@@ -86,7 +86,7 @@ public final class LockedStat extends BonusObj
 	public String getDescription()
 	{
 		final PCStat pcstat =
-				Globals.getContext().ref.getAbbreviatedObject(PCStat.class,
+				Globals.getContext().getReferenceContext().getAbbreviatedObject(PCStat.class,
 					getBonusInfo());
 		if (pcstat != null)
 		{

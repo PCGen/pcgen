@@ -60,7 +60,7 @@ public class PreLanguageTester extends AbstractDisplayPrereqTest implements
 		}
 		else
 		{
-			final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, requiredLang);
+			final Language aLang = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Language.class, requiredLang);
 			if (aLang != null)
 			{
 				if (display.hasLanguage(aLang))

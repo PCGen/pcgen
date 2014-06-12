@@ -47,8 +47,8 @@ public class SkillClassesTest extends AbstractTokenModelTest
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
-		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
+		sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");
+		dragon = context.getReferenceContext().constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
 		ChooserFactory.setDelegate(new MockUIDelegate());
 	}

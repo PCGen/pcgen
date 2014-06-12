@@ -78,7 +78,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())
@@ -98,7 +98,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<CNAbility> cs = new ChoiceSet<CNAbility>(getTokenName(), gfd);
 		
-		TabInfo ti = context.ref.silentlyGetConstructedCDOMObject(
+		TabInfo ti = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				TabInfo.class, Tab.ABILITIES.toString());
 		String singularName = ti.getResolvedName();
 		if (singularName.endsWith("s"))

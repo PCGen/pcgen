@@ -47,7 +47,7 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	@Override
 	public Deity decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(DEITY_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(DEITY_CLASS, s);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(DEITY_CLASS), obj, value);
 	}
 }

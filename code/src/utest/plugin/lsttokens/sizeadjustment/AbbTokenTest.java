@@ -57,7 +57,7 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryContext.ref.getAbbreviation(primaryProf));
+		assertEquals(null, primaryContext.getReferenceContext().getAbbreviation(primaryProf));
 		assertNoSideEffects();
 	}
 
@@ -160,7 +160,7 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 
 	protected String[] setAndUnparse(String val)
 	{
-		primaryContext.ref.registerAbbreviation(primaryProf, val);
+		primaryContext.getReferenceContext().registerAbbreviation(primaryProf, val);
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

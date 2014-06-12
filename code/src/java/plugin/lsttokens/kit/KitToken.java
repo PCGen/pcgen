@@ -77,7 +77,7 @@ public class KitToken extends AbstractTokenWithSeparator<KitKit> implements
 		{
 			String tokText = tok.nextToken();
 			CDOMSingleRef<Kit> ref =
-					context.ref.getCDOMReference(Kit.class, tokText);
+					context.getReferenceContext().getCDOMReference(Kit.class, tokText);
 			kitKit.addKit(ref);
 		}
 		return ParseResult.SUCCESS;

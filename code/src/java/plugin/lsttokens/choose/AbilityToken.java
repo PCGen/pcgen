@@ -242,7 +242,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		String cat = value.substring(0, barLoc);
 		Category<Ability> category =
-				context.ref.silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
@@ -252,7 +252,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		String abilities = value.substring(barLoc + 1);
 		return parseTokenWithSeparator(context,
-			context.ref.getManufacturer(ABILITY_CLASS, category), category,
+			context.getReferenceContext().getManufacturer(ABILITY_CLASS, category), category,
 			obj, abilities);
 	}
 
@@ -293,7 +293,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		String ab = st.nextToken();
 		Ability a =
-				context.ref.silentlyGetConstructedCDOMObject(Ability.class, ac,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(Ability.class, ac,
 					ab);
 		if (a == null)
 		{
@@ -339,7 +339,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			key = encoded;
 		}
 		Ability a =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, abilityCat, key);
 		if (a == null)
 		{

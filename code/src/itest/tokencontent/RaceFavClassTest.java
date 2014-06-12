@@ -49,7 +49,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	{
 		super.setUp();
 		fcFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
-		context.ref.constructCDOMObject(PCClass.class, "Favorite");
+		context.getReferenceContext().constructCDOMObject(PCClass.class, "Favorite");
 		TokenRegistration.register(CHOOSE_CLASS_TOKEN);
 		ChooserFactory.setDelegate(new MockUIDelegate());
 	}
@@ -106,7 +106,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 
 	protected boolean containsExpected()
 	{
-		return fcFacet.contains(id, context.ref
+		return fcFacet.contains(id, context.getReferenceContext()
 			.silentlyGetConstructedCDOMObject(PCClass.class, "Favorite"));
 	}
 

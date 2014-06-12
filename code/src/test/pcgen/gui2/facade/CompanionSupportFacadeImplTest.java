@@ -128,7 +128,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
-		companionList = Globals.getContext().ref.constructNowIfNecessary(CompanionList.class,
+		companionList = Globals.getContext().getReferenceContext().constructNowIfNecessary(CompanionList.class,
 			"Familiar");
 	}
 

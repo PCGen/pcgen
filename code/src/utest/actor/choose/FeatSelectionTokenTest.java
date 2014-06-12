@@ -104,8 +104,8 @@ public class FeatSelectionTokenTest extends TestCase
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.ref.constructCDOMObject(Ability.class, one);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 }

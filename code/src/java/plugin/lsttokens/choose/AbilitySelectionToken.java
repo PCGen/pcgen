@@ -249,7 +249,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		}
 		String cat = value.substring(0, barLoc);
 		Category<Ability> category =
-				context.ref.silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{
@@ -259,7 +259,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		}
 		String abilities = value.substring(barLoc + 1);
 		return parseTokenWithSeparator(context,
-			context.ref.getManufacturer(ABILITY_CLASS, category), category,
+			context.getReferenceContext().getManufacturer(ABILITY_CLASS, category), category,
 			obj, abilities);
 	}
 

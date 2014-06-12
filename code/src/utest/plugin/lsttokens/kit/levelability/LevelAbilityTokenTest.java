@@ -66,8 +66,8 @@ public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbil
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		runRoundRobin("Fireball=2");
 	}
 }

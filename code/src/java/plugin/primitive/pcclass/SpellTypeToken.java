@@ -44,7 +44,7 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>, PrimitiveFilter<
 			return false;
 		}
 		spelltype = value;
-		allClasses = context.ref.getCDOMAllReference(PCCLASS_CLASS);
+		allClasses = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 		return true;
 	}
 

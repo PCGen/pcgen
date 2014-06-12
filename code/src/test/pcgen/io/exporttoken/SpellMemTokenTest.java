@@ -108,7 +108,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
 		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "KNOWN", "4,2,1");
 		context.unconditionallyProcess(arcaneClass.getOriginalClassLevel(1), "CAST", "3,1,0");
-		context.ref.importObject(arcaneClass);
+		context.getReferenceContext().importObject(arcaneClass);
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
@@ -118,8 +118,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getOriginalClassLevel(1), "CAST", "3,1,0");
-		context.ref.importObject(divineClass);
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().importObject(divineClass);
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 	}
 
@@ -129,8 +129,8 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
     @Override
 	protected void tearDown() throws Exception
 	{
-		Globals.getContext().ref.forget(divineClass);
-		Globals.getContext().ref.forget(arcaneClass);
+		Globals.getContext().getReferenceContext().forget(divineClass);
+		Globals.getContext().getReferenceContext().forget(arcaneClass);
 
 		super.tearDown();
 	}

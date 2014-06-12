@@ -56,7 +56,7 @@ public class VFeatTokenTest extends AbstractCharacterUsingTestCase
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.ref.importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 		// new RuntimeLoadContext(new RuntimeReferenceContext(),
 		// new ConsolidatedListCommitStrategy());
 	}
@@ -105,16 +105,16 @@ public class VFeatTokenTest extends AbstractCharacterUsingTestCase
 		}
 		Ability item = construct("ChooseAbility");
 		Ability parent = construct("Parent");
-		context.ref.constructCDOMObject(Language.class, "Foo");
-		context.ref.constructCDOMObject(Language.class, "Bar");
-		context.ref.constructCDOMObject(Language.class, "Goo");
-		context.ref.constructCDOMObject(Language.class, "Wow");
-		context.ref.constructCDOMObject(Language.class, "Rev");
-		AbilityCategory ff = context.ref.constructCDOMObject(AbilityCategory.class, "Fighter Feat");
+		context.getReferenceContext().constructCDOMObject(Language.class, "Foo");
+		context.getReferenceContext().constructCDOMObject(Language.class, "Bar");
+		context.getReferenceContext().constructCDOMObject(Language.class, "Goo");
+		context.getReferenceContext().constructCDOMObject(Language.class, "Wow");
+		context.getReferenceContext().constructCDOMObject(Language.class, "Rev");
+		AbilityCategory ff = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Fighter Feat");
 		ff.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		AbilityCategory oc = context.ref.constructCDOMObject(AbilityCategory.class, "Some Other Category");
-		Ability badCA = context.ref.constructCDOMObject(Ability.class, "ChooseAbility");
-		context.ref.reassociateCategory(oc, badCA);
+		AbilityCategory oc = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Some Other Category");
+		Ability badCA = context.getReferenceContext().constructCDOMObject(Ability.class, "ChooseAbility");
+		context.getReferenceContext().reassociateCategory(oc, badCA);
 		try {
 			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(item, "MULT", "Yes"));
@@ -186,8 +186,8 @@ public class VFeatTokenTest extends AbstractCharacterUsingTestCase
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.ref.constructCDOMObject(Ability.class, one);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 }

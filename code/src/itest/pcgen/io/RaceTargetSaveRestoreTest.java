@@ -96,7 +96,7 @@ public class RaceTargetSaveRestoreTest extends
 				}
 				//TODO need this to create the spell support :/
 				PCClass cl =
-						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 							"MonClass");
 				reloadedPC.getSpellSupport(cl);
 			}

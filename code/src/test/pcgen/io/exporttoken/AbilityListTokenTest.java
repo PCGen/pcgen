@@ -67,7 +67,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		// Make some ability categories and add them to the game mode
-		AbilityCategory bardCategory = Globals.getContext().ref
+		AbilityCategory bardCategory = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "BARDIC");
 
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");

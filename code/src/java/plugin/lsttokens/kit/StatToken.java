@@ -93,7 +93,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 						+ value, context);
 			}
 			String statName = token.substring(0, equalLoc);
-			PCStat stat = context.ref.getAbbreviatedObject(PCStat.class,
+			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCStat.class,
 					statName);
 			if (stat == null)
 			{

@@ -167,7 +167,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(abilityScoreCombo, c);
 		this.add(abilityScoreCombo);
 
-		ReferenceManufacturer<RollMethod> mfg = gameMode.getModeContext().ref
+		ReferenceManufacturer<RollMethod> mfg = gameMode.getModeContext().getReferenceContext()
 				.getManufacturer(RollMethod.class);
 		List<RollMethod> rollMethods = mfg.getOrderSortedObjects();
 		if (!rollMethods.isEmpty())
@@ -191,7 +191,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		}
 
 		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
-				.getModeContext().ref
+				.getModeContext().getReferenceContext()
 				.getConstructedCDOMObjects(PointBuyMethod.class);
 		final int purchaseMethodCount = methods.size();
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
@@ -355,7 +355,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 				public void windowClosed(WindowEvent e)
 				{
 					Collection<PointBuyMethod> methods = SettingsHandler
-							.getGame().getModeContext().ref
+							.getGame().getModeContext().getReferenceContext()
 							.getConstructedCDOMObjects(PointBuyMethod.class);
 					final int purchaseMethodCount = methods.size();
 					pMode = new String[purchaseMethodCount];

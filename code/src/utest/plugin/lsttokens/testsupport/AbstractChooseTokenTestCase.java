@@ -80,7 +80,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 	protected CDOMObject construct(LoadContext loadContext,
 			Class<? extends CDOMObject> cl, String one)
 	{
-		return loadContext.ref.constructCDOMObject(cl, one);
+		return loadContext.getReferenceContext().constructCDOMObject(cl, one);
 	}
 
 	@Override
@@ -1453,7 +1453,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 
 	protected ReferenceManufacturer<TC> getManufacturer()
 	{
-		return primaryContext.ref.getManufacturer(getTargetClass());
+		return primaryContext.getReferenceContext().getManufacturer(getTargetClass());
 	}
 
 	protected abstract String getChoiceTitle();

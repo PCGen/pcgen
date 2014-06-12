@@ -170,7 +170,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public Skill decodeChoice(LoadContext context, String persistentFormat)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Skill.class, persistentFormat);
 	}
 

@@ -315,14 +315,14 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 			for (String classKey : classList)
 			{
 				PObject obj =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(PCClass.class,
 								classKey);
 
 				if (obj == null)
 				{
 					obj =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(Domain.class,
 									classKey);
 					if (obj != null)
@@ -346,7 +346,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				}
 			}
 
-			for (PCClass aClass : Globals.getContext().ref
+			for (PCClass aClass : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(PCClass.class))
 			{
 				if (!aClass.getSpellType().equals(Constants.NONE))
@@ -434,7 +434,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		if (metaAllowed)
 		{
 			List<Ability> metamagicFeats = new ArrayList<Ability>();
-			for (Ability anAbility : Globals.getContext().ref.getManufacturer(
+			for (Ability anAbility : Globals.getContext().getReferenceContext().getManufacturer(
 				Ability.class, AbilityCategory.FEAT).getAllObjects())
 			{
 				if (anAbility.isType("Metamagic"))
@@ -472,7 +472,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				String key = spellList.getKeyName();
 
 				final PCClass aClass =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(PCClass.class,
 								key);
 
@@ -512,7 +512,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				String key = spellList.getKeyName();
 
 				final Domain aDomain =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(Domain.class, key);
 
 				if (aDomain != null)
@@ -562,7 +562,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				if (subType.startsWith("SCHOOL."))
 				{
 					SpellSchool ss =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(
 									SpellSchool.class, subType.substring(7));
 					if (ss == null
@@ -709,7 +709,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		{
 			// TODO We should not be hardcoding the link between cleric and domains
 			aClass =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						PCClass.class, "Cleric");
 		}
 		else

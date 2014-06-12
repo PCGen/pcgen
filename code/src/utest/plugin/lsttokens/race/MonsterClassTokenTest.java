@@ -101,8 +101,8 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		runRoundRobin("Fighter:4");
 	}
 
@@ -134,8 +134,8 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testUnparseSingle() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Fighter");
-		CDOMSingleRef<PCClass> cl = primaryContext.ref.getCDOMReference(
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
+		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
 				PCClass.class, "Fighter");
 		primaryProf.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(cl,
 				FormulaFactory.getFormulaFor(4)));

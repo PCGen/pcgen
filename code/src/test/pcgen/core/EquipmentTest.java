@@ -120,13 +120,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				new GenericLoader<Equipment>(Equipment.class);
 		eq = eqLoader.parseLine(Globals.getContext(), null,
 			"Dummy	SIZE:M 	KEY:OrigKey	TYPE:Weapon", source);
-		eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Equipment.class, OriginalKey);
 
 		eqDouble = eqLoader.parseLine(Globals.getContext(), null,
 			"Dummy	SIZE:M 	KEY:DoubleKey	TYPE:Weapon.Double", source);
 
-		eqDouble = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		eqDouble = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Equipment.class, "DoubleKey");
 		
 		GenericLoader<EquipmentModifier> loader =
@@ -337,14 +337,14 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Equipment custEq = eq.clone();
 		custEq.put(StringKey.KEY_NAME, "Custom");
 		custEq.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eq));
-		Globals.getContext().ref.importObject(custEq);
-		Globals.getContext().ref.importObject(eq);
+		Globals.getContext().getReferenceContext().importObject(custEq);
+		Globals.getContext().getReferenceContext().importObject(eq);
 
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().ref
+		is(Globals.getContext().getReferenceContext()
 				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
 				"size list initialised");
-		BaseDice d6 = gameMode.getModeContext().ref.constructCDOMObject(BaseDice.class, "1d6");
+		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
 		d6.addToDownList(new RollInfo("1d2"));
@@ -356,7 +356,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		d6.addToUpList(new RollInfo("6d6"));
 		d6.addToUpList(new RollInfo("8d6"));
 		d6.addToUpList(new RollInfo("12d6"));
-		Globals.getContext().ref.importObject(d6);
+		Globals.getContext().getReferenceContext().importObject(d6);
 
 		is(custEq.getSize(), eq("M"), "starting size");
 		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
@@ -378,7 +378,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 */
 	public void testCustomEquipRoundRobin()
 	{
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod should be present", eqMod);
 
@@ -398,7 +398,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 */
 	public void testCustomEquipRoundRobinWithBase()
 	{
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod should be present", eqMod);
 
@@ -419,7 +419,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 */
 	public void testGetItemNameFromModifiersPlus1()
 	{
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod should be present", eqMod);
 
@@ -437,7 +437,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 */
 	public void testGetItemNameFromModifiersMasterwork()
 	{
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
 		assertNotNull("Eqmod should be present", eqMod);
 
@@ -465,7 +465,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				"Hidden Mod	KEY:HIDDENMOD	FORMATCAT:PARENS	NAMEOPT:TEXT=Foo	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 				source);
 		EquipmentModifier eqMod =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HIDDENMOD");
 		assertNotNull("Eqmod should be present", eqMod);
 		loader
@@ -475,7 +475,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 			"Hidden Mod 2	KEY:HIDDENMOD2	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 			source);
 	EquipmentModifier eqMod2 =
-			Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				EquipmentModifier.class, "HIDDENMOD2");
 	assertNotNull("Eqmod should be present", eqMod);
 	assertNotNull("Eqmod should be present", eqMod);
@@ -486,7 +486,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		"Hidden Mod 2	KEY:HIDDENMOD3	FORMATCAT:PARENS	NAMEOPT:NOTHING	TYPE:Ammunition.Weapon	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1",
 		source);
 EquipmentModifier eqMod3 =
-		Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "HIDDENMOD3");
 assertNotNull("Eqmod should be present", eqMod);
 
@@ -510,11 +510,11 @@ assertNotNull("Eqmod should be present", eqMod);
 	 */
 	public void testGetCost()
 	{
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
 		assertNotNull("Eqmod MWORKW should be present", eqMod);
 
-		EquipmentModifier eqModPlus = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
 
@@ -547,7 +547,7 @@ assertNotNull("Eqmod should be present", eqMod);
 				"HeadPlusTest		KEY:HEADPT	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*20	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*5	VISIBLE:YES",
 				source);
 		EquipmentModifier eqMod =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HEADPT");
 		assertNotNull("Eqmod HEADPT should be present", eqMod);
 
@@ -558,11 +558,11 @@ assertNotNull("Eqmod should be present", eqMod);
 				"HeadPlusTest		KEY:HEADPT2	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:MasterworkQuality.Weapon	COST:HEADPLUSTOTAL*21	BONUS:ITEMCOST|TYPE=Weapon|HEADPLUSTOTAL*7	VISIBLE:YES",
 				source);
 		EquipmentModifier eqMod2 =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HEADPT2");
 
 	
-		EquipmentModifier eqModPlus = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
 
@@ -604,7 +604,7 @@ assertNotNull("Eqmod should be present", eqMod);
 	 */
 	public void testIsPreTypeEqMod()
 	{
-		EquipmentModifier eqMod = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		assertNotNull("Eqmod should be present", eqMod);
 

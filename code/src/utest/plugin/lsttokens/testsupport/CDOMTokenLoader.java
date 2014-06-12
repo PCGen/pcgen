@@ -229,7 +229,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 
 	protected T getCDOMObject(LoadContext context, String firstToken)
 	{
-		return context.ref.constructCDOMObject(targetClass, firstToken);
+		return context.getReferenceContext().constructCDOMObject(targetClass, firstToken);
 	}
 
 	private void processCopies(LoadContext context)
@@ -253,7 +253,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			int copyLoc = firstToken.indexOf(".COPY=");
 			String sourceName = firstToken.substring(0, copyLoc);
 			String copyName = firstToken.substring(copyLoc + 6);
-			T sourceObj = context.ref.silentlyGetConstructedCDOMObject(
+			T sourceObj = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					targetClass, sourceName);
 			if (sourceObj == null)
 			{
@@ -303,7 +303,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			try
 			{
 				PrintWriter pw = new PrintWriter(f);
-				Collection<T> objects = lc.ref
+				Collection<T> objects = lc.getReferenceContext()
 						.getConstructedCDOMObjects(targetClass);
 				Set<String> set = new TreeSet<String>();
 				for (T obj : objects)

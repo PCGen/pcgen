@@ -102,7 +102,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	protected CDOMObject construct(LoadContext loadContext,
 			Class<? extends CDOMObject> cl, String one)
 	{
-		return loadContext.ref.constructCDOMObject(cl, one);
+		return loadContext.getReferenceContext().constructCDOMObject(cl, one);
 	}
 
 	@Override
@@ -125,7 +125,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	protected ReferenceManufacturer<TC> getManufacturer()
 	{
-		return primaryContext.ref.getManufacturer(getTargetClass());
+		return primaryContext.getReferenceContext().getManufacturer(getTargetClass());
 	}
 
 	@Test
@@ -1904,10 +1904,10 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	protected void finishLoad()
 	{
-		primaryContext.ref.buildDeferredObjects();
-		primaryContext.ref.buildDerivedObjects();
+		primaryContext.getReferenceContext().buildDeferredObjects();
+		primaryContext.getReferenceContext().buildDerivedObjects();
 		primaryContext.resolveDeferredTokens();
-		assertTrue(primaryContext.ref.resolveReferences(null));
+		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 		primaryContext.resolvePostDeferredTokens();
 		primaryContext.loadCampaignFacets();
 	}
@@ -1965,7 +1965,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		wis = createStat("Wisdom", "WIS");
 		cha = createStat("Charisma", "CHA");
 
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");
@@ -2039,8 +2039,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		sa.setName(name);
 		sa.put(StringKey.ABB, abb);
 
-		Globals.getContext().ref.importObject(sa);
-		Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+		Globals.getContext().getReferenceContext().importObject(sa);
+		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		return sa;
 	}
 

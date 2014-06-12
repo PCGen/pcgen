@@ -121,12 +121,12 @@ public class FavoredClassIntegrationTest extends
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
 				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.ref.reassociateCategory(cat, obj);
-		obj = secondaryContext.ref.constructCDOMObject(SubClass.class, "Sub");
-		secondaryContext.ref.reassociateCategory(cat, obj);
+		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		obj = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Sub");
+		secondaryContext.getReferenceContext().reassociateCategory(cat, obj);
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "TestWP1");
 		commit(modCampaign, tc, "TestWP2.Sub");

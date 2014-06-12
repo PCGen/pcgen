@@ -54,19 +54,19 @@ public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(PCTemplate.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 
 	@Test
 	public void testRoundRobinSub() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCTemplate.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(PCTemplate.class, "Fireball");
-		primaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(PCTemplate.class, "EnhancedFeat");
-		secondaryContext.ref.constructCDOMObject(PCTemplate.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class,
 				"EnhancedFeat");
 		runRoundRobin("Fireball[TEMPLATE:EnhancedFeat]");
 	}

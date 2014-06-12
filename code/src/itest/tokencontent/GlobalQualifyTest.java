@@ -75,7 +75,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 		 * content - it is doing filtering as well
 		 */
 		Race dwarf =
-				context.ref.silentlyGetConstructedCDOMObject(Race.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class,
 					"Dwarf");
 		return qualifyFacet.grantsQualify(id, dwarf);
 	}

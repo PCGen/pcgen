@@ -86,11 +86,11 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 			CDOMReference<ClassSkillList> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
-				ref = context.ref.getCDOMAllReference(SKILLLIST_CLASS);
+				ref = context.getReferenceContext().getCDOMAllReference(SKILLLIST_CLASS);
 			}
 			else
 			{
-				ref = context.ref.getCDOMReference(SKILLLIST_CLASS, token);
+				ref = context.getReferenceContext().getCDOMReference(SKILLLIST_CLASS, token);
 			}
 			refs.add(ref);
 		}

@@ -47,7 +47,7 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 	@Override
 	public Skill decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(SKILL_CLASS), obj, value);
 	}
 }

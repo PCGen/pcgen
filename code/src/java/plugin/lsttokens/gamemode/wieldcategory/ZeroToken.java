@@ -40,7 +40,7 @@ public class ZeroToken extends AbstractNonEmptyToken<WieldCategory> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 			WieldCategory wc, String value)
 	{
-		CDOMSingleRef<WieldCategory> stepCat = context.ref.getCDOMReference(
+		CDOMSingleRef<WieldCategory> stepCat = context.getReferenceContext().getCDOMReference(
 				WIELD_CATEGORY_CLASS, value);
 		wc.setWieldCategoryStep(0, stepCat);
 		return ParseResult.SUCCESS;

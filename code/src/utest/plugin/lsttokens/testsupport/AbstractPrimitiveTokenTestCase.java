@@ -65,7 +65,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 
 	@Override

@@ -80,7 +80,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 		}
 		else
 		{
-			Kit kit = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					KIT_CLASS, kitKey);
 			if (display.hasKit(kit))
 			{

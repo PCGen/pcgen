@@ -118,7 +118,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest implements Pr
 				}
 				else
 				{
-					final Equipment eq = Globals.getContext().ref
+					final Equipment eq = Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(Equipment.class,
 									wp.getKeyName());
 					if (eq != null)
@@ -133,7 +133,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest implements Pr
 		}
 		else
 		{
-			WeaponProf wp = Globals.getContext().ref
+			WeaponProf wp = Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
 			if ((wp != null && display.hasWeaponProf(wp)))
 			{

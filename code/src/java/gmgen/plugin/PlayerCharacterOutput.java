@@ -267,7 +267,7 @@ public class PlayerCharacterOutput
 
 	public String getInitMiscMod()
 	{
-		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+		PCStat dex = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				PCStat.class, "DEX");
 		int statMod = pc.getStatModFor(dex);
 		int miscMod = display.initiativeMod() - statMod;
@@ -277,7 +277,7 @@ public class PlayerCharacterOutput
 
 	public String getInitStatMod()
 	{
-		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+		PCStat dex = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				PCStat.class, "DEX");
 		int statMod = pc.getStatModFor(dex);
 
@@ -329,21 +329,21 @@ public class PlayerCharacterOutput
 	public String getSaveFort()
 	{
 		return "+"
-				+ pc.getTotalCheck(Globals.getContext().ref
+				+ pc.getTotalCheck(Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(PCCheck.class, "FORT"));
 	}
 
 	public String getSaveRef()
 	{
 		return "+"
-				+ pc.getTotalCheck(Globals.getContext().ref
+				+ pc.getTotalCheck(Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(PCCheck.class, "REF"));
 	}
 
 	public String getSaveWill()
 	{
 		return "+"
-				+ pc.getTotalCheck(Globals.getContext().ref
+				+ pc.getTotalCheck(Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(PCCheck.class, "WILL"));
 	}
 

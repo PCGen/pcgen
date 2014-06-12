@@ -50,7 +50,7 @@ public class ClassGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class) )
+			for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
 			{
 				if ( ! theChoices.contains(pcClass) )
 				{
@@ -61,7 +61,7 @@ public class ClassGeneratorOption extends GeneratorOption
 		}
 		if ( aValue.startsWith("TYPE") ) //$NON-NLS-1$
 		{
-			for ( final PCClass pcClass : Globals.getPObjectsOfType(Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class), aValue.substring(5)) )
+			for ( final PCClass pcClass : Globals.getPObjectsOfType(Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class), aValue.substring(5)) )
 			{
 				if (!theChoices.contains(pcClass))
 				{
@@ -70,7 +70,7 @@ public class ClassGeneratorOption extends GeneratorOption
 			}
 			return;
 		}
-		final PCClass pcClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, aValue);
+		final PCClass pcClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, aValue);
 		if ( pcClass == null )
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.ClassNotFound", aValue); //$NON-NLS-1$

@@ -70,7 +70,7 @@ public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 		String sizeName = value.substring(0, pipeLoc);
 		String multiplierString = value.substring(pipeLoc + 1);
 
-		CDOMSingleRef<SizeAdjustment> size = context.ref.getCDOMReference(
+		CDOMSingleRef<SizeAdjustment> size = context.getReferenceContext().getCDOMReference(
 				SizeAdjustment.class, sizeName);
 		/*
 		 * TODO Any way to handle the situation of the sizeName being

@@ -92,29 +92,29 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		loader.parseLine(context, null, "Darkvision		VISION:Darkvision (60')",
 			source);
 		darkvisionT =
-				context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class,
 					"Darkvision");
 
 		loader.parseLine(context, null, "Low-light		VISION:Low-light",
 			source);
 		lowlightT =
-				context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class,
 					"Low-light");
 
 		loader.parseLine(context, null, "Astral		VISION:Astral (130')",
 			source);
 		astralT =
-				context.ref.silentlyGetConstructedCDOMObject(PCTemplate.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class,
 					"Astral");
 
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		
 		metricUS = new UnitSet();
 		metricUS.setName("Metric");
 		metricUS.setDistanceUnit("m");
 		metricUS.setDistanceFactor(new BigDecimal(0.3));
 		metricUS.setDistanceDisplayPattern(new DecimalFormat("#.##"));
-		SettingsHandler.getGame().getModeContext().ref.importObject(metricUS);
+		SettingsHandler.getGame().getModeContext().getReferenceContext().importObject(metricUS);
 	}
 
 	/*
@@ -123,9 +123,9 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		Globals.getContext().ref.forget(darkvisionT);
-		Globals.getContext().ref.forget(lowlightT);
-		Globals.getContext().ref.forget(astralT);
+		Globals.getContext().getReferenceContext().forget(darkvisionT);
+		Globals.getContext().getReferenceContext().forget(lowlightT);
+		Globals.getContext().getReferenceContext().forget(astralT);
 
 		super.tearDown();
 	}

@@ -39,7 +39,7 @@ public class OverlapLoader<T extends Loadable> extends SimpleLoader<T>
 		{
 			return null;
 		}
-		return context.ref.constructNowIfNecessary(getLoadClass(), name);
+		return context.getReferenceContext().constructNowIfNecessary(getLoadClass(), name);
 	}
 
 }

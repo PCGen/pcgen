@@ -68,7 +68,7 @@ public class CskillTokenTest extends AbstractSelectionActorTest<Skill>
 	@Override
 	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
 	{
-		PCClass c1 = Globals.getContext().ref.constructCDOMObject(PCClass.class, "Class1");
+		PCClass c1 = Globals.getContext().getReferenceContext().constructCDOMObject(PCClass.class, "Class1");
 		pc1.setDefaultDomainSource(new ClassSource(c1));
 		pc1.addDomain((Domain) owner);
 		super.preparePC(pc1, owner);

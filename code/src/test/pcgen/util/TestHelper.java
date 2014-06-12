@@ -116,10 +116,10 @@ public class TestHelper
 			sa.setName(name);
 			sa.put(StringKey.ABB, abb);
 
-			Globals.getContext().ref.importObject(sa);
-			Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+			Globals.getContext().getReferenceContext().importObject(sa);
+			Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		}
-		Globals.getContext().ref
+		Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(SizeAdjustment.class, "M").put(
 						ObjectKey.IS_DEFAULT_SIZE, true);
 	}
@@ -238,7 +238,7 @@ public class TestHelper
 		aSkill.put(ObjectKey.KEY_STAT, stat);
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
 		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
-		Globals.getContext().ref.importObject(aSkill);
+		Globals.getContext().getReferenceContext().importObject(aSkill);
 		return aSkill;
 	}
 
@@ -251,14 +251,14 @@ public class TestHelper
 	 */
 	public static Ability makeAbility(final String name, final String cat, final String type)
 	{
-		AbilityCategory useCat = Globals.getContext().ref
+		AbilityCategory useCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, cat);
 		final Ability anAbility = new Ability();
 		anAbility.setName(name);
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(useCat);
 		addType(anAbility, type);
-		Globals.getContext().ref.importObject(anAbility);
+		Globals.getContext().getReferenceContext().importObject(anAbility);
 		return anAbility;
 	}
 
@@ -276,7 +276,7 @@ public class TestHelper
 		anAbility.put(StringKey.KEY_NAME, ("KEY_" + name));
 		anAbility.setCDOMCategory(cat);
 		addType(anAbility, type);
-		Globals.getContext().ref.importObject(anAbility);
+		Globals.getContext().getReferenceContext().importObject(anAbility);
 		return anAbility;
 	}
 
@@ -329,7 +329,7 @@ public class TestHelper
 		aWpnProf.setName(name);
 		aWpnProf.put(StringKey.KEY_NAME, ("KEY_" + name));
 		addType(aWpnProf, type);
-		Globals.getContext().ref.importObject(aWpnProf);
+		Globals.getContext().getReferenceContext().importObject(aWpnProf);
 		return aWpnProf;
 	}
 
@@ -348,7 +348,7 @@ public class TestHelper
 		final BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|1");
 		aRace.addToListFor(ListKey.BONUS, bon);
 
-		context.ref.importObject(aRace);
+		context.getReferenceContext().importObject(aRace);
 		return aRace;
 	}
 
@@ -363,7 +363,7 @@ public class TestHelper
 		aClass.setName(name);
 		aClass.put(StringKey.KEY_NAME, ("KEY_" + name));
 
-		Globals.getContext().ref.importObject(aClass);
+		Globals.getContext().getReferenceContext().importObject(aClass);
 		return aClass;
 	}
 
@@ -378,7 +378,7 @@ public class TestHelper
 		domain.setName(name);
 		domain.put(StringKey.KEY_NAME, (name));
 
-		Globals.getContext().ref.importObject(domain);
+		Globals.getContext().getReferenceContext().importObject(domain);
 		return domain;
 	}
 
@@ -393,7 +393,7 @@ public class TestHelper
 		aSpell.setName(name);
 		aSpell.put(StringKey.KEY_NAME, ("KEY_" + name));
 
-		Globals.getContext().ref.importObject(aSpell);
+		Globals.getContext().getReferenceContext().importObject(aSpell);
 		return aSpell;
 	}
 
@@ -409,7 +409,7 @@ public class TestHelper
 		aKit.setName(name);
 		aKit.put(StringKey.KEY_NAME, ("KEY_" + name));
 
-		Globals.getContext().ref.importObject(aKit);
+		Globals.getContext().getReferenceContext().importObject(aKit);
 		return aKit;
 	}
 
@@ -424,7 +424,7 @@ public class TestHelper
 		aTemplate.setName(name);
 		aTemplate.put(StringKey.KEY_NAME, ("KEY_" + name));
 
-		Globals.getContext().ref.importObject(aTemplate);
+		Globals.getContext().getReferenceContext().importObject(aTemplate);
 		return aTemplate;
 	}
 	
@@ -459,7 +459,7 @@ public class TestHelper
 	public static boolean hasWeaponProfKeyed(PlayerCharacter pc,
 			final String aKey)
 	{
-		WeaponProf wp = Globals.getContext().ref
+		WeaponProf wp = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WeaponProf.class, aKey);
 		return wp != null && pc.hasWeaponProf(wp);
 	}
@@ -474,7 +474,7 @@ public class TestHelper
 
 	public static void createAllAlignments()
 	{
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		ref.importObject(createAlignment("Lawful Good", "LG"));
 		ref.importObject(createAlignment("Lawful Neutral", "LN"));
 		ref.importObject(createAlignment("Lawful Evil", "LE"));

@@ -91,16 +91,16 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 			CDOMReference<? extends CDOMListObject<Spell>> ref;
 			if (Constants.LST_ALL.equals(token))
 			{
-				ref = context.ref.getCDOMAllReference(SPELLLIST_CLASS);
+				ref = context.getReferenceContext().getCDOMAllReference(SPELLLIST_CLASS);
 			}
 			else if (token.startsWith("DOMAIN."))
 			{
-				ref = context.ref.getCDOMReference(DOMAINSPELLLIST_CLASS, token
+				ref = context.getReferenceContext().getCDOMReference(DOMAINSPELLLIST_CLASS, token
 						.substring(7));
 			}
 			else
 			{
-				ref = context.ref.getCDOMReference(SPELLLIST_CLASS, token);
+				ref = context.getReferenceContext().getCDOMReference(SPELLLIST_CLASS, token);
 			}
 			refs.add(ref);
 		}

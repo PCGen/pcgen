@@ -127,10 +127,10 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
 				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.ref.reassociateCategory(cat, obj);
+		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
 		assertConstructionError();
 	}
 
@@ -139,13 +139,13 @@ public class FavoredClassTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
 				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.ref.reassociateCategory(cat, obj);
-		obj = primaryContext.ref.constructCDOMObject(SubClass.class, "Two");
+		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
-		primaryContext.ref.reassociateCategory(cat, obj);
+		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
 		assertCleanConstruction();
 	}
 
@@ -158,12 +158,12 @@ public class FavoredClassTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		SubClass obj = primaryContext.ref.constructCDOMObject(SubClass.class,
+		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
 				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.ref.reassociateCategory(cat, obj);
-		obj = secondaryContext.ref.constructCDOMObject(SubClass.class, "Sub");
-		secondaryContext.ref.reassociateCategory(cat, obj);
+		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		obj = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Sub");
+		secondaryContext.getReferenceContext().reassociateCategory(cat, obj);
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
 	}

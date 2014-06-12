@@ -80,10 +80,10 @@ public class GlobalCompanionListTest extends AbstractContentTokenTest
 		FollowerOption entry = available.keySet().iterator().next();
 		boolean raceMatches =
 				entry.getRaceRef().equals(
-					context.ref.getCDOMReference(Race.class, "Ape"));
+					context.getReferenceContext().getCDOMReference(Race.class, "Ape"));
 		boolean listMatches =
 				entry.getListRef().equals(
-					context.ref.getCDOMReference(CompanionList.class,
+					context.getReferenceContext().getCDOMReference(CompanionList.class,
 						"Animal Companion"));
 		boolean adjMatches = entry.getAdjustment() == -3;
 		return raceMatches && listMatches && adjMatches;

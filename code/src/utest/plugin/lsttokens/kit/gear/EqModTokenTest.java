@@ -144,9 +144,9 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	public void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD2|9500");
 	}
@@ -154,9 +154,9 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	public void testRoundRobinComplexAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD2|COST[9500]");
 	}
@@ -170,9 +170,9 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	public void testRoundRobinComplexMultipleAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD2|COST[9500]PLUS[+1]");
 	}
@@ -217,7 +217,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 
 	private void construct(LoadContext context, String string)
 	{
-		context.ref.constructCDOMObject(EquipmentModifier.class, string);
+		context.getReferenceContext().constructCDOMObject(EquipmentModifier.class, string);
 	}
 
 	// TODO Need to catch this someday - currently not caught as a problem

@@ -68,7 +68,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 	@Override
 	public Spell decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(SPELL_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SPELL_CLASS, s);
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 			.getManufacturer(SPELL_CLASS), obj, processMagicalWords(value));
 	}
 

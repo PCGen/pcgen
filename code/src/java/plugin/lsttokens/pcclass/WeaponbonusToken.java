@@ -81,7 +81,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				foundAny = true;
 				CDOMReference<WeaponProf> ref =
-						context.ref.getCDOMAllReference(WEAPONPROF_CLASS);
+						context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
 				context.obj.addToList(pcc, ListKey.WEAPONBONUS, ref);
 			}
 			else
@@ -178,7 +178,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				WeaponProf.class, s);
 	}
 

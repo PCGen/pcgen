@@ -65,7 +65,7 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	@Override
 	public Race decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(RACE_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(RACE_CLASS, s);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(RACE_CLASS), obj, value);
 	}
 }

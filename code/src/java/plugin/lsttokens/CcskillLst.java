@@ -92,7 +92,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 				{
 					context.getObjectContext().removeFromList(obj,
 							ListKey.CCSKILL,
-							context.ref.getCDOMAllReference(SKILL_CLASS));
+							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else if (Constants.LST_LIST.equals(clearText))
 				{
@@ -125,7 +125,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 				{
 					foundAny = true;
 					context.getObjectContext().addToList(obj, ListKey.CCSKILL,
-							context.ref.getCDOMAllReference(SKILL_CLASS));
+							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
@@ -164,7 +164,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<Skill>(Skill.class, context.ref
+			return new PatternMatchingReference<Skill>(Skill.class, context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else

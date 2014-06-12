@@ -141,7 +141,7 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		primaryProf.put(getObjectKey(), primaryContext.ref
+		primaryProf.put(getObjectKey(), primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WieldCategory.class,
 						"OneHanded"));
 		expectSingle(getToken().unparse(primaryContext, primaryProf),

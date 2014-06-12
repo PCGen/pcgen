@@ -119,7 +119,7 @@ public class LevelToken extends Token
 		PCClass aClass = pc.getClassKeyed(classKeyName);
 		if (aClass == null)
 		{
-			aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
+			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			if (aClass != null)
 			{
 				CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);

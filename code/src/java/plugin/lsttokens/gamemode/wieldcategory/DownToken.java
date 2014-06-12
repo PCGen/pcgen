@@ -49,7 +49,7 @@ public class DownToken extends AbstractTokenWithSeparator<WieldCategory>
 		int count = -1;
 		while (st.hasMoreTokens())
 		{
-			CDOMSingleRef<WieldCategory> stepCat = context.ref
+			CDOMSingleRef<WieldCategory> stepCat = context.getReferenceContext()
 					.getCDOMReference(WIELD_CATEGORY_CLASS, st.nextToken());
 			wc.setWieldCategoryStep(count--, stepCat);
 		}

@@ -245,13 +245,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final Prerequisite aPrereq =
 				parser.parse("VARGTEQ", "Foo,1", false, false);
 		final GameMode gameMode = SettingsHandler.getGame();
-		RuleCheck aClassPreRule = gameMode.getModeContext().ref
+		RuleCheck aClassPreRule = gameMode.getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "CLASSPRE");
 		if (aClassPreRule == null)
 		{
 			aClassPreRule = new RuleCheck();
 			aClassPreRule.setName("CLASSPRE");
-			gameMode.getModeContext().ref.importObject(aClassPreRule);
+			gameMode.getModeContext().getReferenceContext().importObject(aClassPreRule);
 		}
 		aClassPreRule.setDefault(false);
 
@@ -330,13 +330,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final Prerequisite aPrereq =
 				parser.parse("VARGTEQ", "Foo,1", false, false);
 		final GameMode gameMode = SettingsHandler.getGame();
-		RuleCheck aClassPreRule = gameMode.getModeContext().ref
+		RuleCheck aClassPreRule = gameMode.getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "CLASSPRE");
 		if (aClassPreRule == null)
 		{
 			aClassPreRule = new RuleCheck();
 			aClassPreRule.setName("CLASSPRE");
-			gameMode.getModeContext().ref.importObject(aClassPreRule);
+			gameMode.getModeContext().getReferenceContext().importObject(aClassPreRule);
 		}
 		aClassPreRule.setDefault(false);
 
@@ -514,7 +514,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
-		Globals.getContext().ref.importObject(megaCasterClass);
+		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
 		assertEquals("Highest spell level for class", 10, character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
@@ -556,7 +556,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				casterFeat,
 				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
 		casterFeat.setCDOMCategory(AbilityCategory.FEAT);
-		context.ref.importObject(casterFeat);
+		context.getReferenceContext().importObject(casterFeat);
 
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, casterFeat, null);
 		cast =
@@ -581,8 +581,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
-		Globals.getContext().ref.importObject(megaCasterClass);
-		context.ref.buildDerivedObjects();
+		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -612,12 +612,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
 		bonusKnownRule.setDefault(true);
 		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.getModeContext().ref.importObject(bonusKnownRule);
+		gameMode.getModeContext().getReferenceContext().importObject(bonusKnownRule);
 		BonusSpellInfo bsi = new BonusSpellInfo();
 		bsi.setName("1");
 		bsi.setStatScore(12);
 		bsi.setStatRange(8);
-		context.ref.importObject(bsi);
+		context.getReferenceContext().importObject(bsi);
 		bsi = new BonusSpellInfo();
 		bsi.setName("5");
 		bsi.setStatScore(20);
@@ -657,8 +657,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
-		Globals.getContext().ref.importObject(megaCasterClass);
-		context.ref.buildDerivedObjects();
+		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
+		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -682,12 +682,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
 		bonusKnownRule.setDefault(true);
 		GameMode gameMode = SettingsHandler.getGame();
-		gameMode.getModeContext().ref.importObject(bonusKnownRule);
+		gameMode.getModeContext().getReferenceContext().importObject(bonusKnownRule);
 		BonusSpellInfo bsi = new BonusSpellInfo();
 		bsi.setName("1");
 		bsi.setStatScore(12);
 		bsi.setStatRange(8);
-		context.ref.importObject(bsi);
+		context.getReferenceContext().importObject(bsi);
 		bsi = new BonusSpellInfo();
 		bsi.setName("5");
 		bsi.setStatScore(20);
@@ -722,16 +722,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
-		AbilityCategory cat = context.ref.constructCDOMObject(
+		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
 		ab1.setCDOMCategory(cat);
-		context.ref.importObject(ab1);
+		context.getReferenceContext().importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
 		ab2.setCDOMCategory(cat);
-		context.ref.importObject(ab2);
+		context.getReferenceContext().importObject(ab2);
 
 		// Link them to a template
 		CampaignSourceEntry source;
@@ -751,9 +751,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PCClass pcclass = parsePCClassText(classPCCText, source);
 		ab1.setCDOMCategory(cat);
 		ab2.setCDOMCategory(cat);
-		context.ref.importObject(ab1);
-		context.ref.importObject(ab2);
-		assertTrue(context.ref.resolveReferences(null));
+		context.getReferenceContext().importObject(ab1);
+		context.getReferenceContext().importObject(ab2);
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> mods = pcclass.getListMods(autoList);
 		assertEquals(1, mods.size());
@@ -923,13 +923,13 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		LoadContext context = Globals.getContext();
 		humanoidClass = classLoader.parseLine(context, null, classDef, source);
-		Globals.getContext().ref.importObject(humanoidClass);
+		Globals.getContext().getReferenceContext().importObject(humanoidClass);
 
 		classDef =
 				"CLASS:Nymph		KEY:KEY_Nymph	CLASSTYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
 		nymphClass = classLoader.parseLine(context, null, classDef, source);
-		Globals.getContext().ref.importObject(nymphClass);
+		Globals.getContext().getReferenceContext().importObject(nymphClass);
 
 		// Create the large size mod
 		// Create the BugBear race
@@ -939,7 +939,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
-		Globals.getContext().ref.importObject(bugbearRace);
+		Globals.getContext().getReferenceContext().importObject(bugbearRace);
 
 		bigBugbearRace = new Race();
 		bigBugbearRace.setName("BigBugbear");
@@ -947,7 +947,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bigBugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(large));
 		bigBugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bigBugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
-		Globals.getContext().ref.importObject(bigBugbearRace);
+		Globals.getContext().getReferenceContext().importObject(bigBugbearRace);
 
 		// Create the Nymph race
 		nymphRace = new Race();
@@ -958,7 +958,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nymphRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(nymphClass), FormulaFactory
 						.getFormulaFor(0)));
-		Globals.getContext().ref.importObject(nymphRace);
+		Globals.getContext().getReferenceContext().importObject(nymphRace);
 
 		// Setup class with prereqs and var based abilities with prereqs.
 		PreVariableParser parser = new PreVariableParser();
@@ -967,7 +967,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		classPreRule.setName("CLASSPRE");
 		classPreRule.setDefault(false);
 		GameMode gameMode = gamemode;
-		gameMode.getModeContext().ref.importObject(classPreRule);
+		gameMode.getModeContext().getReferenceContext().importObject(classPreRule);
 
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");

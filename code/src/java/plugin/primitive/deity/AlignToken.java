@@ -46,8 +46,8 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 		{
 			return false;
 		}
-		alignment = context.ref.getAbbreviatedObject(ALIGNMENT_CLASS, value);
-		allDeities = context.ref.getCDOMAllReference(DEITY_CLASS);
+		alignment = context.getReferenceContext().getAbbreviatedObject(ALIGNMENT_CLASS, value);
+		allDeities = context.getReferenceContext().getCDOMAllReference(DEITY_CLASS);
 		return alignment != null;
 	}
 

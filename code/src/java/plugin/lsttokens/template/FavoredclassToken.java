@@ -106,7 +106,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				if (dotLoc == -1)
 				{
 					// Primitive
-					ref = context.ref.getCDOMReference(PCCLASS_CLASS, token);
+					ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, token);
 				}
 				else
 				{
@@ -119,7 +119,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.ref.getCDOMReference(SUBCLASS_CLASS, scc,
+					ref = context.getReferenceContext().getCDOMReference(SUBCLASS_CLASS, scc,
 							subclass);
 				}
 				context.getObjectContext().addToList(cdo,

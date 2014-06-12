@@ -99,17 +99,17 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		String classPCCText = "CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr\n"
 				+ "CLASS:Fighter	STARTSKILLPTS:2	CSKILL:KEY_Climb|KEY_Use Magic Device";
 		fighterClass = TestHelper.parsePCClassText(classPCCText, source);
-		context.ref.importObject(fighterClass);
+		context.getReferenceContext().importObject(fighterClass);
 
 		classPCCText = "CLASS:Wizard	HD:4		TYPE:Base.PC	ABB:Wiz\n"
 				+ "CLASS:Wizard	STARTSKILLPTS:4	CSKILL:KEY_Spellcraft";
 		wizardClass = TestHelper.parsePCClassText(classPCCText, source);
-		context.ref.importObject(wizardClass);
+		context.getReferenceContext().importObject(wizardClass);
 		context.commit();
 		
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 	}

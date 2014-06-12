@@ -74,8 +74,8 @@ public class SpellsTokenTest extends
 		super.setUp();
 		TokenRegistration.register(new SubSchoolToken());
 		TokenRegistration.register(new AllToken());
-		primaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
-		secondaryContext.ref.constructNowIfNecessary(Spell.class, "Placeholder");
+		primaryContext.getReferenceContext().constructNowIfNecessary(Spell.class, "Placeholder");
+		secondaryContext.getReferenceContext().constructNowIfNecessary(Spell.class, "Placeholder");
 	}
 	
 	@Override
@@ -152,10 +152,10 @@ public class SpellsTokenTest extends
 	{
 		TokenRegistration.register(new SchoolToken());
 		SpellSchool schoolA =
-				primaryContext.ref.constructNowIfNecessary(SpellSchool.class,
+				primaryContext.getReferenceContext().constructNowIfNecessary(SpellSchool.class,
 					"Abjuration");
 		SpellSchool schoolB =
-				secondaryContext.ref.constructNowIfNecessary(SpellSchool.class,
+				secondaryContext.getReferenceContext().constructNowIfNecessary(SpellSchool.class,
 					"Abjuration");
 		CDOMObject a =
 				(CDOMObject) construct(primaryContext, "Endure Elements");
@@ -216,9 +216,9 @@ public class SpellsTokenTest extends
 	public void testValidClassList() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new ClassListToken());
-		primaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
+		primaryContext.getReferenceContext().constructNowIfNecessary(ClassSpellList.class,
 			"Wizard");
-		secondaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
+		secondaryContext.getReferenceContext().constructNowIfNecessary(ClassSpellList.class,
 			"Wizard");
 		runRoundRobin("SPELLS|CLASSLIST=Wizard");
 	}
@@ -231,9 +231,9 @@ public class SpellsTokenTest extends
 	{
 		TokenRegistration.register(new DomainListToken());
 		construct(primaryContext, "Endure Elements");
-		primaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
+		primaryContext.getReferenceContext().constructNowIfNecessary(DomainSpellList.class,
 			"Good");
-		secondaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
+		secondaryContext.getReferenceContext().constructNowIfNecessary(DomainSpellList.class,
 			"Good");
 		runRoundRobin("SPELLS|DOMAINLIST=Good");
 	}

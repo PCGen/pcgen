@@ -41,7 +41,7 @@ public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 			RuleCheck rule, String value)
 	{
-		CDOMSingleRef<RuleCheck> excludeRef = context.ref.getCDOMReference(
+		CDOMSingleRef<RuleCheck> excludeRef = context.getReferenceContext().getCDOMReference(
 				RuleCheck.class, value);
 		rule.setExclude(excludeRef);
 		return ParseResult.SUCCESS;

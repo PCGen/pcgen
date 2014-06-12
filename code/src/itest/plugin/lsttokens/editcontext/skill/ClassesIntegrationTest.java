@@ -85,15 +85,15 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Cleric");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Cleric");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Cleric");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Wizard");
@@ -105,12 +105,12 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	public void testRoundRobinAddNot() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Wizard");
@@ -122,12 +122,12 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	public void testRoundRobinOverridePre() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ALL|!Sorcerer|!Wizard");
@@ -139,9 +139,9 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
@@ -153,12 +153,12 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(ClassSkillList.class, "Wizard");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
-		primaryContext.ref
+		primaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Sorcerer");
-		secondaryContext.ref.constructCDOMObject(ClassSkillList.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class,
 				"Sorcerer");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Sorcerer|Wizard");

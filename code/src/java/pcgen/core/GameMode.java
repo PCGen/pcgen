@@ -238,7 +238,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		if (StringUtils.isNotBlank(rollMethodExpr))
 		{
 			activeRollMethod =
-					getModeContext().ref.silentlyGetConstructedCDOMObject(
+					getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						RollMethod.class, rollMethodExpr);
 			if (activeRollMethod == null)
 			{
@@ -1151,7 +1151,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void addWieldCategory(final WieldCategory wCat)
 	{
-		getModeContext().ref.importObject(wCat);
+		getModeContext().getReferenceContext().importObject(wCat);
 	}
 
 	/**
@@ -1655,7 +1655,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public boolean selectUnitSet(final String unitSetName)
 	{
-		final UnitSet ui = getModeContext().ref
+		final UnitSet ui = getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(UnitSet.class, unitSetName);
 		if (ui == null)
 		{
@@ -1671,7 +1671,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public boolean selectDefaultUnitSet()
 	{
-		final UnitSet ui = getModeContext().ref
+		final UnitSet ui = getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(UnitSet.class, defaultUnitSet);
 		if (ui == null)
 		{
@@ -1722,7 +1722,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public PointBuyMethod getPurchaseMethodByName(final String methodName)
 	{
-		return getModeContext().ref.silentlyGetConstructedCDOMObject(
+		return getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PointBuyMethod.class, methodName);
 	}
 
@@ -1995,7 +1995,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void setRollMethodExpressionByName(final String aString)
 	{
-		activeRollMethod = getModeContext().ref.silentlyGetConstructedCDOMObject(RollMethod.class, aString);
+		activeRollMethod = getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(RollMethod.class, aString);
 		if (activeRollMethod == null)
 		{
 			setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
@@ -2305,7 +2305,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
-		AbilityCategory cat = getContext().ref
+		AbilityCategory cat = getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class, aKey);
 		if (cat != null)
 		{
@@ -2326,7 +2326,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public Collection<AbilityCategory> getAllAbilityCategories()
 	{
-		return getContext().ref
+		return getContext().getReferenceContext()
 				.getConstructedCDOMObjects(AbilityCategory.class);
 	}
 
@@ -2855,7 +2855,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public String getTabName(Tab tab)
 	{
-		TabInfo ti = getContext().ref.silentlyGetConstructedCDOMObject(
+		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				TabInfo.class, tab.toString());
 		return ti.getResolvedName();
 	}
@@ -2865,7 +2865,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public boolean getTabShown(Tab tab)
 	{
-		TabInfo ti = getContext().ref.silentlyGetConstructedCDOMObject(
+		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				TabInfo.class, tab.toString());
 		return ti.isVisible();
 	}
@@ -2910,7 +2910,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public LoadInfo getLoadInfo()
 	{
-		return getModeContext().ref.silentlyGetConstructedCDOMObject(
+		return getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				LoadInfo.class, getName());
 	}
 

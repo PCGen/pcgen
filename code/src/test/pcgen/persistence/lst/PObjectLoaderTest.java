@@ -109,12 +109,12 @@ public class PObjectLoaderTest extends PCGenTestCase
 		PCStat con = new PCStat();
 		con.setName("Constitution");
 		con.put(StringKey.ABB, "CON");
-		context.ref.registerAbbreviation(con, con.getAbb());
+		context.getReferenceContext().registerAbbreviation(con, con.getAbb());
 
 		PCStat intel = new PCStat();
 		intel.setName("Intelligence");
 		intel.put(StringKey.ABB, "INT");
-		context.ref.registerAbbreviation(intel, intel.getAbb());
+		context.getReferenceContext().registerAbbreviation(intel, intel.getAbb());
 		
 		Ability feat = new Ability();
 

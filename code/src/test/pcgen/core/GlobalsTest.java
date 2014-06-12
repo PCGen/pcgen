@@ -392,10 +392,10 @@ public class GlobalsTest extends PCGenTestCase
 	public void testAdjustDamage()
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().ref
+		is(Globals.getContext().getReferenceContext()
 				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
 				"size list initialised");
-		BaseDice d6 = gameMode.getModeContext().ref.constructCDOMObject(BaseDice.class, "1d6");
+		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
 		d6.addToDownList(new RollInfo("1d2"));
@@ -407,10 +407,10 @@ public class GlobalsTest extends PCGenTestCase
 		d6.addToUpList(new RollInfo("6d6"));
 		d6.addToUpList(new RollInfo("8d6"));
 		d6.addToUpList(new RollInfo("12d6"));
-		Globals.getContext().ref.importObject(d6);
-		SizeAdjustment small = Globals.getContext().ref.getAbbreviatedObject(
+		Globals.getContext().getReferenceContext().importObject(d6);
+		SizeAdjustment small = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				SizeAdjustment.class, "S");
-		SizeAdjustment medium = Globals.getContext().ref.getAbbreviatedObject(
+		SizeAdjustment medium = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				SizeAdjustment.class, "M");
 		is(Globals.adjustDamage("1d6", medium, small), strEq("1d4"),
 			"reduction of damage due to smaller size");

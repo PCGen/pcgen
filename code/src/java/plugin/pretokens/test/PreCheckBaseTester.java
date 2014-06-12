@@ -64,7 +64,7 @@ public class PreCheckBaseTester extends AbstractPrerequisiteTest implements Prer
 		final String checkName = prereq.getKey();
 		final int operand =
 				character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		PCCheck check = Globals.getContext().ref
+		PCCheck check = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
 		if (check != null)
 		{

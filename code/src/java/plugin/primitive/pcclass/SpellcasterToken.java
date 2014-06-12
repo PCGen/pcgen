@@ -39,7 +39,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	public boolean initialize(LoadContext context, Class<PCClass> cl,
 			String value, String args)
 	{
-		allClasses = context.ref.getCDOMAllReference(PCCLASS_CLASS);
+		allClasses = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 		return (value == null) && (args == null);
 	}
 

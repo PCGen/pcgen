@@ -59,8 +59,8 @@ public class FollowersIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");
-		secondaryContext.ref.constructCDOMObject(CompanionList.class,
+		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
+		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
 				"Follower");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Follower|4+1");
@@ -72,11 +72,11 @@ public class FollowersIntegrationTest extends
 	public void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");
-		secondaryContext.ref.constructCDOMObject(CompanionList.class,
+		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
+		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
 				"Follower");
-		primaryContext.ref.constructCDOMObject(CompanionList.class, "Pet");
-		secondaryContext.ref.constructCDOMObject(CompanionList.class, "Pet");
+		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Pet");
+		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Pet");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Follower|4+1");
 		commit(modCampaign, tc, "Pet|PetForm");
@@ -87,8 +87,8 @@ public class FollowersIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");
-		secondaryContext.ref.constructCDOMObject(CompanionList.class,
+		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
+		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
 				"Follower");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
@@ -100,8 +100,8 @@ public class FollowersIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(CompanionList.class, "Follower");
-		secondaryContext.ref.constructCDOMObject(CompanionList.class,
+		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
+		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
 				"Follower");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Follower|4+1");

@@ -82,7 +82,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 
 		boolean first = true;
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 		while (tok.hasMoreTokens())
 		{

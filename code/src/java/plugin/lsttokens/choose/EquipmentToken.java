@@ -47,7 +47,7 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	@Override
 	public Equipment decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, s);
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(EQUIPMENT_CLASS), obj, value);
 	}
 }

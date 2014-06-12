@@ -48,7 +48,7 @@ public class ArmorProficiencyToken extends
 	@Override
 	public ArmorProf decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, s);
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class ArmorProficiencyToken extends
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 			CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.ref
+		return super.parseTokenWithSeparator(context, context.getReferenceContext()
 				.getManufacturer(ARMORPROF_CLASS), obj, value);
 	}
 }

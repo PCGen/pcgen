@@ -2431,7 +2431,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			eqMod =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						EquipmentModifier.class, eqModKey);
 
 			if (eqMod == null)
@@ -2794,7 +2794,7 @@ public final class Equipment extends PObject implements Serializable,
 		// If using 3.5 weapon penalties, add them in also
 		if (Globals.checkRule(RuleConstants.SYS_35WP))
 		{
-			for (EqSizePenalty esp : Globals.getContext().ref
+			for (EqSizePenalty esp : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EqSizePenalty.class))
 			{
 				BonusCalc.bonusTo(this, aType, aName, this, esp.getBonuses(),
@@ -3328,7 +3328,7 @@ public final class Equipment extends PObject implements Serializable,
 			else if (aString.startsWith("SIZE" + endPart))
 			{
 				newSize =
-						Globals.getContext().ref.getAbbreviatedObject(
+						Globals.getContext().getReferenceContext().getAbbreviatedObject(
 							SizeAdjustment.class, aString
 								.substring(4 + endPartLen));
 			}
@@ -3795,7 +3795,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (hasPrerequisites())
 		{
 			int maxIndex =
-					Globals.getContext().ref
+					Globals.getContext().getReferenceContext()
 						.getConstructedObjectCount(SizeAdjustment.class);
 			for (Prerequisite aBonus : getPrerequisiteList())
 			{
@@ -3811,7 +3811,7 @@ public final class Equipment extends PObject implements Serializable,
 						// Equipment, since it is returned
 						// by reference from the get above ... thus no need to
 						// perform a set
-						aBonus.setOperand(Globals.getContext().ref
+						aBonus.setOperand(Globals.getContext().getReferenceContext()
 							.getItemInOrder(SizeAdjustment.class, iNewSize)
 							.getAbbreviation());
 					}
@@ -4078,7 +4078,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (get(ObjectKey.BASE_ITEM) == null)
 		{
 			Equipment eq =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Equipment.class, getKeyName());
 			if (eq != null)
 			{
@@ -5509,7 +5509,7 @@ public final class Equipment extends PObject implements Serializable,
 			return false;
 		}
 		WieldCategory wc =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					WieldCategory.class, "Light");
 		return (wc != null) && wc.equals(getEffectiveWieldCategory(pc));
 	}
@@ -5634,28 +5634,28 @@ public final class Equipment extends PObject implements Serializable,
 			if (sizeDiff > 1)
 			{
 				wCat =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(
 								WieldCategory.class, "TooLarge");
 			}
 			else if (sizeDiff == 1)
 			{
 				wCat =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(
 								WieldCategory.class, "TwoHanded");
 			}
 			else if (sizeDiff == 0)
 			{
 				wCat =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(
 								WieldCategory.class, "OneHanded");
 			}
 			else
 			{
 				wCat =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(
 								WieldCategory.class, "Light");
 			}
@@ -5814,7 +5814,7 @@ public final class Equipment extends PObject implements Serializable,
 		else
 		{
 			int maxIndex =
-					Globals.getContext().ref
+					Globals.getContext().getReferenceContext()
 						.getConstructedObjectCount(SizeAdjustment.class) - 1;
 			if (iMod > maxIndex)
 			{
@@ -5822,7 +5822,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 		SizeAdjustment sa =
-				Globals.getContext().ref.getItemInOrder(SizeAdjustment.class,
+				Globals.getContext().getReferenceContext().getItemInOrder(SizeAdjustment.class,
 					iMod);
 		return adjustDamage(dam, sa);
 	}
@@ -6462,12 +6462,12 @@ public final class Equipment extends PObject implements Serializable,
 			if (ref == null)
 			{
 				ShieldProf sp =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(ShieldProf.class,
 								getKeyName());
 				if (sp == null)
 				{
-					return Globals.getContext().ref.constructCDOMObject(
+					return Globals.getContext().getReferenceContext().constructCDOMObject(
 						ShieldProf.class, getKeyName());
 				}
 				else
@@ -6491,12 +6491,12 @@ public final class Equipment extends PObject implements Serializable,
 			if (ref == null)
 			{
 				ArmorProf ap =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(ArmorProf.class,
 								getKeyName());
 				if (ap == null)
 				{
-					return Globals.getContext().ref.constructCDOMObject(
+					return Globals.getContext().getReferenceContext().constructCDOMObject(
 						ArmorProf.class, getKeyName());
 				}
 				else

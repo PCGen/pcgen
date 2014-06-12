@@ -61,8 +61,8 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		super.setUp();
 		mcsFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 		lscFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
-		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
-		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
+		sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");
+		dragon = context.getReferenceContext().constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
 		new HdToken().parseToken(context, dragon, "8");
 		new IsmonsterToken().parseToken(context, dragon, "YES");
@@ -83,7 +83,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		finishLoad();
 		raceFacet.directSet(id, source, getAssoc());
 		ClassSkillList dragonCSL =
-				context.ref.silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
 		assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));

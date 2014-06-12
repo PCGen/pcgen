@@ -61,10 +61,10 @@ public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
 	@Test
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Race.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Race.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Race.class, "English");
-		secondaryContext.ref.constructCDOMObject(Race.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Race.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "English");
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -72,8 +72,8 @@ public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Race.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Race.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 }

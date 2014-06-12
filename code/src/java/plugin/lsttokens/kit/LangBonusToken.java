@@ -81,7 +81,7 @@ public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 
 		while (tok.hasMoreTokens())
 		{
-			kitLangBonus.addLanguage(context.ref.getCDOMReference(
+			kitLangBonus.addLanguage(context.getReferenceContext().getCDOMReference(
 				LANGUAGE_CLASS, tok.nextToken()));
 		}
 		return ParseResult.SUCCESS;

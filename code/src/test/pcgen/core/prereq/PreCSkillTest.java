@@ -141,23 +141,23 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		Skill bar = new Skill();
 		bar.setName("Bar");
 		bar.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
-		Globals.getContext().ref.importObject(bar); 
+		Globals.getContext().getReferenceContext().importObject(bar); 
 		
 		Skill foo = new Skill();
 		foo.setName("Foo");
 		foo.addToListFor(ListKey.SERVES_AS_SKILL, CDOMDirectSingleRef.getRef(bar));
 		foo.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
-		Globals.getContext().ref.importObject(foo);
+		Globals.getContext().getReferenceContext().importObject(foo);
 		
 		Skill baz = new Skill();
 		baz.setName("Baz");
 		baz.addToListFor(ListKey.TYPE, Type.getConstant("Baz"));
-		Globals.getContext().ref.importObject(baz); 
+		Globals.getContext().getReferenceContext().importObject(baz); 
 		
 		Skill fee = new Skill();
 		fee.setName("Fee");
 		fee.addToListFor(ListKey.TYPE, Type.getConstant("Bar"));
-		Globals.getContext().ref.importObject(fee); 
+		Globals.getContext().getReferenceContext().importObject(fee); 
 		
 		character.addLocalCost(myClass, fee, SkillCost.CLASS, myClass);
 		character.addLocalCost(myClass, foo, SkillCost.CLASS, myClass);
@@ -198,34 +198,34 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 
 		spot = new Skill();
 		spot.setName("Spot");
-		Globals.getContext().ref.importObject(spot);
+		Globals.getContext().getReferenceContext().importObject(spot);
 
 		Skill listen = new Skill();
 		listen.setName("Listen");
-		Globals.getContext().ref.importObject(listen);
+		Globals.getContext().getReferenceContext().importObject(listen);
 
 		spy1 = new Skill();
 		spy1.setName("Spy 1");
 		spy1.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
-		Globals.getContext().ref.importObject(spy1);
+		Globals.getContext().getReferenceContext().importObject(spy1);
 
 		spy2 = new Skill();
 		spy2.setName("Spy 2");
 		spy2.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
-		Globals.getContext().ref.importObject(spy2);
+		Globals.getContext().getReferenceContext().importObject(spy2);
 
 		spy3 = new Skill();
 		spy3.setName("Spy 3");
 		spy3.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
-		Globals.getContext().ref.importObject(spy3);
+		Globals.getContext().getReferenceContext().importObject(spy3);
 
 		Skill spy4 = new Skill();
 		spy4.setName("Spy 4");
 		spy4.addToListFor(ListKey.TYPE, Type.getConstant("Spy"));
-		Globals.getContext().ref.importObject(spy4);
+		Globals.getContext().getReferenceContext().importObject(spy4);
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		Globals.getContext().ref.importObject(myClass);
+		Globals.getContext().getReferenceContext().importObject(myClass);
 	}
 }

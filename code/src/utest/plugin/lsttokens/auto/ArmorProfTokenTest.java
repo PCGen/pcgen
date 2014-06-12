@@ -57,7 +57,7 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	@Override
 	protected CDOMObject constructTyped(LoadContext loadContext, String one)
 	{
-		CDOMObject cdo = loadContext.ref.constructCDOMObject(Equipment.class, one);
+		CDOMObject cdo = loadContext.getReferenceContext().constructCDOMObject(Equipment.class, one);
 		cdo.addToListFor(ListKey.TYPE, Type.getConstant("Armor"));
 		return cdo;
 	}
@@ -91,7 +91,7 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	{
 		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
 		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
-		armorProfs.add(primaryContext.ref
+		armorProfs.add(primaryContext.getReferenceContext()
 				.getCDOMAllReference(ArmorProf.class));
 		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
 		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
@@ -127,7 +127,7 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	@Override
 	protected void loadTypeProf(String... types)
 	{
-		CDOMGroupRef<Equipment> ref = primaryContext.ref.getCDOMTypeReference(Equipment.class, types);
+		CDOMGroupRef<Equipment> ref = primaryContext.getReferenceContext().getCDOMTypeReference(Equipment.class, types);
 		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
 		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
 		equipTypes.add(ref);

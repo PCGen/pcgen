@@ -110,7 +110,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<Equipment> implements
 				}
 				continue;
 			}
-			CDOMSingleRef<EquipmentModifier> ref = context.ref
+			CDOMSingleRef<EquipmentModifier> ref = context.getReferenceContext()
 					.getCDOMReference(EQMOD_CLASS, eqModKey);
 			EqModRef modref = new EqModRef(ref);
 

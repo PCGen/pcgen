@@ -53,7 +53,7 @@ public class FeatTokenTest extends
 	protected Ability getObject()
 	{
 		Ability obj = super.getObject();
-		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 

@@ -45,7 +45,7 @@ public class SchoolsTokenTest extends
 	@Override
 	protected SpellSchool getObject()
 	{
-		return context.ref
+		return context.getReferenceContext()
 			.constructNowIfNecessary(SpellSchool.class, ITEM_NAME);
 	}
 }

@@ -80,12 +80,12 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	protected TC construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		return loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 
 	protected CDOMObject constructTyped(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(getTargetClass(), one);
+		return loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 
 	@Test

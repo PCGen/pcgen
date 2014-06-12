@@ -73,8 +73,8 @@ public class ChangeProfFacetTest extends
 	@Override
 	protected ChangeProf getObject()
 	{
-		return new ChangeProf(context.ref.getCDOMReference(WeaponProf.class,
-			"StartProf" + n++), context.ref.getCDOMTypeReference(
+		return new ChangeProf(context.getReferenceContext().getCDOMReference(WeaponProf.class,
+			"StartProf" + n++), context.getReferenceContext().getCDOMTypeReference(
 			WeaponProf.class, "Gorpy"));
 	}
 

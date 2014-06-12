@@ -63,8 +63,8 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Skill.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 
@@ -89,10 +89,10 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Skill a = primaryContext.ref.constructCDOMObject(Skill.class,
+		Skill a = primaryContext.getReferenceContext().constructCDOMObject(Skill.class,
 				"Fireball");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
-		Skill b = secondaryContext.ref.constructCDOMObject(Skill.class,
+		Skill b = secondaryContext.getReferenceContext().constructCDOMObject(Skill.class,
 				"Fireball");
 		b.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		runRoundRobin("TYPE=Foo");

@@ -99,7 +99,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 			// The type of EqMod, eg: ABILITYPLUS
 			final String eqModKey = pipeTok.nextToken();
 			CDOMSingleRef<EquipmentModifier> eqMod =
-					context.ref.getCDOMReference(EQUIPMENT_MODIFIER_CLASS,
+					context.getReferenceContext().getCDOMReference(EQUIPMENT_MODIFIER_CLASS,
 						eqModKey);
 			EqModRef modRef = new EqModRef(eqMod);
 

@@ -94,7 +94,7 @@ public class TemplateLst extends AbstractToken implements
 			String templKey = tok.nextToken();
 			if (specialLegal && templKey.endsWith(".REMOVE"))
 			{
-				removelist.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS,
+				removelist.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS,
 						templKey.substring(0, templKey.length() - 7)));
 			}
 			else if (specialLegal && templKey.equals(Constants.LST_PERCENT_LIST))
@@ -104,7 +104,7 @@ public class TemplateLst extends AbstractToken implements
 			}
 			else
 			{
-				list.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS,
+				list.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS,
 						templKey));
 			}
 		}

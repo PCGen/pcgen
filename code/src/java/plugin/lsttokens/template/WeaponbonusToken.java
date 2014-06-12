@@ -80,7 +80,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 			if (Constants.LST_ALL.equals(tokText))
 			{
 				foundAny = true;
-				CDOMReference<WeaponProf> ref = context.ref
+				CDOMReference<WeaponProf> ref = context.getReferenceContext()
 						.getCDOMAllReference(WEAPONPROF_CLASS);
 				context.obj.addToList(template, ListKey.WEAPONBONUS, ref);
 			}
@@ -177,7 +177,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				WeaponProf.class, s);
 	}
 

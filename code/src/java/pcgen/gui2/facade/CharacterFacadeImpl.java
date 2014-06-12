@@ -1114,7 +1114,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (cat.getParentCategory() == cat)
 			{
-				for (Ability aFeat : Globals.getContext().ref.getManufacturer(
+				for (Ability aFeat : Globals.getContext().getReferenceContext().getManufacturer(
 					Ability.class, cat).getAllObjects())
 				{
 					scanForAnyPcTempBonuses(tempBonuses, aFeat);
@@ -1149,7 +1149,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		// do all Templates to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
-		for (PCTemplate aTemp : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
+		for (PCTemplate aTemp : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCTemplate.class))
 		{
 			scanForNonPcTempBonuses(tempBonuses, aTemp);
 		}
@@ -3672,7 +3672,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		
 		removePurchasedEquipment(itemToBeDeleted, Integer.MAX_VALUE);
-		Globals.getContext().ref.forget(itemToBeDeleted);
+		Globals.getContext().getReferenceContext().forget(itemToBeDeleted);
 		
 		if (dataSet.getEquipment() instanceof DefaultListFacade<?>)
 		{
@@ -3715,7 +3715,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		final String existingKey = equip.getKeyName();
 		final String newKey = equip.createKeyForAutoResize(newSize);
 
-		Equipment potential = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, newKey);
+		Equipment potential = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, newKey);
 
 		if (newKey.equals(existingKey))
 		{
@@ -3731,7 +3731,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		final String newName = equip.createNameForAutoResize(newSize);
-		potential = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Equipment.class, newName);
+		potential = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, newName);
 
 		if (potential != null)
 		{
@@ -3756,7 +3756,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			newEq.addType(Type.CUSTOM);
 		}
 
-		Globals.getContext().ref.importObject(newEq);
+		Globals.getContext().getReferenceContext().importObject(newEq);
 
 		return newEq;
 	}

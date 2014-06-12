@@ -131,7 +131,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		gamemode.setBonusFeatLevels("3|3");
 		SettingsHandler.setGame("3.5");
 
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");
@@ -206,8 +206,8 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		sa.setName(name);
 		sa.put(StringKey.ABB, abb);
 
-		Globals.getContext().ref.importObject(sa);
-		Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+		Globals.getContext().getReferenceContext().importObject(sa);
+		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		return sa;
 	}
 

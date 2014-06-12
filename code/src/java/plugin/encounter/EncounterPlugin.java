@@ -727,7 +727,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 		Vector<Object> toReturn = new Vector<Object>();
 		toReturn.addElement(num);
-		toReturn.addElement(Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, tableEntry));
+		toReturn.addElement(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, tableEntry));
 
 		return toReturn;
 	}
@@ -911,7 +911,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		ChallengeRating cr = new ChallengeRating(crFormula);
 
 		// populate critters with a list of matching monsters with the right CR.
-		for (final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
+		for (final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class))
 		{
 			if (cr.equals(race.get(ObjectKey.CHALLENGE_RATING)))
 			{
@@ -956,7 +956,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void handleNonMonster(PlayerCharacter aPC)
 	{
-		PCClass mclass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
+		PCClass mclass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
 
 		if (mclass != null)
 		{
@@ -970,7 +970,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private boolean handleRace(PlayerCharacter aPC, int number)
 	{
 		Race race =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(Race.class, (String) theModel.getElementAt(number));
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, (String) theModel.getElementAt(number));
 
 		if (race == null)
 		{

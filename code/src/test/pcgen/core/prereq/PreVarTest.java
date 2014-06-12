@@ -168,7 +168,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass spellcaster = new PCClass();
 		spellcaster.setName("Spellcaster");
-		context.ref.importObject(spellcaster);
+		context.getReferenceContext().importObject(spellcaster);
 		context.unconditionallyProcess(spellcaster, "SPELLTYPE", "Arcane");
 		context.unconditionallyProcess(spellcaster, "SPELLSTAT", "INT");
 		context.unconditionallyProcess(spellcaster, "PREVARGTEQ",
@@ -198,15 +198,15 @@ public class PreVarTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass spellcaster = new PCClass();
 		spellcaster.setName("Spellcaster");
-		context.ref.importObject(spellcaster);
-		Skill concentration = context.ref.constructCDOMObject(Skill.class,
+		context.getReferenceContext().importObject(spellcaster);
+		Skill concentration = context.getReferenceContext().constructCDOMObject(Skill.class,
 				"Concentration");
 		context.unconditionallyProcess(spellcaster, "SPELLTYPE", "Arcane");
 		context.unconditionallyProcess(spellcaster, "SPELLSTAT", "INT");
 		context.unconditionallyProcess(spellcaster, "CSKILL", "Concentration");
 		context.unconditionallyProcess(spellcaster, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:BASESPELLSTAT,2");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		setPCStat(character, intel, 16);
 		PCClassLoader loader = new PCClassLoader();
@@ -240,12 +240,12 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(warrior, "BONUS", "VAR|MyVar|2");
 		final PCClass notawarrior = new PCClass();
 		notawarrior.setName("NotAWarrior");
-		Skill concentration = context.ref.constructCDOMObject(Skill.class,
+		Skill concentration = context.getReferenceContext().constructCDOMObject(Skill.class,
 				"Concentration");
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
 		context.unconditionallyProcess(notawarrior, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:MyVar,1");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
@@ -281,12 +281,12 @@ public class PreVarTest extends AbstractCharacterTestCase
 		final PCClass notawarrior = new PCClass();
 		notawarrior.setName("NotAWarrior");
 		context.unconditionallyProcess(notawarrior, "PREVARGTEQ", "MyVar,1");
-		Skill concentration = context.ref.constructCDOMObject(Skill.class,
+		Skill concentration = context.getReferenceContext().constructCDOMObject(Skill.class,
 				"Concentration");
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
 		context.unconditionallyProcess(notawarrior, "BONUS",
 				"SKILL|Concentration|5");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
@@ -325,7 +325,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PCClassLevel level1 = warrior.getOriginalClassLevel(1);
 		context.unconditionallyProcess(level1, "SAB",
 				"Test Works|PREVARGTEQ:CL,3");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();
@@ -359,10 +359,10 @@ public class PreVarTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass warrior = new PCClass();
 		warrior.setName("Warrior");
-		context.ref.importObject(warrior);
+		context.getReferenceContext().importObject(warrior);
 		context.unconditionallyProcess(warrior, "SAB",
 				"Test Works|PREVARGTEQ:CL,2");
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();

@@ -232,7 +232,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		CDOMObject obj, String value)
 	{
 		return parseTokenWithSeparator(context,
-			context.ref.getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT),
+			context.getReferenceContext().getManufacturer(ABILITY_CLASS, AbilityCategory.FEAT),
 			obj, value);
 	}
 
@@ -257,7 +257,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
 		Ability ability =
-				context.ref.silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, AbilityCategory.FEAT, s);
 
 		if (ability == null)
@@ -265,7 +265,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 			List<String> choices = new ArrayList<String>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 			ability =
-					context.ref.silentlyGetConstructedCDOMObject(
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, baseKey);
 			if (ability == null)
 			{

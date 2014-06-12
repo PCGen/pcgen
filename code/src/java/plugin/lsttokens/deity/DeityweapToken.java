@@ -84,12 +84,12 @@ public class DeityweapToken extends AbstractTokenWithSeparator<Deity> implements
 					|| Constants.LST_ANY.equalsIgnoreCase(token))
 				{
 					foundAny = true;
-					ref = context.ref.getCDOMAllReference(WEAPONPROF_CLASS);
+					ref = context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
 				}
 				else
 				{
 					foundOther = true;
-					ref = context.ref.getCDOMReference(WEAPONPROF_CLASS, token);
+					ref = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, token);
 				}
 				context.getObjectContext().addToList(deity,
 					ListKey.DEITYWEAPON, ref);

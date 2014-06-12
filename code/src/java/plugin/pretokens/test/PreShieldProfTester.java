@@ -66,7 +66,7 @@ public class PreShieldProfTester extends AbstractDisplayPrereqTest implements Pr
 		{
 			typeString = "SHIELD." + aString.substring(11);
 		}
-		Equipment keyEquip = Globals.getContext().ref
+		Equipment keyEquip = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
 		for (ProfProvider<ShieldProf> spp : display.getShieldProfList())
 		{

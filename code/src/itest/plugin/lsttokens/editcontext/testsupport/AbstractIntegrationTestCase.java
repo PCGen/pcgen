@@ -83,11 +83,11 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();
 		secondaryContext = new EditorLoadContext();
-		primaryContext.ref.importObject(AbilityCategory.FEAT);
-		secondaryContext.ref.importObject(AbilityCategory.FEAT);
-		primaryProf = primaryContext.ref.constructCDOMObject(getCDOMClass(),
+		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj");
-		secondaryProf = secondaryContext.ref.constructCDOMObject(
+		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj");
 	}
 
@@ -225,8 +225,8 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 			}
 		}
 
-		assertTrue("First parse context was not valid", primaryContext.ref.validate(null));
-		assertTrue("Unprased/reparsed context was not valid", secondaryContext.ref.validate(null));
+		assertTrue("First parse context was not valid", primaryContext.getReferenceContext().validate(null));
+		assertTrue("Unprased/reparsed context was not valid", secondaryContext.getReferenceContext().validate(null));
 		assertEquals(
 			"First parse and unparse/reparse had different number of messages",
 			expectedPrimaryMessageCount, primaryContext.getWriteMessageCount());

@@ -112,7 +112,7 @@ public class ClassLevelDomainBracketToken extends AbstractTokenWithSeparator<PCC
 							+ " had invalid prerequisite : " + prereqString, context);
 				}
 			}
-			CDOMSingleRef<Domain> domain = context.ref.getCDOMReference(
+			CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(
 					DOMAIN_CLASS, domainKey);
 
 			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(

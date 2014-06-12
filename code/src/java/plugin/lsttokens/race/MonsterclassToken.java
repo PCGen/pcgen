@@ -64,7 +64,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 			return new ParseResult.Fail(getTokenName() + " must have only one colon: "
 					+ value, context);
 		}
-		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCCLASS_CLASS,
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS,
 				classString);
 		try
 		{
@@ -120,7 +120,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 		if (lcf != null)
 		{
 			String className = lcf.getLSTformat();
-			PCClass pcc = context.ref.silentlyGetConstructedCDOMObject(
+			PCClass pcc = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					PCCLASS_CLASS, className);
 			if (pcc != null && !pcc.isMonster())
 			{

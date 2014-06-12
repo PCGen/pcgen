@@ -51,7 +51,7 @@ public class AlignGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class) )
+			for ( final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class) )
 			{
 				if ( align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && ! theChoices.contains(align) )
 				{
@@ -60,7 +60,7 @@ public class AlignGeneratorOption extends GeneratorOption
 			}
 			return;
 		}
-		final PCAlignment align = Globals.getContext().ref.getAbbreviatedObject(PCAlignment.class, aValue);
+		final PCAlignment align = Globals.getContext().getReferenceContext().getAbbreviatedObject(PCAlignment.class, aValue);
 		if (align == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.AlignNotFound", aValue); //$NON-NLS-1$

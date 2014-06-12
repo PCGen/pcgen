@@ -57,8 +57,8 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 		super.setUp();
 		lscFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
 		lascFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
-		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
-		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
+		sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");
+		dragon = context.getReferenceContext().constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
 		ChooserFactory.setDelegate(new MockUIDelegate());
 	}

@@ -91,7 +91,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 				"No category found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>", context);
 		}
-		Category<Ability> ac = context.ref.silentlyGetConstructedCDOMObject(
+		Category<Ability> ac = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				ABILITY_CATEGORY_CLASS, catString.substring(9));
 		if (ac == null)
 		{
@@ -115,7 +115,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		}
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, ac);
 
 		while (st.hasMoreTokens())

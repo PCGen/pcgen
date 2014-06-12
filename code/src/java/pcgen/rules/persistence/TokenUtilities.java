@@ -38,13 +38,13 @@ public final class TokenUtilities
 	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
 			LoadContext context, Class<T> cl, String s)
 	{
-		return 	getTypeOrPrimitive(context.ref.getManufacturer(cl), s);
+		return 	getTypeOrPrimitive(context.getReferenceContext().getManufacturer(cl), s);
 	}
 
 	public static <T extends CDOMObject> CDOMGroupRef<T> getTypeReference(
 			LoadContext context, Class<T> cl, String subStr)
 	{
-		return getTypeReference(context.ref.getManufacturer(cl), subStr);
+		return getTypeReference(context.getReferenceContext().getManufacturer(cl), subStr);
 	}
 
 	public static <T extends Loadable> CDOMReference<T> getTypeOrPrimitive(
@@ -99,7 +99,7 @@ public final class TokenUtilities
 		CDOMReference<T> lang;
 		if (Constants.LST_ALL.equals(tokText))
 		{
-			lang = context.ref.getCDOMAllReference(cl);
+			lang = context.getReferenceContext().getCDOMAllReference(cl);
 		}
 		else
 		{

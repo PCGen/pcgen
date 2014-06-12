@@ -72,7 +72,7 @@ public class WieldCategoryLoader
 			if (key.equals("WIELDCATEGORY"))
 			{
 				final String value = colString.substring(idxColon + 1).trim();
-				cat = context.ref.silentlyGetConstructedCDOMObject(
+				cat = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 						WieldCategory.class, value);
 
 				if (cat == null)
@@ -93,7 +93,7 @@ public class WieldCategoryLoader
 			{
 				//TODO ensure preVal is null
 				// If matches PRE, switch category to this
-				preVal = context.ref.getCDOMReference(WieldCategory.class,
+				preVal = context.getReferenceContext().getCDOMReference(WieldCategory.class,
 						colString.substring(7));
 			}
 			else

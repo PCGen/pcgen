@@ -81,7 +81,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 
 		while (tok.hasMoreTokens())
 		{
-			kitSkill.addSelection(context.ref.getCDOMReference(LANGUAGE_CLASS,
+			kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS,
 				tok.nextToken()));
 		}
 		return ParseResult.SUCCESS;

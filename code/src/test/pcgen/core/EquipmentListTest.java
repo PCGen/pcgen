@@ -96,7 +96,7 @@ public class EquipmentListTest extends PCGenTestCase
 
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
-		SizeAdjustment sa = Globals.getContext().ref.getAbbreviatedObject(
+		SizeAdjustment sa = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				SizeAdjustment.class, "M");
 		eq.put(ObjectKey.SIZE, sa);
 		eq.put(ObjectKey.BASESIZE, sa);
@@ -110,7 +110,7 @@ public class EquipmentListTest extends PCGenTestCase
 	 */
 	public void testGetEquipmentOfType()
 	{
-		Globals.getContext().ref.importObject(eq);
+		Globals.getContext().getReferenceContext().importObject(eq);
 
 		List<Equipment> results =
 				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");

@@ -120,8 +120,8 @@ public abstract class AbstractPreRoundRobin extends TestCase
 		sa.setName(name);
 		sa.put(StringKey.ABB, abb);
 
-		Globals.getContext().ref.importObject(sa);
-		Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+		Globals.getContext().getReferenceContext().importObject(sa);
+		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		return sa;
 	}
 

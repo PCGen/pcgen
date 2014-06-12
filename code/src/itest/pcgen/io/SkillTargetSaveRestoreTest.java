@@ -45,7 +45,7 @@ public class SkillTargetSaveRestoreTest extends
 	protected void applyObject(Skill obj)
 	{
 		PCClass cl =
-				context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 					"MyClass");
 		pc.addClass(cl);
 		pc.incrementClassLevel(1, cl);
@@ -67,7 +67,7 @@ public class SkillTargetSaveRestoreTest extends
 	protected void remove(Object o)
 	{
 		PCClass cl =
-				context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 					"MyClass");
 		Skill sk = (Skill) o;
 		SkillRankControl.modRanks(-1.0, cl, true, reloadedPC, sk);
@@ -91,7 +91,7 @@ public class SkillTargetSaveRestoreTest extends
 				}
 				//TODO need this to create the spell support :/
 				PCClass cl =
-						context.ref.silentlyGetConstructedCDOMObject(PCClass.class,
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 							"MyClass");
 				reloadedPC.getSpellSupport(cl);
 			}

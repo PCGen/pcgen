@@ -72,10 +72,10 @@ public class ExchangeLevelIntegrationTest extends
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Bard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Bard");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Bard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Bard");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Paladin|11|10|1");
 		commit(modCampaign, tc, "Bard|5|10|1");
@@ -86,8 +86,8 @@ public class ExchangeLevelIntegrationTest extends
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
 		commit(modCampaign, tc, "Paladin|5|10|1");
@@ -98,8 +98,8 @@ public class ExchangeLevelIntegrationTest extends
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Paladin|10|10|0");
 		emptyCommit(modCampaign, tc);

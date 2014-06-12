@@ -44,7 +44,7 @@ public class BaseitemToken extends AbstractNonEmptyToken<Equipment> implements
 		Equipment eq, String value)
 	{
 		context.getObjectContext().put(eq, ObjectKey.BASE_ITEM,
-			context.ref.getCDOMReference(EQUIPMENT_CLASS, value));
+			context.getReferenceContext().getCDOMReference(EQUIPMENT_CLASS, value));
 		return ParseResult.SUCCESS;
 	}
 

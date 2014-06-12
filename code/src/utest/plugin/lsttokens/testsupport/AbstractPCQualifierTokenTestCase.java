@@ -160,16 +160,16 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		wp1 = getTargetClass().newInstance();
 		wp1.setName("Eq1");
 		primaryContext.unconditionallyProcess(wp1, "TYPE", "Boring");
-		primaryContext.ref.importObject(wp1);
+		primaryContext.getReferenceContext().importObject(wp1);
 
 		wp2 = getTargetClass().newInstance();
 		wp2.setName("Wp2");
 		primaryContext.unconditionallyProcess(wp2, "TYPE", "Masterful");
-		primaryContext.ref.importObject(wp2);
+		primaryContext.getReferenceContext().importObject(wp2);
 
 		wp3 = getTargetClass().newInstance();
 		wp3.setName("Wp3");
 		primaryContext.unconditionallyProcess(wp3, "TYPE", "Masterful");
-		primaryContext.ref.importObject(wp3);
+		primaryContext.getReferenceContext().importObject(wp3);
 	}
 }

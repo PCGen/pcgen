@@ -801,7 +801,7 @@ public class PCClass extends PObject implements ClassFacade
 		//
 		String aDamage;
 
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		final Equipment eq =
 			ref.silentlyGetConstructedCDOMObject(
 					Equipment.class, "KEY_Unarmed Strike");

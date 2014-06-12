@@ -113,7 +113,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 			return new ParseResult.Fail("Follower Count in " + getTokenName()
 					+ " cannot be empty", context);
 		}
-		CDOMSingleRef<CompanionList> cl = context.ref.getCDOMReference(
+		CDOMSingleRef<CompanionList> cl = context.getReferenceContext().getCDOMReference(
 				CompanionList.class, followerType);
 		Formula num = FormulaFactory.getFormulaFor(followerNumber);
 		if (!num.isValid())

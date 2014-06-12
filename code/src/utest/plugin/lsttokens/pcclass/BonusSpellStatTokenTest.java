@@ -45,18 +45,18 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ps = primaryContext.ref.constructCDOMObject(PCStat.class,
+		ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Strength");
-		primaryContext.ref.registerAbbreviation(ps, "STR");
-		PCStat ss = secondaryContext.ref.constructCDOMObject(PCStat.class,
+		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
+		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Strength");
-		secondaryContext.ref.registerAbbreviation(ss, "STR");
-		PCStat pi = primaryContext.ref.constructCDOMObject(PCStat.class,
+		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
+		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Intelligence");
-		primaryContext.ref.registerAbbreviation(pi, "INT");
-		PCStat si = secondaryContext.ref.constructCDOMObject(PCStat.class,
+		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
+		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
 				"Intelligence");
-		secondaryContext.ref.registerAbbreviation(si, "INT");
+		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
 
 	}
 

@@ -182,7 +182,7 @@ public class RegionLstTest extends AbstractGlobalTokenTestCase
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(ClassSkillList.class, one);
+		loadContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, one);
 	}
 
 	@Override

@@ -164,7 +164,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 				 * (meaning levelLim is null as well) as that was implicitly
 				 * checked by ensuring || did not occur.
 				 */
-				sp = context.ref.getCDOMAllReference(SPELL_CLASS);
+				sp = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 			}
 			KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, levelLim);
 			context.getObjectContext()

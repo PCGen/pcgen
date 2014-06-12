@@ -40,7 +40,7 @@ public class MasterUsableSkillFacet extends
 		DataSetID id = context.getDataSetID();
 		if (getCache(id) == null)
 		{
-			for (Skill sk : context.ref.getConstructedCDOMObjects(Skill.class))
+			for (Skill sk : context.getReferenceContext().getConstructedCDOMObjects(Skill.class))
 			{
 				if (!sk.getSafe(ObjectKey.EXCLUSIVE)
 					&& sk.getSafe(ObjectKey.USE_UNTRAINED))

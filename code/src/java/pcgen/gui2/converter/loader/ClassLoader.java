@@ -110,13 +110,13 @@ public class ClassLoader implements Loader
 				continue;
 			}
 
-			CDOMObject obj = context.ref.constructCDOMObject(buildClass, line
+			CDOMObject obj = context.getReferenceContext().constructCDOMObject(buildClass, line
 					+ "Test" + tok);
 			CDOMObject parent = null;
 			if (obj instanceof PCClassLevel)
 			{
 				obj.put(IntegerKey.LEVEL, 1);
-				parent = context.ref.constructCDOMObject(buildParent, line
+				parent = context.getReferenceContext().constructCDOMObject(buildParent, line
 						+ "Test" + tok);
 				try
 				{

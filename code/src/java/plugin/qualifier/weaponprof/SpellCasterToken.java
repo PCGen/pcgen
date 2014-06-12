@@ -83,7 +83,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 					+ " as an unconditional Qualifier, requires brackets");
 			return false;
 		}
-		ReferenceManufacturer<WeaponProf> erm = context.ref
+		ReferenceManufacturer<WeaponProf> erm = context.getReferenceContext()
 				.getManufacturer(WeaponProf.class);
 		pcs = context.getPrimitiveChoiceFilter(erm, value);
 		return pcs != null;

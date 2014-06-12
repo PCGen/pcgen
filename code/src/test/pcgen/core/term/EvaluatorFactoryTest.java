@@ -6303,7 +6303,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		String term = "MAXCASTABLE";
 
-		Globals.getContext().ref.constructCDOMObject(ClassSpellList.class, "Bard");
+		Globals.getContext().getReferenceContext().constructCDOMObject(ClassSpellList.class, "Bard");
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Bard");
 
 		is(t instanceof PCMaxCastableClassTermEvaluator, eq(true),
@@ -12578,7 +12578,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	
 		Globals.createEmptyRace();
 	
-		ReferenceContext rc = Globals.getContext().ref;
+		ReferenceContext rc = Globals.getContext().getReferenceContext();
 		PCStat str = rc.constructCDOMObject(PCStat.class, "Strength");
 		rc.registerAbbreviation(str, "STR");
 		PCStat intel = rc.constructCDOMObject(PCStat.class, "Intelligence");

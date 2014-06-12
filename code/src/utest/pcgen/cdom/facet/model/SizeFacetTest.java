@@ -83,7 +83,7 @@ public class SizeFacetTest extends TestCase
 		if (!staticDone)
 		{
 			SettingsHandler.getGame().clearLoadContext();
-			ReferenceContext ref = Globals.getContext().ref;
+			ReferenceContext ref = Globals.getContext().getReferenceContext();
 			t = ref.constructCDOMObject(SizeAdjustment.class, "Tiny");
 			ref.registerAbbreviation(t, "T");
 			s = ref.constructCDOMObject(SizeAdjustment.class, "Small");

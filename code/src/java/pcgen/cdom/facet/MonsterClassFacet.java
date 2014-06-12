@@ -89,7 +89,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 			PCLevelInfo pli = levelInfoFacet.get(id, i);
 			final String classKeyName = pli.getClassKeyName();
 			final PCClass aClass =
-					Globals.getContext().ref
+					Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(PCClass.class,
 							classKeyName);
 

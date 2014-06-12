@@ -58,7 +58,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 			Logging.errorPrint("Did not understand Prohibited value: " + value);
 			return false;
 		}
-		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
+		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 

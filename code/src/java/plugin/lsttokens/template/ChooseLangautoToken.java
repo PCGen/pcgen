@@ -157,7 +157,7 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate> 
 	@Override
 	public Language decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
 	}
 
 	@Override

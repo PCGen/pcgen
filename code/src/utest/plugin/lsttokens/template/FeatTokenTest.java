@@ -98,8 +98,8 @@ public class FeatTokenTest extends
 	@Override
 	protected Ability construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 
@@ -172,14 +172,14 @@ public class FeatTokenTest extends
 	@Override
 	protected CDOMGroupRef<Ability> getTypeReference()
 	{
-		return primaryContext.ref.getCDOMTypeReference(getTargetClass(),
+		return primaryContext.getReferenceContext().getCDOMTypeReference(getTargetClass(),
 				AbilityCategory.FEAT, "Type1");
 	}
 
 	@Override
 	protected CDOMGroupRef<Ability> getAllReference()
 	{
-		return primaryContext.ref.getCDOMAllReference(getTargetClass(),
+		return primaryContext.getReferenceContext().getCDOMAllReference(getTargetClass(),
 				AbilityCategory.FEAT);
 	}
 

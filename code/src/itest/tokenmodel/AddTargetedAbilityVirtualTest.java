@@ -86,7 +86,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 		for (CNAbility a : abilities)
 		{
 			boolean abilityExpected =
-					a.getAbility().equals(context.ref.silentlyGetConstructedCDOMObject(
+					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (abilityExpected)
 			{
@@ -97,7 +97,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 						continue;
 					}
 					Language english =
-							context.ref.silentlyGetConstructedCDOMObject(
+							context.getReferenceContext().silentlyGetConstructedCDOMObject(
 								Language.class, "English");
 					languageFacet.contains(id, english);
 					return true;
@@ -111,7 +111,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	protected boolean cleanedSideEffects()
 	{
 		Language english =
-				context.ref.silentlyGetConstructedCDOMObject(Language.class,
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(Language.class,
 					"English");
 		return !languageFacet.contains(id, english)
 			&& super.cleanedSideEffects();
@@ -120,7 +120,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	@Override
 	protected Ability createGrantedObject()
 	{
-		context.ref.constructCDOMObject(Language.class, "English");
+		context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		Ability a = super.createGrantedObject();
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
@@ -140,7 +140,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 

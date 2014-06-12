@@ -217,7 +217,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 
 	protected void construct(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(Kit.class, one);
+		loadContext.getReferenceContext().constructCDOMObject(Kit.class, one);
 	}
 
 	@Test

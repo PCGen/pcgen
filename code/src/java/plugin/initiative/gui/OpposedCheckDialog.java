@@ -554,7 +554,7 @@ public class OpposedCheckDialog extends JDialog
 	 */
 	private void initializeLists(List rollingGroup, List availableGroup)
 	{
-		for (Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
+		for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
 			skillNames.add(skill.toString());
 		}

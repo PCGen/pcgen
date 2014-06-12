@@ -36,7 +36,7 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		this.pc = pc;
 		display = pc.getDisplay();
-		PCStat stat = Globals.getContext().ref
+		PCStat stat = Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(PCStat.class, "DEX");
 		this.attribute = new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 		bonus = 0;
@@ -46,7 +46,7 @@ public class PcgSystemInitiative extends SystemInitiative
     @Override
 	public SystemAttribute getAttribute()
 	{
-		PCStat stat = Globals.getContext().ref
+		PCStat stat = Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(PCStat.class, "DEX");
 		return new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 	}
@@ -61,7 +61,7 @@ public class PcgSystemInitiative extends SystemInitiative
     @Override
 	public int getBonus()
 	{
-		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
+		PCStat dex = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 				PCStat.class, "DEX");
 		return display.initiativeMod() - pc.getStatModFor(dex) + bonus;
 	}

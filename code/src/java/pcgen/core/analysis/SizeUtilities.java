@@ -34,7 +34,7 @@ public class SizeUtilities
 	 */
 	public static int sizeInt(final String aSize, final int defaultValue)
 	{
-		List<SizeAdjustment> list = Globals.getContext().ref
+		List<SizeAdjustment> list = Globals.getContext().getReferenceContext()
 				.getOrderSortedCDOMObjects(SizeAdjustment.class);
 		for (int i = 0; i < list.size(); i++)
 		{
@@ -49,7 +49,7 @@ public class SizeUtilities
 
 	public static int sizeInt(final SizeAdjustment aSize)
 	{
-		List<SizeAdjustment> list = Globals.getContext().ref
+		List<SizeAdjustment> list = Globals.getContext().getReferenceContext()
 				.getOrderSortedCDOMObjects(SizeAdjustment.class);
 		for (int i = 0; i < list.size(); i++)
 		{
@@ -78,7 +78,7 @@ public class SizeUtilities
 	 */
 	public static SizeAdjustment getDefaultSizeAdjustment()
 	{
-		for (SizeAdjustment s : Globals.getContext().ref
+		for (SizeAdjustment s : Globals.getContext().getReferenceContext()
 				.getOrderSortedCDOMObjects(SizeAdjustment.class))
 		{
 			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
@@ -92,7 +92,7 @@ public class SizeUtilities
 
 	public static int getDefaultSizeInt()
 	{
-		List<SizeAdjustment> list = Globals.getContext().ref
+		List<SizeAdjustment> list = Globals.getContext().getReferenceContext()
 				.getOrderSortedCDOMObjects(SizeAdjustment.class);
 		for (int i = 0; i < list.size(); i++)
 		{

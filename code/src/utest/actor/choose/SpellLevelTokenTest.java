@@ -47,7 +47,7 @@ public class SpellLevelTokenTest extends
 	protected SpellLevel getObject()
 	{
 		PCClass cl =
-				context.ref.constructNowIfNecessary(PCClass.class, ITEM_NAME);
+				context.getReferenceContext().constructNowIfNecessary(PCClass.class, ITEM_NAME);
 		return new SpellLevel(cl, 4);
 	}
 

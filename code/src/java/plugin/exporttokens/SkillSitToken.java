@@ -174,14 +174,14 @@ public class SkillSitToken extends Token
 			if (equalLoc == -1)
 			{
 				//Allowing SKILL.Spot.<subtoken>
-				skill = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, skillName);
 			}
 			else
 			{
 				//Allowing SKILL.Spot=Situation.<subtoken>
 				String situation = skillName.substring(equalLoc + 1);
-				Skill sk = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Skill sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, skillName.substring(0, equalLoc));
 				double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
 					+ "=" + situation);

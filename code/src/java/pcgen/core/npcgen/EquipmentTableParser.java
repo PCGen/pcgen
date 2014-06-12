@@ -328,7 +328,7 @@ public class EquipmentTableParser
 								final String val = anAttrs.getValue( "value" );
 								if ( val != null )
 								{
-									final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+									final Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 											Equipment.class,  val );
 									if ( eq == null )
 									{

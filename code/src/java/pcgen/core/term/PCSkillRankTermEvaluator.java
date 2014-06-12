@@ -51,7 +51,7 @@ public class PCSkillRankTermEvaluator
 	@Override
 	public String evaluate(CharacterDisplay display)
 	{
-		Skill skill = Globals.getContext().ref
+		Skill skill = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Skill.class, rank);
 		if (skill == null || !display.hasSkill(skill))
 		{

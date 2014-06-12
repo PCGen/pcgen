@@ -62,7 +62,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
-		Globals.getContext().ref.importObject(template);
+		Globals.getContext().getReferenceContext().importObject(template);
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -103,7 +103,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
-		Globals.getContext().ref.importObject(template);
+		Globals.getContext().getReferenceContext().importObject(template);
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -126,7 +126,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
-		Globals.getContext().ref.importObject(template);
+		Globals.getContext().getReferenceContext().importObject(template);
 		character.addTemplate(template);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -149,12 +149,12 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
-		Globals.getContext().ref.importObject(template);
+		Globals.getContext().getReferenceContext().importObject(template);
 		character.addTemplate(template);
 
 		final PCTemplate template2 = new PCTemplate();
 		template2.setName("Half-Celestial");
-		Globals.getContext().ref.importObject(template2);
+		Globals.getContext().getReferenceContext().importObject(template2);
 		character.addTemplate(template2);
 
 		final Prerequisite prereq = new Prerequisite();

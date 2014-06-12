@@ -51,7 +51,7 @@ public class AbbreviatedCreator<T extends CDOMObject> implements
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		T ao = context.ref.getAbbreviatedObject(creator.getReferenceClass(),
+		T ao = context.getReferenceContext().getAbbreviatedObject(creator.getReferenceClass(),
 				key);
 		if (ao == null)
 		{

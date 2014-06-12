@@ -82,14 +82,14 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 						+ getTokenName()
 						+ ": Contains ! without (or before) ALL: " + value, context);
 			}
-			allow.add(context.ref.getCDOMReference(SKILLLIST_CLASS, className));
+			allow.add(context.getReferenceContext().getCDOMReference(SKILLLIST_CLASS, className));
 			added = true;
 		}
 		if (pipeTok.hasMoreTokens())
 		{
 			// allow is not used (empty or an error)
 			FilteredReference<ClassSkillList> filtered = new FilteredReference<ClassSkillList>(
-					SKILLLIST_CLASS, context.ref
+					SKILLLIST_CLASS, context.getReferenceContext()
 							.getCDOMAllReference(SKILLLIST_CLASS));
 			while (pipeTok.hasMoreTokens())
 			{
@@ -103,7 +103,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 						return new ParseResult.Fail("Invalid " + getTokenName()
 								+ " cannot use !ALL", context);
 					}
-					CDOMSingleRef<ClassSkillList> ref = context.ref
+					CDOMSingleRef<ClassSkillList> ref = context.getReferenceContext()
 							.getCDOMReference(SKILLLIST_CLASS, clString);
 					filtered.addProhibitedItem(ref);
 				}
@@ -121,7 +121,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		else if (allow.isEmpty())
 		{
 			// unqualified ALL
-			context.list.addToMasterList(getTokenName(), skill, context.ref
+			context.list.addToMasterList(getTokenName(), skill, context.getReferenceContext()
 					.getCDOMAllReference(SKILLLIST_CLASS), skill);
 		}
 		else

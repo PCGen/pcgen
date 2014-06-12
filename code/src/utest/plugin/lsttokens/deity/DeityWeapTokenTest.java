@@ -94,7 +94,7 @@ public class DeityWeapTokenTest extends
 	@Override
 	protected WeaponProf construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(WeaponProf.class, one);
+		return loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
 	}
 
 	@Test

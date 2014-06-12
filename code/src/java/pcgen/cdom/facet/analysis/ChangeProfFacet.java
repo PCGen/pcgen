@@ -124,7 +124,7 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 			throw new IllegalArgumentException("Cannot get targets for: "
 					+ type);
 		}
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		List<WeaponProf> aList = new ArrayList<WeaponProf>();
 		// Can't use master because late called references may not have been
 		// initialized, see 2001287

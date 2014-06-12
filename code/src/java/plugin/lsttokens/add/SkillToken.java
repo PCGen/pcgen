@@ -119,7 +119,7 @@ public class SkillToken extends AbstractToken implements
 			CDOMReference<Skill> ref;
 			if (Constants.LST_ANY.equalsIgnoreCase(token))
 			{
-				ref = context.ref.getCDOMAllReference(SKILL_CLASS);
+				ref = context.getReferenceContext().getCDOMAllReference(SKILL_CLASS);
 			}
 			else
 			{
@@ -223,7 +223,7 @@ public class SkillToken extends AbstractToken implements
 	@Override
 	public Skill decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
 	}
 
 	@Override

@@ -108,7 +108,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
-			refs.add(context.ref.getCDOMReference(PCTEMPLATE_CLASS, tok
+			refs.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS, tok
 					.nextToken()));
 		}
 
@@ -190,7 +190,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public PCTemplate decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCTEMPLATE_CLASS, s);
 	}
 

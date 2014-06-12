@@ -40,7 +40,7 @@ public class SizeToken implements CDOMPrimaryToken<Equipment>
 	public ParseResult parseToken(LoadContext context, Equipment eq, String value)
 	{
 		SizeAdjustment size =
-				context.ref.getAbbreviatedObject(SizeAdjustment.class,
+				context.getReferenceContext().getAbbreviatedObject(SizeAdjustment.class,
 					value);
 		if (size == null)
 		{

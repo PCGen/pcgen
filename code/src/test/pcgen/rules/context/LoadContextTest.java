@@ -77,8 +77,8 @@ public class LoadContextTest extends TestCase
 				context.getListContext().addToMasterList("CLASSES", testSpell,
 					ref, testSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
-		context.ref.buildDerivedObjects();
-		assertTrue(context.ref.resolveReferences(null));
+		context.getReferenceContext().buildDerivedObjects();
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.commit();
 		
 		Spell newSpell = context.cloneInMasterLists(testSpell, "New Spell");

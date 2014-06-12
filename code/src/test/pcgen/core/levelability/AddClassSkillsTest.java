@@ -112,7 +112,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Move Silently");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
@@ -139,7 +139,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());
@@ -187,14 +187,14 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		getCharacter().incrementClassLevel(1, po, false);
 
 		PCTemplate pct = new PCTemplate();
-		Skill bluff = Globals.getContext().ref
+		Skill bluff = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Skill.class, "KEY_Bluff");
 		pct.addToListFor(ListKey.CSKILL, CDOMDirectSingleRef.getRef(bluff));
 		getCharacter().addTemplate(pct);
 
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
 		assertEquals(1, choiceList.size());

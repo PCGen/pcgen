@@ -69,7 +69,7 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMReference<Deity> deity = context.ref.getCDOMReference(
+			CDOMReference<Deity> deity = context.getReferenceContext().getCDOMReference(
 					DEITY_CLASS, tokText);
 			context.getObjectContext().addToList(pcc, ListKey.DEITY, deity);
 		}

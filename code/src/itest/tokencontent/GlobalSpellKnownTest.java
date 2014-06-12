@@ -66,8 +66,8 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	{
 		super.setUp();
 		knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
-		wizardSpellList = context.ref.constructNowIfNecessary(ClassSpellList.class, "Wizard");
-		fb = context.ref.constructNowIfNecessary(Spell.class, "Fireball");
+		wizardSpellList = context.getReferenceContext().constructNowIfNecessary(ClassSpellList.class, "Wizard");
+		fb = context.getReferenceContext().constructNowIfNecessary(Spell.class, "Fireball");
 		TokenRegistration.register(new PreVariableParser());
 		classSetUp();
 	}
@@ -131,7 +131,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	public void testConditional()
 	{
 		Ability source = create(Ability.class, "Source");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		ParseResult result =
 				token.parseToken(context, source, "CLASS|Wizard=2|Fireball|PREVARLTEQ:3,MyCasterLevel");
 		if (result != ParseResult.SUCCESS)

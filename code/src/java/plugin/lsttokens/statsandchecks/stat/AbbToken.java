@@ -54,14 +54,14 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
 		 * gate to additional stats being added in Campaigns (vs. Game Modes)
 		 */
-		context.ref.registerAbbreviation(stat, value.toUpperCase());
+		context.getReferenceContext().registerAbbreviation(stat, value.toUpperCase());
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
-		String abb = context.ref.getAbbreviation(stat);
+		String abb = context.getReferenceContext().getAbbreviation(stat);
 		if (abb == null)
 		{
 			return null;

@@ -138,7 +138,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (tok.hasNext())
@@ -160,7 +160,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 					return new ParseResult.Fail(getTokenName()
 							+ " must have Class name after " + token, context);
 				}
-				CDOMSingleRef<PCClass> pcc = context.ref.getCDOMReference(
+				CDOMSingleRef<PCClass> pcc = context.getReferenceContext().getCDOMReference(
 						PCCLASS_CLASS, className);
 				AbilityFromClassChoiceSet acs = new AbilityFromClassChoiceSet(
 						pcc);

@@ -46,7 +46,7 @@ public class EquipmentItem
 					Logging.debugPrint("Selected " + subst + " as choice");
 					final String equipKey = theVariableEquipment.replaceFirst("%CHOICE", subst); //$NON-NLS-1$
 					Logging.debugPrint("\tUsing " + equipKey + " as the equipment");
-					Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 							Equipment.class, equipKey);
 					eq = eq.clone();
 					int quantity = 1;

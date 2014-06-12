@@ -41,7 +41,7 @@ public class PCCountChecksTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return (float) Globals.getContext().ref
+		return (float) Globals.getContext().getReferenceContext()
 				.getConstructedObjectCount(PCCheck.class);
 	}
 

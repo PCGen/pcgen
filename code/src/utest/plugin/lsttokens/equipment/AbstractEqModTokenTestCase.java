@@ -184,9 +184,9 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD2|9500");
 	}
@@ -194,9 +194,9 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testRoundRobinComplexAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD2|COST[9500]");
 	}
@@ -210,9 +210,9 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testRoundRobinComplexMultipleAssociation()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
-		secondaryContext.ref.constructCDOMObject(EquipmentModifier.class,
+		secondaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
 		runRoundRobin("EQMOD2|COST[9500]PLUS[+1]");
 	}

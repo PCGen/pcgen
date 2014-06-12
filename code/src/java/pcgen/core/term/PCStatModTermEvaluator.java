@@ -44,7 +44,7 @@ public class PCStatModTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		final PCStat stat = Globals.getContext().ref
+		final PCStat stat = Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(PCStat.class, statAbbrev);
 		return (float) display.getStatModFor(stat);
 	}

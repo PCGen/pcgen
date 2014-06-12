@@ -69,7 +69,7 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		backpackMed.setName("Backpack");
 		final Equipment backpackSml = backpackMed.clone();
 		backpackSml.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(backpackMed));
-		SizeAdjustment small = Globals.getContext().ref.getAbbreviatedObject(
+		SizeAdjustment small = Globals.getContext().getReferenceContext().getAbbreviatedObject(
 			SizeAdjustment.class, "S");
 		final String newName = backpackSml.createNameForAutoResize(small);
 		backpackSml.setName(newName);

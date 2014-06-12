@@ -239,8 +239,8 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testInvalidInputNotClassCompound()
 		throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		// Intentionally do NOT build Good
 		assertTrue(parse("Fire,Good=4"));
 		assertConstructionError();
@@ -257,8 +257,8 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		assertTrue(primaryContext.getWriteMessageCount() == 0);
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		runRoundRobin("Fire=4");
 	}
 
@@ -266,8 +266,8 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinPrereq() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		runRoundRobin("Fire=4[PRERACE:1,Human]");
 	}
 
@@ -275,10 +275,10 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinComma() throws PersistenceLayerException
 	{
 		assertTrue(primaryContext.getWriteMessageCount() == 0);
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Good");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Good");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
 		runRoundRobin("Fire,Good=4");
 	}
 
@@ -286,10 +286,10 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinPipe() throws PersistenceLayerException
 	{
 		assertTrue(primaryContext.getWriteMessageCount() == 0);
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Good");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Good");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
 		runRoundRobin("Fire=3|Good=4");
 	}
 
@@ -297,12 +297,12 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testRoundRobinCommaPipe() throws PersistenceLayerException
 	{
 		assertTrue(primaryContext.getWriteMessageCount() == 0);
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Good");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Good");
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Sun");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Sun");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Sun");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Sun");
 		runRoundRobin("Fire,Good=3|Sun=4");
 	}
 
@@ -337,8 +337,8 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	@Test
 	public void testRoundRobinAll() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext()
 				.constructCDOMObject(DomainSpellList.class, "Fire");
 		runRoundRobin("ALL=3");
 	}
@@ -346,8 +346,8 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	@Test
 	public void testReplacementInputs() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		String[] unparsed;
 		assertTrue(parse("Fire=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -382,8 +382,8 @@ public class DomainsTokenTest extends AbstractTokenTestCase<Spell>
 	public void testClearPrereqInvalid() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
-		primaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
-		secondaryContext.ref.constructCDOMObject(DomainSpellList.class, "Fire");
+		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
+		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));
 	}
 

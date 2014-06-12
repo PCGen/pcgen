@@ -41,7 +41,7 @@ public class SizeToken implements CDOMPrimaryToken<Race>
 	@Override
 	public ParseResult parseToken(LoadContext context, Race race, String value)
 	{
-		SizeAdjustment size = context.ref.getAbbreviatedObject(
+		SizeAdjustment size = context.getReferenceContext().getAbbreviatedObject(
 				SizeAdjustment.class, value);
 		Formula sizeFormula;
 		if (size == null)

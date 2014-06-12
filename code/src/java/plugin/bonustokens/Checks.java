@@ -74,14 +74,14 @@ public final class Checks extends BonusObj
 			 * CHECKS are established need to test both CHECKS|Blah and
 			 * CHECKS|ALL
 			 */
-			for (PCCheck check : context.ref.getConstructedCDOMObjects(PCCheck.class))
+			for (PCCheck check : context.getReferenceContext().getConstructedCDOMObjects(PCCheck.class))
 			{
 				addBonusInfo(new CheckInfo(CDOMDirectSingleRef.getRef(check), isBase));
 			}
 		}
 		else
 		{
-			CDOMReference<PCCheck> aCheck = context.ref.getCDOMReference(PCCheck.class, token);
+			CDOMReference<PCCheck> aCheck = context.getReferenceContext().getCDOMReference(PCCheck.class, token);
 			//Invalid name is caught by Unconstructed Reference system
 			addBonusInfo(new CheckInfo(aCheck, isBase));
 		}

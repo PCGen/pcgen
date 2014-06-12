@@ -99,7 +99,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 			}
 		}
 		CDOMGroupRef<T> allReference =
-				context.ref.getCDOMAllReference(getChooseClass());
+				context.getReferenceContext().getCDOMAllReference(getChooseClass());
 		PrimitiveCollection<T> prim;
 		if (Constants.LST_ALL.equals(activeValue))
 		{
@@ -157,7 +157,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 
 	public SelectionCreator<T> getManufacturer(LoadContext context)
 	{
-		return context.ref.getManufacturer(getChooseClass());
+		return context.getReferenceContext().getManufacturer(getChooseClass());
 	}
 
 	@Override
@@ -263,7 +263,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	@Override
 	public T decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
 			getChooseClass(), s);
 	}
 

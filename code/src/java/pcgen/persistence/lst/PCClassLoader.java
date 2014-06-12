@@ -203,13 +203,13 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				pcClass.setSourceURI(source.getURI());
 				pcClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 				context.addStatefulInformation(pcClass);
-				context.ref.importObject(pcClass);
+				context.getReferenceContext().importObject(pcClass);
 			}
 			// need to grab PCClass instance for this .MOD minus the .MOD part of the name
 			else if (name.endsWith(".MOD"))
 			{
 				pcClass =
-						context.ref.silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
 						.length() - 4).intern());
 			}
 			parseLineIntoClass(context, pcClass, source, restOfLine);
@@ -497,13 +497,13 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	@Override
 	protected PCClass getObjectKeyed(LoadContext context, String aKey)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(PCClass.class, aKey.startsWith("CLASS:") ? aKey
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, aKey.startsWith("CLASS:") ? aKey
 		.substring(6) : aKey);
 	}
 
 	public void loadSubLines(LoadContext context)
 	{
-		Collection<PCClass> allClasses = context.ref
+		Collection<PCClass> allClasses = context.getReferenceContext()
 				.getConstructedCDOMObjects(PCClass.class);
 		for (PCClass cl : allClasses)
 		{

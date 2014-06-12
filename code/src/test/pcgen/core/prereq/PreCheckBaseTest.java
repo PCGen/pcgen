@@ -137,15 +137,15 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 
 		PCCheck obj = new PCCheck();
 		obj.setName("Fortitude");
-		Globals.getContext().ref.importObject(obj);
+		Globals.getContext().getReferenceContext().importObject(obj);
 
 		obj = new PCCheck();
 		obj.setName("Reflex");
-		Globals.getContext().ref.importObject(obj);
+		Globals.getContext().getReferenceContext().importObject(obj);
 
 		obj = new PCCheck();
 		obj.setName("Will");
-		Globals.getContext().ref.importObject(obj);
+		Globals.getContext().getReferenceContext().importObject(obj);
 
 		myClass.setName("My Class");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
@@ -154,6 +154,6 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, fortRefBonus);
 		final BonusObj willBonus = Bonus.newBonus(context, "CHECKS|BASE.Will|CL/2+2");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, willBonus);
-		Globals.getContext().ref.importObject(myClass);
+		Globals.getContext().getReferenceContext().importObject(myClass);
 	}
 }

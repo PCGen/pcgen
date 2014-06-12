@@ -557,7 +557,7 @@ public final class PrerequisiteUtilities
 		for (String domain : selectedList)
 		{
 			final Domain dom;
-			dom = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, domain);
+			dom = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, domain);
 			if (dom == null)
 			{
 				continue;
@@ -592,7 +592,7 @@ public final class PrerequisiteUtilities
 
 		for (String weaponprof : selectedList)
 		{
-			final WeaponProf wp = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			final WeaponProf wp = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				WeaponProf.class, weaponprof);
 
 			if (wp == null)
@@ -610,7 +610,7 @@ public final class PrerequisiteUtilities
 				continue;
 			}
 
-			final Equipment eq = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+			final Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Equipment.class, wp.getKeyName());
 
 			if (eq == null)
@@ -649,7 +649,7 @@ public final class PrerequisiteUtilities
 		for (String skill : selectedList)
 		{
 			final Skill sk;
-			sk = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Skill.class, skill);
+			sk = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skill);
 			if (sk == null)
 			{
 				continue;

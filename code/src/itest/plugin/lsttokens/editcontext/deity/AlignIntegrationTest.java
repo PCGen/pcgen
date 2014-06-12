@@ -45,18 +45,18 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 			URISyntaxException
 	{
 		super.setUp();
-		PCAlignment lg = primaryContext.ref.constructCDOMObject(
+		PCAlignment lg = primaryContext.getReferenceContext().constructCDOMObject(
 				PCAlignment.class, "Lawful Good");
-		primaryContext.ref.registerAbbreviation(lg, "LG");
-		PCAlignment ln = primaryContext.ref.constructCDOMObject(
+		primaryContext.getReferenceContext().registerAbbreviation(lg, "LG");
+		PCAlignment ln = primaryContext.getReferenceContext().constructCDOMObject(
 				PCAlignment.class, "Lawful Neutral");
-		primaryContext.ref.registerAbbreviation(ln, "LN");
-		PCAlignment slg = secondaryContext.ref.constructCDOMObject(
+		primaryContext.getReferenceContext().registerAbbreviation(ln, "LN");
+		PCAlignment slg = secondaryContext.getReferenceContext().constructCDOMObject(
 				PCAlignment.class, "Lawful Good");
-		secondaryContext.ref.registerAbbreviation(slg, "LG");
-		PCAlignment sln = secondaryContext.ref.constructCDOMObject(
+		secondaryContext.getReferenceContext().registerAbbreviation(slg, "LG");
+		PCAlignment sln = secondaryContext.getReferenceContext().constructCDOMObject(
 				PCAlignment.class, "Lawful Neutral");
-		secondaryContext.ref.registerAbbreviation(sln, "LN");
+		secondaryContext.getReferenceContext().registerAbbreviation(sln, "LN");
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 
 	public Object getConstant(String string)
 	{
-		return primaryContext.ref.getAbbreviatedObject(PCAlignment.class,
+		return primaryContext.getReferenceContext().getAbbreviatedObject(PCAlignment.class,
 				string);
 	}
 

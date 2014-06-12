@@ -112,7 +112,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 	@Override
 	protected Kit getObjectKeyed(LoadContext context, String aKey)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(Kit.class, aKey);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Kit.class, aKey);
 	}
 
 	@Override
@@ -128,7 +128,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 			StringTokenizer st = new StringTokenizer(inputLine, "\t");
 			String firstToken = st.nextToken();
 			int colonLoc = firstToken.indexOf(':');
-			target = context.ref.constructCDOMObject(Kit.class, firstToken
+			target = context.getReferenceContext().constructCDOMObject(Kit.class, firstToken
 					.substring(colonLoc + 1).intern());
 			target.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			target.setSourceURI(source.getURI());

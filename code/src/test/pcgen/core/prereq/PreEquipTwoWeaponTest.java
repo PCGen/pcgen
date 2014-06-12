@@ -161,13 +161,13 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 		// Test 3.5 style
 		longsword.put(ObjectKey.SIZE, medium);
 		longsword.put(ObjectKey.BASESIZE, medium);
-		longsword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
 
 		assertFalse("Weapon is TwoHanded", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.put(ObjectKey.WIELD, context.ref.silentlyGetConstructedCDOMObject(
+		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 
 		assertTrue("Weapon is OneHanded", PrereqHandler.passes(prereq,

@@ -148,7 +148,7 @@ public class Configuration
 				ret.add((AlignGeneratorOption)opt);
 			}
 		}
-		for (final PCAlignment align : Globals.getContext().ref.getOrderSortedCDOMObjects(PCAlignment.class))
+		for (final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
 		{
 			boolean included = false;
 			for (AlignGeneratorOption option : ret)
@@ -181,7 +181,7 @@ public class Configuration
 				ret.add((RaceGeneratorOption)opt);
 			}
 		}
-		for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
+		for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
 		{
 			final RaceGeneratorOption opt = new RaceGeneratorOption();
 			opt.setName(race.getDisplayName());
@@ -223,7 +223,7 @@ public class Configuration
 				ret.add((ClassGeneratorOption)opt);
 			}
 		}
-		for ( final PCClass pcClass : Globals.getContext().ref.getConstructedCDOMObjects(PCClass.class) )
+		for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
 		{
 			final ClassGeneratorOption opt = new ClassGeneratorOption();
 			opt.setName(pcClass.getDisplayName());

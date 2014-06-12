@@ -37,7 +37,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 	{
 		super.setUp();
 		flFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
-		context.ref
+		context.getReferenceContext()
 			.constructCDOMObject(CompanionList.class, "Animal Companion");
 	}
 
@@ -67,7 +67,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 		 * TODO This indicates that FollowerLimitFacet is not really pure
 		 * content - it is doing filtering as well
 		 */
-		return flFacet.getMaxFollowers(id, context.ref
+		return flFacet.getMaxFollowers(id, context.getReferenceContext()
 			.silentlyGetConstructedCDOMObject(CompanionList.class,
 				"Animal Companion")) == 3;
 	}

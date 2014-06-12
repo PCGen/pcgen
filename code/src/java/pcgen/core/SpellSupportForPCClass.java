@@ -246,7 +246,7 @@ public class SpellSupportForPCClass
 						* knownList.get(spellLevel).resolve(aPC, "").intValue();
 
 				// add Stat based bonus
-				BonusSpellInfo bsi = Globals.getContext().ref
+				BonusSpellInfo bsi = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(BonusSpellInfo.class,
 								String.valueOf(spellLevel));
 
@@ -647,7 +647,7 @@ public class SpellSupportForPCClass
 
 		total += ((t * mult) + adj);
 
-		BonusSpellInfo bsi = Globals.getContext().ref
+		BonusSpellInfo bsi = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(BonusSpellInfo.class, String
 						.valueOf(spellLevel));
 		if ((bsi != null) && bsi.isValid())

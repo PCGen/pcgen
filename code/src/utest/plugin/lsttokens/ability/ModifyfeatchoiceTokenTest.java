@@ -75,9 +75,9 @@ public class ModifyfeatchoiceTokenTest extends
 		TokenRegistration.register(preclasswriter);
 		TokenRegistration.register(prerace);
 		TokenRegistration.register(preracewriter);
-		TabInfo ti = primaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		TabInfo ti = primaryContext.getReferenceContext().constructCDOMObject(TabInfo.class, "Feats");
 		ti.setName("Feats");
-		ti = secondaryContext.ref.constructCDOMObject(TabInfo.class, "Feats");
+		ti = secondaryContext.getReferenceContext().constructCDOMObject(TabInfo.class, "Feats");
 		ti.setName("Feats");
 	}
 
@@ -138,8 +138,8 @@ public class ModifyfeatchoiceTokenTest extends
 	@Override
 	protected Ability construct(LoadContext loadContext, String one)
 	{
-		Ability obj = loadContext.ref.constructCDOMObject(Ability.class, one);
-		loadContext.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
+		loadContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 
@@ -182,7 +182,7 @@ public class ModifyfeatchoiceTokenTest extends
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<CNAbility> cs = new ChoiceSet<CNAbility>(getToken()
 				.getTokenName(), gfd);
-		TabInfo ti = primaryContext.ref.silentlyGetConstructedCDOMObject(
+		TabInfo ti = primaryContext.getReferenceContext().silentlyGetConstructedCDOMObject(
 				TabInfo.class, Tab.ABILITIES.toString());
 		String singularName = ti.getResolvedName();
 		if (singularName.endsWith("s"))

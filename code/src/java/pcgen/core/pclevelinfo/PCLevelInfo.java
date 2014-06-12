@@ -139,7 +139,7 @@ public final class PCLevelInfo implements Cloneable
 		// If this information in not saved on PCG, then try to recalc it
 		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
 		{
-			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
+			final PCClass aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 			skillPointsGained = pc.recalcSkillPointMod(aClass, classLevel) +
 				getBonusSkillPool(pc);
 		}
@@ -279,7 +279,7 @@ public final class PCLevelInfo implements Cloneable
 		final String purchaseName = SettingsHandler.getGame().getPurchaseModeMethodName();
 		if (purchaseName != null)
 		{
-			PointBuyMethod pbm = SettingsHandler.getGame().getContext().ref
+			PointBuyMethod pbm = SettingsHandler.getGame().getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(PointBuyMethod.class,
 							purchaseName);
 

@@ -48,7 +48,7 @@ public class FeatTokenTest extends TestCase
 	{
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.ref.importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 		// new RuntimeLoadContext(new RuntimeReferenceContext(),
 		// new ConsolidatedListCommitStrategy());
 	}
@@ -84,8 +84,8 @@ public class FeatTokenTest extends TestCase
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.ref.constructCDOMObject(Ability.class, one);
-		context.ref.reassociateCategory(AbilityCategory.FEAT, obj);
+		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;
 	}
 }

@@ -70,7 +70,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputNoLevels() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin"));
 		assertNoSideEffects();
 	}
@@ -78,7 +78,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmptyMin() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||5|3"));
 		assertNoSideEffects();
 	}
@@ -86,7 +86,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmptyMax() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|5||3"));
 		assertNoSideEffects();
 	}
@@ -94,7 +94,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmptyRem() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|"));
 		assertNoSideEffects();
 	}
@@ -103,7 +103,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputNotEnoughPipes()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5"));
 		assertNoSideEffects();
 	}
@@ -111,7 +111,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputTooManyPipes() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|4|3"));
 		assertNoSideEffects();
 	}
@@ -126,7 +126,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputOpenStart() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("|Paladin|6|5|4"));
 		assertNoSideEffects();
 	}
@@ -134,7 +134,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputOpenEnd() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|4|"));
 		assertNoSideEffects();
 	}
@@ -143,7 +143,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipeTypeOne()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||6|5|4"));
 		assertNoSideEffects();
 	}
@@ -152,7 +152,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipeTypeTwo()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(getTargetClass(), "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6||5|4"));
 		assertNoSideEffects();
 	}
@@ -233,24 +233,24 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		runRoundRobin("Paladin|11|10|1");
 	}
 
 	@Test
 	public void testRoundRobinZeroRem() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		runRoundRobin("Paladin|10|10|0");
 	}
 
 	@Test
 	public void testRoundRobinHighMax() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Paladin");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		runRoundRobin("Paladin|5|10|1");
 	}
 
@@ -275,7 +275,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		PCClass fighter = primaryContext.ref.constructCDOMObject(PCClass.class,
+		PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"Fighter");
 		LevelExchange le = new LevelExchange(CDOMDirectSingleRef
 				.getRef(fighter), 4, 12, 2);
@@ -303,7 +303,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		try
 		{
-			PCClass fighter = primaryContext.ref.constructCDOMObject(
+			PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(
 					PCClass.class, "Fighter");
 			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
 					.getRef(fighter), -4, 12, 2);
@@ -321,7 +321,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		try
 		{
-			PCClass fighter = primaryContext.ref.constructCDOMObject(
+			PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(
 					PCClass.class, "Fighter");
 			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
 					.getRef(fighter), 4, -12, 2);
@@ -340,7 +340,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		try
 		{
-			PCClass fighter = primaryContext.ref.constructCDOMObject(
+			PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(
 					PCClass.class, "Fighter");
 			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
 					.getRef(fighter), 4, 2, 1);
@@ -358,7 +358,7 @@ public class ExchangeLevelTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		try
 		{
-			PCClass fighter = primaryContext.ref.constructCDOMObject(
+			PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(
 					PCClass.class, "Fighter");
 			LevelExchange le = new LevelExchange(CDOMDirectSingleRef
 					.getRef(fighter), 4, 3, -2);

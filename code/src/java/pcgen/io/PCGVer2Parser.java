@@ -360,7 +360,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			sourceStr = sourceStr.substring(5);
 			oSource =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, sourceStr);
 			oSource = thePC.getAbilityKeyed(AbilityCategory.FEAT, sourceStr);
 			if (oSource == null)
@@ -369,7 +369,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					.getAllAbilityCategories())
 				{
 					Ability abilSourceObj =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(
 									Ability.class, cat, sourceStr);
 					if (abilSourceObj != null)
@@ -400,14 +400,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			sourceStr = sourceStr.substring(9);
 			oSource =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						PCTemplate.class, sourceStr);
 		}
 		else if (sourceStr.startsWith(TAG_SKILL + '='))
 		{
 			sourceStr = sourceStr.substring(6);
 			Skill aSkill =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Skill.class, sourceStr);
 			if (thePC.hasSkill(aSkill))
 			{
@@ -488,13 +488,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void checkStats() throws PCGParseException
 	{
-		if (seenStats.size() != Globals.getContext().ref
+		if (seenStats.size() != Globals.getContext().getReferenceContext()
 			.getConstructedObjectCount(PCStat.class))
 		{
 			final String message =
 					LanguageBundle.getFormattedString(
 						"Exceptions.PCGenParser.WrongNumAttributes", //$NON-NLS-1$
-						seenStats.size(), Globals.getContext().ref
+						seenStats.size(), Globals.getContext().getReferenceContext()
 							.getConstructedObjectCount(PCStat.class));
 			throw new PCGParseException("parseStatLines", "N/A", message); //$NON-NLS-1$//$NON-NLS-2$
 		}
@@ -544,7 +544,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		final String alignment = line.substring(TAG_ALIGNMENT.length() + 1);
 		PCAlignment align =
-				Globals.getContext().ref.getAbbreviatedObject(
+				Globals.getContext().getReferenceContext().getAbbreviatedObject(
 					PCAlignment.class, alignment);
 
 		if (align != null)
@@ -1816,7 +1816,7 @@ System.err.println(line);
 				{
 					String statAbb = element.getText().substring(0, idx);
 					final PCStat pcstat =
-							Globals.getContext().ref.getAbbreviatedObject(
+							Globals.getContext().getReferenceContext().getAbbreviatedObject(
 								PCStat.class, statAbb);
 
 					if (pcstat != null)
@@ -1993,7 +1993,7 @@ System.err.println(line);
 			if (aPCClass == null)
 			{
 				aPCClass =
-						Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 							PCClass.class, classKey);
 	
 				if (aPCClass != null)
@@ -2181,7 +2181,7 @@ System.err.println(line);
 				EntityEncoder.decode(tokens.getElements().get(0).getText());
 
 		Deity aDeity =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Deity.class, deityKey);
 		if (aDeity != null)
 		{
@@ -2228,7 +2228,7 @@ System.err.println(line);
 			// the first element defines the domain name
 			final String domainKey = EntityEncoder.decode(element.getText());
 			final Domain aDomain =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Domain.class, domainKey);
 
 			if ((aDomain == null) && (!Constants.NONE.equals(domainKey)))
@@ -2590,7 +2590,7 @@ System.err.println(line);
 				return;
 			}
 			ability =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, innateCategory, abilityKey);
 			if (ability == null)
 			{
@@ -2756,7 +2756,7 @@ System.err.println(line);
 			 * get clones of the PCs actual feats, which don't get saved or
 			 * preserved) */
 			Ability anAbility =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, abilityKey);
 			if (anAbility == null)
 			{
@@ -2957,7 +2957,7 @@ System.err.println(line);
 			{
 				String cType = EntityEncoder.decode(element.getText());
 				CompanionList cList =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(
 								CompanionList.class, cType);
 				if (cList == null)
@@ -2973,7 +2973,7 @@ System.err.println(line);
 			{
 				String raceText = EntityEncoder.decode(element.getText());
 				Race r =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(Race.class,
 								raceText);
 				if (r == null)
@@ -3168,7 +3168,7 @@ System.err.println(line);
 		/** final String kit = stok.nextToken(); */
 
 		final Kit aKit =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Kit.class, line.substring(TAG_KIT.length() + 1));
 
 		if (aKit == null)
@@ -3212,7 +3212,7 @@ System.err.println(line);
 		for (PCGElement element : tokens.getElements())
 		{
 			final Language aLang =
-					Globals.getContext().ref
+					Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(Language.class,
 							EntityEncoder.decode(element.getText()));
 			if (aLang == null)
@@ -3276,7 +3276,7 @@ System.err.println(line);
 			{
 				String cType = EntityEncoder.decode(element.getText());
 				CompanionList cList =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(
 								CompanionList.class, cType);
 				if (cList == null)
@@ -3661,7 +3661,7 @@ System.err.println(line);
 				RaceMigration.getNewRaceKey(raceName, pcgenVersion,
 					SettingsHandler.getGame().getName());
 		final Race aRace =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Race.class, raceName);
 
 		if (aRace == null)
@@ -3720,7 +3720,7 @@ System.err.println(line);
 				EntityEncoder
 					.decode(line.substring(TAG_FAVOREDCLASS.length() + 1));
 		PCClass cl =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					PCClass.class, favClass);
 		if (cl != null)
 		{
@@ -3784,7 +3784,7 @@ System.err.println(line);
 
 			skillKey = EntityEncoder.decode(element.getText());
 			aSkill =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Skill.class, skillKey);
 		}
 
@@ -4204,7 +4204,7 @@ System.err.println(line);
 				if (TAG_DOMAIN.equals(typeName))
 				{
 					Domain domain =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(DOMAIN_CLASS,
 									objectKey);
 					ClassSource cs = thePC.getDomainSource(domain);
@@ -4224,7 +4224,7 @@ System.err.println(line);
 					// it's either the class, sub-class or a cast-as class
 					// first see if it's the class
 					ClassSpellList csl =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(
 									ClassSpellList.class, objectKey);
 					if (((aPCClass != null) && objectKey.equals(aPCClass
@@ -4247,7 +4247,7 @@ System.err.println(line);
 					final String featKey =
 							EntityEncoder.decode(child.getText());
 					final Ability anAbility =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(
 									Ability.class, AbilityCategory.FEAT,
 									featKey);
@@ -4457,7 +4457,7 @@ System.err.println(line);
 		final String classKey = stok.nextToken();
 		final PCClass aClass = thePC.getClassKeyed(classKey);
 
-		ReferenceContext refContext = Globals.getContext().ref;
+		ReferenceContext refContext = Globals.getContext().getReferenceContext();
 		while ((aClass != null) && stok.hasMoreTokens())
 		{
 			final String tok = stok.nextToken();
@@ -4533,7 +4533,7 @@ System.err.println(line);
 			PCGElement element = it.next();
 			final String statName = element.getText();
 			PCStat stat =
-					Globals.getContext().ref.getAbbreviatedObject(PCStat.class,
+					Globals.getContext().getReferenceContext().getAbbreviatedObject(PCStat.class,
 						statName);
 
 			if ((stat != null) && seenStats.add(statName.toUpperCase())
@@ -4616,7 +4616,7 @@ System.err.println(line);
 					if (TAG_NAME.equals(childTag))
 					{
 						aPCTemplate =
-								Globals.getContext().ref
+								Globals.getContext().getReferenceContext()
 									.silentlyGetConstructedCDOMObject(
 										PCTemplate.class,
 										EntityEncoder.decode(child.getText()));
@@ -4690,7 +4690,7 @@ System.err.println(line);
 										EntityEncoder
 											.decode(subChild.getText());
 								final PCTemplate ownedTemplate =
-										Globals.getContext().ref
+										Globals.getContext().getReferenceContext()
 											.silentlyGetConstructedCDOMObject(
 												PCTemplate.class,
 												ownedTemplateKey);
@@ -4730,7 +4730,7 @@ System.err.println(line);
 					EntityEncoder.decode(line.substring(TAG_TEMPLATESAPPLIED
 						.length() + 1));
 			PCTemplate aPCTemplate =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						PCTemplate.class, key);
 			addKeyedTemplate(aPCTemplate, null);
 		}
@@ -4776,7 +4776,7 @@ System.err.println(line);
 
 			final String abilityKey = EntityEncoder.decode(element.getText());
 			anAbility =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, abilityKey);
 
 			if (anAbility == null)
@@ -4907,7 +4907,7 @@ System.err.println(line);
 				else if (TAG_PCTEMPLATE.equals(type))
 				{
 					PCTemplate template =
-							Globals.getContext().ref
+							Globals.getContext().getReferenceContext()
 								.silentlyGetConstructedCDOMObject(
 									PCTemplate.class, key);
 					if (thePC.hasTemplate(template))
@@ -4992,7 +4992,7 @@ System.err.println(line);
 	private WeaponProf getWeaponProf(final String aString)
 	{
 		WeaponProf wp =
-				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					WeaponProf.class, EntityEncoder.decode(aString));
 		if (wp == null)
 		{
@@ -5102,7 +5102,7 @@ System.err.println(line);
 			//
 			// Make sure that we are not picking up custom items!
 			aEquip =
-					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 						Equipment.class, itemKey);
 			if (aEquip != null)
 			{
@@ -5170,7 +5170,7 @@ System.err.println(line);
 						{
 							// Make sure that we are not picking up custom items!
 							Equipment aEquip2 =
-									Globals.getContext().ref
+									Globals.getContext().getReferenceContext()
 										.silentlyGetConstructedCDOMObject(
 											Equipment.class, baseItemKey);
 							if (aEquip2 != null)
@@ -5201,7 +5201,7 @@ System.err.println(line);
 									{
 										aEquip.addType(Type.CUSTOM);
 									}
-									Globals.getContext().ref
+									Globals.getContext().getReferenceContext()
 										.importObject(aEquip.clone());
 								}
 							}
@@ -5364,7 +5364,7 @@ System.err.println(line);
 			if (eqI == null)
 			{
 				eqI =
-						Globals.getContext().ref
+						Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(Equipment.class,
 								itemKey);
 			}
@@ -5538,7 +5538,7 @@ System.err.println(line);
 			{
 				for (AbilityCategory aCat : SettingsHandler.getGame().getAllAbilityCategories())
 				{
-					Ability a = Globals.getContext().ref
+					Ability a = Globals.getContext().getReferenceContext()
 							.silentlyGetConstructedCDOMObject(Ability.class,
 									aCat, cKey);
 					if (a != null)
@@ -5556,7 +5556,7 @@ System.err.println(line);
 				if (aEquip == null)
 				{
 					aEquip =
-							context.ref.silentlyGetConstructedCDOMObject(
+							context.getReferenceContext().silentlyGetConstructedCDOMObject(
 								Equipment.class, cKey);
 				}
 
@@ -5582,7 +5582,7 @@ System.err.println(line);
 			else if (cType.equals(TAG_TEMPLATE))
 			{
 				PCTemplate aTemplate =
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							PCTemplate.class, cKey);
 
 				if (aTemplate != null)
@@ -5594,7 +5594,7 @@ System.err.println(line);
 			else if (cType.equals(TAG_SKILL))
 			{
 				Skill aSkill =
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Skill.class, cKey);
 
 				if (aSkill != null)
@@ -6320,7 +6320,7 @@ System.err.println(line);
 
 	public PCAlignment getNoAlignment()
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCAlignment.class, Constants.NONE);
 	}
 

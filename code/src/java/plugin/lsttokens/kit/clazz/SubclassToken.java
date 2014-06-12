@@ -66,7 +66,7 @@ public class SubclassToken extends AbstractNonEmptyToken<KitClass> implements
 		 * This call to kitClass.getPcclass() is safe, as the line is CLASS: and
 		 * thus the CLASS: token is always encountered first
 		 */
-		CDOMReference<SubClass> sc = context.ref.getCDOMReference(
+		CDOMReference<SubClass> sc = context.getReferenceContext().getCDOMReference(
 				SubClass.class, SubClassCategory.getConstant(kitClass
 						.getPcclass().getLSTformat(false)), value);
 		kitClass.setSubClass(sc);

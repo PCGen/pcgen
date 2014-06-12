@@ -78,7 +78,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 					+ " requires a CATEGORY and arguments : " + value, context);
 		}
 		String cat = value.substring(0, barLoc);
-		Category<Ability> category = context.ref
+		Category<Ability> category = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
 		if (category == null)
 		{

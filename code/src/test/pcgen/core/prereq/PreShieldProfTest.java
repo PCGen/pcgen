@@ -98,7 +98,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -138,7 +138,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -165,7 +165,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		Globals.getContext().ref.constructCDOMObject(Equipment.class,
+		Globals.getContext().getReferenceContext().constructCDOMObject(Equipment.class,
 				"A Shield");
 		Prerequisite prereq;
 
@@ -178,7 +178,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE=Medium");
-		Globals.getContext().ref.resolveReferences(null);
+		Globals.getContext().getReferenceContext().resolveReferences(null);
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
@@ -207,7 +207,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
@@ -305,7 +305,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
-		assertTrue(Globals.getContext().ref.resolveReferences(null));
+		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
@@ -334,44 +334,44 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		heavySteelShield.setName("Heavy Steel Shield");
 		heavySteelShield.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
 		heavySteelShield.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(heavySteelShield);
+		Globals.getContext().getReferenceContext().importObject(heavySteelShield);
 		
 		Equipment heavyWoodenShield = new Equipment();
 		heavyWoodenShield.setName("Heavy Wooden Shield");
 		heavyWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
 		heavyWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(heavyWoodenShield);
+		Globals.getContext().getReferenceContext().importObject(heavyWoodenShield);
 		
 		Equipment lightWoodenShield = new Equipment();
 		lightWoodenShield.setName("Light Steel Shield");
 		lightWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
 		lightWoodenShield.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
-		Globals.getContext().ref.importObject(lightWoodenShield);
+		Globals.getContext().getReferenceContext().importObject(lightWoodenShield);
 		
 		Equipment fullPlateEq = new Equipment();
 		fullPlateEq.setName("Full Plate");
 		fullPlateEq.addToListFor(ListKey.TYPE, Type.getConstant("Shield"));
 		fullPlateEq.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(fullPlateEq);
+		Globals.getContext().getReferenceContext().importObject(fullPlateEq);
 		
 		ShieldProf fullPlate = new ShieldProf();
 		fullPlate.setName("Full Plate");
 		fullPlate.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(fullPlate);
+		Globals.getContext().getReferenceContext().importObject(fullPlate);
 
 		ShieldProf lightWood = new ShieldProf();
 		lightWood.setName("Light Wooden Shield");
 		lightWood.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
-		Globals.getContext().ref.importObject(lightWood);
+		Globals.getContext().getReferenceContext().importObject(lightWood);
 
 		ShieldProf heavyWood = new ShieldProf();
 		heavyWood.setName("Heavy Wooden Shield");
 		heavyWood.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(heavyWood);
+		Globals.getContext().getReferenceContext().importObject(heavyWood);
 
 		ShieldProf heavySteel = new ShieldProf();
 		heavySteel.setName("Heavy Steel Shield");
 		heavySteel.addToListFor(ListKey.TYPE, Type.getConstant("Heavy"));
-		Globals.getContext().ref.importObject(heavySteel);
+		Globals.getContext().getReferenceContext().importObject(heavySteel);
 	}
 }

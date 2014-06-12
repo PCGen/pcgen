@@ -319,12 +319,12 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 
 	protected ClassSpellList construct(LoadContext loadContext, String one)
 	{
-		return loadContext.ref.constructCDOMObject(ClassSpellList.class, one);
+		return loadContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, one);
 	}
 
 	protected void constructDomain(LoadContext loadContext, String one)
 	{
-		loadContext.ref.constructCDOMObject(DomainSpellList.class, one);
+		loadContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, one);
 	}
 
 	@Override

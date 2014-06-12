@@ -70,7 +70,7 @@ public final class UDam extends BonusObj
 		if (obj instanceof String)
 		{
 			String sObj = (String) obj;
-			final ReferenceContext ref = Globals.getContext().ref;
+			final ReferenceContext ref = Globals.getContext().getReferenceContext();
 			final PCClass aClass = ref.silentlyGetConstructedCDOMObject(PCClass.class, sObj);
 
 			if (aClass != null)

@@ -44,7 +44,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 			return false;
 		}
 		pcclass = value;
-		allClasses = context.ref.getCDOMAllReference(PCCLASS_CLASS);
+		allClasses = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 		return true;
 	}
 

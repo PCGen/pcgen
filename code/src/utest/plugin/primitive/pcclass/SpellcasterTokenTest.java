@@ -52,8 +52,8 @@ public class SpellcasterTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(SPELLCASTER_PRIMITIVE);
-		primaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
-		secondaryContext.ref.constructNowIfNecessary(getTargetClass(), "Placeholder");
+		primaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
+		secondaryContext.getReferenceContext().constructNowIfNecessary(getTargetClass(), "Placeholder");
 	}
 
 	@Override

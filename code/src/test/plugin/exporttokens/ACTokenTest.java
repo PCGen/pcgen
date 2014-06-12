@@ -126,7 +126,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		{
 			masterwork.addToListFor(ListKey.BONUS, aBonus);
 		}
-		context.ref.importObject(masterwork);
+		context.getReferenceContext().importObject(masterwork);
 
 		plus1 = new EquipmentModifier();
 		plus1.setName("Plus 1 Enhancement");
@@ -142,7 +142,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		{
 			plus1.addToListFor(ListKey.BONUS, aBonus);
 		}
-		Globals.getContext().ref.importObject(plus1);
+		Globals.getContext().getReferenceContext().importObject(plus1);
 
 		// Load AC definitions - but only once
 		final GameMode gamemode = SettingsHandler.getGame();
@@ -161,8 +161,8 @@ public class ACTokenTest extends AbstractCharacterTestCase
     @Override
 	protected void tearDown() throws Exception
 	{
-		Globals.getContext().ref.forget(masterwork);
-		Globals.getContext().ref.forget(plus1);
+		Globals.getContext().getReferenceContext().forget(masterwork);
+		Globals.getContext().getReferenceContext().forget(plus1);
 		masterwork = null;
 		plus1 = null;
 

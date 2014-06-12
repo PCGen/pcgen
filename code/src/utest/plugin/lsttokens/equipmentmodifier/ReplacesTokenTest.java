@@ -55,7 +55,7 @@ public class ReplacesTokenTest extends
 	@Override
 	public CDOMSingleRef<EquipmentModifier> getConstant(String string)
 	{
-		return primaryContext.ref.getCDOMReference(EquipmentModifier.class,
+		return primaryContext.getReferenceContext().getCDOMReference(EquipmentModifier.class,
 				string);
 	}
 

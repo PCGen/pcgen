@@ -152,32 +152,32 @@ public class ExclusiveQualifierTokenTest extends
 	{
 		s1 = new Skill();
 		s1.setName("s1");
-		primaryContext.ref.importObject(s1);
+		primaryContext.getReferenceContext().importObject(s1);
 
 		s2 = new Skill();
 		s2.setName("s2");
-		primaryContext.ref.importObject(s2);
+		primaryContext.getReferenceContext().importObject(s2);
 		primaryContext.unconditionallyProcess(s2, "TYPE", "Masterful");
 
 		s3 = new Skill();
 		s3.setName("s3");
-		primaryContext.ref.importObject(s3);
+		primaryContext.getReferenceContext().importObject(s3);
 		primaryContext.unconditionallyProcess(s3, "TYPE", "Masterful");
 
 		s4 = new Skill();
 		s4.setName("s4");
 		s4.put(ObjectKey.EXCLUSIVE, Boolean.TRUE);
 		primaryContext.unconditionallyProcess(s4, "TYPE", "Masterful");
-		primaryContext.ref.importObject(s4);
+		primaryContext.getReferenceContext().importObject(s4);
 
 		s5 = new Skill();
 		s5.setName("s5");
 		s5.put(ObjectKey.EXCLUSIVE, Boolean.TRUE);
-		primaryContext.ref.importObject(s5);
+		primaryContext.getReferenceContext().importObject(s5);
 
 		cl1 = new PCClass();
 		cl1.setName("MyClass");
-		primaryContext.ref.importObject(cl1);
+		primaryContext.getReferenceContext().importObject(cl1);
 	}
 
 	@Override

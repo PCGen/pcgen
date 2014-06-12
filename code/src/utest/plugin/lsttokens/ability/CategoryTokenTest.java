@@ -41,8 +41,8 @@ public class CategoryTokenTest extends AbstractTokenTestCase<Ability>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		primaryContext.ref.constructCDOMObject(AbilityCategory.class, "Mutation");
-		secondaryContext.ref.constructCDOMObject(AbilityCategory.class,
+		primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Mutation");
+		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
 				"Mutation");
 	}
 

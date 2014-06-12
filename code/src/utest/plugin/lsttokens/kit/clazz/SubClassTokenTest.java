@@ -41,11 +41,11 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		primaryProf.setPcclass(primaryContext.ref.getCDOMReference(
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		primaryProf.setPcclass(primaryContext.getReferenceContext().getCDOMReference(
 				PCClass.class, "Wizard"));
-		secondaryProf.setPcclass(secondaryContext.ref.getCDOMReference(
+		secondaryProf.setPcclass(secondaryContext.getReferenceContext().getCDOMReference(
 				PCClass.class, "Wizard"));
 	}
 
@@ -78,14 +78,14 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass sc = primaryContext.ref.constructCDOMObject(SubClass.class, "Fireball");
-		primaryContext.ref.reassociateCategory(cat, sc);
-		sc = secondaryContext.ref.constructCDOMObject(SubClass.class, "Fireball");
-		secondaryContext.ref.reassociateCategory(cat, sc);
-		sc = primaryContext.ref.constructCDOMObject(SubClass.class, "English");
-		primaryContext.ref.reassociateCategory(cat, sc);
-		sc = secondaryContext.ref.constructCDOMObject(SubClass.class, "English");
-		secondaryContext.ref.reassociateCategory(cat, sc);
+		SubClass sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
+		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
+		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
+		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
+		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -94,10 +94,10 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass sc = primaryContext.ref.constructCDOMObject(SubClass.class, "Fireball");
-		primaryContext.ref.reassociateCategory(cat, sc);
-		sc = secondaryContext.ref.constructCDOMObject(SubClass.class, "Fireball");
-		secondaryContext.ref.reassociateCategory(cat, sc);
+		SubClass sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
+		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
+		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
 		runRoundRobin("Fireball");
 	}
 }

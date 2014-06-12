@@ -96,8 +96,8 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		runRoundRobin("Fireball=2");
 	}
 
@@ -122,9 +122,9 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Spell a = primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		Spell a = primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
-		Spell b = secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		Spell b = secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		b.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
 		runRoundRobin("TYPE.Foo=2");
 	}
@@ -132,34 +132,34 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	@Test
 	public void testRoundRobinFeat() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		Ability ab = primaryContext.ref.constructCDOMObject(Ability.class, "EnhancedFeat");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.ref.constructCDOMObject(Ability.class, "EnhancedFeat");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, ab);
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
 		runRoundRobin("SPELLBOOK=Personal|CLASS=Wizard|Fireball[EnhancedFeat]=2");
 	}
 
 	@Test
 	public void testRoundRobinCount() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		runRoundRobin("SPELLBOOK=Personal|CLASS=Wizard|Fireball=2");
 	}
 
 	@Test
 	public void testRoundRobinSpellBookClass() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
-		secondaryContext.ref.constructCDOMObject(PCClass.class, "Wizard");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
+		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		runRoundRobin("SPELLBOOK=Personal|CLASS=Wizard|Fireball");
 	}
 }

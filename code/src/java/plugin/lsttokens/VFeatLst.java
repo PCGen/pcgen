@@ -94,7 +94,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		Nature nature = Nature.VIRTUAL;
 		CDOMReference<AbilityList> list = Ability.FEATLIST;
 
-		ReferenceManufacturer<Ability> rm = context.ref.getManufacturer(
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
 
 		while (true)

@@ -81,13 +81,13 @@ public class AbilityLoader extends BasicLoader<Ability>
 			{
 				String abilityCatName = tok.substring(9);
 				final Category<Ability> cat =
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							ABILITY_CATEGORY_CLASS, abilityCatName);
 				if (cat == null)
 				{
 //					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
 //						+ " at line " + line + ": " + lineString);
-					context.ref.constructCDOMObject(
+					context.getReferenceContext().constructCDOMObject(
 						ABILITY_CATEGORY_CLASS, abilityCatName);
 				}
 

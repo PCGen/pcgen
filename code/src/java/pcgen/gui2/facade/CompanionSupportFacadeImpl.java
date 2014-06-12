@@ -190,7 +190,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private void initCompData(boolean rebuildCompanionList)
 	{
 		List<CompanionStub> companions = new ArrayList<CompanionStub>();
-		for (CompanionList compList : Globals.getContext().ref
+		for (CompanionList compList : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(CompanionList.class))
 		{
 			keyToCompanionListMap.put(compList.getKeyName(), compList);
@@ -230,7 +230,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			}
 		}
 		//Logging.debugPrint("Companion list " + companionList);
-		for (CompanionList compList : Globals.getContext().ref
+		for (CompanionList compList : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(CompanionList.class))
 		{
 			updateCompanionTodo(compList.toString());

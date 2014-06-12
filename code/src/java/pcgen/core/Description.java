@@ -289,7 +289,7 @@ public class Description extends ConcretePrereqObject
 						else
 						{
 							Ability feat =
-									Globals.getContext().ref
+									Globals.getContext().getReferenceContext()
 										.silentlyGetConstructedCDOMObject(
 											Ability.class,
 											AbilityCategory.FEAT, featName);

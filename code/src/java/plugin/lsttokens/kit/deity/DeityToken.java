@@ -64,7 +64,7 @@ public class DeityToken extends AbstractNonEmptyToken<KitDeity> implements
 		String value)
 	{
 		CDOMSingleRef<Deity> ref =
-				context.ref.getCDOMReference(DEITY_CLASS, value);
+				context.getReferenceContext().getCDOMReference(DEITY_CLASS, value);
 		kitDeity.setDeity(ref);
 		return ParseResult.SUCCESS;
 	}

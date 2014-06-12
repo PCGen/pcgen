@@ -59,10 +59,10 @@ public class ProficiencyIntegrationTest extends
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP1");
-		secondaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP1");
-		primaryContext.ref.constructCDOMObject(ShieldProf.class, "TestWP2");
-		secondaryContext.ref.constructCDOMObject(ShieldProf.class, "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
+		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(ShieldProf.class, "TestWP2");
+		secondaryContext.getReferenceContext().constructCDOMObject(ShieldProf.class, "TestWP2");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ARMOR|TestWP1");
@@ -73,10 +73,10 @@ public class ProficiencyIntegrationTest extends
 	@Test
 	public void testRoundRobinRemove() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP1");
-		secondaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP1");
-		primaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP2");
-		secondaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP2");
+		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
+		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP2");
+		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP2");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ARMOR|TestWP1");
@@ -87,8 +87,8 @@ public class ProficiencyIntegrationTest extends
 	@Test
 	public void testRoundRobinNoSet() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(WeaponProf.class, "TestWP1");
-		secondaryContext.ref.constructCDOMObject(WeaponProf.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "TestWP1");
+		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "TestWP1");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
@@ -99,8 +99,8 @@ public class ProficiencyIntegrationTest extends
 	@Test
 	public void testRoundRobinNoReset() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP1");
-		secondaryContext.ref.constructCDOMObject(ArmorProf.class, "TestWP1");
+		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
+		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "ARMOR|TestWP1");

@@ -99,7 +99,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 					equip.getSizeAdjustment());
 
 		final String sBaseKey = equip.getBaseItemName();
-		baseEquipment = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+		baseEquipment = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			Equipment.class, sBaseKey);
 		
 		equipHeads =
@@ -384,7 +384,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		for (EquipmentHead head : equipHeads)
 		{
 			List<EquipModFacade> newEqMods = new ArrayList<EquipModFacade>();
-			for (EquipmentModifier aEqMod : Globals.getContext().ref
+			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
 				if (equip.isVisible(aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))

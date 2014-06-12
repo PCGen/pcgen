@@ -127,7 +127,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			String[] val = {newType};
 
 			CDOMGroupRef<WeaponProf> newTypeProf =
-					context.ref.getCDOMTypeReference(WEAPONPROF_CLASS, val);
+					context.getReferenceContext().getCDOMTypeReference(WEAPONPROF_CLASS, val);
 
 			String profs = tokText.substring(0, equalLoc);
 			if (profs.length() == 0)

@@ -150,30 +150,30 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		runRoundRobin("SPELL|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
-		AbilityCategory newCatp = primaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		Ability a = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(newCatp, a);
-		Ability b = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.ref.reassociateCategory(newCats, b);
+		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.getReferenceContext().reassociateCategory(newCatp, a);
+		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		secondaryContext.getReferenceContext().reassociateCategory(newCats, b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
 	@Test
 	public void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		runRoundRobin("SPELL|Fireball,Lightning Bolt");
 	}
 
@@ -181,14 +181,14 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinAbilitySpell()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		AbilityCategory newCatp = primaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.ref.constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		Ability a = primaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.ref.reassociateCategory(newCatp, a);
-		Ability b = secondaryContext.ref.constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.ref.reassociateCategory(newCats, b);
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		primaryContext.getReferenceContext().reassociateCategory(newCatp, a);
+		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
+		secondaryContext.getReferenceContext().reassociateCategory(newCats, b);
 		runRoundRobin("ABILITY=NEWCAT|Abil3", "SPELL|Lightning Bolt");
 	}
 
@@ -196,12 +196,12 @@ public class ForwardrefTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinFeatSpell()
 			throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		secondaryContext.ref.constructCDOMObject(Spell.class, "Lightning Bolt");
-		Ability a = primaryContext.ref.constructCDOMObject(Ability.class, "My Feat");
-		primaryContext.ref.reassociateCategory(AbilityCategory.FEAT, a);
-		Ability b = secondaryContext.ref.constructCDOMObject(Ability.class, "My Feat");
-		secondaryContext.ref.reassociateCategory(AbilityCategory.FEAT, b);
+		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
+		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
+		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
+		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, b);
 		runRoundRobin("FEAT|My Feat", "SPELL|Lightning Bolt");
 	}
 

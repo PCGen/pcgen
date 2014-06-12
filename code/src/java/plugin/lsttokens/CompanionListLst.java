@@ -161,7 +161,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			if (Constants.LST_ANY.equalsIgnoreCase(tokString))
 			{
 				foundAny = true;
-				races.add(context.ref.getCDOMAllReference(Race.class));
+				races.add(context.getReferenceContext().getCDOMAllReference(Race.class));
 			}
 			else if (tokString.startsWith("RACETYPE="))
 			{
@@ -173,7 +173,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 				races.add(new ObjectMatchingReference<Race, RaceType>(tokString,
 						Race.class,
-						context.ref.getCDOMAllReference(Race.class),
+						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
 			}
 			else if (tokString.startsWith("RACESUBTYPE="))
@@ -186,7 +186,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 				races.add(new ListMatchingReference<Race, RaceSubType>(tokString,
 						Race.class,
-						context.ref.getCDOMAllReference(Race.class),
+						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
 			}
 			else if (looksLikeAPrerequisite(tokString))
@@ -196,7 +196,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				races.add(context.ref.getCDOMReference(Race.class, tokString));
+				races.add(context.getReferenceContext().getCDOMReference(Race.class, tokString));
 			}
 		}
 		if (foundAny && races.size() > 1)
@@ -292,8 +292,8 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			String companionType, Set<CDOMReference<Race>> races,
 			Integer followerAdjustment, List<Prerequisite> prereqs)
 	{
-		context.ref.constructIfNecessary(CompanionList.class, companionType);
-		CDOMSingleRef<CompanionList> ref = context.ref.getCDOMReference(
+		context.getReferenceContext().constructIfNecessary(CompanionList.class, companionType);
+		CDOMSingleRef<CompanionList> ref = context.getReferenceContext().getCDOMReference(
 				CompanionList.class, companionType);
 
 		for (CDOMReference<Race> race : races)

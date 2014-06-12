@@ -72,7 +72,7 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		LoadContext context = Globals.getContext();
 		humanoidClass = classLoader.parseLine(context, null, classDef, source);
-		Globals.getContext().ref.importObject(humanoidClass);
+		Globals.getContext().getReferenceContext().importObject(humanoidClass);
 
 		// Create the BugBear race
 		bugbearRace = new Race();
@@ -81,7 +81,7 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(IntegerKey.INITIAL_SKILL_MULT, 1);
-		Globals.getContext().ref.importObject(bugbearRace);
+		Globals.getContext().getReferenceContext().importObject(bugbearRace);
 		
 	}
 

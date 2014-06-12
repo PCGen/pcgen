@@ -84,7 +84,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCClass>
 				String clearText = tokText.substring(7);
 				if (Constants.LST_ALL.equals(clearText))
 				{
-					lang = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
+					lang = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);
 				}
 				else
 				{
@@ -117,7 +117,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCClass>
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
-					lang = context.ref.getCDOMAllReference(LANGUAGE_CLASS);
+					lang = context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS);
 				}
 				else
 				{

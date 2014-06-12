@@ -110,7 +110,7 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 					cas.getAbilityCategory() == AbilityCategory.FEAT;
 			boolean abilityExpected =
 					cas.getAbility().equals(
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
 			boolean selectionExpected = assocCheck.check(cnas);
@@ -127,7 +127,7 @@ public class AutoFeatTest extends AbstractGrantedListTokenTest<Ability>
 	protected Ability createGrantedObject()
 	{
 		Ability a = super.createGrantedObject();
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 

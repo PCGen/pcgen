@@ -59,7 +59,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	public void reset(CharID id)
 	{
 		HashMap<Skill, Double> map = getConstructingInfo(id);
-		for (Skill s : Globals.getContext().ref
+		for (Skill s : Globals.getContext().getReferenceContext()
 			.getConstructedCDOMObjects(Skill.class))
 		{
 			double newValue =

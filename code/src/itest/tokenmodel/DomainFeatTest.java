@@ -128,7 +128,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 		Domain source = create(Domain.class, "Source");
 		PCClass pcc = create(PCClass.class, "Class");
 		Ability passthru = create(Ability.class, "Passthru");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, passthru);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, passthru);
 		Skill granted = create(Skill.class, "GrantedSkill");
 		create(Skill.class, "IgnoredSkill");
 		ParseResult result = token.parseToken(context, source, "Passthru(%LIST)");
@@ -181,7 +181,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 			}
 			boolean abilityExpected =
 					cas.getAbility().equals(
-						context.ref.silentlyGetConstructedCDOMObject(
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Ability.class, AbilityCategory.FEAT, "Granted"));
 			if (!abilityExpected)
 			{
@@ -230,7 +230,7 @@ public class DomainFeatTest extends AbstractTokenModelTest
 	protected Ability createGrantedObject()
 	{
 		Ability a = create(Ability.class, "Granted");
-		context.ref.reassociateCategory(AbilityCategory.FEAT, a);
+		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 }

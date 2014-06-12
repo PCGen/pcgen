@@ -52,14 +52,14 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		 * gate to additional SizeAdjustments being added in Campaigns (vs. Game
 		 * Modes)
 		 */
-		context.ref.registerAbbreviation(size, value);
+		context.getReferenceContext().registerAbbreviation(size, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, SizeAdjustment size)
 	{
-		String abb = context.ref.getAbbreviation(size);
+		String abb = context.getReferenceContext().getAbbreviation(size);
 		if (abb == null)
 		{
 			return null;

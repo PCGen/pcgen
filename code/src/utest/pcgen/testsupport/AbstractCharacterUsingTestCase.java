@@ -93,10 +93,10 @@ public class AbstractCharacterUsingTestCase extends TestCase {
 
 	protected void finishLoad(LoadContext context)
 	{
-		context.ref.buildDeferredObjects();
-		context.ref.buildDerivedObjects();
+		context.getReferenceContext().buildDeferredObjects();
+		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.ref.resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 	}
@@ -130,7 +130,7 @@ public class AbstractCharacterUsingTestCase extends TestCase {
 		wis = createStat("Wisdom", "WIS");
 		cha = createStat("Charisma", "CHA");
 
-		ReferenceContext ref = Globals.getContext().ref;
+		ReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");
@@ -207,8 +207,8 @@ public class AbstractCharacterUsingTestCase extends TestCase {
 		sa.setName(name);
 		sa.put(StringKey.ABB, abb);
 
-		Globals.getContext().ref.importObject(sa);
-		Globals.getContext().ref.registerAbbreviation(sa, sa.getAbbreviation());
+		Globals.getContext().getReferenceContext().importObject(sa);
+		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		return sa;
 	}
 

@@ -56,7 +56,7 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 	@Override
 	public SpellSchool decodeChoice(LoadContext context, String s)
 	{
-		return context.ref.silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS,
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS,
 			s);
 	}
 

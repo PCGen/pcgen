@@ -506,7 +506,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
-	private CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+	private CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
 
 	/**
@@ -541,8 +541,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
 		setRace(Globals.s_EMPTYRACE);
 
-		statFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class));
-		checkFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCCheck.class));
+		statFacet.addAll(id, Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setGold(new BigDecimal(0));
@@ -820,7 +820,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			final String rType = cList.getKeyName();
 			final Race fRace = aF.getRace();
 
-			for (CompanionMod cm : Globals.getContext().ref.getManufacturer(
+			for (CompanionMod cm : Globals.getContext().getReferenceContext().getManufacturer(
 				CompanionMod.class, cList).getAllObjects())
 			{
 				final String aType = cm.getType();
@@ -1554,7 +1554,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public int getEffectiveCompanionLevel(final CompanionList compList)
 	{
-		for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
 			CompanionMod.class, compList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
@@ -1624,7 +1624,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			boolean found = false;
 
-			for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+			for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
 				CompanionMod.class, aM.getType()).getAllObjects())
 			{
 				if ((cMod.getLevelApplied(mClass) > 0) && !found)
@@ -1640,7 +1640,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// Clear the companionModList so we can add everything to it
 		Collection<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
 
-		for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
 			CompanionMod.class, aM.getType()).getAllObjects())
 		{
 			// Check all the masters classes
@@ -1839,7 +1839,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// Old way of handling this
 		// If the character qualifies for any companion mod of this type
 		// they can take unlimited number of them.
-		for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
 			CompanionMod.class, cList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
@@ -4639,10 +4639,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		SpellBook spellBook = getSpellBookByName(bookName);
 		if (aClass == null && spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 		{
-			aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKey);
+			aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, classKey);
 			if ((aClass == null) && (classKey.lastIndexOf('(') >= 0))
 			{
-				aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class,
+				aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 						classKey.substring(0, classKey.lastIndexOf('(')).trim());
 			}
 		}
@@ -5017,7 +5017,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				for (CharacterSpell cs : getCharacterSpells(pObj, a))
 				{
 					final Spell aSpell = cs.getSpell();
-					SpellSchool ss = Globals.getContext().ref.silentlyGetConstructedCDOMObject(SpellSchool.class,
+					SpellSchool ss = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(SpellSchool.class,
 							school);
 
 					if ((school.length() == 0) || (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
@@ -6557,7 +6557,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		for (int i = 0; i < getLevelInfoSize(); ++i)
 		{
 			final String classKeyName = getLevelInfoClassKeyName(i);
-			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class,
+			final PCClass aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
 					classKeyName);
 
 			if (aClass.isMonster() || characterLevels < maxCharacterLevel)
@@ -9965,7 +9965,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		GameMode gm = SettingsHandler.getGame();
 		if (gm.isPurchaseStatMode())
 		{
-			PointBuyMethod pbm = gm.getContext().ref.silentlyGetConstructedCDOMObject(PointBuyMethod.class,
+			PointBuyMethod pbm = gm.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PointBuyMethod.class,
 					gm.getPurchaseModeMethodName());
 			list.add(pbm);
 		}

@@ -66,7 +66,7 @@ public class MasterbonusraceToken extends
 			String token = tok.nextToken();
 
 			CDOMSingleRef<Race> ref =
-					context.ref.getCDOMReference(RACE_CLASS, token);
+					context.getReferenceContext().getCDOMReference(RACE_CLASS, token);
 			context.getObjectContext().addToList(cMod, ListKey.APPLIED_RACE,
 				ref);
 		}

@@ -82,7 +82,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 					+ " requires a class name before =: " + value, context);
 		}
 		String level = value.substring(equalLoc + 1);
-		CDOMSingleRef<PCClass> cl = context.ref.getCDOMReference(PCClass.class,
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class,
 				className);
 		try
 		{

@@ -122,11 +122,11 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 
 	protected Kit getCDOMObject(LoadContext context, String name)
 	{
-		Kit obj = context.ref.silentlyGetConstructedCDOMObject(targetClass,
+		Kit obj = context.getReferenceContext().silentlyGetConstructedCDOMObject(targetClass,
 				name);
 		if (obj == null)
 		{
-			obj = context.ref.constructCDOMObject(targetClass, name);
+			obj = context.getReferenceContext().constructCDOMObject(targetClass, name);
 		}
 		return obj;
 	}
@@ -154,7 +154,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 			try
 			{
 				TreeSet<String> set = new TreeSet<String>();
-				for (Kit k : lc.ref.getConstructedCDOMObjects(Kit.class))
+				for (Kit k : lc.getReferenceContext().getConstructedCDOMObjects(Kit.class))
 				{
 					if (cse.getURI().equals(k.getSourceURI()))
 					{

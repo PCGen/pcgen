@@ -49,7 +49,7 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 	protected LoadInfo getLoadable(LoadContext context, String firstToken,
 			URI sourceURI) throws PersistenceLayerException
 	{
-		LoadInfo loadable = context.ref.constructNowIfNecessary(LoadInfo.class,
+		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class,
 				getGameMode());
 		LstUtils.processToken(context, loadable, sourceURI, firstToken);
 		return loadable;

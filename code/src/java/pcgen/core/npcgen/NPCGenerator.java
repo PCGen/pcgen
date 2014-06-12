@@ -166,7 +166,7 @@ public class NPCGenerator
 			// User has not specified a weighting for skills for this class
 			// Assume class skills are picked uniformly and cross-class skills
 			// are 1/8 as likely to be selected.
-			for ( Skill skill : Globals.getContext().ref.getConstructedCDOMObjects(Skill.class) )
+			for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
 			{
 				if ( skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT )
 				{
@@ -338,7 +338,7 @@ public class NPCGenerator
 			// User has not specified a weighting for feats for this class
 			// Assume General feats are 5 times as likely to be selected as
 			// any other type
-			for (Ability ability : Globals.getContext().ref.getManufacturer(
+			for (Ability ability : Globals.getContext().getReferenceContext().getManufacturer(
 					Ability.class, AbilityCategory.FEAT).getAllObjects())
 			{
 				int weight = 1;

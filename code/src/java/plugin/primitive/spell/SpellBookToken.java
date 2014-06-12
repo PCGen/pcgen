@@ -43,7 +43,7 @@ public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 			return false;
 		}
 		spellbook = value;
-		allSpells = context.ref.getCDOMAllReference(SPELL_CLASS);
+		allSpells = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 		return true;
 	}
 

@@ -158,7 +158,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 
 		Utility.buildConstraints(c, 1, line++, 1, 1, 0, 0);
 		c.fill = GridBagConstraints.NONE;
-		Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().ref.getConstructedCDOMObjects(UnitSet.class);
+		Collection<UnitSet> unitSets = SettingsHandler.getGame().getModeContext().getReferenceContext().getConstructedCDOMObjects(UnitSet.class);
 		unitSetNames = new String[unitSets.size()];
 		int i = 0;
 		for (UnitSet unitSet : unitSets)
@@ -255,7 +255,7 @@ public class LanguagePanel extends PCGenPrefsPanel
 		{
 			unitSetType.setSelectedIndex(0);
 			Collection<UnitSet> unitSets = SettingsHandler.getGame()
-					.getModeContext().ref.getConstructedCDOMObjects(UnitSet.class);
+					.getModeContext().getReferenceContext().getConstructedCDOMObjects(UnitSet.class);
 	
 			for (int i = 0; i < unitSets.size(); ++i)
 			{

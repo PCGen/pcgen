@@ -104,7 +104,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
-		Globals.getContext().ref.importObject(template);
+		Globals.getContext().getReferenceContext().importObject(template);
 		getCharacter().addTemplate(template);
 		is(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))), strEq(simpleDesc));
 	}
@@ -160,7 +160,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	{
 		final PCTemplate pobj = new PCTemplate();
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%CHOICE");
@@ -179,7 +179,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	{
 		final Domain pobj = new Domain();
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 
 		final Description desc = new Description("%1");
 		desc.addVariable("%LIST");
@@ -210,7 +210,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	{
 		final Race pobj = new Race();
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Foo");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 
 		final Description desc = new Description("Testing");
 		desc.addVariable("%LIST");
@@ -232,8 +232,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(dummy, "CATEGORY", "FEAT");
 		Globals.getContext().unconditionallyProcess(dummy, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(dummy, "MULT", "YES");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 1");
-		Globals.getContext().ref.constructCDOMObject(Language.class, "Associated 2");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 1");
+		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 2");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
 		Globals.getContext().resolveReferences(null);

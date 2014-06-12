@@ -61,10 +61,10 @@ public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 	@Test
 	public void testInvalidInputOnlyOne() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Deity.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Deity.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Deity.class, "English");
-		secondaryContext.ref.constructCDOMObject(Deity.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Deity.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(Deity.class, "English");
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -72,8 +72,8 @@ public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Deity.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Deity.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 }

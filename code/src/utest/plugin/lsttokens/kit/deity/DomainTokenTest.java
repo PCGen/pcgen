@@ -61,18 +61,18 @@ public class DomainTokenTest extends AbstractKitTokenTestCase<KitDeity>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Domain.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Domain.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Domain.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Domain.class, "Fireball");
 		runRoundRobin("Fireball");
 	}
 
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		primaryContext.ref.constructCDOMObject(Domain.class, "Fireball");
-		secondaryContext.ref.constructCDOMObject(Domain.class, "Fireball");
-		primaryContext.ref.constructCDOMObject(Domain.class, "English");
-		secondaryContext.ref.constructCDOMObject(Domain.class, "English");
+		primaryContext.getReferenceContext().constructCDOMObject(Domain.class, "Fireball");
+		secondaryContext.getReferenceContext().constructCDOMObject(Domain.class, "Fireball");
+		primaryContext.getReferenceContext().constructCDOMObject(Domain.class, "English");
+		secondaryContext.getReferenceContext().constructCDOMObject(Domain.class, "English");
 		runRoundRobin("Fireball" + getJoinCharacter() + "English");
 	}
 
