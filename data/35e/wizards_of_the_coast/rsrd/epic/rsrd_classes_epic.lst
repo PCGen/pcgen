@@ -34,7 +34,7 @@ CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowl
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Die		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Req. Att.	Required Feat					Required Lvl	Required Skill
-CLASS:Divine Emissary	PREATT:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10
+CLASS:Divine Emissary	PRETOTALAB:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Gather Information|Heal|Intimidate|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot|TYPE=Craft|TYPE=Profession|Use Magic Device
 1:REPEATLEVEL:1																																																												ADD:SPELLCASTER|ANY
@@ -60,7 +60,7 @@ CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decip
 # Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Gpa		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name			Required Ability								Req. Att.	Required Feat											Required Lvl	Required Skill
-CLASS:Guardian Paramount	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
+CLASS:Guardian Paramount	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PRETOTALAB:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate|Jump|Listen|Spot|TYPE=Profession
 1			BONUS:ABILITYPOOL|Guardian Paramount Feat|1	BONUS:VAR|GPEnabler|(2+ceil(CL/3))		ABILITY:Special Ability|AUTOMATIC|Guardian Paramount ~ Uncanny Dodge Enabler
@@ -116,7 +116,7 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Sen		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
 # Class Name		Required AL		Req. Att.	Required Feat						Required Lvl	Required Skill
-CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREATT:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,Knowledge (Local)=8
+CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PRETOTALAB:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,Knowledge (Local)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE=Profession
 1																SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/7))|CASTERLEVEL=15|Sending,15+CHA	SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/3))|CASTERLEVEL=15|Shield of Law,18+CHA
