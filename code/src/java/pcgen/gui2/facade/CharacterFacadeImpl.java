@@ -230,7 +230,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<File> file;
 	private DefaultReferenceFacade<HandedFacade> handedness;
 	private UIDelegate delegate;
-	private List<Language> autoLanguagesCache;
+	private Set<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
 	private DefaultReferenceFacade<Integer> currentXP;
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
@@ -2642,7 +2642,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			// Calling preparePCForOutput will mark export character as modified, so compare original character serial when checking for real changes
 			// Get serial at beginning so we can detect if a change occurs during clone and preparePCForOutput
 			lastExportCharSerial = theCharacter.getSerial();
-			exportPc = (PlayerCharacter) theCharacter.clone();
+			exportPc = theCharacter.clone();
 
 			// Get the PC all up to date, (equipment and active bonuses etc)
 			exportPc.preparePCForOutput();

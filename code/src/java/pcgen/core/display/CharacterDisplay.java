@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -49,7 +50,8 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
-import pcgen.cdom.facet.AutoLanguageFacet;
+import pcgen.cdom.facet.AutoLanguageGrantedFacet;
+import pcgen.cdom.facet.AutoLanguageUnconditionalFacet;
 import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
@@ -222,7 +224,8 @@ public class CharacterDisplay
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
 	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
-	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
+	private AutoLanguageGrantedFacet autoLangGrantedFacet = FacetLibrary.getFacet(AutoLanguageGrantedFacet.class);
+	private AutoLanguageUnconditionalFacet autoLangUnconditionalFacet = FacetLibrary.getFacet(AutoLanguageUnconditionalFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
@@ -1128,9 +1131,12 @@ public class CharacterDisplay
 		return armorClassFacet.calcACOfType(id, "Total");
 	}
 
-	public List<Language> getAutoLanguages()
+	public Set<Language> getAutoLanguages()
 	{
-		return autoLangFacet.getAutoLanguage(id);
+		Set<Language> languages = new HashSet<Language>();
+		languages.addAll(autoLangGrantedFacet.getSet(id));
+		languages.addAll(autoLangUnconditionalFacet.getSet(id));
+		return languages;
 	}
 
 	/**
