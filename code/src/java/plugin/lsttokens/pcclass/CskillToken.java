@@ -222,7 +222,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 			{
 				for (Skill sk : ref.getContainedObjects())
 				{
-					context.list.addToMasterList(getTokenName(), obj, listref,
+					context.getListContext().addToMasterList(getTokenName(), obj, listref,
 							sk);
 					context.commit();
 				}

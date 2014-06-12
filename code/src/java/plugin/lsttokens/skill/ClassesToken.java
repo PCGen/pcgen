@@ -115,13 +115,13 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 							+ value, context);
 				}
 			}
-			context.list
+			context.getListContext()
 					.addToMasterList(getTokenName(), skill, filtered, skill);
 		}
 		else if (allow.isEmpty())
 		{
 			// unqualified ALL
-			context.list.addToMasterList(getTokenName(), skill, context.getReferenceContext()
+			context.getListContext().addToMasterList(getTokenName(), skill, context.getReferenceContext()
 					.getCDOMAllReference(SKILLLIST_CLASS), skill);
 		}
 		else
@@ -129,7 +129,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 			// use allow
 			for (CDOMReference<ClassSkillList> ref : allow)
 			{
-				context.list.addToMasterList(getTokenName(), skill, ref, skill);
+				context.getListContext().addToMasterList(getTokenName(), skill, ref, skill);
 			}
 		}
 		return ParseResult.SUCCESS;

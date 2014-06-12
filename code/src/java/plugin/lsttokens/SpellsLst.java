@@ -84,7 +84,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (sourceLine.equals(Constants.LST_DOT_CLEAR_ALL))
 		{
-			context.list.removeAllFromList(getTokenName(), obj, Spell.SPELLS);
+			context.getListContext().removeAllFromList(getTokenName(), obj, Spell.SPELLS);
 			return ParseResult.SUCCESS;
 		}
 		ParsingSeparator sep = new ParsingSeparator(sourceLine, '|');

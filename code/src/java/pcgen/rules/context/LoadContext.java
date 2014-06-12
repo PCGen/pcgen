@@ -75,7 +75,7 @@ public abstract class LoadContext
 
 	private final DataSetID datasetID = DataSetID.getID();
 
-	public final AbstractListContext list;
+	private final AbstractListContext list;
 
 	public final AbstractObjectContext obj;
 
@@ -359,7 +359,7 @@ public abstract class LoadContext
 		{
 			newObj = (T) cdo.clone();
 			newObj.setName(newName);
-			list.cloneInMasterLists(cdo, newObj);
+			getListContext().cloneInMasterLists(cdo, newObj);
 		}
 		catch (CloneNotSupportedException e)
 		{
