@@ -119,7 +119,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			}
 		}
 		cm.setMoveRatesFlag(0);
-		context.obj.addToList(obj, ListKey.MOVEMENT, cm);
+		context.getObjectContext().addToList(obj, ListKey.MOVEMENT, cm);
 		return ParseResult.SUCCESS;
 	}
 

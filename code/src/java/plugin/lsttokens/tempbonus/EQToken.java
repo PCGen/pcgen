@@ -66,7 +66,7 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		}
 		bon.setTokenSource(getFullTokenName());
 		EquipBonus eb = new EquipBonus(bon, constraints);
-		context.obj.addToList(obj, ListKey.BONUS_EQUIP, eb);
+		context.getObjectContext().addToList(obj, ListKey.BONUS_EQUIP, eb);
 		return ParseResult.SUCCESS;
 	}
 

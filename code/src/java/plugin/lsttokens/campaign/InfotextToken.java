@@ -55,7 +55,7 @@ public class InfotextToken extends AbstractNonEmptyToken<Campaign> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
 		String value)
 	{
-		context.obj.addToList(campaign, ListKey.INFO_TEXT, value);
+		context.getObjectContext().addToList(campaign, ListKey.INFO_TEXT, value);
 		return ParseResult.SUCCESS;
 	}
 

@@ -145,7 +145,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 							new AbilitySelector(SOURCE, AbilityCategory.FEAT,
 								Nature.AUTOMATIC));
 				edgeList.add(cca);
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cca);
+				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cca);
 			}
 			else
 			{
@@ -169,7 +169,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 								SOURCE, category, ref, nature);
-							context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR,
+							context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR,
 									ats);
 							edgeList.add(ats);
 							loadList = false;

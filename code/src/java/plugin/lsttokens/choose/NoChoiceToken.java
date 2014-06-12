@@ -70,7 +70,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		if (value == null)
 		{
 			// No args - legal
-			context.obj.put(obj, ObjectKey.CHOOSE_INFO, this);
+			context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, this);
 			return ParseResult.SUCCESS;
 		}
 		return new ParseResult.Fail("CHOOSE:" + getTokenName()

@@ -104,7 +104,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 				new BasicChooseInformation<String>(getTokenName(), scs);
 		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);
-		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
+		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
 	}
 

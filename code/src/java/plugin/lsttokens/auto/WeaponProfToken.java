@@ -150,12 +150,12 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			}
 			else if ("DEITYWEAPONS".equals(token))
 			{
 				foundOther = true;
-				context.obj.put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
+				context.getObjectContext().put(obj, ObjectKey.HAS_DEITY_WEAPONPROF,
 						new QualifiedObject<Boolean>(Boolean.TRUE, prereq));
 			}
 			else
@@ -203,7 +203,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			{
 				wpp.addPrerequisite(prereq);
 			}
-			context.obj.addToList(obj, ListKey.WEAPONPROF, wpp);
+			context.getObjectContext().addToList(obj, ListKey.WEAPONPROF, wpp);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -243,9 +243,9 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		List<String> list = new ArrayList<String>();
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
-		Changes<WeaponProfProvider> changes = context.obj.getListChanges(obj,
+		Changes<WeaponProfProvider> changes = context.getObjectContext().getListChanges(obj,
 				ListKey.WEAPONPROF);
-		QualifiedObject<Boolean> deityweap = context.obj.getObject(obj,
+		QualifiedObject<Boolean> deityweap = context.getObjectContext().getObject(obj,
 				ObjectKey.HAS_DEITY_WEAPONPROF);
 		Collection<WeaponProfProvider> added = changes.getAdded();
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();

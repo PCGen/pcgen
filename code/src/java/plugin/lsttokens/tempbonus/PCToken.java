@@ -55,7 +55,7 @@ public class PCToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				+ " was given invalid type: " + value, context);
 		}
 		bon.setTokenSource(getFullTokenName());
-		context.obj.addToList(obj, ListKey.BONUS_PC, bon);
+		context.getObjectContext().addToList(obj, ListKey.BONUS_PC, bon);
 		return ParseResult.SUCCESS;
 	}
 

@@ -59,7 +59,7 @@ public class KitToken extends AbstractTokenWithSeparator<Campaign> implements
 			//Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_KIT, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_KIT, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -67,7 +67,7 @@ public class KitToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_KIT);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_KIT);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

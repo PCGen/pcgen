@@ -137,15 +137,15 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 				break;
 
 			case UNLOCK:
-				context.obj.addToList(obj, ListKey.UNLOCKED_STATS, stat);
+				context.getObjectContext().addToList(obj, ListKey.UNLOCKED_STATS, stat);
 				break;
 
 			case NONSTAT:
-				context.obj.addToList(obj, ListKey.NONSTAT_STATS, stat);
+				context.getObjectContext().addToList(obj, ListKey.NONSTAT_STATS, stat);
 				break;
 
 			case STAT:
-				context.obj.addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
+				context.getObjectContext().addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
 				break;
 
 			case MINVALUE:

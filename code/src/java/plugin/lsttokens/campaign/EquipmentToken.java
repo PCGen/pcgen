@@ -59,7 +59,7 @@ public class EquipmentToken extends AbstractTokenWithSeparator<Campaign>
 			//Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_EQUIP, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_EQUIP, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -67,7 +67,7 @@ public class EquipmentToken extends AbstractTokenWithSeparator<Campaign>
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_EQUIP);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_EQUIP);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

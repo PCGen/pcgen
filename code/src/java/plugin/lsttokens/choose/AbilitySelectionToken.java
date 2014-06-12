@@ -125,7 +125,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 					getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
-		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
+		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
 	}
 

@@ -71,7 +71,7 @@ public class CompanionmodToken extends AbstractTokenWithSeparator<Campaign>
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
 				+ value, context);
 		}
-		context.obj.addToList(campaign, ListKey.FILE_COMPANION_MOD, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_COMPANION_MOD, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -79,7 +79,7 @@ public class CompanionmodToken extends AbstractTokenWithSeparator<Campaign>
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_COMPANION_MOD);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_COMPANION_MOD);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

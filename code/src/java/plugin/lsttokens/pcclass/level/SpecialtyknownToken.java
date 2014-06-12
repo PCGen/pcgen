@@ -53,7 +53,7 @@ public class SpecialtyknownToken extends AbstractTokenWithSeparator<PCClassLevel
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		PCClassLevel level, String value)
 	{
-		context.obj.removeList(level, ListKey.SPECIALTYKNOWN);
+		context.getObjectContext().removeList(level, ListKey.SPECIALTYKNOWN);
 
 		ParsingSeparator sep = new ParsingSeparator(value, ',');
 		while (sep.hasNext())
@@ -77,7 +77,7 @@ public class SpecialtyknownToken extends AbstractTokenWithSeparator<PCClassLevel
 				return new ParseResult.Fail("Formula in " + getTokenName()
 						+ " was not valid: " + formula.toString(), context);
 			}
-			context.obj.addToList(level, ListKey.SPECIALTYKNOWN, formula);
+			context.getObjectContext().addToList(level, ListKey.SPECIALTYKNOWN, formula);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -85,7 +85,7 @@ public class SpecialtyknownToken extends AbstractTokenWithSeparator<PCClassLevel
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Changes<Formula> changes = context.obj.getListChanges(level,
+		Changes<Formula> changes = context.getObjectContext().getListChanges(level,
 				ListKey.SPECIALTYKNOWN);
 		if (changes == null || changes.isEmpty())
 		{

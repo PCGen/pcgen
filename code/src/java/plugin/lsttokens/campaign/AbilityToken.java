@@ -63,7 +63,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<Campaign>
 			//Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_ABILITY, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_ABILITY, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -71,7 +71,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<Campaign>
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_ABILITY);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_ABILITY);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

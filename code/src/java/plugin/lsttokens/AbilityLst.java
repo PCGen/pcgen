@@ -203,8 +203,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 					abilList);
-				context.obj.removeFromList(obj, ListKey.GA_CAKEYS, lk);
-				context.obj.removeList(obj, lk);
+				context.getObjectContext().removeFromList(obj, ListKey.GA_CAKEYS, lk);
+				context.getObjectContext().removeList(obj, lk);
 				removed = true;
 			}
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
@@ -243,8 +243,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 									getTokenName(), category, ref, nature);
-							context.obj.addToList(obj, ListKey.GA_CAKEYS, lk);
-							context.obj.addToList(obj, lk, ats);
+							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS, lk);
+							context.getObjectContext().addToList(obj, lk, ats);
 							edgeList.add(ats);
 							loadList = false;
 						}

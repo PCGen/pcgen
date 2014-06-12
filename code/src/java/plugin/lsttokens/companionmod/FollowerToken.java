@@ -76,7 +76,7 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		String classString = value.substring(0, equalLoc);
 		String levelString = value.substring(equalLoc + 1);
 		Integer lvl = Integer.valueOf(levelString);
-		context.obj.put(cMod, IntegerKey.LEVEL, lvl);
+		context.getObjectContext().put(cMod, IntegerKey.LEVEL, lvl);
 
 		final StringTokenizer bTok = new StringTokenizer(classString, ",");
 

@@ -45,7 +45,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 		if (value == null)
 		{
 			// No args - legal
-			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
+			context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName());
 			return ParseResult.SUCCESS;
 		}
 		return new ParseResult.Fail("CHOOSE:" + getTokenName()

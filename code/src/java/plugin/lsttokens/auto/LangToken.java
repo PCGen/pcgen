@@ -135,7 +135,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 					cra = cca;
 				}
 				foundOther = true;
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			} else if (Constants.LST_ALL.equals(token))
 			{
 				foundAny = true;
@@ -171,7 +171,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		Changes<QualifiedObject<CDOMReference<Language>>> changes = context.obj.getListChanges(obj,
+		Changes<QualifiedObject<CDOMReference<Language>>> changes = context.getObjectContext().getListChanges(obj,
 				ListKey.AUTO_LANGUAGE);
 		Changes<ChooseSelectionActor<?>> listChanges =
 				context.getObjectContext().getListChanges(obj,

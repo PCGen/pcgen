@@ -152,7 +152,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		for (ChangeProf cp : list)
 		{
-			context.obj.addToList(obj, ListKey.CHANGEPROF, cp);
+			context.getObjectContext().addToList(obj, ListKey.CHANGEPROF, cp);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -161,7 +161,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Changes<ChangeProf> changes =
-				context.obj.getListChanges(obj, ListKey.CHANGEPROF);
+				context.getObjectContext().getListChanges(obj, ListKey.CHANGEPROF);
 		Collection<ChangeProf> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

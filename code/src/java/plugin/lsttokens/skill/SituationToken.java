@@ -67,7 +67,7 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 						+ ": .CLEARALL was not the first list item: " + value,
 						context);
 				}
-				context.obj.removeList(skill, ListKey.SITUATION);
+				context.getObjectContext().removeList(skill, ListKey.SITUATION);
 			}
 			else
 			{

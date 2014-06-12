@@ -82,7 +82,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 				foundAny = true;
 				CDOMReference<WeaponProf> ref =
 						context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
-				context.obj.addToList(pcc, ListKey.WEAPONBONUS, ref);
+				context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
 			}
 			else
 			{
@@ -96,7 +96,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 						"  Error was encountered while parsing "
 							+ getTokenName(), context);
 				}
-				context.obj.addToList(pcc, ListKey.WEAPONBONUS, ref);
+				context.getObjectContext().addToList(pcc, ListKey.WEAPONBONUS, ref);
 			}
 		}
 		if (foundAny && foundOther)

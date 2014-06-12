@@ -146,7 +146,7 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 		cm.assignMovement(0, oldType, "0");
 		cm.assignMovement(1, newType, formulaString);
 		cm.setMoveRatesFlag(2);
-		context.obj.addToList(obj, ListKey.MOVEMENT, cm);
+		context.getObjectContext().addToList(obj, ListKey.MOVEMENT, cm);
 		return ParseResult.SUCCESS;
 	}
 

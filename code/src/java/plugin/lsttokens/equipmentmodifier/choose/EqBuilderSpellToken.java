@@ -48,7 +48,7 @@ public class EqBuilderSpellToken implements
 	{
 		if (value == null)
 		{
-			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
+			context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName());
 			return ParseResult.SUCCESS;
 		}
 		if (value.indexOf('[') != -1)
@@ -116,7 +116,7 @@ public class EqBuilderSpellToken implements
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return ParseResult.SUCCESS;
 	}
 

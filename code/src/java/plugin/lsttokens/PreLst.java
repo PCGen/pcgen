@@ -32,7 +32,7 @@ public class PreLst extends AbstractToken implements
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			context.obj.clearPrerequisiteList(pcc);
+			context.getObjectContext().clearPrerequisiteList(pcc);
 			return ParseResult.SUCCESS;
 		}
 		return ParseResult.INTERNAL_ERROR;
@@ -41,7 +41,7 @@ public class PreLst extends AbstractToken implements
 	@Override
 	public String[] unparse(LoadContext context, ConcretePrereqObject pcc)
 	{
-		Changes<Prerequisite> changes = context.obj.getPrerequisiteChanges(pcc);
+		Changes<Prerequisite> changes = context.getObjectContext().getPrerequisiteChanges(pcc);
 		if (changes == null || !changes.includesGlobalClear())
 		{
 			// indicates no Token

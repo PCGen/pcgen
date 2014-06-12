@@ -55,7 +55,7 @@ public class AnyPCToken extends AbstractTokenWithSeparator<CDOMObject>
 				+ " was given invalid type: " + value, context);
 		}
 		bon.setTokenSource(getFullTokenName());
-		context.obj.addToList(obj, ListKey.BONUS_ANYPC, bon);
+		context.getObjectContext().addToList(obj, ListKey.BONUS_ANYPC, bon);
 		return ParseResult.SUCCESS;
 	}
 

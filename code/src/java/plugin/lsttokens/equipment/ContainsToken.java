@@ -59,7 +59,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 
-		context.obj.removeList(eq, ListKey.CAPACITY);
+		context.getObjectContext().removeList(eq, ListKey.CAPACITY);
 		String weightCapacity = pipeTok.nextToken();
 
 		boolean hadAsterisk = false;

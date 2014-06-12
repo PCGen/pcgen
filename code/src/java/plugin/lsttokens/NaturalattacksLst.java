@@ -134,7 +134,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			anEquip.setQty(new Float(1));
 			anEquip.setNumberCarried(new Float(1));
 
-			context.obj.addToList(obj, ListKey.NATURAL_WEAPON, anEquip);
+			context.getObjectContext().addToList(obj, ListKey.NATURAL_WEAPON, anEquip);
 			count++;
 		}
 		return ParseResult.SUCCESS;

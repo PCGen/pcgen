@@ -121,7 +121,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 				urlDesc);
 
 		// Add URL Object to campaign
-		context.obj.addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);
+		context.getObjectContext().addToList(campaign, ListKey.CAMPAIGN_URL, campUrl);
 		return ParseResult.SUCCESS;
 	}
 

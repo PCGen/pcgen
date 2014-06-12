@@ -59,7 +59,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Campaign> implements
 			//Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_FEAT, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_FEAT, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -67,7 +67,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_FEAT);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_FEAT);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

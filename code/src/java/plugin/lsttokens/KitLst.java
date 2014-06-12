@@ -121,7 +121,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				new QualifiedDecorator<Kit>(rcs));
 		cs.setTitle("Kit Selection");
 		TransitionChoice<Kit> tc = new ConcreteTransitionChoice<Kit>(cs, count);
-		context.obj.addToList(pcc, ListKey.KIT_CHOICE, tc);
+		context.getObjectContext().addToList(pcc, ListKey.KIT_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;

@@ -96,7 +96,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
 					.nextToken());
-			context.obj.addToList(obj, ListKey.FORWARDREF, new Qualifier(rm
+			context.getObjectContext().addToList(obj, ListKey.FORWARDREF, new Qualifier(rm
 					.getReferenceClass(), ref));
 		}
 

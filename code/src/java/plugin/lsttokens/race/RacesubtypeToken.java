@@ -69,7 +69,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 					return new ParseResult.Fail("  Non-sensical " + getTokenName()
 							+ ": .CLEAR was not the first list item: " + value, context);
 				}
-				context.obj.removeList(race, ListKey.RACESUBTYPE);
+				context.getObjectContext().removeList(race, ListKey.RACESUBTYPE);
 			}
 			else if (tokString.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{

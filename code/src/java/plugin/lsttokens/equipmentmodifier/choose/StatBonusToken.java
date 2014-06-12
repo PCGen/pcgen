@@ -147,7 +147,7 @@ public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(getTokenName()).append('|').append(value);
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return ParseResult.SUCCESS;
 	}
 

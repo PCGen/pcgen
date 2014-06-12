@@ -116,7 +116,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 			throws PersistenceLayerException
 	{
 		CC obj = loader.getCDOMObject(context);
-		context.obj.addToList(kit, ListKey.KIT_TASKS, obj);
+		context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);
 		return loader.parseLine(context, obj, line, uri);
 	}
 

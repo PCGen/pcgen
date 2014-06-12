@@ -145,7 +145,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			}
 			else
 			{
@@ -155,7 +155,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
-				context.obj.addToList(obj, ListKey.EQUIPMENT,
+				context.getObjectContext().addToList(obj, ListKey.EQUIPMENT,
 						new QualifiedObject<CDOMReference<Equipment>>(ref,
 								prereq));
 			}
@@ -172,7 +172,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
-		Changes<QualifiedObject<CDOMReference<Equipment>>> changes = context.obj
+		Changes<QualifiedObject<CDOMReference<Equipment>>> changes = context.getObjectContext()
 				.getListChanges(obj, ListKey.EQUIPMENT);
 		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes
 				.getAdded();

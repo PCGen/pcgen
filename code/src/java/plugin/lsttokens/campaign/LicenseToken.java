@@ -60,11 +60,11 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 			{
 				return ParseResult.INTERNAL_ERROR;
 			}
-			context.obj.addToList(campaign, ListKey.LICENSE_FILE, cse);
+			context.getObjectContext().addToList(campaign, ListKey.LICENSE_FILE, cse);
 		}
 		else
 		{
-			context.obj.addToList(campaign, ListKey.LICENSE, value);
+			context.getObjectContext().addToList(campaign, ListKey.LICENSE, value);
 		}
 		return ParseResult.SUCCESS;
 	}

@@ -59,14 +59,14 @@ public class DomainToken extends AbstractTokenWithSeparator<Campaign> implements
 			// Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_DOMAIN, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_DOMAIN, cse);
 		return ParseResult.SUCCESS;
 	}
 
     @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<CampaignSourceEntry> cseChanges = context.obj.getListChanges(
+		Changes<CampaignSourceEntry> cseChanges = context.getObjectContext().getListChanges(
 				campaign, ListKey.FILE_DOMAIN);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)

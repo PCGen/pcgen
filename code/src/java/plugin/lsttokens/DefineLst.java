@@ -72,7 +72,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value
 					.substring(7));
-			context.obj.addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
+			context.getObjectContext().addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
 			Logging.deprecationPrint("DEFINE:UNLOCK. has been deprecated, "
 				+ "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|", context);
 			return ParseResult.SUCCESS;
@@ -107,7 +107,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 						firstItem.substring(5));
 				if (f.isStatic() && f.resolveStatic().equals(10))
 				{
-					context.obj.addToList(obj, ListKey.NONSTAT_STATS, stat);
+					context.getObjectContext().addToList(obj, ListKey.NONSTAT_STATS, stat);
 				}
 				else
 				{

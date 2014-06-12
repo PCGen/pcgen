@@ -88,7 +88,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		ChoiceSet<Region> cs = new ChoiceSet<Region>(getTokenName(), rcs);
 		cs.setTitle("Region Selection");
 		TransitionChoice<Region> tc = new ConcreteTransitionChoice<Region>(cs, count);
-		context.obj.put(pcc, ObjectKey.REGION_CHOICE, tc);
+		context.getObjectContext().put(pcc, ObjectKey.REGION_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;

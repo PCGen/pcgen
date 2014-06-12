@@ -111,7 +111,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 				return new ParseResult.Fail("Number of Choices in "
 						+ getTokenName() + " was not valid: " + f.toString(), context);
 			}
-			context.obj.put(obj, FormulaKey.NUMCHOICES, f);
+			context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, f);
 			pipeLoc = val.indexOf(Constants.PIPE);
 			if (pipeLoc == -1)
 			{
@@ -136,7 +136,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return null;
 		}
-		Formula choices = context.obj.getFormula(obj, FormulaKey.NUMCHOICES);
+		Formula choices = context.getObjectContext().getFormula(obj, FormulaKey.NUMCHOICES);
 		String choicesString =
 				choices == null ? null : "NUMCHOICES=" + choices.toString()
 					+ Constants.PIPE;

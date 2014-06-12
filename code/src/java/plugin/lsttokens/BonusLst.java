@@ -141,7 +141,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 					+ " was given invalid bonus: " + value, context);
 		}
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(obj, ListKey.BONUS, bon);
+		context.getObjectContext().addToList(obj, ListKey.BONUS, bon);
 		return ParseResult.SUCCESS;
 	}
 
@@ -154,7 +154,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 			return null;
 		}
 
-		Changes<BonusObj> changes = context.obj.getListChanges(obj,
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{

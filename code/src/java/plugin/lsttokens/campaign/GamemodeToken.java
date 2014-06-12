@@ -54,12 +54,12 @@ public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		Campaign campaign, String gameMode)
 	{
-		context.obj.removeList(campaign, ListKey.GAME_MODE);
+		context.getObjectContext().removeList(campaign, ListKey.GAME_MODE);
 
 		StringTokenizer aTok = new StringTokenizer(gameMode, Constants.PIPE);
 		while (aTok.hasMoreTokens())
 		{
-			context.obj.addToList(campaign, ListKey.GAME_MODE, aTok.nextToken());
+			context.getObjectContext().addToList(campaign, ListKey.GAME_MODE, aTok.nextToken());
 		}
 		return ParseResult.SUCCESS;
 	}

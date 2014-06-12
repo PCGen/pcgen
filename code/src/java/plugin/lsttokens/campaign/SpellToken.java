@@ -59,7 +59,7 @@ public class SpellToken extends AbstractTokenWithSeparator<Campaign> implements
 			//Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_SPELL, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_SPELL, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -67,7 +67,7 @@ public class SpellToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_SPELL);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_SPELL);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

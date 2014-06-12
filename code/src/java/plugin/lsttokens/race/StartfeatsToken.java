@@ -74,14 +74,14 @@ public class StartfeatsToken extends AbstractToken implements
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(race, ListKey.BONUS, bon);
+		context.getObjectContext().addToList(race, ListKey.BONUS, bon);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<BonusObj> changes = context.obj.getListChanges(race,
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(race,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{

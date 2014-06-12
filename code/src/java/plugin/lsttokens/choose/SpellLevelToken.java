@@ -135,7 +135,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 				new SpellLevelChooseInformation(getTokenName(), sliList);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
-		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
+		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
 	}
 

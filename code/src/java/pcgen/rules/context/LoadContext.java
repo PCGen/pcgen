@@ -77,7 +77,7 @@ public abstract class LoadContext
 
 	private final AbstractListContext list;
 
-	public final AbstractObjectContext obj;
+	private final AbstractObjectContext obj;
 
 	private final ReferenceContext ref;
 	
@@ -338,7 +338,7 @@ public abstract class LoadContext
 
 	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName)
 	{
-		T newObj = obj.cloneConstructedCDOMObject(cdo, newName);
+		T newObj = getObjectContext().cloneConstructedCDOMObject(cdo, newName);
 		getReferenceContext().importObject(newObj);
 		return newObj;
 	}

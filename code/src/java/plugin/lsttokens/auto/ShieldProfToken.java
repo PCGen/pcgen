@@ -149,7 +149,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			}
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
@@ -190,7 +190,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			{
 				pp.addPrerequisite(prereq);
 			}
-			context.obj.addToList(obj, ListKey.AUTO_SHIELDPROF, pp);
+			context.getObjectContext().addToList(obj, ListKey.AUTO_SHIELDPROF, pp);
 		}
 
 		return ParseResult.SUCCESS;
@@ -199,7 +199,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<ShieldProfProvider> changes = context.obj.getListChanges(obj,
+		Changes<ShieldProfProvider> changes = context.getObjectContext().getListChanges(obj,
 				ListKey.AUTO_SHIELDPROF);
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);

@@ -68,7 +68,7 @@ public class EqBuilderEqTypeToken implements
 	{
 		if (value == null)
 		{
-			context.obj.put(obj, StringKey.CHOICE_STRING, getTokenName());
+			context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName());
 			return ParseResult.SUCCESS;
 		}
 		if (value.indexOf(',') != -1)
@@ -126,7 +126,7 @@ public class EqBuilderEqTypeToken implements
 		sb.append(first).append('|').append(second.substring(6));
 		sb.append("|TYPE=EQTYPES");
 		// Old format: CHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES
-		context.obj.put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return ParseResult.SUCCESS;
 	}
 

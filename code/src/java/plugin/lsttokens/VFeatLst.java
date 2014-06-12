@@ -108,7 +108,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						list);
-				context.obj.removeList(obj, ListKey.GVF_CHOOSE_ACTOR);
+				context.getObjectContext().removeList(obj, ListKey.GVF_CHOOSE_ACTOR);
 				foundClear = true;
 			}
 			else
@@ -133,7 +133,7 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 									getTokenName(), category, ref, nature);
-							context.obj.addToList(obj, ListKey.GVF_CHOOSE_ACTOR,
+							context.getObjectContext().addToList(obj, ListKey.GVF_CHOOSE_ACTOR,
 									ats);
 							edgeList.add(ats);
 							loadList = false;

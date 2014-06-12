@@ -74,7 +74,7 @@ public class PreCompatibilityToken implements
 			{
 				return ParseResult.INTERNAL_ERROR;
 			}
-			context.obj.put(obj, p);
+			context.getObjectContext().put(obj, p);
 			return ParseResult.SUCCESS;
 		}
 		catch (PersistenceLayerException e)
@@ -114,7 +114,7 @@ public class PreCompatibilityToken implements
 	public String[] unparse(LoadContext context, ConcretePrereqObject obj)
 	{
 		Set<String> set = new TreeSet<String>();
-		Changes<Prerequisite> changes = context.obj.getPrerequisiteChanges(obj);
+		Changes<Prerequisite> changes = context.getObjectContext().getPrerequisiteChanges(obj);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

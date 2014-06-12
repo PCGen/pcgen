@@ -109,7 +109,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 			}
 		}
 		cm.setMoveRatesFlag(0);
-		context.obj.addToList(obj, ListKey.BASE_MOVEMENT, cm);
+		context.getObjectContext().addToList(obj, ListKey.BASE_MOVEMENT, cm);
 		return ParseResult.SUCCESS;
 	}
 

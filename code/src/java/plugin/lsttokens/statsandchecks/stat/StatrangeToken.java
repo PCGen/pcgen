@@ -47,9 +47,9 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 		{
 			try
 			{
-				context.obj.put(stat, IntegerKey.MIN_VALUE, Integer
+				context.getObjectContext().put(stat, IntegerKey.MIN_VALUE, Integer
 						.valueOf(aTok.nextToken()));
-				context.obj.put(stat, IntegerKey.MAX_VALUE, Integer
+				context.getObjectContext().put(stat, IntegerKey.MAX_VALUE, Integer
 						.valueOf(aTok.nextToken()));
 				return ParseResult.SUCCESS;
 			}

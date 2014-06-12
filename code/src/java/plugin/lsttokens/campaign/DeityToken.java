@@ -58,7 +58,7 @@ public class DeityToken extends AbstractTokenWithSeparator<Campaign> implements
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_DEITY, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_DEITY, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -66,7 +66,7 @@ public class DeityToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_DEITY);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_DEITY);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

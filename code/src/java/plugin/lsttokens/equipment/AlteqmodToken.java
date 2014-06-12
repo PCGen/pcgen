@@ -95,7 +95,7 @@ public class AlteqmodToken extends AbstractTokenWithSeparator<Equipment>
 			{
 				if (aTok.hasMoreTokens())
 				{
-					context.obj.put(eq, ObjectKey.WEIGHT_MOD, new BigDecimal(
+					context.getObjectContext().put(eq, ObjectKey.WEIGHT_MOD, new BigDecimal(
 							aTok.nextToken().replace(',', '.')));
 				}
 				continue;
@@ -105,7 +105,7 @@ public class AlteqmodToken extends AbstractTokenWithSeparator<Equipment>
 			{
 				if (aTok.hasMoreTokens())
 				{
-					context.obj.put(eq, StringKey.DAMAGE_OVERRIDE, aTok
+					context.getObjectContext().put(eq, StringKey.DAMAGE_OVERRIDE, aTok
 							.nextToken());
 				}
 				continue;
@@ -118,7 +118,7 @@ public class AlteqmodToken extends AbstractTokenWithSeparator<Equipment>
 			{
 				modref.addChoice(aTok.nextToken().replace('=', '|'));
 			}
-			context.obj.addToList(head, ListKey.EQMOD_INFO, modref);
+			context.getObjectContext().addToList(head, ListKey.EQMOD_INFO, modref);
 		}
 		return ParseResult.SUCCESS;
 	}

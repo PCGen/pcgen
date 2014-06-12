@@ -115,7 +115,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			CDOMSingleRef<? extends Loadable> ref = rm.getReference(st
 					.nextToken());
-			context.obj.addToList(obj, ListKey.QUALIFY, new Qualifier(rm
+			context.getObjectContext().addToList(obj, ListKey.QUALIFY, new Qualifier(rm
 					.getReferenceClass(), ref));
 		}
 

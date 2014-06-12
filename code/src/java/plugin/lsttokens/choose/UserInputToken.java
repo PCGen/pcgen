@@ -78,8 +78,8 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 						+ "first argument must be an Integer : " + value, context);
 				}
 				Formula count = FormulaFactory.getFormulaFor(firstarg);
-				context.obj.put(obj, FormulaKey.NUMCHOICES, count);
-				context.obj.put(obj, FormulaKey.SELECT, count);
+				context.getObjectContext().put(obj, FormulaKey.NUMCHOICES, count);
+				context.getObjectContext().put(obj, FormulaKey.SELECT, count);
 				titleString = value.substring(pipeLoc + 1);
 			}
 			if (!titleString.startsWith("TITLE="))
@@ -100,7 +100,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			ci.setTitle(getDefaultTitle());
 		}
 		// No args - legal
-		context.obj.put(obj, ObjectKey.CHOOSE_INFO, ci);
+		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, ci);
 		return ParseResult.SUCCESS;
 	}
 

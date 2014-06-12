@@ -92,7 +92,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
 				+ value, context);
 		}
-		context.obj.addToList(campaign, ListKey.FILE_LOGO, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_LOGO, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -100,7 +100,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_LOGO);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_LOGO);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

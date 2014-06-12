@@ -50,14 +50,14 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 		p.setOperand("1");
 		p.setKey(value);
 		p.setOperator(PrerequisiteOperator.GTEQ);
-		context.obj.put(pcc, ObjectKey.PRERACETYPE, p);
+		context.getObjectContext().put(pcc, ObjectKey.PRERACETYPE, p);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Prerequisite prereq = context.obj.getObject(obj, ObjectKey.PRERACETYPE);
+		Prerequisite prereq = context.getObjectContext().getObject(obj, ObjectKey.PRERACETYPE);
 		if (prereq == null)
 		{
 			return null;

@@ -81,7 +81,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		StringTokenizer st = new StringTokenizer(types, Constants.PIPE);
 		while (st.hasMoreTokens())
 		{
-			context.obj.addToList(campaign, lk, st.nextToken());
+			context.getObjectContext().addToList(campaign, lk, st.nextToken());
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -90,11 +90,11 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		List<String> returnList = new ArrayList<String>();
-		Changes<String> ech = context.obj.getListChanges(campaign,
+		Changes<String> ech = context.getObjectContext().getListChanges(campaign,
 				ListKey.HIDDEN_Equipment);
-		Changes<String> ach = context.obj.getListChanges(campaign,
+		Changes<String> ach = context.getObjectContext().getListChanges(campaign,
 				ListKey.HIDDEN_Ability);
-		Changes<String> sch = context.obj.getListChanges(campaign,
+		Changes<String> sch = context.getObjectContext().getListChanges(campaign,
 				ListKey.HIDDEN_Skill);
 
 		Collection<String> added = ech.getAdded();

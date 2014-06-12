@@ -53,14 +53,14 @@ public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 					+ value, context);
 		}
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(mod, ListKey.BONUS, bon);
+		context.getObjectContext().addToList(mod, ListKey.BONUS, bon);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<BonusObj> changes = context.obj.getListChanges(mod,
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(mod,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{

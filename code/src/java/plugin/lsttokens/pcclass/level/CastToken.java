@@ -53,7 +53,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		PCClassLevel level, String value)
 	{
-		context.obj.removeList(level, ListKey.CAST);
+		context.getObjectContext().removeList(level, ListKey.CAST);
 
 		ParsingSeparator sep = new ParsingSeparator(value, ',');
 		while (sep.hasNext())
@@ -77,7 +77,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 				return new ParseResult.Fail("Formula in " + getTokenName()
 						+ " was not valid: " + formula.toString(), context);
 			}
-			context.obj.addToList(level, ListKey.CAST, formula);
+			context.getObjectContext().addToList(level, ListKey.CAST, formula);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -85,7 +85,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Changes<Formula> changes = context.obj
+		Changes<Formula> changes = context.getObjectContext()
 				.getListChanges(level, ListKey.CAST);
 		if (changes == null || changes.isEmpty())
 		{

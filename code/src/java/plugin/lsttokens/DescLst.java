@@ -64,7 +64,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		if (Constants.LST_DOT_CLEAR.equals(aDesc))
 		{
-			context.obj.removeList(obj, ListKey.DESCRIPTION);
+			context.getObjectContext().removeList(obj, ListKey.DESCRIPTION);
 			return ParseResult.SUCCESS;
 		}
 		if (aDesc.startsWith(Constants.LST_DOT_CLEAR_DOT))
@@ -119,7 +119,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				if (!tok.hasMoreTokens())
 				{
 					// No prereqs, so we're done
-					context.obj.addToList(obj, ListKey.DESCRIPTION, desc);
+					context.getObjectContext().addToList(obj, ListKey.DESCRIPTION, desc);
 					return ParseResult.SUCCESS;
 				}
 				token = tok.nextToken();
@@ -142,7 +142,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				token = tok.nextToken();
 			}
 		}
-		context.obj.addToList(obj, ListKey.DESCRIPTION, desc);
+		context.getObjectContext().addToList(obj, ListKey.DESCRIPTION, desc);
 		return ParseResult.SUCCESS;
 	}
 
@@ -150,7 +150,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		PatternChanges<Description> changes =
-				context.obj.getListPatternChanges(obj, ListKey.DESCRIPTION);
+				context.getObjectContext().getListPatternChanges(obj, ListKey.DESCRIPTION);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

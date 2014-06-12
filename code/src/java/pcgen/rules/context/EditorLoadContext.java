@@ -48,7 +48,7 @@ public class EditorLoadContext extends LoadContext
 
 	public void purge(CDOMObject cdo)
 	{
-		((EditorObjectContext) obj).purge(cdo);
+		((EditorObjectContext) getObjectContext()).purge(cdo);
 		((EditorListContext) getListContext()).purge(cdo);
 		((EditorReferenceContext) getReferenceContext()).purge(cdo);
 	}

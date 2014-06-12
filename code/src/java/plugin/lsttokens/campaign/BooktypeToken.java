@@ -53,12 +53,12 @@ public class BooktypeToken extends AbstractTokenWithSeparator<Campaign>
 	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign,
 		String value)
 	{
-		context.obj.removeList(campaign, ListKey.BOOK_TYPE);
+		context.getObjectContext().removeList(campaign, ListKey.BOOK_TYPE);
 
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		while (aTok.hasMoreTokens())
 		{
-			context.obj.addToList(campaign, ListKey.BOOK_TYPE, aTok.nextToken());
+			context.getObjectContext().addToList(campaign, ListKey.BOOK_TYPE, aTok.nextToken());
 		}
 		return ParseResult.SUCCESS;
 	}

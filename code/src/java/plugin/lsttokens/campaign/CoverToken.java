@@ -79,7 +79,7 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
 				+ value, context);
 		}
-		context.obj.addToList(campaign, ListKey.FILE_COVER, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_COVER, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -87,7 +87,7 @@ public class CoverToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_COVER);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_COVER);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

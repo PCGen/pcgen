@@ -61,7 +61,7 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 		}
 
 		final String optValue = value.substring(equalsPos + 1);
-		context.obj.put(campaign, MapKey.PROPERTY, optName, optValue);
+		context.getObjectContext().put(campaign, MapKey.PROPERTY, optName, optValue);
 		return ParseResult.SUCCESS;
 	}
 

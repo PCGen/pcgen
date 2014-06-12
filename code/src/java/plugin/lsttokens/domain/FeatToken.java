@@ -90,7 +90,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 						Ability.FEATLIST);
-				context.obj.removeList(obj, ListKey.DF_CHOOSE_ACTOR);
+				context.getObjectContext().removeList(obj, ListKey.DF_CHOOSE_ACTOR);
 			}
 			else
 			{
@@ -115,7 +115,7 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 									getTokenName(), AbilityCategory.FEAT, ref,
 									Nature.AUTOMATIC);
-							context.obj.addToList(obj, ListKey.DF_CHOOSE_ACTOR,
+							context.getObjectContext().addToList(obj, ListKey.DF_CHOOSE_ACTOR,
 									ats);
 							loadList = false;
 						}

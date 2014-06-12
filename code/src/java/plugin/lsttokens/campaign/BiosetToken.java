@@ -69,7 +69,7 @@ public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements
 			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
 				+ value, context);
 		}
-		context.obj.addToList(campaign, ListKey.FILE_BIO_SET, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_BIO_SET, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -77,7 +77,7 @@ public class BiosetToken extends AbstractTokenWithSeparator<Campaign> implements
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_BIO_SET);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_BIO_SET);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

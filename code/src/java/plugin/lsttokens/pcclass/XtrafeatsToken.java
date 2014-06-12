@@ -58,7 +58,7 @@ public class XtrafeatsToken implements CDOMPrimaryToken<PCClass>
 				return new ParseResult.Fail("Number in " + getTokenName()
 						+ " must be greater than zero: " + value, context);
 			}
-			context.obj.put(pcc, IntegerKey.START_FEATS, featCount);
+			context.getObjectContext().put(pcc, IntegerKey.START_FEATS, featCount);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)

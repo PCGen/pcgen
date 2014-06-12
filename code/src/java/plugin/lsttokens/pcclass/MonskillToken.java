@@ -65,14 +65,14 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());
-		context.obj.addToList(pcc, ListKey.BONUS, bon);
+		context.getObjectContext().addToList(pcc, ListKey.BONUS, bon);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Changes<BonusObj> changes = context.obj.getListChanges(obj,
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{

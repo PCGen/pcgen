@@ -127,7 +127,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		while (st.hasMoreTokens())
 		{
 			CDOMSingleRef<?> ref = rm.getReference(st.nextToken());
-			context.obj.addToList(obj, listkey, ref);
+			context.getObjectContext().addToList(obj, listkey, ref);
 		}
 
 		return ParseResult.SUCCESS;
@@ -139,7 +139,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		String key = StringPClassUtil.getStringFor(obj.getClass());
 		ListKey<CDOMReference> listkey = ListKey.getKeyFor(CDOMReference.class,
 				"SERVES_AS_" + key);
-		Changes<CDOMReference> changes = context.obj.getListChanges(obj,
+		Changes<CDOMReference> changes = context.getObjectContext().getListChanges(obj,
 				listkey);
 		Collection<CDOMReference> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty()

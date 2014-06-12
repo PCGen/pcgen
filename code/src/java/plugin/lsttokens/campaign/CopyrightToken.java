@@ -55,7 +55,7 @@ public class CopyrightToken extends AbstractNonEmptyToken<Campaign> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
 		String value)
 	{
-		context.obj.addToList(campaign, ListKey.SECTION_15, value);
+		context.getObjectContext().addToList(campaign, ListKey.SECTION_15, value);
 		return ParseResult.SUCCESS;
 	}
 

@@ -72,7 +72,7 @@ public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
 			 * the use of pipe separator would have caused an error in fetching
 			 * the CSE
 			 */
-			context.obj.addToList(campaign, ListKey.FILE_LST_EXCLUDE, cse);
+			context.getObjectContext().addToList(campaign, ListKey.FILE_LST_EXCLUDE, cse);
 		}
 
 		return ParseResult.SUCCESS;
@@ -82,7 +82,7 @@ public class LstexcludeToken extends AbstractTokenWithSeparator<Campaign>
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_LST_EXCLUDE);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_LST_EXCLUDE);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

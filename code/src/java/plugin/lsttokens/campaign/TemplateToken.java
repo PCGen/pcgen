@@ -59,7 +59,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<Campaign>
 			//Error
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.obj.addToList(campaign, ListKey.FILE_TEMPLATE, cse);
+		context.getObjectContext().addToList(campaign, ListKey.FILE_TEMPLATE, cse);
 		return ParseResult.SUCCESS;
 	}
 
@@ -67,7 +67,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<Campaign>
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
-				context.obj.getListChanges(campaign, ListKey.FILE_TEMPLATE);
+				context.getObjectContext().getListChanges(campaign, ListKey.FILE_TEMPLATE);
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{
