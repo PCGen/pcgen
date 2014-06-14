@@ -989,7 +989,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			for (final String line : cache.get(TAG_ABILITY))
 			{
-System.err.println(line);
 				parseAbilityLine(line);
 			}
 		}
