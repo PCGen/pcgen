@@ -2117,7 +2117,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return EMPTY_STRING;
 		}
-		List<Movement> movements = ((Race) race).getListFor(ListKey.MOVEMENT);
+		List<Movement> movements = ((Race) race).getListFor(ListKey.BASE_MOVEMENT);
 		if (movements != null && !movements.isEmpty())
 		{
 			return movements.get(0).toString();
