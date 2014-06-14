@@ -1,6 +1,7 @@
 # @version    $Revision$
 #
 # message displayed when experience added will allow character to advance a level
+DEFAULTVARIABLEVALUE:NUMBER|0
 #
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
