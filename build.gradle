@@ -248,7 +248,7 @@ build {
 
 clean {
 	it.dependsOn 'clean-plugins'
-	it.dependsOn 'clean-root'
+	it.dependsOn 'cleanRoot'
 }
  
 test {
