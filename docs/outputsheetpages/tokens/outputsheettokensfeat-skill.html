@@ -90,9 +90,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -193,9 +190,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -317,9 +311,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -466,9 +457,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -563,9 +551,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -686,9 +671,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -811,9 +793,9 @@
 				included, about the designated skill or for the xth skill in the character's skill list.</li>
 			<li>The properties allowed are:
 				<ul>
-					<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
-					<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
-					<li>ACPs,t,u,v - Displays the Armor Check Penalty for the skill in position x.
+					<li><code>ABILITY</code> - Displays the key ability for the skill in position x in the character's skill list.</li>
+					<li><code>ABMOD</code> - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+					<li><code>ACP</code>s,t,u,v - Displays the Armor Check Penalty for the skill in position x.
 						<ul>
 							<li>s is printed if the skill is not affected by ACP.</li>
 							<li>t is printed if the skill is affected by ACP.</li>
@@ -821,20 +803,20 @@
 							<li>v is printed if the skill has the special weight penalty like Swim</li>
 						</ul>
 					</li>
-					<li>CLASS - Displays a list of the character's classes that have this skill as a class skill.</li>
-					<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
-					<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
-					<li>EXPLAIN - Displays the make-up of the misc modifier in an abbreviated format.</li>
-					<li>EXPLAIN_LONG - Displays the make-up of the misc modifier in a verbose format.</li>
-					<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-					<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
+					<li><code>CLASS</code> - Displays a list of the character's classes that have this skill as a class skill.</li>
+					<li><code>EXCLUSIVE</code> - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+					<li><code>EXCLUSIVE_TOTAL</code> - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+					<li><code>EXPLAIN</code> - Displays the make-up of the misc modifier in an abbreviated format.</li>
+					<li><code>EXPLAIN_LONG</code> - Displays the make-up of the misc modifier in a verbose format.</li>
+					<li><code>MISC</code> - equals TOTAL - RANK - ABMOD.</li>
+					<li><code>MOD</code> - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 						skill list.</li>
-					<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
-					<li>SIZE - Displays the character's size modifier as applied to the skill.</li>
-					<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
-					<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
-					<li>TYPE - Displays the type of the skill  in position x in the character's skill  list.</li>
-					<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+					<li><code>RANK</code> - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+					<li><code>SIZE</code> - Displays the character's size modifier as applied to the skill.</li>
+					<li><code>TOTAL</code> - Displays the total bonus for the skill in position x in the character's skill list.</li>
+					<li><code>TRAINED_TOTAL</code> - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+					<li><code>TYPE</code> - Displays the type of the skill  in position x in the character's skill  list.</li>
+					<li><code>UNTRAINED</code> - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
 				</ul>
 			</li>
 		</ul>
@@ -879,9 +861,9 @@
 		<p class="indent0"><strong><a name="SKILLPOINTS">Token Name:</a></strong> SKILLPOINTS.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
-			<li>TOTAL - Displays the total skill points the character has.</li>
-			<li>USED - Displays the number of skill points that have been assigned to skills.</li>
-			<li>UNUSED - Displays the number of skill points that remain unassigned.</li>
+			<li><code>TOTAL</code> - Displays the total skill points the character has.</li>
+			<li><code>USED</code> - Displays the number of skill points that have been assigned to skills.</li>
+			<li><code>UNUSED</code> - Displays the number of skill points that remain unassigned.</li>
 		</ul>
 		<p class="indent1"><strong> Variables Used (y):</strong> (Optional) Number (The classes position in the character's complete class list - 0-based index)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -901,17 +883,17 @@
 		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property).</p>
 		<ul class="indent2">
 			<li>None - Displays the name of the skill in position x in the character's skill list.</li>
-			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
-			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
-			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
-			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
-			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
+			<li><code>ABILITY</code> - Displays the key ability for the skill in position x in the character's skill list.</li>
+			<li><code>ABMOD</code> - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+			<li><code>EXCLUSIVE</code> - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+			<li><code>EXCLUSIVE_TOTAL</code> - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+			<li><code>MISC</code> - equals TOTAL - RANK - ABMOD.</li>
+			<li><code>MOD</code> - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 				skill list.</li>
-			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
-			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
-			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
-			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+			<li><code>RANK</code> - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+			<li><code>TOTAL</code> - Displays the total bonus for the skill in position x in the character's skill list.</li>
+			<li><code>TRAINED_TOTAL</code> - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+			<li><code>UNTRAINED</code> - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the value of the Skill at position x in a subset of
@@ -934,18 +916,18 @@
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Subtype - Anything that occurs in the TYPE tag in a lst file).</p>
 		<p class="indent1"><strong> Variables Used (z):</strong> Text (Property).</p>
 		<ul class="indent2">
-			<li>ABILITY - Displays the key ability for the skill in position x in the character's skill list.</li>
-			<li>ABMOD - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
-			<li>EXCLUSIVE - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
-			<li>EXCLUSIVE_TOTAL - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
-			<li>MISC - equals TOTAL - RANK - ABMOD.</li>
-			<li>MOD - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
+			<li><code>ABILITY</code> - Displays the key ability for the skill in position x in the character's skill list.</li>
+			<li><code>ABMOD</code> - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
+			<li><code>EXCLUSIVE</code> - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+			<li><code>EXCLUSIVE_TOTAL</code> - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+			<li><code>MISC</code> - equals TOTAL - RANK - ABMOD.</li>
+			<li><code>MOD</code> - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
 			skill list.</li>
-			<li>NAME - Displays the name of the skill in position x in the character's skill list.</li>
-			<li>RANK - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
-			<li>TOTAL - Displays the total bonus for the skill in position x in the character's skill list.</li>
-			<li>TRAINED_TOTAL - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
-			<li>UNTRAINED - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+			<li><code>NAME</code> - Displays the name of the skill in position x in the character's skill list.</li>
+			<li><code>RANK</code> - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+			<li><code>TOTAL</code> - Displays the total bonus for the skill in position x in the character's skill list.</li>
+			<li><code>TRAINED_TOTAL</code> - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+			<li><code>UNTRAINED</code> - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the value of the Skill at position x in a subset of
@@ -964,18 +946,18 @@
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
 		<ul class="indent2">
-			<li>NAME - Displays the name of the template at position x the characters list of templates.</li>
-			<li>CHAMOD - Displays the Charisma Modifier granted by the template at position x in the characters list of templates.</li>
-			<li>CONMOD - Displays the Constitution Modifier granted by the template at position x in the characters list of templates.</li>
-			<li>CR - Displays the Challenge Rating granted by the template at position x in the characters list of templates.</li>
-			<li>DEXMOD - Displays the Dexterity Modifier granted by the template at position x in the characters list of templates.</li>
-			<li>DR - Displays the Damage Reduction granted by the template at position x in the characters list of templates.</li>
-			<li>FEAT - Displays the Feats granted by the template at position x in the characters list of templates.</li>
-			<li>INTMOD - Displays the Intelligence Modifier granted by the template at position x in the characters list of templates.</li>
-			<li>SA - Displays the Special Abilities granted by the template at position x in the characters list of templates.</li>
-			<li>SR - Displays the Spell Resistance granted by the template at position x in the characters list of templates.</li>
-			<li>STRMOD - Displays the Strength Modifier granted by the template at position x in the characters list of templates.</li>
-			<li>WISMOD - Displays the Wisdom Modifier granted by the template at position x in the characters list of templates.</li>
+			<li><code>NAME</code> - Displays the name of the template at position x the characters list of templates.</li>
+			<li><code>CHAMOD</code> - Displays the Charisma Modifier granted by the template at position x in the characters list of templates.</li>
+			<li><code>CONMOD</code> - Displays the Constitution Modifier granted by the template at position x in the characters list of templates.</li>
+			<li><code>CR</code> - Displays the Challenge Rating granted by the template at position x in the characters list of templates.</li>
+			<li><code>DEXMOD</code> - Displays the Dexterity Modifier granted by the template at position x in the characters list of templates.</li>
+			<li><code>DR</code> - Displays the Damage Reduction granted by the template at position x in the characters list of templates.</li>
+			<li><code>FEAT</code> - Displays the Feats granted by the template at position x in the characters list of templates.</li>
+			<li><code>INTMOD</code> - Displays the Intelligence Modifier granted by the template at position x in the characters list of templates.</li>
+			<li><code>SA</code> - Displays the Special Abilities granted by the template at position x in the characters list of templates.</li>
+			<li><code>SR</code> - Displays the Spell Resistance granted by the template at position x in the characters list of templates.</li>
+			<li><code>STRMOD</code> - Displays the Strength Modifier granted by the template at position x in the characters list of templates.</li>
+			<li><code>WISMOD</code> - Displays the Wisdom Modifier granted by the template at position x in the characters list of templates.</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays information about the templates applied to the character.</p>
@@ -1056,9 +1038,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
@@ -1182,9 +1161,6 @@
 					<li><code>ASSOCIATEDCOUNT</code> - Returns the total number of associated values (i.e. choices) 
 						of the ability.</li>
 					<li><code>BENEFIT</code> - Displays the benefit of the ability.</li>
-					<li><code>CATEGORY</code> - Displays the category in which the ability was taken. Note: This 
-						will only be the first category if the ability has been taken multiple times with the 
-						same nature in different categories (e.g. feat and fighter feat).</li>
 					<li><code>DESC</code> - Displays the description of the ability.</li>
 					<li><code>KEY</code> - Displays the internal key of the ability.</li>
 					<li><code>NAME</code> - Displays the display name of the ability without any choices etc included.</li>
