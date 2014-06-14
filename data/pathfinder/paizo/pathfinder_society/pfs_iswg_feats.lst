@@ -16,24 +16,24 @@ Demon Hunter.MOD			TYPE:PFSLegal
 Dervish Dance.MOD			TYPE:PFSLegal	
 Desert Dweller.MOD			TYPE:PFSLegal	
 Desperate Battler.MOD		TYPE:PFSLegal	
-Eye of the Arclord.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Eye of the Arclord.MOD		TYPE:PFSNotLegal	
 Fey Foundling.MOD			TYPE:PFSLegal	
 Flagbearer.MOD				TYPE:PFSLegal	
 Focused Discipline.MOD		TYPE:PFSLegal	
-Fortune Teller.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Fortune Teller.MOD			TYPE:PFSNotLegal	
 Free Spirit.MOD				TYPE:PFSLegal	
 Godless Healing.MOD			TYPE:PFSLegal	
 Green Faith Acolyte.MOD		TYPE:PFSLegal	
-Hamatulatsu.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Hamatulatsu.MOD				TYPE:PFSNotLegal	
 Harmonic Spell.MOD			TYPE:PFSLegal	
-Harrowed.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Harrowed.MOD				TYPE:PFSNotLegal	
 Hermean Blood.MOD			TYPE:PFSLegal	
 Necromantic Affinity.MOD	TYPE:PFSLegal	
 Noble Scion.MOD				TYPE:PFSLegal	
 Rugged Northerner.MOD		TYPE:PFSLegal	
 Scholar.MOD					TYPE:PFSLegal	
 Secret Signs.MOD			TYPE:PFSLegal	
-Shade of the Uskwood.MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Shade of the Uskwood.MOD	TYPE:PFSNotLegal	
 Shrewd Tactician.MOD		TYPE:PFSLegal	
 Stoic.MOD					TYPE:PFSLegal	
 Storm-Lashed.MOD			TYPE:PFSLegal	

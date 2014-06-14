@@ -3,4 +3,4 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 # Original Entry by: Paul Shipley
 
 # Class Name			Product Identity?	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Save checks bonus											Combat bonus					Template
-CLASS:Daughter of Urgathoa.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+CLASS:Daughter of Urgathoa.MOD					TYPE:PFSNotLegal	

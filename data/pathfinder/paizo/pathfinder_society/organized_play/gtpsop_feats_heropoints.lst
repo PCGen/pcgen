@@ -2,6 +2,6 @@
 # The optional hero points rule is not used either
 # TODO: move to additional resources file
 # Feat Name			Required Class
-Blood of Heroes.MOD	PRECLASS:1,NPC=1,Monster=1
-Hero's Fortune.MOD	PRECLASS:1,NPC=1,Monster=1
-Luck of Heroes.MOD	PRECLASS:1,NPC=1,Monster=1
+Blood of Heroes.MOD	
+Hero's Fortune.MOD	
+Luck of Heroes.MOD	

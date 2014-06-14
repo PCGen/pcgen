@@ -4,6 +4,6 @@ SOURCELONG:Guide to Pathfinder Society Organized Play	SOURCESHORT:GTPSOP	SOURCEW
 # Updated by: Andrew Wilson
 
 # Spell Name	Required Class
-Awaken.MOD		PRECLASS:1,NPC=1,Monster=1
-Permanency.MOD	PRECLASS:1,NPC=1,Monster=1
-Reincarnate.MOD	PRECLASS:1,NPC=1,Monster=1
+Awaken.MOD		
+Permanency.MOD	
+Reincarnate.MOD	

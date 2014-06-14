@@ -7,13 +7,13 @@ Ancestral Memory.MOD							TYPE:PFSLegal
 Covetous Aura.MOD								TYPE:PFSLegal
 Dirge of the Victorious Knights.MOD				TYPE:PFSLegal
 Gorum's Armor.MOD								TYPE:PFSLegal
-Harrowing.MOD									TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Harrowing.MOD									TYPE:PFSNotLegal	
 Infernal Healing.MOD							TYPE:PFSLegal
 Infernal Healing (Greater).MOD					TYPE:PFSLegal
-Interplanetary Teleport.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Interplanetary Teleport.MOD						TYPE:PFSNotLegal	
 Lover's Vengeance.MOD							TYPE:PFSLegal
 Shield of the Dawnflower.MOD					TYPE:PFSLegal
-Teleport Trap.MOD								TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Teleport Trap.MOD								TYPE:PFSNotLegal	
 Unbreakable Heart.MOD							TYPE:PFSLegal
 Vermin Shape I.MOD								TYPE:PFSLegal
 Vermin Shape II.MOD								TYPE:PFSLegal

@@ -106,14 +106,14 @@ Performance Artist (Taldor Faction)			KEY:Performance Artist ~ Taldor					CATEGO
 Vindictive (Taldor Faction)				KEY:Vindictive ~ Taldor							CATEGORY:Special Ability	TYPE:Trait.BasicTrait.FactionTrait.CampaignTrait				PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Vindictive ~ Taldor],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.FactionTrait],[PREABILITY:1,CATEGORY=Background,Taldor Faction]						DESC:Your family is prone to endless feuds, and you are a people who simply do not forgive a slight easily. Once per day, you can declare a creature that has dealt you hit point damage your vindictive target as an immediate action when the damage is dealt. You receive a +1 trait bonus on damage rolls against this target for 1 minute.
 
 # TODO move those to a Additional Resources files
-#CATEGORY=Special Ability|Hedge Magician ~ Trait.MOD																										PRECLASS:1,NPC=1,Monster=1
-#TODO not forbidden anymore ? CATEGORY=Special Ability|Magical Knack ~ Trait.MOD																										PRECLASS:1,NPC=1,Monster=1
-#CATEGORY=Special Ability|Natural-Born Leader ~ Trait.MOD																									PRECLASS:1,NPC=1,Monster=1
-#CATEGORY=Special Ability|Rich Parents ~ Trait.MOD																										PRECLASS:1,NPC=1,Monster=1
-#CATEGORY=Special Ability|Craftsman ~ Dwarf.MOD																											PRECLASS:1,NPC=1,Monster=1
-#CATEGORY=Special Ability|Practicality ~ Halfling.MOD																										PRECLASS:1,NPC=1,Monster=1
-#CATEGORY=Special Ability|Heart of the Fields ~ Human.MOD																									PRECLASS:1,NPC=1,Monster=1
-#CATEGORY=Special Ability|Cauldron ~ WitchHex.MOD																										PRECLASS:1,NPC=1,Monster=1
+#CATEGORY=Special Ability|Hedge Magician ~ Trait.MOD																										
+#TODO not forbidden anymore ? CATEGORY=Special Ability|Magical Knack ~ Trait.MOD																										
+#CATEGORY=Special Ability|Natural-Born Leader ~ Trait.MOD																									
+#CATEGORY=Special Ability|Rich Parents ~ Trait.MOD																										
+#CATEGORY=Special Ability|Craftsman ~ Dwarf.MOD																											
+#CATEGORY=Special Ability|Practicality ~ Halfling.MOD																										
+#CATEGORY=Special Ability|Heart of the Fields ~ Human.MOD																									
+#CATEGORY=Special Ability|Cauldron ~ WitchHex.MOD																										
 
 #Award Points Tracker			SORTKEY:PrestigeAward_1		CATEGORY:Special Ability	TYPE:Prestige Award Display	DEFINE:AwardPointsSpent|0	DESC:The character has already spent %1 Prestige Points.|AwardPointsSpent
 

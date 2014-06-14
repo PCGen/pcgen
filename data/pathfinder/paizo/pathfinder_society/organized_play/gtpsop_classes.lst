@@ -21,7 +21,7 @@ CLASS:Cleric.MOD
 
 
 # Class Name		Required Class
-CLASS:Antipaladin.MOD	PRECLASS:1,NPC=1,Monster=1
+CLASS:Antipaladin.MOD	
 
 # Class Name
 CLASS:Cavalier.MOD

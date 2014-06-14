@@ -4,10 +4,10 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 ###Block: Conditional skills (for output only)
 # Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
-Bluff (Fool someone).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Bluff (Pass messages).MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Escape Artist (Escape bonds/grapple).MOD	TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Handle Animal (Birds of prey).MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Knowledge (Planes/ID demon).MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Linguistics (Create forgeries).MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Sense Motive (Resist feint).MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Bluff (Fool someone).MOD					TYPE:PFSNotLegal	
+Bluff (Pass messages).MOD					TYPE:PFSNotLegal	
+Escape Artist (Escape bonds/grapple).MOD	TYPE:PFSNotLegal	
+Handle Animal (Birds of prey).MOD			TYPE:PFSNotLegal	
+Knowledge (Planes/ID demon).MOD				TYPE:PFSNotLegal	
+Linguistics (Create forgeries).MOD			TYPE:PFSNotLegal	
+Sense Motive (Resist feint).MOD				TYPE:PFSNotLegal	

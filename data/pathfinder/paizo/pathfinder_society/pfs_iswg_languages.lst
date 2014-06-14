@@ -17,12 +17,12 @@ Vudrani.MOD			TYPE:PFSLegal
 
 ###Block: Ancient Languages
 # Language		Product Identity?	Type					Source Page
-Ancient Osiriani.MOD				TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Jistka.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Tekritanin.MOD						TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Thassilonian.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Ancient Osiriani.MOD				TYPE:PFSNotLegal	
+Jistka.MOD							TYPE:PFSNotLegal	
+Tekritanin.MOD						TYPE:PFSNotLegal	
+Thassilonian.MOD					TYPE:PFSNotLegal	
 
 ###Block: Other Languages
 # Language	Product Identity?	Type					Source Page
-Necril.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Orvian.MOD							TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Necril.MOD							TYPE:PFSNotLegal	
+Orvian.MOD							TYPE:PFSNotLegal	

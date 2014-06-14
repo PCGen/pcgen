@@ -4,9 +4,9 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 
 # Equipment Name			Output Name				Type							Contains			Cost		Weight	Source Page		Innate Spells										Modify VAR						Special Property
-Charm of Aluum Control.MOD		TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Charm of Aluum Control.MOD		TYPE:PFSNotLegal	
 Goz Mask.MOD					TYPE:PFSLegal
-Mask of the Mantis.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Mask of the Mantis.MOD			TYPE:PFSNotLegal	
 Unguent of Revivification.MOD	TYPE:PFSLegal
 Wayfinder.MOD					TYPE:PFSLegal
 Zoic Fetish (Mammal).MOD		TYPE:PFSLegal
@@ -14,6 +14,6 @@ Zoic Fetish (Bird).MOD			TYPE:PFSLegal
 Zoic Fetish (Reptile).MOD		TYPE:PFSLegal
 Zoic Fetish (Amphibian).MOD		TYPE:PFSLegal
 Zoic Fetish (Fish).MOD			TYPE:PFSLegal
-Final Blade.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Sun Orchid Elixir.MOD			TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
-Wardstone.MOD					TYPE:PFSNotLegal	PRECLASS:1,NPC=1,Monster=1
+Final Blade.MOD					TYPE:PFSNotLegal	
+Sun Orchid Elixir.MOD			TYPE:PFSNotLegal	
+Wardstone.MOD					TYPE:PFSNotLegal	
