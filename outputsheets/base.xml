@@ -481,22 +481,26 @@
 		<melee>
 			<total>|ATTACK.MELEE.TOTAL|</total>
 			<total_short>|ATTACK.MELEE.TOTAL.SHORT|</total_short>
-			<bab>|ATTACK.MELEE.BASE|</bab>
+			<bab>|var.charbonusto("COMBAT","BASEAB").INTVAL|</bab>
+			<!-- |ATTACK.MELEE.BASE| -->
 			<base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
 			<stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
 			<size_mod>|ATTACK.MELEE.SIZE|</size_mod>
 			<misc_mod>|ATTACK.MELEE.MISC|</misc_mod>
-			<epic_mod>|ATTACK.MELEE.EPIC||charbonusto("COMBAT","EPICAB")|</epic_mod>
+			<epic_mod>|var.charbonusto("COMBAT","EPICAB").INTVAL|</epic_mod>
+			<!-- |ATTACK.MELEE.EPIC| -->
 			<temp_mod/>
 		</melee>
 		<ranged>
 			<total>|ATTACK.RANGED.TOTAL|</total>
-			<bab>|ATTACK.RANGED.BASE|</bab>
+			<bab>|var.charbonusto("COMBAT","BASEAB").INTVAL|</bab>
+			<!-- |ATTACK.RANGED.BASE| -->
 			<base_attack_bonus>|ATTACK.RANGED|</base_attack_bonus>
 			<stat_mod>|ATTACK.RANGED.STAT|</stat_mod>
 			<size_mod>|ATTACK.RANGED.SIZE|</size_mod>
 			<misc_mod>|ATTACK.RANGED.MISC|</misc_mod>
-			<epic_mod>|ATTACK.RANGED.EPIC||charbonusto("COMBAT","EPICAB")|</epic_mod>
+			<epic_mod>|var.charbonusto("COMBAT","EPICAB").INTVAL|</epic_mod>
+			<!-- |ATTACK.RANGED.EPIC| -->
 			<temp_mod/>
 		</ranged>
 		<!-- Either CMB block, or Grapple Block -->
