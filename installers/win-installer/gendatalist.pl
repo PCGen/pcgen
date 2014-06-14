@@ -113,7 +113,7 @@ open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 foreach $dirname (@basedirlist)
 {
 	# Skip some folders we don't wish to offer
-	if ($dirname eq 'homebrew' || $dirname eq 'zen-test')
+	if ($dirname eq 'homebrew' || $dirname eq 'zen_test' || $dirname eq 'customsources')
 	{
 		next;
 	}
@@ -161,7 +161,7 @@ NAME:	foreach $filename (@nondots)
 		else
 		{
 			$pubname = $filename;
-			print STDERR "Unknown publisher \"$filename\" - using directory name instead.\n";			
+			print STDERR "Unknown publisher \"$filename\" at $currDir - using directory name instead.\n";			
 		}
 		
 		print SCRIPT "	Section \"$pubname\"\n";
@@ -191,7 +191,7 @@ NAME:	foreach $filename (@nondots)
 		print SCRIPT "\n";
 
 		print SCRIPT "	SetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\$dirname\\" . $filename . "\"\n";
-		print SCRIPT "	File /r \"\${SrcDir}\\PCGen_\${SIMPVER}c\\data\\$dirname\\" . $filename . "\\*.*\"\n";
+		print SCRIPT "	File /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\$dirname\\" . $filename . "\\*.*\"\n";
 
 		print SCRIPT "	SectionEnd\n\n";
 	}

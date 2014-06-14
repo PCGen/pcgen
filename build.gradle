@@ -224,10 +224,22 @@ task copyToRoot(dependsOn: [copyToLib, jar, converterJar]) {
 		copy {
 			from "$buildDir/libs/pcgen-${version}.jar"
 			from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
+			from "$projectDir/code/pcgen.exe"
 			into "$projectDir"
 		 	rename "(.+)-$version(.+)", '$1$2'
 		} 
 	}
+}
+
+task cleanRoot(type: Delete) {
+	description="Clean up things copied to the root folder by the build"
+	delete "$projectDir/pcgen.jar"
+	delete "$projectDir/pcgen-batch-convert.jar"
+	delete "$projectDir/batch-convert.jar"
+	delete "$projectDir/pcgen.exe"
+	delete "$projectDir/libs"
+	delete "$projectDir/autobuild.properties"
+	delete "$projectDir/svn.properties"
 }
 
 build {
@@ -236,6 +248,7 @@ build {
 
 clean {
 	it.dependsOn 'clean-plugins'
+	it.dependsOn 'clean-root'
 }
  
 test {
@@ -342,4 +355,5 @@ task svninfo << {
 apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
+apply from: 'code/gradle/release.gradle'
 
