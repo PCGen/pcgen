@@ -22,6 +22,12 @@ import java.util.Stack;
 public class ClassLevelCommand extends PCGenCommand
 {
 
+	@Override
+	public boolean checkNumberOfParameters(int arg0)
+	{
+		return arg0 >= 0 && arg0 <= 2;
+	}
+
 	/**
 	 * Constructor
 	 */
@@ -140,7 +146,6 @@ public class ClassLevelCommand extends PCGenCommand
 			if (src.startsWith("CLASS:"))
 			{
 				className = src.substring(6);
-				inStack.push(src);
 			}
 		}
 
@@ -167,12 +172,13 @@ public class ClassLevelCommand extends PCGenCommand
 			}
 			else
 			{
-				throw new ParseException("Did not understand APPLIEDAS= "
+				throw new ParseException("Did not understand APPLIEDAS="
 					+ applied);
 			}
 		}
 
-		inStack.push(new Double(pc.getClassLevelString(cl, false)));
+		Double result = new Double(pc.getClassLevelString(cl, false));
+		inStack.push(result);
 	}
 
 	private PlayerCharacter getPC() throws ParseException

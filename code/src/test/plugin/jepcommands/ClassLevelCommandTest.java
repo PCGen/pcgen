@@ -86,6 +86,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		gamemode.addClassType(
 				"Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO");
 		gamemode.setSkillMultiplierLevels("4");
+		gamemode.setMaxNonEpicLevel(20);
 
 		// Create the Nymph race
 		nymphRace = new Race();
@@ -156,4 +157,25 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		is(pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), eq(2.0,
 				0.001), "classlevel(\"TYPE=Monster\")");
 	}
+
+	public void testClassLevelAppliedAs()
+	{
+		PlayerCharacter pc = this.getCharacter();
+		pc.setRace(nymphRace);
+		pc.incrementClassLevel(1, megaCasterClass);
+		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(1.0, 0.001),
+				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster");
+		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), eq(0.0, 0.001),
+				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph");
+		pc.incrementClassLevel(1, megaCasterClass);
+		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(2.0, 0.001),
+				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster");
+		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), eq(0.0, 0.001),
+				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph");
+		pc.incrementClassLevel(1, nymphClass);
+		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(2.0, 0.001),
+				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster");
+		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), eq(1.0, 0.001),
+				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph");
+	}	
 }
