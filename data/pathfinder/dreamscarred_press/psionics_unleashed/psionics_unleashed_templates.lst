@@ -88,6 +88,6 @@ Untyped bonus +4 Charisma		VISIBLE:DISPLAY	BONUS:STAT|CHA|4				DESC:Untyped bonu
 # Oak Body
 # Shadow Body
 
-#Psionic			VISIBLE:EXPORT	ABILITY:Special Ability|AUTOMATIC|Psionic	SUBRACE:YES	RACESUBTYPE:Psionic
+#Psionic			VISIBLE:EXPORT	ABILITY:Special Ability|AUTOMATIC|Psionic	SUBRACE:Psionic	RACESUBTYPE:Psionic
 #** Removed and Replaced with IsPsionic variable, since the template was inappropriately removed.  Use tags below instead.
 #** DEFINE:IsPsionic|0	BONUS:VAR|IsPsionic|1	ABILITY:Special Ability|AUTOMATIC|Psionic

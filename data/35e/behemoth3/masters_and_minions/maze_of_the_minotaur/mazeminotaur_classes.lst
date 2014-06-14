@@ -43,7 +43,7 @@ CLASS:Minotaur	STARTSKILLPTS:2
 6	DONOTADD:HITDIE|SKILLPOINTS
 
 ### The source implies that the characters race changes to Bull Lord once he takes a level in this class.
-### This is implemented by adding a Bull Lord template with SUBRACE:YES, the race will now output Minotaur (Bull Lord)
+### This is implemented by adding a Bull Lord template with SUBRACE:Bull Lord, the race will now output Minotaur (Bull Lord)
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Automatically Gained Language
 CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	AUTO:LANG|Common

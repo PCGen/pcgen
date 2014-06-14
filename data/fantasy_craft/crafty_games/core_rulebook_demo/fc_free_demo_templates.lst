@@ -68,7 +68,7 @@ Magma			VISIBLE:NO	SUBRACE:Magma
 # Elf
 High			VISIBLE:NO	SUBRACE:High
 #
-#Wood				VISIBLE:NO																																														SUBRACE:YES
+#Wood				VISIBLE:NO																																														SUBRACE:Wood
 Gray			VISIBLE:NO	SUBRACE:Gray
 Dark			VISIBLE:NO	SUBRACE:Dark
 
