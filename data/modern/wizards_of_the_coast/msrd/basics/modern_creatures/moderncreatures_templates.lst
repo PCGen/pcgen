@@ -34,8 +34,8 @@ Vermin			VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	DEFINESTAT:NONSTAT|INT									
 ###Block: Monstrous Spider
 
 # Template Name	Visible	Source Page				Add to base move			Bonus to skill																Ability							Removable?		Subrace
-Hunting		VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Hide|4|TYPE=Racial	BONUS:SKILL|Jump|6|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial									REMOVABLE:YES	SUBRACE:YES
-Web Spinning	VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf						BONUS:SKILL|Hide,Spot|4|TYPE=Racial													ABILITY:Special Ability|AUTOMATIC|Cast Web	REMOVABLE:YES	SUBRACE:YES
+Hunting		VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf	BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Hide|4|TYPE=Racial	BONUS:SKILL|Jump|6|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial									REMOVABLE:YES	SUBRACE:Hunting	
+Web Spinning	VISIBLE:NO	SOURCEPAGE:msrdcreatures.rtf						BONUS:SKILL|Hide,Spot|4|TYPE=Racial													ABILITY:Special Ability|AUTOMATIC|Cast Web	REMOVABLE:YES	SUBRACE:Web Spinning
 
 ###Block: Animated Object templates don't do anything yet.
 

@@ -4,11 +4,11 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 
 ###Block: Dwarven clans
 # Template Name	Visible	Source Page		Automatically Gained Language	Subrace
-Clan Thedron	VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Thedron			SUBRACE:YES
-Clan Fodrin		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Fodrin			SUBRACE:YES
-Clan Durgis		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Durgis			SUBRACE:YES
-Clan Gorand		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Gorand			SUBRACE:YES
-Clan Black Blood	VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Black Blood		SUBRACE:YES
+Clan Thedron	VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Thedron			SUBRACE:Clan Thedron	
+Clan Fodrin		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Fodrin			SUBRACE:Clan Fodrin		
+Clan Durgis		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Durgis			SUBRACE:Clan Durgis		
+Clan Gorand		VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Gorand			SUBRACE:Clan Gorand		
+Clan Black Blood	VISIBLE:NO	SOURCEPAGE:p.187	AUTO:LANG|Black Blood		SUBRACE:Clan Black Blood	
 
 ###Block: Halfling cultures
 # Template Name	Visible	Source Page		Special ABility										Bonus to skill						Subrace

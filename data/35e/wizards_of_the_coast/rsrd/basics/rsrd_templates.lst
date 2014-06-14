@@ -4,33 +4,29 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Template Name	Unique Key					Visible				Favored Class				Automatically Gained Language			Bonus Languages							Subrace	Race Subtype
 Human			KEY:Human Base				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common					LANGBONUS:TYPE=Spoken
 # Dwarf
-Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
-
-Deep			KEY:Deep Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
-Duergar		KEY:Duergar Dwarf				VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:.CLEAR	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran									SUBRACE:YES
-Mountain		KEY:Mountain Dwarf			VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
+Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Hill		
+Deep			KEY:Deep Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Deep		
+Duergar		KEY:Duergar Dwarf				VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:.CLEAR	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran						SUBRACE:Duergar	
+Mountain		KEY:Mountain Dwarf			VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Mountain
 # Elf
-High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
-
-Aquatic		KEY:Aquatic Elf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:YES	RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
-Drow			KEY:Drow Elf			CR:1	VISIBLE:NO	LEVELADJUSTMENT:2							AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin						SUBRACE:YES
-Gray			KEY:Gray Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
-Wild			KEY:Wild Elf				VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
-Wood			KEY:Wood Elf				VISIBLE:NO				FAVOREDCLASS:Ranger			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
+High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:High		
+Aquatic		KEY:Aquatic Elf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:Aquatic		RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
+Drow			KEY:Drow Elf			CR:1	VISIBLE:NO	LEVELADJUSTMENT:2							AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin			SUBRACE:Drow		
+Gray			KEY:Gray Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:Gray		
+Wild			KEY:Wild Elf				VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:Wild		
+Wood			KEY:Wood Elf				VISIBLE:NO				FAVOREDCLASS:Ranger			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:Wood		
 # Half-Elf
 Half-Elf		KEY:Half-Elf				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven				LANGBONUS:TYPE=Spoken						
 # Half-Orc
 Half-Orc		KEY:Half-Orc				VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin						
 # Gnome
-Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:YES
-
-Svirfneblin		KEY:Svirfneblin Gnome		CR:1	VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue			AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran									SUBRACE:YES
-Forest		KEY:Forest Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:YES
+Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Rock		
+Svirfneblin		KEY:Svirfneblin Gnome		CR:1	VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue			AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran						SUBRACE:Svirfneblin	
+Forest		KEY:Forest Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Forest	
 # Halfling
-Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:YES
-
-Tallfellow		KEY:Tallfellow Halfling			VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Gnome,Goblin,Orc											SUBRACE:YES
-Deep			KEY:Deep Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:.CLEAR	LANGBONUS:Elven,Gnome,Goblin,Orc											SUBRACE:YES
+Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:Lightfoot	
+Tallfellow		KEY:Tallfellow Halfling			VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Gnome,Goblin,Orc								SUBRACE:Tallfellow	
+Deep			KEY:Deep Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:.CLEAR	LANGBONUS:Elven,Gnome,Goblin,Orc								SUBRACE:Deep		
 
 
 ###Block:
@@ -400,18 +396,18 @@ SIZE_C+		SIZE:P					VISIBLE:NO
 
 ###Block: Dragon Age
 # Template Name	Visible	Subrace
-Wyrmling		VISIBLE:NO	SUBRACE:YES
-Very Young		VISIBLE:NO	SUBRACE:YES
-Young			VISIBLE:NO	SUBRACE:YES
-Juvenile		VISIBLE:NO	SUBRACE:YES
-Young Adult		VISIBLE:NO	SUBRACE:YES
-Adult			VISIBLE:NO	SUBRACE:YES
-Mature Adult	VISIBLE:NO	SUBRACE:YES
-Old			VISIBLE:NO	SUBRACE:YES
-Very Old		VISIBLE:NO	SUBRACE:YES
-Ancient		VISIBLE:NO	SUBRACE:YES
-Wyrm			VISIBLE:NO	SUBRACE:YES
-Great Wyrm		VISIBLE:NO	SUBRACE:YES
+Wyrmling		VISIBLE:NO	SUBRACE:Wyrmling	
+Very Young		VISIBLE:NO	SUBRACE:Very Young	
+Young			VISIBLE:NO	SUBRACE:Young		
+Juvenile		VISIBLE:NO	SUBRACE:Juvenile	
+Young Adult		VISIBLE:NO	SUBRACE:Young Adult	
+Adult			VISIBLE:NO	SUBRACE:Adult		
+Mature Adult	VISIBLE:NO	SUBRACE:Mature Adult
+Old			VISIBLE:NO	SUBRACE:Old		
+Very Old		VISIBLE:NO	SUBRACE:Very Old	
+Ancient		VISIBLE:NO	SUBRACE:Ancient	
+Wyrm			VISIBLE:NO	SUBRACE:Wyrm		
+Great Wyrm		VISIBLE:NO	SUBRACE:Great Wyrm	
 
 ###Block: Normal Animals
 # Template Name					Output Name							Size		Face/Space	Reach		Nb Legs	Nb Hands	Source Page					Define											Var. Min. Value							Combat bonus					Add to base move				Stat bonus																		Modify VAR					Weapon prof. bonus					Ability									Automatically Gained Feat	Move				Natural Attacks
@@ -810,8 +806,8 @@ Drow Female		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDC
 
 ###Block: Monstrous Spiders
 # Template Name	Visible	Source Page				Add to base move			Bonus to skill										Modify VAR																																																																																																																																																											Ability									Removable?		Subrace	Temporary effect description														Temporary Bonus
-Hunting		VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|10|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																																																																							REMOVABLE:YES	SUBRACE:YES
-Web Spinning	VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf																		BONUS:VAR|MonstrousSpiderWebBreakDC|4|TYPE=Racial	BONUS:VAR|MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebHp|18|PRESIZEEQ:C	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|1|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|2|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|4|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|8|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|16|PRESIZEEQ:C	ABILITY:Special Ability|AUTOMATIC|Monstrous Spider ~ Web	REMOVABLE:YES	SUBRACE:YES	TEMPDESC:Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs	TEMPBONUS:PC|SKILL|Hide,Move Silently|8|TYPE=Racial
+Hunting		VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|10|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																																																																							REMOVABLE:YES	SUBRACE:Hunting	
+Web Spinning	VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf																		BONUS:VAR|MonstrousSpiderWebBreakDC|4|TYPE=Racial	BONUS:VAR|MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebHp|18|PRESIZEEQ:C	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|1|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|2|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|4|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|8|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|16|PRESIZEEQ:C	ABILITY:Special Ability|AUTOMATIC|Monstrous Spider ~ Web	REMOVABLE:YES	SUBRACE:Web Spinning	TEMPDESC:Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs	TEMPBONUS:PC|SKILL|Hide,Move Silently|8|TYPE=Racial
 
 ###Block: Pixie Special Ability
 # Template Name				Challenge Rating	Visible	Level Adjustment	Source Page				Required Race			Innate Spells

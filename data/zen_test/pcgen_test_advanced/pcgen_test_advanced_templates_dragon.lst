@@ -62,18 +62,18 @@ LEVEL_ADJUSTMENT_8	VISIBLE:NO	LEVELADJUSTMENT:8
 LEVEL_ADJUSTMENT_9	VISIBLE:NO	LEVELADJUSTMENT:9
 #
 ###Block: Dragon Age
-Wyrmling		SUBRACE:YES
-Very Young		SUBRACE:YES
-Young			SUBRACE:YES
-Juvenile		SUBRACE:YES
-Young Adult		SUBRACE:YES
-Adult			SUBRACE:YES
-Mature Adult	SUBRACE:YES
-Old			SUBRACE:YES
-Very Old		SUBRACE:YES
-Ancient		SUBRACE:YES
-Wyrm			SUBRACE:YES
-Great Wyrm		SUBRACE:YES
+Wyrmling		SUBRACE:Wyrmling	
+Very Young		SUBRACE:Very Young	
+Young			SUBRACE:Young		
+Juvenile		SUBRACE:Juvenile	
+Young Adult		SUBRACE:Young Adult	
+Adult			SUBRACE:Adult		
+Mature Adult	SUBRACE:Mature Adult
+Old			SUBRACE:Old		
+Very Old		SUBRACE:Very Old	
+Ancient		SUBRACE:Ancient	
+Wyrm			SUBRACE:Wyrm		
+Great Wyrm		SUBRACE:Great Wyrm	
 ###Block: Dragon Attacks
 DRAGON_ATTACKS_T	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 #Bite (5' reach)

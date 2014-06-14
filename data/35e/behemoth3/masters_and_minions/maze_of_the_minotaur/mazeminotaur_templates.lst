@@ -5,7 +5,7 @@ SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.
 ###Block: Racial templates
 
 # Template Name	Visible	Subrace	Lock Gender Selection
-Bull Lord		VISIBLE:NO	SUBRACE:YES
+Bull Lord		VISIBLE:NO	SUBRACE:Bull Lord
 Minotaur		VISIBLE:NO			GENDERLOCK:Male
 Minotrice		VISIBLE:NO			GENDERLOCK:Female
 

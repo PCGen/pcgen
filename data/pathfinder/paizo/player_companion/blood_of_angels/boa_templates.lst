@@ -8,9 +8,9 @@ Masterpiece Activation Aasimar	VISIBLE:NO		ABILITY:Special Ability|AUTOMATIC|Mas
 ###Block: Aasimar Types
 # Template Name								Visible	Subrace
 Default-Aasimar		KEY:Aasimar ~ Default-Aasimar		VISIBLE:NO
-Agathion-Blooded		KEY:Aasimar ~ Agathion-Blooded	VISIBLE:NO	SUBRACE:YES	RACESUBTYPE:Agathion-Blooded
-Angel-Blooded		KEY:Aasimar ~ Angel-Blooded		VISIBLE:NO	SUBRACE:YES	RACESUBTYPE:Angel-Blooded
-Archon-Blooded		KEY:Aasimar ~ Archon-Blooded		VISIBLE:NO	SUBRACE:YES	RACESUBTYPE:Archon-Blooded
-Azata-Blooded		KEY:Aasimar ~ Azata-Blooded		VISIBLE:NO	SUBRACE:YES	RACESUBTYPE:Azata-Blooded
-Garuda-Blooded		KEY:Aasimar ~ Garuda-Blooded		VISIBLE:NO	SUBRACE:YES	RACESUBTYPE:Garuda-Blooded
-Peri-Blooded		KEY:Aasimar ~ Peri-Blooded		VISIBLE:NO	SUBRACE:YES	RACESUBTYPE:Peri-Blooded
+Agathion-Blooded		KEY:Aasimar ~ Agathion-Blooded	VISIBLE:NO	SUBRACE:Agathion-Blooded	RACESUBTYPE:Agathion-Blooded
+Angel-Blooded		KEY:Aasimar ~ Angel-Blooded		VISIBLE:NO	SUBRACE:Angel-Blooded		RACESUBTYPE:Angel-Blooded
+Archon-Blooded		KEY:Aasimar ~ Archon-Blooded		VISIBLE:NO	SUBRACE:Archon-Blooded		RACESUBTYPE:Archon-Blooded
+Azata-Blooded		KEY:Aasimar ~ Azata-Blooded		VISIBLE:NO	SUBRACE:Azata-Blooded		RACESUBTYPE:Azata-Blooded
+Garuda-Blooded		KEY:Aasimar ~ Garuda-Blooded		VISIBLE:NO	SUBRACE:Garuda-Blooded		RACESUBTYPE:Garuda-Blooded
+Peri-Blooded		KEY:Aasimar ~ Peri-Blooded		VISIBLE:NO	SUBRACE:Peri-Blooded		RACESUBTYPE:Peri-Blooded
