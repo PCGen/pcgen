@@ -63,7 +63,7 @@ ext {
 }
 
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLib']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -99,7 +99,7 @@ task programZip(type: Zip, dependsOn: 'converterJar') {
     }
 }
 
-task libsZip(type: Zip, dependsOn: 'copyToLib') {
+task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     classifier = 'libs'
     into(zipRootFolder) {
         with libsDistsImage
