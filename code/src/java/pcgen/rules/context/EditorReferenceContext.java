@@ -31,7 +31,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 	private final HashMapToList<URI, Loadable> forgetMap = new HashMapToList<URI, Loadable>();
 
 	@Override
-	public <T extends CDOMObject> T performCopy(T object, String copyName)
+	<T extends CDOMObject> T performCopy(T object, String copyName)
 	{
 		try
 		{

@@ -20,7 +20,7 @@ package pcgen.rules.context;
 import pcgen.cdom.base.CDOMObject;
 
 
-public class EditorLoadContext extends LoadContext
+public class EditorLoadContext extends LoadContextInst
 {
 	private final String contextType;
 

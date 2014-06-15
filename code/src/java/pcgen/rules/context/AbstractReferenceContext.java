@@ -513,7 +513,7 @@ public abstract class AbstractReferenceContext
 	public abstract <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl, Class<? extends Category<T>> catClass, String category);
 
-	public abstract <T extends CDOMObject> T performCopy(T object, String copyName);
+	abstract <T extends CDOMObject> T performCopy(T object, String copyName);
 
 	public abstract <T extends CDOMObject> T performMod(T obj);
 

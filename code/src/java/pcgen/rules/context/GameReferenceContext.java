@@ -115,7 +115,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends CDOMObject> T performCopy(T obj, String copyName)
+	<T extends CDOMObject> T performCopy(T obj, String copyName)
 	{
 		throw new UnsupportedOperationException(
 				"GameReferenceContext cannot copy objects");

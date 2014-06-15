@@ -569,7 +569,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			return null;
 		}
 
-		T obj = context.getReferenceContext().performCopy(object, copyName);
+		T obj = context.performCopy(object, copyName);
 		if (obj == null)
 		{
 			setChanged();

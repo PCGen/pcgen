@@ -55,7 +55,7 @@ public class LoadContextTest extends TestCase
 	public final void testCloneInMasterListsSimple()
 	{
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
-		Spell newSpell = Globals.getContext().cloneInMasterLists(testSpell, "New Spell");
+		Spell newSpell = Globals.getContext().performCopy(testSpell, "New Spell");
 		assertEquals("Old spell name incorrect", "LoadContextTest", testSpell.getDisplayName());
 		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());
 	}
@@ -81,7 +81,7 @@ public class LoadContextTest extends TestCase
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.commit();
 		
-		Spell newSpell = context.cloneInMasterLists(testSpell, "New Spell");
+		Spell newSpell = context.performCopy(testSpell, "New Spell");
 		context.commit();
 		assertEquals("Old spell name incorrect", "LoadContextTest", testSpell.getDisplayName());
 		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());

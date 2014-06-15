@@ -122,7 +122,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	 * @throws PersistenceLayerException 
 	 */
 	@Override
-	public <T extends CDOMObject> T performCopy(T object, String copyName)
+	<T extends CDOMObject> T performCopy(T object, String copyName)
 	{
 		try
 		{

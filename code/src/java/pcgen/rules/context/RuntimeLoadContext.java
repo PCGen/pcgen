@@ -17,7 +17,7 @@
  */
 package pcgen.rules.context;
 
-public class RuntimeLoadContext extends LoadContext
+public class RuntimeLoadContext extends LoadContextInst
 {
 	private final String contextType;
 
