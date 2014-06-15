@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.template;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -162,7 +163,7 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 					.doubleValue();
 			if (cost > 0.0001)
 			{
-				pc.adjustFeats(cost);
+				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(cost));
 			}
 			pc.addAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 		}

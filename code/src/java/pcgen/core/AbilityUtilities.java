@@ -33,7 +33,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.analysis.AddObjectActions;
@@ -60,14 +59,6 @@ public class AbilityUtilities
 	{
 		CNAbility cna = cnas.getCNAbility();
 		Ability ability = cna.getAbility();
-		// how many sub-choices to make
-
-		ChoiceManagerList cm =
-				ChooserUtilities.getChoiceManager(cna, aPC);
-		if (cm != null)
-		{
-//			add(cm, aPC, ability, cnas.getSelection());
-		}
 
 		/*
 		 * This modifyChoice method is a bit like mod choices, but it uses a
@@ -85,24 +76,15 @@ public class AbilityUtilities
 			kit.act(kit.driveChoice(aPC), ability, aPC);
 		}
 
-		if ((cna.getAbilityCategory() == AbilityCategory.FEAT)
-			&& cna.getNature().equals(Nature.NORMAL))
-		{
-			adjustPool(ability, aPC, true);
-		}
-
 		aPC.adjustMoveRates();
 
-		if (!aPC.isImporting())
-		{
-			AddObjectActions.globalChecks(ability, aPC);
-			/*
-			 * Protection for CODE-1240. Note the better solution is when facets
-			 * are association aware and thus trigger a change when an
-			 * association is added. - thpr
-			 */
-			aPC.calcActiveBonuses();
-		}
+		AddObjectActions.globalChecks(ability, aPC);
+		/*
+		 * Protection for CODE-1240. Note the better solution is when facets
+		 * are association aware and thus trigger a change when an
+		 * association is added. - thpr
+		 */
+		aPC.calcActiveBonuses();
 	}
 
 	public static void adjustPool(final Ability ability,

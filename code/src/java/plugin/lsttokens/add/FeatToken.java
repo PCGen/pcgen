@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.add;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -291,7 +292,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 		if (cost > 0.0001)
 		{
-			pc.adjustFeats(cost);
+			pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(cost));
 		}
 		pc.addAbility(choice, UserSelection.getInstance(),
 			UserSelection.getInstance());

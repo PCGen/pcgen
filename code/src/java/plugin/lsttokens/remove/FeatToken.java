@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.remove;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -297,8 +298,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		double cost =
 				cna.getAbility().getSafe(ObjectKey.SELECTION_COST)
 					.doubleValue();
-		pc.adjustFeats(-cost);
-}
+		pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(-cost));
+	}
 
 	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
 		ChooseDriver obj, String choice)

@@ -1703,7 +1703,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					}
 				}
 
-				theCharacter.adjustFeats(-poolMod);
+				theCharacter.adjustAbilities(AbilityCategory.FEAT,
+					new BigDecimal(-poolMod));
 				showPointPool();
 			}
 		}

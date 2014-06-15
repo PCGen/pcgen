@@ -551,7 +551,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		setPreviewSheet(SettingsHandler.getGame().getDefaultPreviewSheet());
 
 		setName(Constants.EMPTY_STRING);
-		setFeats(0);
+		setUserPoolBonus(AbilityCategory.FEAT, BigDecimal.ZERO);
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
@@ -7326,7 +7326,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				// If not importing, add extra feats
 				if (!isImporting() && classFacet.isEmpty(id))
 				{
-					adjustFeats(pcClassClone.getSafe(IntegerKey.START_FEATS));
+					adjustAbilities(AbilityCategory.FEAT, new BigDecimal(
+						pcClassClone.getSafe(IntegerKey.START_FEATS)));
 				}
 
 				// Add the class to the character classes as level 0
@@ -7787,7 +7788,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		aClone.displayUpdate = displayUpdate;
 		aClone.setImporting(false);
 		aClone.useTempMods = useTempMods;
-		aClone.setFeats(numberOfRemainingFeats);
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
 		aClone.poolAmount = poolAmount;
@@ -8295,16 +8295,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return processLevelAbilities;
 	}
 
-	/**
-	 * Whether to allow adjustment of the Global Feat pool
-	 * 
-	 * @param allow
-	 */
-	public void setAllowFeatPoolAdjustment(boolean allow)
-	{
-		this.allowFeatPoolAdjustment = allow;
-	}
-
 	/*
 	 * For debugging purposes Dumps contents of spell books to System.err
 	 * 
@@ -8334,30 +8324,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	// Feat/Ability stuff
 	// --------------------------------------------------
 
-	// whether to adjust the feat pool when requested
-	private boolean allowFeatPoolAdjustment = true;
-
-	// pool of feats remaining to distribute
-	private double numberOfRemainingFeats = 0;
-
-	public void adjustFeats(final double arg)
-	{
-		if (allowFeatPoolAdjustment)
-		{
-			numberOfRemainingFeats += arg;
-		}
-		setDirty(true);
-	}
-
 	public void adjustAbilities(final Category<Ability> aCategory, final BigDecimal arg)
 	{
 		if (arg.equals(BigDecimal.ZERO))
 		{
-			return;
-		}
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			adjustFeats(arg.doubleValue());
 			return;
 		}
 		if (theUserPoolBonuses == null)
@@ -8374,16 +8344,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		theUserPoolBonuses.put(aCategory, userMods);
 		setDirty(true);
-	}
-
-	// TODO - This method is ridiculously dangerous.
-	public void setFeats(final double arg)
-	{
-		if (allowFeatPoolAdjustment && numberOfRemainingFeats != arg)
-		{
-			numberOfRemainingFeats = arg;
-			setDirty(true);
-		}
 	}
 
 	public void setUserPoolBonus(final AbilityCategory aCategory, final BigDecimal anAmount)
@@ -8411,18 +8371,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public BigDecimal getTotalAbilityPool(final AbilityCategory aCategory)
 	{
-		if (aCategory == AbilityCategory.FEAT)
+		Number basePool = getBasePool(aCategory);
+		double bonus;
+		if (AbilityCategory.FEAT.equals(aCategory))
 		{
-			BigDecimal spent = getAbilityPoolSpent(aCategory);
-			return spent.add(new BigDecimal(getRemainingFeatPoolPoints()));
+			bonus = getBonusFeatPool();
 		}
-		Number basePool = aCategory.getPoolFormula().resolve(this, getClass().toString());
-
-		if (!aCategory.allowFractionalPool())
+		else
 		{
-			basePool = new Float(basePool.intValue());
+			bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
 		}
-		double bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
 		// double bonus = getBonusValue("ABILITYPOOL", aCategory.getKeyName());
 		if (!aCategory.allowFractionalPool())
 		{
@@ -8431,6 +8389,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// User bonuses already handle the fractional pool flag.
 		final double userBonus = getUserPoolBonus(aCategory);
 		return BigDecimal.valueOf(basePool.floatValue() + bonus + userBonus);
+	}
+
+	private Number getBasePool(final AbilityCategory aCategory)
+	{
+		Number basePool = aCategory.getPoolFormula().resolve(this, getClass().toString());
+
+		if (!aCategory.allowFractionalPool())
+		{
+			basePool = new Float(basePool.intValue());
+		}
+		return basePool;
 	}
 
 	/**
@@ -8449,10 +8418,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public BigDecimal getAvailableAbilityPool(final AbilityCategory aCategory)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return BigDecimal.valueOf(getRemainingFeatPoolPoints());
-		}
 		return getTotalAbilityPool(aCategory).subtract(getAbilityPoolSpent(aCategory));
 	}
 
@@ -8464,70 +8429,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public double getRemainingFeatPoints(final boolean bIncludeBonus)
 	{
-		double retVal = numberOfRemainingFeats;
 		if (bIncludeBonus)
 		{
-			retVal += getBonusFeatPool();
+			return getAvailableAbilityPool(AbilityCategory.FEAT).doubleValue();
 		}
-		return retVal;
-	}
-
-	/**
-	 * get unused feat count.
-	 * 
-	 * @return unused feat count
-	 */
-	public double getUsedFeatCount()
-	{
-		double iCount = 0;
-
-		Collection<CNAbility> abilities =
-				grantedAbilityFacet.getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
-		if (abilities == null)
-		{
-			return 0;
-		}
-		for (CNAbility cna : abilities)
-		{
-			Ability aFeat = cna.getAbility();
-			//
-			// Don't increment the count for
-			// hidden feats so the number
-			// displayed matches this number
-			//
-			if (aFeat.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_EXPORT))
-			{
-				continue;
-			}
-			final int subfeatCount = getSelectCorrectedAssociationCount(cna);
-			double cost = aFeat.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-			if (ChooseActivation.hasNewChooseToken(aFeat))
-			{
-				iCount += Math.ceil(subfeatCount * cost);
-			} else
-			{
-				int select = aFeat.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
-				double relativeCost = cost / select;
-				if (!AbilityCategory.FEAT.allowFractionalPool())
-				{
-					iCount += (int) Math.ceil(relativeCost);
-				} else
-				{
-					iCount += relativeCost;
-				}
-			}
-		}
-
-		return iCount;
+		return getUserPoolBonus(AbilityCategory.FEAT);
 	}
 
 	public BigDecimal getAbilityPoolSpent(final AbilityCategory aCategory)
 	{
-		if (aCategory == AbilityCategory.FEAT)
-		{
-			return BigDecimal.valueOf(getUsedFeatCount());
-		}
-
 		double spent = 0.0d;
 
 		Collection<CNAbility> abilities = getPoolAbilities(aCategory, Nature.NORMAL);
@@ -10761,7 +10671,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			directAbilityFacet.add(id, cnas, location);
 		}
-		AbilityUtilities.finaliseAbility(this, cnas);
+		if (!isImporting())
+		{
+			AbilityUtilities.finaliseAbility(this, cnas);
+		}
 	}
 
 	public void removeAbility(CNAbilitySelection cnas, Object owner,
@@ -10777,12 +10690,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			directAbilityFacet.remove(id, cnas, location);
 		}
 		CDOMObjectUtilities.removeAdds(cnas.getCNAbility().getAbility(), this);
-		if ((cnas.getCNAbility().getAbilityCategory() == AbilityCategory.FEAT)
-				&& cnas.getCNAbility().getNature().equals(Nature.NORMAL))
-		{
-			AbilityUtilities.adjustPool(cnas.getCNAbility().getAbility(),
-				this, false);
-		}
 		setDirty(true);
 		calcActiveBonuses();
 	}

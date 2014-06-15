@@ -2796,7 +2796,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else
 			{
-				thePC.setFeats(featPool);
+				thePC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(featPool));
 			}
 		}
 		catch (NumberFormatException nfe)

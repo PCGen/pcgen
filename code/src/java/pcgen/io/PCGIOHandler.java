@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -385,7 +386,7 @@ public final class PCGIOHandler extends IOHandler
 			double baseFeatPool = parser.getBaseFeatPool();
 			double featPoolBonus = currentPC.getRemainingFeatPoints(true);
 			baseFeatPool -= featPoolBonus;
-			currentPC.setFeats(baseFeatPool);
+			currentPC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(baseFeatPool));
 		}
 
 		for (CNAbility aFeat : currentPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))

@@ -3,6 +3,7 @@
  */
 package pcgen.core.chooser;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -78,7 +79,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 				int choicesPerUnitCost = ccm.getChoicesPerUnitCost();
 				int basePriorCost = ((preChooserChoices + (choicesPerUnitCost - 1)) / choicesPerUnitCost);
 				int baseTotalCost = ((selected.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost);
-				pc.adjustFeats(cost * (basePriorCost - baseTotalCost));
+				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(cost * (basePriorCost - baseTotalCost)));
 			}
 		}
 	}
