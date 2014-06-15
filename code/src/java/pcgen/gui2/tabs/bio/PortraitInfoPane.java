@@ -40,7 +40,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.core.utils.MessageType;

@@ -40,9 +40,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.InfoFactory;
-import pcgen.core.facade.RaceFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;

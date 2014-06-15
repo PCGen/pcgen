@@ -32,7 +32,7 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.SpellPoint;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**

@@ -22,7 +22,7 @@
  */
 package pcgen.core;
 
-import pcgen.core.facade.ChronicleEntryFacade;
+import pcgen.facade.core.ChronicleEntryFacade;
 
 /**
  * The Class <code>ChronicleEntry</code> contains a record of an 

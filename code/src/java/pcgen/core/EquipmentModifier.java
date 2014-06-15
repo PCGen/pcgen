@@ -41,7 +41,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.facade.EquipModFacade;
+import pcgen.facade.core.EquipModFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;

@@ -22,7 +22,7 @@
  */
 package pcgen.gui2.facade;
 
-import pcgen.core.facade.TodoFacade;
+import pcgen.facade.core.TodoFacade;
 import pcgen.util.enumeration.Tab;
 
 /**

@@ -34,8 +34,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentBuilderFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.gui2.equip.EquipCustomPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;

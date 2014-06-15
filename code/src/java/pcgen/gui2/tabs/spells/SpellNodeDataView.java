@@ -2,10 +2,12 @@ package pcgen.gui2.tabs.spells;
 
 import java.util.Arrays;
 import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
-import pcgen.core.facade.SpellFacade;
-import pcgen.core.facade.SpellSupportFacade.SpellNode;
-import pcgen.core.facade.SpellSupportFacade.SuperNode;
+
+import pcgen.facade.core.SpellFacade;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
+import pcgen.facade.core.SpellSupportFacade.SuperNode;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;

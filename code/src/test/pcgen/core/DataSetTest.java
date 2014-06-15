@@ -26,9 +26,9 @@ import java.util.List;
 
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.BodyStructureFacade;
-import pcgen.core.facade.CampaignFacade;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.BodyStructureFacade;
+import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.core.prereq.Prerequisite;

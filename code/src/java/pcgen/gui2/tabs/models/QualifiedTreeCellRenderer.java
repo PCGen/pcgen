@@ -22,9 +22,11 @@ package pcgen.gui2.tabs.models;
 
 import java.awt.Component;
 import java.awt.Font;
+
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
-import pcgen.core.facade.InfoFacade;
+
+import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.LanguageBundle;
 

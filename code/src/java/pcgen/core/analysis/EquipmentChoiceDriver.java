@@ -28,7 +28,7 @@ import pcgen.core.EquipmentChoice;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.system.LanguageBundle;
 import pcgen.util.SignedInteger;
 import pcgen.util.chooser.ChooserFactory;

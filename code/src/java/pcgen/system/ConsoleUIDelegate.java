@@ -22,11 +22,11 @@
  */
 package pcgen.system;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.ChooserFacade;
-import pcgen.core.facade.EquipmentBuilderFacade;
-import pcgen.core.facade.SpellBuilderFacade;
-import pcgen.core.facade.UIDelegate;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.EquipmentBuilderFacade;
+import pcgen.facade.core.SpellBuilderFacade;
+import pcgen.facade.core.UIDelegate;
 import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 

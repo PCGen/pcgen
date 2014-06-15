@@ -44,8 +44,8 @@ import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 
-import pcgen.core.facade.LanguageChooserFacade;
-import pcgen.core.facade.LanguageFacade;
+import pcgen.facade.core.LanguageChooserFacade;
+import pcgen.facade.core.LanguageFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;

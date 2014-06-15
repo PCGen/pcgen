@@ -35,7 +35,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;

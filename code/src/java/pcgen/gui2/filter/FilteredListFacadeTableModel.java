@@ -26,7 +26,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;

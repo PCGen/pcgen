@@ -24,7 +24,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.facade.StatFacade;
+import pcgen.facade.core.StatFacade;
 
 /**
  * <code>PCStat</code>.

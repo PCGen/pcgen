@@ -25,9 +25,9 @@ import javax.swing.event.ListSelectionListener;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.SpellSupportFacade.RootNode;
-import pcgen.core.facade.SpellSupportFacade.SpellNode;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SpellSupportFacade.RootNode;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 

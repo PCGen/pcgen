@@ -27,9 +27,9 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
-import pcgen.core.facade.PartyFacade;
+import pcgen.facade.core.PartyFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.ExportHandler;

@@ -29,7 +29,7 @@
 package pcgen.gui2.util;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.UIDelegate;
+import pcgen.facade.core.UIDelegate;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.MessageWrapper;
 

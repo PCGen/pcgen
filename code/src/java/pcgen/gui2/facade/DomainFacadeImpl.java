@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.QualifiedObject;
-import pcgen.core.facade.DomainFacade;
+import pcgen.facade.core.DomainFacade;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.util.SortKeyAware;
 

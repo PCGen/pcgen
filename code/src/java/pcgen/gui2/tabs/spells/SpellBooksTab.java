@@ -35,11 +35,11 @@ import javax.swing.tree.TreePath;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.SpellSupportFacade;
-import pcgen.core.facade.SpellSupportFacade.RootNode;
-import pcgen.core.facade.SpellSupportFacade.SpellNode;
-import pcgen.core.facade.SpellSupportFacade.SuperNode;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SpellSupportFacade;
+import pcgen.facade.core.SpellSupportFacade.RootNode;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
+import pcgen.facade.core.SpellSupportFacade.SuperNode;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;

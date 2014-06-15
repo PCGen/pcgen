@@ -33,12 +33,12 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.CharacterLevelsFacade;
-import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
-import pcgen.core.facade.CharacterLevelsFacade.ClassListener;
-import pcgen.core.facade.CharacterLevelsFacade.SkillPointListener;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.ClassListener;
+import pcgen.facade.core.CharacterLevelsFacade.SkillPointListener;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.Utilities;

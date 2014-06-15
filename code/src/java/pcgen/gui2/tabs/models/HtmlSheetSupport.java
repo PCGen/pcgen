@@ -39,14 +39,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadFactory;
+
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.SwingUtilities;
 import javax.swing.text.EditorKit;
 import javax.swing.text.html.HTMLDocument;
+
 import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.lang.UnreachableError;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 

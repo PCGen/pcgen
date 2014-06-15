@@ -56,10 +56,10 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.chooser.InfoWrapper;
-import pcgen.core.facade.ChooserFacade;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
-import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.InfoFactory;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;

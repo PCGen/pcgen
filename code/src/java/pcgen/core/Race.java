@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
-import pcgen.core.facade.RaceFacade;
+import pcgen.facade.core.RaceFacade;
 
 /**
  * <code>Race</code>.

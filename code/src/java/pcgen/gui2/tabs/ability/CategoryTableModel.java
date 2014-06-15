@@ -22,8 +22,8 @@ package pcgen.gui2.tabs.ability;
 
 import javax.swing.JTable;
 
-import pcgen.core.facade.AbilityCategoryFacade;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.AbilityCategoryFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.event.ChangeEvent;
 import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.ListFacade;

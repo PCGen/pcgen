@@ -20,7 +20,7 @@
  */
 package pcgen.gui2.tools;
 
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 
 /**
  *

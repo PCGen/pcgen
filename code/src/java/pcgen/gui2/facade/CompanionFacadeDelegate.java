@@ -22,9 +22,9 @@ package pcgen.gui2.facade;
 
 import java.io.File;
 
-import pcgen.core.facade.CompanionFacade;
+import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
-import pcgen.core.facade.RaceFacade;
+import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;

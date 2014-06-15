@@ -41,10 +41,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListDataEvent;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.GameModeFacade;
-import pcgen.core.facade.TempBonusFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.GameModeFacade;
+import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;

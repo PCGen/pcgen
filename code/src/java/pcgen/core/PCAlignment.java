@@ -21,7 +21,7 @@
 package pcgen.core;
 
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.facade.AlignmentFacade;
+import pcgen.facade.core.AlignmentFacade;
 
 /**
  * <code>PCAlignment</code>.

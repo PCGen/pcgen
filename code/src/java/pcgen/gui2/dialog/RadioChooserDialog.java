@@ -42,8 +42,8 @@ import javax.swing.JRadioButton;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 
-import pcgen.core.facade.ChooserFacade;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;

@@ -34,8 +34,8 @@ import javax.swing.event.DocumentListener;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.facade.CampaignFacade;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
 

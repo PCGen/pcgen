@@ -58,7 +58,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;

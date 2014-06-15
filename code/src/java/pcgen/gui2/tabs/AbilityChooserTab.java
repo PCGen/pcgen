@@ -47,10 +47,10 @@ import javax.swing.tree.TreePath;
 import javax.swing.undo.StateEditable;
 
 import pcgen.cdom.enumeration.Nature;
-import pcgen.core.facade.AbilityCategoryFacade;
-import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.InfoFactory;
+import pcgen.facade.core.AbilityCategoryFacade;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;

@@ -48,10 +48,10 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.facade.CampaignFacade;
-import pcgen.core.facade.GameModeDisplayFacade;
-import pcgen.core.facade.GameModeFacade;
-import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.GameModeDisplayFacade;
+import pcgen.facade.core.GameModeFacade;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;

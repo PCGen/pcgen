@@ -21,7 +21,7 @@ package pcgen.util.chooser;
 
 import java.util.Stack;
 
-import pcgen.core.facade.UIDelegate;
+import pcgen.facade.core.UIDelegate;
 
 /**
  * This factory class returns a Chooser of the appropriate type. This is intended

@@ -42,8 +42,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.NoteFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.NoteFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;

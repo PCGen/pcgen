@@ -94,7 +94,7 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.display.BonusDisplay;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.facade.CampaignFacade;
+import pcgen.facade.core.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;

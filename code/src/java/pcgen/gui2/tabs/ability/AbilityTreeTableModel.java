@@ -31,9 +31,9 @@ import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.tree.MutableTreeNode;
 
-import pcgen.core.facade.AbilityCategoryFacade;
-import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.AbilityCategoryFacade;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;

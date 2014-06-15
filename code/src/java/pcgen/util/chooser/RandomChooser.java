@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.util.RandomUtil;
-import pcgen.core.facade.ChooserFacade;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.ChooserFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
 
 /**

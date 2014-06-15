@@ -25,7 +25,7 @@ package pcgen.core;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
-import pcgen.core.facade.GearBuySellFacade;
+import pcgen.facade.core.GearBuySellFacade;
 
 /**
  * The Class <code>GearBuySellScheme</code> defines a named set of rates for 

@@ -50,12 +50,12 @@ import javax.swing.table.TableCellEditor;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.EquipmentListFacade;
-import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.EquipmentSetFacade.EquipNode;
-import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.EquipmentSetFacade.EquipNode;
+import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;

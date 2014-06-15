@@ -54,10 +54,10 @@ import javax.swing.tree.TreePath;
 
 import org.apache.commons.io.FileUtils;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CompanionFacade;
-import pcgen.core.facade.CompanionStubFacade;
-import pcgen.core.facade.CompanionSupportFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CompanionFacade;
+import pcgen.facade.core.CompanionStubFacade;
+import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;

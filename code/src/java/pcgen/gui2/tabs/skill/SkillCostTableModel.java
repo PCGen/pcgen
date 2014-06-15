@@ -29,10 +29,11 @@ import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
+
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.system.LanguageBundle;
 

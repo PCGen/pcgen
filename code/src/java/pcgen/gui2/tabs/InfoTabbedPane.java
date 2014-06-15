@@ -38,6 +38,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -45,10 +46,11 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 import pcgen.base.util.DoubleKeyMap;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.GameModeFacade;
-import pcgen.core.facade.TodoFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.GameModeFacade;
+import pcgen.facade.core.TodoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.CharacterInfoTab.ModelMap;
 import pcgen.gui2.tools.CharacterSelectionListener;

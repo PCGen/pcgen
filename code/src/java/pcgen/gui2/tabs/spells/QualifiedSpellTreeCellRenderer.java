@@ -28,10 +28,10 @@ import java.awt.Font;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import pcgen.core.facade.ClassFacade;
-import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.SpellFacade;
-import pcgen.core.facade.SpellSupportFacade.SpellNode;
+import pcgen.facade.core.ClassFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.SpellFacade;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.system.LanguageBundle;

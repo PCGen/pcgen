@@ -42,11 +42,11 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.DeityFacade;
-import pcgen.core.facade.DomainFacade;
-import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.InfoFactory;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DeityFacade;
+import pcgen.facade.core.DomainFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;

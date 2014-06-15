@@ -21,7 +21,8 @@
 package pcgen.gui2.tabs;
 
 import java.util.HashMap;
-import pcgen.core.facade.CharacterFacade;
+
+import pcgen.facade.core.CharacterFacade;
 
 /**
  * This interface must be implemented by all tabs that display character

@@ -22,7 +22,7 @@
  */
 package pcgen.util.chooser;
 
-import pcgen.core.facade.ChooserFacade;
+import pcgen.facade.core.ChooserFacade;
 
 /**
  * This interface indicates that the class can handle making a decision 

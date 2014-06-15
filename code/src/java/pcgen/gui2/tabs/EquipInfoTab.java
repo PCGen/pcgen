@@ -66,11 +66,11 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.BodyStructure;
-import pcgen.core.facade.BodyStructureFacade;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.EquipmentSetFacade.EquipNode;
+import pcgen.facade.core.BodyStructureFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.EquipmentSetFacade.EquipNode;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;

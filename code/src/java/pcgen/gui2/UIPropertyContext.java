@@ -24,7 +24,7 @@ import java.awt.Color;
 import java.io.File;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.system.PropertyContext;
 
 /**

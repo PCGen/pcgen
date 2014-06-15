@@ -25,7 +25,7 @@ package pcgen.cdom.meta;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.facade.CoreViewNodeFacade;
+import pcgen.facade.core.CoreViewNodeFacade;
 
 /**
  * The Class <code>CoreViewNodeBase</code> is a base for defining nodes

@@ -36,9 +36,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.plaf.UIResource;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.CampaignFacade;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Icons;

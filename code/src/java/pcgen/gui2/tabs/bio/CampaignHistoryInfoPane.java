@@ -53,9 +53,9 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.ChronicleEntryFacade;
-import pcgen.core.facade.DescriptionFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.ChronicleEntryFacade;
+import pcgen.facade.core.DescriptionFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.TextFieldListener;

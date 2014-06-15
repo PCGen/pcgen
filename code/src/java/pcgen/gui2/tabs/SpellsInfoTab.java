@@ -23,7 +23,8 @@
 package pcgen.gui2.tabs;
 
 import javax.swing.JTabbedPane;
-import pcgen.core.facade.CharacterFacade;
+
+import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tabs.spells.SpellBooksTab;
 import pcgen.gui2.tabs.spells.SpellsKnownTab;
 import pcgen.gui2.tabs.spells.SpellsPreparedTab;

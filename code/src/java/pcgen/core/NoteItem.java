@@ -22,7 +22,7 @@
  */
 package pcgen.core;
 
-import pcgen.core.facade.NoteFacade;
+import pcgen.facade.core.NoteFacade;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 

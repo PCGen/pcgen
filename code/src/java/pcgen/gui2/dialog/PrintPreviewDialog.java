@@ -49,6 +49,7 @@ import java.net.URI;
 import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.concurrent.ExecutionException;
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ComboBoxEditor;
@@ -69,13 +70,15 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
+
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;

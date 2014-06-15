@@ -25,7 +25,7 @@ package pcgen.core;
 import java.util.HashMap;
 import java.util.Map;
 
-import pcgen.core.facade.XPTableFacade;
+import pcgen.facade.core.XPTableFacade;
 
 /**
  * <code>XPTable</code>.

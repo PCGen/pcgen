@@ -50,12 +50,12 @@ import javax.swing.table.TableCellRenderer;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.mutable.MutableInt;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.CharacterLevelsFacade;
-import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
-import pcgen.core.facade.CharacterLevelsFacade.HitPointListener;
-import pcgen.core.facade.ClassFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
+import pcgen.facade.core.ClassFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;

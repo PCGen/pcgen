@@ -25,6 +25,7 @@ package pcgen.gui2.facade;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
@@ -37,9 +38,9 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.facade.CampaignFacade;
-import pcgen.core.facade.CampaignInfoFactory;
-import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.CampaignInfoFactory;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.persistence.PersistenceManager;

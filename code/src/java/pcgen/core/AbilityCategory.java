@@ -52,7 +52,7 @@ import pcgen.cdom.reference.CategorizedCreator;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
-import pcgen.core.facade.AbilityCategoryFacade;
+import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;

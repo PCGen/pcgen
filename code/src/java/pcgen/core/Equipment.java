@@ -79,7 +79,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.character.WieldCategory;
-import pcgen.core.facade.EquipmentFacade;
+import pcgen.facade.core.EquipmentFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;

@@ -42,7 +42,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;

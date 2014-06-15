@@ -24,8 +24,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.ClassFacade;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.ClassFacade;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 

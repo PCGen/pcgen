@@ -36,9 +36,9 @@ import javax.swing.JScrollPane;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.meta.CorePerspective;
-import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CoreViewNodeFacade;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;

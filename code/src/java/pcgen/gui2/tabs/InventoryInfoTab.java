@@ -22,7 +22,8 @@
 package pcgen.gui2.tabs;
 
 import javax.swing.JTabbedPane;
-import pcgen.core.facade.CharacterFacade;
+
+import pcgen.facade.core.CharacterFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 

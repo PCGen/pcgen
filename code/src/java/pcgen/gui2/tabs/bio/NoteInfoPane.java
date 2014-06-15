@@ -36,9 +36,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.DescriptionFacade;
-import pcgen.core.facade.NoteFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DescriptionFacade;
+import pcgen.facade.core.NoteFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.TextFieldListener;

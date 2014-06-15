@@ -41,7 +41,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
-import pcgen.core.facade.TempBonusFacade;
+import pcgen.facade.core.TempBonusFacade;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
 import pcgen.util.SortKeyAware;

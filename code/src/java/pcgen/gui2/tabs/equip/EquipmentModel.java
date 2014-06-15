@@ -39,11 +39,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableColumn;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.EquipmentSetFacade.EquipNode;
-import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.EquipmentSetFacade.EquipNode;
+import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;

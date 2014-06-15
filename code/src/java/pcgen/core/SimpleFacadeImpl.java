@@ -22,7 +22,7 @@
  */
 package pcgen.core;
 
-import pcgen.core.facade.SimpleFacade;
+import pcgen.facade.core.SimpleFacade;
 
 /**
  * The Class <code></code> is a default implementation of the SimpleFacade 

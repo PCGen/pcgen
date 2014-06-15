@@ -33,8 +33,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.facade.AlignmentFacade;
-import pcgen.core.facade.DeityFacade;
+import pcgen.facade.core.AlignmentFacade;
+import pcgen.facade.core.DeityFacade;
 
 /**
  * <code>Deity</code>.

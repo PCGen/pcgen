@@ -38,7 +38,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.facade.TemplateFacade;
+import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
 /**

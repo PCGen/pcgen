@@ -35,10 +35,10 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.PartyFacade;
-import pcgen.core.facade.SourceSelectionFacade;
-import pcgen.core.facade.UIDelegate;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.PartyFacade;
+import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.facade.core.UIDelegate;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;

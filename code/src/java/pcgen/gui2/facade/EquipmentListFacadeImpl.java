@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.core.Equipment;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.EquipmentListFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.util.AbstractListFacade;
 
 /**

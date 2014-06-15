@@ -44,7 +44,7 @@ import javax.swing.event.ChangeListener;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;

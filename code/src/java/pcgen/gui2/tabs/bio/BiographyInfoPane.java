@@ -55,12 +55,12 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.facade.AlignmentFacade;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.DeityFacade;
-import pcgen.core.facade.GenderFacade;
-import pcgen.core.facade.HandedFacade;
-import pcgen.core.facade.SimpleFacade;
+import pcgen.facade.core.AlignmentFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DeityFacade;
+import pcgen.facade.core.GenderFacade;
+import pcgen.facade.core.HandedFacade;
+import pcgen.facade.core.SimpleFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;

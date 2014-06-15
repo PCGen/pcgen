@@ -40,9 +40,9 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.LanguageChooserFacade;
-import pcgen.core.facade.LanguageFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.LanguageChooserFacade;
+import pcgen.facade.core.LanguageFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.ListFacade;

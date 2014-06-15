@@ -25,8 +25,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import pcgen.core.facade.SpellSupportFacade.SpellNode;
-import pcgen.core.facade.SpellSupportFacade.SuperNode;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
+import pcgen.facade.core.SpellSupportFacade.SuperNode;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.treeview.DataView;

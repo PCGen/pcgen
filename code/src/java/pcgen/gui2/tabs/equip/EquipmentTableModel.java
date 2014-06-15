@@ -20,12 +20,12 @@
  */
 package pcgen.gui2.tabs.equip;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.EquipmentListFacade;
-import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
-import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 

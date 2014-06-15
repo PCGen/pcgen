@@ -38,9 +38,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.SpellBuilderFacade;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.util.FacadeListModel;

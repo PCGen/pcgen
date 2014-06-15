@@ -42,7 +42,7 @@ import org.lobobrowser.html.test.SimpleUserAgentContext;
 import org.w3c.dom.Document;
 
 import pcgen.core.Globals;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.PCGenStatusBar;
 import pcgen.gui2.tools.CharacterSelectionListener;

@@ -26,9 +26,9 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.DataSetFacade;
+import pcgen.facade.core.AbilityFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.DataSetFacade;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;

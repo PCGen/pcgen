@@ -30,7 +30,7 @@ import java.util.List;
 
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.facade.CampaignFacade;
+import pcgen.facade.core.CampaignFacade;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 

@@ -24,7 +24,8 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import pcgen.core.facade.EquipmentFacade;
+
+import pcgen.facade.core.EquipmentFacade;
 
 /**
  *

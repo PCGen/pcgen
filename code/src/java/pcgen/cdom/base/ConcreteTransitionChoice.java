@@ -27,7 +27,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 

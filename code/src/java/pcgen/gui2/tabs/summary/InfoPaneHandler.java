@@ -22,10 +22,10 @@ package pcgen.gui2.tabs.summary;
 
 import javax.swing.JEditorPane;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.GameModeFacade;
-import pcgen.core.facade.StatFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.GameModeFacade;
+import pcgen.facade.core.StatFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;

@@ -22,7 +22,7 @@ package pcgen.gui2.tabs.models;
 
 import javax.swing.tree.DefaultTreeCellRenderer;
 
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
 
 /**

@@ -46,12 +46,12 @@ import javax.swing.table.TableCellRenderer;
 import org.apache.commons.lang.math.NumberUtils;
 
 import pcgen.core.RollingMethods;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.CharacterLevelsFacade;
-import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
-import pcgen.core.facade.CharacterLevelsFacade.HitPointListener;
-import pcgen.core.facade.ClassFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade;
+import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
+import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
+import pcgen.facade.core.ClassFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;

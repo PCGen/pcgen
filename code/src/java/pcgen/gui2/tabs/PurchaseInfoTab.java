@@ -67,12 +67,12 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.EquipmentListFacade;
-import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
-import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
-import pcgen.core.facade.GearBuySellFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.EquipmentListFacade;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
+import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;

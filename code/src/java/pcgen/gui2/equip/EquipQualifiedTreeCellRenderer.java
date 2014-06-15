@@ -26,10 +26,11 @@ import java.awt.Font;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipModFacade;
-import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.InfoFacade;
+
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipModFacade;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.LanguageBundle;
 

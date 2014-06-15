@@ -22,8 +22,8 @@
  */
 package pcgen.gui2.facade;
 
-import pcgen.core.facade.CharacterLevelFacade;
-import pcgen.core.facade.ClassFacade;
+import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.ClassFacade;
 
 /**
  * The Class <code>CharacterLevelFacadeImpl</code> is an implementation of 

@@ -31,9 +31,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
+
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import pcgen.core.facade.CharacterFacade;
+
+import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 
 /**

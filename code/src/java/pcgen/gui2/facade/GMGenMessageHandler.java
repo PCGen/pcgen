@@ -43,7 +43,7 @@ import java.util.Iterator;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.facade.CharacterFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.io.PCGFile;
 import pcgen.system.CharacterManager;

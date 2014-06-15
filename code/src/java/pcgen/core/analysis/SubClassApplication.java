@@ -32,7 +32,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;

@@ -55,7 +55,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
-import pcgen.core.facade.GameModeFacade;
+import pcgen.facade.core.GameModeFacade;
 import pcgen.core.system.LoadInfo;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;

@@ -34,9 +34,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.SpellSupportFacade.SpellNode;
-import pcgen.core.facade.SpellSupportFacade.SuperNode;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.SpellSupportFacade.SpellNode;
+import pcgen.facade.core.SpellSupportFacade.SuperNode;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.FlippingSplitPane;

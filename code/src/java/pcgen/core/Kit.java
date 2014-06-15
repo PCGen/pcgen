@@ -36,7 +36,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.facade.KitFacade;
+import pcgen.facade.core.KitFacade;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.core.kit.KitTable;

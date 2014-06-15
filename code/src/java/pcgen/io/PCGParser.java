@@ -22,7 +22,7 @@ package pcgen.io;
 
 import java.util.List;
 
-import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.facade.core.SourceSelectionFacade;
 
 /**
  * <code>PCGParser</code><br>

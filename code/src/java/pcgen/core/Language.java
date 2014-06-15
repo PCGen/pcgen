@@ -33,7 +33,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.LanguageList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.facade.LanguageFacade;
+import pcgen.facade.core.LanguageFacade;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 

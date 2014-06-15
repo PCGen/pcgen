@@ -42,10 +42,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.InfoFactory;
-import pcgen.core.facade.TempBonusFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;

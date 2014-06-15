@@ -30,9 +30,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.TempBonusFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.PCGenFrame;

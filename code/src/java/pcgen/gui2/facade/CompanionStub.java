@@ -22,9 +22,9 @@
  */
 package pcgen.gui2.facade;
 
-import pcgen.core.facade.CompanionStubFacade;
+import pcgen.facade.core.CompanionStubFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
-import pcgen.core.facade.RaceFacade;
+import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.ReferenceFacade;
 
 /**

@@ -52,8 +52,8 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.StatFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.StatFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.ListFacade;

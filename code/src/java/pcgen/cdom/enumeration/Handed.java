@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.core.facade.HandedFacade;
+import pcgen.facade.core.HandedFacade;
 import pcgen.system.LanguageBundle;
 
 /**

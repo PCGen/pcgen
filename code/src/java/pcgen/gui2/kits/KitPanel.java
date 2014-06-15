@@ -38,8 +38,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.KitFacade;
+import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;

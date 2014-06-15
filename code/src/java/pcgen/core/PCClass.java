@@ -69,7 +69,7 @@ import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.analysis.SubstitutionClassApplication;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.facade.ClassFacade;
+import pcgen.facade.core.ClassFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;

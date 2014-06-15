@@ -10,7 +10,7 @@ import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;

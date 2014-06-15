@@ -59,10 +59,10 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import pcgen.core.facade.CampaignFacade;
-import pcgen.core.facade.GameModeFacade;
-import pcgen.core.facade.LoadableFacade.LoadingState;
-import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.GameModeFacade;
+import pcgen.facade.core.LoadableFacade.LoadingState;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.SortedListFacade;

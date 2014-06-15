@@ -33,7 +33,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.core.facade.AbilityFacade;
+import pcgen.facade.core.AbilityFacade;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;

@@ -31,7 +31,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.system.LanguageBundle;

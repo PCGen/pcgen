@@ -34,7 +34,7 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.InfoFacade;
 
 
 /**

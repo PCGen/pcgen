@@ -30,7 +30,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.facade.InfoFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.util.SortKeyAware;
 
 /**

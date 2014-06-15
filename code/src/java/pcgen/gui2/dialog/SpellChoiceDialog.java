@@ -34,7 +34,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pcgen.core.facade.SpellBuilderFacade;
+import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.gui2.equip.SpellChoicePanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;

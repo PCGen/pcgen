@@ -25,7 +25,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.facade.SizeAdjustmentFacade;
+import pcgen.facade.core.SizeAdjustmentFacade;
 
 /**
  * <code>SizeAdjustment</code>.

@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.bonus.BonusObj;
-import pcgen.core.facade.SkillFacade;
+import pcgen.facade.core.SkillFacade;
 
 /**
  * <code>Skill</code>.

@@ -32,7 +32,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
-import pcgen.core.facade.SpellFacade;
+import pcgen.facade.core.SpellFacade;
 import pcgen.core.spell.Spell;
 import pcgen.util.SortKeyAware;
 

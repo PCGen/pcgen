@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.core.facade.GenderFacade;
+import pcgen.facade.core.GenderFacade;
 import pcgen.system.LanguageBundle;
 
 /**
