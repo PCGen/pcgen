@@ -209,12 +209,12 @@ artifacts {
     archives converterJar
 }
 
-task copyToLib(type: Copy) {
+task copyToLibs(type: Copy) {
 	into "$buildDir/libs"
 	from configurations.runtime
 }
 
-task copyToRoot(dependsOn: [copyToLib, jar, converterJar]) {
+task copyToRoot(dependsOn: [copyToLibs, jar, converterJar]) {
 	// We have to use this approach due to http://issues.gradle.org/browse/GRADLE-3002
 	doLast{
 		copy {
