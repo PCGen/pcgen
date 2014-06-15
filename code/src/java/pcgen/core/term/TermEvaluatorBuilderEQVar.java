@@ -98,7 +98,7 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 				final String src,
 				final String matchedSection) {
 
-			return new EQACCheckTermEvaluator(expressionString);
+			return new EQDamageDiceTermEvaluator(expressionString);
 		}
 	},
 
