@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -93,6 +94,27 @@ public class MasterAvailableSpellFacet extends
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Retrieve a list of all spells for a particular spell list. 
+	 * @param spellList The list to be queried
+	 * @param dsID The owning data set
+	 * @return The list of available spells.
+	 */
+	public List<AvailableSpell> getAllSpellsInList(CDOMList<Spell> spellList, DataSetID dsID)
+	{
+		List<AvailableSpell> spellsInList = new ArrayList<AvailableSpell>();
+		Collection<AvailableSpell> spells = getSet(dsID);
+		for (AvailableSpell as : spells)
+		{
+			if (as.getSpelllist().equals(spellList))
+			{
+				spellsInList.add(as);
+			}
+		}
+
+		return spellsInList;
 	}
 
 	public void setDataSetInitializationFacet(

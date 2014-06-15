@@ -34,10 +34,14 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.MasterAvailableSpellFacet;
+import pcgen.cdom.helper.AvailableSpell;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -50,7 +54,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.InfoFacade;
@@ -100,8 +103,10 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 	private PlayerCharacter character;
 	private Type requiredType;
-	private List<Spell> classSpells;
+	private List<AvailableSpell> classSpells;
 	private CDOMList<Spell> spellList;
+	private MasterAvailableSpellFacet masterAvailableSpellFacet;
+	private DataSetID datasetID;
 
 	/**
 	 * Create a new instance SpellBuilderFacadeImpl to manage a particular 
@@ -115,7 +120,9 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		PlayerCharacter character, Equipment equip)
 	{
 		this.character = character;
-
+		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);	
+		datasetID = character.getCharID().getDatasetID();
+		
 		availClasses = new DefaultListFacade<InfoFacade>();
 		availSpellLevels = new DefaultListFacade<Integer>();
 		availSpells = new DefaultListFacade<InfoFacade>();
@@ -630,11 +637,11 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 		// List of available spells
 		List<Spell> spellsOfLevel = new ArrayList<Spell>();
-		for (Spell spell : classSpells)
+		for (AvailableSpell availSpell : classSpells)
 		{
-			if (SpellLevel.getFirstLvlForKey(spell, spellList, character) == baseSpellLevel)
+			if (availSpell.getLevel() == baseSpellLevel)
 			{
-				spellsOfLevel.add(spell);
+				spellsOfLevel.add(availSpell.getSpell());
 			}
 
 		}
@@ -795,13 +802,12 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 			spellList = ((PCClass) classFacade).get(ObjectKey.CLASS_SPELLLIST);
 		}
 
-		classSpells = new ArrayList<Spell>();
-		for (Spell s : character.getAllSpellsInLists(Collections
-			.singletonList(spellList)))
+		classSpells = new ArrayList<AvailableSpell>();
+		for (AvailableSpell availSpell : masterAvailableSpellFacet.getAllSpellsInList(spellList, datasetID))
 		{
-			if (canCreateItem(s))
+			if (canCreateItem(availSpell.getSpell()))
 			{
-				classSpells.add(s);
+				classSpells.add(availSpell);
 			}
 		}
 

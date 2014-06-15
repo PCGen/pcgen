@@ -28,6 +28,8 @@ import org.junit.Test;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.MasterAvailableSpellFacet;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -35,6 +37,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
@@ -53,6 +56,9 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 	private PCClass wizardCls;
 	private PCClass divineCls;
 	private PCClass fighterCls;
+	private Spell clw;
+	private Spell magicMissile;
+	private Spell web;
 
 	/**
 	 * @throws java.lang.Exception
@@ -87,18 +93,27 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		dataset.addClass(divineCls);
 		dataset.addClass(fighterCls);
 		uiDelegate = new MockUIDelegate();
+		
+		clw = TestHelper.makeSpell("Cure Light Wounds");
+		context.unconditionallyProcess(clw, "CLASSES", divineCls.getKeyName()+"=1");
+		magicMissile = TestHelper.makeSpell("Magic Missile");
+		context.unconditionallyProcess(magicMissile, "CLASSES", wizardCls.getKeyName()+"=1");
+		web = TestHelper.makeSpell("Web");
+		context.unconditionallyProcess(web, "CLASSES", wizardCls.getKeyName()+"=2");
+
+		context.commit();
+
+		context.getReferenceContext().buildDerivedObjects();
+		context.resolveDeferredTokens();
+		assertTrue(context.getReferenceContext().resolveReferences(null));
+		
+		FacetLibrary.getFacet(MasterAvailableSpellFacet.class).initialize(context);
 	}
 
 	@Test
 	public void testEmptyChoice()
 	{
-		PlayerCharacter pc = new PlayerCharacter();
-		CharacterFacadeImpl charFacade =
-				new CharacterFacadeImpl(pc, uiDelegate, dataset);
-		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
-		
-		SpellBuilderFacadeImpl spellBuilder = new SpellBuilderFacadeImpl("", pc, null);
-		assertNotNull("Unable to create SpellBuilderFacadeImpl", spellBuilder);
+		SpellBuilderFacadeImpl spellBuilder = createSpellBuilder();
 		ListFacade<InfoFacade> classes = spellBuilder.getClasses();
 		assertNotNull("Class list should be defined", classes);
 		assertTrue("Class list should have wizard", classes.containsElement(wizardCls));
@@ -109,4 +124,45 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		
 	}
 
+	/**
+	 * Verify that the selection of spells based on class and level is working correctly. 
+	 */
+	@Test
+	public void testClassLevel()
+	{
+		SpellBuilderFacadeImpl spellBuilder = createSpellBuilder();
+		spellBuilder.setClass(wizardCls);
+		spellBuilder.setSpellLevel(1);
+		ListFacade<InfoFacade> spells = spellBuilder.getSpells();
+		assertNotNull("Spell list should be defined", spells);
+		assertTrue("Spell list should have MM", spells.containsElement(magicMissile));
+		assertEquals("Spell list length", 1, spells.getSize());
+
+		spellBuilder.setSpellLevel(2);
+		spells = spellBuilder.getSpells();
+		assertNotNull("Spell list should be defined", spells);
+		assertTrue("Spell list should have Web", spells.containsElement(web));
+		assertFalse("Spell list should not have MM", spells.containsElement(magicMissile));
+		assertEquals("Spell list length", 1, spells.getSize());
+
+		spellBuilder.setClass(divineCls);
+		spellBuilder.setSpellLevel(1);
+		spells = spellBuilder.getSpells();
+		assertNotNull("Spell list should be defined", spells);
+		assertTrue("Spell list should have CLW", spells.containsElement(clw));
+		assertEquals("Spell list length", 1, spells.getSize());
+		
+	}
+
+	private SpellBuilderFacadeImpl createSpellBuilder()
+	{
+		PlayerCharacter pc = getCharacter();
+		CharacterFacadeImpl charFacade =
+				new CharacterFacadeImpl(pc, uiDelegate, dataset);
+		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
+		
+		SpellBuilderFacadeImpl spellBuilder = new SpellBuilderFacadeImpl("", pc, null);
+		assertNotNull("Unable to create SpellBuilderFacadeImpl", spellBuilder);
+		return spellBuilder;
+	}
 }
