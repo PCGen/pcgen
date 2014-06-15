@@ -61,7 +61,7 @@ public class HiddenTypeFacet extends
 		List<String> hiddentypes = c.getSafeListFor(listKey);
 		for (String s : hiddentypes)
 		{
-			add(id, cl, Type.valueOf(s), c);
+			add(id, cl, Type.getConstant(s), c);
 		}
 	}
 
