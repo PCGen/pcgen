@@ -89,7 +89,7 @@
           <fullAbilities>Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.5|</fullAbilities>
           <challengeRating>|CR|</challengeRating>
           <attack>
-|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,1|
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
 |WEAPON.%weap.NAME.NOSTAR|: 
 |IIF(WEAPON.%weap.TOTALHIT:INVALIDTEXT.TOHIT)|
 (two handed) |WEAPON.%weap.THHIT| melee ((two handed) |WEAPON.%weap.THDAMAGE|
