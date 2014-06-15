@@ -163,6 +163,8 @@ public class FacetInitialization {
 		FacetLibrary.getFacet(MasterSkillFacet.class);
 		FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		FacetLibrary.getFacet(MasterUsableSkillFacet.class);
+		FacetLibrary.getFacet(EquipmentTypeFacet.class);
+		FacetLibrary.getFacet(HiddenTypeFacet.class);
 		/*
 		 * TODO These are required because they are "bridges" - meaning they
 		 * refer to others, but no one refers to them. Need to consider if these
