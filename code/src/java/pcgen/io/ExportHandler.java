@@ -319,17 +319,16 @@ public final class ExportHandler
 			Template template = cfg.getTemplate(templateFile.getName());
 
 			// Configure our custom directives and functions.
-			cfg.setSharedVariable("pcstring", new PCStringDirective());
-			cfg.setSharedVariable("pcvar", new PCVarFunction());
-			cfg.setSharedVariable("pcboolean", new PCBooleanFunction());
+			cfg.setSharedVariable("pcstring", new PCStringDirective(aPC, this));
+			cfg.setSharedVariable("pcvar", new PCVarFunction(aPC));
+			cfg.setSharedVariable("pcboolean", new PCBooleanFunction(aPC, this));
 			cfg.setSharedVariable("loop", new LoopDirective());
-			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective());
-			cfg.setSharedVariable("pc", aPC);
+			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective(aPC));
 			
 			// data-model
 			Map<String, Object> input = new HashMap<String, Object>();
-			input.put("pc", aPC);
-			input.put("exportHandler", this);
+//			input.put("pc", aPC);
+//			input.put("exportHandler", this);
 //			input.put("gameModeVarCountMap", gameModeVarCountMap);
 //			input.put("pathIgnoreLen", dataPathLen + 1);
 

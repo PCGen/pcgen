@@ -29,7 +29,6 @@ import java.util.Map;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import freemarker.core.Environment;
-import freemarker.template.AdapterTemplateModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -50,6 +49,21 @@ import freemarker.template.TemplateModelException;
 public class PCStringDirective extends CharacterExportAction implements
 		TemplateDirectiveModel, TemplateMethodModelEx
 {
+	private PlayerCharacter pc;
+	private ExportHandler eh;
+
+	/**
+	 * Create a new instance of PCStringDirective
+	 * @param pc The character being exported.
+	 * @param eh The managing export handler.
+	 */
+	public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
+	{
+		super();
+		this.pc = pc;
+		this.eh = eh;
+	}
+
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute(Environment env, Map params, TemplateModel[] loopVars,
@@ -71,15 +85,6 @@ public class PCStringDirective extends CharacterExportAction implements
 			throw new TemplateModelException(
 				"This directive cannot take a body.");
 		}
-
-		TemplateModel model = env.getVariable("pc");
-		PlayerCharacter pc =
-				(PlayerCharacter) ((AdapterTemplateModel) model)
-					.getAdaptedObject(PlayerCharacter.class);
-		TemplateModel modelEh = env.getVariable("exportHandler");
-		ExportHandler eh =
-				(ExportHandler) ((AdapterTemplateModel) modelEh)
-					.getAdaptedObject(ExportHandler.class);
 		
 		String tag = params.get("tag").toString();
 		String value = getExportVariable(tag, pc, eh);
@@ -99,16 +104,6 @@ public class PCStringDirective extends CharacterExportAction implements
 			throw new TemplateModelException(
 				"Wrong arguments. tag required");
 		}
-
-		Environment env = Environment.getCurrentEnvironment();
-		TemplateModel model = env.getVariable("pc");
-		PlayerCharacter pc =
-				(PlayerCharacter) ((AdapterTemplateModel) model)
-					.getAdaptedObject(PlayerCharacter.class);
-		TemplateModel modelEh = env.getVariable("exportHandler");
-		ExportHandler eh =
-				(ExportHandler) ((AdapterTemplateModel) modelEh)
-					.getAdaptedObject(ExportHandler.class);
 		
 		String tag = arg0.get(0).toString();
 		String value = getExportVariable(tag, pc, eh);

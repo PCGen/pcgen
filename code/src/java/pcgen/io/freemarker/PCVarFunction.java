@@ -23,10 +23,7 @@ package pcgen.io.freemarker;
 import java.util.List;
 
 import pcgen.core.PlayerCharacter;
-import freemarker.core.Environment;
-import freemarker.template.AdapterTemplateModel;
 import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
@@ -38,6 +35,17 @@ import freemarker.template.TemplateModelException;
  */
 public class PCVarFunction implements TemplateMethodModelEx
 {
+	private PlayerCharacter pc;
+
+	/**
+	 * Create a new instance of PCVarFunction
+	 * @param pc The character being exported.
+	 */
+	public PCVarFunction(PlayerCharacter pc)
+	{
+		super();
+		this.pc = pc;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -53,12 +61,6 @@ public class PCVarFunction implements TemplateMethodModelEx
 		}
 
 		String formula = arg0.get(0).toString();
-
-		Environment env = Environment.getCurrentEnvironment();
-		TemplateModel model = env.getVariable("pc");
-		PlayerCharacter pc =
-				(PlayerCharacter) ((AdapterTemplateModel) model)
-					.getAdaptedObject(PlayerCharacter.class);
 
 		Float result = pc.getVariableValue(formula, "");
 		return result;

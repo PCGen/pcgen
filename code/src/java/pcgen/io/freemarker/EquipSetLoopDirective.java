@@ -30,7 +30,6 @@ import java.util.Map;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
 import freemarker.core.Environment;
-import freemarker.template.AdapterTemplateModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -50,6 +49,18 @@ import freemarker.template.TemplateModelException;
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {
+	private PlayerCharacter pc;
+
+	/**
+	 * Create a new instance of EquipSetLoopDirective
+	 * @param pc The character being exported.
+	 */
+	public EquipSetLoopDirective(PlayerCharacter pc)
+	{
+		super();
+		this.pc = pc;
+	}
+
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute(Environment env, Map params, TemplateModel[] loopVars,
@@ -60,12 +71,6 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 			throw new TemplateModelException(
 				"This directive must have content.");
 		}
-		
-
-		TemplateModel model = env.getVariable("pc");
-		PlayerCharacter pc =
-				(PlayerCharacter) ((AdapterTemplateModel) model)
-					.getAdaptedObject(PlayerCharacter.class);
 		
 		List<EquipSet> eqSetList = new ArrayList<EquipSet>();
 		EquipSet currSet = null;

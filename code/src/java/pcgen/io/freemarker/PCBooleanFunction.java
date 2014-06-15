@@ -24,10 +24,7 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import freemarker.core.Environment;
-import freemarker.template.AdapterTemplateModel;
 import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
@@ -40,6 +37,20 @@ import freemarker.template.TemplateModelException;
  */
 public class PCBooleanFunction extends CharacterExportAction implements TemplateMethodModelEx
 {
+	private PlayerCharacter pc;
+	private ExportHandler eh;
+
+	/**
+	 * Create a new instance of PCBooleanFunction
+	 * @param pc The character being exported.
+	 * @param eh The managing export handler.
+	 */
+	public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
+	{
+		super();
+		this.pc = pc;
+		this.eh = eh;
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -56,17 +67,6 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 
 		String tag = arg0.get(0).toString();
 
-		Environment env = Environment.getCurrentEnvironment();
-		TemplateModel model = env.getVariable("pc");
-		PlayerCharacter pc =
-				(PlayerCharacter) ((AdapterTemplateModel) model)
-					.getAdaptedObject(PlayerCharacter.class);
-
-		TemplateModel modelEh = env.getVariable("exportHandler");
-		ExportHandler eh =
-				(ExportHandler) ((AdapterTemplateModel) modelEh)
-					.getAdaptedObject(ExportHandler.class);
-		
 		String value = getExportVariable(tag, pc, eh);
 
 		return Boolean.valueOf(value);
