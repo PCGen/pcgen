@@ -1,5 +1,5 @@
 #
-DEFAULTVARIABLEVALUE:NUMBER|0
+#DEFAULTVARIABLEVALUE:NUMBER|0
 # message displayed when experience added allows character to advance a level
 #
 LEVELMSG:Congratulations Agent, you can advance with that much experience!
