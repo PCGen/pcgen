@@ -77,8 +77,8 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign>
 			return cpr;
 		}
 		String firstToken = value.substring(0, pipeLoc);
-		ReferenceManufacturer<? extends Loadable> rm = context
-				.getManufacturer(firstToken);
+		ReferenceManufacturer<? extends Loadable> rm =
+				context.getManufacturer(firstToken);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()

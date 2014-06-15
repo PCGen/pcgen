@@ -138,8 +138,8 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -4456,7 +4456,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		final String classKey = stok.nextToken();
 		final PCClass aClass = thePC.getClassKeyed(classKey);
 
-		ReferenceContext refContext = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext refContext = Globals.getContext().getReferenceContext();
 		while ((aClass != null) && stok.hasMoreTokens())
 		{
 			final String tok = stok.nextToken();

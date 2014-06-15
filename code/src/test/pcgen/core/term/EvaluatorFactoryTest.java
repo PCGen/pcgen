@@ -11,7 +11,7 @@ import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -11943,10 +11943,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQACCheckTermEvaluator, eq(true),
+		is(t instanceof EQDamageDiceTermEvaluator, eq(true),
 		   "GetTermEvaluator203 evaluator correct for " + term);
 
-		Class<?> uClass = EQACCheckTermEvaluator.class;
+		Class<?> uClass = EQDamageDiceTermEvaluator.class;
 
 		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
 
@@ -12578,7 +12578,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	
 		Globals.createEmptyRace();
 	
-		ReferenceContext rc = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext rc = Globals.getContext().getReferenceContext();
 		PCStat str = rc.constructCDOMObject(PCStat.class, "Strength");
 		rc.registerAbbreviation(str, "STR");
 		PCStat intel = rc.constructCDOMObject(PCStat.class, "Intelligence");

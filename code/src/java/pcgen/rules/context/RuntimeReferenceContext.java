@@ -32,8 +32,8 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {

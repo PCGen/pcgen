@@ -29,8 +29,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Logging;
 
 /**
@@ -70,7 +70,7 @@ public final class UDam extends BonusObj
 		if (obj instanceof String)
 		{
 			String sObj = (String) obj;
-			final ReferenceContext ref = Globals.getContext().getReferenceContext();
+			final AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 			final PCClass aClass = ref.silentlyGetConstructedCDOMObject(PCClass.class, sObj);
 
 			if (aClass != null)

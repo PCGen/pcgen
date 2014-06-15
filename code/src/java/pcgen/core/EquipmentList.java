@@ -671,10 +671,6 @@ public class EquipmentList {
 				eq.addType(newType);
 			}
 
-			//
-			// Make sure all the equipment types are present in the sorted list
-			//
-			Globals.getContext().addTypesToList(eq);
 			Globals.getContext().getReferenceContext().importObject(eq);
 		} catch (NumberFormatException exception) {
 			Logging.errorPrint("createItem: exception: " + eq.getName());

@@ -78,10 +78,10 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		URI testURI = testCampaign.getURI();
-		primaryContext.getObjectContext().setSourceURI(testURI);
-		primaryContext.getObjectContext().setExtractURI(testURI);
-		secondaryContext.getObjectContext().setSourceURI(testURI);
-		secondaryContext.getObjectContext().setExtractURI(testURI);
+		primaryContext.setSourceURI(testURI);
+		primaryContext.setExtractURI(testURI);
+		secondaryContext.setSourceURI(testURI);
+		secondaryContext.setExtractURI(testURI);
 		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
 		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
 		primaryProf = getSubInstance();

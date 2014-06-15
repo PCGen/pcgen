@@ -38,8 +38,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.AutoLst;
@@ -1965,7 +1965,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		wis = createStat("Wisdom", "WIS");
 		cha = createStat("Charisma", "CHA");
 
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");

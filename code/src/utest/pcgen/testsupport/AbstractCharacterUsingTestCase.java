@@ -31,8 +31,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -130,7 +130,7 @@ public class AbstractCharacterUsingTestCase extends TestCase {
 		wis = createStat("Wisdom", "WIS");
 		cha = createStat("Charisma", "CHA");
 
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");

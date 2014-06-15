@@ -47,7 +47,7 @@ import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
 
 /**
@@ -163,7 +163,7 @@ abstract public class AbstractJunit4CharacterTestCase
 		gamemode.setBonusFeatLevels("3|3");
 		SettingsHandler.setGame("3.5");
 
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = createAlignment("Lawful Neutral", "LN");

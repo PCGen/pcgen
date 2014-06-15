@@ -37,10 +37,10 @@ import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 
 /**
@@ -111,7 +111,7 @@ public class Campaign extends PObject implements CampaignFacade
 		return context;
 	}
 	
-	public void applyTo(ReferenceContext rc)
+	public void applyTo(AbstractReferenceContext rc)
 	{
 		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
 		{

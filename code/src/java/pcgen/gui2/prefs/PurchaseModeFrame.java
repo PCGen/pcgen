@@ -60,7 +60,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.util.JComboBoxEx;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -1161,7 +1161,7 @@ public final class PurchaseModeFrame extends JDialog
 				SettingsHandler.getGame().addPointBuyStatCost(pbc);
 			}
 
-			ReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
+			AbstractReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
 			List<PointBuyMethod> methods = new ArrayList<PointBuyMethod>(ref
 					.getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)

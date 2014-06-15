@@ -34,15 +34,12 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
-import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.SizeFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 
 public class SizeFacetTest extends TestCase
 {
@@ -83,7 +80,7 @@ public class SizeFacetTest extends TestCase
 		if (!staticDone)
 		{
 			SettingsHandler.getGame().clearLoadContext();
-			ReferenceContext ref = Globals.getContext().getReferenceContext();
+			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 			t = ref.constructCDOMObject(SizeAdjustment.class, "Tiny");
 			ref.registerAbbreviation(t, "T");
 			s = ref.constructCDOMObject(SizeAdjustment.class, "Small");

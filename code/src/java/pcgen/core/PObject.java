@@ -33,11 +33,14 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.HiddenTypeFacet;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.utils.KeyedListContainer;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
@@ -57,6 +60,9 @@ import pcgen.system.PCGenSettings;
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
 	KeyedListContainer, QualifyingObject
 {
+
+	private HiddenTypeFacet hiddenTypeFacet = FacetLibrary.getFacet(HiddenTypeFacet.class);
+
 	/** Standard serialVersionUID for Serializable objects */
 	private static final long serialVersionUID = 1;
 
@@ -162,7 +168,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			for (Iterator<Type> it = ret.iterator(); it.hasNext();)
 			{
-				if (SettingsHandler.getGame().isTypeHidden(myClass, it.next().toString()))
+				DataSetID id = Globals.getContext().getDataSetID();
+				if (hiddenTypeFacet.contains(id, myClass, it.next()))
 				{
 					it.remove();
 				}

@@ -76,8 +76,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 
 /**
  * Helps Junit tests
@@ -474,7 +474,7 @@ public class TestHelper
 
 	public static void createAllAlignments()
 	{
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		ref.importObject(createAlignment("Lawful Good", "LG"));
 		ref.importObject(createAlignment("Lawful Neutral", "LN"));
 		ref.importObject(createAlignment("Lawful Evil", "LE"));

@@ -23,7 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 
 /**
  * Support class for running Junit tests
@@ -83,7 +83,7 @@ public class TestSupport
 
 	public static void createAllAlignments()
 	{
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		ref.importObject(createAlignment("Lawful Good", "LG"));
 		ref.importObject(createAlignment("Lawful Neutral", "LN"));
 		ref.importObject(createAlignment("Lawful Evil", "LE"));

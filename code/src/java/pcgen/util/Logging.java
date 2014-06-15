@@ -308,11 +308,10 @@ public class Logging
 		if (l.isLoggable(LST_WARNING)
 			&& SettingsHandler.outputDeprecationMessages())
 		{
-			if (context != null && context.getObjectContext() != null
-				&& context.getObjectContext().getSourceURI() != null)
+			if (context != null && context.getSourceURI() != null)
 			{
-				l.log(LST_WARNING, s + " (Source: "
-					+ context.getObjectContext().getSourceURI() + " )");
+				l.log(LST_WARNING, s + " (Source: " + context.getSourceURI()
+					+ " )");
 			}
 			else
 			{
@@ -331,11 +330,9 @@ public class Logging
 		Logger l = getLogger();
 		if (l.isLoggable(lvl))
 		{
-			if (context != null && context.getObjectContext() != null
-				&& context.getObjectContext().getSourceURI() != null)
+			if (context != null && context.getSourceURI() != null)
 			{
-				l.log(lvl, " (Source: "
-					+ context.getObjectContext().getSourceURI() + " )");
+				l.log(lvl, " (Source: " + context.getSourceURI() + " )");
 			}
 			else
 			{
@@ -421,11 +418,9 @@ public class Logging
 		Logger l = getLogger();
 		if (l.isLoggable(ERROR))
 		{
-			if (context != null && context.getObjectContext() != null
-				&& context.getObjectContext().getSourceURI() != null)
+			if (context != null && context.getSourceURI() != null)
 			{
-				l.log(ERROR, s + " (Source: "
-					+ context.getObjectContext().getSourceURI() + " )");
+				l.log(ERROR, s + " (Source: " + context.getSourceURI() + " )");
 			}
 			else
 			{

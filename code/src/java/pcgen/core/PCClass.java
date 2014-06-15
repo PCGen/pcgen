@@ -80,7 +80,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 
@@ -801,7 +801,7 @@ public class PCClass extends PObject implements ClassFacade
 		//
 		String aDamage;
 
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		final Equipment eq =
 			ref.silentlyGetConstructedCDOMObject(
 					Equipment.class, "KEY_Unarmed Strike");

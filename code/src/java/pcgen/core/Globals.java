@@ -63,9 +63,9 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.system.ConfigurationSettings;
@@ -785,7 +785,7 @@ public final class Globals
 	 */
 	public static String adjustDamage(final String aDamage, int baseSize, final int finalSize)
 	{
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class,
 				aDamage);
 		int multiplier = 0;
@@ -1680,14 +1680,4 @@ public final class Globals
 	{
 		return hasSpellPPCost;
 	}
-	
-	/**
-	 * Return the set of equipment type names as a sorted set of strings.
-	 * 
-	 * @return The equipmentTypes value
-	 */
-	public static Collection<String> getEquipmentTypes() {
-		return getContext().getTypes(Equipment.class);
-	}
-
 }

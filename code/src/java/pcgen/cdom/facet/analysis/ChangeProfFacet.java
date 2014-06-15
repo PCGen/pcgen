@@ -32,7 +32,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.Globals;
 import pcgen.core.WeaponProf;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 
 /**
  * ChangeProfFacet is a Facet that tracks the ChangeProf objects that are
@@ -124,7 +124,7 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 			throw new IllegalArgumentException("Cannot get targets for: "
 					+ type);
 		}
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		List<WeaponProf> aList = new ArrayList<WeaponProf>();
 		// Can't use master because late called references may not have been
 		// initialized, see 2001287

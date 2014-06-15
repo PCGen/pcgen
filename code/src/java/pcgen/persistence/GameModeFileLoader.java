@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.Collection;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.Sponsor;
@@ -59,8 +60,8 @@ import pcgen.persistence.lst.SizeAdjustmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
 import pcgen.persistence.lst.TraitLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenTask;
@@ -532,7 +533,7 @@ public class GameModeFileLoader extends PCGenTask
 			throw new UnreachableError();
 		}
 
-		ReferenceContext refContext = context.getReferenceContext();
+		AbstractReferenceContext refContext = context.getReferenceContext();
 		Collection<WieldCategory> categories = refContext.getConstructedCDOMObjects(WieldCategory.class);
 
 		WieldCategory light = null;

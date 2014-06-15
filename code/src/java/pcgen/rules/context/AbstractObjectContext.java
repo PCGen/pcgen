@@ -43,23 +43,23 @@ public abstract class AbstractObjectContext
 {
 	private final TrackingObjectCommitStrategy edits = new TrackingObjectCommitStrategy();
 
-	public URI getSourceURI()
+	URI getSourceURI()
 	{
 		return edits.getSourceURI();
 	}
 
-	public void setSourceURI(URI sourceURI)
+	void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
 	}
 
-	public URI getExtractURI()
+	URI getExtractURI()
 	{
 		return edits.getExtractURI();
 	}
 
-	public void setExtractURI(URI extractURI)
+	void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
 		getCommitStrategy().setExtractURI(extractURI);
@@ -140,7 +140,7 @@ public abstract class AbstractObjectContext
 		edits.remove(cdo, mk, key);
 	}
 
-	public void commit()
+	void commit()
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
 		for (URI uri : edits.preClearSet.getKeySet())
@@ -308,7 +308,7 @@ public abstract class AbstractObjectContext
 		}
 	}
 
-	public void rollback()
+	void rollback()
 	{
 		edits.decommit();
 	}
@@ -333,13 +333,6 @@ public abstract class AbstractObjectContext
 		return getCommitStrategy().getMapChanges(cdo, mk);
 	}
 
-	// public <T> Changes<T> getGivenChanges(String sourceToken, CDOMObject cdo,
-	// Class<T> cl)
-	// {
-	// return new GivenChanges<T>(cl, sourceToken, commit.getListChanges(cdo,
-	// ListKey.GIVEN));
-	// }
-	//
 	public <T> T getObject(CDOMObject cdo, ObjectKey<T> ik)
 	{
 		return getCommitStrategy().getObject(cdo, ik);
@@ -709,86 +702,6 @@ public abstract class AbstractObjectContext
 	public boolean containsListFor(CDOMObject obj, ListKey<?> lk)
 	{
 		return getCommitStrategy().containsListFor(obj, lk);
-	}
-
-	// private class GivenChanges<T> implements Changes<T>
-	// {
-	//
-	// private final ArrayList<T> added = new ArrayList<T>();
-	// private final ArrayList<T> removed = new ArrayList<T>();
-	// private final String token;
-	// private final Class<T> targetClass;
-	// private final boolean clear;
-	//		
-	// public GivenChanges(Class<T> cl, String sourceToken,
-	// Changes<SourceWrapper> listChanges)
-	// {
-	// targetClass = cl;
-	// token = sourceToken;
-	// clear = listChanges.includesGlobalClear();
-	// Collection<SourceWrapper> allAdded = listChanges.getAdded();
-	// if (allAdded != null)
-	// {
-	// for (SourceWrapper add : allAdded)
-	// {
-	// PrereqObject target = add.getTarget();
-	// if (targetClass.isAssignableFrom(target.getClass())
-	// && token.equals(add.getSourceToken()))
-	// {
-	// added.add((T) target);
-	// }
-	// }
-	// }
-	// Collection<SourceWrapper> allRemoved = listChanges.getRemoved();
-	// if (allRemoved != null)
-	// {
-	// for (SourceWrapper rem : allRemoved)
-	// {
-	// PrereqObject target = rem.getTarget();
-	// if (targetClass.equals(target.getClass())
-	// && token.equals(rem.getSourceToken()))
-	// {
-	// removed.add((T) target);
-	// }
-	// }
-	// }
-	// }
-	//
-	// public Collection<T> getAdded()
-	// {
-	// return Collections.unmodifiableList(added);
-	// }
-	//
-	// public Collection<T> getRemoved()
-	// {
-	// return Collections.unmodifiableList(removed);
-	// }
-	//
-	// public boolean hasAddedItems()
-	// {
-	// return !added.isEmpty();
-	// }
-	//
-	// public boolean hasRemovedItems()
-	// {
-	// return !removed.isEmpty();
-	// }
-	//
-	// public boolean includesGlobalClear()
-	// {
-	// return clear;
-	// }
-	//
-	// public boolean isEmpty()
-	// {
-	// return added.isEmpty() && removed.isEmpty();
-	// }
-	//		
-	// }
-
-	public interface Remover<T>
-	{
-		public boolean matches(T obj);
 	}
 
 	public void removePatternFromList(CDOMObject cdo, ListKey<?> lk,

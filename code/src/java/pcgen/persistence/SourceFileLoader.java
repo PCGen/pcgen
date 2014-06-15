@@ -89,8 +89,10 @@ import pcgen.persistence.lst.KitLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.SpellLoader;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
+import pcgen.rules.context.ReferenceContextUtilities;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -504,6 +506,12 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			}
 			context.setLoaded(selectedCampaigns);
 
+			/*
+			 * This needs to happen after auto equipment generation and after
+			 * context.setLoaded, not in finishLoad
+			 */
+			context.loadCampaignFacets();
+
 			dataset = new DataSet(context, selectedGame, new DefaultListFacade<CampaignFacade>(selectedCampaigns));
 //			//  Show the licenses
 //			showLicensesIfNeeded();
@@ -632,22 +640,21 @@ public class SourceFileLoader extends PCGenTask implements Observer
 							LoadContext context)
 	{
 		createLangBonusObject(context);
-		context.getReferenceContext().buildDeferredObjects();
-		context.getReferenceContext().buildDerivedObjects();
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		refContext.buildDeferredObjects();
+		refContext.buildDerivedObjects();
 		referenceAllCategories(context);
 		context.resolveDeferredTokens();
 		LoadValidator validator = new LoadValidator(aSelectedCampaignsList);
-		context.getReferenceContext().validate(validator);
-		context.getReferenceContext().resolveReferences(validator);
+		refContext.validate(validator);
+		refContext.resolveReferences(validator);
 		context.resolvePostDeferredTokens();
-		context.validateAssociations(validator);
-		for (Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+		ReferenceContextUtilities.validateAssociations(refContext, validator);
+		for (Equipment eq : refContext.getConstructedCDOMObjects(Equipment.class))
 		{
 			EqModAttachment.finishEquipment(eq);
 		}
 		validateSingleDefaultSize();
-		context.buildTypeLists();
-		context.loadCampaignFacets();
 	}
 
 	private void validateSingleDefaultSize()

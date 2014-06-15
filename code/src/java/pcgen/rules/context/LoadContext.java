@@ -20,34 +20,21 @@ package pcgen.rules.context;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.DataSetID;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.DataSetInitializationFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.inst.ObjectCache;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Campaign;
-import pcgen.core.Equipment;
-import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.persistence.PersistenceLayerException;
@@ -60,7 +47,6 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
-import pcgen.util.StringPClassUtil;
 
 public abstract class LoadContext
 {
@@ -73,15 +59,13 @@ public abstract class LoadContext
 		FacetInitialization.initialize();
 	}
 
-	private static final Class<String> STRING_CLASS = String.class;
-
 	private final DataSetID datasetID = DataSetID.getID();
 
 	private final AbstractListContext list;
 
 	private final AbstractObjectContext obj;
 
-	private final ReferenceContext ref;
+	private final AbstractReferenceContext ref;
 	
 	private final List<Campaign> campaignList = new ArrayList<Campaign>();
 
@@ -89,8 +73,6 @@ public abstract class LoadContext
 
 	private final TokenSupport support = new TokenSupport();
 
-	private Map<Class<?>, Set<String>> typeMap = new HashMap<Class<?>, Set<String>>();
-	
 	private List<Object> dontForget = new ArrayList<Object>();
 
 	//Per file
@@ -99,7 +81,7 @@ public abstract class LoadContext
 	//Per file
 	private CDOMObject stateful;
 
-	public LoadContext(ReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
+	public LoadContext(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
 		if (rc == null)
 		{
@@ -159,6 +141,11 @@ public abstract class LoadContext
 		getListContext().setSourceURI(sourceURI);
 		clearStatefulInformation();
 		Logging.debugPrint("Starting Load of " + sourceURI);
+	}
+
+	public URI getSourceURI()
+	{
+		return sourceURI;
 	}
 
 	/*
@@ -267,7 +254,7 @@ public abstract class LoadContext
 	{
 		return ChoiceSetLoadUtilities.getPrimitive(this, sc, key);
 	}
-			
+
 	public <T> ParseResult processSubToken(T cdo, String tokenName,
 			String key, String value)
 	{
@@ -330,13 +317,15 @@ public abstract class LoadContext
 	/**
 	 * Create a copy of a CDOMObject duplicating any references to the old 
 	 * object. (e.g. Spell, Domain etc)
+	 * 
+	 * Package protected rather than private for testing only
 	 *  
 	 * @param cdo The original object being copied. 
 	 * @param newName The name that should be given to the new object.
 	 * @return The newly created CDOMObject.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends CDOMObject> T cloneInMasterLists(T cdo, String newName)
+	<T extends CDOMObject> T cloneInMasterLists(T cdo, String newName)
 	{
 		T newObj;
 		try
@@ -353,7 +342,7 @@ public abstract class LoadContext
 		}
 		return newObj;
 	}
-	
+
 	public String getPrerequisiteString(Collection<Prerequisite> prereqs)
 	{
 		try
@@ -365,31 +354,6 @@ public abstract class LoadContext
 			addWriteMessage("Error writing Prerequisite: " + e);
 			return null;
 		}
-	}
-
-	//TODO DatasetID based facet??
-	public void buildTypeLists()
-	{
-		Set<String> typeSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-		typeMap.put(Equipment.class, typeSet);
-		for (Equipment e : getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-		{
-			for (Type t : e.getTrueTypeList(false))
-			{
-				typeSet.add(t.toString());
-			}
-		}
-	}
-	
-	public Collection<String> getTypes(Class<?> cl)
-	{
-		Set<String> returnSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-		Set<String> set = typeMap.get(cl);
-		if (set != null)
-		{
-			returnSet.addAll(set);
-		}
-		return returnSet;
 	}
 
 	public CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value)
@@ -432,194 +396,7 @@ public abstract class LoadContext
 		campaignList.addAll(campaigns);
 	}
 
-	//TODO This should be in a DatasetID based facet...
-	public boolean isTypeHidden(Class<?> cl, String type)
-	{
-		for (Campaign c : campaignList)
-		{
-			List<String> hiddentypes = getCampaignHiddenTypes(cl, c);
-			if (hiddentypes != null)
-			{
-				for (String s : hiddentypes)
-				{
-					if (s.equalsIgnoreCase(type))
-					{
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	private List<String> getCampaignHiddenTypes(Class<?> cl, Campaign c)
-	{
-		List<String> hiddentypes = c.getSafeListFor(ListKey.getKeyFor(
-				STRING_CLASS, "HIDDEN_" + cl.getSimpleName()));
-		for (Campaign subCamp : c.getSubCampaigns())
-		{
-			hiddentypes.addAll(getCampaignHiddenTypes(cl, subCamp));
-		}
-		return hiddentypes;
-	}
-
 	public abstract boolean consolidate();
-
-	public ReferenceManufacturer<? extends Loadable> getManufacturer(String firstToken)
-	{
-		int equalLoc = firstToken.indexOf('=');
-		String className;
-		String categoryName;
-		if (equalLoc != firstToken.lastIndexOf('='))
-		{
-			Logging
-					.log(Logging.LST_ERROR,
-							"  Error encountered: Found second = in ObjectType=Category");
-			Logging.log(Logging.LST_ERROR,
-					"  Format is: ObjectType[=Category]|Key[|Key] value was: "
-							+ firstToken);
-			Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
-					+ StringPClassUtil.getValidStrings());
-			return null;
-		}
-		else if ("FEAT".equals(firstToken))
-		{
-			className = "ABILITY";
-			categoryName = "FEAT";
-		}
-		else if (equalLoc == -1)
-		{
-			className = firstToken;
-			categoryName = null;
-		}
-		else
-		{
-			className = firstToken.substring(0, equalLoc);
-			categoryName = firstToken.substring(equalLoc + 1);
-		}
-		Class<? extends Loadable> c = StringPClassUtil.getClassFor(className);
-		Class catClass = StringPClassUtil.getCategoryClassFor(className);
-		if (c == null)
-		{
-			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: "
-					+ className);
-			return null;
-		}
-		ReferenceManufacturer<? extends Loadable> rm;
-		if (CategorizedCDOMObject.class.isAssignableFrom(c))
-		{
-			if (categoryName == null)
-			{
-				Logging
-						.log(Logging.LST_ERROR,
-								"  Error encountered: Found Categorized Type without =Category");
-				Logging.log(Logging.LST_ERROR,
-						"  Format is: ObjectType[=Category]|Key[|Key] value was: "
-								+ firstToken);
-				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
-						+ StringPClassUtil.getValidStrings());
-				return null;
-			}
-			
-			rm = getReferenceContext().getManufacturer(((Class) c), catClass, categoryName);
-			if (rm == null)
-			{
-				Logging.log(Logging.LST_ERROR, "  Error encountered: "
-						+ className + " Category: " + categoryName
-						+ " not found");
-				return null;
-			}
-		}
-		else
-		{
-			if (categoryName != null)
-			{
-				Logging
-						.log(Logging.LST_ERROR,
-								"  Error encountered: Found Non-Categorized Type with =Category");
-				Logging.log(Logging.LST_ERROR,
-						"  Format is: ObjectType[=Category]|Key[|Key] value was: "
-								+ firstToken);
-				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
-						+ StringPClassUtil.getValidStrings());
-				return null;
-			}
-			rm = getReferenceContext().getManufacturer(c);
-		}
-		return rm;
-	}
-
-	public <T extends PObject> void addTypesToList(T cdo)
-	{
-		Set<String> typeSet = typeMap.get(cdo.getClass());
-		for (Type t : cdo.getTrueTypeList(false))
-		{
-			typeSet.add(t.toString());
-		}
-	}
-
-	/**
-	 * Check the associations now that all the data is loaded.
-	 * @param validator The helper object to track things such as FORWARDREF instances.
-	 */
-	public void validateAssociations(LoadValidator validator)
-	{
-		for (ReferenceManufacturer<?> rm : getReferenceContext().getAllManufacturers())
-		{
-			for (CDOMSingleRef<?> singleRef : rm.getReferenced())
-			{
-				String choice = singleRef.getChoice();
-				if (choice != null)
-				{
-					CDOMObject cdo = (CDOMObject) singleRef.resolvesTo();
-					ChooseInformation<?> ci = cdo.get(ObjectKey.CHOOSE_INFO);
-					if (ci == null)
-					{
-						Logging.errorPrint("Found "
-							+ rm.getReferenceDescription() + " "
-							+ cdo.getKeyName() + " " + " that had association: "
-							+ choice + " but was not an object with CHOOSE");
-						rm.fireUnconstuctedEvent(singleRef);
-						continue;
-					}
-					ClassIdentity<?> clIdentity = ci.getClassIdentity();
-					if (choice.indexOf("%") > -1)
-					{
-						//patterns or %LIST are OK
-						//See CollectionToAbilitySelection.ExpandingConverter
-						continue;
-					}
-					Class<?> cl = clIdentity.getChoiceClass();
-					if (Loadable.class.isAssignableFrom(cl))
-					{
-						ReferenceManufacturer<? extends Loadable> mfg =
-								getReferenceContext().getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
-						if (!mfg.containsObject(choice)
-							&& (getReferenceContext().getAbbreviatedObject(
-								clIdentity.getChoiceClass(), choice) == null)
-							&& (TokenLibrary.getPrimitive(cl, choice) == null)
-							&& !report(validator, clIdentity.getChoiceClass(), choice))
-						{
-							Logging.errorPrint("Found "
-								+ rm.getReferenceDescription() + " "
-								+ cdo.getKeyName() + " "
-								+ " that had association: " + choice
-								+ " but no such "
-								+ mfg.getReferenceDescription()
-								+ " was ever defined");
-							rm.fireUnconstuctedEvent(singleRef);
-							continue;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	private boolean report(UnconstructedValidator validator, Class<?> cl, String key)
-	{
-		return validator != null && validator.allow(cl, key);
-	}
 
 	public DataSetID getDataSetID()
 	{
@@ -636,9 +413,21 @@ public abstract class LoadContext
 		dontForget.add(cdr);
 	}
 
-	public ReferenceContext getReferenceContext()
+	public AbstractReferenceContext getReferenceContext()
 	{
 		return ref;
 	}
 	
+	public List<Campaign> getLoadedCampaigns()
+	{
+		return Collections.unmodifiableList(campaignList);
+	}
+
+	public ReferenceManufacturer<? extends Loadable> getManufacturer(
+		String firstToken)
+	{
+		return ReferenceContextUtilities.getManufacturer(getReferenceContext(),
+			firstToken);
+	}
+
 }

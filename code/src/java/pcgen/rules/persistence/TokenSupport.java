@@ -89,13 +89,13 @@ public class TokenSupport
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Illegal whitespace at start of token '" + typeStr
 				+ "' '" + argument + "' for " + cl.getName() + " "
-				+ derivative.getDisplayName() + " in " + context.getObjectContext().getSourceURI());
+				+ derivative.getDisplayName() + " in " + context.getSourceURI());
 		}
 		else
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + typeStr
 				+ "' '" + argument + "' for " + cl.getName() + " "
-				+ derivative.getDisplayName() + " in " + context.getObjectContext().getSourceURI());
+				+ derivative.getDisplayName() + " in " + context.getSourceURI());
 		}
 		return false;
 	}

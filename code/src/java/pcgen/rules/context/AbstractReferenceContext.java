@@ -51,7 +51,7 @@ import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
 
-public abstract class AbstractReferenceContext implements ReferenceContext
+public abstract class AbstractReferenceContext
 {
 
 	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
@@ -64,7 +64,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	private final HashMap<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
-	@Override
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl);
 
@@ -80,10 +79,8 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 	 *
 	 * @return The reference manufacturer
 	 */
-	@Override
 	public abstract Collection<? extends ReferenceManufacturer<?>> getAllManufacturers();
 
-	@Override
 	public boolean validate(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
@@ -94,34 +91,29 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return returnGood;
 	}
 
-	@Override
 	public <T extends Loadable> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		return getManufacturer(c).getAllReference();
 	}
 
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(
 			Class<T> c, Category<T> cat)
 	{
 		return getManufacturer(c, cat).getAllReference();
 	}
 
-	@Override
 	public <T extends Loadable> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, String... val)
 	{
 		return getManufacturer(c).getTypeReference(val);
 	}
 
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, Category<T> cat, String... val)
 	{
 		return getManufacturer(c, cat).getTypeReference(val);
 	}
 
-	@Override
 	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val)
 	{
 		T obj;
@@ -138,14 +130,12 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return obj;
 	}
 
-	@Override
 	public <T extends Loadable> void constructIfNecessary(Class<T> cl,
 			String value)
 	{
 		getManufacturer(cl).constructIfNecessary(value);
 	}
 
-	@Override
 	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
@@ -157,7 +147,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return manufacturer.getReference(val);
 	}
 
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
 			Class<T> c, Category<T> cat, String val)
 	{
@@ -169,7 +158,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return manufacturer.getReference(val);
 	}
 
-	@Override
 	public <T extends Loadable> void reassociateKey(String key, T obj)
 	{
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
@@ -190,21 +178,18 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
-	@Override
 	public <T extends Loadable> T silentlyGetConstructedCDOMObject(
 			Class<T> c, String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
 	}
 
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> T silentlyGetConstructedCDOMObject(
 			Class<T> c, Category<T> cat, String val)
 	{
 		return getManufacturer(c, cat).getActiveObject(val);
 	}
 
-	@Override
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
 			Category<T> cat, T obj)
 	{
@@ -226,7 +211,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
 	}
 
-	@Override
 	public <T extends Loadable> void importObject(T orig)
 	{
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(orig.getClass()))
@@ -249,7 +233,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 				obj.getKeyName());
 	}
 
-	@Override
 	public <T extends Loadable> boolean forget(T obj)
 	{
 		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
@@ -279,7 +262,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return false;
 	}
 
-	@Override
 	public <T extends Loadable> Collection<T> getConstructedCDOMObjects(
 			Class<T> c)
 	{
@@ -293,13 +275,11 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		// }
 	}
 
-	@Override
 	public <T extends CDOMObject> List<T> getOrderSortedCDOMObjects(Class<T> c)
 	{
 		return getManufacturer(c).getOrderSortedObjects();
 	}
 
-	@Override
 	public Set<Object> getAllConstructedObjects()
 	{
 		Set<Object> set = new HashSet<Object>();
@@ -312,14 +292,12 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return set;
 	}
 
-	@Override
 	public <T extends Loadable> boolean containsConstructedCDOMObject(
 			Class<T> c, String s)
 	{
 		return getManufacturer(c).containsObject(s);
 	}
 
-	@Override
 	public void buildDerivedObjects()
 	{
 		Collection<Domain> domains = getConstructedCDOMObjects(Domain.class);
@@ -403,7 +381,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		}
 	}
 
-	@Override
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
 		CDOMSingleRef<?> ref = directRefCache.get(obj);
@@ -414,7 +391,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		return (CDOMSingleRef<T>) ref;
 	}
 
-	@Override
 	public void registerAbbreviation(CDOMObject obj, String value)
 	{
 		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
@@ -427,14 +403,12 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		map.put(obj, value);
 	}
 
-	@Override
 	public String getAbbreviation(CDOMObject obj)
 	{
 		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
 		return map == null ? null : map.get(obj);
 	}
 
-	@Override
 	public <T> T getAbbreviatedObject(Class<T> cl, String value)
 	{
 		OneToOneMap<T, String> map = (OneToOneMap<T, String>) abbMap.get(cl);
@@ -445,31 +419,26 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 
 	private URI extractURI;
 
-	@Override
-	public URI getExtractURI()
+	URI getExtractURI()
 	{
 		return extractURI;
 	}
 
-	@Override
-	public void setExtractURI(URI extractURI)
+	void setExtractURI(URI extractURI)
 	{
 		this.extractURI = extractURI;
 	}
 
-	@Override
-	public URI getSourceURI()
+	URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-	@Override
-	public void setSourceURI(URI sourceURI)
+	void setSourceURI(URI sourceURI)
 	{
 		this.sourceURI = sourceURI;
 	}
 
-	@Override
 	public boolean resolveReferences(UnconstructedValidator validator)
 	{
 		boolean returnGood = true;
@@ -491,7 +460,6 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 				&& rs.resolveReferences(validator);
 	}
 
-	@Override
 	public void buildDeferredObjects()
 	{
 		for (ReferenceManufacturer<?> rs : getAllManufacturers())
@@ -500,31 +468,26 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 		}
 	}
 
-	@Override
 	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl, String name)
 	{
 		return getManufacturer(cl).constructNowIfNecessary(name);
 	}
 
-	@Override
 	public <T extends Loadable> int getConstructedObjectCount(Class<T> c)
 	{
 		return getManufacturer(c).getConstructedObjectCount();
 	}
 
-	@Override
 	public void copyAbbreviationsFrom(AbstractReferenceContext rc)
 	{
 		abbMap.putAll(rc.abbMap);
 	}
 
-	@Override
 	public <T extends Loadable> T getItemInOrder(Class<T> cl, int item)
 	{
 		return getManufacturer(cl).getItemInOrder(item);
 	}
 
-	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			ClassIdentity<T> identity)
 	{
@@ -540,5 +503,18 @@ public abstract class AbstractReferenceContext implements ReferenceContext
 			return getManufacturer(cl);
 		}
 	}
+
+	public abstract <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+		Class<T> cl, Category<T> cat);
+
+	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
+		ManufacturableFactory<T> factory);
+
+	public abstract <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+		Class<T> cl, Class<? extends Category<T>> catClass, String category);
+
+	public abstract <T extends CDOMObject> T performCopy(T object, String copyName);
+
+	public abstract <T extends CDOMObject> T performMod(T obj);
 
 }

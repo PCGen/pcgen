@@ -239,6 +239,9 @@
 	<!-- E -->
 	<bean id="equipmentConsolidationFacet" class="pcgen.cdom.facet.EquipmentConsolidationFacet" />
 	<bean id="equipmentFacet" class="pcgen.cdom.facet.EquipmentFacet" />
+	<bean id="equipmentTypeFacet" class="pcgen.cdom.facet.EquipmentTypeFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="equippedEquipmentFacet" class="pcgen.cdom.facet.EquippedEquipmentFacet">
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
@@ -299,6 +302,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="heightFacet" class="pcgen.cdom.facet.fact.HeightFacet"/>
+	<bean id="hiddenTypeFacet" class="pcgen.cdom.facet.HiddenTypeFacet">
+		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
+	</bean>
 	<bean id="hitPointFacet" class="pcgen.cdom.facet.HitPointFacet">
 		<property name="classFacet" ref="classFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>

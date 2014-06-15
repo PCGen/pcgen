@@ -100,8 +100,6 @@ public class GameReferenceContext extends AbstractReferenceContext
 		return mfg;
 	}
 
-	
-	
 	@Override
 	public boolean validate(UnconstructedValidator validator)
 	{

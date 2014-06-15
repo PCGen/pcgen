@@ -24,6 +24,7 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -31,8 +32,11 @@ import java.util.StringTokenizer;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.EquipmentTypeFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.core.analysis.ChooseActivation;
-import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.SignedInteger;
@@ -55,6 +59,9 @@ import pcgen.util.enumeration.Visibility;
 
 public final class EquipmentChoice
 {
+	private EquipmentTypeFacet equipmentTypeFacet = FacetLibrary
+		.getFacet(EquipmentTypeFacet.class);
+
 	private boolean allowDuplicates = false;
 	private boolean noSign = false;
 	private boolean bAdd = false;
@@ -341,7 +348,7 @@ public final class EquipmentChoice
 		final String          typeString,
 		final String          aCategory)
 	{
-		ReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
 		for (Ability anAbility : ref.getManufacturer(
 				Ability.class, cat).getAllObjects())
@@ -479,7 +486,14 @@ public final class EquipmentChoice
 		// Used by internal equipment modifier "Add Type" see LstSystemLoader.java
 		else if ("EQTYPES".equalsIgnoreCase(type))
 		{
-			getAvailableList().addAll(Globals.getEquipmentTypes());
+			Collection<Type> types =
+					equipmentTypeFacet.getSet(Globals.getContext()
+						.getDataSetID());
+			List<Object> list = getAvailableList();
+			for (Type t : types)
+			{
+				list.add(t.toString());
+			}
 		}
 		else
 		{

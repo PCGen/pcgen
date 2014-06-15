@@ -57,10 +57,10 @@ import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.system.LoadInfo;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.context.TrackingReferenceContext;
@@ -2593,7 +2593,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void clearLoadContext()
 	{
 		masterLCS = new ConsolidatedListCommitStrategy();
-		ReferenceContext referenceContext = getRefContext();
+		AbstractReferenceContext referenceContext = getRefContext();
 		resolveInto(referenceContext);
 		context = new RuntimeLoadContext(referenceContext, masterLCS);
 	}
@@ -2607,7 +2607,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *            The Reference Context into which the references from this
 	 *            GameMode should be copied.
 	 */
-	public void resolveInto(ReferenceContext referenceContext)
+	public void resolveInto(AbstractReferenceContext referenceContext)
 	{
 		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
 		{
@@ -2616,7 +2616,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		referenceContext.copyAbbreviationsFrom(gameRefContext);
 	}
 
-	private ReferenceContext getRefContext()
+	private AbstractReferenceContext getRefContext()
 	{
 		if (SettingsHandler.inputUnconstructedMessages())
 		{
@@ -2632,7 +2632,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 */
 	public static <T extends Loadable> void resolveReferenceManufacturer(
-			ReferenceContext rc, ReferenceManufacturer<T> rm)
+		AbstractReferenceContext rc, ReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();
 		ReferenceManufacturer<T> mfg;
@@ -2690,20 +2690,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			hiddenTypes.put(cl, set);
 		}
 		set.add(s);
-	}
-
-	/**
-	 *
-	 */
-	public boolean isTypeHidden(Class<?> cl, String type)
-	{
-		Set<String> set = hiddenTypes.get(cl);
-		if (type != null && set != null)
-		{
-			//Can do this because it's TreeSet/Case Insensitive
-			return set.contains(type) || context.isTypeHidden(cl, type);
-		}
-		return context.isTypeHidden(cl, type);
 	}
 
 	/**

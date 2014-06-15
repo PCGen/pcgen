@@ -34,8 +34,8 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 import plugin.lsttokens.auto.FeatToken;
@@ -73,7 +73,7 @@ public class FeatTokenTest extends AbstractCharacterUsingTestCase
 
 	protected Ability construct(String name)
 	{
-		ReferenceContext refContext = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext refContext = Globals.getContext().getReferenceContext();
 		Ability obj = refContext.constructCDOMObject(ABILITY_CLASS, name);
 		refContext.reassociateCategory(AbilityCategory.FEAT, obj);
 		return obj;

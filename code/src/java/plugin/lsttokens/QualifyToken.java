@@ -103,8 +103,8 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		String firstToken = st.nextToken();
-		ReferenceManufacturer<? extends Loadable> rm = context
-				.getManufacturer(firstToken);
+		ReferenceManufacturer<? extends Loadable> rm =
+				context.getManufacturer(firstToken);
 		if (rm == null)
 		{
 			return new ParseResult.Fail(getTokenName()

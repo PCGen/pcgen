@@ -100,7 +100,6 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		context.getReferenceContext().buildDerivedObjects();
 		context.getReferenceContext().validate(null);
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		context.buildTypeLists();
 
 		PlayerCharacter aPC = getCharacter();
 

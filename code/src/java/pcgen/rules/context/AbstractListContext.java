@@ -48,28 +48,25 @@ import pcgen.core.Globals;
 public abstract class AbstractListContext
 {
 
-//	private static final CDOMReference<? extends CDOMList<CDOMObject>> GRANTED = new CDOMDirectSingleRef<CDOMList<CDOMObject>>(
-//			new GrantedList());
-
 	private final TrackingListCommitStrategy edits = new TrackingListCommitStrategy();
 
-	public URI getSourceURI()
+	URI getSourceURI()
 	{
 		return edits.getSourceURI();
 	}
 
-	public void setSourceURI(URI sourceURI)
+	void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
 	}
 
-	public URI getExtractURI()
+	URI getExtractURI()
 	{
 		return edits.getExtractURI();
 	}
 
-	public void setExtractURI(URI extractURI)
+	void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
 		getCommitStrategy().setExtractURI(extractURI);
@@ -122,63 +119,7 @@ public abstract class AbstractListContext
 		edits.removeAllFromList(tokenName, owner, swl);
 	}
 
-//	public <T extends CDOMObject> AssociatedPrereqObject grant(
-//			String sourceToken, CDOMObject obj, CDOMReference<T> pro)
-//	{
-//		return addToList(sourceToken, obj, GRANTED, pro);
-//	}
-//
-//	public <T extends CDOMObject> void remove(String sourceToken,
-//			CDOMObject obj, CDOMReference<T> pro)
-//	{
-//		removeFromList(sourceToken, obj, GRANTED, pro);
-//	}
-//
-//	public void removeAll(String tokenName, CDOMObject obj)
-//	{
-//		removeAllFromList(tokenName, obj, GRANTED);
-//	}
-
-//	public <T extends PrereqObject> AssociatedChanges<CDOMReference<T>> getChangesFromToken(
-//			String tokenName, CDOMObject source, Class<T> cl)
-//	{
-//		AssociatedChanges<CDOMReference<CDOMObject>> assoc = getChangesInList(
-//				tokenName, source, GRANTED);
-//		boolean globalClear = assoc.includesGlobalClear();
-//		MapToList<CDOMReference<CDOMObject>, AssociatedPrereqObject> added = assoc
-//				.getAddedAssociations();
-//		MapToList<CDOMReference<T>, AssociatedPrereqObject> add = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
-//				TokenUtilities.REFERENCE_SORTER);
-//		if (added != null)
-//		{
-//			for (CDOMReference<CDOMObject> key : added.getKeySet())
-//			{
-//				if (cl.equals(key.getReferenceClass()))
-//				{
-//					add.addAllToListFor((CDOMReference<T>) key, added.getListFor(key));
-//				}
-//			}
-//		}
-//
-//		MapToList<CDOMReference<T>, AssociatedPrereqObject> remove = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
-//				TokenUtilities.REFERENCE_SORTER);
-//		MapToList<CDOMReference<CDOMObject>, AssociatedPrereqObject> removed = assoc
-//				.getRemovedAssociations();
-//		if (removed != null)
-//		{
-//			for (CDOMReference<CDOMObject> key : removed.getKeySet())
-//			{
-//				if (cl.equals(key.getReferenceClass()))
-//				{
-//					remove.addAllToListFor((CDOMReference<T>) key, removed.getListFor(key));
-//				}
-//			}
-//		}
-//
-//		return new AssociatedCollectionChanges<CDOMReference<T>>(add, remove, globalClear);
-//	}
-
-	public void commit()
+	void commit()
 	{
 		ListCommitStrategy commit = getCommitStrategy();
 		for (CDOMReference list : edits.positiveMasterMap.getKeySet())
@@ -284,7 +225,7 @@ public abstract class AbstractListContext
 		}
 	}
 
-	public void rollback()
+	void rollback()
 	{
 		edits.decommit();
 	}
@@ -785,7 +726,7 @@ public abstract class AbstractListContext
 	 * @param cdoNew The new object to be linked in.
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
+	<T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
 	{
 		MasterListInterface masterLists = Globals.getMasterLists();
 		for (CDOMReference ref : masterLists.getActiveLists())

@@ -87,10 +87,10 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		secondaryContext = new RuntimeLoadContext(
 				new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
-		primaryContext.getObjectContext().setSourceURI(testURI);
-		primaryContext.getObjectContext().setExtractURI(testURI);
-		secondaryContext.getObjectContext().setSourceURI(testURI);
-		secondaryContext.getObjectContext().setExtractURI(testURI);
+		primaryContext.setSourceURI(testURI);
+		primaryContext.setExtractURI(testURI);
+		secondaryContext.setSourceURI(testURI);
+		secondaryContext.setExtractURI(testURI);
 		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
 		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
 		primaryProf = getPrimary("TestObj");

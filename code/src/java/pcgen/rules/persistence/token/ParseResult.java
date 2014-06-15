@@ -110,13 +110,12 @@ public interface ParseResult
 
 		public Fail(String error, LoadContext context)
 		{
-			if (context != null && context.getObjectContext() != null
-				&& context.getObjectContext().getSourceURI() != null)
+			if (context != null && context.getSourceURI() != null)
 			{
 				this.error =
 						new QueuedMessage(Logging.LST_ERROR, error
 							+ " (Source: "
-							+ context.getObjectContext().getSourceURI() + " )");
+							+ context.getSourceURI() + " )");
 			}
 			else
 			{
