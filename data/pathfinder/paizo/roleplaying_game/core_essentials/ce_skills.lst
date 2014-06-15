@@ -47,143 +47,149 @@ Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=S
 
 
 ###Block: (NEW) Situation skills
+
+
 # Skill Name			Situational Skill Use
+###Block:
+#Handle Animal.MOD			SITUATION:Bird
+#Handle Animal.MOD			SITUATION:Handle Animal (Dog)
+#Handle Animal.MOD			SITUATION:Handle Animal (Horse)
+#Handle Animal.MOD			SITUATION:Handle Animal (Small Cat)
+#Knowledge (Nature).MOD		SITUATION:Dog
+#Knowledge (Nature).MOD		SITUATION:Horse
+#Knowledge (Nature).MOD		SITUATION:Knowledge (Nature/Bird)
+#Knowledge (Nature).MOD		SITUATION:Small Cat
 Acrobatics.MOD			SITUATION:Jump
+Acrobatics.MOD			SITUATION:Jump/Underground
+Acrobatics.MOD			SITUATION:Move Through
+Acrobatics.MOD			SITUATION:Move through threatened squares
+Acrobatics.MOD			SITUATION:Swing
+Acrobatics.MOD			SITUATION:Underground
+Acrobatics.MOD			SITUATION:Uneven Ground
 Appraise.MOD			SITUATION:Precious metals and gemstones
-Perception.MOD			SITUATION:Notice unusual stonework
-Perception.MOD			SITUATION:Trapfinding
-Spellcraft.MOD			SITUATION:Identify magic item
-Survival.MOD			SITUATION:Follow or identify tracks
-Diplomacy.MOD			SITUATION:Gather Information
-Bluff.MOD				SITUATION:While using change shape ability
-Disguise.MOD			SITUATION:Appear as cloak
-Disguise.MOD			SITUATION:Mimic objects
-Disguise.MOD			SITUATION:While using change shape ability
-Perception.MOD			SITUATION:Blindsense
-Perception.MOD			SITUATION:Underwater
-Stealth.MOD				SITUATION:In bright light
-Stealth.MOD				SITUATION:In caverns
-Stealth.MOD				SITUATION:In dim light
-Stealth.MOD				SITUATION:In forests
-Stealth.MOD				SITUATION:In lair
-Stealth.MOD				SITUATION:In marshes
-Stealth.MOD				SITUATION:In tall grass
-Stealth.MOD				SITUATION:In rocky areas
-Stealth.MOD				SITUATION:In scrubland or brush
-Stealth.MOD				SITUATION:In shadowy conditions
-Stealth.MOD				SITUATION:In snow
-Stealth.MOD				SITUATION:In stony environs
-Stealth.MOD				SITUATION:In stony or icy areas
-Stealth.MOD				SITUATION:In swamps
-Stealth.MOD				SITUATION:In vegetation
-Stealth.MOD				SITUATION:In water
-Stealth.MOD				SITUATION:In webs
-Stealth.MOD				SITUATION:Underground
-Stealth.MOD				SITUATION:Underwater
-Survival.MOD			SITUATION:In forests
-Survival.MOD			SITUATION:Track by scent
-Disguise.MOD			SITUATION:As Medium humanoid
-Disguise.MOD			SITUATION:When using change shape
-Intimidate.MOD			SITUATION:To demoralize
-Perception.MOD			SITUATION:When listening
-Perception.MOD			SITUATION:When using blindsense
-Stealth.MOD				SITUATION:In deserts
-Stealth.MOD				SITUATION:In sand
-Stealth.MOD				SITUATION:In mud
-Stealth.MOD				SITUATION:Darkness or smoke
-Stealth.MOD				SITUATION:In thick vegetation
-Stealth.MOD				SITUATION:In darkness
-Stealth.MOD				SITUATION:In metal or stony areas
-Stealth.MOD				SITUATION:When moving
-Stealth.MOD				SITUATION:In rocky terrain
-Stealth.MOD				SITUATION:When submerged
-Stealth.MOD				SITUATION:In shallow water
-Stealth.MOD				SITUATION:In ambush
+Appraise.MOD			SITUATION:Treasure found in or under the water
+Bluff.MOD				SITUATION:Feint
+Bluff.MOD				SITUATION:Imitate Voice
+Bluff.MOD				SITUATION:Lie
+Bluff.MOD				SITUATION:Pass Hidden Message
 Bluff.MOD				SITUATION:Potentially Sexually Attracted
 Bluff.MOD				SITUATION:Secret Messages|Conceal Identity
+Bluff.MOD				SITUATION:While using change shape ability
+Bluff.MOD				SITUATION:Sexually Attracted
+Climb.MOD				SITUATION:Narrow Surfaces
+Climb.MOD				SITUATION:Rope
+Climb.MOD				SITUATION:Underground
 Craft (Alchemy).MOD		SITUATION:Create item
+Diplomacy.MOD			SITUATION:City Officials
+Diplomacy.MOD			SITUATION:Gather Information
+Diplomacy.MOD			SITUATION:Influence Monster
 Diplomacy.MOD			SITUATION:Potentially Sexually Attracted
+Disable Device.MOD		SITUATION:Magical Traps
+Disguise.MOD			SITUATION:Appear Human
+Disguise.MOD			SITUATION:Appear as cloak
+Disguise.MOD			SITUATION:As Medium humanoid
+Disguise.MOD			SITUATION:Mimic objects
+Disguise.MOD			SITUATION:When using change shape
+Disguise.MOD			SITUATION:While using change shape ability
+Disguise.MOD			SITUATION:as original race
+Handle Animal.MOD			SITUATION:Push Animal
+Handle Animal.MOD			SITUATION:reptiles
+Heal.MOD				SITUATION:Animal
+Heal.MOD				SITUATION:Treat disease and poison
+Intimidate.MOD			SITUATION:Demoralize Animal
+Intimidate.MOD			SITUATION:Mounted
+Intimidate.MOD			SITUATION:To demoralize
 Knowledge (Arcana).MOD		SITUATION:ID monster|Identify Dragons
 Knowledge (Dungeoneering).MOD	SITUATION:ID monster
+Knowledge (Dungeoneering).MOD	SITUATION:Navigate
+Knowledge (Dungeoneering).MOD	SITUATION:Underground
+Knowledge (History).MOD		SITUATION:Dwarves
 Knowledge (Local).MOD		SITUATION:ID monster
 Knowledge (Local).MOD		SITUATION:ID monster
 Knowledge (Nature).MOD		SITUATION:ID monster
 Knowledge (Planes).MOD		SITUATION:ID monster
 Knowledge (Religion).MOD	SITUATION:ID monster
-Perception.MOD			SITUATION:Precious metals and gemstones
-Sense Motive.MOD			SITUATION:Secret Messages
-Stealth.MOD				SITUATION:In hilly or rocky areas
-Survival.MOD			SITUATION:Find Food
-Survival.MOD			SITUATION:Avoid becoming lost
-Survival.MOD			SITUATION:Navigate
-Knowledge (Dungeoneering).MOD	SITUATION:Navigate
-Diplomacy.MOD			SITUATION:City Officials
 Linguistics.MOD			SITUATION:Forgery
-Heal.MOD				SITUATION:Animal
-Acrobatics.MOD			SITUATION:Move Through
-Spellcraft.MOD			SITUATION:Identify Magic Auras and Items
-Survival.MOD			SITUATION:Tracking
 Linguistics.MOD			SITUATION:Identify Forgery
-Disable Device.MOD		SITUATION:Magical Traps
-Bluff.MOD				SITUATION:Lie
-Bluff.MOD				SITUATION:Feint
-Bluff.MOD				SITUATION:Pass Hidden Message
-Bluff.MOD				SITUATION:Imitate Voice
-Sense Motive.MOD			SITUATION:Sense Enchantment
-Spellcraft.MOD			SITUATION:Identify Enchantment
-Spellcraft.MOD			SITUATION:Identify Curse or Emotion
-Stealth.MOD				SITUATION:Load Crossbow
-Stealth.MOD				SITUATION:Poison Ammo
-Stealth.MOD				SITUATION:Sniping
-Intimidate.MOD			SITUATION:Mounted
-Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
-Perception.MOD			SITUATION:Notice Creatures Underwater
-Diplomacy.MOD			SITUATION:Influence Monster
-Acrobatics.MOD			SITUATION:Swing
-Climb.MOD				SITUATION:Rope
-Survival.MOD			SITUATION:Avoid Becoming Lost in Caverns and Rocky Areas
-Sleight of Hand.MOD		SITUATION:Conceal Small Object
-Survival.MOD			SITUATION:Avoid Getting Lost
-Disguise.MOD			SITUATION:Appear Human
-Handle Animal.MOD			SITUATION:Push Animal
-Intimidate.MOD			SITUATION:Demoralize Animal
-Spellcraft.MOD			SITUATION:Cast Defensively
-#Handle Animal.MOD			SITUATION:Bird
-#Handle Animal.MOD			SITUATION:Handle Animal (Small Cat)
-#Handle Animal.MOD			SITUATION:Handle Animal (Dog)
-#Handle Animal.MOD			SITUATION:Handle Animal (Horse)
-#Knowledge (Nature).MOD		SITUATION:Knowledge (Nature/Bird)
-#Knowledge (Nature).MOD		SITUATION:Small Cat
-#Knowledge (Nature).MOD		SITUATION:Dog
-#Knowledge (Nature).MOD		SITUATION:Horse
-Survival.MOD			SITUATION:Track Giant
-Knowledge (History).MOD		SITUATION:Dwarves
-Survival.MOD			SITUATION:Sea
-Perception.MOD			SITUATION:Notice Flying Creatures
-Sense Motive.MOD			SITUATION:Social Hunch
-Perception.MOD			SITUATION:Notice Hidden Object
+Perception.MOD			SITUATION:Blindsense
 Perception.MOD			SITUATION:Determine Food Spoiled
 Perception.MOD			SITUATION:Identify Potion
-Acrobatics.MOD			SITUATION:Uneven Ground
-Climb.MOD				SITUATION:Narrow Surfaces
-Survival.MOD			SITUATION:Urban
-Appraise.MOD			SITUATION:Treasure found in or under the water
-Knowledge (Dungeoneering).MOD	SITUATION:Underground
-Perception.MOD			SITUATION:Underground
+Perception.MOD			SITUATION:Notice Creatures Underwater
+Perception.MOD			SITUATION:Notice Flying Creatures
+Perception.MOD			SITUATION:Notice Hidden Object
+Perception.MOD			SITUATION:Notice unusual stonework
 Perception.MOD			SITUATION:Notice unusual stonework/Underground
-Survival.MOD			SITUATION:Underground
-Survival.MOD			SITUATION:Follow or identify tracks/Underground
-Acrobatics.MOD			SITUATION:Underground
-Acrobatics.MOD			SITUATION:Jump/Underground
-Climb.MOD				SITUATION:Underground
-Stealth.MOD				SITUATION:Stationary for at least one round
+Perception.MOD			SITUATION:Precious metals and gemstones
+Perception.MOD			SITUATION:Trapfinding
+Perception.MOD			SITUATION:Underground
+Perception.MOD			SITUATION:Underwater
+Perception.MOD			SITUATION:When listening
+Perception.MOD			SITUATION:When using blindsense
+Perception.MOD			SITUATION:sight- and hearing-based
+Perception.MOD			SITUATION:In dim light or darkness
 Ride.MOD				SITUATION:Samurai Mount
-Acrobatics.MOD			SITUATION:Move through threatened squares
-Heal.MOD				SITUATION:Treat disease and poison
-
+Sense Motive.MOD			SITUATION:Secret Messages
+Sense Motive.MOD			SITUATION:Sense Enchantment
+Sense Motive.MOD			SITUATION:Social Hunch
+Sleight of Hand.MOD		SITUATION:Conceal Small Object
+Spellcraft.MOD			SITUATION:Cast Defensively
+Spellcraft.MOD			SITUATION:Identify Curse or Emotion
+Spellcraft.MOD			SITUATION:Identify Enchantment
+Spellcraft.MOD			SITUATION:Identify Magic Auras and Items
+Spellcraft.MOD			SITUATION:Identify magic item
+Stealth.MOD				SITUATION:Darkness or smoke
+Stealth.MOD				SITUATION:In ambush
+Stealth.MOD				SITUATION:In bright light
+Stealth.MOD				SITUATION:In caverns
+Stealth.MOD				SITUATION:In darkness
+Stealth.MOD				SITUATION:In deserts
+Stealth.MOD				SITUATION:In dim light
+Stealth.MOD				SITUATION:In dim light or darkness
+Stealth.MOD				SITUATION:In forests
+Stealth.MOD				SITUATION:In hilly or rocky areas
+Stealth.MOD				SITUATION:In lair
+Stealth.MOD				SITUATION:In marshes
+Stealth.MOD				SITUATION:In metal or stony areas
+Stealth.MOD				SITUATION:In mud
+Stealth.MOD				SITUATION:In rocky areas
+Stealth.MOD				SITUATION:In rocky terrain
+Stealth.MOD				SITUATION:In sand
+Stealth.MOD				SITUATION:In scrubland or brush
+Stealth.MOD				SITUATION:In shadowy conditions
+Stealth.MOD				SITUATION:In shallow water
+Stealth.MOD				SITUATION:In snow
+Stealth.MOD				SITUATION:In stony environs
+Stealth.MOD				SITUATION:In stony or icy areas
+Stealth.MOD				SITUATION:In swamps
+Stealth.MOD				SITUATION:In tall grass
+Stealth.MOD				SITUATION:In thick vegetation
+Stealth.MOD				SITUATION:In vegetation
+Stealth.MOD				SITUATION:In water
+Stealth.MOD				SITUATION:In webs
+Stealth.MOD				SITUATION:Load Crossbow
 Stealth.MOD				SITUATION:Move Silently
-###Block:
-Disguise.MOD			SITUATION:as original race
+Stealth.MOD				SITUATION:Poison Ammo
+Stealth.MOD				SITUATION:Sniping
+Stealth.MOD				SITUATION:Stationary for at least one round
+Stealth.MOD				SITUATION:Underground
+Stealth.MOD				SITUATION:Underwater
+Stealth.MOD				SITUATION:When moving
+Stealth.MOD				SITUATION:When submerged
+Survival.MOD			SITUATION:Avoid Becoming Lost in Caverns and Rocky Areas
+Survival.MOD			SITUATION:Avoid Getting Lost
+Survival.MOD			SITUATION:Avoid becoming lost
+Survival.MOD			SITUATION:Find Food
+Survival.MOD			SITUATION:Follow or identify tracks
+Survival.MOD			SITUATION:Follow or identify tracks/Underground
+Survival.MOD			SITUATION:In forests
+Survival.MOD			SITUATION:Navigate
+Survival.MOD			SITUATION:Sea
+Survival.MOD			SITUATION:Track Giant
+Survival.MOD			SITUATION:Track by scent
+Survival.MOD			SITUATION:Tracking
+Survival.MOD			SITUATION:Underground
+Survival.MOD			SITUATION:Urban
+Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
 
 ###Block: Versatile Performance
 Bluff.MOD				SITUATION:Versatile Performance (Act)

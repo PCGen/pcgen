@@ -44,7 +44,7 @@ Duergar.MOD		SORTKEY:a_base_pc
 Grippli.MOD		SORTKEY:a_base_pc
 Merfolk.MOD		SORTKEY:a_base_pc
 Svirfneblin.MOD	SORTKEY:a_base_pc
-
+Tiefling.MOD	SORTKEY:a_base_pc
 # Bestiary III - Remove once B3 is completed.
 # Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages											Stat bonus						Automatically Gained Language	Main Race Type	Race Subtype		Type				Challenge Rating	Source Page		SORTKEY
 #Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	ABILITY:Internal|AUTOMATIC|Race Traits ~ Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc
