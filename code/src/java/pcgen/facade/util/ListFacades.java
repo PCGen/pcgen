@@ -18,12 +18,13 @@
  * 
  * Created on Apr 25, 2010, 4:29:53 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
 import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.List;
-import pcgen.core.facade.event.ListListener;
+
+import pcgen.facade.util.event.ListListener;
 
 /**
  *

@@ -40,10 +40,10 @@ import javax.swing.event.ListSelectionListener;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.KitFacade;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;

@@ -22,6 +22,8 @@
  */
 package pcgen.core.facade.util;
 
+import pcgen.facade.util.DefaultListFacade;
+
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -29,8 +31,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 
 /**
  * The Class <code></code> ...

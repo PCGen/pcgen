@@ -25,18 +25,20 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.swing.event.EventListenerList;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreePath;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.EquipmentSetFacade.EquipNode;
 import pcgen.core.facade.EquipmentSetFacade.EquipmentTreeEvent;
 import pcgen.core.facade.EquipmentSetFacade.EquipmentTreeListener;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;

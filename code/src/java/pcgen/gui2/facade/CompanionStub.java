@@ -23,9 +23,9 @@
 package pcgen.gui2.facade;
 
 import pcgen.core.facade.CompanionStubFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.RaceFacade;
-import pcgen.core.facade.ReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * The Class <code>CompanionStub</code> contains a definition of a possible 

@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -40,14 +41,16 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
 import org.apache.commons.lang.StringUtils;
+
 import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.SharedTabPane;

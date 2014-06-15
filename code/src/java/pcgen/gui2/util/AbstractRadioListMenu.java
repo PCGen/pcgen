@@ -23,11 +23,13 @@ package pcgen.gui2.util;
 import java.awt.event.ItemListener;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.swing.Action;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
-import pcgen.core.facade.event.ListEvent;
+
+import pcgen.facade.util.event.ListEvent;
 
 /**
  *

@@ -23,6 +23,7 @@ package pcgen.gui2.tabs.spells;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.List;
+
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -33,11 +34,13 @@ import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.tree.TreePath;
+
 import org.apache.commons.lang.StringUtils;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
 import pcgen.core.facade.SpellSupportFacade.SuperNode;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.FlippingSplitPane;

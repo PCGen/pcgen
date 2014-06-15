@@ -29,7 +29,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.swing.SwingUtilities;
+
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -53,10 +55,10 @@ import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.UIDelegate;
-import pcgen.core.facade.event.ChangeEvent;
-import pcgen.core.facade.event.ChangeListener;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.event.ChangeEvent;
+import pcgen.facade.util.event.ChangeListener;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.system.LanguageBundle;

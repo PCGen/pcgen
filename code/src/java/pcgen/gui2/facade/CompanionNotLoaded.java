@@ -25,9 +25,9 @@ package pcgen.gui2.facade;
 import java.io.File;
 
 import pcgen.core.facade.CompanionFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.RaceFacade;
-import pcgen.core.facade.ReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * The Class <code>CompanionNotLoaded</code> represents a characters's companion 

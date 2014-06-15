@@ -35,12 +35,12 @@ import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.ChronicleEntryFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.DescriptionFacade;
 import pcgen.core.facade.NoteFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
 
 /**

@@ -23,12 +23,14 @@ package pcgen.gui2.filter;
 import java.util.AbstractList;
 import java.util.Comparator;
 import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
+
 import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.SortedListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.SortedListFacade;
 import pcgen.gui2.util.table.SortableTableModel;
 
 /**

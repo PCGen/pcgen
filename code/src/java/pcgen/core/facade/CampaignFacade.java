@@ -22,7 +22,7 @@ package pcgen.core.facade;
 
 import java.util.List;
 
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  *

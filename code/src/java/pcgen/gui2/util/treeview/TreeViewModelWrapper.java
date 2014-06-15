@@ -20,9 +20,9 @@
  */
 package pcgen.gui2.util.treeview;
 
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.ListFacades;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
 
 /**
  *

@@ -18,7 +18,7 @@
  *
  * Created on Mar 17, 2012, 8:54:27 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
 import java.util.Collections;
 import java.util.HashMap;

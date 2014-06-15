@@ -41,7 +41,7 @@ import javax.swing.event.ListSelectionListener;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.SpellBuilderFacade;
-import pcgen.core.facade.event.ListEvent;
+import pcgen.facade.util.event.ListEvent;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.util.FacadeListModel;
 import pcgen.system.LanguageBundle;

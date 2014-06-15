@@ -1,44 +1,45 @@
 /*
- * ChangeListener.java
- * Copyright James Dempsey, 2012
- *
+ * ListListener.java
+ * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
+ * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * 
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/01/2012 8:48:48 AM
- *
- * $Id$
+ * 
+ * Created on Apr 25, 2010, 2:35:14 PM
  */
-package pcgen.core.facade.event;
+package pcgen.facade.util.event;
+
+import java.util.EventListener;
 
 /**
- * The interface <code>ChangeListener</code> should be implemented by classes interested in 
- * object changes.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-
-public interface ChangeListener
+public interface ListListener<E> extends EventListener
 {
+
+	void elementAdded(ListEvent<E> e);
+
+	void elementRemoved(ListEvent<E> e);
+
+	void elementsChanged(ListEvent<E> e);
+
 	/**
-	 * Notification that an item changed.
-	 * @param event The change event.
+	 * Signals that an element in the list was changed in some way and needs 
+	 * to be refreshed.
+	 * @param e The event being advised.
 	 */
-	public void ItemChanged(ChangeEvent event);
+	void elementModified(ListEvent<E> e);
+
 }

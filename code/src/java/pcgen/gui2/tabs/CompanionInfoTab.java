@@ -17,6 +17,13 @@
  */
 package pcgen.gui2.tabs;
 
+import pcgen.facade.util.event.MapListener;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.MapEvent;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -30,6 +37,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.*;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -50,10 +58,9 @@ import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
-import pcgen.core.facade.event.*;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.MapFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacade;

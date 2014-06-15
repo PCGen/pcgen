@@ -23,8 +23,8 @@
 package pcgen.gui2.facade;
 
 import pcgen.core.facade.TodoFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  * The Class <code>TodoManager</code> tracks an unordered list of user tasks. 

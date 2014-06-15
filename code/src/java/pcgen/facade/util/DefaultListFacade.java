@@ -18,7 +18,7 @@
  * 
  * Created on Apr 25, 2010, 3:51:05 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
 import java.util.ArrayList;
 import java.util.Collection;

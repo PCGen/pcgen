@@ -20,9 +20,12 @@
  */
 package pcgen.core.facade;
 
+import pcgen.facade.util.ReferenceFacade;
+
 import java.io.BufferedWriter;
 import java.io.File;
-import pcgen.core.facade.util.ListFacade;
+
+import pcgen.facade.util.ListFacade;
 import pcgen.io.ExportHandler;
 
 /**

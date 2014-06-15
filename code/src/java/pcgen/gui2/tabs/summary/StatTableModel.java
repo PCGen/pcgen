@@ -54,9 +54,9 @@ import javax.swing.table.TableColumn;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.StatFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.PrettyIntegerFormat;

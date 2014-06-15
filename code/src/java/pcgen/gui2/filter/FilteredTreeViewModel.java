@@ -22,11 +22,12 @@ package pcgen.gui2.filter;
 
 import java.util.ArrayList;
 import java.util.List;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.ListFacades;
+
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;

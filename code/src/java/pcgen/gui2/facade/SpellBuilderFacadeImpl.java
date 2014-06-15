@@ -55,12 +55,12 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.facade.AbilityFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.ReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.core.facade.SpellBuilderFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 

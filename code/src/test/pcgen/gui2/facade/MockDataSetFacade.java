@@ -23,6 +23,7 @@
 package pcgen.gui2.facade;
 
 import java.util.List;
+
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
@@ -45,10 +46,10 @@ import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.generator.StatGenerationFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.DefaultMapFacade;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.MapFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultMapFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
 
 /**
  * The Class <code></code> is ...

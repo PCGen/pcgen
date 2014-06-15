@@ -41,12 +41,12 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.LanguageChooserFacade;
 import pcgen.core.facade.LanguageFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  * The Class <code>LanguageChooserFacadeImpl</code> is an implementation of the 

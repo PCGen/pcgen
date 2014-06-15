@@ -1,10 +1,11 @@
 package pcgen.gui2.tabs.models;
 
 import javax.swing.ComboBoxModel;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
-import pcgen.core.facade.util.ListFacade;
+
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 public abstract class CharacterComboBoxModel<E> extends FacadeListModel<E> implements ComboBoxModel, ReferenceListener<E>

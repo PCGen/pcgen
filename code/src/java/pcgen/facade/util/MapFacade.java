@@ -18,10 +18,11 @@
  *
  * Created on Mar 11, 2012, 3:46:59 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
 import java.util.Set;
-import pcgen.core.facade.event.MapListener;
+
+import pcgen.facade.util.event.MapListener;
 
 /**
  *

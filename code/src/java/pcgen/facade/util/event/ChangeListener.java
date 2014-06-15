@@ -1,32 +1,44 @@
 /*
- * ReferenceListener.java
- * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ * ChangeListener.java
+ * Copyright James Dempsey, 2012
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Apr 25, 2010, 3:32:17 PM
+ *
+ * Created on 16/01/2012 8:48:48 AM
+ *
+ * $Id$
  */
-
-package pcgen.core.facade.event;
-
-import java.util.EventListener;
+package pcgen.facade.util.event;
 
 /**
+ * The interface <code>ChangeListener</code> should be implemented by classes interested in 
+ * object changes.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * <br/>
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
  */
-public interface ReferenceListener<E> extends EventListener{
-	void referenceChanged(ReferenceEvent<E> e);
+
+public interface ChangeListener
+{
+	/**
+	 * Notification that an item changed.
+	 * @param event The change event.
+	 */
+	public void ItemChanged(ChangeEvent event);
 }

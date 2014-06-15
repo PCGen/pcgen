@@ -22,9 +22,11 @@
  */
 package pcgen.core.facade;
 
+import pcgen.facade.util.ReferenceFacade;
+
 import java.util.EnumSet;
 
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  * EquipmentBuilderFacade defines the methods that can be used to build up a 

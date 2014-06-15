@@ -22,9 +22,11 @@
  */
 package pcgen.core.facade;
 
+import pcgen.facade.util.ReferenceFacade;
+
 import java.util.List;
 
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  *  <code>ChooserFacade</code> defines the interface for backing general choosers, 

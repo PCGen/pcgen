@@ -26,7 +26,7 @@ import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
-import pcgen.core.facade.event.ListEvent;
+import pcgen.facade.util.event.ListEvent;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
 /**

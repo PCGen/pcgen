@@ -18,12 +18,13 @@
  *
  * Created on Mar 17, 2012, 8:19:16 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
 import javax.swing.event.EventListenerList;
-import pcgen.core.facade.event.FacadeEvent;
-import pcgen.core.facade.event.MapEvent;
-import pcgen.core.facade.event.MapListener;
+
+import pcgen.facade.util.event.FacadeEvent;
+import pcgen.facade.util.event.MapEvent;
+import pcgen.facade.util.event.MapListener;
 
 /**
  *

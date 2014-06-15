@@ -25,9 +25,10 @@ import java.beans.PropertyChangeListener;
 import java.math.BigDecimal;
 
 import javax.swing.JFormattedTextField;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
+
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  *

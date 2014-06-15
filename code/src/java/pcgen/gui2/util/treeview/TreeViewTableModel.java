@@ -32,10 +32,10 @@ import java.util.Vector;
 
 import javax.swing.JTree;
 
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.ListFacades;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableNode;

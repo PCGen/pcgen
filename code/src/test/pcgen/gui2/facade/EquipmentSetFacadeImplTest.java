@@ -18,7 +18,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.facade.EquipmentSetFacade.EquipNode;
 import pcgen.core.facade.EquipmentSetFacade.EquipNode.NodeType;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.facade.EquipmentSetFacadeImpl.EquipNodeImpl;
 import pcgen.util.TestHelper;
 

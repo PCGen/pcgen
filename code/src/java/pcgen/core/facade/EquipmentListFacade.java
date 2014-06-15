@@ -22,7 +22,8 @@ package pcgen.core.facade;
 
 import java.util.EventListener;
 import java.util.EventObject;
-import pcgen.core.facade.util.ListFacade;
+
+import pcgen.facade.util.ListFacade;
 
 /**
  *

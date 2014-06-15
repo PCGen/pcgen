@@ -41,6 +41,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.DropMode;
@@ -72,8 +73,8 @@ import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.GearBuySellFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;

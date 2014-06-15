@@ -24,7 +24,7 @@ import java.util.List;
 import pcgen.base.util.RandomUtil;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  * An implementation of the Chooser Interface that does not display a GUI but

@@ -18,9 +18,9 @@
  * 
  * Created on Apr 25, 2010, 3:37:16 PM
  */
-package pcgen.core.facade;
+package pcgen.facade.util;
 
-import pcgen.core.facade.event.ReferenceListener;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  * This facade holds a reference to a single object

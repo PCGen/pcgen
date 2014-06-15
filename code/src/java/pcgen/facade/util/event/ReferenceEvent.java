@@ -1,5 +1,5 @@
 /*
- * ListEvent.java
+ * ReferenceEvent.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,9 +16,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 2:26:17 PM
+ * Created on Apr 25, 2010, 3:32:52 PM
  */
-package pcgen.core.facade.event;
+package pcgen.facade.util.event;
 
 import java.util.EventObject;
 
@@ -26,47 +26,27 @@ import java.util.EventObject;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class ListEvent<E> extends EventObject
+public class ReferenceEvent<E> extends EventObject
 {
 
-	public static final int ELEMENT_ADDED = 0;
-	public static final int ELEMENT_REMOVED = 1;
-	public static final int ELEMENTS_CHANGED = 2;
-	public static final int ELEMENT_MODIFIED = 3;
-	private final E element;
-	private final int type;
-	private final int index;
+	private final E newObject;
+	private final E oldObject;
 
-	/**
-	 * This is a shortcut constructor for an ELEMENTS_CHANGED event
-	 * @param source
-	 */
-	public ListEvent(Object source)
-	{
-		this(source, ELEMENTS_CHANGED, null, -1);
-	}
-
-	public ListEvent(Object source, int type, E element, int index)
+	public ReferenceEvent(Object source, E oldObject, E newObject)
 	{
 		super(source);
-		this.type = type;
-		this.index = index;
-		this.element = element;
+		this.newObject = newObject;
+		this.oldObject = oldObject;
 	}
 
-	public int getIndex()
+	public E getOldReference()
 	{
-		return index;
+		return oldObject;
 	}
 
-	public int getType()
+	public E getNewReference()
 	{
-		return type;
-	}
-
-	public E getElement()
-	{
-		return element;
+		return newObject;
 	}
 
 }

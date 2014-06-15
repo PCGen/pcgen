@@ -18,7 +18,7 @@
  * 
  * Created on Mar 11, 2012, 4:15:57 PM
  */
-package pcgen.core.facade.event;
+package pcgen.facade.util.event;
 
 /**
  *

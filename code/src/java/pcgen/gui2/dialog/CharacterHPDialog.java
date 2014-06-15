@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -41,7 +42,9 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
 import org.apache.commons.lang.math.NumberUtils;
+
 import pcgen.core.RollingMethods;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CharacterLevelFacade;
@@ -49,9 +52,9 @@ import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.core.facade.CharacterLevelsFacade.HitPointListener;
 import pcgen.core.facade.ClassFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
 

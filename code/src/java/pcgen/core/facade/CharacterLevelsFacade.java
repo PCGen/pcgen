@@ -24,7 +24,7 @@ import java.util.EventListener;
 import java.util.EventObject;
 
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  *

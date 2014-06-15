@@ -54,7 +54,7 @@ import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.UIDelegate;
-import pcgen.core.facade.util.AbstractListFacade;
+import pcgen.facade.util.AbstractListFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;

@@ -39,8 +39,8 @@ import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.core.facade.CharacterLevelsFacade.ClassListener;
 import pcgen.core.facade.CharacterLevelsFacade.SkillPointListener;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.table.TableCellUtilities;
 

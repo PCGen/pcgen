@@ -23,16 +23,18 @@ package pcgen.gui2.csheet;
 import java.awt.BorderLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.TempBonusFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;

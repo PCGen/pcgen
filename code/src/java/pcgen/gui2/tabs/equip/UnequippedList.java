@@ -24,17 +24,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.EquipmentSetFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
-import pcgen.core.facade.util.AbstractListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
+import pcgen.facade.util.AbstractListFacade;
 import pcgen.util.Logging;
 
 public class UnequippedList extends AbstractListFacade<EquipmentFacade> implements EquipmentListFacade, EquipmentListListener, ListListener<EquipmentFacade>, ReferenceListener<EquipmentSetFacade>

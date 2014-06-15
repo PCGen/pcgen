@@ -44,7 +44,7 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.InfoFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;

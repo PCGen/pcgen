@@ -1,6 +1,6 @@
 /*
- * ReferenceEvent.java
- * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
+ * FacadeEvent.java
+ * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,37 +16,29 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 3:32:52 PM
+ * Created on Mar 11, 2012, 4:22:39 PM
  */
-package pcgen.core.facade.event;
+package pcgen.facade.util.event;
 
 import java.util.EventObject;
 
 /**
- *
+ * This is simply a marker class for facade based events
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class ReferenceEvent<E> extends EventObject
+public class FacadeEvent extends EventObject
 {
-
-	private final E newObject;
-	private final E oldObject;
-
-	public ReferenceEvent(Object source, E oldObject, E newObject)
+	private FacadeEvent cause;
+	
+	public FacadeEvent(Object source, FacadeEvent cause)
 	{
 		super(source);
-		this.newObject = newObject;
-		this.oldObject = oldObject;
+		this.cause = cause;
 	}
 
-	public E getOldReference()
+	public FacadeEvent getCause()
 	{
-		return oldObject;
-	}
-
-	public E getNewReference()
-	{
-		return newObject;
+		return cause;
 	}
 
 }

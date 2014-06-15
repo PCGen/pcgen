@@ -25,12 +25,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.CharacterFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.PartyFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.DefaultListFacade;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 

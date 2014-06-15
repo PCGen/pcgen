@@ -20,7 +20,8 @@
  */
 package pcgen.core.facade;
 
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  *

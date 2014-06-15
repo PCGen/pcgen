@@ -42,9 +42,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.DataSetFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
 
 /**

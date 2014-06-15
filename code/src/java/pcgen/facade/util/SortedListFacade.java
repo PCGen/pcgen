@@ -18,13 +18,15 @@
  * 
  * Created on May 6, 2010, 3:12:25 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
 import java.util.Arrays;
 import java.util.Comparator;
+
 import org.apache.commons.lang.ArrayUtils;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
+
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.util.Logging;
 
 /**

@@ -18,12 +18,14 @@
  * 
  * Created on Apr 25, 2010, 3:28:19 PM
  */
-package pcgen.core.facade;
+package pcgen.facade.util;
 
 import javax.swing.event.EventListenerList;
+
 import org.apache.commons.lang.ObjectUtils;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
+
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  *

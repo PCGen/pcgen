@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.AlignmentFacade;
@@ -42,13 +43,13 @@ import pcgen.core.facade.SizeAdjustmentFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
-import pcgen.core.facade.event.MapEvent;
-import pcgen.core.facade.event.MapListener;
+import pcgen.facade.util.event.MapEvent;
+import pcgen.facade.util.event.MapListener;
 import pcgen.core.facade.generator.StatGenerationFacade;
-import pcgen.core.facade.util.AbstractMapFacade;
-import pcgen.core.facade.util.DelegatingListFacade;
-import pcgen.core.facade.util.ListFacade;
-import pcgen.core.facade.util.MapFacade;
+import pcgen.facade.util.AbstractMapFacade;
+import pcgen.facade.util.DelegatingListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.MapFacade;
 
 /**
  * This class implements a <code>DataSetFacade</code> by delegating to another

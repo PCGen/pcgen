@@ -21,10 +21,11 @@
 package pcgen.gui2.util;
 
 import javax.swing.AbstractListModel;
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.DelegatingListFacade;
-import pcgen.core.facade.util.ListFacade;
+
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.DelegatingListFacade;
+import pcgen.facade.util.ListFacade;
 
 /**
  *

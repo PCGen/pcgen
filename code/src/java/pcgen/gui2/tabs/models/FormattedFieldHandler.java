@@ -22,10 +22,12 @@ package pcgen.gui2.tabs.models;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
 import javax.swing.JFormattedTextField;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
+
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  *

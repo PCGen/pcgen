@@ -20,6 +20,8 @@
  */
 package pcgen.core.facade;
 
+import pcgen.facade.util.ReferenceFacade;
+
 import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -34,9 +36,9 @@ import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
-import pcgen.core.facade.event.ChangeListener;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.event.ChangeListener;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.io.ExportHandler;
 
 /**

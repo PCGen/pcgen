@@ -18,10 +18,10 @@
  * 
  * Created on Apr 30, 2010, 3:26:19 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util;
 
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 
 /**
  *

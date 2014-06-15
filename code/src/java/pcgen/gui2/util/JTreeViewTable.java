@@ -53,9 +53,9 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
-import pcgen.core.facade.event.ListEvent;
-import pcgen.core.facade.event.ListListener;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;

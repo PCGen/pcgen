@@ -74,7 +74,7 @@ import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.UIDelegate;
-import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultListFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.io.PCGFile;

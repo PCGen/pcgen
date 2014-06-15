@@ -27,8 +27,8 @@ import java.util.List;
 
 import pcgen.core.facade.SpellSupportFacade.SpellNode;
 import pcgen.core.facade.SpellSupportFacade.SuperNode;
-import pcgen.core.facade.util.DefaultListFacade;
-import pcgen.core.facade.util.ListFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;

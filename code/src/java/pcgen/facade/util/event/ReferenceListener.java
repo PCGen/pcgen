@@ -1,5 +1,5 @@
 /*
- * ListListener.java
+ * ReferenceListener.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,9 +16,10 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 2:35:14 PM
+ * Created on Apr 25, 2010, 3:32:17 PM
  */
-package pcgen.core.facade.event;
+
+package pcgen.facade.util.event;
 
 import java.util.EventListener;
 
@@ -26,20 +27,6 @@ import java.util.EventListener;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface ListListener<E> extends EventListener
-{
-
-	void elementAdded(ListEvent<E> e);
-
-	void elementRemoved(ListEvent<E> e);
-
-	void elementsChanged(ListEvent<E> e);
-
-	/**
-	 * Signals that an element in the list was changed in some way and needs 
-	 * to be refreshed.
-	 * @param e The event being advised.
-	 */
-	void elementModified(ListEvent<E> e);
-
+public interface ReferenceListener<E> extends EventListener{
+	void referenceChanged(ReferenceEvent<E> e);
 }

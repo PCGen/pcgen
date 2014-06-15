@@ -20,6 +20,8 @@
  */
 package pcgen.core.facade;
 
+import pcgen.facade.util.ReferenceFacade;
+
 import java.io.File;
 
 /**

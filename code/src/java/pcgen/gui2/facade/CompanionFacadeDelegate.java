@@ -21,12 +21,13 @@
 package pcgen.gui2.facade;
 
 import java.io.File;
+
 import pcgen.core.facade.CompanionFacade;
-import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.core.facade.RaceFacade;
-import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.event.ReferenceEvent;
-import pcgen.core.facade.event.ReferenceListener;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  * The <code>CompanionFacadeDelegate</code> is a <code>CompanionFacade</code>

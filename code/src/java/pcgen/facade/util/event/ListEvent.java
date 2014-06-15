@@ -1,5 +1,5 @@
 /*
- * ListFacade.java
+ * ListEvent.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,32 +16,57 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 2:20:01 PM
+ * Created on Apr 25, 2010, 2:26:17 PM
  */
-package pcgen.core.facade.util;
+package pcgen.facade.util.event;
 
-import pcgen.core.facade.event.ListListener;
+import java.util.EventObject;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface ListFacade<E> extends Iterable<E>
+public class ListEvent<E> extends EventObject
 {
 
-	void addListListener(ListListener<? super E> listener);
-
-	E getElementAt(int index);
-
-	int getSize();
+	public static final int ELEMENT_ADDED = 0;
+	public static final int ELEMENT_REMOVED = 1;
+	public static final int ELEMENTS_CHANGED = 2;
+	public static final int ELEMENT_MODIFIED = 3;
+	private final E element;
+	private final int type;
+	private final int index;
 
 	/**
-	 * Note: This is shorthand for (getSize() == 0)
-	 * @return whether this list is empty
+	 * This is a shortcut constructor for an ELEMENTS_CHANGED event
+	 * @param source
 	 */
-	boolean isEmpty();
+	public ListEvent(Object source)
+	{
+		this(source, ELEMENTS_CHANGED, null, -1);
+	}
 
-	boolean containsElement(E element);
-	
-	void removeListListener(ListListener<? super E> listener);
+	public ListEvent(Object source, int type, E element, int index)
+	{
+		super(source);
+		this.type = type;
+		this.index = index;
+		this.element = element;
+	}
+
+	public int getIndex()
+	{
+		return index;
+	}
+
+	public int getType()
+	{
+		return type;
+	}
+
+	public E getElement()
+	{
+		return element;
+	}
+
 }

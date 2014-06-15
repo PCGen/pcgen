@@ -24,10 +24,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import pcgen.core.Equipment;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
-import pcgen.core.facade.util.AbstractListFacade;
+import pcgen.facade.util.AbstractListFacade;
 
 /**
  *
