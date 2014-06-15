@@ -30,6 +30,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.character.WieldCategory;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -173,5 +174,42 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		assertTrue("Weapon is Light", PrereqHandler.passes(prereq, character,
 			null));
 
+	}
+
+	/**
+	 * Verify that negated PREEQUIPSECONDARY tests work.
+	 */
+	public void testNotEquipped() throws Exception
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Equipment longsword = new Equipment();
+		longsword.setName("Longsword");
+
+		final Equipment dagger = new Equipment();
+		dagger.setName("Dagger");
+
+		character.addEquipment(longsword);
+		longsword.setIsEquipped(true, character);
+		longsword.setLocation(EquipmentLocation.EQUIPPED_SECONDARY);
+		character.doAfavorForAunitTestThatIgnoresEquippingRules();
+
+		final Prerequisite prereqDaggerNotSec =
+				PreParserFactory.getInstance().parse(
+					"!PREEQUIPSECONDARY:1,Dagger");
+		assertTrue("Dagger not equipped",
+			PrereqHandler.passes(prereqDaggerNotSec, character, null));
+
+		character.addEquipment(dagger);
+		dagger.setIsEquipped(true, character);
+		dagger.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
+		assertTrue("Dagger not equipped",
+			PrereqHandler.passes(prereqDaggerNotSec, character, null));
+
+		final Prerequisite prereqLongswordNotSec =
+				PreParserFactory.getInstance().parse(
+					"!PREEQUIPSECONDARY:1,Longsword");
+		assertFalse("Longsword equipped",
+			PrereqHandler.passes(prereqLongswordNotSec, character, null));
 	}
 }

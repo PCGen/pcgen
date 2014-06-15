@@ -120,7 +120,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		{
 			runningTotal = isEquipped ? 1 : 0;
 		}
-		else if (operator.equals(PrerequisiteOperator.NEQ))
+		else if (operator.equals(PrerequisiteOperator.NEQ) || operator.equals(PrerequisiteOperator.LT))
 		{
 			runningTotal = isEquipped ? 0 : 1;
 		}
