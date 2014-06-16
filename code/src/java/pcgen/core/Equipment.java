@@ -565,7 +565,14 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
-		final List<EquipmentModifier> eqModList = getEqModifierList(true);
+		List<EquipmentModifier> eqModList = getEqModifierList(true);
+
+		for (EquipmentModifier eqMod : eqModList)
+		{
+			aList.addAll(eqMod.getActiveBonuses(this, aPC));
+		}
+
+		eqModList = getEqModifierList(false);
 
 		for (EquipmentModifier eqMod : eqModList)
 		{
