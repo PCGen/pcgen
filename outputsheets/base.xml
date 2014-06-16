@@ -487,7 +487,7 @@
 			<stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
 			<size_mod>|ATTACK.MELEE.SIZE|</size_mod>
 			<misc_mod>|ATTACK.MELEE.MISC|</misc_mod>
-			<epic_mod>|var.charbonusto("COMBAT","EPICAB").INTVAL|</epic_mod>
+			<epic_mod>|VAR.charbonusto("COMBAT","EPICAB").INTVAL|</epic_mod>
 			<!-- |ATTACK.MELEE.EPIC| -->
 			<temp_mod/>
 		</melee>
@@ -499,7 +499,7 @@
 			<stat_mod>|ATTACK.RANGED.STAT|</stat_mod>
 			<size_mod>|ATTACK.RANGED.SIZE|</size_mod>
 			<misc_mod>|ATTACK.RANGED.MISC|</misc_mod>
-			<epic_mod>|var.charbonusto("COMBAT","EPICAB").INTVAL|</epic_mod>
+			<epic_mod>|VAR.charbonusto("COMBAT","EPICAB").INTVAL|</epic_mod>
 			<!-- |ATTACK.RANGED.EPIC| -->
 			<temp_mod/>
 		</ranged>
