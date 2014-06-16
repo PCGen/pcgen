@@ -481,7 +481,7 @@
 		<melee>
 			<total>|ATTACK.MELEE.TOTAL|</total>
 			<total_short>|ATTACK.MELEE.TOTAL.SHORT|</total_short>
-			<bab>|var.charbonusto("COMBAT","BASEAB").INTVAL|</bab>
+			<bab>|ATTACK.MELEE.BASE|</bab>
 			<!-- |ATTACK.MELEE.BASE| -->
 			<base_attack_bonus>|ATTACK.MELEE|</base_attack_bonus>
 			<stat_mod>|ATTACK.MELEE.STAT|</stat_mod>
@@ -493,7 +493,7 @@
 		</melee>
 		<ranged>
 			<total>|ATTACK.RANGED.TOTAL|</total>
-			<bab>|var.charbonusto("COMBAT","BASEAB").INTVAL|</bab>
+			<bab>|ATTACK.RANGED.BASE|</bab>
 			<!-- |ATTACK.RANGED.BASE| -->
 			<base_attack_bonus>|ATTACK.RANGED|</base_attack_bonus>
 			<stat_mod>|ATTACK.RANGED.STAT|</stat_mod>
