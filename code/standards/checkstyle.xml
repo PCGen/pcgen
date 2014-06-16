@@ -59,16 +59,22 @@
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
         <module name="JavadocMethod">
-        	<property name="scope" value="package"/>
+        	<property name="scope" value="public"/>
+        	<property name="allowMissingParamTags" value="true"/>
+        	<property name="allowMissingReturnTag" value="true"/>
+        	<property name="allowUndeclaredRTE"  value="true"/>
+        	<property name="allowMissingPropertyJavadoc"  value="true"/>
         </module>
         <module name="JavadocType"/>
         <module name="JavadocVariable">
 		   <property name="scope" value="public"/>
 		</module>
+		<!-- 
         <module name="JavadocStyle">
 			<property name="severity" value="warning"/>
+			
         </module>
-
+ -->
 
         <!-- Checks for Naming Conventions.                  -->
         <!-- See http://checkstyle.sf.net/config_naming.html -->
