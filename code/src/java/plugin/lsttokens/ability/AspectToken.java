@@ -108,10 +108,12 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ value, context);
 		}
 		Aspect a = parseAspect(key, val);
-		MapChanges<AspectName, List<Aspect>> mc = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> mc =
+				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		Map<AspectName, List<Aspect>> fullMap = mc.getAdded();
 		List<Aspect> aspects = fullMap.get(a.getKey());
-		if (aspects == null) {
+		if (aspects == null)
+		{
 			aspects = new ArrayList<Aspect>();
 		}
 		aspects.add(a);
@@ -182,7 +184,8 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		MapChanges<AspectName, List<Aspect>> changes = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> changes =
+				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -195,7 +198,8 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			for(int i = 0; i < aspects.size(); i++)
 			{
 				Aspect q = aspects.get(i);
-				set.add(new StringBuilder().append(q.getName()).append(Constants.PIPE).append(q.getPCCText()).toString());
+				set.add(new StringBuilder().append(q.getName()).append(Constants.PIPE)
+					.append(q.getPCCText()).toString());
 			}
 		}
 		return set.toArray(new String[set.size()]);

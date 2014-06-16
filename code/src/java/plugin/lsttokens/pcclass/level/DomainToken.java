@@ -162,7 +162,8 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 		Collection<QualifiedObject<CDOMSingleRef<Domain>>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>> m = new HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>>();
+			HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>> m =
+					new HashMapToList<List<Prerequisite>, CDOMSingleRef<Domain>>();
 			for (QualifiedObject<CDOMSingleRef<Domain>> qo : added)
 			{
 				m.addToListFor(qo.getPrerequisiteList(), qo.getRawObject());

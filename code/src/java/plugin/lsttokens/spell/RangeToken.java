@@ -72,8 +72,9 @@ public class RangeToken extends AbstractTokenWithSeparator<Spell> implements
 			{
 				if (!StringUtil.hasBalancedParens(value))
 				{
-					return new ParseResult.Fail("Unbalanced parentheses in " + getTokenName() + " '" + value
-							+ "' used in spell " + spell, context);
+					return new ParseResult.Fail("Unbalanced parentheses in "
+						+ getTokenName() + " '" + value + "' used in spell " + spell,
+						context);
 				}
 				context.getObjectContext().addToList(spell, ListKey.RANGE, tok);
 			}

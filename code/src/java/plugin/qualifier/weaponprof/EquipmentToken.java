@@ -43,7 +43,7 @@ import pcgen.util.Logging;
 public class EquipmentToken implements QualifierToken<WeaponProf>,
 		Converter<Equipment, CDOMReference<WeaponProf>>
 {
-	private static Type WEAPON_TYPE = Type.getConstant("Weapon");
+	private static final Type WEAPON_TYPE = Type.getConstant("Weapon");
 
 	private PrimitiveCollection<Equipment> pcs = null;
 

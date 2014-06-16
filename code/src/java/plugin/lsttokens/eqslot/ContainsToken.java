@@ -57,7 +57,7 @@ public class ContainsToken implements EquipSlotLstToken
 		}
 
 		
-		final String[] types=type.split(",");
+		final String[] types = type.split(",");
 		for (String pair : types)
 		{
 			eqSlot.addContainedType(pair.intern());

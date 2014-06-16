@@ -66,7 +66,7 @@ public class ActypeToken implements GameModeLstToken
 			return false;
 		}
 
-		final String ACType = aTok.nextToken();
+		final String acType = aTok.nextToken();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -80,7 +80,7 @@ public class ActypeToken implements GameModeLstToken
 				{
 					return false;
 				}
-				gameMode.addACAdds(ACType, controls);
+				gameMode.addACAdds(acType, controls);
 			}
 			else if (aString.startsWith("REMOVE:"))
 			{
@@ -90,7 +90,7 @@ public class ActypeToken implements GameModeLstToken
 				{
 					return false;
 				}
-				gameMode.addACRemoves(ACType, controls);
+				gameMode.addACRemoves(acType, controls);
 			}
 			else
 			{

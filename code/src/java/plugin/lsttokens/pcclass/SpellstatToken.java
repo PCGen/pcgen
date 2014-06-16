@@ -80,15 +80,15 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		{
 			if (pcs != null)
 			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " expected USE_SPELL_SPELL_STAT to exist if SPELL_STAT was defined");
+				context.addWriteMessage(getTokenName()
+					+ " expected USE_SPELL_SPELL_STAT to exist "
+					+ "if SPELL_STAT was defined");
 			}
 			if (otherCaster != null)
 			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " expected USE_SPELL_SPELL_STAT to exist if CASTER_WITHOUT_SPELL_STAT was defined");
+				context.addWriteMessage(getTokenName()
+					+ " expected USE_SPELL_SPELL_STAT to exist "
+					+ "if CASTER_WITHOUT_SPELL_STAT was defined");
 			}
 			return null;
 		}
@@ -101,9 +101,9 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		if (otherCaster == null)
 		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " expected CASTER_WITHOUT_SPELL_STAT to exist if USE_SPELL_SPELL_STAT was false");
+			context.addWriteMessage(getTokenName()
+				+ " expected CASTER_WITHOUT_SPELL_STAT to exist "
+				+ "if USE_SPELL_SPELL_STAT was false");
 			return null;
 		}
 		else if (otherCaster.booleanValue())
@@ -115,9 +115,9 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		else if (pcs == null)
 		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " expected SPELL_STAT to exist since USE_SPELL_SPELL_STAT and CASTER_WITHOUT_SPELL_STAT were false");
+			context.addWriteMessage(getTokenName()
+				+ " expected SPELL_STAT to exist since USE_SPELL_SPELL_STAT "
+				+ "and CASTER_WITHOUT_SPELL_STAT were false");
 			return null;
 		}
 		else

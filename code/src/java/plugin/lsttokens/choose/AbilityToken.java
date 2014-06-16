@@ -327,8 +327,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			if (!catString.startsWith("CATEGORY="))
 			{
 				throw new IllegalArgumentException(
-					"Ability cvhoice must be key name or CATEGORY=category|ability" +
-					" found: " + encoded);
+					"Ability choice must be key name or CATEGORY=category|ability"
+						+ " found: " + encoded);
 			}
 			String cat = catString.substring(9);
 			abilityCat = SettingsHandler.getGame().getAbilityCategory(cat);

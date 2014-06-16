@@ -124,9 +124,10 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 			{
 				if (Constants.LST_UNTRAINED.equals(tokText))
 				{
-					ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
-							tokText, SKILL_CLASS, allRef,
-							ObjectKey.USE_UNTRAINED, Boolean.TRUE);
+					ObjectMatchingReference<Skill, Boolean> omr =
+							new ObjectMatchingReference<Skill, Boolean>(tokText,
+								SKILL_CLASS, allRef, ObjectKey.USE_UNTRAINED,
+								Boolean.TRUE);
 					omr.returnIncludesNulls(true);
 					refs.add(omr);
 				}
@@ -145,9 +146,9 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				else if (Constants.LST_NONEXCLUSIVE.equals(tokText)
 						|| Constants.LST_CROSS_CLASS.equals(tokText))
 				{
-					ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<Skill, Boolean>(
-							tokText, SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE,
-							Boolean.FALSE);
+					ObjectMatchingReference<Skill, Boolean> omr =
+							new ObjectMatchingReference<Skill, Boolean>(tokText,
+								SKILL_CLASS, allRef, ObjectKey.EXCLUSIVE, Boolean.FALSE);
 					omr.returnIncludesNulls(true);
 					refs.add(omr);
 				}
@@ -155,8 +156,9 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				{
 					if (autoRank != null)
 					{
-						return new ParseResult.Fail("Cannot have two AUTORANK= items in "
-										+ getFullName() + ": " + value, context);
+						return new ParseResult.Fail("Cannot have two "
+							+ "AUTORANK= items in " + getFullName() + ": " + value,
+							context);
 					}
 					String rankString = tokText.substring(9);
 					try

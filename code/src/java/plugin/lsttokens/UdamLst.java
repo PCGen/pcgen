@@ -91,7 +91,8 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 			if (tok.countTokens() != 9 && tok.countTokens() != 1)
 			{
 				return new ParseResult.Fail(getTokenName()
-						+ " requires either a single value or 9 comma separated values", context);
+					+ " requires either a single value or 9 comma separated values",
+					context);
 			}
 			if (context.getObjectContext().containsListFor(obj,
 					ListKey.UNARMED_DAMAGE))

@@ -114,9 +114,9 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 						weightCapacity));
 				if (BigDecimal.ZERO.compareTo(weightCap) > 0)
 				{
-					return new ParseResult.Fail("Weight Capacity must be >= 0: "
-											+ weightCapacity
-											+ "\n  Use 'UNLIM' (not -1) for unlimited Count", context);
+					return new ParseResult.Fail(
+						"Weight Capacity must be >= 0: " + weightCapacity
+							+ "\n  Use 'UNLIM' (not -1) for unlimited Count", context);
 				}
 			}
 			catch (NumberFormatException ex)
@@ -177,8 +177,8 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 					}
 					if (BigDecimal.ZERO.compareTo(itemNumber) >= 0)
 					{
-						return new ParseResult.Fail("Cannot have negative quantity of " + itemType
-										+ ": " + value, context);
+						return new ParseResult.Fail("Cannot have negative quantity of "
+							+ itemType + ": " + value, context);
 					}
 				}
 				if (limited)

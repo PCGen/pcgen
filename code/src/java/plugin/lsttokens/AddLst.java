@@ -60,9 +60,10 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 				if (obj instanceof PCClassLevel)
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
-					cpr.addErrorMessage("Warning: You performed an invalid .CLEAR in a ADD: Token");
-					cpr.addErrorMessage("  A non-level limited .CLEAR was used in a Class Level line in "
-									+ obj.getKeyName());
+					cpr.addErrorMessage("Warning: You performed an invalid "
+						+ ".CLEAR in a ADD: Token");
+					cpr.addErrorMessage("  A non-level limited .CLEAR was "
+						+ "used in a Class Level line in " + obj.getKeyName());
 					return cpr;
 				}
 			}
@@ -85,14 +86,15 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 					if (level != obj.get(IntegerKey.LEVEL))
 					{
 						ComplexParseResult cpr = new ComplexParseResult();
-						cpr.addErrorMessage("Warning: You performed an invalid .CLEAR in a ADD: Token");
-						cpr.addErrorMessage("  A level limited .CLEAR ( "
-								+ value + " ) was used in a Class Level line");
-						cpr.addErrorMessage("  But was asked to clear a different Class Level ( "
-										+ level
-										+ " ) than the Class Level Line it appeared on: "
-										+ obj.getKeyName());
-						return cpr;
+						cpr.addErrorMessage("Warning: You performed an invalid "
+							+ ".CLEAR in a ADD: Token");
+						cpr.addErrorMessage("  A level limited .CLEAR ( " + value
+							+ " ) was used in a Class Level line");
+						cpr.addErrorMessage("  But was asked to clear a "
+							+ "different Class Level ( " + level
+							+ " ) than the Class Level Line it appeared on: "
+							+ obj.getKeyName());
+					return cpr;
 					}
 				}
 				catch (NumberFormatException e)

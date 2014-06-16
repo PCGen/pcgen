@@ -133,8 +133,8 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 									getTokenName(), category, ref, nature);
-							context.getObjectContext().addToList(obj, ListKey.GVF_CHOOSE_ACTOR,
-									ats);
+							context.getObjectContext().addToList(obj,
+								ListKey.GVF_CHOOSE_ACTOR, ats);
 							edgeList.add(ats);
 							loadList = false;
 						}
@@ -225,7 +225,8 @@ public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		}
 		if (added != null && !added.isEmpty())
 		{
-			HashMapToList<List<Prerequisite>, CDOMReference<Ability>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
+			HashMapToList<List<Prerequisite>, CDOMReference<Ability>> m =
+					new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
 			for (CDOMReference<Ability> ab : added.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : added.getListFor(ab))

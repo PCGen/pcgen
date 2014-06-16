@@ -121,13 +121,17 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 						int openBracketLoc = assoc.indexOf('[');
 						if (openBracketLoc == -1)
 						{
-							return new ParseResult.Fail("Found close bracket without open bracket in assocation in "
-									+ getTokenName() + ": " + value, context);
+							return new ParseResult.Fail(
+								"Found close bracket without open bracket "
+									+ "in assocation in " + getTokenName() + ": " + value,
+								context);
 						}
 						if (openBracketLoc != assoc.lastIndexOf('['))
 						{
-							return new ParseResult.Fail("Found open bracket without close bracket in assocation in "
-									+ getTokenName() + ": " + value, context);
+							return new ParseResult.Fail(
+								"Found open bracket without close bracket "
+									+ "in assocation in " + getTokenName() + ": " + value,
+								context);
 						}
 					}
 				}

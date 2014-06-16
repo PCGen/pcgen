@@ -169,8 +169,8 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 								SOURCE, category, ref, nature);
-							context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR,
-									ats);
+							context.getObjectContext().addToList(obj,
+								ListKey.NEW_CHOOSE_ACTOR, ats);
 							edgeList.add(ats);
 							loadList = false;
 						}
@@ -229,7 +229,8 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		Set<String> returnSet = new TreeSet<String>();
 		List<String> returnList = new ArrayList<String>();
-		MapToList<List<Prerequisite>, CDOMReference<Ability>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
+		MapToList<List<Prerequisite>, CDOMReference<Ability>> m =
+				new HashMapToList<List<Prerequisite>, CDOMReference<Ability>>();
 		AbilityCategory category = AbilityCategory.FEAT;
 		Nature nature = Nature.AUTOMATIC;
 

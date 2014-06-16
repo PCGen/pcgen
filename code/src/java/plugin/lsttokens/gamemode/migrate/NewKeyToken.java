@@ -58,8 +58,11 @@ public class NewKeyToken implements MigrationLstToken
 		return "NEWKEY";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.MigrationLstToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.persistence.lst.MigrationLstToken#parse(pcgen.core.system.MigrationRule, java.lang.String,
+	 * java.lang.String)
 	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,

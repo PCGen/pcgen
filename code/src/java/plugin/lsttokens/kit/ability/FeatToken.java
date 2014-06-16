@@ -105,9 +105,9 @@ public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, KitAbilities KitAbilities)
+	public String[] unparse(LoadContext context, KitAbilities kitAbilities)
 	{
-		Collection<CDOMReference<Ability>> ref = KitAbilities.getAbilityKeys();
+		Collection<CDOMReference<Ability>> ref = kitAbilities.getAbilityKeys();
 		if (ref == null || ref.isEmpty())
 		{
 			return null;

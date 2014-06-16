@@ -222,7 +222,8 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>> dkmtl = new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>>();
+		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>> dkmtl =
+				new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>>();
 		List<String> list = new ArrayList<String>();
 		Changes<CDOMReference> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);

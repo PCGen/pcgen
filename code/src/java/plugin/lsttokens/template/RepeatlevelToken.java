@@ -172,9 +172,9 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		if (iLevel + lvlIncrement > maxLevel)
 		{
-			return new ParseResult.Fail("Malformed "
-							+ getTokenName()
-							+ " Token (Does not repeat, Staring Level + Increment > Maximum Level)", context);
+			return new ParseResult.Fail("Malformed " + getTokenName()
+				+ " Token (Does not repeat, Staring Level + Increment > Maximum Level)",
+				context);
 		}
 		if (consecutive != 0
 				&& ((maxLevel - iLevel) / lvlIncrement) < consecutive)
@@ -210,7 +210,8 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 			{
 				PCTemplate derivative = new PCTemplate();
 				derivative.put(IntegerKey.LEVEL, count);
-				context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
+				context.getReferenceContext().getManufacturer(PCTemplate.class)
+					.addDerivativeObject(derivative);
 				context.getObjectContext().addToList(consolidator,
 						ListKey.LEVEL_TEMPLATES, derivative);
 				try

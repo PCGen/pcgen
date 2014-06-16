@@ -98,7 +98,9 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					if (isPre)
 					{
-						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+						String errorText =
+								"Invalid " + getTokenName() + ": " + value
+									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
 						return new ParseResult.Fail(errorText, context);
 					}
@@ -176,7 +178,8 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				.getListChanges(obj, ListKey.EQUIPMENT);
 		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes
 				.getAdded();
-		HashMapToList<List<Prerequisite>, CDOMReference<Equipment>> m = new HashMapToList<List<Prerequisite>, CDOMReference<Equipment>>();
+		HashMapToList<List<Prerequisite>, CDOMReference<Equipment>> m =
+				new HashMapToList<List<Prerequisite>, CDOMReference<Equipment>>();
 		if (added != null)
 		{
 			for (QualifiedObject<CDOMReference<Equipment>> qo : added)
@@ -207,8 +210,9 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		for (List<Prerequisite> prereqs : m.getKeySet())
 		{
 			List<CDOMReference<Equipment>> eq = m.getListFor(prereqs);
-			WeightedCollection<CDOMReference<Equipment>> refs = new WeightedCollection<CDOMReference<Equipment>>(
-					ReferenceUtilities.REFERENCE_SORTER);
+			WeightedCollection<CDOMReference<Equipment>> refs =
+					new WeightedCollection<CDOMReference<Equipment>>(
+						ReferenceUtilities.REFERENCE_SORTER);
 			refs.addAll(eq);
 			String ab = ReferenceUtilities.joinLstFormat(refs, Constants.PIPE);
 			if (prereqs != null && !prereqs.isEmpty())

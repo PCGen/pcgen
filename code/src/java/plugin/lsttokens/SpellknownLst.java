@@ -189,7 +189,8 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 		StringTokenizer clTok = new StringTokenizer(casterString,
 				Constants.COMMA);
-		List<CDOMReference<? extends CDOMList<Spell>>> slList = new ArrayList<CDOMReference<? extends CDOMList<Spell>>>();
+		List<CDOMReference<? extends CDOMList<Spell>>> slList =
+				new ArrayList<CDOMReference<? extends CDOMList<Spell>>>();
 		while (clTok.hasMoreTokens())
 		{
 			String classString = clTok.nextToken();
@@ -243,8 +244,8 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedClassLists = context
 				.getListContext().getChangedLists(obj, ClassSpellList.class);
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> classMap = getMap(
-			context, obj, changedClassLists, true);
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> classMap =
+				getMap(context, obj, changedClassLists, true);
 		for (String prereqs : classMap.getKeySet())
 		{
 			set.add(processUnparse("CLASS", classMap, prereqs).toString());

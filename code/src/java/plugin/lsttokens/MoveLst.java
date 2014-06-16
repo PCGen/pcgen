@@ -76,11 +76,6 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		//TODO Need to confirm with LST monkeys that MOVE works properly in equipment before making this permanent
-//		if (obj instanceof Equipment)
-//		{
-//			return false;
-//		}
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 		Movement cm;
 

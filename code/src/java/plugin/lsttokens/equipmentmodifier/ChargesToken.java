@@ -115,8 +115,8 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		if (max == null || min == null)
 		{
 			context
-					.addWriteMessage("EquipmentModifier requires both MAX_CHARGES and MIN_CHARGES for "
-							+ getTokenName() + " if one of the two is present");
+				.addWriteMessage("EquipmentModifier requires both MAX_CHARGES and MIN_CHARGES for "
+					+ getTokenName() + " if one of the two is present");
 			return null;
 		}
 		int minInt = min.intValue();

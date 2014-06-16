@@ -198,8 +198,8 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
 				getTokenName(), rcs);
 		cs.setTitle("Feat Choice");
-		PersistentTransitionChoice<CNAbilitySelection> tc = new ConcretePersistentTransitionChoice<CNAbilitySelection>(
-				cs, count);
+		PersistentTransitionChoice<CNAbilitySelection> tc =
+				new ConcretePersistentTransitionChoice<CNAbilitySelection>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)

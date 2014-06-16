@@ -119,11 +119,8 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 						FormulaFactory.getFormulaFor(la.toString())));
 			}
 		}
-		else
-		{
-			//Nothing to do here, matches 5.14 behavior
-			//TODO Should there at LEAST be a message here??
-		}
+		//else Nothing to do here, matches 5.14 behavior
+		//TODO Should there at LEAST be a message in an else??
 		return true;
 	}
 

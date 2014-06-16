@@ -102,10 +102,9 @@ public class EqBuilderSpellToken implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					return new ParseResult.Fail("CHOOSE:"
-									+ getTokenName()
-									+ " third argument must be an Integer or 'MAXLEVEL': "
-									+ value, context);
+					return new ParseResult.Fail("CHOOSE:" + getTokenName()
+						+ " third argument must be an Integer or 'MAXLEVEL': " + value,
+						context);
 				}
 			}
 		}

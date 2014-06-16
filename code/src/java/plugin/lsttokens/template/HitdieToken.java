@@ -76,8 +76,9 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 					String substring = lock.substring(pipeLoc + 12);
 					if (substring.length() == 0)
 					{
-						return new ParseResult.Fail("Cannot have Empty Type Limitation in "
-										+ getTokenName() + ": " + value, context);
+						return new ParseResult.Fail(
+							"Cannot have Empty Type Limitation in " + getTokenName()
+								+ ": " + value, context);
 					}
 					ParseResult pr = checkForIllegalSeparator('.', substring);
 					if (!pr.passed())
@@ -92,8 +93,9 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 					String substring = lock.substring(pipeLoc + 7);
 					if (substring.length() == 0)
 					{
-						return new ParseResult.Fail("Cannot have Empty Class Limitation in "
-										+ getTokenName() + ": " + value, context);
+						return new ParseResult.Fail(
+							"Cannot have Empty Class Limitation in " + getTokenName()
+								+ ": " + value, context);
 					}
 					owner = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS,
 							substring);

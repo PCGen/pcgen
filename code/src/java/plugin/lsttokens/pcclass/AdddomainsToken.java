@@ -143,9 +143,12 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 				break;
 			}
 			AssociatedPrereqObject apo =
-					context.getListContext().addToList(getTokenName(), pcc,
+					context.getListContext().addToList(
+						getTokenName(),
+						pcc,
 						PCClass.ALLOWED_DOMAINS,
-						context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString));
+						context.getReferenceContext().getCDOMReference(DOMAIN_CLASS,
+							tokString));
 			apoList.add(apo);
 		}
 		while (true)

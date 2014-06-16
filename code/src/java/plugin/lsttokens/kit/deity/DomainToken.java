@@ -44,6 +44,9 @@ import pcgen.rules.persistence.token.ParseResult;
 public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 		CDOMPrimaryToken<KitDeity>
 {
+
+	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
@@ -75,7 +78,6 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 		while (pipeTok.hasMoreTokens())
 		{
 			String tokString = pipeTok.nextToken();
-			Class<Domain> DOMAIN_CLASS = Domain.class;
 			CDOMSingleRef<Domain> ref =
 					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
 			kitDeity.addDomain(ref);

@@ -93,7 +93,9 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					if (isPre)
 					{
-						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+						String errorText =
+								"Invalid " + getTokenName() + ": " + value
+									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
 						return new ParseResult.Fail(errorText, context);
 					}
@@ -154,8 +156,8 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
 				foundAny = true;
-				armorProfs
-						.add(context.getReferenceContext().getCDOMAllReference(ARMORPROF_CLASS));
+				armorProfs.add(context.getReferenceContext().getCDOMAllReference(
+					ARMORPROF_CLASS));
 			}
 			else if (aProf.startsWith("ARMORTYPE.")
 					|| aProf.startsWith("ARMORTYPE="))

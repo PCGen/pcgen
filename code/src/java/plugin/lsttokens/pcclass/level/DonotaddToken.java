@@ -48,7 +48,8 @@ public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> impl
 			else
 			{
 				ComplexParseResult pr = new ComplexParseResult();
-				pr.addErrorMessage(getTokenName() + " encountered an invalid 'Do Not Add' type: " + value);
+				pr.addErrorMessage(getTokenName()
+					+ " encountered an invalid 'Do Not Add' type: " + value);
 				pr.addErrorMessage("  Legal values are: HITDIE, SKILLPOINTS");
 				return pr;
 			}

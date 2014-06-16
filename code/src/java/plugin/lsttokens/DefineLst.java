@@ -64,11 +64,10 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (sep.hasNext())
 			{
-				return new ParseResult.Fail(
-						getTokenName()
-								+ " found UNLOCK. with additional pipe separated item.  "
-								+ "Must be of Format: varName|varFormula or "
-								+ "LOCK.<stat>|value or UNLOCK.<stat>", context);
+				return new ParseResult.Fail(getTokenName()
+					+ " found UNLOCK. with additional pipe separated item.  "
+					+ "Must be of Format: varName|varFormula or "
+					+ "LOCK.<stat>|value or UNLOCK.<stat>", context);
 			}
 			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value
 					.substring(7));

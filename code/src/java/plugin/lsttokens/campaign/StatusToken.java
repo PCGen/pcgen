@@ -82,4 +82,5 @@ public class StatusToken implements CDOMPrimaryToken<Campaign>
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;
-	}}
+	}
+}

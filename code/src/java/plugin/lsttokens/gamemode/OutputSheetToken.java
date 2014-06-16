@@ -53,7 +53,7 @@ public class OutputSheetToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		String tokens[] = value.split("\\|");
+		String[] tokens = value.split("\\|");
 		List<String> validTags = new ArrayList<String>(Arrays.asList("HTM", "PDF", "TXT"));
 		
 		if (tokens.length == 2)
@@ -65,7 +65,7 @@ public class OutputSheetToken implements GameModeLstToken
 			}
 			if (tokens[0].startsWith("DEFAULT."))
 			{
-				String subtokens[] = tokens[0].split("\\.");
+				String[] subtokens = tokens[0].split("\\.");
 				if (subtokens.length == 2)
 				{
 					if (validTags.contains(subtokens[1]))

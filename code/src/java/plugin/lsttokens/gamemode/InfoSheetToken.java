@@ -50,7 +50,7 @@ public class InfoSheetToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		String tokens[] = value.split("\\|");
+		String[] tokens = value.split("\\|");
 		
 		if (tokens.length != 2)
 		{

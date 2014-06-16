@@ -58,7 +58,7 @@ public class StartStatMaxToken implements GameModeLstToken
 		}
 		catch (NumberFormatException exc)
 		{
+			return false;
 		}
-		return false;
 	}
 }

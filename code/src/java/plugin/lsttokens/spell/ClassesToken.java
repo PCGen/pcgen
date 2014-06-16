@@ -195,7 +195,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 							SPELLLIST_CLASS, token);
 					if (ref == null)
 					{
-						return new ParseResult.Fail("  error was in " + getTokenName(), context);
+						return new ParseResult.Fail("  error was in " + getTokenName(),
+							context);
 					}
 				}
 				if (level == -1)
@@ -229,7 +230,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl = new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>>();
+		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl =
+				new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>>();
 		List<String> list = new ArrayList<String>();
 		Changes<CDOMReference> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);

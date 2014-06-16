@@ -139,24 +139,22 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 	{
 		if (info.getLoadMultiplierCount() == 0)
 		{
-			Logging
-					.errorPrint("Warning: load.lst for game mode "
-							+ info.getDisplayName()
-							+ " does not contain load category definitions. No weight categories will be available. "
-							+ "Please refer to the documentation for the Load List file. See: "
-							+ info.getSourceURI());
+			Logging.errorPrint("Warning: load.lst for game mode " + info.getDisplayName()
+				+ " does not contain load category definitions. "
+				+ "No weight categories will be available. "
+				+ "Please refer to the documentation for the Load List file. See: "
+				+ info.getSourceURI());
 			return false;
 		}
 		if ((info.getLoadMultiplier("LIGHT") == null)
 				|| (info.getLoadMultiplier("MEDIUM") == null)
 				|| (info.getLoadMultiplier("HEAVY") == null))
 		{
-			Logging
-					.errorPrint("Warning: load.lst for game mode "
-							+ info.getDisplayName()
-							+ " does not contain load category definitions for 'Light', 'Medium' and 'Heavy'. "
-							+ "Please refer to the documentation for the Load List file. See: "
-							+ info.getSourceURI());
+			Logging.errorPrint("Warning: load.lst for game mode " + info.getDisplayName()
+				+ " does not contain load category definitions "
+				+ "for 'Light', 'Medium' and 'Heavy'. "
+				+ "Please refer to the documentation for the Load List file. See: "
+				+ info.getSourceURI());
 			return false;
 		}
 		return true;

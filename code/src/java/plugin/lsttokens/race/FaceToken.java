@@ -55,14 +55,14 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 			if (commaLoc == 0)
 			{
 				return new ParseResult.Fail(getTokenName()
-								+ " should not start with a comma.  Must be of the form: "
-								+ getTokenName() + ":<num>[,<num>]", context);
+					+ " should not start with a comma.  Must be of the form: "
+					+ getTokenName() + ":<num>[,<num>]", context);
 			}
 			if (commaLoc == value.length() - 1)
 			{
 				return new ParseResult.Fail(getTokenName()
-								+ " should not end with a comma.  Must be of the form: "
-								+ getTokenName() + ":<num>[,<num>]", context);
+					+ " should not end with a comma.  Must be of the form: "
+					+ getTokenName() + ":<num>[,<num>]", context);
 			}
 			try
 			{

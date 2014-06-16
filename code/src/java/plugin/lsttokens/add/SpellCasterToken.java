@@ -145,11 +145,10 @@ public class SpellCasterToken extends AbstractToken implements
 									.substring(5));
 					if (ref == null)
 					{
-						return new ParseResult.Fail("  Error was encountered while parsing "
-										+ getFullName()
-										+ ": "
-										+ token
-										+ " is not a valid reference: " + value, context);
+						return new ParseResult.Fail(
+							"  Error was encountered while parsing " + getFullName()
+								+ ": " + token + " is not a valid reference: " + value,
+							context);
 					}
 					groups.add(ref);
 				}
@@ -283,7 +282,8 @@ public class SpellCasterToken extends AbstractToken implements
 	{
 		if (owner instanceof PCClassLevel)
 		{
-			// Bonuses for ADD:SPELLCASTER are restored on load for a PCClassLevel so no need to restore here.
+			// Bonuses for ADD:SPELLCASTER are restored on load
+			// for a PCClassLevel so no need to restore here.
 			return;
 		}
 		applyChoice(owner, choice, pc);

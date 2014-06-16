@@ -76,9 +76,9 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		{
 			if (pcs != null)
 			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " expected HAS_BONUS_SPELL_STAT to exist if BONUS_SPELL_STAT was defined");
+				context.addWriteMessage(getTokenName()
+					+ " expected HAS_BONUS_SPELL_STAT to exist "
+					+ "if BONUS_SPELL_STAT was defined");
 			}
 			return null;
 		}
@@ -86,9 +86,9 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		{
 			if (pcs == null)
 			{
-				context
-						.addWriteMessage(getTokenName()
-								+ " expected BONUS_SPELL_STAT to exist since HAS_BONUS_SPELL_STAT was false");
+				context.addWriteMessage(getTokenName()
+					+ " expected BONUS_SPELL_STAT to exist "
+					+ "since HAS_BONUS_SPELL_STAT was false");
 				return null;
 			}
 			return new String[] { pcs.getLSTformat() };

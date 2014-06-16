@@ -98,8 +98,8 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " has no PIPE character: Must be of the form <follower type>|<formula>", context);
+			return new ParseResult.Fail(getTokenName() + " has no PIPE character: "
+				+ "Must be of the form <follower type>|<formula>", context);
 		}
 		String followerNumber = sep.next();
 		if (sep.hasNext())

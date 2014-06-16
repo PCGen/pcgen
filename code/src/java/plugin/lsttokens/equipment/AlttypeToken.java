@@ -63,15 +63,16 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 				if (isEmpty(value))
 				{
 					return new ParseResult.Fail(getTokenName()
-									+ "started with .CLEAR. but expected to have a Type after .: "
-									+ value, context);
+						+ "started with .CLEAR. but expected to have a Type after .: "
+						+ value, context);
 				}
 			}
 			else
 			{
-				return new ParseResult.Fail(getTokenName()
-								+ "started with .CLEAR but expected next character to be .: "
-								+ value, context);
+				return new ParseResult.Fail(
+					getTokenName()
+						+ "started with .CLEAR but expected next character to be .: "
+						+ value, context);
 			}
 		}
 		ParseResult pr = checkForIllegalSeparator('.', value);

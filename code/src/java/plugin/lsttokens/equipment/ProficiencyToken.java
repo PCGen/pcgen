@@ -53,7 +53,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("Equipment Token PROFICIENCY syntax "
-							+ "without a Subtoken is invalid: PROFICIENCY:" + value, context);
+				+ "without a Subtoken is invalid: PROFICIENCY:" + value, context);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
@@ -65,8 +65,8 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		String prof = value.substring(pipeLoc + 1);
 		if (prof == null || prof.length() == 0)
 		{
-			return new ParseResult.Fail("PROFICIENCY cannot have " + "empty second argument: "
-							+ value, context);
+			return new ParseResult.Fail("PROFICIENCY cannot have "
+				+ "empty second argument: " + value, context);
 		}
 		if (subtoken.equals("WEAPON"))
 		{

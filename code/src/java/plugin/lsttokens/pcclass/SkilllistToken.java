@@ -43,7 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
 public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 		implements CDOMPrimaryToken<PCClass>
 {
-	private static Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
+	private static final Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
 
 	@Override
 	public String getTokenName()

@@ -216,7 +216,9 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		 *
 		 * See CDOMObject.
 		 */
-		DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm = new DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object>(LinkedHashMap.class, HashMap.class);
+		DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm =
+				new DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object>(
+					LinkedHashMap.class, HashMap.class);
 		while (true)
 		{
 			if (token.length() == 0)

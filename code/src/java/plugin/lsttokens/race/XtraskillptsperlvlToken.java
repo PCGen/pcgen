@@ -64,7 +64,8 @@ public class XtraskillptsperlvlToken extends AbstractNonEmptyToken<Race> impleme
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, Race race) {
+	public String[] unparse(LoadContext context, Race race)
+	{
 		Formula f = context.getObjectContext().getFormula(race, FormulaKey.SKILL_POINTS_PER_LEVEL);
 		if (f == null)
 		{

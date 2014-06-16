@@ -252,9 +252,10 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				return new ParseResult.Fail(getTokenName()
-								+ ": Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): "
-								+ optArg, context);
+				return new ParseResult.Fail(
+					getTokenName()
+						+ ": Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): "
+						+ optArg, context);
 			}
 			if (!tok.hasMoreTokens())
 			{
@@ -331,7 +332,8 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
-		TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<? extends CDOMObject>>, Integer, CDOMReference<Race>> m = new TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<? extends CDOMObject>>, Integer, CDOMReference<Race>>();
+		TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<? extends CDOMObject>>, Integer, CDOMReference<Race>> m =
+				new TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<? extends CDOMObject>>, Integer, CDOMReference<Race>>();
 		for (FollowerOption fo : added)
 		{
 			m.addToListFor(new HashSet<Prerequisite>(fo.getPrerequisiteList()),

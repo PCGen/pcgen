@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 public class UpToken extends AbstractTokenWithSeparator<WieldCategory>
 		implements CDOMPrimaryToken<WieldCategory>
 {
-	private final Class<WieldCategory> WIELD_CATEGORY_CLASS = WieldCategory.class;
+	private static final Class<WieldCategory> WIELD_CATEGORY_CLASS = WieldCategory.class;
 
 	@Override
 	public String getTokenName()

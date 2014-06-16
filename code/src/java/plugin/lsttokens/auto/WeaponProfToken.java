@@ -91,7 +91,9 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				{
 					if (isPre)
 					{
-						String errorText = "Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
+						String errorText =
+								"Invalid " + getTokenName() + ": " + value
+									+ "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
 						return new ParseResult.Fail(errorText, context);
 					}

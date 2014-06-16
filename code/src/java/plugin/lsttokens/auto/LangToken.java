@@ -44,8 +44,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
-		ChooseSelectionActor<Language> {
+public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<Language>
+{
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
@@ -100,7 +101,8 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				prereq = getPrerequisite(token);
 				if (prereq == null)
 				{
-					return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName(), context);
+					return new ParseResult.Fail("Error generating Prerequisite " + prereq
+						+ " in " + getFullName(), context);
 				}
 				int preStart = value.indexOf(token) - 1;
 				lang = value.substring(0, preStart);
@@ -117,17 +119,20 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
-							+ getTokenName() + ": When used, .CLEAR must be the first argument", context);
+					return new ParseResult.Fail("Non-sensical situation was "
+						+ "encountered while parsing " + getTokenName()
+						+ ": When used, .CLEAR must be the first argument", context);
 				}
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
-			} else if (Constants.LST_PERCENT_LIST.equals(token))
+			}
+			else if (Constants.LST_PERCENT_LIST.equals(token))
 			{
 				ChooseSelectionActor<Language> cra;
 				if (prereq == null)
 				{
 					cra = this;
-				} else
+				}
+				else
 				{
 					ConditionalSelectionActor<Language> cca =
 							new ConditionalSelectionActor<Language>(this);
@@ -136,32 +141,37 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				}
 				foundOther = true;
 				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
-			} else if (Constants.LST_ALL.equals(token))
+			}
+			else if (Constants.LST_ALL.equals(token))
 			{
 				foundAny = true;
 				context.getObjectContext().addToList(
 						obj,
 						ListKey.AUTO_LANGUAGE,
-						new QualifiedObject<CDOMReference<Language>>(context.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS),
-								prereq));
-			} else
+					new QualifiedObject<CDOMReference<Language>>(context
+						.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS),
+						prereq));
+			}
+			else
 			{
 				foundOther = true;
-				CDOMReference<Language> ref = TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, token);
+				CDOMReference<Language> ref =
+						TokenUtilities.getTypeOrPrimitive(context, LANGUAGE_CLASS, token);
 				if (ref == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName(), context);
+					return new ParseResult.Fail("  Error was encountered while parsing "
+						+ getTokenName(), context);
 				}
 				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGE,
-						new QualifiedObject<CDOMReference<Language>>(ref, prereq));
+					new QualifiedObject<CDOMReference<Language>>(ref, prereq));
 			}
 			firstToken = false;
 		}
 
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: "
-					+ value, context);
+			return new ParseResult.Fail("Non-sensical " + getFullName()
+				+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
 		return ParseResult.SUCCESS;
@@ -171,8 +181,8 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		Changes<QualifiedObject<CDOMReference<Language>>> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.AUTO_LANGUAGE);
+		Changes<QualifiedObject<CDOMReference<Language>>> changes =
+				context.getObjectContext().getListChanges(obj, ListKey.AUTO_LANGUAGE);
 		Changes<ChooseSelectionActor<?>> listChanges =
 				context.getObjectContext().getListChanges(obj,
 					ListKey.NEW_CHOOSE_ACTOR);
@@ -199,7 +209,8 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 						}
 						sb.append(cra.getLstFormat());
 						foundOther = true;
-					} catch (PersistenceLayerException e)
+					}
+					catch (PersistenceLayerException e)
 					{
 						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
@@ -227,8 +238,9 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				{
 					if (prereqs.size() > 1)
 					{
-						context.addWriteMessage("Error: " + obj.getClass().getSimpleName()
-								+ " had more than one Prerequisite for " + getFullName());
+						context.addWriteMessage("Error: "
+							+ obj.getClass().getSimpleName()
+							+ " had more than one Prerequisite for " + getFullName());
 						return null;
 					}
 					Prerequisite p = prereqs.get(0);
@@ -236,7 +248,8 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 					try
 					{
 						prereqWriter.write(swriter, p);
-					} catch (PersistenceLayerException e)
+					}
+					catch (PersistenceLayerException e)
 					{
 						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
@@ -248,7 +261,8 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		}
 		if (foundAny && foundOther)
 		{
-			context.addWriteMessage("Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + sb);
+			context.addWriteMessage("Non-sensical " + getFullName()
+				+ ": Contains ANY and a specific reference: " + sb);
 			return null;
 		}
 		if (sb.length() == 0)

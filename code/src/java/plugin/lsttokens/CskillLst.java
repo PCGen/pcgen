@@ -143,8 +143,8 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 								tokText);
 						if (ref == null)
 						{
-							return new ParseResult.Fail("  Error was encountered while parsing "
-											+ getTokenName(), context);
+							return new ParseResult.Fail("  Error was encountered "
+								+ "while parsing " + getTokenName(), context);
 						}
 						context.getObjectContext().addToList(obj,
 								ListKey.CSKILL, ref);

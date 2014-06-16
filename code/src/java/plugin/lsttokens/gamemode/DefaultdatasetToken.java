@@ -56,7 +56,7 @@ public class DefaultdatasetToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		String tokens[] = value.split("\\|");
+		String[] tokens = value.split("\\|");
 		
 		final StringTokenizer aTok = new StringTokenizer(tokens[0], ",", false);
 		gameMode.clearDefaultDataSetList();

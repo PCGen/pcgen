@@ -48,8 +48,8 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		implements CDOMPrimaryToken<PCClass>
 {
 
-	private static Class<ClassSpellList> SPELLLIST_CLASS = ClassSpellList.class;
-	private static Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
+	private static final Class<ClassSpellList> SPELLLIST_CLASS = ClassSpellList.class;
+	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 
 	@Override
 	public String getTokenName()
@@ -83,7 +83,8 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 					+ " must have a | separating "
 					+ "count from the list of possible values: " + value, context);
 		}
-		List<CDOMReference<? extends CDOMListObject<Spell>>> refs = new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
+		List<CDOMReference<? extends CDOMListObject<Spell>>> refs =
+				new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
 
 		while (tok.hasMoreTokens())
 		{

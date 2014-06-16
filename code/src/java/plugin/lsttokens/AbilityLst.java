@@ -243,7 +243,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 									getTokenName(), category, ref, nature);
-							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS, lk);
+							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS,
+								lk);
 							context.getObjectContext().addToList(obj, lk, ats);
 							edgeList.add(ats);
 							loadList = false;
@@ -313,8 +314,10 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		Changes<ListKey<ChooseSelectionActor<?>>> actors = context.getObjectContext()
 				.getListChanges(obj, ListKey.GA_CAKEYS);
 		Set<String> returnSet = new TreeSet<String>();
-		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
-		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear = new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m =
+				new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear =
+				new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
 		for (CDOMReference ref : changedLists)
 		{
 			AssociatedChanges<CDOMReference<Ability>> changes =

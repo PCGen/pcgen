@@ -111,8 +111,8 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 						String ownedTemplateName = subStr.substring(9);
 
 						CDOMSingleRef<PCTemplate> ref =
-								context.getReferenceContext().getCDOMReference(TEMPLATE_CLASS,
-									ownedTemplateName);
+								context.getReferenceContext().getCDOMReference(
+									TEMPLATE_CLASS, ownedTemplateName);
 						subList.add(ref);
 					}
 					else

@@ -195,7 +195,8 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 				.getAddedAssociations();
 		if (mtl != null && !mtl.isEmpty())
 		{
-			MapToList<Set<Prerequisite>, CDOMReference<Domain>> m = new HashMapToList<Set<Prerequisite>, CDOMReference<Domain>>();
+			MapToList<Set<Prerequisite>, CDOMReference<Domain>> m =
+					new HashMapToList<Set<Prerequisite>, CDOMReference<Domain>>();
 			for (CDOMReference<Domain> ab : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
@@ -210,7 +211,9 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 				Set<CDOMReference<Domain>> domainSet = new TreeSet<CDOMReference<Domain>>(
 						ReferenceUtilities.REFERENCE_SORTER);
 				domainSet.addAll(m.getListFor(prereqs));
-				StringBuilder sb = new StringBuilder(ReferenceUtilities.joinLstFormat(domainSet, Constants.COMMA, true));
+				StringBuilder sb =
+						new StringBuilder(ReferenceUtilities.joinLstFormat(domainSet,
+							Constants.COMMA, true));
 				if (prereqs != null && !prereqs.isEmpty())
 				{
 					sb.append(Constants.PIPE);
