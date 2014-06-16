@@ -146,7 +146,9 @@
 						<fo:block><xsl:value-of select="cohort/@level"/></fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="1mm" />
+				<fo:table-row height="1mm" >
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell padding-top="1pt">
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'leadership.follower.title'"/></xsl:call-template>
