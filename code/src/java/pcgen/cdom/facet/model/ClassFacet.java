@@ -71,25 +71,26 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass>
 	}
 
 	/**
-	 * Sets the PCClassLevel object associated with the given PCClass for the
-	 * Player Character represented by the given CharID. Returns true if the set
-	 * is successful. The set will be successful if the given PCClass is
-	 * possessed by the given PlayerCharacter; false otherwise.
+	 * Sets the PCClassLevel object associated with the given PCClass for the Player
+	 * Character represented by the given CharID. Returns true if the set is successful.
+	 * The set will be successful if the given PCClass is possessed by the given
+	 * PlayerCharacter; false otherwise.
 	 * 
-	 * The (numeric) class level for which the given PCClassLevel should be
-	 * applied is determined by the level value set in the PCClassLevel.
+	 * The (numeric) class level for which the given PCClassLevel should be applied is
+	 * determined by the level value set in the PCClassLevel.
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            given PCClassLevel should be set
+	 *            The CharID representing the Player Character for which the given
+	 *            PCClassLevel should be set
 	 * @param pcc
-	 *            The PCClass object for which the PCClassLevel object is set as
-	 *            the PCClass
+	 *            The PCClass object for which the PCClassLevel object is set as the
+	 *            PCClass
 	 * @param pcl
-	 *            The PCClassLevel object to be associated with the given
-	 *            PCClass and Player Character represented by the given CharID
+	 *            The PCClassLevel object to be associated with the given PCClass and
+	 *            Player Character represented by the given CharID
 	 * @return true if the set is successful; false otherwise.
 	 * @throws CloneNotSupportedException
+	 *             if the class level cannot be thrown
 	 */
 	public boolean setClassLevel(CharID id, PCClass pcc, PCClassLevel pcl)
 		throws CloneNotSupportedException

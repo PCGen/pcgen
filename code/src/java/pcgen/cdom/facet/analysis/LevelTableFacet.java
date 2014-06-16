@@ -73,8 +73,9 @@ public class LevelTableFacet
 	{
 		this.resolveFacet = resolveFacet;
 	}
-	
-	public void setXpTableFacet(XPTableFacet xpTableFacet) { 
-		this.xpTableFacet = xpTableFacet;
+
+	public void setXpTableFacet(XPTableFacet xpTableFacet)
+	{
+	this.xpTableFacet = xpTableFacet;
 	}
 }

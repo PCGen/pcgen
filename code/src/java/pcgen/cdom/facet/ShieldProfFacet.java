@@ -59,11 +59,11 @@ public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObje
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<ShieldProfProvider> ShieldProfs = cdo
+		List<ShieldProfProvider> shieldProfs = cdo
 				.getListFor(ListKey.AUTO_SHIELDPROF);
-		if (ShieldProfs != null)
+		if (shieldProfs != null)
 		{
-			shieldProfProviderFacet.addAll(dfce.getCharID(), ShieldProfs, cdo);
+			shieldProfProviderFacet.addAll(dfce.getCharID(), shieldProfs, cdo);
 		}
 	}
 

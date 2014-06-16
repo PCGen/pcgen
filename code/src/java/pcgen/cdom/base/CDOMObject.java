@@ -93,7 +93,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * match the integration tests that we perform, and their current behavior.
 	 * Not sure if this is really the best solution?
 	 */
-	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = null;
+	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods =
+			null;
 
 	public final boolean containsKey(IntegerKey key)
 	{
@@ -132,7 +133,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<IntegerKey> getIntegerKeys()
 	{
-		return integerChar == null ? Collections.<IntegerKey>emptySet() : new HashSet<IntegerKey>(integerChar.keySet());
+		return integerChar == null ? Collections.<IntegerKey> emptySet()
+			: new HashSet<IntegerKey>(integerChar.keySet());
 	}
 
 	public final boolean containsKey(StringKey key)
@@ -154,7 +156,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final String put(StringKey key, String value)
 	{
 		if (stringChar == null)
+		{
 			stringChar = new HashMap<StringKey, String>();
+		}
 		return stringChar.put(key, value);
 	}
 
@@ -170,7 +174,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<StringKey> getStringKeys()
 	{
-		return stringChar == null ? Collections.<StringKey>emptySet() : new HashSet<StringKey>(stringChar.keySet());
+		return stringChar == null ? Collections.<StringKey> emptySet()
+			: new HashSet<StringKey>(stringChar.keySet());
 	}
 
 	public final boolean containsKey(FormulaKey key)
@@ -210,7 +215,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<FormulaKey> getFormulaKeys()
 	{
-		return formulaChar == null ? Collections.<FormulaKey>emptySet() : new HashSet<FormulaKey>(formulaChar.keySet());
+		return formulaChar == null ? Collections.<FormulaKey> emptySet()
+			: new HashSet<FormulaKey>(formulaChar.keySet());
 	}
 
 	public final boolean containsKey(VariableKey key)
@@ -225,7 +231,8 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<VariableKey> getVariableKeys()
 	{
-		return variableChar == null ? Collections.<VariableKey>emptySet() : new HashSet<VariableKey>(variableChar.keySet());
+		return variableChar == null ? Collections.<VariableKey> emptySet()
+			: new HashSet<VariableKey>(variableChar.keySet());
 	}
 
 	public final Formula put(VariableKey key, Formula value)
@@ -886,7 +893,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		final List<BonusObj> aList = new ArrayList<BonusObj>();
 
-		for ( BonusObj bonus : getRawBonusList(pc) )
+		for (BonusObj bonus : getRawBonusList(pc))
 		{
 			if (pc.isApplied(bonus))
 			{

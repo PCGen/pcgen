@@ -18,7 +18,8 @@
 package pcgen.cdom.enumeration;
 
 /** An enumeration of &quot;Standard&quot; spell components */
-public enum Component {
+public enum Component
+{
 	/** Verbal Component &quot;V&quot; */
 	VERBAL("V", "Spell.Components.Verbal"), //$NON-NLS-1$ //$NON-NLS-2$
 	/** Somatic (movement) Component &quot;S&quot; */
@@ -61,11 +62,11 @@ public enum Component {
 	 * @return A Component object.  If no object matches <tt>OTHER</tt> is 
 	 * returned.
 	 */
-	public static Component getComponentFromKey( final String aKey )
+	public static Component getComponentFromKey(final String aKey)
 	{
-		for ( Component c : Component.values() )
+		for (Component c : Component.values())
 		{
-			if ( c.getKey().equalsIgnoreCase(aKey) )
+			if (c.getKey().equalsIgnoreCase(aKey))
 			{
 				return c;
 			}

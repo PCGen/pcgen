@@ -119,7 +119,7 @@ public final class RaceType implements TypeSafeConstant
 	public static RaceType valueOf(String name)
 	{
 		initializeTypeMap();
-		RaceType racetype= typeMap.get(name);
+		RaceType racetype = typeMap.get(name);
 		if (racetype == null)
 		{
 			throw new IllegalArgumentException(name

@@ -53,7 +53,7 @@ public class TotalWeightFacet
 	{
 		float totalWeight = 0;
 		final Float floatZero = Float.valueOf(0);
-		boolean firstClothing = ! Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);
+		boolean firstClothing = !Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);
 		
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		for (Equipment eq : equipmentFacet.getSet(id))

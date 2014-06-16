@@ -42,9 +42,9 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 {
 	private static final Double DOUBLE_ZERO = Double.valueOf(0.0d);
 
-	SkillRankFacet skillRankFacet;
+	private SkillRankFacet skillRankFacet;
 
-	BonusSkillRankChangeFacet bonusSkillRankChangeFacet;
+	private BonusSkillRankChangeFacet bonusSkillRankChangeFacet;
 
 	/**
 	 * Set the given association for the given object in this
@@ -53,11 +53,11 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            given association should be made
-	 * @param obj
-	 *            The object for which the association will be set
-	 * @param association
-	 *            The association for the given object
+	 *            given skill rank should be set
+	 * @param sk
+	 *            The skill for which the rank will be set
+	 * @param rank
+	 *            The rank for the given skill
 	 */
 	public void set(CharID id, Skill sk, Double rank)
 	{
@@ -90,8 +90,8 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given item association should be removed
-	 * @param obj
-	 *            The object for which the association should be removed
+	 * @param sk
+	 *            The skill for which the rank should be removed
 	 */
 	public void remove(CharID id, Skill sk)
 	{

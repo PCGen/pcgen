@@ -163,11 +163,15 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		public double movementOfType(CharID id, String moveType)
 		{
 			if (movementTypes == null)
+			{
 				return 0.0;
+			}
 			for (int moveIdx = 0; moveIdx < movementTypes.length; moveIdx++)
 			{
 				if (movementTypes[moveIdx].equalsIgnoreCase(moveType))
+				{
 					return movement(id, moveIdx);
+				}
 			}
 			return 0.0;
 		}

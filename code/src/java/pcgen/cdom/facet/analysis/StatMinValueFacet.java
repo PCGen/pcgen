@@ -131,9 +131,9 @@ public class StatMinValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 				{
 					for (Object source : set)
 					{
-						String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-								.getQualifiedKey()
-								: "";
+						String sourceString =
+								(source instanceof CDOMObject) ? ((CDOMObject) source)
+									.getQualifiedKey() : "";
 						Number val = formulaResolvingFacet.resolve(id, lock
 								.getLockValue(), sourceString);
 						if (val.doubleValue() > max.doubleValue())

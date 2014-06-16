@@ -97,7 +97,8 @@ import pcgen.persistence.lst.utils.DeferredLine;
  * @param <T>
  *            The class of object stored by this ListKey.
  */
-public final class ListKey<T> {
+public final class ListKey<T>
+{
 
 	/** FILE_ABILITY_CATEGORY - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_ABILITY_CATEGORY = new ListKey<CampaignSourceEntry>();
@@ -286,7 +287,8 @@ public final class ListKey<T> {
 	}
 
 	/** Private constructor to prevent instantiation of this class */
-	private ListKey() {
+	private ListKey()
+	{
 		//Only allow instantiation here
 	}
 
@@ -333,10 +335,12 @@ public final class ListKey<T> {
 					{
 						map.put(fields[i].getName(), (ListKey<?>) obj);
 					}
-				} catch (IllegalArgumentException e)
+				}
+				catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				} catch (IllegalAccessException e)
+				}
+				catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

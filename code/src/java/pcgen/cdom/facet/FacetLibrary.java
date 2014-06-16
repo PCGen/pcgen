@@ -28,8 +28,13 @@ import pcgen.cdom.helper.SpringHelper;
  * FacetLibrary is a container for the Facets that process information about
  * PlayerCharacters
  */
-public class FacetLibrary
+public final class FacetLibrary
 {
+	
+	private FacetLibrary()
+	{
+		//Do not instantiate
+	}
 
 	private static Map<Class<?>, Object> facets = new HashMap<Class<?>, Object>();
 

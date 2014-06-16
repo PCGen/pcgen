@@ -237,9 +237,9 @@ public class VisionFacet extends
 				{
 					if (prerequisiteFacet.qualifies(id, qo, source))
 					{
-						String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-								.getQualifiedKey()
-								: "";
+						String sourceString =
+								(source instanceof CDOMObject) ? ((CDOMObject) source)
+									.getQualifiedKey() : "";
 						Formula distance = v.getDistance();
 						int a = formulaResolvingFacet
 								.resolve(id, distance, sourceString).intValue();

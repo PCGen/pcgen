@@ -175,21 +175,21 @@ public class CNAbility extends ConcretePrereqObject implements
 	@Override
 	public int compareTo(CNAbility other)
 	{
-	    final int EQUAL = 0;
+	    final int equal = 0;
 
 		if (this == other)
 		{
-			return EQUAL;
+			return equal;
 		}
 		
 		// ability details
 		int compare = this.ability.compareTo(other.ability);
-		if (compare != EQUAL)
+		if (compare != equal)
 		{
 			return compare;
 		}
 		compare = this.category.toString().compareTo(other.category.toString());
-		if (compare != EQUAL)
+		if (compare != equal)
 		{
 			return compare;
 		}

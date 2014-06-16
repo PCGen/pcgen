@@ -153,8 +153,8 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new CNAbilitySelection(
-						CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+					set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+						AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -166,8 +166,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new CNAbilitySelection(
-							CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+						set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+							AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 					}
 				}
 			}

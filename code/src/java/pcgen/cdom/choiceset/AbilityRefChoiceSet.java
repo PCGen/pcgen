@@ -198,7 +198,8 @@ public class AbilityRefChoiceSet implements
 				}
 				else
 				{
-					returnSet.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category, nature, a)));
+					returnSet.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+						category, nature, a)));
 				}
 			}
 		}
@@ -287,7 +288,8 @@ public class AbilityRefChoiceSet implements
 				availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category, nature, ability), s));
+			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category,
+				nature, ability), s));
 		}
 		return returnList;
 	}

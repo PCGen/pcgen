@@ -55,7 +55,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<CharID, T>
 	{
 		if (obj == null)
 		{
-			Logging.errorPrint(thisClass + " received null item: ignoring");
+			Logging.errorPrint(getClass() + " received null item: ignoring");
 			return false;
 		}
 		T old = get(id);

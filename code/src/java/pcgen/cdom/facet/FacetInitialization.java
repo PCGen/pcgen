@@ -39,7 +39,13 @@ import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 
-public class FacetInitialization {
+public final class FacetInitialization
+{
+
+	private FacetInitialization()
+	{
+		//Do not instantiate
+	}
 
 	private static boolean isInitialized = false;
 	

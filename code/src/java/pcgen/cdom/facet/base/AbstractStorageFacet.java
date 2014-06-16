@@ -39,7 +39,7 @@ import pcgen.util.Logging;
 public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 {
 
-	public final Class<?> thisClass = getClass();
+	private final Class<?> thisClass = getClass();
 
 	/**
 	 * Copies the contents of the AbstractStorageFacet from one resource to

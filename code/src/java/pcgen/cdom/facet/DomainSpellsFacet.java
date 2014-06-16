@@ -76,9 +76,9 @@ public class DomainSpellsFacet extends
 			if (domainClass != null)
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
-				final int _maxLevel = pc.getSpellSupport(domainClass).getMaxCastLevel();
+				final int maxLevel = pc.getSpellSupport(domainClass).getMaxCastLevel();
 				DomainApplication.addSpellsToClassForLevels(pc, domain,
-						domainClass, 0, _maxLevel);
+						domainClass, 0, maxLevel);
 			}
 		}
 	}

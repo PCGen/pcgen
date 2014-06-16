@@ -24,8 +24,13 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 
-public class CNAbilityFactory
+public final class CNAbilityFactory
 {
+
+	private CNAbilityFactory()
+	{
+		//Do not instantiate
+	}
 
 	private static Map<CNAbility, CNAbility> map = new HashMap<CNAbility, CNAbility>();
 

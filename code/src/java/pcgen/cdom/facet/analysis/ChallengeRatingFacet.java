@@ -69,7 +69,7 @@ public class ChallengeRatingFacet
 	 */
 	public Float getCR(CharID id)
 	{
-		Float CR = new Float(0);
+		Float cr = new Float(0);
 		
 		if (levelFacet.getMonsterLevelCount(id) == 0)
 		{
@@ -78,7 +78,7 @@ public class ChallengeRatingFacet
 				return Float.NaN;
 			}
 			// calculate and add class CR for 0-HD races
-			CR += calcClassesCR(id);
+			cr += calcClassesCR(id);
 		}
 		else
 		{
@@ -89,31 +89,31 @@ public class ChallengeRatingFacet
 			{
 				return Float.NaN;
 			}
-			CR += calcRaceCR(id);
-			CR += classRaceCR;
+			cr += calcRaceCR(id);
+			cr += classRaceCR;
 		}
 		
 		// calculate and add CR bonus from templates
-		CR += getTemplateCR(id);
+		cr += getTemplateCR(id);
 
 		// calculate and add in the MISC bonus to CR
-		CR += (float) bonusCheckingFacet.getBonus(id, "MISC", "CR");
+		cr += (float) bonusCheckingFacet.getBonus(id, "MISC", "CR");
 
 		// change calculated results of less than CR 1 to fraction format
-		if (CR < 1)
+		if (cr < 1)
 		{
-			Float crMod = SettingsHandler.getGame().getCRSteps().get((int)CR.floatValue());
+			Float crMod = SettingsHandler.getGame().getCRSteps().get((int)cr.floatValue());
 			if (crMod != null)
 			{
-				CR = crMod;
+				cr = crMod;
 			}
 			else
 			{
-				CR = Math.max(CR, 0);
+				cr = Math.max(cr, 0);
 			}
 		}
 
-		return CR;
+		return cr;
 	}
 
 	/**
@@ -163,16 +163,16 @@ public class ChallengeRatingFacet
 	 */
 	private Float getTemplateCR(CharID id)
 	{
-		Float CR = new Float(0);
+		Float cr = new Float(0);
 
 		// Calculate and add the CR from the templates
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			CR +=
+			cr +=
 					template.getCR(levelFacet.getTotalLevels(id), levelFacet
 						.getMonsterLevelCount(id));
 		}
-		return CR;
+		return cr;
 	}
 
 	/**
@@ -186,35 +186,35 @@ public class ChallengeRatingFacet
 	 */
 	private Float calcClassesCR(CharID id)
 	{
-		Float CR = new Float(0);
-		Float CRMod = new Float(0);
-		int CRModPriority = 0;
+		Float cr = new Float(0);
+		Float crMod = new Float(0);
+		int crModPriority = 0;
 		
 		for (PCClass pcClass : classFacet.getClassSet(id))
 		{
-			CR += calcClassCR(id, pcClass);
+			cr += calcClassCR(id, pcClass);
 			int crmp = getClassCRModPriority(pcClass);
-			if (crmp != 0 && (crmp < CRModPriority || CRModPriority == 0))
+			if (crmp != 0 && (crmp < crModPriority || crModPriority == 0))
 			{
 				Float raceMod = getClassRaceCRMod(id, pcClass);
 				if (raceMod != null)
 				{
-					CRMod = raceMod;
+					crMod = raceMod;
 				}
 				else
 				{
-					CRMod = getClassCRMod(id, pcClass);
+					crMod = getClassCRMod(id, pcClass);
 				}
-				CRModPriority = crmp;
+				crModPriority = crmp;
 			}
 		}
-		CR += CRMod;
+		cr += crMod;
 		
-		return CR;
+		return cr;
 	}
 	private Float calcClassesForRaceCR(CharID id)
 	{
-		Float CR = new Float(0);
+		Float cr = new Float(0);
 		int levelsKey = 0;
 		int levelsNonKey = 0;
 		int levelsConverted = 0;
@@ -235,7 +235,7 @@ public class ChallengeRatingFacet
 				return Float.NaN;
 			}
 			
-			List<String> classRoleList= pcClass.getListFor(ListKey.MONSTER_ROLES);
+			List<String> classRoleList = pcClass.getListFor(ListKey.MONSTER_ROLES);
 			if (classRoleList != null) 
 			{
 				classRoleList.retainAll(raceRoleList);
@@ -271,7 +271,7 @@ public class ChallengeRatingFacet
 
 		while (levelsNonKey > 1)
 		{
-			CR++;
+			cr++;
 			// TODO: maybe the divisor 2 should be be made configurable, 
 			// or the whole calculation put into a formula
 			levelsNonKey -= 2;
@@ -283,11 +283,11 @@ public class ChallengeRatingFacet
 		}
 		if (levelsConverted > 0)
 		{
-			CR += levelsNonKey;
+			cr += levelsNonKey;
 		}
-		CR += levelsKey;
+		cr += levelsKey;
 	
-		return CR;
+		return cr;
 	}
 
 	private Float getClassRaceCRMod(CharID id, PCClass cl)
@@ -483,7 +483,7 @@ public class ChallengeRatingFacet
 			// If the CR is a fractional CR then we convert to a 1/x format
 			if (cr > 0 && cr < 1)
 			{
-				Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
+				Fraction fraction = Fraction.getFraction(cr);
 				int denominator = fraction.getDenominator();
 				int numerator = fraction.getNumerator();
 				crString = numerator + "/" + denominator;

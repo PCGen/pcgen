@@ -33,7 +33,7 @@ public class MasterUsableSkillFacet extends
 		DataSetInitializedFacet
 {
 
-	private DataSetInitializationFacet DataSetInitializationFacet;
+	private DataSetInitializationFacet dataSetInitializationFacet;
 
 	public synchronized void initialize(LoadContext context)
 	{
@@ -52,13 +52,13 @@ public class MasterUsableSkillFacet extends
 	}
 
 	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet DataSetInitializationFacet)
+		DataSetInitializationFacet dataSetInitializationFacet)
 	{
-		this.DataSetInitializationFacet = DataSetInitializationFacet;
+		this.dataSetInitializationFacet = dataSetInitializationFacet;
 	}
 
 	public void init()
 	{
-		DataSetInitializationFacet.addDataSetInitializedFacet(this);
+		dataSetInitializationFacet.addDataSetInitializedFacet(this);
 	}
 }

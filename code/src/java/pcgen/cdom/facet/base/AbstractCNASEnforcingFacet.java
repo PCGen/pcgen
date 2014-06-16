@@ -115,8 +115,10 @@ public class AbstractCNASEnforcingFacet extends
 						//Only fire if the CNAS differs to avoid churn
 						if (!cnas.equals(newPrimary) && (j == 0))
 						{
-							fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_REMOVED);
-							fireDataFacetChangeEvent(id, newPrimary, DataFacetChangeEvent.DATA_ADDED);
+							fireDataFacetChangeEvent(id, cnas,
+								DataFacetChangeEvent.DATA_REMOVED);
+							fireDataFacetChangeEvent(id, newPrimary,
+								DataFacetChangeEvent.DATA_ADDED);
 							return true;
 						}
 						return false;
