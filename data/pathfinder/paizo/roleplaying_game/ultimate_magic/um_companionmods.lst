@@ -519,8 +519,8 @@ FOLLOWER:FusedEidolonLVL=18		TYPE:Fused Eidolon		HD:1																											
 FOLLOWER:FusedEidolonLVL=19		TYPE:Fused Eidolon		HD:1																																		BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:FusedEidolonLVL=20		TYPE:Fused Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 ###Block:
-MASTERBONUSRACE:Fused Eidolon					TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	
-MASTERBONUSRACE:Fused Eidolon (Aquatic)			TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	
-MASTERBONUSRACE:Fused Eidolon (Biped)			TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	
-MASTERBONUSRACE:Fused Eidolon (Quadruped)			TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	
-MASTERBONUSRACE:Fused Eidolon (Serpentine)		TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	
+MASTERBONUSRACE:Fused Eidolon					TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP|Eidolon BAB	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	DEFINE:EidolonBAB|0	BONUS:VAR|EidolonBAB|var("BAB")	DEFINE:DisableBAB|0
+MASTERBONUSRACE:Fused Eidolon (Aquatic)			TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP|Eidolon BAB	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	DEFINE:EidolonBAB|0	BONUS:VAR|EidolonBAB|var("BAB")	DEFINE:DisableBAB|0
+MASTERBONUSRACE:Fused Eidolon (Biped)			TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP|Eidolon BAB	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	DEFINE:EidolonBAB|0	BONUS:VAR|EidolonBAB|var("BAB")	DEFINE:DisableBAB|0
+MASTERBONUSRACE:Fused Eidolon (Quadruped)			TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP|Eidolon BAB	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	DEFINE:EidolonBAB|0	BONUS:VAR|EidolonBAB|var("BAB")	DEFINE:DisableBAB|0
+MASTERBONUSRACE:Fused Eidolon (Serpentine)		TYPE:Fused Eidolon	ABILITY:Internal|AUTOMATIC|Eidolon HP|Eidolon BAB	DEFINE:EidolonHP|0	BONUS:VAR|EidolonHP|var("HP")	DEFINE:EidolonBAB|0	BONUS:VAR|EidolonBAB|var("BAB")	DEFINE:DisableBAB|0
