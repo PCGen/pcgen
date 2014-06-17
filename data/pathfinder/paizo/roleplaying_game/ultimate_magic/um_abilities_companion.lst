@@ -242,3 +242,11 @@ Poison		KEY:Scarlet Spider ~ Poison		CATEGORY:Special Ability	TYPE:SpecialAttack
 
 #Block: Turtle
 Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:A turtle can retreat within its shell as a swift action, gaining a +2 enhancement bonus to its existing natural armor. While in its shell, a turtle cannot take any action except to end the retreat. The turtle can end its retreat with a free action on its turn.																													SOURCEPAGE:p.120
+
+
+###Block: Fused Eidolon
+
+Eidolon HP	CATEGORY:Internal	BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1
+
+
+
