@@ -106,7 +106,7 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 	public CDOMGroupRef<T> getAllReference()
 	{
 		CDOMGroupRef<T> ref = rm.getAllReference();
-		context.track(ref);
+		context.trackReference(ref);
 		return ref;
 	}
 
@@ -138,7 +138,7 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 	public CDOMSingleRef<T> getReference(String key)
 	{
 		CDOMSingleRef<T> ref = rm.getReference(key);
-		context.track(ref);
+		context.trackReference(ref);
 		return ref;
 	}
 
@@ -152,7 +152,7 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
 		CDOMGroupRef<T> ref = rm.getTypeReference(types);
-		context.track(ref);
+		context.trackReference(ref);
 		return ref;
 	}
 

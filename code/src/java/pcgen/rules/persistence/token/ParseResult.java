@@ -29,6 +29,17 @@ import pcgen.util.Logging;
 public interface ParseResult
 {
 	/**
+	 * Object to be returned from parsing operations that succeeded with no messages.
+	 */
+	public static Pass SUCCESS = new Pass();
+	
+	/*
+	 * Temporary object for reporting errors that should be investigated further.
+	 * See plugin.lsttokens.race.FeatToken.
+	 */
+	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
+	
+	/**
 	 * State of the parse operation.
 	 * @return True if the parse was successful.
 	 */
@@ -44,17 +55,6 @@ public interface ParseResult
 	 * See pcgen.rules.persistence.token.ErrorParsingWrapper for use.
 	 */
 	public void addMessagesToLog();
-
-	/**
-	 * Object to be returned from parsing operations that succeeded with no messages.
-	 */
-	public static Pass SUCCESS = new Pass();
-
-	/*
-	 * Temporary object for reporting errors that should be investigated further.
-	 * See plugin.lsttokens.race.FeatToken.
-	 */
-	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
 
 	/**
 	 * Class representing a message from the parser.
@@ -88,11 +88,13 @@ public interface ParseResult
 		@Override
 		public void addMessagesToLog()
 		{
+			//No messages because we passed
 		}
 
 		@Override
 		public void printMessages()
 		{
+			//No messages because we passed
 		}
 	}
 
@@ -110,16 +112,16 @@ public interface ParseResult
 
 		public Fail(String error, LoadContext context)
 		{
-			if (context != null && context.getSourceURI() != null)
+			if (context == null || context.getSourceURI() == null)
+			{
+				this.error = new QueuedMessage(Logging.LST_ERROR, error);
+			}
+			else
 			{
 				this.error =
 						new QueuedMessage(Logging.LST_ERROR, error
 							+ " (Source: "
 							+ context.getSourceURI() + " )");
-			}
-			else
-			{
-				this.error = new QueuedMessage(Logging.LST_ERROR, error);
 			}
 		}
 

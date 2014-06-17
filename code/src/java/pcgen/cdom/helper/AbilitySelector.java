@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.Logging;
 
 /**
  * An AbilitySelector represents an Ability to be applied from an
@@ -114,8 +115,8 @@ public class AbilitySelector extends ConcretePrereqObject implements
 		CNAbilitySelection cnas = pc.getAssociatedSelection(as);
 		if (cnas == null)
 		{
-			System.err.println("Null CNAS");
-			//error??
+			//TODO Should this be an error?
+			Logging.log(Logging.WARNING, "Unexpected: Found null CNAS");
 		}
 		else
 		{

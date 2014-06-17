@@ -30,8 +30,14 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
-public class ReferenceContextUtilities
+public final class ReferenceContextUtilities
 {
+	
+	private ReferenceContextUtilities()
+	{
+		//Do not instantiate utility class
+	}
+
 	/**
 	 * Check the associations now that all the data is loaded.
 	 * 
@@ -136,13 +142,13 @@ public class ReferenceContextUtilities
 			categoryName = firstToken.substring(equalLoc + 1);
 		}
 		Class<? extends Loadable> c = StringPClassUtil.getClassFor(className);
-		Class catClass = StringPClassUtil.getCategoryClassFor(className);
 		if (c == null)
 		{
 			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: "
 				+ className);
 			return null;
 		}
+		Class catClass = StringPClassUtil.getCategoryClassFor(className);
 		ReferenceManufacturer<? extends Loadable> rm;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{

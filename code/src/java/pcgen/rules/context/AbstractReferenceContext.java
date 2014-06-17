@@ -62,16 +62,20 @@ public abstract class AbstractReferenceContext
 
 	private final Map<Class<?>, OneToOneMap<CDOMObject, String>> abbMap = new HashMap<Class<?>, OneToOneMap<CDOMObject, String>>();
 
-	private final HashMap<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
+	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
+	private URI sourceURI;
+	
+	private URI extractURI;
+	
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl);
-
+		Class<T> cl);
+	
 	public abstract <T extends Loadable> boolean hasManufacturer(Class<T> cl);
-
+	
 	protected abstract <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
-			Class<T> cl, Category<T> cat);
-
+		Class<T> cl, Category<T> cat);
+	
 	/**
 	 * Retrieve the Reference manufacturer that handles this class and category. Note that
 	 * even though abilities are categorized, the category may not be know initially, so
@@ -414,10 +418,6 @@ public abstract class AbstractReferenceContext
 		OneToOneMap<T, String> map = (OneToOneMap<T, String>) abbMap.get(cl);
 		return map == null ? null : map.getKeyFor(value);
 	}
-
-	private URI sourceURI;
-
-	private URI extractURI;
 
 	URI getExtractURI()
 	{

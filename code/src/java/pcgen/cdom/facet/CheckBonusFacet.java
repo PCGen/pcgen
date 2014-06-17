@@ -57,13 +57,13 @@ public class CheckBonusFacet
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
 		double bonus = 0;
-		type = type.toUpperCase();
-		name = name.toUpperCase();
+		String upperType = type.toUpperCase();
+		String upperName = name.toUpperCase();
 
 		for (PCCheck check : checkFacet.getSet(id))
 		{
 			List<BonusObj> tempList = BonusUtilities.getBonusFromList(check
-					.getListFor(ListKey.BONUS), type, name);
+					.getListFor(ListKey.BONUS), upperType, upperName);
 			if (!tempList.isEmpty())
 			{
 				bonus += bonusCheckingFacet.getAllBonusValues(id, tempList, check

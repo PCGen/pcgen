@@ -148,7 +148,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 		@Override
 		public int hashCode()
 		{
-			final int prime = 31;
+			int prime = 31;
 			int result = 1;
 			result =
 					prime

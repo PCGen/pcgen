@@ -54,11 +54,6 @@ public abstract class LoadContextInst implements LoadContext
 	private static final PrerequisiteWriter PREREQ_WRITER =
 			new PrerequisiteWriter();
 
-	static
-	{
-		FacetInitialization.initialize();
-	}
-
 	private final DataSetID datasetID = DataSetID.getID();
 
 	private final AbstractListContext list;
@@ -73,13 +68,18 @@ public abstract class LoadContextInst implements LoadContext
 
 	private final TokenSupport support = new TokenSupport();
 
-	private List<Object> dontForget = new ArrayList<Object>();
+	private final List<Object> dontForget = new ArrayList<Object>();
 
 	//Per file
 	private URI sourceURI;
 
 	//Per file
 	private CDOMObject stateful;
+
+	static
+	{
+		FacetInitialization.initialize();
+	}
 
 	public LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
@@ -337,7 +337,6 @@ public abstract class LoadContextInst implements LoadContext
 		catch (CloneNotSupportedException e)
 		{
 			Logging.errorPrint("Failed to clone " + cdo, e);
-			e.printStackTrace();
 			return null;
 		}
 		return newObj;

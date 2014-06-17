@@ -24,22 +24,22 @@ import java.util.HashSet;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 
-public class CorePerspective
+public final class CorePerspective
 {
 
+	public static final CorePerspective LANGUAGE = new CorePerspective("Granted Languages");
+	public static final CorePerspective DOMAIN = new CorePerspective("Granted Domains");
+	public static final CorePerspective ARMORPROF = new CorePerspective("Armor Proficiencies");
+	public static final CorePerspective SHIELDPROF = new CorePerspective("Shield Proficiencies");
+	
+	private static CaseInsensitiveMap<CorePerspective> map = null;
+	
 	private String name;
 
 	private CorePerspective(String name)
 	{
 		this.name = name;
 	}
-
-	public static final CorePerspective LANGUAGE = new CorePerspective("Granted Languages");
-	public static final CorePerspective DOMAIN = new CorePerspective("Granted Domains");
-	public static final CorePerspective ARMORPROF = new CorePerspective("Armor Proficiencies");
-	public static final CorePerspective SHIELDPROF = new CorePerspective("Shield Proficiencies");
-
-	private static CaseInsensitiveMap<CorePerspective> map = null;
 
 	@Override
 	public String toString()

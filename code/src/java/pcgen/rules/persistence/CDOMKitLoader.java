@@ -40,7 +40,8 @@ import pcgen.util.Logging;
 
 public class CDOMKitLoader implements CDOMLoader<Kit>
 {
-	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap = new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
+	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap =
+			new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
 
 	private final Class<Kit> targetClass = Kit.class;
 
@@ -77,15 +78,14 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		}
 		try
 		{
-			if (!subParse(context, obj, loader, val, source))
+			if (!subParse(context, obj, loader, val))
 			{
 				return false;
 			}
 		}
 		catch (PersistenceLayerException ple)
 		{
-			// TODO Auto-generated catch block
-			ple.printStackTrace();
+			Logging.errorPrint("Exception in Load: ", ple);
 			return false;
 		}
 		return true;
@@ -112,12 +112,12 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 //	}
 
 	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
-			CDOMSubLineLoader<CC> loader, String line, URI uri)
+			CDOMSubLineLoader<CC> loader, String line)
 			throws PersistenceLayerException
 	{
-		CC obj = loader.getCDOMObject(context);
+		CC obj = loader.getCDOMObject();
 		context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);
-		return loader.parseLine(context, obj, line, uri);
+		return loader.parseLine(context, obj, line);
 	}
 
 	protected Kit getCDOMObject(LoadContext context, String name)
@@ -140,7 +140,8 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 	public void unloadLstFiles(LoadContext lc,
 			Collection<CampaignSourceEntry> files)
 	{
-		HashMapToList<Class<?>, CDOMSubLineLoader<?>> loaderMap = new HashMapToList<Class<?>, CDOMSubLineLoader<?>>();
+		HashMapToList<Class<?>, CDOMSubLineLoader<?>> loaderMap =
+				new HashMapToList<Class<?>, CDOMSubLineLoader<?>>();
 		for (CDOMSubLineLoader<?> loader : loadMap.values())
 		{
 			loaderMap.addToListFor(loader.getLoadedClass(), loader);
@@ -164,10 +165,10 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 						sb.append(k.getDisplayName());
 						if (unparse != null)
 						{
-							sb.append("\t").append(
+							sb.append('\t').append(
 									StringUtil.join(unparse, "\t"));
 						}
-						sb.append("\n");
+						sb.append('\n');
 
 						Changes<BaseKit> changes = lc.getObjectContext()
 								.getListChanges(k, ListKey.KIT_TASKS);
@@ -185,7 +186,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 								processTask(lc, kt, loader, sb);
 							}
 						}
-						sb.append("\n");
+						sb.append('\n');
 						set.add(sb.toString());
 					}
 				}
@@ -199,8 +200,7 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 			}
 			catch (IOException e)
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Logging.errorPrint("Exception in Load: ", e);
 			}
 		}
 	}

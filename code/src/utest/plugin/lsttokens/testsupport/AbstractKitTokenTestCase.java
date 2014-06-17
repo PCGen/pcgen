@@ -158,7 +158,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 					s).append('\t');
 		}
 		getLoader().parseLine(secondaryContext, secondaryProf,
-				unparsedBuilt.toString(), testCampaign.getURI());
+				unparsedBuilt.toString());
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);

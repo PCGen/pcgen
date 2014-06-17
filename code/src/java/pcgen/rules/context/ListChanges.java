@@ -137,13 +137,14 @@ public class ListChanges<T extends PrereqObject> implements
 	@Override
 	public MapToList<CDOMReference<T>, AssociatedPrereqObject> getAddedAssociations()
 	{
-		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned = new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
-				ReferenceUtilities.REFERENCE_SORTER);
 		Collection<CDOMReference<T>> mods = positive.getListMods(list);
 		if (mods == null)
 		{
 			return null;
 		}
+		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned =
+				new TreeMapToList<CDOMReference<T>, AssociatedPrereqObject>(
+						ReferenceUtilities.REFERENCE_SORTER);
 		for (CDOMReference<T> lw : mods)
 		{
 			Collection<AssociatedPrereqObject> assocs = positive

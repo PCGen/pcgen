@@ -49,7 +49,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, Category<T> cat, String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, cat, val);
-		track(ref);
+		trackReference(ref);
 		return ref;
 	}
 
@@ -58,7 +58,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			String val)
 	{
 		CDOMSingleRef<T> ref = super.getCDOMReference(c, val);
-		track(ref);
+		trackReference(ref);
 		return ref;
 	}
 
@@ -67,7 +67,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, Category<T> cat)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMAllReference(c, cat);
-		track(ref);
+		trackReference(ref);
 		return ref;
 	}
 
@@ -75,7 +75,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	public <T extends Loadable> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMAllReference(c);
-		track(ref);
+		trackReference(ref);
 		return ref;
 	}
 
@@ -84,7 +84,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, Category<T> cat, String... val)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMTypeReference(c, cat, val);
-		track(ref);
+		trackReference(ref);
 		return ref;
 	}
 
@@ -93,7 +93,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> c, String... val)
 	{
 		CDOMGroupRef<T> ref = super.getCDOMTypeReference(c, val);
-		track(ref);
+		trackReference(ref);
 		return ref;
 	}
 
@@ -167,7 +167,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		return source;
 	}
 
-	<T> void track(CDOMReference<T> ref)
+	<T> void trackReference(CDOMReference<T> ref)
 	{
 		String src = getSource();
 		if (src == null)

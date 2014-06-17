@@ -17,10 +17,10 @@
  */
 package pcgen.cdom.base;
 
-public class UserSelection
+public final class UserSelection
 {
 
-	private static final UserSelection instance = new UserSelection();
+	private static final UserSelection INSTANCE = new UserSelection();
 	
 	private UserSelection()
 	{
@@ -29,6 +29,6 @@ public class UserSelection
 	
 	public static UserSelection getInstance()
 	{
-		return instance;
+		return INSTANCE;
 	}
 }

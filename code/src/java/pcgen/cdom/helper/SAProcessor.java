@@ -42,38 +42,34 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 		final String key = sa.getKeyName();
 		final int idx = key.indexOf("%CHOICE");
 
-		if (idx >= 0)
+		if (idx == -1)
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(key.substring(0, idx));
-
-			if (source instanceof ChooseDriver)
-			{
-				ChooseDriver object = (ChooseDriver) source;
-				if (pc.hasAssociations(object))
-				{
-					List<String> associationList =
-							pc.getAssociationList(object);
-					Collections.sort(associationList);
-					sb.append(StringUtil.joinToStringBuilder(associationList, ", "));
-				}
-			}
-			else
-			{
-				Logging
-					.errorPrint("In SpecialAbility resolution, "
-						+ "Error using object of type: "
-						+ source.getClass().getName()
-						+ " because "
-						+ "%CHOICE"
-						+ " was requested but the object does not support CHOOSE");
-				sb.append("<undefined>");
-			}
-
-			sb.append(key.substring(idx + 7));
-			sa = new SpecialAbility(sb.toString(), sa.getSADesc());
+			return sa;
 		}
 
-		return sa;
+		StringBuilder sb = new StringBuilder();
+		sb.append(key.substring(0, idx));
+
+		if (source instanceof ChooseDriver)
+		{
+			ChooseDriver object = (ChooseDriver) source;
+			if (pc.hasAssociations(object))
+			{
+				List<String> associationList = pc.getAssociationList(object);
+				Collections.sort(associationList);
+				sb.append(StringUtil.joinToStringBuilder(associationList, ", "));
+			}
+		}
+		else
+		{
+			Logging.errorPrint("In SpecialAbility resolution, "
+				+ "Error using object of type: " + source.getClass().getName()
+				+ " because " + "%CHOICE"
+				+ " was requested but the object does not support CHOOSE");
+			sb.append("<undefined>");
+		}
+
+		sb.append(key.substring(idx + 7));
+		return new SpecialAbility(sb.toString(), sa.getSADesc());
 	}
 }

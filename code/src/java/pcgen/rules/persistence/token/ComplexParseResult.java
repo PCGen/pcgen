@@ -18,6 +18,7 @@
 package pcgen.rules.persistence.token;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 
 import pcgen.util.Logging;
@@ -28,11 +29,12 @@ import pcgen.util.Logging;
  */
 public class ComplexParseResult implements ParseResult
 {
-	private final LinkedList<QueuedMessage> queuedMessages =
+	private final List<QueuedMessage> queuedMessages =
 			new LinkedList<QueuedMessage>();
 
 	public ComplexParseResult()
 	{
+		//Start an empty result
 	}
 
 	public ComplexParseResult(String error)

@@ -67,9 +67,14 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 * @param knownSpells Should this scan be for known spells
 	 * @return the map
 	 */
-	protected TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> getMap(LoadContext context, CDOMObject obj, Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists, boolean knownSpells)
+	protected TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> getMap(
+		LoadContext context,
+		CDOMObject obj,
+		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists,
+		boolean knownSpells)
 	{
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> map = new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>>();
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> map =
+				new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>>();
 
 		for (CDOMReference listRef : changedLists)
 		{

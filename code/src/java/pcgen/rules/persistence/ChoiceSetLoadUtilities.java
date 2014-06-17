@@ -41,6 +41,9 @@ import pcgen.util.Logging;
 public final class ChoiceSetLoadUtilities
 {
 	
+	private static final String FOUND_ERR_IN_QUAL_CHOICE = "Found error in Qualifier Choice: ";
+	private static final String FOUND_ERR_IN_PRIM_CHOICE = "Found error in Primitive Choice: ";
+
 	private ChoiceSetLoadUtilities()
 	{
 		//Don't instantiate utility class
@@ -225,7 +228,7 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc != -1)
 			{
-				Logging.errorPrint("Found error in Primitive Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
 						+ " has a close bracket but no open bracket");
 				return null;
 			}
@@ -240,7 +243,7 @@ public final class ChoiceSetLoadUtilities
 				pi.tokValue = key.substring(equalLoc + 1);
 				if (pi.tokValue.length() == 0)
 				{
-					Logging.errorPrint("Found error in Primitive Choice: " + key
+					Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
 							+ " has equals but no target value");
 					return null;
 				}
@@ -251,13 +254,13 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc == -1)
 			{
-				Logging.errorPrint("Found error in Primitive Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
 						+ " has an open bracket but no close bracket");
 				return null;
 			}
 			if (closeBracketLoc != key.length() - 1)
 			{
-				Logging.errorPrint("Found error in Primitive Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
 						+ " had close bracket, but had characters "
 						+ "following the close bracket");
 				return null;
@@ -301,12 +304,10 @@ public final class ChoiceSetLoadUtilities
 			LoadContext context, Class<T> cl, PrimitiveInfo pi)
 	{
 		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(cl, pi.tokKey);
-		if (prim != null)
+		if ((prim != null)
+			&& !prim.initialize(context, cl, pi.tokValue, pi.tokRestriction))
 		{
-			if (!prim.initialize(context, cl, pi.tokValue, pi.tokRestriction))
-			{
-				return null;
-			}
+			return null;
 		}
 		return prim;
 	}
@@ -315,13 +316,13 @@ public final class ChoiceSetLoadUtilities
 			SelectionCreator<T> sc, PrimitiveInfo pi)
 	{
 		String tokKey = pi.tokKey;
-		String tokValue = pi.tokValue;
 		if (pi.tokRestriction != null)
 		{
 			Logging.errorPrint("Didn't expect tokRestriction on " + tokKey
 				+ " here: " + pi.tokRestriction);
 			return null;
 		}
+		String tokValue = pi.tokValue;
 		if ("TYPE".equals(tokKey))
 		{
 			return TokenUtilities.getTypeReference(sc, tokValue);
@@ -356,14 +357,14 @@ public final class ChoiceSetLoadUtilities
 			return new NegatingPrimitive<T>(TokenUtilities.getTypeReference(sc,
 				key.substring(6)), sc.getAllReference());
 		}
-		if (key.indexOf('%') != -1)
+		if (key.indexOf('%') == -1)
 		{
-			return new PatternMatchingReference<T>(sc.getReferenceClass(),
-					sc.getAllReference(), key);
+			return sc.getReference(key);
 		}
 		else
 		{
-			return sc.getReference(key);
+			return new PatternMatchingReference<T>(sc.getReferenceClass(),
+					sc.getAllReference(), key);
 		}
 	}
 	
@@ -380,7 +381,7 @@ public final class ChoiceSetLoadUtilities
 	{
 		if (key == null || key.length() == 0)
 		{
-			Logging.errorPrint("Found error in Primitive Choice: "
+			Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE
 					+ "item was null or empty");
 			return null;
 		}
@@ -395,7 +396,7 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc != -1)
 			{
-				Logging.errorPrint("Found error in Qualifier Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
 						+ " has a close bracket but no open bracket");
 				return null;
 			}
@@ -415,20 +416,20 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc == -1)
 			{
-				Logging.errorPrint("Found error in Qualifier Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
 						+ " has an open bracket but no close bracket");
 				return null;
 			}
 			if (closeBracketLoc != key.length() - 1)
 			{
-				Logging.errorPrint("Found error in Qualifier Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
 						+ " had close bracket, but had characters "
 						+ "following the close bracket");
 				return null;
 			}
 			if (closeBracketLoc - openBracketLoc == 1)
 			{
-				Logging.errorPrint("Found error in Qualifier Choice: " + key
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
 						+ " has an open bracket "
 						+ "immediately followed by close bracket");
 				return null;

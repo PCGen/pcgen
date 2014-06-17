@@ -38,6 +38,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.util.Logging;
 
 public abstract class AbstractObjectContext
 {
@@ -636,13 +637,11 @@ public abstract class AbstractObjectContext
 			}
 			catch (InstantiationException e)
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Logging.errorPrint("Error instantiating " + cl.getSimpleName(), e);
 			}
 			catch (IllegalAccessException e)
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Logging.errorPrint("Error instantiating " + cl.getSimpleName(), e);
 			}
 			return null;
 		}

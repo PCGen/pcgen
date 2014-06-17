@@ -54,14 +54,17 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	 */
 	private final Revision rev;
 
-	private final DoubleKeyMap<Class<?>, String, CDOMToken<?>> tokenMap = new DoubleKeyMap<Class<?>, String, CDOMToken<?>>();
+	private final DoubleKeyMap<Class<?>, String, CDOMToken<?>> tokenMap =
+			new DoubleKeyMap<Class<?>, String, CDOMToken<?>>();
 
-	private final TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>> subTokenMap = new TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>>();
+	private final TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>> subTokenMap =
+			new TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>>();
 
 	// private final DoubleKeyMap<Class<?>, String, ChoiceSetToken>
 	// chooseTokenMap = new DoubleKeyMap<Class<?>, String, ChoiceSetToken>();
 
-	private final Map<CaseInsensitiveString, PrerequisiteParserInterface> preTokenMap = new HashMap<CaseInsensitiveString, PrerequisiteParserInterface>();
+	private final Map<CaseInsensitiveString, PrerequisiteParserInterface> preTokenMap =
+			new HashMap<CaseInsensitiveString, PrerequisiteParserInterface>();
 
 	private TokenFamily(Revision r)
 	{
@@ -100,16 +103,6 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	{
 		return subTokenMap.values(cl, token);
 	}
-
-	// public void putChooseToken(ChoiceSetToken<?> token)
-	// {
-	// chooseTokenMap.put(token.getTokenClass(), token.getTokenName(), token);
-	// }
-	//
-	// public <T> ChoiceSetToken<T> getChooseToken(Class<T> cl, String key)
-	// {
-	// return chooseTokenMap.get(cl, key);
-	// }
 
 	public void putPrerequisiteToken(PrerequisiteParserInterface token)
 	{

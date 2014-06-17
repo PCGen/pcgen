@@ -29,6 +29,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 public class PreCompatibilityToken implements
 		CDOMPrimaryToken<ConcretePrereqObject>,
@@ -62,14 +63,15 @@ public class PreCompatibilityToken implements
 		String value)
 	{
 		boolean overrideQualify = false;
+		String preValue = value;
 		if (value.startsWith("Q:"))
 		{
-			value = value.substring(2);
+			preValue = value.substring(2);
 			overrideQualify = true;
 		}
 		try
 		{
-			Prerequisite p = token.parse(tokenRoot, value, invert, overrideQualify);
+			Prerequisite p = token.parse(tokenRoot, preValue, invert, overrideQualify);
 			if (p == null)
 			{
 				return ParseResult.INTERNAL_ERROR;
@@ -113,12 +115,12 @@ public class PreCompatibilityToken implements
 	@Override
 	public String[] unparse(LoadContext context, ConcretePrereqObject obj)
 	{
-		Set<String> set = new TreeSet<String>();
 		Changes<Prerequisite> changes = context.getObjectContext().getPrerequisiteChanges(obj);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
+		Set<String> set = new TreeSet<String>();
 		for (Prerequisite p : changes.getAdded())
 		{
 			String kind = p.getKind();
@@ -130,7 +132,7 @@ public class PreCompatibilityToken implements
 			}
 			catch (PersistenceLayerException e)
 			{
-				e.printStackTrace();
+				Logging.errorPrint("Error in Compatibility Token", e);
 			}
 			String output = capture.toString();
 			int colonLoc = output.indexOf(':');

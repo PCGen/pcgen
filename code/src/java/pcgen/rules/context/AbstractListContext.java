@@ -318,6 +318,38 @@ public abstract class AbstractListContext
 	public static class TrackingListCommitStrategy implements ListCommitStrategy
 	{
 
+		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap =
+				new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class,
+					IdentityHashMap.class);
+
+		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap =
+				new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class,
+					IdentityHashMap.class);
+
+		private final TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>> globalClearSet =
+				new TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>>(
+					HashMap.class, IdentityHashMap.class, HashMap.class);
+
+		/*
+		 * TODO These maps (throughout this entire class) are probably problems
+		 * because they are not using Identity characteristics
+		 */
+		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap =
+				new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();//HashMap.class, HashMap.class, IdentityHashMap.class);
+
+		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap =
+				new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();//HashMap.class, HashMap.class, IdentityHashMap.class);
+
+		private final HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet =
+				new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
+
+		private final HashMapToList<String, OwnerURI> masterAllClear =
+				new HashMapToList<String, OwnerURI>();
+
+		private URI sourceURI;
+
+		private URI extractURI;
+
 		protected static class CDOMShell extends CDOMObject
 		{
 			@Override
@@ -332,10 +364,6 @@ public abstract class AbstractListContext
 				return false;
 			}
 		}
-
-		private URI sourceURI;
-
-		private URI extractURI;
 
 		public URI getExtractURI()
 		{
@@ -358,18 +386,6 @@ public abstract class AbstractListContext
 		{
 			this.sourceURI = sourceURI;
 		}
-
-		/*
-		 * TODO These maps (throughout this entire class) are probably problems
-		 * because they are not using Identity characteristics
-		 */
-		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();//HashMap.class, HashMap.class, IdentityHashMap.class);
-
-		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap = new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>();//HashMap.class, HashMap.class, IdentityHashMap.class);
-		
-		private final HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet = new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
-
-		private final HashMapToList<String, OwnerURI> masterAllClear = new HashMapToList<String, OwnerURI>();
 
 		@Override
 		public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
@@ -505,14 +521,6 @@ public abstract class AbstractListContext
 			masterAllClear.addToListFor(tokenName, new OwnerURI(sourceURI,
 					owner));
 		}
-
-		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class, IdentityHashMap.class);
-
-		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap = new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class, IdentityHashMap.class);
-
-		private final TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>> globalClearSet =
-				new TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>>(
-					HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		private CDOMObject getPositive(URI source, CDOMObject cdo)
 		{

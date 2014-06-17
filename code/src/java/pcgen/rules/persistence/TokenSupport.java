@@ -43,10 +43,10 @@ import pcgen.util.Logging;
 
 public class TokenSupport
 {
-	public DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
+	private DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
 		new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
 
-	public TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
+	private TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
 		new TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>>();
 
 	public <T extends Loadable> boolean processToken(LoadContext context,
@@ -225,7 +225,6 @@ public class TokenSupport
 	 */
 	public <T> String[] unparseToken(LoadContext loadContext, T cdo, String tokenName)
 	{
-		List<String> result = new ArrayList<String>();
 		Class<?> cl = cdo.getClass();
 		CDOMToken<?> token = null;
 		while (token == null)
@@ -241,6 +240,7 @@ public class TokenSupport
 			}
 
 		}
+		List<String> result = new ArrayList<String>();
 		if (CDOMPrimaryToken.class.isAssignableFrom(token.getClass()))
 		{
 			CDOMPrimaryToken<? super T> primaryToken = (CDOMPrimaryToken<? super T>) token;

@@ -50,7 +50,6 @@ public abstract class AbstractPreEqualConvertPlugin implements
 					+ " can not have only a count: " + formula;
 		}
 		String num = formula.substring(0, commaLoc);
-		String rest = formula.substring(commaLoc + 1);
 
 		try
 		{
@@ -62,7 +61,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 					+ " is not a valid integer";
 		}
 
-		// Work rest here:
+		String rest = formula.substring(commaLoc + 1);
 		commaLoc = rest.indexOf(',');
 		if (commaLoc == -1)
 		{

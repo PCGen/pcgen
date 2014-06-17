@@ -17,7 +17,6 @@
  */
 package pcgen.rules.persistence;
 
-import java.net.URI;
 import java.util.Collection;
 import java.util.StringTokenizer;
 
@@ -43,7 +42,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 		// prefixLength = targetPrefixColon.length();
 	}
 
-	public boolean parseLine(LoadContext context, T obj, String val, URI source)
+	public boolean parseLine(LoadContext context, T obj, String val)
 			throws PersistenceLayerException
 	{
 		if (val == null)
@@ -95,7 +94,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 		return returnValue;
 	}
 
-	public T getCDOMObject(LoadContext context)
+	public T getCDOMObject()
 	{
 		try
 		{
@@ -103,13 +102,11 @@ public class CDOMSubLineLoader<T extends Loadable>
 		}
 		catch (InstantiationException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint("Exception in Instantiation: ", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint("Exception in Instantiation: ", e);
 		}
 		throw new IllegalArgumentException();
 	}

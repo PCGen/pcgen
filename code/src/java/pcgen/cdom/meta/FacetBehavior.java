@@ -24,9 +24,16 @@ import java.util.HashSet;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 
-public class FacetBehavior
+public final class FacetBehavior
 {
 
+	public static final FacetBehavior MODEL = new FacetBehavior("Model");
+	public static final FacetBehavior INPUT = new FacetBehavior("Input");
+	public static final FacetBehavior CONDITIONAL = new FacetBehavior("Conditional");
+	public static final FacetBehavior CONDITIONAL_GRANTED = new FacetBehavior("Conditional-Granted");
+//	public static final CorePerspective SELECTION = new CorePerspective("Selection");
+//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
+	
 	private static CaseInsensitiveMap<FacetBehavior> map = null;
 
 	private String type;
@@ -39,13 +46,6 @@ public class FacetBehavior
 		}
 		this.type = type;
 	}
-
-	public static final FacetBehavior MODEL = new FacetBehavior("Model");
-	public static final FacetBehavior INPUT = new FacetBehavior("Input");
-	public static final FacetBehavior CONDITIONAL = new FacetBehavior("Conditional");
-	public static final FacetBehavior CONDITIONAL_GRANTED = new FacetBehavior("Conditional-Granted");
-//	public static final CorePerspective SELECTION = new CorePerspective("Selection");
-//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
 
 	public static FacetBehavior getKeyFor(String type)
 	{

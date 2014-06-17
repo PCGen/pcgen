@@ -45,6 +45,9 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 
 	private URI extractURI;
 
+	private final DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject> masterList =
+			new DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject>();
+	
 	public URI getExtractURI()
 	{
 		return extractURI;
@@ -66,9 +69,6 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 	{
 		this.sourceURI = sourceURI;
 	}
-
-	private final DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject> masterList =
-			new DoubleKeyMapToList<CDOMReference, CDOMObject, AssociatedPrereqObject>();
 
 	/* (non-Javadoc)
 	 * @see pcgen.rules.context.ListCommitStrategy#addToMasterList(java.lang.String, pcgen.cdom.base.CDOMObject, pcgen.cdom.base.CDOMReference, pcgen.cdom.base.CDOMObject)
