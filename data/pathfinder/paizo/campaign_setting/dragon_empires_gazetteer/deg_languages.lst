@@ -8,9 +8,10 @@ Samsaran	TYPE:Spoken.Written.Read
 Senzar	TYPE:Spoken.Written.Read
 Wayang	TYPE:Spoken.Written.Read
 
-# Modern Humand Eastern Languages
+# Modern Human Eastern Languages
 Dtang		TYPE:Spoken.Written.Read.HumanRegional
 Hwan		TYPE:Spoken.Written.Read.HumanRegional
 Hon-La	TYPE:Spoken.Written.Read.HumanRegional
 Minkaian	TYPE:Spoken.Written.Read.HumanRegional
 Minatan	TYPE:Spoken.Written.Read.HumanRegional
+Common.MOD	TYPE:HumanRegional
