@@ -19,7 +19,6 @@ apply plugin: 'application'
 apply plugin: 'build-dashboard'
 
 group = 'net.sourceforge.pcgen'
-version = '6.03.01-SNAPSHOT'
 
 description = """PCGen"""
 
