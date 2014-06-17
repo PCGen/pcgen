@@ -16,6 +16,7 @@
 	xmlns:myAttribs="my:Attribs"
 	exclude-result-prefixes="myAttribs Psionics">
 
+	<xsl:import href="../../fantasy/pdf/leadership.xsl"/>
 
 	<xsl:output indent="yes"/>
 	<!-- Include all of the output attributes -->
@@ -34,7 +35,7 @@
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
-			<xsl:copy-of select="document('leadership.xsl')/*/myAttribs:*/*"/>
+			<xsl:copy-of select="document('../../fantasy/pdf/leadership.xsl')/*/myAttribs:*/*"/>
 		</myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
@@ -1629,7 +1630,9 @@
 						<fo:table-cell/>
 						<fo:table-cell height="4pt" xsl:use-attribute-sets="border.temp"/>
 					</fo:table-row>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+						<fo:table-cell/>
+					</fo:table-row>
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
@@ -1844,7 +1847,9 @@
 						<fo:block space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="spell_resistance"/></fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="0.5pt"/>
+				<fo:table-row height="0.5pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell/>
 					<fo:table-cell/>
@@ -1923,7 +1928,9 @@
 			<fo:table-column column-width="2mm"/>
 			<fo:table-column column-width="7mm"/>
 			<fo:table-body>
-				<fo:table-row height="2pt"/>
+				<fo:table-row height="2pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell xsl:use-attribute-sets="initiative.title">
 						<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt">INITIATIVE</fo:block>
@@ -1946,7 +1953,9 @@
 						<fo:block space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="misc_mod"/></fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="0.5pt"/>
+				<fo:table-row height="0.5pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell/>
 					<fo:table-cell/>
@@ -1989,7 +1998,9 @@
 			<fo:table-column column-width="2mm"/>
 			<fo:table-column column-width="27mm"/>
 			<fo:table-body>
-				<fo:table-row height="2pt"/>
+				<fo:table-row height="2pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell xsl:use-attribute-sets="bab.title">
 						<fo:block line-height="10pt" font-weight="bold" font-size="8pt">BASE ATTACK</fo:block>
@@ -2070,7 +2081,9 @@
 					</xsl:otherwise>
 				</xsl:choose>
 				<fo:table-header>
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+						<fo:table-cell/>
+					</fo:table-row>
 					<fo:table-row>
 						<fo:table-cell xsl:use-attribute-sets="skills.header" border-top-width="1pt" border-left-width="1pt" border-right-width="0pt" border-bottom-width="0pt"/>
 						<fo:table-cell xsl:use-attribute-sets="skills.header" number-columns-spanned="6" padding="1pt" border-top-width="1pt" border-left-width="0pt" border-right-width="0pt" border-bottom-width="0pt" border-style="solid">
@@ -2313,7 +2326,9 @@
 				</fo:table-row>
 
 				<xsl:for-each select="saving_throw">
-					<fo:table-row height="2pt"/>
+					<fo:table-row height="2pt">
+						<fo:table-cell/>
+					</fo:table-row>
 					<fo:table-row>
 						<fo:table-cell xsl:use-attribute-sets="saves.title">
 							<fo:block line-height="10pt" font-weight="bold" font-size="10pt" space-before="1pt"><xsl:value-of select="translate(name/long, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></fo:block>
@@ -2361,19 +2376,25 @@
 			<fo:table-column column-width="2mm"/>
 			<fo:table-column column-width="8mm"/>
 			<fo:table-body>
-				<fo:table-row height="11pt"/>
+				<fo:table-row height="11pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row >
 					<fo:table-cell xsl:use-attribute-sets="reputation.title"><fo:block display-align="center" line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">REPUTATION</fo:block></fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell xsl:use-attribute-sets="reputation"><fo:block space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="basics/reputation"/></fo:block></fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="3pt"/>
+				<fo:table-row height="3pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell xsl:use-attribute-sets="reputation.title"><fo:block display-align="center" line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">ACTION POINTS</fo:block></fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell xsl:use-attribute-sets="reputation"><fo:block space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="basics/remaining_action_points"/></fo:block></fo:table-cell>
 				</fo:table-row>
-				<fo:table-row height="3pt"/>
+				<fo:table-row height="3pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<fo:table-row>
 					<fo:table-cell xsl:use-attribute-sets="reputation.title"><fo:block display-align="center" line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">WEALTH</fo:block></fo:table-cell>
 					<fo:table-cell/>
@@ -2414,12 +2435,16 @@
 				<xsl:apply-templates select="melee" mode="to_hit">
 					<xsl:with-param name="title" select="'MELEE'" />
 				</xsl:apply-templates>
-				<fo:table-row height="2.5pt"/>
+				<fo:table-row height="2.5pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<xsl:apply-templates select="ranged" mode="to_hit">
 					<xsl:with-param name="title" select="'RANGED'" />
 				</xsl:apply-templates>
 
-				<fo:table-row height="0.5pt"/>
+				<fo:table-row height="0.5pt">
+					<fo:table-cell/>
+				</fo:table-row>
 				<xsl:call-template name="to_hit.header">
 					<xsl:with-param name="dalign" select="'before'"/>
 					<xsl:with-param name="stat" select="'DEX'"/>
@@ -3173,7 +3198,7 @@
 			<fo:table-column column-width="94mm"/>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
-					<fo:table-cell xsl:use-attribute-sets="templates.title" padding-top="1pt" number-columns-spanned="2">
+					<fo:table-cell xsl:use-attribute-sets="templates.title" padding-top="1pt" number-columns-spanned="1">
 						<fo:block font-size="9pt">
 							TEMPLATES
 						</fo:block>
@@ -4069,13 +4094,17 @@
 					<xsl:with-param name="details" select="'false'"/>
 				</xsl:call-template>
 				<fo:table-body>
-					<fo:table-row height="2mm" />
+					<fo:table-row height="2mm" >
+						<fo:table-cell/>
+					</fo:table-row>
 					<fo:table-row>
 						<fo:table-cell number-columns-spanned="11">
 							<xsl:apply-templates select="." mode="spell.level.table"/>
 						</fo:table-cell>
 					</fo:table-row>
-					<fo:table-row height="2mm" />
+					<fo:table-row height="2mm" >
+						<fo:table-cell/>
+					</fo:table-row>
 
 					<xsl:apply-templates select="level" mode="known.spells">
 						<xsl:with-param name="columnOne" select="$columnOne"/>
@@ -4193,7 +4222,9 @@
 			<xsl:apply-templates select="spell" mode="details">
 				<xsl:with-param name="columnOne" select="$columnOne"/>
 			</xsl:apply-templates>
-			<fo:table-row height="1mm"/>
+			<fo:table-row height="1mm">
+				<fo:table-cell/>
+			</fo:table-row>
 		</xsl:if>
 	</xsl:template>
 
