@@ -246,7 +246,7 @@ Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQ
 
 ###Block: Fused Eidolon
 
-Eidolon HP	CATEGORY:Internal	BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1
-Eidolon BAB	CATEGORY:Internal	BONUS:COMBAT|BAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1
-
-
+Eidolon HP			CATEGORY:Internal	BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1
+Eidolon BAB			CATEGORY:Internal	BONUS:COMBAT|BAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1
+Eidolon Stats		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1
+Eidolon Stats ~ Active	CATEGORY:Internal		DEFINESTAT:LOCK|STR|EidolonStatSTR	DEFINESTAT:LOCK|DEX|EidolonStatDEX	DEFINESTAT:LOCK|CON|EidolonStatCON
