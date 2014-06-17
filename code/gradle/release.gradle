@@ -14,8 +14,6 @@
  * Also, make NSIS executable location configurable
  */
 
-
-
 ext {
    
    // Work out the path to the release notes for our current version.
@@ -214,7 +212,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['fullZip', 'sourcesJar', 'buildNsis']) {
+task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar', 'buildNsis']) {
 	into "${buildDir}/release"
 	// buildNsis puts the exe into the release folder directly
 	from ("${buildDir}/libs") {
@@ -235,5 +233,5 @@ task checksum(dependsOn: assembleArtifacts) << {
     }
 } 
 
-task pcgenRelease (dependsOn: ['fullZip', 'sourcesJar', 'buildNsis', 'assembleArtifacts', 'checksum']) {
+task pcgenRelease (dependsOn: ['build', 'checksum']) {
 }
