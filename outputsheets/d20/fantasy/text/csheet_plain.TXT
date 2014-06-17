@@ -194,3 +194,12 @@ Full Description
 
 Background
 |BIO|
+
+Campaign Logs
+|FOR,%catcamp,0,COUNT("CAMPAIGNHISTORY","EXPORT=YES")-1,1,0|
+|BR|=========================================================|BR|
+Adventure #%catcamp: |CAMPAIGNHISTORY.VISIBLE.%catcamp.ADVENTURE|   Date: |CAMPAIGNHISTORY.VISIBLE.%catcamp.DATE|
+Party Members: |CAMPAIGNHISTORY.VISIBLE.%catcamp.PARTY|
+---------------------------------------------------------
+|CAMPAIGNHISTORY.VISIBLE.%catcamp.TEXT|
+|ENDFOR|
