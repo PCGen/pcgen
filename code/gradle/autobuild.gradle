@@ -31,6 +31,8 @@ task copyDist(type: Sync, dependsOn: 'buildDist') {
 }
 
 task copySite(type: Copy) {
+	// Ensure this always runs - we don't want an incorrect date
+	outputs.upToDateWhen { false }
 	from "${projectDir}/code/gradle/site"
 	into "${destAutobuildDir}"
 	expand(copyright: '2014', version: version, timestamp: buildTimestamp)
