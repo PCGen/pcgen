@@ -6,9 +6,10 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:xalan="http://xml.apache.org/xalan"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
-	xmlns:Psionics="my:Psionics"
 	xmlns:myAttribs="my:Attribs"
+	xmlns:Psionics="my:Psionics"
 	exclude-result-prefixes="myAttribs Psionics">
+<!-- 		-->
 
 	<xsl:import href="fantasy_common.xsl"/>
 	<xsl:import href="leadership.xsl"/>
@@ -20,7 +21,7 @@
 	<xsl:import href="common_sheet/block_class_features.xslt"/>
 	<xsl:import href="common_sheet/block_equipment.xslt"/>
 	<xsl:import href="common_sheet/block_features.xslt"/>
-	<xsl:import href="common_sheet/block_hp_defense.xstl"/>
+	<xsl:import href="common_sheet/block_hp_defense.xslt"/>
 	<xsl:import href="common_sheet/block_misc.xslt"/>
 	<xsl:import href="common_sheet/block_pc_header_row.xslt"/>
 	<xsl:import href="common_sheet/block_protection.xslt"/>
