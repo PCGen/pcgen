@@ -246,7 +246,12 @@ Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQ
 
 ###Block: Fused Eidolon
 
-Eidolon HP			CATEGORY:Internal	BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1
-Eidolon BAB			CATEGORY:Internal	BONUS:COMBAT|BAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1
-Eidolon Stats		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1
-Eidolon Stats ~ Active	CATEGORY:Internal		DEFINESTAT:LOCK|STR|EidolonStatSTR	DEFINESTAT:LOCK|DEX|EidolonStatDEX	DEFINESTAT:LOCK|CON|EidolonStatCON
+Fused Eidolon HP			CATEGORY:Internal		BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1	TEMPBONUS:PC|VAR|EidolonHP|%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=500|TITLE=Max HP of Eidolon
+Fused Eidolon BAB			CATEGORY:Internal		BONUS:COMBAT|BAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|var("FusedEidolonLVL")		BONUS:VAR|EidolonBAB|-1-(var("FusedEidolonLVL")/4)	
+Fused Eidolon Stats		CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1	ABILITY:Internal|AUTOMATIC|TYPE=FusedEidolonStats
+
+Fused Eidolon Stats Str	TYPE:FusedEidolonStats	CATEGORY:Internal	TEMPBONUS:PC|VAR|EidolonStatSTR|%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Strength Score of Eidolon	
+Fused Eidolon Stats Dex	TYPE:FusedEidolonStats	CATEGORY:Internal	TEMPBONUS:PC|VAR|EidolonStatDEX|%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Dexterity Score of Eidolon
+Fused Eidolon Stats Con	TYPE:FusedEidolonStats	CATEGORY:Internal	TEMPBONUS:PC|VAR|EidolonStatCON|%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Constitution Score of Eidolon
+
+Fused Eidolon Stats ~ Active	CATEGORY:Internal		DEFINESTAT:LOCK|STR|EidolonStatSTR	DEFINESTAT:LOCK|DEX|EidolonStatDEX	DEFINESTAT:LOCK|CON|EidolonStatCON
