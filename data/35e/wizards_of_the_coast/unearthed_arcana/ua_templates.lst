@@ -18,3 +18,90 @@ Level Adjustment Buy down 8	VISIBLE:DISPLAY	LEVELADJUSTMENT:-8
 # Template Name		Visible	Clone Movement
 Ape Totem ~ Climb Half	VISIBLE:NO	MOVECLONE:Walk,Climb,/2
 Ape Totem ~ Climb Full	VISIBLE:NO	MOVECLONE:Walk,Climb,*4
+
+Bonus Language ~ Aquan	VISIBLE:NO	LANGBONUS:Aquan
+
+
+Air Gnome
+
+Air Goblin
+
+Aquatic Dwarf
+
+Aquatic Gnome
+
+Aquatic Goblin
+
+Aquatic Half-Elf
+
+Aquatic Half-Orc
+
+Aquatic Halfling
+
+Aquatic Human
+
+Aquatic Orc
+
+Arctic Dwarf
+
+Arctic Elf
+
+Arctic Gnome
+
+Arctic Goblin
+
+Arctic Half-Elf
+
+Arctic Half-Orc
+
+Arctic Halfling
+
+Arctic Human
+
+Arctic Orc
+
+Desert Dwarf
+
+Desert Elf
+
+Desert Gnome
+
+Desert Goblin
+
+Desert Half-Elf
+
+Desert Half-Orc
+
+Desert Halfling
+
+Desert Human
+
+Desert Orc
+
+Earth Dwarf
+
+Fire Elf
+
+Fire Hobgoblin
+
+Jungle Dwarf
+
+Jungle Elf
+
+Jungle Gnome
+
+Jungle Goblin
+
+Jungle Half-Elf
+
+Jungle Half-Orc
+
+Jungle Halfling
+
+Jungle Human
+
+Jungle Orc
+
+Water Halfling
+
+Water Orc

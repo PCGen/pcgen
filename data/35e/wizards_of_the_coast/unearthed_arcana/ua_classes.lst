@@ -987,3 +987,128 @@ CLASS:Tiefling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Disguise|Hide|Kno
 1	ABILITY:Special Ability|AUTOMATIC|Improved Resistance ~ Tiefling Paragon|Weapon and Armor Proficiency ~ Tiefling Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Darkness ~ Tiefling Paragon|Skill Bonus ~ Tiefling Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Tiefling Paragon
+
+CLASS:Bloodline				MAXLEVEL:3
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS|HITDIE	BONUS:CASTERLEVEL|ALLSPELLS|1
+
+
+
+###Block: GENERIC CLASSES
+
+CLASS:Expert	OUTPUTNAME:Expert			KEY:GC_Expert			TYPE:GenericClass.PC	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]	MAXLEVEL:20	HD:6	STARTSKILLPTS:6	SOURCELONG:UA	SOURCESHORT:UA	SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Expert Good Save|2				BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertFortitudeSaveGood,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertReflexSaveGood,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertWillSaveGood,1
+###Block:
+1	ADD:CLASSSKILLS|12|ANY
+###Block:
+1	BONUS:ABILITYPOOL|Generic Class Bonus Selection|1+(CL>1)+(CL/4)
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|GC_Expert ~ Weapon and Armor Proficiency
+
+CLASS:Spellcaster	OUTPUTNAME:Divine Spellcaster	KEY:GC_Divine Spellcaster	TYPE:GenericClass.PC	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]	MAXLEVEL:20	HD:4	STARTSKILLPTS:6	SOURCELONG:UA	SOURCESHORT:UA	SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Divine Spellcaster Good Save|1		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterFortitudeSaveGood,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterReflexSaveGood,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterWillSaveGood,1
+CLASS:GC_Divine Spellcaster		 BONUS:CASTERLEVEL|GC_Divine Spellcaster|CL	SPELLSTAT:WIS	SPELLLIST:4|Cleric|Druid|Sorcerer|Wizard	CSKILL:TYPE=Craft|TYPE=Knowledge|TYPE=Profession
+###Block:
+1	ADD:CLASSSKILLS|4|ANY
+###Block:
+1	BONUS:ABILITYPOOL|Generic Class Bonus Selection|1+(CL/5)
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|GC_Divine Spellcaster ~ Weapon and Armor Proficiency
+###Block:
+1	CAST:4,2
+2	CAST:5,3
+3	CAST:5,4
+4	CAST:6,5,2
+5	CAST:6,5,3
+6	CAST:6,6,4,2
+7	CAST:6,6,5,3
+8	CAST:6,6,5,4,2
+9	CAST:6,6,6,5,3
+10	CAST:6,6,6,5,4,2
+11	CAST:6,6,6,6,5,3
+12	CAST:6,6,6,6,5,4,2
+13	CAST:6,6,6,6,6,5,3
+14	CAST:6,6,6,6,6,5,4,2
+15	CAST:6,6,6,6,6,6,5,3
+16	CAST:6,6,6,6,6,6,5,4,2
+17	CAST:6,6,6,6,6,6,6,5,3
+18	CAST:6,6,6,6,6,6,6,5,4,2
+19	CAST:6,6,6,6,6,6,6,6,5,3
+20	CAST:6,6,6,6,6,6,6,6,6,5
+###Block:
+1	KNOWN:4,2
+2	KNOWN:5,2
+3	KNOWN:5,3
+4	KNOWN:6,3,1
+5	KNOWN:6,4,2
+6	KNOWN:7,4,2,1
+7	KNOWN:7,5,3,2
+8	KNOWN:8,5,3,2,1
+9	KNOWN:8,5,4,3,2
+10	KNOWN:9,5,4,3,2,1
+11	KNOWN:9,5,5,4,3,2
+12	KNOWN:9,5,5,4,3,2,1
+13	KNOWN:9,5,5,4,4,3,2
+14	KNOWN:9,5,5,4,4,3,2,1
+15	KNOWN:9,5,5,4,4,4,3,2
+16	KNOWN:9,5,5,4,4,4,3,2,1
+17	KNOWN:9,5,5,4,4,4,3,3,2
+18	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+CLASS:Spellcaster	OUTPUTNAME:Arcane Spellcaster	KEY:GC_Arcane Spellcaster	TYPE:GenericClass.PC	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]	MAXLEVEL:20	HD:4	STARTSKILLPTS:2	SOURCELONG:UA	SOURCESHORT:UA	SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Arcane Spellcaster Good Save|1		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterFortitudeSaveGood,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterReflexSaveGood,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterWillSaveGood,1
+CLASS:GC_Arcane Spellcaster	 BONUS:CASTERLEVEL|GC_Arcane Spellcaster|CL	SPELLSTAT:INT	SPELLLIST:4|Cleric|Druid|Sorcerer|Wizard
+###Block:
+1	ADD:CLASSSKILLS|4|ANY
+###Block:
+1	BONUS:ABILITYPOOL|Generic Class Bonus Selection|1+(CL/5)
+1	BONUS:ABILITYPOOL|Generic Arcane Spellcaster Stat Selection|1
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|GC_Arcane Spellcaster ~ Weapon and Armor Proficiency
+###Block:
+1	CAST:4,2
+2	CAST:5,3
+3	CAST:5,4
+4	CAST:6,5,2
+5	CAST:6,5,3
+6	CAST:6,6,4,2
+7	CAST:6,6,5,3
+8	CAST:6,6,5,4,2
+9	CAST:6,6,6,5,3
+10	CAST:6,6,6,5,4,2
+11	CAST:6,6,6,6,5,3
+12	CAST:6,6,6,6,5,4,2
+13	CAST:6,6,6,6,6,5,3
+14	CAST:6,6,6,6,6,5,4,2
+15	CAST:6,6,6,6,6,6,5,3
+16	CAST:6,6,6,6,6,6,5,4,2
+17	CAST:6,6,6,6,6,6,6,5,3
+18	CAST:6,6,6,6,6,6,6,5,4,2
+19	CAST:6,6,6,6,6,6,6,6,5,3
+20	CAST:6,6,6,6,6,6,6,6,6,5
+###Block:
+1	KNOWN:4,2
+2	KNOWN:5,2
+3	KNOWN:5,3
+4	KNOWN:6,3,1
+5	KNOWN:6,4,2
+6	KNOWN:7,4,2,1
+7	KNOWN:7,5,3,2
+8	KNOWN:8,5,3,2,1
+9	KNOWN:8,5,4,3,2
+10	KNOWN:9,5,4,3,2,1
+11	KNOWN:9,5,5,4,3,2
+12	KNOWN:9,5,5,4,3,2,1
+13	KNOWN:9,5,5,4,4,3,2
+14	KNOWN:9,5,5,4,4,3,2,1
+15	KNOWN:9,5,5,4,4,4,3,2
+16	KNOWN:9,5,5,4,4,4,3,2,1
+17	KNOWN:9,5,5,4,4,4,3,3,2
+18	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+CLASS:Warrior	OUTPUTNAME:Warrior		KEY:GC_Warrior			TYPE:GenericClass.PC	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]	MAXLEVEL:20	HD:10	STARTSKILLPTS:2	SOURCELONG:UA	SOURCESHORT:UA	SOURCEPAGE:p.78	BONUS:ABILITYPOOL|Warrior Good Save|1				BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorFortitudeSaveGood,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorReflexSaveGood,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorWillSaveGood,1
+CLASS:GC_Warrior	CSKILL:TYPE=Craft
+1	BONUS:ABILITYPOOL|Generic Class Bonus Selection|1+(CL/2)
+1	ADD:CLASSSKILLS|6|ANY
+1	ABILITY:Special Ability|AUTOMATIC|GC_Warrior ~ Weapon and Armor Proficiency
