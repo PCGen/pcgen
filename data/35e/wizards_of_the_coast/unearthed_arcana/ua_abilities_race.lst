@@ -92,7 +92,7 @@ Appraise Bonus								KEY:Earth Dwarf ~ Appraise Bonus		CATEGORY:Special Ability
 
 
 
-
+Variant Rule - Use Bloodlines	CATEGORY:Special Ability	TYPE:AltRules	COST:0	BONUS:ABILITYPOOL|Bloodline|1
 
 ###Block: Bloodlines
 Celestial			KEY:Minor Bloodline ~ Celestial			TYPE:Bloodline.Minor	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Bloodline Power ~ +2 on Sense Motive checks|PREVARGTEQ:ECL,4							ABILITY:Special Ability|AUTOMATIC|Bloodline Power ~ Alertness|PREVARGTEQ:ECL,8							ABILITY:Special Ability|AUTOMATIC|Bloodline Power ~ Wisdom +1|PREVARGTEQ:ECL,12|PRECLASS:1,Bloodline=1		ABILITY:Special Ability|AUTOMATIC|Bloodline Power ~ Protection from Evil 1/day|PREVARGTEQ:ECL,16|PRECLASS:1,Bloodline=1		ABILITY:Special Ability|AUTOMATIC|Bloodline Power ~ Celestial Affinity +2|PREVARGTEQ:ECL,20|PRECLASS:1,Bloodline=1	
