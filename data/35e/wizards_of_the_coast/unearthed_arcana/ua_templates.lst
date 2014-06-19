@@ -23,49 +23,49 @@ Bonus Language ~ Aquan	VISIBLE:NO	LANGBONUS:Aquan
 
 
 Aquatic Dwarf		VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Aquatic		
-Aquatic Gnome
-Aquatic Goblin
-Aquatic Half-Elf
-Aquatic Half-Orc
-Aquatic Halfling
-Aquatic Human
-Aquatic Orc
-Arctic Dwarf
-Arctic Elf
-Arctic Gnome
-Arctic Goblin
-Arctic Half-Elf
-Arctic Half-Orc
-Arctic Halfling
-Arctic Human
-Arctic Orc
-Desert Dwarf
-Desert Elf
-Desert Gnome
-Desert Goblin
-Desert Half-Elf
-Desert Half-Orc
-Desert Halfling
-Desert Human
-Desert Orc
-Jungle Dwarf
-Jungle Elf
-Jungle Gnome
-Jungle Goblin
-Jungle Half-Elf
-Jungle Half-Orc
-Jungle Halfling
-Jungle Human
-Jungle Orc
-
-Air Gnome
-Air Goblin
-Earth Dwarf
-Earth Kobold
-Water Halfling
-Water Orc
-Fire Elf
-Fire Hobgoblin
+Aquatic Gnome		VISIBLE:NO	SUBRACE:Aquatic	
+Aquatic Goblin		VISIBLE:NO	SUBRACE:Aquatic	
+Aquatic Half-Elf		VISIBLE:NO	SUBRACE:Aquatic	
+Aquatic Half-Orc		VISIBLE:NO	SUBRACE:Aquatic	
+Aquatic Halfling		VISIBLE:NO	SUBRACE:Aquatic	
+Aquatic Human		VISIBLE:NO	SUBRACE:Aquatic	
+Aquatic Orc		VISIBLE:NO	SUBRACE:Aquatic	
+Arctic Dwarf		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Elf		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Gnome		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Goblin		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Half-Elf		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Half-Orc		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Halfling		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Human		VISIBLE:NO	SUBRACE:Arctic	
+Arctic Orc		VISIBLE:NO	SUBRACE:Arctic	
+Desert Dwarf		VISIBLE:NO	SUBRACE:Desert	
+Desert Elf		VISIBLE:NO	SUBRACE:Desert	
+Desert Gnome		VISIBLE:NO	SUBRACE:Desert	
+Desert Goblin		VISIBLE:NO	SUBRACE:Desert	
+Desert Half-Elf		VISIBLE:NO	SUBRACE:Desert	
+Desert Half-Orc		VISIBLE:NO	SUBRACE:Desert	
+Desert Halfling		VISIBLE:NO	SUBRACE:Desert	
+Desert Human		VISIBLE:NO	SUBRACE:Desert	
+Desert Orc		VISIBLE:NO	SUBRACE:Desert	
+Jungle Dwarf		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Elf		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Gnome		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Goblin		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Half-Elf		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Half-Orc		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Halfling		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Human		VISIBLE:NO	SUBRACE:Jungle	
+Jungle Orc		VISIBLE:NO	SUBRACE:Jungle	
+#
+Air Gnome		VISIBLE:NO	SUBRACE:Air	
+Air Goblin		VISIBLE:NO	SUBRACE:Air	
+Earth Dwarf		VISIBLE:NO	SUBRACE:Earth	
+Earth Kobold		VISIBLE:NO	SUBRACE:Earth	
+Water Halfling		VISIBLE:NO	SUBRACE:Water	
+Water Orc		VISIBLE:NO	SUBRACE:Water	
+Fire Elf		VISIBLE:NO	SUBRACE:Fire	
+Fire Hobgoblin		VISIBLE:NO	SUBRACE:Fire	
 
 
 

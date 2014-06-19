@@ -1,3 +1,15 @@
+
+# UA Playable Races - Making Subraces
+Goblin			KEY:Goblin		ABILITY:Special Ability|AUTOMATIC|Goblin ~ Skills						CATEGORY:Internal		TYPE:GoblinSubrace.Base		TEMPLATE:Goblin		BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial
+Hobgoblin			KEY:Hobgoblin	ABILITY:Special Ability|AUTOMATIC|Hobgoblin ~ Skills						CATEGORY:Internal		TYPE:HobgoblinSubrace.Base	TEMPLATE:Hobgoblin	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	
+Kobold			KEY:Kobold		ABILITY:Special Ability|AUTOMATIC|Kobold ~ Light Sensitivity|Kobold ~ Skills		CATEGORY:Internal		TYPE:KoboldSubrace.Base		TEMPLATE:Hobgoblin	BONUS:STAT|STR|-4|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial
+Orc				KEY:Orc		ABILITY:Special Ability|AUTOMATIC|Orc ~ Light Sensitivity					CATEGORY:Internal		TYPE:OrcSubrace.Base		TEMPLATE:Orc		BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|-2|TYPE=Racial
+
+
+	
+
+
+
 ##Block: Internal Race Traits
 Race Traits ~ Ape	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Scent|Ape ~ Skills
 Race Traits ~ Baboon	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Scent|Baboon ~ Skills
@@ -232,10 +244,8 @@ Race Traits ~ Griffon	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Flight
 Race Traits ~ Grimlock	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Grimlock ~ Blindsight|Grimlock ~ Immunities|Scent|Grimlock ~ Skills
 #Race Traits ~ Gnome (Svirfneblin)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Gnome Attacks|Svirfneblin ~ Stonecunning|Svirfneblin Gnome Hide|Svirfneblin Gnome Nondetection
 #Race Traits ~ Gnome (Forest)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Forest Gnome Hide|Gnome Alchemy Skill|Gnome Attacks|Gnome Dodge|Gnome Listen Skill|Pass without Trace
-Race Traits ~ Goblin	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Goblin ~ Skills
 #Race Traits ~ Halfling (Tallfellow)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Halfling Morale|Notice Secret Doors
 #Race Traits ~ Halfling (Deep)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Dwarf Appraise|Dwarf Craft|Halfling Morale|Deep Halfling ~ Stonecunning
-Race Traits ~ Hobgoblin	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Hobgoblin ~ Skills
 Race Traits ~ Hag (Annis)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Hag Annis ~ Improved Grab|Hag Annis ~ Rake|Hag Annis ~ Rend|Hag Annis ~ Spell-Like Abilities
 Race Traits ~ Hag (Green)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Green Hag ~ Mimicry|Green Hag ~ Skills|Green Hag ~ Spell-Like Abilities|Green Hag ~ Weakness
 Race Traits ~ Hag (Sea)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Sea Hag ~ Amphibious|Sea Hag ~ Evil Eye|Sea Hag ~ Horrific Appearance|Sea Hag ~ Skills
@@ -256,7 +266,6 @@ Race Traits ~ Inevitable (Kolyarut)	CATEGORY:Internal	ABILITY:Special Ability|AU
 Race Traits ~ Inevitable (Marut)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Inevitable ~ Fast Healing|Marut ~ Fists of Thunder and Lightning|Inevitable ~ Natural Weapons|Marut ~ Natural Weapons|Marut ~ Skills|Marut ~ Spell-Like Abilities
 Race Traits ~ Inevitable (Zelekhut)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Inevitable ~ Fast Healing|Zelekhut ~ Feats|Inevitable ~ Natural Weapons|Zelekhut ~ Natural Weapons|Zelekhut ~ Skills|Zelekhut ~ Spell-Like Abilities
 Race Traits ~ Invisible Stalker	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Invisible Stalker ~ Improved Tracking|Invisible Stalker ~ Natural Invisibility
-Race Traits ~ Kobold	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Kobold ~ Light Sensitivity|Kobold ~ Skills
 Race Traits ~ Kraken	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Kraken ~ Constrict|Kraken ~ Improved Grab|Kraken ~ Ink Cloud|Kraken ~ Jet|Kraken ~ Skills|Kraken ~ Spell-Like Abilities
 Race Traits ~ Krenshar	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Krenshar ~ Scare|Scent|Krenshar ~ Skills
 Race Traits ~ Lamia	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Lamia ~ Skills|Lamia ~ Spell-Like Abilities|Lamia ~ Wisdom Drain
@@ -303,7 +312,6 @@ Race Traits ~ Ooze (Ochre Jelly)	CATEGORY:Internal	ABILITY:Special Ability|AUTOM
 Race Traits ~ Otyugh	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Otyugh ~ Constrict|Otyugh ~ Disease|Otyugh ~ Improved Grab|Scent|Otyugh ~ Skills
 Race Traits ~ Owl (Giant)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Giant Owl ~ Skills|Giant Owl ~ Superior Low-Light Vision
 Race Traits ~ Owlbear	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Owlbear ~ Improved Grab|Scent
-Race Traits ~ Orc	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Orc ~ Light Sensitivity
 Race Traits ~ Planetouched (Aasimar)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Planetouched Aasimar ~ Daylight|Resistance To Acid|Resistance To Cold|Resistance To Electricity|Planetouched Aasimar ~ Skills
 Race Traits ~ Planetouched (Tiefling)	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Planetouched Tiefling ~ Darkness|Resistance To Cold|Resistance To Electricity|Resistance To Fire|Planetouched Tiefling ~ Skills
 Race Traits ~ Pegasus	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Scent|Pegasus ~ Skills|Pegasus ~ Spell-Like Abilities
@@ -1423,9 +1431,9 @@ Race Traits ~ Girallon			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TY
 Rend													KEY:Girallon ~ Rend						CATEGORY:Special Ability	TYPE:GirallonRaceTrait.SpecialAttack.Extraordinary			VISIBLE:YES																																							DESC:A girallon that hits with two or more claw attacks latches onto the opponent's body and tears the flesh. This attack automatically deals an extra 2d4+12 points of damage.
 Skills												KEY:Girallon ~ Skills						CATEGORY:Special Ability	TYPE:GirallonRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:A girallon has a +8 racial bonus on Climb checks and can always choose to take 10 on a Climb check, even if rushed or threatened.
 
-Race Traits ~ Goblin			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=GoblinRaceTrait
+Race Traits ~ Goblin			CATEGORY:Internal		BONUS:ABILITYPOOL|Goblin Subrace|1
 # ~ Goblin
-Skills												KEY:Goblin ~ Skills						CATEGORY:Special Ability	TYPE:GoblinRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Goblins have a +4 racial bonus on Move Silently and Ride checks. Goblin cavalry (mounted on worgs) usually select the Mounted Combat feat in place of the Alertness feat, which reduces their Spot and Listen check modifiers from +3 to +1.
+Skills												KEY:Goblin ~ Skills						CATEGORY:Special Ability	TYPE:GoblinRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Goblins have a +4 racial bonus on Move Silently and Ride checks. Goblin cavalry (mounted on worgs) usually select the Mounted Combat feat in place of the Alertness feat, which reduces their Spot and Listen check modifiers from +3 to +1.	BONUS:SKILL|Move Silently,Ride|4|TYPE=Racial
 
 Race Traits ~ Golem			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=GolemRaceTrait
 # ~ Golem
@@ -1525,9 +1533,9 @@ Race Traits ~ Hippogriff			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|
 # ~ Hippogriff
 Skills												KEY:Hippogriff ~ Skills						CATEGORY:Special Ability	TYPE:HippogriffRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Hippogriffs have a +4 racial bonus on Spot checks.
 
-Race Traits ~ Hobgoblin			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=HobgoblinRaceTrait
+Race Traits ~ Hobgoblin			CATEGORY:Internal		BONUS:ABILITYPOOL|Hobgoblin Subrace|1
 # ~ Hobgoblin
-Skills												KEY:Hobgoblin ~ Skills						CATEGORY:Special Ability	TYPE:HobgoblinRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Hobgoblins have a +4 racial bonus on Move Silently checks.
+Skills												KEY:Hobgoblin ~ Skills						CATEGORY:Special Ability	TYPE:HobgoblinRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Hobgoblins have a +4 racial bonus on Move Silently checks.	BONUS:SKILL|Move Silently|4|TYPE=Racial
 
 Race Traits ~ Homunculus			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=HomunculusRaceTrait
 # ~ Homunculus
@@ -1577,10 +1585,10 @@ Race Traits ~ Invisible Stalker			CATEGORY:Internal		ABILITY:Special Ability|AUT
 Natural Invisibility										KEY:Invisible Stalker ~ Natural Invisibility		CATEGORY:Special Ability	TYPE:Invisible StalkerRaceTrait.SpecialQuality.Supernatural			VISIBLE:YES																																							DESC:This ability is constant, allowing a stalker to remain invisible even when attacking. This ability is inherent and not subject to the invisibility purge spell.
 Improved Tracking											KEY:Invisible Stalker ~ Improved Tracking			CATEGORY:Special Ability	TYPE:Invisible StalkerRaceTrait.SpecialQuality.Extraordinary			VISIBLE:YES																																							DESC:An invisible stalker is a consummate tracker and makes Spot checks instead of the usual Survival checks to trace a creature's passage.
 
-Race Traits ~ Kobold			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=KoboldRaceTrait
+Race Traits ~ Kobold			CATEGORY:Internal		BONUS:ABILITYPOOL|Kobold Subrace|1
 # ~ Kobold
 Light Sensitivity											KEY:Kobold ~ Light Sensitivity				CATEGORY:Special Ability	TYPE:KoboldRaceTrait.SpecialQuality.Extraordinary.Weakness	VISIBLE:YES																																							DESC:Kobolds are dazzled in bright sunlight or within the radius of a daylight spell.
-Skills												KEY:Kobold ~ Skills						CATEGORY:Special Ability	TYPE:KoboldRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Kobolds have a +2 racial bonus on Craft (trapmaking), Profession (miner), and Search checks.
+Skills												KEY:Kobold ~ Skills						CATEGORY:Special Ability	TYPE:KoboldRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:Kobolds have a +2 racial bonus on Craft (trapmaking), Profession (miner), and Search checks.	BONUS:SKILL|Craft (Trapmaking),Profession (Miner),Search|2|TYPE=Racial
 
 Race Traits ~ Kraken			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=KrakenRaceTrait
 # ~ Kraken
@@ -1896,7 +1904,7 @@ Improved Grab											KEY:Ochre Jelly ~ Improved Grab				CATEGORY:Special Abil
 Split													KEY:Ochre Jelly ~ Split						CATEGORY:Special Ability	TYPE:Ochre JellyRaceTrait.SpecialQuality.Extraordinary			VISIBLE:YES																																							DESC:Slashing and piercing weapons and electricity attacks deal no damage to an ochre jelly. Instead the creature splits into two identical jellies, each with half of the original's current hit points (round down). A jelly with 10 hit points or less cannot be further split and dies if reduced to 0 it points.
 Skills												KEY:Ochre Jelly ~ Skills					CATEGORY:Special Ability	TYPE:Ochre JellyRaceTrait.SpecialQuality					VISIBLE:YES																																							DESC:An ochre jelly has a +8 racial bonus on Climb checks and can always choose to take 10 on a Climb check, even if rushed or threatened.
 
-Race Traits ~ Orc			CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=OrcRaceTrait
+Race Traits ~ Orc			CATEGORY:Internal		BONUS:ABILITYPOOL|Orc Subrace|1
 # ~ Orc
 Light Sensitivity											KEY:Orc ~ Light Sensitivity					CATEGORY:Special Ability	TYPE:OrcRaceTrait.SpecialQuality.Extraordinary.Weakness	VISIBLE:YES																																							DESC:Orcs are dazzled in bright sunlight or within the radius of a daylight spell.
 

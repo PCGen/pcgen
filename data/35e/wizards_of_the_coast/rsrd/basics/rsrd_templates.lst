@@ -28,6 +28,12 @@ Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG
 Tallfellow		KEY:Tallfellow Halfling			VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Gnome,Goblin,Orc								SUBRACE:Tallfellow	
 Deep			KEY:Deep Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:.CLEAR	LANGBONUS:Elven,Gnome,Goblin,Orc								SUBRACE:Deep		
 
+# UA Playable Races
+Goblin		KEY:Goblin					VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Goblin				LANGBONUS:.CLEAR	LANGBONUS:Draconic,Elven,Giant,Gnoll,Orc										
+Hobgoblin		KEY:Hobgoblin				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Goblin				LANGBONUS:.CLEAR	LANGBONUS:Draconic,Dwarven,Giant,Infernal,Orc									
+Kobold		KEY:Kobold					VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Draconic				LANGBONUS:.CLEAR	LANGBONUS:Common,Undercommon										
+Orc			KEY:Orc					VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Giant,Gnoll,Goblin,Undercommon										
+
 
 ###Block:
 # Template Name	Visible	Source Page						Define a Stat
