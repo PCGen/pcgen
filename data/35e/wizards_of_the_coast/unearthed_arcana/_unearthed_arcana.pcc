@@ -27,6 +27,7 @@ INFOTEXT:Partial set which includes, Barbarian, Bard, Paladin, Ranger, Sorcerer,
 # Note to self, combine these into one pcc, this sprawl is getting crazy!
 
 ABILITY:ua_abilities.lst
+ABILITY:ua_abilities_class.lst
 ABILITY:ua_abilities_race.lst
 ABILITYCATEGORY:ua_abilitycategories.lst
 CLASS:ua_classes.lst

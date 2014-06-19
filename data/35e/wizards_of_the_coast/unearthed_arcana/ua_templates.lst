@@ -22,86 +22,64 @@ Ape Totem ~ Climb Full	VISIBLE:NO	MOVECLONE:Walk,Climb,*4
 Bonus Language ~ Aquan	VISIBLE:NO	LANGBONUS:Aquan
 
 
-Air Gnome
-
-Air Goblin
-
-Aquatic Dwarf
-
+Aquatic Dwarf		VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Aquatic		
 Aquatic Gnome
-
 Aquatic Goblin
-
 Aquatic Half-Elf
-
 Aquatic Half-Orc
-
 Aquatic Halfling
-
 Aquatic Human
-
 Aquatic Orc
-
 Arctic Dwarf
-
 Arctic Elf
-
 Arctic Gnome
-
 Arctic Goblin
-
 Arctic Half-Elf
-
 Arctic Half-Orc
-
 Arctic Halfling
-
 Arctic Human
-
 Arctic Orc
-
 Desert Dwarf
-
 Desert Elf
-
 Desert Gnome
-
 Desert Goblin
-
 Desert Half-Elf
-
 Desert Half-Orc
-
 Desert Halfling
-
 Desert Human
-
 Desert Orc
-
-Earth Dwarf
-
-Fire Elf
-
-Fire Hobgoblin
-
 Jungle Dwarf
-
 Jungle Elf
-
 Jungle Gnome
-
 Jungle Goblin
-
 Jungle Half-Elf
-
 Jungle Half-Orc
-
 Jungle Halfling
-
 Jungle Human
-
 Jungle Orc
 
+Air Gnome
+Air Goblin
+Earth Dwarf
+Earth Kobold
 Water Halfling
-
 Water Orc
+Fire Elf
+Fire Hobgoblin
+
+
+
+
+#Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Hill		
+# Elf
+#High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:High		
+#Aquatic		KEY:Aquatic Elf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:Aquatic		RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
+# Half-Elf
+#Half-Elf		KEY:Half-Elf				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven				LANGBONUS:TYPE=Spoken						
+# Half-Orc
+#Half-Orc		KEY:Half-Orc				VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin						
+# Gnome
+#Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Rock		
+# Halfling
+#Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:Lightfoot	
+
