@@ -63,7 +63,7 @@ ABILITYCATEGORY:Sniper Training Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 ABILITYCATEGORY:Bonded Spell Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BondedSpellChoice			PLURAL:Bonded Spell Choices			DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Canine Ferocity Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OOTPBonusFeat			PLURAL:Canine Ferocity Bonus Feats		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Elven Arcana Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElvenArcanaSpellChoice		PLURAL:Elven Arcana Spell Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Reincarnated Oracle Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReincarnatedOracleRevelation	PLURAL:Reincarnated Oracle Revelations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Reincarnated Oracle Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReincarnatedOracleRevelation.GeneralRevelation	PLURAL:Reincarnated Oracle Revelations	DISPLAYLOCATION:Class Abilities
 
 ###Block:
 ABILITYCATEGORY:Changeling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ChangelingRacialTrait										PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
