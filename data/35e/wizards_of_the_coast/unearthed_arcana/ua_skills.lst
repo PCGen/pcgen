@@ -4,7 +4,7 @@
 # Unearthed Arcana Sources
 
 
-Knowledge (Forbidden Lore)	USEUNTRAINED:NO	KEYSTAT:INT	TYPE:Intelligence.Knowledge
+Knowledge (Forbidden Lore)	USEUNTRAINED:NO	EXCLUSIVE:YES
 
 
 
