@@ -3,4 +3,9 @@
 Urban Tracking	TYPE:General	SOURCEPAGE:p.56	DESC:You can track down the location of missing persons or wanted individuals within communities.
 
 
+###Block: Reputation based Feats
+Low Profile	!PREFEAT:1,Renown		TYPE:General	SOURCEPAGE:p.182	DESC:You are less famous than others of your class and level, or you wish to maintain a less visible presence than others of your station.	BENEFIT: Reduce your reputation bonus by 3 points. Special: You can’t select both the Low Profi le feat and the Renown feat. You’re either famous or you’re not.		BONUS:VAR|ReputationScore|-3
+Renown	!PREFEAT:1,Low Profile	TYPE:General	SOURCEPAGE:p.182	DESC:You have a better chance of being recognized.BENEFIT: Increase your reputation bonus by 3 points. Special: You can’t select both the Low Profile feat and the Renown feat. You’re either famous or you’re not.	BONUS:VAR|ReputationScore|3
+
+Item Familiar	TYPE:General	SOURCEPAGE:p.170	PREPCLEVEL:MIN=3	DESC:Choose a permanent magic item that you possess. You establish a link to that magic item, and the item improves in capability as you gain levels.	BENEFIT: By establishing a link to a particular item, you enable that item to gain power as you gain levels. The exact nature of the item and the powers are described in the following text. Special: If you ever lose the chosen item (have it removed from your possession for a continuous period of more than one day per level) or if the item is destroyed, you automatically lose 200 XP per level as well as all benefi ts derived from possessing the linked item (plus any resources you put into the item). If you recover the item, you regain these XP. You may replace a lost or destroyed item familiar after you have advanced one level, as if you were gaining an item familiar for the first time.	FOLLOWERS:Item Familiar|1	COMPANIONLIST:Item Familiar|Item Familiar
 

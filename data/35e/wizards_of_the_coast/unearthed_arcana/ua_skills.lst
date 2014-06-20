@@ -6,9 +6,8 @@ Handle Animal.MOD	SITUATION:Horse
 Ride.MOD		SITUATION:Horse
 
 
+Knowledge (Forbidden Lore)	USEUNTRAINED:NO	KEYSTAT:INT	TYPE:Intelligence.Knowledge
 
 
-
-# interact with black dragons
 
 

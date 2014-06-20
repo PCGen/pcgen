@@ -1109,6 +1109,52 @@ CLASS:GC_Arcane Spellcaster	 BONUS:CASTERLEVEL|GC_Arcane Spellcaster|CL	SPELLSTA
 
 CLASS:Warrior	OUTPUTNAME:Warrior		KEY:GC_Warrior			TYPE:GenericClass.PC	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]	MAXLEVEL:20	HD:10	STARTSKILLPTS:2	SOURCELONG:UA	SOURCESHORT:UA	SOURCEPAGE:p.78	BONUS:ABILITYPOOL|Warrior Good Save|1				BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorFortitudeSaveGood,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorReflexSaveGood,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorWillSaveGood,1
 CLASS:GC_Warrior	CSKILL:TYPE=Craft
+###Block:
 1	BONUS:ABILITYPOOL|Generic Class Bonus Selection|1+(CL/2)
+###Block:
 1	ADD:CLASSSKILLS|6|ANY
+###Block:
 1	ABILITY:Special Ability|AUTOMATIC|GC_Warrior ~ Weapon and Armor Proficiency
+
+
+
+CLASS:Battle Scion	HD:10	SOURCEPAGE:p.164	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim	STARTSKILLPTS:2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Battle Scion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+###Block:
+1	BONUS:ABILITYPOOL|Fighter Feat|1+((CL-1)/3)
+
+CLASS:Faith Scion	HD:8	SOURCEPAGE:p.166	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Ride|Spellcraft|Survival	STARTSKILLPTS:2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+CLASS:Faith Scion	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|DIVINE
+
+CLASS:Spell Scion	HD:6	SOURCEPAGE:p.167	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	STARTSKILLPTS:2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2
+CLASS:Spell Scion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ARCANE
+
+CLASS:Swift Scion	HD:10	SOURCEPAGE:p.169	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope	STARTSKILLPTS:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+CLASS:Swift Scion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+1	ADD:CLASSSKILLS|Appraise,Concentration,Decipher Script,Disable Device,Disguise,Gather Information,TYPE=Knowledge,Sleight of Hand,Speak Language,Spellcraft,Survival,Use Magic Device
+5	ADD:CLASSSKILLS|Appraise,Concentration,Decipher Script,Disable Device,Disguise,Gather Information,TYPE=Knowledge,Sleight of Hand,Speak Language,Spellcraft,Survival,Use Magic Device
+###Block:
+2	BONUS:ABILITYPOOL|Swift Scion Ability|(CL+2)/4
+
+CLASS:Tainted Sorcerer	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	SOURCEPAGE:p.192		MAXLEVEL:10	TYPE:PC.Prestige
+CLASS:Tainted Sorcerer	!PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=4	PRESKILL:2,Concentration=8,Knowledge (Arcana)=4	PRETEXT:Alignment: Any nongood. Base Will Save: +4. Skills: Concentration 8 ranks, Knowledge (arcana) 4 ranks. Spells: Ability to cast 1st-level spells. Taint: Character’s taint score must be 4 or higher. Special: Must have learned the basics of taint magic from a tainted sorcerer of at least 4th level, or must have summoned a demon or devil to gain instruction.
+CLASS:Tainted Sorcerer		STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Disguise|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Spellcraft
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Tainted Sorcerer ~ Weapon and Armor Proficiency|Tainted Sorcerer ~ Spells per Day/ Spells Known
+1	ABILITY:Special Ability|AUTOMATIC|Tainted Sorcerer ~ Blood Component|Tainted Sorcerer ~ Taint Suppression|Tainted Sorcerer ~ Tainted Metamagic|Tainted Sorcerer ~ Tainted Spellcasting
+
+
+CLASS:Tainted Warrior	HD:12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	SOURCEPAGE:p.192		TYPE:PC.Prestige	DEFINE:TaintedWarriorLVL|0	BONUS:VAR|TaintedWarriorLVL|CL	MAXLEVEL:10
+CLASS:Tainted Warrior	!PREALIGN:LG,NG,CG	PRETOTALAB:5	PRETEXT:Alignment: Any nongood. Base Attack Bonus: +5. Taint: Character’s taint score must be 10 or more. Special: Character must locate and join a temple devoted to an evil deity.
+CLASS:Tainted Warrior		STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Sense Motive|Swim
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Tainted Warrior ~ Weapon and Armor Proficiency	
+1	ABILITY:Special Ability|AUTOMATIC|Tainted Warrior ~ Taint Suppression			
+2	ABILITY:Special Ability|AUTOMATIC|Tainted Warrior ~ Damage Reduction			
+3	ABILITY:Special Ability|AUTOMATIC|Tainted Warrior ~ Tainted Strike			
