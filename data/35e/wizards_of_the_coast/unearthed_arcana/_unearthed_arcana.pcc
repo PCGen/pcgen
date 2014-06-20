@@ -37,3 +37,6 @@ SKILL:ua_skills.lst
 SPELL:ua_spells.lst
 TEMPLATE:ua_templates.lst
 KIT:ua_kits.lst
+
+COMPANIONMOD:ua_companionmods.lst
+RACE:ua_races.lst
