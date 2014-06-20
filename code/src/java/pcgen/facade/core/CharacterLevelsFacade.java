@@ -85,7 +85,26 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level,
 		SkillFacade skill);
 
-	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost);
+	/**
+	 * Retrieve the maximum number of ranks the character may have in a skill at a level.
+	 * 
+	 * @param level The character level to be checked..
+	 * @param cost The cost at which the skill rank would be purchased.
+	 * @param isClassForMaxRanks Has the skill been a class skill at this or an earlier level.
+	 * @return The maximum allowed ranks.
+	 */
+	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks);
+
+	/**
+	 * Check if the skill is class for max ranks purposes as at the specified level.
+	 * A skill is class for max ranks purposes if it has ever been class for the 
+	 * character up to the level.  
+	 * 
+	 * @param level The level at which to check.
+	 * @param skill The skill to be checked.
+	 * @return True if the skill should be treated as class.
+	 */
+	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill);
 
 	void addClassListener(ClassListener listener);
 

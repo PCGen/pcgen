@@ -342,11 +342,11 @@ public class CharacterLevelsFacadeImpl extends
 		return classLevel.getSkillPointsGained(theCharacter);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getMaxRanks(int, pcgen.cdom.enumeration.SkillCost)
+	/**
+	 * @{inheritdoc}
 	 */
 	@Override
-	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost)
+	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
 		if (cost == null || level == null
 				|| !(level instanceof CharacterLevelFacadeImpl))
@@ -357,18 +357,19 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			return Float.NaN;
 		}
+		SkillCost costForMaxRanks = isClassForMaxRanks ? SkillCost.CLASS : cost;
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
-		if (cost == SkillCost.CLASS)
+		if (costForMaxRanks == SkillCost.CLASS)
 		{
 			return SkillUtilities.maxClassSkillForLevel(
 				levelImpl.getCharacterLevel(), theCharacter).floatValue();
 		}
-		else if (cost == SkillCost.CROSS_CLASS)
+		else if (costForMaxRanks == SkillCost.CROSS_CLASS)
 		{
 			return SkillUtilities.maxCrossClassSkillForLevel(
 				levelImpl.getCharacterLevel(), theCharacter).floatValue();
 		} 
-		else if (cost == SkillCost.EXCLUSIVE)
+		else if (costForMaxRanks == SkillCost.EXCLUSIVE)
 		{
 			// We can't test if the skill in question is valid for all classes 
 			// So just assume it is for the time being. A check on the total 
@@ -407,6 +408,29 @@ public class CharacterLevelsFacadeImpl extends
 		return null;
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
+	@Override
+	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill)
+	{
+		for (int i = 0; i < charLevels.size(); i++)
+		{
+			CharacterLevelFacade testLevel = getElementAt(i);
+			
+			if (getSkillCost(testLevel, skill) == SkillCost.CLASS)
+			{
+				return true;
+			}
+			
+			if (testLevel == level)
+			{
+				// Break as we have reached the level to be checked and it hasn't been class yet
+				return false;
+			}
+		}		
+		return false;
+	}
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillModifier(int, pcgen.core.facade.SkillFacade)
 	 */
@@ -616,7 +640,7 @@ public class CharacterLevelsFacadeImpl extends
 	{
 		Skill aSkill = (Skill) skill;
 		SkillCost skillCost = getSkillCost(baseLevel, aSkill);
-		float maxRanks = getMaxRanks(baseLevel, skillCost);
+		float maxRanks = getMaxRanks(baseLevel, skillCost, isClassSkillForMaxRanks(baseLevel, aSkill));
 
 		float currRank = SkillRankControl.getTotalRank(theCharacter, aSkill);
 		if (newRank < currRank)
@@ -707,7 +731,9 @@ public class CharacterLevelsFacadeImpl extends
 				//Logging.errorPrint("Skipping level " + testLevel + " as it is not the same cost as " + costToMatch);
 				continue;
 			}
-			float maxRanks = getMaxRanks(testLevel, skillCost);
+			float maxRanks =
+					getMaxRanks(testLevel, skillCost,
+						isClassSkillForMaxRanks(testLevel, aSkill));
 			if (maxRanks != Float.NaN && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
@@ -743,7 +769,9 @@ public class CharacterLevelsFacadeImpl extends
 				continue;
 			}
 			SkillCost skillCost = getSkillCost(testLevel, aSkill);
-			float maxRanks = getMaxRanks(testLevel, skillCost);
+			float maxRanks =
+					getMaxRanks(testLevel, skillCost,
+						isClassSkillForMaxRanks(testLevel, aSkill));
 			if (maxRanks != Float.NaN && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);

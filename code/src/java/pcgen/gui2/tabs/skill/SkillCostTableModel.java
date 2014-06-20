@@ -153,7 +153,7 @@ public class SkillCostTableModel extends AbstractTableModel implements ListSelec
 				{
 					return 0.0;
 				}
-				return levels.getMaxRanks(level, cost);
+				return levels.getMaxRanks(level, cost, false);
 			default:
 				throw new IndexOutOfBoundsException();
 		}

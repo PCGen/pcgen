@@ -613,7 +613,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				value = Float.valueOf(0);
 			}
-			float max = levels.getMaxRanks(targetLevel, cost);
+			float max =
+					levels.getMaxRanks(targetLevel, cost,
+						levels.isClassSkillForMaxRanks(targetLevel, skill));
 			if (value > max)
 			{
 				value = max;
@@ -656,7 +658,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 
 			SkillCost cost = levels.getSkillCost(targetLevel, skill);
-			if (value == levels.getMaxRanks(levels.getElementAt(levels.getSize() - 1), cost))
+			CharacterLevelFacade highestLevel = levels.getElementAt(levels.getSize() - 1);
+			if (value == levels.getMaxRanks(highestLevel, cost,
+				levels.isClassSkillForMaxRanks(highestLevel, skill)))
 			{
 				return null;
 			}
