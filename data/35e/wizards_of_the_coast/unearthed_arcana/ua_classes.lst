@@ -1126,12 +1126,12 @@ CLASS:Battle Scion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Faith Scion	HD:8	SOURCEPAGE:p.166	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Ride|Spellcraft|Survival	STARTSKILLPTS:2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 CLASS:Faith Scion	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 ###Block:
-1:REPEATLEVEL:1	ADD:SPELLCASTER|DIVINE
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 
 CLASS:Spell Scion	HD:6	SOURCEPAGE:p.167	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	STARTSKILLPTS:2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2
 CLASS:Spell Scion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 ###Block:
-1:REPEATLEVEL:1	ADD:SPELLCASTER|ARCANE
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
 
 CLASS:Swift Scion	HD:10	SOURCEPAGE:p.169	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope	STARTSKILLPTS:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 CLASS:Swift Scion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3

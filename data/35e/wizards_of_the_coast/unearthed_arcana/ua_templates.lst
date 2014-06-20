@@ -67,7 +67,13 @@ Water Orc		VISIBLE:NO	SUBRACE:Water
 Fire Elf		VISIBLE:NO	SUBRACE:Fire	
 Fire Hobgoblin		VISIBLE:NO	SUBRACE:Fire	
 
-
+#
+Aquatic Kobold	VISIBLE:NO	SUBRACE:Aquatic
+Arctic Kobold	VISIBLE:NO	SUBRACE:Arctic
+Desert Kobold	VISIBLE:NO	SUBRACE:Desert
+Fire Half-Elf	VISIBLE:NO	SUBRACE:Fire
+Jungle Kobold	VISIBLE:NO	SUBRACE:Jungle
+Water Half-Orc	VISIBLE:NO	SUBRACE:Water
 
 
 #Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Hill		
