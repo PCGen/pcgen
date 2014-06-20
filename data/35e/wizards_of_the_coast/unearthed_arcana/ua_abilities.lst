@@ -47,7 +47,7 @@ Fulfilling an oath +2									COST:0	KEY:Honor System ~ Fulfilling an oath						
 Fulfilling a family debt +7								COST:0	KEY:Honor System ~ Fulfilling a family debt									CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|7
 Giving a valuable gift to an NPC +1							COST:0	KEY:Honor System ~ Giving a valuable gift to an NPC								CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|1
 Granting a favor to an NPC +1								COST:0	KEY:Honor System ~ Granting a favor to an NPC									CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|1
-Healing, curing, or restoring NPCs +1						COST:0	KEY:Honor System ~ Healing, curing, or restoring NPCs								CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|1
+Healing, curing, or restoring NPCs +1						COST:0	KEY:Honor System ~ Healing/curing/or restoring NPCs								CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|1
 Heroic death +10										COST:0	KEY:Honor System ~ Heroic death											CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|10
 Leading a force to victory +5								COST:0	KEY:Honor System ~ Leading a force to victory									CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|5
 Making a masterwork item +1								COST:0	KEY:Honor System ~ Making a masterwork item									CATEGORY:Special Ability	TYPE:HonorSystem.HonorAdjustment	CHOOSE:NOCHOICE		MULT:YES	STACK:YES	BONUS:VAR|HonorScore|1
@@ -316,7 +316,7 @@ Invest Spell Slots	KEY:Item Familiar ~ Invest Spell Slots	CATEGORY:Special Abili
 Sapience			KEY:Item Familiar ~ Sapience			CATEGORY:Special Ability	TYPE:Special Ability
 Senses			KEY:Item Familiar ~ Senses			CATEGORY:Special Ability	TYPE:Special Ability
 Communication		KEY:Item Familiar ~ Communication		CATEGORY:Special Ability	TYPE:Special Ability
-
+#Item Familiar ~ Special ability
 
 ###Block: Item Familiar Special Abilities
 Armor, Shield, or Weapon Special Ability	KEY:Item Familiar Special Ability ~ Armor/Shield/Weapon Special Ability		CATEGORY:Special Ability	TYPE:Item Familiar Special Ability.SpecialQuality	DESC:An item familiar empowered with this special ability gains an ability equivalent to a +1 bonus (as found on Table 7–5, 7–6, or 7–14 in the Dungeon Master’s Guide), such as the light fortification, bashing, or defending special ability. This ability contributes to the overall enhancement bonus of the item and its value but does not cost the master of the familiar any gold pieces or time. This ability may be used in conjunction with the normal rules for improving an existing magic item (see Improving an Item Familiar, below, and Adding New Abilities, page 288 of the Dungeon Master’s Guide). A character may select this special ability multiple times, each time enabling her familiar to gain a different ability equivalent to a +1 bonus. Prerequisite: The item familiar must be a type of magic armor, a magic shield, or a magic weapon.
