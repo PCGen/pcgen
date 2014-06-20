@@ -23,8 +23,8 @@ COPYRIGHT:Mutants & Masterminds Copyright 2002, Green Ronin Publishing
 COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.; Andy Collins, Jesse Decker, David Noonan, Rich Redman.
 COPYRIGHT:PCGen Variant OGC Rules Dataset Copyright 2006-2014, PCGen Data Team, including, but not limited to, Andrew Maitland
 
-INFOTEXT:Partial set which includes, Barbarian, Bard, Paladin, Ranger, Sorcerer, Spontaneous Divine Casters, Prestige Bard, Prestige Paladin, Prestige Ranger
-# Note to self, combine these into one pcc, this sprawl is getting crazy!
+#INFOTEXT:
+
 
 ABILITY:ua_abilities.lst
 ABILITY:ua_abilities_class.lst
@@ -32,7 +32,6 @@ ABILITY:ua_abilities_race.lst
 ABILITYCATEGORY:ua_abilitycategories.lst
 CLASS:ua_classes.lst
 FEAT:ua_feats.lst
-# These are conditional, and thus need to be moved when this is added to the distro.
 SKILL:ua_skills.lst
 SPELL:ua_spells.lst
 TEMPLATE:ua_templates.lst
