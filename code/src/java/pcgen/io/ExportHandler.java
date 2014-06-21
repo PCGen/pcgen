@@ -92,6 +92,7 @@ import pcgen.util.enumeration.View;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import freemarker.template.Version;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -315,6 +316,8 @@ public final class ExportHandler
 		{
 			// Set Directory for templates
 			cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
+			cfg.setIncompatibleImprovements(new Version("2.3.20"));
+			
 			// load template
 			Template template = cfg.getTemplate(templateFile.getName());
 
