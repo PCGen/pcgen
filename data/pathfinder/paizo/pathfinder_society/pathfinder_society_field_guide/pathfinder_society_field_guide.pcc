@@ -37,7 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 
 ABILITYCATEGORY:pfsfg_abilitycategories.lst
 ABILITY:pfsfg_abilities.lst
-ABILITY:pfsfg_abilities_Class.lst
+ABILITY:pfsfg_abilities_class.lst
 EQUIPMENT:pfsfg_equip.lst
 KIT:pfsfg_kits.lst
 SPELL:pfsfg_spells.lst
