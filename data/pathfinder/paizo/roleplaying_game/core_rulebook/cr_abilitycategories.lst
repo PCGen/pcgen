@@ -223,14 +223,6 @@ ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	
 
 
 
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Assassin Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AssassinClassFeatures	PLURAL:Assassin Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Dragon Disciple Class Feature	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Dragon DiscipleClassFeatures	PLURAL:Dragon Disciple Class Features		DISPLAYLOCATION:Class Features

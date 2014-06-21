@@ -3,6 +3,6 @@
 # ORIGINAL ENTRY DATE: 2012-08-10
 
 # Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool
-Gunslinger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Gunslinger")
-Ninja			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Ninja")
-Samurai		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Samurai")
+Gunslinger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|GunslingerLVL
+Ninja			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|NinjaLVL
+Samurai		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|SamuraiLVL

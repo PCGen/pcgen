@@ -5,7 +5,8 @@
 ###Block: The Talented Rogue
 
 # Class Name		Hit Dice	Type				Source Page		Save checks bonus												Combat bonus
-CLASS:Talented Rogue	HD:8		TYPE:PC.Base.Rogue	SOURCEPAGE:p.1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:TalentedRogueLVL|CL
+CLASS:Talented Rogue	HD:8		TYPE:PC.Base.Rogue	SOURCEPAGE:p.1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	SERVESAS:CLASS|Rogue
+CLASS:Talented Rogue	PREMULT:1,[PRECLASS:1,Talented Rogue=1],[!PRECLASS:1,TYPE.Rogue=1]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talented Rogue	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block:

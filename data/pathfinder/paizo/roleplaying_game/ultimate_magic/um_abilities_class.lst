@@ -5,7 +5,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 
 ###Block: Favored Classes
 # Ability Name					Category of Ability		Type				Visible		Stackable?	Multiple?	Ability											Bonus to Ability Pool
-Magus							CATEGORY:Special Ability	TYPE:FavoredClass		VISIBLE:DISPLAY	STACK:NO	MULT:NO													BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Magus")
+Magus							CATEGORY:Special Ability	TYPE:FavoredClass		VISIBLE:DISPLAY	STACK:NO	MULT:NO													BONUS:ABILITYPOOL|Favored Class Bonus|MagusLVL
 
 CATEGORY=Internal|Archetype Display.MOD																	ABILITY:Magus Archetype|AUTOMATIC|Archetype Magus|PRECLASS:1,Magus=1
 Archetype Magus					CATEGORY:Archetype		TYPE:MagusArchetype	VISIBLE:NO

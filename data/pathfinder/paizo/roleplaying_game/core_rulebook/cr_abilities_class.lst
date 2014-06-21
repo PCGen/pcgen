@@ -10,24 +10,24 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ###Block: Favored Classes
 # Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus to Ability Pool
-Barbarian		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Barbarian")
-Bard			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Bard")
-Cleric		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Cleric")
-Druid			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Druid")
-Fighter		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Fighter")
-Monk			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Monk")
-Paladin		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Paladin")
-Ranger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Ranger")
-Rogue			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Rogue")
-Sorcerer		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Sorcerer")
-Wizard		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Wizard")
+Barbarian		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|BarbarianLVL
+Bard			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|BardLVL
+Cleric		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|ClericLVL
+Druid			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|DruidLVL
+Fighter		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|FighterLVL
+Monk			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|MonkLVL
+Paladin		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|PaladinLVL
+Ranger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|RangerLVL
+Rogue			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|RogueLVL
+Sorcerer		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|SorcererLVL
+Wizard		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|WizardLVL
 
 # NPC classes
-Adept			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Adept")
-Aristocrat		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Aristocrat")
-Commoner		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Commoner")
-Expert		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Expert")
-Warrior		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Warrior")
+Adept			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|AdeptLVL
+Aristocrat		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|AristocratLVL
+Commoner		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|CommonerLVL
+Expert		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|ExpertLVL
+Warrior		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|WarriorLVL
 
 ###Block: Favored Class Bonuses
 # Ability Name	Unique Key						Category of Ability		Type				Visible		Stackable?	Multiple?	Choose														Bonus to HP			Bonus to skill rank
