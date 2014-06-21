@@ -12,8 +12,8 @@ CLASS:Talented Rogue	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE
 1	BONUS:VAR|TalentedRogueTalentCount|CL
 1	BONUS:VAR|TalentedRogueEdgeCount|1+(CL>1)+(CL>2)+(CL>3)+(CL>7)+(CL>19)
 ###Block:
-1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Proficiencies ~ Talented Rogue
-1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Rogue Edges ~ Talented Rogue
-1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Rogue Talents ~ Talented Rogue
-10	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Advanced Talents ~ Talented Rogue
-20	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Grand Talent ~ Talented Rogue
+1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Proficiencies
+1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Rogue Edges
+1	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Rogue Talents
+10	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Advanced Talents
+20	ABILITY:Talented Rogue Class Ability|AUTOMATIC|Talented Rogue ~ Grand Talent
