@@ -304,3 +304,14 @@ Malevolence		CATEGORY:Ability Focus	TYPE:Ability Focus
 Frightful Moan		CATEGORY:Ability Focus	TYPE:Ability Focus
 Corrupting Touch		CATEGORY:Ability Focus	TYPE:Ability Focus
 Corrupting Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus
+
+
+###Block: Domain Choice
+Domain			CATEGORY:Domain	TYPE:Domain
+
+
+
+Disable First Level Domain Power	KEY:DisableDomainLVL1	CATEGORY:Internal	CHOOSE:DOMAIN|PC	MULT:YES	STACK:NO
+
+
+
