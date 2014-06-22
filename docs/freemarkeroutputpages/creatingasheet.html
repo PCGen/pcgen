@@ -47,14 +47,26 @@
 	<p>In addition, see testsuite/base-xml.ftl for a fully worked example of xml output.</p>
 
 	<h3>Conversion from Legacy Output Engine</h3>
-	<p>In the future a script may be provided to convert a legacy PCGen sheet to FreeMarker. In 
-	the meantime, the following main steps will need to be done manually:</p>
+	<p>A Groovy script is available to convert a legacy PCGen sheet to FreeMarker. Get the script 
+	from <a href="http://sourceforge.net/p/pcgen/code/HEAD/tree/Trunk/pcgen/code/convfreemarker.groovy?format=raw">subversion</a> .
+	You will also need to <a href="http://groovy.codehaus.org/">download Groovy</a> .
+	
+	</p>
+	<p>The script is run using the command
+	<pre>groovy convfreemarker.groovy sheetname [outputtemplatename]</pre>
+	where <em>sheetname</em> is the path to the sheet you wish to convert and <em>outputtemplatename</em>
+	is the nameof the FreeMarker template file to be created. If an outputtemplatename is not
+	supplied, the output template will be the same name as the sheetname but with .ftl appended 
+	to it. e.g. groovy convfreemarker.groovy base.xml would produce base.xml.ftl </p>
+	<p>
+	<p>The following are the main steps that need to be made for manual conversion:</p>
 	<ol>
-		<li>Replace each old tag with a call to @pcstring. e.g. |PLAYERNAME| becomes &lt;@pcstring tag="PLAYERNAME"/&gt;</li>
-		<li>Replace loop variables in tags with variable references. e.g. |CLASSABB.%class| becomes &lt;@pcstring tag="CLASSABB.${class}"/&gt;</li>
 		<li>Replace FOR loops with @loop directives. e.g. |FOR,%class,0,COUNT[CLASSES]-1,1,0| 
 		becomes &lt;@loop from=0 to=pcvar('count("CLASSES")')-1 ; class , class_has_next &gt;</li>
 		<li>Replace IF tests with FreeMarker if tests. This will often need the use of pcvar and pcboolean functions to access character information.</li>
+		<li>Replace filters with FreeMarker if tests.</li>
+		<li>Replace each old tag with a call to pcstring. e.g. |PLAYERNAME| becomes ${pcstring('PLAYERNAME')}</li>
+		<li>Replace loop variables in tags with variable references. e.g. |CLASSABB.%class| becomes ${pcstring('CLASSABB.${class}')}</li>
 	</ol>
 	<p>Manual tidy up will then be required including extracting repeated content to macros.</p>
 
