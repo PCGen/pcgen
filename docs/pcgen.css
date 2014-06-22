@@ -291,3 +291,8 @@ a img {
 	color: #ffffff;
 	text-align: center;
 }
+pre.code {
+	border: 1px dashed rgb(0, 0, 0); 
+	padding-left: 5px; 
+	background-color: beige;	
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <!--
+    PCGen Documentation Project
+
+    $Author: karianna $
+    $Date: 2010-03-11 22:29:24 +1100 (Thu, 11 Mar 2010) $
+    $Revision: 11505 $
+
+    Contributors:
+    James Dempsey
+
+    Description:
+    Provides information on FreeMarker based Character Output Sheets.
+  -->
+  <head>
+    <title>FreeMarker Output</title>
+    <link rel="stylesheet" type="text/css" href="../pcgen.css" >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <body>
+    <h1>Creating a FreeMarker Output Sheet</h1>
+
+	<p>FreeMarker sheets are detected by PCGen by their file name suffix. A 
+	template ending in <b>.ftl</b> will be processed by FreeMarker rather than by 
+	PCGen's legacy output engine. </p>
+	<p>The extension of the file to be produced 
+	should be immediately before that and preceded by a . or -. So a template 
+	to produce html output might be named csheet-first.html.ftl or 
+	chseet-compact-html.ftl and PCGen would pick up that it was a template to be 
+	processed by FreeMarker template that would produce output of a html file. </p>
+
+	<p>Inside the sheet, the file is just a text file, with functions or directives 
+	included when needed to produce dynamic output. It is often simplest to start 
+	with a static file that looks like the output you want and then gradually 
+	introduce FreeMarker tags to make the sheet show the character info.
+
+	<h3>FreeMarker Documentation</h3>
+	<p>FreeMarker has quite thorough documentation. The main references output sheet authors will use are:
+	</p>
+	<ol><li> <a rel="nofollow" class="external text" href="http://freemarker.org/docs/dgui.html">Template Author's Guide</a>
+	</li><li> <a rel="nofollow" class="external text" href="http://freemarker.org/docs/ref.html">Reference Guide</a>
+	</li><li> <a rel="nofollow" class="external text" href="http://freemarker.org/">Main FreeMarker page</a>
+	</li></ol>
+	<p>In addition, see testsuite/base-xml.ftl for a fully worked example of xml output.</p>
+
+	<h3>Conversion from Legacy Output Engine</h3>
+	<p>In the future a script may be provided to convert a legacy PCGen sheet to FreeMarker. In 
+	the meantime, the following main steps will need to be done manually:</p>
+	<ol>
+		<li>Replace each old tag with a call to @pcstring. e.g. |PLAYERNAME| becomes &lt;@pcstring tag="PLAYERNAME"/&gt;</li>
+		<li>Replace loop variables in tags with variable references. e.g. |CLASSABB.%class| becomes &lt;@pcstring tag="CLASSABB.${class}"/&gt;</li>
+		<li>Replace FOR loops with @loop directives. e.g. |FOR,%class,0,COUNT[CLASSES]-1,1,0| 
+		becomes &lt;@loop from=0 to=pcvar('count("CLASSES")')-1 ; class , class_has_next &gt;</li>
+		<li>Replace IF tests with FreeMarker if tests. This will often need the use of pcvar and pcboolean functions to access character information.</li>
+	</ol>
+	<p>Manual tidy up will then be required including extracting repeated content to macros.</p>
+
+  <p>
+  <a href="http://validator.w3.org/check?uri=referer"><img
+        src="../images/system/valid-html401.png"
+        alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+  </p>
+</body>
+
+</html>
