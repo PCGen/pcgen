@@ -58,7 +58,9 @@ def freemarkerFile = new File(target)
 freemarkerFile.write('<#ftl encoding="UTF-8" strip_whitespace=true >\r\n')
 
 // Process each line in the inout file, writing the updated line to output
-def linenum = 0;
+int linenum = 0;
+int numChanged = 0;
+int numSkipped = 0;
 pcgenExportFile.eachLine {
 	linenum++
 
@@ -80,41 +82,55 @@ pcgenExportFile.eachLine {
     line = line.replaceAll("\\|ENDFOR\\|", '</@loop>')
     
     // If tests
+    def lhsIdenitfierChars = 'A-Za-z0-9%.;=_ "\\[\\]\\(\\)-'
     // |IIF(%spelllevelcount:0)|
     line = line.replaceAll("\\|IIF\\(%([A-Za-z0-9]+):([0-9]+)\\)\\|", '<#if ($1 == $2)>')
     // |IIF(WEAPON.%weap.CATEGORY:BOTH)|
-    line = line.replaceAll("\\|IIF\\(([A-Za-z0-9%.]+):([A-Za-z0-9]+)\\)\\|", '<#if (pcstring("$1") == "$2")>')
+    line = line.replaceAll("\\|IIF\\((["+lhsIdenitfierChars+"]+):([A-Za-z0-9 -]+)\\)\\|", '<#if (pcstring("$1") == "$2")>')
     // |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")>0)|
-    line = line.replaceAll('\\|IIF\\(([A-Za-z0-9;=_ "\\[\\]\\(\\)]+)>([0-9]+)\\)\\|', /<#if (pcvar('$1') > $2)>/)
+    line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)>([0-9]+)\\)\\|', /<#if (pcvar('$1') > $2)>/)
     // |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")==0)|
-    line = line.replaceAll('\\|IIF\\(([A-Za-z0-9;=_ "\\[\\]\\(\\)]+)==([0-9]+)\\)\\|', /<#if (pcvar('$1') == $2)>/)
+    line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)==([0-9]+)\\)\\|', /<#if (pcvar('$1') == $2)>/)
     line = line.replaceAll("\\|ELSE\\|", "<#else>")
     line = line.replaceAll("\\|ENDIF\\|", '</#if>')
+    
+    // |OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
+    line = line.replaceAll('\\|OIF\\(EVEN:(%[A-Za-z0-9]+),([^,]+),([^,]+)\\)\\|', '<#if ($1 % 2 == 0)>$2<#else>$3</#if>')
     
     // Filter tags - uggh
     // |%VAR.RageTimes.GTEQ.1|
     line = line.replaceAll("\\|%([^\\|]+)\\.GTEQ\\.([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
     // |%BARBARIAN=1|
     line = line.replaceAll("\\|%([^\\|]+)=([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
+    // |%COUNT[SA]|
+    line = line.replaceAll("\\|%([^\\|]+)\\|", '<#if (pcvar("$1") > 0) >')
     line = line.replaceAll("\\|%\\|", '</#if>')
     
     // General tags
     def replaceStr = Matcher.quoteReplacement('${pcstring(') + "'\$1')}"; 
-    line = line.replaceAll("\\|([_ A-Za-z0-9.%/*\\(\\)]+)\\|", replaceStr)
+    line = line.replaceAll('\\|([_ A-Za-z0-9.=%/*\\(\\)",-]+)\\|', replaceStr)
+    replaceStr = Matcher.quoteReplacement('${pcvar(') + "'\$1')}"; 
+    line = line.replaceAll('\\|([_ A-Za-z0-9.=%/*\\(\\)",+-]+)\\|', replaceStr)
    
     // Loop variables
     replaceStr = Matcher.quoteReplacement('${') + "\$1}"; 
-    line = line.replaceAll("%([a-zA-Z0-9]+)", replaceStr)
+    line = line.replaceAll("%([a-zA-Z0-9+-]+)", replaceStr)
 
     if (line ==~ ".*\\|.*") {
     	// If we couldn't conert everything report the line and revert back to the original content
     	println "Unable to convert line ${linenum}: ${origLine}"
     	line = origLine
+    	numSkipped++
     }
     
+    if (line != origLine) {
+    	numChanged++
+    }
+    	
 	// Output the revised file
 	freemarkerFile.append(line+"\r\n")
 }
 
 println ""
+println "Scanned ${linenum} lines, ${numSkipped} were skipped and ${numChanged} were migrated."
 println "Output new template to ${freemarkerFile}"
