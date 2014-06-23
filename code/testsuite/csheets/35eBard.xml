@@ -987,7 +987,7 @@ BIO
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Bardic Knowledge</name>
-			<description>A bard may make a special bardic knowledge check with a bonus equal to his bard level + his Intelligence modifier to see whether he knows some relevant information about local notable people, legendary items, or noteworthy places. (If the bard has 5 or more ranks in Knowledge (history), he gains a +2 bonus on this check.) A successful bardic knowledge check will not reveal the powers of a magic item but may give a hint as to its general function. A bard may not take 10 or take 20 on this check; this sort of knowledge is essentially random.</description>
+			<description>A bard may make a special bardic knowledge check with a bonus +4 [equal to his bard level + his Intelligence modifier] to see whether he knows some relevant information about local notable people, legendary items, or noteworthy places. (If the bard has 5 or more ranks in Knowledge (history), he gains a +2 bonus on this check.) A successful bardic knowledge check will not reveal the powers of a magic item but may give a hint as to its general function. A bard may not take 10 or take 20 on this check; this sort of knowledge is essentially random.</description>
 			<type>CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1009,7 +1009,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Countersong</name>
-			<description>A Bardic Music with 3 or more ranks in a Perform skill can use his music or poetics to counter magical effects that depend on sound (but not spells that simply have verbal components). Each round of the countersong, he makes a Perform check. Any creature within 30 feet of the Bardic Music (including the Bardic Music himself ) that is affected by a sonic or language-dependent magical attack may use the Bardic Music&#39;s Perform check result in place of its saving throw if, after the saving throw is rolled, the Perform check result proves to be higher. If a creature within range of the countersong is already under the effect of a noninstantaneous sonic or language-dependent magical attack, it gains another saving throw against the effect each round it hears the countersong, but it must use the Bardic Music&#39;s Perform check result for the save. Countersong has no effect against effects that don&#39;t allow saves. The Bardic Music may keep up the countersong for 10 rounds.</description>
+			<description>A bard with 3 or more ranks in a Perform skill can use his music or poetics to counter magical effects that depend on sound (but not spells that simply have verbal components). Each round of the countersong, he makes a Perform check. Any creature within 30 feet of the bard (including the bard himself ) that is affected by a sonic or language-dependent magical attack may use the Bard&#39;s Perform check result in place of its saving throw if, after the saving throw is rolled, the Perform check result proves to be higher. If a creature within range of the countersong is already under the effect of a noninstantaneous sonic or language-dependent magical attack, it gains another saving throw against the effect each round it hears the countersong, but it must use the Bard&#39;s Perform check result for the save. Countersong has no effect against effects that don&#39;t allow saves. The bard may keep up the countersong for 10 rounds.</description>
 			<type>SUPERNATURAL.CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1020,7 +1020,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Fascinate</name>
-			<description>A Bardic Music with 3 or more ranks in a Perform skill can use his music or poetics to cause one or more creatures to become fascinated with him. Each creature to be fascinated must be within 90 feet, able to see and hear the Bardic Music, and able to pay attention to him. The Bardic Music must also be able to see the creature. The distraction of a nearby combat or other dangers prevents the ability from working. For every three levels a Bardic Music attains beyond 1st, he can target one additional creature with a single use of this ability. To use the ability, a Bardic Music makes a Perform check. His check result is the DC for each affected creature&#39;s Will save against the effect. If a creature&#39;s saving throw succeeds, the Bardic Music cannot attempt to fascinate that creature again for 24 hours. If its saving throw fails, the creature sits quietly and listens to the song, taking no other actions, for as long as the Bardic Music continues to play and concentrate (up to a maximum of 1 round per Bardic Music level). While fascinated, a target takes a -4 penalty on skill checks made as reactions, such as Listen and Spot checks. Any potential threat requires the Bardic Music to make another Perform check and allows the creature a new saving throw against a DC equal to the new Perform check result. Any obvious threat, such as someone drawing a weapon, casting a spell, or aiming a ranged weapon at the target, automatically breaks the effect. Fascinate is an enchantment (compulsion), mind-affecting ability.</description>
+			<description>A bard with 3 or more ranks in a Perform skill can use his music or poetics to cause one or more creatures to become fascinated with him. Each creature to be fascinated must be within 90 feet, able to see and hear the Bard, and able to pay attention to him. The bard must also be able to see the creature. The distraction of a nearby combat or other dangers prevents the ability from working. For every three levels a bard attains beyond 1st, he can target one additional creature with a single use of this ability. To use the ability, a bard makes a Perform check. His check result is the DC for each affected creature&#39;s Will save against the effect. If a creature&#39;s saving throw succeeds, the bard cannot attempt to fascinate that creature again for 24 hours. If its saving throw fails, the creature sits quietly and listens to the song, taking no other actions, for as long as the bard continues to play and concentrate (up to a maximum of 1 round per bard level). While fascinated, a target takes a -4 penalty on skill checks made as reactions, such as Listen and Spot checks. Any potential threat requires the bard to make another Perform check and allows the creature a new saving throw against a DC equal to the new Perform check result. Any obvious threat, such as someone drawing a weapon, casting a spell, or aiming a ranged weapon at the target, automatically breaks the effect. Fascinate is an enchantment (compulsion), mind-affecting ability.</description>
 			<type>SPELLLIKE.CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1031,7 +1031,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Inspire Courage</name>
-			<description>A Bardic Music with 3 or more ranks in a Perform skill can use song or poetics to inspire courage in his allies (including himself ), bolstering them against fear and improving their combat abilities. To be affected, an ally must be able to hear the Bardic Music sing. The effect lasts for as long as the ally hears the Bardic Music sing and for 5 rounds thereafter. An affected ally receives a +1 morale bonus on saving throws against charm and fear effects and a +1 morale bonus on attack and weapon damage rolls. At 8th level, and every six Bardic Music levels thereafter, this bonus increases by 1 (+2 at 8th, +3 at 14th, and +4 at 20th). Inspire courage is a mind-affecting ability.</description>
+			<description>A bard with 3 or more ranks in a Perform skill can use song or poetics to inspire courage in his allies (including himself ), bolstering them against fear and improving their combat abilities. To be affected, an ally must be able to hear the bard sing. The effect lasts for as long as the ally hears the bard sing and for 5 rounds thereafter. An affected ally receives a +1 morale bonus on saving throws against charm and fear effects and a +1 morale bonus on attack and weapon damage rolls. At 8th level, and every six bard levels thereafter, this bonus increases by 1 (+2 at 8th, +3 at 14th, and +4 at 20th). Inspire courage is a mind-affecting ability.</description>
 			<type>SUPERNATURAL.CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1152,7 +1152,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Sneak Attack</name>
-			<description>+0d6</description>
+			<description>+1d6</description>
 			<type>SPECIALATTACK</type>
 			<associated></associated>
 			<count>0</count>
