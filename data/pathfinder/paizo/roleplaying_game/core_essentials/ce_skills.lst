@@ -205,7 +205,11 @@ Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
 
 
 
-
+Bluff.MOD		SITUATION:Giant subtype
+Perception.MOD	SITUATION:Giant subtype
+Sense Motive.MOD	SITUATION:Giant subtype
+Appraise.MOD	SITUATION:Giant subtype
+Perception.MOD	SITUATION:sight-based
 
 
 
