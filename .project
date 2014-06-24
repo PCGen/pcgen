@@ -22,6 +22,7 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.springsource.ide.eclipse.gradle.core.nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>com.ibm.etools.ctc.javaprojectnature</nature>
 		<nature>com.teaminabox.eclipse.metrics.MetricsNature</nature>
