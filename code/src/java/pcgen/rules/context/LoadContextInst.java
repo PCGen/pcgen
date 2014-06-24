@@ -41,7 +41,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.persistence.ChoiceSetLoadUtilities;
-import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.TokenSupport;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -177,8 +176,8 @@ public abstract class LoadContextInst implements LoadContext
 
 	public void resolveDeferredTokens()
 	{
-		for (DeferredToken<? extends Loadable> token : TokenLibrary
-				.getDeferredTokens())
+		for (DeferredToken<? extends Loadable> token : support.
+				getDeferredTokens())
 		{
 			processRes(token);
 		}
@@ -210,7 +209,7 @@ public abstract class LoadContextInst implements LoadContext
 	{
 		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (PostDeferredToken<? extends Loadable> token : TokenLibrary
+		for (PostDeferredToken<? extends Loadable> token : support
 				.getPostDeferredTokens())
 		{
 			processPostRes(token, mfgs);

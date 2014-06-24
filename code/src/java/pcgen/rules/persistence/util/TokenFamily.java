@@ -19,9 +19,11 @@ package pcgen.rules.persistence.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -31,9 +33,11 @@ import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMap;
+import pcgen.cdom.base.Loadable;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.DeferredToken;
 
 public final class TokenFamily implements Comparable<TokenFamily>
 {
@@ -60,12 +64,13 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	private final TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>> subTokenMap =
 			new TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>>();
 
-	// private final DoubleKeyMap<Class<?>, String, ChoiceSetToken>
-	// chooseTokenMap = new DoubleKeyMap<Class<?>, String, ChoiceSetToken>();
-
 	private final Map<CaseInsensitiveString, PrerequisiteParserInterface> preTokenMap =
 			new HashMap<CaseInsensitiveString, PrerequisiteParserInterface>();
 
+	private final List<DeferredToken<? extends Loadable>> deferredTokenList =
+			new ArrayList<DeferredToken<? extends Loadable>>();
+
+	
 	private TokenFamily(Revision r)
 	{
 		rev = r;
@@ -253,5 +258,18 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	{
 		tokenMap.clear();
 		subTokenMap.clear();
+		deferredTokenList.clear();
+		preTokenMap.clear();
+	}
+
+	public List<DeferredToken<? extends Loadable>> getDeferredTokens()
+	{
+		return new ArrayList<DeferredToken<? extends Loadable>>(
+				deferredTokenList);
+	}
+
+	public void addDeferredToken(DeferredToken<?> newToken)
+	{
+		deferredTokenList.add(newToken);
 	}
 }

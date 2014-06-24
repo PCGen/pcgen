@@ -17,10 +17,8 @@
  */
 package pcgen.rules.persistence;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
@@ -56,8 +54,6 @@ public final class TokenLibrary implements PluginLoader
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
-	private static final List<DeferredToken<? extends Loadable>> DEFERRED_TOKENS =
-			new ArrayList<DeferredToken<? extends Loadable>>();
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> POST_DEFERRED_TOKENS =
 			new TreeMapToList<Integer, PostDeferredToken<? extends Loadable>>();
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> QUALIFIER_MAP =
@@ -77,7 +73,6 @@ public final class TokenLibrary implements PluginLoader
 	
 	public static void reset()
 	{
-		DEFERRED_TOKENS.clear();
 		POST_DEFERRED_TOKENS.clear();
 		QUALIFIER_MAP.clear();
 		PRIMITIVE_MAP.clear();
@@ -103,12 +98,6 @@ public final class TokenLibrary implements PluginLoader
 			return it.next();
 		}
 		return null;
-	}
-
-	public static List<DeferredToken<? extends Loadable>> getDeferredTokens()
-	{
-		return new ArrayList<DeferredToken<? extends Loadable>>(
-				DEFERRED_TOKENS);
 	}
 
 	public static Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
@@ -149,7 +138,7 @@ public final class TokenLibrary implements PluginLoader
 	{
 		if (newToken instanceof DeferredToken)
 		{
-			DEFERRED_TOKENS.add((DeferredToken<?>) newToken);
+			TokenFamily.CURRENT.addDeferredToken((DeferredToken<?>) newToken);
 		}
 		if (newToken instanceof PostDeferredToken)
 		{

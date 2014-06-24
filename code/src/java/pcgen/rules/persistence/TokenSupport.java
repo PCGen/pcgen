@@ -35,7 +35,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.util.TokenFamily;
 import pcgen.rules.persistence.util.TokenFamilyIterator;
 import pcgen.rules.persistence.util.TokenFamilySubIterator;
@@ -264,5 +266,15 @@ public class TokenSupport
 			return null;
 		}
 		return result.toArray(new String[]{});
+	}
+
+	public Collection<DeferredToken<? extends Loadable>> getDeferredTokens()
+	{
+		return TokenFamily.CURRENT.getDeferredTokens();
+	}
+
+	public Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
+	{
+		return TokenLibrary.getPostDeferredTokens();
 	}
 }
