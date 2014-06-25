@@ -248,6 +248,13 @@ ABILITY:Special Ability|Evasion				MAXVER:6.4.00	NEWKEY:Ranger ~ Evasion
 ABILITY:Special Ability|Combat Style Mastery		MAXVER:6.4.00	NEWKEY:Ranger ~ Combat Style Mastery		
 ABILITY:Special Ability|Camouflage				MAXVER:6.4.00	NEWKEY:Ranger ~ Camouflage				
 ABILITY:Special Ability|Hide in Plain Sight		MAXVER:6.4.00	NEWKEY:Ranger ~ Hide in Plain Sight		
+
+
+ABILITY:Special Ability|Two Weapon Fighting Combat Style		MAXVER:6.4.00	NEWKEY:Combat Style ~ Two-Weapon Fighting	
+ABILITY:Special Ability|Archery Combat Style				MAXVER:6.4.00	NEWKEY:Combat Style ~ Archery			
+
+
+
 ABILITY:Special Ability|Aberration					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Aberration			
 ABILITY:Special Ability|Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Animal				
 ABILITY:Special Ability|Construct					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Construct				
@@ -281,38 +288,38 @@ ABILITY:Special Ability|Plant						MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Plant
 ABILITY:Special Ability|Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Undead				
 ABILITY:Special Ability|Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Vermin				
 
-ABILITY:Special Ability|Aberration					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Aberration		
-ABILITY:Special Ability|Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Animal			
-ABILITY:Special Ability|Construct					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Construct			
-ABILITY:Special Ability|Dragon					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Dragon			
-ABILITY:Special Ability|Elemental					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Elemental			
-ABILITY:Special Ability|Fey						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Fey				
-ABILITY:Special Ability|Giant						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Giant			
-ABILITY:Special Ability|Humanoid (Aquatic)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Aquatic)	
-ABILITY:Special Ability|Humanoid (Dwarf)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Dwarf)	
-ABILITY:Special Ability|Humanoid (Elf)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Elf)		
-ABILITY:Special Ability|Humanoid (Goblinoid)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Goblinoid)	
-ABILITY:Special Ability|Humanoid (Gnoll)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnoll)	
-ABILITY:Special Ability|Humanoid (Gnome)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnome)	
-ABILITY:Special Ability|Humanoid (Halfling)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Halfling)	
-ABILITY:Special Ability|Humanoid (Human)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Human)	
-ABILITY:Special Ability|Humanoid (Orc)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Orc)		
-ABILITY:Special Ability|Humanoid (Reptilian)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Reptilian)	
-ABILITY:Special Ability|Magical Beast				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Magical Beast		
-ABILITY:Special Ability|Monstrous Humanoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Monstrous Humanoid	
-ABILITY:Special Ability|Ooze						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Ooze			
-ABILITY:Special Ability|Outsider (Air)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Air)		
-ABILITY:Special Ability|Outsider (Earth)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Earth)	
-ABILITY:Special Ability|Outsider (Fire)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Fire)		
-ABILITY:Special Ability|Outsider (Water)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Water)	
-ABILITY:Special Ability|Outsider (Lawful)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Lawful)	
-ABILITY:Special Ability|Outsider (Chaotic)			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Chaotic)	
-ABILITY:Special Ability|Outsider (Good)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Good)		
-ABILITY:Special Ability|Outsider (Evil)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Evil)		
-ABILITY:Special Ability|Outsider (Native)				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Native)	
-ABILITY:Special Ability|Plant						MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Plant			
-ABILITY:Special Ability|Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Undead			
-ABILITY:Special Ability|Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Vermin			
+ABILITY:Special AbilityFavored Bonus__Aberration				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Aberration		
+ABILITY:Special AbilityFavored Bonus__Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Animal			
+ABILITY:Special AbilityFavored Bonus__Construct				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Construct			
+ABILITY:Special AbilityFavored Bonus__Dragon					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Dragon			
+ABILITY:Special AbilityFavored Bonus__Elemental				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Elemental			
+ABILITY:Special AbilityFavored Bonus__Fey					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Fey				
+ABILITY:Special AbilityFavored Bonus__Giant					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Giant			
+ABILITY:Special AbilityFavored Bonus__Humanoid_Aquatic			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Aquatic)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Dwarf				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Dwarf)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Elf				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Elf)		
+ABILITY:Special AbilityFavored Bonus__Humanoid_Goblinoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Goblinoid)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Gnoll				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnoll)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Gnome				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnome)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Halfling			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Halfling)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Human				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Human)	
+ABILITY:Special AbilityFavored Bonus__Humanoid_Orc				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Orc)		
+ABILITY:Special AbilityFavored Bonus__Humanoid_Reptilian			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Reptilian)	
+ABILITY:Special AbilityFavored Bonus__Magical Beast				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Magical Beast		
+ABILITY:Special AbilityFavored Bonus__Monstrous Humanoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Monstrous Humanoid	
+ABILITY:Special AbilityFavored Bonus__Ooze					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Ooze			
+ABILITY:Special AbilityFavored Bonus__Outsider_Air				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Air)		
+ABILITY:Special AbilityFavored Bonus__Outsider_Earth				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Earth)	
+ABILITY:Special AbilityFavored Bonus__Outsider_Fire				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Fire)		
+ABILITY:Special AbilityFavored Bonus__Outsider_Water				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Water)	
+ABILITY:Special AbilityFavored Bonus__Outsider_Lawful			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Lawful)	
+ABILITY:Special AbilityFavored Bonus__Outsider_Chaotic			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Chaotic)	
+ABILITY:Special AbilityFavored Bonus__Outsider_Good				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Good)		
+ABILITY:Special AbilityFavored Bonus__Outsider_Evil				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Evil)		
+ABILITY:Special AbilityFavored Bonus__Outsider_Native			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Native)	
+ABILITY:Special AbilityFavored Bonus__Plant					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Plant			
+ABILITY:Special AbilityFavored Bonus__Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Undead			
+ABILITY:Special AbilityFavored Bonus__Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Vermin			
 ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Rogue ~ Weapon and Armor Proficiency		
 ABILITY:Special Ability|Sneak Attack			MAXVER:6.4.00	NEWKEY:Rogue ~ Sneak Attack				
 ABILITY:Special Ability|Trapfinding				MAXVER:6.4.00	NEWKEY:Rogue ~ Trapfinding					
@@ -347,14 +354,14 @@ ABILITY:Special Ability|Speak with Master				MAXVER:6.4.00	NEWKEY:Familiar ~ Spe
 ABILITY:Special Ability|Speak with Animals of Its Kind	MAXVER:6.4.00	NEWKEY:Familiar ~ Speak with Animals of Its Kind	
 ABILITY:Special Ability|Spell Resistance				MAXVER:6.4.00	NEWKEY:Familiar ~ Spell Resistance			
 ABILITY:Special Ability|Scry on Familiar				MAXVER:6.4.00	NEWKEY:Familiar ~ Scry on Familiar			
-ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Adept ~ Weapon and Armor Proficiency		
+#ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Adept ~ Weapon and Armor Proficiency		
 ABILITY:Special Ability|Spells					MAXVER:6.4.00	NEWKEY:Adept ~ Spells					
 ABILITY:Special Ability|Summon Familiar				MAXVER:6.4.00	NEWKEY:Adept ~ Summon Familiar				
-ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Aristocrat ~ Weapon and Armor Proficiency	
-ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Commoner ~ Weapon and Armor Proficiency	
-ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Expert ~ Weapon and Armor Proficiency		
-ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Warrior ~ Weapon and Armor Proficiency	
-ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Weapon and Armor Proficiency	
+#ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Aristocrat ~ Weapon and Armor Proficiency	
+#ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Commoner ~ Weapon and Armor Proficiency	
+#ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Expert ~ Weapon and Armor Proficiency		
+#ABILITY:Special Ability|Weapon and Armor Proficiency		MAXVER:6.4.00	NEWKEY:Warrior ~ Weapon and Armor Proficiency	
+#ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Weapon and Armor Proficiency	
 ABILITY:Special Ability|Enhance Arrow			MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Enhance Arrow				
 ABILITY:Special Ability|Imbue Arrow				MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Imbue Arrow				
 ABILITY:Special Ability|Seeker Arrow			MAXVER:6.4.00	NEWKEY:Arcane Archer ~ Seeker Arrow				
