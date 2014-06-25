@@ -1,38 +1,39 @@
-SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2003-01
+# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
 
-# Template Name	Unique Key					Visible				Favored Class				Automatically Gained Language			Bonus Languages							Subrace	Race Subtype
-Human			KEY:Human Base				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common					LANGBONUS:TYPE=Spoken
+# Template Name	Unique Key			Challenge Rating	Visible	Level Adjustment	Favored Class				Automatically Gained Language			Clear Bonus Languages	Bonus Languages									Move			Subrace			Race Subtype		Vision
+Human			KEY:Human Base					VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common									LANGBONUS:TYPE=Spoken
 # Dwarf
-Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Hill		
-Deep			KEY:Deep Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Deep		
-Duergar		KEY:Duergar Dwarf				VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:.CLEAR	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran						SUBRACE:Duergar	
-Mountain		KEY:Mountain Dwarf			VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Mountain
+Hill			KEY:Hill Dwarf					VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven							LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon						SUBRACE:Hill
+Deep			KEY:Deep Dwarf					VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven							LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon						SUBRACE:Deep
+Duergar		KEY:Duergar Dwarf					VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:.CLEAR		LANGBONUS:Draconic,Giant,Goblin,Orc,Terran							SUBRACE:Duergar
+Mountain		KEY:Mountain Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven							LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon						SUBRACE:Mountain
 # Elf
-High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:High		
-Aquatic		KEY:Aquatic Elf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:Aquatic		RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
-Drow			KEY:Drow Elf			CR:1	VISIBLE:NO	LEVELADJUSTMENT:2							AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin			SUBRACE:Drow		
-Gray			KEY:Gray Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:Gray		
-Wild			KEY:Wild Elf				VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:Wild		
-Wood			KEY:Wood Elf				VISIBLE:NO				FAVOREDCLASS:Ranger			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:Wood		
+High			KEY:High Elf					VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven								LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan						SUBRACE:High
+Aquatic		KEY:Aquatic Elf					VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven								LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan			MOVE:Swim,40	SUBRACE:Aquatic		RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
+Drow			KEY:Drow Elf		CR:1			VISIBLE:NO	LEVELADJUSTMENT:2							AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:.CLEAR		LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin				SUBRACE:Drow
+Gray			KEY:Gray Elf					VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven								LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan						SUBRACE:Gray
+Wild			KEY:Wild Elf					VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Common|Elven								LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan						SUBRACE:Wild
+Wood			KEY:Wood Elf					VISIBLE:NO				FAVOREDCLASS:Ranger			AUTO:LANG|Common|Elven								LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan						SUBRACE:Wood
 # Half-Elf
-Half-Elf		KEY:Half-Elf				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven				LANGBONUS:TYPE=Spoken						
+Half-Elf		KEY:Half-Elf					VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven								LANGBONUS:TYPE=Spoken
 # Half-Orc
-Half-Orc		KEY:Half-Orc				VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin						
+Half-Orc		KEY:Half-Orc					VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc								LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin
 # Gnome
-Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Rock		
-Svirfneblin		KEY:Svirfneblin Gnome		CR:1	VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue			AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran						SUBRACE:Svirfneblin	
-Forest		KEY:Forest Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Forest	
+Rock			KEY:Rock Gnome					VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome								LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc						SUBRACE:Rock
+Svirfneblin		KEY:Svirfneblin Gnome	CR:1			VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue			AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:.CLEAR		LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran							SUBRACE:Svirfneblin
+Forest		KEY:Forest Gnome					VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome								LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc						SUBRACE:Forest
 # Halfling
-Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:Lightfoot	
-Tallfellow		KEY:Tallfellow Halfling			VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Gnome,Goblin,Orc								SUBRACE:Tallfellow	
-Deep			KEY:Deep Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:.CLEAR	LANGBONUS:Elven,Gnome,Goblin,Orc								SUBRACE:Deep		
+Lightfoot		KEY:Lightfoot Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling							LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc								SUBRACE:Lightfoot
+Tallfellow		KEY:Tallfellow Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Elven		LANGBONUS:.CLEAR		LANGBONUS:Dwarven,Gnome,Goblin,Orc									SUBRACE:Tallfellow
+Deep			KEY:Deep Halfling					VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:.CLEAR		LANGBONUS:Elven,Gnome,Goblin,Orc									SUBRACE:Deep
 
 # UA Playable Races
-Goblin		KEY:Goblin					VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Goblin				LANGBONUS:.CLEAR	LANGBONUS:Draconic,Elven,Giant,Gnoll,Orc										
-Hobgoblin		KEY:Hobgoblin				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Goblin				LANGBONUS:.CLEAR	LANGBONUS:Draconic,Dwarven,Giant,Infernal,Orc									
-Kobold		KEY:Kobold					VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Draconic				LANGBONUS:.CLEAR	LANGBONUS:Common,Undercommon										
-Orc			KEY:Orc					VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:.CLEAR	LANGBONUS:Dwarven,Giant,Gnoll,Goblin,Undercommon										
+Goblin		KEY:Goblin						VISIBLE:NO				FAVOREDCLASS:Rogue			AUTO:LANG|Common|Goblin				LANGBONUS:.CLEAR		LANGBONUS:Draconic,Elven,Giant,Gnoll,Orc
+Hobgoblin		KEY:Hobgoblin					VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Goblin				LANGBONUS:.CLEAR		LANGBONUS:Draconic,Dwarven,Giant,Infernal,Orc
+Kobold		KEY:Kobold						VISIBLE:NO				FAVOREDCLASS:Sorcerer			AUTO:LANG|Draconic				LANGBONUS:.CLEAR		LANGBONUS:Common,Undercommon
+Orc			KEY:Orc						VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:.CLEAR		LANGBONUS:Dwarven,Giant,Gnoll,Goblin,Undercommon
 
 
 ###Block:
@@ -42,45 +43,46 @@ Ooze			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|INT
 Undead		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|CON
 
 ###Block: Creature Subtypes
-# Template Name						Visible	Template																																																																		Source Page						Define					Define a Stat		Required AL	Required Race									Prohibited Race			Var. Max. Value		Modify VAR												Ability														Automatically Gained Language	Removable?		Main Race Type		Race Subtype
-Goblinoid							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf																																																													AUTO:LANG|Goblin
-Incorporeal							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf							DEFINESTAT:NONSTAT|STR
+# Template Name		Visible	Template																																																																		Source Page						Define a Stat		Required AL	Required Race			Var. Max. Value		Automatically Gained Language
+Goblinoid			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf																AUTO:LANG|Goblin
+Incorporeal			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|STR
 
 #DEPRECATED:
-Aberration							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Animal							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf											PREALIGN:TN																	PREVARLTEQ:INTSCORE,2
-Dragon							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Elemental							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Fey								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Giant								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Magical Beast						VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Monstrous Humanoid					VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Outsider							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Plant								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Vermin							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Aberration			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf					PREALIGN:TN						PREVARLTEQ:INTSCORE,2
+Dragon			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Elemental			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fey				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Magical Beast		VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid	VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Outsider			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Plant				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Vermin			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
 #DEPRECATED
-Air								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Angel								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Aquatic							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Archon							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Augmented							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Chaotic							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Cold								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Evil								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Fire								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Good								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Earth								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Lawful							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Reptilian							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Shapechanger						VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Swarm								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Water								VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Extraplanar							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
-Native							VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf													PRERACE:1,RACETYPE=Outsider
+Air				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Angel				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Aquatic			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Archon			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Augmented			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Chaotic			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Cold				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Evil				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fire				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Good				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Earth				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Lawful			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Reptilian			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Shapechanger		VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Swarm				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Water				VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Extraplanar			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Native			VISIBLE:NO																																																																				SOURCEPAGE:TypesSubtypesAbilities.rtf							PRERACE:1,RACETYPE=Outsider
 
-Base Race Type						VISIBLE:YES	TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
+Base Race Type		VISIBLE:YES	TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
 ###Block:
+# Template Name				Visible	Define					Required Race									Modify VAR																Ability
 Base Race Type ~ Aberration		VISIBLE:YES	DEFINE:BaseRaceTypeUnchanged|0	PRERACE:2,RACETYPE=Aberration,TYPE=Aberration				BONUS:VAR|BaseRaceTypeUnchanged|1|!PRERACE:2,RACETYPE=Aberration,TYPE=Aberration				ABILITY:Internal|AUTOMATIC|Augmented Aberration|PREVAREQ:BaseRaceTypeUnchanged,1
 Base Race Type ~ Animal			VISIBLE:YES	DEFINE:BaseRaceTypeUnchanged|0	PRERACE:2,RACETYPE=Animal,TYPE=Animal					BONUS:VAR|BaseRaceTypeUnchanged|1|!PRERACE:2,RACETYPE=Animal,TYPE=Animal					ABILITY:Internal|AUTOMATIC|Augmented Animal|PREVAREQ:BaseRaceTypeUnchanged,1
 Base Race Type ~ Construct		VISIBLE:YES	DEFINE:BaseRaceTypeUnchanged|0	PRERACE:2,RACETYPE=Construct,TYPE=Construct				BONUS:VAR|BaseRaceTypeUnchanged|1|!PRERACE:2,RACETYPE=Construct,TYPE=Construct				ABILITY:Internal|AUTOMATIC|Augmented Construct|PREVAREQ:BaseRaceTypeUnchanged,1
@@ -97,26 +99,27 @@ Base Race Type ~ Plant			VISIBLE:YES	DEFINE:BaseRaceTypeUnchanged|0	PRERACE:2,RA
 Base Race Type ~ Undead			VISIBLE:YES	DEFINE:BaseRaceTypeUnchanged|0	PRERACE:2,RACETYPE=Undead,TYPE=Undead					BONUS:VAR|BaseRaceTypeUnchanged|1|!PRERACE:2,RACETYPE=Undead,TYPE=Undead					ABILITY:Internal|AUTOMATIC|Augmented Undead|PREVAREQ:BaseRaceTypeUnchanged,1
 Base Race Type ~ Vermin			VISIBLE:YES	DEFINE:BaseRaceTypeUnchanged|0	PRERACE:2,RACETYPE=Vermin,TYPE=Vermin					BONUS:VAR|BaseRaceTypeUnchanged|1|!PRERACE:2,RACETYPE=Vermin,TYPE=Vermin					ABILITY:Internal|AUTOMATIC|Augmented Vermin|PREVAREQ:BaseRaceTypeUnchanged,1
 ###Block:
-RaceSubtype ~ Augmented Aberration			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Aberration
-RaceSubtype ~ Augmented Animal			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Animal
-RaceSubtype ~ Augmented Construct			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Construct
-RaceSubtype ~ Augmented Dragon			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Dragon
-RaceSubtype ~ Augmented Elemental			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Elemental
-RaceSubtype ~ Augmented Fey				VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Fey
-RaceSubtype ~ Augmented Giant				VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Giant
-RaceSubtype ~ Augmented Humanoid			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Humanoid
-RaceSubtype ~ Augmented Magical Beast		VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Magical Beast
-RaceSubtype ~ Augmented Monstrous Humanoid	VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Monstrous Humanoid
-RaceSubtype ~ Augmented Ooze				VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Ooze
-RaceSubtype ~ Augmented Outsider			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Outsider
-RaceSubtype ~ Augmented Plant				VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Plant
-RaceSubtype ~ Augmented Undead			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Undead
-RaceSubtype ~ Augmented Vermin			VISIBLE:YES																																																																																																																																												REMOVABLE:YES					RACESUBTYPE:Augmented Vermin
+# Template Name						Visible	Template							Required Race			Prohibited Race			Removable?		Main Race Type		Race Subtype
+RaceSubtype ~ Augmented Aberration			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Aberration
+RaceSubtype ~ Augmented Animal			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Animal
+RaceSubtype ~ Augmented Construct			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Construct
+RaceSubtype ~ Augmented Dragon			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Dragon
+RaceSubtype ~ Augmented Elemental			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Elemental
+RaceSubtype ~ Augmented Fey				VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Fey
+RaceSubtype ~ Augmented Giant				VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Giant
+RaceSubtype ~ Augmented Humanoid			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Humanoid
+RaceSubtype ~ Augmented Magical Beast		VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Magical Beast
+RaceSubtype ~ Augmented Monstrous Humanoid	VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Monstrous Humanoid
+RaceSubtype ~ Augmented Ooze				VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Ooze
+RaceSubtype ~ Augmented Outsider			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Outsider
+RaceSubtype ~ Augmented Plant				VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Plant
+RaceSubtype ~ Augmented Undead			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Undead
+RaceSubtype ~ Augmented Vermin			VISIBLE:YES																			REMOVABLE:YES					RACESUBTYPE:Augmented Vermin
 #
 Familiar Race Change					VISIBLE:NO	TEMPLATE:CHOOSE:Animal Base|Non-Animal Base
 # Animal Based Familiars change to a Magical Beast (Augmented Animal), all others remain the same race type.
-Animal Base							VISIBLE:NO																																																																																							PRERACE:1,RACETYPE=Animal																																																				RACETYPE:Magical Beast
-Non-Animal Base						VISIBLE:NO																																																																																																		!PRERACE:1,RACETYPE=Animal
+Animal Base							VISIBLE:NO									PRERACE:1,RACETYPE=Animal									RACETYPE:Magical Beast
+Non-Animal Base						VISIBLE:NO														!PRERACE:1,RACETYPE=Animal
 
 ###Block: Variable Type Traits
 # Template Name	Visible	Define a Stat
@@ -130,102 +133,102 @@ Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
 
 ###Block: Templates for Homebrew Support and Customizations:
-# Template Name					Required Race			Main Race Type			Race Subtype
-Assign Race Type ~ Aberration								RACETYPE:Aberration
-Assign Race Type ~ Animal								RACETYPE:Animal
-Assign Race Type ~ Construct								RACETYPE:Construct
-Assign Race Type ~ Dragon								RACETYPE:Dragon
-Assign Race Type ~ Elemental								RACETYPE:Elemental
-Assign Race Type ~ Fey									RACETYPE:Fey
-Assign Race Type ~ Giant								RACETYPE:Giant
-Assign Race Type ~ Humanoid								RACETYPE:Humanoid
-Assign Race Type ~ Magical Beast							RACETYPE:Magical Beast
-Assign Race Type ~ Monstrous Humanoid						RACETYPE:Monstrous Humanoid
-Assign Race Type ~ Ooze									RACETYPE:Ooze
-Assign Race Type ~ Outsider								RACETYPE:Outsider
-Assign Race Type ~ Plant								RACETYPE:Plant
-Assign Race Type ~ Undead								RACETYPE:Undead
-Assign Race Type ~ Vermin								RACETYPE:Vermin
+# Template Name					Main Race Type
+Assign Race Type ~ Aberration			RACETYPE:Aberration
+Assign Race Type ~ Animal			RACETYPE:Animal
+Assign Race Type ~ Construct			RACETYPE:Construct
+Assign Race Type ~ Dragon			RACETYPE:Dragon
+Assign Race Type ~ Elemental			RACETYPE:Elemental
+Assign Race Type ~ Fey				RACETYPE:Fey
+Assign Race Type ~ Giant			RACETYPE:Giant
+Assign Race Type ~ Humanoid			RACETYPE:Humanoid
+Assign Race Type ~ Magical Beast		RACETYPE:Magical Beast
+Assign Race Type ~ Monstrous Humanoid	RACETYPE:Monstrous Humanoid
+Assign Race Type ~ Ooze				RACETYPE:Ooze
+Assign Race Type ~ Outsider			RACETYPE:Outsider
+Assign Race Type ~ Plant			RACETYPE:Plant
+Assign Race Type ~ Undead			RACETYPE:Undead
+Assign Race Type ~ Vermin			RACETYPE:Vermin
 
 ###Block: Assign Creature Subtypes
-# Template Name					Required Race			Main Race Type			Race Subtype
-Assign Subtype ~ Air														RACESUBTYPE:Air
-Assign Subtype ~ Angel														RACESUBTYPE:Angel
-Assign Subtype ~ Aquatic													RACESUBTYPE:Aquatic
-Assign Subtype ~ Archon														RACESUBTYPE:Archon
-Assign Subtype ~ Augmented													RACESUBTYPE:Augmented
-Assign Subtype ~ Chaotic													RACESUBTYPE:Chaotic
-Assign Subtype ~ Cold														RACESUBTYPE:Cold
-Assign Subtype ~ Earth														RACESUBTYPE:Earth
-Assign Subtype ~ Evil														RACESUBTYPE:Evil
-Assign Subtype ~ Extraplanar													RACESUBTYPE:Extraplanar
-Assign Subtype ~ Fire														RACESUBTYPE:Fire
-Assign Subtype ~ Goblinoid													RACESUBTYPE:Goblinoid
-Assign Subtype ~ Good														RACESUBTYPE:Good
-Assign Subtype ~ Incorporeal													RACESUBTYPE:Incorporeal
-Assign Subtype ~ Lawful														RACESUBTYPE:Lawful
-Assign Subtype ~ Native				PRERACE:1,RACETYPE=Outsider						RACESUBTYPE:Native
-Assign Subtype ~ Reptilian													RACESUBTYPE:Reptilian
-Assign Subtype ~ Shapechanger													RACESUBTYPE:Shapechanger
-Assign Subtype ~ Swarm														RACESUBTYPE:Swarm
-Assign Subtype ~ Water														RACESUBTYPE:Water
+# Template Name			Required Race			Race Subtype
+Assign Subtype ~ Air							RACESUBTYPE:Air
+Assign Subtype ~ Angel							RACESUBTYPE:Angel
+Assign Subtype ~ Aquatic						RACESUBTYPE:Aquatic
+Assign Subtype ~ Archon							RACESUBTYPE:Archon
+Assign Subtype ~ Augmented						RACESUBTYPE:Augmented
+Assign Subtype ~ Chaotic						RACESUBTYPE:Chaotic
+Assign Subtype ~ Cold							RACESUBTYPE:Cold
+Assign Subtype ~ Earth							RACESUBTYPE:Earth
+Assign Subtype ~ Evil							RACESUBTYPE:Evil
+Assign Subtype ~ Extraplanar						RACESUBTYPE:Extraplanar
+Assign Subtype ~ Fire							RACESUBTYPE:Fire
+Assign Subtype ~ Goblinoid						RACESUBTYPE:Goblinoid
+Assign Subtype ~ Good							RACESUBTYPE:Good
+Assign Subtype ~ Incorporeal						RACESUBTYPE:Incorporeal
+Assign Subtype ~ Lawful							RACESUBTYPE:Lawful
+Assign Subtype ~ Native		PRERACE:1,RACETYPE=Outsider	RACESUBTYPE:Native
+Assign Subtype ~ Reptilian						RACESUBTYPE:Reptilian
+Assign Subtype ~ Shapechanger						RACESUBTYPE:Shapechanger
+Assign Subtype ~ Swarm							RACESUBTYPE:Swarm
+Assign Subtype ~ Water							RACESUBTYPE:Water
 
 ###Block: Inherent ability bonuses
-# Template Name					Visible		Template																												Source Page		Stat bonus
-Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5				
-Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5				
-Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5	
-Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5	
-Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5						
-Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5				
+# Template Name					Visible		Level Adjustment	Template																												Define				Stat bonus					Modify VAR
+Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5
+Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5
+Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5
+Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5
+Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5
+Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5
 # Strength
-Inherent Strength Bonus +1			VISIBLE:NO																																		BONUS:STAT|STR|1|TYPE=Inherent
-Inherent Strength Bonus +2			VISIBLE:NO																																		BONUS:STAT|STR|2|TYPE=Inherent
-Inherent Strength Bonus +3			VISIBLE:NO																																		BONUS:STAT|STR|3|TYPE=Inherent
-Inherent Strength Bonus +4			VISIBLE:NO																																		BONUS:STAT|STR|4|TYPE=Inherent
-Inherent Strength Bonus +5			VISIBLE:NO																																		BONUS:STAT|STR|5|TYPE=Inherent
+Inherent Strength Bonus +1			VISIBLE:NO																																							BONUS:STAT|STR|1|TYPE=Inherent
+Inherent Strength Bonus +2			VISIBLE:NO																																							BONUS:STAT|STR|2|TYPE=Inherent
+Inherent Strength Bonus +3			VISIBLE:NO																																							BONUS:STAT|STR|3|TYPE=Inherent
+Inherent Strength Bonus +4			VISIBLE:NO																																							BONUS:STAT|STR|4|TYPE=Inherent
+Inherent Strength Bonus +5			VISIBLE:NO																																							BONUS:STAT|STR|5|TYPE=Inherent
 # Dexterity
-Inherent Dexterity Bonus +1			VISIBLE:NO																																		BONUS:STAT|DEX|1|TYPE=Inherent
-Inherent Dexterity Bonus +2			VISIBLE:NO																																		BONUS:STAT|DEX|2|TYPE=Inherent
-Inherent Dexterity Bonus +3			VISIBLE:NO																																		BONUS:STAT|DEX|3|TYPE=Inherent
-Inherent Dexterity Bonus +4			VISIBLE:NO																																		BONUS:STAT|DEX|4|TYPE=Inherent
-Inherent Dexterity Bonus +5			VISIBLE:NO																																		BONUS:STAT|DEX|5|TYPE=Inherent
+Inherent Dexterity Bonus +1			VISIBLE:NO																																							BONUS:STAT|DEX|1|TYPE=Inherent
+Inherent Dexterity Bonus +2			VISIBLE:NO																																							BONUS:STAT|DEX|2|TYPE=Inherent
+Inherent Dexterity Bonus +3			VISIBLE:NO																																							BONUS:STAT|DEX|3|TYPE=Inherent
+Inherent Dexterity Bonus +4			VISIBLE:NO																																							BONUS:STAT|DEX|4|TYPE=Inherent
+Inherent Dexterity Bonus +5			VISIBLE:NO																																							BONUS:STAT|DEX|5|TYPE=Inherent
 # Constitution
-Inherent Constitution Bonus +1		VISIBLE:NO																																		BONUS:STAT|CON|1|TYPE=Inherent
-Inherent Constitution Bonus +2		VISIBLE:NO																																		BONUS:STAT|CON|2|TYPE=Inherent
-Inherent Constitution Bonus +3		VISIBLE:NO																																		BONUS:STAT|CON|3|TYPE=Inherent
-Inherent Constitution Bonus +4		VISIBLE:NO																																		BONUS:STAT|CON|4|TYPE=Inherent
-Inherent Constitution Bonus +5		VISIBLE:NO																																		BONUS:STAT|CON|5|TYPE=Inherent
+Inherent Constitution Bonus +1		VISIBLE:NO																																							BONUS:STAT|CON|1|TYPE=Inherent
+Inherent Constitution Bonus +2		VISIBLE:NO																																							BONUS:STAT|CON|2|TYPE=Inherent
+Inherent Constitution Bonus +3		VISIBLE:NO																																							BONUS:STAT|CON|3|TYPE=Inherent
+Inherent Constitution Bonus +4		VISIBLE:NO																																							BONUS:STAT|CON|4|TYPE=Inherent
+Inherent Constitution Bonus +5		VISIBLE:NO																																							BONUS:STAT|CON|5|TYPE=Inherent
 # Intelligence
-Inherent Intelligence Bonus +1		VISIBLE:NO																																		BONUS:STAT|INT|1|TYPE=Inherent
-Inherent Intelligence Bonus +2		VISIBLE:NO																																		BONUS:STAT|INT|2|TYPE=Inherent
-Inherent Intelligence Bonus +3		VISIBLE:NO																																		BONUS:STAT|INT|3|TYPE=Inherent
-Inherent Intelligence Bonus +4		VISIBLE:NO																																		BONUS:STAT|INT|4|TYPE=Inherent
-Inherent Intelligence Bonus +5		VISIBLE:NO																																		BONUS:STAT|INT|5|TYPE=Inherent
+Inherent Intelligence Bonus +1		VISIBLE:NO																																							BONUS:STAT|INT|1|TYPE=Inherent
+Inherent Intelligence Bonus +2		VISIBLE:NO																																							BONUS:STAT|INT|2|TYPE=Inherent
+Inherent Intelligence Bonus +3		VISIBLE:NO																																							BONUS:STAT|INT|3|TYPE=Inherent
+Inherent Intelligence Bonus +4		VISIBLE:NO																																							BONUS:STAT|INT|4|TYPE=Inherent
+Inherent Intelligence Bonus +5		VISIBLE:NO																																							BONUS:STAT|INT|5|TYPE=Inherent
 # Wisdom
-Inherent Wisdom Bonus +1			VISIBLE:NO																																		BONUS:STAT|WIS|1|TYPE=Inherent
-Inherent Wisdom Bonus +2			VISIBLE:NO																																		BONUS:STAT|WIS|2|TYPE=Inherent
-Inherent Wisdom Bonus +3			VISIBLE:NO																																		BONUS:STAT|WIS|3|TYPE=Inherent
-Inherent Wisdom Bonus +4			VISIBLE:NO																																		BONUS:STAT|WIS|4|TYPE=Inherent
-Inherent Wisdom Bonus +5			VISIBLE:NO																																		BONUS:STAT|WIS|5|TYPE=Inherent
+Inherent Wisdom Bonus +1			VISIBLE:NO																																							BONUS:STAT|WIS|1|TYPE=Inherent
+Inherent Wisdom Bonus +2			VISIBLE:NO																																							BONUS:STAT|WIS|2|TYPE=Inherent
+Inherent Wisdom Bonus +3			VISIBLE:NO																																							BONUS:STAT|WIS|3|TYPE=Inherent
+Inherent Wisdom Bonus +4			VISIBLE:NO																																							BONUS:STAT|WIS|4|TYPE=Inherent
+Inherent Wisdom Bonus +5			VISIBLE:NO																																							BONUS:STAT|WIS|5|TYPE=Inherent
 # Wisdom
-Inherent Charisma Bonus +1			VISIBLE:NO																																		BONUS:STAT|CHA|1|TYPE=Inherent
-Inherent Charisma Bonus +2			VISIBLE:NO																																		BONUS:STAT|CHA|2|TYPE=Inherent
-Inherent Charisma Bonus +3			VISIBLE:NO																																		BONUS:STAT|CHA|3|TYPE=Inherent
-Inherent Charisma Bonus +4			VISIBLE:NO																																		BONUS:STAT|CHA|4|TYPE=Inherent
-Inherent Charisma Bonus +5			VISIBLE:NO																																		BONUS:STAT|CHA|5|TYPE=Inherent
+Inherent Charisma Bonus +1			VISIBLE:NO																																							BONUS:STAT|CHA|1|TYPE=Inherent
+Inherent Charisma Bonus +2			VISIBLE:NO																																							BONUS:STAT|CHA|2|TYPE=Inherent
+Inherent Charisma Bonus +3			VISIBLE:NO																																							BONUS:STAT|CHA|3|TYPE=Inherent
+Inherent Charisma Bonus +4			VISIBLE:NO																																							BONUS:STAT|CHA|4|TYPE=Inherent
+Inherent Charisma Bonus +5			VISIBLE:NO																																							BONUS:STAT|CHA|5|TYPE=Inherent
 
-Use Fractional BAB	VISIBLE:YES	DEFINE:UseFractionalBAB|0	BONUS:VAR|UseFractionalBAB|1|TYPE=NoStack
+Use Fractional BAB				VISIBLE:YES																																		DEFINE:UseFractionalBAB|0							BONUS:VAR|UseFractionalBAB|1|TYPE=NoStack
 
-LEVEL ADJUSTMENT +1							VISIBLE:NO	LEVELADJUSTMENT:1
-LEVEL ADJUSTMENT +2							VISIBLE:NO	LEVELADJUSTMENT:2
-LEVEL ADJUSTMENT +3							VISIBLE:NO	LEVELADJUSTMENT:3
-LEVEL ADJUSTMENT +4							VISIBLE:NO	LEVELADJUSTMENT:4
-LEVEL ADJUSTMENT +5							VISIBLE:NO	LEVELADJUSTMENT:5
-LEVEL ADJUSTMENT +6							VISIBLE:NO	LEVELADJUSTMENT:6
-LEVEL ADJUSTMENT +7							VISIBLE:NO	LEVELADJUSTMENT:7
-LEVEL ADJUSTMENT +8							VISIBLE:NO	LEVELADJUSTMENT:8
-LEVEL ADJUSTMENT +9							VISIBLE:NO	LEVELADJUSTMENT:9
+LEVEL ADJUSTMENT +1				VISIBLE:NO		LEVELADJUSTMENT:1
+LEVEL ADJUSTMENT +2				VISIBLE:NO		LEVELADJUSTMENT:2
+LEVEL ADJUSTMENT +3				VISIBLE:NO		LEVELADJUSTMENT:3
+LEVEL ADJUSTMENT +4				VISIBLE:NO		LEVELADJUSTMENT:4
+LEVEL ADJUSTMENT +5				VISIBLE:NO		LEVELADJUSTMENT:5
+LEVEL ADJUSTMENT +6				VISIBLE:NO		LEVELADJUSTMENT:6
+LEVEL ADJUSTMENT +7				VISIBLE:NO		LEVELADJUSTMENT:7
+LEVEL ADJUSTMENT +8				VISIBLE:NO		LEVELADJUSTMENT:8
+LEVEL ADJUSTMENT +9				VISIBLE:NO		LEVELADJUSTMENT:9
 
 
 #
@@ -234,32 +237,34 @@ LEVEL ADJUSTMENT +9							VISIBLE:NO	LEVELADJUSTMENT:9
 
 
 ###Block: Known First Base Class - Barbarian Illiteracy Support
-First Base Class	VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseClass]	
+# Template Name	Visible	Template		Choose
+First Base Class	VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseClass]
 ###Block: Classes
-# Template Name	Visible	Required Class		Removable?		Type
-Barbarian		VISIBLE:NO	PRECLASS:1,Barbarian=1	REMOVABLE:NO	TYPE:BaseClass	DEFINE:IlliteracyLVL|0
-Bard			VISIBLE:NO	PRECLASS:1,Bard=1		REMOVABLE:NO	TYPE:BaseClass
-Cleric		VISIBLE:NO	PRECLASS:1,Cleric=1	REMOVABLE:NO	TYPE:BaseClass
-Druid			VISIBLE:NO	PRECLASS:1,Druid=1	REMOVABLE:NO	TYPE:BaseClass
-Fighter		VISIBLE:NO	PRECLASS:1,Fighter=1	REMOVABLE:NO	TYPE:BaseClass
-Monk			VISIBLE:NO	PRECLASS:1,Monk=1		REMOVABLE:NO	TYPE:BaseClass
-Paladin		VISIBLE:NO	PRECLASS:1,Paladin=1	REMOVABLE:NO	TYPE:BaseClass
-Ranger		VISIBLE:NO	PRECLASS:1,Ranger=1	REMOVABLE:NO	TYPE:BaseClass
-Rogue			VISIBLE:NO	PRECLASS:1,Rogue=1	REMOVABLE:NO	TYPE:BaseClass
-Sorcerer		VISIBLE:NO	PRECLASS:1,Sorcerer=1	REMOVABLE:NO	TYPE:BaseClass
-Wizard		VISIBLE:NO	PRECLASS:1,Wizard=1	REMOVABLE:NO	TYPE:BaseClass
-None			VISIBLE:NO	!PRECLASS:1,Barbarian=1	REMOVABLE:NO	TYPE:BaseClass
+# Template Name	Visible	Define			Required Class		Prohibited Class		Removable?		Type
+Barbarian		VISIBLE:NO	DEFINE:IlliteracyLVL|0	PRECLASS:1,Barbarian=1					REMOVABLE:NO	TYPE:BaseClass
+Bard			VISIBLE:NO					PRECLASS:1,Bard=1						REMOVABLE:NO	TYPE:BaseClass
+Cleric		VISIBLE:NO					PRECLASS:1,Cleric=1					REMOVABLE:NO	TYPE:BaseClass
+Druid			VISIBLE:NO					PRECLASS:1,Druid=1					REMOVABLE:NO	TYPE:BaseClass
+Fighter		VISIBLE:NO					PRECLASS:1,Fighter=1					REMOVABLE:NO	TYPE:BaseClass
+Monk			VISIBLE:NO					PRECLASS:1,Monk=1						REMOVABLE:NO	TYPE:BaseClass
+Paladin		VISIBLE:NO					PRECLASS:1,Paladin=1					REMOVABLE:NO	TYPE:BaseClass
+Ranger		VISIBLE:NO					PRECLASS:1,Ranger=1					REMOVABLE:NO	TYPE:BaseClass
+Rogue			VISIBLE:NO					PRECLASS:1,Rogue=1					REMOVABLE:NO	TYPE:BaseClass
+Sorcerer		VISIBLE:NO					PRECLASS:1,Sorcerer=1					REMOVABLE:NO	TYPE:BaseClass
+Wizard		VISIBLE:NO					PRECLASS:1,Wizard=1					REMOVABLE:NO	TYPE:BaseClass
+None			VISIBLE:NO									!PRECLASS:1,Barbarian=1	REMOVABLE:NO	TYPE:BaseClass
 
 ###Block: Language Support for Cleric Homebrews
-Cleric ~ Bonus Languages	VISIBLE:NO	LANGBONUS:Celestial,Abyssal,Infernal
+# Template Name				Visible	Choose												Add 				Apply Kit			Bonus Languages					Temporary Bonus
+Cleric ~ Bonus Languages		VISIBLE:NO																						LANGBONUS:Celestial,Abyssal,Infernal
 
 
 
-# Template Name				Visible	Choose												Add 				Apply Kit			Temporary Bonus
-Imbue Spell Like Ability ~ Cleric	VISIBLE:NO	CHOOSE:NUMBER|MIN=7|MAX=20|TITLE=Select Cleric Imbuing Spells upon you level	ADD:SPELLCASTER|Cleric					TEMPBONUS:PC|CASTERLEVEL|Cleric|%CHOICE
+# Template Name				Visible	Choose												Add 				Apply Kit			Bonus Languages					Temporary Bonus
+Imbue Spell Like Ability ~ Cleric	VISIBLE:NO	CHOOSE:NUMBER|MIN=7|MAX=20|TITLE=Select Cleric Imbuing Spells upon you level	ADD:SPELLCASTER|Cleric												TEMPBONUS:PC|CASTERLEVEL|Cleric|%CHOICE
 
 
-# Template Name				Visible	Choose												Add 				Apply Kit			Temporary Bonus
+# Template Name				Visible	Choose												Add 				Apply Kit			Bonus Languages					Temporary Bonus
 Spellbook					VISIBLE:NO																		KIT:1|Wizard Spell Book
 
 ###Block: Dragon Disciple Attacks
@@ -402,24 +407,24 @@ SIZE_C+		SIZE:P					VISIBLE:NO
 
 ###Block: Dragon Age
 # Template Name	Visible	Subrace
-Wyrmling		VISIBLE:NO	SUBRACE:Wyrmling	
-Very Young		VISIBLE:NO	SUBRACE:Very Young	
-Young			VISIBLE:NO	SUBRACE:Young		
-Juvenile		VISIBLE:NO	SUBRACE:Juvenile	
-Young Adult		VISIBLE:NO	SUBRACE:Young Adult	
-Adult			VISIBLE:NO	SUBRACE:Adult		
+Wyrmling		VISIBLE:NO	SUBRACE:Wyrmling
+Very Young		VISIBLE:NO	SUBRACE:Very Young
+Young			VISIBLE:NO	SUBRACE:Young
+Juvenile		VISIBLE:NO	SUBRACE:Juvenile
+Young Adult		VISIBLE:NO	SUBRACE:Young Adult
+Adult			VISIBLE:NO	SUBRACE:Adult
 Mature Adult	VISIBLE:NO	SUBRACE:Mature Adult
-Old			VISIBLE:NO	SUBRACE:Old		
-Very Old		VISIBLE:NO	SUBRACE:Very Old	
-Ancient		VISIBLE:NO	SUBRACE:Ancient	
-Wyrm			VISIBLE:NO	SUBRACE:Wyrm		
-Great Wyrm		VISIBLE:NO	SUBRACE:Great Wyrm	
+Old			VISIBLE:NO	SUBRACE:Old
+Very Old		VISIBLE:NO	SUBRACE:Very Old
+Ancient		VISIBLE:NO	SUBRACE:Ancient
+Wyrm			VISIBLE:NO	SUBRACE:Wyrm
+Great Wyrm		VISIBLE:NO	SUBRACE:Great Wyrm
 
 ###Block: Normal Animals
 # Template Name					Output Name							Size		Face/Space	Reach		Nb Legs	Nb Hands	Source Page					Define											Var. Min. Value							Combat bonus					Add to base move				Stat bonus																		Modify VAR					Weapon prof. bonus					Ability									Automatically Gained Feat	Move				Natural Attacks
 Wild Shape (Ape)													SIZE:L	FACE:10	REACH:10	LEGS:2	HANDS:3	SOURCEPAGE:MonstersAnimals.rtf	DEFINE:WildshapeConsititution|14-CONSCORE.BASE					PREVARGTEQ:WildShapeProgression,2,DruidWildShape,4	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|21-STRSCORE.BASE	BONUS:STAT|DEX|15-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution																														MOVE:Climb,30		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 Wild Shape (Baboon)												SIZE:M	FACE:5	REACH:5	LEGS:2			SOURCEPAGE:MonstersAnimals.rtf	DEFINE:WildshapeConsititution|12-CONSCORE.BASE					PREVARGTEQ:WildShapeProgression,1,DruidWildShape,1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|40-MOVEBASE	BONUS:STAT|STR|11-STRSCORE.BASE	BONUS:STAT|DEX|14-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution							BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))																MOVE:Climb,30		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
-Wild Shape (Badger)												SIZE:S	FACE:5	REACH:5	LEGS:4	HANDS:3	SOURCEPAGE:MonstersAnimals.rtf	DEFINE:WildshapeConsititution|15-CONSCORE.BASE					PREVARGTEQ:WildShapeProgression,1,DruidWildShape,1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|8-STRSCORE.BASE	BONUS:STAT|DEX|17-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|RageTimes,RageDuration|1									ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Rage				AUTO:FEAT|Weapon Finesse	MOVE:Burrow,10		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Wild Shape (Badger)												SIZE:S	FACE:5	REACH:5	LEGS:4	HANDS:3	SOURCEPAGE:MonstersAnimals.rtf	DEFINE:WildshapeConsititution|15-CONSCORE.BASE					PREVARGTEQ:WildShapeProgression,1,DruidWildShape,1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|8-STRSCORE.BASE	BONUS:STAT|DEX|17-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|RageTimes,RageDuration|1									ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Rage		AUTO:FEAT|Weapon Finesse	MOVE:Burrow,10		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
 #Wild Shape (Bat)													SIZE:D	SOURCEPAGE:MonstersAnimals.rtf											PREVARGTEQ:WildShapeProgression,1,DruidWildShape,1									BONUS:MOVEADD|TYPE.Walk|5-MOVEBASE	BONUS:STAT|STR|1-STRSCORE.BASE	BONUS:STAT|DEX|15-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	DEFINE:WildshapeConsititution|10-CONSCORE.BASE																		MOVE:Fly,40																																		FACE:1			LEGS:2	REACH:0
 Wild Shape (Bear (Black))			OUTPUTNAME:Wild Shape (Black Bear)			SIZE:M	FACE:5	REACH:5	LEGS:4	HANDS:3	SOURCEPAGE:MonstersAnimals.rtf	DEFINE:WildshapeConsititution|15-CONSCORE.BASE					PREVARGTEQ:WildShapeProgression,1,DruidWildShape,3	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|40-MOVEBASE	BONUS:STAT|STR|19-STRSCORE.BASE	BONUS:STAT|DEX|13-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution																																		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 Wild Shape (Bear (Brown))			OUTPUTNAME:Wild Shape (Brown Bear)			SIZE:L	FACE:10	REACH:5	LEGS:4	HANDS:3	SOURCEPAGE:MonstersAnimals.rtf	DEFINE:RaceSizeIsLong|1	DEFINE:WildshapeConsititution|19-CONSCORE.BASE	PREVARGTEQ:WildShapeProgression,2,DruidWildShape,6	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|40-MOVEBASE	BONUS:STAT|STR|27-STRSCORE.BASE	BONUS:STAT|DEX|13-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution															ABILITY:Special Ability|AUTOMATIC|Improved Grab												NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
@@ -696,18 +701,18 @@ Fiendish (Magical Beast)						VISIBLE:NO														TEMPLATE:Fiendish
 Half Fiend				OUTPUTNAME:Half-Fiend				DR:5/Magic									LEVELADJUSTMENT:4	TEMPLATE:CHOOSE:Bite ~ Claw (Fine)|Bite ~ Claw (Diminutive)|Bite ~ Claw (Tiny)|Bite ~ Claw (Small)|Bite ~ Claw (Medium)|Bite ~ Claw (Large)|Bite ~ Claw (Huge)|Bite ~ Claw (Gargantuan)|Bite ~ Claw (Colossal)	SOURCEPAGE:MonstersG-H.rtf	DEFINE:HalfFiendSR|0						PREALIGN:LE,NE,CE																																																					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:DR|Magic|5|PRELEVEL:MIN=12	BONUS:MISC|CR|1	BONUS:MISC|CR|1|PRELEVEL:MIN=5	BONUS:MISC|CR|1|PRELEVEL:MIN=11	BONUS:STAT|STR|4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|4	BONUS:STAT|CHA|2	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|10	BONUS:VAR|HalfFiendSR|TL+10	BONUS:VAR|SmiteGood|1	BONUS:VAR|SmiteGoodDamage|min(TL,20)	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Bat Wings|Immunity To Poison|Natural Magic Weapons|Resistance To Acid|Resistance To Cold|Resistance To Electricity|Resistance To Fire|Smite Good										MOVECLONE:Walk,Fly,*1	SR:HalfFiendSR		RACETYPE:Outsider							SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Blasphemy,17+CHA|PRELEVEL:MIN=11|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Unhallow,15+CHA|PRELEVEL:MIN=13|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Horrid Wilting,18+CHA|PRELEVEL:MIN=15|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Summon Monster IX,14+CHA|PRELEVEL:MIN=17|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Destruction,17+CHA|PRELEVEL:MIN=19|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Desecrate,12+CHA|PRELEVEL:MIN=3|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Unholy Blight,14+CHA|PRELEVEL:MIN=5|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Contagion,13+CHA|PRELEVEL:MIN=9|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Unholy Aura,18+CHA|PRELEVEL:MIN=13|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Poison,14+CHA|PRELEVEL:MIN=7|PRESTAT:1,INT=8,WIS=8	SPELLS:Innate|TIMES=3|CASTERLEVEL=TL|Darkness,12+CHA|PRESTAT:1,INT=8,WIS=8
 
 ###Block: Half Dragons
-# Template Name		Hit Dice Size				Challenge Rating	Visible	Level Adjustment	Template																																														Source Page				Required AL	Combat bonus					Stat bonus							Modify VAR							Bonus Monster Skill Points		Ability																	Main Race Type
-Half Dragon			HITDIE:%up1|CLASS.TYPE=Monster	CR:2			VISIBLE:NO	LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings ~ Normal|Half Dragon Wings ~ Fast	TEMPLATE:CHOOSE:Bite ~ Claw (Fine)|Bite ~ Claw (Diminutive)|Bite ~ Claw (Tiny)|Bite ~ Claw (Small)|Bite ~ Claw (Medium)|Bite ~ Claw (Large)|Bite ~ Claw (Huge)|Bite ~ Claw (Gargantuan)|Bite ~ Claw (Colossal)	SOURCEPAGE:MonstersG-H.rtf			BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|CON,INT,CHA|2	BONUS:VAR|HalfDragonBreathDC|10+(HD/2)+CON	BONUS:MONSKILLPTS|LOCKNUMBER|6	BONUS:VAR|HasLowLightVision|1|TYPE=Base										RACETYPE:Dragon
-Half Dragon (Black)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CE																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Acid|Immunity To Acid
-Half Dragon (Blue)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LE																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Electricity|Immunity To Electricity
-Half Dragon (Green)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LE																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Acid|Immunity To Acid
-Half Dragon (Red)											VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CE																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Fire|Immunity To Fire
-Half Dragon (White)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CE																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Cold|Immunity To Cold
-Half Dragon (Brass)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CG																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Fire|Immunity To Fire
-Half Dragon (Bronze)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LG																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Electricity|Immunity To Electricity
-Half Dragon (Copper)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CG																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Acid|Immunity To Acid
-Half Dragon (Gold)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LG																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Fire|Immunity To Fire
-Half Dragon (Silver)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LG																														ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Cold|Immunity To Cold
+# Template Name		Hit Dice Size				Challenge Rating	Visible	Level Adjustment	Template																																														Source Page				Required AL	Combat bonus					Stat bonus							Modify VAR														Bonus Monster Skill Points		Ability																	Main Race Type
+Half Dragon			HITDIE:%up1|CLASS.TYPE=Monster	CR:2			VISIBLE:NO	LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings ~ Normal|Half Dragon Wings ~ Fast	TEMPLATE:CHOOSE:Bite ~ Claw (Fine)|Bite ~ Claw (Diminutive)|Bite ~ Claw (Tiny)|Bite ~ Claw (Small)|Bite ~ Claw (Medium)|Bite ~ Claw (Large)|Bite ~ Claw (Huge)|Bite ~ Claw (Gargantuan)|Bite ~ Claw (Colossal)	SOURCEPAGE:MonstersG-H.rtf			BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|CON,INT,CHA|2	BONUS:VAR|HalfDragonBreathDC|10+(HD/2)+CON	BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:MONSKILLPTS|LOCKNUMBER|6																			RACETYPE:Dragon
+Half Dragon (Black)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CE																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Acid|Immunity To Acid
+Half Dragon (Blue)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LE																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Electricity|Immunity To Electricity
+Half Dragon (Green)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LE																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Acid|Immunity To Acid
+Half Dragon (Red)											VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CE																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Fire|Immunity To Fire
+Half Dragon (White)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CE																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Cold|Immunity To Cold
+Half Dragon (Brass)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CG																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Fire|Immunity To Fire
+Half Dragon (Bronze)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LG																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Electricity|Immunity To Electricity
+Half Dragon (Copper)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:CG																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Line of Acid|Immunity To Acid
+Half Dragon (Gold)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LG																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Fire|Immunity To Fire
+Half Dragon (Silver)										VISIBLE:YES				TEMPLATE:Half Dragon																																												SOURCEPAGE:MonstersG-H.rtf	PREALIGN:LG																																					ABILITY:Special Ability|AUTOMATIC|Half-Dragon Breath Weapon ~ Cone of Cold|Immunity To Cold
 
 ###Block: Half Dragon Wings
 # Template Name			Output Name				Visible	Required Movement Rate	Prohibited Movement Rate	Minimum Size	Modify VAR				Ability												Move			Clone Movement
@@ -811,8 +816,8 @@ Drow Male		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDCLA
 Drow Female		VISIBLE:NO	SOURCEPAGE:MonstersE-F.rtf	PRERACE:1,Elf (Drow)	FAVOREDCLASS:Cleric	GENDERLOCK:Female
 
 ###Block: Monstrous Spiders
-# Template Name	Visible	Source Page				Add to base move			Bonus to skill										Modify VAR																																																																																																																																																											Ability									Removable?		Subrace	Temporary effect description														Temporary Bonus
-Hunting		VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|10|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																																																																							REMOVABLE:YES	SUBRACE:Hunting	
+# Template Name	Visible	Source Page				Add to base move			Bonus to skill										Modify VAR																																																																																																																																																											Ability									Removable?		Subrace			Temporary effect description														Temporary Bonus
+Hunting		VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf	BONUS:MOVEADD|TYPE.Walk|10	BONUS:SKILL|Jump|10|TYPE=Racial	BONUS:SKILL|Spot|8|TYPE=Racial																																																																																																																																																																							REMOVABLE:YES	SUBRACE:Hunting
 Web Spinning	VISIBLE:NO	SOURCEPAGE:MonstersVermin.rtf																		BONUS:VAR|MonstrousSpiderWebBreakDC|4|TYPE=Racial	BONUS:VAR|MonstrousSpiderWebHp|2|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebHp|4|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebHp|6|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebHp|12|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebHp|14|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebHp|16|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebHp|18|PRESIZEEQ:C	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:T	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|0|PRESIZEEQ:S	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|1|PRESIZEEQ:M	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|2|PRESIZEEQ:L	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|4|PRESIZEEQ:H	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|8|PRESIZEEQ:G	BONUS:VAR|MonstrousSpiderWebEscapeDC,MonstrousSpiderWebBreakDC|16|PRESIZEEQ:C	ABILITY:Special Ability|AUTOMATIC|Monstrous Spider ~ Web	REMOVABLE:YES	SUBRACE:Web Spinning	TEMPDESC:Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs	TEMPBONUS:PC|SKILL|Hide,Move Silently|8|TYPE=Racial
 
 ###Block: Pixie Special Ability

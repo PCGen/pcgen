@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 # Original Entry by byngl
@@ -46,18 +46,18 @@ Spell Component	TYPE:MaterialComponent.Consumable	COST:0	WT:0				MODS:REQUIRED		
 Spell Focus		TYPE:SpellFocus				COST:0	WT:0				MODS:REQUIRED		SOURCEPAGE:MagicOverview.rtf
 
 ###Block: Trap
-# Equipment Name	Output Name			Type				Cost		Define		Requires Modification?	Source Page				Special Property
-Trap (Mechanical)	OUTPUTNAME:[NAME] Trap	TYPE:Trap.Mechanical	COST:1000	DEFINE:TrapCR|0	MODS:REQUIRED		SOURCEPAGE:RSRD Traps.rtf	SPROP:Trap CR %|TrapCR
+# Equipment Name	Output Name			Type				Cost		Weight	Define		Requires Modification?	Source Page				Special Property
+Trap (Mechanical)	OUTPUTNAME:[NAME] Trap	TYPE:Trap.Mechanical	COST:1000			DEFINE:TrapCR|0	MODS:REQUIRED		SOURCEPAGE:RSRD Traps.rtf	SPROP:Trap CR %|TrapCR
 
 # Original Entry by: arbernet
 
 # Was this done from scratch?
 
-# Equipment Name	Type		Cost		Weight	Source Page
-Coin (Platinum)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:Equipment.rtf
-Coin (Gold)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:Equipment.rtf
-Coin (Silver)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:Equipment.rtf
-Coin (Copper)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:Equipment.rtf
+# Equipment Name	Output Name			Type				Cost		Weight	Define		Requires Modification?	Source Page				Special Property
+Coin (Platinum)					TYPE:Coin			COST:10	WT:0.02								SOURCEPAGE:Equipment.rtf
+Coin (Gold)						TYPE:Coin			COST:1	WT:0.02								SOURCEPAGE:Equipment.rtf
+Coin (Silver)					TYPE:Coin			COST:0.1	WT:0.02								SOURCEPAGE:Equipment.rtf
+Coin (Copper)					TYPE:Coin			COST:0.01	WT:0.02								SOURCEPAGE:Equipment.rtf
 
 ###Block:Gems
 # Changes from 3.0: <gem> (Star) -> Star <gem>
@@ -136,140 +136,140 @@ Jacinth												TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKE
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
 ###Block:Gems
-# Equipment Name										Output Name											Type			Cost		Weight	Requires Modification?	Source Page			SORTKEY
-Gem (Agate (Banded))									OUTPUTNAME:Banded Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Agate (Eye))										OUTPUTNAME:Eye Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Agate (Moss))									OUTPUTNAME:Moss Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Azurite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Quartz (Blue))									OUTPUTNAME:Blue Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Hematite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Lapis Lazuli)									OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Malachite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Obsidian)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Rhodochrosite)									OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Tiger Eye)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Turquoise)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Pearl (Freshwater/Irregular))							OUTPUTNAME:Freshwater (Irregular) Pearl						TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Bloodstone)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Carnelian)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Chalcedony)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Chrysoprase)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Citrine)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Iolite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Jasper)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Moonstone)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Onyx)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Peridot)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Rock Crystal (Clear Quartz))							OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Sard)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Sardonyx)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Quartz (Rose))									OUTPUTNAME:Rose Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Quartz (Smoky))									OUTPUTNAME:Smoky Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Quartz (Star Rose))								OUTPUTNAME:Star Rose Quartz								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Zircon)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Amber)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Amethyst)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Chrysoberyl)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Coral)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Garnet (Red))									OUTPUTNAME:Red Garnet									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Garnet (Brown-Green))								OUTPUTNAME:Brown-Green Garnet								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Jade)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Jet)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Pearl (White))									OUTPUTNAME:White Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Pearl (Golden))									OUTPUTNAME:Golden Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Pearl (Pink))									OUTPUTNAME:Pink Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Pearl (Silver))									OUTPUTNAME:Silver Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Spinel (Red))									OUTPUTNAME:Red Spinel									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Spinel (Red-Brown))								OUTPUTNAME:Red-Brown Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Spinel (Deep Green))								OUTPUTNAME:Deep Green Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Tourmaline)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Alexandrite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Aquamarine)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Garnet (Violet))									OUTPUTNAME:Violet Garnet								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Pearl (Black))									OUTPUTNAME:Black Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Spinel (Deep Blue))								OUTPUTNAME:Deep Blue Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Topaz (Golden Yellow))								OUTPUTNAME:Golden Yellow Topaz							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Emerald)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Opal (White))									OUTPUTNAME:White Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Opal (Black))									OUTPUTNAME:Black Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Opal (Fire))										OUTPUTNAME:Fire Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Sapphire (Blue))									OUTPUTNAME:Blue Sapphire								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Corundum (Firey Yellow))								OUTPUTNAME:Firey Yellow Corundum							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Corundum (Rich Purple))								OUTPUTNAME:Rich Purple Corundum							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Star Sapphire (Blue))								OUTPUTNAME:Blue Star Sapphire								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Star Sapphire (Black))								OUTPUTNAME:Black Star Sapphire							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Ruby (Star))										OUTPUTNAME:Star Ruby									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Emerald (Clearest Bright Green))						OUTPUTNAME:Clearest Bright Green Emerald						TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Diamond (Blue-White))								OUTPUTNAME:Blue-White Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Diamond (Canary))									OUTPUTNAME:Canary Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Diamond (Pink))									OUTPUTNAME:Pink Diamond									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Diamond (Brown))									OUTPUTNAME:Brown Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Diamond (Blue))									OUTPUTNAME:Blue Diamond									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
-Gem (Jacinth)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Random
+# Equipment Name										Output Name											Type					Cost		Weight	Requires Modification?	Source Page						Special Property											SORTKEY
+Gem (Agate (Banded))									OUTPUTNAME:Banded Agate									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Agate (Eye))										OUTPUTNAME:Eye Agate									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Agate (Moss))									OUTPUTNAME:Moss Agate									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Azurite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Quartz (Blue))									OUTPUTNAME:Blue Quartz									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Hematite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Lapis Lazuli)									OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Malachite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Obsidian)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Rhodochrosite)									OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Tiger Eye)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Turquoise)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Pearl (Freshwater/Irregular))							OUTPUTNAME:Freshwater (Irregular) Pearl						TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Bloodstone)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Carnelian)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Chalcedony)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Chrysoprase)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Citrine)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Iolite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Jasper)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Moonstone)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Onyx)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Peridot)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Rock Crystal (Clear Quartz))							OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Sard)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Sardonyx)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Quartz (Rose))									OUTPUTNAME:Rose Quartz									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Quartz (Smoky))									OUTPUTNAME:Smoky Quartz									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Quartz (Star Rose))								OUTPUTNAME:Star Rose Quartz								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Zircon)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Amber)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Amethyst)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Chrysoberyl)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Coral)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Garnet (Red))									OUTPUTNAME:Red Garnet									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Garnet (Brown-Green))								OUTPUTNAME:Brown-Green Garnet								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Jade)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Jet)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Pearl (White))									OUTPUTNAME:White Pearl									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Pearl (Golden))									OUTPUTNAME:Golden Pearl									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Pearl (Pink))									OUTPUTNAME:Pink Pearl									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Pearl (Silver))									OUTPUTNAME:Silver Pearl									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Spinel (Red))									OUTPUTNAME:Red Spinel									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Spinel (Red-Brown))								OUTPUTNAME:Red-Brown Spinel								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Spinel (Deep Green))								OUTPUTNAME:Deep Green Spinel								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Tourmaline)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Alexandrite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Aquamarine)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Garnet (Violet))									OUTPUTNAME:Violet Garnet								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Pearl (Black))									OUTPUTNAME:Black Pearl									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Spinel (Deep Blue))								OUTPUTNAME:Deep Blue Spinel								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Topaz (Golden Yellow))								OUTPUTNAME:Golden Yellow Topaz							TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Emerald)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Opal (White))									OUTPUTNAME:White Opal									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Opal (Black))									OUTPUTNAME:Black Opal									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Opal (Fire))										OUTPUTNAME:Fire Opal									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Sapphire (Blue))									OUTPUTNAME:Blue Sapphire								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Corundum (Firey Yellow))								OUTPUTNAME:Firey Yellow Corundum							TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Corundum (Rich Purple))								OUTPUTNAME:Rich Purple Corundum							TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Star Sapphire (Blue))								OUTPUTNAME:Blue Star Sapphire								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Star Sapphire (Black))								OUTPUTNAME:Black Star Sapphire							TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Ruby (Star))										OUTPUTNAME:Star Ruby									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Emerald (Clearest Bright Green))						OUTPUTNAME:Clearest Bright Green Emerald						TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Diamond (Blue-White))								OUTPUTNAME:Blue-White Diamond								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Diamond (Canary))									OUTPUTNAME:Canary Diamond								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Diamond (Pink))									OUTPUTNAME:Pink Diamond									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Diamond (Brown))									OUTPUTNAME:Brown Diamond								TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Diamond (Blue))									OUTPUTNAME:Blue Diamond									TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
+Gem (Jacinth)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf																	SORTKEY:Gem_Random
 
-Art (Silver Ewer)										OUTPUTNAME:[NAME]										TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Statuette (Carved Bone))								OUTPUTNAME:Carved Bone Statuette							TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Statuette (Ivory))									OUTPUTNAME:Ivory Statuette								TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Bracelet (Small/Gold/Finely Wrought))					OUTPUTNAME:Finely Wrought Small Gold Bracelet					TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Vestments (Cloth of Gold))							OUTPUTNAME:Cloth of Gold Vestments							TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Mask (Black Velvet with Numerous Citrines))				OUTPUTNAME:Black Velvet Mask with Numerous Citrines				TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Chalice (Silver with Lapis Lazuli Gems)					OUTPUTNAME:Silver Chalice with Lapis Lazuli Gems				TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Tapestry (Large/Wool/Well-Done))						OUTPUTNAME:Large Well-Done Wool Tapestry						TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Mug (Brass with Jade Inlays))							OUTPUTNAME:Brass Mug with Jade Inlays						TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Comb (Silver with Moonstones))							OUTPUTNAME:Silver Comb with Moonstones						TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Longsword (Silver-Plated with Jet Jewel in Hilt))			OUTPUTNAME:Silver-Plated Steel Longsword with Jet Jewel in Hilt		TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Harp (Carved Exotic Wood with Ivory Inlay and Zircon Gems))		OUTPUTNAME:Carved Harp of Exotic Wood with Ivory Inlay and Zircon Gems	TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Idol (Solid Gold 10 lb.))							OUTPUTNAME:Solid Gold Idol (10 lb.)							TYPE:Goods.Art	COST:0	WT:10		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Comb (Gold Dragon with Red Garnet Eye))					OUTPUTNAME:Gold Dragon Comb with Red Garnet Eye					TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Stopper Cork (Gold and Topaz))							OUTPUTNAME:Gold and Topaz Stopper Cork						TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Dagger (Ceremonial Electrum with Star Ruby in the Pommel))		OUTPUTNAME:Ceremonial Electrum Dagger with a Star Ruby in the Pommel	TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Eyepatch (Mock Eye of Sapphire and Moonstone))				OUTPUTNAME:Eyepatch with Mock Eye of Sapphire and Moonstone			TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Pendant (Fire Opal on Fine Gold Chain))					OUTPUTNAME:Fire Opal Pendant on a Fine Gold Chain				TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Painting (Old Masterpiece))							OUTPUTNAME:Old Masterpiece Painting							TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Mantle (Embroidered Silk and Velvet with Numerous Moonstones))	OUTPUTNAME:Embroidered Silk and Velvet Mantle with Numerous Moonstones	TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Pendant (Sapphire on Gold Chain))						OUTPUTNAME:Sapphire Pendant on Gold Chain						TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Glove (Embroidered and Bejeweled))						OUTPUTNAME:Embroidered and Bejeweled Glove					TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Anklet (Jeweled))									OUTPUTNAME:Jeweled Anklet								TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Music Box (Gold))									OUTPUTNAME:Gold Music Box								TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Circlet (Golden with Four Aquamarines))					OUTPUTNAME:Golden Circlet with Four Aquamarines					TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Necklace (String of Small Pink Pearls))					OUTPUTNAME:String of Small Pink Pearls (Necklace)				TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Crown (Jeweled Gold))								OUTPUTNAME:Jeweled Gold Crown								TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Ring (Jeweled Electrum))								OUTPUTNAME:Jeweled Electrum Ring							TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Ring (Gold and Ruby))								OUTPUTNAME:Gold and Ruby Ring								TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Art (Cup (Gold Set with Emeralds))							OUTPUTNAME:Gold Cup Set with Emeralds						TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Silver Ewer)										OUTPUTNAME:[NAME]										TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Statuette (Carved Bone))								OUTPUTNAME:Carved Bone Statuette							TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Statuette (Ivory))									OUTPUTNAME:Ivory Statuette								TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Bracelet (Small/Gold/Finely Wrought))					OUTPUTNAME:Finely Wrought Small Gold Bracelet					TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Vestments (Cloth of Gold))							OUTPUTNAME:Cloth of Gold Vestments							TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Mask (Black Velvet with Numerous Citrines))				OUTPUTNAME:Black Velvet Mask with Numerous Citrines				TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Chalice (Silver with Lapis Lazuli Gems)					OUTPUTNAME:Silver Chalice with Lapis Lazuli Gems				TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Tapestry (Large/Wool/Well-Done))						OUTPUTNAME:Large Well-Done Wool Tapestry						TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Mug (Brass with Jade Inlays))							OUTPUTNAME:Brass Mug with Jade Inlays						TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Comb (Silver with Moonstones))							OUTPUTNAME:Silver Comb with Moonstones						TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Longsword (Silver-Plated with Jet Jewel in Hilt))			OUTPUTNAME:Silver-Plated Steel Longsword with Jet Jewel in Hilt		TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Harp (Carved Exotic Wood with Ivory Inlay and Zircon Gems))		OUTPUTNAME:Carved Harp of Exotic Wood with Ivory Inlay and Zircon Gems	TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Idol (Solid Gold 10 lb.))							OUTPUTNAME:Solid Gold Idol (10 lb.)							TYPE:Goods.Art			COST:0	WT:10		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Comb (Gold Dragon with Red Garnet Eye))					OUTPUTNAME:Gold Dragon Comb with Red Garnet Eye					TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Stopper Cork (Gold and Topaz))							OUTPUTNAME:Gold and Topaz Stopper Cork						TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Dagger (Ceremonial Electrum with Star Ruby in the Pommel))		OUTPUTNAME:Ceremonial Electrum Dagger with a Star Ruby in the Pommel	TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Eyepatch (Mock Eye of Sapphire and Moonstone))				OUTPUTNAME:Eyepatch with Mock Eye of Sapphire and Moonstone			TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Pendant (Fire Opal on Fine Gold Chain))					OUTPUTNAME:Fire Opal Pendant on a Fine Gold Chain				TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Painting (Old Masterpiece))							OUTPUTNAME:Old Masterpiece Painting							TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Mantle (Embroidered Silk and Velvet with Numerous Moonstones))	OUTPUTNAME:Embroidered Silk and Velvet Mantle with Numerous Moonstones	TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Pendant (Sapphire on Gold Chain))						OUTPUTNAME:Sapphire Pendant on Gold Chain						TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Glove (Embroidered and Bejeweled))						OUTPUTNAME:Embroidered and Bejeweled Glove					TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Anklet (Jeweled))									OUTPUTNAME:Jeweled Anklet								TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Music Box (Gold))									OUTPUTNAME:Gold Music Box								TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Circlet (Golden with Four Aquamarines))					OUTPUTNAME:Golden Circlet with Four Aquamarines					TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Necklace (String of Small Pink Pearls))					OUTPUTNAME:String of Small Pink Pearls (Necklace)				TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Crown (Jeweled Gold))								OUTPUTNAME:Jeweled Gold Crown								TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Ring (Jeweled Electrum))								OUTPUTNAME:Jeweled Electrum Ring							TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Ring (Gold and Ruby))								OUTPUTNAME:Gold and Ruby Ring								TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Art (Cup (Gold Set with Emeralds))							OUTPUTNAME:Gold Cup Set with Emeralds						TYPE:Goods.Art			COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
 
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 
 #Poisons
-# Equipment Name				Output Name		Type					Cost		Weight	Source Page						Special Property
-Poison (Nitharit)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:650	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 13, Init.:0, Sec.:3d6 CON
-Poison (Sassone leaf residue)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:300	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:2d12 HP, Sec.:1d6 CON
-Poison (Malyss root paste)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:1 DEX, Sec.:2d4 DEX
-Poison (Terinav root)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:750	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:1d6 DEX, Sec.:2d6 DEX
-Poison (Black lotus extract)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:4500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 20, Init.:3d6 CON / 3d6 CON
-Poison (Dragon bile)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 26, Init.:3d6 STR / 0
-Poison (Striped toadstool)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:180	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 11, Init.:1 WIS, Sec.:2d6 WIS + 1d4 INT
-Poison (Arsenic)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 13, Init.:1 CON, Sec.:1d8 CON
-Poison (Id moss)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:125	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 14, Init.:1d4 INT, Sec.: 2d6 INT
-Poison (Oil of taggit)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 15, Init.:0, Sec.: unconsciousness
-Poison (Lich dust)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:250	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 17, Init.:2d6 STR, Sec.:1d6 STR
-Poison (Dark reaver powder)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:300	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 18, Init.:2d6 CON / 1d6 CON + 1d6 STR
-Poison (Ungol dust)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1000	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 15, Init.:1 CHA, Sec.:1d6 CHA + 1 CHA (permanent)
-Poison (Insanity mist)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 15, Init.:1d4 WIS, Sec.: 2d6 WIS
-Poison (Burnt othur fumes)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:2100	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 18, Init.:1 CON (permanent), Sec.:3d6 CON
-Poison (Black adder venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 11, Init.:1d6 CON, Sec.:1d6 CON
-Poison (Small centipede poison)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 11, Init.:1d2 DEX / 1d2 DEX
-Poison (Bloodroot)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 12, Init.:0, Sec.:1d4 CON + 1d3 WIS
-Poison (Drow Poison)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:75	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 13, Init.:unconsciousness, Sec.:unconsciousness for 2d4 hours
-Poison (Greenblood oil)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 13, Init.:1 CON, Sec.:1d2 CON
-Poison (Blue whinnis)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 14, Init.:1 CON, Sec.:unconsciousness
-Poison (Medium spider venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:150	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 14, Init.:1d4 STR, Sec.:1d4 STR
-Poison (Shadow essence)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:250	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 17, Init.:1 STR (permanent), Sec.:2d6 STR
-Poison (Wyvern poison)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:3000	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 17, Init.:2d6 CON, Sec.:2d6 CON
-Poison (Large scorpion venom)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:200	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 18, Init.:1d6 STR, Sec.:1d6 STR
-Poison (Giant wasp poison)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:210	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 18, Init.:1d6 DEX, Sec.:1d6 DEX
-Poison (Deathblade)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1800	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 20, Init.:1d6 CON, Sec.:2d6 CON
-Poison (Purple worm poison)		OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:700	WT:0		SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 24, Init.:1d6 STR, Sec.:2d6 STR
+# Equipment Name										Output Name											Type					Cost		Weight	Requires Modification?	Source Page						Special Property											SORTKEY
+Poison (Nitharit)										OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:650	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 13, Init.:0, Sec.:3d6 CON
+Poison (Sassone leaf residue)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:300	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:2d12 HP, Sec.:1d6 CON
+Poison (Malyss root paste)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:500	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:1 DEX, Sec.:2d4 DEX
+Poison (Terinav root)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:750	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 16, Init.:1d6 DEX, Sec.:2d6 DEX
+Poison (Black lotus extract)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:4500	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 20, Init.:3d6 CON / 3d6 CON
+Poison (Dragon bile)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:1500	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Contact DC 26, Init.:3d6 STR / 0
+Poison (Striped toadstool)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:180	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 11, Init.:1 WIS, Sec.:2d6 WIS + 1d4 INT
+Poison (Arsenic)										OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:120	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 13, Init.:1 CON, Sec.:1d8 CON
+Poison (Id moss)										OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:125	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 14, Init.:1d4 INT, Sec.: 2d6 INT
+Poison (Oil of taggit)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:90	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 15, Init.:0, Sec.: unconsciousness
+Poison (Lich dust)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:250	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 17, Init.:2d6 STR, Sec.:1d6 STR
+Poison (Dark reaver powder)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:300	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Ingested DC 18, Init.:2d6 CON / 1d6 CON + 1d6 STR
+Poison (Ungol dust)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:1000	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 15, Init.:1 CHA, Sec.:1d6 CHA + 1 CHA (permanent)
+Poison (Insanity mist)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:1500	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 15, Init.:1d4 WIS, Sec.: 2d6 WIS
+Poison (Burnt othur fumes)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:2100	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Inhaled DC 18, Init.:1 CON (permanent), Sec.:3d6 CON
+Poison (Black adder venom)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:120	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 11, Init.:1d6 CON, Sec.:1d6 CON
+Poison (Small centipede poison)							OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:90	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 11, Init.:1d2 DEX / 1d2 DEX
+Poison (Bloodroot)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:100	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 12, Init.:0, Sec.:1d4 CON + 1d3 WIS
+Poison (Drow Poison)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:75	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 13, Init.:unconsciousness, Sec.:unconsciousness for 2d4 hours
+Poison (Greenblood oil)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:100	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 13, Init.:1 CON, Sec.:1d2 CON
+Poison (Blue whinnis)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:120	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 14, Init.:1 CON, Sec.:unconsciousness
+Poison (Medium spider venom)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:150	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 14, Init.:1d4 STR, Sec.:1d4 STR
+Poison (Shadow essence)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:250	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 17, Init.:1 STR (permanent), Sec.:2d6 STR
+Poison (Wyvern poison)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:3000	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 17, Init.:2d6 CON, Sec.:2d6 CON
+Poison (Large scorpion venom)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:200	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 18, Init.:1d6 STR, Sec.:1d6 STR
+Poison (Giant wasp poison)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:210	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 18, Init.:1d6 DEX, Sec.:1d6 DEX
+Poison (Deathblade)									OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:1800	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 20, Init.:1d6 CON, Sec.:2d6 CON
+Poison (Purple worm poison)								OUTPUTNAME:[NAME]										TYPE:Goods.Poison.Consumable	COST:700	WT:0						SOURCEPAGE:AbilitiesandConditions.rtf	SPROP:Injury DC 24, Init.:1d6 STR, Sec.:2d6 STR
 
 
 # Original Entry by: abernat/altered by dlm1065

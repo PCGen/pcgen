@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
 ###Block: Familiar Kits
 
 STARTPACK:Bat Familiar	TYPE:Companion	VISIBLE:NO
@@ -84,7 +85,7 @@ STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
 ###Block: Animal Companion Kits
 
-STARTPACK:Ape Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Ape Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Ape	!PRERACE:1,%
 ALIGN:TN
 SKILL:Climb		RANK:1
@@ -94,7 +95,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
-STARTPACK:Badger Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Badger Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Badger	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:2
@@ -102,7 +103,7 @@ SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Bear (Black) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Bear (Black) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Bear (Black)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -111,7 +112,7 @@ FEAT:Endurance
 FEAT:Run
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Bear (Brown) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Bear (Brown) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Bear (Brown)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:6
@@ -121,7 +122,7 @@ FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Bear (Polar) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Bear (Polar) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Bear (Polar)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:6
@@ -132,7 +133,7 @@ FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Bison Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Bison Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Bison	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:3
@@ -141,7 +142,7 @@ FEAT:Alertness
 FEAT:Endurance
 STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Boar Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Boar Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Boar	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:4
@@ -150,7 +151,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Camel Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Camel Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Camel	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -159,7 +160,7 @@ FEAT:Alertness
 FEAT:Endurance
 STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 
-STARTPACK:Cheetah Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Cheetah Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Cheetah	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen		RANK:1
@@ -170,7 +171,7 @@ FEAT:Alertness
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Crocodile Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Crocodile Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Crocodile	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide		RANK:3
@@ -180,7 +181,7 @@ FEAT:Alertness
 FEAT:Skill Focus(Hide)
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Crocodile (Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Crocodile (Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Crocodile (Giant)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide		RANK:5
@@ -208,14 +209,14 @@ SKILL:Spot		RANK:2
 FEAT:Alertness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Eagle Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Eagle Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Eagle	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot	RANK:4
 FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Elephant Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Elephant Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Elephant	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:7
@@ -226,14 +227,14 @@ FEAT:Iron Will
 FEAT:Skill Focus(Listen)
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
-STARTPACK:Hawk Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Hawk Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Hawk	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot	RANK:4
 FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Horse (Heavy) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Horse (Heavy) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Horse (Heavy)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -242,7 +243,7 @@ FEAT:Endurance
 FEAT:Run
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Horse (Light) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Horse (Light) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Horse (Light)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -251,7 +252,7 @@ FEAT:Endurance
 FEAT:Run
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Horse (Warhorse Heavy) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Horse (Warhorse Heavy) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Horse (Warhorse Heavy)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -261,7 +262,7 @@ FEAT:Run
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Leopard Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Leopard Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Leopard	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -270,7 +271,7 @@ FEAT:Alertness
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Lion Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Lion Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Lion	!PRERACE:1,%
 ALIGN:TN
 SKILL:Move Silently	RANK:4
@@ -280,7 +281,7 @@ FEAT:Alertness
 FEAT:Run
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Lizard (Monitor) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Lizard (Monitor) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Lizard (Monitor)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen		RANK:1
@@ -292,7 +293,7 @@ FEAT:Alertness
 FEAT:Great Fortitude
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Octopus (Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Octopus (Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Octopus (Giant)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:1
@@ -303,7 +304,7 @@ FEAT:Skill Focus(Hide)
 FEAT:Toughness
 STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
 
-STARTPACK:Owl Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Owl Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Owl	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:2
@@ -311,7 +312,7 @@ SKILL:Spot		RANK:2
 FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Pony Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Pony Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Pony	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:5
@@ -319,7 +320,7 @@ SKILL:Spot		RANK:5	FREE:YES
 FEAT:Endurance
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Pony (War) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Pony (War) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Pony (War)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:5
@@ -327,7 +328,7 @@ SKILL:Spot		RANK:5	FREE:YES
 FEAT:Endurance
 STAT:STR=11|DEX=11|WIS=11|CON=10|INT=10|CHA=10
 
-STARTPACK:Porpoise Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Porpoise Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Porpoise	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:2
@@ -335,7 +336,7 @@ SKILL:Listen	RANK:3
 FEAT:Weapon Finesse
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Rhinoceros Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Rhinoceros Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Rhinoceros	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:11
@@ -344,7 +345,7 @@ FEAT:Endurance
 FEAT:Improved Natural Attack(Gore)
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
-STARTPACK:Shark (Huge) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Shark (Huge) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Shark (Huge)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:7
@@ -355,7 +356,7 @@ FEAT:Improved Initiative
 FEAT:Iron Will
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Shark (Large) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Shark (Large) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Shark (Large)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:4
@@ -365,7 +366,7 @@ FEAT:Great Fortitude
 FEAT:Improved Initiative
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Shark (Medium) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Shark (Medium) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Shark (Medium)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -374,7 +375,7 @@ FEAT:Alertness
 FEAT:Weapon Finesse
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Snake (Constrictor) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Snake (Constrictor) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Snake (Constrictor)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Climb	RANK:3
@@ -383,7 +384,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Snake (Constrictor/Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Snake (Constrictor/Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Snake (Constrictor/Giant)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide		RANK:8
@@ -396,7 +397,7 @@ FEAT:Skill Focus(Hide)
 FEAT:Toughness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Snake (Viper/Small) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Snake (Viper/Small) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Snake (Viper/Small)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:2
@@ -405,14 +406,14 @@ SKILL:Climb		RANK:5
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Snake (Viper/Medium) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Snake (Viper/Medium) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Snake (Viper/Medium)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide	RANK:5
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Snake (Viper/Large) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Snake (Viper/Large) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Snake (Viper/Large)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot	RANK:1
@@ -421,7 +422,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Snake (Viper/Huge) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Snake (Viper/Huge) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Snake (Viper/Huge)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:2
@@ -432,7 +433,7 @@ FEAT:Run
 FEAT:Weapon Focus(Bite)
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Squid Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Squid Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Squid	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:4
@@ -442,7 +443,7 @@ FEAT:Alertness
 FEAT:Endurance
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Squid (Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Squid (Giant) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Squid (Giant)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:8
@@ -454,7 +455,7 @@ FEAT:Toughness
 FEAT:Toughness
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Tiger Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Tiger Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Tiger	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide			RANK:1
@@ -465,7 +466,7 @@ FEAT:Improved Natural Attack(Bite)
 FEAT:Alertness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Whale (Orca) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Whale (Orca) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Whale (Orca)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:6
@@ -485,7 +486,7 @@ SKILL:Spot			RANK:2
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Wolverine Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Wolverine Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Wolverine	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -512,7 +513,7 @@ STAT:INT=3
 
 ###Block: Familiar Kits
 
-STARTPACK:Demon (Quasit) Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Demon (Quasit) Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Demon (Quasit)	!PRERACE:1,%
 ALIGN:CE
 SKILL:Bluff			RANK:6
@@ -527,7 +528,7 @@ FEAT:Improved Initiative
 FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Devil (Imp) Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Devil (Imp) Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Devil (Imp)	!PRERACE:1,%
 ALIGN:LE
 SKILL:Diplomacy		RANK:6
@@ -543,7 +544,7 @@ FEAT:Weapon Finesse
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Shocker Lizard Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Shocker Lizard Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 RACE:Companion ~ Shocker Lizard	!PRERACE:1,%
 ALIGN:TN
@@ -554,7 +555,7 @@ SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 FEAT:Improved Initiative
 
-STARTPACK:Stirge Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Stirge Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 RACE:Companion ~ Stirge	!PRERACE:1,%
 ALIGN:TN
@@ -563,7 +564,7 @@ SKILL:Spot		RANK:1
 SKILL:Hide		RANK:2
 FEAT:Alertness
 
-STARTPACK:Formian (Worker) Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Formian (Worker) Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Formian (Worker)	!PRERACE:1,%
 ALIGN:LN
 SKILL:Listen	RANK:4
@@ -574,7 +575,7 @@ SKILL:TYPE=Craft	RANK:4
 FEAT:Skill Focus
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 
-STARTPACK:Pseudodragon Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Pseudodragon Familiar	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Pseudodragon	!PRERACE:1,%
 ALIGN:NG
 SKILL:Hide			RANK:5
@@ -602,7 +603,7 @@ STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 
 
-STARTPACK:Dinosaur (Deinonychus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dinosaur (Deinonychus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dinosaur (Deinonychus)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:1
@@ -614,7 +615,7 @@ FEAT:Run
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dinosaur (Elasmosaurus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dinosaur (Elasmosaurus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dinosaur (Elasmosaurus)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:8
@@ -626,7 +627,7 @@ FEAT:Toughness
 FEAT:Toughness
 STAT:WIS=11|CHA=11|STR=10|DEX=10|CON=10|INT=10
 
-STARTPACK:Dinosaur (Megaraptor) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dinosaur (Megaraptor) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dinosaur (Megaraptor)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide		RANK:3
@@ -639,7 +640,7 @@ FEAT:Toughness
 FEAT:Track
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
-STARTPACK:Dinosaur (Triceratops) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dinosaur (Triceratops) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dinosaur (Triceratops)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot		RANK:9
@@ -652,7 +653,7 @@ FEAT:Toughness
 FEAT:Toughness
 STAT:DEX=11|CON=11|CHA=11|STR=10|INT=10|WIS=10
 
-STARTPACK:Dinosaur (Tyrannosaurus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dinosaur (Tyrannosaurus) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dinosaur (Tyrannosaurus)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:8
@@ -667,7 +668,7 @@ FEAT:Toughness
 FEAT:Track
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Ape) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Ape) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Ape)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Spot			RANK:3
@@ -677,7 +678,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Dire Animal (Dire Badger) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Badger) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Badger)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:3
@@ -686,7 +687,7 @@ FEAT:Alertness
 FEAT:Toughness
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Bat) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Bat) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Bat)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen		RANK:4
@@ -695,7 +696,7 @@ FEAT:Alertness
 FEAT:Stealthy
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Bear) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Bear) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Bear)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Swim		RANK:3
@@ -708,7 +709,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Boar) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Boar) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Boar)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:5
@@ -718,7 +719,7 @@ FEAT:Endurance
 FEAT:Iron Will
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Lion) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Lion) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Lion)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:4
@@ -728,7 +729,7 @@ FEAT:Run
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Rat) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Rat) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Rat)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide			RANK:1
@@ -738,7 +739,7 @@ SKILL:Spot			RANK:1
 FEAT:Alertness
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Shark) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Shark) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Shark)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:11
@@ -751,7 +752,7 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Tiger) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Tiger) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Tiger)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Jump			RANK:2
@@ -768,7 +769,7 @@ FEAT:Stealthy
 FEAT:Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Weasel) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Weasel) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Weasel)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Hide			RANK:2
@@ -778,7 +779,7 @@ FEAT:Alertness
 FEAT:Stealthy
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Dire Animal (Dire Wolf) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Wolf) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Wolf)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Survival	RANK:1
@@ -789,7 +790,7 @@ FEAT:Run
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Dire Animal (Dire Wolverine) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0	
+STARTPACK:Dire Animal (Dire Wolverine) Companion	TYPE:Companion	VISIBLE:NO	EQUIPBUY:0
 RACE:Companion ~ Dire Animal (Dire Wolverine)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:4
