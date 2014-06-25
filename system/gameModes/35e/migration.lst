@@ -288,38 +288,38 @@ ABILITY:Special Ability|Plant						MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Plant
 ABILITY:Special Ability|Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Undead				
 ABILITY:Special Ability|Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy ~ Vermin				
 
-ABILITY:Special AbilityFavored Bonus__Aberration				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Aberration		
-ABILITY:Special AbilityFavored Bonus__Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Animal			
-ABILITY:Special AbilityFavored Bonus__Construct				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Construct			
-ABILITY:Special AbilityFavored Bonus__Dragon					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Dragon			
-ABILITY:Special AbilityFavored Bonus__Elemental				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Elemental			
-ABILITY:Special AbilityFavored Bonus__Fey					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Fey				
-ABILITY:Special AbilityFavored Bonus__Giant					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Giant			
-ABILITY:Special AbilityFavored Bonus__Humanoid_Aquatic			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Aquatic)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Dwarf				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Dwarf)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Elf				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Elf)		
-ABILITY:Special AbilityFavored Bonus__Humanoid_Goblinoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Goblinoid)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Gnoll				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnoll)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Gnome				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnome)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Halfling			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Halfling)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Human				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Human)	
-ABILITY:Special AbilityFavored Bonus__Humanoid_Orc				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Orc)		
-ABILITY:Special AbilityFavored Bonus__Humanoid_Reptilian			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Reptilian)	
-ABILITY:Special AbilityFavored Bonus__Magical Beast				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Magical Beast		
-ABILITY:Special AbilityFavored Bonus__Monstrous Humanoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Monstrous Humanoid	
-ABILITY:Special AbilityFavored Bonus__Ooze					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Ooze			
-ABILITY:Special AbilityFavored Bonus__Outsider_Air				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Air)		
-ABILITY:Special AbilityFavored Bonus__Outsider_Earth				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Earth)	
-ABILITY:Special AbilityFavored Bonus__Outsider_Fire				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Fire)		
-ABILITY:Special AbilityFavored Bonus__Outsider_Water				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Water)	
-ABILITY:Special AbilityFavored Bonus__Outsider_Lawful			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Lawful)	
-ABILITY:Special AbilityFavored Bonus__Outsider_Chaotic			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Chaotic)	
-ABILITY:Special AbilityFavored Bonus__Outsider_Good				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Good)		
-ABILITY:Special AbilityFavored Bonus__Outsider_Evil				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Evil)		
-ABILITY:Special AbilityFavored Bonus__Outsider_Native			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Native)	
-ABILITY:Special AbilityFavored Bonus__Plant					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Plant			
-ABILITY:Special AbilityFavored Bonus__Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Undead			
-ABILITY:Special AbilityFavored Bonus__Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Vermin			
+ABILITY:Special Ability|Favored Bonus__Aberration				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Aberration		
+ABILITY:Special Ability|Favored Bonus__Animal					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Animal			
+ABILITY:Special Ability|Favored Bonus__Construct				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Construct			
+ABILITY:Special Ability|Favored Bonus__Dragon					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Dragon			
+ABILITY:Special Ability|Favored Bonus__Elemental				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Elemental			
+ABILITY:Special Ability|Favored Bonus__Fey					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Fey				
+ABILITY:Special Ability|Favored Bonus__Giant					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Giant			
+ABILITY:Special Ability|Favored Bonus__Humanoid_Aquatic			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Aquatic)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Dwarf				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Dwarf)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Elf				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Elf)		
+ABILITY:Special Ability|Favored Bonus__Humanoid_Goblinoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Goblinoid)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Gnoll				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnoll)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Gnome				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Gnome)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Halfling			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Halfling)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Human				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Human)	
+ABILITY:Special Ability|Favored Bonus__Humanoid_Orc				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Orc)		
+ABILITY:Special Ability|Favored Bonus__Humanoid_Reptilian			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Humanoid (Reptilian)	
+ABILITY:Special Ability|Favored Bonus__Magical Beast				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Magical Beast		
+ABILITY:Special Ability|Favored Bonus__Monstrous Humanoid			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Monstrous Humanoid	
+ABILITY:Special Ability|Favored Bonus__Ooze					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Ooze			
+ABILITY:Special Ability|Favored Bonus__Outsider_Air				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Air)		
+ABILITY:Special Ability|Favored Bonus__Outsider_Earth				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Earth)	
+ABILITY:Special Ability|Favored Bonus__Outsider_Fire				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Fire)		
+ABILITY:Special Ability|Favored Bonus__Outsider_Water				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Water)	
+ABILITY:Special Ability|Favored Bonus__Outsider_Lawful			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Lawful)	
+ABILITY:Special Ability|Favored Bonus__Outsider_Chaotic			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Chaotic)	
+ABILITY:Special Ability|Favored Bonus__Outsider_Good				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Good)		
+ABILITY:Special Ability|Favored Bonus__Outsider_Evil				MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Evil)		
+ABILITY:Special Ability|Favored Bonus__Outsider_Native			MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Outsider (Native)	
+ABILITY:Special Ability|Favored Bonus__Plant					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Plant			
+ABILITY:Special Ability|Favored Bonus__Undead					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Undead			
+ABILITY:Special Ability|Favored Bonus__Vermin					MAXVER:6.4.00	NEWKEY:Favored Enemy Bonus ~ Vermin			
 ABILITY:Special Ability|Weapon and Armor Proficiency	MAXVER:6.4.00	NEWKEY:Rogue ~ Weapon and Armor Proficiency		
 ABILITY:Special Ability|Sneak Attack			MAXVER:6.4.00	NEWKEY:Rogue ~ Sneak Attack				
 ABILITY:Special Ability|Trapfinding				MAXVER:6.4.00	NEWKEY:Rogue ~ Trapfinding					
