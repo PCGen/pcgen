@@ -813,12 +813,12 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Oracle Mystery|Bone Mystery ~ Oracle
-ABILITY:CATEGORY=Oracle Curse|Haunted ~ Oracle
-ABILITY:CATEGORY=Bone Mystery Revelation|Death's Touch ~ Bone Mystery
-ABILITY:CATEGORY=Bone Mystery Revelation|Undead Servitude ~ Bone Mystery
+ABILITY:CATEGORY=Oracle Mystery|Oracle ~ Bone Mystery
+ABILITY:CATEGORY=Oracle Curse|Oracle ~ Haunted
+ABILITY:CATEGORY=Bone Mystery Revelation|Bone Mystery ~ Death's Touch
+ABILITY:CATEGORY=Bone Mystery Revelation|Bone Mystery ~ Undead Servitude
 FEAT:Extra Revelation
-ABILITY:CATEGORY=Bone Mystery Revelation|Voice of the Grave ~ Bone Mystery
+ABILITY:CATEGORY=Bone Mystery Revelation|Bone Mystery ~ Voice of the Grave
 LANGBONUS:Infernal|Vudrani
 SKILL:Bluff				RANK:5
 SKILL:Diplomacy			RANK:5

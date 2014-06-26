@@ -147,8 +147,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Rogue Talent|Surprise Attack
-ABILITY:CATEGORY=Rogue Talent|Trap Spotter
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Surprise Attack
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
 SKILL:Appraise			RANK:4
 SKILL:Bluff				RANK:4
 SKILL:Diplomacy			RANK:4
@@ -359,7 +359,7 @@ SKILL:Stealth			RANK:4
 SKILL:Survival			RANK:4
 FEAT:Point-Blank Shot
 FEAT:Precise Shot
-ABILITY:CATEGORY=Ranger Bonus Feat|Rapid Shot
+ABILITY:CATEGORY=Ranger Bonus Feat|Ranger Bonus Feat ~ Rapid Shot
 GEAR:Leather						LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Longbow (Composite)				LOCATION:Both Hands	EQMOD:BOWSTR|+2.PLUS1W
 GEAR:Dagger							LOCATION:Carried
@@ -426,7 +426,7 @@ SKILL:Stealth			RANK:2
 SKILL:Survival			RANK:2
 FEAT:Skill Focus (Handle Animal)
 FEAT:Animal Affinity
-ABILITY:CATEGORY=Ranger Bonus Feat|Two-Weapon Fighting
+ABILITY:CATEGORY=Ranger Bonus Feat|Ranger Bonus Feat ~ Two-Weapon Fighting
 GEAR:Chain Shirt					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Battleaxe					LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Handaxe					LOCATION:Secondary Hand	EQMOD:MWORKW
@@ -481,8 +481,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Rogue Talent|Ledge Walker
-ABILITY:CATEGORY=Rogue Talent|Trap Spotter
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Ledge Walker
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
 SKILL:Acrobatics		RANK:4
 SKILL:Bluff			RANK:4
 SKILL:Climb			RANK:4

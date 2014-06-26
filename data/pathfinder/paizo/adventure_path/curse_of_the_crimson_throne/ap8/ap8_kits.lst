@@ -25,8 +25,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Rogue Talent|Fast Stealth
-ABILITY:CATEGORY=Rogue Talent|Minor Magic (Daze)
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Fast Stealth
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Minor Magic (Daze)
 STAT:STR=8|DEX=14|CON=8|INT=13|WIS=12|CHA=16
 SKILL:Bluff				RANK:6
 SKILL:Craft (Alchemy)		RANK:6
@@ -160,11 +160,11 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Rogue Talent|Trap Spotter
-ABILITY:CATEGORY=Rogue Talent|Surprise Attack
-ABILITY:CATEGORY=Rogue Talent|Finesse Rogue
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Surprise Attack
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Finesse Rogue
 CLASS:Sorcerer	LEVEL:2
-ABILITY:CATEGORY=Sorcerer Bloodline|Undead Bloodline
+ABILITY:CATEGORY=Sorcerer Bloodline|Sorcerer Bloodline ~ Undead
 STAT:STR=12|DEX=14|CON=16|INT=10|WIS=8|CHA=14
 SKILL:Acrobatics		RANK:8
 SKILL:Bluff			RANK:8
@@ -235,7 +235,7 @@ CLASS:Rogue	LEVEL:2
 ABILITY:CATEGORY=Favored Class|Rogue
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Rogue Talent|Fast Stealth
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Fast Stealth
 STAT:STR=12|DEX=15|CON=12|INT=13|WIS=10|CHA=8
 SKILL:Acrobatics		RANK:2
 SKILL:Bluff			RANK:2
@@ -261,7 +261,7 @@ ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 NAME:Dr. Davaulus
 ALIGN:NE
 CLASS:Rogue		LEVEL:3
-ABILITY:CATEGORY=Rogue Talent|Fast Stealth
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Fast Stealth
 CLASS:Expert	LEVEL:3
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Heal)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills (Stealth)
@@ -279,7 +279,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Versatile Performance|Oratory
+ABILITY:CATEGORY=Versatile Performance|Versatile Performance ~ Oratory
 STAT:STR=8|DEX=12|CON=10|INT=16|WIS=12|CHA=14
 SKILL:Appraise			RANK:4
 SKILL:Bluff				RANK:10

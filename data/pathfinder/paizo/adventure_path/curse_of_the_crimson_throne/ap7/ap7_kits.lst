@@ -140,7 +140,7 @@ ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Perception)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Sleight of Hand)
 ABILITY:CATEGORY=Expert Class Skills|Expert Class Skills(Stealth)
 CLASS:Rogue		LEVEL:2
-ABILITY:CATEGORY=Rogue Talent|Trap Spotter
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Trap Spotter
 SKILL:Appraise		RANK:6
 SKILL:Bluff			RANK:6
 SKILL:Disable Device	RANK:6
@@ -222,8 +222,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Rogue Talent|Finesse Rogue
-ABILITY:CATEGORY=Rogue Talent|Surprise Attack
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Finesse Rogue
+ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Surprise Attack
 STAT:STR=12|DEX=14|CON=14|INT=10|WIS=8|CHA=13
 SKILL:Bluff			RANK:4
 SKILL:Climb			RANK:4
@@ -258,7 +258,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Versatile Performance|Comedy
+ABILITY:CATEGORY=Versatile Performance|Versatile Performance ~ Comedy
 SKILL:Acrobatics		RANK:4
 SKILL:Bluff			RANK:4
 SKILL:Climb			RANK:4
