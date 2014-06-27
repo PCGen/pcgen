@@ -6,6 +6,11 @@
 # Rules for migrating characters from old data to new.
 #
 
+ABILITY:Special Ability|Chosen Weapon ~ Kensai			MAXVER:6.4.00	NEWKEY:Kensai ~ Chosen Weapon
+ABILITY:Special Ability|Weapon Proficiency ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Proficiency
+ABILITY:Special Ability|Weapon Focus Display ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Focus Display
+ABILITY:Special Ability|None ~ Region				MAXVER:6.4.00	NEWKEY:Region ~ None
+
 # Examples
 # SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.1
 # EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.2
