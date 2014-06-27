@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Andargor <andargor@yahoo.com>
 
@@ -13,10 +13,10 @@ CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|
 ###Block:
 5:REPEATLEVEL:5	BONUS:ABILITYPOOL|Agent Retriever Feat|1
 ###Block:
-1										BONUS:VAR|ARTracking|10*ceil(CL/5)	DEFINE:ARTracking|0					ABILITY:Special Ability|AUTOMATIC|Agent Retriever ~ Agent Retriever Tracking Bonus|Agent Retriever ~ Uncanny Location
-2																																						SPELLS:Class|TIMES=((var("CL=Agent Retriever")+3)/5)|CASTERLEVEL=14|Plane Shift,17+CHA
-3										BONUS:VAR|ForceSphereTimes|(CL+2)/5									ABILITY:Special Ability|AUTOMATIC|Agent Retriever ~ Force Sphere
-4																																						SPELLS:Class|TIMES=((var("CL=Agent Retriever")+1)/5)|CASTERLEVEL=14|Ethereal Jaunt,17+CHA
+1	BONUS:VAR|ARTracking|10*ceil(CL/5)	DEFINE:ARTracking|0	ABILITY:Special Ability|AUTOMATIC|Agent Retriever ~ Agent Retriever Tracking Bonus|Agent Retriever ~ Uncanny Location
+2																															SPELLS:Class|TIMES=((var("CL=Agent Retriever")+3)/5)|CASTERLEVEL=14|Plane Shift,17+CHA
+3	BONUS:VAR|ForceSphereTimes|(CL+2)/5					ABILITY:Special Ability|AUTOMATIC|Agent Retriever ~ Force Sphere
+4																															SPELLS:Class|TIMES=((var("CL=Agent Retriever")+1)/5)|CASTERLEVEL=14|Ethereal Jaunt,17+CHA
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Cde		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
@@ -33,14 +33,14 @@ CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowl
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Die		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
-# Class Name		Req. Att.	Required Feat					Required Lvl	Required Skill
-CLASS:Divine Emissary	PRETOTALAB:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10
+# Class Name		Required Feat					Required Lvl	Required Skill				PRETOTALAB
+CLASS:Divine Emissary	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10	PRETOTALAB:23
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Gather Information|Heal|Intimidate|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot|TYPE=Craft|TYPE=Profession|Use Magic Device
 1:REPEATLEVEL:1																																																												ADD:SPELLCASTER|ANY
 1										BONUS:DOMAIN|NUMBER|1	BONUS:VAR|DEDivineInspiration|ceil(CL/3)																																														ABILITY:Special Ability|AUTOMATIC|Divine Emissary ~ Divine Inspiration
 2														BONUS:VAR|SmiteGood|DESmite|PREABILITY:1,CATEGORY=Special Ability,Smite Good	BONUS:VAR|SmiteEvil|DESmite|PREABILITY:1,CATEGORY=Special Ability,Smite Evil	BONUS:VAR|SmiteAnyTimes|DESmite|PREABILITY:1,CATEGORY=Special Ability,Smite	BONUS:VAR|DESmite|((CL+1)/3)+1	DEFINE:DESmite|0
-3																																																																											SPELLS:Class|TIMES=(CL+7)/10|CASTERLEVEL=TL|Planar Ally (Greater),18+WIS
+3																																																																														SPELLS:Class|TIMES=(CL+7)/10|CASTERLEVEL=TL|Planar Ally (Greater),18+WIS
 6:REPEATLEVEL:10	BONUS:ABILITYPOOL|Divine Emissary Feat|1
 9														BONUS:VAR|DEDivineHand|floor((CL+1)/10)																																														ABILITY:Special Ability|AUTOMATIC|Divine Emissary ~ Divine Hand
 
@@ -52,15 +52,15 @@ CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	P
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE=Craft|TYPE=Profession
 1												BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttackDice|ceil(CL/3)	ABILITY:Special Ability|AUTOMATIC|Epic Infiltrator ~ Improved Cover Identity|Epic Infiltrator ~ Sneak Attack
 2:REPEATLEVEL:3	BONUS:ABILITYPOOL|Infiltrator Specialist Training|1
-3												BONUS:VAR|EIReadThoughts|((CL+1)/4)								ABILITY:Special Ability|AUTOMATIC|Epic Infiltrator ~ Read Thoughts					SPELLS:Class|TIMES=((var("CL=Epic Infiltrator")+5)/8)|CASTERLEVEL=15|Mind Blank,18+INT
+3												BONUS:VAR|EIReadThoughts|((CL+1)/4)								ABILITY:Special Ability|AUTOMATIC|Epic Infiltrator ~ Read Thoughts								SPELLS:Class|TIMES=((var("CL=Epic Infiltrator")+5)/8)|CASTERLEVEL=15|Mind Blank,18+INT
 4												BONUS:VAR|EIFarSenses|((CL+1)/4)	BONUS:VAR|FarSensesRange|20*(CL+1)		ABILITY:Special Ability|AUTOMATIC|Epic Infiltrator ~ Far Senses
 # Epic Trapfinding does not exist
 
 
 # Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Gpa		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
-# Class Name			Required Ability								Req. Att.	Required Feat											Required Lvl	Required Skill
-CLASS:Guardian Paramount	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PRETOTALAB:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
+# Class Name			Required Ability								Required Feat											Required Lvl	Required Skill		PRETOTALAB
+CLASS:Guardian Paramount	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PRELEVEL:MIN=20	PRESKILL:1,Spot=13	PRETOTALAB:15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate|Jump|Listen|Spot|TYPE=Profession
 1			BONUS:ABILITYPOOL|Guardian Paramount Feat|1	BONUS:VAR|GPEnabler|(2+ceil(CL/3))		ABILITY:Special Ability|AUTOMATIC|Guardian Paramount ~ Uncanny Dodge Enabler
@@ -79,7 +79,7 @@ CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:MIN=20	PRE
 CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
 1											BONUS:VAR|HPProsetilyze|ceil(CL/10)					ABILITY:Special Ability|AUTOMATIC|High Proselytizer ~ Proselytize
 2:REPEATLEVEL:2															ADD:SPELLCASTER|Divine
-2																													SPELLS:Class|TIMES=((var("CL=High Proselytizer")+2)/4)|CASTERLEVEL=(TL)|Heal,16+WIS
+2																																	SPELLS:Class|TIMES=((var("CL=High Proselytizer")+2)/4)|CASTERLEVEL=(TL)|Heal,16+WIS
 3											BONUS:VAR|HPProsetilyzeDT|(CL+7)/10					ABILITY:Special Ability|AUTOMATIC|High Proselytizer ~ Deific Touch
 4:REPEATLEVEL:4	BONUS:ABILITYPOOL|High Proselytizer Feat|1
 5											BONUS:VAR|HPProsetilyzeDW|(CL+5)/10					ABILITY:Special Ability|AUTOMATIC|High Proselytizer ~ Deific Word
@@ -106,7 +106,7 @@ CLASS:Perfect Wight	HD:6		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Pwi		MAXLEVEL:NOLIMIT	SO
 CLASS:Perfect Wight	PREFEAT:1,Self Concealment	PRELEVEL:MIN=20	PRESKILL:2,Hide=24,Move Silently=24	PREVARGTEQ:SneakAttackDice,10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Search|Spot|Survival|TYPE=Craft|Tumble|Use Rope
-1																											SPELLS:Class|TIMES=ceil(var("CL=Perfect Wight")/5)|CASTERLEVEL=15|Invisibility (Greater),14+CHA
+1																												SPELLS:Class|TIMES=ceil(var("CL=Perfect Wight")/5)|CASTERLEVEL=15|Invisibility (Greater),14+CHA
 2										BONUS:VAR|PWLengerdemain|(CL+3)/5	ABILITY:Special Ability|AUTOMATIC|Perfect Wight ~ Improved Legerdemain
 3										BONUS:VAR|PWIncorporeal|(CL+2)/5	ABILITY:Special Ability|AUTOMATIC|Perfect Wight ~ Incorporeal
 4										BONUS:VAR|PWShadowForm|(CL+1)/5	ABILITY:Special Ability|AUTOMATIC|Perfect Wight ~ Shadow Form
@@ -115,15 +115,15 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
 CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Sen		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
-# Class Name		Required AL		Req. Att.	Required Feat						Required Lvl	Required Skill
-CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PRETOTALAB:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,Knowledge (Local)=8
+# Class Name		Required AL		Required Feat						Required Lvl	Required Skill						PRETOTALAB
+CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,Knowledge (Local)=8	PRETOTALAB:21
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE=Profession
-1																SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/7))|CASTERLEVEL=15|Sending,15+CHA	SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/3))|CASTERLEVEL=15|Shield of Law,18+CHA
-2																SPELLS:Class|TIMES=((var("CL=Union Sentinel")+4)/6)|CASTERLEVEL=18|Freedom,19+CHA	SPELLS:Class|TIMES=((var("CL=Union Sentinel")+2)/4)|CASTERLEVEL=15|Knock,12+CHA
-3																SPELLS:Class|TIMES=(var("CL=Union Sentinel")/3)|CASTERLEVEL=15|Dimensional Anchor,14+CHA
+1																			SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/7))|CASTERLEVEL=15|Sending,15+CHA	SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/3))|CASTERLEVEL=15|Shield of Law,18+CHA
+2																			SPELLS:Class|TIMES=((var("CL=Union Sentinel")+4)/6)|CASTERLEVEL=18|Freedom,19+CHA	SPELLS:Class|TIMES=((var("CL=Union Sentinel")+2)/4)|CASTERLEVEL=15|Knock,12+CHA
+3																			SPELLS:Class|TIMES=(var("CL=Union Sentinel")/3)|CASTERLEVEL=15|Dimensional Anchor,14+CHA
 4	BONUS:VAR|USPortalGuardian|(CL+2)/6	ABILITY:Special Ability|AUTOMATIC|Union Sentinel ~ Portal Guardian
-5																SPELLS:Class|TIMES=(var("CL=Union Sentinel")/5)|CASTERLEVEL=20|Forcecage,17+CHA
+5																			SPELLS:Class|TIMES=(var("CL=Union Sentinel")/5)|CASTERLEVEL=20|Forcecage,17+CHA
 7	BONUS:VAR|USImprisonment|(CL-2)/5	ABILITY:Special Ability|AUTOMATIC|Union Sentinel ~ Imprisonment
 
 

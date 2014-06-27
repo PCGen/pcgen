@@ -1,31 +1,31 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry by: Andrew Maitland
 
 
 #Block: Epic Familiar Progression
-# Class of the Master			Type				Hit Dice	Spell Res.	Bonus to Ability Pool				Combat bonus						Stat bonus					Modify VAR
-FOLLOWER:FamiliarLVL=21			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:26		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=22			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:27
-FOLLOWER:FamiliarLVL=23			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:28									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=24			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:29
-FOLLOWER:FamiliarLVL=25			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:30									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=36			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:31
-FOLLOWER:FamiliarLVL=27			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:32									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=38			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:33
-FOLLOWER:FamiliarLVL=29			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:34									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=30			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:35
-FOLLOWER:FamiliarLVL=31			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:36		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=32			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:37
-FOLLOWER:FamiliarLVL=33			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:38									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=34			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:39
-FOLLOWER:FamiliarLVL=35			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:40									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=36			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:41
-FOLLOWER:FamiliarLVL=37			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:42									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=38			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:43
-FOLLOWER:FamiliarLVL=39			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:44									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
-FOLLOWER:FamiliarLVL=40			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:45
-FOLLOWER:FamiliarLVL=41			TYPE:Familiar	BONUS:VAR|MasterLvl|1			SR:46		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							
+# Class of the Master			Type				Hit Dice	Spell Res.	Bonus to Ability Pool				Combat bonus					Stat bonus					Modify VAR
+FOLLOWER:FamiliarLVL=21			TYPE:Familiar				SR:26		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=22			TYPE:Familiar				SR:27																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=23			TYPE:Familiar				SR:28									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=24			TYPE:Familiar				SR:29																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=25			TYPE:Familiar				SR:30									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=36			TYPE:Familiar				SR:31																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=27			TYPE:Familiar				SR:32									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=38			TYPE:Familiar				SR:33																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=29			TYPE:Familiar				SR:34									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=30			TYPE:Familiar				SR:35																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=31			TYPE:Familiar				SR:36		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=32			TYPE:Familiar				SR:37																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=33			TYPE:Familiar				SR:38									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=34			TYPE:Familiar				SR:39																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=35			TYPE:Familiar				SR:40									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=36			TYPE:Familiar				SR:41																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=37			TYPE:Familiar				SR:42									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=38			TYPE:Familiar				SR:43																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=39			TYPE:Familiar				SR:44									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=40			TYPE:Familiar				SR:45																						BONUS:VAR|MasterLvl|1
+FOLLOWER:FamiliarLVL=41			TYPE:Familiar				SR:46		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
 
 
 #Block: Epic Special Mount Progression
@@ -57,17 +57,17 @@ FOLLOWER:SpecialMountLVL=45		TYPE:Special Mount	HD:2		SR:50									BONUS:COMBAT
 
 
 #Block: Epic Animal Companion Progression
-FOLLOWER:AnimalCompanionLVL=23	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=26	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=29	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=32	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=35	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=38	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=41	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=44	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=47	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=50	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=53	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=56	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=59	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=62	TYPE:Animal Companion	HD:2																			BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=23	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=26	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=29	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=32	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=35	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=38	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=41	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=44	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=47	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=50	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=53	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=56	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=59	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=62	TYPE:Animal Companion	HD:2																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
