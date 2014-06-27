@@ -68,7 +68,7 @@ Race Traits ~ Tengu	CATEGORY:Internal
 CATEGORY=Internal|Race Traits ~ Tengu.MOD	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
 CATEGORY=Internal|Race Traits ~ Tengu.MOD	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
 CATEGORY=Internal|Race Traits ~ Tengu.MOD	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Swordtrained|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSwordTrained
-CATEGORY=Internal|Race Traits ~ Tengu.MOD	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Weapon|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalWeapon
+CATEGORY=Internal|Race Traits ~ Tengu.MOD	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Attack|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
 CATEGORY=Internal|Race Traits ~ Tengu.MOD	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
 
 ###Block: Tengu Abilities
