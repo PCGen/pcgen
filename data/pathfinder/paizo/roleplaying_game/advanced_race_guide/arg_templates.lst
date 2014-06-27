@@ -93,3 +93,6 @@ Default Language ~ Kitsune	VISIBLE:NO		LANGBONUS:Aklo,Celestial,Elven,Gnome,Teng
 Default Language ~ Nagaji	VISIBLE:NO		LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan	AUTO:LANG|Common|Draconic
 Default Language ~ Samsaran	VISIBLE:NO		LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran		AUTO:LANG|Common|Samsaran
 Default Language ~ Wayang	VISIBLE:NO		LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Samsaran,Tengu		AUTO:LANG|Common|Wayang	
+
+
+Race Bonus Language ~ All Spoken	VISIBLE:NO	LANGBONUS:TYPE=Spoken

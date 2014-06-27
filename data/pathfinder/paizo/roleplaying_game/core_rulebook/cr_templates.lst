@@ -302,3 +302,28 @@ Wild Shape Medium Animal (Riding Dog)		LEGS:4	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wi
 Wild Shape Medium Animal (Squid)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wild Shape (Medium Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))													ABILITY:Internal|AUTOMATIC|Wildshape 3 ~ Squid|PREVARGTEQ:WildShapeProgression,3	ABILITY:Special Ability|AUTOMATIC|Grab|PREVARGTEQ:WildShapeProgression,2																			MOVE:Swim,30			TYPE:WildshapeTemplate.WildshapeMedium	VISION:Low-Light Vision	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3	NATURALATTACKS:Tentacles,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Grab,*1,1d4
 #TODO Stingray should get poison and blindsense on bs 3
 Wild Shape Medium Animal (Stingray)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wild Shape (Medium Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1																					ABILITY:Special Ability|AUTOMATIC|Grab|PREVARGTEQ:WildShapeProgression,2																																	MOVE:Swim,40			TYPE:WildshapeTemplate.WildshapeMedium	VISION:Low-Light Vision	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d4
+
+
+#Race Bonus Language ~ xxx		VISIBLE:NO		LANGBONUS:
+
+# Core Rule Book Languages
+Race Bonus Language ~ Abyssal			VISIBLE:NO		LANGBONUS:Abyssal	
+Race Bonus Language ~ Aklo			VISIBLE:NO		LANGBONUS:Aklo		
+Race Bonus Language ~ Aquan			VISIBLE:NO		LANGBONUS:Aquan		
+Race Bonus Language ~ Auran			VISIBLE:NO		LANGBONUS:Auran		
+Race Bonus Language ~ Celestial		VISIBLE:NO		LANGBONUS:Celestial	
+Race Bonus Language ~ Common			VISIBLE:NO		LANGBONUS:Common	
+Race Bonus Language ~ Draconic		VISIBLE:NO		LANGBONUS:Draconic	
+Race Bonus Language ~ Dwarven			VISIBLE:NO		LANGBONUS:Dwarven	
+Race Bonus Language ~ Elven			VISIBLE:NO		LANGBONUS:Elven		
+Race Bonus Language ~ Giant			VISIBLE:NO		LANGBONUS:Giant		
+Race Bonus Language ~ Gnoll			VISIBLE:NO		LANGBONUS:Gnoll		
+Race Bonus Language ~ Gnome			VISIBLE:NO		LANGBONUS:Gnome		
+Race Bonus Language ~ Goblin			VISIBLE:NO		LANGBONUS:Goblin	
+Race Bonus Language ~ Halfling		VISIBLE:NO		LANGBONUS:Halfling	
+Race Bonus Language ~ Ignan			VISIBLE:NO		LANGBONUS:Ignan		
+Race Bonus Language ~ Infernal		VISIBLE:NO		LANGBONUS:Infernal	
+Race Bonus Language ~ Orc			VISIBLE:NO		LANGBONUS:Orc		
+Race Bonus Language ~ Sylvan			VISIBLE:NO		LANGBONUS:Sylvan	
+Race Bonus Language ~ Terran			VISIBLE:NO		LANGBONUS:Terran	
+Race Bonus Language ~ Undercommon		VISIBLE:NO		LANGBONUS:Undercommon	

@@ -320,6 +320,17 @@ Resolute Creature	VISIBLE:YES	DR:5/Chaotic|PRELEVEL:MIN=5	SOURCEPAGE:p.292	DEFIN
 
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
+Aberration			VISIBLE:NO	RACETYPE:Aberration			
+Dragon			VISIBLE:NO	RACETYPE:Dragon			
+Fey				VISIBLE:NO	RACETYPE:Fey				
+Half-Construct		VISIBLE:NO	RACETYPE:Half-Construct		
+Half-Undead			VISIBLE:NO	RACETYPE:Half-Undead			
+Humanoid			VISIBLE:NO	RACETYPE:Humanoid			
+Monstrous Humanoid	VISIBLE:NO	RACETYPE:Monstrous Humanoid	
+Outsider			VISIBLE:NO	RACETYPE:Outsider			
+Plant				VISIBLE:NO	RACETYPE:Plant				
+
+
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype
 Air			VISIBLE:NO
