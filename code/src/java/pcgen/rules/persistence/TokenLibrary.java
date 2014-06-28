@@ -129,92 +129,17 @@ public final class TokenLibrary implements PluginLoader
 		Class<? extends QualifierToken> prev = QUALIFIER_MAP.put(cl, name, newTokClass);
 		if (prev != null)
 		{
-			Logging.errorPrint("Found a second " + name + " Primitive for " + cl);
+			Logging.errorPrint("Found a second " + name + " Qualifier for " + cl);
 
 		}
 	}
 
 	public static void addToTokenMap(Object newToken)
 	{
-		if (newToken instanceof DeferredToken)
-		{
-			TokenFamily.CURRENT.addDeferredToken((DeferredToken<?>) newToken);
-		}
 		if (newToken instanceof PostDeferredToken)
 		{
 			PostDeferredToken<?> pdt = (PostDeferredToken<?>) newToken;
 			POST_DEFERRED_TOKENS.addToListFor(pdt.getPriority(), pdt);
-		}
-		if (newToken instanceof CDOMPrimaryToken)
-		{
-			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
-			CDOMToken<?> existingToken = TokenFamily.CURRENT.putToken(tok);
-			if (existingToken != null)
-			{
-				Logging.errorPrint("Duplicate "
-					+ tok.getTokenClass().getSimpleName()
-					+ " Token found for token " + tok.getTokenName()
-					+ ". Classes were " + existingToken.getClass().getName()
-					+ " and " + newToken.getClass().getName());
-			}
-			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
-			{
-				addToTokenMap(new ClassWrappedToken(
-						(CDOMPrimaryToken<PCClass>) tok));
-			}
-		}
-		if (newToken instanceof CDOMSecondaryToken)
-		{
-			CDOMSecondaryToken<?> tok = (CDOMSecondaryToken<?>) newToken;
-			CDOMSubToken<?> existingToken = TokenFamily.CURRENT.putSubToken(tok);
-			if (existingToken != null)
-			{
-				Logging.errorPrint("Duplicate "
-					+ tok.getTokenClass().getSimpleName()
-					+ " Token found for token " + tok.getParentToken() + ":"
-					+ tok.getTokenName() + ". Classes were "
-					+ existingToken.getClass().getName() + " and "
-					+ newToken.getClass().getName());
-			}
-		}
-		if (newToken instanceof PrerequisiteParserInterface)
-		{
-			PrerequisiteParserInterface prereqToken = (PrerequisiteParserInterface) newToken;
-			TokenFamily.CURRENT.putPrerequisiteToken(prereqToken);
-			for (String s : prereqToken.kindsHandled())
-			{
-				/*
-				 * TODO Theoretically these belong in REV514, but put into
-				 * current for unparse testing
-				 */
-				PreCompatibilityToken pos =
-						new PreCompatibilityToken(s, prereqToken, false);
-				if (TokenFamily.CURRENT.putToken(pos) != null)
-				{
-					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
-						+ " Token found for token " + pos.getTokenName());
-				}
-				if (TokenFamily.CURRENT.putSubToken(pos) != null)
-				{
-					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
-						+ " Token found for token " + pos.getParentToken() + ":"
-						+ pos.getTokenName());
-				}
-				TokenFamily.CURRENT.putSubToken(pos);
-				PreCompatibilityToken neg =
-						new PreCompatibilityToken(s, prereqToken, true);
-				if (TokenFamily.CURRENT.putToken(neg) != null)
-				{
-					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
-						+ " Token found for token " + neg.getTokenName());
-				}
-				if (TokenFamily.CURRENT.putSubToken(neg) != null)
-				{
-					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
-						+ " Token found for token " + neg.getParentToken() + ":"
-						+ neg.getTokenName());
-				}
-			}
 		}
 		if (newToken instanceof CDOMCompatibilityToken)
 		{
@@ -234,6 +159,86 @@ public final class TokenLibrary implements PluginLoader
 			{
 				addToTokenMap(new ClassWrappedToken(
 						(CDOMCompatibilityToken<PCClass>) tok));
+			}
+		}
+		loadFamily(TokenFamily.CURRENT, newToken);
+	}
+
+	private static void loadFamily(TokenFamily family, Object newToken)
+	{
+		if (newToken instanceof DeferredToken)
+		{
+			family.addDeferredToken((DeferredToken<?>) newToken);
+		}
+		if (newToken instanceof CDOMPrimaryToken)
+		{
+			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
+			CDOMToken<?> existingToken = family.putToken(tok);
+			if (existingToken != null)
+			{
+				Logging.errorPrint("Duplicate "
+					+ tok.getTokenClass().getSimpleName()
+					+ " Token found for token " + tok.getTokenName()
+					+ ". Classes were " + existingToken.getClass().getName()
+					+ " and " + newToken.getClass().getName());
+			}
+			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
+			{
+				addToTokenMap(new ClassWrappedToken(
+						(CDOMPrimaryToken<PCClass>) tok));
+			}
+		}
+		if (newToken instanceof CDOMSecondaryToken)
+		{
+			CDOMSecondaryToken<?> tok = (CDOMSecondaryToken<?>) newToken;
+			CDOMSubToken<?> existingToken = family.putSubToken(tok);
+			if (existingToken != null)
+			{
+				Logging.errorPrint("Duplicate "
+					+ tok.getTokenClass().getSimpleName()
+					+ " Token found for token " + tok.getParentToken() + ":"
+					+ tok.getTokenName() + ". Classes were "
+					+ existingToken.getClass().getName() + " and "
+					+ newToken.getClass().getName());
+			}
+		}
+		if (newToken instanceof PrerequisiteParserInterface)
+		{
+			PrerequisiteParserInterface prereqToken = (PrerequisiteParserInterface) newToken;
+			family.putPrerequisiteToken(prereqToken);
+			for (String s : prereqToken.kindsHandled())
+			{
+				/*
+				 * TODO Theoretically these belong in REV514, but put into
+				 * current for unparse testing
+				 */
+				PreCompatibilityToken pos =
+						new PreCompatibilityToken(s, prereqToken, false);
+				if (family.putToken(pos) != null)
+				{
+					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
+						+ " Token found for token " + pos.getTokenName());
+				}
+				if (family.putSubToken(pos) != null)
+				{
+					Logging.errorPrint("Duplicate " + pos.getTokenClass().getSimpleName()
+						+ " Token found for token " + pos.getParentToken() + ":"
+						+ pos.getTokenName());
+				}
+				family.putSubToken(pos);
+				PreCompatibilityToken neg =
+						new PreCompatibilityToken(s, prereqToken, true);
+				if (family.putToken(neg) != null)
+				{
+					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
+						+ " Token found for token " + neg.getTokenName());
+				}
+				if (family.putSubToken(neg) != null)
+				{
+					Logging.errorPrint("Duplicate " + neg.getTokenClass().getSimpleName()
+						+ " Token found for token " + neg.getParentToken() + ":"
+						+ neg.getTokenName());
+				}
 			}
 		}
 	}
