@@ -24,8 +24,8 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 
 ###Block: Ninja
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR			Serves As
-CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue
+# Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR			Serves As
+CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue	
 # Class Name	Var. Must Be Lower
 CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
 # Class Name	Skill Pts/Lvl	Class Skill

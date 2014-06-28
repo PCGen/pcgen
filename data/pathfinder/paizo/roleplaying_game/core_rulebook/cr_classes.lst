@@ -439,8 +439,8 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 20	CAST:0,4,4,3,3
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define			Save checks bonus												Combat bonus					Monster Role
-CLASS:Rogue		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,RogueClassSkills	DEFINE:RogueLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
+# Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Ability																Define			Save checks bonus												Combat bonus					Monster Role
+CLASS:Rogue		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,RogueClassSkills	DEFINE:RogueLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
