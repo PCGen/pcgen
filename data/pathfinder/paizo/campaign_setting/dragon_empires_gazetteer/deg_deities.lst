@@ -16,3 +16,19 @@ Sun Wukong		NAMEISPI:YES	DOMAINS:Animal,Chaos,Liberation,Travel,Trickery|PREALIG
 Tsukiyo		NAMEISPI:YES	DOMAINS:Darkness,Good,Law,Madness,Repose|PREALIGN:LG,NG,LN			DESC:God of the jade, moon and spirits					SYMBOL:Jade crescent moon									DEITYWEAP:Longspear			ALIGN:LG	PANTHEON:Pathfinder Chronicles	TITLE:Prince of the Moon											SOURCEPAGE:p.63																															RACE:Samsaran
 Yaezhing		NAMEISPI:YES	DOMAINS:Artifice,Death,Evil,Law,Trickery|PREALIGN:LE,LN,NE			DESC:God of harsh justice, murder, and punishment			SYMBOL:Bloody shuriken										DEITYWEAP:Shuriken			ALIGN:LE	PANTHEON:Pathfinder Chronicles	TITLE:Minister of Blood		WORSHIPPERS:Ninja, Assassins, Executioners, Judges		SOURCEPAGE:p.63	APPEARANCE:Yaezhing appears as a shadowy humanoid figure swathed in darkness. His head is that of a tiger with human eyes.
 Yamatsumi		NAMEISPI:YES	DOMAINS:Earth,Fire,Protection,Strength,Water|PREALIGN:TN,NG,LN,CN,NE	DESC:God of mountains, volcanos and winter				SYMBOL:Snow capped erupting volcano								DEITYWEAP:Tetsubo				ALIGN:TN	PANTHEON:Pathfinder Chronicles	TITLE:The Mountain Lord		WORSHIPPERS:Ascetic mountain monks					SOURCEPAGE:p.63	APPEARANCE:Yamatsumi appears as a giant man with ice for skin, lava for hair and a beard, and two pairs of ram's horns on his head.
+
+###Block: Inquisitor Support
+Daikitsu		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainArtifice,InquisitorDomainCommunity,InquisitorDomainPlant,InquisitorDomainWeather|1|PREALIGN:CN,LN,TN,NG,NE	
+Fumeiyoshi		BONUS:VAR|InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainRepose,InquisitorDomainWar|1|PREALIGN:TN,NE,CE,LE		
+General Susumu	BONUS:VAR|InquisitorDomainEvil,InquisitorDomainGlory,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainWar|1|PREALIGN:LN,LE,NE				
+Hei Feng		BONUS:VAR|InquisitorDomainAir,InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainWater,InquisitorDomainWeather|1|PREALIGN:CG,CN,TN,CE		
+Kofusachi		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainTravel|1|PREALIGN:CG,NG,CN			
+Lady Nanbyo		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainPlant|1|PREALIGN:CN,CE,NE			
+Lao Shu Po		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainDarkness,InquisitorDomainEvil,InquisitorDomainLuck,InquisitorDomainTrickery|1|PREALIGN:TN,NE,LE,CE		
+Nalinivati		BONUS:VAR|InquisitorDomainCharm,InquisitorDomainMagic,InquisitorDomainNobility,InquisitorDomainRune,InquisitorDomainScalykind|1|PREALIGN:NG,TN,LN,CN,NE	
+Qi Zhong		BONUS:VAR|InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainMagic,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN	
+Shizuru		BONUS:VAR|InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainRepose,InquisitorDomainSun|1|PREALIGN:LG,NG,LN				
+Sun Wukong		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainChaos,InquisitorDomainLiberation,InquisitorDomainTravel,InquisitorDomainTrickery|1|PREALIGN:CG,CN,CE		
+Tsukiyo		BONUS:VAR|InquisitorDomainDarkness,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainMadness,InquisitorDomainRepose|1|PREALIGN:LG,NG,LN			
+Yaezhing		BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainTrickery|1|PREALIGN:LE,LN,NE			
+Yamatsumi		BONUS:VAR|InquisitorDomainEarth,InquisitorDomainFire,InquisitorDomainProtection,InquisitorDomainStrength,InquisitorDomainWater|1|PREALIGN:TN,NG,LN,CN,NE	
