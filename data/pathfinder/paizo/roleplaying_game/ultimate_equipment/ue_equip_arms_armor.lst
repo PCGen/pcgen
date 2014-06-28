@@ -580,8 +580,8 @@ Ring of Rat Fangs Bite Attack												PROFICIENCY:WEAPON|Unarmed Strike						
 
 
 ####Block: Ranged Weapons
-Underwater Heavy Crossbow												PROFICIENCY:WEAPON|Underwater Heavy Crossbow					TYPE:Weapon.Ranged.Simple.Piercing.Crossbow																											COST:100	WT:8										CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10						EQMOD:WOOD																	RANGE:120						SOURCEPAGE:p.39
-Underwater Light Crossbow												PROFICIENCY:WEAPON|Underwater Light Crossbow					TYPE:Weapon.Ranged.Simple.Piercing.Crossbow																											COST:70	WT:4										CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8						EQMOD:WOOD																	RANGE:80						SOURCEPAGE:p.40
+Underwater Crossbow (Heavy)												PROFICIENCY:WEAPON|Underwater Crossbow (Heavy)					TYPE:Weapon.Ranged.Simple.Piercing.Crossbow																											COST:100	WT:8										CRITMULT:x2			CRITRANGE:2												DAMAGE:1d10						EQMOD:WOOD																	RANGE:120						SOURCEPAGE:p.39	SPROP:20 ft range when used underwater
+Underwater Crossbow (Light)												PROFICIENCY:WEAPON|Underwater Crossbow (Light)					TYPE:Weapon.Ranged.Simple.Piercing.Crossbow																											COST:70	WT:4										CRITMULT:x2			CRITRANGE:2												DAMAGE:1d8						EQMOD:WOOD																	RANGE:80						SOURCEPAGE:p.40	SPROP:20 ft range when used underwater
 Amentum															PROFICIENCY:WEAPON|Amentum								TYPE:Weapon.Ranged.Martial.Piercing.Spear																												COST:0	WT:1										CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						EQMOD:STEEL																	RANGE:50						SOURCEPAGE:p.23
 Atlatl															PROFICIENCY:WEAPON|Atlatl								TYPE:Weapon.Ranged.Martial.Piercing																													COST:2	WT:2										CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						EQMOD:WOOD																	RANGE:50						SOURCEPAGE:p.23
 Hunga Munga															PROFICIENCY:WEAPON|Hunga Munga							TYPE:Weapon.Ranged.Thrown.Martial.Piercing.BladeLight																										COST:4	WT:3										CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6						EQMOD:STEEL																	RANGE:15						SOURCEPAGE:p.30
