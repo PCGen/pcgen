@@ -71,7 +71,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 			new ArrayList<DeferredToken<? extends Loadable>>();
 
 	
-	private TokenFamily(Revision r)
+	public TokenFamily(Revision r)
 	{
 		rev = r;
 	}

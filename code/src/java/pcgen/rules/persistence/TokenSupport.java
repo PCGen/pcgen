@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.rules.persistence.token.PostDeferredToken;
+import pcgen.rules.persistence.util.Revision;
 import pcgen.rules.persistence.util.TokenFamily;
 import pcgen.rules.persistence.util.TokenFamilyIterator;
 import pcgen.rules.persistence.util.TokenFamilySubIterator;
@@ -45,6 +45,8 @@ import pcgen.util.Logging;
 
 public class TokenSupport
 {
+	private TokenFamily localTokens = new TokenFamily(new Revision(0, 0, 0));
+	
 	private DoubleKeyMapToList<Class<?>, String, CDOMToken<?>> tokenCache =
 		new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
 
@@ -102,11 +104,17 @@ public class TokenSupport
 		return false;
 	}
 
-	public <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl, String name)
+	public <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl,
+		String name)
 	{
 		List list = tokenCache.getListFor(cl, name);
 		if (list == null)
 		{
+			CDOMToken<?> local = localTokens.getToken(cl, name);
+			if (local != null)
+			{
+				tokenCache.addToListFor(cl, name, local);
+			}
 			for (Iterator<? extends CDOMToken<T>> it =
 				new TokenIterator<T, CDOMToken<T>>(cl, name); it.hasNext();)
 			{
@@ -124,6 +132,11 @@ public class TokenSupport
 		List list = subTokenCache.getListFor(cl, name, subtoken);
 		if (list == null)
 		{
+			CDOMToken<?> local = localTokens.getSubToken(cl, name, subtoken);
+			if (local != null)
+			{
+				subTokenCache.addToListFor(cl, name, subtoken, local);
+			}
 			for (Iterator<CDOMSubToken<T>> it =
 					new SubTokenIterator<T, CDOMSubToken<T>>(cl, name, subtoken); it
 				.hasNext();)
@@ -270,11 +283,10 @@ public class TokenSupport
 
 	public Collection<DeferredToken<? extends Loadable>> getDeferredTokens()
 	{
-		return TokenFamily.CURRENT.getDeferredTokens();
-	}
-
-	public Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
-	{
-		return TokenLibrary.getPostDeferredTokens();
+		List<DeferredToken<? extends Loadable>> c =
+				new ArrayList<DeferredToken<? extends Loadable>>();
+		c.addAll(localTokens.getDeferredTokens());
+		c.addAll(TokenFamily.CURRENT.getDeferredTokens());
+		return c;
 	}
 }

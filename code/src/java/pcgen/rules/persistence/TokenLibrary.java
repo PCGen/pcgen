@@ -164,7 +164,7 @@ public final class TokenLibrary implements PluginLoader
 		loadFamily(TokenFamily.CURRENT, newToken);
 	}
 
-	private static void loadFamily(TokenFamily family, Object newToken)
+	public static void loadFamily(TokenFamily family, Object newToken)
 	{
 		if (newToken instanceof DeferredToken)
 		{

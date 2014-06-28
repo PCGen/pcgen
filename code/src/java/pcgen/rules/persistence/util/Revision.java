@@ -17,7 +17,7 @@
  */
 package pcgen.rules.persistence.util;
 
-class Revision implements Comparable<Revision>
+public class Revision implements Comparable<Revision>
 {
 	private final int primarySequence;
 	private final int secondarySequence;
