@@ -31,6 +31,8 @@ NAME:DisplayConditionalSkills		VAR:DISPLAYSKILLUSE		DEFAULT:Yes					DESC:Display
 NAME:HitPointDamage			VAR:DAMAGE_HP			DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hit Points
 NAME:VitalityDamage			VAR:DAMAGE_VW			DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
 NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell		DEFAULT:No					DESC:Use Full Spell Descriptions
+NAME:UseFullEquipmentDescriptions	VAR:DisplayFullEquip		DEFAULT:No					DESC:Use Full Equipment Descriptions (Homebrew Support)
+NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility		DEFAULT:No					DESC:Use Full Ability Descriptions (Homebrew Support)
 
 #
 # The following are all hardcoded in the java code
@@ -61,7 +63,7 @@ NAME:Grapple				PARM:USE_GRAPPLE		DEFAULT:No	EXCLUDE:USE_CMB		DESC:Use 3.5 Grapp
 #
 # The following are optional/alternative rule subsystems
 #
-NAME:HeroPoints				PARM:HEROPOINTS			DEFAULT:YES				DESC:Use Hero Points from Pathfinder RPG Advanced Player's Guide
+#NAME:HeroPoints				PARM:HEROPOINTS			DEFAULT:YES				DESC:Use Hero Points from Pathfinder RPG Advanced Player's Guide
 NAME:WordsOfPower				PARM:WORDSOFPOWER			DEFAULT:YES				DESC:Use Words of Power from Pathfinder RPG Ultimate Magic
 
 #
