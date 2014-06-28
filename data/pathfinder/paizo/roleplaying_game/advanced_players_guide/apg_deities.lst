@@ -45,6 +45,7 @@ Urgathoa.MOD	BONUS:VAR|InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDoma
 Norgorber.MOD	BONUS:VAR|InquisitorDomainCharm,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainTrickery|1|PREALIGN:TN,LE,NE,CE				
 Lamashtu.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainMadness,InquisitorDomainStrength,InquisitorDomainTrickery|1|PREALIGN:NE,CN,CE				
 Rovagug.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainWar,InquisitorDomainWeather|1|PREALIGN:NE,CN,CE				
+
 # Subdomains
 Abadar.MOD			BONUS:VAR|InquisitorDomainDefenseSubdomain,InquisitorDomainInevitableSubdomain,InquisitorDomainLeadershipSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LG,LN,NG,TN						
 Asmodeus.MOD		BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainAshSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDivineSubdomain,InquisitorDomainSmokeSubdomain|1|PREALIGN:LN,LE,NE			
