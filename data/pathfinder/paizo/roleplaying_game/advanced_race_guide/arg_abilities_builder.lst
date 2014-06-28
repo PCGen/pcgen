@@ -3,7 +3,7 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY DATE: 2012/07/16
 # Updated and Revised by: Andrew Maitland (2014 June)
 
-Use Advanced Race Guide Race Builder System	KEY:Rules ~ Use Race Builder System	CATEGORY:Internal	TYPE:OptionalRules	BONUS:ABILITYPOOL|Race Builder Design|1	DEFINE:RaceLegs|0	DEFINE:RaceHands|0	BONUS:VAR|RaceLegs,RaceHands|2	DEFINE:TraitsPerCategory|0	DEFINE:ARG_RaceBuilderPoints|0	ABILITY:Race Type|AUTOMATIC|Racial Type ~ Humanoid|!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality	ABILITY:Race Size|AUTOMATIC|Racial Size ~ Medium|!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize	ABILITY:Race Speed|AUTOMATIC|Racial Speed ~ Normal|!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSpeed
+Use Advanced Race Guide Race Builder System	KEY:Rules ~ Use Race Builder System	CATEGORY:Internal	TYPE:OptionalRules	COST:0	BONUS:ABILITYPOOL|Race Builder Design|1	DEFINE:RaceLegs|0	DEFINE:RaceHands|0	BONUS:VAR|RaceLegs,RaceHands|2	DEFINE:TraitsPerCategory|0	DEFINE:ARG_RaceBuilderPoints|0	ABILITY:Race Type|AUTOMATIC|Racial Type ~ Humanoid|!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality	ABILITY:Race Size|AUTOMATIC|Racial Size ~ Medium|!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize	ABILITY:Race Speed|AUTOMATIC|Racial Speed ~ Normal|!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSpeed
 
 
 Standard Design	CATEGORY:Internal	TYPE:Race Builder Design	COST:1	BONUS:VAR|ARG_RaceBuilderPoints|10	BONUS:VAR|TraitsPerCategory|3
