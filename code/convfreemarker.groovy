@@ -61,6 +61,7 @@ freemarkerFile.write('<#ftl encoding="UTF-8" strip_whitespace=true >\r\n')
 int linenum = 0;
 int numChanged = 0;
 int numSkipped = 0;
+int numWarn = 0
 pcgenExportFile.eachLine {
 	linenum++
 
@@ -74,43 +75,60 @@ pcgenExportFile.eachLine {
     line = line.replaceAll("\\|FOR,\\%([a-zA-Z0-9]+),([0-9]+),([0-9]+),1,0\\|", /<@loop from=$2 to=$3 ; $1 , $1_has_next>/)
 
     // FOR loops - dynamic values
+    // |FOR,%spellbook,1,1,1,1|
+    line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),1,1,1,1\\|', '<#assign $1 = 1 /> <#-- TODO: Matching </@loop> will need to be manually removed -->')
+    // |FOR,%class,0,0,1,1|
+    line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),0,0,1,1\\|', '<#assign $1 = 0 /> <#-- TODO: Matching </@loop> will need to be manually removed -->')
     // |FOR,%class,0,COUNT[CLASSES]-1,1,0|
     // becomes <@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next >
     line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),([0-9]+),([-_+=.,% A-Za-z0-9"()\\[\\]]+),1,0\\|', /<@loop from=$2 to=pcvar('$3') ; $1 , $1_has_next>/)
+    line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),([0-9]+),([-_+=.,% A-Za-z0-9"()\\[\\]]+),1,([12])\\|', /<@loop from=$2 to=pcvar('$3') ; $1 , $1_has_next> <#-- TODO: Loop was of early exit type $4 -->/)
     // |FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
     line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),([-_+=.% A-Za-z0-9"()\\[\\]]+),([-_+=.,% A-Za-z0-9"()\\[\\]]+),1,0\\|', /<@loop from=pcvar('$2') to=pcvar('$3') ; $1 , $1_has_next>/)
+    line = line.replaceAll('\\|FOR,\\%([a-zA-Z0-9]+),([-_+=.% A-Za-z0-9"()\\[\\]]+),([-_+=.,% A-Za-z0-9"()\\[\\]]+),1,([12])\\|', /<@loop from=pcvar('$2') to=pcvar('$3') ; $1 , $1_has_next> <#-- TODO: Loop was of early exit type $4 -->/)
     line = line.replaceAll("\\|ENDFOR\\|", '</@loop>')
     
     // If tests
     def lhsIdenitfierChars = 'A-Za-z0-9%.;=_ "\\[\\]\\(\\)-'
     // |IIF(%spelllevelcount:0)|
-    line = line.replaceAll("\\|IIF\\(%([A-Za-z0-9]+):([0-9]+)\\)\\|", '<#if ($1 == $2)>')
+    line = line.replaceAll("\\|IIF\\(%([A-Za-z0-9]+):([0-9]+)\\)\\|", '<#if ($1 = $2)>')
     // |IIF(WEAPON.%weap.CATEGORY:BOTH)|
-    line = line.replaceAll("\\|IIF\\((["+lhsIdenitfierChars+"]+):([A-Za-z0-9 -]+)\\)\\|", '<#if (pcstring("$1") == "$2")>')
+    line = line.replaceAll("\\|IIF\\((["+lhsIdenitfierChars+"]+):([A-Za-z0-9 -]+)\\)\\|", '<#if (pcstring("$1") = "$2")>')
     // |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")>0)|
     line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)>([0-9]+)\\)\\|', /<#if (pcvar('$1') > $2)>/)
     // |IIF(countdistinct("ABILITIES";"NAME=Turn Undead")==0)|
-    line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)==([0-9]+)\\)\\|', /<#if (pcvar('$1') == $2)>/)
+    line = line.replaceAll('\\|IIF\\((['+lhsIdenitfierChars+']+)==([0-9]+)\\)\\|', /<#if (pcvar('$1') = $2)>/)
     line = line.replaceAll("\\|ELSE\\|", "<#else>")
     line = line.replaceAll("\\|ENDIF\\|", '</#if>')
     
     // |OIF(EVEN:%spell,<tr class="nobrkg">,<tr class="nobrkw">)|
-    line = line.replaceAll('\\|OIF\\(EVEN:(%[A-Za-z0-9]+),([^,]+),([^,]+)\\)\\|', '<#if ($1 % 2 == 0)>$2<#else>$3</#if>')
+    line = line.replaceAll('\\|OIF\\(EVEN:(%[A-Za-z0-9]+),([^,]+),([^,]+)\\)\\|', '<#if ($1 % 2 = 0)>$2<#else>$3</#if>')
+    
+    // Equipsets
+    // |EQSET.START|
+    line = line.replaceAll("^\\|EQSET\\.START\\|", '<@equipsetloop>')
+    // |EQSET.START|
+    line = line.replaceAll("^\\|EQSET\\.END\\|", '</@equipsetloop>')
     
     // Filter tags - uggh
     // |%VAR.RageTimes.GTEQ.1|
-    line = line.replaceAll("\\|%([^\\|]+)\\.GTEQ\\.([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
+    line = line.replaceAll("^\\|%([^\\|]+)\\.GTEQ\\.([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
     // |%BARBARIAN=1|
-    line = line.replaceAll("\\|%([^\\|]+)=([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
+    line = line.replaceAll("^\\|%([^\\|]+)=([0-9]+)\\|", '<#if (pcvar("$1") >= $2) >')
     // |%COUNT[SA]|
-    line = line.replaceAll("\\|%([^\\|]+)\\|", '<#if (pcvar("$1") > 0) >')
-    line = line.replaceAll("\\|%\\|", '</#if>')
+    line = line.replaceAll("^\\|%([^\\|]+)\\|", '<#if (pcvar("$1") > 0) >')
+    line = line.replaceAll("^\\|%\\|", '</#if>')
     
+    // Raw variables
+    // |%level|
+    replaceStr = Matcher.quoteReplacement('${') + "\$1}";
+	line = line.replaceAll("\\|%([A-Za-z0-9|]+)\\|", replaceStr)
+	
     // General tags
     def replaceStr = Matcher.quoteReplacement('${pcstring(') + "'\$1')}"; 
-    line = line.replaceAll('\\|([_ A-Za-z0-9.=%/*\\(\\)",-]+)\\|', replaceStr)
+    line = line.replaceAll('\\|(?!FOR)(?!IIF)([_ A-Za-z0-9.=%/*\\(\\)",-]+)\\|', replaceStr)
     replaceStr = Matcher.quoteReplacement('${pcvar(') + "'\$1')}"; 
-    line = line.replaceAll('\\|([_ A-Za-z0-9.=%/*\\(\\)",+-]+)\\|', replaceStr)
+    line = line.replaceAll('\\|(?!FOR)(?!IIF)([_ A-Za-z0-9.=%/*\\(\\)",+-]+)\\|', replaceStr)
    
     // Loop variables
     replaceStr = Matcher.quoteReplacement('${') + "\$1}"; 
@@ -122,7 +140,9 @@ pcgenExportFile.eachLine {
     	line = origLine
     	numSkipped++
     }
-    
+    if (line ==~ ".*<#-- TODO.*") {
+    	numWarn++
+    }    
     if (line != origLine) {
     	numChanged++
     }
@@ -132,5 +152,5 @@ pcgenExportFile.eachLine {
 }
 
 println ""
-println "Scanned ${linenum} lines, ${numSkipped} were skipped and ${numChanged} were migrated."
+println "Scanned ${linenum} lines, ${numSkipped} were skipped and ${numChanged} were migrated. ${numWarn} warnings left as TODOs."
 println "Output new template to ${freemarkerFile}"
