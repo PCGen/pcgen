@@ -24,6 +24,8 @@ package pcgen.core;
 
 import java.util.Comparator;
 
+import pcgen.core.analysis.SkillRankControl;
+
 
 /**
  * <code>SkillComparator</code> is a comparator interface for sorting skills.
@@ -70,11 +72,13 @@ public final class SkillComparator implements Comparator<Skill>
 		{
 			case RESORT_TRAINED:
 
-				if ((pc.getRank(s1).floatValue() > 0.0f) && (pc.getRank(s2).floatValue() <= 0.0f))
+				float r1 = SkillRankControl.getTotalRank(pc, s1).floatValue();
+				float r2 = SkillRankControl.getTotalRank(pc, s2).floatValue();
+				if ((r1 > 0.0f) && (r2 <= 0.0f))
 				{
 					return ((sortOrder == RESORT_ASCENDING) ? (-1) : 1);
 				}
-				else if ((pc.getRank(s1).floatValue() <= 0.0f) && (pc.getRank(s2).floatValue() > 0.0f))
+				else if ((r1 <= 0.0f) && (r2 > 0.0f))
 				{
 					return ((sortOrder == RESORT_ASCENDING) ? 1 : (-1));
 				}
