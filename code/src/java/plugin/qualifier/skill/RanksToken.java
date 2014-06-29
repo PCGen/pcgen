@@ -36,6 +36,8 @@ import pcgen.util.Logging;
 public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 {
 
+	private static final String MAXRANK = "MAXRANK";
+
 	private PrimitiveCollection<Skill> pcs = null;
 
 	private boolean wasRestricted = false;
@@ -43,6 +45,8 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	private boolean negated = false;
 
 	private int ranks;
+	
+	private boolean maxRank = false;
 
 	@Override
 	public String getTokenName()
@@ -66,7 +70,14 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		}
 		sb.append(getTokenName());
 		sb.append('=');
-		sb.append(ranks);
+		if (maxRank)
+		{
+			sb.append(MAXRANK);
+		}
+		else
+		{
+			sb.append(ranks);
+		}
 		if (wasRestricted)
 		{
 			sb.append('[').append(pcs.getLSTformat(useAny)).append(']');
@@ -91,10 +102,17 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		}
 		catch (NumberFormatException e)
 		{
-			Logging.addParseMessage(Level.SEVERE, getTokenName()
+			if (MAXRANK.equalsIgnoreCase(condition))
+			{
+				maxRank = true;
+			}
+			else
+			{
+				Logging.addParseMessage(Level.SEVERE, getTokenName()
 					+ " Must be a numerical conditional Qualifier, e.g. "
 					+ getTokenName() + "=10 ... Offending value: " + condition);
 			return false;
+			}
 		}
 		negated = negate;
 		if (value == null)
@@ -129,7 +147,8 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 		if (o instanceof RanksToken)
 		{
 			RanksToken other = (RanksToken) o;
-			if (negated == other.negated && ranks == other.ranks)
+			if (negated == other.negated && ranks == other.ranks
+				&& maxRank == other.maxRank)
 			{
 				if (pcs == null)
 				{
@@ -152,6 +171,17 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
-		return ranks <= pc.getDisplay().getRank(sk);
+		Float pcRanks = pc.getDisplay().getRank(sk);
+		if (maxRank)
+		{
+			/*
+			 * According to SkillRankControl any class can be used here
+			 * (confusing!)
+			 */
+			double maxRanks =
+					pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();
+			return maxRanks <= pcRanks;
+		}
+		return ranks <= pcRanks;
 	}
 }
