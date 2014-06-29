@@ -6649,7 +6649,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-equipment-plugins, jar-primitive-language-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins, jar-primitive-pobject-plugins, jar-primitive-race-plugins, jar-primitive-spell-plugins, jar-primitive-weaponprof-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
+	<target name="jar-primitive-plugins" depends="jar-primitive-deity-plugins, jar-primitive-equipment-plugins, jar-primitive-language-plugins, jar-primitive-pcclass-plugins, jar-primitive-domain-plugins, jar-primitive-pobject-plugins, jar-primitive-race-plugins, jar-primitive-skill-plugins, jar-primitive-spell-plugins, jar-primitive-weaponprof-plugins" description="Build (Link) Lst Primitive Token plugin jar files">
 	</target>
 
 	<target name="jar-primitive-deity-plugins" depends="makeplugindirs" description="Build (Link) Deity Primitive Token plugin jar files">
@@ -6764,6 +6764,16 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
+	<target name="jar-primitive-skill-plugins" depends="makeplugindirs" description="Build (Link) Spell Primitive Token plugin jar files">
+		<!-- Skill Primitive tokens-->
+		<jar jarfile="${lstplugins.dir}/SkillPrimitive-USEUNTRAINED.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/skill/UseUntrainedToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
 
 	<target name="jar-primitive-spell-plugins" depends="makeplugindirs" description="Build (Link) Spell Primitive Token plugin jar files">
 		<!-- Spell Primitive tokens-->
