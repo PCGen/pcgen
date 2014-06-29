@@ -473,6 +473,11 @@ public final class PrerequisiteUtilities
 		if (character != null)
 		{
 			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
+			if (cat ==  null)
+			{
+				Logging.errorPrint("Invalid category " + categoryName + " in PREABILITY");
+				return abilityList;
+			}
 			if (!cat.getParentCategory().equals(cat))
 			{
 				Logging.errorPrint("Invalid use of child category in PREABILITY");
