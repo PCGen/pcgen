@@ -30,7 +30,6 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.qualifier.skill.PCToken;
 
 public class SkillTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Skill>
@@ -92,7 +91,7 @@ public class SkillTokenTest extends
 	@Override
 	protected QualifierToken<Skill> getPCQualifier()
 	{
-		return new PCToken();
+		return null;
 	}
 
 	@Override
