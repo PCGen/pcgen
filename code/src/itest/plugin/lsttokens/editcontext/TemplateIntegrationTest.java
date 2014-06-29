@@ -64,7 +64,7 @@ public class TemplateIntegrationTest extends
 	@Override
 	public boolean isTypeLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

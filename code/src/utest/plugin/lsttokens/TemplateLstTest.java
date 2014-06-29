@@ -46,7 +46,7 @@ public class TemplateLstTest extends
 	@Override
 	public boolean isTypeLegal()
 	{
-		return false;
+		return true;
 	}
 
 	@Override

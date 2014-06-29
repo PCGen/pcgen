@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2008,2014 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -29,12 +29,14 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMCompoundOrReference;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -47,6 +49,7 @@ public class TemplateLst extends AbstractToken implements
 		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
 
+	private static final String ADDCHOICE_COLON = "ADDCHOICE:";
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
 
 	@Override
@@ -69,10 +72,10 @@ public class TemplateLst extends AbstractToken implements
 			remaining = value.substring(Constants.LST_CHOOSE_COLON.length());
 			consolidate = true;
 		}
-		else if (value.startsWith("ADDCHOICE:"))
+		else if (value.startsWith(ADDCHOICE_COLON))
 		{
 			lk = ListKey.TEMPLATE_ADDCHOICE;
-			remaining = value.substring("ADDCHOICE:".length());
+			remaining = value.substring(ADDCHOICE_COLON.length());
 		}
 		else
 		{
@@ -104,8 +107,16 @@ public class TemplateLst extends AbstractToken implements
 			}
 			else
 			{
-				list.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS,
-						templKey));
+				ReferenceManufacturer<PCTemplate> rm =
+						context.getReferenceContext().getManufacturer(
+							PCTEMPLATE_CLASS);
+				CDOMReference<PCTemplate> ref =
+						TokenUtilities.getTypeOrPrimitive(rm, templKey);
+				if (ref == null)
+				{
+					return ParseResult.INTERNAL_ERROR;
+				}
+				list.add(ref);
 			}
 		}
 
@@ -189,7 +200,7 @@ public class TemplateLst extends AbstractToken implements
 				.getAdded();
 		if (addedItems != null && !addedItems.isEmpty())
 		{
-			list.add("ADDCHOICE:"
+			list.add(ADDCHOICE_COLON
 					+ ReferenceUtilities.joinLstFormat(addedItems,
 							Constants.PIPE));
 		}
