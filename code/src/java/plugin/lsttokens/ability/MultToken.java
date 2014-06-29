@@ -78,8 +78,8 @@ public class MultToken extends AbstractYesNoToken<Ability> implements
 				if ((conflict != null) && conflict.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					Logging.errorPrint(
-						"Ability (" + a.getCategory() + ") " + conflict
-							+ " had MULT:YES which "
+						"Ability (" + a.getCategory() + ") "
+							+ conflict.getKeyName() + " had MULT:YES which "
 							+ "prohibits Ability Key with same base "
 							+ "and parenthesis, but data included: "
 							+ a.getKeyName(), context);
