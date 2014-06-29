@@ -245,7 +245,7 @@ public class Aspect extends ConcretePrereqObject
 	public String getAspectText(final PlayerCharacter aPC,
 		List<CNAbility> abilities)
 	{
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(50);
 		
 		if ((abilities == null) || (abilities.size() == 0))
 		{
@@ -392,7 +392,7 @@ public class Aspect extends ConcretePrereqObject
 			return "";
 		}
 		Ability sampleAbilityObject = abilities.get(0).getAbility();
-		StringBuilder buff = new StringBuilder();
+		StringBuilder buff = new StringBuilder(50);
 		List<Aspect> aspects = sampleAbilityObject.get(MapKey.ASPECT, key);
 		Aspect aspect = lastPassingAspect(aspects, pc, sampleAbilityObject);
 		if (aspect != null)

@@ -764,15 +764,13 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			{
 				final int a = spellSupport.getKnownForLevel(i, "null", pc);
 				final int bonus = spellSupport.getSpecialtyKnownForLevel(i, pc);
-				StringBuilder bString = new StringBuilder();
-
-				if (bonus > 0)
-				{
-					bString.append('+').append(bonus);
-				}
 
 				b.append("<td><font size=-1><center>"); //$NON-NLS-1$
-				b.append(String.valueOf(a)).append(bString.toString());
+				b.append(String.valueOf(a));
+				if (bonus > 0)
+				{
+					b.append('+').append(Integer.toString(bonus));
+				}
 				b.append("</center></font></td>"); //$NON-NLS-1$
 			}
 			b.append("</tr>"); //$NON-NLS-1$

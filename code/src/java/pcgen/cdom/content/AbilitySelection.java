@@ -129,7 +129,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(getAbilityKey());
 		String selection = getSelection();
 		if ((selection != null) && (selection.length() > 0))

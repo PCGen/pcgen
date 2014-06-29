@@ -1290,7 +1290,7 @@ public class BonusManager
 			}
 			for (String replacedInfo : replacedInfoList)
 			{
-				StringBuilder sb = new StringBuilder();
+				StringBuilder sb = new StringBuilder(100);
 				sb.append(replacedName).append('.').append(replacedInfo);
 				if (bo.hasTypeString())
 				{

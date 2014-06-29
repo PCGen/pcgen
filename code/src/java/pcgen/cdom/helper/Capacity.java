@@ -115,7 +115,7 @@ public class Capacity
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append("Capacity: ");
 		sb.append(type == null ? "Total" : type);
 		sb.append('=');

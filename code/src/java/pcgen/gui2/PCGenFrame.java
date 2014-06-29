@@ -1300,7 +1300,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	private String getFormattedCampaigns(SourceSelectionFacade sources)
 	{
-		StringBuilder campList = new StringBuilder();
+		StringBuilder campList = new StringBuilder(100);
 		campList.append("<UL>");
 		int count = 1;
 		final int maxListLen = 6;
@@ -1490,7 +1490,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	private void updateTitle()
 	{
-		StringBuilder title = new StringBuilder();
+		StringBuilder title = new StringBuilder(100);
 		File characterFile = null;
 		String characterFileName = null;
 		String sourceName = null;
@@ -1821,7 +1821,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			{
 				currentSourceSelection.setReference(sources);
 
-				StringBuilder sourceString = new StringBuilder();
+				StringBuilder sourceString = new StringBuilder(100);
 				ListFacade<CampaignFacade> campaigns = sources.getCampaigns();
 				for (int i = 0; i < campaigns.getSize(); i++)
 				{
@@ -2043,7 +2043,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		});
 
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(500);
 
 		sb.append("<html>");
 		for (Sponsor sponsor : sponsors)

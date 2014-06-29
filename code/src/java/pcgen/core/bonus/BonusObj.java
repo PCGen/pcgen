@@ -455,8 +455,10 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 			final String bString = aString.substring(x + 1, y);
 			buildDependMap(bString);
-			aString = new StringBuilder().append(aString.substring(0, x))
-					.append(aString.substring(y + 1)).toString();
+			aString =
+					new StringBuilder(aString.length())
+						.append(aString.substring(0, x))
+						.append(aString.substring(y + 1)).toString();
 		}
 
 		if (aString.indexOf("(") >= 0 || aString.indexOf(")") >= 0 ||
@@ -523,10 +525,13 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 						if (testString.length() > 0)
 						{
 							if (testString.startsWith("MOVE[")) {
-								testString = new StringBuilder().append("TYPE.")
-										.append(testString.substring(5,
-												testString.length() - 1))
-										.toString();
+								testString =
+										new StringBuilder(testString.length())
+											.append("TYPE.")
+											.append(
+												testString.substring(5,
+													testString.length() - 1))
+											.toString();
 							}
 							dependMap.put(testString.intern(), "1");
 						}

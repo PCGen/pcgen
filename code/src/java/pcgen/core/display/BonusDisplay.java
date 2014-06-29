@@ -35,7 +35,7 @@ public class BonusDisplay
 	 */
 	public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
 	{
-		final StringBuilder buffer = new StringBuilder();
+		final StringBuilder buffer = new StringBuilder(50);
 	
 		buffer.append(ti.source.toString());
 		buffer.append(" [");

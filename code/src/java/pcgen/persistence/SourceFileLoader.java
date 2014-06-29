@@ -157,9 +157,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private final List<CampaignSourceEntry> licenseFiles = new ArrayList<CampaignSourceEntry>();
 	private final Set<String> sourcesSet = new TreeSet<String>();
 	private List<Campaign> loadedCampaigns = new ArrayList<Campaign>();
-	private StringBuilder sec15 = new StringBuilder();
-	private StringBuilder licensesToDisplayString = new StringBuilder();
-	private StringBuilder matureCampaigns = new StringBuilder();
+	private StringBuilder sec15 = new StringBuilder(500);
+	private StringBuilder licensesToDisplayString = new StringBuilder(500);
+	private StringBuilder matureCampaigns = new StringBuilder(100);
 	private final CampaignSourceEntry globalCampaign;
 	private boolean showD20 = false;
 	private boolean showLicensed = true;

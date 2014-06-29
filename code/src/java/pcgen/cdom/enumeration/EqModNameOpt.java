@@ -238,7 +238,7 @@ public enum EqModNameOpt
 		}
 		else
 		{
-			StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder(50);
 			boolean first = true;
 			for (String choice : associatedList)
 			{

@@ -282,7 +282,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
-		StringBuilder title = new StringBuilder();
+		StringBuilder title = new StringBuilder(50);
 		if (!Nature.NORMAL.equals(nature))
 		{
 			title.append(nature.toString());

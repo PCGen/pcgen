@@ -103,7 +103,7 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 			return new ParseResult.Fail("COUNT:" + getTokenName()
 					+ " third argument was not TITLE=", context);
 		}
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(getTokenName()).append('|').append(value);
 		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return ParseResult.SUCCESS;

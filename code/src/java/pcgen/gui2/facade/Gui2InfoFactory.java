@@ -508,7 +508,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (ability.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
 			Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
-			StringBuilder buff = new StringBuilder();
+			StringBuilder buff = new StringBuilder(100);
 			for (AspectName key : aspectKeys)
 			{
 				if (buff.length() > 0)
@@ -965,7 +965,7 @@ public class Gui2InfoFactory implements InfoFactory
 			Set<String> qualities = new TreeSet<String>();
 			for (Map.Entry<String, String> me : qualityMap.entrySet())
 			{
-				qualities.add(new StringBuilder().append(me.getKey()).append(
+				qualities.add(new StringBuilder(50).append(me.getKey()).append(
 					": ").append(me.getValue()).toString());
 			}
 
@@ -1039,7 +1039,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		
 		// Special properties
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(100);
 		boolean first = true;
 		for (SpecialProperty sp : equipMod.getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
@@ -1302,7 +1302,7 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_itmInfoLabelTextTarget", targetName); //$NON-NLS-1$
 
-			StringBuilder bonusValues = new StringBuilder();
+			StringBuilder bonusValues = new StringBuilder(100);
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
 			boolean first = true;
 			List<BonusObj> bonusList = new ArrayList<BonusObj>(bonusMap.keySet());
@@ -1543,7 +1543,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Race race = (Race) raceFacade;
-		final StringBuilder retString = new StringBuilder();
+		final StringBuilder retString = new StringBuilder(100);
 
 		for (PCStat stat : charDisplay.getStatSet())
 		{
@@ -2037,7 +2037,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		final Ability ability = (Ability) abilityFacade;
-		final StringBuilder result = new StringBuilder();
+		final StringBuilder result = new StringBuilder(100);
 
 		Collection<CNAbility> targetAbilities = pc.getMatchingCNAbilities(ability);
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -2098,7 +2098,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj(), pc));
 		}
-		StringBuilder target = new StringBuilder();
+		StringBuilder target = new StringBuilder(40);
 		for (String string : targetSet)
 		{
 			target.append(string).append(";"); //$NON-NLS-1$

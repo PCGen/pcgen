@@ -109,7 +109,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 */
 	public String getFullAbilityKey()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(getAbilityKey());
 		sb.append('(');
 		sb.append(Constants.LST_PERCENT_LIST);
@@ -131,7 +131,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(ability.resolvesTo().getDisplayName());
 		sb.append('(');
 		sb.append(Constants.LST_PERCENT_LIST);

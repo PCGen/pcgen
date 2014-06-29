@@ -1535,7 +1535,7 @@ public class CharacterDisplay
 			return custom;
 		}
 
-		final StringBuilder displayName = new StringBuilder().append(getName());
+		final StringBuilder displayName = new StringBuilder(100).append(getName());
 
 		// TODO - i18n
 		switch (SettingsHandler.getNameDisplayStyle())
@@ -1585,7 +1585,7 @@ public class CharacterDisplay
 		// information in addition to the total PC level
 		displayClass = classFacet.getCount(id) > 1 ? getFullDisplayClassName() : getDisplayClassName();
 
-		return new StringBuilder().append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
+		return new StringBuilder(100).append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
 				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
 	}
 
@@ -1627,7 +1627,7 @@ public class CharacterDisplay
 			return "Nobody";
 		}
 
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(50);
 
 		boolean first = true;
 		for (PCClass c : getClassSet())
@@ -1645,7 +1645,7 @@ public class CharacterDisplay
 
 	public String getFullDisplayClassName(PCClass pcClass)
 	{
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(40);
 	
 		buf.append(getDisplayClassName(pcClass));
 	

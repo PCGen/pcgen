@@ -248,7 +248,7 @@ public class DamageReductionFacet extends
 			}
 		}
 
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(40);
 		boolean needSeparator = false;
 		for (Integer reduction : hml.getKeySet())
 		{

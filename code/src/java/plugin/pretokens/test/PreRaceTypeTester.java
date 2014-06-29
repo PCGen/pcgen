@@ -92,7 +92,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
     @Deprecated
 	public static String getCritterType(CharacterDisplay display)
 	{
-		final StringBuilder critterType = new StringBuilder();
+		final StringBuilder critterType = new StringBuilder(50);
 	
 		// Not too sure about this if, but that's what the previous code
 		// implied...

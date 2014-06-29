@@ -206,7 +206,7 @@ public enum SourceFormat
 		SourceFormat format,
 		boolean includePage)
 	{
-		StringBuilder ret = new StringBuilder();
+		StringBuilder ret = new StringBuilder(100);
 		if (cdo.isType(Constants.TYPE_CUSTOM))
 		{
 			ret.append(LanguageBundle.getString("in_custom")).append(" - ");

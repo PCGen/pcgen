@@ -85,7 +85,7 @@ public class StatApplication
 	
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
-				final StringBuilder sStats = new StringBuilder();
+				final StringBuilder sStats = new StringBuilder(100);
 				final int iAdjStat =
 						aPC.getTotalStatFor(aStat);
 				final int iCurStat =

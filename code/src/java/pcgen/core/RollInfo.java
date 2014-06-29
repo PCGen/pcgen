@@ -340,7 +340,7 @@ public final class RollInfo
 	@Override
 	public String toString()
 	{
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(50);
 
 		if (times > 0)
 		{

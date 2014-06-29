@@ -1930,7 +1930,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		 */
 		String getSortKey()
 		{
-			StringBuilder sortKey = new StringBuilder();
+			StringBuilder sortKey = new StringBuilder(50);
 			if (parent != null)
 			{
 				sortKey.append(parent.getSortKey());

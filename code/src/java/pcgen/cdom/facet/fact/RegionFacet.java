@@ -334,7 +334,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 	public String getFullRegion(CharID id)
 	{
 		final String sub = getSubRegion(id);
-		final StringBuilder tempRegName = new StringBuilder()
+		final StringBuilder tempRegName = new StringBuilder(40)
 				.append(getRegion(id));
 
 		if (!sub.equals(Constants.NONE))

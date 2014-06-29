@@ -85,7 +85,7 @@ if ("NOCHOICE".equals(choice)) Thread.dumpStack();
 
 	public String getPersistentFormat()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append("CATEGORY=");
 		sb.append(cna.getAbilityCategory().getKeyName());
 		sb.append('|');
@@ -168,7 +168,7 @@ if ("NOCHOICE".equals(choice)) Thread.dumpStack();
 
 	public String getFullAbilityKey()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(cna.getAbilityKey());
 		if (selection != null && selection.length() > 0)
 		{
@@ -182,7 +182,7 @@ if ("NOCHOICE".equals(choice)) Thread.dumpStack();
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(cna.getAbility().getDisplayName());
 		if (selection != null && selection.length() > 0)
 		{

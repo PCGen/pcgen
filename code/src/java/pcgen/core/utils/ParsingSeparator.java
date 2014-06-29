@@ -62,7 +62,7 @@ public class ParsingSeparator implements Iterator<String>
 			hasABlank = false;
 			return Constants.EMPTY_STRING;
 		}
-		StringBuilder temp = new StringBuilder();
+		StringBuilder temp = new StringBuilder(startingString.length());
 		Stack<String> expected = new Stack<String>();
 		while (base.hasMoreTokens())
 		{

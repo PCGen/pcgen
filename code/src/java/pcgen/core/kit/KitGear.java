@@ -284,7 +284,7 @@ public final class KitGear extends BaseKit
 				/*
 				 * Going to do this the long way for now to avoid ugly entanglements
 				 */
-				StringBuilder sb = new StringBuilder();
+				StringBuilder sb = new StringBuilder(50);
 				EquipmentModifier eqMod = modref.getRef().resolvesTo();
 				sb.append(eqMod.getKeyName());
 				for (String assoc : modref.getChoices())

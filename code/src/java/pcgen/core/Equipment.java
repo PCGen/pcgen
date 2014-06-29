@@ -215,7 +215,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		if (appliedBonusName.length() > 0)
 		{
-			final StringBuilder aString = new StringBuilder();
+			final StringBuilder aString = new StringBuilder(100);
 			aString.append(" [").append(appliedBonusName).append("]");
 
 			return aString.toString();
@@ -1085,7 +1085,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getInterestingDisplayString(final PlayerCharacter aPC)
 	{
-		final StringBuilder s = new StringBuilder();
+		final StringBuilder s = new StringBuilder(100);
 		String t = getSpecialProperties(aPC);
 
 		if (t == null)
@@ -1239,7 +1239,7 @@ public final class Equipment extends PObject implements Serializable,
 		splitModListByFormatCat(modList, modListByFC);
 		splitModListByFormatCat(altModList, altModListByFC);
 
-		final StringBuilder itemName = new StringBuilder();
+		final StringBuilder itemName = new StringBuilder(100);
 
 		// Add in front eq mods
 		int fcf = EqModFormatCat.FRONT.ordinal();
@@ -1387,7 +1387,7 @@ public final class Equipment extends PObject implements Serializable,
 	private String buildEqModDesc(List<EquipmentModifier> commonList,
 		List<EquipmentModifier> modList, List<EquipmentModifier> altModList)
 	{
-		StringBuilder desc = new StringBuilder();
+		StringBuilder desc = new StringBuilder(250);
 
 		String commonDesc = getNameFromModifiers(commonList);
 		String modDesc = getNameFromModifiers(modList);
@@ -1571,7 +1571,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getName()
 	{
-		final StringBuilder buffer = new StringBuilder();
+		final StringBuilder buffer = new StringBuilder(100);
 	
 		buffer.append(getDisplayName());
 		if (modifiedName.length() > 0)
@@ -1928,7 +1928,7 @@ public final class Equipment extends PObject implements Serializable,
 	public String getRawSpecialProperties()
 	{
 		//CONSIDER standardize this with other joins?
-		final StringBuilder retString = new StringBuilder();
+		final StringBuilder retString = new StringBuilder(200);
 		boolean first = true;
 		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
@@ -2095,7 +2095,7 @@ public final class Equipment extends PObject implements Serializable,
 				StringUtil.join(
 					getSpecialAbilityTimesList(getSpecialAbilityList(
 						altModList, aPC)), ", ");
-		final StringBuilder sp = new StringBuilder();
+		final StringBuilder sp = new StringBuilder(200);
 
 		boolean first = true;
 		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
@@ -3877,7 +3877,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			// If we have modified the equipment details with
 			// respect to the name then rebuid the names
-			final StringBuilder buffer = new StringBuilder();
+			final StringBuilder buffer = new StringBuilder(100);
 			
 			if (SettingsHandler.guiUsesOutputNameEquipment())
 			{
@@ -5173,7 +5173,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	private void updateContainerCapacityString()
 	{
-		final StringBuilder tempStringBuilder = new StringBuilder();
+		final StringBuilder tempStringBuilder = new StringBuilder(100);
 		boolean comma = false;
 
 		BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);

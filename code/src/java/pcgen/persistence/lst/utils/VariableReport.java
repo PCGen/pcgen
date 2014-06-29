@@ -456,7 +456,7 @@ public class VariableReport
 		@Override
 		public String toString()
 		{
-			StringBuilder builder = new StringBuilder();
+			StringBuilder builder = new StringBuilder(100);
 			builder.append("VarDefine [varName=");
 			builder.append(varName);
 			builder.append(", definingObject=");

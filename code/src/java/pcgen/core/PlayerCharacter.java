@@ -2928,7 +2928,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int raceBAB = 0;
 
 		final List<Integer> ab = new ArrayList<Integer>(10);
-		final StringBuilder attackString = new StringBuilder();
+		final StringBuilder attackString = new StringBuilder(30);
 
 		// Assume a max of 10 attack cycles
 		for (int total = 0; total < 10; ++total)
@@ -8973,7 +8973,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			return Constants.EMPTY_STRING;
 		}
-		final StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder(250);
 		boolean needSpace = false;
 		for (final Description desc : theDescriptions)
 		{

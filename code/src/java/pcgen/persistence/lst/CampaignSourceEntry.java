@@ -749,7 +749,7 @@ public class CampaignSourceEntry implements SourceEntry
 					.substring(commaLoc + 1));
 			}
 		}
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(200);
 		boolean needPipe = false;
 		for (String category : map.getKeySet())
 		{

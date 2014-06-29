@@ -197,7 +197,7 @@ public class Description extends ConcretePrereqObject
 			return Constants.EMPTY_STRING;
 		}
 		
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(250);
 		if (this.qualifies(aPC, sampleObject))
 		{
 			for ( final String comp : theComponents )
@@ -342,7 +342,7 @@ public class Description extends ConcretePrereqObject
 	 */
 	public String getPCCText()
 	{
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(250);
 		
 		for ( final String str : theComponents )
 		{

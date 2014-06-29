@@ -34,7 +34,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(25);
 		sb.append(pcclass.toString());
 		sb.append(" ");
 		sb.append(level);
@@ -47,7 +47,7 @@ public class SpellLevel implements Comparable<SpellLevel>
 	 */
 	public String encodeChoice()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(40);
 		sb.append("CLASS.");
 		sb.append(pcclass.getKeyName());
 		sb.append(";LEVEL.");

@@ -49,7 +49,7 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(25);
 		sb.append(filter.getLSTformat(false));
 		sb.append(Constants.PIPE);
 		sb.append(minimumLevel);

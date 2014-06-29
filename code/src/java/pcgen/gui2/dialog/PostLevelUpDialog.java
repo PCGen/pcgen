@@ -236,7 +236,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 				pointTotal += (Integer) (dataRow[COL_SKILL_POINTS] = levels.getGainedSkillPoints(level));
 			}
 			data[numLevels][COL_LEVEL] = LanguageBundle.getString("in_sumTotal"); //$NON-NLS-1$
-			StringBuilder builder = new StringBuilder();
+			StringBuilder builder = new StringBuilder(100);
 			Iterator<ClassFacade> classes = classLevelMap.keySet().iterator();
 			while (classes.hasNext())
 			{

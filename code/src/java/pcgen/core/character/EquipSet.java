@@ -498,7 +498,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 		{
 			// Get back to carried/equipped/not carried to determine correct location
-			StringBuilder rootPath = new StringBuilder(); 
+			StringBuilder rootPath = new StringBuilder(40); 
 			for (int i = 0; i < Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED; i++)
 			{
 				if (i > 0)

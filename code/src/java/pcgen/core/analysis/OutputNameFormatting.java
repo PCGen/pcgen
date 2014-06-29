@@ -65,7 +65,7 @@ public class OutputNameFormatting
 			varArray.add(aPC.getVariableValue(token, ""));
 		}
 	
-		final StringBuilder result = new StringBuilder();
+		final StringBuilder result = new StringBuilder(50);
 		int varCount = 0;
 		int subIndex = preVarStr.indexOf('%');
 		int lastIndex = 0;

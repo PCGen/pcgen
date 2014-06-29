@@ -67,7 +67,7 @@ public final class SpecialProperty extends TextProperty
 			return null;
 		}
 
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(100);
 		sb.append(spName);
 		boolean hitPre = false;
 		boolean warnedPre = false;

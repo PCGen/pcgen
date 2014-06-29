@@ -47,7 +47,7 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 			return sa;
 		}
 
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(100);
 		sb.append(key.substring(0, idx));
 
 		if (source instanceof ChooseDriver)

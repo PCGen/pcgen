@@ -98,7 +98,7 @@ public class QualifiedName
 			return outputName;
 		}
 
-		final StringBuilder buffer = new StringBuilder();
+		final StringBuilder buffer = new StringBuilder(50);
 		buffer.append(outputName).append("(");
 		List<String> associationList = pc.getAssociationList(s);
 		Collections.sort(associationList);

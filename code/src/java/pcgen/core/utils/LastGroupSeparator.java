@@ -39,8 +39,9 @@ public class LastGroupSeparator
 	public String process() throws GroupingMismatchException
 	{
 		StringTokenizer base = new StringTokenizer(startingString, "()", true);
-		root = new StringBuilder();
-		StringBuilder temp = new StringBuilder();
+		int sbLength = startingString.length();
+		root = new StringBuilder(sbLength);
+		StringBuilder temp = new StringBuilder(sbLength);
 		boolean isValid = false;
 		Stack<String> expected = new Stack<String>();
 		while (base.hasMoreTokens())
@@ -54,7 +55,7 @@ public class LastGroupSeparator
 					root.append(temp);
 					root.append(')');
 				}
-				temp = new StringBuilder();
+				temp = new StringBuilder(sbLength);
 				isValid = false;
 			}
 			if ("(".equals(working))

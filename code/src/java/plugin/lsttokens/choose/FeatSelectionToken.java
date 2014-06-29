@@ -295,7 +295,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	public String encodeChoice(AbilitySelection choice)
 	{
 		Ability ability = choice.getObject();
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(ability.getKeyName());
 		String selection = choice.getSelection();
 		if (selection != null && selection.length() > 0)

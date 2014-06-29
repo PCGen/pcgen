@@ -105,7 +105,7 @@ public class BonusCalc
 	
 					for (String assoc : aPC.getConsolidatedAssociationList(po))
 					{
-						final String xString = new StringBuilder()
+						final String xString = new StringBuilder(50)
 							.append(firstPart)
 							.append(assoc)
 							.append(secondPart)

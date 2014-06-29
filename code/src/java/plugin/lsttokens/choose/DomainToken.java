@@ -51,7 +51,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	public ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(value.length() + 20);
 		StringTokenizer st = new StringTokenizer(value, "|,", true);
 		while (st.hasMoreTokens())
 		{

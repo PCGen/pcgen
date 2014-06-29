@@ -307,9 +307,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String encodeChoice(Ability choice)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(choice.getKeyName());
-		return sb.toString();
+		return choice.getKeyName();
 	}
 
 	/**

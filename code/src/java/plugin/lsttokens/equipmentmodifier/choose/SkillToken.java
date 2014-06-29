@@ -81,7 +81,7 @@ public class SkillToken implements CDOMSecondaryToken<EquipmentModifier>
 		// //Assume it's a primitive skill??
 		// }
 		// }
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(getTokenName()).append('|').append(value);
 		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
 		return ParseResult.SUCCESS;

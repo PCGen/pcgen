@@ -88,7 +88,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 	private String processMagicalWords(String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE, true);
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(value.length() + 40);
 		while (st.hasMoreTokens())
 		{
 			String tok = st.nextToken();
@@ -97,37 +97,40 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 				final String profKey = tok.substring(7);
 				Logging.errorPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
 					+ "has been changed to DOMAINLIST=");
-				tok = "DOMAINLIST=" + profKey;
+				sb.append("DOMAINLIST=").append(profKey);
 			}
-			if (Constants.LST_CLASS_DOT.regionMatches(true, 0, tok, 0, 6))
+			else if (Constants.LST_CLASS_DOT.regionMatches(true, 0, tok, 0, 6))
 			{
 				final String profKey = tok.substring(6);
 				Logging.errorPrint("CHOOSE:SPELLS|CLASS is deprecated, "
 					+ "has been changed to CLASSLIST=");
-				tok = "CLASSLIST=" + profKey;
+				sb.append("CLASSLIST=").append(profKey);
 			}
-			if ("DOMAIN=".regionMatches(true, 0, tok, 0, 7))
+			else if ("DOMAIN=".regionMatches(true, 0, tok, 0, 7))
 			{
 				final String profKey = tok.substring(7);
 				Logging.errorPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
 					+ "has been changed to DOMAINLIST=");
-				tok = "DOMAINLIST=" + profKey;
+				sb.append("DOMAINLIST=").append(profKey);
 			}
-			if (Constants.LST_CLASS_EQUAL.regionMatches(true, 0, tok, 0, 6))
+			else if (Constants.LST_CLASS_EQUAL.regionMatches(true, 0, tok, 0, 6))
 			{
 				final String profKey = tok.substring(6);
 				Logging.errorPrint("CHOOSE:SPELLS|CLASS is deprecated, "
 					+ "has been changed to CLASSLIST=");
-				tok = "CLASSLIST=" + profKey;
+				sb.append("CLASSLIST=").append(profKey);
 			}
-			if (Constants.LST_ANY.regionMatches(true, 0, tok, 0, 3))
+			else if (Constants.LST_ANY.regionMatches(true, 0, tok, 0, 3))
 			{
 				final String remainder = tok.length()>3?tok.substring(3) :"";
 				Logging.errorPrint("CHOOSE:SPELLS|ANY is deprecated, "
 					+ "has been changed to ALL");
-				tok = Constants.LST_ALL + remainder;
+				sb.append("ALL").append(remainder);
 			}
-			sb.append(tok);
+			else
+			{
+				sb.append(tok);
+			}
 		}
 		return sb.toString();
 	}

@@ -38,7 +38,7 @@ public class BenefitFormatting
 		{
 			return Constants.EMPTY_STRING;
 		}
-		final StringBuilder buf = new StringBuilder();
+		final StringBuilder buf = new StringBuilder(250);
 		boolean needSpace = false;
 		for ( final Description desc : theBenefits )
 		{

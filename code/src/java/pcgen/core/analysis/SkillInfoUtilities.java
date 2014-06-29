@@ -49,7 +49,7 @@ public class SkillInfoUtilities
 			if (Globals.getGameModeHasPointPool())
 			{
 				List<PCStat> statList = SkillInfoUtilities.getKeyStatList(pc, sk, null);
-				StringBuilder sb = new StringBuilder();
+				StringBuilder sb = new StringBuilder(50);
 				boolean needSlash = false;
 				for (PCStat s : statList)
 				{

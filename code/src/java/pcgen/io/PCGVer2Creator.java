@@ -2618,7 +2618,7 @@ public final class PCGVer2Creator implements IOConstants
 		work = work.replace('\t', ' ');
 		work = work.replace('\f', ' ');
 
-		StringBuilder buffer = new StringBuilder();
+		StringBuilder buffer = new StringBuilder(work.length() + 100);
 		StringTokenizer tokens = new StringTokenizer(work, "#"); //$NON-NLS-1$
 
 		while (tokens.hasMoreTokens())
@@ -2628,7 +2628,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		work = buffer.toString();
 
-		buffer = new StringBuilder();
+		buffer.setLength(0);
 
 		/*
 		 * Need to keep the Windows line separator as newline delimiter to ensure
@@ -2654,7 +2654,7 @@ public final class PCGVer2Creator implements IOConstants
 	 **/
 	private String tempBonusName(final Object creator, Object target)
 	{
-		final StringBuilder cb = new StringBuilder();
+		final StringBuilder cb = new StringBuilder(100);
 
 		cb.append(TAG_TEMPBONUS).append(':');
 		if (creator instanceof CDOMObject)

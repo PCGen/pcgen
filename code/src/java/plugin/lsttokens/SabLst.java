@@ -107,7 +107,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			return ParseResult.SUCCESS;
 		}
 
-		StringBuilder saName = new StringBuilder();
+		StringBuilder saName = new StringBuilder(aString.length());
 		saName.append(firstToken);
 
 		String token = tok.nextToken();
