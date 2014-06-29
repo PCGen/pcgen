@@ -28,14 +28,14 @@ import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
 /**
- * PCBooleanFunction allows character boolean values to be exported to a 
- * Freemarker template. It evaluates an export token for the current character and 
- * returns the value as a boolean. e.g. ${pcboolean("WEAPON.0.ISTYPE.Double")} 
+ * PChasVarFunction allows character variable presence to be queried in a 
+ * Freemarker template. It checks if the character has a variable and returns 
+ * true if so. e.g. ${pchasvar("Foo")} 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PCBooleanFunction extends CharacterExportAction implements TemplateMethodModelEx
+public class PCHasVarFunction extends CharacterExportAction implements TemplateMethodModelEx
 {
 	private PlayerCharacter pc;
 	private ExportHandler eh;
@@ -45,7 +45,7 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 	 * @param pc The character being exported.
 	 * @param eh The managing export handler.
 	 */
-	public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
+	public PCHasVarFunction(PlayerCharacter pc, ExportHandler eh)
 	{
 		super();
 		this.pc = pc;
@@ -69,12 +69,7 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 
 		String value = getExportVariable(tag, pc, eh);
 		
-		if ("1.0".equals(value) || "1".equals(value))
-		{
-			return Boolean.TRUE;
-		}
-
-		return Boolean.valueOf(value);
+		return pc.hasVariable(value);
 	}
 
 }

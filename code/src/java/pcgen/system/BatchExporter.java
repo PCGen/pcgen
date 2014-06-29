@@ -108,7 +108,7 @@ public class BatchExporter
 		File file = new File(characterFilename);
 		if (!PCGFile.isPCGenCharacterFile(file))
 		{
-			Logging.errorPrint("Invalid party file specified: "
+			Logging.errorPrint("Invalid character file specified: "
 				+ file.getAbsolutePath());
 			return false;
 		}

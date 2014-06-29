@@ -85,6 +85,7 @@ import pcgen.io.freemarker.LoopDirective;
 import pcgen.io.freemarker.PCBooleanFunction;
 import pcgen.io.freemarker.PCStringDirective;
 import pcgen.io.freemarker.PCVarFunction;
+import pcgen.io.freemarker.PCHasVarFunction;
 import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -325,6 +326,7 @@ public final class ExportHandler
 			cfg.setSharedVariable("pcstring", new PCStringDirective(aPC, this));
 			cfg.setSharedVariable("pcvar", new PCVarFunction(aPC));
 			cfg.setSharedVariable("pcboolean", new PCBooleanFunction(aPC, this));
+			cfg.setSharedVariable("pchasvar", new PCHasVarFunction(aPC, this));
 			cfg.setSharedVariable("loop", new LoopDirective());
 			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective(aPC));
 			
@@ -334,6 +336,7 @@ public final class ExportHandler
 //			input.put("exportHandler", this);
 //			input.put("gameModeVarCountMap", gameModeVarCountMap);
 //			input.put("pathIgnoreLen", dataPathLen + 1);
+			input.put("gamemodename", SettingsHandler.getGame().getName());
 
 			// Process the template
 			template.process(input, outputWriter);

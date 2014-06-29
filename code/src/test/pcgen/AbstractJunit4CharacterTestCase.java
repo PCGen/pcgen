@@ -23,16 +23,24 @@
  */
 package pcgen;
 
+import static org.junit.Assert.fail;
+
 import java.math.BigDecimal;
 
 import org.junit.After;
 import org.junit.Before;
 
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.UserSelection;
+import pcgen.cdom.content.CNAbility;
+import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -298,6 +306,30 @@ abstract public class AbstractJunit4CharacterTestCase
 			final int value)
 	{
 		pc.setStat(stat,  value);
+	}
+
+	public static CNAbility applyAbility(PlayerCharacter character,
+		AbilityCategory cat, Ability a, String assoc)
+	{
+		if (a.getCDOMCategory() == null)
+		{
+			fail("Attempt to apply an Ability " + a.getKeyName()
+				+ " that never received a Category");
+		}
+		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
+		CNAbilitySelection cnas = new CNAbilitySelection(cna, assoc);
+		character.addAbility(cnas, UserSelection.getInstance(),
+			UserSelection.getInstance());
+		return cna;
+	}
+
+	protected void addAbility(AbilityCategory cat, Ability a)
+	{
+		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+		{
+			fail("addAbility takes Mult:NO Abilities");
+		}
+		applyAbility(character, cat, a, null);
 	}
 
 }

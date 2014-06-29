@@ -39,6 +39,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.apache.commons.lang.SystemUtils;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -69,6 +71,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
@@ -78,6 +81,10 @@ import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+import pcgen.system.ConfigurationSettings;
+import pcgen.system.Main;
+import pcgen.system.PCGenTask;
+import pcgen.system.PropertyContextFactory;
 
 /**
  * Helps Junit tests
@@ -552,6 +559,34 @@ public class TestHelper
 		bw.close();
 
 		return configFile;
+	}
+	
+	public static void loadGameModes(String testConfigFile)
+	{
+		String configFolder = "testsuite";
+		String pccLoc = TestHelper.findDataFolder();
+		System.out.println("Got data folder of " + pccLoc);
+		try
+		{
+			TestHelper.createDummySettingsFile(testConfigFile, configFolder,
+				pccLoc);
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("DataTest.loadGameModes failed", e);
+		}
+
+		PropertyContextFactory configFactory =
+				new PropertyContextFactory(SystemUtils.USER_DIR);
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings
+			.getInstance(testConfigFile));
+		Main.loadProperties(false);
+		PCGenTask loadPluginTask = Main.createLoadPluginTask();
+		loadPluginTask.execute();
+		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
+		gameModeFileLoader.execute();
+		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
+		campaignFileLoader.execute();
 	}
 
 	public static ChronicleEntry buildChronicleEntry(boolean visible, String campaign, String date,
