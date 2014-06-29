@@ -22,16 +22,15 @@
  */
 package pcgen.io.freemarker;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.net.URI;
 import java.util.Collections;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import freemarker.template.TemplateModelException;
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -41,7 +40,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
-import pcgen.util.TestHelper;
 
 /**
  * The Class <code>PCHasVarFunctionTest</code> verifies the correctness of 
