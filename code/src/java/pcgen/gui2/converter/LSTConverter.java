@@ -144,7 +144,9 @@ public class LSTConverter extends Observable
 				notifyObservers(uri);
 				if (!"file".equalsIgnoreCase(uri.getScheme()))
 				{
-					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " as it is not a local file.");
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri
+						+ " from " + campaign.getSourceURI()
+						+ " as it is not a local file.");
 					continue;
 				}
 				File in = new File(uri);
@@ -158,7 +160,8 @@ public class LSTConverter extends Observable
 				{
 					Logging.log(
 						Logging.WARNING,
-						"Skipping campaign " + uri
+						"Skipping campaign " + uri + " from "
+							+ campaign.getSourceURI()
 							+ " as it could not be made canonical. "
 							+ e1.getMessage());
 					continue;
@@ -171,7 +174,9 @@ public class LSTConverter extends Observable
 				File base = findSubRoot(rootDir, in);
 				if (base == null)
 				{
-					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " as it is not in the selected source directory.");
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri
+						+ " from " + campaign.getSourceURI()
+						+ " as it is not in the selected source directory.");
 					continue;
 				}
 				String relative = in.toString().substring(
@@ -179,6 +184,7 @@ public class LSTConverter extends Observable
 				if (!in.exists())
 				{
 					Logging.log(Logging.WARNING, "Skipping campaign " + uri
+						+ " from " + campaign.getSourceURI()
 						+ " as it does not exist. Campaign is "
 						+ cse.getCampaign().getSourceURI());
 					continue;
