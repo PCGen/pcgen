@@ -19,6 +19,7 @@ package plugin.lsttokens.ability;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -66,6 +67,24 @@ public class MultToken extends AbstractYesNoToken<Ability> implements
 				Logging.errorPrint("Ability (" + a.getCategory() + ") "
 						+ a.getKeyName() + " had MULT:YES but no CHOOSE", context);
 				return false;
+			}
+			if (a.getKeyName().contains("("))
+			{
+				String base = AbilityUtilities.removeChoicesFromName(a.getKeyName());
+				Ability conflict =
+						context.getReferenceContext()
+							.silentlyGetConstructedCDOMObject(Ability.class,
+								a.getCDOMCategory(), base);
+				if ((conflict != null) && conflict.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+				{
+					Logging.errorPrint(
+						"Ability (" + a.getCategory() + ") " + conflict
+							+ " had MULT:YES which "
+							+ "prohibits Ability Key with same base "
+							+ "and parenthesis, but data included: "
+							+ a.getKeyName(), context);
+					return false;
+				}
 			}
 		}
 		else
