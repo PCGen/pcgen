@@ -74,7 +74,17 @@ ${pcvar(&quot;CL=Fighter&quot;)}
 </p>
 <pre class="code">
 &lt;#if pcboolean('WEAPON.${weap}.ISTYPE.Double')&gt;
-&lt;#if (pcboolean('HASVAR:Manifester.OR.HASVAR:PsychicWarriorManifester')) &gt;
+&lt;#if (pcboolean('VAR.HASFEAT:CMB Output')) &gt;
+</pre>
+
+
+<h3>pchasvar</h3>
+<p>The pchasvar function allows the presence of variables to be tested in the output sheet.  
+</p><p><i>Examples</i>
+</p>
+<pre class="code">
+&lt;#if pchasvar('Foo')&gt;
+&lt;#if (pchasvar("Manifester") || pchasvar('PsychicWarriorManifester')) &gt;
 </pre>
 
 
@@ -123,6 +133,23 @@ Rog 11, Wiz 5
 &lt;b&gt;Equipment Set : &lt;/b&gt; Travelling Gear. Equipment: Backpack, Longsword, Traveller's Outfit&lt;br/&gt;
 &lt;b&gt;Equipment Set : &lt;/b&gt; Council. Equipment: Coin purse, Noble's Outfit, Rapier&lt;br/&gt;
 </pre>
+
+<p><br />
+
+<h2>FreeMarker Variables</h2>
+<p>PCGen also provides some in built variables which can be used in FreeMarker. These are referred to
+in the same way as any user defined variables.</p>
+
+<h3>gameodename</h3>
+<p>This is the name of the current game mode.
+</p><p><i>Example</i>
+</p>
+<pre class="code">
+&lt#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") &gt;
+  ${gamemodename}
+&lt;/#if&gt;
+</pre>
+
 <p><br />
 </p>
   <p>
