@@ -518,12 +518,12 @@ public class BatchExporter
 		File template =
 				FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
 					"gameModes",
-					character.getDataSet().getGameMode().getName(), "base.xml");
+					character.getDataSet().getGameMode().getName(), "base.xml.ftl");
 		if (!template.exists())
 		{
 			template =
 					new File(ConfigurationSettings.getOutputSheetsDir(),
-						"base.xml");
+						"base.xml.ftl");
 		}
 		return template;
 	}
