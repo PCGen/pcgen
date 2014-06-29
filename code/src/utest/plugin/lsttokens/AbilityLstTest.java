@@ -201,6 +201,13 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
+	public void testInvalidListPre() throws PersistenceLayerException
+	{
+		assertFalse(parse("FEAT|AUTOMATIC|%LIST|PRERACE:1,Human"));
+		assertNoSideEffects();
+	}
+
+	@Test
 	public void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Abil1");
@@ -270,6 +277,12 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(primaryContext, "Abil1");
 		construct(secondaryContext, "Abil1");
 		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil1");
+	}
+
+	@Test
+	public void testRoundRobinList() throws PersistenceLayerException
+	{
+		runRoundRobin("FEAT|VIRTUAL|%LIST");
 	}
 
 	@Test

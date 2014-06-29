@@ -43,6 +43,7 @@ import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.AbilitySelector;
 import pcgen.cdom.helper.AbilityTargetSelector;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -192,6 +193,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, category);
 
+		boolean prereqsAllowed = true;
+
 		while (true)
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
@@ -220,6 +223,14 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				assoc.setAssociation(AssociationKey.NATURE, nature);
 				assoc.setAssociation(AssociationKey.CATEGORY, category);
 				removed = true;
+			}
+			else if (Constants.LST_PERCENT_LIST.equals(token))
+			{
+				prereqsAllowed = false;
+				AbilitySelector as =
+						new AbilitySelector(getTokenName(), category, nature);
+				context.getObjectContext().addToList(obj,
+					ListKey.NEW_CHOOSE_ACTOR, as);
 			}
 			else
 			{
@@ -277,10 +288,11 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 
-		if (removed)
+		if (removed || !prereqsAllowed)
 		{
-			return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-							+ getTokenName(), context);
+			return new ParseResult.Fail(
+				"Cannot use PREREQs when using .CLEAR, .CLEAR., or %LIST in "
+					+ getTokenName(), context);
 		}
 
 		while (true)
@@ -318,6 +330,36 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
 		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear =
 				new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(obj,
+					ListKey.NEW_CHOOSE_ACTOR);
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
+		if (listAdded != null && !listAdded.isEmpty())
+		{
+			for (ChooseSelectionActor<?> csa : listAdded)
+			{
+				if (csa.getSource().equals(getTokenName()))
+				{
+					try
+					{
+						AbilitySelector as = (AbilitySelector) csa;
+						StringBuilder sb = new StringBuilder();
+						sb.append(as.getAbilityCategory().getLSTformat()).append(Constants.PIPE);
+						sb.append(as.getNature()).append(Constants.PIPE);
+						sb.append(as.getLstFormat());
+						returnSet.add(sb.toString());
+					}
+					catch (PersistenceLayerException e)
+					{
+						context.addWriteMessage(getTokenName()
+								+ " encountered error: " + e.getMessage());
+						return null;
+					}
+				}
+			}
+		}
+
 		for (CDOMReference ref : changedLists)
 		{
 			AssociatedChanges<CDOMReference<Ability>> changes =
