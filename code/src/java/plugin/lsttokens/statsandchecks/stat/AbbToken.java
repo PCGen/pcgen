@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.statsandchecks.stat;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -44,12 +43,6 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
 	{
-		if (value.length() != 3)
-		{
-			return new ParseResult.Fail("Stat " + stat.getDisplayName() + " found with "
-					+ getTokenName() + Constants.COLON + value
-					+ " should be 3 characters long!", context);
-		}
 		/*
 		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
 		 * gate to additional stats being added in Campaigns (vs. Game Modes)
