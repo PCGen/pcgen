@@ -110,6 +110,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				.getAbilityListReference(category, nature);
 
 		boolean first = true;
+		boolean allowPre = true;
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);
@@ -126,6 +127,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				}
 				context.getListContext().removeAllFromList(getFullName(), obj,
 						abilList);
+				allowPre = false;
 			}
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -137,6 +139,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 				}
 				context.getListContext().removeFromList(getFullName(), obj,
 						abilList, ref);
+				allowPre = false;
 			}
 			else if (Constants.LST_PERCENT_LIST.equals(token))
 			{
@@ -146,6 +149,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 								Nature.AUTOMATIC));
 				edgeList.add(cca);
 				context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cca);
+				allowPre = false;
 			}
 			else
 			{
@@ -200,6 +204,13 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				break;
 			}
+		}
+
+		if (!allowPre)
+		{
+			return new ParseResult.Fail(
+				"Cannot use PREREQs when using .CLEAR, .CLEAR., or %LIST in "
+					+ getTokenName(), context);
 		}
 
 		while (true)
