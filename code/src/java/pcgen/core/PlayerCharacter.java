@@ -1117,7 +1117,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * Get the character's "equipped" equipment.
 	 * @return a set of the "equipped" equipment
 	 */
-	private Set<Equipment> getEquippedEquipmentSet()
+	public Set<Equipment> getEquippedEquipmentSet()
 	{
 		return equippedFacet.getSet(id);
 	}
