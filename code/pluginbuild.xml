@@ -6741,6 +6741,13 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-primitive-race-plugins" depends="makeplugindirs" description="Build (Link) Race Primitive Token plugin jar files">
 		<!-- Race Primitive tokens-->
+		<jar jarfile="${lstplugins.dir}/RacePrimitive-BASESIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/race/BaseSizeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/RacePrimitive-RACETYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
