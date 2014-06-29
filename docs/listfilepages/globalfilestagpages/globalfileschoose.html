@@ -624,6 +624,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> RACETYPE=Text (Race-type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> RACESUBTYPE=Text (Race-subtype)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> BASESIZE=Text (Size value)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Race type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited race type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
@@ -639,6 +640,9 @@
 			race-type is defined in the race's <code>RACETYPE</code> tag.</li>
 		<li>Using the <code>RACESUBTYPE=Text</code> sub-tag will provide a list of races selected by the referenced race-subtype. The referenced 
 			race-subtype is defined in the race's <code>RACESUBTYPE</code> tag.</li>
+		<li>Using the <code>BASESIZE=Text</code> sub-tag will provide a list of races selected by the referenced size as defined in the 
+			<span class="lstfile">sizeAdjustment.lst</span> gameMode file. The size referenced will be compared to the base size, e.i. the contents 
+			of the <code>SIZE</code> tag in the <strong>RACE</strong> LST file, and will ignore any modifications to the size granted through any means.</li>
 		<li>Global qualifiers work for races. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all races.</li>
@@ -655,10 +659,12 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Dragon</code></p>
 	<p class="indent3">This will produce a list of all races that have the Dragon racial type.</p>
-	<p class="indent2"><code>CHOOSE:RACE|CHOOSE:RACE|Dwarf|Elf </code></p>
+	<p class="indent2"><code>CHOOSE:RACE|Dwarf|Elf </code></p>
 	<p class="indent3">This will produce a list of races including only the <strong>Dwarf</strong> and the <strong>Elf</strong>.</p>
 	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Humanoid,RACESUBTYPE=Aquatic</code></p>
 	<p class="indent3">This will produce a list of all Humanoid races that have the Aquatic subtype.</p>
+	<p class="indent2"><code>CHOOSE:RACE|BASESIZE=M</code></p>
+	<p class="indent3">This will produce a list of all races that have a size of &quot;M&quot;.</strong>.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
