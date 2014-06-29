@@ -384,7 +384,7 @@ public final class Main
 	{
 		String language = ConfigurationSettings.getLanguage();
 		String country = ConfigurationSettings.getCountry();
-		if (StringUtils.isNotEmpty(language))
+		if (StringUtils.isNotEmpty(language) && StringUtils.isNotEmpty(country))
 		{
 			Locale.setDefault(new Locale(language, country));
 		}
