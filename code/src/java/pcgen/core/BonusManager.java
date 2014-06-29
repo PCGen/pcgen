@@ -94,6 +94,12 @@ public class BonusManager
 	private double sumActiveBonusMap(String fullyQualifiedBonusType)
 	{
 		double bonus = 0;
+		if (fullyQualifiedBonusType == null)
+		{
+			Logging.errorPrint("Unable to sum BONUS when request is null");
+			return bonus;
+		}
+			
 		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))
 		{
@@ -115,6 +121,13 @@ public class BonusManager
 				continue;
 			}
 
+			if (fullyQualifedCurrentBonus == null)
+			{
+				Logging.errorPrint("null BONUS: loaded into activeBonusMap. "
+					+ fullyQualifiedBonusType + " was requested");
+				continue;
+			}
+
 			String currentTypedBonusNameInfo = fullyQualifedCurrentBonus;
 
 			// rString could be something like:
@@ -130,6 +143,14 @@ public class BonusManager
 				currentTypedBonusNameInfo = currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 8);
 			}
 
+			if (currentTypedBonusNameInfo == null)
+			{
+				Logging.errorPrint("Unable to process BONUS: "
+					+ fullyQualifedCurrentBonus + " when "
+					+ fullyQualifiedBonusType + " was requested");
+				continue;
+			}
+			
 			// if prefix is of the form:
 			// COMBAT.AC
 			// then is must match rstring:
