@@ -25,8 +25,10 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Observable;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.persistence.PersistenceLayerException;
@@ -131,10 +133,18 @@ public abstract class LstLineFileLoader extends Observable
 	 */
 	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
+		// Track which sources have been loaded already
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
+
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry cse : fileList)
 		{
-			loadLstFile(context, cse.getURI());
+			// Check if the CSE has already been loaded before loading it
+			if (!loadedFiles.contains(cse))
+			{
+				loadLstFile(context, cse.getURI());
+				loadedFiles.add(cse);
+			}
 		}
 	}
 
