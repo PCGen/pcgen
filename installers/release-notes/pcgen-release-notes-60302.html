@@ -37,7 +37,7 @@ Please give it a shot and let us know how it works for you.
 <li>Implement Race Builder in ARG</li>
 <li>Migrate pdf export base.xml template to use FreeMarker</li>
 <li>Create a script to convert old export sheets to FreeMarker</li>
-<li>Bonus System Rebuild</li>
+<li>Eliminate Ability Cloning / Ability Processing Consistency</li>
 </ul>
 <!-- 
 <p>
@@ -148,7 +148,7 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <h3>        New Code Features
 </h3>
 <ul>
-<li>[<a href='http://jira.pcgen.org/browse/CODE-1921'>CODE-1921</a>] -         Elminiate Ability Cloning / Ability Processing Consistency
+<li>[<a href='http://jira.pcgen.org/browse/CODE-1921'>CODE-1921</a>] -         Eliminate Ability Cloning / Ability Processing Consistency
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2418'>CODE-2418</a>] -         Freemarker Output Generation - Phase 1
 </li>
@@ -178,6 +178,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1821'>DATA-1821</a>] -         Implement Race Builder in ARG
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1822'>DATA-1822</a>] -         Alter how Favored Class Bonus is calculated
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1836'>DATA-1836</a>] -         Forbid overlapping campaign selections
 </li>
 </ul>
                             
@@ -229,6 +231,10 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <ul>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-229'>CODE-229</a>] -         Use of default constructors for StringBuffer and StringBuilder throughout the code generates lots of memory churn
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-456'>CODE-456</a>] -         [TEST-61] Bug #1 Pool Deduction not correct with NATURE.Normal
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-457'>CODE-457</a>] -         [TEST-61] Bug #2 Pool points not correct with NATURE.Normal getting 2 points on removal
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2454'>CODE-2454</a>] -         AUTO:FEAT|%LIST|PRExxx is not applied correctly
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2469'>CODE-2469</a>] -         Data converter doesn&#39;t always identify file with errors
@@ -237,11 +243,15 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2489'>CODE-2489</a>] -         SkillComparator ignores ranks from BONUS:SKILLRANK
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2516'>CODE-2516</a>] -         PREText HTML formatting is out of order
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2539'>CODE-2539</a>] -         Error due to empty value sent to Locale constructor
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2546'>CODE-2546</a>] -         Stack dump during BONUS processing
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2611'>CODE-2611</a>] -         SRD 3.5 - Max ranks should be LEVEL+3 if skill was ever class skill
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2627'>CODE-2627</a>] -         CHOOSE:FEATSELECTION fails in compound (AND/OR) structure
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2630'>CODE-2630</a>] -         Uncaught NPE - Non-Existent CATEGORY used in PREABILITY
 </li>
@@ -273,6 +283,8 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1831'>DATA-1831</a>] -         Inquisitor Hanspur deity domains
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1834'>DATA-1834</a>] -         Replace (now removed) PC Qualifier for Skills
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1838'>DATA-1838</a>] -         NPC Classes Not Receiving Favored Class Bonuses
 </li>
 </ul>
 
