@@ -24,18 +24,21 @@
     <h1>Introduction to FreeMarker</h1>
 
 
-<p><a rel="nofollow" class="external text" href="http://freemarker.org/">FreeMarker</a> is a template engine that has now been incorporated into PCGen's export system as an alternative to our venerable export syntax. The FreeMarker engine brings some important benefits:
-</p>
-<ul><li> Industry standard syntax
-</li><li> Support for macros to output parameterised blocks
-</li><li> Improved flow-control and logic instructions
-</li><li> Support for including other files, e.g. macro libraries or common blocks
-</li><li> Calculations and state within the output template
-</li><li> Built-in syntax support in <a rel="nofollow" class="external text" href="http://freemarker.org/editors.html">many text editors</a>
-</li></ul>
-<p>Here's a simple example FreeMarker PCGen template
-</p>
-<pre class="code">
+	<p><a rel="nofollow" class="external text" href="http://freemarker.org/">FreeMarker</a> is a template engine 
+		that has now been incorporated into PCGen's export system as an alternative to our venerable export syntax. 
+		The FreeMarker engine brings some important benefits:</p>
+	<ul>
+		<li> Industry standard syntax</li>
+		<li> Support for macros to output parameterised blocks</li>
+		<li> Improved flow-control and logic instructions</li>
+		<li> Support for including other files, e.g. macro libraries or common blocks</li>
+		<li> Calculations and state within the output template</li>
+		<li> Built-in syntax support in <a rel="nofollow" class="external text" href="http://freemarker.org/editors.html">many text editors</a></li>
+	</ul>
+
+	<p>Here's a simple example FreeMarker PCGen template</p>
+
+	<pre class="code">
 &lt;!-- Produced on ${.now?date} at ${.now?time} using template ${.template_name} --&gt;
 &lt;h1&gt;Freemarker Sheet for &lt;@pcstring tag=&quot;NAME&quot;/&gt; - ${.now?date}&lt;/h1&gt;
 
