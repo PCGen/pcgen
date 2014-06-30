@@ -451,8 +451,12 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CNAbilitySelection choice)
 	{
 		CNAbility cna = choice.getCNAbility();
+		Ability ab = cna.getAbility();
+		AbilityCategory cat = (AbilityCategory) cna.getAbilityCategory();
 		if (cna.getNature().equals(Nature.NORMAL))
 		{
+			pc.adjustAbilities(cat, ab.getSafe(ObjectKey.SELECTION_COST)
+				.negate());
 			pc.removeAbility(choice, UserSelection.getInstance(),
 				UserSelection.getInstance());
 		}
