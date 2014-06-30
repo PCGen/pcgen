@@ -377,7 +377,7 @@
 
 <hr>
 
-	<p class="lstnew"><a name="EQUIPMENT">*** New 5.17.4</a></p>
+	<p class="lstupnew"><a name="EQUIPMENT">*** New 6.03.02</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPMENT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> WIELD=Text (Equipment wield type)</p>
@@ -385,8 +385,10 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Equipment type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> OWNED</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> CARRIED</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> EQUIPPED</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Will present a list of equipment that matches the stipulated criteria.</li>
@@ -395,8 +397,10 @@
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all equipment.</li>
-				<li><strong>PC</strong> - Will return a list of all equipment already taken by the Player Character.</li>
+				<li><strong>OWNED</strong> - Will return a list of all equipment already taken by the Player Character whether carried or equipped.</li>
 				<li><strong>QUALIFIED</strong> - Will return a list of all equipment that the player character is otherwise qualified for.</li>
+				<li><strong>CARRIED</strong> - Will return a list of all equipment that the player character has, is carrying, but is not equipped.</li>
+				<li><strong>EQUIPPED</strong> - Will return a list of all equipment that the player character has and is equipped.</li>
 			</ul>
 		</li>
 		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
@@ -408,7 +412,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Melee.Simple</code></p>
 	<p class="indent3">A list of all &quot;Simple&quot; and &quot;Melee&quot; type feats will be presented.</p>
-	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Simple,PC </code></p>
+	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Simple,OWNED </code></p>
 	<p class="indent3">A list of all simple equipment that the PC has already selected will be presented.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
