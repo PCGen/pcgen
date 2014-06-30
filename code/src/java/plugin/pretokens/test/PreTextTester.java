@@ -32,6 +32,7 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, test for the presence of text.
@@ -65,6 +66,25 @@ public class PreTextTester extends AbstractDisplayPrereqTest implements Prerequi
 	public String kindHandled()
 	{
 		return "TEXT"; //$NON-NLS-1$
+	}
+
+
+	/**
+     * Convert PreReq to an HTML string
+     * 
+     * @param prereq
+     * @return html String representation of the PreReq 
+	 */
+    @Override
+    public String toHtmlString(final Prerequisite prereq)
+	{
+		return LanguageBundle.getFormattedString(
+			    "AbstractPrerequisiteTest.toHtml",
+			    new Object[]
+			    {
+			    	prereq.getOperator().toDisplayString(), "",
+				    "", prereq.getKey()
+			    });
 	}
 
 }
