@@ -342,6 +342,12 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
 		CNAbilitySelection choice)
 	{
+		Ability ability = choice.getCNAbility().getAbility();
+		double cost = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
+		if (cost > 0.0001)
+		{
+			pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(-cost));
+		}
 		pc.removeAbility(choice, UserSelection.getInstance(),
 			UserSelection.getInstance());
 		pc.adjustMoveRates();
