@@ -327,5 +327,33 @@ public class CollectionToAbilitySelection implements
 			return choice;
 		}
 
+		@Override
+		public int hashCode()
+		{
+			return ability.hashCode() ^ ((choice == null) ? 17 : choice.hashCode());
+		}
+		
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o == this)
+			{
+				return true;
+			}
+			if (o instanceof AbilityWithChoice)
+			{
+				AbilityWithChoice other = (AbilityWithChoice) o;
+				if (choice == null)
+				{
+					if (other.choice != null)
+					{
+						return false;
+					}
+				}
+				return ability.equals(other.ability)
+					&& ((choice == other.choice) || choice.equals(other.choice));
+			}
+			return false;
+		}
 	}
 }
