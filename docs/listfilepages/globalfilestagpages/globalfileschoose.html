@@ -773,7 +773,6 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited skill type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> USEUNTRAINED</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> CLASS</p>
@@ -794,7 +793,6 @@
 		<li>Global qualifiers work for feats. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all skills.</li>
-				<li><strong>PC</strong> - Will return a list of all skills already taken by the Player Character.</li>
 				<li><strong>QUALIFIED</strong> - Will return a list of all skills that the player character is otherwise qualified for.</li>
 				<li><strong>USEUNTRAINED</strong> - Will return a list of all skills that the player character can use intrained.</li>
 			</ul>
@@ -810,8 +808,8 @@
 	<p class="indent3">Will display a list of skills comprised of the <strong>Search</strong> and <strong>Spot</strong> skills.</p>
 	<p class="indent2"><code>CHOOSE:SKILL|CLASS</code></p>
 	<p class="indent3">This will produce a list of all the character's class skills.</p>
-	<p class="indent2"><code>CHOOSE:SKILL|PC</code></p>
-	<p class="indent3">This will produce a list of all skills the character's has ranks in.</p>
+	<p class="indent2"><code>CHOOSE:SKILL|RANKS=1</code></p>
+	<p class="indent3">This will produce a list of all skills the character's has one or more ranks in.</p>
 	<p class="indent2"><code>CHOOSE:SKILL|Knowledge%</code></p>
 	<p class="indent3">This will produce a list of all knowledge skills.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
