@@ -379,3 +379,15 @@ CLASS:Test Current	HD:4		TYPE:PC.Base	CLASSTYPE:PC
 CLASS:Test Current	CSKILL:Speak Language
 #1		ADD:ABILITY|1|Special Ability|VIRTUAL|Test Current
 #1	AUTO:FEAT|Dodge|PRESTAT:1,DEX=11|PRESTAT:1,WIS=12
+
+
+
+
+#RSRD Support - prevent errors in loading
+CLASS:Adept
+CLASS:Cleric
+CLASS:Druid
+CLASS:Paladin
+CLASS:Ranger
+
+
