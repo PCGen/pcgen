@@ -56,7 +56,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 	@Override
 	public String getTokenName()
 	{
-		return "BASESIZE";
+		return "USEUNTRAINED";
 	}
 
 	@Override
