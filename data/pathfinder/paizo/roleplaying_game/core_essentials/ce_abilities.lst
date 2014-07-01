@@ -304,8 +304,9 @@ Malevolence		CATEGORY:Ability Focus	TYPE:Ability Focus
 Frightful Moan		CATEGORY:Ability Focus	TYPE:Ability Focus
 Corrupting Touch		CATEGORY:Ability Focus	TYPE:Ability Focus
 Corrupting Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus
-
-
+Consume Flesh		CATEGORY:Ability Focus	TYPE:Ability Focus
+Hungry Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
+Voice of the Ancients	CATEGORY:Ability Focus	TYPE:Ability Focus
 ###Block: Domain Choice
 #Domain			CATEGORY:Domain	TYPE:Domain
 

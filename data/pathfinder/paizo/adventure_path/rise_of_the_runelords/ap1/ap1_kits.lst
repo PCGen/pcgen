@@ -38,7 +38,7 @@ SKILL:Ride			RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Survival		RANK:1
 FEAT:Mounted Combat
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
 GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
 GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
 GEAR:Shortbow				SIZE:S	LOCATION:Carried
