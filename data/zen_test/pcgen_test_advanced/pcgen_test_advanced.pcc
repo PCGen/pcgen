@@ -58,6 +58,9 @@ TEMPLATE:pcgen_test_advanced_templates_local.lst
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
+FORWARDREF:DOMAIN|Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water
+FORWARDREF:DOMAINSPELLLIST|Air,Animal,Chaos,Death,Destruction,Earth,Evil,Fire,Good,Healing,Knowledge,Law,Luck,Magic,Plant,Protection,Strength,Sun,Travel,Trickery,War,Water
+
 
 #
 # DONE
