@@ -3864,7 +3864,8 @@ first page
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.border'"/>
 						</xsl:call-template>
-						<fo:block font-size="6pt" font-weight="bold">Special Properties: <xsl:value-of select="special_properties"/></fo:block>
+						<fo:block font-size="6pt" font-weight="bold">Special Properties: <xsl:value-of select="special_properties"/>
+						</fo:block>
 					</fo:table-cell>
 				</xsl:if>
 				<xsl:if test="special_properties = ''">
@@ -4109,7 +4110,7 @@ first page
 ====================================-->
 	<xsl:template match="ranges">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:table table-layout="fixed">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
@@ -4127,14 +4128,13 @@ first page
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-			
 				<xsl:if test="./ammunition">
-					<fo:table-row keep-with-next.within-column="always">
+					<fo:table-row>
 						<fo:table-cell number-columns-spanned="6">
 							<xsl:call-template name="attrib">
-								<xsl:with-param name="attribute" select="'weapon.title'"/>
+								<xsl:with-param name="attribute" select="'equipment.border'"/>
 							</xsl:call-template>
-							<fo:block font-size="5pt" font-weight="bold">Ammunition: <xsl:value-of select="ammunition/name"/>
+							<fo:block font-size="6pt" font-weight="bold">Ammunition: <xsl:value-of select="ammunition/name"/>
 								<xsl:if test="string(./ammunition/special_properties) != ''">
 									(<xsl:value-of select="./ammunition/special_properties"/>)
 								</xsl:if>

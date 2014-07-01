@@ -1242,7 +1242,7 @@
 ====================================-->
 	<xsl:template match="ranges">
 		<xsl:param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-		<fo:table table-layout="fixed" keep-with-next="always" keep-together="always">
+		<fo:table table-layout="fixed">
 			<fo:table-column column-width="5mm"/>
 			<fo:table-column>
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
