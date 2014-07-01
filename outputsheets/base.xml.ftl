@@ -409,57 +409,40 @@
 			</savebonus>
 </@loop>
 		</conditional_modifiers>
+<@loop from=0 to=pcvar('COUNT[CHECKS]-1') ; check , check_has_next>
+		<#assign checkName = pcstring('CHECK.${check}.NAME')?lower_case />
+		<#assign checkShortName = checkName />
+		<#if (checkName = 'reflex')>
+			<#assign checkShortName = checkName?substring(0,3) />
+		<#elseif (checkName?length >= 4) >
+			<#assign checkShortName = checkName?substring(0,4) />
+		</#if>
 		<saving_throw>
 			<name>
-				<long>fortitude</long>
-				<short>fort</short>
+				<long>${checkName}</long>
+				<short>${checkShortName}</short>
 			</name>
-			<ability>constitution</ability>
-			<total>${pcstring('CHECK.FORTITUDE.TOTAL')}</total>
-			<base>${pcstring('CHECK.FORTITUDE.BASE')}</base>
-			<abil_mod>${pcstring('CHECK.FORTITUDE.STATMOD')}</abil_mod>
-			<feats>${pcstring('CHECK.FORTITUDE.FEATS')}</feats>
-			<magic_mod>${pcstring('CHECK.FORTITUDE.MAGIC')}</magic_mod>
-			<misc_mod>${pcstring('CHECK.FORTITUDE.MISC.NOMAGIC.NOSTAT')}</misc_mod>
-			<misc_w_magic_mod>${pcstring('CHECK.FORTITUDE.MISC.NOSTAT')}</misc_w_magic_mod>
-			<race>${pcstring('CHECK.FORTITUDE.RACE')}</race>
-			<epic_mod>${pcstring('CHECK.FORTITUDE.EPIC')}</epic_mod>
+			<#if (checkName = 'fortitude')>
+				<ability>constitution</ability>
+			<#elseif (checkName = 'reflex')>
+				<ability>dexterity</ability>
+			<#elseif (checkName = 'will')>
+				<ability>wisdom</ability>
+			<#else>
+				<ability></ability>
+			</#if>
+			<total>${pcstring('CHECK.${check}.TOTAL')}</total>
+			<base>${pcstring('CHECK.${check}.BASE')}</base>
+			<abil_mod>${pcstring('CHECK.${check}.STATMOD')}</abil_mod>
+			<feats>${pcstring('CHECK.${check}.FEATS')}</feats>
+			<magic_mod>${pcstring('CHECK.${check}.MAGIC')}</magic_mod>
+			<misc_mod>${pcstring('CHECK.${check}.MISC.NOMAGIC.NOSTAT')}</misc_mod>
+			<misc_w_magic_mod>${pcstring('CHECK.${check}.MISC.NOSTAT')}</misc_w_magic_mod>
+			<race>${pcstring('CHECK.${check}.RACE')}</race>
+			<epic_mod>${pcstring('CHECK.${check}.EPIC')}</epic_mod>
 			<temp_mod/>
 		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>reflex</long>
-				<short>ref</short>
-			</name>
-			<ability>dexterity</ability>
-			<total>${pcstring('CHECK.REFLEX.TOTAL')}</total>
-			<base>${pcstring('CHECK.REFLEX.BASE')}</base>
-			<feats>${pcstring('CHECK.REFLEX.FEATS')}</feats>
-			<abil_mod>${pcstring('CHECK.REFLEX.STATMOD')}</abil_mod>
-			<magic_mod>${pcstring('CHECK.REFLEX.MAGIC')}</magic_mod>
-			<misc_mod>${pcstring('CHECK.REFLEX.MISC.NOMAGIC.NOSTAT')}</misc_mod>
-			<misc_w_magic_mod>${pcstring('CHECK.REFLEX.MISC.NOSTAT')}</misc_w_magic_mod>
-			<race>${pcstring('CHECK.REFLEX.RACE')}</race>
-			<epic_mod>${pcstring('CHECK.REFLEX.EPIC')}</epic_mod>
-			<temp_mod/>
-		</saving_throw>
-		<saving_throw>
-			<name>
-				<long>will</long>
-				<short>will</short>
-			</name>
-			<ability>wisdom</ability>
-			<total>${pcstring('CHECK.WILL.TOTAL')}</total>
-			<base>${pcstring('CHECK.WILL.BASE')}</base>
-			<abil_mod>${pcstring('CHECK.WILL.STATMOD')}</abil_mod>
-			<feats>${pcstring('CHECK.WILL.FEATS')}</feats>
-			<magic_mod>${pcstring('CHECK.WILL.MAGIC')}</magic_mod>
-			<misc_mod>${pcstring('CHECK.WILL.MISC.NOMAGIC.NOSTAT')}</misc_mod>
-			<misc_w_magic_mod>${pcstring('CHECK.WILL.MISC.NOSTAT')}</misc_w_magic_mod>
-			<race>${pcstring('CHECK.WILL.RACE')}</race>
-			<epic_mod>${pcstring('CHECK.WILL.EPIC')}</epic_mod>
-			<temp_mod/>
-		</saving_throw>
+</@loop>
 	</saving_throws>
 	<!--
 	  ====================================
