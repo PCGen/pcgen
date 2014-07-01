@@ -13,6 +13,21 @@
  * Looking at https://github.com/ari/gradle-release-plugin and https://github.com/townsfolk/gradle-release
  * Also, make NSIS executable location configurable
  */
+/*
+Release script
+1.	Testing
+2.	Update version – remove snapshot
+3.	Clean, Build and check
+4.	Commit new version
+5.	Update svn.properties
+6.	Remove autobuild.properties
+7.	Tag
+8.	Assemble distributables
+9.	Update version – increment version and add snapshot
+10.	Commit new version
+*/
+
+apply from: "code/gradle/releaseUtils.groovy"
 
 ext {
    
@@ -120,6 +135,9 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 		into "/docs/acknowledgments/"
 		include "PCGenLicense.txt"
 	}
+	from ("${projectDir}/code/gradle") {
+		include 'config.ini'
+	}
 	from ("${projectDir}") {
 		include '*.jar'
 		include 'pcgen.exe'
@@ -127,6 +145,7 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 		include 'system/**' // Later we want to split out the game modes to optional
 		include 'docs/**'
 		include 'preview/**'
+		include 'characters/*.pcg'		
 	}
 
 	with baseLibs
@@ -234,4 +253,13 @@ task checksum(dependsOn: assembleArtifacts) << {
 } 
 
 task pcgenRelease (dependsOn: ['build', 'checksum']) {
+	// svn tag
+	updateVersion()
+	// svn commit version
+}
+
+task prepareRelease () {
+	unSnapshotVersion()
+	// clean build
+	// svn commmit version
 }

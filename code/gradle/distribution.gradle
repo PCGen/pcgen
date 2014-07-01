@@ -13,10 +13,14 @@ ext {
 
 	buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
 	
-	autobuildSpec = copySpec {
-		from('code/gradle/autobuild.template')
-		rename('.+','autobuild.properties')
-		expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
+	autobuildSpec = copySpec{}
+	
+	if (System.env.BUILD_NUMBER) {
+		autobuildSpec = copySpec {
+			from('code/gradle/autobuild.template')
+			rename('.+','autobuild.properties')
+			expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
+		}
 	}
 	
     dataDistsImage = copySpec {
@@ -43,7 +47,6 @@ ext {
         from('.') {
         	include 'pcgen.sh'
         	include 'pcgen_low_mem.bat'
-        	include 'filepaths.ini'
         	include 'plugins/**'
         	include 'logging.properties'
         	include 'svn.properties'
@@ -52,6 +55,9 @@ ext {
         	include 'pcgen.exe'
         	include 'LICENSE'
         }
+        from('code/gradle') {
+        	include 'config.ini'
+        }
     }
 
     libsDistsImage = copySpec {
@@ -59,6 +65,13 @@ ext {
         	into 'libs'
         	exclude 'pcgen-*.jar'
         }
+	}
+	
+	charactersImage = copySpec {
+		from('.') {
+			include 'characters/*.pcg'
+		}
+		
 	}
 }
 
@@ -71,6 +84,7 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs']) {
         with programDistsImage
         with libsDistsImage
         with autobuildSpec
+		with charactersImage
     }
 }
 
