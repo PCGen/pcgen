@@ -19,9 +19,9 @@ STATNAME:Charisma		ABB:CHA	STATRANGE:-100|100	STATMOD:floor(SCORE/2)-5	DEFINE:MA
 #
 
 # Epic Saves and Attack bonuses included here.
-CHECKNAME:Fortitude	BONUS:CHECKS|Fortitude|CON	BONUS:CHECKS|Fortitude|max(((TL-HD)-20)/2,0)|TYPE=Epic
-CHECKNAME:Reflex		BONUS:CHECKS|Reflex|DEX		BONUS:CHECKS|Reflex|max(((TL-HD)-20)/2,0)|TYPE=Epic
-CHECKNAME:Will		BONUS:CHECKS|Will|WIS		BONUS:CHECKS|Will|max(((TL-HD)-20)/2,0)|TYPE=Epic
+CHECKNAME:Fortitude	BONUS:SAVE|Fortitude|CON	BONUS:SAVE|Fortitude|max(((TL-HD)-20)/2,0)|TYPE=Epic
+CHECKNAME:Reflex		BONUS:SAVE|Reflex|DEX		BONUS:SAVE|Reflex|max(((TL-HD)-20)/2,0)|TYPE=Epic
+CHECKNAME:Will		BONUS:SAVE|Will|WIS		BONUS:SAVE|Will|max(((TL-HD)-20)/2,0)|TYPE=Epic
 
 # get a bonus level 1 spell at score of 12 and every 8 points beyond that
 BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8
