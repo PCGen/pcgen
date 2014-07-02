@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 Allow_Casting	TYPE:Allow_Casting	DESC:Allows Casting
+Incompetent (-3 to Group)			KEY:Disadvantage ~ Incompetent Group				TYPE:Disadvantage.DisadvantageCounter													DESCISPI:YES	DESC:You suffer from a '-3' modifier on a group of related skills (e.g., anything 'high-tech').																																																																						MULT:YES	CHOOSE:STRING|Charisma|Craft|Dexterity|Intelligence|Knowledge|Perform|Profession|Wisdom	BONUS:SKILL|TYPE=%LIST|-3							COST:1	SOURCEPAGE:p.19	BENEFIT:You have a -3 to selected group of skills.
 
 #Tom Test
 Test91			TYPE:Test.Test91	MULT:YES	STACK:NO	CHOOSE:SKILL|Balance|Hide|Move Silently|Swim
