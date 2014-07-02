@@ -1,0 +1,121 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
+VERSION:6.03.03-dev
+ROLLMETHOD:1|EXPRESSION:10
+PURCHASEPOINTS:N
+CHARACTERTYPE:PC
+PREVIEWSHEET:Standard.htm
+POOLPOINTS:0
+POOLPOINTSAVAIL:-1
+GAMEMODE:35e
+TABLABEL:0
+AUTOSPELLS:Y
+USEHIGHERKNOWN:N
+USEHIGHERPREPPED:N
+LOADCOMPANIONS:N
+USETEMPMODS:Y
+AUTOSORTGEAR:Y
+SKILLSOUTPUTORDER:0
+SKILLFILTER:2
+IGNORECOST:N
+ALLOWDEBT:N
+AUTORESIZEGEAR:Y
+
+# Character Bio
+CHARACTERNAME:Unnamed 1
+TABNAME:
+PLAYERNAME:
+HEIGHT:67
+WEIGHT:183
+AGE:0
+GENDER:Male
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHDAY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:10
+STAT:DEX|SCORE:10
+STAT:CON|SCORE:10
+STAT:INT|SCORE:10
+STAT:WIS|SCORE:10
+STAT:CHA|SCORE:10
+RACE:Human
+
+# Character Class(es)
+CLASS:Test Nothing|LEVEL:1|SKILLPOOL:8|SPELLBASE:None|CANCASTPERDAY:
+CLASSABILITIESLEVEL:Test Nothing=1|HITPOINTS:4|SKILLSGAINED:8|SKILLSREMAINING:8
+
+# Character Experience
+EXPERIENCE:0
+EXPERIENCETABLE:Default
+
+# Character Templates
+
+# Character Region
+REGION:None
+
+# Character Skills
+
+# Character Languages
+LANGUAGE:Common
+
+# Character Feats
+FEATPOOL:0.0
+
+# Character Abilities
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Disadvantage ~ Incompetent Group|APPLIEDTO:Dexterity|TYPE:Disadvantage.DisadvantageCounter|DESC:You suffer from a '-3' modifier on a group of related skills (e.g., anything 'high-tech').
+USERPOOL:FEAT|POOLPOINTS:0.0
+
+# Character Weapon proficiencies
+
+# Character Equipment
+MONEY:0
+EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+CHARACTERDMNOTES:
+
+# Kits
+
+# Character Master/Follower
+
+# Character Notes Tab
+
+# Age Set Selections
+AGESET:0:0:0:0:0:0:0:0:0:0
+
+# Campaign History
+
+# Suppressed Biography Fields
+SUPPRESSBIOFIELDS:
+
