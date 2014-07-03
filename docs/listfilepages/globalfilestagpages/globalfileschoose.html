@@ -34,7 +34,8 @@
 
 	<h1>The CHOOSE Tag</h1>
 
-	<p>This file covers the glodal CHOOSE tag in its many different forms.</p>
+	<p>This file covers the glodal CHOOSE tag in its many different forms. For the eqmod versions of the CHOOSE tag 
+		see <a href="../datafilestagpages/datafilesequipmentmodifiers.html#ABILITY">CHOOSE:ABILITY (Equipment Modifiers)</a></p>
 	<p>While the CHOOSE tag is extremely flexible, it should be noted that support for CHOOSE in class files is
 		still in the works and will cause problems. This is a known issue, and all I can say is that,
 		&quot;We are working on it.&quot;</p>
@@ -95,8 +96,8 @@
 	<p class="indent2"><code>CHOOSE:ABILITY|Special Ability|PC[TYPE=Mercy]</code></p>
 	<p class="indent3">A list of all &quot;Mercy&quot; type abilities will be presented.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
-		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#ABILITY">CHOOSE:ABILITY (Equipment Modifiers)</a></p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files. For the eqmod version see 
+		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#CHOOSEEQUIPMENT">CHOOSE:EQUIPMENT (Equipment Modifiers)</a></p>
 	<p></p>
 
 <hr>
@@ -134,7 +135,7 @@
 	<p class="indent2"><code>CHOOSE:ABILITYSELECTION|Ranger ~ Favored Enemy,PC</code></p>
 	<p class="indent3">This will produce a list of all the character's favored enemies.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -160,7 +161,7 @@
 	<p class="tagexamplst">CHOOSE:ALIGNMENT|ALL</p>
 	<p class="tagexampdesc">This will produce a list of all alignments available.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -207,7 +208,7 @@
 	<p class="indent2"><code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT</code></p>
 	<p class="indent3">Will display a list the proficiencies of all equipment taken.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -233,7 +234,7 @@
 	<p class="indent2"><code>CHOOSE:CHECK|ALL</code></p>
 	<p class="indent3">This will produce a list of all checks available in the gameMode.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -278,8 +279,8 @@
 	<p class="indent2"><code>CHOOSE:CLASS|Fighter|TYPE=Prestige,PC</code></p>
 	<p class="indent3">A list of all <strong>Prestige</strong> type classes that the PC has plus the <strong>Fighter</strong> class will be presented.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files.</p>
-<p></p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
+	<p></p>
 
 <hr>
 
@@ -325,7 +326,7 @@
 	<p class="indent2"><code>CHOOSE:DEITY|TYPE=Good,PC </code></p>
 	<p class="indent3">A list of all <strong>Good</strong> type deities that the PC has already selected will be presented.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files.</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -365,14 +366,8 @@
 	<p class="indent3">A list of domains including <strong>Air</strong>, <strong>Fire</strong> and <strong>Sun</strong> domains will be presented.</p>
 	<p class="indent2"><code>CHOOSE:DOMAIN|DIETY=Kong</code></p>
 	<p class="indent3">A list of domains granted by the deity <strong>Kong</strong> will be presented.</p>
-<!--  This block will be removed prior to the release of 6.2
-	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="lstdep">Deprecated 5.17.4 - Remove 6.2</span></p>
-	<p class="indent2"><code>CHOOSE:DOMAIN|QUALIFY</code></p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:DOMAIN|QUALIFY</code> becomes <code>CHOOSE:DOMAIN|QUALIFIED,!PC</code></p>
--->
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -415,7 +410,7 @@
 	<p class="indent2"><code>CHOOSE:EQUIPMENT|TYPE=Simple,OWNED </code></p>
 	<p class="indent3">A list of all simple equipment that the PC has already selected will be presented.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files. For the eqmod version see 
 		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#CHOOSEEQUIPMENT">CHOOSE:EQUIPMENT (Equipment Modifiers)</a></p>
 	<p></p>
 
@@ -460,7 +455,7 @@
 	<p class="indent2"><code>CHOOSE:FEAT|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all fighter feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -501,7 +496,7 @@
 	<p class="indent2"><code>CHOOSE:FEATSELECTION|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all fighter feats.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -545,6 +540,7 @@
 	<p class="indent2"><code>CHOOSE:LANG|Common|TYPE=Foo,PC</code></p>
 	<p class="indent3">Presents the &quot;Common&quot; language and any languages that have the &quot;Foo&quot; type which are 
 		already selected by the Player Character.</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -567,6 +563,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NOCHOICE</code></p>
 	<p class="indent3">The feat is added without a chooser window.</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -588,7 +585,7 @@
 	<p class="indent2"><code>CHOOSE:NUMBER|MIN=2|MAX=5|TITLE=Roll 1d4+1 and pick a number</code></p>
 	<p class="indent3">Will let you choose a number between 2 and 5. (Simulates rolling 1d4+1).</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -613,7 +610,7 @@
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
 	<p class="indent2"><code>CHOOSE:STAT|STR|CON</code> becomes <code>CHOOSE:PCSTAT|DEX|INT|WIS|CHA</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -666,7 +663,7 @@
 	<p class="indent2"><code>CHOOSE:RACE|BASESIZE=M</code></p>
 	<p class="indent3">This will produce a list of all races that have a size of &quot;M&quot;.</strong>.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -692,7 +689,7 @@
 	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
 	<p class="indent2"><code>CHOOSE:SCHOOLS</code> becomes <code>CHOOSE:SCHOOLS|ALL</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -739,7 +736,7 @@
 	<p class="indent2"><code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT</code></p>
 	<p class="indent3">Will display a list the shield proficiencies of all shields taken.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -759,7 +756,7 @@
 	<p class="indent2"><code>CHOOSE:SIZE|ALL</code></p>
 	<p class="indent3">This will produce a list of all sizes available in the gameMode.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -813,7 +810,7 @@
 	<p class="indent2"><code>CHOOSE:SKILL|Knowledge%</code></p>
 	<p class="indent3">This will produce a list of all knowledge skills.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files. For the eqmod version see 
 		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#CHOOSESKILL">CHOOSE:ABILITY (Equipment Modifiers)</a></p>
 	<p></p>
 
@@ -853,7 +850,7 @@
 	<p class="indent2"><code>CHOOSE:SPELLLEVEL||2|TYPE.Arcane|4|MAXLEVEL+30[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code> becomes</p>
 	<p class="indent3"><code>SELECT:2 &lt;tab&gt; CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|4|MAXLEVEL+30 &lt;tab&gt; BONUS:SPELLCAST|%LIST|1</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -922,7 +919,7 @@
 		<code>KNOWN</code>, <code>LEVELMIN</code>, and <code>LEVELMAX</code> subtags can be done with one set
 		of square brackets ([ ]).</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -941,6 +938,7 @@
 	<p class="indent3">This will produce a list consisting of &quot;+1&quot; and &quot;+2&quot;.</p>
 	<p class="indent2"><code>CHOOSE:STRING|Undead|Constructs|Monkeys</code></p>
 	<p class="indent3">This will produce a list consisting of &quot;Undead&quot;, &quot;Constructs&quot; and &quot;Monkeys&quot;.</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -978,7 +976,7 @@
 	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which are 
 		already selected by the Player Character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files.</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -1011,7 +1009,7 @@
 	<p class="indent2"><code>CHOOSE:WEAPONFOCUS|TYPE.Sword</code></p>
 	<p class="indent3">Present a list of weaponprofs associated with a character's Weapon Focus feats that match a given equipment type.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
@@ -1069,7 +1067,7 @@
 	<p class="indent2"><code>CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Melee,WIELD=Light]</code></p>
 	<p class="indent3">Will display a list of weapon proficiencies for all weapons with a type of Melee that also have a wield type of <strong>Light</strong>.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
+	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
