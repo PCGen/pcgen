@@ -185,6 +185,11 @@ a img {
 	font-weight: bold;
 	margin-bottom: -10px;
 }
+.lstwarning {
+	color: #FF0000;
+	font-weight: bold;
+	margin-bottom: -10px;
+}
 .underline {
 	text-decoration: underline;
 }

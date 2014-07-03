@@ -736,25 +736,21 @@
 
 <hr>
 
-	<p class="lstdep"><strong><a name="XTRASKILLPTSPERLVL">*** Updated Syntax 6.03.02</a></strong> -  Remove deprecated syntax for 6.6.</p>
+	<p class="lstdep"><a name="XTRASKILLPTSPERLVL">*** Updated Syntax 6.03.02</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> XTRASKILLPTSPERLVL:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Variable</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number, Variable, or Formula</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Grants a number of skill points to the race for free at every character level. This happens before multiplication of the first class level's skill points.</p>
-<!--
-	<p class="sidebar1">Note: Use of this tag on levels greater than first level will to unexpected behavior.</p>
--->
+	<p class="sidebar"><span class="lstwarning">Warning:</span> Use of this tag on levels greater than first level will lead to unexpected behavior.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>XTRASKILLPTSPERLVL:1</code></p>
 	<p class="indent3">Adds one to the skill points per level (before multiplication for the 1st level).</p>
 	<p class="indent2"><code>XTRASKILLPTSPERLVL:HumanSkillBase</code></p>
 	<p class="indent3">Adds a number of skill points per level (before multiplication for the 1st level) equal to the value of the variable &quot;HumanSkillBase&quot;".</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>XTRASKILLPTSPERLVL:1</code> becomes <code>XTRASKILLPTSPERLVL:HumanSkillBase</code></p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; XTRASKILLPTSPERLVL:HumanSkillBase</code>
-	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; XTRASKILLPTSPERLVL:HumanSkillBonus</code></p>
-	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; XTRASKILLPTSPERLVL:HumanSkillBonus</code></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; XTRASKILLPTSPERLVL:1</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; XTRASKILLPTSPERLVL:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; XTRASKILLPTSPERLVL:2</code></p>
 	<p class="indent3">The final extra skill points per level are &quot;2&quot;.</p>
 	<p></p>
 
