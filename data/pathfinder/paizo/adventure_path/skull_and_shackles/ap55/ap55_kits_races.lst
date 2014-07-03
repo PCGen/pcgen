@@ -1,8 +1,9 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: James Dempsey
+# ORIGINAL ENTRY DATE: 2014-06
 
-#Dragon, Tidepool - Missing -- Can be a Familiar
-#Incutilis - Missing
-#Kelpie's Wrath - Missing
+#Dragon, Tidepool -- Can be a Familiar
 
 
 STARTPACK:Dodo Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dodo]	SOURCEPAGE:p.88
@@ -39,3 +40,63 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #Str 10, Dex 13, Con 11, Int 2, Wis 13, Cha 6
 #Skills Perception +5, Swim +8; Racial Modifiers +4 Perception
+
+
+STARTPACK:Dragon (Tidepool) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Tidepool)],[!PRERACE:1,%]	SOURCEPAGE:p.82
+ALIGN:CN
+RACE:Dragon (Tidepool)	!PRERACE:1,%
+NAME:Tidepool Dragon
+SKILL:Fly			RANK:4.0
+SKILL:Knowledge (Nature)			RANK:4.0
+SKILL:Perception			RANK:4.0
+SKILL:Survival			RANK:4.0
+SKILL:Swim			RANK:4.0
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|slipstream
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|hydraulic push
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|obscuring mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|acid splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|dancing lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|detect poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|mage hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|touch of fatigue
+
+
+STARTPACK:Incutilis Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Incutilis],[!PRERACE:1,%]	SOURCEPAGE:p.84
+ALIGN:LE
+RACE:Incutilis	!PRERACE:1,%
+NAME:Incutilis
+SKILL:Bluff			RANK:1.0
+SKILL:Disguise		RANK:1.0
+SKILL:Perception			RANK:4.0
+SKILL:Stealth			RANK:4.0
+SKILL:Swim			RANK:4.0
+FEAT:Improved Initiative
+FEAT:Step Up
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Kelpie's Wrath Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kelpie's Wrath],[!PRERACE:1,%]	SOURCEPAGE:p.86
+ALIGN:CN
+RACE:Kelpie's Wrath	!PRERACE:1,%
+NAME:Kelpie's Wrath
+SKILL:Knowledge (engineering)			RANK:9.0
+SKILL:Knowledge (nature)			RANK:9.0
+SKILL:Knowledge (planes)			RANK:9.0
+SKILL:Perception			RANK:18.0
+SKILL:Sense Motive			RANK:9.0
+SKILL:Survival			RANK:18.0
+SKILL:Swim			RANK:18.0
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Disruptive
+FEAT:Greater Overrun
+FEAT:Improved Initiative
+FEAT:Improved Overrun
+FEAT:Power Attack
+FEAT:Spellbreaker
+FEAT:Stand Still
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10

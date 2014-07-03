@@ -7,7 +7,8 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,Skull and Shackles Player's Guide
+PRECAMPAIGN:1,INCLUDES=Skull and Shackles Player's Guide
+PRECAMPAIGN:1,INCLUDES=Pirates of the Inner Sea
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -39,5 +40,9 @@ ABILITY:ap55_abilities_race.lst
 COMPANIONMOD:ap55_companionmods.lst
 KIT:ap55_kits_companions.lst
 KIT:ap55_kits_races.lst
+KIT:ap55_kits_npcs.lst
 RACE:ap55_races.lst
 RACE:ap55_races_companions.lst
+EQUIPMENT:ap55_equip_arms_armor.lst
+EQUIPMENT:ap55_equip_magic_items.lst
+SPELL:ap55_spells.lst
