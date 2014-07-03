@@ -727,7 +727,7 @@
 <hr>
 	
 	<p class="lstnew"><a name="LOCKEDSTAT">*** New 6.01.03</a></p>
-	<p class="indent0"><strong>Tag Name:</a></strong> BONUS:LOCKEDSTAT|x|y</p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:LOCKEDSTAT|x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat defined in loaded gameMode)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number or formula</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
@@ -1323,10 +1323,10 @@
 
 <hr>
 
-	<p class="lststatus"><a name="WEAPON">*** Updated 5.5.2...5.14.0</a></p>
+	<p class="lststatus"><a name="WEAPON">*** Updated 5.14.0</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> BONUS:WEAPON|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Property (Weapon property)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, Variable or Formula (Number to add)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies the indicated property of the weapon the tag is contained in.
@@ -1334,17 +1334,18 @@
 		<li>PRE tags have no baring on how the tags they are appended to can be used, they only effect when they are applied.</li>
 		<li>Weapon properties defined are:
 		<ul>
-			<li>ATTACKS (Adds a number of additional attacks)</li>
-			<li>ATTACKSPROGRESS (overrides the standard attack progression)</li>
-			<li>DAMAGE (Adds to the damage of the weapon)</li>
-			<li>DAMAGEMULT (Adds to the damage multiplier,
-				See <a href="#COMBATDAMAGEMULT">BONUS:COMBAT|DAMAGEMULT</a> for syntax)</li>
-			<li>DAMAGESIZE (Raises or lowers the damage dice on the same scale as weapon size,
-				See <a href="#COMBATDAMAGESIZE">BONUS:COMBAT|DAMAGESIZE</a> for the scale)</li>
-			<li>DAMAGE-SHORTRANGE (Adds to the damage of the weapon when used at short range)</li>
-			<li>TOHIT (Adds to the attack bonus of the weapon)</li>
-			<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon when used at short range)</li>
-			<li>WIELDCATEGORY (Raises or lowers the wieldcatagory of the weapon)</li>
+			<li><code>ATTACKS</code> - Adds a number of additional attacks.</li>
+			<li><code>ATTACKSPROGRESS</code> - Overrides the standard attack progression.</li>
+			<li><code>DAMAGE</code> - Adds to the damage of the weapon.</li>
+			<li><code>DAMAGEMULT</code> - Adds to the damage multiplier,
+				See <a href="#COMBATDAMAGEMULT">BONUS:COMBAT|DAMAGEMULT</a> for syntax.</li>
+			<li><code>DAMAGESIZE</code> - Raises or lowers the damage dice on the same scale as weapon size,
+				See <a href="#COMBATDAMAGESIZE">BONUS:COMBAT|DAMAGESIZE</a> for the scale.</li>
+			<li><code>DAMAGE-SHORTRANGE</code> - Adds to the damage of the weapon when used at short range.</li>
+			<li><code>TOHIT</code> - Adds to the attack bonus of the weapon.</li>
+			<li><code>TOHIT-SHORTRANGE</code> - Adds to the attack bonus of the weapon when used at short range.</li>
+			<li><code>WEAPONBAB</code> - Modifies the character's BAB for the weapon the bonus is applied to, affecting both to-hit and attack progression.</li>
+			<li><code>WIELDCATEGORY</code> - Raises or lowers the wieldcatagory of the weapon.</li>
 		</ul>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
