@@ -176,6 +176,15 @@ public class Campaign extends PObject implements CampaignFacade
 	 * {@inheritDoc}
 	 */
 	@Override
+	public String getSourceShort()
+	{
+		return get(StringKey.SOURCE_SHORT);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public List<String> getBookTypeList()
 	{
 		return getSafeListFor(ListKey.BOOK_TYPE);

@@ -99,6 +99,7 @@ public class SearchFilterPanel extends JPanel
 	public boolean accept(Object context, Object element)
 	{
 		String typeStr = ""; //$NON-NLS-1$
+		String abbStr = ""; //$NON-NLS-1$
 		if (element instanceof InfoFacade)
 		{
 			typeStr = ((InfoFacade)element).getType();
@@ -106,10 +107,12 @@ public class SearchFilterPanel extends JPanel
 		else if (element instanceof CampaignFacade)
 		{
 			typeStr = ((CampaignFacade)element).getBookTypes();
+			abbStr = ((CampaignFacade)element).getSourceShort();
 		}
 		final String searchText = searchField.getText();
 		return StringUtils.containsIgnoreCase(element.toString(), searchText)
-			|| StringUtils.containsIgnoreCase(typeStr, searchText);
+			|| StringUtils.containsIgnoreCase(typeStr, searchText)
+			|| StringUtils.containsIgnoreCase(abbStr, searchText);
 	}
 
 	@Override

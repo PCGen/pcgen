@@ -59,7 +59,11 @@ public interface CampaignFacade
 	 */
 	public String getStatus();
 
-	// XXX that or extends loadable
 	public String getKeyName();
+
+	/**
+	 * @return The abbreviation for the source (e.g. APG)
+	 */
+	public String getSourceShort();
 
 }
