@@ -252,14 +252,21 @@ task checksum(dependsOn: assembleArtifacts) << {
     }
 } 
 
-task pcgenRelease (dependsOn: ['build', 'checksum']) {
+task pcgenRelease (dependsOn: ['build', 'checksum', 'updateVersionToNext']) {
 	// svn tag
-	updateVersion()
+	//updateVersion()
 	// svn commit version
 }
 
-task prepareRelease () {
+task updateVersionRelease << {
 	unSnapshotVersion()
+}
+
+task updateVersionToNext << {
+	updateVersion()
+}
+
+task prepareRelease (dependsOn: updateVersionRelease) {
 	// clean build
 	// svn commmit version
 }
