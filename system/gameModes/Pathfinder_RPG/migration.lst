@@ -2342,6 +2342,7 @@ ABILITY:Special Ability|Change Shape ~ Kitsune						MAXVER:6.4.0	NEWKEY:Kitsune 
 ABILITY:Special Ability|Fast Shifter ~ Kitsune						MAXVER:6.4.0	NEWKEY:Kitsune ~ Fast Shifter		
 ABILITY:Special Ability|Natural Weapon ~ Kitsune					MAXVER:6.4.0	NEWKEY:Kitsune ~ Natural Weapon
 
-
-
-
+ABILITY:Special Ability|Ape Shaman ~ Druid Archetype			MAXVER:6.4.0	NEWKEY:Druid Archetype ~ Ape Shaman	
+ABILITY:Special Ability|Bat Shaman ~ Druid Archetype			MAXVER:6.4.0	NEWKEY:Druid Archetype ~ Bat Shaman	
+ABILITY:Special Ability|Boar Shaman ~ Druid Archetype			MAXVER:6.4.0	NEWKEY:Druid Archetype ~ Boar Shaman	
+ABILITY:Special Ability|World Walker ~ Druid Archetype		MAXVER:6.4.0	NEWKEY:Druid Archetype ~ World Walker	
