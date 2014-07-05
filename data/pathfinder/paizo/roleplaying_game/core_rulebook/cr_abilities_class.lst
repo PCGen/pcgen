@@ -727,6 +727,15 @@ Medusa's Wrath		KEY:Monk Bonus Feat ~ Medusa's Wrath		CATEGORY:Special Ability	T
 Snatch Arrows		KEY:Monk Bonus Feat ~ Snatch Arrows		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Snatch Arrows	PREVARGTEQ:MonkBonusFeatLVL,10										VFEAT:Snatch Arrows
 Spring Attack		KEY:Monk Bonus Feat ~ Spring Attack		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Spring Attack	PREVARGTEQ:MonkBonusFeatLVL,10										VFEAT:Spring Attack
 
+###Block: Unarmed Damage Tracker - Can't grant Class based from other items
+Monk ~ Unarmed Damage	CATEGORY:Internal		DEFINE:MonkUnarmedDamageProgression|0	DEFINE:MonkUnarmedDamageLVL|0	BONUS:VAR|MonkUnarmedDamageLVL|MonkLVL	BONUS:VAR|MonkUnarmedDamageProgression|1+(min(5,MonkUnarmedDamageLVL/4))	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1|PREVAREQ:MonkUnarmedDamageProgression,1	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4|PREVAREQ:MonkUnarmedDamageProgression,2	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8|PREVAREQ:MonkUnarmedDamageProgression,3	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12|PREVAREQ:MonkUnarmedDamageProgression,4	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16|PREVAREQ:MonkUnarmedDamageProgression,5	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20|PREVAREQ:MonkUnarmedDamageProgression,6	
+#
+Monk Unarmed Damage LVL 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2	CATEGORY:Internal
+Monk Unarmed Damage LVL 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6		UMULT:2	CATEGORY:Internal
+Monk Unarmed Damage LVL 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8		UMULT:2	CATEGORY:Internal
+Monk Unarmed Damage LVL 12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6		UMULT:2	CATEGORY:Internal
+Monk Unarmed Damage LVL 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8		UMULT:2	CATEGORY:Internal
+Monk Unarmed Damage LVL 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8	UMULT:2	CATEGORY:Internal
 
 ###Block: Paladin abilities
 # Ability Name		Unique Key						Category of Ability		Type											Visible	Serves As											Define																						Innate Spells										Description																							Bonus to Ability Pool			Save checks bonus			Damage reduction	Modify VAR																										Source Page		Aspects															Description of the Benefits
