@@ -796,12 +796,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	public boolean closeAllCharacters()
 	{
+		final int CLOSE_OPT_CHOOSE = 2;
 		ListFacade<CharacterFacade> characters = CharacterManager.getCharacters();
 		if (characters.isEmpty())
 		{
 			return true;
 		}
-		int ret = 2;
+		int saveAllChoice = CLOSE_OPT_CHOOSE;
 
 		List<CharacterFacade> characterList = new ArrayList<CharacterFacade>();
 		List<CharacterFacade> unsavedPCs = new ArrayList<CharacterFacade>();
@@ -825,27 +826,29 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				LanguageBundle.getString("in_closeOptChoose"), //$NON-NLS-1$
 				LanguageBundle.getString("in_cancel") //$NON-NLS-1$
 			};
-			ret = JOptionPane.showOptionDialog(this, LanguageBundle.getString("in_closeOptSaveTitle"), //$NON-NLS-1$
+			saveAllChoice = JOptionPane.showOptionDialog(this, LanguageBundle.getString("in_closeOptSaveTitle"), //$NON-NLS-1$
 											   Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION,
 											   JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 		}
-		if (ret == 3)
+		if (saveAllChoice == 3)
 		{
+			// Cancel
 			return false;
 		}
-		if (ret == 1)
+		if (saveAllChoice == 1)
 		{
+			// Save none
 			CharacterManager.removeAllCharacters();
 			return true;
 		}
 
 		for (CharacterFacade character : unsavedPCs)
 		{
-			int ret2 = JOptionPane.YES_OPTION;
+			int saveSingleChoice = JOptionPane.YES_OPTION;
 
-			if (ret == 2)
+			if (saveAllChoice == CLOSE_OPT_CHOOSE)
 			{
-				ret2 =
+				saveSingleChoice =
 						JOptionPane.showConfirmDialog(this, LanguageBundle
 							.getFormattedString("in_savePcChoice", character //$NON-NLS-1$
 								.getNameRef().getReference()),
@@ -853,18 +856,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							JOptionPane.YES_NO_CANCEL_OPTION);
 			}
 
-			if (ret2 == JOptionPane.YES_OPTION)
+			if (saveSingleChoice == JOptionPane.YES_OPTION)
 			{//If you get here then the user either selected "Yes to All" or "Yes"
 				if (saveCharacter(character))
 				{
 					characterList.add(character);
 				}
 			}
-			else if (ret2 == JOptionPane.NO_OPTION)
+			else if (saveSingleChoice == JOptionPane.NO_OPTION)
 			{
 				characterList.add(character);
 			}
-			else if (ret2 == JOptionPane.CANCEL_OPTION)
+			else if (saveSingleChoice == JOptionPane.CANCEL_OPTION)
 			{
 				return false;
 			}

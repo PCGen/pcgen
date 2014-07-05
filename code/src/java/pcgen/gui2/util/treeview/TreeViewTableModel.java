@@ -378,11 +378,15 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 				return;
 			}
 			Object levelObject = path.getPathComponent(level);
+			if (levelObject == null)
+			{
+				return;
+			}
 
 			for (int i = 0; i < getChildCount(); i++)
 			{
 				TreeViewNode child = (TreeViewNode) getChildAt(i);
-				if (levelObject.equals(child.userObject))
+				if (child != null && levelObject.equals(child.userObject))
 				{
 					if (path.getPathCount() == level + 1)
 					{//its a leaf, so remove appropriate child
