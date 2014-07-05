@@ -2,30 +2,26 @@
  * PCGen release tasks. This file specifies the way in which PCGen alpha, beta 
  * and production releases are made. 
  *
- * Usage: gradle release
+ * Usage: gradle prepareRelease
+ * Usage: gradle buildNsis
+ * Usage: gradle pcgenRelease
+ *
+ * Release script
+ * 1. gradle prepareRelease slowtest
+ *   a.	Update version – remove snapshot
+ *   b.	Commit new version
+ *   c.	Clean, Build and check
+ *   d. Run slow tests
+ * 2. Manual testing using product of  gradle fullZip or gradle buildNsis
+ * 3. gradle pcgenRelease
+ *   a.	Build
+ *   b.	Assemble distributables
+ *   c.	Tag
+ *   d.	Update version – increment version and add snapshot
+ *   e.	Commit new version
  * 
  * Author: James Dempsey 
  */
-
-/* TODO: 
- * update version number
- * Tag svn
- * Looking at https://github.com/ari/gradle-release-plugin and https://github.com/townsfolk/gradle-release
- * Also, make NSIS executable location configurable
- */
-/*
-Release script
-1.	Testing
-2.	Update version – remove snapshot
-3.	Clean, Build and check
-4.	Commit new version
-5.	Update svn.properties
-6.	Remove autobuild.properties
-7.	Tag
-8.	Assemble distributables
-9.	Update version – increment version and add snapshot
-10.	Commit new version
-*/
 
 apply from: "code/gradle/releaseUtils.groovy"
 
@@ -232,6 +228,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 }
 
 task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar', 'buildNsis']) {
+	description = "Create the release artifacts and get them into the release folder."
 	into "${buildDir}/release"
 	// buildNsis puts the exe into the release folder directly
 	from ("${buildDir}/libs") {
@@ -242,6 +239,7 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
 	}
 }
 
+// Produce SHA-256 checksums for each release artifact
 task checksum(dependsOn: assembleArtifacts) << {
 	File checksumsFile = new File("${buildDir}/release/SHA256-digests-${version}.txt")
 	checksumsFile.delete()
@@ -252,21 +250,28 @@ task checksum(dependsOn: assembleArtifacts) << {
     }
 } 
 
-task pcgenRelease (dependsOn: ['build', 'checksum', 'updateVersionToNext']) {
-	// svn tag
-	//updateVersion()
-	// svn commit version
+task prepareRelease (dependsOn: ['updateVersionRelease', 'clean', 'build', 'genDataList']) {
+	description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
+task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'tagRelease', 'updateVersionToNext']) {
+	description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, tag the release and then update and commit the version ready for new dev work."
+}
+
+// Update the PCGen version to indicate a release, then commit the new version
 task updateVersionRelease << {
 	unSnapshotVersion()
+	commitFile(new File("gradle.properties"), "Update version for release ${project.version}")
 }
 
+// Update the PCGen version for development of the next release, then commit the new version
 task updateVersionToNext << {
 	updateVersion()
+	commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
 
-task prepareRelease (dependsOn: updateVersionRelease) {
-	// clean build
-	// svn commmit version
+// Tag the current PCGen trunk
+task tagRelease << {
+	def tagName = "release-${project.version}"
+	tagRepository("Trunk/pcgen", tagName, "Tag release ${project.version}")
 }
