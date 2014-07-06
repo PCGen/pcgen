@@ -29,6 +29,8 @@ import java.util.Set;
  * referenced by a single Key. In this way, any Value can be determined uniquely
  * for any Key and any Key can be determined uniquely for any Value.
  * 
+ * null is prohibited as a key and a value
+ * 
  * @param <K>
  *            The Class of the key for this OneToOneMap
  * @param <V>
@@ -48,7 +50,7 @@ public class OneToOneMap<K, V>
 	private final Map<V, K> reverseMap = new HashMap<V, K>();
 
 	/**
-	 * Clears the OneToOneMap (removes all keys and values)
+	 * Clears the OneToOneMap (removes all keys and values).
 	 */
 	public void clear()
 	{
@@ -109,7 +111,7 @@ public class OneToOneMap<K, V>
 	}
 
 	/**
-	 * Returns true if the OneToOneMap is empty; false otherwise
+	 * Returns true if the OneToOneMap is empty; false otherwise.
 	 * 
 	 * @return true if the OneToOneMap is empty; false otherwise
 	 */
@@ -149,10 +151,35 @@ public class OneToOneMap<K, V>
 	 */
 	public V put(K key, V value)
 	{
-		K oldKey = reverseMap.put(value, key);
+		if (key == null)
+		{
+			throw new IllegalArgumentException("Key may not be null");
+		}
+		if (value == null)
+		{
+			throw new IllegalArgumentException("Value may not be null");
+		}
+		K oldKey = reverseMap.get(value);
+		V oldValue = forwardMap.get(key);
 		forwardMap.remove(oldKey);
-		return forwardMap.put(key, value);
+		reverseMap.remove(oldValue);
+		forwardMap.put(key, value);
+		reverseMap.put(value, key);
+		return oldValue;
 	}
+
+	/*
+	 * A note on rejecting null as key/value
+	 * 
+	 * otom.put(Integer.valueOf(1), null);
+	 * 
+	 * otom.put(null, Double.valueOf(-1));
+	 * 
+	 * Doing these in one order or the other will result in a problem in put
+	 * unless null is wrapped. If null is wrapped, then keySet and values also
+	 * have to wrap and things get rather complicated quickly. While possible,
+	 * that was beyond the scope of what is considered necessary.
+	 */
 
 	/**
 	 * Copies the key/value combinations from the given Map into this

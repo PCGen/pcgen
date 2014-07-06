@@ -5,8 +5,8 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
+import pcgen.rules.context.LoadContext;
 
 public class AbilitySelection extends Selection<Ability, String> implements
 		Comparable<AbilitySelection>
@@ -32,7 +32,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	 * @return An AbilitySelection that was encoded in the given String.
 	 */
 	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
-		String persistentFormat)
+		LoadContext context, String persistentFormat)
 	{
 		StringTokenizer st =
 				new StringTokenizer(persistentFormat, Constants.PIPE);
@@ -53,7 +53,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		}
 		String ab = st.nextToken();
 		Ability a =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, ac, ab);
 		if (a == null)
 		{

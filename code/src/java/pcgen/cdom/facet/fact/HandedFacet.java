@@ -27,7 +27,7 @@ import pcgen.util.Logging;
  * 
  * @author Vincent Lhote
  */
-public class HandedFacet extends AbstractItemFacet<Handed>
+public class HandedFacet extends AbstractItemFacet<CharID, Handed>
 {
 
 	/**

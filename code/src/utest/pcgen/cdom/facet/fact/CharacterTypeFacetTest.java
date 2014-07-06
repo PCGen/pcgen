@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
@@ -26,7 +27,7 @@ public class CharacterTypeFacetTest extends AbstractItemFacetTest<String>
 	private final CharacterTypeFacet facet = new CharacterTypeFacet();
 
 	@Override
-	protected AbstractItemFacet<String> getFacet()
+	protected AbstractItemFacet<CharID, String> getFacet()
 	{
 		return facet;
 	}

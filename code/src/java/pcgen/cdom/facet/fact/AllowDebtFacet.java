@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
@@ -25,7 +26,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AllowDebtFacet extends AbstractItemFacet<Boolean>
+public class AllowDebtFacet extends AbstractItemFacet<CharID, Boolean>
 {
 
 }

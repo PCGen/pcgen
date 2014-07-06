@@ -24,8 +24,6 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * IdentityList is an implementation of the List Interface that uses Identity
  * (==) rather than equality (.equals() ) to establish behavior for remove. This
  * is useful to maintain an input ordered identity list (not possible with
@@ -37,12 +35,13 @@ import java.util.ListIterator;
 public class IdentityList<T> implements List<T>
 {
 	/**
-	 * The underlying map providing storage of Identity structures
+	 * The underlying map providing storage of Identity structures.
 	 */
-	private final List<Identity<T>> embeddedList = new LinkedList<Identity<T>>();
+	private final List<Identity<T>> embeddedList =
+			new LinkedList<Identity<T>>();
 
 	/**
-	 * Creates a new (empty) IdentityList
+	 * Creates a new (empty) IdentityList.
 	 */
 	public IdentityList()
 	{
@@ -51,7 +50,7 @@ public class IdentityList<T> implements List<T>
 
 	/**
 	 * Createss a new IdentityList which will be initialized with the contents
-	 * of the given List
+	 * of the given List.
 	 * 
 	 * @param list
 	 *            The list of objects used to initialize the contents of this
@@ -157,7 +156,7 @@ public class IdentityList<T> implements List<T>
 	public boolean equals(Object obj)
 	{
 		return obj instanceof IdentityList
-				&& embeddedList.equals(((IdentityList<?>) obj).embeddedList);
+			&& embeddedList.equals(((IdentityList<?>) obj).embeddedList);
 	}
 
 	/**
@@ -342,6 +341,13 @@ public class IdentityList<T> implements List<T>
 		return returnArray;
 	}
 
+	/**
+	 * An object used to wrap an object to ensure checks are done with identity
+	 * (==) not equality (.equals())
+	 * 
+	 * @param <T>
+	 *            The type of object underlying this Identity
+	 */
 	private static final class Identity<T>
 	{
 
@@ -372,7 +378,14 @@ public class IdentityList<T> implements List<T>
 
 	}
 
-	public class IdentityIterator<I> implements ListIterator<I>
+	/**
+	 * An Iterator used to dynamically wrap and unwrap objects inside of
+	 * Identity.
+	 * 
+	 * @param <I>
+	 *            The type of object underlying this IdentityIterator
+	 */
+	private class IdentityIterator<I> implements ListIterator<I>
 	{
 		private final ListIterator<Identity<I>> iter;
 

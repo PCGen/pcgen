@@ -36,7 +36,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
@@ -314,7 +313,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Ability decodeChoice(String encoded, Category<?> category)
+	public Ability decodeChoice(LoadContext context, String encoded,
+		Category<?> category)
 	{
 		String key;
 		AbilityCategory abilityCat = (AbilityCategory) category;
@@ -337,7 +337,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			key = encoded;
 		}
 		Ability a =
-				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					Ability.class, abilityCat, key);
 		if (a == null)
 		{

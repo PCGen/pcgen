@@ -30,8 +30,6 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Thomas Parker
- * 
  * Represents a Map of objects to Lists. List management is done internally to
  * this class (while copies are accessible, the lists are kept private to this
  * class).
@@ -68,7 +66,7 @@ public class HashMapToList<K, V> extends AbstractMapToList<K, V>
 {
 
 	/**
-	 * Creates a new HashMapToList
+	 * Creates a new HashMapToList.
 	 */
 	public HashMapToList()
 	{

@@ -26,7 +26,7 @@ import java.util.StringTokenizer;
 
 /**
  * StringUtil is a utility class designed to provide utility methods when
- * working with java.lang.String Objects
+ * working with java.lang.String Objects.
  */
 public final class StringUtil
 {
@@ -166,15 +166,16 @@ public final class StringUtil
 	 */
 	public static String replaceAll(String original, String find, String replace)
 	{
-		char[] working = original.toCharArray();
-		StringBuilder sb = new StringBuilder(original.length()
-				+ replace.length());
 		int startindex = original.indexOf(find);
 
 		if (startindex < 0)
 		{
 			return original;
 		}
+
+		char[] working = original.toCharArray();
+		StringBuilder sb = new StringBuilder(original.length()
+			+ replace.length());
 
 		int currindex = 0;
 

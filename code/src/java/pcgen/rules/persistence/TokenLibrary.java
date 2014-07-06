@@ -17,8 +17,10 @@
  */
 package pcgen.rules.persistence;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
@@ -102,7 +104,13 @@ public final class TokenLibrary implements PluginLoader
 
 	public static Collection<PostDeferredToken<? extends Loadable>> getPostDeferredTokens()
 	{
-		return POST_DEFERRED_TOKENS.allValues();
+		List<PostDeferredToken<? extends Loadable>> list =
+				new ArrayList<PostDeferredToken<? extends Loadable>>();
+		for (Integer key : POST_DEFERRED_TOKENS.getKeySet())
+		{
+			list.addAll(POST_DEFERRED_TOKENS.getListFor(key));
+		}
+		return list;
 	}
 
 	public static void addToPrimitiveMap(PrimitiveToken<?> p)

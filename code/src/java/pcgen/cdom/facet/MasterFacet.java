@@ -31,7 +31,7 @@ import pcgen.core.character.Follower;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MasterFacet extends AbstractItemFacet<Follower>
+public class MasterFacet extends AbstractItemFacet<CharID, Follower>
 {
 	private CompanionModFacet companionModFacet;
 

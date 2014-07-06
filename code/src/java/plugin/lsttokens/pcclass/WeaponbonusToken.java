@@ -32,7 +32,6 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
@@ -178,8 +177,8 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				WeaponProf.class, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
+			WeaponProf.class, s);
 	}
 
 	@Override

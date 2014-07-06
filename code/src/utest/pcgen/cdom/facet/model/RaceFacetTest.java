@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.Race;
 
@@ -28,7 +28,7 @@ public class RaceFacetTest extends AbstractItemFacetTest<Race>
 	private final RaceFacet facet = new RaceFacet();
 
 	@Override
-	protected AbstractItemFacet<Race> getFacet()
+	protected AbstractItemFacet<CharID, Race> getFacet()
 	{
 		return facet;
 	}

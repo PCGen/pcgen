@@ -29,8 +29,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a DoubleKeyMap of objects to Lists. List management is done
  * internally to this class (while copies are accessible, the lists are kept
  * private to this class).
@@ -65,24 +63,24 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 {
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
-	 * first key of the DoubleKeyMapToList to the second underlying Map
+	 * first key of the DoubleKeyMapToList to the second underlying Map.
 	 */
 	private final Class<? extends Map> firstClass;
 
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * second key of the DoubleKeyMapToList to the value stored for the given
-	 * keys
+	 * keys.
 	 */
 	private final Class<? extends Map> secondClass;
 
 	/**
-	 * The actual map containing the map to map to Lists
+	 * The actual map containing the map to map to Lists.
 	 */
 	private Map<K1, MapToList<K2, V>> mtmtl;
 
 	/**
-	 * Constructs a new DoubleKeyMapToList
+	 * Constructs a new DoubleKeyMapToList.
 	 */
 	public DoubleKeyMapToList()
 	{
@@ -414,7 +412,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Clears this DoubleKeyMapToList
+	 * Clears this DoubleKeyMapToList.
 	 */
 	public void clear()
 	{
@@ -463,6 +461,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * clone, in the sense that the actual keys and values are not cloned.
 	 * 
 	 * @see java.lang.Object#clone()
+	 * @throws CloneNotSupportedException (should not be thrown)
 	 */
 	@Override
 	public DoubleKeyMapToList<K1, K2, V> clone()
@@ -527,7 +526,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * A consistent-with-equals hashCode for DoubleKeyMapToList
+	 * A consistent-with-equals hashCode for DoubleKeyMapToList.
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -553,7 +552,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 
 	/**
 	 * Creates a new primary map (map from the first key to the map storing the
-	 * second key and value)
+	 * second key and value).
 	 * 
 	 * @return a new primary map
 	 */

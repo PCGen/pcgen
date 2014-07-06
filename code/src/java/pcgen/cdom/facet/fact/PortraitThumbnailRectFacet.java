@@ -20,6 +20,7 @@ package pcgen.cdom.facet.fact;
 
 import java.awt.Rectangle;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
@@ -32,7 +33,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PortraitThumbnailRectFacet extends AbstractItemFacet<Rectangle>
+public class PortraitThumbnailRectFacet extends AbstractItemFacet<CharID, Rectangle>
 {
 
 }

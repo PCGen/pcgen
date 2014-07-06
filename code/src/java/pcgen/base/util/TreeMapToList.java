@@ -26,8 +26,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a Map of objects to Lists. List management is done internally to
  * this class (while copies are accessible, the lists are kept private to this
  * class).
@@ -63,12 +61,12 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 {
 
 	/**
-	 * The Comparator used to order the key elements of this TreeMapToList
+	 * The Comparator used to order the key elements of this TreeMapToList.
 	 */
 	private final Comparator<? super K> comparator;
 
 	/**
-	 * Creates a new TreeMapToList
+	 * Creates a new TreeMapToList.
 	 */
 	public TreeMapToList()
 	{

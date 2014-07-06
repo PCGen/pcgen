@@ -160,7 +160,8 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 		String choiceStr = persistentFormat;
 		if (choiceActor instanceof CategorizedChooser)
 		{
-			return ((CategorizedChooser<T>)choiceActor).decodeChoice(choiceStr, category);
+			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context,
+				choiceStr, category);
 		}
 		return choiceActor.decodeChoice(context, choiceStr);
 	}

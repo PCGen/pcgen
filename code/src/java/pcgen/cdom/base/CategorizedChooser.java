@@ -19,6 +19,8 @@
  */
 package pcgen.cdom.base;
 
+import pcgen.rules.context.LoadContext;
+
 public interface CategorizedChooser<T> extends Chooser<T>
 {
 	/**
@@ -29,14 +31,18 @@ public interface CategorizedChooser<T> extends Chooser<T>
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
 	 * 
+	 * @param context
+	 *            The LoadContext used to decode the persistentFormat
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
-	 * @param category The fixed category of the choice.
+	 * @param category
+	 *            The fixed category of the choice.
 	 * 
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(String persistentFormat, Category<?> category);
+	public T decodeChoice(LoadContext context, String persistentFormat,
+		Category<?> category);
 
 }

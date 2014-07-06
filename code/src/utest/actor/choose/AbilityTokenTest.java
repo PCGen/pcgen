@@ -84,13 +84,13 @@ public class AbilityTokenTest extends TestCase
 	@Test
 	public void testDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice(getExpected(), CATEGORY));
+		assertEquals(getObject(), pca.decodeChoice(context, getExpected(), CATEGORY));
 	}
 
 	@Test
 	public void testLegacyDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice("CATEGORY=FEAT|" +ITEM_NAME, CATEGORY));
+		assertEquals(getObject(), pca.decodeChoice(context, "CATEGORY=FEAT|" +ITEM_NAME, CATEGORY));
 	}
 
 }

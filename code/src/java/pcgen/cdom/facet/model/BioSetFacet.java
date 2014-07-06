@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.BioSet;
 
@@ -26,6 +27,6 @@ import pcgen.core.BioSet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BioSetFacet extends AbstractItemFacet<BioSet>
+public class BioSetFacet extends AbstractItemFacet<CharID, BioSet>
 {
 }

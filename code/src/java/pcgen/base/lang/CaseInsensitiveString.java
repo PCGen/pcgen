@@ -20,8 +20,6 @@
 package pcgen.base.lang;
 
 /**
- * @author Tom Parker (thpr@users.sourceforge.net)
- * 
  * CaseInsensitiveString is designed to be a String-like Object which is fast in
  * dealing with case sensitive comparisons in "consistent with equals"
  * situations.
@@ -43,7 +41,7 @@ public class CaseInsensitiveString
 {
 
 	/**
-	 * The String that underlies this CaseInsensitiveString
+	 * The String that underlies this CaseInsensitiveString.
 	 */
 	private final String string;
 
@@ -121,7 +119,7 @@ public class CaseInsensitiveString
 	}
 
 	/**
-	 * Returns the underlying String for this CaseInsensitiveString
+	 * Returns the underlying String for this CaseInsensitiveString.
 	 * 
 	 * @return The underlying String for this CaseInsensitiveString
 	 */

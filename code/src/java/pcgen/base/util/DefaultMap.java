@@ -20,19 +20,19 @@ package pcgen.base.util;
 import java.util.HashMap;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * A DefaultMap is a HashMap that has a modified get operation. This get
  * operation will return a given default value (instead of null) if the given
  * key is not otherwise contained in the DefaultMap. This default return
  * behavior does NOT modify the behavior of the containsKey() method.
  * 
+ * @param <K> The type of the key objects for this DefaultMap
+ * @param <V> The type of the value objects for this DefaultMap
  */
 public class DefaultMap<K, V> extends HashMap<K, V>
 {
 
 	/**
-	 * The default value to be returned if a key is not contained in the Map
+	 * The default value to be returned if a key is not contained in the Map.
 	 */
 	private V defaultValue;
 
@@ -52,7 +52,7 @@ public class DefaultMap<K, V> extends HashMap<K, V>
 
 	/**
 	 * Returns the default value (what is returned by the get method if a key is
-	 * not contained in the Map)
+	 * not contained in the Map).
 	 * 
 	 * @return the default value for this Map
 	 */
@@ -63,7 +63,7 @@ public class DefaultMap<K, V> extends HashMap<K, V>
 
 	/**
 	 * Sets the default value (what is returned by the get method if a key is
-	 * not contained in the Map)
+	 * not contained in the Map).
 	 * 
 	 * @param defaultVal
 	 *            the new default value for this Map

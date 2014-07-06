@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.BioSet;
 
@@ -28,7 +28,7 @@ public class BioSetFacetTest extends AbstractItemFacetTest<BioSet>
 	private final BioSetFacet facet = new BioSetFacet();
 
 	@Override
-	protected AbstractItemFacet<BioSet> getFacet()
+	protected AbstractItemFacet<CharID, BioSet> getFacet()
 	{
 		return facet;
 	}

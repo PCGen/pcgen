@@ -19,6 +19,7 @@ package pcgen.cdom.facet.fact;
 
 import java.awt.Rectangle;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
@@ -28,7 +29,7 @@ public class PortraitThumbnailRectFacetTest extends AbstractItemFacetTest<Rectan
 	private final PortraitThumbnailRectFacet facet = new PortraitThumbnailRectFacet();
 
 	@Override
-	protected AbstractItemFacet<Rectangle> getFacet()
+	protected AbstractItemFacet<CharID, Rectangle> getFacet()
 	{
 		return facet;
 	}

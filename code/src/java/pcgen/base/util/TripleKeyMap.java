@@ -24,8 +24,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a map where the objects are stored using three keys rather than
  * the traditional single key (single key is provided by the Map interface from
  * java.util).
@@ -62,7 +60,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * third key of the TripleKeyMapToList to the value stored for the given
-	 * keys
+	 * keys.
 	 */
 	private final Class<? extends Map> thirdClass;
 
@@ -75,7 +73,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	private DoubleKeyMap<K1, K2, Map<K3, V>> map;
 
 	/**
-	 * Constructs a new (empty) TripleKeyMap
+	 * Constructs a new (empty) TripleKeyMap.
 	 */
 	public TripleKeyMap()
 	{
@@ -86,8 +84,22 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	/**
 	 * Constructs a new (empty) TripleKeyMap.
 	 * 
+	 * All of the classes provided as parameters must extend Map, and must have
+	 * a public zero argument constructor.
+	 * 
+	 * @param cl1
+	 *            The Class to be used for the first of the underlying maps for
+	 *            the TripleKeyMap
+	 * @param cl2
+	 *            The Class to be used for the second of the underlying maps for
+	 *            the TripleKeyMap
+	 * @param cl3
+	 *            The Class to be used for the third of the underlying maps for
+	 *            the TripleKeyMap
+	 * 
 	 * @throws IllegalArgumentException
-	 *             if any of the given Classes is null
+	 *             if any of the given Classes is null or does not have a public
+	 *             zero argument constructor
 	 */
 	public TripleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2,
 			Class<? extends Map> cl3)
@@ -330,6 +342,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * 
 	 * @return A clone of this TripleKeyMap that contains the same keys and
 	 *         values as the original TripleKeyMap.
+	 * @throws CloneNotSupportedException
+	 *             in the rare case that the super class actually throws the
+	 *             exception
 	 */
 	@Override
 	public TripleKeyMap<K1, K2, K3, V> clone()
@@ -390,7 +405,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	}
 
 	/**
-	 * A consistent-with-equals hashCode for TripleKeyMap
+	 * A consistent-with-equals hashCode for TripleKeyMap.
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -416,7 +431,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 
 	/**
 	 * Creates a new local map (map from the third key to the value of the
-	 * TripleKeyMap)
+	 * TripleKeyMap).
 	 * 
 	 * @return a new local map
 	 */

@@ -27,7 +27,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class WeightFacet extends AbstractItemFacet<Integer>
+public class WeightFacet extends AbstractItemFacet<CharID, Integer>
 {
 	/*
 	 * TODO There seems to be some inlining that can occur here - what really is

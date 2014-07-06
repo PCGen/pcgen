@@ -483,14 +483,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			loadCampaigns(selectedGame, selectedCampaigns, context);
 
 			// Load custom items
-			loadCustomItems();
+			loadCustomItems(context);
 
 			finishLoad(selectedCampaigns, context);
 			// Check for valid race types
 			//			checkRaceTypes();
 
 			// Verify weapons are melee or ranged
-			verifyWeaponsMeleeOrRanged();
+			verifyWeaponsMeleeOrRanged(context);
 
 			//  Auto-gen additional equipment
 			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
@@ -654,12 +654,12 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			EqModAttachment.finishEquipment(eq);
 		}
-		validateSingleDefaultSize();
+		validateSingleDefaultSize(context);
 	}
 
-	private void validateSingleDefaultSize()
+	private void validateSingleDefaultSize(LoadContext context)
 	{
-		int defaults = getDefaultSizeAdjustmentCount();
+		int defaults = getDefaultSizeAdjustmentCount(context);
 		if (defaults == 0)
 		{
 			Logging.log(Logging.LST_WARNING,
@@ -698,11 +698,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.unconditionallyProcess(a, "MULT", "YES");
 	}
 
-//
-//	public String getSection15()
-//	{
-//	}
-	private void loadCustomItems()
+	private void loadCustomItems(LoadContext context)
 	{
 		if (!PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
 		{
@@ -747,7 +743,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					aLine = aLine.substring(idx + 1);
 
 					Equipment aEq =
-							Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+							context.getReferenceContext().silentlyGetConstructedCDOMObject(
 							Equipment.class, baseItemKey);
 
 					if (aEq != null)
@@ -759,7 +755,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 						{
 							aEq.addType(Type.CUSTOM);
 						}
-						Globals.getContext().getReferenceContext().importObject(aEq);
+						context.getReferenceContext().importObject(aEq);
 					}
 				}
 			}
@@ -823,13 +819,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @throws PersistenceLayerException if a weapon is neither melee or ranged, indicating
 	 *                                   the name of the weapon that caused the error
 	 */
-	private void verifyWeaponsMeleeOrRanged() throws PersistenceLayerException
+	private void verifyWeaponsMeleeOrRanged(LoadContext context)
+		throws PersistenceLayerException
 	{
 		//
 		// Check all the weapons to see if they are either Melee or Ranged, to avoid
 		// problems when we go to export/preview the character
 		//
-		for (Equipment aEq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+		for (Equipment aEq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			if (aEq.isWeapon() && !aEq.isMelee() && !aEq.isRanged())
 			{
@@ -1138,10 +1135,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	public int getDefaultSizeAdjustmentCount()
+	public int getDefaultSizeAdjustmentCount(LoadContext context)
 	{
 		int i = 0;
-		for (SizeAdjustment s : Globals.getContext().getReferenceContext()
+		for (SizeAdjustment s : context.getReferenceContext()
 				.getOrderSortedCDOMObjects(SizeAdjustment.class))
 		{
 			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))

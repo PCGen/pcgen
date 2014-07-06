@@ -36,7 +36,7 @@ import pcgen.util.Logging;
  * Total Experience Points are a combination of Earned Experience Points and
  * Level-Adjusted Experience Points.
  */
-public class XPFacet extends AbstractItemFacet<Integer>
+public class XPFacet extends AbstractItemFacet<CharID, Integer>
 {
 
 	private LevelFacet levelFacet;

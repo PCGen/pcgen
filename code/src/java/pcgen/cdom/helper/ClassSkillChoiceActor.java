@@ -25,7 +25,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -170,8 +169,8 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public Skill decodeChoice(LoadContext context, String persistentFormat)
 	{
-		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Skill.class, persistentFormat);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
+			Skill.class, persistentFormat);
 	}
 
 	/**
@@ -180,7 +179,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * format which restricts certain characters (such as URLs), it simply
 	 * encodes into an identifying String. There is no guarantee that this
 	 * encoding is human readable, simply that the encoding is uniquely
-	 * identifing such that the decodeChoice method of ClassSkillChoiceActor is
+	 * identifying such that the decodeChoice method of ClassSkillChoiceActor is
 	 * capable of decoding the String into the Skill.
 	 * 
 	 * @param choice

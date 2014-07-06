@@ -24,8 +24,6 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a Map of objects to Lists. List management is done internally to
  * this class (while copies are accessible, the lists are kept private to this
  * class).
@@ -57,7 +55,7 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 {
 
 	/**
-	 * Creates a new HashMapToList
+	 * Creates a new HashMapToList.
 	 */
 	public HashMapToInstanceList()
 	{
@@ -65,7 +63,7 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	}
 
 	/**
-	 * Creates a new HashSet for use by AbstractMapToList
+	 * Creates a new HashSet for use by AbstractMapToList.
 	 * 
 	 * @see pcgen.base.util.AbstractMapToList#getEmptySet()
 	 */

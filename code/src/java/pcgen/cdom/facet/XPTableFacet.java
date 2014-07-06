@@ -26,7 +26,7 @@ import pcgen.core.XPTable;
  * XPTableFacet is a Facet that tracks the XP table assigned to a Player
  * Character.
  */
-public class XPTableFacet extends AbstractItemFacet<XPTable>
+public class XPTableFacet extends AbstractItemFacet<CharID, XPTable>
 {
 
 	/**

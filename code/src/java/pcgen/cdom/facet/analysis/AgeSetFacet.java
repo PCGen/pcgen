@@ -37,7 +37,7 @@ import pcgen.core.Race;
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
+public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
 		DataFacetChangeListener<CharID, Object>
 {
 	private AgeFacet ageFacet;
@@ -89,7 +89,8 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 	private void update(CharID id)
 	{
 		Region region = Region.getConstant(regionFacet.getRegion(id));
-		AgeSet ageSet = bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id));
+		AgeSet ageSet =
+				bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id));
 		if (ageSet == null)
 		{
 			remove(id);
@@ -139,7 +140,8 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 		String region = regionFacet.getRegion(id);
 		Race race = raceFacet.get(id);
 		String raceName = race == null ? "" : race.getKeyName().trim();
-		List<String> values = bioSet.getValueInMaps(region, raceName, "BASEAGE");
+		List<String> values =
+				bioSet.getValueInMaps(region, raceName, "BASEAGE");
 		if (values == null)
 		{
 			return 0;

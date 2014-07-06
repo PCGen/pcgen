@@ -24,8 +24,6 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a Map of objects to Lists.
  * 
  * It is expected that any class that implements MapToList makes a reasonable

@@ -26,8 +26,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a Map of objects to Lists. List management is done internally to
  * this class (while copies are accessible, the lists are kept private to this
  * class).
@@ -64,7 +62,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	protected final Map<K, List<V>> mapToList;
 
 	/**
-	 * Creates a new AbstractMapToList
+	 * Creates a new AbstractMapToList.
 	 */
 	protected AbstractMapToList(Map<K, List<V>> mtl)
 	{
@@ -451,7 +449,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
-	 * Clears this AbstractMapToList (removes all keys/list combinations)
+	 * Clears this AbstractMapToList (removes all keys/list combinations).
 	 */
 	@Override
 	public void clear()
@@ -506,7 +504,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	protected abstract Set<K> getEmptySet();
 
 	/**
-	 * Returns the consistent-with-equals hashCode for this AbstractMapToList
+	 * Returns the consistent-with-equals hashCode for this AbstractMapToList.
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -517,57 +515,23 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
-	 * Returns true if this AbstractMapToList is equal to the given Object.
+	 * Returns true if this AbstractMapToList is equal to the given Object
+	 * (which must also be another AbstractMapToList).
 	 * 
 	 * Note that equality as defined by this method is equality of *contents* of
-	 * the MapToList, not the exact class extending AbstractMapToList.
-	 * Therefore, as with the expected behavior of classes that implement
-	 * interfaces like java.util.Map, it is expected that classes that implement
-	 * MapToList can be tested for equality against other instances of MapToList
-	 * using the equals(Object o) method.
+	 * the AbstractMapToList, not the exact class extending AbstractMapToList.
+	 * However, the other object must extend AbstractMapToList not just
+	 * implement MapToList.
 	 * 
 	 * **NOTE** This equals method may not be symmetric if other implementors of
-	 * MapToList do not define equality in the same way. This equality test
-	 * against other classes that implement MapToList is limited to their
-	 * contents as a MapToList, regardless of whether they extend
-	 * AbstractMapToList. It does not consider other fields/contents that the
-	 * other MapToList may contain.
+	 * MapToList do not define equality in the same way.
 	 * 
 	 * @see java.lang.Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof AbstractMapToList)
-		{
-			return mapToList.equals(((AbstractMapToList<?, ?>) obj).mapToList);
-		}
-		else if (obj instanceof MapToList)
-		{
-			MapToList<Object, ?> other = (MapToList<Object, ?>) obj;
-			Set<K> keySet = mapToList.keySet();
-			if (keySet.equals(other.getKeySet()))
-			{
-				for (Object key : keySet)
-				{
-					if (!mapToList.get(key).equals(other.getListFor(key)))
-					{
-						return false;
-					}
-				}
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public Collection<V> allValues()
-	{
-		List<V> list = new ArrayList<V>();
-		for (List<V> values : mapToList.values())
-		{
-			list.addAll(values);
-		}
-		return list;
+		return (obj instanceof AbstractMapToList)
+			&& mapToList.equals(((AbstractMapToList<?, ?>) obj).mapToList);
 	}
 }

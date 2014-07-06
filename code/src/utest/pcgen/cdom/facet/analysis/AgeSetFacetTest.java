@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import pcgen.cdom.facet.analysis.AgeSetFacet;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.AgeSet;
@@ -28,7 +28,7 @@ public class AgeSetFacetTest extends AbstractItemFacetTest<AgeSet>
 	private final AgeSetFacet facet = new AgeSetFacet();
 
 	@Override
-	protected AbstractItemFacet<AgeSet> getFacet()
+	protected AbstractItemFacet<CharID, AgeSet> getFacet()
 	{
 		return facet;
 	}

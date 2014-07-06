@@ -29,7 +29,7 @@ import pcgen.core.PCTemplate;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GenderFacet extends AbstractItemFacet<Gender>
+public class GenderFacet extends AbstractItemFacet<CharID, Gender>
 {
 
 	private TemplateFacet templateFacet;

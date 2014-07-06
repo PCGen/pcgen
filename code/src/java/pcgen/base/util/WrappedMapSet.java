@@ -49,12 +49,12 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 {
 	/**
 	 * The object used to indicate that a given Key in the underlying Map is
-	 * part of the Set represented by this WrappedMapSet
+	 * part of the Set represented by this WrappedMapSet.
 	 */
 	private static final Object PRESENCE = new Object();
 
 	/**
-	 * The underlying Map used to produce the Set
+	 * The underlying Map used to produce the Set.
 	 */
 	private Map<T, Object> map;
 
@@ -148,7 +148,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	}
 
 	/**
-	 * Returns the number of objects contained within the WrappedMapSet
+	 * Returns the number of objects contained within the WrappedMapSet.
 	 * 
 	 * @see java.util.AbstractCollection#size()
 	 */
@@ -159,7 +159,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	}
 
 	/**
-	 * Returns true if the WrappedMapSet is empty; false otherwise
+	 * Returns true if the WrappedMapSet is empty; false otherwise.
 	 * 
 	 * @see java.util.AbstractCollection#isEmpty()
 	 */
@@ -171,7 +171,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 
 	/**
 	 * Returns true if the WrappedMapSet contains the given Object; false
-	 * otherwise
+	 * otherwise.
 	 * 
 	 * @see java.util.AbstractCollection#contains(java.lang.Object)
 	 */

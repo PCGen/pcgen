@@ -283,7 +283,8 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	@Override
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return AbilitySelection.getAbilitySelectionFromPersistentFormat(
+			context, s);
 	}
 
 	@Override

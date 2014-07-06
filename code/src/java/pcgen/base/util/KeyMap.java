@@ -18,7 +18,6 @@
 package pcgen.base.util;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -57,7 +56,7 @@ public class KeyMap<V>
 
 	/**
 	 * Creates a new, empty DoubleKeyMap using HashMap as the underlying Map
-	 * class for both the primary and secondary underlying Map
+	 * class for both the primary and secondary underlying Map.
 	 */
 	public KeyMap()
 	{
@@ -67,7 +66,7 @@ public class KeyMap<V>
 	}
 
 	/**
-	 * Clears the KeyMap (removes all keys and values)
+	 * Clears the KeyMap (removes all keys and values).
 	 */
 	public void clear()
 	{
@@ -129,7 +128,7 @@ public class KeyMap<V>
 	}
 
 	/**
-	 * Returns true if the KeyMap is empty; false otherwise
+	 * Returns true if the KeyMap is empty; false otherwise.
 	 * 
 	 * @return true if the KeyMap is empty; false otherwise
 	 */
@@ -170,12 +169,26 @@ public class KeyMap<V>
 	 */
 	public V put(String key, V value)
 	{
-		V old = forwardMap.put(key, value);
-		inputOrder.remove(old);
+		if (key == null)
+		{
+			throw new IllegalArgumentException("Key may not be null");
+		}
+		if (value == null)
+		{
+			throw new IllegalArgumentException("Value may not be null");
+		}
+		String oldKey = reverseMap.get(value);
+		V oldValue = forwardMap.get(key);
+		if (oldKey != null)
+		{
+			forwardMap.remove(oldKey);
+		}
+		reverseMap.remove(oldValue);
+		inputOrder.remove(oldValue);
 		inputOrder.add(value);
-		reverseMap.remove(old);
+		forwardMap.put(key, value);
 		reverseMap.put(value, key);
-		return old;
+		return oldValue;
 	}
 
 	/**
@@ -306,21 +319,5 @@ public class KeyMap<V>
 	public V getItemInOrder(int index)
 	{
 		return inputOrder.get(index);
-	}
-
-	/**
-	 * Returns a Set of the Keys in this KeyMap.
-	 * 
-	 * Note: This Collection is both reference-semantic and value-semantic. The
-	 * ownership of the Collection is transferred to the calling Object;
-	 * therefore, changes to the returned Collection will NOT impact the KeyMap.
-	 * However, changes to the objects contained within the returned Collection
-	 * will change objects contained within this KeyMap.
-	 * 
-	 * @return A Set of the Keys in this KeyMap
-	 */
-	public Set<String> getKeySet()
-	{
-		return Collections.unmodifiableSet(forwardMap.keySet());
 	}
 }

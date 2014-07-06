@@ -17,12 +17,13 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
  * PreviewSheetFacet is a Facet that tracks the preview sheet associated 
  * with a character.
  */
-public class PreviewSheetFacet extends AbstractItemFacet<String>
+public class PreviewSheetFacet extends AbstractItemFacet<CharID, String>
 {
 }

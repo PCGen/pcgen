@@ -269,7 +269,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertTrue(getFacet().matches(altid, null));
 	}
 
-	protected abstract AbstractItemFacet<T> getFacet();
+	protected abstract AbstractItemFacet<CharID, T> getFacet();
 
 	protected abstract T getItem();
 	

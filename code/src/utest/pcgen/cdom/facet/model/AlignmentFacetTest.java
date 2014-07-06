@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.PCAlignment;
 
@@ -28,7 +28,7 @@ public class AlignmentFacetTest extends AbstractItemFacetTest<PCAlignment>
 	private final AlignmentFacet facet = new AlignmentFacet();
 
 	@Override
-	protected AbstractItemFacet<PCAlignment> getFacet()
+	protected AbstractItemFacet<CharID, PCAlignment> getFacet()
 	{
 		return facet;
 	}

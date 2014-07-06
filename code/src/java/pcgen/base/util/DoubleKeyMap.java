@@ -31,8 +31,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 /**
- * @author Thomas Parker
- * 
  * Represents a map where the objects are stored using two keys rather than the
  * traditional single key (single key is provided by the Map interface from
  * java.util).
@@ -73,19 +71,19 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
-	 * first key of the DoubleKeyMap to the second underlying Map
+	 * first key of the DoubleKeyMap to the second underlying Map.
 	 */
 	private final Class<? extends Map> firstClass;
 
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
-	 * second key of the DoubleKeyMap to the value stored for the given keys
+	 * second key of the DoubleKeyMap to the value stored for the given keys.
 	 */
 	private final Class<? extends Map> secondClass;
 
 	/**
 	 * The internal Map to Map structure used to store the objects in this
-	 * DoubleKeyMap
+	 * DoubleKeyMap.
 	 */
 	private Map<K1, Map<K2, V>> map;
 	
@@ -106,7 +104,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 
 	/**
 	 * Creates a new, empty DoubleKeyMap using HashMap as the underlying Map
-	 * class for both the primary and secondary underlying Map
+	 * class for both the primary and secondary underlying Map.
 	 */
 	public DoubleKeyMap()
 	{
@@ -272,7 +270,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	public Map<K2, V> getMapFor(K1 key1)
 	{
 		Map<K2, V> localMap = map.get(key1);
-		Map<K2, V> copy = new HashMap<K2, V>();
+		Map<K2, V> copy = createLocalMap();
 		if (localMap != null)
 		{
 			copy.putAll(localMap);
@@ -478,6 +476,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * actual keys and values are not cloned.
 	 * 
 	 * @see java.lang.Object#clone()
+	 * @throws CloneNotSupportedException (should not be thrown)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -526,7 +525,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * A consistent-with-equals hashCode for DoubleKeyMap
+	 * A consistent-with-equals hashCode for DoubleKeyMap.
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -552,7 +551,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 
 	/**
 	 * Creates a new secondary map (map from the second key to the value of the
-	 * DoubleKeyMap)
+	 * DoubleKeyMap).
 	 * 
 	 * @return a new secondary map
 	 */
@@ -578,7 +577,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 
 	/**
 	 * Creates a new primary map (map from the first key to the map storing the
-	 * second key and value)
+	 * second key and value).
 	 * 
 	 * @return a new primary map
 	 */
@@ -636,6 +635,11 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * 
 	 * Note that while this is a read-only map, there is no guarantee that this
 	 * returned map is thread-safe. Use in threaded situations with caution.
+	 * 
+	 * Note the use of this method changes the behavior of this DoubleKeyMap,
+	 * meaning if this method is never called, getKeySet will only return keys
+	 * for which there are values. Once this method is called (and until clear()
+	 * is called), getKeySet will return keys for which there may be no values.
 	 * 
 	 * @param key1
 	 *            The primary key for which the submap in this DoubleKeyMap

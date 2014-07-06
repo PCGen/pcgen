@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.Deity;
 
@@ -28,7 +28,7 @@ public class DeityFacetTest extends AbstractItemFacetTest<Deity>
 	private final DeityFacet facet = new DeityFacet();
 
 	@Override
-	protected AbstractItemFacet<Deity> getFacet()
+	protected AbstractItemFacet<CharID, Deity> getFacet()
 	{
 		return facet;
 	}

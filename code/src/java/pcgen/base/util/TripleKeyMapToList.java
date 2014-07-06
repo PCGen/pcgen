@@ -25,8 +25,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a TripleKeyMap of objects to Lists. List management is done
  * internally to this class (while copies are accessible, the lists are kept
  * private to this class).
@@ -57,7 +55,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * third key of the TripleKeyMapToList to the value stored for the given
-	 * keys
+	 * keys.
 	 */
 	private final Class<? extends Map> thirdClass;
 
@@ -70,7 +68,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	private final DoubleKeyMap<K1, K2, MapToList<K3, V>> map;
 
 	/**
-	 * Constructs a new (empty) TripleKeyMapToList
+	 * Constructs a new (empty) TripleKeyMapToList.
 	 */
 	public TripleKeyMapToList()
 	{
@@ -83,8 +81,22 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	/**
 	 * Constructs a new (empty) TripleKeyMapToList.
 	 * 
+	 * All of the classes provided as parameters must extend Map, and must have
+	 * a public zero argument constructor.
+	 * 
+	 * @param cl1
+	 *            The Class to be used for the first of the underlying maps for
+	 *            the TripleKeyMapToList
+	 * @param cl2
+	 *            The Class to be used for the second of the underlying maps for
+	 *            the TripleKeyMapToList
+	 * @param cl3
+	 *            The Class to be used for the third of the underlying maps for
+	 *            the TripleKeyMapToList
+	 * 
 	 * @throws IllegalArgumentException
-	 *             if any of the given Classes is null
+	 *             if any of the given Classes is null or does not have a zero
+	 *             argument constructor
 	 */
 	public TripleKeyMapToList(Class<? extends Map> cl1,
 			Class<? extends Map> cl2, Class<? extends Map> cl3)
@@ -392,10 +404,20 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 		return map.primaryKeyCount();
 	}
 
+	/**
+	 * A consistent-with-equals hashCode for TripleKeyMapToList.
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		return map.hashCode();
+	}
 
 	/**
-	 * Returns true if the DoubleKeyMapToList is equal to the given Object.
-	 * Equality is defined as the given Object being a DoubleKeyMapToList with
+	 * Returns true if the TripleKeyMapToList is equal to the given Object.
+	 * Equality is defined as the given Object being a TripleKeyMapToList with
 	 * equal keys and values as defined by the underlying Maps.
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)

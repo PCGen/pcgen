@@ -25,7 +25,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class HeightFacet extends AbstractItemFacet<Integer>
+public class HeightFacet extends AbstractItemFacet<CharID, Integer>
 {
 
 	/**

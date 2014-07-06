@@ -69,7 +69,7 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	}
 
 	@Override
-	protected AbstractItemFacet<Integer> getFacet()
+	protected AbstractItemFacet<CharID, Integer> getFacet()
 	{
 		return facet;
 	}

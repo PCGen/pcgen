@@ -27,8 +27,6 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * ListSet is an implementation of the Set Interface that uses a List (rather
  * than the Map that is typically used) as the internal representation of the
  * Set. This is most useful to minimize the memory footprint for very small sets
@@ -41,17 +39,17 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 {
 
 	/**
-	 * The comparator, if any, for determining equality in this Set
+	 * The comparator, if any, for determining equality in this Set.
 	 */
 	private final Comparator<T> comparator;
 
 	/**
-	 * The List used to represent the members of this Set
+	 * The List used to represent the members of this Set.
 	 */
 	private final ArrayList<T> list;
 
 	/**
-	 * Construct a new, empty ListSet
+	 * Construct a new, empty ListSet.
 	 */
 	public ListSet()
 	{
@@ -129,7 +127,9 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	}
 
 	/**
-	 * Returns the number of Objects in this Set
+	 * Returns the number of Objects in this Set.
+	 * 
+	 * @return The number of objects in this ListSet
 	 */
 	@Override
 	public int size()
@@ -138,7 +138,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	}
 
 	/**
-	 * Returns an Iterator over the Set
+	 * Returns an Iterator over the Set.
 	 */
 	@Override
 	public Iterator<T> iterator()
@@ -203,7 +203,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	}
 
 	/**
-	 * Clears this Set (removes all Objects from the Set)
+	 * Clears this Set (removes all Objects from the Set).
 	 */
 	@Override
 	public void clear()

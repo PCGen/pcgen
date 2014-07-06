@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
@@ -24,6 +25,6 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * SkillFilterFacet is a Facet that tracks the skill display filter associated 
  * with a character.
  */
-public class SkillFilterFacet extends AbstractItemFacet<SkillFilter>
+public class SkillFilterFacet extends AbstractItemFacet<CharID, SkillFilter>
 {
 }

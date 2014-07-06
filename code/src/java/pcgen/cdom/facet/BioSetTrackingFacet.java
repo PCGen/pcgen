@@ -33,8 +33,8 @@ import pcgen.core.PlayerCharacter;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);

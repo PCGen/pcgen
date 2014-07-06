@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.Deity;
 
@@ -27,6 +28,6 @@ import pcgen.core.Deity;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DeityFacet extends AbstractItemFacet<Deity>
+public class DeityFacet extends AbstractItemFacet<CharID, Deity>
 {
 }

@@ -31,7 +31,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	private final XPTableFacet facet = new XPTableFacet();
 
 	@Override
-	protected AbstractItemFacet<XPTable> getFacet()
+	protected AbstractItemFacet<CharID, XPTable> getFacet()
 	{
 		return facet;
 	}

@@ -23,8 +23,6 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * Represents a Map of objects to Lists. List management is done internally to
  * this class (while copies are accessible, the lists are kept private to this
  * class).
@@ -68,7 +66,7 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 
 	/**
 	 * Creates a new GenericMapToList, using the given Class as the underlying
-	 * class for construction of the Map
+	 * class for construction of the Map.
 	 * 
 	 * @throws IllegalAccessException
 	 *             if there is a security problem in accessing the given class

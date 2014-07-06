@@ -28,7 +28,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GoldFacet extends AbstractItemFacet<BigDecimal>
+public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal>
 {
 
 	/**

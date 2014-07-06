@@ -21,8 +21,6 @@
 package pcgen.base.lang;
 
 /**
- * @author Thomas Parker (thpr@users.sourceforge.net)
- * 
  * An UnreachableError is an error caused by code that the programmer thought
  * was Unreachable. This is preferred to an InternalError, as an InternalError
  * should be reserved for VirtualMachine errors. This error, on the other hand,
@@ -39,7 +37,7 @@ public class UnreachableError extends Error
 {
 
 	/**
-	 * For object serialization
+	 * For object serialization.
 	 */
 	private static final long serialVersionUID = -5431319083877458886L;
 
@@ -52,7 +50,7 @@ public class UnreachableError extends Error
 	}
 
 	/**
-	 * Create a new UnreachableError with the given message
+	 * Create a new UnreachableError with the given message.
 	 * 
 	 * @param message
 	 *            The message indicating the cause of UnreachableError
@@ -63,7 +61,7 @@ public class UnreachableError extends Error
 	}
 
 	/**
-	 * Create a new UnreachableError with the given cause
+	 * Create a new UnreachableError with the given cause.
 	 * 
 	 * @param throwable
 	 *            The cause of the UnreachableError
@@ -74,7 +72,7 @@ public class UnreachableError extends Error
 	}
 
 	/**
-	 * Create a new UnreachableError with the given message and cause
+	 * Create a new UnreachableError with the given message and cause.
 	 * 
 	 * @param message
 	 *            The message indicating the cause of UnreachableError

@@ -22,8 +22,6 @@ import java.util.HashMap;
 import pcgen.base.lang.CaseInsensitiveString;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * A CaseInsensitiveMap is a HashMap that has uses a CaseInsensitiveString as
  * the Key This is a facilitating wrapper around HashMap to allow easy use of
  * CaseInsensitiveString as the Key to a Map.
@@ -72,7 +70,7 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	}
 
 	/**
-	 * Returns true if the CaseInsensitiveMap contains the given key
+	 * Returns true if the CaseInsensitiveMap contains the given key.
 	 * 
 	 * @see java.util.HashMap#containsKey(java.lang.Object)
 	 */
@@ -94,7 +92,7 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	}
 
 	/**
-	 * Puts the given key/value pair into this CaseInsensitiveMap
+	 * Puts the given key/value pair into this CaseInsensitiveMap.
 	 * 
 	 * @param key
 	 *            The key indicating the location in this CaseInsensitiveMap
@@ -112,7 +110,7 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	}
 
 	/**
-	 * Removes the value stored in this CaseInsensitiveMap for the given key
+	 * Removes the value stored in this CaseInsensitiveMap for the given key.
 	 * 
 	 * @see java.util.HashMap#remove(java.lang.Object)
 	 */

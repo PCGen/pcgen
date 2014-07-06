@@ -29,12 +29,12 @@ package pcgen.base.util;
 public final class NamedValue
 {
 	/**
-	 * The name of the NamedValue
+	 * The name of the NamedValue.
 	 */
-	public final String name;
+	private final String name;
 
 	/**
-	 * The (double) value contained in the the NamedValue
+	 * The (double) value contained in the the NamedValue.
 	 */
 	private double weight;
 
@@ -69,7 +69,7 @@ public final class NamedValue
 	}
 
 	/**
-	 * Returns the weight of the NamedValue
+	 * Returns the weight of the NamedValue.
 	 * 
 	 * @return The double weight of the NamedValue
 	 */
@@ -79,7 +79,7 @@ public final class NamedValue
 	}
 
 	/**
-	 * Adds weight to a NamedValue
+	 * Adds weight to a NamedValue.
 	 * 
 	 * @param addedWeight
 	 *            the weight to add to this NamedValue
@@ -91,7 +91,7 @@ public final class NamedValue
 	}
 
 	/**
-	 * Returns a String representation of this NamedValue
+	 * Returns a String representation of this NamedValue.
 	 * 
 	 * @see java.lang.Object#toString()
 	 */

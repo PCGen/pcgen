@@ -768,7 +768,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		{
 			return true;
 		}
-		for (String key : active.getKeySet())
+		for (String key : active.keySet())
 		{
 			T value = active.get(key);
 			if (value.isInternal())
