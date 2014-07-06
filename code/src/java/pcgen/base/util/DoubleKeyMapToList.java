@@ -59,6 +59,7 @@ import java.util.Map.Entry;
  * @param <V>
  *            The type of the values in this DoubleKeyMapToList
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 {
 	/**

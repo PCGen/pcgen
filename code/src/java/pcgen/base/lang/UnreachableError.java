@@ -33,6 +33,7 @@ package pcgen.base.lang;
  * error prevents this from being caught in those situations, ensuring that the
  * problem will be exposed.
  */
+@SuppressWarnings("PMD.DoNotExtendJavaLangError")
 public class UnreachableError extends Error
 {
 

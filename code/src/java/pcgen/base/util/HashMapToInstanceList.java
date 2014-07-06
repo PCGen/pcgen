@@ -90,6 +90,7 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	 *         list contains the given value; false otherwise.
 	 */
 	@Override
+	@SuppressWarnings("PMD.CompareObjectsWithEquals")
 	public boolean containsInList(K key, V valueElement)
 	{
 		if (!containsListFor(key))

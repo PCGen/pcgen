@@ -32,6 +32,7 @@ import java.util.ListIterator;
  * @param <T>
  *            The type of object stored in this IdentityList
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class IdentityList<T> implements List<T>
 {
 	/**

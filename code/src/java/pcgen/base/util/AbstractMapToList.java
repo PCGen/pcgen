@@ -49,6 +49,7 @@ import java.util.Set;
  * @param <V>
  *            The Class of the Value for this AbstractMapToList
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 {
 

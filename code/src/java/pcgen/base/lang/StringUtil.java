@@ -37,6 +37,7 @@ public final class StringUtil
 	 * extraneous), it is valuable as it can be used by other objects as a
 	 * counterpart to String.CASE_INSENSITIVE_ORDER
 	 */
+	@SuppressWarnings("PMD.LongVariable")
 	public static final Comparator<String> CASE_SENSITIVE_ORDER = new Comparator<String>()
 	{
 		@Override

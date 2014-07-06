@@ -34,6 +34,7 @@ import java.util.TreeMap;
  * @param <V>
  *            The Class of the Value for this KeyMap
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class KeyMap<V>
 {
 

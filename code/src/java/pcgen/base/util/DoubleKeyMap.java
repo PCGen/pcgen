@@ -66,6 +66,7 @@ import java.util.Map.Entry;
  * @param <V>
  *            The Class of the Value for this DoubleKeyMap
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class DoubleKeyMap<K1, K2, V> implements Cloneable
 {
 

@@ -43,6 +43,7 @@ public class FixedStringList extends AbstractList<String> implements
 	 * contents in a Case Sensitive order. Note that null sorts first (before
 	 * any non-null Strings)
 	 */
+	@SuppressWarnings("PMD.LongVariable")
 	public static final Comparator<FixedStringList> CASE_SENSITIVE_ORDER = new Comparator<FixedStringList>()
 	{
 		@Override
@@ -58,6 +59,7 @@ public class FixedStringList extends AbstractList<String> implements
 	 * contents in a Case Insensitive order. Note that null sorts first (before
 	 * any non-null Strings)
 	 */
+	@SuppressWarnings("PMD.LongVariable")
 	public static final Comparator<FixedStringList> CASE_INSENSITIVE_ORDER = new Comparator<FixedStringList>()
 	{
 		@Override
