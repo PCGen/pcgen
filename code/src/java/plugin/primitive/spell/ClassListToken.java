@@ -57,7 +57,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 		for (int level : SpellLevel.levelForKey(spell, Collections
 				.singletonList(list), pc))
 		{
-			if ((level >= 0) && allow(pc, level, "", spell, list))
+			if (allow(pc, level, "", spell, list))
 			{
 				return true;
 			}

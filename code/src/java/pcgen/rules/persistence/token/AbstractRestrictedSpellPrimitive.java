@@ -239,7 +239,6 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	public boolean allow(PlayerCharacter pc, int level, String source,
 			Spell spell, CDOMList<Spell> optionalList)
 	{
-		String defaultbook = Globals.getDefaultSpellBook();
 		if (restriction != null)
 		{
 			Formula maxLevel = restriction.maxLevel;
@@ -256,6 +255,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 			}
 			if (restriction.knownRequired != null)
 			{
+				String defaultbook = Globals.getDefaultSpellBook();
 				boolean known = restriction.knownRequired.booleanValue();
 				boolean found = false;
 				for (PCClass cl : pc.getClassSet())
