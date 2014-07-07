@@ -54,7 +54,7 @@ ABILITYCATEGORY:Nature Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 ABILITYCATEGORY:Stone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StoneRevelation.GeneralRevelation	PLURAL:Stoone Mystery Revelations	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Waves Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WavesRevelation.GeneralRevelation	PLURAL:Waves Mystery Revelations	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wind Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WindRevelation.GeneralRevelation	PLURAL:Wind Mystery Revelations	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Soothsayer Revelation		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoothsayerRevelation			PLURAL:Soothsayer Revelations
+ABILITYCATEGORY:Soothsayer Revelation		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoothsayerRevelation			PLURAL:Soothsayer Revelations		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Oracle Maneuver Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleManeuverMastery			PLURAL:Oracle Maneuver Masteries	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Oracle Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OracleWeaponMastery			PLURAL:Oracle Weapon Masteries	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Oracle Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSpellChoice				PLURAL:Oracle Spell Choices		DISPLAYLOCATION:Class Features
@@ -72,10 +72,10 @@ ABILITYCATEGORY:Witch Patron	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTION
 # These have been moved to the CORE.
 ###Block: Alternate Racial Traits categories
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Eidolon Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eidolon Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Eidolon Skill				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillChoice			PLURAL:Eidolon Skills				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Eidolon Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassSkillBonus	PLURAL:Eidolon Bonus Skills			DISPLAYLOCATION:Racial Abilities
 
@@ -165,10 +165,10 @@ ABILITYCATEGORY:Expanded Repertoire Selection				VISIBLE:QUALIFY	EDITABLE:YES		E
 ABILITYCATEGORY:Beastmaster Companion Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BeastmasterCompanionChoice												PLURAL:Beastmaster Companion Choices				DISPLAYLOCATION:Class Features
 
 # Favored Bonus Spells:
-ABILITYCATEGORY:Bard Favored Bonus Spell					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownBard													PLURAL:Bard Favored Bonus Spells					DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Inquisitor Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownInquisitor												PLURAL:Inquisitor Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Sorcerer Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer													PLURAL:Sorcerer Favored Bonus Spells				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownOracle													PLURAL:Oracle Favored Bonus Spells					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Bard Favored Bonus Spell					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownBard													PLURAL:Bard Favored Bonus Spells					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownInquisitor												PLURAL:Inquisitor Favored Bonus Spells				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer													PLURAL:Sorcerer Favored Bonus Spells				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownOracle													PLURAL:Oracle Favored Bonus Spells					DISPLAYLOCATION:Class Features
 
 # Traits Sub Selections
 ABILITYCATEGORY:Campaign Trait Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices						DISPLAYLOCATION:Traits
