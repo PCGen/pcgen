@@ -395,7 +395,7 @@ public class CharacterLevelsFacadeImpl extends
 	@Override
 	public SkillCost getSkillCost(CharacterLevelFacade level, SkillFacade skill)
 	{
-		if (level != null && level instanceof CharacterLevelFacadeImpl)
+		if (level != null && level instanceof CharacterLevelFacadeImpl && charDisplay != null)
 		{
 			final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
 			PCClass aClass = theCharacter.getClassKeyed(classKeyName);
