@@ -33,6 +33,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -821,4 +822,61 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			"1", result);
 		
 	}
+	
+	/**
+	 * Test a two handed weapon that is equipped.
+	 */
+	public void testTwohandedEquipped()
+	{
+		PlayerCharacter character = getCharacter();
+		character.addEquipment(longSpear);
+		EquipSet es =
+				new EquipSet("0.1.3", "Longspear", longSpear.getName(),
+					longSpear);
+		character.addEquipSet(es);
+		character.setCalcEquipmentList();
+
+		WeaponToken token = new WeaponToken();
+		assertEquals("weapon name", longSpear.getName(),
+			token.getToken("WEAPON.3.NAME", character, null));
+		assertEquals("weapon name", "+14/+9/+4/-1",
+			token.getToken("WEAPON.3.THHIT", character, null));
+		assertEquals("weapon name", "+14/+9/+4/-1",
+			token.getToken("WEAPON.3.TOTALHIT", character, null));
+	}	
+	
+	/**
+	 * Test a two handed weapon that is not equipped.
+	 */
+	public void testTwohandedNotequipped()
+	{
+		PlayerCharacter character = getCharacter();
+		character.addEquipment(fineSword);
+		LocaleDependentTestCase.before(Locale.US);
+		EquipSet es =
+				new EquipSet("0.1.3", EquipmentLocation.EQUIPPED_PRIMARY.toString(), fineSword.getName(),
+					fineSword);
+		character.addEquipSet(es);
+		character.setCalcEquipmentList();
+
+		character.addEquipment(longSpear);
+		es =
+				new EquipSet("0.1.4", EquipmentLocation.NOT_CARRIED.toString(), longSpear.getName(),
+					longSpear);
+		character.addEquipSet(es);
+		es.equipItem(character);
+		character.setCalcEquipmentList();
+		character.preparePCForOutput();
+
+		WeaponToken token = new WeaponToken();
+		assertEquals("weapon name", longSpear.getName(),
+			token.getToken("WEAPON.3.NAME", character, null));
+		assertEquals("weapon name", "+14/+9/+4/-1",
+			token.getToken("WEAPON.3.THHIT", character, null));
+		assertEquals("weapon name", "+14/+9/+4/-1",
+			token.getToken("WEAPON.3.TOTALHIT", character, null));
+		LocaleDependentTestCase.after();
+		
+	}	
+	
 }

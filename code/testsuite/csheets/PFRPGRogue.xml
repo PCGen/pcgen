@@ -1196,9 +1196,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+7/+2</hit>
+					<hit>+17/+12</hit>
 					<magic_hit>+1</magic_hit>
-					<total_hit>+7/+2</total_hit>
+					<total_hit>+17/+12</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Carried</hand>
@@ -1256,9 +1256,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+6/+1</hit>
+					<hit>+16/+11</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+6/+1</total_hit>
+					<total_hit>+16/+11</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Not Carried</hand>
@@ -1343,9 +1343,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+2/-3</hit>
+					<hit>+12/+7</hit>
 					<magic_hit>+1</magic_hit>
-					<total_hit>+2/-3</total_hit>
+					<total_hit>+12/+7</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Not Carried</hand>
@@ -1403,9 +1403,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+7/+2</hit>
+					<hit>+17/+12</hit>
 					<magic_hit>+1</magic_hit>
-					<total_hit>+7/+2</total_hit>
+					<total_hit>+17/+12</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Not Carried</hand>

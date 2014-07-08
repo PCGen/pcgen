@@ -1496,44 +1496,40 @@ public class WeaponToken extends Token
 		{
 			hitMode = HITMODE_THHIT;
 		}
-		// Both Primary and Secondary weapons
-		else if (display.hasPrimaryWeapons() && display.hasSecondaryWeapons())
+		// eq is Primary
+		else if (display.isPrimaryWeapon(eq) && display.hasSecondaryWeapons())
 		{
-			// eq is Primary
-			if (display.isPrimaryWeapon(eq))
-			{
-				Equipment sEq = display.getSecondaryWeapons().iterator().next();
+			Equipment sEq = display.getSecondaryWeapons().iterator().next();
 
-				if (sEq == null)
-				{
-					// Hmm, weird
-					// default to off-hand light
-					hitMode = HITMODE_TWPHITL;
-				}
-				else if (sEq.isWeaponLightForPC(pc))
-				{
-					// offhand light
-					hitMode = HITMODE_TWPHITL;
-				}
-				else
-				{
-					// offhand heavy
-					hitMode = HITMODE_TWPHITH;
-				}
-			}
-			// eq is Secondary
-			else if (display.isSecondaryWeapon(eq))
+			if (sEq == null)
 			{
-				if (eq.isWeaponLightForPC(pc))
-				{
-					// offhand light
-					hitMode = HITMODE_TWFOHL;
-				}
-				else
-				{
-					// offhand heavy
-					hitMode = HITMODE_TWFOHH;
-				}
+				// Hmm, weird
+				// default to off-hand light
+				hitMode = HITMODE_TWPHITL;
+			}
+			else if (sEq.isWeaponLightForPC(pc))
+			{
+				// offhand light
+				hitMode = HITMODE_TWPHITL;
+			}
+			else
+			{
+				// offhand heavy
+				hitMode = HITMODE_TWPHITH;
+			}
+		}
+		// eq is Secondary
+		else if (display.isSecondaryWeapon(eq) && display.hasPrimaryWeapons())
+		{
+			if (eq.isWeaponLightForPC(pc))
+			{
+				// offhand light
+				hitMode = HITMODE_TWFOHL;
+			}
+			else
+			{
+				// offhand heavy
+				hitMode = HITMODE_TWFOHH;
 			}
 		}
 		// Just a single off-hand weapon
