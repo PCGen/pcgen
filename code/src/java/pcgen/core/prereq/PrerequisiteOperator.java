@@ -178,7 +178,7 @@ public enum PrerequisiteOperator
 		boolean passes = booleanCompare(leftHandOp, rightHandOp);
 		if (passes)
 		{
-			if (CoreUtility.doublesEqual(leftHandOp, 0))
+			if (leftHandOp < 0.0d || CoreUtility.doublesEqual(leftHandOp, 0))
 			{
 				return 1;
 			}

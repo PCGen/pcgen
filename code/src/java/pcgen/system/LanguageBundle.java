@@ -165,7 +165,8 @@ public final class LanguageBundle
 	public static final String KEY_PREFIX = "in_"; //$NON-NLS-1$
 	
 	/**
-	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it returns “× ½”.
+	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it 
+	 * returns x 1/2 ( 
 	 * @param d a double value
 	 * @return a formated String
 	 */

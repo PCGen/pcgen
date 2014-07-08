@@ -123,6 +123,21 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws Exception
 	 */
 	@Test
+	public void testDexNegative() throws Exception
+	{
+		PreStatParser producer = new PreStatParser();
+
+		Prerequisite prereq = producer.parse("STAT", "1,DEX=-1", false, false);
+
+		assertEquals(
+			"<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"-1\" >\n"
+				+ "</prereq>\n", prereq.toString());
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	@Test
 	public void testEmpty() throws Exception
 	{
 		PreStatParser producer = new PreStatParser();
