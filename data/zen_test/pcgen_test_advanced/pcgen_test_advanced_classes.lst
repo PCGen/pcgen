@@ -30,6 +30,12 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
+CLASS:Variable Test Cases	TYPE:PC.BASE.TEST	DEFINE:VarTestCase|0	DEFINE:Var_Test_Case|0	BONUS:VAR|VarTestCase,Var_Test_Case|CL	DEFINE:SoulknifeLVL|0	BONUS:VAR|SoulknifeLVL|CL+10
+
+1	ABILITY:Special Ability|AUTOMATIC|Variable Test Cases ~ Version One
+1	ABILITY:Special Ability|AUTOMATIC|Variable Test Cases ~ Version Two|PREVARGTEQ:VarTestCase,1
+1	ABILITY:Special Ability|AUTOMATIC|Soulknife ~ Mind Blade|PREVARGTEQ:SoulknifeLVL,1
+
 
 # Class Name		Output Name					Hit Dice
 CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
