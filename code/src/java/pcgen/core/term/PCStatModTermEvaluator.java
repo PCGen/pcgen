@@ -29,6 +29,7 @@ package pcgen.core.term;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.util.Logging;
 
 public class PCStatModTermEvaluator
 		extends BasePCDTermEvaluator implements TermEvaluator
@@ -46,6 +47,11 @@ public class PCStatModTermEvaluator
 	{
 		final PCStat stat = Globals.getContext().getReferenceContext()
 				.getAbbreviatedObject(PCStat.class, statAbbrev);
+		if (stat == null)
+		{
+			Logging.errorPrint("Unable to find stat for " + statAbbrev + " in " + originalText);
+			return 0.0f;
+		}
 		return (float) display.getStatModFor(stat);
 	}
 
