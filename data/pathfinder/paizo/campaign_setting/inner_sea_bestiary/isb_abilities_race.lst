@@ -267,13 +267,13 @@ Unstoppable Force		KEY:Spawn of Rovagug ~ Unstoppable Force	CATEGORY:Special Abi
 
 ###Block: Chemnosit The Monarch Worm Abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description																																Source Page
-Hungry Gaze		KEY:Chemnosit ~ Hungry Gaze	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:3d6 nonlethal plus fatigue (Fort DC 30 negates). Affected creatures gain an overwhelming compulsion to eat flesh of creatures of its type (its own if none others available). Will DC 30 negates.	SOURCEPAGE:p.47	DEFINE:HungryGazeDC|0	ABILITY:Ability Focus|AUTOMATIC|Hungry Gaze	BONUS:VAR|HungryGazeDC|10+(HD/2)+CON	BONUS:VAR|HungryGazeDC|2|PREFEAT:1,Ability Focus(Hungry Gaze)
+Hungry Gaze		KEY:Chemnosit ~ Hungry Gaze	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:3d6 nonlethal plus fatigue (Fort DC 30 negates). Affected creatures gain an overwhelming compulsion to eat flesh of creatures of its type (its own if none others available). Will DC 30 negates.[DC %1]|HungryGazeDC	SOURCEPAGE:p.47	DEFINE:HungryGazeDC|0	ABILITY:Ability Focus|AUTOMATIC|Hungry Gaze	BONUS:VAR|HungryGazeDC|10+(HD/2)+CON	BONUS:VAR|HungryGazeDC|2|PREFEAT:1,Ability Focus(Hungry Gaze)
 Spines		KEY:Chemnosit ~ Spines		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Creatures dealing melee attacks take 2d6+12 piercing.																								SOURCEPAGE:p.47
 
 ###Block: Volnagur The End-Singer Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																																												Source Page
 Blood Rage		KEY:Volnagur ~ Blood Rage		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Any creature taking bleed damage from Volnagur's razor tongues takes a -4 penalty on Will saves and is affected as the Murderous Command spell (Will DC 16 negates) each round that bleeding continues, ignoring allies that are also taking bleed damage from Volnagur.	SOURCEPAGE:p.48
-Eye Rays		KEY:Volnagur ~ Eye Rays			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Volnagur fires eye rays at a range of up to 120 feet. Creatures struck by his eye rays are nauseated for 1 minute (Fortitude DC 29 negates).																					SOURCEPAGE:p.48	ABILITY:Ability Focus|AUTOMATIC|Eye Rays	BONUS:VAR|EyeRaysDC|10+(HD/2)+CON	BONUS:VAR|EyeRaysDC|2|PREFEAT:1,Ability Focus(Eye Rays)	DEFINE:EyeRaysDC|0
+Eye Rays		KEY:Volnagur ~ Eye Rays			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Volnagur fires eye rays at a range of up to 120 feet. Creatures struck by his eye rays are nauseated for 1 minute (Fortitude DC 29 negates).[DC %1]|EyeRaysDC																					SOURCEPAGE:p.48	ABILITY:Ability Focus|AUTOMATIC|Eye Rays	BONUS:VAR|EyeRaysDC|10+(HD/2)+CON	BONUS:VAR|EyeRaysDC|2|PREFEAT:1,Ability Focus(Eye Rays)	DEFINE:EyeRaysDC|0
 Shatter Silence	KEY:Volnagur ~ Shatter Silence	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:At the beginning of its turn, any Silence effect within 6o feet is targeted as dispel magic (caster level 25th).																										SOURCEPAGE:p.48
 
 ###Block: Spellscar Fext Abilities

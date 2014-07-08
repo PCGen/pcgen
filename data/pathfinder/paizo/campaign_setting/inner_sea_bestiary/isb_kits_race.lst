@@ -120,7 +120,7 @@ SKILL:Knowledge (Religion)	RANK:30
 SKILL:Perception			RANK:30
 SKILL:Sense Motive		RANK:30
 SKILL:Spellcraft			RANK:30
-FEAT:Ability Focus (Charnel Colossus ~ Voice of the Ancients)
+FEAT:Ability Focus (Voice of the Ancients)
 FEAT:Alertness
 FEAT:Blind-Fight
 FEAT:Combat Reflexes
@@ -676,7 +676,7 @@ NAME:Chemnosit
 SKILL:Climb		RANK:4
 SKILL:Perception	RANK:22
 SKILL:Swim		RANK:1
-FEAT:Ability Focus (Chemnosit ~ Hungry Gaze)
+FEAT:Ability Focus (Hungry Gaze)
 FEAT:Awesome Blow
 FEAT:Bleeding Critical
 FEAT:Blind-Fight
@@ -699,7 +699,7 @@ GENDER:Neuter
 NAME:Volnagur
 SKILL:Fly		RANK:10
 SKILL:Perception	RANK:15
-FEAT:Ability Focus (Volnagur ~ Eye Rays)
+FEAT:Ability Focus (Eye Rays)
 FEAT:Dodge
 FEAT:Flyby Attack
 FEAT:Improved Initiative
