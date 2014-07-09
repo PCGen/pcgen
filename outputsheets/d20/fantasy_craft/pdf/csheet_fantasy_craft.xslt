@@ -7,7 +7,7 @@
 	xmlns:myAttribs="my:Attribs"
 	exclude-result-prefixes="myAttribs"
 	>
-	<xsl:import href="fantasy_master_cnd_wip.xslt"/>
+	<xsl:import href="fantasy_craft_master.xslt"/>
 	<xsl:output indent="yes"/>
 
 	<myAttribs:myAttribs>
