@@ -58,7 +58,6 @@
 			<xsl:for-each select="proficiency">
 			
 				<fo:table-row keep-with-next.within-column="always">
-
 					<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 					<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'rage.title'"/>
@@ -75,10 +74,11 @@
 							</xsl:choose>
 						</fo:block>
 					</fo:table-cell>
-				
-					<fo:table-cell><xsl:call-template name="attrib">
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'rage.title'"/>
-						</xsl:call-template></fo:table-cell>
+						</xsl:call-template>
+					</fo:table-cell>
 					<fo:table-cell padding-top="1pt" number-columns-spanned="1">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'rage.title'"/>
@@ -112,7 +112,6 @@
 							<xsl:value-of select="name"/>
 						</fo:block>
 					</fo:table-cell>
-			
 				</fo:table-row>
 			</xsl:for-each>
 			</fo:table-body>
