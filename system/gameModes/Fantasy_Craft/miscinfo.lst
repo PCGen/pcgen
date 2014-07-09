@@ -251,7 +251,7 @@ INFOSHEET:SUMMARY|preview/summary/fc_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 # Requires 6.01.06
 OUTPUTSHEET:DIRECTORY|d20/fantasy_craft
-OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_craft_std_grey_light.xslt
+OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_craft.xslt
 OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_craft_std.htm
 
 
