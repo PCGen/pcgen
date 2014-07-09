@@ -7,12 +7,10 @@
 	xmlns:xalan="http://xml.apache.org/xalan"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
 	xmlns:myAttribs="my:Attribs"
-	xmlns:Psionics="my:Psionics"
-	exclude-result-prefixes="myAttribs Psionics">
+	>
 <!-- 		-->
 
 	<xsl:import href="fantasy_craft_common.xsl"/>
-	<xsl:import href="fantasy_craft_specific_code.xsl"/>
 
 
 <!-- Blocks to put together PC Sheet -->
@@ -30,7 +28,6 @@
 	<xsl:import href="common_sheet/block_spells_condensed.xslt"/>
 	<xsl:import href="common_sheet/block_stat_block.xslt"/>
 	<xsl:import href="common_sheet/block_weapons.xslt"/>
-
 <!-- END -->
 
 	<xsl:output indent="yes"/>
@@ -372,15 +369,11 @@
 						<xsl:apply-templates select="racial_traits"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
-						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="npc_qualities"/>
-						<xsl:apply-templates select="talents"/>	
 						<xsl:apply-templates select="feats"/>
-						<xsl:apply-templates select="weapon_proficiencies"/>
 						<xsl:apply-templates select="proficiency_specials"/>
 						<xsl:apply-templates select="templates"/>
 						<xsl:apply-templates select="tempbonuses"/>
-						<xsl:apply-templates select="prohibited_schools"/>
 						<xsl:apply-templates select="companions"/>
 					</fo:block>
 				</fo:flow>
@@ -391,6 +384,11 @@
 			<xsl:apply-templates select="basics/notes" mode="bio"/>
 		</fo:root>
 	</xsl:template>
+
+
+
+
+
 
 	<!-- End Character -->
 </xsl:stylesheet>
