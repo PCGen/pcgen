@@ -209,6 +209,7 @@ CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Swarm Traits|PRE
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Water Traits|PRERACE:1,RACESUBTYPE=Water
 
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Mindless Traits|PRERACE:1,RACESUBTYPE=Mindless
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Clockwork Traits|PRERACE:1,RACESUBTYPE=Clockwork
 
 
 
@@ -266,7 +267,8 @@ Native Traits		CATEGORY:Special Ability	VISIBLE:NO																														
 Lawful Traits		CATEGORY:Special Ability	VISIBLE:NO																													ABILITY:Special Ability|AUTOMATIC|Aligned (Lawful)																																																																											SOURCEPAGE:p.312
 
 Mindless Traits		CATEGORY:Special Ability	VISIBLE:NO																TEMPLATE:No Intelligence Score								ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects
-
+# COMMENT: Clockwork all have a +2 AC to Dodge
+Clockwork Traits		CATEGORY:Special Ability	VISIBLE:NO	BONUS:COMBAT|AC|2|TYPE=Dodge
 
 
 
