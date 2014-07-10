@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
 # Ability Name		Category of Ability		Type						Define			Description							Source Page
@@ -145,13 +145,13 @@ Uncanny Dodge	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					DEFI
 
 ###Block: Turning
 # Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																																									Source Page
-# Ability Name	Category of Ability		Type								Required AL				Prohibited Var. Value			Define																																									Description																									Source Page
-Basic Turning	CATEGORY:Special Ability	TYPE:Special.Turning																DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																																											SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Turn Undead		CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Turn Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Rebuke Undead	CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Rebuke Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+# Ability Name			Category of Ability		Type								Required AL				Prohibited Var. Value			Define																																									Description																									Stackable?	Multiple?	Choose				Bonus to skill		Source Page
+Basic Turning			CATEGORY:Special Ability	TYPE:Special.Turning																DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																																																								SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Turn Undead				CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Turn Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Rebuke Undead			CATEGORY:Special Ability	TYPE:Special.Turning.TurnUndead.SpecialQuality	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:Rebuke Undead (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead														SOURCEPAGE:srdbasiccharacterclassesi.rtf
 
 
-Rowdy Language Selection	CATEGORY:Special Ability	TYPE:RowdyLanguageSelection	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|6	MULT:YES
+Rowdy Language Selection	CATEGORY:Special Ability	TYPE:RowdyLanguageSelection																																																																																					MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|6
 
-Scout Language Bonus +4	CATEGORY:Special Ability	TYPE:ScoutLanguageSelection4	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|4	STACK:YES
-Scout Language Bonus +2	CATEGORY:Special Ability	TYPE:ScoutLanguageSelection2	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|2	STACK:YES
+Scout Language Bonus +4		CATEGORY:Special Ability	TYPE:ScoutLanguageSelection4																																																																																			STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|4
+Scout Language Bonus +2		CATEGORY:Special Ability	TYPE:ScoutLanguageSelection2																																																																																			STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Language	BONUS:SKILL|%LIST|2
