@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 # Parent Categories:
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object		Type of Object		Specific choices list		Display Location
-ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Special Ability
-ABILITYCATEGORY:Training Pool			VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Training Pool
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Base Pool number	Category of Object		Type of Object		Specific choices list		Display Location
+ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Special Ability
+ABILITYCATEGORY:Training Pool			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO					CATEGORY:Training Pool
 
 # Ability Pools:
-ABILITYCATEGORY:Stat Purchase																				CATEGORY:Special Ability	TYPE:STATPurchase							DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Stat Purchase																			CATEGORY:Special Ability	TYPE:STATPurchase							DISPLAYLOCATION:Training Pool
 
-ABILITYCATEGORY:Training Point Choice																		CATEGORY:Special Ability					ABILITYLIST:Mission Reward	DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Training Point Choice																	CATEGORY:Special Ability					ABILITYLIST:Mission Reward	DISPLAYLOCATION:Training Pool
 
 # Master Groups - These share the same pool
-ABILITYCATEGORY:Focus Pool						EDITABLE:YES		EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:FocusPurchase						DISPLAYLOCATION:Training Pool
-ABILITYCATEGORY:Reaction Pool						EDITABLE:YES		EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Reaction							DISPLAYLOCATION:Training Pool
-ABILITYCATEGORY:Skill Pool						EDITABLE:YES		EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Skill								DISPLAYLOCATION:Training Pool
-ABILITYCATEGORY:Trait Pool						EDITABLE:YES		EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Trait								DISPLAYLOCATION:Training Pool
-ABILITYCATEGORY:Option Pool						EDITABLE:YES		EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Option								DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Focus Pool						EDITABLE:YES	EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:FocusPurchase						DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Reaction Pool						EDITABLE:YES	EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Reaction							DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Skill Pool						EDITABLE:YES	EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Skill								DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Trait Pool						EDITABLE:YES	EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Trait								DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Option Pool						EDITABLE:YES	EDITPOOL:NO						POOL:TrainingPool	CATEGORY:Training Pool		TYPE:Option								DISPLAYLOCATION:Training Pool
 #ABILITYCATEGORY:Stat Purchase		POOL:TrainingPool	CATEGORY:Training Pool	ABILITYLIST:Purchase Stat	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Training Pool
 
 # Directors building Thugs and Marks
-ABILITYCATEGORY:Mark or Thug Builder	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO									CATEGORY:Training Pool		TYPE:NPCBuilding							DISPLAYLOCATION:Training Pool
+ABILITYCATEGORY:Mark or Thug Builder	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO									CATEGORY:Training Pool		TYPE:NPCBuilding							DISPLAYLOCATION:Training Pool
