@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
 ###BLOCK: Templates
@@ -13,15 +13,15 @@ Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Min
 
 
 ###BLOCK: Race Templates
-# Template Name	Visible	Race Subtype				Vision
-Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-Light Vision
-Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-Light Vision
-Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-Light Vision
-Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-Light Vision
-Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')
+# Template Name			Visible	Automatically Gained Language	Bonus Languages																		Race Subtype				Vision
+Kitsune				VISIBLE:NO																										RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-Light Vision
+Nagaji				VISIBLE:NO																										RACESUBTYPE:Reptilian			VISION:Low-Light Vision
+Samsaran				VISIBLE:NO																										RACESUBTYPE:Samsaran			VISION:Low-Light Vision
+Tengu					VISIBLE:NO																										RACESUBTYPE:Tengu				VISION:Low-Light Vision
+Wayang				VISIBLE:NO																										RACESUBTYPE:Wayang			VISION:Darkvision (60')
 
-Dragon Empire ~ Kitsune			AUTO:LANG|Tien|Senzar			VISIBLE:NO	LANGBONUS:TYPE=HumanRegional,Aklo,Celestial,Elven,Gnome,Nagaji,Samsaran,Tengu,Wayang							
-Dragon Empire ~ Nagaji			AUTO:LANG|Nagaji|Tien			VISIBLE:NO	LANGBONUS:TYPE=HumanRegional,Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Samsaran,Senzar,Sylvan,Tengu,Wayang		
-Dragon Empire ~ Samsaran		AUTO:LANG|Samsaran|Tien			VISIBLE:NO	LANGBONUS:TYPE=HumanRegional,Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Nagaji,Senzar,Tengu,Wayang	
-Dragon Empire ~ Tengu			AUTO:LANG|Tengu|Tien			VISIBLE:NO	LANGBONUS:TYPE=Spoken															
-Dragon Empire ~ Wayang			AUTO:LANG|Wayang|Tien			VISIBLE:NO	LANGBONUS:TYPE=HumanRegional,Abyssal,Aklo,Draconic,Goblin,Infernal,Nagaji,Samsaran,Senzar,Tengu					
+Dragon Empire ~ Kitsune		VISIBLE:NO	AUTO:LANG|Tien|Senzar		LANGBONUS:TYPE=HumanRegional,Aklo,Celestial,Elven,Gnome,Nagaji,Samsaran,Tengu,Wayang
+Dragon Empire ~ Nagaji		VISIBLE:NO	AUTO:LANG|Nagaji|Tien		LANGBONUS:TYPE=HumanRegional,Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Samsaran,Senzar,Sylvan,Tengu,Wayang
+Dragon Empire ~ Samsaran	VISIBLE:NO	AUTO:LANG|Samsaran|Tien		LANGBONUS:TYPE=HumanRegional,Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Nagaji,Senzar,Tengu,Wayang
+Dragon Empire ~ Tengu		VISIBLE:NO	AUTO:LANG|Tengu|Tien		LANGBONUS:TYPE=Spoken
+Dragon Empire ~ Wayang		VISIBLE:NO	AUTO:LANG|Wayang|Tien		LANGBONUS:TYPE=HumanRegional,Abyssal,Aklo,Draconic,Goblin,Infernal,Nagaji,Samsaran,Senzar,Tengu

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr  6 22:25:03 2014 -- reformated by prettylst.pl v1.51 (build 23616)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 ###SPells Temp Spot - Move these to the originating book or set up control list
 ###Block: Spell Like Abilities - Make it easier to manage spells individually
@@ -254,65 +254,63 @@ Freezing Bolt				CATEGORY:Ability Focus	TYPE:Ability Focus
 
 #B2 +
 Abyssal Transformation			CATEGORY:Ability Focus	TYPE:Ability Focus
-Breath of Flies			CATEGORY:Ability Focus	TYPE:Ability Focus
-Dazzling Burst			CATEGORY:Ability Focus	TYPE:Ability Focus
-Death Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
-Devour			CATEGORY:Ability Focus	TYPE:Ability Focus
-Drain Soul			CATEGORY:Ability Focus	TYPE:Ability Focus
-Fear Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
-Fireball Breath			CATEGORY:Ability Focus	TYPE:Ability Focus
-Implant			CATEGORY:Ability Focus	TYPE:Ability Focus
-Paralyzing Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
-Paralyzing Touch			CATEGORY:Ability Focus	TYPE:Ability Focus
-Pheromones			CATEGORY:Ability Focus	TYPE:Ability Focus
-Rotting Curse			CATEGORY:Ability Focus	TYPE:Ability Focus
-Shadow Mark			CATEGORY:Ability Focus	TYPE:Ability Focus
-Smashing Breach			CATEGORY:Ability Focus	TYPE:Ability Focus
+Breath of Flies				CATEGORY:Ability Focus	TYPE:Ability Focus
+Dazzling Burst				CATEGORY:Ability Focus	TYPE:Ability Focus
+Death Gaze					CATEGORY:Ability Focus	TYPE:Ability Focus
+Devour					CATEGORY:Ability Focus	TYPE:Ability Focus
+Drain Soul					CATEGORY:Ability Focus	TYPE:Ability Focus
+Fear Gaze					CATEGORY:Ability Focus	TYPE:Ability Focus
+Fireball Breath				CATEGORY:Ability Focus	TYPE:Ability Focus
+Implant					CATEGORY:Ability Focus	TYPE:Ability Focus
+Paralyzing Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus
+Paralyzing Touch				CATEGORY:Ability Focus	TYPE:Ability Focus
+Pheromones					CATEGORY:Ability Focus	TYPE:Ability Focus
+Rotting Curse				CATEGORY:Ability Focus	TYPE:Ability Focus
+Shadow Mark					CATEGORY:Ability Focus	TYPE:Ability Focus
+Smashing Breach				CATEGORY:Ability Focus	TYPE:Ability Focus
 Soul-Drained Breath			CATEGORY:Ability Focus	TYPE:Ability Focus
-Splintering			CATEGORY:Ability Focus	TYPE:Ability Focus
-Aura of Doom			CATEGORY:Ability Focus	TYPE:Ability Focus
+Splintering					CATEGORY:Ability Focus	TYPE:Ability Focus
+Aura of Doom				CATEGORY:Ability Focus	TYPE:Ability Focus
 Blood-Freezing Howl			CATEGORY:Ability Focus	TYPE:Ability Focus
-Charming Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
-Corpse Call			CATEGORY:Ability Focus	TYPE:Ability Focus
-Musk			CATEGORY:Ability Focus	TYPE:Ability Focus
+Charming Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus
+Corpse Call					CATEGORY:Ability Focus	TYPE:Ability Focus
+Musk						CATEGORY:Ability Focus	TYPE:Ability Focus
 
 Ectoplasmic Poison			CATEGORY:Ability Focus	TYPE:Ability Focus
 Frightful Presence			CATEGORY:Ability Focus	TYPE:Ability Focus
-Weakening Fear			CATEGORY:Ability Focus	TYPE:Ability Focus
-Terrified Escape			CATEGORY:Ability Focus	TYPE:Ability Focus
+Weakening Fear				CATEGORY:Ability Focus	TYPE:Ability Focus
+Terrified Escape				CATEGORY:Ability Focus	TYPE:Ability Focus
 Soul-chilling Fear			CATEGORY:Ability Focus	TYPE:Ability Focus
-Sickening Fear			CATEGORY:Ability Focus	TYPE:Ability Focus
-Paranoia			CATEGORY:Ability Focus	TYPE:Ability Focus
-Overwhelming Fear			CATEGORY:Ability Focus	TYPE:Ability Focus
-Mindlock			CATEGORY:Ability Focus	TYPE:Ability Focus
-Mind Drain			CATEGORY:Ability Focus	TYPE:Ability Focus
-Lingering Fear			CATEGORY:Ability Focus	TYPE:Ability Focus
-Incite Fear			CATEGORY:Ability Focus	TYPE:Ability Focus
-Haunting Steps			CATEGORY:Ability Focus	TYPE:Ability Focus
+Sickening Fear				CATEGORY:Ability Focus	TYPE:Ability Focus
+Paranoia					CATEGORY:Ability Focus	TYPE:Ability Focus
+Overwhelming Fear				CATEGORY:Ability Focus	TYPE:Ability Focus
+Mindlock					CATEGORY:Ability Focus	TYPE:Ability Focus
+Mind Drain					CATEGORY:Ability Focus	TYPE:Ability Focus
+Lingering Fear				CATEGORY:Ability Focus	TYPE:Ability Focus
+Incite Fear					CATEGORY:Ability Focus	TYPE:Ability Focus
+Haunting Steps				CATEGORY:Ability Focus	TYPE:Ability Focus
 Consuming Nightmare			CATEGORY:Ability Focus	TYPE:Ability Focus
-Sap Will			CATEGORY:Ability Focus	TYPE:Ability Focus
-Adhesive		CATEGORY:Ability Focus	TYPE:Ability Focus
-Dominate		CATEGORY:Ability Focus	TYPE:Ability Focus
-Frightful Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus
+Sap Will					CATEGORY:Ability Focus	TYPE:Ability Focus
+Adhesive					CATEGORY:Ability Focus	TYPE:Ability Focus
+Dominate					CATEGORY:Ability Focus	TYPE:Ability Focus
+Frightful Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
-Witch Hex		CATEGORY:Ability Focus	TYPE:Ability Focus
+Witch Hex					CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
-Telekinesis		CATEGORY:Ability Focus	TYPE:Ability Focus
-Malevolence		CATEGORY:Ability Focus	TYPE:Ability Focus
-Frightful Moan		CATEGORY:Ability Focus	TYPE:Ability Focus
-Corrupting Touch		CATEGORY:Ability Focus	TYPE:Ability Focus
-Corrupting Gaze		CATEGORY:Ability Focus	TYPE:Ability Focus
-Consume Flesh		CATEGORY:Ability Focus	TYPE:Ability Focus
-Hungry Gaze			CATEGORY:Ability Focus	TYPE:Ability Focus
-Voice of the Ancients	CATEGORY:Ability Focus	TYPE:Ability Focus
+Telekinesis					CATEGORY:Ability Focus	TYPE:Ability Focus
+Malevolence					CATEGORY:Ability Focus	TYPE:Ability Focus
+Frightful Moan				CATEGORY:Ability Focus	TYPE:Ability Focus
+Corrupting Touch				CATEGORY:Ability Focus	TYPE:Ability Focus
+Corrupting Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus
+Consume Flesh				CATEGORY:Ability Focus	TYPE:Ability Focus
+Hungry Gaze					CATEGORY:Ability Focus	TYPE:Ability Focus
+Voice of the Ancients			CATEGORY:Ability Focus	TYPE:Ability Focus
 ###Block: Domain Choice
 #Domain			CATEGORY:Domain	TYPE:Domain
 
 
 
-Disable First Level Domain Power	KEY:DisableDomainLVL1	CATEGORY:Internal	CHOOSE:DOMAIN|PC	MULT:YES	STACK:NO
-
-
-
+# Ability Name				Unique Key			Category of Ability	Stackable?	Multiple?	Choose
+Disable First Level Domain Power	KEY:DisableDomainLVL1	CATEGORY:Internal		STACK:NO	MULT:YES	CHOOSE:DOMAIN|PC

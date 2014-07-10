@@ -1,4 +1,4 @@
-# CVS $Revision: 20125 $ $Author: zaister $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 20125 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 STARTPACK:Aasimar Cleric	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aasimar],[!PRERACE:1,%]	SOURCEPAGE:p.7
@@ -229,7 +229,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
 
 
-STARTPACK:Animated Object	TYPE:Default Monster.Construct		VISIBLE:NO
+STARTPACK:Animated Object	TYPE:Default Monster.Construct	VISIBLE:NO
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
@@ -3262,7 +3262,7 @@ GEAR:Potion of Invisibility						LOCATION:Carried
 GEAR:Scroll (Dispel Magic/Divine)					LOCATION:Carried
 GEAR:Wand of Cure Light Wounds					LOCATION:Carried
 
-STARTPACK:Dryad Default		TYPE:Default Monster.Fey		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
+STARTPACK:Dryad Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dryad],[!PRERACE:1,%]	SOURCEPAGE:p.116
 ALIGN:CG
 RACE:Dryad	!PRERACE:1,%
 NAME:Dryad
@@ -4559,7 +4559,7 @@ FEAT:Skill Focus (Perception)
 FEAT:Weapon Focus (Bite)
 
 
-STARTPACK:Harpy Default		TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Harpy],[!PRERACE:1,%]	SOURCEPAGE:p.172
+STARTPACK:Harpy Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Harpy],[!PRERACE:1,%]	SOURCEPAGE:p.172
 ALIGN:CE
 RACE:Harpy	!PRERACE:1,%
 NAME:Harpy
@@ -4676,7 +4676,7 @@ SKILL:Perception	RANK:2
 FEAT:Endurance
 
 
-STARTPACK:Hydra Default		TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra],[!PRERACE:1,%]	SOURCEPAGE:p.178
+STARTPACK:Hydra Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra],[!PRERACE:1,%]	SOURCEPAGE:p.178
 ALIGN:TN
 RACE:Hydra	!PRERACE:1,%
 NAME:Hydra
@@ -4687,7 +4687,7 @@ FEAT:Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Hydra (Cryohydra) Default		TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Cryohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+STARTPACK:Hydra (Cryohydra) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Cryohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
 ALIGN:TN
 RACE:Hydra (Cryohydra)	!PRERACE:1,%
 NAME:Cryohydra
@@ -4698,7 +4698,7 @@ FEAT:Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Hydra (Pyrohydra) 	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Pyrohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+STARTPACK:Hydra (Pyrohydra)	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Pyrohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
 ALIGN:TN
 RACE:Hydra (Pyrohydra)	!PRERACE:1,%
 NAME:Pyrohydra
@@ -4709,7 +4709,7 @@ FEAT:Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Hyena Default		TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hyena],[!PRERACE:1,%]	SOURCEPAGE:p.179
+STARTPACK:Hyena Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hyena],[!PRERACE:1,%]	SOURCEPAGE:p.179
 ALIGN:TN
 RACE:Hyena	!PRERACE:1,%
 NAME:Hyena
@@ -4748,7 +4748,7 @@ FEAT:Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 
-STARTPACK:Invisible Stalker Default		TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Invisible Stalker],[!PRERACE:1,%]	SOURCEPAGE:p.181
+STARTPACK:Invisible Stalker Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Invisible Stalker],[!PRERACE:1,%]	SOURCEPAGE:p.181
 ALIGN:TN
 RACE:Invisible Stalker	!PRERACE:1,%
 NAME:Invisible Stalker
@@ -4767,41 +4767,41 @@ FEAT:Weapon Focus (Slam)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Iron Cobra Default		TYPE:Default Monster.Construct		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Iron Cobra Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:TN
 RACE:Iron Cobra	!PRERACE:1,%
 NAME:Iron Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Iron Cobra (Adamantine Cobra) Default		TYPE:Default Monster.Construct		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Adamantine Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Iron Cobra (Adamantine Cobra) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Adamantine Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:TN
 RACE:Iron Cobra (Adamantine Cobra)	!PRERACE:1,%
 NAME:Adamantine Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Iron Cobra (Cold Iron Cobra) Default		TYPE:Default Monster.Construct		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Cold Iron Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Iron Cobra (Cold Iron Cobra) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Cold Iron Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:TN
 RACE:Iron Cobra (Cold Iron Cobra)	!PRERACE:1,%
 NAME:Cold Iron Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Iron Cobra (Darkwood Cobra) Default		TYPE:Default Monster.Construct		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Darkwood Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Iron Cobra (Darkwood Cobra) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Darkwood Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:TN
 RACE:Iron Cobra (Darkwood Cobra)	!PRERACE:1,%
 NAME:Darkwood Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Iron Cobra (Mithral Cobra) Default		TYPE:Default Monster.Construct		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Mithral Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+STARTPACK:Iron Cobra (Mithral Cobra) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Mithral Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
 ALIGN:TN
 RACE:Iron Cobra (Mithral Cobra)	!PRERACE:1,%
 NAME:Mithral Cobra
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Kobold Default		TYPE:Default Monster.Humanoid		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kobold],[!PRERACE:1,%]	SOURCEPAGE:p.183
+STARTPACK:Kobold Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kobold],[!PRERACE:1,%]	SOURCEPAGE:p.183
 ALIGN:LE
 RACE:Kobold	!PRERACE:1,%
 NAME:Kobold
@@ -4817,7 +4817,7 @@ GEAR:Sling		SIZE:S	LOCATION:Carried
 GEAR:Leather	SIZE:S	LOCATION:Equipped
 
 
-STARTPACK:Kraken Default		TYPE:Default Monster.Magical Beast		VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kraken],[!PRERACE:1,%]	SOURCEPAGE:p.184
+STARTPACK:Kraken Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kraken],[!PRERACE:1,%]	SOURCEPAGE:p.184
 ALIGN:NE
 RACE:Kraken	!PRERACE:1,%
 NAME:Kraken
@@ -4841,7 +4841,7 @@ FEAT:Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
-STARTPACK:Kyton Default		TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton],[!PRERACE:1,%]	SOURCEPAGE:p.185
+STARTPACK:Kyton Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton],[!PRERACE:1,%]	SOURCEPAGE:p.185
 ALIGN:LE
 RACE:Kyton	!PRERACE:1,%
 GENDER:Female
@@ -4859,7 +4859,7 @@ FEAT:Weapon Focus (Chains)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
-STARTPACK:Lamia Default		TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lamia],[!PRERACE:1,%]	SOURCEPAGE:p.186
+STARTPACK:Lamia Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lamia],[!PRERACE:1,%]	SOURCEPAGE:p.186
 ALIGN:CE
 RACE:Lamia	!PRERACE:1,%
 NAME:Lamia
@@ -4880,14 +4880,14 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 GEAR:Dagger	SIZE:M	LOCATION:Primary Hand
 
 
-STARTPACK:Leech (Giant) Default		TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leech (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.187
+STARTPACK:Leech (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leech (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.187
 ALIGN:TN
 RACE:Leech (Giant)	!PRERACE:1,%
 NAME:Giant Leech
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 
-STARTPACK:Leech Swarm Default		TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leech Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.187
+STARTPACK:Leech Swarm Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Leech Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.187
 ALIGN:TN
 RACE:Leech Swarm	!PRERACE:1,%
 NAME:Leech Swarm
@@ -4912,7 +4912,7 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 
 
-STARTPACK:Linnorm (Ice) Default		TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.191
+STARTPACK:Linnorm (Ice) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.191
 ALIGN:CE
 RACE:Linnorm (Ice)	!PRERACE:1,%
 NAME:Ice Linnorm
@@ -4931,7 +4931,7 @@ FEAT:Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
-STARTPACK:Linnorm (Tarn) Default		TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Tarn)],[!PRERACE:1,%]	SOURCEPAGE:p.192
+STARTPACK:Linnorm (Tarn) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Tarn)],[!PRERACE:1,%]	SOURCEPAGE:p.192
 ALIGN:CE
 RACE:Linnorm (Tarn)	!PRERACE:1,%
 NAME:Tarn Linnorm
@@ -4953,7 +4953,7 @@ FEAT:Vital Strike
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
-STARTPACK:Lion Default		TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lion],[!PRERACE:1,%]	SOURCEPAGE:p.193
+STARTPACK:Lion Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lion],[!PRERACE:1,%]	SOURCEPAGE:p.193
 ALIGN:TN
 RACE:Lion	!PRERACE:1,%
 NAME:Lion
@@ -4966,7 +4966,7 @@ FEAT:Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Lion (Dire) Default		TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lion (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.193
+STARTPACK:Lion (Dire) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lion (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.193
 ALIGN:TN
 RACE:Lion (Dire)	!PRERACE:1,%
 NAME:Dire Lion
@@ -4980,7 +4980,7 @@ FEAT:Weapon Focus (Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Lizard (Monitor) Default		TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizard (Monitor)],[!PRERACE:1,%]	SOURCEPAGE:p.194
+STARTPACK:Lizard (Monitor) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizard (Monitor)],[!PRERACE:1,%]	SOURCEPAGE:p.194
 ALIGN:TN
 RACE:Lizard (Monitor)	!PRERACE:1,%
 NAME:Monitor Lizard
@@ -4992,7 +4992,7 @@ FEAT:Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Lizard (Giant Frilled) Default		TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizard (Giant Frilled)],[!PRERACE:1,%]	SOURCEPAGE:p.194
+STARTPACK:Lizard (Giant Frilled) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizard (Giant Frilled)],[!PRERACE:1,%]	SOURCEPAGE:p.194
 ALIGN:TN
 RACE:Lizard (Giant Frilled)	!PRERACE:1,%
 NAME:Giant Frilled Lizard
@@ -5005,7 +5005,7 @@ FEAT:Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Lizardfolk Default		TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizardfolk],[!PRERACE:1,%]	SOURCEPAGE:p.195
+STARTPACK:Lizardfolk Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lizardfolk],[!PRERACE:1,%]	SOURCEPAGE:p.195
 ALIGN:TN
 RACE:Lizardfolk	!PRERACE:1,%
 NAME:Lizardfolk
@@ -6746,7 +6746,7 @@ STAT:STR=15|DEX=12|CON=10|INT=10|WIS=10|CHA=10
 
 
 ###BLOCK: Kit Templates
-STARTPACK:Human Ghost Aristocrat		TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.144
+STARTPACK:Human Ghost Aristocrat	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.144
 RACE:Human	!PRERACE:1,%
 NAME:Human Ghost Aristocrat
 ALIGN:CE
@@ -6769,7 +6769,7 @@ ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Ghost Ability|Frightful Moan
 
 
-STARTPACK:Half-Celestial Unicorn		TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Unicorn],[!PRERACE:1,%]	SOURCEPAGE:p.169
+STARTPACK:Half-Celestial Unicorn	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Unicorn],[!PRERACE:1,%]	SOURCEPAGE:p.169
 ALIGN:CG
 RACE:Unicorn	!PRERACE:1,%
 NAME:Half-Celestial Unicorn
@@ -6789,7 +6789,7 @@ ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Constitution
 ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Wisdom
 
 
-STARTPACK:Dracolisk		TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basilisk],[!PRERACE:1,%]	SOURCEPAGE:p.170
+STARTPACK:Dracolisk	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basilisk],[!PRERACE:1,%]	SOURCEPAGE:p.170
 ALIGN:TN
 RACE:Basilisk	!PRERACE:1,%
 NAME:Dracolisk
@@ -6805,7 +6805,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 ABILITY:CATEGORY=Half-Dragon Type|Black Half-Dragon
 
 
-STARTPACK:Half-Fiend Minotaur		TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Minotaur],[!PRERACE:1,%]	SOURCEPAGE:p.171
+STARTPACK:Half-Fiend Minotaur	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Minotaur],[!PRERACE:1,%]	SOURCEPAGE:p.171
 ALIGN:CE
 RACE:Minotaur	!PRERACE:1,%
 NAME:Half-Fiend Minotaur
@@ -6825,7 +6825,7 @@ ABILITY:CATEGORY=Half-Fiend Ability Bonus|Template ~ +2 Dexterity
 GEAR:Greataxe	SIZE:L	LOCATION:Equipped
 
 
-STARTPACK:Lich		TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.188
+STARTPACK:Lich	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.188
 ALIGN:NE
 RACE:Human	!PRERACE:1,%
 ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
@@ -6931,7 +6931,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Ray of Frost
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Read Magic
 
 
-STARTPACK:Lycanthrope (Wererat/Human Form)		TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
+STARTPACK:Lycanthrope (Wererat/Human Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
 ALIGN:LE
 STAT:STR=13|DEX=13|CON=14|INT=10|WIS=14|CHA=8
 RACE:Human	!PRERACE:1,%
@@ -6962,12 +6962,12 @@ GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
 
 
-STARTPACK:Lycanthrope (Wererat/Hybrid Form)		TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
+STARTPACK:Lycanthrope (Wererat/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.197
 KIT:Lycanthrope (Wererat/Human Form)
 TEMPLATE:Lycanthrope (Hybrid Form)
 
 
-STARTPACK:Lycanthrope (Werewolf/Human Form)		TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198
+STARTPACK:Lycanthrope (Werewolf/Human Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198
 ALIGN:CE
 STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
 RACE:Human	!PRERACE:1,%
@@ -6993,7 +6993,7 @@ GEAR:Crossbow (Light)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
 
 
-STARTPACK:Lycanthrope (Werewolf/Hybrid Form)		TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198
+STARTPACK:Lycanthrope (Werewolf/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.198
 KIT:Lycanthrope (Werewolf/Human Form)
 TEMPLATE:Lycanthrope (Hybrid Form)
 

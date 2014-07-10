@@ -1,15 +1,14 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
 # Original Entry by: Stefan Radermacher
 
 ###Block: River Kingsdoms lesser gods
-# Deity Name	Product Identity?	Domains									Desciption of Deity/Title				Deity Weapon	Alignment	Pantheon					Deity Title			Source Page
+# Deity Name	Product Identity?	Domains									Description of Deity/Title				Deity Weapon	Alignment	Pantheon					Deity Title			Source Page
 Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE	DESC:Goddess of hatred, extortion, and spite	DEITYWEAP:Dagger	ALIGN:CE	PANTHEON:Pathfinder Chronicles	TITLE:The Angry Hag	SOURCEPAGE:p.9
 Hanspur		NAMEISPI:YES	DOMAINS:Chaos,Death,Travel,Water|PREALIGN:CG,TN,CN,CE		DESC:God of rivers and river travel			DEITYWEAP:Trident	ALIGN:CN	PANTHEON:Pathfinder Chronicles	TITLE:The Water Rat	SOURCEPAGE:p.9
 
 ###Block: Inquisitor Domain Support
 
-Gyronna.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainMadness|1|PREALIGN:NE,CN,CE
-Hanspur.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDeath,InquisitorDomainTravel,InquisitorDomainWater|1|PREALIGN:CG,TN,CN,CE
-
-
+# Deity Name	Modify VAR
+Gyronna.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainMadness|1|PREALIGN:NE,CN,CE
+Hanspur.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDeath,InquisitorDomainTravel,InquisitorDomainWater|1|PREALIGN:CG,TN,CN,CE

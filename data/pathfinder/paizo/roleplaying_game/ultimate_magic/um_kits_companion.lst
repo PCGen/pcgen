@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Jul 20 10:59:59 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # ORIGINAL ENTRY: unknown and Douglas Limmer
 # ORIGINAL ENTRY DATE: unknown
 
@@ -156,5 +156,5 @@ FEAT:Skill Focus (Perception)
 
 
 ###Block: Not a companion kit; a kit for use with monk vows
-STARTPACK:Add Vow Placeholder		VISIBLE:NO
+STARTPACK:Add Vow Placeholder	VISIBLE:NO
 ABILITY:CATEGORY=Vow|Vow Placeholder

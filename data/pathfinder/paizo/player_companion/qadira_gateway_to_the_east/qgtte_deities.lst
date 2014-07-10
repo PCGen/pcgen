@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
 
-# Deity Name	Product Identity?	Domains										Desciption of Deity/Title					Deity Weapon						Alignment	Pantheon					Source Page
+# Deity Name	Product Identity?	Domains										Description of Deity/Title					Deity Weapon						Alignment	Pantheon					Source Page
 Irori			NAMEISPI:YES	DOMAINS:Healing,Knowledge,Law,Rune,Strength|PREALIGN:LN,LG,LE,TN	DESC:God Of History, Knowledge, Self-Perfection		DEITYWEAP:Unarmed Strike				ALIGN:LN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.22
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:CE,NE,CN	DESC:God Of Wrath, Disaster, Destruction			DEITYWEAP:Greataxe					ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.22
 Sarenrae		NAMEISPI:YES	DOMAINS:Fire,Glory,Good,Healing,Sun|PREALIGN:NG,LG,CG,TN		DESC:Goddess Of The Sun, Redemption, Honesty, Healing	DEITYWEAP:Scimitar					ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.22

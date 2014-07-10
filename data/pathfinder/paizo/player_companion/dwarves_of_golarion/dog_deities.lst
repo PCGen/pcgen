@@ -1,9 +1,9 @@
-# CVS $Revision: 18754 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 18754 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 #Author: Gerard van Konijnenburg
 # -- Mon Mar 14 2011
 SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
 
-# Deity Name	Product Identity?	Domains											Desciption of Deity/Title				Deity Weapon				Alignment	Pantheon						Source Page			RACE
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon				Alignment	Pantheon						Source Page			RACE
 Angradd		NAMEISPI:YES	DOMAINS:Fire,Good,Law,War|PREALIGN:LG,LN,NG					DESC:God of aggressive tactics and warfare	DEITYWEAP:Greataxe			ALIGN:LG	PANTHEON:Pathfinder Chronicles|Dwarven	SOURCEPAGE:Inside Cover	RACE:Dwarf
 Bolka			NAMEISPI:YES	DOMAINS:Charm,Good,Healing|PREALIGN:LG,NG,TN					DESC:Goddess						DEITYWEAP:Mace (Light)|Mace (Heavy)	ALIGN:NG	PANTHEON:Pathfinder Chronicles|Dwarven	SOURCEPAGE:Inside Cover	RACE:Dwarf
 Dranngvit		NAMEISPI:YES	DOMAINS:Knowledge,Law|PREALIGN:LG,LN,LE,TN													DEITYWEAP:Pick (Light)			ALIGN:LN	PANTHEON:Pathfinder Chronicles|Dwarven	SOURCEPAGE:Inside Cover	RACE:Dwarf

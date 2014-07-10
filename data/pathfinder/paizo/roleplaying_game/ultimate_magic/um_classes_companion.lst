@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 24 December 2011
@@ -15,9 +15,9 @@ CLASS:Black Blade	OUTPUTNAME:Black Blade	TYPE:Monster.Companion	CLASSTYPE:Compan
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO
 
-# Class Name			Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Combat bonus
+# Class Name		Output Name				Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Combat bonus
 CLASS:Fused Eidolon	OUTPUTNAME:Fused Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name			Reg. Race Type
+# Class Name		Reg. Race Type
 CLASS:Fused Eidolon	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/LVL	
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Fused Eidolon	STARTSKILLPTS:0	MODTOSKILLS:NO

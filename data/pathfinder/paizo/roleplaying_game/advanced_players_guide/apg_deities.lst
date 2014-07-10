@@ -1,4 +1,4 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Paul Shipley (elro the onk); Update PREALIGN by Andrew Maitland
 
@@ -25,46 +25,46 @@ Urgathoa.MOD		DOMAINS:Blood Subdomain,Daemon Subdomain,Divine Subdomain,Ferocity
 Zon-Kuthon.MOD		DOMAINS:Catastrophe Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Loss Subdomain,Murder Subdomain,Night Subdomain,Undead Subdomain|PREALIGN:LN,LE,NE			SOURCEPAGE:p.91
 
 ###Block: Inquisitor Support
-Erastil.MOD	BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainCommunity,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainPlant|1|PREALIGN:LG,LN,NG					
-Iomedae.MOD	BONUS:VAR|InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainSun,InquisitorDomainWar|1|PREALIGN:LG,LN,NG						
-Torag.MOD	BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainEarth,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainProtection|1|PREALIGN:LG,LN,NG				
-Sarenrae.MOD	BONUS:VAR|InquisitorDomainFire,InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainSun|1|PREALIGN:LG,NG,CG,TN					
-Shelyn.MOD	BONUS:VAR|InquisitorDomainAir,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN					
-Desna.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainGood,InquisitorDomainLiberation,InquisitorDomainLuck,InquisitorDomainTravel|1|PREALIGN:NG,CG,CN					
-Cayden Cailean.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainStrength,InquisitorDomainTravel|1|PREALIGN:NG,CG,CN					
-Abadar.MOD	BONUS:VAR|InquisitorDomainEarth,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainProtection,InquisitorDomainTravel|1|PREALIGN:LG,LN,NG,TN				
-Irori.MOD	BONUS:VAR|InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainLaw,InquisitorDomainRune,InquisitorDomainStrength|1|PREALIGN:LG,LN,TN,NG				
-Gozreh.MOD	BONUS:VAR|InquisitorDomainAir,InquisitorDomainAnimal,InquisitorDomainPlant,InquisitorDomainWater,InquisitorDomainWeather|1|PREALIGN:LN,NG,TN,NE,CN				
-Pharasma.MOD	BONUS:VAR|InquisitorDomainDeathPharasma,InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainRepose,InquisitorDomainWater|1|PREALIGN:LN,NG,TN,NE,CN	
-Nethys.MOD	BONUS:VAR|InquisitorDomainDestruction,InquisitorDomainKnowledge,InquisitorDomainMagic,InquisitorDomainProtection,InquisitorDomainRune|1|PREALIGN:LN,NG,TN,NE,CN		
-Gorum.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainGlory,InquisitorDomainStrength,InquisitorDomainWar|1|PREALIGN:CG,TN,CN,CE				
-Calistria.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainKnowledge,InquisitorDomainLuck,InquisitorDomainTrickery|1|PREALIGN:CG,TN,CN,CE				
-Asmodeus.MOD	BONUS:VAR|InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainLaw,InquisitorDomainMagic,InquisitorDomainTrickery|1|PREALIGN:LN,LE,NE					
-Zon-Kuthon.MOD	BONUS:VAR|InquisitorDomainDarkness,InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainLaw|1|PREALIGN:LN,LE,NE				
-Urgathoa.MOD	BONUS:VAR|InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainMagic,InquisitorDomainStrength,InquisitorDomainWar|1|PREALIGN:TN,LE,NE,CE					
-Norgorber.MOD	BONUS:VAR|InquisitorDomainCharm,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainTrickery|1|PREALIGN:TN,LE,NE,CE				
-Lamashtu.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainMadness,InquisitorDomainStrength,InquisitorDomainTrickery|1|PREALIGN:NE,CN,CE				
-Rovagug.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainWar,InquisitorDomainWeather|1|PREALIGN:NE,CN,CE				
+# Deity Name		Modify VAR
+Erastil.MOD			BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainCommunity,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainPlant|1|PREALIGN:LG,LN,NG
+Iomedae.MOD			BONUS:VAR|InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainSun,InquisitorDomainWar|1|PREALIGN:LG,LN,NG
+Torag.MOD			BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainEarth,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainProtection|1|PREALIGN:LG,LN,NG
+Sarenrae.MOD		BONUS:VAR|InquisitorDomainFire,InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainSun|1|PREALIGN:LG,NG,CG,TN
+Shelyn.MOD			BONUS:VAR|InquisitorDomainAir,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN
+Desna.MOD			BONUS:VAR|InquisitorDomainChaos,InquisitorDomainGood,InquisitorDomainLiberation,InquisitorDomainLuck,InquisitorDomainTravel|1|PREALIGN:NG,CG,CN
+Cayden Cailean.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainStrength,InquisitorDomainTravel|1|PREALIGN:NG,CG,CN
+Abadar.MOD			BONUS:VAR|InquisitorDomainEarth,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainProtection,InquisitorDomainTravel|1|PREALIGN:LG,LN,NG,TN
+Irori.MOD			BONUS:VAR|InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainLaw,InquisitorDomainRune,InquisitorDomainStrength|1|PREALIGN:LG,LN,TN,NG
+Gozreh.MOD			BONUS:VAR|InquisitorDomainAir,InquisitorDomainAnimal,InquisitorDomainPlant,InquisitorDomainWater,InquisitorDomainWeather|1|PREALIGN:LN,NG,TN,NE,CN
+Pharasma.MOD		BONUS:VAR|InquisitorDomainDeathPharasma,InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainRepose,InquisitorDomainWater|1|PREALIGN:LN,NG,TN,NE,CN
+Nethys.MOD			BONUS:VAR|InquisitorDomainDestruction,InquisitorDomainKnowledge,InquisitorDomainMagic,InquisitorDomainProtection,InquisitorDomainRune|1|PREALIGN:LN,NG,TN,NE,CN
+Gorum.MOD			BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainGlory,InquisitorDomainStrength,InquisitorDomainWar|1|PREALIGN:CG,TN,CN,CE
+Calistria.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainKnowledge,InquisitorDomainLuck,InquisitorDomainTrickery|1|PREALIGN:CG,TN,CN,CE
+Asmodeus.MOD		BONUS:VAR|InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainLaw,InquisitorDomainMagic,InquisitorDomainTrickery|1|PREALIGN:LN,LE,NE
+Zon-Kuthon.MOD		BONUS:VAR|InquisitorDomainDarkness,InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainLaw|1|PREALIGN:LN,LE,NE
+Urgathoa.MOD		BONUS:VAR|InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainMagic,InquisitorDomainStrength,InquisitorDomainWar|1|PREALIGN:TN,LE,NE,CE
+Norgorber.MOD		BONUS:VAR|InquisitorDomainCharm,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainKnowledge,InquisitorDomainTrickery|1|PREALIGN:TN,LE,NE,CE
+Lamashtu.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainEvil,InquisitorDomainMadness,InquisitorDomainStrength,InquisitorDomainTrickery|1|PREALIGN:NE,CN,CE
+Rovagug.MOD			BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainWar,InquisitorDomainWeather|1|PREALIGN:NE,CN,CE
 
 # Subdomains
-Abadar.MOD			BONUS:VAR|InquisitorDomainDefenseSubdomain,InquisitorDomainInevitableSubdomain,InquisitorDomainLeadershipSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LG,LN,NG,TN						
-Asmodeus.MOD		BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainAshSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDivineSubdomain,InquisitorDomainSmokeSubdomain|1|PREALIGN:LN,LE,NE			
-Calistria.MOD		BONUS:VAR|InquisitorDomainAzataSubdomainChaos,InquisitorDomainAzataSubdomainGood,InquisitorDomainCurseSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainLustSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:CG,TN,CN,CE	
-Cayden Cailean.MOD	BONUS:VAR|InquisitorDomainAzataSubdomainChaos,InquisitorDomainAzataSubdomainGood,InquisitorDomainExplorationSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainLoveSubdomain,InquisitorDomainLustSubdomain,InquisitorDomainResolveSubdomain|1|PREALIGN:NG,CG,CN		
-Desna.MOD			BONUS:VAR|InquisitorDomainAzataSubdomainChaos,InquisitorDomainAzataSubdomainGood,InquisitorDomainCurseSubdomain,InquisitorDomainExplorationSubdomain,InquisitorDomainFateSubdomain,InquisitorDomainFreedomSubdomain,InquisitorDomainRevolutionSubdomain|1|PREALIGN:NG,CG,CN	
-Erastil.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainFamilySubdomain,InquisitorDomainFeatherSubdomain,InquisitorDomainFurSubdomain,InquisitorDomainGrowthSubdomain,InquisitorDomainHomeSubdomain|1|PREALIGN:LG,LN,NG			
-Gorum.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainProteanSubdomain,InquisitorDomainRageSubdomain,InquisitorDomainResolveSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:CG,TN,CN,CE						
-Gozreh.MOD			BONUS:VAR|InquisitorDomainCloudSubdomain,InquisitorDomainDecaySubdomain,InquisitorDomainGrowthSubdomain,InquisitorDomainOceansSubdomain,InquisitorDomainSeasonsSubdomain,InquisitorDomainWindSubdomain|1|PREALIGN:LN,NG,TN,NE,CN							
-Iomedae.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainDaySubdomain,InquisitorDomainHeroismSubdomain,InquisitorDomainHonorSubdomain,InquisitorDomainLightSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:LG,LN,NG			
-Irori.MOD			BONUS:VAR|InquisitorDomainInevitableSubdomain,InquisitorDomainLanguageSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainResolveSubdomain,InquisitorDomainRestorationSubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:LG,LN,TN,NG					
+Abadar.MOD			BONUS:VAR|InquisitorDomainDefenseSubdomain,InquisitorDomainInevitableSubdomain,InquisitorDomainLeadershipSubdomain,InquisitorDomainMartyrSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainTradeSubdomain|1|PREALIGN:LG,LN,NG,TN
+Asmodeus.MOD		BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainAshSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDevilSubdomainLaw,InquisitorDomainDivineSubdomain,InquisitorDomainSmokeSubdomain|1|PREALIGN:LN,LE,NE
+Calistria.MOD		BONUS:VAR|InquisitorDomainAzataSubdomainChaos,InquisitorDomainAzataSubdomainGood,InquisitorDomainCurseSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainLustSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:CG,TN,CN,CE
+Cayden Cailean.MOD	BONUS:VAR|InquisitorDomainAzataSubdomainChaos,InquisitorDomainAzataSubdomainGood,InquisitorDomainExplorationSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainLoveSubdomain,InquisitorDomainLustSubdomain,InquisitorDomainResolveSubdomain|1|PREALIGN:NG,CG,CN
+Desna.MOD			BONUS:VAR|InquisitorDomainAzataSubdomainChaos,InquisitorDomainAzataSubdomainGood,InquisitorDomainCurseSubdomain,InquisitorDomainExplorationSubdomain,InquisitorDomainFateSubdomain,InquisitorDomainFreedomSubdomain,InquisitorDomainRevolutionSubdomain|1|PREALIGN:NG,CG,CN
+Erastil.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainFamilySubdomain,InquisitorDomainFeatherSubdomain,InquisitorDomainFurSubdomain,InquisitorDomainGrowthSubdomain,InquisitorDomainHomeSubdomain|1|PREALIGN:LG,LN,NG
+Gorum.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainProteanSubdomain,InquisitorDomainRageSubdomain,InquisitorDomainResolveSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:CG,TN,CN,CE
+Gozreh.MOD			BONUS:VAR|InquisitorDomainCloudSubdomain,InquisitorDomainDecaySubdomain,InquisitorDomainGrowthSubdomain,InquisitorDomainOceansSubdomain,InquisitorDomainSeasonsSubdomain,InquisitorDomainWindSubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+Iomedae.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainDaySubdomain,InquisitorDomainHeroismSubdomain,InquisitorDomainHonorSubdomain,InquisitorDomainLightSubdomain,InquisitorDomainTacticsSubdomain|1|PREALIGN:LG,LN,NG
+Irori.MOD			BONUS:VAR|InquisitorDomainInevitableSubdomain,InquisitorDomainLanguageSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainResolveSubdomain,InquisitorDomainRestorationSubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:LG,LN,TN,NG
 Lamashtu.MOD		BONUS:VAR|InquisitorDomainDeceptionSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainFerocitySubdomain,InquisitorDomainInsanitySubdomain,InquisitorDomainNightmareSubdomain,InquisitorDomainThieverySubdomain|1|PREALIGN:NE,CN,CE
-Nethys.MOD			BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainDivineSubdomain,InquisitorDomainThoughtSubdomain,InquisitorDomainWardsSubdomain|1|PREALIGN:LN,NG,TN,NE,CN					
-Norgorber.MOD		BONUS:VAR|InquisitorDomainDaemonSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainThieverySubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:TN,LE,NE,CE						
-Pharasma.MOD		BONUS:VAR|InquisitorDomainAncestorsSubdomain,InquisitorDomainIceSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainResurrectionSubdomain,InquisitorDomainSouls PharasmaSubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:LN,NG,TN,NE,CN			
-Rovagug.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainProteanSubdomain,InquisitorDomainRageSubdomain,InquisitorDomainStormsSubdomain|1|PREALIGN:NE,CN,CE		
-Sarenrae.MOD		BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainDaySubdomain,InquisitorDomainHeroismSubdomain,InquisitorDomainLightSubdomain,InquisitorDomainRestorationSubdomain,InquisitorDomainResurrectionSubdomain|1|PREALIGN:LG,NG,CG,TN					
-Shelyn.MOD			BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainCloudSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainFateSubdomain,InquisitorDomainLoveSubdomain,InquisitorDomainPuritySubdomain|1|PREALIGN:LG,NG,CG,TN							
-Torag.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainCavesSubdomain,InquisitorDomainConstructSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainToilSubdomain|1|PREALIGN:LG,LN,NG		
-Urgathoa.MOD		BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainDaemonSubdomain,InquisitorDomainDivineSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:TN,LE,NE,CE							
-Zon-Kuthon.MOD		BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDevilSubdomainLaw,InquisitorDomainLossSubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainNightSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:LN,LE,NE		
-
+Nethys.MOD			BONUS:VAR|InquisitorDomainArcaneSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainDivineSubdomain,InquisitorDomainThoughtSubdomain,InquisitorDomainWardsSubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+Norgorber.MOD		BONUS:VAR|InquisitorDomainDaemonSubdomain,InquisitorDomainDeceptionSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainThieverySubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:TN,LE,NE,CE
+Pharasma.MOD		BONUS:VAR|InquisitorDomainAncestorsSubdomain,InquisitorDomainIceSubdomain,InquisitorDomainMemorySubdomain,InquisitorDomainResurrectionSubdomain,InquisitorDomainSouls PharasmaSubdomain,InquisitorDomainThoughtSubdomain|1|PREALIGN:LN,NG,TN,NE,CN
+Rovagug.MOD			BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainCatastropheSubdomain,InquisitorDomainDemonSubdomainChaos,InquisitorDomainDemonSubdomainEvil,InquisitorDomainProteanSubdomain,InquisitorDomainRageSubdomain,InquisitorDomainStormsSubdomain|1|PREALIGN:NE,CN,CE
+Sarenrae.MOD		BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainDaySubdomain,InquisitorDomainHeroismSubdomain,InquisitorDomainLightSubdomain,InquisitorDomainRestorationSubdomain,InquisitorDomainResurrectionSubdomain|1|PREALIGN:LG,NG,CG,TN
+Shelyn.MOD			BONUS:VAR|InquisitorDomainAgathionSubdomain,InquisitorDomainCloudSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainFateSubdomain,InquisitorDomainLoveSubdomain,InquisitorDomainPuritySubdomain|1|PREALIGN:LG,NG,CG,TN
+Torag.MOD			BONUS:VAR|InquisitorDomainArchonSubdomainGood,InquisitorDomainArchonSubdomainLaw,InquisitorDomainCavesSubdomain,InquisitorDomainConstructSubdomain,InquisitorDomainDefenseSubdomain,InquisitorDomainMetalSubdomain,InquisitorDomainToilSubdomain|1|PREALIGN:LG,LN,NG
+Urgathoa.MOD		BONUS:VAR|InquisitorDomainBloodSubdomain,InquisitorDomainDaemonSubdomain,InquisitorDomainDivineSubdomain,InquisitorDomainFerocitySubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:TN,LE,NE,CE
+Zon-Kuthon.MOD		BONUS:VAR|InquisitorDomainCatastropheSubdomain,InquisitorDomainDevilSubdomainEvil,InquisitorDomainDevilSubdomainLaw,InquisitorDomainLossSubdomain,InquisitorDomainMurderSubdomain,InquisitorDomainNightSubdomain,InquisitorDomainUndeadSubdomain|1|PREALIGN:LN,LE,NE

@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
 
-# Feat Name			Type			Required Feat		Required Non-Monster Lvl	Required Race		Required Skill			Required Stat	Innate Spells															Description																								Source Page
-Additional Traits.MOD																																																																			SOURCEPAGE:p. 12
-Cypher Script		TYPE:General														PRESKILL:1,Linguistics=1	PRESTAT:1,INT=12																		DESC:Through researching endless ancient arcane script, you have discovered a more efficient method to record spells.						SOURCEPAGE:p. 27
-Cypher Magic		TYPE:General	PREFEAT:1,Scribe Scroll															PRESTAT:1,INT=14																		DESC:Your intimacy with runes and the mysteries of ancient arcana has taught you secrets to draw greater power from a variety of arcane writings.	SOURCEPAGE:p. 27
-Dark Adept			TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Spell-Like Abilities ~ Drow				PREPCLEVEL:MIN=3			PREMULT:1,[PRERACE:1,Drow%,RACESUBTYPE=Drow],[PREFEAT:1,Half-Drow Paragon]									SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Detect Magic,10+CHA|Feather Fall,11+CHA|Levitate,12+CHA	DESC:You gain additional spell-like abilities from your heritage											SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10	SOURCEPAGE:p. 46
+# Feat Name			Type			Required Ability									Required Feat		Multiple Requirements										Required Non-Monster Lvl	Required Skill			Required Stat	Innate Spells															Description																								Source, Long Desc.								Source, Short Desc.	Source URI													Source Page		Source Pub. Date
+Additional Traits.MOD																																																																																																																				SOURCEPAGE:p. 12
+Cypher Script		TYPE:General																																		PRESKILL:1,Linguistics=1	PRESTAT:1,INT=12																		DESC:Through researching endless ancient arcane script, you have discovered a more efficient method to record spells.																																			SOURCEPAGE:p. 27
+Cypher Magic		TYPE:General												PREFEAT:1,Scribe Scroll																								PRESTAT:1,INT=14																		DESC:Your intimacy with runes and the mysteries of ancient arcana has taught you secrets to draw greater power from a variety of arcane writings.																														SOURCEPAGE:p. 27
+Dark Adept			TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Spell-Like Abilities ~ Drow					PREMULT:1,[PRERACE:1,Drow%,RACESUBTYPE=Drow],[PREFEAT:1,Half-Drow Paragon]	PREPCLEVEL:MIN=3											SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Detect Magic,10+CHA|Feather Fall,11+CHA|Levitate,12+CHA	DESC:You gain additional spell-like abilities from your heritage															SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14		SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEPAGE:p. 46	SOURCEDATE:2008-10
 
 # MODs
 Blind-Fight.MOD		TYPE:Liberator

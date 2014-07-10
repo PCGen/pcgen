@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: James Dempsey
 # ORIGINAL ENTRY DATE: 2014-06
@@ -46,11 +46,11 @@ STARTPACK:Dragon (Tidepool) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	
 ALIGN:CN
 RACE:Dragon (Tidepool)	!PRERACE:1,%
 NAME:Tidepool Dragon
-SKILL:Fly			RANK:4.0
-SKILL:Knowledge (Nature)			RANK:4.0
+SKILL:Fly				RANK:4.0
+SKILL:Knowledge (Nature)	RANK:4.0
 SKILL:Perception			RANK:4.0
 SKILL:Survival			RANK:4.0
-SKILL:Swim			RANK:4.0
+SKILL:Swim				RANK:4.0
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -69,11 +69,11 @@ STARTPACK:Incutilis Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUI
 ALIGN:LE
 RACE:Incutilis	!PRERACE:1,%
 NAME:Incutilis
-SKILL:Bluff			RANK:1.0
-SKILL:Disguise		RANK:1.0
-SKILL:Perception			RANK:4.0
-SKILL:Stealth			RANK:4.0
-SKILL:Swim			RANK:4.0
+SKILL:Bluff		RANK:1.0
+SKILL:Disguise	RANK:1.0
+SKILL:Perception	RANK:4.0
+SKILL:Stealth	RANK:4.0
+SKILL:Swim		RANK:4.0
 FEAT:Improved Initiative
 FEAT:Step Up
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
@@ -83,13 +83,13 @@ STARTPACK:Kelpie's Wrath Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	E
 ALIGN:CN
 RACE:Kelpie's Wrath	!PRERACE:1,%
 NAME:Kelpie's Wrath
-SKILL:Knowledge (engineering)			RANK:9.0
-SKILL:Knowledge (nature)			RANK:9.0
-SKILL:Knowledge (planes)			RANK:9.0
+SKILL:Knowledge (engineering)	RANK:9.0
+SKILL:Knowledge (nature)	RANK:9.0
+SKILL:Knowledge (planes)	RANK:9.0
 SKILL:Perception			RANK:18.0
-SKILL:Sense Motive			RANK:9.0
+SKILL:Sense Motive		RANK:9.0
 SKILL:Survival			RANK:18.0
-SKILL:Swim			RANK:18.0
+SKILL:Swim				RANK:18.0
 FEAT:Combat Casting
 FEAT:Combat Reflexes
 FEAT:Disruptive

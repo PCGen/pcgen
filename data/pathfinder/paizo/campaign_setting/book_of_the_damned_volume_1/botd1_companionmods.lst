@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 
 ###Block:Companion for Diabolist
@@ -8,7 +8,7 @@ FOLLOWER:ImpCompLevel=2		TYPE:Imp Companion	HD:1																																
 FOLLOWER:ImpCompLevel=3		TYPE:Imp Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
 FOLLOWER:ImpCompLevel=4		TYPE:Imp Companion	HD:1																																										BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=5		TYPE:Imp Companion	HD:1																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:ImpCompLevel=6		TYPE:Imp Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompLevel=6		TYPE:Imp Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
 FOLLOWER:ImpCompLevel=7		TYPE:Imp Companion																																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=8		TYPE:Imp Companion	HD:1																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=9		TYPE:Imp Companion	HD:1																												AUTO:FEAT|Multiattack											BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1

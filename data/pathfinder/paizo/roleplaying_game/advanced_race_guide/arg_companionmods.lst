@@ -1,15 +1,15 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
 ###Block:Exotic Pet
-# Class of the Master	Type			Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define a Stat			Combat bonus					Main Race Type
+# Class of the Master	Type			Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define a Stat			Combat bonus					Main Race Type
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Improved Evasion																				DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
-FOLLOWER:ExoticPetLVL=3	TYPE:Exotic Pet																													DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Improved Evasion																						DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
+FOLLOWER:ExoticPetLVL=3	TYPE:Exotic Pet																															DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:ExoticPetLVL=5	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master																				DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:ExoticPetLVL=7	TYPE:Exotic Pet	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind																		DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																													DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																															DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 # Locking INT to 10 makes it a non-ability.
 
 # Race of familiar			Type			Bonus to skill			Virtual Feat
@@ -20,27 +20,27 @@ MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3		VFEAT:
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
 
 ###Block: Plant Companion
-# Class of the Master		Type				Hit Dice	Ability															Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
+# Class of the Master		Type				Hit Dice	Ability																					Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
 FOLLOWER:PlantCompanionLVL=1	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells						DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Plant
-FOLLOWER:PlantCompanionLVL=2	TYPE:Plant Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Plant Companion Advancement																																						BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1																		AUTO:FEAT|Multiattack		DEFINE:Multiattack|1					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=13	TYPE:Plant Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=14	TYPE:Plant Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=15	TYPE:Plant Companion																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=16	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=17	TYPE:Plant Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=18	TYPE:Plant Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=19	TYPE:Plant Companion																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=2	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Plant Companion Advancement																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1																								AUTO:FEAT|Multiattack		DEFINE:Multiattack|1					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=13	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=14	TYPE:Plant Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=15	TYPE:Plant Companion																																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=16	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																														BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=17	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=18	TYPE:Plant Companion	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=19	TYPE:Plant Companion																																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
 
 ###Block:Demonic Familiar (Demonic Apostle)
@@ -71,7 +71,7 @@ FOLLOWER:EidolonLVL=2	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|
 FOLLOWER:EidolonLVL=3	TYPE:Shaitan Binder Eidolon	HD:1																																								BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=4	TYPE:Shaitan Binder Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:EidolonLVL=5	TYPE:Shaitan Binder Eidolon	HD:1																																								BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=6	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																															BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonLVL=6	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																													BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=7	TYPE:Shaitan Binder Eidolon	HD:1																																								BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=8	TYPE:Shaitan Binder Eidolon																																									BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
 FOLLOWER:EidolonLVL=9	TYPE:Shaitan Binder Eidolon	HD:1																							AUTO:FEAT|Multiattack														BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
@@ -95,10 +95,10 @@ FOLLOWER:EidolonLVL=12	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUT
 FOLLOWER:EidolonLVL=20	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Noble Eidolon ~ Shaitan Binder Eidolon
 
 ###Block Base Eidolon mods for Wild Caller
-# Class of the Master			Type			Define				Bonus to Ability Pool
-FOLLOWER:EidolonLVL=4			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=8			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=12			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=16			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=20			TYPE:Eidolon						BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+# Class of the Master			Type			Ability										Bonus to Ability Pool
+FOLLOWER:EidolonLVL=4			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=8			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=12			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=16			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonLVL=20			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
 FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Wild Caller Eidolon

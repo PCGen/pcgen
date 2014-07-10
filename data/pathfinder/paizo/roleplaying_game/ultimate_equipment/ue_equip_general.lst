@@ -1,4 +1,4 @@
-# CVS $Revision: 14380 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 14380 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # Pathfinder RPG Entry by: Stefan Radermacher and Scott Meyer
 
@@ -248,7 +248,7 @@ Scribe (Map)			TYPE:Service		COST:10	SOURCEPAGE:p.99
 Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 
 ###Block: Tools and Skill Kits
-# Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Source Page		Bonus to skill
+# Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Source Page		Bonus to Situation							Bonus to skill
 Abacus.MOD																				TYPE:Goods.Tools													COST:2	WT:2		SOURCEPAGE:p.76
 Alchemist's Lab.MOD																																					SOURCEPAGE:p.76
 Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:50		SOURCEPAGE:p.76
@@ -278,47 +278,47 @@ Artisan's Tools (Stonemasonry).MOD																																			SOURCEPAGE:
 Artisan's Tools (Traps).MOD																																				SOURCEPAGE:p.76
 Artisan's Tools (Weaponsmithing).MOD																																		SOURCEPAGE:p.76
 Artisan's Tools (Armor).COPY=Artisan's Tools (Armor/Masterwork)
-Artisan's Tools (Armor/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
+Artisan's Tools (Armor/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
 Artisan's Tools (Baskets).COPY=Artisan's Tools (Baskets/Masterwork)
-Artisan's Tools (Baskets/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
+Artisan's Tools (Baskets/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
 Artisan's Tools (Books).COPY=Artisan's Tools (Books/Masterwork)
-Artisan's Tools (Books/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
+Artisan's Tools (Books/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
 Artisan's Tools (Bows).COPY=Artisan's Tools (Bows/Masterwork)
-Artisan's Tools (Bows/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
+Artisan's Tools (Bows/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
 Artisan's Tools (Calligraphy).COPY=Artisan's Tools (Calligraphy/Masterwork)
-Artisan's Tools (Calligraphy/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
+Artisan's Tools (Calligraphy/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
 Artisan's Tools (Carpentry).COPY=Artisan's Tools (Carpentry/Masterwork)
-Artisan's Tools (Carpentry/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
-Artisan's Tools (Cloth).COPY=Artisan's Tools (Cloth/Masterwork)	
-Artisan's Tools (Cloth/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
+Artisan's Tools (Carpentry/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
+Artisan's Tools (Cloth).COPY=Artisan's Tools (Cloth/Masterwork)
+Artisan's Tools (Cloth/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
 Artisan's Tools (Clothing).COPY=Artisan's Tools (Clothing/Masterwork)
-Artisan's Tools (Clothing/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
+Artisan's Tools (Clothing/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
 Artisan's Tools (Gemcutting).COPY=Artisan's Tools (Gemcutting/Masterwork)
-Artisan's Tools (Gemcutting/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
+Artisan's Tools (Gemcutting/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
 Artisan's Tools (Glass).COPY=Artisan's Tools (Glass/Masterwork)
-Artisan's Tools (Glass/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
+Artisan's Tools (Glass/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
 Artisan's Tools (Jewelry).COPY=Artisan's Tools (Jewelry/Masterwork)
-Artisan's Tools (Jewelry/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
+Artisan's Tools (Jewelry/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
 Artisan's Tools (Leather).COPY=Artisan's Tools (Leather/Masterwork)
-Artisan's Tools (Leather/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
+Artisan's Tools (Leather/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
 Artisan's Tools (Locks).COPY=Artisan's Tools (Locks/Masterwork)
-Artisan's Tools (Locks/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
+Artisan's Tools (Locks/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
 Artisan's Tools (Paintings).COPY=Artisan's Tools (Paintings/Masterwork)
-Artisan's Tools (Paintings/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
+Artisan's Tools (Paintings/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
 Artisan's Tools (Pottery).COPY=Artisan's Tools (Pottery/Masterwork)
-Artisan's Tools (Pottery/Masterwork).MOD																									COST:55						BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance
+Artisan's Tools (Pottery/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance
 Artisan's Tools (Sculptures).COPY=Artisan's Tools (Sculptures/Masterwork)
-Artisan's Tools (Sculptures/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
+Artisan's Tools (Sculptures/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
 Artisan's Tools (Ships).COPY=Artisan's Tools (Ships/Masterwork)
-Artisan's Tools (Ships/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
+Artisan's Tools (Ships/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
 Artisan's Tools (Shoes).COPY=Artisan's Tools (Shoes/Masterwork)
-Artisan's Tools (Shoes/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
+Artisan's Tools (Shoes/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
 Artisan's Tools (Stonemasonry).COPY=Artisan's Tools (Stonemasonry/Masterwork)
-Artisan's Tools (Stonemasonry/Masterwork).MOD																								COST:55						BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
+Artisan's Tools (Stonemasonry/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
 Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)
-Artisan's Tools (Traps/Masterwork).MOD																										COST:55						BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
+Artisan's Tools (Traps/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
 Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)
-Artisan's Tools (Weaponsmithing/Masterwork).MOD																							COST:55						BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance
+Artisan's Tools (Weaponsmithing/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance
 Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12		SOURCEPAGE:p.76
 Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.76
 Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3		SOURCEPAGE:p.76
@@ -328,10 +328,10 @@ Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:
 Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6		SOURCEPAGE:p.77	BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
 Spellbook (Wizard's/Blank).COPY=Formula Book (Alchemist's/Blank)
 Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5	SOURCEPAGE:p.77
-Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1		SOURCEPAGE:p.77	BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
-Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1		SOURCEPAGE:p.77	BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
+Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1		SOURCEPAGE:p.77											BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
+Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1		SOURCEPAGE:p.77											BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
 Healer's Kit.MOD																																						SOURCEPAGE:p.77
-Juggler's Kit																			TYPE:Goods.Tools													COST:15	WT:10		SOURCEPAGE:p.77	BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
+Juggler's Kit																			TYPE:Goods.Tools													COST:15	WT:10		SOURCEPAGE:p.77											BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
 Leeching Kit.MOD																			TYPE:Goods.Tools													COST:5	WT:5		SOURCEPAGE:p.77
 Map Maker's Kit.MOD																		TYPE:Goods.Tools													COST:10	WT:2		SOURCEPAGE:p.78
 #Masterwork tool 50 gp 1 lb.
@@ -353,35 +353,35 @@ Musical Instrument (Pan Pipes).MOD																																			SOURCEPAGE:
 Musical Instrument (Recorder).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																											SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harpsichord/Masterwork.MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Piano/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																											SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Bells/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Chimes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Drums/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Gong/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Fiddle/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harp/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Lute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Mandolin/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																													SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
-Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)	
-Musical Instrument (Pan Pipes/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Flute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Recorder/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																												SOURCEPAGE:p.78	BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Trumpet/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2		SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3		SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20		SOURCEPAGE:p.79
@@ -392,57 +392,57 @@ Spellbook (Wizard's/Blank).MOD																																			SOURCEPAGE:p.79
 Stretcher																				TYPE:Goods.Tools													COST:1	WT:10		SOURCEPAGE:p.79
 Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5		SOURCEPAGE:p.79
 Surgeon's Tools.COPY=Surgeon's Tools (Small)
-Surgeon's Tools (Small).MOD																															WT:1.25	SOURCEPAGE:p.79
+Surgeon's Tools (Small).MOD																																		WT:1.25	SOURCEPAGE:p.79
 Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.79
 Thieves' Tools.MOD																																					SOURCEPAGE:p.79
 Thieves' Tools.COPY=Thieves' Tools (Masterwork)
-Thieves' Tools (Masterwork).MOD																													COST:100	WT:2		SOURCEPAGE:p.79	BONUS:SKILL|Disable Device|2|TYPE=Circumstance
+Thieves' Tools (Masterwork).MOD																															COST:100	WT:2		SOURCEPAGE:p.79											BONUS:SKILL|Disable Device|2|TYPE=Circumstance
 Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
 Traveling Formula Book (Blank).MOD
 Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.79
-Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		SOURCEPAGE:p.79	BONUS:SKILL|Heal|1|TYPE=Circumstance	BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance
+Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		SOURCEPAGE:p.79	BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
-# Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to skill													Modify VAR			Quality and value																			Special Property
-Air Bladder																	TYPE:Goods.General															COST:0.1	WT:0.5				SOURCEPAGE:p.58																																									SPROP:If inflated, it holds enough air to sustain a Medium creature for 1 round or a Small creature for 2 rounds.
-Animal Glue																	TYPE:Goods.General.Consumable														COST:0.5	WT:0.5				SOURCEPAGE:p.58																																									SPROP:Before you use animal glue, you must heat it until it liquefies. You normally apply it with a brush and hold the pieces together for a minute, at which point it is cooled and hardened. The glue is sufficient to coat 1 square foot of surface, or up to 40 smaller applications of approximately 2 square inches each.
-Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURCEPAGE:p.58	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance																									SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
-Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																									SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
+# Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property
+Air Bladder																	TYPE:Goods.General															COST:0.1	WT:0.5				SOURCEPAGE:p.58																																																				SPROP:If inflated, it holds enough air to sustain a Medium creature for 1 round or a Small creature for 2 rounds.
+Animal Glue																	TYPE:Goods.General.Consumable														COST:0.5	WT:0.5				SOURCEPAGE:p.58																																																				SPROP:Before you use animal glue, you must heat it until it liquefies. You normally apply it with a brush and hold the pieces together for a minute, at which point it is cooled and hardened. The glue is sufficient to coat 1 square foot of surface, or up to 40 smaller applications of approximately 2 square inches each.
+Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURCEPAGE:p.58	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance																															SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
+Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																																				SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
 Backpack.MOD									OUTPUTNAME:Backpack, Common																												SOURCEPAGE:p.58
-Backpack (Masterwork).MOD	SOURCEPAGE:p.58
-Bandolier																	TYPE:Goods.Clothing.Resizable.Container		CONTAINS:*UNLIM|Total=8							COST:0.5						SOURCEPAGE:p.59																																									SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the “retrieve a stored item” action to take an item from a bandolier.
-Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																									SPROP:A simple banner with one field color and a simple insignia.
-Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																									SPROP:A banner with two to four field colors and a complex insignia.
-Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																									SPROP:A detailed banner with four or more field colors and a very complex insignia.
-Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt													COST:10	WT:4					SOURCEPAGE:p.59																																									SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
+Backpack (Masterwork).MOD																																							SOURCEPAGE:p.58
+Bandolier																	TYPE:Goods.Clothing.Resizable.Container		CONTAINS:*UNLIM|Total=8							COST:0.5						SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the “retrieve a stored item” action to take an item from a bandolier.
+Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
+Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
+Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
+Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
 Barrel.MOD																																										SOURCEPAGE:p.59
 Basket.MOD																																										SOURCEPAGE:p.59
 Bedroll.MOD																																										SOURCEPAGE:p.59
 Bell.MOD																																										SOURCEPAGE:p.59
-Bell Net																	TYPE:Goods.General															COST:2	WT:2					SOURCEPAGE:p.59	BONUS:SKILL|Stealth|-2																																					SPROP:Creatures attempting to access gear protected by a bell net must succeed at a DC 25 Sleight of Hand check to avoid chiming the bells. Hearing the chiming bells of a bell net requires a DC 0 Perception check. Because the many bells chime when you move, traveling with a bell net gives you a -2 penalty on Stealth checks.
+Bell Net																	TYPE:Goods.General															COST:2	WT:2					SOURCEPAGE:p.59																						BONUS:SKILL|Stealth|-2																											SPROP:Creatures attempting to access gear protected by a bell net must succeed at a DC 25 Sleight of Hand check to avoid chiming the bells. Hearing the chiming bells of a bell net requires a DC 0 Perception check. Because the many bells chime when you move, traveling with a bell net gives you a -2 penalty on Stealth checks.
 Pouch (Belt).MOD									OUTPUTNAME:Belt Pouch																													SOURCEPAGE:p.59
 Blanket.MOD																	TYPE:Goods.General.Resizable														COST:0.5	WT:3					SOURCEPAGE:p.59
 Block and Tackle.MOD																																								SOURCEPAGE:p.60
-Blue Book																	TYPE:Goods.Tools.Book															COST:5	WT:1					SOURCEPAGE:p.60																																									SPROP:By consulting the book for 1 hour, for the next 24 hours you gain a +2 circumstance bonus on Knowledge (local), Bluff, and Diplomacy checks to gather or use information in that city. At the GM's discretion, you can use it in settlements near that city for a +1 bonus.
-Book of Letters																TYPE:Goods.Tools.Book															COST:50	WT:3					SOURCEPAGE:p.60	BONUS:SITUATION|Diplomacy=City Officials|2|TYPE=Circumstance		BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance																									SPROP:It provides a +2 circumstance bonus on Diplomacy checks when dealing with city officials and a +2 circumstance bonus on Linguistics checks when creating forgeries.
+Blue Book																	TYPE:Goods.Tools.Book															COST:5	WT:1					SOURCEPAGE:p.60																																																				SPROP:By consulting the book for 1 hour, for the next 24 hours you gain a +2 circumstance bonus on Knowledge (local), Bluff, and Diplomacy checks to gather or use information in that city. At the GM's discretion, you can use it in settlements near that city for a +1 bonus.
+Book of Letters																TYPE:Goods.Tools.Book															COST:50	WT:3					SOURCEPAGE:p.60	BONUS:SITUATION|Diplomacy=City Officials|2|TYPE=Circumstance	BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance																															SPROP:It provides a +2 circumstance bonus on Diplomacy checks when dealing with city officials and a +2 circumstance bonus on Linguistics checks when creating forgeries.
 Bottle (Glass).MOD																																								SOURCEPAGE:p.60
-Breakaway Chains																TYPE:Goods.Tools.Masterwork														COST:65	WT:2					SOURCEPAGE:p.60																																									SPROP:These masterwork chains are easy to break, even though they look like normal chains (Perception DC 25 to notice the difference). A DC 10 Strength check breaks them instantly.
+Breakaway Chains																TYPE:Goods.Tools.Masterwork														COST:65	WT:2					SOURCEPAGE:p.60																																																				SPROP:These masterwork chains are easy to break, even though they look like normal chains (Perception DC 25 to notice the difference). A DC 10 Strength check breaks them instantly.
 Bucket.MOD																																										SOURCEPAGE:p.60
 Lantern (Bullseye).MOD								OUTPUTNAME:Bullseye Lantern																												SOURCEPAGE:p.60
 Buoy (Common).MOD									OUTPUTNAME:Buoy, Common				TYPE:Goods.General															COST:0.5	WT:16					SOURCEPAGE:p.60
 Buoy (Superior).MOD								OUTPUTNAME:Buoy, Superior			TYPE:Goods.General															COST:10	WT:30					SOURCEPAGE:p.60
 Butterfly Net.MOD																TYPE:Goods.General.Resizable														COST:5	WT:2					SOURCEPAGE:p.60
 Caltrops.MOD																																									SOURCEPAGE:p.60
-Camouflage Netting															TYPE:Goods.Tools																COST:20	WT:5					SOURCEPAGE:p.61																																									SPROP:When you hide under the netting in the appropriate terrain, you gain a +4 circumstance bonus on Stealth checks as long as you remain immobile and prone.
+Camouflage Netting															TYPE:Goods.Tools																COST:20	WT:5					SOURCEPAGE:p.61																																																				SPROP:When you hide under the netting in the appropriate terrain, you gain a +4 circumstance bonus on Stealth checks as long as you remain immobile and prone.
 Candle.MOD																																										SOURCEPAGE:p.61
 Candle.COPY=Candles (10)
-Candles (10).MOD																																COST:0.1			BASEQTY:10
-Candle Lamp																	TYPE:Goods.General.Lightsource													COST:5	WT:1					SOURCEPAGE:p.61																																									SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
+Candles (10).MOD																																		COST:0.1			BASEQTY:10
+Candle Lamp																	TYPE:Goods.General.Lightsource													COST:5	WT:1					SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
 Candlestick																	TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.61
 Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:2	WT:1					SOURCEPAGE:p.61
 Canvas (Sq Yd).MOD																																								SOURCEPAGE:p.61
 Cauldron.MOD																TYPE:Goods.Tools																COST:1	WT:5					SOURCEPAGE:p.61
-Cauldron (Mithral)								OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																COST:1251	WT:2.5				SOURCEPAGE:p.61																																									SPROP:Lighter than a standard cauldron and food rarely sticks to it.
+Cauldron (Mithral)								OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																COST:1251	WT:2.5				SOURCEPAGE:p.61																																																				SPROP:Lighter than a standard cauldron and food rarely sticks to it.
 Chain (10 Ft).MOD																																									SOURCEPAGE:p.61
 Chalk (1 Piece).MOD																																								SOURCEPAGE:p.62
 Chalkboard.MOD																TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.62
@@ -457,21 +457,21 @@ Coffin (Ornate)																TYPE:Goods.General.Resizable														COST:10
 Collapsible Bathtub															TYPE:Goods.General.Resizable														COST:15	WT:20					SOURCEPAGE:p.62
 Collapsible Plank																TYPE:Goods.General															COST:0.4	WT:10					SOURCEPAGE:p.62
 Compass.MOD																	TYPE:Goods.General															COST:10	WT:0.5				SOURCEPAGE:p.62	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance
-Copy of a Key																TYPE:Goods.Tools																COST:1						SOURCEPAGE:p.63																																									SPROP:An artisan can make a working copy of a key in an hour.
+Copy of a Key																TYPE:Goods.Tools																COST:1						SOURCEPAGE:p.63																																																				SPROP:An artisan can make a working copy of a key in an hour.
 Cot																		TYPE:Goods.General.Resizable														COST:1	WT:30					SOURCEPAGE:p.63
 Crowbar.MOD																																										SOURCEPAGE:p.63
-Cypher Books																TYPE:Goods.General															COST:150	WT:2					SOURCEPAGE:p.63																																									SPROP:A creature without access to the appropriate cypher book takes a -10 penalty on Linguistic checks made to decipher each page of a coded message.
+Cypher Books																TYPE:Goods.General															COST:150	WT:2					SOURCEPAGE:p.63																																																				SPROP:A creature without access to the appropriate cypher book takes a -10 penalty on Linguistic checks made to decipher each page of a coded message.
 Drill.MOD																	TYPE:Goods.General															COST:0.5	WT:1					SOURCEPAGE:p.63
-Ear Trumpet																	TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																									SPROP:By holding this specially crafted ear trumpet to your ear and placing the other end against a door or wall, you reduce the DC penalty for listening through a door or wall by 5.
-Earplugs.MOD																TYPE:Goods.General															COST:0.03						SOURCEPAGE:p.63																																									SPROP:Give you a +2 circumstance bonus on saves against effects that require hearing, but also cause a -5 penalty on hearing-based Perception checks.
+Ear Trumpet																	TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																																				SPROP:By holding this specially crafted ear trumpet to your ear and placing the other end against a door or wall, you reduce the DC penalty for listening through a door or wall by 5.
+Earplugs.MOD																TYPE:Goods.General															COST:0.03						SOURCEPAGE:p.63																																																				SPROP:Give you a +2 circumstance bonus on saves against effects that require hearing, but also cause a -5 penalty on hearing-based Perception checks.
 Everburning Torch.MOD																																								SOURCEPAGE:p.63
-Fake Footprint Shoes															TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																									SPROP:Each pair creates a specific type of footprint, such as tiger, orc, goblin, or ogre. When walking with these shoes, you may make a Survival check; the check result is the Survival DC for anyone trying to determine whether the tracks are what they appear to be.
-False Manacles																TYPE:Goods.General.Masterwork														COST:65	WT:2					SOURCEPAGE:p.64																																									SPROP:A wearer who knows the location of the secret catch can open them as a standard action.
+Fake Footprint Shoes															TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																																				SPROP:Each pair creates a specific type of footprint, such as tiger, orc, goblin, or ogre. When walking with these shoes, you may make a Survival check; the check result is the Survival DC for anyone trying to determine whether the tracks are what they appear to be.
+False Manacles																TYPE:Goods.General.Masterwork														COST:65	WT:2					SOURCEPAGE:p.64																																																				SPROP:A wearer who knows the location of the secret catch can open them as a standard action.
 False-Bottomed Chest															TYPE:Goods.General															COST:52	WT:25					SOURCEPAGE:p.64
 False-Bottomed Cup															TYPE:Goods.General															COST:1						SOURCEPAGE:p.64
 False-Bottomed Scabbard															TYPE:Goods.General															COST:45	WT:1					SOURCEPAGE:p.64
-Familiar Satchel																TYPE:Goods.General															COST:25	WT:6					SOURCEPAGE:p.64																																									SPROP:Provides total cover to any Tiny or smaller creature contained within it.
-Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64	BONUS:SKILL|Perception|-2																																				SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 × 10 minutes and should be thoroughly rinsed after each use.
+Familiar Satchel																TYPE:Goods.General															COST:25	WT:6					SOURCEPAGE:p.64																																																				SPROP:Provides total cover to any Tiny or smaller creature contained within it.
+Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 × 10 minutes and should be thoroughly rinsed after each use.
 Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
 Fishhook.MOD																																									SOURCEPAGE:p.64
 Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
@@ -483,9 +483,9 @@ Folding Pole																TYPE:Goods.General															COST:0.2	WT:10					
 Folding Table																TYPE:Goods.General															COST:10	WT:20					SOURCEPAGE:p.65
 Gear Maintenance Kit															TYPE:Goods.Tools.Kits															COST:5	WT:2					SOURCEPAGE:p.65
 Glass Cutter																TYPE:Goods.General															COST:5						SOURCEPAGE:p.65
-Glue Paper																	TYPE:Goods.General.Consumable														COST:0.1						SOURCEPAGE:p.65																																									SPROP:If you apply glue paper to a window before you break it, the broken pieces stick to the glue rather than noisily falling to the ground.
-Grappling Arrow																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																									SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
-Grappling Bolt																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																									SPROP:A small grappling hook designed to be tied to a silk rope and fired from a crossbow. When fired, it has a range increment of 30 feet.
+Glue Paper																	TYPE:Goods.General.Consumable														COST:0.1						SOURCEPAGE:p.65																																																				SPROP:If you apply glue paper to a window before you break it, the broken pieces stick to the glue rather than noisily falling to the ground.
+Grappling Arrow																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
+Grappling Bolt																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a crossbow. When fired, it has a range increment of 30 feet.
 Grappling Hook.MOD								OUTPUTNAME:Grappling Hook, Common																											SOURCEPAGE:p.65
 Grappling Hook (Mithral)							OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.65
 Grooming Kit																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.65
@@ -494,38 +494,38 @@ Hammer.MOD																																										SOURCEPAGE:p.65
 Hammock																	TYPE:Goods.General.Resizable														COST:0.1	WT:3					SOURCEPAGE:p.65
 Harrow Deck																	TYPE:Goods.General															COST:100						SOURCEPAGE:p.66
 Helmet Candle																TYPE:Goods.General.Headgear														COST:2	WT:4					SOURCEPAGE:p.66
-Heritage Book																TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.66	BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Circumstance																																SPROP:Consulting this book grants a +2 circumstance bonus on Knowledge (nobility) checks.
+Heritage Book																TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.66																						BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Circumstance																						SPROP:Consulting this book grants a +2 circumstance bonus on Knowledge (nobility) checks.
 Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
 Hollowed Pommel																TYPE:Goods.General															COST:5						SOURCEPAGE:p.66
 Holy Symbol (Wooden).MOD																																							SOURCEPAGE:p.66
 Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Compartment)
-Holy Symbol (Wooden/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
+Holy Symbol (Wooden/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
 Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Flask)
-Holy Symbol (Wooden/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
+Holy Symbol (Wooden/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
 Holy Symbol (Iron)															TYPE:Goods.Tools.DivineFocus														COST:5	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Iron).COPY=Holy Symbol (Iron/Compartment)
-Holy Symbol (Iron/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
+Holy Symbol (Iron/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
 Holy Symbol (Iron).COPY=Holy Symbol (Iron/Flask)
-Holy Symbol (Iron/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:15
+Holy Symbol (Iron/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:15
 Holy Symbol (Silver).MOD																																							SOURCEPAGE:p.66
 Holy Symbol (Silver).COPY=Holy Symbol (Silver/Compartment)
-Holy Symbol (Silver/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
+Holy Symbol (Silver/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
 Holy Symbol (Silver).COPY=Holy Symbol (Silver/Flask)
-Holy Symbol (Silver/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
+Holy Symbol (Silver/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
 Holy Symbol (Gold)															TYPE:Goods.Tools.DivineFocus														COST:100	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Gold).COPY=Holy Symbol (Gold/Compartment)
-Holy Symbol (Gold/Compartment).MOD									TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
+Holy Symbol (Gold/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
 Holy Symbol (Gold).COPY=Holy Symbol (Gold/Flask)
-Holy Symbol (Gold/Flask).MOD										TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
+Holy Symbol (Gold/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
 Holy Symbol (Platinum)															TYPE:Goods.Tools.DivineFocus														COST:500	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Compartment)
-Holy Symbol (Platinum/Compartment).MOD								TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
+Holy Symbol (Platinum/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
-Holy Symbol (Platinum/Flask).MOD									TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
+Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
 Holy Symbol (Tattoo)															TYPE:Goods.Tools.DivineFocus														COST:100						SOURCEPAGE:p.66
-Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																									SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
-Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																									SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
-Holy Text (Expensive)															TYPE:Goods.Tools.Book															COST:100	WT:20					SOURCEPAGE:66																																									SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.
+Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
+Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
+Holy Text (Expensive)															TYPE:Goods.Tools.Book															COST:100	WT:20					SOURCEPAGE:66																																																				SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.
 Lantern (Hooded).MOD																																								SOURCEPAGE:p.67
 Hourglass (6 Seconds).MOD							OUTPUTNAME:Hourglass, 6 Seconds																				COST:10						SOURCEPAGE:p.67
 Hourglass.MOD									OUTPUTNAME:Hourglass, 1 Minute																				COST:20	WT:0.5				SOURCEPAGE:p.67
@@ -534,19 +534,19 @@ Ink (1 oz Vial).MOD																																								SOURCEPAGE:p.67
 Inkpen.MOD																																										SOURCEPAGE:p.67
 Iron Spike.MOD																TYPE:Goods.General															COST:0.05	WT:1					SOURCEPAGE:p.67
 Iron Vial																	TYPE:Goods.General.Vial															COST:0.1	WT:1					SOURCEPAGE:p.67
-Journal																	TYPE:Goods.Tools.Book															COST:10	WT:1					SOURCEPAGE:p.67																																									SPROP:a blank, lightweight book with an oilskin cover. It has 50 paper pages.
+Journal																	TYPE:Goods.Tools.Book															COST:10	WT:1					SOURCEPAGE:p.67																																																				SPROP:a blank, lightweight book with an oilskin cover. It has 50 paper pages.
 Jug (Clay).MOD									OUTPUTNAME:Jug																														SOURCEPAGE:p.67
 Ladder (10 Ft).MOD																																								SOURCEPAGE:p.67
 Lamp (Common).MOD																																									SOURCEPAGE:p.67
-Lamp (Common/Waterproof)														TYPE:Goods.General.LightSource													COST:5.1	WT:1					SOURCEPAGE:p.156																				QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Bullseye/Waterproof)														TYPE:Goods.General.LightSource													COST:17	WT:3					SOURCEPAGE:p.156																				QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Hooded/Waterproof)														TYPE:Goods.General.LightSource													COST:12	WT:2					SOURCEPAGE:p.156																				QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lamp (Common/Waterproof)														TYPE:Goods.General.LightSource													COST:5.1	WT:1					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Bullseye/Waterproof)														TYPE:Goods.General.LightSource													COST:17	WT:3					SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Hooded/Waterproof)														TYPE:Goods.General.LightSource													COST:12	WT:2					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
 Lock (Simple).MOD																																									SOURCEPAGE:p.67
 Lock (Average).MOD																																								SOURCEPAGE:p.67
 Lock (Good).MOD																																									SOURCEPAGE:p.67
 Lock (Superior).MOD																																								SOURCEPAGE:p.67
 Magnet.MOD																	TYPE:Goods.General															COST:0.5	WT:0.5				SOURCEPAGE:p.67
-Magnifying Glass.MOD															TYPE:Goods.General															COST:100						SOURCEPAGE:p.67	BONUS:SKILL|Appraise|2|TYPE=Circumstance
+Magnifying Glass.MOD															TYPE:Goods.General															COST:100						SOURCEPAGE:p.67																						BONUS:SKILL|Appraise|2|TYPE=Circumstance
 Manacles (Medium).MOD																																								SOURCEPAGE:p.68
 Manacles (Small).MOD																																								SOURCEPAGE:p.68
 Manacles (Large).MOD																																								SOURCEPAGE:p.68
@@ -568,7 +568,7 @@ Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69
 Parchment (Sheet).MOD																																								SOURCEPAGE:p.69
-Perfume/Cologne																TYPE:Goods.General.Vial															COST:5						SOURCEPAGE:p.69																																									SPROP:Perfume or cologne may (at the GM's discretion) provide a +1 circumstance bonus on several Charisma-based skill checks.
+Perfume/Cologne																TYPE:Goods.General.Vial															COST:5						SOURCEPAGE:p.69																																																				SPROP:Perfume or cologne may (at the GM's discretion) provide a +1 circumstance bonus on several Charisma-based skill checks.
 Periscope.MOD																TYPE:Goods.General															COST:20	WT:4					SOURCEPAGE:p.69
 Pitcher (Clay).MOD																																								SOURCEPAGE:p.69
 Piton.MOD																																										SOURCEPAGE:p.69
@@ -579,7 +579,7 @@ Portable Bridge																TYPE:Goods.General															COST:200	WT:60		
 Ram (Portable).MOD								OUTPUTNAME:Portable Ram																													SOURCEPAGE:p.70
 Pot (Iron).MOD																																									SOURCEPAGE:p.70
 Pot (Mithral)																TYPE:Goods.General															COST:1001	WT:2					SOURCEPAGE:p.70
-Powder.MOD																	TYPE:Goods.General.Consumable														COST:0.01	WT:0.5				SOURCEPAGE:p.70																																									SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
+Powder.MOD																	TYPE:Goods.General.Consumable														COST:0.01	WT:0.5				SOURCEPAGE:p.70																																																				SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
 Powder Horn																	TYPE:FirearmGear																COST:3	WT:1					SOURCEPAGE:p.70
 Prosthetic (Arm)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:10	WT:3					SOURCEPAGE:p.70
 Prosthetic (Foot)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:2					SOURCEPAGE:p.70
@@ -597,7 +597,7 @@ Sentry Mannequin																TYPE:Goods.General.Resizable														COST:3
 Sewing Needle.MOD																																									SOURCEPAGE:p.71
 Sextant.MOD																	TYPE:Goods.Tools																COST:500	WT:2					SOURCEPAGE:p.71
 Shaving Kit																	TYPE:Goods.General															COST:1.5	WT:0.5				SOURCEPAGE:p.71
-Shield Sconce																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.71																																									SPROP:This metal frame holds a torch and is designed to be strapped to the front of a light, heavy, or tower shield, allowing you to carry a torch without giving up your shield or occupying your weapon hand.
+Shield Sconce																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.71																																																				SPROP:This metal frame holds a torch and is designed to be strapped to the front of a light, heavy, or tower shield, allowing you to carry a torch without giving up your shield or occupying your weapon hand.
 Shovel or Spade.MOD								OUTPUTNAME:Shovel, Common																												SOURCEPAGE:p.71
 Shovel (Folding)									OUTPUTNAME:Shovel, Folding			TYPE:Goods.General															COST:10	WT:12					SOURCEPAGE:p.71
 Signal Horn.MOD																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.71
@@ -621,7 +621,7 @@ Stilts (Masterwork)															TYPE:Goods.General.Resizable														COST
 Stove Can																	TYPE:Goods.General															COST:10	WT:1					SOURCEPAGE:p.73
 String (50 ft.).MOD															TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.73
 Survival Kit (Common)															TYPE:Goods.General															COST:5	WT:4					SOURCEPAGE:p.73
-Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	WT:5					SOURCEPAGE:p.73	BONUS:SKILL|Survival|2|TYPE=Circumstance
+Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	WT:5					SOURCEPAGE:p.73																						BONUS:SKILL|Survival|2|TYPE=Circumstance
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
 #Tattoo 1 cp-20 gp —
 Teapot																	TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.74

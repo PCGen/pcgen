@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 STARTPACK:Alchemist's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:40
@@ -29,7 +29,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Bard's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:41
+STARTPACK:Bard's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:41
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -85,7 +85,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Cleric's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:16
+STARTPACK:Cleric's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:16
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -102,7 +102,7 @@ GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Druid's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:14
+STARTPACK:Druid's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:14
 GEAR:Feed (Per Day)		QTY:5		SIZE:PC
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -118,7 +118,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Fighter's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+STARTPACK:Fighter's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -163,7 +163,7 @@ GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Magus' Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:22
+STARTPACK:Magus' Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:22
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -179,7 +179,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Monk's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
+STARTPACK:Monk's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
 GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
@@ -189,7 +189,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Oracle's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+STARTPACK:Oracle's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -203,7 +203,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Paladin's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:11
+STARTPACK:Paladin's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:11
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -218,7 +218,7 @@ GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Holy Symbol (Wooden)	QTY:1		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Ranger's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+STARTPACK:Ranger's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -231,7 +231,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Rogue's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:50
+STARTPACK:Rogue's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:50
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -262,7 +262,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Witch's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:21
+STARTPACK:Witch's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:21
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -279,7 +279,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Wizard's Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:21
+STARTPACK:Wizard's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:21
 GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bedroll			QTY:1		SIZE:PC	LOCATION:Backpack
 GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
@@ -295,7 +295,7 @@ GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
 GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
 GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
 
-STARTPACK:Campsite Kit		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
+STARTPACK:Campsite Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:12
 GEAR:Bedroll			QTY:4	SIZE:PC
 GEAR:Blanket			QTY:4	SIZE:PC
 GEAR:Firewood (Per Day)		QTY:1	SIZE:PC

@@ -1,4 +1,4 @@
-# CVS $Revision: 21528 $ $Author: amaitland $ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: 21528 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -6,9 +6,9 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ## Block: Base Classes
 ##
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:AlchemistLVL|CL
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define							Save checks bonus											Combat bonus
+CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|CL	DEFINE:AlchemistLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|CL
@@ -60,9 +60,9 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 20	CAST:0,5,5,5,5,5,5
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Base class as subclass?	Source Page		Define			Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Base class as subclass?	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Cavalier	HD:10		TYPE:Base.PC.Cavalier	CLASSTYPE:PC	ABB:Cav		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	DEFINE:CavalierLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
@@ -92,11 +92,11 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 20	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Supreme Charge|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierSupremeCharge
 
 
-# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define							Save checks bonus											Combat bonus
-CLASS:Inquisitor	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:InquisitorLVL|CL
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define											Save checks bonus											Combat bonus
+CLASS:Inquisitor	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLVL|CL	DEFINE:InquisitorLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Var. Must Be Lower
 CLASS:Inquisitor	PREVARLT:ExInquisitor,1
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|CL
@@ -155,7 +155,7 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Visible	Define			Save checks bonus											Combat bonus
 CLASS:Ex-Inquisitor	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	VISIBLE:NO	DEFINE:InquisitorLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 #Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies														AUTO:FEAT|Simple Weapon Proficiency
@@ -177,7 +177,7 @@ CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disg
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Oracle	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:Ocl		MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:OracleLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|CL	SPELLLIST:2|Cleric|Oracle
@@ -216,7 +216,7 @@ CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Summoner	HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Sum		MAXLEVEL:20	SOURCEPAGE:p.54	DEFINE:SummonerLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:DisableBAB,0
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
@@ -267,7 +267,7 @@ CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summ
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Witch		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|CL
@@ -324,31 +324,29 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 CLASS:Eidolon (Fort/Ref)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Eidolon (Fort/Ref)	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/LVL	Add INT to Skill Points?	Class Skill
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Eidolon (Fort/Ref)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 # Class Name			Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
 CLASS:Eidolon (Fort/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Eidolon (Fort/Will)	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/LVL	Add INT to Skill Points?	Class Skill
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Eidolon (Fort/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 # Class Name			Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
 CLASS:Eidolon (Ref/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Eidolon (Ref/Will)	PRERACETYPE:Eidolon
-# Class Name			Skill Pts/LVL	Add INT to Skill Points?	Class Skill
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 
-# Class Name			Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
-CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:EidolonLVL|CL
-# Class Name			Reg. Race Type
+# Class Name	Output Name			Hit Dice	Type				Class Type			Max Level		Source Page		Ability					Define																		Save checks bonus																																																												Combat bonus
+CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|CL	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PREVAREQ:EidolonFortGood,1	BONUS:CHECKS|BASE.Reflex|CL/2+2|PREVAREQ:EidolonReflexGood,1	BONUS:CHECKS|BASE.Will|CL/2+2|PREVAREQ:EidolonWillGood,1	BONUS:CHECKS|BASE.Fortitude|CL/3|PREVAREQ:EidolonFortGood,0	BONUS:CHECKS|BASE.Reflex|CL/3|PREVAREQ:EidolonReflexGood,0	BONUS:CHECKS|BASE.Will|CL/3|PREVAREQ:EidolonWillGood,0	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
 CLASS:Eidolon	PRERACETYPE:Eidolon
-# Each Eidolon has variable Good and Bad Saves, this is set up to handle that. 0=Bad, 1=Good
-CLASS:Eidolon	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PREVAREQ:EidolonFortGood,1	BONUS:CHECKS|BASE.Reflex|CL/2+2|PREVAREQ:EidolonReflexGood,1	BONUS:CHECKS|BASE.Will|CL/2+2|PREVAREQ:EidolonWillGood,1	BONUS:CHECKS|BASE.Fortitude|CL/3|PREVAREQ:EidolonFortGood,0	BONUS:CHECKS|BASE.Reflex|CL/3|PREVAREQ:EidolonReflexGood,0	BONUS:CHECKS|BASE.Will|CL/3|PREVAREQ:EidolonWillGood,0
-# Class Name			Skill Pts/LVL	Add INT to Skill Points?	Class Skill
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
 
 
@@ -358,7 +356,7 @@ CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledg
 CLASS:Antipaladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Apl		MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEPAGE:p.118	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Antipaladin	PREALIGN:CE
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|CL|PRECLASS:1,Antipaladin=4
@@ -412,7 +410,7 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Visible	Define									Save checks bonus											Combat bonus
 CLASS:Ex-Antipaladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:X-Apl		MAXLEVEL:20	SOURCEPAGE:p.118	VISIBLE:NO	DEFINE:AntipaladinLVL|CL	DEFINE:AntiPaladinLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
@@ -548,7 +546,7 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL
 CLASS:Battle Herald	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:BH		MAXLEVEL:10	SOURCEPAGE:p.260	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Ability											Req. Att.	Required Skill
 CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Cavalier ~ Challenge,Inspire Courage	PREATT:4	PRESKILL:4,Diplomacy=5,Intimidate=5,Perform (Oratory)=5,Profession(soldier)=2
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE=Profession|Ride|Sense Motive
 ##Block: Normal Level Progression
 1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Improved Leadership|Battle Herald ~ Inspiring Command|Battle Herald ~ Voice of Authority
@@ -565,9 +563,9 @@ CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Ani
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
 CLASS:Holy Vindicator	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HV		MAXLEVEL:10	SOURCEPAGE:p.263	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-# Class Name		Required Ability							Req. Att.	Required Feat						Required Skill				Req. Spell Type
+# Class Name		Required Ability								Req. Att.	Required Feat						Required Skill				Req. Spell Type
 CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	PREATT:5	PREFEAT:1,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=1
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
 1													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies							AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
@@ -591,7 +589,7 @@ CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Pl
 CLASS:Horizon Walker	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HW		MAXLEVEL:10	SOURCEPAGE:p.265	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Feat		Required Skill
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=6
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Planes)|Linguistics|Perception|Stealth|Survival|Swim
 
 1										BONUS:VAR|HorizonWalkerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Favored Terrain
@@ -602,11 +600,11 @@ CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowle
 
 ###Block: Master Chymist --------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MC		MAXLEVEL:10	SOURCEPAGE:p.267	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:MasterChymistLVL|CL
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define				Save checks bonus													Combat bonus
+CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MC		MAXLEVEL:10	SOURCEPAGE:p.267	DEFINE:MasterChymistLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Multiple Requirements																									Req. Spell Type
 CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Alchemist ~ Mutagen],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=1
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
 ##Block: Normal Level Progression
 1	BONUS:VAR|MutateLVL|CL							ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
@@ -624,7 +622,7 @@ CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intim
 CLASS:Master Spy	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MS		MAXLEVEL:10	SOURCEPAGE:p.270	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat			Required Skill
 CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
-# Class Name	Skill Pts/LVL	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
 1	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Art of Deception|Master Spy ~ Master of Disguise|Master Spy ~ Sneak Attack
@@ -646,7 +644,7 @@ CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|
 CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:NW		MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Ability																	Req. Att.	Required Skill												Req. Spell Type		Var. Must Be Grater
 CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:AnimalCompanionLVL,0
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
 1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionMasterLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Bond|Nature Warden ~ Natural Empathy
@@ -670,7 +668,7 @@ CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geograp
 CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:RP		MAXLEVEL:10	SOURCEPAGE:p.275	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Ability												Req. Att.	Required Skill
 CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Rage Power ~ Moment of Clarity	PREATT:5	PRESKILL:1,Knowledge (Religion)=5
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
 ##Block: Normal Level Progression
 1											ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Savage Seer|Rage Prophet ~ Spirit Guide
@@ -690,7 +688,7 @@ CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (Histo
 CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SD		MAXLEVEL:10	SOURCEPAGE:p.277	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat
 CLASS:Stalwart Defender	PREATT:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)
-# Class Name		Skill Pts/LVL	Class Skill
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression
 1												ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Stance

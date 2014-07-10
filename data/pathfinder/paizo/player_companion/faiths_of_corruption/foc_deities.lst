@@ -1,4 +1,4 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Sun Feb 10 04:35:46 2013 -- reformated by prettylst.pl v1.39 (build 18270)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
 # Original Entry by: Stefan Radermacher
 
@@ -7,7 +7,7 @@ SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/produ
 Achaekek		NAMEISPI:YES	DOMAINS:Death,Evil,Law,Trickery,War|PREALIGN:LN,LE,NE				DESC:God of The Red Mantis, assassination				DEITYWEAP:Sawtooth Sabre	ALIGN:LE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.16
 Dahak			NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Scalykind,Trickery|PREALIGN:NE,CN,CE	DESC:God of destruction, evil dragons, greed, treachery	DEITYWEAP:Bite|Whip		ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.17
 Ghlaunder		NAMEISPI:YES	DOMAINS:Air,Animal,Chaos,Destruction,Evil|PREALIGN:NE,CN,CE			DESC:God of parasites, infection, stagnation			DEITYWEAP:Spear			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.19
-Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Goddess of bad luck							DEITYWEAP:Dagger			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
+Gyronna		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Madness|PREALIGN:NE,CN,CE			DESC:Goddess of bad luck						DEITYWEAP:Dagger			ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
 Lissala		NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Nobility,Rune|PREALIGN:LN,LE,NE			DESC:Goddess of duty, obedience, rune magic			DEITYWEAP:Whip			ALIGN:LE	PANTHEON:Forgotten Gods			SOURCEPAGE:p.21
 Ydersius		NAMEISPI:YES	DOMAINS:Chaos,Evil,Nobility,Scalykind,War|PREALIGN:NE,CN,CE			DESC:God of the serpentfolk						DEITYWEAP:Dagger			ALIGN:CE	PANTHEON:Forgotten Gods			SOURCEPAGE:p.21
 Zyphus		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Plant,War|PREALIGN:TN,LE,NE,CE		DESC:God of accidental death, graveyards, tragedy		DEITYWEAP:Pick (Heavy)		ALIGN:NE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21

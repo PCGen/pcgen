@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by:Stefan Radermacher
 
-# Template Name			Source Page		Required Race			Modify VAR																	Ability																																									Race Subtype		Innate Spells
-Clockwork				SOURCEPAGE:p.256	PRERACE:1,RACETYPE=Construct																			ABILITY:Special Ability|AUTOMATIC|Clockwork ~ Difficult to Create|Clockwork ~ Swift Reactions|Vulnerability to Electricity|Clockwork ~ Winding																			RACESUBTYPE:Clockwork
+# Template Name			Source Page		Required Race			Modify VAR																			Ability																																														Race Subtype		Innate Spells
+Clockwork				SOURCEPAGE:p.256	PRERACE:1,RACETYPE=Construct																					ABILITY:Special Ability|AUTOMATIC|Clockwork ~ Difficult to Create|Clockwork ~ Swift Reactions|Vulnerability to Electricity|Clockwork ~ Winding																								RACESUBTYPE:Clockwork
 Nascent Demon Lord Traits	SOURCEPAGE:p.314	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30|TYPE=Resistance	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|Nascent Demon Lord ~ Aligned Strike|Nascent Demon Lord ~ Grant Spells|Immunity to Charm|Immunity to Compulsion|Immunity to Death Effects|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy					SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord)
 
 ###Block: Human Ethnicities

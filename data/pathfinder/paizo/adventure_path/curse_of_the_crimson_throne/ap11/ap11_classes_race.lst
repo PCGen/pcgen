@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall	SOURCESHORT:AP11	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page		Save checks bonus								Combat bonus
@@ -11,10 +11,10 @@ CLASS:Umbral Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Clim
 
 ###Block: Normal Progression
 1																									DEFINE:DragonAge|1
-9			BONUS:VAR|ColdResistanceBonus|20|TYPE=Resistance																					ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
+9			BONUS:VAR|ColdResistanceBonus|20|TYPE=Resistance																		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold
 10																									DEFINE:DragonAge|2
 13																									DEFINE:DragonAge|3
-15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10|TYPE=Resistance																	ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity|Resistance To Fire
+15			BONUS:VAR|FireResistanceBonus,ElectricityResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity|Resistance To Fire
 16																									DEFINE:DragonAge|4
 18	DR:5/Magic	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL/2	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Cleric ~ Channel Energy|Channel Negative Energy
 19																									DEFINE:DragonAge|5

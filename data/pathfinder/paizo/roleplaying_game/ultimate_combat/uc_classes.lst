@@ -1,4 +1,4 @@
-# CVS $Revision: 21469 $ $Author: amaitland $ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: 21469 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 08-2012 (August 8th)
@@ -25,8 +25,8 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 ###Block: Ninja
 
 # Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR			Serves As
-CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue	
-# Class Name	Var. Must Be Lower
+CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue
+# Class Name	Multiple Requirements
 CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
@@ -55,9 +55,9 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 
 ###Block: Samurai
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus					Serves As
+# Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus					Serves As
 CLASS:Samurai	HD:10		TYPE:Base.PC.Cavalier	CLASSTYPE:PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	SERVESAS:CLASS|Cavalier
-# Class Name	Var. Must Be Lower
+# Class Name	Multiple Requirements
 CLASS:Samurai	PREMULT:1,[PRECLASS:1,Samurai=1],[!PRECLASS:1,TYPE.Cavalier=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
@@ -130,8 +130,8 @@ CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjus
 
 
 
-# Class Name	Var. Must Be Lower
+# Class Name	Multiple Requirements
 CLASS:Rogue.MOD	PREMULT:1,[PRECLASS:1,Rogue=1],[!PRECLASS:1,TYPE.Rogue=1]
 
-# Class Name		Var. Must Be Lower
+# Class Name		Multiple Requirements
 CLASS:Cavalier.MOD	PREMULT:1,[PRECLASS:1,Cavalier=1],[!PRECLASS:1,TYPE.Cavalier=1]

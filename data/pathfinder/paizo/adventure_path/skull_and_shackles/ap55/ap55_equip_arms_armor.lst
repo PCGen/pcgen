@@ -1,17 +1,18 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: James Dempsey
 # ORIGINAL ENTRY DATE: 2012-12
 
-Boarding Pike of Repelling				PROFICIENCY:WEAPON|Boarding Pike			TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Specific										COST:2308	WT:9				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:MAGIC_COST|2000.PLUS1W.BRACE.STEEL								WIELD:TwoHanded			SIZE:M	SPROP:Extend as a swift action giving reach of 20 feet for 1 round.	SOURCEPAGE:p.58
-Tidewater Cutlass			PROFICIENCY:WEAPON|Cutlass	TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate.BladeHeavy.Specific											COST:1395	WT:4				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:MAGIC_COST|2000.PLUS1W.STEEL									WIELD:OneHanded			SIZE:M	SPROP:Cast hydraulic push once per day.	SOURCEPAGE:p.58
-Vindictive Harpoon		PROFICIENCY:WEAPON|Harpoon			TYPE:Weapon.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword.Specific												COST:2305	WT:16				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:MAGIC_COST|8000.PLUS1W.RETURN.STEEL									WIELD:TwoHanded	RANGE:10	SIZE:M	SPROP:Wielder takes no penalties on attack rolls underwater.	SOURCEPAGE:p.58
+# Equipment Name							Required Weapon Proficiency		Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Special Property
+Boarding Pike of Repelling					PROFICIENCY:WEAPON|Boarding Pike	TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Specific				COST:2308	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|2000.PLUS1W.BRACE.STEEL	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Extend as a swift action giving reach of 20 feet for 1 round.
+Tidewater Cutlass							PROFICIENCY:WEAPON|Cutlass		TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate.BladeHeavy.Specific	COST:1395	WT:4		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	EQMOD:MAGIC_COST|2000.PLUS1W.STEEL		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Cast hydraulic push once per day.
+Vindictive Harpoon						PROFICIENCY:WEAPON|Harpoon		TYPE:Weapon.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword.Specific			COST:2305	WT:16		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|8000.PLUS1W.RETURN.STEEL	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.58	SPROP:Wielder takes no penalties on attack rolls underwater.
 
 # Custom gear for NPCs
 Cat-O'-Nine-Tails.COPY=Masterwork Cat-O'-Nine-Tails
-Masterwork Cat-O'-Nine-Tails.MOD	EQMOD:MWORKW
+Masterwork Cat-O'-Nine-Tails.MOD																																							EQMOD:MWORKW
 Club.COPY=Frying pan
 Handaxe.COPY=Masterwork Handaxe
-Masterwork Handaxe.MOD	EQMOD:MWORKW
+Masterwork Handaxe.MOD																																									EQMOD:MWORKW
 Rapier.COPY=Masterwork Rapier
-Masterwork Rapier.MOD	EQMOD:MWORKW
+Masterwork Rapier.MOD																																									EQMOD:MWORKW

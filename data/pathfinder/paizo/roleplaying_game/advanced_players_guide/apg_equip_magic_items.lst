@@ -1,16 +1,16 @@
-# CVS $Revision: 20448 $ $Author: amaitland $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: 20448 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
 ###Block: MINOR ARTIFACTS
-# Equipment Name			Required Weapon Proficiency	Type												Cost		Weight	Choose				Selections	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size		Source Page		Bonus to skill		Stat bonus						Quality and value
-Beacon of True Faith							TYPE:Artifact.Minor.LightSource							COST:0	WT:2																													SOURCEPAGE:p.313												QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
-Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.OneHanded.Martial.Artifact.Minor.Bludgeoning.Hammer	COST:0	WT:15									CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS3W.RETURN.STEEL	WIELD:OneHanded	SIZE:L	SOURCEPAGE:p.314
+# Equipment Name			Required Weapon Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size		Source Page		Bonus to Ability Pool						Stat bonus						Quality and value
+Beacon of True Faith							TYPE:Artifact.Minor.LightSource							COST:0	WT:2																						SOURCEPAGE:p.313																	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
+Hammer of Thunderbolts		PROFICIENCY:WEAPON|Warhammer	TYPE:Weapon.Melee.OneHanded.Martial.Artifact.Minor.Bludgeoning.Hammer	COST:0	WT:15		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d6	EQMOD:PLUS3W.RETURN.STEEL	WIELD:OneHanded	SIZE:L	SOURCEPAGE:p.314
 ##TODO: Add PRExxx for Girdle and additional capabilities.
-Knucklebone of Fickle Fortune						TYPE:Artifact.Minor									COST:0	WT:0.01																												SOURCEPAGE:p.314
-Perfect Golden Lute							TYPE:Artifact.Minor									COST:0	WT:3																													SOURCEPAGE:p.314
-Spindle of Perfect Knowledge						TYPE:Artifact.Minor									COST:0	WT:0.01																						SOURCEPAGE:p.314		BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement	BONUS:ABILITYPOOL|Spindle of Perfect Knowledge|2
-Talisman of Reluctant Wishes						TYPE:Artifact.Minor									COST:0	WT:1																													SOURCEPAGE:p.314
+Knucklebone of Fickle Fortune						TYPE:Artifact.Minor									COST:0	WT:0.01																					SOURCEPAGE:p.314
+Perfect Golden Lute							TYPE:Artifact.Minor									COST:0	WT:3																						SOURCEPAGE:p.314
+Spindle of Perfect Knowledge						TYPE:Artifact.Minor									COST:0	WT:0.01																					SOURCEPAGE:p.314	BONUS:ABILITYPOOL|Spindle of Perfect Knowledge|2	BONUS:STAT|INT,WIS,CHA|4|TYPE=Enhancement
+Talisman of Reluctant Wishes						TYPE:Artifact.Minor									COST:0	WT:1																						SOURCEPAGE:p.314
 
 ###Block: MAJOR ARTIFACTS
 # Equipment Name				Required Weapon Proficiency	Type													Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Reach Multiplier	Size		Source Page		Innate Spells							Bonus to skill
@@ -128,20 +128,20 @@ Apple of Eternal Sleep	TYPE:Magic.Wondrous		COST:2500	WT:0.01	SOURCEPAGE:p.300
 Assisting Glove		TYPE:Magic.Wondrous.Glove	COST:180	WT:1		SOURCEPAGE:p.300
 
 ###Block:B
-# Equipment Name					Type							Cost		Weight	Source Page
+# Equipment Name					Type							Cost		Weight	Source Page		Ability																													Modify VAR
 Bandages of Rapid Recovery			TYPE:Magic.Wondrous.Chest.Consumable	COST:200	WT:1		SOURCEPAGE:p.301
 Book of the Loremaster				TYPE:Magic.Wondrous.Book			COST:15000	WT:2		SOURCEPAGE:p.301
-Boots of Friendly Terrain (Cold)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainCold|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Cold)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Cold)]	
-Boots of Friendly Terrain (Desert)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainDesert|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Desert)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Desert)]	
-Boots of Friendly Terrain (Forest)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainForest|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Forest)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Forest)]	
-Boots of Friendly Terrain (Jungle)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainJungle|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Jungle)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Jungle)]	
-Boots of Friendly Terrain (Mountain)	TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainMountains|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Mountain)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Mountain)]	
-Boots of Friendly Terrain (Plains)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainPlains|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Plains)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Plains)]	
-Boots of Friendly Terrain (Planes)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainPlains|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Plane)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Plane)]	
-Boots of Friendly Terrain (Swamp)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainSwamp|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Swamp)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Swamp)]	
-Boots of Friendly Terrain (Underground)	TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainUnderground|2	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Underground)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Underground)]
-Boots of Friendly Terrain (Urban)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainUrban|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Urban)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Urban)]	
-Boots of Friendly Terrain (Water)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	BONUS:VAR|FavoredTerrainWater|2		ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Water)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Water)]	
+Boots of Friendly Terrain (Cold)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Cold)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Cold)]			BONUS:VAR|FavoredTerrainCold|2
+Boots of Friendly Terrain (Desert)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Desert)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Desert)]		BONUS:VAR|FavoredTerrainDesert|2
+Boots of Friendly Terrain (Forest)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Forest)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Forest)]		BONUS:VAR|FavoredTerrainForest|2
+Boots of Friendly Terrain (Jungle)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Jungle)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Jungle)]		BONUS:VAR|FavoredTerrainJungle|2
+Boots of Friendly Terrain (Mountain)	TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Mountain)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Mountain)]		BONUS:VAR|FavoredTerrainMountains|2
+Boots of Friendly Terrain (Plains)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Plains)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Plains)]		BONUS:VAR|FavoredTerrainPlains|2
+Boots of Friendly Terrain (Planes)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Plane)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Plane)]			BONUS:VAR|FavoredTerrainPlains|2
+Boots of Friendly Terrain (Swamp)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Swamp)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Swamp)]			BONUS:VAR|FavoredTerrainSwamp|2
+Boots of Friendly Terrain (Underground)	TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Underground)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Underground)]	BONUS:VAR|FavoredTerrainUnderground|2
+Boots of Friendly Terrain (Urban)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Urban)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Urban)]			BONUS:VAR|FavoredTerrainUrban|2
+Boots of Friendly Terrain (Water)		TYPE:Magic.Wondrous.Boot			COST:2400	WT:1		SOURCEPAGE:p.301	ABILITY:Special Ability|AUTOMATIC|Equipment ~ Favored Terrain (Water)|PREMULT:2,[PRECLASS:1,Ranger=1],[!PREABILITY:1,CATEGORY=Special Ability,Favored Terrain (Water)]			BONUS:VAR|FavoredTerrainWater|2
 Bottle of Messages				TYPE:Magic.Wondrous.Consumable		COST:300	WT:1		SOURCEPAGE:p.301
 Bracelet of Mercy					TYPE:Magic.Wondrous.Bracelet			COST:15000	WT:0.01	SOURCEPAGE:p.301
 

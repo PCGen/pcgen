@@ -1,13 +1,13 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Pathfinder Society	SOURCESHORT:PS	SOURCEWEB:http://paizo.com/pathfinderSociety	SOURCEDATE:2013-10
 # Original Entry by: Paul Shipley
 
 ###Block: Conditional skills (for output only)
-# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
-Bluff (Fool someone).MOD					TYPE:PFSNotLegal	
-Bluff (Pass messages).MOD					TYPE:PFSNotLegal	
-Escape Artist (Escape bonds/grapple).MOD	TYPE:PFSNotLegal	
-Handle Animal (Birds of prey).MOD			TYPE:PFSNotLegal	
-Knowledge (Planes/ID demon).MOD				TYPE:PFSNotLegal	
-Linguistics (Create forgeries).MOD			TYPE:PFSNotLegal	
-Sense Motive (Resist feint).MOD				TYPE:PFSNotLegal	
+# Skill Name					Type
+Bluff (Fool someone).MOD			TYPE:PFSNotLegal
+Bluff (Pass messages).MOD			TYPE:PFSNotLegal
+Escape Artist (Escape bonds/grapple).MOD	TYPE:PFSNotLegal
+Handle Animal (Birds of prey).MOD		TYPE:PFSNotLegal
+Knowledge (Planes/ID demon).MOD		TYPE:PFSNotLegal
+Linguistics (Create forgeries).MOD		TYPE:PFSNotLegal
+Sense Motive (Resist feint).MOD		TYPE:PFSNotLegal

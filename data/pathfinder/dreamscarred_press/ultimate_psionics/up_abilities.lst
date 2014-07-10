@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/07
@@ -158,11 +158,11 @@ Good Fortune			KEY:Crown of Chaos ~ Good Fortune		CATEGORY:Special Ability	TYPE:
 Shroud of Chaos			KEY:Crown of Chaos ~ Shroud of Chaos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						DESC:1/day, for 1 minute, gain 20%% miss chance against ranged attacks and any creature within 30 ft. must roll twice and take the lowest result on any skill check or saving throw.																																																	SOURCEPAGE:p.433	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
 
 ###Block: Dancing Robes of Sharatwan abilities
-# Ability Name					Unique Key								Category of Ability		Type						Define									Innate Spells									Description																								Automatically Gained Feat				Ability																																																														Modify VAR						Source Page		Temporary Bonus
-Dancing Robes of Sharatwan Attunement										CATEGORY:Special Ability	TYPE:SpecialQuality													SPELLS:Innate|TIMES=3|Physical Acceleration|PREVARGTEQ:TL,12	DESC:Attuned to the Dancing Robes of Sharatwan																		AUTO:FEAT|Speed of Thought|PREVARGTEQ:TL,4	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ Hands Alight|PREVARGTEQ:TL,6	ABILITY:Blade Skill|AUTOMATIC|Blade Skill ~ Twin Strike|PREVARGTEQ:TL,10	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ The Price of Peace|PREVARGTEQ:TL,16	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ Energized Blades|PREVARGTEQ:TL,18								SOURCEPAGE:p.433	NAMEISPI:YES
-Hands Alight					KEY:Dancing Robes of Sharatwan ~ Hands Alight		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:You can cause your hands to glow; +2 to Intimidate, no Stealth, illumines as torch.																																																																																									SOURCEPAGE:p.434	TEMPBONUS:PC|SKILL|Intimidate|2|TYPE=Circumstance
-The Price of Peace				KEY:Dancing Robes of Sharatwan ~ The Price of Peace	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:PriceOfPeaceDuration|CHA	DEFINE:PriceOfPeaceDC|0												DESC:If you use Diplomacy on a creature that then attacks you, it is shaken for %1 rounds (Will DC %2 negates).|PriceOfPeaceDuration|PriceOfPeaceDC																																																																								BONUS:VAR|PriceOfPeaceDC|10+TL/2+CHA	SOURCEPAGE:p.434
-Energized Blades					KEY:Dancing Robes of Sharatwan ~ Energized Blades	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:You can change your mind blades' damage type to electricity.																																																																																													SOURCEPAGE:p.434
+# Ability Name					Unique Key								Product Identity?	Category of Ability		Type						Define									Innate Spells									Description																								Automatically Gained Feat				Ability																																																														Modify VAR						Source Page		Temporary Bonus
+Dancing Robes of Sharatwan Attunement										NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality													SPELLS:Innate|TIMES=3|Physical Acceleration|PREVARGTEQ:TL,12	DESC:Attuned to the Dancing Robes of Sharatwan																		AUTO:FEAT|Speed of Thought|PREVARGTEQ:TL,4	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ Hands Alight|PREVARGTEQ:TL,6	ABILITY:Blade Skill|AUTOMATIC|Blade Skill ~ Twin Strike|PREVARGTEQ:TL,10	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ The Price of Peace|PREVARGTEQ:TL,16	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ Energized Blades|PREVARGTEQ:TL,18								SOURCEPAGE:p.433
+Hands Alight					KEY:Dancing Robes of Sharatwan ~ Hands Alight					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:You can cause your hands to glow; +2 to Intimidate, no Stealth, illumines as torch.																																																																																									SOURCEPAGE:p.434	TEMPBONUS:PC|SKILL|Intimidate|2|TYPE=Circumstance
+The Price of Peace				KEY:Dancing Robes of Sharatwan ~ The Price of Peace				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:PriceOfPeaceDuration|CHA	DEFINE:PriceOfPeaceDC|0												DESC:If you use Diplomacy on a creature that then attacks you, it is shaken for %1 rounds (Will DC %2 negates).|PriceOfPeaceDuration|PriceOfPeaceDC																																																																								BONUS:VAR|PriceOfPeaceDC|10+TL/2+CHA	SOURCEPAGE:p.434
+Energized Blades					KEY:Dancing Robes of Sharatwan ~ Energized Blades				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																						DESC:You can change your mind blades' damage type to electricity.																																																																																													SOURCEPAGE:p.434
 
 ###Block: Disruptor abilities
 # Ability Name		Unique Key					Category of Ability		Type						Define				Innate Spells								Description																														Ability																																																																								Modify VAR								Spell Res.	Source Page
@@ -182,11 +182,11 @@ Psychic Whirlwind		KEY:Dissonance ~ Psychic Whirlwind	CATEGORY:Special Ability	T
 Psychic Maelstrom		KEY:Dissonance ~ Psychic Maelstrom	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural								DESC:1/day, any psionic creature within 60 feet attempting to manifest a power must make a DC 20 concentration check; you may make a disarm attempt against all creatures within 30 feet to cause them to drop one held object.																																																																																													SOURCEPAGE:p.436	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
 
 ###Block: Groundscorn Boots abilities
-# Ability Name			Unique Key							Category of Ability		Type						Description											Automatically Gained Feat			Ability																																											Source Page		Aspects
-Groundscorn Boots Attunement									CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Attuned to Groundscorn Boots of the Twice-Loved				AUTO:FEAT|Up the Walls|PREVARGTEQ:TL,5	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Teleportation Dance|PREVARGTEQ:TL,10	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Air Strider|PREVARGTEQ:TL,15	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Unshakable|PREVARGTEQ:TL,20	SOURCEPAGE:p.436	NAMEISPI:YES
-Teleportation Dance		KEY:Groundscorn Boots ~ Teleportation Dance	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:1/day tap into teleportation effect within 30 ft.																																																						SOURCEPAGE:p.436	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
-Air Strider				KEY:Groundscorn Boots ~ Air Strider			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Under affects of defy gravity while focused.																																																							SOURCEPAGE:p.437
-Unshakable				KEY:Groundscorn Boots ~ Unshakable			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Copy movement modes of a creature within 10 ft., 10 rounds/day.																																																				SOURCEPAGE:p.437
+# Ability Name			Unique Key							Product Identity?	Category of Ability		Type						Description											Automatically Gained Feat			Ability																																											Source Page		Aspects
+Groundscorn Boots Attunement									NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Attuned to Groundscorn Boots of the Twice-Loved				AUTO:FEAT|Up the Walls|PREVARGTEQ:TL,5	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Teleportation Dance|PREVARGTEQ:TL,10	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Air Strider|PREVARGTEQ:TL,15	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Unshakable|PREVARGTEQ:TL,20	SOURCEPAGE:p.436
+Teleportation Dance		KEY:Groundscorn Boots ~ Teleportation Dance				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:1/day tap into teleportation effect within 30 ft.																																																						SOURCEPAGE:p.436	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
+Air Strider				KEY:Groundscorn Boots ~ Air Strider						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Under affects of defy gravity while focused.																																																							SOURCEPAGE:p.437
+Unshakable				KEY:Groundscorn Boots ~ Unshakable						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Copy movement modes of a creature within 10 ft., 10 rounds/day.																																																				SOURCEPAGE:p.437
 
 ###Block: Heartstaff abilities
 # COMMENT: Is there an easy way to transfer these abilities to the psicrystal?
@@ -266,15 +266,14 @@ CMSCGargantuan	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO										
 CMSCColossal	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO																																																																																																						BONUS:VAR|CMSizeChangeBonus|-4|PREVARLTEQ:CMSizeChange,-8	BONUS:VAR|CMSizeChangeBonus|-2|PREVARLTEQ:CMSizeChange,-7	BONUS:VAR|CMSizeChangeBonus|-1|PREVARLTEQ:CMSizeChange,-6	BONUS:VAR|CMSizeChangeBonus|-1|PREVARLTEQ:CMSizeChange,-5	BONUS:VAR|CMSizeChangeBonus|-1|PREVARLTEQ:CMSizeChange,-4	BONUS:VAR|CMSizeChangeBonus|-1|PREVARLTEQ:CMSizeChange,-3	BONUS:VAR|CMSizeChangeBonus|-2|PREVARLTEQ:CMSizeChange,-2	BONUS:VAR|CMSizeChangeBonus|-4|PREVARLTEQ:CMSizeChange,-1
 
 ###Block: Psionic Diseases
-# Ability Name		Category of Ability	Type				Description																Cost		Source Page
-Cascade Flu			CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort DC 13; Onset 1 day; Frequency 1/day; Effect psionic cascade			COST:0	SOURCEPAGE:p.134
-Cerebral Parasites	CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, contact; Fort DC 15; Onset 1d4 days; Frequency 1/day; Effect loss of 1d8 power points	COST:0	SOURCEPAGE:p.134
+# Ability Name		Unique Key				Category of Ability	Type				Description																Multiple?	Choose				Bonus to skill				Cost		Source Page
+Cascade Flu								CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort DC 13; Onset 1 day; Frequency 1/day; Effect psionic cascade																COST:0	SOURCEPAGE:p.134
+Cerebral Parasites						CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, contact; Fort DC 15; Onset 1d4 days; Frequency 1/day; Effect loss of 1d8 power points														COST:0	SOURCEPAGE:p.134
 
 
 ### --- Miscellaneous abilities (end) --- ###
-Crystal Mask	KEY:Equipment ~ Crystal Mask	CATEGORY:Internal	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|LIST|5|TYPE=Competence
+Crystal Mask		KEY:Equipment ~ Crystal Mask	CATEGORY:Internal																							MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|LIST|5|TYPE=Competence
 
 #
 # End
 #
-

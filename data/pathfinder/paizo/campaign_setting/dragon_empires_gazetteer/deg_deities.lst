@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
-# Deity Name	Product Identity?	Domains											Desciption of Deity/Title							Holy Item												Deity Weapon				Alignment	Pantheon					Deity Title				Usual Worshippers								Source Page		Deity Appearance																												RACE
+# Deity Name	Product Identity?	Domains											Description of Deity/Title							Holy Item												Deity Weapon				Alignment	Pantheon					Deity Title				Usual Worshippers								Source Page		Deity Appearance																												RACE
 Daikitsu		NAMEISPI:YES	DOMAINS:Animal,Artifice,Community,Plant,Weather|PREALIGN:CN,LN,TN,NG,NE	DESC:Goddess of agriculture, craftsmanship, kitsune, and rice	SYMBOL:Nine-tailed fox										DEITYWEAP:Flail				ALIGN:TN	PANTHEON:Pathfinder Chronicles	TITLE:Lady of Foxes		WORSHIPPERS:Farmers, Smiths, Craftsmen				SOURCEPAGE:p.59	APPEARANCE:Daikitsu usually appears as beautiful kitsune woman with snow-white fur and nine tails.														RACE:Kitsune
 Fumeiyoshi		NAMEISPI:YES	DOMAINS:Death,Destruction,Evil,Repose,War|PREALIGN:TN,NE,CE,LE		DESC:God of dishonor, envy, graces and the undead			SYMBOL:Red demonic face										DEITYWEAP:Naginata			ALIGN:NE	PANTHEON:Pathfinder Chronicles	TITLE:Lord of Envy		WORSHIPPERS:Oni, Undead, Fallen paladins and samurai		SOURCEPAGE:p.59	APPEARANCE:Fumeiyoshi has many forms, but most often manifests as a nearly skeletal humanoid with three eyes, jagged tusks, and twisted claws.
 General Susumu	NAMEISPI:YES	DOMAINS:Evil,Glory,Law,Nobility,War|PREALIGN:LN,LE,NE				DESC:God of archery, horses, personal glory and war			SYMBOL:Black winged horse									DEITYWEAP:Longbow				ALIGN:LE	PANTHEON:Pathfinder Chronicles	TITLE:The Black Daimyo												SOURCEPAGE:p.59	APPEARANCE:General Susumu has red skin and great bristling eyebrows and wears ornate black o-yoroi armor.
@@ -18,17 +18,18 @@ Yaezhing		NAMEISPI:YES	DOMAINS:Artifice,Death,Evil,Law,Trickery|PREALIGN:LE,LN,N
 Yamatsumi		NAMEISPI:YES	DOMAINS:Earth,Fire,Protection,Strength,Water|PREALIGN:TN,NG,LN,CN,NE	DESC:God of mountains, volcanos and winter				SYMBOL:Snow capped erupting volcano								DEITYWEAP:Tetsubo				ALIGN:TN	PANTHEON:Pathfinder Chronicles	TITLE:The Mountain Lord		WORSHIPPERS:Ascetic mountain monks					SOURCEPAGE:p.63	APPEARANCE:Yamatsumi appears as a giant man with ice for skin, lava for hair and a beard, and two pairs of ram's horns on his head.
 
 ###Block: Inquisitor Support
-Daikitsu.MOD		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainArtifice,InquisitorDomainCommunity,InquisitorDomainPlant,InquisitorDomainWeather|1|PREALIGN:CN,LN,TN,NG,NE	
-Fumeiyoshi.MOD		BONUS:VAR|InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainRepose,InquisitorDomainWar|1|PREALIGN:TN,NE,CE,LE		
-General Susumu.MOD	BONUS:VAR|InquisitorDomainEvil,InquisitorDomainGlory,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainWar|1|PREALIGN:LN,LE,NE				
-Hei Feng.MOD		BONUS:VAR|InquisitorDomainAir,InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainWater,InquisitorDomainWeather|1|PREALIGN:CG,CN,TN,CE		
-Kofusachi.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainTravel|1|PREALIGN:CG,NG,CN			
-Lady Nanbyo.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainPlant|1|PREALIGN:CN,CE,NE			
-Lao Shu Po.MOD		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainDarkness,InquisitorDomainEvil,InquisitorDomainLuck,InquisitorDomainTrickery|1|PREALIGN:TN,NE,LE,CE		
-Nalinivati.MOD		BONUS:VAR|InquisitorDomainCharm,InquisitorDomainMagic,InquisitorDomainNobility,InquisitorDomainRune,InquisitorDomainScalykind|1|PREALIGN:NG,TN,LN,CN,NE	
-Qi Zhong.MOD		BONUS:VAR|InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainMagic,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN	
-Shizuru.MOD			BONUS:VAR|InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainRepose,InquisitorDomainSun|1|PREALIGN:LG,NG,LN				
-Sun Wukong.MOD		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainChaos,InquisitorDomainLiberation,InquisitorDomainTravel,InquisitorDomainTrickery|1|PREALIGN:CG,CN,CE		
-Tsukiyo.MOD			BONUS:VAR|InquisitorDomainDarkness,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainMadness,InquisitorDomainRepose|1|PREALIGN:LG,NG,LN			
-Yaezhing.MOD		BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainTrickery|1|PREALIGN:LE,LN,NE			
-Yamatsumi.MOD		BONUS:VAR|InquisitorDomainEarth,InquisitorDomainFire,InquisitorDomainProtection,InquisitorDomainStrength,InquisitorDomainWater|1|PREALIGN:TN,NG,LN,CN,NE	
+# Deity Name		Modify VAR
+Daikitsu.MOD		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainArtifice,InquisitorDomainCommunity,InquisitorDomainPlant,InquisitorDomainWeather|1|PREALIGN:CN,LN,TN,NG,NE
+Fumeiyoshi.MOD		BONUS:VAR|InquisitorDomainDeath,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainRepose,InquisitorDomainWar|1|PREALIGN:TN,NE,CE,LE
+General Susumu.MOD	BONUS:VAR|InquisitorDomainEvil,InquisitorDomainGlory,InquisitorDomainLaw,InquisitorDomainNobility,InquisitorDomainWar|1|PREALIGN:LN,LE,NE
+Hei Feng.MOD		BONUS:VAR|InquisitorDomainAir,InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainWater,InquisitorDomainWeather|1|PREALIGN:CG,CN,TN,CE
+Kofusachi.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainCharm,InquisitorDomainGood,InquisitorDomainLuck,InquisitorDomainTravel|1|PREALIGN:CG,NG,CN
+Lady Nanbyo.MOD		BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDestruction,InquisitorDomainEvil,InquisitorDomainFire,InquisitorDomainPlant|1|PREALIGN:CN,CE,NE
+Lao Shu Po.MOD		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainDarkness,InquisitorDomainEvil,InquisitorDomainLuck,InquisitorDomainTrickery|1|PREALIGN:TN,NE,LE,CE
+Nalinivati.MOD		BONUS:VAR|InquisitorDomainCharm,InquisitorDomainMagic,InquisitorDomainNobility,InquisitorDomainRune,InquisitorDomainScalykind|1|PREALIGN:NG,TN,LN,CN,NE
+Qi Zhong.MOD		BONUS:VAR|InquisitorDomainGood,InquisitorDomainHealing,InquisitorDomainKnowledge,InquisitorDomainMagic,InquisitorDomainProtection|1|PREALIGN:LG,NG,CG,TN
+Shizuru.MOD			BONUS:VAR|InquisitorDomainGlory,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainRepose,InquisitorDomainSun|1|PREALIGN:LG,NG,LN
+Sun Wukong.MOD		BONUS:VAR|InquisitorDomainAnimal,InquisitorDomainChaos,InquisitorDomainLiberation,InquisitorDomainTravel,InquisitorDomainTrickery|1|PREALIGN:CG,CN,CE
+Tsukiyo.MOD			BONUS:VAR|InquisitorDomainDarkness,InquisitorDomainGood,InquisitorDomainLaw,InquisitorDomainMadness,InquisitorDomainRepose|1|PREALIGN:LG,NG,LN
+Yaezhing.MOD		BONUS:VAR|InquisitorDomainArtifice,InquisitorDomainDeath,InquisitorDomainEvil,InquisitorDomainLaw,InquisitorDomainTrickery|1|PREALIGN:LE,LN,NE
+Yamatsumi.MOD		BONUS:VAR|InquisitorDomainEarth,InquisitorDomainFire,InquisitorDomainProtection,InquisitorDomainStrength,InquisitorDomainWater|1|PREALIGN:TN,NG,LN,CN,NE

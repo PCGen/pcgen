@@ -1,22 +1,22 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Pathfinder Society	SOURCESHORT:PS	SOURCEWEB:http://paizo.com/pathfinderSociety	SOURCEDATE:2013-10
 # Original Entry by: Stefan Radermacher
 
-# Race Name				Product Identity?	Output Name				Starting Feats	Size		Move					Face/Space	Reach		Vision									Bonus Languages										Bonus to Ability Pool				Combat bonus					Bonus to skill															Stat bonus																	Modify VAR													Weapon prof. bonus																																																									Racial HD Class Skills									Automatically Gained Language			Automatically Gained Weapon Prof.	Ability																																															Nb Legs	Nb Hands	Natural Attacks																																																																																																			Define				Spell Res.	Damage Reduction			Monster Class Name and Starting Level	Main Race Type			Race Subtype			Template						Challenge Rating	Source Page		Innate Spells																																																																	Apply Kit
-Rat (Donkey).MOD					TYPE:PFSNotLegal	
-Spider (Drain).MOD					TYPE:PFSNotLegal	
-Fennec (Firefoot).MOD				TYPE:PFSNotLegal	
-Gecko (Giant).MOD					TYPE:PFSNotLegal	
-Shark (Jigsaw).MOD					TYPE:PFSNotLegal	
-Boar (Sargavan).MOD					TYPE:PFSNotLegal	
-Herd Animal (Storval Aurochs).MOD	TYPE:PFSNotLegal	
-Aluum.MOD							TYPE:PFSNotLegal	
-Calikang.MOD						TYPE:PFSNotLegal	
-Charau-ka.MOD						TYPE:PFSNotLegal	
-Daughter of Urgathoa.MOD			TYPE:PFSNotLegal	
-Sandpoint Devil.MOD					TYPE:PFSNotLegal	
-Dragon (Spine).MOD					TYPE:PFSNotLegal	
-Treerazer.MOD						TYPE:PFSNotLegal	
+# Race Name					Type
+Rat (Donkey).MOD				TYPE:PFSNotLegal
+Spider (Drain).MOD			TYPE:PFSNotLegal
+Fennec (Firefoot).MOD			TYPE:PFSNotLegal
+Gecko (Giant).MOD				TYPE:PFSNotLegal
+Shark (Jigsaw).MOD			TYPE:PFSNotLegal
+Boar (Sargavan).MOD			TYPE:PFSNotLegal
+Herd Animal (Storval Aurochs).MOD	TYPE:PFSNotLegal
+Aluum.MOD					TYPE:PFSNotLegal
+Calikang.MOD				TYPE:PFSNotLegal
+Charau-ka.MOD				TYPE:PFSNotLegal
+Daughter of Urgathoa.MOD		TYPE:PFSNotLegal
+Sandpoint Devil.MOD			TYPE:PFSNotLegal
+Dragon (Spine).MOD			TYPE:PFSNotLegal
+Treerazer.MOD				TYPE:PFSNotLegal
 
-Gillman.MOD							TYPE:PFSNotLegal	
-Strix.MOD							TYPE:PFSNotLegal	
+Gillman.MOD					TYPE:PFSNotLegal
+Strix.MOD					TYPE:PFSNotLegal

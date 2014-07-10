@@ -161,11 +161,11 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Magic Item: haunt siphon
 
 # Pathfinder Adventure Path #44: "Trial of the Beast"
-# Spell: smite abomination; 
+# Spell: smite abomination;
 # Other: customized summon list on page 69. Note that both summonable monsters' stats appear in Pathfinder Adventure Path #47, not in Pathfinder Adventure Path #44 as indicated. The referenced yanakeion psychopomp has been replaced by the nosoi psychopomp and the amzranei psychopomp has been replaced by the vanth psychopom. The vanth psychopomp belongs on the summon monster VI list for priests of Pharasma.
 
 # Pathfinder Adventure Path #47: "Ashes at Dawn"
-# Magic Items: bloodbrew elixir, moribund key, witching gown; 
+# Magic Items: bloodbrew elixir, moribund key, witching gown;
 # Other: customized summon list on page 71, nosoi familiars
 
 # Pathfinder Adventure Path #48: "Shadows of Gallowspire"
@@ -179,8 +179,8 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Equipment:dancing wasp
 
 # Pathfinder Adventure Path #50: "Night of Frozen Shadows"
-# Equipment: deadly kiss, earthfire shuriken, fugitive's grenade, shozoku of the night wind; 
-# Spells: aspect of the nightengale; 
+# Equipment: deadly kiss, earthfire shuriken, fugitive's grenade, shozoku of the night wind;
+# Spells: aspect of the nightengale;
 # Other: customized summon list on page 75
 
 # Pathfinder Adventure Path #51: "The Hungry Storm"
@@ -190,7 +190,7 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Equipment: do-maru of broken flesh, flask of endless sake, jingasa of the fortunate soldier, kikuya's sensu
 
 # Pathfinder Adventure Path #53: "Tide of Honor"
-# Equipment: armor of the tireless warrior, daikyu of commanding presence, dragonmaw nunchaku, karyukai tea set, samisen of oracular vision; 
+# Equipment: armor of the tireless warrior, daikyu of commanding presence, dragonmaw nunchaku, karyukai tea set, samisen of oracular vision;
 # Other: Customized summon list on page 73; Spell: replenish ki
 
 # Pathfinder Adventure Path #54: "The Empty Throne"
@@ -201,12 +201,12 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 #
 
 # Pathfinder Adventure Path #55: "The Wormwood Mutiny"
-# Equipment: Besmara's tricorne, boarding pike of repelling, hospitality's hammock, shackles of compliance, steadfast grapple, tidewater cutlass, vindictive harpoon; 
-# Familiars: all familiars listed on pages 88-89; Misc: customized summon list are legal for Besmaran clerics and Besmaran familiars are legal for clerics and rangers of Besmara; 
+# Equipment: Besmara's tricorne, boarding pike of repelling, hospitality's hammock, shackles of compliance, steadfast grapple, tidewater cutlass, vindictive harpoon;
+# Familiars: all familiars listed on pages 88-89; Misc: customized summon list are legal for Besmaran clerics and Besmaran familiars are legal for clerics and rangers of Besmara;
 # Spells: advanced scurvy, cloud of seasickness
 
 # Pathfinder Adventure Path #56: "Raiders of the Fever Sea"
-# Equipment: brine's sting, captain's locker, farglass, svingli's eye, zul; 
+# Equipment: brine's sting, captain's locker, farglass, svingli's eye, zul;
 # Spells: submerge ship
 
 # Pathfinder Adventure Path #57: "Tempest Rising"
@@ -216,7 +216,7 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Equipment: eel skin armor, horn of the tritons, impossible bottle, scoundrel's sword cane
 
 # Pathfinder Adventure Path #59: "The Price of Infamy"
-# Equipment: howling skull armor, mariner's eye patch, mutineer's bane earrring, skyrocket crossbow, wizard hook; Other: customized summon list on page 75 is legal; 
+# Equipment: howling skull armor, mariner's eye patch, mutineer's bane earrring, skyrocket crossbow, wizard hook; Other: customized summon list on page 75 is legal;
 # Spells: false alibi
 
 # Pathfinder Adventure Path #60: "From Hell's Heart"
@@ -230,15 +230,15 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Equipment: burglar's boots, cytillesh extract, frostspore, paradox box, pendant of the souk, and second-story harness are legal for play.
 
 # Pathfinder Adventure Path #62: "Curse of the Lady's Light"
-# Equipment: deathbalm talisman, maiden's helm, wax of defiance, and whispering coin are legal for play; 
+# Equipment: deathbalm talisman, maiden's helm, wax of defiance, and whispering coin are legal for play;
 # Misc.: The customized summon list on page 75 is legal for play for followers of Torag; Spells: firebelly and ironbloom sprouts are legal for play if you are a follower of Torag
 
 # Pathfinder Adventure Path #63: "The Asylum Stone"
 # Equipment: fortifying leeches, spy eyes, and wings of flying, lesser are legal for play
 
 # Pathfinder Adventure Path #64: "Beyond the Doomsday Door"
-# Equipment: crystalline starknife, flaying halberd, lashing aklys; 
-# Misc.: The customized summon list on page 73 is legal for play for followers of Groetus; 
+# Equipment: crystalline starknife, flaying halberd, lashing aklys;
+# Misc.: The customized summon list on page 73 is legal for play for followers of Groetus;
 # Spells: curse item is legal for play if you are a follower of Groetus.
 
 # Pathfinder Adventure Path #65: "Into the Nightmare Rift"
@@ -255,7 +255,7 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Equipment: all equipment except cauldron of overwhelming allies and spear of manhunting are legal for play; Spells: flurry of snowballs, ice spears, Irriseni mirror sight, and snowball
 
 # Pathfinder Adventure Path #68: "The Shackled Hut"
-# Misc.: The customized summon list on page 69 is legal for play for followers of Milani; 
+# Misc.: The customized summon list on page 69 is legal for play for followers of Milani;
 # Spells: martyr's last blessing and peasant armaments are legal for play if you are a follower of Milani
 
 # Pathfinder Adventure Path #69: "Maiden, Mother, Crone"
@@ -265,7 +265,7 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 # Equipment: all equipment on pages 62-63 except hide of the dragonrider and rimeblade is legal for play
 
 # Pathfinder Adventure Path #71: "Rasputin Must Die!"
-# Equipment: all equipment on pages 60-61 except maxim of suppressive fire and spectral searchlight is legal for play; 
+# Equipment: all equipment on pages 60-61 except maxim of suppressive fire and spectral searchlight is legal for play;
 # Mystery: the Occult mystery on page 68 is legal.
 
 # Pathfinder Adventure Path #72: "The Witch Queen's Revenge"
@@ -284,13 +284,13 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 ################################
 
 # Pathfinder Campaign Setting: Chronicles of the Righteous
-# Equipment: all equipment on pages 52-53 are legal except angel's clarion, chronicle of the righteous, starknife of the void, and sword of vengeance; 
-# Feats: all feats on pages 5; 
+# Equipment: all equipment on pages 52-53 are legal except angel's clarion, chronicle of the righteous, starknife of the void, and sword of vengeance;
+# Feats: all feats on pages 5;
 # Misc: all empyreal lords on the inside front cover and pages 6-29 are legal except Irez; the mystery cultist on pages 48-49 is legal; Note that the following obedience boons are not permitted: Lymnieris' 2nd boon, Rite of Passage; Olheon's 3rd boon, Lordship
 # Spells: all spells on pages 50-51 are legal except blood of the martyr and elemental assessor
 
 # Pathfinder Campaign Setting: Cities of Golarion
-# Feats: Corsair of Taldor, Endure Pain, Indomitable Mount, Irrisen Ice Mage, Master Delver, Mounted Onslaught, Wheeling Charge; 
+# Feats: Corsair of Taldor, Endure Pain, Indomitable Mount, Irrisen Ice Mage, Master Delver, Mounted Onslaught, Wheeling Charge;
 # Equipment: heathensnuff; Spell: Irissen mirror sight
 
 # Pathfinder Campaign Setting: City of Strangers
@@ -343,7 +343,7 @@ TEMPLATE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_templa
 # Equipment: deadflesh waraxe, raven bracers; Spells: battering blast, undeath ward
 
 # Pathfinder Campaign Setting: Faction Guide
-# Feat: Fast Crawl; 
+# Feat: Fast Crawl;
 # Spells: hibernate, tripvine; Traits: Beast of the Society, Berserker of the Society, Blade of the Society, Defender of the Society, Exalted of the Society, Greater Adept of the Society, Havoc of the Society, Honored Fist of the Society, Maestro of the Society, Stalwart of the Society, Tracker of the Society
 
 # Pathfinder Campaign Setting: Giants Revisited
@@ -353,8 +353,8 @@ TEMPLATE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_templa
 # Equipment: Azlant pendant, barbed pentacle of Asmodeus, belt of the snake king, broken chain of the beast, bronze dagger of Erastil, cloak of the crusader, cloak of the Dark Tapestry, dawnflower sash, deathlurker's cloak, gossamer amberstone, hag's shabble, holy mask of the living god, icon of the midwife, inheritor's gauntlet, key of the second vault, mask of cutting flesh, nightstone of sorrow, orb of the waybringer, pallid crystal, Preklikin's Book of Cults, rhombocrystal, robe of the master of masters, sacrificial dagger of the blood mother, Shad'Gorum nugget, spellsight bracer, stinging stiletto, tankard of the drunken hero, veil of veils, vurra of the maker, windwave kilt; Gods: all of the gods listed on the inside front cover are legal choices for clerics; Spells: Abadar's truthtelling, blessing of the watch, burst of glory, channel the gift, channel vigor, Deadeye's arrow, defending bone, fallback strategy, Gorum's armor, Gozreh's trident, greater infernal healing, infernal healing, pick your poison, poisoned egg, shield of the dawnflower, traveling dream, unbreakable heart, waters of Lamashtu
 
 # Pathfinder Campaign Setting: Guide to the River Kingdoms
-# Feat: Touvette Defender; 
-# Spell: silverlight; 
+# Feat: Touvette Defender;
+# Spell: silverlight;
 # Other: focused performance bard alternate class ability
 PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
 
@@ -366,21 +366,21 @@ PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.
 # Spells: all spells on pages 38-39 are legal; Items: candle of abbadon, daemon seed
 
 # Pathfinder Campaign Setting: Inner Sea Magic
-# Equipment: riffle scrolls (any spell augmented by the Silent Spell metamagic feat; price equals the spell's effective level x the caster's level x 25 gp); 
-# Feats: all feats on pages 10 and 15; 
-# Prestige Classes: A cyphermage replaces any Spell Focus feat for Scribe Scroll as a prerequisite, and may not choose the swift scrivener ability from the list of available cypher lore; the divine scion functions as written; 
-# Spells: all spells in chapter 5 except impart mind, and spellscar Other: all magical tattoos on page 16, both the spellscar and outer rifts oracle mysteries on pages 30-31 (the spellscar oracle does not gain access to the eldritch scar, primal mastery, or trigger primal magic event revelations), 
+# Equipment: riffle scrolls (any spell augmented by the Silent Spell metamagic feat; price equals the spell's effective level x the caster's level x 25 gp);
+# Feats: all feats on pages 10 and 15;
+# Prestige Classes: A cyphermage replaces any Spell Focus feat for Scribe Scroll as a prerequisite, and may not choose the swift scrivener ability from the list of available cypher lore; the divine scion functions as written;
+# Spells: all spells in chapter 5 except impart mind, and spellscar Other: all magical tattoos on page 16, both the spellscar and outer rifts oracle mysteries on pages 30-31 (the spellscar oracle does not gain access to the eldritch scar, primal mastery, or trigger primal magic event revelations),
 # all archetypes on pages 32-43 except the primalist wizard archetype, with the following restrictions: only elves may be spire defender magi, a tattooed sorcerer may only use her create spell tattoo power during days spent in play (ie. not between scenarios), a vampire hunter inquisitor does not gain the silversmith ability, instead replacing detect alignment with detect undead; the Varisian Pilgrim does not replace her 8th-level domain power with Blessing of the Harrow.
 
 # Pathfinder Campaign Setting: Inner Sea World Guide
-# Domains: Scalykind and Void domains; 
-# Equipment: all weapons, armor, and adventuring gear on pages 290-293 with the following restrictions: No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; 
-# Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus; 
-# Gods: All gods listed in the tables on pages 229, 231, and 234; 
-# Languages: all languages on page 251 may be learned via the Linguistics skill; 
-# Magic Items: goz mask, unguent of revivification, wayfinder, zoic fetish; 
-# Prestige Classes: Hellknight, Low Templar; 
-# Races: All human ethnicities are legal except Azlanti, humans begin play knowing all listed languages for their chosen ethnicity as racial languages; 
+# Domains: Scalykind and Void domains;
+# Equipment: all weapons, armor, and adventuring gear on pages 290-293 with the following restrictions: No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available;
+# Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus;
+# Gods: All gods listed in the tables on pages 229, 231, and 234;
+# Languages: all languages on page 251 may be learned via the Linguistics skill;
+# Magic Items: goz mask, unguent of revivification, wayfinder, zoic fetish;
+# Prestige Classes: Hellknight, Low Templar;
+# Races: All human ethnicities are legal except Azlanti, humans begin play knowing all listed languages for their chosen ethnicity as racial languages;
 # Spells: all spells on pages 294-297 except harrowing, extraplanetary teleport, and teleport trap
 PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
 ABILITY:pfs_iswg_abilities.lst
@@ -438,21 +438,21 @@ WEAPONPROF:pfs_iswg_profs_weapon.lst
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
 
 # Pathfinder Campaign Setting: Rival Guide
-# Equipment: blackfingers paste, all poisons on page 53; 
-# Feats: Circling Offense, Footslasher, Greater Serpent Lash, Jackal Heritage, Serpent Lash, Topple Foe; 
-# Magic Items: aegis of recovery, bivouac banners, cockatrice grit, desiccating dust, firefoot powder, marionette crux, metamagic gem, pendant of the blood scarab; 
-# Spells: dazzling blade, greensight, mass dazzling blade, sheet lightning, staggering fall, summon accuser*, summon infernal host; 
+# Equipment: blackfingers paste, all poisons on page 53;
+# Feats: Circling Offense, Footslasher, Greater Serpent Lash, Jackal Heritage, Serpent Lash, Topple Foe;
+# Magic Items: aegis of recovery, bivouac banners, cockatrice grit, desiccating dust, firefoot powder, marionette crux, metamagic gem, pendant of the blood scarab;
+# Spells: dazzling blade, greensight, mass dazzling blade, sheet lightning, staggering fall, summon accuser*, summon infernal host;
 # Other: giant hunter and rock stepper alternate racial traits
 # *A player casting this spell must provide a legal copy of the source in which the summoned creature appears for GM review or the spell fails.
 
 # Pathfinder Campaign Setting: Seekers of Secrets
-# Everything in this book is legal for play with the following notes. 
-# Equipment: ioun stones use method 1 for resonance and never use method 2. Additionally, only normal ioun stones have resonance-inferior ioun stones never do. Advanced ioun stones are not legal for play. 
+# Everything in this book is legal for play with the following notes.
+# Equipment: ioun stones use method 1 for resonance and never use method 2. Additionally, only normal ioun stones have resonance-inferior ioun stones never do. Advanced ioun stones are not legal for play.
 # Prestige Class: Pathfinder Savants replace the item creation feat prerequisite with Spell Focus
 PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
 
 # Pathfinder Campaign Setting: Pathfinder Character Traits Web Enhancement
-# Feat: Additional Traits; 
+# Feat: Additional Traits;
 # Traits: all traits are legal except for the following: Hedge Magician, Natural-Born Leader, and Rich Parents
 
 # Pathfinder Campaign Setting: Pathfinder Chronicles Campaign Setting

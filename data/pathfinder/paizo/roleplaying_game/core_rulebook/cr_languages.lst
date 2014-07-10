@@ -1,8 +1,8 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Language	Type
+# Language	Type						Required Var. value
 Abyssal	TYPE:Spoken.Written.Read.Planar
 Aklo		TYPE:Spoken.Written.Read
 Aquan		TYPE:Spoken.Written.Read.Elemental

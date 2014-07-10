@@ -1,14 +1,14 @@
-# CVS $Revision: 21684 $ $Author: spraynpray $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:Guide to Pathfinder Society Organized Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
 # Equipment Name			Required Class
 # TODO: move to additional resources file if not from core
-# Equipment Name			Required Class
-Cloak of Immolation.MOD		
-Crown of Blindness.MOD		
-Hat of Hatreds.MOD		
-Girdle of Opposite Gender.MOD	
-Riot Pipes.MOD			
-Buffoon's Sword.MOD		
+# Equipment Name
+Cloak of Immolation.MOD
+Crown of Blindness.MOD
+Hat of Hatreds.MOD
+Girdle of Opposite Gender.MOD
+Riot Pipes.MOD
+Buffoon's Sword.MOD

@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: abernat
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -76,8 +76,8 @@ Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePier
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
 Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
 # --ranged
-Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery										HANDS:2
-Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery										HANDS:2
+Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery											HANDS:2
+Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Archery											HANDS:2
 # EXOTIC
 # -- light
 Kama					TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing

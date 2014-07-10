@@ -1,12 +1,12 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Pathfinder Society	SOURCESHORT:PS	SOURCEWEB:http://paizo.com/pathfinderSociety	SOURCEDATE:2013-10
 
 # Equipment Name			Type
-Drug (Tears of Razmir).MOD	TYPE:PFSLegal	
-Flag.MOD				TYPE:PFSLegal	
-Harrow Deck.MOD			TYPE:PFSLegal	
+Drug (Tears of Razmir).MOD	TYPE:PFSLegal
+Flag.MOD				TYPE:PFSLegal
+Harrow Deck.MOD			TYPE:PFSLegal
 Heatstone.MOD			TYPE:PFSLegal
-Pathfinder Chronicle.MOD	TYPE:PFSLegal	
-Perfume (Common).MOD		TYPE:PFSLegal	
-Perfume (Exotic).MOD		TYPE:PFSLegal	
-Powder Horn.MOD			TYPE:PFSLegal	
+Pathfinder Chronicle.MOD	TYPE:PFSLegal
+Perfume (Common).MOD		TYPE:PFSLegal
+Perfume (Exotic).MOD		TYPE:PFSLegal
+Powder Horn.MOD			TYPE:PFSLegal

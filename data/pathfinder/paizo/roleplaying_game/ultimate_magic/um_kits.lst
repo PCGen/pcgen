@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: W. Robert 'Mynex' Reed III
 # ORIGINAL ENTRY DATE: 3 September 2012
@@ -20,5 +20,5 @@ FUNDS:gp	QTY:140
 STARTPACK:Magus Spellbook	VISIBLE:NO	TOTALCOST:0
 GEAR:Magus Spellbook	LOCATION:Carried
 
-STARTPACK:Add Vow Placeholder		VISIBLE:NO	APPLY:PERMANENT
+STARTPACK:Add Vow Placeholder	VISIBLE:NO	APPLY:PERMANENT
 ABILITY:CATEGORY=Vow|Vow Placeholder

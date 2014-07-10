@@ -1,4 +1,4 @@
-# CVS $Revision: 19787 $ $Author: zaister $ -- Sat Mar 30 17:44:27 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision: 19787 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
 # Original entry by Chris 'Barak' Chandler
 
@@ -11,11 +11,11 @@ CLASS:Daivrat	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Knowled
 
 1	BONUS:ABILITYPOOL|Elemental Focus|1											ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie-Tongue
 2								BONUS:VAR|SpellFetchLvl|3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Spell Fetch
-3								BONUS:VAR|GenieFriendBonus|2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie's Friend
+3								BONUS:VAR|GenieFriendBonus|2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie's Friend
 4	BONUS:ABILITYPOOL|Elemental Attunement|1						ADD:SPELLCASTER|ANY
 5								BONUS:VAR|SpellFetchLvl|3	ADD:SPELLCASTER|ANY
 6													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Zhyen Familiar
 7	BONUS:ABILITYPOOL|Elemental Focus|1							ADD:SPELLCASTER|ANY
 8								BONUS:VAR|SpellFetchLvl|2	ADD:SPELLCASTER|ANY
-9								BONUS:VAR|GenieFriendBonus|2		ADD:SPELLCASTER|ANY
+9								BONUS:VAR|GenieFriendBonus|2	ADD:SPELLCASTER|ANY
 10													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Daivrat ~ Genie Kin

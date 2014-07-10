@@ -1,9 +1,11 @@
-SOURCELONG:Mummys Mask Player's Guide	SOURCESHORT:mm	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide	SOURCEDATE:2014-03
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Mummys Mask Players Guide	SOURCESHORT:mm	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide	SOURCEDATE:2014-03
 # Original Entry by: David R. Bender
 
 ###Block: Conditional Skills for output only
 
 
+# Skill Name	Situational Skill Use
 Perception.MOD	SITUATION:Concealed or Secret Doors in structures built in the style of Ancient Osirion
 Bluff.MOD		SITUATION:vs. Sphinx
 Diplomacy.MOD	SITUATION:vs. Sphinx

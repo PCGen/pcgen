@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Sep 26 01:19:49 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2013/07/14
 
-# Deity Name	Product Identity?	Domains																								Desciption of Deity/Title					Holy Item														Deity Weapon		Alignment	Pantheon					Deity Title						Source Page
+# Deity Name	Product Identity?	Domains																								Description of Deity/Title					Holy Item														Deity Weapon		Alignment	Pantheon					Deity Title						Source Page
 Hadregash		NAMEISPI:YES	DOMAINS:Blood Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Evil,Ferocity Subdomain,Law,Slavery Subdomain,Strength,War|PREALIGN:LN,LE,NE	DESC:God of goblin supremacy, slavery, and territory	SYMBOL:A length of chain or a manacle									DEITYWEAP:Flail		ALIGN:LE	PANTHEON:Pathfinder Chronicles	TITLE:Greatest Supreme Chieftain Boss	SOURCEPAGE:p.26
 Venkelvore		NAMEISPI:YES	DOMAINS:Catastrophe Subdomain,Daemon Subdomain,Death,Destruction,Earth,Evil,Torture Subdomain,Undead Subdomain|PREALIGN:LE,NE,CE,TN				DESC:Goddess of famine, graves, and torture		SYMBOL:A half-eaten piece of food (traditionally a piece of cheese, meat, or a pickle)	DEITYWEAP:Spear		ALIGN:NE	PANTHEON:Pathfinder Chronicles	TITLE:Most Glorious Neverfull			SOURCEPAGE:p.26
 Zarongel		NAMEISPI:YES	DOMAINS:Animal,Arson Subdomain,Daemon Subdomain,Evil,Fire,Fur Subdomain,Smoke Subdomain,Travel|PREALIGN:LE,NE,CE,TN						DESC: God of dog killing, fire, and mounted combat	SYMBOL:Severed dog�s paw											DEITYWEAP:Dogslicer	ALIGN:NE	PANTHEON:Pathfinder Chronicles	TITLE:Bark Breaker				SOURCEPAGE:p.26

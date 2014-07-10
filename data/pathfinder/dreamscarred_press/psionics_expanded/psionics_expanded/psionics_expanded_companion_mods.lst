@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -10,7 +10,7 @@ FOLLOWER:AstralWarriorLVL=2	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AU
 FOLLOWER:AstralWarriorLVL=3	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=4	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=5	TYPE:Astral Warrior	HD:1																					BONUS:ABILITYPOOL|Companion Stat Increase|1				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:AstralWarriorLVL=6	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AstralWarriorLVL=6	TYPE:Astral Warrior	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=7	TYPE:Astral Warrior	HD:1																																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=8	TYPE:Astral Warrior																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:AstralWarriorLVL=9	TYPE:Astral Warrior	HD:1																																											BONUS:VAR|MasterLevel|1

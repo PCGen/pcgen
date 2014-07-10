@@ -1,4 +1,4 @@
-# CVS $Revision: 14888 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 14888 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
 # Original Entry by:Stefan Radermacher
 
@@ -82,7 +82,7 @@ Hedonistic Master		KEY:Oni Bloodline ~ Hedonistic Master							CATEGORY:Special 
 
 ###Block: Wizard schools
 # These are loaded from the Sub Class Choice at Wizard Creation.
-# Ability Name		Category of Ability		Type									Define					Description																																																																												Ability																																											Bonus to Ability Pool					Source Page
+# Ability Name		Category of Ability		Type													Define					Description																																																																												Ability																																											Bonus to Ability Pool					Source Page
 Void Elemental School	CATEGORY:Special Ability	TYPE:SpecialQuality.WizardClassFeatures.ClassSpecialization.ArcaneSchool	DEFINE:VoidElementalSchoolLVL|0	DESC:The void is a complex idea considered by some to be a fifth element - one that comprises thought, space, spiritualism, and insight. Wizards who tap into its mysterious powers gain control over energies that bind the earth to the heavens and the planes to their mysterious and eternal alignments, as well as the powers that stitch living beings to their spirits. The void elemental school presented here is an additional arcane school for the wizard class.	ABILITY:Special Ability|AUTOMATIC|Void Elemental School ~ Reveal Weakness|Void Elemental School ~ Void Awareness|Void Elemental School ~ Void Magic	ABILITY:Special Ability|AUTOMATIC|Void Elemental School ~ Aura of Prescience|PREVARGTEQ:VoidElementalSchoolLVL,8	BONUS:ABILITYPOOL|Elemental Opposition School|1	SOURCEPAGE:p.142
 
 ###Block: Void Elemental Opposition Schools

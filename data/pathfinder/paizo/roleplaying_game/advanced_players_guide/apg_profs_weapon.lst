@@ -1,4 +1,4 @@
-# CVS $Revision: 21399 $ $Author: evilmynex $ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -67,7 +67,7 @@ Cestus.MOD				TYPE:Monk
 Bec De Corbin.MOD			TYPE:Polearm
 Bill.MOD				TYPE:Polearm
 Glaive-Guisarme.MOD		TYPE:Polearm
-Lucerne Hammer.MOD			TYPE:Polearm
+Lucerne Hammer.MOD		TYPE:Polearm
 Mancatcher.MOD			TYPE:Polearm
 Boomerang.MOD			TYPE:Thrown
 Lasso.MOD				TYPE:Thrown

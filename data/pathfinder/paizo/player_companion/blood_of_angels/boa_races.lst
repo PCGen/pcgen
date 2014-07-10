@@ -1,4 +1,5 @@
-# CVS $Revision: 19255 $ $Author: amaitland $ -- Tue Nov 13 00:18:11 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-04
+# CVS $Revision: 19255 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
 
-Aasimar.MOD		BONUS:ABILITYPOOL|Aasimar Subrace|1
+# Race Name	Bonus to Ability Pool
+Aasimar.MOD	BONUS:ABILITYPOOL|Aasimar Subrace|1

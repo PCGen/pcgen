@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Fri May 23 05:25:59 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -289,13 +289,13 @@ ABILITYCATEGORY:Bonus War Mind Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 ABILITYCATEGORY:Bonus Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BonusPower				DISPLAYLOCATION:Class Features
 
 ###Block: Other ability pools
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Improved Shield Blade Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedShieldBladeSkill	PLURAL:Improve Shield Blade Skills		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Dromite Crafter Skill Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteCrafter		PLURAL:Dromite Crafter Skill Bonuses	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Duergar Ancestral Voice Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarAncestralVoice	PLURAL:Duergar Ancestral Voice Bonuses	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ophiduan Scholar Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OphiduanScholar		PLURAL:Ophiduan Scholar Bonuses		DISPLAYLOCATION:Racial Abilities
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Improved Shield Blade Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedShieldBladeSkill								PLURAL:Improve Shield Blade Skills		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dromite Crafter Skill Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DromiteCrafter									PLURAL:Dromite Crafter Skill Bonuses	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Duergar Ancestral Voice Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarAncestralVoice								PLURAL:Duergar Ancestral Voice Bonuses	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ophiduan Scholar Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OphiduanScholar									PLURAL:Ophiduan Scholar Bonuses		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Crystal Mask				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	ABILITYLIST:Equipment ~ Crystal Mask				DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Crystal Mask				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal								ABILITYLIST:Equipment ~ Crystal Mask								DISPLAYLOCATION:Equipment
 
 
 #

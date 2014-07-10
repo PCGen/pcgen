@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -27,8 +27,8 @@ Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.Ast
 Link			KEY:Link ~ Astral Warrior	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:An ectopic artisan and his astral warrior share a mental link that allows for communication across any distance (as long as they are on the same plane). This communication is a free action, allowing the ectopic artisan to give orders to his astral warrior at any time. In addition, magic items interfere with the ectopic artisan's connection to his astral warrior. As a result, the ectopic artisan and his astral warrior share magic item slots. For example, if the ectopic artisan is wearing a ring, his astral warrior can wear no more than one ring. In case of a conflict, the items worn by the ectopic artisan remain active, and those used by the astral warrior become dormant.	SOURCEPAGE:p.66
 
 ###Block: Ectoplasmic Swarm abilities
-# Ability Name		Unique Key							Category of Ability		Type						Define							Description																						Modify VAR													Source Page		Aspects
-Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
+# Ability Name		Unique Key							Category of Ability		Type						Define							Description																						Ability								Modify VAR													Source Page		Aspects
+Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.67	ASPECT:Ability Benefit|(swarm)
 
 ###Block: Horror abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define																						Description																																																																																																															Modify VAR																												Source Page

@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 #SOURCELONG:Inner Sea Bestiary		SOURCESHORT:ISB		SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
 # Original Entry by: Scott Meyer
 
-# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Mutant Special Ability			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutantSpecialAbility		PLURAL:Mutant Special Abilities		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mutant Deformity				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutantDeformity			PLURAL:Mutant Deformities			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Lashunta Knowledge Bonus			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LashuntaKnowledgeBonus		PLURAL:Lashunta Knowledge Bonuses		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Petrified Maiden Weapon Selection	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PetrifiedMaidenWeaponSelection	PLURAL:Petrified Maiden Weapon Selections	DISPLAYLOCATION:Racial Abilities
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Mutant Special Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutantSpecialAbility		PLURAL:Mutant Special Abilities		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mutant Deformity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutantDeformity			PLURAL:Mutant Deformities			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Lashunta Knowledge Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LashuntaKnowledgeBonus		PLURAL:Lashunta Knowledge Bonuses		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Petrified Maiden Weapon Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PetrifiedMaidenWeaponSelection	PLURAL:Petrified Maiden Weapon Selections	DISPLAYLOCATION:Racial Abilities

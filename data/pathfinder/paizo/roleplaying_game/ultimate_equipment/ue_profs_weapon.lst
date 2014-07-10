@@ -1,4 +1,4 @@
-# CVS $Revision: 21677 $ $Author: jdempsey $ -- Fri Oct  4 22:18:51 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21677 $ $Author: jdempsey $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # ORIGINAL ENTRY: James Dempsey
@@ -7,7 +7,7 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 
 ####Block: Simple Weapons
 # -- light melee
-# Weapon Name				Type											Nb Hands
+# Weapon Name				Type												Nb Hands
 Battle Aspergillum			TYPE:Simple.Melee.Light.Bludgeoning
 Brass Knuckles				TYPE:Simple.Melee.Light.Bludgeoning
 
@@ -25,7 +25,7 @@ Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
 
 ####Block: Martial Weapons
 #------light---------
-# Weapon Name				Type											Nb Hands
+# Weapon Name				Type												Nb Hands
 Butterfly Sword				TYPE:Martial.Melee.Light.Slashing.Eastern
 Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin
 Gladius					TYPE:Martial.Melee.Light.Piercing.Slashing
@@ -120,7 +120,7 @@ Wahaika					TYPE:Exotic.Melee.OneHanded.Ranged.Thrown.Bludgeoning
 
 ####Block: Firearms
 # Dummy Proficiency to Trigger granting all Firearms Profs
-# Weapon Name				Type											Nb Hands
+# Weapon Name				Type												Nb Hands
 Firearms					TYPE:Exotic
 
 #-(Early) One-Handed Firearms
@@ -134,14 +134,14 @@ Pistol (Dragon)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pis
 Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
 
 # Early Two-Handed Firearms
-Blunderbuss					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Culverin					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Double Hackbut				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Fire Lance					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm		HANDS:2
-Musket					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
-Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket	HANDS:2
+Blunderbuss					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
+Culverin					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
+Double Hackbut				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
+Fire Lance					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
+Musket					TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
 
 ###Block: Advanced Firearms
 # One-Handed
@@ -159,6 +159,7 @@ Star Candle Firework	TYPE:Ranged
 ###Block: Weapon Groups:
 
 #Axes:
+# Weapon Name				Type
 Hooked Axe.MOD				TYPE:Axe.Weapon Group Axes.Polearm.Weapon Group Pole Arms
 Knuckle Axe.MOD				TYPE:Axe.Weapon Group Axes
 Mattock.MOD					TYPE:Axe.Weapon Group Axes
@@ -221,7 +222,7 @@ Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
 Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
 Tetsubo.MOD					TYPE:Hammer.Weapon Group Hammers
 Wahaika.MOD					TYPE:Hammer.Weapon Group Hammers
-Earth Breaker.MOD			TYPE:Weapon Group Hammers
+Earth Breaker.MOD				TYPE:Weapon Group Hammers
 
 #Monk:
 Bo Staff.MOD				TYPE:Monk.Weapon Group Monk
