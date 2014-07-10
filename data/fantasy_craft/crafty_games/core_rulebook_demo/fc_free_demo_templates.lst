@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Dec  4 20:23:44 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -35,29 +35,29 @@ Soldier		VISIBLE:NO	PRECLASS:1,Soldier=1	BONUS:VAR|ProficiencyCount|6	ABILITY:Sp
 # Template Name	Visible	Subrace
 Lesser		VISIBLE:NO	SUBRACE:Lesser
 #Elemental Heritage - Shared Drake/Giant
-Crystal		VISIBLE:NO	SUBRACE:Crystal	
-Darkness		VISIBLE:NO	SUBRACE:Darkness	
-Dust/Sand		VISIBLE:NO	SUBRACE:Dust/Sand	
-Earth			VISIBLE:NO	SUBRACE:Earth		
-Fire			VISIBLE:NO	SUBRACE:Fire		
-Ice			VISIBLE:NO	SUBRACE:Ice		
-Lava			VISIBLE:NO	SUBRACE:Lava		
-Light			VISIBLE:NO	SUBRACE:Light		
-Lightning		VISIBLE:NO	SUBRACE:Lightning	
-Metal			VISIBLE:NO	SUBRACE:Metal		
-Mist/Smoke		VISIBLE:NO	SUBRACE:Mist/Smoke	
-Water			VISIBLE:NO	SUBRACE:Water		
-Wind			VISIBLE:NO	SUBRACE:Wind		
-Wood			VISIBLE:NO	SUBRACE:Wood		
+Crystal		VISIBLE:NO	SUBRACE:Crystal
+Darkness		VISIBLE:NO	SUBRACE:Darkness
+Dust/Sand		VISIBLE:NO	SUBRACE:Dust/Sand
+Earth			VISIBLE:NO	SUBRACE:Earth
+Fire			VISIBLE:NO	SUBRACE:Fire
+Ice			VISIBLE:NO	SUBRACE:Ice
+Lava			VISIBLE:NO	SUBRACE:Lava
+Light			VISIBLE:NO	SUBRACE:Light
+Lightning		VISIBLE:NO	SUBRACE:Lightning
+Metal			VISIBLE:NO	SUBRACE:Metal
+Mist/Smoke		VISIBLE:NO	SUBRACE:Mist/Smoke
+Water			VISIBLE:NO	SUBRACE:Water
+Wind			VISIBLE:NO	SUBRACE:Wind
+Wood			VISIBLE:NO	SUBRACE:Wood
 #Truescale
-Aquatic		VISIBLE:NO	SUBRACE:Aquatic		
-Arctic		VISIBLE:NO	SUBRACE:Arctic		
-Caverns/Mountains	VISIBLE:NO	SUBRACE:Caverns/Mountains	
-Desert		VISIBLE:NO	SUBRACE:Desert		
-Forest/Jungle	VISIBLE:NO	SUBRACE:Forest/Jungle	
-Indoors/Settled	VISIBLE:NO	SUBRACE:Indoors/Settled	
-Plains		VISIBLE:NO	SUBRACE:Plains		
-Swamp			VISIBLE:NO	SUBRACE:Swamp			
+Aquatic		VISIBLE:NO	SUBRACE:Aquatic
+Arctic		VISIBLE:NO	SUBRACE:Arctic
+Caverns/Mountains	VISIBLE:NO	SUBRACE:Caverns/Mountains
+Desert		VISIBLE:NO	SUBRACE:Desert
+Forest/Jungle	VISIBLE:NO	SUBRACE:Forest/Jungle
+Indoors/Settled	VISIBLE:NO	SUBRACE:Indoors/Settled
+Plains		VISIBLE:NO	SUBRACE:Plains
+Swamp			VISIBLE:NO	SUBRACE:Swamp
 
 # Dwarf
 Mountain		VISIBLE:NO	SUBRACE:Mountain
@@ -75,27 +75,27 @@ Dark			VISIBLE:NO	SUBRACE:Dark
 # Goblin
 Cave			VISIBLE:NO	SUBRACE:Cave
 # Goblin and Orc Shared
-Skull Tribe		VISIBLE:NO	SUBRACE:Skull Tribe	
-Blood Tribe		VISIBLE:NO	SUBRACE:Blood Tribe	
-Bone Tribe		VISIBLE:NO	SUBRACE:Bone Tribe	
-Fang Tribe		VISIBLE:NO	SUBRACE:Fang Tribe	
-Iron Tribe		VISIBLE:NO	SUBRACE:Iron Tribe	
+Skull Tribe		VISIBLE:NO	SUBRACE:Skull Tribe
+Blood Tribe		VISIBLE:NO	SUBRACE:Blood Tribe
+Bone Tribe		VISIBLE:NO	SUBRACE:Bone Tribe
+Fang Tribe		VISIBLE:NO	SUBRACE:Fang Tribe
+Iron Tribe		VISIBLE:NO	SUBRACE:Iron Tribe
 
 # Human
 True Blood		VISIBLE:NO	SUBRACE:True Blood
 #
-Heavenly Blood	VISIBLE:NO	SUBRACE:Heavenly Blood	
-Hellish Blood	VISIBLE:NO	SUBRACE:Hellish Blood	
-Drake Blood		VISIBLE:NO	SUBRACE:Drake Blood		
-Ancient Blood	VISIBLE:NO	SUBRACE:Ancient Blood	
-Fey Blood		VISIBLE:NO	SUBRACE:Fey Blood		
+Heavenly Blood	VISIBLE:NO	SUBRACE:Heavenly Blood
+Hellish Blood	VISIBLE:NO	SUBRACE:Hellish Blood
+Drake Blood		VISIBLE:NO	SUBRACE:Drake Blood
+Ancient Blood	VISIBLE:NO	SUBRACE:Ancient Blood
+Fey Blood		VISIBLE:NO	SUBRACE:Fey Blood
 
 #Ogre
 Earth Brave		VISIBLE:NO	SUBRACE:Earth Brave
 #
-Oni			VISIBLE:NO	SUBRACE:Oni	
+Oni			VISIBLE:NO	SUBRACE:Oni
 Merrow		VISIBLE:NO	SUBRACE:Merrow
-Troll			VISIBLE:NO	SUBRACE:Troll	
+Troll			VISIBLE:NO	SUBRACE:Troll
 
 # Orc
 Black Blade		VISIBLE:NO	SUBRACE:Black Blade
@@ -103,38 +103,38 @@ Black Blade		VISIBLE:NO	SUBRACE:Black Blade
 # Pech
 Lightfoot		VISIBLE:NO	SUBRACE:Lightfoot
 #
-Hairfoot		VISIBLE:NO	SUBRACE:Hairfoot	
-Gnome			VISIBLE:NO	SUBRACE:Gnome		
+Hairfoot		VISIBLE:NO	SUBRACE:Hairfoot
+Gnome			VISIBLE:NO	SUBRACE:Gnome
 
 # Rootwalker
 Deeproot		VISIBLE:NO	SUBRACE:Deeproot
 #
 #New Leaf
-Evergreen		VISIBLE:NO	SUBRACE:Evergreen	
-Ironwood		VISIBLE:NO	SUBRACE:Ironwood	
-Mistbranch		VISIBLE:NO	SUBRACE:Mistbranch	
-Purewood		VISIBLE:NO	SUBRACE:Purewood	
-Skybranch		VISIBLE:NO	SUBRACE:Skybranch	
-Sunleaf		VISIBLE:NO	SUBRACE:Sunleaf	
-Tangleroot		VISIBLE:NO	SUBRACE:Tangleroot	
-Whitebark		VISIBLE:NO	SUBRACE:Whitebark	
+Evergreen		VISIBLE:NO	SUBRACE:Evergreen
+Ironwood		VISIBLE:NO	SUBRACE:Ironwood
+Mistbranch		VISIBLE:NO	SUBRACE:Mistbranch
+Purewood		VISIBLE:NO	SUBRACE:Purewood
+Skybranch		VISIBLE:NO	SUBRACE:Skybranch
+Sunleaf		VISIBLE:NO	SUBRACE:Sunleaf
+Tangleroot		VISIBLE:NO	SUBRACE:Tangleroot
+Whitebark		VISIBLE:NO	SUBRACE:Whitebark
 
 # Saurian
 Lizard-Folk		VISIBLE:NO	SUBRACE:Lizard-Folk
 #
-Draconian		VISIBLE:NO	SUBRACE:Draconian	
-Chameleon		VISIBLE:NO	SUBRACE:Chameleon	
-Frogman		VISIBLE:NO	SUBRACE:Frogman	
+Draconian		VISIBLE:NO	SUBRACE:Draconian
+Chameleon		VISIBLE:NO	SUBRACE:Chameleon
+Frogman		VISIBLE:NO	SUBRACE:Frogman
 
 # Unborn
 Steel Golem		VISIBLE:NO	SUBRACE:Steel Golem
 #
-Brass			VISIBLE:NO	SUBRACE:Brass		
-Clay			VISIBLE:NO	SUBRACE:Clay		
-Clockwork		VISIBLE:NO	SUBRACE:Clockwork	
-Flesh			VISIBLE:NO	SUBRACE:Flesh		
-Gem			VISIBLE:NO	SUBRACE:Gem		
-Granite		VISIBLE:NO	SUBRACE:Granite	
+Brass			VISIBLE:NO	SUBRACE:Brass
+Clay			VISIBLE:NO	SUBRACE:Clay
+Clockwork		VISIBLE:NO	SUBRACE:Clockwork
+Flesh			VISIBLE:NO	SUBRACE:Flesh
+Gem			VISIBLE:NO	SUBRACE:Gem
+Granite		VISIBLE:NO	SUBRACE:Granite
 Living Metal	VISIBLE:NO	SUBRACE:Living Metal
 
 ###Block: Cover
